@@ -1,0 +1,71 @@
+package allbinary.vector;
+
+public class PointsUtil
+{
+    private static final PointsUtil instance = new PointsUtil();
+
+    public static PointsUtil getInstance()
+    {
+        return instance;
+    }
+    
+    public int[][][] adjust(int[][][] points, int x, int y)
+    {
+        // StringBuilder stringBuffer = new StringBuilder();
+        int[][][] newPoints = new int[points.length][0][0];
+        // Frame
+        for (int index = 0; index < points.length; index++)
+        {
+            newPoints[index] = new int[points[index].length][2];
+
+            // Point
+            for (int index2 = 0; index2 < points[index].length; index2++)
+            {
+                if (points[index][index2][0] != 1000)
+                {
+                    newPoints[index][index2][0] = points[index][index2][0] + x;
+                    newPoints[index][index2][1] = points[index][index2][1] + y;
+                    /*
+                    stringBuffer.append("{");
+                    stringBuffer.append(newPoints[index][index2][0]);
+                    stringBuffer.append(CommonStrings.getInstance().COMMA_SEP);
+                    stringBuffer.append(newPoints[index][index2][1]);
+                    stringBuffer.append("}, ");
+                    */
+                } else
+                {
+                    newPoints[index][index2][0] = 1000;
+                    newPoints[index][index2][1] = 1000;
+                }
+            }
+        }
+
+        // LogUtil.put(LogFactory.getInstance("New Points: " + stringBuffer, this, CommonStrings.getInstance().GET_INSTANCE));
+        return newPoints;
+    }
+
+    public int[][] adjust(int[][] points, int both)
+    {
+        return adjust(points, both, both);
+    }
+
+    public int[][] adjust(int[][] points, int x, int y)
+    {
+        int[][] newPoints = new int[points.length][2];
+
+        for (int index2 = 0; index2 < points.length; index2++)
+        {
+            if (points[index2][0] != 1000)
+            {
+                newPoints[index2][0] = points[index2][0] + x;
+                newPoints[index2][1] = points[index2][1] + y;
+            } else
+            {
+                newPoints[index2][0] = 1000;
+                newPoints[index2][1] = 1000;
+            }
+        }
+
+        return newPoints;
+    }
+}
