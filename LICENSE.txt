@@ -1,0 +1,96 @@
+AllBinary Open License Version 1
+Copyright (c) 2011 AllBinary.
+
+By agreeing to this license you and any business entity you represent are 
+legally bound to this legal agreement.
+
+You may transmit, modify, manipulate, copy, malform, obfuscate, crypt, 
+distribute, redistribute, publish, derive from or decompile bytecode, source, 
+scripts, templates, data, information, and binaries of the AllBinary Platform 
+given that the following conditions are met:
+
+1.  That it does not violate any third party license included with the 
+AllBinary Platform.
+
+2.  Redistribution of the AllBinary Platform source code must include the 
+copyright notice above.
+ 
+3.  You will fulfill one of the 2 requirements below:
+
+    You must obtain one or more advert provider identifiers with instructions 
+    from AllBinary.  You must allow adverts to be displayed in your published
+    product using this license.  If the product does not have a customer 
+    facing visual then you must use the next requirement.
+
+    "Or"
+
+    You must pay or earn a yearly subscription fee as determined by AllBinary.
+
+AllBinary may collect, contain, and transfer personal information for licensing, 
+registration, data analysis, and security purposes.  Any messages posted on our 
+Forum, Wiki, Website, or emailed to us becomes property of AllBinary and may be 
+used and or stored for future use.  This may include but is not limited to 
+hardware information, access times, IPs, or domains.  Without this information 
+we would be unable to provide appropriate alerts, upgrades, information, and 
+security.
+
+"AllBinary", "AllBinary Platform", "AllBinary Input Automation", "Freeblisket", 
+and "Weblisket" names may not be used to promote, market, or endorse a product 
+without written permission from AllBinary.
+
+Unlawful Prohibition
+
+You or any business entity you represent are prohibited from using the AllBinary Platform 
+for anything unlawful.
+
+Agreement Changes
+
+AllBinary may change this agreement at anytime and without notice.
+
+Billing
+
+AllBinary may charge fees required by third parties and/or services provided.
+
+Damages
+
+AllBinary may require more than normal compensation for damage cause by
+you and/or any business entity you represent.
+
+Suspension
+
+AllBinary may suspend service with any licensee at anytime and without 
+notification.
+
+Termination
+
+AllBinary may terminate this license with any licensee at anytime and without 
+notification.  Upon termination all software that was under the terminated 
+license must be destroyed.
+
+NO WARRANTY LIMITED LIABILITY
+
+THIS SOFTWARE IS PROVIDED "As Is" AND DOES NOT PROVIDE 
+ANY WARRANTIES OF ANY TYPE OR KIND.  THIS SOFTWARE IS NOT 
+AND WILL NOT BE RESPONSIBLE AND/OR LIABLE FOR ANY LOSSES 
+WHETHER IT BE MONETARY OR OTHER FOR ALL POSSIBLE CASES IN 
+THE PAST, PRESENT, OR FUTURE.
+
+Third Party Copyright Notices Are In The Licenses Directory And Below:
+
+Copyright (c) 2001 The Apache Software Foundation.  All rights reserved.
+
+"This product includes software developed by the
+ *        Apache Software Foundation (http://www.apache.org/)."
+
+Copyright (c) 2002, 2003, 2004, Paul Strack
+
+This notice is for the Chrysalis Web Framework [http://chrysalis.sourceforge.net]
+
+Copyright 1996-1999 by Scott Hudson, Frank Flannery, C. Scott Ananian 
+
+This copyright notice is required by the CUP parser.
+
+Copyright (c) 2000, 2001 The Wilson Partnership.
+Copyright (c) 2000, 2001 John Wilson (tug@wilson.co.uk)
+
+These two copyright notices are required by the XML Parser.
