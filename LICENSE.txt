@@ -10,12 +10,18 @@ scripts, templates, data, information, and binaries of the AllBinary Platform
 given that the following conditions are met:
 
 1.  That it does not violate any third party license included with the 
-AllBinary Platform.
+    AllBinary Platform.
 
 2.  Redistribution of the AllBinary Platform source code must include the 
-copyright notice above.
- 
-3.  You will fulfill one of the 2 requirements below:
+    copyright notice above.
+
+3.  You must submit your published products using AllBinary Platform source
+    code to one of 2 AllBinary Online Application Sites.  Each submission will 
+    cost 1 dollar USD and may be paid via Paypal to: travisberthelot@hotmail.com.
+    (Until 2013 you will submit them via email to travisberthelot@hotmail.com. 
+    Include the binarys, screenshots, name, and description.)
+
+4.  You will fulfill one of the 2 requirements below:
 
     You must obtain one or more advert provider identifiers with instructions 
     from AllBinary.  You must allow adverts to be displayed in your published
@@ -24,7 +30,8 @@ copyright notice above.
 
     "Or"
 
-    You must pay or earn a yearly subscription fee as determined by AllBinary.
+    You must pay or earn a yearly subscription as determined by AllBinary.
+    (This fee is waved for 2011 and will be 1 dollar for 2012)
 
 AllBinary may collect, contain, and transfer personal information for licensing, 
 registration, data analysis, and security purposes.  Any messages posted on our 
