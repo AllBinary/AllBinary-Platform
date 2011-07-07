@@ -21,6 +21,7 @@ import javax.xml.transform.stream.StreamSource;
 import abcs.globals.URLGLOBALS;
 import abcs.logic.basic.path.AbFilePath;
 import abcs.logic.basic.path.AbPath;
+import abcs.logic.basic.path.AbPathData;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.globals.FREEBLISKET_PATH_GLOBALS;
@@ -28,22 +29,13 @@ import allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import allbinary.logic.control.crypt.file.CryptFileReader;
 import allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 
-public class BasicUriResolver implements URIResolver
+public class ContextUriResolver implements URIResolver
 {
-   private String extension;
+   private BasicUriResolver basicURIResolver;
    
-   //private TransformInfoInterface parentTransformInfoInterface;
-   
-   //TransformInfoInterface parentTransformInfoInterface,
-   public BasicUriResolver(String extension)
+   public ContextUriResolver(BasicUriResolver basicURIResolver)
    {
-      //this.parentTransformInfoInterface = parentTransformInfoInterface;
-      this.extension = extension;
-   }
-   
-   public String getExtension()
-   {
-      return this.extension;
+      this.basicURIResolver = basicURIResolver;
    }
    
    public Source resolve(String href, String base) throws TransformerException
@@ -54,10 +46,12 @@ public class BasicUriResolver implements URIResolver
     	  
     	  stringBuffer.append(URLGLOBALS.getMainPath());
     	  stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
+    	  stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().INSTALLPATH);
+    	  stringBuffer.append(AbPathData.getInstance().SEPARATOR);
     	  stringBuffer.append(href);
-    	  
-         AbPath abPath = (AbPath) new AbFilePath(stringBuffer.toString());
 
+         AbPath fileAbPath = new AbFilePath(stringBuffer.toString());
+         
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             abcs.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
          {
@@ -68,19 +62,20 @@ public class BasicUriResolver implements URIResolver
         	 stringBuffer.append("\nBase= ");
         	 stringBuffer.append(base);
         	 stringBuffer.append("\nNew path= ");
-        	 stringBuffer.append(abPath.toString());
+        	 stringBuffer.append(fileAbPath.toString());
         	 stringBuffer.append("\nNote: ");
         	 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
         	 stringBuffer.append(" is a urlglobal");
         	 stringBuffer.append("\nRequired Extension: ");
-        	 stringBuffer.append(extension);
-
+        	 stringBuffer.append(this.basicURIResolver.getExtension());
+             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "resolve"));
          }
-
+         
          return new StreamSource(new CryptFileReader(
             TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION,
-            TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(abPath));
+            TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION
+            ).getInputStream(fileAbPath));
       }
       catch(TransformerException e)
       {
@@ -91,23 +86,17 @@ public class BasicUriResolver implements URIResolver
          throw new TransformerException(e);
       }
    }
-   
+      
    public String toString()
    {
       try
       {
-    	  StringBuffer stringBuffer = new StringBuffer();
-    	  
-    	  stringBuffer.append(URLGLOBALS.getMainPath());
-    	  stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-    	  stringBuffer.append("/{import url}");
-    	  
-         return stringBuffer.toString();
+         return URLGLOBALS.getMainPath() + FREEBLISKET_PATH_GLOBALS.getInstance().INSTALLPATH + "/{import url}";
       }
       catch(Exception e)
       {
          //Log Error
-         return "BasicUriResolver - Does not work without webapp path should be changed";
+         return "ContextUriResolver - Does not work without webapp path should be changed";
       }
    }
 }
