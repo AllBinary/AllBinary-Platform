@@ -1,0 +1,82 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package views.admin.workflow;
+
+import abcs.logic.communication.log.LogFactory;
+import org.w3c.dom.Node;
+import org.w3c.dom.Document;
+
+
+import allbinary.logic.visual.transform.info.TransformInfoInterface;
+
+import allbinary.data.tree.dom.DomNodeInterface;
+
+import allbinary.logic.control.workflow.WorkFlowInterface;
+
+import abcs.logic.communication.log.LogUtil;
+
+import views.business.context.modules.storefront.HttpStoreComponentView;
+
+public class WorkFlowView 
+extends HttpStoreComponentView 
+implements DomNodeInterface
+{
+   protected WorkFlowInterface workFlowInterface;
+   
+   public WorkFlowView(TransformInfoInterface transformInfoInterface) throws Exception
+   {
+      super(transformInfoInterface);  
+   }
+      
+   public Node toXmlNode(Document document)
+   {
+      try
+      {
+         //return new WorkFlowView(this.workFlowInterface).toXmlNode(document);
+         return null;
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to get node";
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"toXmlNode()",e));
+         }
+         return null;
+      }
+   }
+   
+   public void addDomNodeInterfaces()
+   {
+      this.addDomNodeInterface((DomNodeInterface) this);
+   }
+   
+   public String view() throws Exception
+   {
+      try
+      {
+         this.addDomNodeInterfaces();
+         return super.view();
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to view Mini Basket";
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
+         }
+         throw e;
+      }
+   }   
+}
