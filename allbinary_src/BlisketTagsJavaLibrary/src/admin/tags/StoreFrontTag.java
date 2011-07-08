@@ -1,0 +1,141 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package admin.tags;
+
+import java.lang.reflect.Method;
+
+import abcs.logic.system.security.licensing.LicensingException;
+
+import abcs.logic.communication.log.LogUtil;
+
+import allbinary.business.context.modules.storefront.StoreFrontData;
+
+import admin.taghelpers.StoreFrontHelperFactory;
+
+import abcs.logic.communication.http.request.AbResponseHandler;
+import abcs.logic.communication.log.LogFactory;
+
+import java.util.HashMap;
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.TagSupport;
+
+public class StoreFrontTag extends TagSupport
+{
+   private String command;
+   private String storeName;
+
+   private HashMap propertiesHashMap;
+   
+   public StoreFrontTag()
+   {
+   }
+   
+   public void setCommand(String command)
+   {
+      this.command=command;
+   }
+   
+   public void setStoreName(String value)
+   {
+      this.storeName = value;
+   }
+   
+   private String getCurrentLocation() throws LicensingException
+   {
+      try
+      {
+         Object object = 
+            new StoreFrontHelperFactory().getInstance(
+               this.propertiesHashMap, this.pageContext);
+         
+         Method method = object.getClass().getMethod("getCurrentLocation", null);
+         String result = (String) method.invoke(object, null);
+         return result;
+      }
+      catch(LicensingException e)
+      {
+         throw e;
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to retrieve current location";
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"getCurrentLocation()",e));
+         }
+         return error;
+      }
+   }
+   
+   private String getCurrentHomeLocation() throws LicensingException
+   {
+      try
+      {
+         Object object = 
+            new StoreFrontHelperFactory().getInstance(
+               this.propertiesHashMap, this.pageContext);
+         
+         Method method = object.getClass().getMethod("getCurrentHomeLocation", null);
+         String result = (String) method.invoke(object, null);
+         return result;
+      }
+      catch(LicensingException e)
+      {
+         throw e;
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to retrieve current home location";
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"getCurrentHomeLocation()",e));
+         }
+         return error;
+      }
+   }
+   
+   public int doStartTag() throws JspTagException
+   {
+      try
+      {
+         if(command!=null)
+         {
+            this.propertiesHashMap = new HashMap();
+            this.propertiesHashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
+            
+            if (command.compareTo(allbinary.globals.GLOBALS.GETCURRENTLOCATION)==0)
+            {
+               pageContext.getOut().print(this.getCurrentLocation());
+            }
+            else
+               if (command.compareTo(allbinary.globals.GLOBALS.GETCURRENTHOMELOCATION)==0)
+               {
+                  pageContext.getOut().print(this.getCurrentHomeLocation());
+               }
+         }
+         return SKIP_BODY;
+      }
+      catch(LicensingException e)
+      {
+         AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+         return SKIP_BODY;
+      }
+      catch(Exception e)
+      {
+         AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+         return SKIP_BODY;
+      }
+   }
+   
+}
