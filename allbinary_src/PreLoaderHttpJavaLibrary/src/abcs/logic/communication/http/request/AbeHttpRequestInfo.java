@@ -1,0 +1,126 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package abcs.logic.communication.http.request;
+
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Vector;
+
+import javax.servlet.http.HttpServletRequest;
+
+import abcs.logic.basic.string.StringUtil;
+
+public class AbeHttpRequestInfo
+{
+   private String httpUserAgent;
+   private String remoteAddress;     
+   private String remoteHost;
+   private String remoteHostByAddr; 
+   private String remotePort;   
+   private String requestedFilePath;
+
+   public AbeHttpRequestInfo(HashMap hashMap)
+   {
+       AbeHttpRequestInfoData abeHttpRequestInfoData = 
+               AbeHttpRequestInfoData.getInstance();
+	   
+       StringUtil stringUtil = StringUtil.getInstance();
+           
+      this.httpUserAgent = stringUtil.getInstance(
+         (String) hashMap.get(abeHttpRequestInfoData.HTTP_USER_AGENT));
+
+      this.remoteAddress = stringUtil.getInstance(
+         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_ADDRESS));
+
+      this.remoteHost = stringUtil.getInstance(
+         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_HOST));
+
+      this.remoteHostByAddr = stringUtil.getInstance(
+         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_HOST_BY_ADDRESS));
+
+      this.remotePort = stringUtil.getInstance(
+         (String) hashMap.get(abeHttpRequestInfoData.REMOTE_PORT));
+
+      this.requestedFilePath = stringUtil.getInstance(
+         (String) hashMap.get(abeHttpRequestInfoData.REQUEST_FILE_PATH));
+   }
+   
+   public AbeHttpRequestInfo(HttpServletRequest httpServletRequest)
+   {
+      this.httpUserAgent = "";
+      Enumeration enumuration = httpServletRequest.getHeaderNames();
+      while(enumuration.hasMoreElements())
+      {
+         String key = (String) enumuration.nextElement();
+         String value = httpServletRequest.getHeader(key);
+         if(key.indexOf("user") >= 0)
+            this.httpUserAgent = "key: " + key + " value: " + value;
+      }
+
+      /*
+      httpServletRequest.getAuthType()
+      httpServletRequest.getCharacterEncoding()
+      httpServletRequest.getContentLength()
+      httpServletRequest.getContentType()
+      httpServletRequest.getContextPath();
+      httpServletRequest.getLocale()
+      httpServletRequest.getPathInfo()
+      httpServletRequest.getPathTranslated()
+      httpServletRequest.getProtocol()
+      httpServletRequest.getQueryString()
+      */
+      this.remoteHostByAddr = "";
+      this.remoteAddress = httpServletRequest.getRemoteAddr();
+      this.remoteHost = httpServletRequest.getRemoteHost();
+      /*
+      httpServletRequest.getRemoteUser()
+      httpServletRequest.getScheme()
+      httpServletRequest.getServerName()
+      httpServletRequest.getServerPort()
+      */
+      this.requestedFilePath = httpServletRequest.getServletPath();
+      this.remotePort = "";
+   }
+   
+   public HashMap toHashMap()
+   {
+      AbeHttpRequestInfoData abeHttpRequestInfoData = 
+		   AbeHttpRequestInfoData.getInstance();
+
+      HashMap hashMap = new HashMap();
+
+      hashMap.put(abeHttpRequestInfoData.HTTP_USER_AGENT, this.httpUserAgent);
+      hashMap.put(abeHttpRequestInfoData.REMOTE_ADDRESS, this.remoteAddress);
+      hashMap.put(abeHttpRequestInfoData.REMOTE_HOST, this.remoteHost);
+      hashMap.put(abeHttpRequestInfoData.REMOTE_HOST_BY_ADDRESS, this.remoteHostByAddr);
+      hashMap.put(abeHttpRequestInfoData.REMOTE_PORT, this.remotePort);
+      hashMap.put(abeHttpRequestInfoData.REQUEST_FILE_PATH, this.requestedFilePath);
+
+      return hashMap;
+   }
+
+   public Vector toVector()
+   {
+      Vector vector = new Vector();
+
+      vector.add(this.httpUserAgent);
+      vector.add(this.remoteAddress);
+      vector.add(this.remoteHost);
+      vector.add(this.remoteHostByAddr);
+      vector.add(this.remotePort);
+      vector.add(this.requestedFilePath);
+
+      return vector;
+   }   
+}
