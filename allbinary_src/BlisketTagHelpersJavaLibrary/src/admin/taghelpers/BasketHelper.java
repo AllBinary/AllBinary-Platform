@@ -1,0 +1,86 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package admin.taghelpers;
+
+import abcs.logic.communication.log.LogFactory;
+import java.util.*;
+
+import javax.servlet.jsp.PageContext;
+
+
+import abcs.logic.communication.log.LogUtil;
+
+import allbinary.business.user.commerce.inventory.basket.BasketInterface;
+
+
+import allbinary.logic.communication.http.request.session.WeblisketSession;
+
+import allbinary.business.context.modules.storefront.StoreFrontData;
+import allbinary.business.context.modules.storefront.StoreFrontInterface;
+import allbinary.business.context.modules.storefront.StoreFrontFactory;
+
+public class BasketHelper
+    implements TagHelperInterface
+{
+   private WeblisketSession weblisketSession;
+   
+   private StoreFrontInterface storeFrontInterface;   
+   private HashMap propertiesHashMap;
+   private PageContext pageContext;   
+   
+   private final int MAX = 200;
+   
+   public BasketHelper(HashMap hashMap, PageContext pageContext)
+   {
+      this.propertiesHashMap = hashMap;
+      this.pageContext = pageContext;
+
+      String storeName = (String) propertiesHashMap.get(StoreFrontData.getInstance().NAME);
+      
+      if(storeName!=null)
+      {       
+         this.storeFrontInterface = 
+         StoreFrontFactory.getInstance(storeName);
+      }
+      this.weblisketSession = 
+         new WeblisketSession(hashMap, pageContext);      
+   }
+   
+   public Boolean isBasketEmpty()
+   {
+      try
+      {
+         BasketInterface basket = this.weblisketSession.getOrder().getBasket();
+         if(basket.getNumberOfItems().intValue() <= 0)
+         {
+            return Boolean.TRUE;
+         }
+         else
+         {
+            return Boolean.FALSE;
+         }
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to add item from Basket";
+         
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"isBasketEmpty()",e));
+         }
+         return Boolean.TRUE;         
+      }
+   }
+
+}
