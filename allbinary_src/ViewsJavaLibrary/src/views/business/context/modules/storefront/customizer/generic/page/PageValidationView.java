@@ -1,0 +1,253 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package views.business.context.modules.storefront.customizer.generic.page;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Vector;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
+import views.business.context.modules.storefront.customizer.CustomizerUtil;
+import abcs.data.tree.dom.document.DomDocumentHelper;
+import abcs.logic.communication.log.LogFactory;
+import abcs.logic.communication.log.LogUtil;
+import allbinary.data.tables.transform.info.TransformInfoEntity;
+import allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import allbinary.logic.control.validate.ValidationComponentInterface;
+import allbinary.logic.visual.transform.info.TransformInfo;
+import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import allbinary.logic.visual.transform.template.customizer.page.PageValidation;
+import allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
+
+public class PageValidationView extends PageView implements ValidationComponentInterface
+{
+   public PageValidationView(TransformInfoInterface transformInfoInterface) throws Exception
+   {
+      super(transformInfoInterface);
+      
+      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+      {
+         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "PageViewValidation()"));
+      }
+   }
+   
+   public Boolean isValid()
+   {
+      try
+      {
+         Boolean isValid = Boolean.TRUE;
+         
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         {
+            LogUtil.put(LogFactory.getInstance("Start", this, "isValid()"));
+         }
+
+         //Insert XML into the view specified by the Object Config for this view
+         //CustomizerUtils.insert(this.getTransformInfoInterface(),(DomNodeInterface) pageValidation);
+
+         TransformInfoEntity transformInfoEntityInterface =
+        	 TransformInfoEntityBuilder.getInstance();
+
+         //This Object Config Contains the Components that are Generators that
+         //need page titles
+         TransformInfoObjectConfigInterface pageObjectConfigInterface =
+               this.getTransformInfoInterface().getObjectConfigInterface();
+            
+         //Vector generatorsToBeModified = objectConfig.getComponents();
+         
+         //this.insertIntoTransformInfos(pageObjectConfig);
+
+         //Vector allViewsToBeModified = objectConfig.getComponents();
+         Vector allViewsToBeModified = pageObjectConfigInterface.getGroupTransforms();
+
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         {
+            LogUtil.put(LogFactory.getInstance("Views To Be Modified: " + allViewsToBeModified.size(), this, "get(transformInfoInterface)"));
+         }
+         
+         Iterator iter = allViewsToBeModified.iterator();
+         while(iter.hasNext())
+         {
+        	 TransformInfo transformInfoInterface =
+               (TransformInfo) iter.next();
+
+            String viewNameOfViewToBeModified = 
+            	transformInfoInterface.getName();
+
+            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            {
+            	StringBuffer stringBuffer = new StringBuffer();
+            	
+            	stringBuffer.append(this.getTransformInfoInterface().getName());
+            	stringBuffer.append(" is modifying view: ");
+            	stringBuffer.append(viewNameOfViewToBeModified);
+
+            	LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "insert()"));
+            }
+
+            TransformInfoHttpInterface httpTransformInfoInterface = 
+               (TransformInfoHttpInterface) this.getTransformInfoInterface();
+
+            TransformInfoInterface specifiedTransformInfoInterface =
+               transformInfoEntityInterface.get(
+                  viewNameOfViewToBeModified,
+                  httpTransformInfoInterface.getPropertiesHashMap(),
+                  httpTransformInfoInterface.getPageContext());
+
+            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            {
+            	StringBuffer stringBuffer = new StringBuffer();
+            	
+            	stringBuffer.append(this.getTransformInfoInterface().getName());
+            	stringBuffer.append(" is adding data to view: ");
+            	stringBuffer.append(viewNameOfViewToBeModified);
+            	
+               LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "insert()"));
+            }
+
+            HashMap hashMap =  new HashMap();            
+            String title = specifiedTransformInfoInterface.getName().substring(
+               this.getTransformInfoInterface().getStoreName().length());
+
+            if(title.compareTo("index")==0)  
+            {
+               hashMap.put(TitleData.getInstance().TEXT, this.getTransformInfoInterface().getStoreName() + " - Home Page");
+            }
+            else
+            {
+               hashMap.put(TitleData.getInstance().TEXT, this.getTransformInfoInterface().getStoreName() + " -" + title);
+            }
+
+            PageValidation pageValidation = new PageValidation(hashMap);
+
+            if(pageValidation.isValid() == Boolean.FALSE)
+            {
+               isValid = Boolean.FALSE;
+            }
+
+            if(isValid == Boolean.TRUE)
+            {
+               //get the view xml/data that will replace the old xml/data
+               Document document = DomDocumentHelper.create();
+               document.appendChild(pageValidation.toXmlNode(document));
+               String documentString = DomDocumentHelper.toString(document);
+
+               if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+               {
+                   StringBuffer stringBuffer = new StringBuffer();
+
+                    stringBuffer.append(viewNameOfViewToBeModified);
+                    stringBuffer.append(" is changing data in ");
+                    stringBuffer.append(specifiedTransformInfoInterface.getDataFilePath());
+                    stringBuffer.append(" to the following data:\n");
+                    stringBuffer.append(documentString);
+
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid()"));
+               }
+
+               //save xml data to specified view
+               CustomizerUtil.write(specifiedTransformInfoInterface, documentString);
+            }
+         }
+         return isValid;
+      }
+      catch(Exception e)
+      {
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         {
+            LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
+         }
+         return Boolean.FALSE;
+      }
+   }
+   
+   public String validationInfo()
+   {
+      try
+      {
+         StringBuffer stringBuffer = new StringBuffer();
+
+         TransformInfoEntity transformInfoEntityInterface =
+        	 TransformInfoEntityBuilder.getInstance();
+
+         TransformInfoObjectConfigInterface objectConfig =
+            this.getTransformInfoInterface().getObjectConfigInterface();
+         
+         TransformInfoHttpInterface httpTransformInfoInterface = 
+            (TransformInfoHttpInterface) this.getTransformInfoInterface();
+         
+         Vector allViewsToBeModified = objectConfig.getGroupTransforms();
+
+         Iterator iter = allViewsToBeModified.iterator();
+         while(iter.hasNext())
+         {
+        	 TransformInfo transformInfoInterface =
+                 (TransformInfo) iter.next();        	 
+
+            String viewNameOfViewToBeModified = transformInfoInterface.getName();
+
+            TransformInfoInterface specifiedTransformInfoInterface =
+               transformInfoEntityInterface.get(viewNameOfViewToBeModified,
+                  httpTransformInfoInterface.getPropertiesHashMap(),
+                  httpTransformInfoInterface.getPageContext());
+
+            HashMap hashMap =  new HashMap();            
+            String title = specifiedTransformInfoInterface.getName().substring(
+               this.getTransformInfoInterface().getStoreName().length());
+
+            if(title.compareTo("index")==0)
+            {
+               hashMap.put(TitleData.getInstance().TEXT, this.getTransformInfoInterface().getStoreName() + " - Home Page");
+            }
+            else
+            {
+               hashMap.put(TitleData.getInstance().TEXT, this.getTransformInfoInterface().getStoreName() + " -" + title);
+            }
+
+            PageValidation pageValidation = new PageValidation(hashMap);
+
+            if(pageValidation.isValid() == Boolean.FALSE)
+            {
+               stringBuffer.append("TransformInfo Name for PageValidation:" + specifiedTransformInfoInterface.getName());
+               stringBuffer.append("PageValidation:" + hashMap);
+               stringBuffer.append("PageValidation Info:" + pageValidation.validationInfo());
+            }
+         }
+
+         return stringBuffer.toString();
+      }
+      catch(Exception e)
+      {
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         {
+            LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
+         }
+         return "An auto generated page name was invalid.";
+      }
+   }
+
+   public Document toValidationInfoDoc()
+   {
+      return null;
+   }
+   
+   public Node toValidationInfoNode(Document document)
+   {
+      return null;
+   }
+}
