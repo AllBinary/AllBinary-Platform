@@ -1,0 +1,69 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package allbinary.logic.control.workflow;
+
+import abcs.logic.basic.path.AbPathData;
+import abcs.logic.system.security.licensing.LicensingException;
+import allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import allbinary.logic.communication.http.request.session.WeblisketSession;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
+import java.util.HashMap;
+
+public class RequestWorkFlowFactory
+{
+   private RequestWorkFlowFactory()
+   {
+   }  
+
+   //Used by user request
+   //Assumes store name is in request path - usually a user request
+   //i.e. getting a workflow from the db for processing the actual workflow
+   public static WorkFlowInterface getInstance(ServletRequest request, 
+      ServletResponse response, 
+      ServletConfig servletConfig, 
+      ServletContext servletContext) throws Exception, LicensingException
+   {
+      HttpServletRequest httpRequest = (HttpServletRequest) request;
+      String requestCommand = httpRequest.getPathInfo();
+
+      int index = requestCommand.indexOf(AbPathData.getInstance().SEPARATOR);
+
+      String storeName = requestCommand.substring(0,index);
+      String requestName = requestCommand.substring(index,requestCommand.length());
+      
+      //The entity factory uses the WorkFlowFactory.getInstance(HashMap hashMap)
+      return WorkFlowEntityFactory.getInstance().get(requestName, storeName);
+   }
+
+   //Used to validate, delete, edit, and/or view
+   public static WorkFlowInterface getInstance(HashMap hashMap, PageContext pageContext) throws Exception, LicensingException
+   {
+      String workFlowName = (String) 
+          pageContext.getRequest().getParameter(
+        		  WorkFlowData.getInstance().NAME);
+
+      WeblisketSession weblisketSession = 
+         new WeblisketSession(hashMap, pageContext);
+      String storeName = weblisketSession.getStoreName();
+      
+      //The entity factory uses the WorkFlowFactory.getInstance(HashMap hashMap)
+      return WorkFlowEntityFactory.getInstance().get(workFlowName, storeName);
+   }
+}
