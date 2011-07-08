@@ -1,0 +1,208 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package admin.tags;
+
+import abcs.logic.communication.http.request.AbResponseHandler;
+import abcs.logic.communication.log.LogFactory;
+import abcs.logic.communication.log.LogUtil;
+
+import abcs.logic.system.security.licensing.LicensingException;
+
+import allbinary.business.context.modules.storefront.StoreFrontData;
+
+import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
+   
+import admin.taghelpers.OrderHelperFactory;
+
+import java.lang.reflect.Method;
+import java.util.HashMap;
+
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.TagSupport;
+
+public class OrderTag extends TagSupport
+{
+   private String command;
+   private String storeName;
+
+   private HashMap propertiesHashMap;
+   
+   public OrderTag()
+   {
+   }
+   
+   public void setCommand(String command)
+   {
+      this.command=command;
+   }
+   
+   public void setStoreName(String value)
+   {
+      this.storeName=value;
+   }
+   
+   private String process() throws LicensingException
+   {
+      try
+      {
+         Object object = new OrderHelperFactory().getInstance(
+               this.propertiesHashMap, this.pageContext);         
+         
+         Class helperClass = object.getClass();
+         Method method = helperClass.getMethod("process", null);
+         
+         String result = (String) method.invoke(object, null);
+         return result;
+      }
+      catch(LicensingException e)
+      {
+         throw e;
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to Process Order: ";
+         
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"process()",e));
+         }
+         return error;
+      }
+   }
+
+   private Boolean setPaymentGateway() throws LicensingException
+   {
+      try
+      {
+         Object object = 
+            new OrderHelperFactory().getInstance(
+               this.propertiesHashMap, this.pageContext);         
+         
+         Class addressHelperClass = object.getClass();
+         Method method = addressHelperClass.getMethod("setPaymentGateway", null);
+         
+         Boolean result = (Boolean) method.invoke(object,null);
+         return result;
+      }
+      catch(LicensingException e)
+      {
+         throw e;
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to setPaymentGateway for Order";
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error, this, "setPaymentGateway()", e));
+         }
+         return Boolean.FALSE;
+      }
+   }
+
+   /*
+   private String getMaxAmount() throws LicensingException
+   {
+      try
+      {
+         Object object = OrderRequestHelperFactory.getInstance(this.storeName,
+         pageContext.getSession(),(HttpServletRequest) this.pageContext.getRequest());
+         Class addressHelperClass = object.getClass();
+         Method method = addressHelperClass.getMethod("getMaxAmount",null);
+         
+         String result = (String) method.invoke(object,null);
+         return result;
+      }
+      catch(LicensingException e)
+      {
+         throw e;
+      }
+      catch(Exception e)
+      {
+         String error = "Failed Get Max Amount for delayed credit card processing for Order: ";
+         
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"getMaxAmount()",e);
+         }
+         return "Unknown";
+      }
+   }
+   */
+   /*
+   private String getOrderIdFromSession() throws LicensingException
+   {
+      try
+      {
+         Object object = OrderHelperFactory.getInstance(this.storeName,
+         pageContext.getSession());
+         Class addressHelperClass = object.getClass();
+         Method method = addressHelperClass.getMethod("getOrderIdFromSession",null);
+         
+         String result = (String) method.invoke(object,null);
+         return result;
+      }
+      catch(LicensingException e)
+      {
+         throw e;
+      }
+      catch(Exception e)
+      {
+         String error = "Failed to get Order id from session";
+         
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         {
+            LogUtil.put(LogFactory.getInstance(error,this,"getOrderIdFromSession()",e);
+         }
+         return "Unknown";
+      }
+   }   
+   */
+   
+   public int doStartTag() throws JspTagException
+   {
+      try
+      {
+         if(command!=null)
+         {
+            this.propertiesHashMap = new HashMap();
+            this.propertiesHashMap.put(StoreFrontData.getInstance().NAME,this.storeName);            
+            
+            if (command.compareTo(allbinary.globals.GLOBALS.PROCESS)==0)
+            {
+               this.process();
+            }
+            else
+               if (command.compareTo(PaymentGatewayData.NAME.toString())==0)
+               {
+                  if(this.setPaymentGateway() == Boolean.TRUE)
+                  {
+                     return TagSupport.EVAL_BODY_INCLUDE;
+                  }
+               }
+         }
+         return TagSupport.SKIP_BODY;
+      }
+      catch(LicensingException e)
+      {
+         AbResponseHandler.sendJspTagLicensingRedirect(this.pageContext, e);
+         return SKIP_BODY;
+      }
+      catch(Exception e)
+      {
+         AbResponseHandler.sendJspTagRedirect(this.pageContext, e);
+         return SKIP_BODY;
+      }
+   }
+   
+}
