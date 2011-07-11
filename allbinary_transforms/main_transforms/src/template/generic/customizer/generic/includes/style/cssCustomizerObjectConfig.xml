@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2002=2004 All Binary
+All Rights Reserved. 
+Don't Duplicate or Distribute.
+Trade Secret Information 
+For Internal Use Only 
+Confidential
+Unpublished 
+-->
+<!--
+-->
+<OBJECTCONFIG_NAME OBJECTCONFIG_NAME="CssCustomizerViewInfoConfig" >
+
+   <TRANSFORM_COMPONENTS_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME css" 
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME css TRANSFORM_COMPONENTS_PREVIEW" 
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME index TRANSFORM_COMPONENTS_PREVIEW Body"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+
+   </TRANSFORM_COMPONENTS_NAME>
+
+</OBJECTCONFIG_NAME>
