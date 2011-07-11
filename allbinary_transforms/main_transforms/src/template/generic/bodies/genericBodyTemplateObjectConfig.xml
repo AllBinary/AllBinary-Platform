@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2002-2004 All Binary
+All Rights Reserved. 
+Don't Duplicate or Distribute.
+Trade Secret Information 
+For Internal Use Only 
+Confidential
+Unpublished 
+-->
+<!--
+   //View Info Object Config Files vioc when enc
+   //The generic objectconfigfile contains configuration information for a
+   //view object and a list of connected nodes (graph).
+
+   //Various keys are used like store name, compound view name, 
+   //and selected template style in order to reduce the number 
+   //of object configs required.
+-->
+<OBJECTCONFIG_NAME OBJECTCONFIG_NAME="GenericBodyTemplateViewInfoObjectConfig" >
+
+   <!--
+   Points to a parent views
+   -->
+   <PARENT_TRANSFORM_COMPONENTS_NAME >
+      <COMPONENT_NAME TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAME" MAPPED_NAME="compound" >
+      </COMPONENT_NAME>
+   </PARENT_TRANSFORM_COMPONENTS_NAME>
+
+</OBJECTCONFIG_NAME>
