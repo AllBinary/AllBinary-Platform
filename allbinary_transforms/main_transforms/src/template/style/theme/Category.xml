@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CATEGORY_NAME>
+
+   <THEMES_NAME>
+   
+      <THEME_NAME>
+         <THEME_NAME>
+            <value>Blue Gray</value>
+         </THEME_NAME>
+         <THEME_PREVIEW_IMAGE_NAME>
+            <value>Blue Gray.jpg</value>
+         </THEME_PREVIEW_IMAGE_NAME>
+      </THEME_NAME>
+
+      <THEME_NAME>
+         <THEME_NAME>
+            <value>Green Bluzird</value>
+         </THEME_NAME>
+         <THEME_PREVIEW_IMAGE_NAME>
+            <value>Green Bluzird.jpg</value>
+         </THEME_PREVIEW_IMAGE_NAME>
+      </THEME_NAME>
+
+      <THEME_NAME>
+         <THEME_NAME>
+            <value>Nature</value>
+         </THEME_NAME>
+         <THEME_PREVIEW_IMAGE_NAME>
+            <value>Nature.jpg</value>
+         </THEME_PREVIEW_IMAGE_NAME>
+      </THEME_NAME>
+
+      <THEME_NAME>
+         <THEME_NAME>
+            <value>Patriotic USA</value>
+         </THEME_NAME>
+         <THEME_PREVIEW_IMAGE_NAME>
+            <value>Patriotic USA.jpg</value>
+         </THEME_PREVIEW_IMAGE_NAME>
+      </THEME_NAME>
+
+      <THEME_NAME>
+         <THEME_NAME>
+             <value>Pinky Grablue</value>
+         </THEME_NAME>
+         <THEME_PREVIEW_IMAGE_NAME>
+            <value>Pinky Grablue.jpg</value>
+         </THEME_PREVIEW_IMAGE_NAME>         
+      </THEME_NAME>
+
+      <THEME_NAME>
+         <THEME_NAME>
+            <value>Purple Bliss</value>
+         </THEME_NAME>
+         <THEME_PREVIEW_IMAGE_NAME>
+            <value>Purple Bliss.jpg</value>
+         </THEME_PREVIEW_IMAGE_NAME>
+      </THEME_NAME>
+
+      <THEME_NAME>
+         <THEME_NAME>
+            <value>Red Olishous</value>
+         </THEME_NAME>
+         <THEME_PREVIEW_IMAGE_NAME>
+            <value>Red Olishous.jpg</value>
+         </THEME_PREVIEW_IMAGE_NAME>
+      </THEME_NAME>
+
+   </THEMES_NAME>
+
+   <CATEGORY_NAME label="Basic" >
+   </CATEGORY_NAME>
+
+</CATEGORY_NAME>
