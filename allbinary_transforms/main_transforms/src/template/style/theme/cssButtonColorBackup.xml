@@ -1,0 +1,1570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+-->
+
+<!--
+Generic Text
+Special Text
+Small Text
+Hedges
+Buttons
+Menu Items
+Enhanced Text
+Anchor Tag Styles
+Heading Text
+-->
+<STYLES_NAME>
+   <STYLE_NAME>
+
+      <CSS_ELEMENT_NAME>
+         <name>CSS_ELEMENT_NAME</name>
+         <value>genericText</value>
+         <title>Generic Text</title>
+         <description>
+            This style is used for body, description, table, text, textField, select, product summary, and product image css style elements.
+         </description>
+
+         <CSS_ELEMENT_NAME>
+            <name>CSS_ELEMENT_NAME</name>
+            <value>main</value>
+         </CSS_ELEMENT_NAME>
+   
+         <CSS_ELEMENT_NAME>
+            <name>CSS_ELEMENT_NAME</name>
+            <value>description</value>
+         </CSS_ELEMENT_NAME>
+   
+         <CSS_ELEMENT_NAME>
+            <name>CSS_ELEMENT_NAME</name>
+            <value>table</value>
+         </CSS_ELEMENT_NAME>
+   
+         <CSS_ELEMENT_NAME>
+            <name>CSS_ELEMENT_NAME</name>
+            <value>text</value>
+         </CSS_ELEMENT_NAME>
+   
+         <CSS_ELEMENT_NAME>
+            <name>CSS_ELEMENT_NAME</name>
+            <value>select</value>
+         </CSS_ELEMENT_NAME>
+   
+         <CSS_ELEMENT_NAME>
+            <name>CSS_ELEMENT_NAME</name>
+            <value>productSummary</value>
+         </CSS_ELEMENT_NAME>
+   
+         <CSS_ELEMENT_NAME>
+            <name>CSS_ELEMENT_NAME</name>
+            <value>productImage</value>
+         </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>textField</value>
+      <description>
+         Text Fields
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+      
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#FFFFFF</value>
+               <index>0</index>
+               <description>TEXTFIELDBACKGROUNDCOLOR white</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+         
+      </CSS_PROPERTY_NAME>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>width</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>102</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>height</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>20</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+            
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>color</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>#000000</value>
+            <index>0</index>
+            <description>TEXTCOLOR black</description>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-size</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>8pt</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-family</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>Verdana</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>sans-serif</value>
+            <index>1</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+<!--
+Special Text
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>specialText</value>
+   <title>Special Text</title>
+   <description>
+      This style is used for body large heading, pricing, and highlighted text elements.
+   </description>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>mainHeading</value>
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>highlight</value>
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>only</value>
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>color</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>#999999</value>
+            <index>0</index>
+            <description>SPECIALCOLOR1 light grey</description>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+   
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-size</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>10pt</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-family</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>Verdana</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>sans-serif</value>
+            <index>1</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-weight</value>
+      
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>bold</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+   
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+<!--
+Small Text
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>smallText</value>
+   <title>Small Text</title>
+   <description>
+      This style is used for body heading, special, and highlight text elements.
+   </description>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>miniTable</value>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#FFFFFF</value>
+               <index>0</index>
+               <description>White</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+        
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>copyright</value>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#000000</value>
+               <index>0</index>
+               <description>Black</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+        
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>miniTextField</value>
+      <description>
+         Small Text Fields
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#FFFFFF</value>
+               <index>0</index>
+               <description>TEXTFIELDBACKGROUNDCOLOR white</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#000000</value>
+               <index>0</index>
+               <description>Black</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+        
+      </CSS_PROPERTY_NAME>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>width</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>94</value>
+               <index>0</index>
+               <description>TEXTFIELDBACKGROUNDCOLOR</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+            
+   </CSS_ELEMENT_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-size</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>7pt</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-family</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>Arial</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>sans-serif</value>
+            <index>1</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+   
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+<!--
+Hedges
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>hedge</value>
+   <title>Hedge Areas</title>
+   <description>
+      This style is used for the left, right, and top hedges.
+   </description>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>topBar2</value>
+      <description>
+         Background For Top Button Bar
+      </description>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>height</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>27</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+      
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>rightsidebar</value>
+      
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>width</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>108</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>leftsidebar</value>
+      
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>width</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>108</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>background-color</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>#999999</value>
+            <index>0</index>
+            <description>SIDEBARCOLOR light grey</description>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+<!--
+Buttons
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>button</value>
+   <title>Buttons</title>
+   <description>
+      This style is used for all of the button elements.
+   </description>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>topMenuItem</value>
+      <description>
+         Top Menu Item
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>width</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>90</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+
+      </CSS_PROPERTY_NAME>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>height</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>18</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+
+      </CSS_PROPERTY_NAME>
+
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>defaultMenuButtonItem</value>
+      <description>
+
+      </description>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#999999</value>
+               <index>0</index>
+               <description>DEFAULTBUTTONCOLOR light grey</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+
+      </CSS_PROPERTY_NAME>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>text-align</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>center</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+
+      </CSS_PROPERTY_NAME>
+
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>menuButtonItem</value>
+      <description>
+         Menu Button Item
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#0000AA</value>
+               <index>0</index>
+               <description>BUTTONCOLOR blue</description>
+            </CSS_PROPERTY_VALUE>
+        </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>bodyButtonItem</value>
+      <description>
+         Body Button Item
+      </description>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#0000AA</value>
+               <index>0</index>
+               <description>BUTTONCOLOR blue</description>
+            </CSS_PROPERTY_VALUE>
+        </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>defaultButtonItemMouseOut</value>
+      <description>
+         Default Button Item
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#0000AA</value>
+               <index>0</index>
+               <description>BUTTONCOLOR blue</description>
+            </CSS_PROPERTY_VALUE>
+        </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>defaultButtonItemMouseOver</value>
+      <description>
+         Default Button Item - when mouse is over it
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#0000AA</value>
+               <index>0</index>
+               <description>BUTTONCOLOR blue</description>
+            </CSS_PROPERTY_VALUE>
+        </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>currentDefaultButtonItem</value>
+      <description>
+         Current Default Button Item
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#0000AA</value>
+               <index>0</index>
+               <description>BUTTONCOLOR blue</description>
+            </CSS_PROPERTY_VALUE>
+        </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>categoryMenuItems</value>
+      <description>
+         Category Button Item
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>background-color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#0000AA</value>
+               <index>0</index>
+               <description>BUTTONCOLOR blue</description>
+            </CSS_PROPERTY_VALUE>
+        </CSS_PROPERTY_VALUES>
+   
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>   
+   
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>color</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>#FFFFFF</value>
+            <index>0</index>
+            <description>MENUITEMTEXTCOLOR white</description>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+        
+   </CSS_PROPERTY_NAME>
+             
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>width</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>100</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+      
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>height</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>16</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-size</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>7pt</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-family</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>Verdana</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>sans-serif</value>
+            <index>1</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-weight</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>bold</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>cursor</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>pointer</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>cursor</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>hand</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>padding-left</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>2</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>padding-top</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>2</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+   
+</CSS_ELEMENT_NAME>
+
+<!--
+Menu Items
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>menuItem</value>
+   <title>Menu Items</title>
+   <description>
+      This style is used for menu and body items. Usually used for heading up sections.
+   </description>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>bodyItem</value>
+      <description>
+         Body Item
+      </description>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>text-align</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>center</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+
+      </CSS_PROPERTY_NAME>
+
+   </CSS_ELEMENT_NAME>
+     
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>background-color</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>#0000AA</value>
+            <index>0</index>
+            <description>BUTTONCOLOR blue</description>
+         </CSS_PROPERTY_VALUE>
+     </CSS_PROPERTY_VALUES>
+   
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>color</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>#FFFFFF</value>
+            <index>0</index>
+            <description>MENUITEMTEXTCOLOR white</description>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>width</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>100</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>height</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>16</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-size</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>7pt</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-family</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>Verdana</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>sans-serif</value>
+            <index>1</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-weight</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>bold</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>cursor</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>default</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>padding-left</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>2</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>padding-top</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>2</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+<!--
+Enhanced Text
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>enhancedText</value>
+   <title>Enhanced Text</title>
+   <description>
+      This style is used for text elements for the heading and product specials.
+   </description>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>special</value>
+      <description>
+         Special - Text under the title for extensive website description
+      </description>
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>header</value>
+      <description>
+         header
+      </description>
+   </CSS_ELEMENT_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>color</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>#999999</value>
+            <index>0</index>
+            <description>SIDEBARCOLOR light grey</description>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+        
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-size</value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>8pt</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-family</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>Verdana</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>sans-serif</value>
+            <index>1</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-weight</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>bold</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+<!--
+Anchor Tag Styles
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>anchorStyle</value>
+   <title>Anchor Tag Styles</title>
+   <description>
+      This style is used for anchor elements.
+   </description>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>cloak</value>
+      <description>
+
+      </description>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+      
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#FFFFFF</value>
+               <index>0</index>
+               <description>white</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+         
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>smallCloak</value>
+      <description>
+
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>font-family</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>Arial</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>sans-serif</value>
+               <index>1</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+
+      </CSS_PROPERTY_NAME>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>font-size</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>7pt</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+        
+      </CSS_PROPERTY_NAME>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+      
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#FFFFFF</value>
+               <index>0</index>
+               <description>MENUITEMTEXTCOLOR white</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+         
+      </CSS_PROPERTY_NAME>
+
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>bodyCloak</value>
+      <description>
+
+      </description>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>font-family</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>Verdana</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>sans-serif</value>
+               <index>1</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+      
+      </CSS_PROPERTY_NAME>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>font-size</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>7pt</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+        
+      </CSS_PROPERTY_NAME>
+      
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#0000AA</value>
+               <index>0</index>
+               <description>BUTTONCOLOR blue</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+
+      </CSS_PROPERTY_NAME>
+
+   </CSS_ELEMENT_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>cursor</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>pointer</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>cursor</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>hand</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>text-decoration</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>none</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+<!--
+Heading Text
+-->
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value>headingText</value>
+   <title>Heading Text</title>
+   <description>
+      This style is used for text elements for heading and title text.
+   </description>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>heading</value>
+      <description>
+         Heading Text
+      </description>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#999999</value>
+               <index>0</index>
+               <description>TEXTCOLORONE light grey</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+        
+      </CSS_PROPERTY_NAME>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>font-size</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>9pt</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+      
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value>title</value>
+      <description>
+         Title Text
+      </description>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>color</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>#999999</value>
+               <index>0</index>
+               <description>SIDEBARCOLOR light grey</description>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+        
+      </CSS_PROPERTY_NAME>
+
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value>font-size</value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value>22pt</value>
+               <index>0</index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+      
+      </CSS_PROPERTY_NAME>
+      
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-family</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>Verdana</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>sans-serif</value>
+            <index>1</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>font-weight</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>bold</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value>letter-spacing</value>
+
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value>1</value>
+            <index>0</index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+
+   </CSS_PROPERTY_NAME>
+
+</CSS_ELEMENT_NAME>
+
+   </STYLE_NAME>
+</STYLES_NAME>
