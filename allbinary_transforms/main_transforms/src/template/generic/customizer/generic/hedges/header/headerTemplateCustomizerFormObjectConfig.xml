@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2002-2004 All Binary
+All Rights Reserved. 
+Don't Duplicate or Distribute.
+Trade Secret Information 
+For Internal Use Only 
+Confidential
+Unpublished 
+-->
+<!--
+   //View Info Object Config Files vioc when enc
+   //This Object Config specifies the viewName of the view to be modified
+   //For customizer forms it modifies the specified views viewInfo.data.
+   //Generic
+   $STOREFRONT_NAME (Non Site Related Name)
+   <TRANSFORM_COMPONENTS_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $ROOT_TRANSFORM_INFO_NAME" 
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+   </TRANSFORM_COMPONENTS_NAME>
+-->
+
+<OBJECTCONFIG_NAME OBJECTCONFIG_NAME="GenericStoreTemplateCustomizerViewInfoConfig" >
+
+   <TRANSFORM_COMPONENTS_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEAll"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMECustomerExisting"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEProducts"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServices"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesClientArea"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesSeparateWide"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesSeparate"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesTogetherWide"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>   
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesTogether"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMESubscription"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMESupport"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEAllPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMECustomerExistingPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEProductsPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesClientAreaPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesSeparateWidePreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesSeparatePreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesTogetherWidePreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>   
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMEServicesTogetherPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMESubscriptionPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      <COMPONENT_NAME 
+         TRANSFORM_INFO_NAME="$STOREFRONT_NAME $PARTIAL_TRANSFORM_INFO_NAMESupportPreview"
+         MAPPED_NAME="none" >
+      </COMPONENT_NAME>
+      
+   </TRANSFORM_COMPONENTS_NAME>
+
+</OBJECTCONFIG_NAME>
