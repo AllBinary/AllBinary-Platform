@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+//This specifies the pages that the current template uses
+//When generating pages for a template during installation
+-->
+<OBJECTCONFIG_NAME OBJECTCONFIG_NAME="Page Title" >
+
+   <DYNAMICCOMPONENT_NAME>allbinary.logic.visual.transform.info.objectConfig.OverrideStoreTransformInfoObjectConfig</DYNAMICCOMPONENT_NAME>
+   
+   <TRANSFORM_COMPONENTS_NAME>
+
+      <COMPONENT_NAME TRANSFORM_INFO_NAME="$STOREFRONT_NAME ROOT_TRANSFORM_INFO_NAME" >
+      </COMPONENT_NAME>
+
+   </TRANSFORM_COMPONENTS_NAME>
+
+</OBJECTCONFIG_NAME>
