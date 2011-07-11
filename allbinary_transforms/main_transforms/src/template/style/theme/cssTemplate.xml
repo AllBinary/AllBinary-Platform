@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+
+-->
+
+<CSS_ELEMENT_NAME>
+   <name>CSS_ELEMENT_NAME</name>
+   <value></value>
+                  
+   <CSS_ELEMENT_NAME>
+      <name>CSS_ELEMENT_NAME</name>
+      <value></value>
+            
+      <CSS_PROPERTY_NAME>
+         <name>CSS_PROPERTY_NAME</name>
+         <value></value>
+         
+         <CSS_PROPERTY_VALUES>
+            <CSS_PROPERTY_VALUE>
+               <name>CSS_PROPERTY_VALUE</name>
+               <value></value>
+               <index></index>
+            </CSS_PROPERTY_VALUE>
+         </CSS_PROPERTY_VALUES>
+         
+      </CSS_PROPERTY_NAME>
+   </CSS_ELEMENT_NAME>
+   
+   <CSS_PROPERTY_NAME>
+      <name>CSS_PROPERTY_NAME</name>
+      <value></value>
+         
+      <CSS_PROPERTY_VALUES>
+         <CSS_PROPERTY_VALUE>
+            <name>CSS_PROPERTY_VALUE</name>
+            <value></value>
+            <index></index>
+         </CSS_PROPERTY_VALUE>
+      </CSS_PROPERTY_VALUES>
+      
+   </CSS_PROPERTY_NAME>
+</CSS_ELEMENT_NAME>
