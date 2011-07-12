@@ -75,3 +75,88 @@ Integrated and highly customizable Scene Editor - I currently use a several 3d t
 More Plaform Support - ActionScript and HTML5 output
 Robotics Integration - RTS with real robots and real map integration
 MDA Integration - Probably won't ever happen but I would like to have an MDA tool that speeds development.  Not that Eclipse and NetBeans aren't great.
+
+What is the Freeblisket/Weblisket E-Commerce Solution?
+
+Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with the following features:
+
+Main Administrative Web Interface
+ Separate User Access Control 
+ Main Admin 
+ Store Manager 
+ Product Manager 
+ Shipping Manager 
+ Customer Manager 
+ Adjustment Manager 
+ Order Review Manager 
+ Custom User 
+ Reports 
+ Configuration 
+ Database Management 
+
+Payment Gateway Integration 
+ Paypal 
+ Verisign 
+ Others 
+
+Installation 
+ Store Wizard 
+ Web Installer 
+ Static Page Generation For Search Engines 
+
+Single Interface For Multiple E-commerce Websites 
+
+Customer
+ Edit Profile 
+ Registration 
+ Store Search 
+ Order History 
+ Disable/Enable 
+ Order Tracking 
+ Data Collection 
+ Email Notifications 
+ Secure Authentication 	Store Administrative Web Interface
+ Store Search 
+ Reports 
+ Configuration 
+
+View 
+ Basket 
+ Address 
+ Shipping 
+ Mini Cart 
+ Product Listing 
+ Custom Data Views 
+
+Product Manager 
+
+Inventory 
+ Control 
+ Import/Export 
+ Category Tree 
+ Restore/Backup 
+
+Multiple Product Type Support 
+ Custom 
+ Options 
+ Shippable 
+ Downloadable 
+ Special Pricing 
+
+Shipping Manager 
+ Order Shipment Status 
+
+Customer Manager 
+ Add 
+ Modify 
+ Remove 
+ Enable 
+ Disable 
+
+Adjustment Manager 
+ Order Items 
+ Order Status 
+ Payment Authorization 
+ Order Review Manager 
+ Email Notifications 
+ Customer Order Review
