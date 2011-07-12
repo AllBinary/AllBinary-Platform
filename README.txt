@@ -38,9 +38,11 @@ Travis Berthelot travisberthelot@hotmail.com
 
 What is the AllBinary Game Development Kit?
 
-The AllBinary Arcade Game Development Kit contains over 120 very small libraries to help ease arcade game development. The main features include the following:
+The AllBinary Arcade Game Development Kit contains over 120 very small libraries 
+to help ease arcade game development. The main features include the following:
 
-Multi-Platform - Android, J2ME, and J2SE (Moblin, IPhone, Linux, Windows, Solaris, Mac, and More)
+Multi-Platform - Android, J2ME, and J2SE 
+(Moblin, IPhone, Linux, Windows, Solaris, Mac, and More)
 Fullscreen and Windowed Support (Does not require restart to toggle between)
 Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
 OpenGL Support (1.5 and ES 1.0+) with various 2d, 2d/3d, and 3d renderers
@@ -71,14 +73,17 @@ More...
 Future Impl:
 
 More Social stuff
-Integrated and highly customizable Scene Editor - I currently use a several 3d tools as scene/model editors
+Integrated and highly customizable Scene Editor - I currently use a several 3d 
+tools as scene/model editors
 More Plaform Support - ActionScript and HTML5 output
 Robotics Integration - RTS with real robots and real map integration
-MDA Integration - Probably won't ever happen but I would like to have an MDA tool that speeds development.  Not that Eclipse and NetBeans aren't great.
+MDA Integration - Probably won't ever happen but I would like to have an MDA tool 
+that speeds development.  Not that Eclipse and NetBeans aren't great.
 
 What is the Freeblisket/Weblisket E-Commerce Solution?
 
-Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with the following features:
+Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with 
+the following features:
 
 Main Administrative Web Interface
  Separate User Access Control 
