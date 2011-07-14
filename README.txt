@@ -36,3 +36,132 @@ Who is responsible for all this shit?
 
 Travis Berthelot travisberthelot@hotmail.com
 
+What is the AllBinary Game Development Kit?
+
+The AllBinary Arcade Game Development Kit contains over 120 very small libraries 
+to help ease arcade game development. The main features include the following:
+
+Multi-Platform - Android, J2ME, and J2SE 
+(Moblin, IPhone, Linux, Windows, Solaris, Mac, and More)
+Fullscreen and Windowed Support (Does not require restart to toggle between)
+Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
+OpenGL Support (1.5 and ES 1.0+) with various 2d, 2d/3d, and 3d renderers
+Game Object Placement (Maps, Levels, Enemy Positions and More)
+Genre Specific Libraries (Racing, Scroller, Map Based, and More)
+Network Libraries (Licensing, Remote Scores, and More)
+Feature/Configuration Options Framework
+Tile Map Creation, Editing, and Loading
+Touch Screen Buttons & Gestures
+Save/Load/Delete Game State
+Special Collision Detection
+Vector Graphics Support
+Custom Input Mapping
+Key Input Processing
+Orientation Controls
+Transitions/Progress
+Special Animations
+Heads Up Displays
+Power-Ups/Drops
+Screen Shakes
+Path Finding
+Vibration
+Physics
+AI/Bots
+Teams
+More...
+
+Future Impl:
+
+More Social stuff
+Integrated and highly customizable Scene Editor - I currently use a several 3d 
+tools as scene/model editors
+More Plaform Support - ActionScript and HTML5 output
+Robotics Integration - RTS with real robots and real map integration
+MDA Integration - Probably won't ever happen but I would like to have an MDA tool 
+that speeds development.  Not that Eclipse and NetBeans aren't great.
+
+What is the Freeblisket/Weblisket E-Commerce Solution?
+
+Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with 
+the following features:
+
+Main Administrative Web Interface
+ Separate User Access Control 
+ Main Admin 
+ Store Manager 
+ Product Manager 
+ Shipping Manager 
+ Customer Manager 
+ Adjustment Manager 
+ Order Review Manager 
+ Custom User 
+ Reports 
+ Configuration 
+ Database Management 
+
+Payment Gateway Integration 
+ Paypal 
+ Verisign 
+ Others 
+
+Installation 
+ Store Wizard 
+ Web Installer 
+ Static Page Generation For Search Engines 
+
+Single Interface For Multiple E-commerce Websites 
+
+Customer
+ Edit Profile 
+ Registration 
+ Store Search 
+ Order History 
+ Disable/Enable 
+ Order Tracking 
+ Data Collection 
+ Email Notifications 
+ Secure Authentication 	Store Administrative Web Interface
+ Store Search 
+ Reports 
+ Configuration 
+
+View 
+ Basket 
+ Address 
+ Shipping 
+ Mini Cart 
+ Product Listing 
+ Custom Data Views 
+
+Product Manager 
+
+Inventory 
+ Control 
+ Import/Export 
+ Category Tree 
+ Restore/Backup 
+
+Multiple Product Type Support 
+ Custom 
+ Options 
+ Shippable 
+ Downloadable 
+ Special Pricing 
+
+Shipping Manager 
+ Order Shipment Status 
+
+Customer Manager 
+ Add 
+ Modify 
+ Remove 
+ Enable 
+ Disable 
+
+Adjustment Manager 
+ Order Items 
+ Order Status 
+ Payment Authorization 
+ Order Review Manager 
+ Email Notifications 
+ Customer Order Review
