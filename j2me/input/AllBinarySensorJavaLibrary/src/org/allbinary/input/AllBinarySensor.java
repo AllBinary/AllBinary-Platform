@@ -1,0 +1,66 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package org.allbinary.input;
+
+import abcs.logic.basic.NotImplemented;
+import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.communication.log.ForcedLogUtil;
+import abcs.logic.communication.log.LogFactory;
+import abcs.logic.communication.log.LogUtil;
+
+public class AllBinarySensor
+implements AllBinarySensorListener
+{
+    private static int max = 100;
+    
+    protected AllBinarySensor()
+    {
+        
+    }
+    
+    public void init()
+    {
+    }
+
+    public void update()
+    throws Exception
+    {
+        
+    }
+    
+    public static void setMax(int max)
+    {
+        AllBinarySensor.max = max;
+    }
+    
+    public static int getMax()
+    {
+        return max;
+    }
+    
+    public int getId()
+    {
+        return AllBinarySensor.getMax();
+    }
+    
+    public void shutdown()
+    {
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "shutdown"));
+    }
+    
+    public void onSensorChange()
+    {
+        ForcedLogUtil.log(NotImplemented.NAME, this);
+    }
+}
