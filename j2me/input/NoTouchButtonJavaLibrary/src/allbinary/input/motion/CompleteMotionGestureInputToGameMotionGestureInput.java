@@ -1,0 +1,27 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package allbinary.input.motion;
+
+import abcs.logic.communication.log.PreLogUtil;
+
+public class CompleteMotionGestureInputToGameMotionGestureInput
+{
+   private static final CompleteMotionGestureInputToGameMotionGestureInput instance =
+           new CompleteMotionGestureInputToGameMotionGestureInput();
+   
+    public static void init()
+    {
+       PreLogUtil.put("No Touch Button = No Compound Motion Gestures", instance, "init");
+    }
+}
