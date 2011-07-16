@@ -1,0 +1,262 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package allbinary.game.media.graphics.geography.map.racetrack;
+
+import org.allbinary.util.BasicArrayList;
+import org.jgrapht.GraphPath;
+import org.jgrapht.graph.DefaultWeightedEdge;
+import org.jgrapht.graph.SimpleWeightedGraph;
+
+import abcs.logic.communication.log.Log;
+import abcs.logic.communication.log.LogUtil;
+import allbinary.game.layer.AllBinaryTiledLayer;
+import allbinary.graphics.CellPosition;
+import allbinary.media.graphics.geography.map.BasicGeographicMap;
+import allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
+import allbinary.media.graphics.geography.map.BasicGeographicMapUtil;
+import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMap;
+import allbinary.media.graphics.geography.pathfinding.PathFindingNode;
+
+/**
+ *
+ * @author user
+ */
+public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor<V, E>
+{
+
+    //RaceTrackGeographicMap raceTrackGeographicMap
+    public PathFinderGraphHackVisitor(
+        final BasicGeographicMap geographicMapInterface,
+       int edgeMinimum, int minPathWeight, int maxPathWeight)
+    {
+        super(geographicMapInterface, edgeMinimum, minPathWeight, maxPathWeight);
+    }
+
+    public void visit(SimpleWeightedGraph graph,
+       BasicArrayList startPathFindingNodeList,
+       BasicArrayList endPathFindingNodeList)
+       throws Exception
+    {
+        this.fixStart(graph, startPathFindingNodeList);
+
+        this.fixEnd(graph, endPathFindingNodeList);
+
+        this.fixOverPassEdges(graph);
+    }
+
+    private void fixStart(SimpleWeightedGraph<CellPosition, DefaultWeightedEdge> graph,
+       BasicArrayList startPathFindingNodeList)
+       throws Exception
+    {
+        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+           this.geographicMapInterface.getGeographicMapCellPositionFactory();
+
+        AllBinaryTiledLayer tiledLayer =
+            this.geographicMapInterface.getAllBinaryTiledLayer();
+
+        for (int index = startPathFindingNodeList.size() - 1; index >= 0; index--)
+        {
+            PathFindingNode startPathFindingNode =
+               (PathFindingNode) startPathFindingNodeList.get(index);
+
+            GeographicMapCellPosition geographicMapCellPosition =
+               startPathFindingNode.getGeographicMapCellPosition();
+
+            int column = geographicMapCellPosition.getColumn();
+            int row = geographicMapCellPosition.getRow();
+
+            //If going beyond the tile layer then it is not a closed loop
+            int nextRow = row + 1;
+            if (tiledLayer.isOnTileLayer(column, nextRow))
+            {
+                GeographicMapCellPosition geographicMapCellPositionNeighbor =
+                   geographicMapCellPositionFactory.getInstance(
+                   column, nextRow);
+
+                //LogUtil.put(new Log("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart"));
+
+                graph.removeEdge(
+                   geographicMapCellPosition,
+                   geographicMapCellPositionNeighbor);
+            }
+        }
+
+    }
+
+    private void fixEnd(SimpleWeightedGraph<CellPosition, DefaultWeightedEdge> graph,
+       BasicArrayList endPathFindingNodeList)
+       throws Exception
+    {
+        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+           this.geographicMapInterface.getGeographicMapCellPositionFactory();
+
+        AllBinaryTiledLayer tiledLayer =
+            this.geographicMapInterface.getAllBinaryTiledLayer();
+
+        for (int index = endPathFindingNodeList.size() - 1; index >= 0; index--)
+        {
+            PathFindingNode endPathFindingNode =
+               (PathFindingNode) endPathFindingNodeList.get(index);
+
+            GeographicMapCellPosition geographicMapCellPosition =
+               endPathFindingNode.getGeographicMapCellPosition();
+
+            graph.addVertex(geographicMapCellPosition);
+
+            int column = geographicMapCellPosition.getColumn();
+            int row = geographicMapCellPosition.getRow();
+
+            //If going beyond the tile layer then it is not a closed loop
+            int nextRow = row + 1;
+            if (tiledLayer.isOnTileLayer(column, nextRow))
+            {
+                GeographicMapCellPosition geographicMapCellPositionNeighbor =
+                   geographicMapCellPositionFactory.getInstance(
+                   column, nextRow);
+
+                graph.addEdge(
+                   geographicMapCellPosition,
+                   geographicMapCellPositionNeighbor);
+            }
+        }
+
+    }
+
+    private void fixOverPassEdges(
+       SimpleWeightedGraph<CellPosition, DefaultWeightedEdge> graph)
+       throws Exception
+    {
+        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+           this.geographicMapInterface.getGeographicMapCellPositionFactory();
+
+        RaceTrackGeographicMap raceTrackGeographicMap =
+            (RaceTrackGeographicMap) this.geographicMapInterface;
+
+        //Add Over Passes
+        CellPosition[] CellPositionArray =
+           raceTrackGeographicMap.getRaceTrackData().getOverPassGeographicMapCellPositionArray();
+
+        for (int index = CellPositionArray.length - 1; index >= 0; index--)
+        {
+            CellPosition overPassGeographicMapCellPosition =
+               CellPositionArray[index];
+
+            LogUtil.put(new Log("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges"));
+
+            GeographicMapCellPosition underPassGeographicMapCellPosition =
+               geographicMapCellPositionFactory.getInstance(
+               overPassGeographicMapCellPosition.getColumn(),
+               overPassGeographicMapCellPosition.getRow());
+
+            GeographicMapCellPosition rightUnderPassGeographicMapCellPosition =
+               geographicMapCellPositionFactory.getInstance(
+               overPassGeographicMapCellPosition.getColumn() + 1,
+               overPassGeographicMapCellPosition.getRow());
+
+            GeographicMapCellPosition leftUnderPassGeographicMapCellPosition =
+               geographicMapCellPositionFactory.getInstance(
+               overPassGeographicMapCellPosition.getColumn() - 1,
+               overPassGeographicMapCellPosition.getRow());
+
+            //Remove under pass cross connections
+            graph.removeEdge(
+               underPassGeographicMapCellPosition,
+               rightUnderPassGeographicMapCellPosition);
+            graph.removeEdge(
+               underPassGeographicMapCellPosition,
+               leftUnderPassGeographicMapCellPosition);
+
+            graph.addVertex(overPassGeographicMapCellPosition);
+            graph.addEdge(overPassGeographicMapCellPosition,
+               rightUnderPassGeographicMapCellPosition);
+            graph.addEdge(overPassGeographicMapCellPosition,
+               leftUnderPassGeographicMapCellPosition);
+        }
+    }
+
+    public void fixPath(BasicArrayList startPathFindingNodeList,
+       BasicArrayList endPathFindingNodeList, BasicArrayList pathList)
+       throws Exception
+    {
+        //LogUtil.put(LogFactory.getInstance("Path: " + pathList, this, "fixPath"));
+
+        for (int index = startPathFindingNodeList.size() - 1; index >= 0; index--)
+        {
+            PathFindingNode endPathFindingNode = (PathFindingNode) endPathFindingNodeList.get(index);
+            PathFindingNode startPathFindingNode = (PathFindingNode) startPathFindingNodeList.get(index);
+
+            //Fix Start/End Hack
+            if(BasicGeographicMapUtil.getInstance().isSameCellPosition(
+               startPathFindingNode.getGeographicMapCellPosition(),
+               endPathFindingNode.getGeographicMapCellPosition()))
+            //if (startPathFindingNode.getGeographicMapCellPosition() ==
+              // endPathFindingNode.getGeographicMapCellPosition())
+            {
+                if (pathList.remove(endPathFindingNode.getGeographicMapCellPosition()))
+                {
+                    pathList.remove(startPathFindingNode.getGeographicMapCellPosition());
+                    pathList.add(0, startPathFindingNode.getGeographicMapCellPosition());
+                }
+            }
+
+        }
+        this.removeOverPassEdges(pathList);
+    }
+
+    //Fix Over pass Hack
+    private void removeOverPassEdges(BasicArrayList pathList)
+       throws Exception
+    {
+        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+           this.geographicMapInterface.getGeographicMapCellPositionFactory();
+
+        RaceTrackGeographicMap raceTrackGeographicMap =
+            (RaceTrackGeographicMap) this.geographicMapInterface;
+
+        CellPosition[] CellPositionArray =
+           raceTrackGeographicMap.getRaceTrackData().getOverPassGeographicMapCellPositionArray();
+
+        for (int index = CellPositionArray.length - 1; index >= 0; index--)
+        {
+            CellPosition overPassGeographicMapCellPosition =
+               CellPositionArray[index];
+
+            GeographicMapCellPosition underPassGeographicMapCellPosition =
+               geographicMapCellPositionFactory.getInstance(
+               overPassGeographicMapCellPosition.getColumn(),
+               overPassGeographicMapCellPosition.getRow());
+
+            int indexOf = pathList.indexOf(overPassGeographicMapCellPosition);
+            if (indexOf != -1)
+            {
+                pathList.set(indexOf, underPassGeographicMapCellPosition);
+            }
+        }
+    }
+
+    public boolean isValid(GraphPath graphPath)
+    {
+        if (graphPath.getEdgeList().size() > edgeMinimum &&
+            graphPath.getWeight() < maxPathWeight &&
+            graphPath.getWeight() > minPathWeight)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+}
