@@ -8,6 +8,8 @@ The AllBinary Platform contains the following:
 : AllBinary Game Development Kit (http://allbinarygames.appspot.com)
 : Freeblisket/Weblisket E-Commerce Solution (http://www.allbinary.com)
 : AllBinary Input Automation
+: AllBinary Vector Graphics Tool
+: AllBinary Sprite Tool
 : And Everything Else AllBinary.
 
 It represents 10 years of development and > 1 million LOC.
@@ -15,8 +17,26 @@ It represents 10 years of development and > 1 million LOC.
 What is the goal?
 
 The goal of the AllBinary Platform is to create a Self Replicating Robot Army 
-dedicated to building and maintaining Open Source SpaceShips to escape the 
+dedicated to protecting, building, and maintaining Open Source Space Ships to escape the 
 tyrants of Earth.
+
+What is still needed to obtain the Self Replicating Robot Army?
+
+: MMORTS - For the control of robots using crowd sourcing.
+: Resource Collection API 
+: 3D Printer API
+: Convert existing Open Robots for the 3D printer API
+: Convert existing Open Resource Machines for the 3D Printer API - mainly smelting, ore separation, extrusion material formation
+
+After the Self Replicating Robot Army is created what is needed for the Open Source Space Ships?
+
+: Parts Development using all off the self technologies for the following APIs in order of need:
+: Environmental Control/Life Support - Oxygen, Temperature, Gravity, and other Controls and Sensors
+: Defense
+: Propulsion
+: Navigation
+: Repair
+: Communications
 
 What is the Current Version?
 
