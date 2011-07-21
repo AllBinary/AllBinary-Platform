@@ -5,7 +5,7 @@ What is it?
 This Repository Contains The AllBinary Platform without thirdparty stuff.
 The AllBinary Platform contains the following:
 
-: AllBinary Game Development Kit (http://allbinarygames.appspot.com)
+: AllBinary Game Development Kit (http://allbinarygames.appspot.com) includes the AllBinary Multi-Platform Development Kit
 : Freeblisket/Weblisket E-Commerce Solution (http://www.allbinary.com)
 : AllBinary Input Automation
 : AllBinary Vector Graphics Tool
