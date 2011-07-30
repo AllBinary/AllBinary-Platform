@@ -39,17 +39,13 @@ public class VectorRotationAnimation extends VectorBaseRotationAnimation
       //LogUtil.put(LogFactory.getInstance(this.getAngleInfo().toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
    }
    
-   public void nextFrame()
-   {
-      super.nextFrame();
-      
+   public void nextRotation()
+   {      
       this.angleInfo.adjustAngle(this.getFrame());
    }
    
-   public void previousFrame()
+   public void previousRotation()
    {
-      super.previousFrame();
-      
       this.angleInfo.adjustAngle(this.getFrame());
    }
    
