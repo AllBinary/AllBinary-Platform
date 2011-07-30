@@ -17,6 +17,8 @@ import abcs.logic.basic.string.StringUtil;
 
 public class J2MEGameKey extends Input
 {
+    private final InputFactory inputFactory = InputFactory.getInstance();
+    
     protected J2MEGameKey(int key, String keyName)
     {
         super(key, keyName);
@@ -24,7 +26,7 @@ public class J2MEGameKey extends Input
         int id = this.getId();
         if(id >= 0)
         {
-            inputIntegerArray[id] = this;
+            inputFactory.add(id, this);
         }
     }
 
@@ -35,14 +37,14 @@ public class J2MEGameKey extends Input
 
     public static String getString(int keyCode)
     {
-        Input input = Input.getInstance(keyCode);
+        Input input = InputFactory.getInstance().getInstance(keyCode);
         if(input != null)
         {
             return input.getName();
         }
         else
         {
-            return StringUtil.getInstance();
+            return StringUtil.getInstance().EMPTY_STRING;
         }
     }
 }
