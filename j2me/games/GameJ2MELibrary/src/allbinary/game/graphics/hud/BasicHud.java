@@ -25,7 +25,6 @@ import allbinary.graphics.PointFactory;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.event.DisplayChangeEvent;
 import allbinary.graphics.font.MyFont;
@@ -47,7 +46,7 @@ public class BasicHud //implements DisplayChangeEventListener
    private int y;
 
    private final BasicColorSetUtil basicColorUtil = 
-       BasicColorUtilFactory.getInstance();
+       BasicColorSetUtil.getInstance();
    
    private BasicColor basicColor;
    private int color;
