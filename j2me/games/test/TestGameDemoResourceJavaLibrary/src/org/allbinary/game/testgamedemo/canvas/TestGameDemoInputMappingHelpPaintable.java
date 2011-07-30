@@ -20,9 +20,10 @@ import org.allbinary.game.testgamedemo.input.TestGameDemoGameInputMappingFactory
 import allbinary.animation.AnimationInterface;
 import allbinary.game.paint.help.HelpPaintable;
 import allbinary.game.paint.help.InputMappingHelpPaintable;
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 
-public class TestGameDemoInputMappingHelpPaintable extends InputMappingHelpPaintable
+public class TestGameDemoInputMappingHelpPaintable 
+    extends InputMappingHelpPaintable
     implements AnimationInterface
 {    
     private static HelpPaintable SINGLETON = new TestGameDemoInputMappingHelpPaintable();
@@ -34,7 +35,9 @@ public class TestGameDemoInputMappingHelpPaintable extends InputMappingHelpPaint
     
     private TestGameDemoInputMappingHelpPaintable()
     {
-        super(TestGameDemoGameInputMappingFactory.getInstance().get(), BasicColor.BLACK, BasicColor.YELLOW);
+        super(TestGameDemoGameInputMappingFactory.getInstance().get(), 
+                BasicColorFactory.getInstance().BLACK, 
+                BasicColorFactory.getInstance().YELLOW);
     }
 
     //Remove hack after resource factory supports Paintable
@@ -42,7 +45,11 @@ public class TestGameDemoInputMappingHelpPaintable extends InputMappingHelpPaint
     {
         
     }
-     
+
+    public void paintThreed(Graphics graphics, int x, int y, int z)
+    {
+    }
+    
     public void nextFrame() throws Exception
     {
         
