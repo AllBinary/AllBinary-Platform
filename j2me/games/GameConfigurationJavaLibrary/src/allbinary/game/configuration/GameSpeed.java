@@ -16,17 +16,21 @@ package allbinary.game.configuration;
 public class GameSpeed
 {
     private static final GameSpeed instance = new GameSpeed();
-    
+
     public final int getSpeed()
     {
-        return (GameConfigurationCentral.getInstance().SPEED.getMaxValue().intValue() - 
-                GameConfigurationCentral.getInstance().SPEED.getValue().intValue() + 1);
+        GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
+
+        return (speedGameConfiguration.getMaxValue().intValue() - 
+                speedGameConfiguration.getValue().intValue() + 1);
     }
-    
+
     public final int getDelay()
     {
-        return 16 * (GameConfigurationCentral.getInstance().SPEED.getMaxValue().intValue() - 
-                GameConfigurationCentral.getInstance().SPEED.getValue().intValue());
+        GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
+
+        return 16 * (speedGameConfiguration.getMaxValue().intValue() - 
+                speedGameConfiguration.getValue().intValue());
     }
 
     public static GameSpeed getInstance()
