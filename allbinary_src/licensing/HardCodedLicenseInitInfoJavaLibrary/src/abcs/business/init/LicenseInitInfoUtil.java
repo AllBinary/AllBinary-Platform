@@ -58,8 +58,12 @@ public class LicenseInitInfoUtil
     {
         LicenseInitInfo licenseInitInfo = new LicenseInitInfo();
         licenseInitInfo.clearServers();
+<<<<<<< HEAD
         
       //Add your servers here
+=======
+
+>>>>>>> 294566e71f6c46d1aef76e2381adfa719f37e248
         //licenseInitInfo.addServer();
 
         return licenseInitInfo;
