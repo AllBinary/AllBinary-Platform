@@ -24,7 +24,7 @@ public class OpenGLCapabilities
         return instance;
     }
 
-    private String glVersion = StringUtil.getInstance();
+    private String glVersion = StringUtil.getInstance().EMPTY_STRING;
 
     private OpenGLCapabilities()
     {
