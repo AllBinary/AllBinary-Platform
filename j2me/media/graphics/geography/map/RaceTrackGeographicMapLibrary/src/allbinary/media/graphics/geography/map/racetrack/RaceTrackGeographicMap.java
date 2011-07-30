@@ -20,15 +20,16 @@ public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap
 {
    public RaceTrackGeographicMap(
       RaceTrackInfo raceTrackInfo,
-      RaceTrackData raceTrackData, 
+      RaceTrackData raceTrackData,
+      AllBinaryTiledLayerFactoryInterface tiledLayerFactoryInterface,
       GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
       GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory)
       throws Exception
    {
       super(raceTrackInfo, raceTrackData, 
-              new AllBinaryTiledLayerFactory().getInstance(raceTrackInfo, raceTrackData),
+              tiledLayerFactoryInterface.getInstance(raceTrackInfo, raceTrackData),
               new BasicGeographicMapFactory().getInstance(
-                 raceTrackInfo, raceTrackData, geographicMapCellPositionFactoryInterface),
+                 raceTrackInfo, raceTrackData, tiledLayerFactoryInterface, geographicMapCellPositionFactoryInterface),
               geographicMapCellPositionFactoryInterface,
               geographicMapCellPositionBaseFactory);
    }   
