@@ -22,6 +22,9 @@ import javax.microedition.lcdui.Item;
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
+import org.allbinary.game.resource.ResourceLoadingLevel;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
@@ -35,9 +38,6 @@ import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
-import allbinary.android.view.CurrentDisplayableFactory;
-import allbinary.animation.resource.ResourceLoadingLevel;
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
 import allbinary.canvas.BaseGameStatistics;
 import allbinary.canvas.GameStatisticsFactory;
 import allbinary.canvas.Processor;
@@ -94,7 +94,6 @@ import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.graphics.displayable.command.MyCommandsFactory;
 import allbinary.graphics.displayable.event.DisplayChangeEvent;
 import allbinary.graphics.displayable.event.DisplayChangeEventHandler;
@@ -134,7 +133,7 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
 {
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
 
-    private final BasicColorSetUtil basicColorUtil = BasicColorUtilFactory.getInstance();
+    private final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
 
     private final SensorGameUpdateProcessor sensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
     private EndGameInfo endGameInfo = new EndGameInfo();
@@ -1278,6 +1277,10 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
         //// End - This is what is called without buffering
 
         menuPaintable.paint(graphics);
+    }
+
+    public void paintThreed(Graphics graphics)
+    {
     }
 
     // TWB - This hack method should be removed once I figure out how it should
