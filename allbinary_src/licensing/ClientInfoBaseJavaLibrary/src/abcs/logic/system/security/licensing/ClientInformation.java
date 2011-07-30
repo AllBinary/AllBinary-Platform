@@ -126,7 +126,7 @@ public class ClientInformation implements AbeClientInformationInterface
      */
     public String getLicenseServer(int index)
     {
-        return (String) this.getLicenseServers().get(index);
+        return (String) this.licenseServers.get(index);
     }
 
     /*
@@ -137,7 +137,7 @@ public class ClientInformation implements AbeClientInformationInterface
      */
     public int getNumberOfLicenseServers()
     {
-        return this.getLicenseServers().size();
+        return this.licenseServers.size();
     }
 
     /*
@@ -202,7 +202,7 @@ public class ClientInformation implements AbeClientInformationInterface
     public boolean isLargerOrDifferentServerList(BasicArrayList list)
     {
         int size = list.size() - 1;
-        int currentSize = this.getLicenseServers().size() - 1;
+        int currentSize = this.licenseServers.size() - 1;
 
         if (size > currentSize)
         {
@@ -214,8 +214,8 @@ public class ClientInformation implements AbeClientInformationInterface
             String newServerName = (String) list.get(index);
             for (int index2 = currentSize; index2 >= 0; index2--)
             {
-                String nextOldServerName = (String) this.getLicenseServers()
-                        .get(index);
+                String nextOldServerName = (String) 
+                    this.licenseServers.get(index);
 
                 if (newServerName.compareTo(nextOldServerName) != 0)
                 {
