@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Image;
 import allbinary.animation.RotationAnimation;
 import allbinary.graphics.Anchor;
 import allbinary.logic.math.PrimitiveIntUtil;
+import allbinary.math.AngleInfo;
 
 public class AllBinaryImageBaseRotationAnimation extends RotationAnimation
 {
@@ -26,34 +27,12 @@ public class AllBinaryImageBaseRotationAnimation extends RotationAnimation
 
     //private static final int currentFrame = 0;
     //private static final int totalFrames = 1;
-    public AllBinaryImageBaseRotationAnimation(Image image)
+    public AllBinaryImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle)
         throws Exception
     {
+        super(angleInfo, totalAngle);
+        
         this.image = image;
-    }
-
-    public void nextFrame()
-    {
-    }
-
-    public void previousFrame()
-    {
-    }
-
-    public void setFrame(int index)
-    {
-    }
-
-    public int getFrame()
-    {
-        //return this.currentFrame;
-        return 0;
-    }
-
-    public int getSize()
-    {
-        //return this.totalFrames;
-        return 1;
     }
 
     public void setSequence(int[] sequence)
