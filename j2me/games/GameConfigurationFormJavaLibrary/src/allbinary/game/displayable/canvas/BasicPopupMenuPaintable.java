@@ -24,7 +24,6 @@ import allbinary.graphics.Rectangle;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.graphics.draw.DrawStringUtil;
 import allbinary.graphics.font.MyFont;
 import allbinary.graphics.paint.Paintable;
@@ -40,7 +39,7 @@ public class BasicPopupMenuPaintable extends Paintable
     private static final String NAME = "MENU";
 
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
 
     private final BasicColor foregroundBasicColor;
     
