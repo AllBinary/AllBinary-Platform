@@ -11,6 +11,10 @@
 
            <excludes>
                <exclude>org.allbinary:ApplicationStatisticsJ2MELibrary</exclude>
+               <exclude>org.allbinary:LoggingJ2MEAll</exclude>
+               <exclude>org.allbinary:J2SEForJ2MEJavaLibrary</exclude>
+               <exclude>org.allbinary:TouchJ2MENoneJavaLibrary</exclude>
+               
                <exclude>org.microemu:microemulator</exclude>
            </excludes>
 
