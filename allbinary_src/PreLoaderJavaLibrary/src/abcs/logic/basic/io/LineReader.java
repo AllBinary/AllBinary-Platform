@@ -70,8 +70,13 @@ public class LineReader
         try
         {
             int nextIndex = string.indexOf("\n",index);
-            if(nextIndex==-1) throw new Exception("hasNext() should have been called first");
-            String temp = string.substring(index,nextIndex);
+
+            if(nextIndex==-1)
+            {
+                throw new Exception("next() should have been called first");
+            }
+
+            String temp = string.substring(index, nextIndex);
             index=nextIndex+1;
             return temp;
         }
