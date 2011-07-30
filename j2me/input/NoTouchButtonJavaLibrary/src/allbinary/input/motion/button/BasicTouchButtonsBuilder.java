@@ -13,19 +13,19 @@
 */
 package allbinary.input.motion.button;
 
+import abcs.logic.basic.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
-import allbinary.animation.Animation;
 
 public class BasicTouchButtonsBuilder
-    extends BaseTouchInputFactory
+    extends BaseTouchInput
 {
     private static final BasicTouchButtonsBuilder SINGLETON = new BasicTouchButtonsBuilder();
 
-    public static final BaseTouchInputFactory getInstance()
+    public static final BaseTouchInput getInstance()
     {
         return SINGLETON;
     }
@@ -34,7 +34,7 @@ public class BasicTouchButtonsBuilder
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().GET_LIST));
             
             final BasicArrayList list = new BasicArrayList();
             
@@ -42,8 +42,8 @@ public class BasicTouchButtonsBuilder
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "getList", e));
-            return BasicArrayListUtil.getImmutableInstance();
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_LIST, e));
+            return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }
 }
