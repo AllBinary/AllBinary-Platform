@@ -15,7 +15,7 @@ package org.allbinary.game.testgamedemo.layer;
 
 import allbinary.game.GameInfo;
 import allbinary.game.layer.AllBinaryGameLayerManager;
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 
 public class TestGameDemoLayerManager extends AllBinaryGameLayerManager
 {
@@ -25,7 +25,7 @@ public class TestGameDemoLayerManager extends AllBinaryGameLayerManager
    
    public TestGameDemoLayerManager(GameInfo gameInfo)
    {
-      super(BasicColor.AQUA, BasicColor.YELLOW, gameInfo);
+      super(BasicColorFactory.getInstance().AQUA, BasicColorFactory.getInstance().YELLOW, gameInfo);
    }
 
    /*
