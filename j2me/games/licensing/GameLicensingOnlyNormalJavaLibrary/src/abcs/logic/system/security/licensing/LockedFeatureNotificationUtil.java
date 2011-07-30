@@ -18,6 +18,7 @@ import abcs.logic.java.bool.BooleanFactory;
 import allbinary.game.layer.hud.basic.event.GameNotificationEvent;
 import allbinary.game.layer.hud.basic.event.GameNotificationEventHandler;
 import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 import allbinary.logic.math.SmallIntegerSingletonFactory;
 import allbinary.media.audio.ErrorSound;
 import allbinary.media.audio.PrimaryPlayerQueueFactory;
@@ -36,8 +37,8 @@ public class LockedFeatureNotificationUtil
         new GameNotificationEvent(
                 this, 
                 LicenseStrings.getInstance().LOCKED,
-                SmallIntegerSingletonFactory.getInstance(3),
-                BasicColor.RED,
+                SmallIntegerSingletonFactory.getInstance().getInstance(3),
+                BasicColorFactory.getInstance().RED,
                 BooleanFactory.getInstance().FALSE);
     
     public void fire() throws Exception
