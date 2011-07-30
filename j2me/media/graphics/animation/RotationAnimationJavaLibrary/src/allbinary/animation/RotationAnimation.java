@@ -16,24 +16,36 @@ package allbinary.animation;
 import org.allbinary.util.CircularIndexUtil;
 
 import allbinary.direction.Direction;
-import allbinary.direction.DirectionFactory;
 import allbinary.direction.DirectionUtil;
 import allbinary.math.Angle;
 import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
+import allbinary.math.FrameUtil;
 
 public class RotationAnimation 
     extends IndexedAnimation 
     implements RotationAnimationInterface
 {
     protected final DirectionUtil directionUtil = DirectionUtil.getInstance();
-    
-    private final AngleInfo angleInfo = AngleInfo.getInstance((AngleFactory.getInstance().TOTAL_ANGLE >> 2));
-
+    protected final AngleInfo angleInfo;
     protected CircularIndexUtil circularIndexUtil;
+
+    protected RotationAnimation(AngleInfo angleInfo)
+    {
+        this.angleInfo = angleInfo;
+    }
     
+    protected RotationAnimation(AngleInfo angleInfo, short totalAngle)
+    {
+        this.angleInfo = angleInfo;
+        this.circularIndexUtil = CircularIndexUtil.getInstance(
+                totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement());
+    }
+
     protected RotationAnimation()
     {
+        this.angleInfo = AngleInfo.getInstance((AngleFactory.getInstance().TOTAL_ANGLE >> 2)); //
+        //AngleFactory.getInstance().TOTAL_ANGLE / angleInfo.getAngleIncrementInfo().getAngleIncrement() == 4
         this.circularIndexUtil = CircularIndexUtil.getInstance(4);
     }
 
@@ -41,37 +53,30 @@ public class RotationAnimation
     throws Exception
     {
         //super.nextFrame();
-        
-        this.circularIndexUtil.next();
-
-        this.angleInfo.adjustAngle(this.circularIndexUtil.getIndex());
+        this.angleInfo.adjustAngle(this.circularIndexUtil.next());
     }
 
-    public void previousRotation() {
+    public void previousRotation() 
+    {
         //super.previousFrame();
-
-        this.circularIndexUtil.previous();
-        
-        this.angleInfo.adjustAngle(this.circularIndexUtil.getIndex());
+        this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
     }
 
-    public void nextRotation(AngleInfo angleInfo)
-    throws Exception
+    public void setFrame(int index)
     {
-        //this.circularIndexUtil.next();
+        //int currentFrame = this.circularIndexUtil.getIndex();
+        this.circularIndexUtil.setIndex(index);
 
-        //this.getAngleInfo().adjustAngle(this.circularIndexUtil.getIndex());
-    }
-
-    public void previousRotation(AngleInfo angleInfo) 
-    {
-        //this.circularIndexUtil.previous();
+        int newFrame = this.circularIndexUtil.getIndex();
         
-        //this.getAngleInfo().adjustAngle(this.circularIndexUtil.getIndex());
+        this.angleInfo.adjustAngle(newFrame);
     }
-    
+
     public void setFrame(Direction direction)
     {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "setFrame"));
+
+        /*
         DirectionFactory directionFactory = DirectionFactory.getInstance();
         
         if(directionFactory.UP == direction)
@@ -95,22 +100,40 @@ public class RotationAnimation
                     }
 
         this.angleInfo.adjustAngle(this.circularIndexUtil.getIndex());
-    }
+        */
 
+        Angle angle = directionUtil.getFrameAngle(direction);
+        this.adjustFrame(angle);
+    }
+        
     public void setFrame(Angle angle)
     {
+        this.adjustFrame(angle);
     }
 
-    public void adjustFrame(Angle newAngle)
+    public void adjustFrame(Angle angle)
     {
-        this.angleInfo.setAngle(newAngle.getValue());
+        this.adjustFrame(angle.getValue());
     }
+
+    private final FrameUtil frameUtil = FrameUtil.getInstance();
 
     public void adjustFrame(short angle)
     {
-        this.angleInfo.setAngle(angle);
+        this.setFrame(this.frameUtil.getFrameForAngle(
+                angle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
 
+    public int getFrame()
+    {
+        return this.circularIndexUtil.getIndex();
+    }
+    
+    public int getSize()
+    {
+        return this.circularIndexUtil.getSize();
+    }
+    
     public AngleInfo getAngleInfo()
     {
         return this.angleInfo;
