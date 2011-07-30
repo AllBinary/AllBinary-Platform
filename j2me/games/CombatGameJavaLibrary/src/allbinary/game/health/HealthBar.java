@@ -16,11 +16,9 @@ package allbinary.game.health;
 import javax.microedition.lcdui.Graphics;
 
 import allbinary.game.graphics.hud.BasicHudFactory;
-import allbinary.game.layer.hud.basic.health.Health;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.graphics.paint.Paintable;
 import allbinary.layer.AllBinaryLayer;
 
@@ -31,7 +29,7 @@ public class HealthBar extends Paintable implements HealthListenerInterface
     private HealthInterface healthInterface;
 
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     private BasicColor basicColor;
     private int color;
