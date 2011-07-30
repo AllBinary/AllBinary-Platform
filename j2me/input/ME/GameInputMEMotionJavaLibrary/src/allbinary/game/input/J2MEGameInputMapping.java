@@ -40,7 +40,7 @@ public class J2MEGameInputMapping extends PersistentInputMapping
     public boolean isDelete(Input input)
     {
         //if(input == J2MEKeyFactory.getInstance())
-        if(input == GameKey.GAME_D)
+        if(input == GameKeyFactory.getInstance().GAME_D)
         {
             return true;
         }
