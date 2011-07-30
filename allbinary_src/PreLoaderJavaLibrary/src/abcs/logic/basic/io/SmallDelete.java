@@ -31,6 +31,7 @@ public class SmallDelete
         string = FileUtil.getInstance().readAsString(fileName);
     }
 
+    //Include end
     public boolean deleteAtStart(String start, String end)
     {
         try
@@ -42,32 +43,48 @@ public class SmallDelete
 
             //LogUtil.put(LogFactory.getInstance("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart"));
             
-            if (beginIndex >= 0 && endIndex >= 0 && beginIndex < 10 && endIndex < 525)
+            if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 10 && endIndex < 525)
             {
-                //TWB - a new line is assumed so + 2
-/*
-                for(int index = 0; index < end.length() + 2; index++)
-                {
-                    if (this.string.charAt(endIndex + index) != 'p')
-                    {
-                        endIndex++;
-                    }
-                    else
-                    {
-                        if(index == 0)
-                        {
-                            endIndex++;
-                        }
-
-                        break;
-                    }
-                }
-  */              
                 final String text = this.string.substring(endIndex, this.string.length());
 
                 FileOutputStream idFile = new FileOutputStream(this.fileName);
                 DataOutputStream idOutData = new DataOutputStream(idFile);
                 idOutData.writeBytes(text);
+
+                return true;
+            }
+
+            return false;
+        } catch (Exception e)
+        {
+            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.IDLOGGING))
+            {
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "deleteAtStart", e));
+            }
+            return false;
+        }
+    }
+
+    public boolean deleteBetween(String start, String end)
+    {
+        try
+        {
+            int beginIndex, endIndex;
+
+            beginIndex = this.string.indexOf(start);
+            endIndex = this.string.indexOf(end);
+
+            //LogUtil.put(LogFactory.getInstance("StartIndex: " + beginIndex + " EndIndex: " + endIndex, this, "deleteAtStart"));
+            
+            if (endIndex > beginIndex && beginIndex >= 0 && endIndex >= 0 && beginIndex < 50 && endIndex < 425)
+            {
+                final String newStart = this.string.substring(0, beginIndex);
+                
+                final String text = this.string.substring(endIndex + end.length(), this.string.length());
+
+                FileOutputStream idFile = new FileOutputStream(this.fileName);
+                DataOutputStream idOutData = new DataOutputStream(idFile);
+                idOutData.writeBytes(newStart + text);
 
                 return true;
             }
