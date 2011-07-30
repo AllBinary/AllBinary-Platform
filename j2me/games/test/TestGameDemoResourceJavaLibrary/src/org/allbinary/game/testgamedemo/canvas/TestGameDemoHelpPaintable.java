@@ -14,7 +14,7 @@
 package org.allbinary.game.testgamedemo.canvas;
 
 import allbinary.game.paint.help.HelpPaintable;
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 
 public class TestGameDemoHelpPaintable extends HelpPaintable
 {
@@ -36,7 +36,7 @@ Turn= Right, 6, or K
 Reverse= Down, 8, or M
         */
         
-    	super(BasicColor.RED);
+    	super(BasicColorFactory.getInstance().RED);
         
         this.setInputInfo(new String[]
                          {"Line 1", "Line 2"});
