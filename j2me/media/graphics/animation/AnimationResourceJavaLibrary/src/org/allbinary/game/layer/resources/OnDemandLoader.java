@@ -13,8 +13,9 @@
 */
 package org.allbinary.game.layer.resources;
 
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+
 import allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
 import allbinary.game.configuration.feature.Features;
 import allbinary.game.configuration.feature.MainFeatureFactory;
 import allbinary.game.layer.GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
