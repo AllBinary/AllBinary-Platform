@@ -16,19 +16,12 @@ package allbinary.animation;
 import javax.microedition.lcdui.Image;
 
 import allbinary.animation.image.AllBinaryImageArrayBaseRotationAnimation;
-import allbinary.direction.Direction;
-import allbinary.math.Angle;
 import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
-import allbinary.math.FrameUtil;
 
 public class AllBinaryImageArrayRotationAnimation extends
         AllBinaryImageArrayBaseRotationAnimation
 {
-    private AngleInfo angleInfo;
-
-    // private int totalAngle;
-
     // , 10, AngleIncrementInfo.TOTAL_ANGLE
     // , angleIncrement, AngleIncrementInfo.TOTAL_ANGLE
 
@@ -37,8 +30,8 @@ public class AllBinaryImageArrayRotationAnimation extends
     protected AllBinaryImageArrayRotationAnimation(Object object)
             throws Exception
     {
-        super(((AllBinaryImageArrayRotationAnimationInfo) object)
-                .getImageArray());
+        super(((AllBinaryImageArrayRotationAnimationInfo) object).getImageArray(),
+                ((AllBinaryImageArrayRotationAnimationInfo) object).getAngleInfo());
 
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR,
         // this, "AllBinaryImageRotationAnimation"));
@@ -49,6 +42,17 @@ public class AllBinaryImageArrayRotationAnimation extends
                 allBinaryImageRotationAnimationInfo.getTotalAngle());
     }
 
+    public AllBinaryImageArrayRotationAnimation(Image[] imageArray,
+            AngleInfo angleInfo, int totalAngle) throws Exception
+    {
+        super(imageArray, angleInfo);
+
+        // LogUtil.put(LogFactory.getInstance("Constructing", this,
+        // "AllBinaryImageRotationAnimation"));
+
+        this.init(imageArray, angleInfo, totalAngle);
+    }
+    
     public AllBinaryImageArrayRotationAnimation(Image[] imageArray)
             throws Exception
     {
@@ -61,17 +65,6 @@ public class AllBinaryImageArrayRotationAnimation extends
         this(imageArray, angleInfo, AngleFactory.getInstance().TOTAL_ANGLE);
     }
 
-    public AllBinaryImageArrayRotationAnimation(Image[] imageArray,
-            AngleInfo angleInfo, int totalAngle) throws Exception
-    {
-        super(imageArray);
-
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
-
-        this.init(imageArray, angleInfo, totalAngle);
-    }
-
     private void init(Image[] imageArray, AngleInfo angleInfo, int totalAngle)
             throws Exception
     {
@@ -79,15 +72,15 @@ public class AllBinaryImageArrayRotationAnimation extends
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START,
         // this, "AllBinaryImageRotationAnimation"));
 
-        this.setAngleInfo(angleInfo);
-
         this.expectedTotalFrames = totalAngle
                 / this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
 
         this.init(imageArray);
 
         if (expectedTotalFrames != this.getSize())
+        {
             throw new Exception("Wrong Number of Frames");
+        }
     }
 
     public void init(Image[] imageArray) throws Exception
@@ -101,28 +94,15 @@ public class AllBinaryImageArrayRotationAnimation extends
         this.angleInfo.adjustAngle(0);
     }
 
-    public void nextFrame()
+    /*
+    public void nextRotation()
     {
-        super.nextFrame();
-
-        this.angleInfo.adjustAngle(this.circularIndexUtil.getIndex());
+        this.angleInfo.adjustAngle(this.circularIndexUtil.next());
     }
 
-    public void previousFrame()
+    public void previousRotation()
     {
-        super.previousFrame();
-
-        this.angleInfo.adjustAngle(this.circularIndexUtil.getIndex());
-    }
-
-    public AngleInfo getAngleInfo()
-    {
-        return angleInfo;
-    }
-
-    protected void setAngleInfo(AngleInfo angleInfo)
-    {
-        this.angleInfo = angleInfo;
+        this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
     }
 
     public void setFrame(int index)
@@ -133,8 +113,7 @@ public class AllBinaryImageArrayRotationAnimation extends
     
     public void setFrame(Direction direction)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START,
-        // this, "setFrame"));
+        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "setFrame"));
         Angle angle = directionUtil.getFrameAngle(direction);
         this.adjustFrame(angle);
     }
@@ -155,4 +134,5 @@ public class AllBinaryImageArrayRotationAnimation extends
     {
         this.setFrame(frameUtil.getFrameForAngle(angle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
+    */
 }
