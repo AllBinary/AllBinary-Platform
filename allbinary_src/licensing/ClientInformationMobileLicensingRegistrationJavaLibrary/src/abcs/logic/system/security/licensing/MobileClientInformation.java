@@ -21,8 +21,8 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.system.security.licensing.registration.RegistrationConfiguration;
 
-public class MobileClientInformation extends
-        AbeClientInformation
+public class MobileClientInformation 
+    extends AbeClientInformation
 {
     protected static final String DESC = "Mobile";
     protected static final String ANDROID_DESC = "Android" + DESC;
