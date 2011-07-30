@@ -25,7 +25,7 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.GameInfo;
 import allbinary.game.GameMode;
-import allbinary.game.GameType;
+import allbinary.game.GameTypeFactory;
 import allbinary.game.PlayerTypesFactory;
 import allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import allbinary.game.layer.AllBinaryGameLayerManager;
@@ -87,7 +87,7 @@ public class TestGameDemoMIDlet extends
    protected AllBinaryGameLayerManager createGameLayerManager()
    {
        GameInfo gameInfo = new GameInfo(
-               GameType.SINGLE_PLAYER, GameMode.SERVER,
+               GameTypeFactory.getInstance().SINGLE_PLAYER, GameMode.SERVER,
                PlayerTypesFactory.getInstance().PLAYER_TYPE_ONE,
                this.getHighestLevel(), 1);
 
