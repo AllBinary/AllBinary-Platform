@@ -13,8 +13,6 @@
 */
 package allbinary.game.health;
 
-import allbinary.game.layer.hud.basic.health.Health;
-
 public interface HealthInterfaceCompositeInterface {
 
    Health getHealthInterface();
