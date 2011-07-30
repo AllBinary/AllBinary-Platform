@@ -13,11 +13,11 @@
 */
 package allbinary.input.motion.button;
 
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 
 import allbinary.animation.image.sprite.OneRowSpriteIndexedAnimationFactory;
 import allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
 import allbinary.game.configuration.feature.Features;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
