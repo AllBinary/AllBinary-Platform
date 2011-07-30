@@ -23,6 +23,6 @@ public final class MotionGestureInput extends Input
     {
         super(id,  name);
 
-        inputIntegerArray[this.getId()] = this;
+        this.inputFactory.add(this.getId(), this);
     }
 }
