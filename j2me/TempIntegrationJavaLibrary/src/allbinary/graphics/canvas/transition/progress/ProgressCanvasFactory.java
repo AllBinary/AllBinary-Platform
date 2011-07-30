@@ -15,12 +15,14 @@ package allbinary.graphics.canvas.transition.progress;
 
 import abcs.logic.basic.string.StringUtil;
 
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 
 public class ProgressCanvasFactory {
 
     private static ProgressCanvas PROGRESS_FORM_SCREEN = new ProgressCanvas(
-            StringUtil.getInstance(), BasicColor.BLACK, BasicColor.WHITE);
+            StringUtil.getInstance().EMPTY_STRING, 
+            BasicColorFactory.getInstance().BLACK, 
+            BasicColorFactory.getInstance().WHITE);
     
     public static ProgressCanvas getInstance()
     {
