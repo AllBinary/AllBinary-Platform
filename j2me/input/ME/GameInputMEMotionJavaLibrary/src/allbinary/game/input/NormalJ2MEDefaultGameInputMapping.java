@@ -24,112 +24,114 @@ public class NormalJ2MEDefaultGameInputMapping extends PersistentInputMapping
 
         InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
 
+        final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+        
         // Also up
-        inputToGameKeyMapping.add(GameKey.UP, GameKey.KEY_NUM2);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.KEY_NUM2);
         // Also left
-        inputToGameKeyMapping.add(GameKey.LEFT, GameKey.KEY_NUM4);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.KEY_NUM4);
         // Also right
-        inputToGameKeyMapping.add(GameKey.RIGHT, GameKey.KEY_NUM6);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.KEY_NUM6);
         // Also down
-        inputToGameKeyMapping.add(GameKey.DOWN, GameKey.KEY_NUM8);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, gameKeyFactory.KEY_NUM8);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.GAME_A);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM3, GameKey.GAME_B);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM7, GameKey.GAME_C);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM9, GameKey.GAME_D);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.GAME_A);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, gameKeyFactory.GAME_B);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, gameKeyFactory.GAME_C);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, gameKeyFactory.GAME_D);
 
         /*
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.KEYBOARD_Y);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM2, GameKey.KEYBOARD_U);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM3, GameKey.KEYBOARD_I);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM4, GameKey.KEYBOARD_H);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM5, GameKey.KEYBOARD_J);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM6, GameKey.KEYBOARD_K);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM7, GameKey.KEYBOARD_N);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM8, GameKey.KEYBOARD_M);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.KEYBOARD_Y);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM2, gameKeyFactory.KEYBOARD_U);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, gameKeyFactory.KEYBOARD_I);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM4, gameKeyFactory.KEYBOARD_H);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, gameKeyFactory.KEYBOARD_J);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM6, gameKeyFactory.KEYBOARD_K);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, gameKeyFactory.KEYBOARD_N);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM8, gameKeyFactory.KEYBOARD_M);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM9, GameKey.KEYBOARD_LESS);
-        inputToGameKeyMapping.add(GameKey.KEY_STAR, GameKey.KEYBOARD_SPACE);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM0, GameKey.KEYBOARD_INSERT);
-        inputToGameKeyMapping.add(GameKey.KEY_POUND, GameKey.KEYBOARD_DELETE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, gameKeyFactory.KEYBOARD_LESS);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_STAR, gameKeyFactory.KEYBOARD_SPACE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, gameKeyFactory.KEYBOARD_INSERT);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_POUND, gameKeyFactory.KEYBOARD_DELETE);
          */
 
-        inputToGameKeyMapping.add(GameKey.LEVEL_DOWN, GameKey.LEVEL_DOWN);
-        inputToGameKeyMapping.add(GameKey.LEVEL_UP, GameKey.LEVEL_UP);
+        inputToGameKeyMapping.add(gameKeyFactory.LEVEL_DOWN, gameKeyFactory.LEVEL_DOWN);
+        inputToGameKeyMapping.add(gameKeyFactory.LEVEL_UP, gameKeyFactory.LEVEL_UP);
 
-        inputToGameKeyMapping.add(GameKey.UP, GameKey.UP);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.UP);
 
-        inputToGameKeyMapping.add(GameKey.DOWN, GameKey.DOWN);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, gameKeyFactory.DOWN);
 
-        inputToGameKeyMapping.add(GameKey.LEFT, GameKey.LEFT);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.LEFT);
 
-        inputToGameKeyMapping.add(GameKey.RIGHT, GameKey.RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.RIGHT);
 
-        inputToGameKeyMapping.add(GameKey.KEY_POUND, GameKey.KEY_POUND);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_POUND, gameKeyFactory.KEY_POUND);
 
-        inputToGameKeyMapping.add(GameKey.KEY_STAR, GameKey.KEY_STAR);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_STAR, gameKeyFactory.KEY_STAR);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.KEY_NUM1);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.KEY_NUM1);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM3, GameKey.KEY_NUM3);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, gameKeyFactory.KEY_NUM3);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM5, GameKey.KEY_NUM5);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, gameKeyFactory.KEY_NUM5);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM7, GameKey.KEY_NUM7);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, gameKeyFactory.KEY_NUM7);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM9, GameKey.KEY_NUM9);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, gameKeyFactory.KEY_NUM9);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM0, GameKey.KEY_NUM0);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, gameKeyFactory.KEY_NUM0);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.FIRE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.FIRE);
 
         // Keyboard mappings - Not part of hashtable to array optimization
         /*
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_Q.getKey(),
-         * GameKey..getInstance(GameKey.KEY_NUM4));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_W.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM5));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_E.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM6));
-         * //GameKeyMapping.hashtable.put(GameKey.KEYBOARD_A.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM7));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_S.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM8));
-         * //GameKeyMapping.hashtable.put(GameKey.KEYBOARD_D.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM9));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_Z.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_STAR));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_X.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM0));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_C.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_POUND));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_Q.getKey(),
+         * gameKeyFactory..getInstance(gameKeyFactory.KEY_NUM4));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_W.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM5));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_E.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM6));
+         * //GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_A.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM7));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_S.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM8));
+         * //GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_D.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM9));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_Z.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_STAR));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_X.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM0));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_C.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_POUND));
          */
 
         /*
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_I.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM1));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_O.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM2));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_P.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM3));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_K.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM4));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_L.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM5));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_SEMICOLON.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM6));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_LESS.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM7));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_GREATER.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM8));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_SLASH.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM9));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_INSERT.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_STAR));
-         * GameKeyMapping.hashtable.put(GameKey.KEYBOARD_DELETE.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_NUM0));
-         * //GameKeyMapping.hashtable.put(GameKey.KEYBOARD_ALT.getKey(),
-         * GameKeyMapping.getInstance(GameKey.KEY_POUND));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_I.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM1));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_O.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM2));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_P.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM3));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_K.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM4));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_L.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM5));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_SEMICOLON.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM6));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_LESS.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM7));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_GREATER.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM8));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_SLASH.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM9));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_INSERT.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_STAR));
+         * GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_DELETE.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_NUM0));
+         * //GameKeyMapping.hashtable.put(gameKeyFactory.KEYBOARD_ALT.getKey(),
+         * GameKeyMapping.getInstance(gameKeyFactory.KEY_POUND));
          */
     }
 }
