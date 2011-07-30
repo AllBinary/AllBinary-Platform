@@ -14,6 +14,7 @@
 package allbinary.input.motion.button;
 
 import allbinary.game.input.Input;
+import allbinary.game.input.InputFactory;
 
 public class CancelTouchButtonInputFactory
 {
@@ -25,7 +26,7 @@ public class CancelTouchButtonInputFactory
         return instance;
     }
     
-    private final TouchButtonInput[] cancelInputArray = new TouchButtonInput[Input.MAX];
+    private final TouchButtonInput[] cancelInputArray = new TouchButtonInput[InputFactory.getInstance().MAX];
     
     private CancelTouchButtonInputFactory()
     {
