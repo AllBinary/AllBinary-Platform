@@ -15,6 +15,8 @@ package allbinary.animation.resource;
 
 import java.util.Hashtable;
 
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
