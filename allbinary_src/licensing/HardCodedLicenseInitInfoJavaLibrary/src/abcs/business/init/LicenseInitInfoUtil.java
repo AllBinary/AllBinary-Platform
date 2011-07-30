@@ -58,13 +58,9 @@ public class LicenseInitInfoUtil
     {
         LicenseInitInfo licenseInitInfo = new LicenseInitInfo();
         licenseInitInfo.clearServers();
-        licenseInitInfo.addServer("http://allbinary.100webspace.net/LicServ/server.php");
-        licenseInitInfo.addServer("http://allbinary.cbc360.net/LicServ/server.php");
-        licenseInitInfo.addServer("http://allbinary.leadhoster.com/LicServ/server.php");
-        licenseInitInfo.addServer("http://tberthel.awardspace.com/LicServ/server.php");
-        licenseInitInfo.addServer("http://tberthel.onlinewebshop.net/LicServ/server.php");
-        licenseInitInfo.addServer("http://tberthel.100webspace.net/LicServ/server.php");
-        licenseInitInfo.addServer("http://allbinary.freehostia.com/LicServ/server.php");
+        
+      //Add your servers here
+        //licenseInitInfo.addServer();
 
         return licenseInitInfo;
     }
