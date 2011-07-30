@@ -15,10 +15,10 @@ package allbinary.game.init;
 
 import javax.microedition.lcdui.CommandListener;
 
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 
 import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
 import allbinary.game.configuration.GameConfigurationCentral;
 import allbinary.game.configuration.event.ChangedGameFeatureListener;
 import allbinary.game.configuration.feature.InputFeatureFactory;
