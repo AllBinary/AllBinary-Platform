@@ -13,6 +13,7 @@
 */
 package allbinary.game.layer.hud.basic.health;
 
+import allbinary.game.health.Health;
 import javax.microedition.lcdui.Graphics;
 
 import allbinary.animation.Animation;
