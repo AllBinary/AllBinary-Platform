@@ -19,7 +19,7 @@ import org.allbinary.util.BasicArrayListUtil;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
-import allbinary.animation.AnimationInterface;
+import allbinary.animation.Animation;
 import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import allbinary.animation.NullAnimationFactory;
 import allbinary.graphics.CellPositionFactory;
@@ -46,7 +46,7 @@ extends BaseTouchInput
 
             CommonButtons commonButtons = CommonButtons.getInstance();
             
-            AnimationInterface animationInterface = 
+            Animation animationInterface = 
                 NullAnimationFactory.getFactoryInstance().getInstance();
             
             BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
@@ -144,7 +144,7 @@ extends BaseTouchInput
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_LIST, e));
-            return BasicArrayListUtil.getImmutableInstance();
+            return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }
 }
