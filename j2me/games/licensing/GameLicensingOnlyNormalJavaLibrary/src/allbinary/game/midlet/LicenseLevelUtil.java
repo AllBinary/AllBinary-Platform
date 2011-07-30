@@ -15,7 +15,14 @@ package allbinary.game.midlet;
 
 public class LicenseLevelUtil
 {
-    public static int getMaxLevel(int maxLevel, int demoLevel)
+    private static final LicenseLevelUtil instance = new LicenseLevelUtil();
+
+    public static LicenseLevelUtil getInstance()
+    {
+        return instance;
+    }
+
+    public int getMaxLevel(int maxLevel, int demoLevel)
     {
        //return demoLevel;
        return maxLevel;
