@@ -13,7 +13,6 @@
 */
 package allbinary.game.configuration.feature;
 
-import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
@@ -129,7 +128,7 @@ public class Features
             //Currently creates dependency issue
             //if(DebugFactory.getInstance() != NoDebug.getInstance())
             //{
-                this.addDefault(OpenGLFeatureFactory.getInstance().OPENGL_OPTIONS);
+                //this.addDefault(OpenGLFeatureFactory.getInstance().OPENGL_OPTIONS);
             //}
         }
         catch (Exception e)
