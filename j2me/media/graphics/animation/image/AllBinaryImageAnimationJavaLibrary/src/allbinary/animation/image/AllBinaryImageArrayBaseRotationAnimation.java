@@ -21,6 +21,7 @@ import org.allbinary.util.CircularIndexUtil;
 import allbinary.animation.RotationAnimation;
 import allbinary.graphics.Anchor;
 import allbinary.logic.math.PrimitiveIntUtil;
+import allbinary.math.AngleInfo;
 
 public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
 {
@@ -29,39 +30,14 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
     // private int totalAngle;
     private int totalFrames;
 
-    public AllBinaryImageArrayBaseRotationAnimation(Image[] imageArray) throws Exception
+    public AllBinaryImageArrayBaseRotationAnimation(Image[] imageArray, AngleInfo angleInfo) throws Exception
     {
-        super();
+        super(angleInfo);
 
         // LogUtil.put(LogFactory.getInstance("Constructing", this,
         // "AllBinaryImageRotationAnimation"));
 
         this.setImageArray(imageArray);
-    }
-
-    public void nextFrame()
-    {
-        this.circularIndexUtil.next();
-    }
-
-    public void previousFrame()
-    {
-        this.circularIndexUtil.previous();
-    }
-
-    public void setFrame(int index)
-    {
-        this.circularIndexUtil.setIndex(index);
-    }
-
-    public int getFrame()
-    {
-        return this.circularIndexUtil.getIndex();
-    }
-
-    public int getSize()
-    {
-        return this.totalFrames;
     }
 
     public void setSequence(int[] sequence)
