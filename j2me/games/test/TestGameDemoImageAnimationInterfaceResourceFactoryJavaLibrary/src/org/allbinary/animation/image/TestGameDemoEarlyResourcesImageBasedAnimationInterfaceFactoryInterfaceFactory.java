@@ -13,10 +13,10 @@
 */
 package org.allbinary.animation.image;
 
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 
 import allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
 import allbinary.game.configuration.feature.Features;
 import allbinary.game.configuration.feature.GraphicsFeatureFactory;
 import allbinary.image.ImageCache;
@@ -92,7 +92,7 @@ public class TestGameDemoEarlyResourcesImageBasedAnimationInterfaceFactoryInterf
 
     public boolean isLoadingLevel(int level)
     {
-        if(level == ResourceLoadingLevelFactory.getInstance().LOAD_EARLY)
+        if(level == ResourceLoadingLevelFactory.getInstance().LOAD_EARLY.getLevel())
         {
             return true;
         }
