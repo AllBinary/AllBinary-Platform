@@ -17,7 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
-import allbinary.game.input.Input;
+import allbinary.game.input.InputFactory;
 import allbinary.game.input.mapping.InputToGameKeyMapping;
 
 public class BasicTouchInputFactory
@@ -27,27 +27,27 @@ public class BasicTouchInputFactory
             new BasicTouchInputFactory();
 
     public final TouchButtonInput SPECIAL_BUTTON_SIX =
-        new TouchButtonInput(Input.MAX - 30, "Button 6");
+        new TouchButtonInput(InputFactory.getInstance().MAX - 30, "Button 6");
     
     public final TouchButtonInput SPECIAL_BUTTON_FIVE =
-        new TouchButtonInput(Input.MAX - 31, "Button 5");
+        new TouchButtonInput(InputFactory.getInstance().MAX - 31, "Button 5");
 
     public final TouchButtonInput SPECIAL_BUTTON_FOUR =
-       new TouchButtonInput(Input.MAX - 32, "Button 4");
+       new TouchButtonInput(InputFactory.getInstance().MAX - 32, "Button 4");
     public final TouchButtonInput SPECIAL_BUTTON_THREE =
-       new TouchButtonInput(Input.MAX - 33, "Button 3");
+       new TouchButtonInput(InputFactory.getInstance().MAX - 33, "Button 3");
     
     public final TouchButtonInput SPECIAL_BUTTON_TWO =
-       new TouchButtonInput(Input.MAX - 34, "Button 2");
+       new TouchButtonInput(InputFactory.getInstance().MAX - 34, "Button 2");
     public final TouchButtonInput SPECIAL_BUTTON_ONE =
-       new TouchButtonInput(Input.MAX - 35, "Button 1");
+       new TouchButtonInput(InputFactory.getInstance().MAX - 35, "Button 1");
 
-    public final TouchButtonInput UP = new TouchButtonInput(Input.MAX - 36, "Up Button");
-    public final TouchButtonInput LEFT = new TouchButtonInput(Input.MAX - 37, "Left Button");
-    public final TouchButtonInput RIGHT = new TouchButtonInput(Input.MAX - 38, "Right Button");
-    public final TouchButtonInput DOWN = new TouchButtonInput(Input.MAX - 39, "Down Button");
+    public final TouchButtonInput UP = new TouchButtonInput(InputFactory.getInstance().MAX - 36, "Up Button");
+    public final TouchButtonInput LEFT = new TouchButtonInput(InputFactory.getInstance().MAX - 37, "Left Button");
+    public final TouchButtonInput RIGHT = new TouchButtonInput(InputFactory.getInstance().MAX - 38, "Right Button");
+    public final TouchButtonInput DOWN = new TouchButtonInput(InputFactory.getInstance().MAX - 39, "Down Button");
 
-    public final TouchButtonInput NONE = new TouchButtonInput(Input.MAX - 40, "No Button");
+    public final TouchButtonInput NONE = new TouchButtonInput(InputFactory.getInstance().MAX - 40, "No Button");
     
     public static BasicTouchInputFactory getInstance()
     {
