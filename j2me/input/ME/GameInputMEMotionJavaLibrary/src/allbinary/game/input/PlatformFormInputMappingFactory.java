@@ -33,22 +33,24 @@ public class PlatformFormInputMappingFactory
             {
                 InputToGameKeyMapping inputToGameKeyMapping = new InputToGameKeyMapping();
 
-        inputToGameKeyMapping.add(GameKey.UP, GameKey.UP);
+                final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+                
+        inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.UP);
 
-        inputToGameKeyMapping.add(GameKey.DOWN, GameKey.DOWN);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, gameKeyFactory.DOWN);
 
-        inputToGameKeyMapping.add(GameKey.LEFT, GameKey.LEFT);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.LEFT);
 
-        inputToGameKeyMapping.add(GameKey.RIGHT, GameKey.RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.RIGHT);
 
         /*
-        inputToGameKeyMapping.add(GameKey.UP, GameKey.KEY_NUM2);
-        inputToGameKeyMapping.add(GameKey.LEFT, GameKey.KEY_NUM4);
-        inputToGameKeyMapping.add(GameKey.RIGHT, GameKey.KEY_NUM6);
-        inputToGameKeyMapping.add(GameKey.DOWN, GameKey.KEY_NUM8);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.KEY_NUM2);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.KEY_NUM4);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.KEY_NUM6);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, gameKeyFactory.KEY_NUM8);
         */
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.GAME_A);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.GAME_A);
 
                 SINGLETON = inputToGameKeyMapping;
             }
