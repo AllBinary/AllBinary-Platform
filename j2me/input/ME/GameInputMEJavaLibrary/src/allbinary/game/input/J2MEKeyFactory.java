@@ -26,52 +26,56 @@ public class J2MEKeyFactory
     {
     }
 
+    private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+    
     public void init()
     {
         GameKey[] gameKeyArray = {
-        GameKey.DOWN,
-        GameKey.FIRE,
-        GameKey.GAME_A,
-        GameKey.GAME_B,
-        GameKey.GAME_C,
-        GameKey.GAME_D,
-        GameKey.KEY_NUM0,
-        GameKey.KEY_NUM1,
-        GameKey.KEY_NUM2,
-        GameKey.KEY_NUM3,
-        GameKey.KEY_NUM4,
-        GameKey.KEY_NUM5,
-        GameKey.KEY_NUM6,
-        GameKey.KEY_NUM7,
-        GameKey.KEY_NUM8,
-        GameKey.KEY_NUM9,
-        GameKey.KEY_POUND,
-        GameKey.KEY_STAR,
-        GameKey.LEFT,
-        GameKey.LEVEL_DOWN,
-        GameKey.LEVEL_UP,
-        GameKey.NONE,
-        GameKey.RIGHT,
-        GameKey.UP
+        gameKeyFactory.DOWN,
+        gameKeyFactory.FIRE,
+        gameKeyFactory.GAME_A,
+        gameKeyFactory.GAME_B,
+        gameKeyFactory.GAME_C,
+        gameKeyFactory.GAME_D,
+        gameKeyFactory.KEY_NUM0,
+        gameKeyFactory.KEY_NUM1,
+        gameKeyFactory.KEY_NUM2,
+        gameKeyFactory.KEY_NUM3,
+        gameKeyFactory.KEY_NUM4,
+        gameKeyFactory.KEY_NUM5,
+        gameKeyFactory.KEY_NUM6,
+        gameKeyFactory.KEY_NUM7,
+        gameKeyFactory.KEY_NUM8,
+        gameKeyFactory.KEY_NUM9,
+        gameKeyFactory.KEY_POUND,
+        gameKeyFactory.KEY_STAR,
+        gameKeyFactory.LEFT,
+        gameKeyFactory.LEVEL_DOWN,
+        gameKeyFactory.LEVEL_UP,
+        gameKeyFactory.NONE,
+        gameKeyFactory.RIGHT,
+        gameKeyFactory.UP
         };
 
+        InputFactory inputFactory = InputFactory.getInstance();
+        
         for(int index = gameKeyArray.length; --index >= 0;)
         {
-            Input.inputIntegerArray[gameKeyArray[index].getId()] = gameKeyArray[index];
+            inputFactory.add(gameKeyArray[index].getId(), gameKeyArray[index]);
 
             //PreLogUtil.put("Input ID: " + gameKeyArray[index].getId(), this, "init");
         }
 
         // KeyEvent.VK_F3
-        //GameKey.LEVEL_DOWN = new GameKey(0x72, "Cheat Level Up");
-        //GameKey.LEVEL_UP = new GameKey(0x73, "Cheat Level Down");
-        //GameKey.LEVEL_DOWN = GameKey.NONE;
-        //GameKey.LEVEL_UP = GameKey.NONE;
+        //gameKeyFactory.LEVEL_DOWN = new GameKey(0x72, "Cheat Level Up");
+        //gameKeyFactory.LEVEL_UP = new GameKey(0x73, "Cheat Level Down");
+        //gameKeyFactory.LEVEL_DOWN = gameKeyFactory.NONE;
+        //gameKeyFactory.LEVEL_UP = gameKeyFactory.NONE;
     }
 
     public boolean isSubmission(Input input)
     {
-        if (input == GameKey.FIRE)
+        if (input == gameKeyFactory.FIRE)
         {
             return true;
         }
@@ -80,7 +84,7 @@ public class J2MEKeyFactory
 
     public boolean isDelete(Input input)
     {
-        if (input == GameKey.GAME_D)
+        if (input == gameKeyFactory.GAME_D)
         {
             return true;
         }
@@ -94,7 +98,7 @@ public class J2MEKeyFactory
 
     public boolean isUp(Input input)
     {
-        if (input == GameKey.UP)
+        if (input == gameKeyFactory.UP)
         {
             return true;
         }
@@ -103,7 +107,7 @@ public class J2MEKeyFactory
 
     public boolean isDown(Input input)
     {
-        if (input == GameKey.DOWN)
+        if (input == gameKeyFactory.DOWN)
         {
             return true;
         }
@@ -113,7 +117,7 @@ public class J2MEKeyFactory
 
     public boolean isLeft(Input input)
     {
-        if (input == GameKey.LEFT)
+        if (input == gameKeyFactory.LEFT)
         {
             return true;
         }
@@ -122,7 +126,7 @@ public class J2MEKeyFactory
 
     public boolean isRight(Input input)
     {
-        if (input == GameKey.RIGHT)
+        if (input == gameKeyFactory.RIGHT)
         {
             return true;
         }
@@ -132,7 +136,7 @@ public class J2MEKeyFactory
 
     public boolean isEnter(Input input)
     {
-        if (input == GameKey.FIRE)
+        if (input == gameKeyFactory.FIRE)
         {
             return true;
         }
