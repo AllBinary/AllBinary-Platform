@@ -16,7 +16,7 @@ package org.allbinary.game.testgamedemo.canvas;
 import allbinary.game.paint.GameScrollMenuPaintable;
 import allbinary.game.paint.MainGameDemoStatePaintable;
 import allbinary.game.paint.OwnershipPaintable;
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.paint.Paintable;
 
 /**
@@ -38,6 +38,6 @@ GameScrollMenuPaintable
                 ),
                 OwnershipPaintable.getInstance(),
                 TestGameDemoHelpPaintable.getInstance(),
-                BasicColor.YELLOW);
+                BasicColorFactory.getInstance().YELLOW);
     }
 }
