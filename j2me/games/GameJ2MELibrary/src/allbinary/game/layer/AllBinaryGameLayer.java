@@ -25,7 +25,6 @@ import allbinary.graphics.SpacialStrings;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
@@ -96,7 +95,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     }
     
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     private final BasicColor RED = BasicColorFactory.getInstance().RED;
     
