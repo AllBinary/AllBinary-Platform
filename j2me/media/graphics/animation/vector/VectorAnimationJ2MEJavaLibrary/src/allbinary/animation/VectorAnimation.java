@@ -22,7 +22,6 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.logic.math.PrimitiveIntUtil;
 
 public class VectorAnimation extends IndexedAnimation
@@ -37,7 +36,7 @@ public class VectorAnimation extends IndexedAnimation
     private CircularIndexUtil circularIndexUtil;
 
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     public VectorAnimation(int currentPoints[][][], BasicColor basicColor)
     {
