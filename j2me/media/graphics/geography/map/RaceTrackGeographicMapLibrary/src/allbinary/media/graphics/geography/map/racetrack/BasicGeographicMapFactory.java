@@ -28,6 +28,7 @@ public class BasicGeographicMapFactory
     public BasicGeographicMap getInstance(
             RaceTrackInfo raceTrackInfo,
             RaceTrackData raceTrackData,
+            AllBinaryTiledLayerFactoryInterface tiledLayerFactoryInterface,
             GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface)
             throws Exception
     {
@@ -35,7 +36,7 @@ public class BasicGeographicMapFactory
                 SmallIntegerSingletonFactory.getInstance().getInstance(raceTrackInfo.getId().intValue() + 100 + 1),
                 raceTrackInfo.getName(),
                 raceTrackData.getCellTypeIdToGeographicMapCellTypeArray(),
-                new AllBinaryTiledLayerFactory().getMiniInstance(raceTrackData),
+                tiledLayerFactoryInterface.getMiniInstance(raceTrackData),
                 BasicColorFactory.getInstance().CLEAR_COLOR, 
                 BasicColorFactory.getInstance().CLEAR_COLOR,
                 geographicMapCellPositionFactoryInterface,
