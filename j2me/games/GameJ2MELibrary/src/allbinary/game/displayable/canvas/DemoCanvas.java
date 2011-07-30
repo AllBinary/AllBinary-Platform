@@ -23,6 +23,7 @@ import javax.microedition.lcdui.Item;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.graphics.ResizableListenerHandler;
+import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.util.BasicArrayList;
 
@@ -33,7 +34,6 @@ import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
-import allbinary.android.view.CurrentDisplayableFactory;
 import allbinary.animation.Animation;
 import allbinary.animation.special.SpecialAnimation;
 import allbinary.canvas.CustomGameMenuUtil;
@@ -527,6 +527,11 @@ public class DemoCanvas extends RunnableCanvas
     public void paintThreed(Graphics graphics)
     {
         this.paintableInterface.paintThreed(graphics);
+        
+        // Draw title animation
+        this.paintedSpecialAnimationInterface.paintThreed(graphics, 0, 0, 0);
+        
+        //TWB - More 3d
     }
     
     public synchronized void setGameOver()
