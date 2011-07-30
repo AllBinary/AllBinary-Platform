@@ -22,7 +22,6 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.logic.math.PrimitiveIntUtil;
 
 public class VectorBaseRotationAnimation extends RotationAnimation
@@ -35,7 +34,7 @@ public class VectorBaseRotationAnimation extends RotationAnimation
     //private int color;
     
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     public VectorBaseRotationAnimation(int currentPoints[][][], BasicColor basicColor)
     {
@@ -69,6 +68,26 @@ public class VectorBaseRotationAnimation extends RotationAnimation
         //this.color = this.basicColor.intValue();
     }
 
+    public int getFrame()
+    {
+        return this.circularIndexUtil.getIndex();
+    }
+
+    public void setFrame(int index)
+    {
+        this.circularIndexUtil.setIndex(index);
+    }
+
+    public void nextRotation()
+    {
+        this.circularIndexUtil.next();
+    }
+
+    public void previousRotation()
+    {
+        this.circularIndexUtil.previous();
+    }
+    
     public int getSize()
     {
         return this.currentPoints.length;
@@ -82,16 +101,6 @@ public class VectorBaseRotationAnimation extends RotationAnimation
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
-    }
-
-    public void nextFrame()
-    {
-        this.circularIndexUtil.next();
-    }
-
-    public void previousFrame()
-    {
-        this.circularIndexUtil.previous();
     }
 
     public void paint(Graphics graphics, int x, int y)
@@ -144,17 +153,7 @@ public class VectorBaseRotationAnimation extends RotationAnimation
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "paintVectors", e));
         }
     }
-
-    public int getFrame()
-    {
-        return this.circularIndexUtil.getIndex();
-    }
-
-    public void setFrame(int index)
-    {
-        this.circularIndexUtil.setIndex(index);
-    }
-
+    
     public int[][] getPoints(int frame)
     {
         return currentPoints[frame];
