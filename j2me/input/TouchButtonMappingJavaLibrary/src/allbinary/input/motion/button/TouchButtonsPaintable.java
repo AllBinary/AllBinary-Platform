@@ -19,7 +19,6 @@ import org.allbinary.util.BasicArrayList;
 
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.graphics.paint.Paintable;
 
 public class TouchButtonsPaintable extends Paintable
@@ -28,7 +27,7 @@ public class TouchButtonsPaintable extends Paintable
     protected final int foregroundColor;
     
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     private final TouchButtonFactory touchButtonFactory = 
         TouchButtonFactory.getInstance();
