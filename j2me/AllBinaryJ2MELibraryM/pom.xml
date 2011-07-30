@@ -37,6 +37,20 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ApplicationStatisticsJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TouchJ2MENoneJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>J2MEExceptionLibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -81,20 +95,6 @@
             <groupId>org.allbinary</groupId>
             <artifactId>ApplicationStatisticsJavaLibrary</artifactId>
             <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>ApplicationStatisticsJ2MELibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TouchJ2MENoneJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
         </dependency>
 
         <dependency>
