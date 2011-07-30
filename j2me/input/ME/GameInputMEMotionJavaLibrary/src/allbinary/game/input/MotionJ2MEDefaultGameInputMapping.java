@@ -25,98 +25,101 @@ public class MotionJ2MEDefaultGameInputMapping
     {
         super(PersistentInputMapping.DEFAULT_SAVE_NAME);
 
-        InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
-
+        final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
+        final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+        
         // Also up
-        inputToGameKeyMapping.add(GameKey.UP, GameKey.KEY_NUM2);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.KEY_NUM2);
         // Also left
-        inputToGameKeyMapping.add(GameKey.LEFT, GameKey.KEY_NUM4);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.KEY_NUM4);
         // Also right
-        inputToGameKeyMapping.add(GameKey.RIGHT, GameKey.KEY_NUM6);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.KEY_NUM6);
         // Also down
-        inputToGameKeyMapping.add(GameKey.DOWN, GameKey.KEY_NUM8);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, gameKeyFactory.KEY_NUM8);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.GAME_A);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM3, GameKey.GAME_B);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM7, GameKey.GAME_C);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM9, GameKey.GAME_D);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.GAME_A);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, gameKeyFactory.GAME_B);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, gameKeyFactory.GAME_C);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, gameKeyFactory.GAME_D);
 
         /*
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.KEYBOARD_Y);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM2, GameKey.KEYBOARD_U);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM3, GameKey.KEYBOARD_I);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM4, GameKey.KEYBOARD_H);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM5, GameKey.KEYBOARD_J);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM6, GameKey.KEYBOARD_K);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM7, GameKey.KEYBOARD_N);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM8, GameKey.KEYBOARD_M);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.KEYBOARD_Y);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM2, gameKeyFactory.KEYBOARD_U);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, gameKeyFactory.KEYBOARD_I);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM4, gameKeyFactory.KEYBOARD_H);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, gameKeyFactory.KEYBOARD_J);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM6, gameKeyFactory.KEYBOARD_K);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, gameKeyFactory.KEYBOARD_N);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM8, gameKeyFactory.KEYBOARD_M);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM9, GameKey.KEYBOARD_LESS);
-        inputToGameKeyMapping.add(GameKey.KEY_STAR, GameKey.KEYBOARD_SPACE);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM0, GameKey.KEYBOARD_INSERT);
-        inputToGameKeyMapping.add(GameKey.KEY_POUND, GameKey.KEYBOARD_DELETE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, gameKeyFactory.KEYBOARD_LESS);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_STAR, gameKeyFactory.KEYBOARD_SPACE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, gameKeyFactory.KEYBOARD_INSERT);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_POUND, gameKeyFactory.KEYBOARD_DELETE);
          */
 
-        inputToGameKeyMapping.add(GameKey.LEVEL_DOWN, GameKey.LEVEL_DOWN);
-        inputToGameKeyMapping.add(GameKey.LEVEL_UP, GameKey.LEVEL_UP);
+        inputToGameKeyMapping.add(gameKeyFactory.LEVEL_DOWN, gameKeyFactory.LEVEL_DOWN);
+        inputToGameKeyMapping.add(gameKeyFactory.LEVEL_UP, gameKeyFactory.LEVEL_UP);
 
-        inputToGameKeyMapping.add(GameKey.UP, GameKey.UP);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, gameKeyFactory.UP);
 
-        inputToGameKeyMapping.add(GameKey.DOWN, GameKey.DOWN);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, gameKeyFactory.DOWN);
 
-        inputToGameKeyMapping.add(GameKey.LEFT, GameKey.LEFT);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, gameKeyFactory.LEFT);
 
-        inputToGameKeyMapping.add(GameKey.RIGHT, GameKey.RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, gameKeyFactory.RIGHT);
 
-        inputToGameKeyMapping.add(GameKey.KEY_POUND, GameKey.KEY_POUND);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_POUND, gameKeyFactory.KEY_POUND);
 
-        inputToGameKeyMapping.add(GameKey.KEY_STAR, GameKey.KEY_STAR);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_STAR, gameKeyFactory.KEY_STAR);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.KEY_NUM1);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.KEY_NUM1);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM3, GameKey.KEY_NUM3);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, gameKeyFactory.KEY_NUM3);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM5, GameKey.KEY_NUM5);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, gameKeyFactory.KEY_NUM5);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM7, GameKey.KEY_NUM7);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, gameKeyFactory.KEY_NUM7);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM9, GameKey.KEY_NUM9);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, gameKeyFactory.KEY_NUM9);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM0, GameKey.KEY_NUM0);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, gameKeyFactory.KEY_NUM0);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, GameKey.FIRE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, gameKeyFactory.FIRE);
 
         //
-        inputToGameKeyMapping.add(GameKey.UP, TouchMotionGestureFactory.getInstance().UP);
-        inputToGameKeyMapping.add(GameKey.DOWN, TouchMotionGestureFactory.getInstance().DOWN);
-        //inputToGameKeyMapping.add(GameKey.KEY_NUM5, TouchMotionGestureFactory.getInstance().TOUCH);
-        //inputToGameKeyMapping.add(GameKey.KEY_NUM5, TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_LEFT);
-        //inputToGameKeyMapping.add(GameKey.KEY_NUM5, TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT);
-        inputToGameKeyMapping.add(GameKey.LEFT, TouchMotionGestureFactory.getInstance().LEFT);
-        inputToGameKeyMapping.add(GameKey.RIGHT, TouchMotionGestureFactory.getInstance().RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, TouchMotionGestureFactory.getInstance().UP);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, TouchMotionGestureFactory.getInstance().DOWN);
+        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, TouchMotionGestureFactory.getInstance().TOUCH);
+        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_LEFT);
+        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, TouchMotionGestureFactory.getInstance().LEFT);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, TouchMotionGestureFactory.getInstance().RIGHT);
 
         //
         
-        //inputToGameKeyMapping.add(GameKey.UP, TrackballMotionGestureFactory.getInstance().UP);
-        //inputToGameKeyMapping.add(GameKey.DOWN, TrackballMotionGestureFactory.getInstance().DOWN);
-        //inputToGameKeyMapping.add(GameKey.LEFT, TrackballMotionGestureFactory.getInstance().LEFT);
-        //inputToGameKeyMapping.add(GameKey.RIGHT, TrackballMotionGestureFactory.getInstance().RIGHT);
+        //inputToGameKeyMapping.add(gameKeyFactory.UP, TrackballMotionGestureFactory.getInstance().UP);
+        //inputToGameKeyMapping.add(gameKeyFactory.DOWN, TrackballMotionGestureFactory.getInstance().DOWN);
+        //inputToGameKeyMapping.add(gameKeyFactory.LEFT, TrackballMotionGestureFactory.getInstance().LEFT);
+        //inputToGameKeyMapping.add(gameKeyFactory.RIGHT, TrackballMotionGestureFactory.getInstance().RIGHT);
 
         //
 
-        inputToGameKeyMapping.add(GameKey.UP, BasicTouchInputFactory.getInstance().UP);
-        inputToGameKeyMapping.add(GameKey.LEFT, BasicTouchInputFactory.getInstance().LEFT);
-        inputToGameKeyMapping.add(GameKey.RIGHT, BasicTouchInputFactory.getInstance().RIGHT);
-        inputToGameKeyMapping.add(GameKey.DOWN, BasicTouchInputFactory.getInstance().DOWN);
+        final BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
+        
+        inputToGameKeyMapping.add(gameKeyFactory.UP, basicTouchInputFactory.UP);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, basicTouchInputFactory.LEFT);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, basicTouchInputFactory.RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, basicTouchInputFactory.DOWN);
 
-        inputToGameKeyMapping.add(GameKey.KEY_NUM0, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_FIVE);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM7, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_FOUR);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM9, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_THREE);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM1, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_TWO);
-        inputToGameKeyMapping.add(GameKey.KEY_NUM3, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_ONE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, basicTouchInputFactory.SPECIAL_BUTTON_FIVE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, basicTouchInputFactory.SPECIAL_BUTTON_FOUR);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, basicTouchInputFactory.SPECIAL_BUTTON_THREE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, basicTouchInputFactory.SPECIAL_BUTTON_TWO);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, basicTouchInputFactory.SPECIAL_BUTTON_ONE);
 
         //
-        inputToGameKeyMapping.add(GameKey.KEY_NUM2, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_SIX);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM2, basicTouchInputFactory.SPECIAL_BUTTON_SIX);
 
     }
 }
