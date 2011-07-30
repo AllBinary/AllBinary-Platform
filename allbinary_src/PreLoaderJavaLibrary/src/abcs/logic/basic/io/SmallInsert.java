@@ -51,6 +51,37 @@ public class SmallInsert
       }
    }
 
+   public boolean after(String text, String after)
+   {
+      try
+      {  
+         int index = text.indexOf(after);
+         
+         if(index < 0)
+         {
+             throw new Exception("No such start: " + after);
+         }
+         
+         String start = text.substring(0, index);
+         
+         String end = text.substring(index + 1, text.length());
+         
+         FileOutputStream idFile = new FileOutputStream(this.fileName);
+         DataOutputStream idOutData = new DataOutputStream(idFile);
+         idOutData.writeBytes(start + text + end);
+         //System.out.println();
+         return true;
+      }
+      catch(Exception e)
+      {
+         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.IDLOGGING))
+         {
+            LogUtil.put(LogFactory.getInstance("Command Failed", this, "after", e));
+         }
+         return false;
+      }
+   }
+   
    public boolean atEnd(String text)
    {
       try
