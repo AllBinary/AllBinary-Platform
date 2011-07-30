@@ -14,13 +14,12 @@
 package org.allbinary.game.testgamedemo.canvas;
 
 import javax.microedition.lcdui.CommandListener;
-import javax.microedition.lcdui.Displayable;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.testgamedemo.init.TestGameDemoStaticInitializerFactory;
-import org.allbinary.game.testgamedemo.layer.TestGameDemoLayerManager;
 import org.allbinary.game.testgamedemo.level.TestGameDemoLevelBuilder;
 import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
+import org.allbinary.input.gyro.AllBinaryOrientationSensor;
 import org.allbinary.input.gyro.GyroSensorFactory;
 import org.allbinary.media.audio.TestGameDemoSoundsFactoryFactory;
 import org.allbinary.media.audio.TestSound;
@@ -32,12 +31,13 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.ai.OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer;
 import allbinary.game.GameInfo;
-import allbinary.game.GameType;
+import allbinary.game.GameTypeFactory;
 import allbinary.game.IntermissionFactory;
 import allbinary.game.collision.OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer;
 import allbinary.game.configuration.GameSpeed;
 import allbinary.game.configuration.event.ChangedGameFeatureListener;
 import allbinary.game.configuration.feature.Features;
+import allbinary.game.configuration.feature.GameFeature;
 import allbinary.game.configuration.feature.GameFeatureFactory;
 import allbinary.game.configuration.feature.TouchFeatureFactory;
 import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
@@ -52,7 +52,7 @@ import allbinary.game.state.GameState;
 import allbinary.game.tick.OptimizedTickableLayerProcessor;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.command.MyCommandsFactory;
 import allbinary.input.motion.button.BaseTouchInput;
@@ -60,6 +60,7 @@ import allbinary.input.motion.button.TestGameDemoNeededTouchButtonsBuilder;
 import allbinary.input.motion.button.TestGameDemoTouchButtonsBuilder;
 import allbinary.media.AllBinaryVibration;
 import allbinary.media.audio.AllBinaryMediaManager;
+import allbinary.media.audio.PlayerQueue;
 import allbinary.media.audio.PrimaryPlayerQueueFactory;
 import allbinary.media.audio.SecondaryPlayerQueueFactory;
 import allbinary.time.TimeDelayHelper;
@@ -91,7 +92,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
         super.initSpecialPaint();
 
         this.setStartIntermissionPaintable(new StartIntermissionPaintable(
-                this, new String[] {StringUtil.getInstance()}, new int[] {0}, BasicColor.RED));
+                this, new String[] {StringUtil.getInstance().EMPTY_STRING}, new int[] {0}, BasicColorFactory.getInstance().RED));
     }
 
     public void mediaInit() throws Exception
@@ -106,7 +107,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
     {
         GameInfo gameInfo = this.getLayerManager().getGameInfo();
         
-        if(gameInfo.getGameType() != GameType.BOT)
+        if(gameInfo.getGameType() != GameTypeFactory.getInstance().BOT)
         {
             BaseTouchInput nextTouchInputFactory =
                 TestGameDemoTouchButtonsBuilder.getInstance(
@@ -238,7 +239,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
 
             this.getCustomCommandListener().commandAction(
                     MyCommandsFactory.getInstance().SET_DISPLAYABLE,
-                    (Displayable) progressCanvas);
+                    progressCanvas);
             //progressCanvas.waitUntilDisplayed();
             portion = 4;
         }
@@ -265,7 +266,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
 
         progressCanvas.addPortion(portion, "Building Game Level");
 
-        new TestGameDemoLevelBuilder((TestGameDemoLayerManager) this.getLayerManager()).build(
+        new TestGameDemoLevelBuilder(this.getLayerManager()).build(
                 this.getWidth(), this.getHeight());
 
         progressCanvas.addPortion(portion, "Set Background");
@@ -285,7 +286,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
 
         progressCanvas.addPortion(portion, "Ending Custom Build");
 
-        if (this.getLayerManager().getGameInfo().getGameType() != GameType.BOT)
+        if (this.getLayerManager().getGameInfo().getGameType() != GameTypeFactory.getInstance().BOT)
         {
             //PrimaryPlayerQueueFactory.getInstance().add(
                     //GameSounds.getBegin());
@@ -329,6 +330,9 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
     private final GamePerformanceInitUpdatePaintable gamePerformanceInitUpdatePaintable = 
         new GamePerformanceInitUpdatePaintable();
 
+    private final AllBinaryOrientationSensor gyroOrientationSensor = GyroSensorFactory.getInstance();
+    private final AllBinaryOrientationSensor accelerometerOrientationSensor = AccelerometerSensorFactory.getInstance();
+    
     private final int halfHeight = DisplayInfoSingleton.getInstance().getLastHalfHeight();
 
     //private String soundQueue = PrimaryPlayerQueueFactory.getInstance().toString();
@@ -348,9 +352,9 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
 
         this.gamePerformanceInitUpdatePaintable.paint(graphics);
         
-        graphics.drawString(GyroSensorFactory.getInstance().toString(), 
+        graphics.drawString(this.gyroOrientationSensor.toString(), 
                 0, halfHeight + 30 + 60, 0);
-        graphics.drawString(AccelerometerSensorFactory.getInstance().toString(), 
+        graphics.drawString(this.accelerometerOrientationSensor.toString(), 
                 0, halfHeight + 30 + 75, 0);
         
         this.getTouchPaintable().paint(graphics);
@@ -359,26 +363,31 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
     private TimeDelayHelper playerTimeDelayHelper = new TimeDelayHelper(2000);
             //890);
 
+    private final PlayerQueue primaryPlayerQueue = PrimaryPlayerQueueFactory.getInstance();
+    private final PlayerQueue secondaryPlayerQueue = SecondaryPlayerQueueFactory.getInstance();
+    
+    private final Features features = Features.getInstance();
+    
+    private final GameFeature soundGameFeature = GameFeatureFactory.getInstance().SOUND;
+    
     protected void processGame() throws Exception
     {
         super.processGame();
 
         if (playerTimeDelayHelper.isTime())
         {
-            if(Features.getInstance().isFeature(
-                    GameFeatureFactory.getInstance().SOUND))
+            if(this.features.isFeature(soundGameFeature))
             {
-                PrimaryPlayerQueueFactory.getInstance().add(
-                        TestSound.getInstance());
+                this.primaryPlayerQueue.add(TestSound.getInstance());
             }
         }
         
         /*
         if (playerTimeDelayHelper.isTime())
         {
-            if (!PrimaryPlayerQueueFactory.getInstance().process())
+            if (!this.primaryPlayerQueue.process())
             {
-                if (SecondaryPlayerQueueFactory.getInstance().process())
+                if (this.secondaryPlayerQueue.process())
                 {
                     playerTimeDelayHelper.setStartTime();
                 }
@@ -389,12 +398,12 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
         }
         */
         
-        if (!PrimaryPlayerQueueFactory.getInstance().process())
+        if (!this.primaryPlayerQueue.process())
         {
-            SecondaryPlayerQueueFactory.getInstance().process();
+            this.secondaryPlayerQueue.process();
         }
         
-        //soundQueue = PrimaryPlayerQueueFactory.getInstance().toString();
+        //soundQueue = this.primaryPlayerQueue.toString();
         
         this.gamePerformanceInitUpdatePaintable.update();
     }
