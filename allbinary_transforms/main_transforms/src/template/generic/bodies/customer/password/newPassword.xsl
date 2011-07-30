@@ -3,6 +3,19 @@
    xmlns:jsp="http://java.sun.com/JSP/Page" 
    xmlns:transform="/WEB-INF/transform.tld" >
 
+<!--
+AllBinary Open License Version 1
+Copyright (c) 2011 AllBinary
+
+By agreeing to this license you and any business entity you represent are
+legally bound to the AllBinary Open License Version 1 legal agreement.
+
+You may obtain the AllBinary Open License Version 1 legal agreement from
+AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+
+Created By: Travis Berthelot
+-->
+
    <xsl:import href="/template/generic/bodies/imports/jsp/forward.xsl" />
    <xsl:import href="/template/generic/buttons/buttons.xsl" />   
 
