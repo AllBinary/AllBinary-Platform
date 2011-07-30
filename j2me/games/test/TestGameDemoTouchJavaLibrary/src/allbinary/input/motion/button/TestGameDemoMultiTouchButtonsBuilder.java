@@ -185,7 +185,7 @@ extends BaseTouchInput
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_LIST, e));
-            return BasicArrayListUtil.getImmutableInstance();
+            return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }
 }
