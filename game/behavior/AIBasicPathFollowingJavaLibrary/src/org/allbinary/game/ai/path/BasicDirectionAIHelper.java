@@ -38,31 +38,34 @@ public class BasicDirectionAIHelper
       
       //Find out it left or right is closest
       //0-360 - 0-360 = -360-360
-      int directionAngle = this.getAngleInfo().getAngleIncrementInfo().getFrameAngle(frame);
-      int degrees = Math.abs(directionAngle - this.getAngleInfo().getAngle());
+      int directionAngle = this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame);
+      
+      short angle = this.angleInfo.getAngle();
+      
+      int degrees = Math.abs(directionAngle - angle);
 
       //LogUtil.put(LogFactory.getInstance(this.getName() + " Direction Angle: " + directionAngle + " Angle: " + this.getAngleInfo().getAngle() + " degrees: " + degrees, this, "turnAI"));
       
       if(degrees < 180)
       {
-         if(this.getAngleInfo().getAngle() > directionAngle)
+         if(angle > directionAngle)
          {
             keyDirection = Canvas.LEFT;
          }
          else
-            if(this.getAngleInfo().getAngle() < directionAngle)
+            if(angle < directionAngle)
             {
             keyDirection = Canvas.RIGHT;
             }
       }
       else
       {
-         if(this.getAngleInfo().getAngle() > directionAngle)
+         if(angle > directionAngle)
          {
             keyDirection = Canvas.RIGHT;
          }
          else
-            if(this.getAngleInfo().getAngle() < directionAngle)
+            if(angle < directionAngle)
             {
             keyDirection = Canvas.LEFT;
             }
@@ -75,8 +78,10 @@ public class BasicDirectionAIHelper
       //LogUtil.put(LogFactory.getInstance("this.getAngle(): " + this.getAngleInfo().getAngle(), this, "getAIKeyPressed"));
       //LogUtil.put(LogFactory.getInstance("this.getFrameAngle(frame): " + this.getAngleInfo().getFrameAngle(frame), this, "getAIKeyPressed"));
       
-      if(this.getAngleInfo().getAngle() != this.getAngleInfo().getAngleIncrementInfo().getFrameAngle(frame.intValue()))
+      if(this.angleInfo.getAngle() != this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame.intValue()))
       {
+          //PreLogUtil.put(this.angleInfo.getAngle() + " != " + this.angleInfo.getAngleIncrementInfo().getFrameAngle(frame.intValue()), this, "getAIKeyPressed");
+
          return this.turnAI(frame.intValue());
       }
       else
@@ -92,11 +97,9 @@ public class BasicDirectionAIHelper
 
       //LogUtil.put(LogFactory.getInstance(this.getName() + " geographicMapDirectionData: " + geographicMapDirectionData, this, "getAIKeyPressedFromDirection"));
       
-      AngleIncrementInfo angleIncrementInfo = 
-         this.getAngleInfo().getAngleIncrementInfo();
+      AngleIncrementInfo angleIncrementInfo = this.angleInfo.getAngleIncrementInfo();
       
-      DirectionFactory directionFactory = 
-          DirectionFactory.getInstance();
+      DirectionFactory directionFactory = DirectionFactory.getInstance();
       
       if(geographicMapDirectionData == directionFactory.DOWN)
       {
