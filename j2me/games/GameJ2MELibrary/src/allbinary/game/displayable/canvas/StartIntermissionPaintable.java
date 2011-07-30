@@ -19,7 +19,6 @@ import abcs.logic.basic.string.StringUtil;
 import allbinary.graphics.Anchor;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.paint.InitUpdatePaintable;
 
@@ -29,7 +28,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     protected String[] stringArray;
     
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     private BasicColor basicColor;
     private int color;
