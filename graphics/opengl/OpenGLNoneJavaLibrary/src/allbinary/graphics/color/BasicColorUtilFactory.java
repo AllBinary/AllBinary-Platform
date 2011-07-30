@@ -18,6 +18,6 @@ public class BasicColorUtilFactory
 {
     public static BasicColorUtil getInstance()
     {
-        return BasicColorUtil.getBasicColorUtilInstance();
+        return BasicColorUtil.getInstance();
     }
 }
