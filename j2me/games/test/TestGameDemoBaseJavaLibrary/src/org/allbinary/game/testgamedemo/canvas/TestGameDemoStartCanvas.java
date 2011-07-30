@@ -20,7 +20,7 @@ import org.allbinary.game.testgamedemo.layer.TestGameDemoLayerManager;
 
 import allbinary.game.GameInfo;
 import allbinary.game.GameMode;
-import allbinary.game.GameType;
+import allbinary.game.GameTypeFactory;
 import allbinary.game.PlayerTypesFactory;
 import allbinary.game.configuration.GameSpeed;
 import allbinary.game.displayable.canvas.DemoCanvas;
@@ -28,7 +28,7 @@ import allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import allbinary.game.layer.AllBinaryGameLayerManager;
 import allbinary.game.paint.ColorFillPaintableFactory;
 import allbinary.game.score.BasicHighScoresFactory;
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.form.FormPaintable;
 import allbinary.graphics.paint.NullInitUpdatePaintable;
 import allbinary.graphics.paint.NullPaintable;
@@ -56,7 +56,7 @@ public class TestGameDemoStartCanvas extends DemoCanvas
                 TitleAnimationFactory.getInstance());
 
         this.setDefaultPaintableInterface(
-                ColorFillPaintableFactory.getInstance(BasicColor.RED));
+                ColorFillPaintableFactory.getInstance(BasicColorFactory.getInstance().RED));
     }
 
     protected int getNextRandom()
@@ -67,7 +67,7 @@ public class TestGameDemoStartCanvas extends DemoCanvas
 
     protected AllBinaryGameLayerManager createGameLayerManager(int randomValue) throws Exception
     {
-        GameInfo gameInfo = new GameInfo(GameType.BOT, GameMode.SERVER, PlayerTypesFactory
+        GameInfo gameInfo = new GameInfo(GameTypeFactory.getInstance().BOT, GameMode.SERVER, PlayerTypesFactory
                 .getInstance().PLAYER_TYPE_ONE, TestGameDemoLayerManager.MAX_LEVEL, randomValue);
 
         return new TestGameDemoLayerManager(gameInfo);
