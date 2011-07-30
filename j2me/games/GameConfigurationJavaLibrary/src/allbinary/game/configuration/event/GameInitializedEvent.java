@@ -13,8 +13,9 @@
 */
 package allbinary.game.configuration.event;
 
-import allbinary.animation.resource.ResourceLoadingLevel;
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
+import org.allbinary.game.resource.ResourceLoadingLevel;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 public class GameInitializedEvent extends AllBinaryEventObject
