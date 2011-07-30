@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.init;
 
+import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -44,8 +45,7 @@ public class DefaultGameInitializationListener
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(
-                BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
 
     public void onGameInitialized(GameInitializedEvent gameInitializedEvent)
@@ -53,7 +53,7 @@ public class DefaultGameInitializationListener
         try
         {
             LogUtil.put(LogFactory.getInstance(
-                    "Start", this, "onGameInitialized"));
+                    CommonStrings.getInstance().START, this, "onGameInitialized"));
 
             FeatureResourceInitializationUtil.getInstance().init(
                     gameInitializedEvent.getLevel());
@@ -61,7 +61,7 @@ public class DefaultGameInitializationListener
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(
-                    "Exception", this, "onGameInitialized", e));
+                    CommonStrings.getInstance().EXCEPTION, this, "onGameInitialized", e));
         }
     }
 }
