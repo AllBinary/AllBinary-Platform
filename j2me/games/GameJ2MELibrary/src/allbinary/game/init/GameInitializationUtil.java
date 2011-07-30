@@ -13,7 +13,8 @@
 */
 package allbinary.game.init;
 
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+
 import allbinary.game.configuration.event.ChangedGameFeatureListener;
 import allbinary.game.configuration.event.GameInitializedEvent;
 import allbinary.game.configuration.event.GameInitializedEventHandler;
@@ -44,8 +45,7 @@ public class GameInitializationUtil
             //When debugging is on go ahead and load all resources
             if(features.isFeature(mainFeatureFactory.LOAD_ALL))
             {
-                this.initGame(
-                        canvas, gameInitializationInterfaceFactoryInterface);
+                this.initGame(canvas, gameInitializationInterfaceFactoryInterface);
             }
             else
                 if(features.isFeature(mainFeatureFactory.LOAD_ONDEMAND))
