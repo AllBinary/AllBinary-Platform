@@ -15,37 +15,43 @@ package org.allbinary.game.testgamedemo.canvas;
 
 import allbinary.animation.ColorLessVectorAnimation;
 import allbinary.animation.IndexedAnimation;
-import allbinary.animation.TitleAnimation;
 import allbinary.animation.VectorExplosionGenerator;
+import allbinary.animation.special.TitleAnimation;
 import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 
 public class TitleAnimationFactory
 {
     public static final TitleAnimation getInstance() throws Exception
     {
-        IndexedAnimation[] animationInterfaceArray = new IndexedAnimation[2];
+        final IndexedAnimation[] animationInterfaceArray = new IndexedAnimation[2];
         
-        BasicColor[] basicColorArray = new BasicColor[2];
-        basicColorArray[0] = BasicColor.GREEN;
-        basicColorArray[1] = BasicColor.GREY;
+        final BasicColor[] basicColorArray = new BasicColor[2];
+        basicColorArray[0] = BasicColorFactory.getInstance().GREEN;
+        basicColorArray[1] = BasicColorFactory.getInstance().GREY;
         
-        int[] deltaXArray = new int[2];
+        final int[] deltaXArray = new int[2];
         deltaXArray[0] = 0;
         deltaXArray[1] = 52;
 
-        int[] deltaYArray = new int[2];
+        final int[] deltaYArray = new int[2];
         deltaYArray[0] = 0;
         deltaYArray[1] = 30;
 
-        TitleVectorData titleVectorData = new TitleVectorData();
+        final TitleVectorData titleVectorData = new TitleVectorData();
 
-        int[][][] points = VectorExplosionGenerator.getInstance(
-                titleVectorData.zeptoPoints, 6, VectorExplosionGenerator.RANDOM);
+        final VectorExplosionGenerator vectorExplosionGenerator = 
+                VectorExplosionGenerator.getInstance();
+        
+        int[][][] points = vectorExplosionGenerator.getInstance(
+                titleVectorData.zeptoPoints, 6, 
+                vectorExplosionGenerator.RANDOM);
 
         animationInterfaceArray[0] = new ColorLessVectorAnimation(points);
 
-        points = VectorExplosionGenerator.getInstance(
-                titleVectorData.racerPoints, 6, VectorExplosionGenerator.RANDOM);
+        points = vectorExplosionGenerator.getInstance(
+                titleVectorData.racerPoints, 6, 
+                vectorExplosionGenerator.RANDOM);
 
         animationInterfaceArray[1] = new ColorLessVectorAnimation(points);
         
