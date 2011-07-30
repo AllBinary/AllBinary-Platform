@@ -19,31 +19,30 @@ import allbinary.animation.IndexedAnimation;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.logic.math.PrimitiveIntUtil;
 
 public class TitleAnimation extends SpecialAnimation 
 {
     private final int loopCountTotal;
     
-    private final BasicColor[] basicColorArray;
-    private final int[] dxArray;
-    private final int[] dyArray;
-    private final int width;
+    protected final BasicColor[] basicColorArray;
+    protected final int[] dxArray;
+    protected final int[] dyArray;
+    protected final int width;
     // private final int HEIGHT = 45;
 
-    private final IndexedAnimation[] animationInterfaceArray;
+    protected final IndexedAnimation[] animationInterfaceArray;
     
     private final int timePerFrame;
 
-    private final int size;
-    private final int y;
+    protected final int size;
+    protected final int y;
 
     private int loopCount;
     private long lastFrameStartTime;
     
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     public TitleAnimation(IndexedAnimation[] animationInterfaceArray,
             BasicColor[] basicColorArray, int[] dxArray, int[] dyArray)
@@ -185,7 +184,7 @@ public class TitleAnimation extends SpecialAnimation
         this.paint(graphics, x, y);
     }
 
-    private final BasicColor CLEAR_COLOR = BasicColorFactory.getInstance().CLEAR_COLOR;
+    protected  final BasicColor CLEAR_COLOR = BasicColorFactory.getInstance().CLEAR_COLOR;
     
     public void paint(Graphics graphics, int ax, int ay)
     {
@@ -212,4 +211,36 @@ public class TitleAnimation extends SpecialAnimation
             this.animationInterfaceArray[index].paint(graphics, deltaX, deltaY);
         }
     }
+
+    /*
+    private final ViewPosition viewPosition = new CenterViewPositionFactory().getInstance();
+    
+    public void paintThreed(Graphics graphics, int x, int y, int z)
+    {
+        int dx = 0;
+        
+        if(this.width != Integer.MIN_VALUE)
+        {
+            dx = ((graphics.getClipWidth() - this.width) / 2);
+        }
+        
+        int deltaX;
+        int deltaY;
+
+        for (int index = 0; index < size; index++)
+        {
+            deltaX = this.dxArray[index] + dx;
+            deltaY = this.dyArray[index] + y;
+
+            //if (this.basicColorArray[index] != CLEAR_COLOR)
+            //{
+              //  this.basicColorUtil.setBasicColor(graphics, this.basicColorArray[index]);
+            //}
+            //LogUtil.put(LogFactory.getInstance("deltaX: " + deltaX + " " + x, this, "paint"));
+
+            //this.animationInterfaceArray[index].paintThreed(graphics, deltaX, deltaY, 30);
+            this.animationInterfaceArray[index].paintThreed(graphics, viewPosition.getX() + deltaX, viewPosition.getY() + deltaY, 30);
+        }
+    }
+    */
 }
