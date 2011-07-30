@@ -17,12 +17,11 @@ import javax.microedition.lcdui.Graphics;
 
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 
 public class Animation implements AnimationInterface
 {
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
 
     private BasicColor basicColor;
     private int color;
