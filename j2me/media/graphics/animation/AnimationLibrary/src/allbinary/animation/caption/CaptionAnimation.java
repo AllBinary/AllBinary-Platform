@@ -62,10 +62,9 @@ public class CaptionAnimation extends Animation
 
     public void paintThreed(Graphics graphics, int x, int y, int z)
     {
-        this.animationInterface.paintThreed(graphics, x + this.captionDx, y
-                + this.captionDy, z);
-        this.overlayAnimationInterface.paintThreed(graphics, x + this.captionDx
-                + dx, y + this.captionDy + dy, z);
+        this.animationInterface.paintThreed(graphics, x + this.captionDx, y + this.captionDy, z);
+        this.overlayAnimationInterface.paintThreed(graphics, 
+                x + this.captionDx + dx, y + this.captionDy + dy, z);
     }
     
 }
