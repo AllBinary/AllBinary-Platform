@@ -23,7 +23,6 @@ import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorArrayIndexer;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
-import allbinary.graphics.color.BasicColorUtilFactory;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.logic.math.PrimitiveLongUtil;
 import allbinary.view.ViewPosition;
@@ -31,7 +30,7 @@ import allbinary.view.ViewPosition;
 public class PtsDamageFloaters extends DamageFloaters
 {    
     protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorUtilFactory.getInstance();
+        BasicColorSetUtil.getInstance();
     
     private AllBinaryLayer layerInterface;
 
