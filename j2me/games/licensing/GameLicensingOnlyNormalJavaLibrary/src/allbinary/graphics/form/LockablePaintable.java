@@ -23,7 +23,7 @@ import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 public class LockablePaintable
     extends ItemPaintable
 {
-    private final Animation animation = (Animation)
+    private final Animation animation = 
     FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
             LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance();
     
