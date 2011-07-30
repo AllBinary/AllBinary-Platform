@@ -15,8 +15,9 @@ package allbinary.game.init;
 
 import javax.microedition.lcdui.CommandListener;
 
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+
 import abcs.logic.basic.NotImplemented;
-import allbinary.animation.resource.ResourceLoadingLevelFactory;
 import allbinary.game.resource.ResourceInitialization;
 import allbinary.graphics.PointFactory;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
