@@ -30,7 +30,7 @@ public class GeographicMapCellTypeFactory
     
     public GeographicMapCellType getInstance(int type)
     {
-       return getGeographicMapCellTypeArray()[type];
+       return geographicMapCellTypeArray[type];
     }
 
     public GeographicMapCellType[] getGeographicMapCellTypeArray()
