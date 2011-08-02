@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<USER_CONFIGURATION_NAME>
+   <USER_EMAIL_CONFIGURATION_NAME>
+      <EMAIL_EVENTS_CONFIGURATION_NAME>
+
+         <!-- Not Implemented Yet -->
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>Product Is On Sale</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+
+         <!-- Start Product/Inventory Events 
+         EMAIL_EVENT_CONFIGURATION_NAME
+            EMAIL_EVENT_CONFIGURATION_NAME Product Is Available EMAIL_EVENT_CONFIGURATION_NAME
+            EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH
+         EMAIL_EVENT_CONFIGURATION_NAME
+         -->
+         <!-- End Product/Inventory Events -->
+        
+         <!-- Start Order Processing Events -->
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>Order Preprocessing</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>Order Processing</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>Order Cancelled</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>Order Partially Shipped</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>Order Shipped</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+         <!-- Start Order Processing Events -->
+
+         <!-- Start Quote Request Events -->
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>Quote Request</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+
+         <!-- Start User Events -->
+         <EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_NAME>New Password</EMAIL_EVENT_CONFIGURATION_NAME>
+            <EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>allbinary.logic.communication.smtp.event.modules.event.user.UserEmailEventListenerModule</EMAIL_EVENT_CONFIGURATION_LISTENER_CLASSPATH>
+         </EMAIL_EVENT_CONFIGURATION_NAME>
+
+      </EMAIL_EVENTS_CONFIGURATION_NAME>
+   </USER_EMAIL_CONFIGURATION_NAME>
+
+   <ENTRY_TIMECREATED>0</ENTRY_TIMECREATED>
+
+   <ENTRY_LASTMODIFIED>0</ENTRY_LASTMODIFIED>
+
+</USER_CONFIGURATION_NAME>
+
