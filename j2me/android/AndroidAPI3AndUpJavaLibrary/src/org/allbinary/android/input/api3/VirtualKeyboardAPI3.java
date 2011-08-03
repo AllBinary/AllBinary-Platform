@@ -100,7 +100,15 @@ implements VirtualKeyboardEventListenerInterface
           //      this.getView().getWindowToken(), 
             //    InputMethodManager.SHOW_FORCED);
 
-        View view = ((ViewCompositeInterface) this.activity).getView();
+        ViewCompositeInterface viewCompositeInterface = 
+                (ViewCompositeInterface) this.activity;
+        
+        if(viewCompositeInterface == null)
+        {
+            ForcedLogUtil.log("Activity Null", this);
+        }
+
+        View view = viewCompositeInterface.getView();
 
         inputMethodManager.toggleSoftInputFromWindow(
                 view.getWindowToken(), 
@@ -112,8 +120,16 @@ implements VirtualKeyboardEventListenerInterface
     private void hideVirtualKeyboard(
             InputMethodManager inputMethodManager)
     {   
+        ViewCompositeInterface viewCompositeInterface = 
+                (ViewCompositeInterface) this.activity;
+        
+        if(viewCompositeInterface == null)
+        {
+            ForcedLogUtil.log("Activity Null", this);
+        }
+        
         IBinder token = 
-            ((ViewCompositeInterface) this.activity).getView().getWindowToken();
+                viewCompositeInterface.getView().getWindowToken();
         
         //this.activity.getWindow().setSoftInputMode(
           //      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
