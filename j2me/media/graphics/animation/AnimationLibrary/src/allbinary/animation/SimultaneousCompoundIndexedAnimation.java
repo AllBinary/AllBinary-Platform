@@ -22,7 +22,8 @@ import allbinary.logic.math.PrimitiveIntUtil;
  * @author Berthelot, Travis
  * @version 1.0
  */
-public class SimultaneousCompoundIndexedAnimation extends IndexedAnimation
+public class SimultaneousCompoundIndexedAnimation 
+    extends IndexedAnimation
     //implements IndexedAnimationInterface
 {
     private IndexedAnimation[] animationInterfaceArray;
@@ -34,8 +35,7 @@ public class SimultaneousCompoundIndexedAnimation extends IndexedAnimation
     
     public void setFrame(int frameIndex)
     {
-        int size = this.animationInterfaceArray.length;
-        for(int index = 0; index < size; index++)
+        for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
             this.animationInterfaceArray[index].setFrame(frameIndex);
         }
@@ -43,18 +43,17 @@ public class SimultaneousCompoundIndexedAnimation extends IndexedAnimation
 
     public int getFrame()
     {
-        return this.getAnimationInterfaceArray()[0].getFrame();
+        return this.animationInterfaceArray[0].getFrame();
     }
 
     public int getSize()
     {
-        return this.getAnimationInterfaceArray()[0].getSize();
+        return this.animationInterfaceArray[0].getSize();
     }
 
     public void previousFrame()
     {
-        int size = this.animationInterfaceArray.length;
-        for(int index = 0; index < size; index++)
+        for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
             this.animationInterfaceArray[index].previousFrame();
         }
@@ -71,8 +70,7 @@ public class SimultaneousCompoundIndexedAnimation extends IndexedAnimation
 
     public void nextFrame() throws Exception
     {
-        int size = this.animationInterfaceArray.length;
-        for(int index = 0; index < size; index++)
+        for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
             this.animationInterfaceArray[index].nextFrame();
         }
