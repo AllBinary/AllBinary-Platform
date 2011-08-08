@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<assembly>
+    <id>dependencies</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+
+        <dependencySet>
+
+           <excludes>
+               <exclude>org.allbinary:LoggingJ2MEAll</exclude>
+               <exclude>org.allbinary:ApplicationStatisticsJ2MELibrary</exclude>
+               <exclude>org.allbinary:OpenGLNoneJavaLibrary</exclude>
+                
+                <exclude>org.allbinary:TempIntegrationJavaLibrary</exclude>
+                                
+                <exclude>org.allbinary:FullScreenJavaLibrary</exclude>
+                
+                <exclude>org.allbinary:GameInputPCJavaLibrary</exclude>
+                <exclude>org.allbinary:GameInputPCMotionJavaLibrary</exclude>
+
+               <exclude>org.allbinary:AdvertisementClientNoneJavaLibrary</exclude>
+               
+               <exclude>org.microemu:microemu-cldc</exclude>
+               <exclude>org.microemu:microemu-midp</exclude>
+           </excludes>
+
+            <unpack>true</unpack>
+            <scope>runtime</scope>
+            <outputDirectory></outputDirectory>
+            <outputFileNameMapping></outputFileNameMapping>
+        </dependencySet>
+    </dependencySets>
+</assembly>
