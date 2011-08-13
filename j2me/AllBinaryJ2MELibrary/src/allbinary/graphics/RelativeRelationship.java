@@ -13,20 +13,54 @@
 */
 package allbinary.graphics;
 
+import org.allbinary.util.BasicArrayList;
+
+/**
+ *
+ * @author user
+ */
 public class RelativeRelationship
 {
+   private BasicArrayList typesAllowedList;
+   
+   protected int x;
+   protected int y;
+   protected int z;
+
+   //private Angle[] angleArray;
+
+   public RelativeRelationship(GPoint point, BasicArrayList typesAllowedList)
+   {
+      this.x = point.getX();
+      this.y = point.getY();
+      this.z = point.getZ();
+      
+      this.typesAllowedList = typesAllowedList;
+   }
+   
    public int getX()
    {
-      return 0;
+      return this.x;
    }
    
    public int getY()
    {
-      return 0;
+      return this.y;
    }
-   
+
    public int getZ()
    {
-      return 0;
+      return this.z;
    }
+   
+   public BasicArrayList getTypesAllowedList()
+   {
+      return typesAllowedList;
+   }
+
+   public void setTypesAllowedList(BasicArrayList typesAllowedList)
+   {
+      this.typesAllowedList = typesAllowedList;
+   }
+   
 }
