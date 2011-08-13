@@ -417,9 +417,10 @@ public class WeaponLayer extends MultiPlayerGameLayer
 
         this.animationInterface.paintThreed(graphics, 
                 viewPosition.getX() - this.getHalfWidth(),
-                viewPosition.getY() - this.getHalfHeight(), 3);
+                viewPosition.getY() - this.getHalfHeight(),
+                viewPosition.getZ() - this.getHalfDepth());
     }
-    
+
     /**
      * @return the movement
      */
