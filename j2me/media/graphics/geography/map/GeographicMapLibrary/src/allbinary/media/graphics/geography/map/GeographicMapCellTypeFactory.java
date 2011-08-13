@@ -22,7 +22,7 @@ public class GeographicMapCellTypeFactory
         return instance;
     }
 
-    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[20];
+    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[50];
     
     public GeographicMapCellType EMPTY_CELL_TYPE;
     public GeographicMapCellType EASY_CELL_TYPE;
