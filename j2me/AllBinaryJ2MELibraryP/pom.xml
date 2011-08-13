@@ -29,7 +29,11 @@
         <module>../logging/LoggingJ2MEAllM</module>
         <module>../logging/LoggingJ2MEExceptionM</module>
         <module>../logging/LoggingNoneM</module>
-        <module>../logging/LoggingRemoteExceptionM</module>
+        <!--
+        //While it is a possible dependency option it really does not fit here
+        //as such it is actually build in the final POM builds instead
+        <module>../logging/LoggingRemoteExceptionM</module>  
+        -->
         <module>../lib/BasicMathLibraryM</module>
         <module>../time/TimeJavaLibraryM</module>
 
