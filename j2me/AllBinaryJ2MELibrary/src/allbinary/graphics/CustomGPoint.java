@@ -17,6 +17,7 @@ public class CustomGPoint extends GPoint
 {
     private int x;
     private int y;
+    private int z;
     
     private CustomGPoint(GPoint point)
     {
@@ -25,12 +26,14 @@ public class CustomGPoint extends GPoint
     
     public CustomGPoint(int x, int y)
     {
-        super(x, y);
-        
-        this.setX(this.getX());
-        this.setY(this.getY());
+        super(x, y);        
     }
 
+    public CustomGPoint(int x, int y, int z)
+    {
+        super(x, y, z);
+    }
+    
     public void setX(int x)
     {
         this.x = x;
@@ -49,5 +52,15 @@ public class CustomGPoint extends GPoint
     public int getY()
     {
         return y;
+    }
+
+    public void setZ(int z)
+    {
+        this.z = z;
+    }
+
+    public int getZ()
+    {
+        return z;
     }
 }
