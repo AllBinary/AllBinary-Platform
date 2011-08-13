@@ -35,4 +35,8 @@ public class CommonSeps
     public final String COMMA_SEP = COMMA + SPACE;
     public final String PARENTHESIS_OPEN = "(";
     public final String PARENTHESIS_CLOSE = ")";
+    public final String BRACE_OPEN = "{";
+    public final String BRACE_CLOSE = "}";
+    public final String BRACKET_OPEN = "[";
+    public final String BRACKET_CLOSE = "]";
 }
