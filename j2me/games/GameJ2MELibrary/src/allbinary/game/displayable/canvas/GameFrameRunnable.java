@@ -18,7 +18,7 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.time.GameTickTimeDelayHelperFactory;
 
-public class GameFrameRunnable implements Runnable
+public class GameFrameRunnable extends GameRunnable
 {
     private final AllBinaryGameCanvas allBinaryGameCanvas;
     
