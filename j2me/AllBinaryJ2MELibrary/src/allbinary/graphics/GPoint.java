@@ -20,17 +20,27 @@ public class GPoint
 {
    private final int x;
    private final int y;
+   private final int z;
 
    public GPoint(GPoint point)
    {
       this.x = point.getX();
       this.y = point.getY();
+      this.z = point.getZ();
    }
-   
+
    protected GPoint(int x, int y)
    {
       this.x = x;
       this.y = y;
+      this.z = 3;
+   }
+   
+   protected GPoint(int x, int y, int z)
+   {
+      this.x = x;
+      this.y = y;
+      this.z = z;
    }
    
    public int getX()
@@ -41,6 +51,11 @@ public class GPoint
    public int getY()
    {
       return y;
+   }
+
+   public int getZ()
+   {
+      return z;
    }
    
    public String toString()
