@@ -46,6 +46,7 @@ public class OpenGLConfiguration
     private boolean opengl = false;
 
     private OpenGLFeature type =
+    		//OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS;
     		OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD;
     
     private OpenGLFeature imageColor = 
