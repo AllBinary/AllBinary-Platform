@@ -1513,25 +1513,41 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
                 
             }
             else
+                if (Features.getInstance().isDefault(
+                        OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+                {
+                    GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+
+                    final CurrentDisplayableFactory currentDisplayableFactory = 
+                        CurrentDisplayableFactory.getInstance();
+
+                    currentDisplayableFactory.setRunnable(gameRunnable);
+                    
+                }
+                else
             if (Features.getInstance().isDefault(
-                    OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+            		OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS))
             {
-                GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+                final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
+                        GameTickTimeDelayHelperFactory.getInstance();
 
-                final CurrentDisplayableFactory currentDisplayableFactory = 
-                    CurrentDisplayableFactory.getInstance();
+                while (this.isRunning())
+                {
+                	this.getLoopTimeHelper().setStartTime(
+                			gameTickTimeDelayHelperFactory.setStartTime());
 
-                currentDisplayableFactory.setRunnable(gameRunnable);
-                
+                	this.processGame();
+
+                	this.processLoopSleep();
+                }
+
+                this.end();
+
                 /*
                 this.runnableCanvasRefreshHelper = Processor.getInstance();
 
                 GameFrameRunnable gameFrameRunnable = new GameFrameRunnable(this);
 
-                AllBinaryRenderer allbinaryRenderer = AllBinaryRenderer.getInstance();
-
-                final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
-                
                 while (this.isRunning())
                 {
                     currentDisplayableFactory.setRunnable(gameFrameRunnable);
@@ -1551,7 +1567,7 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
                     }
 
                     this.processLoopSleep();
-                }
+                } 
                 */
             }
             else
