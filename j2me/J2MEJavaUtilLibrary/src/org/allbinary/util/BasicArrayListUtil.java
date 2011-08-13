@@ -1,0 +1,75 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package org.allbinary.util;
+
+import abcs.logic.basic.string.CommonStrings;
+import allbinary.game.rand.MyRandomFactory;
+
+/**
+ * 
+ * @author user
+ */
+public class BasicArrayListUtil
+{
+    private static final BasicArrayListUtil instance = new BasicArrayListUtil();
+
+    public static BasicArrayListUtil getInstance()
+    {
+        return instance;
+    }
+
+    private final MyRandomFactory myRandomFactory = MyRandomFactory
+            .getInstance();
+
+    // I should make immutable and throw on attempted edit
+    private final BasicArrayList immutableInstance = new ImmutableBasicArrayList(
+            0);
+
+    public Object getRandom(BasicArrayList list)
+    {
+        int i_random = this.getRandomIndex(list);
+        return list.get(i_random);
+    }
+
+    public int getRandomIndex(BasicArrayList list)
+    {
+        return myRandomFactory.getAbsoluteNextInt(list.size());
+    }
+
+    public String log(BasicArrayList list)
+    {
+        int size = list.size();
+
+        StringBuilder stringBuffer = new StringBuilder();
+        stringBuffer.append(CommonStrings.getInstance().TOTAL_LABEL);
+        stringBuffer.append(size);
+
+        for (int index = size - 1; index >= 0; index--)
+        {
+            BasicArrayList usedList = (BasicArrayList) list.get(index);
+
+            stringBuffer.append(" s: ");
+            stringBuffer.append(usedList.size());
+        }
+        return stringBuffer.toString();
+    }
+
+    /**
+     * @return the immutableInstance
+     */
+    public BasicArrayList getImmutableInstance()
+    {
+        return immutableInstance;
+    }
+}
