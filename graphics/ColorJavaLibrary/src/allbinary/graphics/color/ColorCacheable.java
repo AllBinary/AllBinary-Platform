@@ -11,22 +11,6 @@
 * Created By: Travis Berthelot
 * 
 */
-            /*
-             *Copyright (c) 2007 All Binary
-             *All Rights Reserved.
-             *Don't Duplicate or Distributed.
-             *Trade Secret Information
-             *For Internal Use Only
-             *Confidential
-             *Unpublished
-             *
-             *@author Travis Berthelot
-             *Date: April 21, 2007, 2:16 AM
-             *
-             *Modified By         When       ?
-             *
-             */
-
 package allbinary.graphics.color;
 
 import com.abcs.logic.util.cache.CacheableInterface;

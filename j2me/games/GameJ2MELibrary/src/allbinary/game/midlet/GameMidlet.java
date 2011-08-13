@@ -13,22 +13,6 @@
 */
 package allbinary.game.midlet;
 
-/*
- *Copyright (c) 2002 All Binary
- *All Rights Reserved.
- *Don't Duplicate or Distributed.
- *Trade Secret Information
- *For Internal Use Only
- *Confidential
- *Unpublished
- *
- *Created By: Travis Berthelot
- *Date: 11/19/02
- *
- *
- *Modified By         When       ?
- *
- */
 /**
  *Detailed description This class is the main MIDlet for all GameMidlets
  *it sets the main canvas and starts a thread for the specified canvas.

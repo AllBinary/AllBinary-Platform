@@ -13,23 +13,6 @@
 */
 package allbinary.midlet;
 
-/*
- *Copyright (c) 2002 All Binary
- *All Rights Reserved.
- *Don't Duplicate or Distributed.
- *Trade Secret Information
- *For Internal Use Only
- *Confidential
- *Unpublished
- *
- *Created By: Travis Berthelot
- *Date: 11/19/02
- *
- *
- *Modified By         When       ?
- *
- */
-
 /**
  *Detailed description This class is the main MIDlet for all MIDlets and
  *it sets the main canvas and starts a thread for the specified canvas.
@@ -38,7 +21,6 @@ package allbinary.midlet;
  *Date: 11/19/02
  *
  */
-
 import java.util.Hashtable;
 
 import javax.microedition.lcdui.Command;
