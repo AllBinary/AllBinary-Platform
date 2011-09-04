@@ -17,7 +17,6 @@ import org.allbinary.util.BasicArrayList;
 
 import allbinary.graphics.GPoint;
 import allbinary.graphics.PointFactory;
-import allbinary.logic.math.BasicDecimal;
 import allbinary.math.Angle;
 import allbinary.math.NoDecimalTrigTable;
 
@@ -46,9 +45,11 @@ public class BasicGraphicsPipeline
 
       PointFactory pointFactory = PointFactory.getInstance();
       
+      GPoint secondPoint;
+      
       for(int index = 0; index < size; index++)
       {
-         GPoint secondPoint = (GPoint) pointBasicArrayList.get(index);
+          secondPoint = (GPoint) pointBasicArrayList.get(index);
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
@@ -72,24 +73,30 @@ public class BasicGraphicsPipeline
    {
       BasicArrayList newBasicArrayList = new BasicArrayList();
 
+      GPoint secondPoint;
+
+      long y;
+      long secondX;
+      long secondY;
+      GPoint point;
+      
+      PointFactory pointFactory = PointFactory.getInstance();
+      
       int size = this.pointBasicArrayList.size();
       for(int index = 0; index < size; index++)
       {
-         GPoint secondPoint = (GPoint) pointBasicArrayList.get(index);
+          secondPoint = (GPoint) pointBasicArrayList.get(index);
          //LogUtil.put("Old: " + secondPoint.toString(), this, "rotate");
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
-             long y = secondPoint.getY() * noDecimalTrigTable.sin(angle);
-             long secondX = (secondPoint.getX() * noDecimalTrigTable.cos(angle)) - y;
-
-             long secondY = (secondPoint.getX() * noDecimalTrigTable.sin(angle)) + (secondPoint.getY() * noDecimalTrigTable.cos(angle));
+             y = secondPoint.getY() * noDecimalTrigTable.sin(angle);
+             secondX = (secondPoint.getX() * noDecimalTrigTable.cos(angle)) - y;
+             secondY = (secondPoint.getX() * noDecimalTrigTable.sin(angle)) + (secondPoint.getY() * noDecimalTrigTable.cos(angle));
 
             //LogUtil.put("Calculated: X: " + secondX + " Y: " + secondY, this, "rotate");
-            BasicDecimal secondXBasicDecimal = new BasicDecimal(secondX / 10);
-            BasicDecimal secondYBasicDecimal = new BasicDecimal(secondY / 10);
 
-            GPoint point = PointFactory.getInstance().getInstance(secondXBasicDecimal.getScaled(), secondYBasicDecimal.getScaled());
+             point = pointFactory.getInstance((int) secondX / 10000, (int) secondY / 10000);
 
             //LogUtil.put("New: " + point.toString(), this, "rotate");
             newBasicArrayList.add(point);
@@ -107,15 +114,21 @@ public class BasicGraphicsPipeline
       int halfWidth = (width >> 1);
       BasicArrayList newBasicArrayList = new BasicArrayList();
 
+      GPoint secondPoint;
+      int newX;
+      GPoint point;
+      
+      PointFactory pointFactory = PointFactory.getInstance();
+      
       int size = this.pointBasicArrayList.size();
       for(int index = 0; index < size; index++)
       {
-         GPoint secondPoint = (GPoint) pointBasicArrayList.get(index);
+          secondPoint = (GPoint) pointBasicArrayList.get(index);
          //LogUtil.put("Old: " + secondPoint.toString(), this, "rotate");
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
-            int newX = 0;
+             newX = 0;
             
             if(secondPoint.getX() > halfWidth)
             {
@@ -126,7 +139,7 @@ public class BasicGraphicsPipeline
                newX = halfWidth + (halfWidth - secondPoint.getX());
             }
 
-            GPoint point = PointFactory.getInstance().getInstance(newX, secondPoint.getY());
+            point = pointFactory.getInstance(newX, secondPoint.getY());
 
             //LogUtil.put("New: " + point.toString(), this, "rotate");
             newBasicArrayList.add(point);
