@@ -33,11 +33,13 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.CircularIndexUtil;
 
 import abcs.logic.basic.NotImplemented;
+import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
+import allbinary.canvas.AllGameStatisticsFactory;
 import allbinary.canvas.BaseGameStatistics;
 import allbinary.canvas.GameStatisticsFactory;
 import allbinary.canvas.Processor;
@@ -125,8 +127,9 @@ import allbinary.thread.SecondaryThreadPool;
 import allbinary.time.GameTickTimeDelayHelperFactory;
 import allbinary.time.TimeDelayHelper;
 
-public class AllBinaryGameCanvas extends RunnableCanvas implements
-        AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
+public class AllBinaryGameCanvas 
+extends RunnableCanvas 
+implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         MenuListener, IntermissionCompositeInterface,
         IntermissionEnableListenerInterface, PopupMenuInterface,
         HighScoresCompositeInterface, DisplayChangeEventListener
@@ -206,7 +209,7 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
                 BasicColorFactory.getInstance().BLACK);
 
     private final BaseGameStatistics baseGameStatistics = 
-        GameStatisticsFactory.getInstance();
+            GameStatisticsFactory.getInstance();
     
     private final PlayerQueue primaryPlayerQueue = 
         PrimaryPlayerQueueFactory.getInstance();
@@ -459,29 +462,34 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
 
     public synchronized void pause()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "pause"));
-        // PreLogUtil.put(commonStrings.START, this, "pause");
+    	final String METHOD_NAME = "pause";
+    	
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
+        // PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
 
         if (this.getLayerManager().getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
-        if (Features.getInstance().isDefault(
-                OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
-        {
-            GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(this);
+            if (Features.getInstance().isDefault(
+                    OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+            {
+                GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(this);
 
-            final CurrentDisplayableFactory currentDisplayableFactory = 
-                CurrentDisplayableFactory.getInstance();
+                final CurrentDisplayableFactory currentDisplayableFactory = 
+                    CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameRunnable);
+                currentDisplayableFactory.setRunnable(gameRunnable);
+            }
         }
-        }
-        
+
         this.closeMenu();
+
         super.pause();
+
         TouchButtonFactory.getInstance().toggle(this.isPaused(), null);
+
         System.gc();
 
-        // LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "pause"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.END, this, METHOD_NAME));
     }
 
     public synchronized void unPause()
@@ -519,8 +527,9 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
             this.setMenuInputProcessor(this.mainMenuInputProcessor);
             BasicMotionGesturesHandler.getInstance().addListener(
                     this.mainMenuInputProcessor);
+
             GameKeyEventHandler.getInstance().addListener(
-                    this.mainMenuInputProcessor);
+            		this.mainMenuInputProcessor);
         }
     }
 
@@ -551,8 +560,9 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
 
             BasicMotionGesturesHandler.getInstance().removeListener(
                     this.mainMenuInputProcessor);
+        
             GameKeyEventHandler.getInstance().removeListener(
-                    this.mainMenuInputProcessor);
+            		this.mainMenuInputProcessor);
 
             this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
         }
@@ -562,16 +572,18 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
     {
         BasicMotionGesturesHandler.getInstance().addListener(
                 this.getMenuInputProcessor());
+
         GameKeyEventHandler.getInstance().addListener(
-                this.getMenuInputProcessor());
+        		this.getMenuInputProcessor());
     }
 
     public void close()
     {
         BasicMotionGesturesHandler.getInstance().removeListener(
                 this.getMenuInputProcessor());
+
         GameKeyEventHandler.getInstance().removeListener(
-                this.getMenuInputProcessor());
+        		this.getMenuInputProcessor());
 
         primaryPlayerQueue.clear();
         secondaryPlayerQueue.clear();
@@ -1617,6 +1629,10 @@ public class AllBinaryGameCanvas extends RunnableCanvas implements
     
     public void end() throws Exception
     {
+        AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
+        allGameStatisticsFactory.add(baseGameStatistics.toString() + CommonSeps.getInstance().NEW_LINE);
+        baseGameStatistics.init();
+        
         GameKeyEventHandler.getInstance().removeListener(this.cheatProcessor);
         this.close();
         this.removeAllGameKeyInputListeners();
