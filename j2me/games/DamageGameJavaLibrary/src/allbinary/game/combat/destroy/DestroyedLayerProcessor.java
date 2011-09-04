@@ -24,7 +24,6 @@ import allbinary.layer.BasicLayerProcessor;
 
 public class DestroyedLayerProcessor extends BasicLayerProcessor
 {
-
     private static BasicLayerProcessor DESTROYED_LAYER_PROCESSOR;
 
     private DestroyedLayerProcessor()
