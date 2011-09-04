@@ -33,6 +33,10 @@ public class RotationAnimation
     protected RotationAnimation(AngleInfo angleInfo)
     {
         this.angleInfo = angleInfo;
+        
+        //Is 360 okay?
+        this.circularIndexUtil = CircularIndexUtil.getInstance(
+                360 / angleInfo.getAngleIncrementInfo().getAngleIncrement());
     }
     
     protected RotationAnimation(AngleInfo angleInfo, short totalAngle)
