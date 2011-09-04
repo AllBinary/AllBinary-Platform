@@ -40,8 +40,8 @@ import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
+import allbinary.canvas.AllGameStatisticsFactory;
 import allbinary.canvas.FullScreenUtil;
-import allbinary.canvas.GameStatisticsFactory;
 import allbinary.debug.DebugFactory;
 import allbinary.debug.DebugInterface;
 import allbinary.game.GameInfo;
@@ -226,8 +226,8 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, "GameMidlet::destroyApp");
-
+            PreLogUtil.put(AllGameStatisticsFactory.getInstance().toString(), this, "GameMidlet::destroyApp");
+            
             //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "GameMidlet::destroyApp"));
 
             GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
