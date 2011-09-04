@@ -112,7 +112,7 @@ public class VectorAnimation extends IndexedAnimation
             int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
             int size = currentPointsFrame.length;
 
-            for (int index = size - 3; index >= 0; index--)
+            for (int index = size - 2; --index >= 0;)
             {
                 nextPoint = currentPointsFrame[index];
                 point = currentPointsFrame[index + 1];
@@ -170,6 +170,6 @@ public class VectorAnimation extends IndexedAnimation
     public void setPoints(int[][][] currentPoints)
     {
         this.currentPoints = currentPoints;
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.currentPoints.length);
+        this.circularIndexUtil = CircularIndexUtil.getInstance(currentPoints.length);
     }
 }
