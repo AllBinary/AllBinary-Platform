@@ -20,43 +20,19 @@ import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
 import allbinary.math.FrameUtil;
 
-public class VectorRotationAnimation extends VectorBaseRotationAnimation 
-        implements VectorAnimationInterface
+public class VectorRotationAnimation 
+    extends VectorBaseRotationAnimation 
+    implements VectorAnimationInterface
 {   
-   private AngleInfo angleInfo;
-
    public VectorRotationAnimation(int currentPoints[][][], BasicColor basicColor)
            throws Exception
    {
-      super(currentPoints, basicColor);
+       //int angleIncrement
+       super(AngleInfo.getInstance(AngleFactory.getInstance().TOTAL_ANGLE/currentPoints.length), currentPoints, basicColor);
 
-      //this.getPoints()
-      int angleIncrement = AngleFactory.getInstance().TOTAL_ANGLE/currentPoints.length;
-      
-      this.setAngleInfo(AngleInfo.getInstance(angleIncrement));
       this.angleInfo.adjustAngle(this.getFrame());
       
       //LogUtil.put(LogFactory.getInstance(this.getAngleInfo().toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
-   }
-   
-   public void nextRotation()
-   {      
-      this.angleInfo.adjustAngle(this.getFrame());
-   }
-   
-   public void previousRotation()
-   {
-      this.angleInfo.adjustAngle(this.getFrame());
-   }
-   
-   public AngleInfo getAngleInfo()
-   {
-      return angleInfo;
-   }
-   
-   protected void setAngleInfo(AngleInfo angleInfo)
-   {
-      this.angleInfo = angleInfo;
    }
    
    public void setFrame(Direction direction)
