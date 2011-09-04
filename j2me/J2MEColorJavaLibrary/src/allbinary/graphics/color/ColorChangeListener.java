@@ -15,6 +15,7 @@ package allbinary.graphics.color;
 
 import allbinary.logic.basic.util.event.EventListenerInterface;
 
-public interface ColorChangeListener extends EventListenerInterface
+public interface ColorChangeListener 
+extends EventListenerInterface
 {
 }
