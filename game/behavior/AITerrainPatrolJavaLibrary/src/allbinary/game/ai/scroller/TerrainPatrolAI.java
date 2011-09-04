@@ -24,7 +24,7 @@ import allbinary.game.terrain.BasicTerrainInfo;
 import allbinary.game.terrain.TerrainEvent;
 import allbinary.game.terrain.TerrainEventCircularStaticPool;
 import allbinary.game.terrain.TerrainEventHandler;
-import allbinary.game.terrain.TerrainEventListenerInterface;
+import allbinary.game.terrain.TerrainEventListener;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.math.Angle;
 import allbinary.math.AngleFactory;
@@ -34,10 +34,9 @@ import allbinary.math.AngleFactory;
  * @author user
  */
 public class TerrainPatrolAI extends PacePatrolAI
-   implements TerrainEventListenerInterface
 {
-    private BasicArrayList list;
-
+    private final TerrainEventListener terrainEventListener = new TerrainEventListener();
+    
     private final Angle DOWN = AngleFactory.getInstance().DOWN;
     
     private BasicTerrainInfo CLIFF = new BasicTerrainInfo(DOWN);
@@ -48,20 +47,11 @@ public class TerrainPatrolAI extends PacePatrolAI
     {
         super(hashtable, ownerLayerInterface, gameInput);
 
-        this.list = new BasicArrayList();
+        TerrainEventHandler.getInstance(ownerLayerInterface).addListener(
+                this.terrainEventListener);
 
-        TerrainEventHandler.getInstance(ownerLayerInterface).addListener(this);
-
-        this.onTerrainEvent(TerrainEventCircularStaticPool.getInstance().getInstance(this.CLIFF));
-    }
-
-    public void onTerrainEvent(TerrainEvent terrainEvent)
-    {
-        // LogUtil.put(LogFactory.getInstance("TerrainEvent: " +
-        // terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this,
-        // "onTerrainEvent"));
-        this.list.clear();
-        this.list.add(terrainEvent);
+        this.terrainEventListener.onTerrainEvent(
+                TerrainEventCircularStaticPool.getInstance().getInstance(this.CLIFF));
     }
 
     protected void update()
@@ -73,6 +63,8 @@ public class TerrainPatrolAI extends PacePatrolAI
 
     private void changeDirectionIfCliffReached()
     {
+        BasicArrayList list = this.terrainEventListener.getList();
+        
         // Limit pacing to a perch/shelf area
         int size = list.size();
         for (int index = 0; index < size; index++)
@@ -91,8 +83,7 @@ public class TerrainPatrolAI extends PacePatrolAI
 
                 if (!this.isFollowLimitedByTerrain)
                 {
-                    LogUtil.put(LogFactory.getInstance("Following Limited",
-                            this, "onTerrainEvent"));
+                    LogUtil.put(LogFactory.getInstance("Following Limited", this, "onTerrainEvent"));
                     this.isFollowLimitedByTerrain = true;
                 }
 
