@@ -29,8 +29,8 @@ public class VectorExplosionAnimationFactory
 	public Animation getInstance(Animation animationInterface)
 	throws Exception 
 	{
-		VectorAnimation vectorRotationAnimationInterface = 
-			(VectorAnimation) animationInterface;
+	    VectorAnimationInterface vectorRotationAnimationInterface = 
+			(VectorAnimationInterface) animationInterface;
 		int frame = vectorRotationAnimationInterface.getFrame();
 		int[][] framePoints = vectorRotationAnimationInterface.getPoints(frame);
 		int[][][] points = vectorExplosionGenerator.getInstance(
