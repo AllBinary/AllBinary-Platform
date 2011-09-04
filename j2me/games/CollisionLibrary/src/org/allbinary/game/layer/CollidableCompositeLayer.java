@@ -25,14 +25,14 @@ public class CollidableCompositeLayer
 extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
 {
-   private CollidableBaseBehavior collidableInferface;
-    
+    private CollidableBaseBehavior collidableInferface;
+
     public CollidableCompositeLayer(
             Rectangle layerInfo, ViewPosition viewPosition, 
             CollidableBaseBehavior collidableInferface)
     {
         super(layerInfo, viewPosition);
-        
+
         this.setCollidableInferface(collidableInferface);
     }
 
@@ -42,8 +42,7 @@ implements CollidableInterfaceCompositeInterface
         super(layerInfo, viewPosition);
     }
 
-    public CollidableCompositeLayer(
-            Rectangle layerInfo)
+    public CollidableCompositeLayer(Rectangle layerInfo)
     {
         super(layerInfo);
     }
