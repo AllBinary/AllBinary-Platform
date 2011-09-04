@@ -13,8 +13,6 @@
 */
 package allbinary.logic.basic.util.event.handler;
 
-import org.allbinary.util.BasicArrayList;
-
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.EventListenerInterface;
 
@@ -22,7 +20,7 @@ public interface BasicEventHandlerInterface
 {
    void addListener(EventListenerInterface eventListenerInterface);
 
-   void addListeners(BasicArrayList basicArrayList);
+   //void addListeners(BasicArrayList basicArrayList);
 
    void fireEvent(AllBinaryEventObject eventObject) throws Exception;
 

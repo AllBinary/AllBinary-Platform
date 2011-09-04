@@ -16,7 +16,7 @@ package allbinary.logic.basic.util.event.handler;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
+import abcs.logic.communication.log.Log;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.EventListenerInterface;
@@ -24,135 +24,176 @@ import allbinary.logic.basic.util.event.EventListenerInterface;
 public class BasicEventHandler implements BasicEventHandlerInterface
 {
     public static final String PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";
-
-    private BasicArrayList tempList;
-    private BasicArrayList swapList = new BasicArrayList();
-    private BasicArrayList eventListenerInterfaceList = new BasicArrayList();
+    private BasicArrayList eventListenerInterfaceList;
 
     // private ReentrantLock reentrantLock = new ReentrantLock();
     // private Condition condition = reentrantLock.newCondition();
     public BasicEventHandler()
     {
+        this.eventListenerInterfaceList = new BasicArrayList();
     }
 
-    public synchronized void removeAllListeners()
+    public String toString()
     {
-        this.tempList = this.eventListenerInterfaceList;
-        this.eventListenerInterfaceList = this.swapList;
-        this.swapList = this.tempList;
-        this.swapList.clear();
-    }
+        StringBuffer stringBuffer = new StringBuffer();
 
-    public void addListeners(BasicArrayList vector)
-    {
-        int size = vector.size();
-        for (int index = 0; index < size; index++)
-        {
-            EventListenerInterface eventListenerInterface = (EventListenerInterface) vector
-                    .get(index);
-            this.addListener(eventListenerInterface);
-        }
-    }
-
-    public void addListener(
-            EventListenerInterface eventListenerInterface)
-    {
-
-        /*
-         * reentrantLock.lock(); try {
-         * 
-         * while(this.reentrantLock.getHoldCount() > 1) {
-         * this.condition.await(); }
-         */
-        // LogUtil.put(LogFactory.getInstance("Locks Held: " +
-        // reentrantLock.getHoldCount() + " Held By Current Thread: " +
-        // reentrantLock.isHeldByCurrentThread(), this, "addListener"));
-        if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
-        {
-            //LogUtil.put(LogFactory.getInstance(eventListenerInterface.toString(), this, "addListener"));
-            this.eventListenerInterfaceList.add(eventListenerInterface);
-        }
-        else
-        {
-            LogUtil.put(LogFactory.getInstance("Already Contains Listener: "
-                    + eventListenerInterface, this, "addListener"));
-        }
-
-        /*
-         * this.condition.signal(); } catch(Exception e) {
-         * LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "addListener",
-         * e)); } finally { reentrantLock.unlock(); }
-         */
-    }
-
-    public void removeListener(
-            EventListenerInterface eventListenerInterface)
-    {
-        /*
-         * reentrantLock.lock(); try {
-         * 
-         * while(this.reentrantLock.getHoldCount() > 1) {
-         * this.condition.await(); }
-         */
-        // LogUtil.put(LogFactory.getInstance("Locks Held: " +
-        // reentrantLock.getHoldCount() + " Held By Current Thread: " +
-        // reentrantLock.isHeldByCurrentThread(), this, "removeListener"));
-
-        //LogUtil.put(LogFactory.getInstance(eventListenerInterface.toString(), this, "removeListener"));
-        this.eventListenerInterfaceList.remove(eventListenerInterface);
-
-        /*
-         * this.condition.signal(); } catch(Exception e) { LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "removeListener", e)); } finally {
-         * reentrantLock.unlock(); }
-         */
-    }
-
-    public synchronized void fireEvent(AllBinaryEventObject eventObject)
-            throws Exception
-    {
-        /*
-         * reentrantLock.lock(); try {
-         * 
-         * while(this.reentrantLock.getHoldCount() > 1) {
-         * this.condition.await(); }
-         * 
-         * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
-         * Log("Locks Held: " + reentrantLock.getHoldCount() + " Held By
-         * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * "fireEvent")); //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,
-         * "fireEvent"));
-         * 
-         * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
-         * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
-         * (EventListenerInterface) iter .next();
-         * 
-         * this.process(eventObject, eventListenerInterface); }
-         * 
-         * this.condition.signal(); } catch(Exception e) { LogUtil.put(new
-         * Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e)); } finally {
-         * reentrantLock.unlock(); }
-         */
-        // int size = this.eventListenerInterfaceVector.size();
+        stringBuffer.append("Total Listeners: ");
+        stringBuffer.append(this.eventListenerInterfaceList.size());
 
         for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
         {
             try
             {
-                EventListenerInterface eventListenerInterface = 
-                    (EventListenerInterface) // enumeration.nextElement();
+                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
+                    this.eventListenerInterfaceList.get(index);
+
+                stringBuffer.append(" Listener: ");
+                stringBuffer.append(eventListenerInterface);
+
+            }
+            catch (Exception e)
+            {
+                LogUtil.put(new Log("Exception", this, "toString", e));
+            }
+        }
+        return stringBuffer.toString();
+    }
+
+    public synchronized void removeAllListeners()
+    {
+        this.eventListenerInterfaceList = new BasicArrayList();
+    }
+
+    /*
+    public synchronized void addListeners(BasicArrayList vector)
+    {
+        int size = vector.size();
+        for (int index = 0; index < size; index++)
+        {
+            EventListenerInterface eventListenerInterface =
+                (EventListenerInterface) vector.get(index);
+            this.addListener(eventListenerInterface);
+        }
+    }
+    */
+
+    public void addListenerSingleThreaded(
+            EventListenerInterface eventListenerInterface)
+    {
+        if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
+        {
+            //LogUtil.put(LogFactory.getInstance(
+              //      "Start: " + eventListenerInterface, this, "addListener"));
+            this.eventListenerInterfaceList.add(eventListenerInterface);
+        }
+    }
+    
+    public synchronized void addListener(
+            EventListenerInterface eventListenerInterface)
+        {
+
+        /*
+         * reentrantLock.lock(); try {
+         *
+         * while(this.reentrantLock.getHoldCount() > 1) {
+         * this.condition.await(); }
+         */
+        // LogUtil.put(new Log("Start: Locks Held: " +
+        // reentrantLock.getHoldCount() + " Held By Current Thread: " +
+        // reentrantLock.isHeldByCurrentThread(), this, "addListener"));
+        if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
+        {
+            //LogUtil.put(LogFactory.getInstance(
+              //      "Start: " + eventListenerInterface, this, "addListener"));
+            this.eventListenerInterfaceList.add(eventListenerInterface);
+        }
+        /*
+         * this.condition.signal();
+         *  } catch(Exception e) { LogUtil.put(LogFactory.getInstance("Exception", this,
+         * "addListener", e)); } finally { reentrantLock.unlock(); }
+         */
+    }
+
+    public void removeListenerSingleThreaded(
+            EventListenerInterface eventListenerInterface)
+     {
+
+            //LogUtil.put(LogFactory.getInstance(
+              //      "Start: " + eventListenerInterface, this, "addListener"));
+
+         this.eventListenerInterfaceList.remove(eventListenerInterface);
+    }
+    
+    public synchronized void removeListener(
+            EventListenerInterface eventListenerInterface)
+        {
+            /*
+             * reentrantLock.lock(); try {
+             *
+             * while(this.reentrantLock.getHoldCount() > 1) {
+             * this.condition.await(); }
+             */
+            // LogUtil.put(LogFactory.getInstance("Start: Locks Held: " +
+            // reentrantLock.getHoldCount() + " Held By Current Thread: " +
+            // reentrantLock.isHeldByCurrentThread(), this, "removeListener"));
+
+            //LogUtil.put(LogFactory.getInstance(
+              //      "Start: " + eventListenerInterface, this, "addListener"));
+
+            this.eventListenerInterfaceList.remove(eventListenerInterface);
+            /*
+             * this.condition.signal(); } catch(Exception e) { LogUtil.put(
+             * LogFactory.getInstance("Exception", this, "removeListener", e)); } finally {
+             * reentrantLock.unlock(); }
+             */
+        }
+
+    public synchronized void fireEvent(AllBinaryEventObject eventObject)
+        throws Exception
+    {
+        /*
+         * reentrantLock.lock(); try {
+         *
+         * while(this.reentrantLock.getHoldCount() > 1) {
+         * this.condition.await(); }
+         *
+         * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
+         * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
+         * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
+         * "fireEvent")); //LogUtil.put(new Log("Start", this, "fireEvent"));
+         *
+         * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
+         * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
+         * (EventListenerInterface) iter .next();
+         *
+         * this.process(eventObject, eventListenerInterface); }
+         *
+         * this.condition.signal(); } catch(Exception e) { LogUtil.put(new
+         * Log("Exception", this, "fireEvent", e)); } finally {
+         * reentrantLock.unlock(); }
+         */
+        // int size = this.eventListenerInterfaceVector.size();
+        // Enumeration enumeration =
+        // this.eventListenerInterfaceVector.elements();
+        // while(enumeration.hasMoreElements())
+        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        {
+            try
+            {
+                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
                     this.eventListenerInterfaceList.get(index);
                 this.process(eventObject, eventListenerInterface);
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
             }
         }
 
     }
 
     protected void process(AllBinaryEventObject eventObject,
-            EventListenerInterface eventListenerInterface) throws Exception
+        EventListenerInterface eventListenerInterface) throws Exception
     {
         // BasicEventListenerInterface basicEventListenerInterface =
         // (BasicEventListenerInterface) eventListenerInterface;
