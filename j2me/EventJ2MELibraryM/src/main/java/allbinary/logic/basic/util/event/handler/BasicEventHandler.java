@@ -74,6 +74,17 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         }
     }
 
+    public void addListenerSingleThreaded(
+            EventListenerInterface eventListenerInterface)
+    {
+        if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
+        {
+            //LogUtil.put(LogFactory.getInstance(
+              //      "Start: " + eventListenerInterface, this, "addListener"));
+            this.eventListenerInterfaceList.add(eventListenerInterface);
+        }
+    }
+
     public synchronized void addListener(
         EventListenerInterface eventListenerInterface)
     {
@@ -100,6 +111,16 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          */
     }
 
+    public void removeListenerSingleThreaded(
+            EventListenerInterface eventListenerInterface)
+     {
+
+            //LogUtil.put(LogFactory.getInstance(
+              //      "Start: " + eventListenerInterface, this, "addListener"));
+
+         this.eventListenerInterfaceList.remove(eventListenerInterface);
+    }
+    
     public synchronized void removeListener(
         EventListenerInterface eventListenerInterface)
     {
