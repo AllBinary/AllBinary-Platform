@@ -35,7 +35,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
 {
     private MotionGestureInput currentMotionGesture = TouchMotionGestureFactory.getInstance().NO_MOTION;
     private boolean isMouseGestureOccurring = false;
-    
+
     private BasicArrayList motionGestureCollection = new BasicArrayList();
     private CompleteMotionGestureListenerInterface signed;
 
