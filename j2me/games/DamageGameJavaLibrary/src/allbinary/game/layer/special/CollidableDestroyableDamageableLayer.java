@@ -20,6 +20,7 @@ import org.allbinary.game.layer.CollidableCompositeLayer;
 import abcs.logic.basic.NotImplemented;
 import allbinary.game.combat.damage.DamageableInterface;
 import allbinary.game.combat.destroy.DestroyableInterface;
+import allbinary.game.combat.destroy.event.DestroyedEvent;
 import allbinary.game.identification.Group;
 import allbinary.game.input.event.GameKeyEvent;
 import allbinary.graphics.Rectangle;
@@ -157,6 +158,17 @@ implements DestroyableInterface, DamageableInterface
 
     protected void special2(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
     throws Exception
+    {
+    }
+
+    /*
+    //For optimized handler but currently not enables until I decide on depencies
+    public void onMovement(TrackingEvent trackingEvent)
+    {
+    }
+    */
+    
+    public void onDestroyed(DestroyedEvent destroyedEvent)
     {
     }    
 }
