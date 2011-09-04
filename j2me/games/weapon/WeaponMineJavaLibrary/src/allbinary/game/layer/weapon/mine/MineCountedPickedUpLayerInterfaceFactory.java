@@ -44,7 +44,6 @@ public class MineCountedPickedUpLayerInterfaceFactory
 
     private MineCountedPickedUpLayerInterfaceFactory() throws Exception
     {
-
         super(PickedUpLayerTypeFactory.getInstance().MINE, 
                 IconLayerFactory.getInstance(
                 FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()
