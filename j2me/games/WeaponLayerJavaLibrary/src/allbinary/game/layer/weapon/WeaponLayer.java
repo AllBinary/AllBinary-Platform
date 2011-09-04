@@ -37,9 +37,9 @@ import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.view.ViewPosition;
 
-public class WeaponLayer extends MultiPlayerGameLayer
-// CollidableDestroyableDamageableLayer
-        implements TickableInterface
+public class WeaponLayer 
+extends MultiPlayerGameLayer
+implements TickableInterface
 {
     // private static final int MIN = 200;
 
