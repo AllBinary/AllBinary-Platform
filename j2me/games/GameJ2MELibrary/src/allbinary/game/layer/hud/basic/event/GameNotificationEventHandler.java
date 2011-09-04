@@ -15,6 +15,7 @@ package allbinary.game.layer.hud.basic.event;
 
 import org.allbinary.util.BasicArrayList;
 
+//import allbinary.game.layer.hud.basic.notification.GameNotificationHud;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.EventListenerInterface;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
@@ -24,16 +25,66 @@ public class GameNotificationEventHandler extends BasicEventHandler
    private static final GameNotificationEventHandler instance = 
       new GameNotificationEventHandler();
 
+   //private final BasicArrayList list = new BasicArrayList();
+   
    private GameNotificationEventHandler()
    {
    }
 
+   /*
+   public void addListener(GameNotificationHud gameNotificationHud)
+   {
+       if(!list.contains(gameNotificationHud))
+       {
+           list.add(gameNotificationHud);
+       }
+   }
+
+   public void removeListener(EventListenerInterface eventListenerInterface)
+   {
+       super.removeListener(eventListenerInterface);
+   }
+
+   public void fireEvent(AllBinaryEventObject eventObject) throws Exception
+   {        
+       for (int index = this.list.size(); --index >= 0;)
+       {
+           try
+           {
+               GameNotificationHud gameNotificationHud = (GameNotificationHud) this.list.get(index);
+               gameNotificationHud.onGameNotificationEvent((GameNotificationEvent) eventObject);
+           }
+           catch (Exception e)
+           {
+               LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+           }
+       }
+
+       super.fireEvent(eventObject);
+   }
+    */
+   
+   //This is not the default optimal method
    public synchronized void removeAllListeners()
    {
+       EventListenerInterface eventListenerInterface = null;
+
+       /*
+       if(this.list.size() > 0)
+       {
+           eventListenerInterface = (EventListenerInterface) this.list.get(0);
+       }
+       
+       this.list.clear();
+
+       if(eventListenerInterface != null)
+       {
+           this.addListener((GameNotificationHud) eventListenerInterface);
+       }
+       */
+       
        //Keep the system specific listener around
        BasicArrayList list = this.getEventListenerInterfaceList();
-       
-       EventListenerInterface eventListenerInterface = null;
        
        if(list.size() > 0)
        {
