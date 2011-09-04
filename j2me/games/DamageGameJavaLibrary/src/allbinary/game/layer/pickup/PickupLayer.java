@@ -18,27 +18,28 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickupableInterface;
+import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
 
+import abcs.logic.basic.string.StringUtil;
 import allbinary.animation.Animation;
 import allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
 import allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import allbinary.game.identification.BasicGroupFactory;
-import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import allbinary.graphics.PointFactory;
 import allbinary.graphics.Rectangle;
 import allbinary.view.ViewPosition;
 
 public class PickupLayer 
-   extends CollidableDestroyableDamageableLayer
+   extends MultiPlayerGameLayer
    implements PickedUpLayerInterface, PickupableInterface
 {
    private PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface;
    private boolean destroyed;
    private Animation animationInterface;
 
-   public PickupLayer(ViewPosition viewPosition) throws Exception
+   public PickupLayer(String username, int actorSessionId, ViewPosition viewPosition) throws Exception
    {
-      super(BasicGroupFactory.getInstance().NONE, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), viewPosition);
+      super(username, actorSessionId, BasicGroupFactory.getInstance().NONE, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), viewPosition);
       
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
@@ -48,12 +49,12 @@ public class PickupLayer
    }
 
    public PickupLayer(
-      int total,
-      PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
-      Animation animationInterface, Rectangle rectangle, ViewPosition viewPosition)
+           String username, int actorSessionId, int total,
+           PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
+           Animation animationInterface, Rectangle rectangle, ViewPosition viewPosition)
       throws Exception
    {
-      super(BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
+      super(username, actorSessionId, BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
 
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
@@ -64,6 +65,20 @@ public class PickupLayer
       this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
    }
 
+   public PickupLayer(ViewPosition viewPosition) throws Exception
+   {
+      this(StringUtil.getInstance().EMPTY_STRING, -1, viewPosition);
+   }
+
+   public PickupLayer(int total,
+           PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
+           Animation animationInterface, Rectangle rectangle, ViewPosition viewPosition) throws Exception
+   {
+      this(StringUtil.getInstance().EMPTY_STRING, -1, 
+              total, pickedUpLayerInterfaceFactoryInterface, 
+              animationInterface, rectangle, viewPosition);
+   }
+   
    public void init(
       PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
       Animation animationInterface)
