@@ -18,14 +18,14 @@ import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.input.CompleteMotionGestureInputEvent;
-import allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
+import allbinary.game.input.CompleteMotionGestureInputEventListener;
 import allbinary.game.input.event.GameKeyEvent;
 import allbinary.game.input.event.PressGameKeyEventHandler;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
-public class SingleKeyPressGameKeyFromMotionGestureEventListener implements
-    CompleteMotionGestureInputEventListenerInterface
+public class SingleKeyPressGameKeyFromMotionGestureEventListener 
+extends CompleteMotionGestureInputEventListener
 {
     public void onEvent(AllBinaryEventObject eventObject)
     {
