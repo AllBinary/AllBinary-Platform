@@ -15,12 +15,12 @@ package allbinary.game.input.motion.action;
 
 import abcs.logic.communication.log.ForcedLogUtil;
 import allbinary.game.input.CompleteMotionGestureInputEvent;
-import allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
+import allbinary.game.input.CompleteMotionGestureInputEventListener;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
-public class NoCompleteMotionGestureInputEventListener implements
-CompleteMotionGestureInputEventListenerInterface
+public class NoCompleteMotionGestureInputEventListener 
+extends CompleteMotionGestureInputEventListener
 {
     private static final NoCompleteMotionGestureInputEventListener instance =
         new NoCompleteMotionGestureInputEventListener();
