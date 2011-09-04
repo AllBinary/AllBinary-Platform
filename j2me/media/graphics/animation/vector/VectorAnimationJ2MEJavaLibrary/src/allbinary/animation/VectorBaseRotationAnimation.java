@@ -23,28 +23,30 @@ import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorSetUtil;
 import allbinary.logic.math.PrimitiveIntUtil;
+import allbinary.math.AngleInfo;
 
-public class VectorBaseRotationAnimation extends RotationAnimation
+public class VectorBaseRotationAnimation 
+    extends RotationAnimation
     implements VectorAnimationInterface
 {
     private int currentPoints[][][];
 
     private BasicColor basicColor;
 
-    //private int color;
+    protected final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
     
-    protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorSetUtil.getInstance();
-    
-    public VectorBaseRotationAnimation(int currentPoints[][][], BasicColor basicColor)
+    public VectorBaseRotationAnimation(AngleInfo angleInfo, int currentPoints[][][], BasicColor basicColor)
     {
+        super(angleInfo);
+        
         this.setPoints(currentPoints);
-
         this.setBasicColor(basicColor);
     }
 
-    public VectorBaseRotationAnimation(int currentPoints[][], BasicColor basicColor)
+    public VectorBaseRotationAnimation(AngleInfo angleInfo, int currentPoints[][], BasicColor basicColor)
     {
+        super(angleInfo);
+        
         this.setPoints(new int[1][currentPoints.length][2]);
 
         int size = currentPoints.length;
@@ -78,16 +80,16 @@ public class VectorBaseRotationAnimation extends RotationAnimation
         this.circularIndexUtil.setIndex(index);
     }
 
-    public void nextRotation()
+    public void nextFrame()
     {
         this.circularIndexUtil.next();
     }
 
-    public void previousRotation()
+    public void previousFrame()
     {
         this.circularIndexUtil.previous();
     }
-    
+
     public int getSize()
     {
         return this.currentPoints.length;
