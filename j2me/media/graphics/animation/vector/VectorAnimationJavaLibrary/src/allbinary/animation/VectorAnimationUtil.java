@@ -29,7 +29,7 @@ public class VectorAnimationUtil
     private VectorAnimationUtil()
     {
     }
-
+    
     public int[][][] toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
             BasicArrayList vector, int pointsPerFrame)
     {
