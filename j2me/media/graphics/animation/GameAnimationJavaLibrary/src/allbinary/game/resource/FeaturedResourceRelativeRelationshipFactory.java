@@ -18,7 +18,7 @@ import org.allbinary.util.BasicArrayList;
 import allbinary.graphics.PointFactory;
 import allbinary.graphics.RelativeRelationship;
 import allbinary.layer.AllBinaryLayer;
-import allbinary.layer.relationship.Relative2DLayerRelationship;
+import allbinary.layer.relationship.RelativeLayerRelationship;
 
 public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactory
 {
@@ -66,7 +66,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       for (int index = 0; index < list.size(); index++)
       {
          RelativeRelationship relativeRelationship = (RelativeRelationship) list.get(index);
-         newList.add(new Relative2DLayerRelationship(
+         newList.add(new RelativeLayerRelationship(
             layer, PointFactory.getInstance().getInstance(relativeRelationship.getX(), relativeRelationship.getY()), null));
       }
       return newList;
