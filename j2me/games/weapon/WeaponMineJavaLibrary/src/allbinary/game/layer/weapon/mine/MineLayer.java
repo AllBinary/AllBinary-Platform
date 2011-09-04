@@ -19,6 +19,7 @@ import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import allbinary.game.layer.weapon.SimpleWeaponLayer;
 import allbinary.graphics.PointFactory;
 import allbinary.graphics.Rectangle;
+import allbinary.layer.AllBinaryLayer;
 import allbinary.media.audio.SecondaryPlayerQueueFactory;
 import allbinary.view.ViewPosition;
 import allbinary.view.event.ViewPositionEventHandler;
@@ -62,7 +63,7 @@ public class MineLayer extends SimpleWeaponLayer
    {
       this.setPosition(x + 5, y + 5);
 
-      this.viewPositionEventHandler.addListener(this);
+      this.viewPositionEventHandler.addListener((AllBinaryLayer) this);
 
       SecondaryPlayerQueueFactory.getInstance().add(
               DropWeaponSound.getInstance()
