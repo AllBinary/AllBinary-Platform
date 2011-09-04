@@ -65,7 +65,6 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
               this.relativeRelationship.getY(), 
               angle, weaponProperties, scoreableInterface);
 
-      //weaponLayerArray[index].moveOutsideRadius((this.getWidth() >> 1));
       allbinaryLayerManager.append(weaponLayer);
    }
 }
