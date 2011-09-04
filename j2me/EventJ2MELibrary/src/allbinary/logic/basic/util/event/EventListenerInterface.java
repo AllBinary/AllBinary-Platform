@@ -15,5 +15,5 @@ package allbinary.logic.basic.util.event;
 
 public interface EventListenerInterface 
 {	
-   public void onEvent(AllBinaryEventObject eventObject);
+    public void onEvent(AllBinaryEventObject eventObject);
 }
