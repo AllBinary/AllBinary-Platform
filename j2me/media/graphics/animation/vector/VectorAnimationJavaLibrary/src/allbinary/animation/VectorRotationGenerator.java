@@ -64,7 +64,8 @@ public class VectorRotationGenerator
 
             PointFactory pointFactory = PointFactory.getInstance();
             
-            for (int index = 0; index < points.length; index++)
+            int size = points.length;
+            for (int index = 0; index < size; index++)
             {
                 pointBasicArrayList.add(
                         pointFactory.getInstance(
@@ -95,6 +96,7 @@ public class VectorRotationGenerator
     {
         BasicGraphicsPipeline graphicsPipe = new BasicGraphicsPipeline(pointBasicArrayList);
         graphicsPipe.createMatrix();
+
         graphicsPipe.translate(-(width >> 1), -(height >> 1));
         //graphicsPipe.rotate(Angle.getInstance(angle.getValue()));
         graphicsPipe.rotate(angle);
