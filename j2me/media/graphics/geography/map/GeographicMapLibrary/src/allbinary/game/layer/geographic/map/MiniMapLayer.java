@@ -37,8 +37,9 @@ import allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEve
 import allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventListenerInterface;
 import allbinary.view.ViewPosition;
 
-public class MiniMapLayer extends AllBinaryLayer implements
-   GeographicMapCellPositionEventListenerInterface
+public class MiniMapLayer 
+extends AllBinaryLayer 
+implements GeographicMapCellPositionEventListenerInterface
 {
    //private final SimpleGeographicMap simpleGeographicMap;
    protected final AllBinaryTiledLayer allBinaryTiledLayer;
