@@ -25,12 +25,12 @@ import allbinary.game.identification.GroupInterfaceCompositeInterface;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.event.LayerManagerEvent;
 import allbinary.layer.event.LayerManagerEventHandler;
-import allbinary.layer.event.LayerManagerEventListenerInterface;
+import allbinary.layer.event.LayerManagerEventListener;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
 public class GroupLayerManagerListener
-implements LayerManagerEventListenerInterface
+extends LayerManagerEventListener
 {
     private static GroupLayerManagerListener SINGLETON = 
         new GroupLayerManagerListener();
@@ -244,8 +244,7 @@ implements LayerManagerEventListenerInterface
         // return;
         // }
 
-        Group groupInterface = ((GroupInterfaceCompositeInterface) layerInterface)
-                .getGroupInterface();
+        Group groupInterface = ((GroupInterfaceCompositeInterface) layerInterface).getGroupInterface();
 
         int id = groupInterface.getGroupId();
 
