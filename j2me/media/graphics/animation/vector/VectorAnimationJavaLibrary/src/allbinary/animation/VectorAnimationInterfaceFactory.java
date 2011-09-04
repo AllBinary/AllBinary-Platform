@@ -15,9 +15,9 @@ package allbinary.animation;
 
 import allbinary.graphics.color.BasicColor;
 
-public class VectorAnimationInterfaceFactory implements
-		AnimationInterfaceFactoryInterface {
-
+public class VectorAnimationInterfaceFactory 
+   implements AnimationInterfaceFactoryInterface
+{
 	private int currentPoints[][][];
 	private BasicColor basicColor;
 
