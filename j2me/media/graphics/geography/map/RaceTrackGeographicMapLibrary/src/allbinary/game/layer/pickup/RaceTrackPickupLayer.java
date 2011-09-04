@@ -15,6 +15,7 @@ package allbinary.game.layer.pickup;
 
 import allbinary.game.layer.AllBinaryTiledLayer;
 import allbinary.game.view.TileLayerPositionIntoViewPosition;
+import allbinary.layer.AllBinaryLayer;
 import allbinary.view.event.ViewPositionEventHandler;
 
 public class RaceTrackPickupLayer extends PickupLayer
@@ -37,7 +38,7 @@ public class RaceTrackPickupLayer extends PickupLayer
 
       viewPosition.setTiledLayer(tiledLayer);
       
-      viewPositionEventHandler.addListener(this);
+      viewPositionEventHandler.addListener((AllBinaryLayer) this);
    }
    
    public void setDestroyed(boolean destroyed)
