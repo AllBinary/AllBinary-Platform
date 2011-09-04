@@ -29,7 +29,7 @@ public class GameSpeed
     {
         GameConfiguration speedGameConfiguration = GameConfigurationCentral.getInstance().SPEED;
 
-        return 16 * (speedGameConfiguration.getMaxValue().intValue() - 
+        return 19 * (speedGameConfiguration.getMaxValue().intValue() - 
                 speedGameConfiguration.getValue().intValue());
     }
 
