@@ -18,7 +18,6 @@ import allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 public class TrackingEvent extends AllBinaryEventObject
 {
-
     private AllBinaryLayer layerInterface;
 
     public TrackingEvent()
