@@ -28,6 +28,7 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.NotImplemented;
+import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.ForcedLogUtil;
@@ -36,8 +37,11 @@ import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
 import allbinary.animation.Animation;
 import allbinary.animation.special.SpecialAnimation;
+import allbinary.canvas.AllGameStatisticsFactory;
+import allbinary.canvas.BaseGameStatistics;
 import allbinary.canvas.CustomGameMenuUtil;
 import allbinary.canvas.FullScreenUtil;
+import allbinary.canvas.GameStatisticsFactory;
 import allbinary.canvas.RunnableCanvas;
 import allbinary.game.GameInfo;
 import allbinary.game.commands.GameCommandsFactory;
@@ -912,10 +916,18 @@ public class DemoCanvas extends RunnableCanvas
         }
     }
     
+    private static final String BOT_GAME_STATS = "Bot Game Statistics: ";
+    private final BaseGameStatistics baseGameStatistics = 
+            GameStatisticsFactory.getInstance();
+
     public void end() throws Exception
     {
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         Features features = Features.getInstance();
+        
+        AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
+        allGameStatisticsFactory.add(BOT_GAME_STATS + baseGameStatistics.toString() + CommonSeps.getInstance().NEW_LINE);    
+        baseGameStatistics.init();
         
         if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
         {
