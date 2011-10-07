@@ -21,6 +21,17 @@ import allbinary.game.layer.AllBinaryGameLayer;
 import allbinary.graphics.Rectangle;
 import allbinary.view.ViewPosition;
 
+/*
+ * The Game Layers/Objects requirements change a bunch from game to game.
+ * As such Game Layers/Objects are very complex in nature.
+ * As a result it is best to create a game specific composite game layer for a specific game.
+ * Although, I have 3 classes that break this rule because I have not thought of composites that fit yet.
+ * The 3 classes are MultiPlayerGameLayer -> CollidableDestroyableDamageableLayer -> CollidableCompositeLayer.
+ * In the future these 3 classes should probably go away and be pushed into game Layer/Object composites/properties.
+ * I will probably always have one magical game class for new features that don't fit into a composite yet regardless.
+ * For now just think of the 3 classes (MultiPlayerGameLayer -> CollidableDestroyableDamageableLayer -> CollidableCompositeLayer)
+ * as SpecialGameLayer or MagicalGameLayer.
+ */
 public class CollidableCompositeLayer 
 extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
