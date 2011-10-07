@@ -13,6 +13,7 @@
 */
 package allbinary.animation;
 
+import abcs.logic.basic.NotImplemented;
 import allbinary.logic.math.PrimitiveIntUtil;
 
 /**
@@ -37,6 +38,12 @@ public class IndexedAnimation extends Animation
         return 0;
     }
 
+    public int getAnimationSize() throws Exception
+    {
+        throw new Exception(NotImplemented.NAME);
+        //return this.getSize();
+    }
+    
     public int getSize()
     {
         return 0;
