@@ -30,6 +30,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameScoresLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>PickupGameJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -51,11 +58,6 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AnimationLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameScoresLibrary</artifactId>
             <version>1</version>
         </dependency>
         <dependency>
