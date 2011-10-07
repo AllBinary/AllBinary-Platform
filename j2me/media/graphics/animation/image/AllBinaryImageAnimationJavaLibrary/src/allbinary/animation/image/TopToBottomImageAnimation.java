@@ -17,6 +17,8 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
+import org.allbinary.graphics.opengles.OpenGLCapabilities;
+
 import allbinary.graphics.Anchor;
 
 /**
@@ -86,9 +88,9 @@ public class TopToBottomImageAnimation
     public void paint(Graphics graphics, int x, int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,
-          //  int x_dst, int y_dst, int anchor
-        graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(),
-            this.getDrawWidth(), this.currentHeight,
-            Sprite.TRANS_NONE, x, y, anchor);
+        //  int x_dst, int y_dst, int anchor
+      graphics.drawRegion(this.getImage(), this.getStartX(), this.getStartY(),
+          this.getDrawWidth(), this.currentHeight,
+          Sprite.TRANS_NONE, x, y, anchor);
     }
 }
