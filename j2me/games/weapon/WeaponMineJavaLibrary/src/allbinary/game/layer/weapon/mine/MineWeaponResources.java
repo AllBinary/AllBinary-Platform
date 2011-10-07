@@ -13,25 +13,38 @@
 */
 package allbinary.game.layer.weapon.mine;
 
+import org.allbinary.game.layer.resources.BasicGameResources;
+
 /**
  *
  * @author Berthelot, Travis
  * @version 1.0
  */
-public class MineWeaponResources {
-
+public class MineWeaponResources
+extends BasicGameResources
+{
     private static final MineWeaponResources SINGLETON = new MineWeaponResources();
     
-    public String RESOURCE = "/mine_20_by_20.png";
-    public String DROP_ICON_RESOURCE = "/mine_drop_icon_20_by_20.png";
-    public String DROP_RESOURCE = "/mine_drop_20_by_20.png";
-
-    private MineWeaponResources()
-    {
-    }
-
     public static MineWeaponResources getInstance()
     {
-        return SINGLETON;
+    	return SINGLETON;
+    }
+
+    public final String DROP_TEXT_RESOURCE = "/mine_drop_text_20_by_20.png";
+    public final String DROP_RESOURCE = "/mine_drop_20_by_20.png";
+    public final String DROP_ICON_RESOURCE = "/mine_drop_icon_20_by_20.png";
+    
+    protected MineWeaponResources()
+    {
+        final String ROOT = "/mine";
+        final String SMALL = "_20_by_20.png";
+        final String MEDIUM = SMALL;
+        final String SIZE_FOUR = SMALL;
+        final String SIZE_FIVE = SMALL;
+        final String SIZE_SIX = SMALL;
+        
+        final String[] SIZE = { SMALL, MEDIUM, SIZE_FOUR, SIZE_FIVE, SIZE_SIX };
+        
+        super.init(ROOT, SIZE);
     }
 }
