@@ -26,10 +26,10 @@ public class ImageMiniMapLayer extends MiniMapLayer
     private Image image;
 
     // private
-    public ImageMiniMapLayer(BasicGeographicMap basicGeographicMap,
+    public ImageMiniMapLayer(BasicGeographicMap geographicMapInterface,
             ViewPosition viewPosition) throws Exception
     {
-        super(basicGeographicMap, viewPosition);
+        super(geographicMapInterface, viewPosition);
     }
 
     protected void init() throws Exception
