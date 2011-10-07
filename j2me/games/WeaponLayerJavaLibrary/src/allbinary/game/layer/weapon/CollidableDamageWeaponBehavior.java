@@ -101,7 +101,7 @@ extends CollidableDestroyableDamageableBehavior
        this.collided = true;
     // }
     }
-    
+
     public CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
     {
        return CollisionTypeFactory.getInstance().COLLISION;
