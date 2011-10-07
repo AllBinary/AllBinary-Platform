@@ -14,20 +14,20 @@ public class AnyRandomDropCellPositionGenerator
 extends BaseDropCellPositionGenerator
 {
     protected final BasicArrayList list = new BasicArrayList();
-    protected BasicGeographicMap basicGeographicMap;
+    protected BasicGeographicMap geographicMapInterface;
     
     public void update(AllBinaryGameLayerManager allBinaryGameLayerManager,
-            BasicGeographicMap raceTrackGeographicMap) throws Exception
+            BasicGeographicMap geographicMapInterface) throws Exception
     {
-        this.basicGeographicMap = raceTrackGeographicMap;
+        this.geographicMapInterface = geographicMapInterface;
         
         BasicGeographicMapCellPositionFactory basicGeographicMapCellPositionFactory =
-                raceTrackGeographicMap.getGeographicMapCellPositionFactory();
+                geographicMapInterface.getGeographicMapCellPositionFactory();
         
         MyRandomFactory randomFactory = MyRandomFactory.getInstance();
         
         AllBinaryTiledLayer tiledLayer = 
-                raceTrackGeographicMap.getAllBinaryTiledLayer();
+                geographicMapInterface.getAllBinaryTiledLayer();
         
         int total = tiledLayer.getColumns() * tiledLayer.getRows();
         
