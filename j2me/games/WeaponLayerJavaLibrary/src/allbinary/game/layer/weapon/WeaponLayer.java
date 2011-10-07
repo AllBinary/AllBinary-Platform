@@ -22,6 +22,7 @@ import abcs.logic.basic.string.StringUtil;
 import allbinary.animation.Animation;
 import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import allbinary.animation.IndexedAnimation;
+import allbinary.game.GameStrings;
 import allbinary.game.collision.CollidableBaseBehavior;
 import allbinary.game.combat.damage.ExplosionResources;
 import allbinary.game.combat.destroy.DestroyedLayerProcessor;
@@ -218,36 +219,53 @@ implements TickableInterface
 
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, GameStrings.getInstance().PROCESS_TICK));
+        final GameStrings gameStrings = GameStrings.getInstance();
+        
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, gameStrings.PROCESS_TICK));
 
         if (this.isExhausted() && !this.isDestroyed())
         {
+            //PreLogUtil.put("Explosion - Processing", this, gameStrings.PROCESS_TICK);
+            
             if (this.isReadyForExplosion())
             {
+                //PreLogUtil.put("Explosion - Ready Processing", this, gameStrings.PROCESS_TICK);
+                
                 IndexedAnimation indexedAnimationInterface = 
                     (IndexedAnimation) this.getAnimationInterface();
 
                 int currentFrame = indexedAnimationInterface.getFrame();
 
-                if (currentFrame < indexedAnimationInterface.getSize() - 1)
+                if (currentFrame < indexedAnimationInterface.getAnimationSize() - 1)
                 {
+                    //PreLogUtil.put("Explosion - " + currentFrame + " < " + (indexedAnimationInterface.getAnimationSize() - 1), this, gameStrings.PROCESS_TICK);
+                    
                     //this.slow();
                     
                     // show next frame in explosion
-                    this.animationInterface.nextFrame();
+                    indexedAnimationInterface.nextFrame();
                 } else
                 {
+                    //LogUtil.put(LogFactory.getInstance("Explosion - End", this, tickableStrings.PROCESS_TICK));
+                    //PreLogUtil.put("Explosion - End", this, gameStrings.PROCESS_TICK);
+
                     this.setDestroyed(true);
                 }
             } else
-            {
+            {                
                 if (((CollidableWeaponBehavior) this.getCollidableInferface()).isCollided())
                 {
+                    // LogUtil.put(LogFactory.getInstance("Explosion - Begin", this, tickableStrings.PROCESS_TICK));
+                    //PreLogUtil.put("Explosion - Begin", this, gameStrings.PROCESS_TICK);
+                    
                     this.setAnimationInterface(this.destroyedAnimationInterface);
                     this.getMovement().stop();
                     this.setReadyForExplosion(true);
                 } else
                 {
+                    // LogUtil.put(LogFactory.getInstance("Explosion - Begin and End", this, tickableStrings.PROCESS_TICK));
+                    //PreLogUtil.put("Explosion - Begin and End", this, gameStrings.PROCESS_TICK);
+                    
                     this.setDestroyed(true);
                 }
             }
