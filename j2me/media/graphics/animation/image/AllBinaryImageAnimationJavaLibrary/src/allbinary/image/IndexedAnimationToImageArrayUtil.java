@@ -22,7 +22,7 @@ public class IndexedAnimationToImageArrayUtil
     public static Image[] getInstance(int width, int height,
             IndexedAnimation sequentialAnimationInterface) throws Exception
     {
-        int size = sequentialAnimationInterface.getSize();
+        int size = sequentialAnimationInterface.getAnimationSize();
         Image[] imageArray = new Image[size];
 
         for (int index = 0; index < size; index++)
