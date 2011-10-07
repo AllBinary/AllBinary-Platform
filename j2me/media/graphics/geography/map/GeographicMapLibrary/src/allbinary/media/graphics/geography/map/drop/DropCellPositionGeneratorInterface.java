@@ -10,7 +10,7 @@ public interface DropCellPositionGeneratorInterface
     String getName();
 
     void update(AllBinaryGameLayerManager allBinaryGameLayerManager,
-            BasicGeographicMap basicGeographicMap) throws Exception;
+            BasicGeographicMap geographicMapInterface) throws Exception;
 
     void processTick(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception;
