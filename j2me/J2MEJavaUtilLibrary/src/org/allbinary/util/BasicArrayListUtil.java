@@ -38,6 +38,11 @@ public class BasicArrayListUtil
 
     public Object getRandom(BasicArrayList list)
     {
+        //if(list.size() == 0)
+        //{
+          //  throw new Exception("List size was zero");
+        //}
+        
         int i_random = this.getRandomIndex(list);
         return list.get(i_random);
     }
