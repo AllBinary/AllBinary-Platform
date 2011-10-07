@@ -41,6 +41,11 @@ public class AllBinaryImageArrayAnimation extends IndexedAnimation
         this.setImageArray(imageArray);
     }
 
+    public int getAnimationSize() throws Exception
+    {
+        return this.getSize();
+    }
+    
     public void nextFrame()
     {
         this.circularIndexUtil.next();
