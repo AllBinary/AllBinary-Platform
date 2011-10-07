@@ -16,6 +16,7 @@ package allbinary.game.layer.special;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
+import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 
 import abcs.logic.basic.NotImplemented;
 import allbinary.game.combat.damage.DamageableInterface;
@@ -23,19 +24,36 @@ import allbinary.game.combat.destroy.DestroyableInterface;
 import allbinary.game.combat.destroy.event.DestroyedEvent;
 import allbinary.game.identification.Group;
 import allbinary.game.input.event.GameKeyEvent;
+import allbinary.game.layer.pickup.PickupBehavior;
+import allbinary.game.layer.pickup.PickupCompositeInterface;
+import allbinary.game.part.PartInterface;
 import allbinary.graphics.Rectangle;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.view.ViewPosition;
 
+/*
+ * The Game Layers/Objects requirements change a bunch from game to game.
+ * As such Game Layers/Objects are very complex in nature.
+ * As a result it is best to create a game specific composite game layer for a specific game.
+ * Although, I have 3 classes that break this rule because I have not thought of composites that fit yet.
+ * The 3 classes are MultiPlayerGameLayer -> CollidableDestroyableDamageableLayer -> CollidableCompositeLayer.
+ * In the future these 3 classes should probably go away and be pushed into game Layer/Object composites/properties.
+ * I will probably always have one magical game class for new features that don't fit into a composite yet regardless.
+ * For now just think of the 3 classes (MultiPlayerGameLayer -> CollidableDestroyableDamageableLayer -> CollidableCompositeLayer)
+ * as SpecialGameLayer or MagicalGameLayer.
+ */
 public class CollidableDestroyableDamageableLayer 
 extends CollidableCompositeLayer 
-implements DestroyableInterface, DamageableInterface
+implements DestroyableInterface, DamageableInterface, PickupCompositeInterface
 {
     private Group groupInterface;
     private boolean readyForExplosion;
 
     private int initX;
     private int initY;
+
+    protected PartInterface[] partInterfaceArray;
+    private PickupBehavior pickupBehavior;
     
     public CollidableDestroyableDamageableLayer(
             Group groupInterface, 
@@ -170,5 +188,32 @@ implements DestroyableInterface, DamageableInterface
     
     public void onDestroyed(DestroyedEvent destroyedEvent)
     {
+    }
+
+    public PickupBehavior getPickupBehavior()
+    {
+        return pickupBehavior;
+    }
+
+    public void setPickupBehavior(PickupBehavior pickupBehavior)
+    {
+        this.pickupBehavior = pickupBehavior;
+    }
+
+    public void addPart(
+            PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface)
+    throws Exception
+    {
+        
+    }
+
+    public void setPartInterfaceArray(PartInterface[] partInterfaceArray)
+    {
+        this.partInterfaceArray = partInterfaceArray;
+    }
+
+    public PartInterface[] getPartInterfaceArray()
+    {
+        return partInterfaceArray;
     }    
 }
