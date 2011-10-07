@@ -59,6 +59,11 @@ public class VectorBaseRotationAnimation
         this.setBasicColor(basicColor);
     }
 
+    public int getAnimationSize() throws Exception
+    {
+        return this.getSize();
+    }
+    
     public BasicColor getBasicColor()
     {
         return this.basicColor;
