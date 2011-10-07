@@ -90,8 +90,7 @@ public class CaptionIndexedAnimation extends IndexedAnimation
 
     private boolean isLastFrame()
     {
-        if (this.movieIndexedAnimationInterface.getFrame() == this.movieIndexedAnimationInterface
-                .getSize() - 1)
+        if (this.movieIndexedAnimationInterface.getFrame() == this.getSize() - 1)
         {
             return true;
         }
