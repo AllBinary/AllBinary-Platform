@@ -35,6 +35,11 @@ public class AllBinaryImageBaseRotationAnimation extends RotationAnimation
         this.image = image;
     }
 
+    public int getAnimationSize() throws Exception
+    {
+        return this.getSize();
+    }
+    
     public void setSequence(int[] sequence)
     {
     }
