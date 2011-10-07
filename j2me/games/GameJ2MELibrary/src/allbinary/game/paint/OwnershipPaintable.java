@@ -27,8 +27,8 @@ public class OwnershipPaintable extends Paintable
 {
     //private final static OwnershipPaintable SINGLETON = new OwnershipPaintable();
 
-    private final String COPYRIGHT = "AllBinary Copyright (c) 2010";
-    //private final String COPYRIGHT = "Copyright (c) 2010";
+    private final String COPYRIGHT = "AllBinary Copyright (c) 2011";
+    //private final String COPYRIGHT = "Copyright (c) 2011";
     //private final String COMPANY = "AllBinary";
 
     //private int COMPANY_Y = 3 * MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
