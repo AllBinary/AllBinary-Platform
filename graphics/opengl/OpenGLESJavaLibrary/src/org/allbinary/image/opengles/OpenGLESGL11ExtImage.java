@@ -27,6 +27,7 @@ import abcs.logic.communication.log.PreLogUtil;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.event.DisplayChangeEvent;
 
+//Many devices don't support this even though it is supposed to
 public class OpenGLESGL11ExtImage extends OpenGLESImage
 {
     // private IntBuffer rectParams;
@@ -90,19 +91,18 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
 
             TextureFactory.getInstance().load(GL10.GL_TEXTURE_2D, 0, this, 0);
             
-            ((GL11) gl).glTexParameteriv(GL10.GL_TEXTURE_2D,
-                    GL11Ext.GL_TEXTURE_CROP_RECT_OES, rectangle, 0);
+            ((GL11) gl).glTexParameteriv(GL10.GL_TEXTURE_2D, GL11Ext.GL_TEXTURE_CROP_RECT_OES, rectangle, 0);
 
             gl.glDisable(GL10.GL_TEXTURE_2D);
 
             int error = gl.glGetError();
             if (error != GL10.GL_NO_ERROR)
             {
-                PreLogUtil.put("GLError: " + error, this, CommonStrings.getInstance().CONSTRUCTOR);
+                PreLogUtil.put(OpenGLStrings.getInstance().GL_ERROR_LABEL + error, this, OpenGLStrings.getInstance().SET);
             }
         }
     }
-
+    
     public void draw(GL10 gl, int x, int y, int z)
     {
         // gl.glPushMatrix();
@@ -110,9 +110,8 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         gl.glEnable(GL10.GL_TEXTURE_2D);
         
         gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
-
-        ((GL11Ext) gl).glDrawTexiOES(x, a - y, z, this.getWidth(), this
-                .getHeight());
+        
+        ((GL11Ext) gl).glDrawTexiOES(x, a - y, z, this.getWidth(), this.getHeight());
 
         gl.glDisable(GL10.GL_TEXTURE_2D);
 
