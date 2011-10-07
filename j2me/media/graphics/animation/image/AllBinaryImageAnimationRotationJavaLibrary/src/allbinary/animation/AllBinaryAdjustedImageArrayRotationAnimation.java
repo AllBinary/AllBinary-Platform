@@ -16,7 +16,6 @@ package allbinary.animation;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import allbinary.graphics.Anchor;
 import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
 
@@ -81,23 +80,13 @@ public class AllBinaryAdjustedImageArrayRotationAnimation extends
 
     public void init(int dx, int dy) throws Exception
     {
-
         this.setDx(dx);
         this.setDy(dy);
     }
 
-    private int anchor = Anchor.TOP_LEFT;
-    
     public void paint(Graphics graphics, int x, int y)
     {
-        graphics.drawImage(this.getImage(this.getFrame()), x + this.dx, y + this.dy, anchor);
-
-        /*
-         * for(int index = 0; index < NUMBER_OF_FRAMES; index++) {
-         * graphics.drawImage(this.getImage(index), 0, index *
-         * this.getImage(index).getHeight(), MEGraphics.TOP | MEGraphics.LEFT);
-         * }
-         */
+        super.paint(graphics, x + this.dx, y + this.dy);
     }
 
     public void setDx(int dx)
