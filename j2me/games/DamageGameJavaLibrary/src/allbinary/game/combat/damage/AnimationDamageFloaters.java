@@ -83,7 +83,7 @@ public class AnimationDamageFloaters extends DamageFloaters
             for (int index = 0; index < this.animationInterfaceArray.length; index++)
             {
                 IndexedAnimation animationInterface = animationInterfaceArray[index];
-                if (animationInterface.getFrame() < animationInterface.getSize() - 1)
+                if (animationInterface.getFrame() < animationInterface.getAnimationSize() - 1)
                 {
                     int delta = animationInterface.getFrame() * 20;
                     animationInterface.paint(graphics, x + dx, y - delta + dy);
