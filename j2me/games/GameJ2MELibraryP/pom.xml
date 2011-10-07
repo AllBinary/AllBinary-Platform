@@ -16,14 +16,12 @@
     <modules>
 
         <!--
-        -->
         <module>../../AllBinaryJ2MELibraryP</module>
         <module>../../games/PreGameJ2MEJavaLibraryP</module>
+        -->
 
         <module>../../ResourceLibraryM</module>
         <module>../../ResourceJ2MEJavaLibraryM</module>
-
-        <module>../../../allbinary_src/ThreadJ2MELibraryM</module>
 
         <module>../../media/graphics/layer/AllBinaryLayerJavaLibraryM</module>
 
@@ -35,9 +33,6 @@
         <module>../../games/GameScoresBaseLibraryM</module>
         <module>../../games/GameScoresLibraryM</module>
 
-        <module>../../J2SEForJ2MEJavaLibraryM</module>
-
-        <module>../../games/PreGameJ2MEJavaLibraryM</module>
         <module>../../games/GameConfigurationJavaLibraryM</module>
 
         <module>../../input/JSEGyroSensorJavaLibraryM</module>
@@ -135,6 +130,10 @@
         <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
 
         <module>../../games/weapon/WeaponMineJavaLibraryM</module>
+        
+        <module>../../statistics/ApplicationStatisticsJavaLibraryM</module>
+        <module>../../statistics/ApplicationStatisticsJ2MELibraryM</module>
+        <module>../../statistics/ApplicationStatisticsJ2SELibraryM</module>
 
         <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
 
