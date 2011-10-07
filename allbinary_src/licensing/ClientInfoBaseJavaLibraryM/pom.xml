@@ -42,12 +42,6 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>XmlRpcJavaLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>AllBinaryJ2MELibrary</artifactId>
             <version>1</version>
         </dependency>
