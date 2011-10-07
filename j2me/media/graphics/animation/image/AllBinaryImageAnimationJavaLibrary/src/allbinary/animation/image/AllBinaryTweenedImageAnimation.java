@@ -16,6 +16,7 @@ package allbinary.animation.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.graphics.opengles.OpenGLCapabilities;
 import org.allbinary.util.CircularIndexUtil;
 
 import allbinary.animation.IndexedAnimation;
@@ -52,6 +53,11 @@ public class AllBinaryTweenedImageAnimation extends IndexedAnimation
         // "AllBinaryImageRotationAnimation"));
     }
 
+    public int getAnimationSize() throws Exception
+    {
+        return this.getSize();
+    }
+    
     public void nextFrame()
     {
         this.circularIndexUtil.next();
@@ -94,8 +100,8 @@ public class AllBinaryTweenedImageAnimation extends IndexedAnimation
         int frame = this.getFrame();
         int currentX = dx * frame; 
         int currentY = dy * frame;
-        
+
         graphics.drawImage(this.image, x + currentX, y + currentY, anchor);
     }
-
+        
 }
