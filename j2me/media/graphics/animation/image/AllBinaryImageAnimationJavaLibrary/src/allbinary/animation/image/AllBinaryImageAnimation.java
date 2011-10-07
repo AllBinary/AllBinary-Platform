@@ -32,6 +32,11 @@ public class AllBinaryImageAnimation extends IndexedAnimation
         this.image = image;
     }
 
+    public int getAnimationSize() throws Exception
+    {
+        return this.getSize();
+    }
+    
     public void nextFrame()
     {
     }
@@ -71,7 +76,7 @@ public class AllBinaryImageAnimation extends IndexedAnimation
     {
         graphics.drawImage(this.image, x, y, anchor);
     }
-
+    
     /**
      * @return the image
      */
