@@ -15,13 +15,13 @@ package allbinary.game.layer;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
-import org.allbinary.game.layer.pickup.PickupCompositeInterface;
 
 import abcs.logic.communication.log.ForcedLogUtil;
 import allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import allbinary.game.collision.CollisionType;
 import allbinary.game.collision.CollisionTypeFactory;
 import allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
+import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 
 public class CollidableVehicleBehavior
 extends CollidableDestroyableDamageableBehavior 
@@ -37,12 +37,16 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
     throws Exception
     {
+        //Don't process non-weapon pickups if dead - Should even collisions occur if dead.
+        //I would expect just to set blank behaviors for both?
+        //if (this.getHealthInterface().isAlive())
+
         CollisionTypeFactory collisionTypeFactory = CollisionTypeFactory.getInstance();
         CollisionType collisionType = collidableInterfaceCompositeInterface.getCollidableInferface().getCollisionTypeWith(this.ownerLayer);
 
         if (collisionType == collisionTypeFactory.PICKUP)
         {
-            ((PickupCompositeInterface) this.ownerLayer).doPickup(
+            ((CollidableDestroyableDamageableLayer) this.ownerLayer).getPickupBehavior().doPickup(
                     (PickedUpLayerInterface) collidableInterfaceCompositeInterface);
         }
         else if (collisionType == collisionTypeFactory.COLLISION)
@@ -58,7 +62,7 @@ extends CollidableDestroyableDamageableBehavior
     // @Override
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
-        ForcedLogUtil.log("Don't Use Anymore", this);
+        ForcedLogUtil.log("Don't Use Interface Version It Is Slower", this);
         //this.collide((VehicleLayer) collidableInterfaceCompositeInterface);
     }
     
