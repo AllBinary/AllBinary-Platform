@@ -44,7 +44,7 @@ public class AllBinaryImageArrayRotationAnimationPool
 		AllBinaryImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = 
 			(AllBinaryImageArrayRotationAnimationInfo) key;
 		
-		((AllBinaryImageArrayRotationAnimationCacheable) cacheableInterface).init(
+		((AllBinaryImageArrayRotationAnimationCacheable) cacheableInterface).setImageArray(
 				allBinaryImageRotationAnimationInfo.getImageArray());
 		//, 
 				//allBinaryImageRotationAnimationInfo.getDx(), 
