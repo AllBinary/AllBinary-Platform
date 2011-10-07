@@ -27,7 +27,8 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
 {
     private Image[] imageArray;
 
-    // private int totalAngle;
+    private Image currentImage;
+    
     private int totalFrames;
 
     public AllBinaryImageArrayBaseRotationAnimation(Image[] imageArray, AngleInfo angleInfo) throws Exception
@@ -38,8 +39,36 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
         // "AllBinaryImageRotationAnimation"));
 
         this.setImageArray(imageArray);
+        
+        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()]; 
     }
 
+    public int getAnimationSize() throws Exception
+    {
+        return this.getSize();
+    }
+    
+    public void nextRotation()
+    {
+        super.nextRotation();
+        
+        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
+    }
+
+    public void previousRotation()
+    {
+        super.previousRotation();
+        
+        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
+    }
+
+    public void setFrame(int index)
+    {
+        super.setFrame(index);
+        
+        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
+    }
+    
     public void setSequence(int[] sequence)
     {
 
@@ -48,16 +77,6 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
-    }
-
-    public Image getImage(int index)
-    {
-        return imageArray[index];
-    }
-
-    public Image[] getImageArray()
-    {
-        return imageArray;
     }
 
     protected void setImageArray(Image[] imageArray)
@@ -71,13 +90,6 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
     
     public void paint(Graphics graphics, int x, int y)
     {
-        graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, anchor);
-
-        /*
-         * for(int index = 0; index < NUMBER_OF_FRAMES; index++) {
-         * graphics.drawImage(this.getImage(index), 0, index
-         * this.getImage(index).getHeight(), Anchor.TOP_LEFT); }
-         */
+        graphics.drawImage(this.currentImage, x, y, anchor);
     }
-
 }
