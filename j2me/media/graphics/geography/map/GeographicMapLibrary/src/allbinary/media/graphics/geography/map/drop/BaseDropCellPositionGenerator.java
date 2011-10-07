@@ -17,7 +17,7 @@ implements DropCellPositionGeneratorInterface
     }
 
     public void update(AllBinaryGameLayerManager allBinaryGameLayerManager,
-            BasicGeographicMap basicGeographicMap) throws Exception
+            BasicGeographicMap geographicMapInterface) throws Exception
     {
         
     }
