@@ -16,12 +16,9 @@ package org.allbinary.graphics.opengles;
 import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.image.opengles.OpenGLESGL10ImageFactory;
-import org.allbinary.image.opengles.OpenGLESGL11ExtImageFactory;
 import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
 
 import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.game.configuration.feature.Features;
 
 public class OpenGLCapabilities
 {
@@ -41,6 +38,8 @@ public class OpenGLCapabilities
     
     private String glVersion = this.glVersionString;
     private boolean glExtensionDrawTexture;
+    
+    private boolean glThreedDrawTexture;
 
     private OpenGLCapabilities()
     {
@@ -49,6 +48,8 @@ public class OpenGLCapabilities
     public void initCapabilities(GL10 gl)
     throws Exception
     {
+        //StringBuilder stringBuffer = new StringBuilder();
+        
         glVersionString = gl.glGetString(GL10.GL_VERSION);
         glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
         
@@ -72,6 +73,8 @@ public class OpenGLCapabilities
         }
         */
 
+        /*
+         * The device often reports that it does have it when it does not
         if(this.isExtension(OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE))
         {
             this.setGlExtensionDrawTexture(true);
@@ -80,28 +83,31 @@ public class OpenGLCapabilities
         {
             this.setGlExtensionDrawTexture(false);
         }
+        */
+        this.glExtensionDrawTexture = false;
 
         if(this.glVersionString.indexOf(" 1.0") >= 0)
         {
-            this.setGlVersion(this.VERSION_1_0);
+            this.glVersion = this.VERSION_1_0;
         }
         else
             if(this.glVersionString.indexOf(" 1.1") >= 0)
         {
-                this.setGlVersion(this.VERSION_1_1);
+                this.glVersion = this.VERSION_1_1;
         }
             else
             {
-                this.setGlVersion(this.VERSION_UNK);
+                this.glVersion = this.VERSION_UNK;
             }
 
+        /*
         if (Features.getInstance().isDefault(
                 OpenGLFeatureFactory.getInstance().OPENGL_AUTO_SELECT))
         {
             //if (GameFeatures.getInstance().isDefault(GameFeature.OPENGL_DRAW_TEXTURE))
             //{                   
                 //StupidTimer.visit(new RendererSurfaceCreatedVisitor());
-                                
+
                 if(isGlExtensionDrawTexture())
                 {
                     //ReloadConfiguration reloadConfiguration = 
@@ -109,17 +115,21 @@ public class OpenGLCapabilities
                     //reloadConfiguration.setOpenGL(true);
                     //reloadConfiguration.write();
                     
-                    PreLogUtil.put("Found: " + OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE, 
-                            this, "initGLCapabilities");
+                    stringBuffer.append("Found: ");
+                    stringBuffer.append(OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE);
+                    
+                    PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
      
                     OpenGLImageSpecificFactory.getInstance().setImageFactory(
                             new OpenGLESGL11ExtImageFactory());
                 }
                 else
                 {
-                    PreLogUtil.put(
-                            "OpenGL is on but " + OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE + " was not available", 
-                            this, "initGLCapabilities");
+                    stringBuffer.append("OpenGL is on but ");
+                    stringBuffer.append(OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE);
+                    stringBuffer.append(" was not available");
+
+                    PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
 
                     OpenGLImageSpecificFactory.getInstance().setImageFactory(
                             new OpenGLESGL10ImageFactory());
@@ -127,12 +137,19 @@ public class OpenGLCapabilities
             //}
         } else
         {
-            PreLogUtil.put(OpenGLFeatureFactory.getInstance().OPENGL_AUTO_SELECT + 
-                    " is not on", this, "initGLCapabilities");
+            stringBuffer.append(OpenGLFeatureFactory.getInstance().OPENGL_AUTO_SELECT);
+            stringBuffer.append(" is not on");
             
-            OpenGLImageSpecificFactory.getInstance().setImageFactory(
-                    new OpenGLESGL10ImageFactory());
+            PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
+            
+            OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10ImageFactory());
         }
+        */
+
+        OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10ImageFactory());
+        //For now we will just use the poly version for opengl games
+        //this.glThreedDrawTexture = true;
+        //OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10RectangleImageFactory());
     }
     
     private boolean isExtension(OpenGLFeature gameFeature)
@@ -159,19 +176,9 @@ public class OpenGLCapabilities
         return stringBuffer.toString();
     }
 
-    private void setGlExtensionDrawTexture(boolean glExtensionDrawTexture)
-    {
-        this.glExtensionDrawTexture = glExtensionDrawTexture;
-    }
-
     public boolean isGlExtensionDrawTexture()
     {
         return glExtensionDrawTexture;
-    }
-
-    private void setGlVersion(String glVersion)
-    {
-        this.glVersion = glVersion;
     }
 
     public String getGlVersion()
@@ -179,4 +186,8 @@ public class OpenGLCapabilities
         return glVersion;
     }
 
+    public boolean isGlThreedDrawTexture()
+    {
+        return glThreedDrawTexture;
+    }
 }
