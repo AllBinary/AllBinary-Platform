@@ -54,7 +54,6 @@ public class RotationAnimation
     }
 
     public void nextRotation()
-    throws Exception
     {
         //super.nextFrame();
         this.angleInfo.adjustAngle(this.circularIndexUtil.next());
