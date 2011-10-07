@@ -51,19 +51,19 @@ implements GeographicMapCellPositionEventListenerInterface
 
    private CircleFilledAnimation animationInterface;
    
-   public MiniMapLayer(BasicGeographicMap simpleGeographicMap,
+   public MiniMapLayer(BasicGeographicMap geographicMapInterface,
        //GeographicMapCellPositionFactory geographicMapCellPositionFactory,
       ViewPosition viewPosition) throws Exception
    {
       super(new Rectangle(PointFactory.getInstance().getInstance(0, 13),
-         simpleGeographicMap.getAllBinaryTiledLayer().getWidth(),
-         simpleGeographicMap.getAllBinaryTiledLayer().getHeight()),
+         geographicMapInterface.getAllBinaryTiledLayer().getWidth(),
+         geographicMapInterface.getAllBinaryTiledLayer().getHeight()),
          viewPosition);
 
       //this.simpleGeographicMap = simpleGeographicMap;
-      this.allBinaryTiledLayer = simpleGeographicMap.getAllBinaryTiledLayer();
+      this.allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
       this.geographicMapCellPositionFactory =
-          simpleGeographicMap.getGeographicMapCellPositionFactory();
+          geographicMapInterface.getGeographicMapCellPositionFactory();
 
       this.animationInterface = new CircleFilledAnimation(
               this.allBinaryTiledLayer.getCellWidth(), 
@@ -78,7 +78,7 @@ implements GeographicMapCellPositionEventListenerInterface
       this.positionList = new BasicArrayList();
 
       //GeographicMapCellPositionFactory geographicMapCellPositionFactory =
-        // this.basicGeographicMap.getGeographicMapCellPositionFactory();
+        // geographicMapInterface.getGeographicMapCellPositionFactory();
 
       GeographicMapCellPositionEventHandler.getInstance().addListener(this);
 
