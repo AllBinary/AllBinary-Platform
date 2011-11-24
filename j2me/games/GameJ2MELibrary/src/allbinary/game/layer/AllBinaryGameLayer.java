@@ -121,7 +121,8 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         //super.paint(graphics);
     }
     
-    private static final String TYPE = "Type: ";
+    private static final String TYPE = " Type: ";
+    private static final String CLASS = "Class: ";
     
     public String toString()
     {
@@ -132,6 +133,8 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(this.getName());
         stringBuffer.append(commonSeps.COLON_SEP);
+        stringBuffer.append(CLASS);
+        stringBuffer.append(this.hashCode());
         stringBuffer.append(TYPE);
         stringBuffer.append(this.getType());
         stringBuffer.append(commonSeps.SPACE);
