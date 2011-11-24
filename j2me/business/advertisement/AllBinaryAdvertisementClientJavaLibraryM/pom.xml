@@ -24,14 +24,14 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LoggingJ2MEAll</artifactId>
+            <artifactId>LicenseClientJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LicensedGameDemoJavaLibrary</artifactId>
+            <artifactId>LoggingJ2MEAll</artifactId>
             <version>1</version>
             <optional>true</optional>
         </dependency>
