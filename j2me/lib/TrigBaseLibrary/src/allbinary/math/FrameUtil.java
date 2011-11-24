@@ -13,6 +13,8 @@
 */
 package allbinary.math;
 
+import abcs.logic.communication.log.PreLogUtil;
+
 public class FrameUtil
 {
     private static final FrameUtil instance = new FrameUtil();
@@ -42,12 +44,26 @@ public class FrameUtil
     {
         if (currentAngle > 359)
         {
-            return (short) (currentAngle - AngleFactory.getInstance().TOTAL_ANGLE);
+            currentAngle = (short) (currentAngle - AngleFactory.getInstance().TOTAL_ANGLE);
+            
+            while(currentAngle > 359)
+            {
+                PreLogUtil.put(Integer.valueOf(currentAngle).toString(), this, "adjustAngleToFrameAngle >");
+                currentAngle = (short) (currentAngle - AngleFactory.getInstance().TOTAL_ANGLE);
+            }
+            
         }
 
         if (currentAngle < 0)
         {
-            return (short) (currentAngle + AngleFactory.getInstance().TOTAL_ANGLE);
+            currentAngle = (short) (currentAngle + AngleFactory.getInstance().TOTAL_ANGLE);
+            
+            while(currentAngle < 0)
+            {
+                PreLogUtil.put(Integer.valueOf(currentAngle).toString(), this, "adjustAngleToFrameAngle <");
+                currentAngle = (short) (currentAngle + AngleFactory.getInstance().TOTAL_ANGLE);
+            }
+            
         }
 
         return (short) currentAngle;
