@@ -26,7 +26,7 @@ public class GraphicsPipeline extends BasicGraphicsPipeline
    
       //Double rotate = new Double(Math.toRadians(angle.doubleValue()));
       //graphicsPipe.rotate(rotate.doubleValue());   
-   public void rotate(double aTheta)
+   public void rotateTheta(double aTheta)
            throws Exception
    {  
       BasicArrayList newVector = new BasicArrayList();
@@ -43,7 +43,7 @@ public class GraphicsPipeline extends BasicGraphicsPipeline
          
          //LogUtil.put("Calculated: X: " + secondX + " Y: " + secondY, this, "rotate");
          
-         GPoint point = PointFactory.getInstance(((int) secondX), ((int) secondY));
+         GPoint point = PointFactory.getInstance().getInstance(((int) secondX), ((int) secondY));
          
          newVector.add(point);
       }
