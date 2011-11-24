@@ -38,6 +38,7 @@ import allbinary.gui.dialog.FileJDialogListenerInterface;
 import allbinary.gui.dialog.HashMapJDialogListenerInterface;
 import allbinary.logic.math.SmallIntegerSingletonFactory;
 import allbinary.math.Angle;
+import allbinary.math.AngleFactory;
 import java.awt.GridLayout;
 import java.util.HashMap;
 import org.w3c.dom.Document;
@@ -710,8 +711,8 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     {
         try
         {
-            Angle.init();
-            SmallIntegerSingletonFactory.init();
+            AngleFactory.getInstance();//.init();
+            SmallIntegerSingletonFactory.getInstance().init();
             new MyFrame().show();
         } catch (Exception e)
         {
