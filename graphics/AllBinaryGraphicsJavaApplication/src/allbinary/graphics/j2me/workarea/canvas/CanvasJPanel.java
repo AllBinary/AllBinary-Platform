@@ -15,7 +15,6 @@ package allbinary.graphics.j2me.workarea.canvas;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
-import allbinary.graphics.color.BasicColor;
 import java.util.HashMap;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -38,11 +37,12 @@ import allbinary.animation.VectorExplosionGenerator;
 import allbinary.animation.VectorMirrorGenerator;
 import allbinary.graphics.GPoint;
 import allbinary.graphics.PointFactory;
+import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.j2me.StatusFactory;
 import allbinary.graphics.j2me.workarea.tools.MouseStrings;
 import allbinary.graphics.j2me.workarea.tools.Points;
 import allbinary.graphics.j2me.workarea.tools.ToolFactory;
-import allbinary.graphics.pipeline.RandomRotation;
+import allbinary.graphics.pipeline.RandomRotationFactory;
 import allbinary.log.LOGGING;
 import allbinary.math.PositionStrings;
 import java.awt.Color;
@@ -65,8 +65,8 @@ public class CanvasJPanel extends javax.swing.JPanel
     private DefaultMutableTreeNode canvasTreeNode;
     private CanvasTreeLabel frameLabel;
     private WorkAreaJTreeJPanel workAreaJTreeJPanel;
-    private static final Color gridColor = new Color(BasicColor.WHITE.intValue());
-    private static final Color backgroundColor = new Color(BasicColor.CLEAR_COLOR.intValue());
+    private static final Color gridColor = new Color(BasicColorFactory.getInstance().WHITE.intValue());
+    private static final Color backgroundColor = new Color(BasicColorFactory.getInstance().CLEAR_COLOR.intValue());
 
     private final Grid grid;
 
@@ -136,7 +136,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         this.workAreaJTreeJPanel.add(this.getTreeNode());
 
         this.graphicItemHashMap = new HashMap();
-        this.grid.grid = PointFactory.getInstance(0, 0);
+        this.grid.grid = PointFactory.getInstance().getInstance(0, 0);
         this.setCanvasDimension(new IntegerDimension(0, 0));
         this.selectedTool = null;
 
@@ -206,7 +206,7 @@ public class CanvasJPanel extends javax.swing.JPanel
                 throw new GraphicsException("Y Size Error" + ySize + " WorkArea Y: " + getCanvasDimension().getHeight(), this, "setGrid");
             }
 
-            this.grid.grid = PointFactory.getInstance(xSize, ySize);
+            this.grid.grid = PointFactory.getInstance().getInstance(xSize, ySize);
             this.grid.isChanged = true;
         } catch (Exception e)
         {
@@ -318,7 +318,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         while (iter.hasNext())
         {
             GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(iter.next());
-            BasicArrayList basicArrayList = VectorExplosionGenerator.getInstance(item.getPointsInterface().getPoints(), howMuch, VectorExplosionGenerator.RANDOM);
+            BasicArrayList basicArrayList = VectorExplosionGenerator.getInstance().getInstance(item.getPointsInterface().getPoints(), howMuch, VectorExplosionGenerator.getInstance().RANDOM);
 
             Points newPoints = new Points();
 
@@ -326,7 +326,7 @@ public class CanvasJPanel extends javax.swing.JPanel
 
             item.setPointsInterface(newPoints);
 
-            int angleDelta = RandomRotation.getNextRandomAngle(howMuch);
+            int angleDelta = RandomRotationFactory.getInstance().getNextRandomAngle(howMuch);
             //double angle = item.getAngle();
             //angle +
             item.setAngle(angleDelta);
