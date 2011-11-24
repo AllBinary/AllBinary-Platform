@@ -36,6 +36,12 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameConfigurationJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>FileJ2SEJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
@@ -57,9 +63,9 @@
                     </execution>
                 </executions>
             </plugin>
-        <plugins>
+        </plugins>
 
-        <sourceDirectory>../FileLicenseInitInfoJavaLibrary/src</sourceDirectory>
+        <sourceDirectory>../ApplicationConfigurationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
