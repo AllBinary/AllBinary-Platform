@@ -285,6 +285,21 @@ public class BasicArrayList
         return objectArray;
     }
 
+    public Object clone()
+    {
+    	BasicArrayList list = new BasicArrayList();
+    	
+    	int size = this.size();
+    	for (int index = 0; index < size; index++)
+    	{
+    	    Object object = this.get(index);
+    	    
+    	    list.add(object);
+    	}
+    	
+    	return list;
+    }
+
     public String toString()
     {
         final String COMMA_SEP = CommonSeps.getInstance().COMMA_SEP;
