@@ -315,7 +315,7 @@ implements TickableInterface
     }
 
     // Is damage value gone
-    private boolean isExhausted()
+    protected boolean isExhausted()
     {
         // Less than 0 most likely means that it collided a bunch before last tick
         // as such it went beyond the positive max
