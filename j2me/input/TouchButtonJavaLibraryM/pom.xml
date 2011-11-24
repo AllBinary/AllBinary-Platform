@@ -29,12 +29,7 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TouchJ2MEJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
+
         
         <dependency>
             <groupId>org.allbinary</groupId>
