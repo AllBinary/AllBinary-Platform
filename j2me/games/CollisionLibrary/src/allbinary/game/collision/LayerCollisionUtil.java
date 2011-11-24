@@ -13,31 +13,40 @@
 */
 package allbinary.game.collision;
 
+import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+
 import allbinary.layer.AllBinaryLayer;
 
 public class LayerCollisionUtil
 {
-
+    private static final LayerCollisionUtil instance = new LayerCollisionUtil();
+    
+    public static LayerCollisionUtil getInstance()
+    {
+        return instance;
+    }
+    
+    private final CollisionProcessor collisionProcessor;
+    
     private LayerCollisionUtil()
     {
-    }
-
-    public static boolean isCollision(AllBinaryLayer myLayer,
-            AllBinaryLayer myLayer2)
-    {
-        if (myLayer2.getX() >= myLayer.getX2() || myLayer2.getY() >= myLayer.getY2() || myLayer2.getX2() <= myLayer.getX() || myLayer2.getY2() <= myLayer.getY())
+        if (OpenGLFeatureUtil.getInstance().isAnyThreed())
         {
-            return false;
+            this.collisionProcessor = new CollisionThreedProcessor();
         }
         else
         {
-            return true;
+            this.collisionProcessor = new Collision2DProcessor();
         }
-
-        /*
-         * return RectangleCollisionUtil.isCollision( myLayer.getX(),
-         * myLayer.getY(), myLayer.getX2(), myLayer.getY2(), myLayer2.getX(),
-         * myLayer2.getY(), myLayer2.getX2(), myLayer2.getY2() );
-         */
     }
+
+    public boolean isCollision(AllBinaryLayer myLayer, AllBinaryLayer myLayer2)
+    {
+        return this.collisionProcessor.isCollision(myLayer, myLayer2);
+    }
+    //collisionLayer.getX2() <= this.ownerLayer.getX() || collisionLayer.getY2() <= this.ownerLayer.getY() || collisionLayer.getY() >= this.ownerLayer.getY2() || collisionLayer.getX() >= this.ownerLayer.getX2()
+    
+    //return RectangleCollisionUtil.isCollision( myLayer.getX(),
+    //myLayer.getY(), myLayer.getX2(), myLayer.getY2(), myLayer2.getX(),
+    //myLayer2.getY(), myLayer2.getX2(), myLayer2.getY2() );
 }
