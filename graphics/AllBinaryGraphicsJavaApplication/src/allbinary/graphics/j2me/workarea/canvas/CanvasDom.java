@@ -64,7 +64,7 @@ public class CanvasDom
     {
         this.grid = new Grid();
 
-        this.grid.grid = PointFactory.getInstance(0, 0);
+        this.grid.grid = PointFactory.getInstance().getInstance(0, 0);
         this.dimension = new IntegerDimension(0, 0);
 
         String name = canvasNode.getNodeName();
@@ -173,7 +173,7 @@ public class CanvasDom
     public void setGrid(int gridX, int gridY)
             throws Exception
     {
-        this.grid.grid = PointFactory.getInstance(gridX, gridY);
+        this.grid.grid = PointFactory.getInstance().getInstance(gridX, gridY);
     }
 
     private Node getPointNode(GPoint point, String pointName)
@@ -206,7 +206,7 @@ public class CanvasDom
         Node angleTextNode = (Node) document.createTextNode(new Double(this.getAngle()).toString());
         angleNode.appendChild(angleTextNode);
 
-        Node sizeNode = (Node) this.getPointNode(PointFactory.getInstance(this.getDimension().getWidth(), this.getDimension().getHeight()), this.SIZE);
+        Node sizeNode = (Node) this.getPointNode(PointFactory.getInstance().getInstance(this.getDimension().getWidth(), this.getDimension().getHeight()), this.SIZE);
 
         Node zoomNode = (Node) document.createElement(this.ZOOM);
         Node zoomTextNode = (Node) document.createTextNode(new Integer(this.getGrid().getZoom()).toString());
