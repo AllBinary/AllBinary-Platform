@@ -19,11 +19,16 @@ import allbinary.game.ai.BasicAI;
 import allbinary.game.input.GameInput;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.AllBinaryLayerManager;
+import allbinary.logic.math.SmallIntegerSingletonFactory;
 import allbinary.time.TimeDelayHelper;
 
 public class TimedFireAI extends BasicAI
 {
-    protected final TimeDelayHelper maxFireDelayTimeHelper;
+	public static final Integer TIME = SmallIntegerSingletonFactory.getInstance().getInstance(1);
+
+    protected final TimeDelayHelper maxFireDelayTimeHelper = new TimeDelayHelper(0);
+
+    private final int delay;
     
     public TimedFireAI(int delay, 
             AllBinaryLayer ownerLayerInterface,
@@ -31,8 +36,8 @@ public class TimedFireAI extends BasicAI
         throws Exception
     {
         super(ownerLayerInterface, gameInput);
-        
-        this.maxFireDelayTimeHelper = new TimeDelayHelper(delay);
+
+        this.delay = delay;
     }
     
     public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
@@ -46,6 +51,8 @@ public class TimedFireAI extends BasicAI
                 timeFiredInterface.getLastFireTime() + this.maxFireDelayTimeHelper.getDelay() < this.maxFireDelayTimeHelper.getStartTime())
         {
             super.processAI(Canvas.KEY_NUM1);
+
+            this.maxFireDelayTimeHelper.setDelay(delay);
         }
     }
 }
