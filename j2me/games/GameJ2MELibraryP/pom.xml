@@ -18,6 +18,8 @@
         <!--
         <module>../../AllBinaryJ2MELibraryP</module>
         <module>../../games/PreGameJ2MEJavaLibraryP</module>
+        LayerPlacementLibrary
+        NoGyroSensorLibrary
         -->
 
         <module>../../ResourceLibraryM</module>
@@ -123,7 +125,9 @@
         
         <module>../../games/TickableJavaLibraryM</module>
 
-        <module>../../lib/VectorThreeDimensionalLibraryM</module>
+        <!--
+                <module>../../lib/VectorThreeDimensionalLibraryM</module>
+        -->
 
         <module>../../games/CommonHeadsUpDisplayLibraryM</module>
 
