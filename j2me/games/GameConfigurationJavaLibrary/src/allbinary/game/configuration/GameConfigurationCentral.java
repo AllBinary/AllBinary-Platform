@@ -181,12 +181,14 @@ public class GameConfigurationCentral
     //4 16 6 15 30 90 180
     //public final int[] FIDELITY = {4,8,24,30,36,45,60,90,180,360};
     
+    public int gameControlFidelity = 36;
 
     public int getGameControlFidelity()
     {
         //int fidelity = GameConfigurationCentral.getInstance().CONTROL_LEVEL.getValue().intValue();
-        //9, 18, 36, 72
-        return 36; //(FIDELITY[fidelity + 1]);
+        //9, 18, 36, 72, 144, 288, 360
+        //40, 60
+        return this.gameControlFidelity; //(FIDELITY[fidelity + 1]);
     }
     
     public String toString()
