@@ -77,11 +77,12 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
         this.collided = true;
     }
 
+    private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
+    
     public boolean isCollision(
             CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
-        if (this.collisionHelper
-                .isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
+        if (this.collisionHelper.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
         {
             GroupInterfaceCompositeInterface groupInterfaceCompositeInterface = 
                 (GroupInterfaceCompositeInterface) collidableInterfaceCompositeInterface;
@@ -93,8 +94,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
             if (this.ownerLayer.getGroupInterface() != groupInterfaceCompositeInterface
                     .getGroupInterface())
             {
-                if (LayerCollisionUtil.isCollision(this.ownerLayer,
-                        (AllBinaryLayer) collidableInterfaceCompositeInterface))
+                if (layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface))
                 {
                     return true;
                 }
