@@ -73,7 +73,7 @@ public class GuiLog
    {
       try
       {
-         String data = LogFormatUtil.get(specialMessage, 
+         String data = LogFormatUtil.getInstance().get(specialMessage, 
                object.getClass().getName(), functionName, exception);
          GuiLog.showDialog(data);
          System.out.println(data);
@@ -102,7 +102,7 @@ public class GuiLog
    {      
       try
       {
-         String data = LogFormatUtil.get(specialMessage, 
+         String data = LogFormatUtil.getInstance().get(specialMessage, 
                className, functionName, exception);
          GuiLog.showDialog(data);
          System.out.println(data);
