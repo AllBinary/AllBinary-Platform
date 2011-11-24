@@ -56,7 +56,7 @@ public class PointsDomUtil {
    {
       BasicArrayList tempPointVector = PointsUtil.getInstance().doTransforms(
               pointVector, new Double(canvasDom.getAngle()),
-              PointFactory.getInstance(canvasDom.getDimension().getWidth(),
+              PointFactory.getInstance().getInstance(canvasDom.getDimension().getWidth(),
               canvasDom.getDimension().getHeight()));
 
       org.w3c.dom.Document document = WorkAreaJPanel.getDocument();
