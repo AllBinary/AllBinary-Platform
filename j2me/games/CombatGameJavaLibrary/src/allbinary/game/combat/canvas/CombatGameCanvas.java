@@ -17,12 +17,14 @@ import javax.microedition.lcdui.CommandListener;
 
 import allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import allbinary.game.combat.destroy.event.DestroyEventCircularStaticPool;
+import allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import allbinary.game.configuration.feature.Features;
 import allbinary.game.configuration.feature.GameFeatureFactory;
 import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import allbinary.game.init.BasicBuildGameInitializerFactory;
 import allbinary.game.layer.AllBinaryGameLayerManager;
 import allbinary.game.layer.drop.DropLayerProcessor;
+import allbinary.game.layer.identification.GroupLayerManagerListener;
 import allbinary.game.score.HighScoresFactoryInterface;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import allbinary.layer.BasicLayerProcessor;
@@ -94,5 +96,18 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         {
             basicLayerProcessor[index].process(layerManager);
         }
+    }
+    
+    protected void cleanupGame() throws Exception
+    {
+        super.cleanupGame();
+
+        GroupLayerManagerListener.getInstance().clear();
+        GroupLayerManagerListener.getInstance().log();
+        
+        // TWB - somehow I need to add and remove listeners between levels
+        // without
+        // doing it outside the object like this        
+        DestroyedEventHandler.getInstance().removeAllListeners();
     }
 }
