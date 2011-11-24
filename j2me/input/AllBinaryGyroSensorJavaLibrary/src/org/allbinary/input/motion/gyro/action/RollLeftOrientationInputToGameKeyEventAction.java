@@ -30,7 +30,7 @@ public class RollLeftOrientationInputToGameKeyEventAction extends GameKeyComplet
     
     private RollLeftOrientationInputToGameKeyEventAction()
     {
-        super("Down Action", OrientationMotionGestureFactory.getInstance().ROLL_LEFT,
+        super("Roll Left Action", OrientationMotionGestureFactory.getInstance().ROLL_LEFT,
                 PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
     }    
 }
