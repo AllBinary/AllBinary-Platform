@@ -18,7 +18,7 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.GPoint;
 import allbinary.graphics.PointFactory;
-import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.j2me.workarea.canvas.CanvasDom;
 import allbinary.graphics.j2me.workarea.canvas.CanvasJPanel;
 import allbinary.graphics.j2me.workarea.canvas.IntegerDimension;
@@ -148,7 +148,7 @@ public class SelectionTool implements GraphicItemInterface
             }
         }
     }
-    private final Color rectColor = new Color(BasicColor.RED.intValue());
+    private final Color rectColor = new Color(BasicColorFactory.getInstance().RED.intValue());
 
     public int getXRect()
     {
@@ -213,7 +213,7 @@ public class SelectionTool implements GraphicItemInterface
     {
         return NAME;
     }
-    private GPoint startPoint = PointFactory.ZERO_ZERO;
+    private GPoint startPoint = PointFactory.getInstance().ZERO_ZERO;
     private GPoint endPoint = startPoint;
 
     //mouse and key events occur on the component the tool
@@ -243,7 +243,7 @@ public class SelectionTool implements GraphicItemInterface
     {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, MouseStrings.getInstance().MOUSE_PRESSED));
 
-        this.startPoint = PointFactory.getInstance(mouseEvent.getX(), mouseEvent.getY());
+        this.startPoint = PointFactory.getInstance().getInstance(mouseEvent.getX(), mouseEvent.getY());
         this.endPoint = this.startPoint;
     }
 
@@ -251,7 +251,7 @@ public class SelectionTool implements GraphicItemInterface
     {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, MouseStrings.getInstance().MOUSE_RELEASED));
 
-        this.endPoint = PointFactory.getInstance(mouseEvent.getX(), mouseEvent.getY());
+        this.endPoint = PointFactory.getInstance().getInstance(mouseEvent.getX(), mouseEvent.getY());
         this.active = false;
         this.makeSelection();
     }
@@ -260,7 +260,7 @@ public class SelectionTool implements GraphicItemInterface
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, MouseStrings.getInstance().MOUSE_DRAGGED));
 
-        this.endPoint = PointFactory.getInstance(mouseEvent.getX(), mouseEvent.getY());
+        this.endPoint = PointFactory.getInstance().getInstance(mouseEvent.getX(), mouseEvent.getY());
     }
 
     public void keyPressed(java.awt.event.KeyEvent keyEvent)
