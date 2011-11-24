@@ -54,13 +54,14 @@ implements CollidableInterface
         throw new Exception(NotImplemented.NAME + ": " + this.getClass().getName());
     }
 
+    private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
+    
     // TODO TWB Special Super Efficient Collision Processing
     public boolean isCollision(CollidableCompositeLayer collisionLayer)
     {
-        if (collisionLayer.getX2() <= this.ownerLayer.getX()
-                || collisionLayer.getY2() <= this.ownerLayer.getY()
-                || collisionLayer.getY() >= this.ownerLayer.getY2()
-                || collisionLayer.getX() >= this.ownerLayer.getX2())
+        return layerCollisionUtil.isCollision(this.ownerLayer, collisionLayer);
+        /*
+        if ()
         {
             return false;
         }
@@ -71,15 +72,19 @@ implements CollidableInterface
             
             return true;
         }
+        */
     }
 
     public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
-        if (LayerCollisionUtil.isCollision(ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface))
+        return layerCollisionUtil.isCollision(ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface);
+        /*
+        if ()
         {
             return true;
         }
         return false;
+        */
     }
 
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
