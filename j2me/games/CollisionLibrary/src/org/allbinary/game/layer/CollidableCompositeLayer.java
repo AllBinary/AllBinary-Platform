@@ -14,6 +14,8 @@
 package org.allbinary.game.layer;
 
 import abcs.logic.basic.NotImplemented;
+import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.communication.log.ForcedLogUtil;
 import allbinary.ai.ArtificialIntelligenceInterface;
 import allbinary.game.collision.CollidableBaseBehavior;
 import allbinary.game.collision.CollidableInterfaceCompositeInterface;
@@ -59,9 +61,9 @@ implements CollidableInterfaceCompositeInterface
     }
 
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()
-    throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        ForcedLogUtil.log(NotImplemented.NAME, this);
+        return null;
     }
     
     public CollidableBaseBehavior getCollidableInferface()
@@ -78,4 +80,19 @@ implements CollidableInterfaceCompositeInterface
     {
         return true;
     }
+    
+    public String toString()
+    {
+        StringBuilder stringBuffer = new StringBuilder();
+        
+        CommonSeps commonSeps = CommonSeps.getInstance();
+        
+        stringBuffer.append(super.toString());
+        stringBuffer.append(commonSeps.NEW_LINE);
+        stringBuffer.append(this.getCollidableInferface().toString());
+        //stringBuffer.append(commonSeps.NEW_LINE);
+        //stringBuffer.append(this.getArtificialIntelligenceInterface().toString());
+        
+        return stringBuffer.toString();
+    }    
 }
