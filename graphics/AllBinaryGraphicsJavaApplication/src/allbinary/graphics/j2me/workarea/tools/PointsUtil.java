@@ -16,6 +16,7 @@ package allbinary.graphics.j2me.workarea.tools;
 import allbinary.animation.VectorRotationGenerator;
 import allbinary.graphics.GPoint;
 import allbinary.math.Angle;
+import allbinary.math.AngleFactory;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -36,7 +37,7 @@ public class PointsUtil {
 
    public BasicArrayList doTransforms(BasicArrayList pointVector, Double angle, GPoint fulcrumPoint) throws Exception
    {
-      return VectorRotationGenerator.getInstance().getInstance(fulcrumPoint.getX(), fulcrumPoint.getY(), pointVector, Angle.getInstance(angle.intValue()));
+      return VectorRotationGenerator.getInstance().getInstance(fulcrumPoint.getX(), fulcrumPoint.getY(), pointVector, AngleFactory.getInstance().getInstance(angle.intValue()));
 
       //rotate points for canvas rotation
       //i would have used the transform in graphics2d but I need to export the
