@@ -30,6 +30,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>TempIntegrationJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>RemoteXmlRpcJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -62,7 +69,8 @@
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>WeblisketClientInformationJavaLibrary</artifactId>
+            <artifactId>TestClientInfoJavaLibrary</artifactId>
+            <!-- WeblisketClientInformationJavaLibrary -->
             <version>1</version>
             <optional>true</optional>
         </dependency>
