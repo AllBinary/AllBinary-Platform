@@ -19,6 +19,8 @@ import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 
 import abcs.logic.basic.NotImplemented;
+import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.CommonStrings;
 import allbinary.game.combat.damage.DamageableInterface;
 import allbinary.game.combat.destroy.DestroyableInterface;
 import allbinary.game.combat.destroy.event.DestroyedEvent;
@@ -29,6 +31,7 @@ import allbinary.game.layer.pickup.PickupCompositeInterface;
 import allbinary.game.part.PartInterface;
 import allbinary.graphics.Rectangle;
 import allbinary.layer.AllBinaryLayerManager;
+import allbinary.math.PositionStrings;
 import allbinary.view.ViewPosition;
 
 /*
@@ -215,5 +218,57 @@ implements DestroyableInterface, DamageableInterface, PickupCompositeInterface
     public PartInterface[] getPartInterfaceArray()
     {
         return partInterfaceArray;
-    }    
+    }
+    
+    private static final String PARTS_LABEL = "Parts: ";
+    
+    private static final String READYFOREXPLOSION = "ReadyForExplosion: ";
+    
+    public String toString()
+    {
+        StringBuilder stringBuffer = new StringBuilder();
+        
+        CommonSeps commonSeps = CommonSeps.getInstance();
+        
+        stringBuffer.append(super.toString());
+        stringBuffer.append(commonSeps.NEW_LINE);
+        stringBuffer.append(this.getGroupInterface().toString());
+        
+        if (this.getPickupBehavior() != null)
+        {
+            stringBuffer.append(commonSeps.NEW_LINE);
+            stringBuffer.append(this.getPickupBehavior().toString());
+        }
+
+        /*
+        if (this.getPartInterfaceArray() != null)
+        {
+            stringBuffer.append(commonSeps.NEW_LINE);
+            int total = this.getPartInterfaceArray().length;
+            stringBuffer.append(total);
+            stringBuffer.append(commonSeps.SPACE);
+            stringBuffer.append(PARTS_LABEL);
+
+            for (int index = 0; index < total; index++)
+            {
+                stringBuffer.append(this.getPartInterfaceArray()[index].toString());
+            }
+        }
+        */
+        
+        stringBuffer.append(commonSeps.NEW_LINE);
+        stringBuffer.append(READYFOREXPLOSION);
+        stringBuffer.append(readyForExplosion);
+
+        stringBuffer.append(commonSeps.NEW_LINE);
+        stringBuffer.append(CommonStrings.getInstance().INIT);
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(PositionStrings.getInstance().X_LABEL);
+        stringBuffer.append(initX);
+        stringBuffer.append(PositionStrings.getInstance().Y_LABEL);
+        stringBuffer.append(initX);
+        
+        return stringBuffer.toString();
+    }
+    
 }
