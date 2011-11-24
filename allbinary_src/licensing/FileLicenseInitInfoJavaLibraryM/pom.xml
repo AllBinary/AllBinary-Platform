@@ -30,8 +30,9 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>BasicSecurityJavaLibrary</artifactId>
+            <artifactId>TempIntegrationJavaLibrary</artifactId>
             <version>1</version>
+            <optional>true</optional>
         </dependency>
 
 <!-- only needed for LicenseServerInitFileUtil -->
@@ -39,6 +40,7 @@
             <groupId>org.allbinary</groupId>
             <artifactId>ResourceLibrary</artifactId>
             <version>1</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
@@ -60,6 +62,12 @@
             <artifactId>BasePreloaderJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>BasicSecurityJavaLibrary</artifactId>
+            <version>1</version>
         </dependency>
         
     </dependencies>
