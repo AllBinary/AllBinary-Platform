@@ -81,13 +81,6 @@
             <artifactId>mythirdpartyintegratedcode</artifactId>
             <version>1</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TestClientInfoJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameConfigurationFormJavaLibrary</artifactId>
@@ -103,20 +96,6 @@
             <groupId>org.allbinary</groupId>
             <artifactId>ClientInfoBaseJavaLibrary</artifactId>
             <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>ClientInfoNoLicensingJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameInputPCKeyOnlyJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
         </dependency>
 
         <dependency>
