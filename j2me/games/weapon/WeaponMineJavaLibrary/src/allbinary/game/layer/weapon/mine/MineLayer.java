@@ -13,7 +13,7 @@
 */
 package allbinary.game.layer.weapon.mine;
 
-import org.allbinary.physics.movement.Movement;
+import org.allbinary.physics.movement.NoMovementFactory;
 
 import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import allbinary.game.layer.weapon.SimpleWeaponLayer;
@@ -32,7 +32,8 @@ public class MineLayer extends SimpleWeaponLayer
    public MineLayer(ViewPosition viewPosition)
            throws Exception
    {
-      super(new Movement(),
+      super(
+    		  NoMovementFactory.getInstance().getMovmentInstance(),
               //new BasicConstantVelocityMovement(SPEED),
               FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
                       MineWeaponResources.getInstance().RESOURCE).getInstance(),
@@ -46,7 +47,7 @@ public class MineLayer extends SimpleWeaponLayer
            throws Exception
    {
       super(sourceLayerInterface,
-              new Movement(),
+              NoMovementFactory,
          //new BasicConstantVelocityMovement(SPEED),
          new VectorRotationAnimation(MineVectorData.points, BasicColor.GREY),
          new Rectangle(PointFactory.getInstance(x + HALF_SIZEX, y + HALF_SIZEY), SIZEX, SIZEY),  
