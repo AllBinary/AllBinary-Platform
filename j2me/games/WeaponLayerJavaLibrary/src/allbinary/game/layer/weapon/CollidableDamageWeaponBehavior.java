@@ -73,6 +73,8 @@ extends CollidableDestroyableDamageableBehavior
        this.collided = true;
     }
 
+    private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
+    
     public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
        if (this.collisionHelper.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
@@ -83,7 +85,7 @@ extends CollidableDestroyableDamageableBehavior
           //LogUtil.put(LogFactory.getInstance("isCollision: " + this.getGroupInterface().getGroupName() + "==" + groupInterfaceCompositeInterface.getGroupInterface().getGroupName(), this, "isCollision"));
           if (this.ownerLayer.getGroupInterface() != groupInterfaceCompositeInterface.getGroupInterface())
           {
-             if (LayerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface))
+             if (layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface))
              {
                 return true;
              }
