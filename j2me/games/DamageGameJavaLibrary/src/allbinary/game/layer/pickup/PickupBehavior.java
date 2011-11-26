@@ -13,6 +13,7 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import allbinary.game.part.CountedLayerInterfaceFactoryPart;
+import allbinary.game.part.PartInterface;
 
 public class PickupBehavior implements PickupBehaviorInterface
 {
@@ -136,14 +137,16 @@ public class PickupBehavior implements PickupBehaviorInterface
             int slotIndex) throws Exception
     {
         int currentSlot = 0;
-        int size = this.ownerLayerInterface.getPartInterfaceArray().length;
+        
+        PartInterface[] partInterfaceArray = this.ownerLayerInterface.getPartInterfaceArray();
+        
+        int size = partInterfaceArray.length;
 
         CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
 
         for (int index = this.countedIndex; index < size; index++)
         {
-            nextCountedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) 
-                    this.ownerLayerInterface.getPartInterfaceArray()[index];
+            nextCountedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) partInterfaceArray[index];
 
             if (nextCountedLayerInterfaceFactory.getTotal() > 0)
             {
