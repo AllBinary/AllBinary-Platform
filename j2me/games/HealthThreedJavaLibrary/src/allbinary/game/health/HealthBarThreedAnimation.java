@@ -22,7 +22,7 @@ import min3d.objectPrimitives.Rectangle;
 import min3d.vos.Number3d;
 
 import org.allbinary.graphics.threed.min3d.renderer.Object3dProcessorUtil;
-import org.microemu.android.device.OpenGLESGraphics;
+import org.allbinary.android.device.OpenGLESGraphics;
 
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.layer.AllBinaryLayer;
