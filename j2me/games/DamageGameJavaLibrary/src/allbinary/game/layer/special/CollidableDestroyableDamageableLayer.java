@@ -220,7 +220,7 @@ implements DestroyableInterface, DamageableInterface, PickupCompositeInterface
         return partInterfaceArray;
     }
     
-    private static final String PARTS_LABEL = "Parts: ";
+    //private static final String PARTS_LABEL = "Parts: ";
     
     private static final String READYFOREXPLOSION = "ReadyForExplosion: ";
     
