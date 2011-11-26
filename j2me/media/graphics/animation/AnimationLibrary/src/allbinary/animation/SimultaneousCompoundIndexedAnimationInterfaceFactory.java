@@ -19,7 +19,7 @@ public class SimultaneousCompoundIndexedAnimationInterfaceFactory
     private AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
 
     public SimultaneousCompoundIndexedAnimationInterfaceFactory(
-        AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
+            AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
     {
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
