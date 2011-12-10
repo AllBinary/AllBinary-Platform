@@ -16,7 +16,6 @@ package allbinary.animation.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.graphics.opengles.OpenGLCapabilities;
 import org.allbinary.util.CircularIndexUtil;
 
 import allbinary.animation.IndexedAnimation;

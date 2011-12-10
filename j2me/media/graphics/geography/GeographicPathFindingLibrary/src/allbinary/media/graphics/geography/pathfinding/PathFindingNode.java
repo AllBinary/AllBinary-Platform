@@ -65,7 +65,7 @@ public class PathFindingNode
    
    public String toString()
    {
-      StringBuffer stringBuffer = new StringBuffer();
+       StringBuilder stringBuffer = new StringBuilder();
       
       stringBuffer.append(this.getClass().getName());
       stringBuffer.append(": ");

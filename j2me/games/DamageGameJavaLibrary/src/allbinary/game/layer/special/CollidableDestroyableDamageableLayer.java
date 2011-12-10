@@ -13,10 +13,12 @@
 */
 package allbinary.game.layer.special;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonSeps;
@@ -47,7 +49,9 @@ import allbinary.view.ViewPosition;
  */
 public class CollidableDestroyableDamageableLayer 
 extends CollidableCompositeLayer 
-implements DestroyableInterface, DamageableInterface, PickupCompositeInterface
+implements DestroyableInterface, DamageableInterface, 
+PickupCompositeInterface, SpecialGameInputInterface,
+OpenGLSurfaceChangedInterface
 {
     private Group groupInterface;
     private boolean readyForExplosion;
@@ -138,46 +142,61 @@ implements DestroyableInterface, DamageableInterface, PickupCompositeInterface
         return initY;
     }
     
-    protected void up()
+    public void up()
     throws Exception
     {
         
     }
     
-    protected void down()
+    public void down()
     throws Exception
     {
     }
 
-    protected void right()
+    public void right()
     throws Exception
     {
     }
 
-    protected void left()
+    public void left()
     throws Exception
     {
     }
 
-    protected void strafeLeft() throws Exception
+    public void strafeLeft() throws Exception
     {
     }
 
-    protected void strafeRight() throws Exception
+    public void strafeRight() throws Exception
     {
     }
     
-    protected void fire(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+    public void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }    
 
-    protected void special1(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+    public void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }    
 
-    protected void special2(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent)
+    public void special2(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
+    throws Exception
+    {
+    }
+
+    public void special3(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
+    throws Exception
+    {
+    }
+
+    public void special4(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
+    throws Exception
+    {
+    }
+
+    public void special5(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {
     }
@@ -218,6 +237,11 @@ implements DestroyableInterface, DamageableInterface, PickupCompositeInterface
     public PartInterface[] getPartInterfaceArray()
     {
         return partInterfaceArray;
+    }
+    
+    public void set(GL gl) throws Exception
+    {
+        //OpenGLSurfaceChangedInterface   
     }
     
     //private static final String PARTS_LABEL = "Parts: ";

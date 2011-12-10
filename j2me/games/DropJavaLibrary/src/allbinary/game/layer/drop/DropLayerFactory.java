@@ -61,4 +61,8 @@ public class DropLayerFactory
    {
       list.add(layerInterfaceFactoryInterface);
    }
+   
+   public BasicArrayList getList() {
+       return list;
+       }   
 }

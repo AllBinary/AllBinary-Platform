@@ -11,9 +11,9 @@ import org.allbinary.game.layer.pickup.PickupProcessorInterface;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import allbinary.game.health.HealthInterfaceCompositeInterface;
 import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import allbinary.game.part.CountedLayerInterfaceFactoryPart;
-import allbinary.game.part.PartInterface;
 
 public class PickupBehavior implements PickupBehaviorInterface
 {
@@ -32,11 +32,22 @@ public class PickupBehavior implements PickupBehaviorInterface
     {
         try
         {
-            pickupProcessorInterface.process(ownerLayerInterface);
+        	//PreLogUtil.put(pickupProcessorInterface.toString(), this, "doPickup(PickupProcessorInterface)");
+        	
+        	//Don't process non-weapon pickups if dead
+            HealthInterfaceCompositeInterface healthInterfaceCompositeInterface = 
+                    (HealthInterfaceCompositeInterface) this.ownerLayerInterface;
+            
+            if(healthInterfaceCompositeInterface.getHealthInterface().isAlive())
+            {
+            	//PreLogUtil.put("process", this, "doPickup(PickupProcessorInterface)");
+            	
+            	pickupProcessorInterface.process(ownerLayerInterface);
+            }
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "doPickup"));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "doPickup", e));
         }
     }
     
@@ -60,11 +71,9 @@ public class PickupBehavior implements PickupBehaviorInterface
             {
                 this.add((CountedPickedUpLayerInterfaceFactoryInterface) pickedUpLayerInterfaceFactoryInterface);
             }
-            else if (pickedUpLayerInterfaceFactoryInterface
-                    .getPickedUpLayerType() == pickedUpLayerTypeFactory.PART)
+            else if (pickedUpLayerInterfaceFactoryInterface.getPickedUpLayerType() == pickedUpLayerTypeFactory.PART)
             {
-                this.ownerLayerInterface
-                        .addPart(pickedUpLayerInterfaceFactoryInterface);
+                this.ownerLayerInterface.addPart(pickedUpLayerInterfaceFactoryInterface);
             }
             else
             {
@@ -79,7 +88,7 @@ public class PickupBehavior implements PickupBehaviorInterface
                     CommonStrings.getInstance().EXCEPTION, this, "doPickup"));
         }
     }
-
+    
     protected void add(
             CountedPickedUpLayerInterfaceFactoryInterface countedPickedUpLayerInterfaceFactoryInterface)
     {
@@ -137,16 +146,14 @@ public class PickupBehavior implements PickupBehaviorInterface
             int slotIndex) throws Exception
     {
         int currentSlot = 0;
-        
-        PartInterface[] partInterfaceArray = this.ownerLayerInterface.getPartInterfaceArray();
-        
-        int size = partInterfaceArray.length;
+        int size = this.ownerLayerInterface.getPartInterfaceArray().length;
 
         CountedLayerInterfaceFactoryPart nextCountedLayerInterfaceFactory;
 
         for (int index = this.countedIndex; index < size; index++)
         {
-            nextCountedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) partInterfaceArray[index];
+            nextCountedLayerInterfaceFactory = (CountedLayerInterfaceFactoryPart) 
+                    this.ownerLayerInterface.getPartInterfaceArray()[index];
 
             if (nextCountedLayerInterfaceFactory.getTotal() > 0)
             {

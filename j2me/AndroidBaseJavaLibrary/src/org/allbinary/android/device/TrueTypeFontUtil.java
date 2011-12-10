@@ -36,9 +36,38 @@ public class TrueTypeFontUtil
     private final int size = pattern.length();
     private final int lastCapIndex = pattern.indexOf('Z');
 
-    public Bitmap getFontBitmap(String filename, int fontSize, int cellSize, BasicColor basicColor)
+    public int getAsTextureSize(int textureSize)
     {
-        int cellsPerRow = 13;
+        if(textureSize < 64)
+        {
+            textureSize = 64;
+        }
+        else
+            if(textureSize < 128)
+            {
+                textureSize = 128;
+            }
+            else
+                if(textureSize < 256)
+                {
+                    textureSize = 256;
+                }
+                else
+                    if(textureSize < 512)
+                    {
+                        textureSize = 512;
+                    }
+                    else
+                        if(textureSize < 1024)
+                        {
+                            textureSize = 1024;
+                        }
+
+        return textureSize;
+    }
+
+    public Bitmap getFontBitmap(String filename, int fontSize, int cellSize, int cellsPerRow, BasicColor basicColor)
+    {
         int cellsPerRow2 = cellsPerRow * 2;
         int cellsPerRow3 = cellsPerRow * 3;
         int cellsPerRow4 = cellsPerRow * 4;
@@ -51,7 +80,12 @@ public class TrueTypeFontUtil
         // ResourceUtil.getInstance().getContext().getAssets(),
         // filename);
 
-        Bitmap bitmap = Bitmap.createBitmap(cellsPerRow * cellSize, 8 * cellSize,
+        //Must make bitmap as texture for GL so it must be as a texture size. 
+        int textureSize = this.getAsTextureSize(cellsPerRow * cellSize);
+
+        Bitmap bitmap = Bitmap.createBitmap(
+                //cellsPerRow * cellSize, 8 * cellSize,
+                textureSize, textureSize, 
                 Bitmap.Config.ARGB_8888);
         // AndroidBitmapConfigUtil.get());
 

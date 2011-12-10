@@ -25,7 +25,7 @@ public class TestGameDemoGameInputMappingFactory
         return SINGLETON;
     }
     
-    private GameInputMapping[] gameInputMappingArray = new GameInputMapping[5];
+    private GameInputMapping[] gameInputMappingArray = new GameInputMapping[7];
     
     public TestGameDemoGameInputMappingFactory()
     {   
@@ -46,7 +46,9 @@ public class TestGameDemoGameInputMappingFactory
         //Reverse= Down, 8, or M
         gameInputMappingArray[4] = new GameInputMapping("Down", gameKeyFactory.DOWN);
         
-        gameInputMappingArray[4] = new GameInputMapping("Down", gameKeyFactory.DOWN);
+        //Test game
+        gameInputMappingArray[5] = new GameInputMapping("Zoom Out", gameKeyFactory.KEY_NUM3);
+        gameInputMappingArray[6] = new GameInputMapping("Zoom In", gameKeyFactory.KEY_NUM0);
 
         /*        
         //Forward= Up, 2, or U

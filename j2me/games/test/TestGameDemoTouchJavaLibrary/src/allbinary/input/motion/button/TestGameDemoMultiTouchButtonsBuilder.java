@@ -110,7 +110,7 @@ extends BaseTouchInput
             if(basicTouchButtonCellPositionFactory.THIRD_FROM_BOTTOM_RIGHT != 
                 CellPositionFactory.getInstance().NONE)
             {
-                TouchButton WEAPON = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_FIVE,
+                TouchButton WEAPON = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_TWO,
                         featuredAnimationInterfaceFactoryInterfaceFactory.get(
                                 TouchButtonGenericActionResource.RESOURCE).getInstance(),
                         commonButtons.NORMAL_BUTTON,
@@ -134,15 +134,16 @@ extends BaseTouchInput
                     );
 
             TouchButton ZOOM_OUT = new TouchButton(
-                    basicTouchInputFactory.SPECIAL_BUTTON_TWO,
+                    basicTouchInputFactory.SPECIAL_BUTTON_FIVE,
                     featuredAnimationInterfaceFactoryInterfaceFactory.get(
                             TouchButtonGenericActionResource.RESOURCE).getInstance(),
                     commonButtons.NORMAL_BUTTON,
-                    basicTouchButtonCellPositionFactory.TOP_SECOND_FROM_RIGHT,
+                    basicTouchButtonCellPositionFactory.TOP_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
 
+            /*            
             TouchButton ROTATE_X = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_SIX,
                     featuredAnimationInterfaceFactoryInterfaceFactory.get(
@@ -172,13 +173,14 @@ extends BaseTouchInput
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
-
+            */
+            
             list.add(ZOOM_IN);
             list.add(ZOOM_OUT);
             
-            list.add(ROTATE_X);
-            list.add(ROTATE_Y);
-            list.add(ROTATE_Z);
+            //list.add(ROTATE_X);
+            //list.add(ROTATE_Y);
+            //list.add(ROTATE_Z);
             
             return list;
         }

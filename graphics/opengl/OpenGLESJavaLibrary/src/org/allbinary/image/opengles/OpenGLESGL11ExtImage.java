@@ -13,6 +13,7 @@
 */
 package org.allbinary.image.opengles;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.khronos.opengles.GL11Ext;
@@ -23,7 +24,7 @@ import org.allbinary.graphics.opengles.TextureFactory;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
-import abcs.logic.communication.log.PreLogUtil;
+import allbinary.android.view.OpenGLUtil;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.event.DisplayChangeEvent;
 
@@ -44,6 +45,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
 
     }
     
+    /*
     public OpenGLESGL11ExtImage(GL10 gl, Image image, boolean matchColor)
     {
         super(gl, image, matchColor);
@@ -55,6 +57,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         
         this.update(gl);
     }
+    */
 
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
     {
@@ -70,11 +73,13 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         }
     }
     
-    public void set(GL10 gl)
+    public void set(GL gl)
     {
         this.onDisplayChangeEvent(null);
         
-        if (super.initTexture(gl))
+        GL11 gl11 = (GL11) gl;
+        
+        if (super.initTexture(gl11))
         {
             // IntBuffer rectBB = IntBuffer.allocate(rect.length);
             // rectBB.order();
@@ -91,15 +96,11 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
 
             TextureFactory.getInstance().load(GL10.GL_TEXTURE_2D, 0, this, 0);
             
-            ((GL11) gl).glTexParameteriv(GL10.GL_TEXTURE_2D, GL11Ext.GL_TEXTURE_CROP_RECT_OES, rectangle, 0);
+            gl11.glTexParameteriv(GL10.GL_TEXTURE_2D, GL11Ext.GL_TEXTURE_CROP_RECT_OES, rectangle, 0);
 
-            gl.glDisable(GL10.GL_TEXTURE_2D);
+            gl11.glDisable(GL10.GL_TEXTURE_2D);
 
-            int error = gl.glGetError();
-            if (error != GL10.GL_NO_ERROR)
-            {
-                PreLogUtil.put(OpenGLStrings.getInstance().GL_ERROR_LABEL + error, this, OpenGLStrings.getInstance().SET);
-            }
+            OpenGLUtil.getInstance().logError(gl11);
         }
     }
     
@@ -111,7 +112,8 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         
         gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
         
-        ((GL11Ext) gl).glDrawTexiOES(x, a - y, z, this.getWidth(), this.getHeight());
+        //glDrawTexiOES
+        ((GL11Ext) gl).glDrawTexfOES(x, a - y, z, this.getWidth(), this.getHeight());
 
         gl.glDisable(GL10.GL_TEXTURE_2D);
 

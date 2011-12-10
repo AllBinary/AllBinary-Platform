@@ -14,10 +14,15 @@
 package allbinary.data.resource;
 
 import java.io.InputStream;
-import java.util.HashMap;
+import java.util.Hashtable;
 
+import org.allbinary.util.HashtableUtil;
+
+import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import allbinary.debug.DebugFactory;
+import allbinary.debug.NoDebug;
 import android.content.Context;
 import android.content.res.Resources;
 
@@ -27,7 +32,7 @@ public class ResourceUtil
 
     private Context context;
     private Resources resources;
-    private HashMap hashMap = new HashMap();
+    private Hashtable hashMap = new Hashtable();
 
     private ResourceUtil()
     {
@@ -55,9 +60,39 @@ public class ResourceUtil
 
     public void addResource(String resource, Integer value)
     {
-        this.hashMap.put(resource, value);
+        if(DebugFactory.getInstance() != NoDebug.getInstance())
+        {
+            if(this.containsDuplicate(resource, value))
+            {
+                ForcedLogUtil.log("Found Duplicate Resource: " + resource, this);
+            }
+        }        
+
+        this.hashMap.put(resource, value);        
     }
 
+    private boolean containsDuplicate(String resource, Integer value)
+    {
+        Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashMap);
+        
+        for(int index = objectArray.length; --index >= 0;)
+        {
+            Integer integer = (Integer) this.hashMap.get(objectArray[index]);
+            
+            if(resource != objectArray[index])
+            {
+                if(value != integer)
+                {
+                    if(value.intValue() == integer.intValue())
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
     /*
     private Resources getResources()
     {

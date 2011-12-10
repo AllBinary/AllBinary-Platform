@@ -35,7 +35,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
 
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
 
         stringBuffer.append("Total Listeners: ");
         stringBuffer.append(this.eventListenerInterfaceList.size());

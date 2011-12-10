@@ -369,7 +369,7 @@ implements DisplayChangeEventListener
         }
     }
 
-    public void init(Graphics graphics) throws Exception
+    public void initOpenGL(Graphics graphics) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
         
@@ -431,8 +431,6 @@ implements DisplayChangeEventListener
             animation.paint(graphics, 0, 20);
 
             super.paint(graphics);
-            // this.setDisplayed(true);
-
         }
         catch (Exception e)
         {

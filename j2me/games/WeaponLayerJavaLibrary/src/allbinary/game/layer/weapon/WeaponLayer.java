@@ -13,16 +13,17 @@
 */
 package allbinary.game.layer.weapon;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.physics.movement.Movement;
 
 import abcs.logic.basic.string.StringUtil;
 import allbinary.animation.Animation;
 import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import allbinary.animation.IndexedAnimation;
-import allbinary.game.GameStrings;
 import allbinary.game.collision.CollidableBaseBehavior;
 import allbinary.game.combat.damage.ExplosionResources;
 import allbinary.game.combat.destroy.DestroyedLayerProcessor;
@@ -219,7 +220,7 @@ implements TickableInterface
 
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        final GameStrings gameStrings = GameStrings.getInstance();
+        //final GameStrings gameStrings = GameStrings.getInstance();
         
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, gameStrings.PROCESS_TICK));
 
@@ -364,10 +365,12 @@ implements TickableInterface
         }
     }
 
+    /*
     private void setInitDamage(int initDamage)
     {
         this.initDamage = initDamage;
     }
+    */
 
     protected int getInitDamage()
     {
@@ -484,5 +487,19 @@ implements TickableInterface
     public boolean implmentsTickableInterface()
     {
         return true;
+    }
+    
+    public void set(GL gl) throws Exception
+    {
+        //OpenGLSurfaceChangedInterface
+        OpenGLSurfaceChangedInterface openGLSurfaceChangedInterface = 
+                (OpenGLSurfaceChangedInterface) this.initAnimationInterface;        
+
+        openGLSurfaceChangedInterface.set(gl);
+
+        //openGLSurfaceChangedInterface = 
+          //      (OpenGLSurfaceChangedInterface) this.destroyedAnimationInterface;        
+
+        //openGLSurfaceChangedInterface.set(gl);
     }
 }

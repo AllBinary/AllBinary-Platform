@@ -21,6 +21,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.image.ImageCache;
@@ -68,9 +69,15 @@ public class OpenGLImageCache extends ImageCache
             OpenGLImageSpecificFactory.getInstance().getImageFactory();
 
         Image cachedImage = ImageCacheFactory.getInstance().get(key);
+
+        //...
+        //Use fake images
+        //return new OpenGLESImage(cachedImage);
         Image image = imageFactory.getInstance(cachedImage);
 
         list.add(image);
+
+        //ForcedLogUtil.log(image.toString(), this);
 
         return image;
     }

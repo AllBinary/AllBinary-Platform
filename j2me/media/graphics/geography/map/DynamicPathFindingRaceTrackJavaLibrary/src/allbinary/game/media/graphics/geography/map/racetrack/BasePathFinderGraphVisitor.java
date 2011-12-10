@@ -85,7 +85,7 @@ public class BasePathFinderGraphVisitor<V, E>
 
     public String getInvalidReason(GraphPath graphPath)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        StringBuilder stringBuffer = new StringBuilder();
         
         if(graphPath.getEdgeList().size() < edgeMinimum)
         {

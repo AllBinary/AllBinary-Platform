@@ -13,16 +13,15 @@
 */
 package org.allbinary.image.opengles;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 
 import abcs.logic.basic.NotImplemented;
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
 
 public class OpenGLESImage extends Image
+implements OpenGLSurfaceChangedInterface
 {
     protected int textureID;
     //protected boolean matchColor;
@@ -32,13 +31,16 @@ public class OpenGLESImage extends Image
         super(image);
     }
 
+    /*
     public OpenGLESImage(GL10 gl, Image image, boolean matchColor)
     {
         super(image);
         
         //this.matchColor = matchColor;
     }
+    */
     
+    /*
     protected void update(GL10 gl)
     {
         try
@@ -49,8 +51,9 @@ public class OpenGLESImage extends Image
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
         }
     }
+    */
 
-    public void set(GL10 gl) throws Exception
+    public void set(GL gl) throws Exception
     {
         throw new Exception(NotImplemented.NAME);
     }

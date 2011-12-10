@@ -13,6 +13,8 @@
 */
 package org.allbinary.image.opengles;
 
+import abcs.logic.communication.log.PreLogUtil;
+
 public class OpenGLImageSpecificFactory
 {
     private static final OpenGLImageSpecificFactory instance = new OpenGLImageSpecificFactory();
@@ -27,6 +29,8 @@ public class OpenGLImageSpecificFactory
     public void setImageFactory(OpenGLImageFactory imageFactory)
     {
         this.imageFactory = imageFactory;
+        
+        PreLogUtil.put("Selected Image Factory: " + this.imageFactory, this, "setImageFactory");
     }
 
     public OpenGLImageFactory getImageFactory()

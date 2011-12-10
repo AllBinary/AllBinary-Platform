@@ -5,8 +5,9 @@ import allbinary.game.tick.TickableInterface;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.view.ViewPosition;
 
-public class FallingPickupLayer extends PickupLayer implements
-        TickableInterface
+public class FallingPickupLayer 
+extends PickupLayer 
+implements TickableInterface
 {
     public FallingPickupLayer(String username, int actorSessionId)
             throws Exception

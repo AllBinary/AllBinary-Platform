@@ -30,11 +30,12 @@ public class ChoiceGroupImageUtil
         if(Features.getInstance().isDefault(
                 OpenGLFeatureFactory.getInstance().OPENGL))
         {
+            PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
+            
             int size = imageArray.length;
             for(int index = 0; index < size; index++)
             {
-                imageArray[index] = 
-                    PreResourceImageUtil.getInstance().encapsulate(imageArray[index]);
+                imageArray[index] = preResourceImageUtil.encapsulate(imageArray[index]);
             }
             ChoiceGroup.init(imageArray);
         }

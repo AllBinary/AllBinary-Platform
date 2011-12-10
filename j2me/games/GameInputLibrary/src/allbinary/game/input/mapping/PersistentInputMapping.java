@@ -106,7 +106,7 @@ public class PersistentInputMapping
         catch(Exception e)
         {
             //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e));
-            PreLogUtil.put(e.getMessage(), this, CommonStrings.getInstance().INIT);
+            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e);
             inputPersistance.deleteAll();
             this.setDefault();
             //this.setDefault((InputToGameKeyMapping) this);

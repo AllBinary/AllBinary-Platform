@@ -56,4 +56,6 @@ public class OpenGLFeatureFactory
     public final OpenGLFeature OPENGL_COLOR_DEPTH_565 = new OpenGLFeature("565");
 
     public final OpenGLFeature OPENGL_DRAW_TEXTURE = new OpenGLFeature("GL_OES_draw_texture");
+    
+    public final OpenGLFeature OPENGL_VERTEX_BUFFER_OBJECT = new OpenGLFeature("vertex_buffer_object");
 }

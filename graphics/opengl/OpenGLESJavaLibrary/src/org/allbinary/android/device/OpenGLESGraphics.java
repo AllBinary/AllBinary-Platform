@@ -3,8 +3,11 @@ package org.allbinary.android.device;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
+
 public class OpenGLESGraphics 
 extends javax.microedition.lcdui.Graphics
+implements OpenGLSurfaceChangedInterface
 {
     protected GL10 gl;
     

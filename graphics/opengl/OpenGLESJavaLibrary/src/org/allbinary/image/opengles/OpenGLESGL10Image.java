@@ -17,12 +17,13 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.opengles.TextureFactory;
 
-import abcs.logic.communication.log.PreLogUtil;
+import allbinary.android.view.OpenGLUtil;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class OpenGLESGL10Image extends OpenGLESImage
@@ -38,6 +39,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         this.init();
     }
 
+    /*
     public OpenGLESGL10Image(GL10 gl, Image image, boolean matchColor)
     {
         super(gl, image, matchColor);
@@ -46,6 +48,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         this.update(gl);
     }
+    */
     
     private void init()
     {
@@ -63,10 +66,12 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
         textureVertexFloatBuffer.rewind();
     }
-
-    public void set(GL10 gl)
+    
+    public void set(GL gl)
     {
-        if (super.initTexture(gl))
+        GL10 gl10 = (GL10) gl;
+        
+        if (super.initTexture(gl10))
         {
             //if(!this.matchColor)
             //{
@@ -76,13 +81,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             TextureFactory.getInstance().load(GL10.GL_TEXTURE_2D, 0, this, 0);
             
-            gl.glDisable(GL10.GL_TEXTURE_2D);
+            gl10.glDisable(GL10.GL_TEXTURE_2D);
 
-            int error = gl.glGetError();
-            if (error != GL10.GL_NO_ERROR)
-            {
-                PreLogUtil.put(OpenGLStrings.getInstance().GL_ERROR_LABEL + error, this, OpenGLStrings.getInstance().SET);
-            }
+            OpenGLUtil.getInstance().logError(gl10, this);            
         }
 
         /*

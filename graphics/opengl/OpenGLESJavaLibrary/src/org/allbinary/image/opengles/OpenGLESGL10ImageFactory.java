@@ -13,15 +13,16 @@
 */
 package org.allbinary.image.opengles;
 
-import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
 public class OpenGLESGL10ImageFactory extends OpenGLImageFactory
 {
+    /*
     public Image getInstance(GL10 gl, Image image, boolean matchColor)
     {
         return new OpenGLESGL10Image(gl, image, matchColor);
     }
+    */
 
     public Image getInstance(Image image)
     {

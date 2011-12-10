@@ -27,6 +27,6 @@ extends SpecialGameInputProcessor
     public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) 
     throws Exception
     {
-        this.collidableDestroyableDamageableLayer.special1(allbinaryLayerManager, gameKeyEvent);
+        this.collidableDestroyableDamageableLayer.special2(allbinaryLayerManager, gameKeyEvent);
     }    
 }

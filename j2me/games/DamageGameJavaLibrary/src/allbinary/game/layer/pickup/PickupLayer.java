@@ -13,12 +13,14 @@
 */
 package allbinary.game.layer.pickup;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickupableInterface;
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
 import abcs.logic.basic.string.StringUtil;
 import allbinary.animation.Animation;
@@ -143,4 +145,13 @@ public class PickupLayer
    {
       return 0;
    }
+   
+   public void set(GL gl) throws Exception
+   {
+       //OpenGLSurfaceChangedInterface
+       OpenGLSurfaceChangedInterface openGLSurfaceChangedInterface = 
+       (OpenGLSurfaceChangedInterface) this.animationInterface;        
+
+       openGLSurfaceChangedInterface.set(gl);
+   }   
 }

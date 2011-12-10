@@ -13,8 +13,6 @@
 */
 package allbinary.game.tracking;
 
-import org.allbinary.util.BasicArrayList;
-
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.EventListenerInterface;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
@@ -28,7 +26,7 @@ public class TrackingEventHandler extends BasicEventHandler
       return TrackingEventHandler.instance;
    }
    
-   private final BasicArrayList list = new BasicArrayList();
+   //private final BasicArrayList list = new BasicArrayList();
    
    private TrackingEventHandler()
    {

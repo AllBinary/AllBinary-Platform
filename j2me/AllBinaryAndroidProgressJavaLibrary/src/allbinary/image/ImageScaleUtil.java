@@ -34,16 +34,23 @@ public class ImageScaleUtil
     }
 
     private int anchor = Anchor.TOP_LEFT;
-    
+
     public Image createImage(ImageCache imageCache, Image originalImage,
             float scaleNominatorX, float scaleDenominatorX, 
             float scaleNominatorY, float scaleDenominatorY, boolean cached) 
     throws Exception
     {
-        Bitmap originalBitmap = originalImage.getBitmap();
-
         float scaleX = scaleNominatorX / scaleDenominatorX;
         float scaleY = scaleNominatorY / scaleDenominatorY;
+        
+        return this.createImage(imageCache, originalImage, scaleX, scaleY, cached);
+    }
+    
+    public Image createImage(ImageCache imageCache, Image originalImage, 
+            float scaleX, float scaleY, boolean cached) 
+    throws Exception
+    {
+        Bitmap originalBitmap = originalImage.getBitmap();
 
         //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, 
           //      "ImageScaleUtil", "createImage"));
@@ -51,6 +58,7 @@ public class ImageScaleUtil
         int width = (int) (originalBitmap.getWidth() * scaleX);
         int height = (int) (originalBitmap.getHeight() * scaleY);
 
+        //if(width % 2 != 0 && 3d) throw new Exception because it is really a texture
         
         Image image = null;
         
@@ -66,12 +74,9 @@ public class ImageScaleUtil
         }
         
         if (image.isMutable())
-        {            
-            Matrix matrix = new Matrix();
-            matrix.setScale(scaleX, scaleY);
-
-            Canvas canvas = image.getCanvas();
-            canvas.concat(matrix);
+        {
+            final Matrix matrix = new Matrix();
+            this.scale(image, matrix, scaleX, scaleY);
 
             image.getGraphics().drawImage(originalImage, 0, 0, anchor);
 
@@ -81,5 +86,13 @@ public class ImageScaleUtil
         {
             throw new Exception("Not Mutable");
         }
+    }
+    
+    public void scale(Image image, Matrix matrix, float scaleX, float scaleY)
+    {
+        matrix.setScale(scaleX, scaleY);
+
+        Canvas canvas = image.getCanvas();
+        canvas.concat(matrix);
     }
 }

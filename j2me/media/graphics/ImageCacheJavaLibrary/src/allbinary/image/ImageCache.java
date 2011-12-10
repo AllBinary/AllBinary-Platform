@@ -25,6 +25,8 @@ import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.data.resource.ResourceUtil;
+import allbinary.debug.DebugFactory;
+import allbinary.debug.NoDebug;
 import allbinary.system.Memory;
 
 public class ImageCache
@@ -145,12 +147,13 @@ public class ImageCache
     
     public Image get(Object key) throws Exception
     {
-        Image image = (Image) getHashtable().get(key);
+        Integer resourceId = ResourceUtil.getInstance().getResourceId((String) key);
+        Image image = (Image) this.hashtable.get(resourceId);
 
         if (image == null)
         {
             InputStream inputStream = 
-                ResourceUtil.getInstance().getResourceAsStream((String) key);
+                    ResourceUtil.getInstance().getResourceAsStream((String) key);
             try
             {
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
@@ -168,7 +171,12 @@ public class ImageCache
                 image = this.createImage(key, inputStream);
             }
             inputStream.close();
-            getHashtable().put(key, image);
+            //Put in the name is really only for debugging
+            if(DebugFactory.getInstance() != NoDebug.getInstance())
+            {
+                this.hashtable.put(key, image);
+            }
+            this.hashtable.put(resourceId, image);
         }
 
         return image;

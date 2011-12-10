@@ -73,17 +73,17 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extend
                 imageCache.get(TouchButtonBlankResource.RESOURCE)));
 
         progressCanvas.addPortion(portion, loadingString, index++);
-        
+
         this.add(TouchButtonGenericActionResource.RESOURCE,
                 new OneRowSpriteIndexedAnimationFactory(
                         imageCache.get(TouchButtonGenericActionResource.RESOURCE)));
 
         progressCanvas.addPortion(portion, loadingString, index++);
-        
+
         this.add(TouchButtonStartResource.RESOURCE,
                 new OneRowSpriteIndexedAnimationFactory(
                         imageCache.get(TouchButtonStartResource.RESOURCE)));
-        
+
         progressCanvas.addPortion(portion, loadingString, index++);
 
         this.add(TouchButtonUpResource.RESOURCE, 
@@ -119,7 +119,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extend
         this.add(TouchButtonStrafeRightResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
                 imageCache.get(TouchButtonStrafeRightResource.RESOURCE)));
-        
+
         super.init(level);
     }
 

@@ -33,4 +33,6 @@ public class PickedUpLayerTypeFactory
     public PickedUpLayerType HEAL = new PickedUpLayerType("Heal");
     public PickedUpLayerType LIFE = new PickedUpLayerType("Life");
     public PickedUpLayerType POINTS = new PickedUpLayerType("Points");
+    
+    public PickedUpLayerType MORPH = new PickedUpLayerType("Morph");
 }

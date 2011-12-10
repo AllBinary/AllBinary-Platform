@@ -243,7 +243,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         
         DisplayChangeEventHandler.getInstance().addListener(this);
         
-        if (this.getLayerManager().getGameInfo().getGameType() != gameTypeFactory.BOT)
+        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
             GameAdState gameAdState = 
                 GameAdStateFactory.getInstance().getCurrentInstance();
@@ -346,8 +346,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             this.setOpenMenuPaintable(new BasicPopupMenuPaintable(
                     popupMenuRectangle, 
-                    this.getLayerManager().getBackgroundBasicColor(), 
-                    this.getLayerManager().getForegroundBasicColor()));
+                    this.gameLayerManager.getBackgroundBasicColor(), 
+                    this.gameLayerManager.getForegroundBasicColor()));
 
             this.setPopupMenuInputProcessor(new PopupMenuInputProcessor(
                     new BasicArrayList(), this, popupMenuRectangle));
@@ -372,9 +372,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
 
                 CustomItem[] items = commandTextItemArrayFactory.getInstance(
-                        this.getCommandStack(), this.getLayerManager()
+                        this.getCommandStack(), this.gameLayerManager
                                 .getBackgroundBasicColor(), this
-                                .getLayerManager().getForegroundBasicColor());
+                                .gameLayerManager.getForegroundBasicColor());
 
                 Rectangle rectangle = formUtil.createFormRectangle();
 
@@ -382,8 +382,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                         StringUtil.getInstance().EMPTY_STRING, 
                         items,
                         rectangle, formType, 25, false, 
-                        this.getLayerManager().getBackgroundBasicColor(), 
-                        this.getLayerManager().getForegroundBasicColor()));
+                        this.gameLayerManager.getBackgroundBasicColor(), 
+                        this.gameLayerManager.getForegroundBasicColor()));
 
                 /*
                  * this.setMenuInputProcessor( new
@@ -422,7 +422,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            if (this.getLayerManager().getGameInfo().getGameType() != gameTypeFactory.BOT)
+            if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
             {
                 ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
                 
@@ -435,9 +435,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                         .getCommandTextItemArrayFactory();
 
                 CustomItem[] items = commandTextItemArrayFactory.getInstance(
-                        this.getCommandStack(), this.getLayerManager()
+                        this.getCommandStack(), this.gameLayerManager
                                 .getBackgroundBasicColor(), this
-                                .getLayerManager().getForegroundBasicColor());
+                                .gameLayerManager.getForegroundBasicColor());
 
                 int size = items.length;
                 for (int index = 0; index < size; index++)
@@ -467,7 +467,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
         // PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
 
-        if (this.getLayerManager().getGameInfo().getGameType() != gameTypeFactory.BOT)
+        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
             if (Features.getInstance().isDefault(
                     OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
@@ -502,7 +502,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         super.unPause();
         TouchButtonFactory.getInstance().toggle(this.isPaused(), null);
         
-        if (this.getLayerManager().getGameInfo().getGameType() != gameTypeFactory.BOT)
+        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
         if (Features.getInstance().isDefault(
                 OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
@@ -519,7 +519,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void popupMenu() throws Exception
     {
-        if (this.getLayerManager().getGameInfo().getGameType() != gameTypeFactory.BOT)
+        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
             primaryPlayerQueue.add(SelectSound.getInstance());
 
@@ -1002,13 +1002,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.updateEndGameProcessor();
         this.updateGameKeyEventProcessor();
         
-        if (this.getLayerManager().getGameInfo().getGameType() != gameTypeFactory.BOT)
+        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
             GameAdState gameAdState = 
                 GameAdStateFactory.getInstance().getCurrentInstance();
 
             gameAdState.processAdState(
-                    this.gameState, this.getLayerManager().getGameInfo().getGameType());
+                    this.gameState, this.gameLayerManager.getGameInfo().getGameType());
             
             if (this.gameState != GameState.PLAYING_GAME_STATE)
             {
@@ -1086,7 +1086,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         primaryPlayerQueue.clear();
         secondaryPlayerQueue.clear();
 
-        this.getLayerManager().cleanup();
+        this.gameLayerManager.cleanup();
         
         GameLevelDisplayChangeEventListenersFactory.getInstance().clear();
     }
@@ -1678,7 +1678,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 this.textBox = new HighScoreTextBox(
                         this.getCustomCommandListener(), name,
                         this.getHighScoresArray(), highScore, this
-                                .getLayerManager().getBackgroundBasicColor(),
+                                .gameLayerManager.getBackgroundBasicColor(),
                         this.gameLayerManager.getForegroundBasicColor());
 
                 this.getCustomCommandListener().commandAction(

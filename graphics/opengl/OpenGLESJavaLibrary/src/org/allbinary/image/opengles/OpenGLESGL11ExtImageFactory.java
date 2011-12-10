@@ -18,10 +18,12 @@ import javax.microedition.lcdui.Image;
 
 public class OpenGLESGL11ExtImageFactory extends OpenGLImageFactory
 {
+    /*
     public Image getInstance(GL10 gl, Image image, boolean matchColor)
     {
         return new OpenGLESGL11ExtImage(gl, image, matchColor);
     }
+    */
 
     public Image getInstance(Image image)
     {
