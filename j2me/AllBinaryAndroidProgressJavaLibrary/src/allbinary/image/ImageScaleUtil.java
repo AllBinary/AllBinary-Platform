@@ -72,7 +72,7 @@ public class ImageScaleUtil
           //TWB - Image Create
             image = Image.createImage(width, height);
         }
-        
+
         if (image.isMutable())
         {
             final Matrix matrix = new Matrix();

@@ -18,6 +18,17 @@ import allbinary.game.state.GameState;
 
 public class AdConfiguration
 {
+    public final String INNERACTIVE;
+    public final String LEADBOLT;
+    public final String ADMOB;
+    
+    public AdConfiguration(Object[] advertIdArray)
+    {
+        this.INNERACTIVE = (String) advertIdArray[0];
+        this.ADMOB = (String) advertIdArray[1];
+        this.LEADBOLT = (String) advertIdArray[2];
+    }
+    
     public Direction[] getValidAdSpots()
     {
         return null;

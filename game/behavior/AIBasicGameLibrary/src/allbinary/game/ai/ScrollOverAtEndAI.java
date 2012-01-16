@@ -39,24 +39,24 @@ public class ScrollOverAtEndAI extends BasicAI
       //was x2
       if (x > displayInfo.getLastWidth())
       {
-          ownerLayerInterface.setPosition(0, y);
+          ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZ());
          //ownerLayerInterface.setPosition(width + 1, y);
       }
 
       if (y > displayInfo.getLastHeight())
       {
          //ownerLayerInterface.setPosition(x, height + 1);
-          ownerLayerInterface.setPosition(x, 0);
+          ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZ());
       }
 
       if (x < -width)
       {
-         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y);
+         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZ());
       }
 
       if (y < -height)
       {
-         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height);
+         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZ());
       }
    }   
 }

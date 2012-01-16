@@ -34,10 +34,10 @@ public class ImageMiniMapLayer extends MiniMapLayer
 
     protected void init() throws Exception
     {
-        this.image = PaintableToImageUtil.getImage(
-                allBinaryTiledLayer, 
-                allBinaryTiledLayer.getWidth(),
-                allBinaryTiledLayer.getHeight());
+        int aWidth = allBinaryTiledLayer.getWidth();
+        int aHeight = allBinaryTiledLayer.getHeight();
+
+        this.image = PaintableToImageUtil.getImage(allBinaryTiledLayer, aWidth, aHeight);
     }
     
     private int anchor = Anchor.TOP_LEFT;

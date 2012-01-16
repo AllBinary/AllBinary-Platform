@@ -109,5 +109,13 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         // without
         // doing it outside the object like this        
         DestroyedEventHandler.getInstance().removeAllListeners();
+        
+        this.cleanupManager();
+    }
+    
+    protected void cleanupManager()
+    throws Exception
+    {
+        this.getLayerManager().cleanup();
     }
 }

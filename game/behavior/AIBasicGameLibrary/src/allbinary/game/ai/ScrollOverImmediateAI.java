@@ -40,24 +40,24 @@ public class ScrollOverImmediateAI extends BasicAI
       DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
       if (x2 > displayInfo.getLastWidth())
       {
-          ownerLayerInterface.setPosition(0, y);
+          ownerLayerInterface.setPosition(0, y, ownerLayerInterface.getZ());
          //ownerLayerInterface.setPosition(width + 1, y);
       }
 
       if (y2 > displayInfo.getLastHeight())
       {
          //ownerLayerInterface.setPosition(x, height + 1);
-          ownerLayerInterface.setPosition(x, 0);
+          ownerLayerInterface.setPosition(x, 0, ownerLayerInterface.getZ());
       }
 
       if (x < 0)
       {
-         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y);
+         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - width, y, ownerLayerInterface.getZ());
       }
 
       if (y < 0)
       {
-         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height);
+         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - height, ownerLayerInterface.getZ());
       }
    }   
 }

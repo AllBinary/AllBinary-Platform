@@ -64,4 +64,8 @@ public class GameFeatureFactory
 
     public final GameFeature COLLISIONS_WITH_SOURCE = 
         new GameFeature("Allow Collisions With Source");
+    
+    public final GameFeature COLLISIONS_FORCED_TWO_DIMENSIONAL = 
+            new GameFeature("Collisions Forced Two Dimensional");
+    
 }

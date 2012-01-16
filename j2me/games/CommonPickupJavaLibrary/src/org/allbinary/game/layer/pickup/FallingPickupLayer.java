@@ -38,7 +38,7 @@ implements TickableInterface
 
     public void processTick(AllBinaryLayerManager allBinaryLayerManager)
     {
-        this.setPosition(this.x, this.y + 1);
+        this.setPosition(this.x, this.y + 1, this.z);
     }
 
     public boolean implmentsTickableInterface()

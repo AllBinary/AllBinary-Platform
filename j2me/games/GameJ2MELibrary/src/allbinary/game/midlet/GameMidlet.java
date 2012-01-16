@@ -163,25 +163,26 @@ public class GameMidlet extends ProgressMidlet
         
         gameAdState.getAdvertisements().stopAll();
     }
-    
+
     protected void pauseAppBackground(boolean background)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "pauseApp"));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "pauseApp");
+        final String METHOD_NAME = "pauseAppBackground";
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
+        //PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
         
-        if (getGameCanvasRunnableInterface() != null)
+        if (allbinaryGameCanvasRunnableInterface != null)
         {
-            getGameCanvasRunnableInterface().pause();
+            allbinaryGameCanvasRunnableInterface.pause();
             /*
-            if (!getGameCanvasRunnableInterface().isPaused())
+            if (!allbinaryGameCanvasRunnableInterface.isPaused())
             {
-                getGameCanvasRunnableInterface().pause();
+                allbinaryGameCanvasRunnableInterface.pause();
             }
              */
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, "pauseApp"));
+            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, METHOD_NAME));
         }
         
         AllBinarySensorManager.getInstance().shutdown();
@@ -198,13 +199,14 @@ public class GameMidlet extends ProgressMidlet
     
     protected void unPauseAppBackground(boolean background)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "unPauseApp"));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "unPauseApp");
+        final String METHOD_NAME = "unPauseAppBackground";
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
+        //PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
         
         AllBinarySensorManager.getInstance().init();
 
         GameCanvasRunnableInterface gameCanvasRunnableInterface =
-            this.getGameCanvasRunnableInterface();
+            this.allbinaryGameCanvasRunnableInterface;
 
         if (gameCanvasRunnableInterface != null)
         {
@@ -218,7 +220,7 @@ public class GameMidlet extends ProgressMidlet
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, "pauseApp"));
+            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, METHOD_NAME));
         }
     }
     
@@ -226,9 +228,9 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            PreLogUtil.put(AllGameStatisticsFactory.getInstance().toString(), this, "GameMidlet::destroyApp");
-            
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "GameMidlet::destroyApp"));
+            final String METHOD_NAME = "GameMidlet::destroyApp";
+            PreLogUtil.put(AllGameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
 
             GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
@@ -246,18 +248,19 @@ public class GameMidlet extends ProgressMidlet
             else
             {
                 LogUtil.put(LogFactory.getInstance(
-                    "Midlet Managment Error: Midlet Should Only Be Destroyed Once",
-                    this, "GameMidlet::destroyApp"));
+                    "Midlet Managment Error: Midlet Should Only Be Destroyed Once", this, METHOD_NAME));
             }
 
             super.destroyApp(true);
+
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, METHOD_NAME));
+            PreLogUtil.put(CommonStrings.getInstance().END, this, METHOD_NAME);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "destroyApp", e));
+            final String METHOD_NAME = "GameMidlet::destroyApp";
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
         }
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "GameMidlet::destroyApp"));
-        PreLogUtil.put(CommonStrings.getInstance().END, this, "destoryApp");
     }
  
     protected void startApp()
@@ -274,7 +277,7 @@ public class GameMidlet extends ProgressMidlet
             //PreLogUtil.put(CommonStrings.getInstance().START, this, START_APP);
 
             GameCanvasRunnableInterface gameCanvasRunnableInterface =
-                this.getGameCanvasRunnableInterface();
+                this.allbinaryGameCanvasRunnableInterface;
 
             //If the first time/null then start demo or unpausing
             //thus start up only occurs one time ever otherwise this is just unpause
@@ -323,9 +326,9 @@ public class GameMidlet extends ProgressMidlet
             if (command == gameCommandsFactory.SHOW_GAME_CANVAS)
             {
                 //TWB - If progress concurrency is a problem then this is probably the cause
-                if(this.getDisplay().getCurrent() != this.getGameCanvasRunnableInterface())
+                if(this.getDisplay().getCurrent() != this.allbinaryGameCanvasRunnableInterface)
                 {
-                    this.setDisplay((Displayable) this.getGameCanvasRunnableInterface());
+                    this.setDisplay((Displayable) this.allbinaryGameCanvasRunnableInterface);
                 }
 
                 this.unPauseAppBackground(false);
@@ -337,7 +340,7 @@ public class GameMidlet extends ProgressMidlet
                 menuListener.close();
 
                 this.setDisplay((Displayable)
-                    this.getGameCanvasRunnableInterface());
+                    this.allbinaryGameCanvasRunnableInterface);
                 this.unPauseAppBackground(false);
             }
             else if (command == gameCommandsFactory.EXIT_COMMAND)
@@ -413,9 +416,9 @@ public class GameMidlet extends ProgressMidlet
             else if (command == gameCommandsFactory.START_TRACE)
             {
                 this.debugInterface.start();
-                ((AllBinaryGameCanvas) this.getGameCanvasRunnableInterface()).addCommand(
+                ((AllBinaryGameCanvas) this.allbinaryGameCanvasRunnableInterface).addCommand(
                     gameCommandsFactory.STOP_TRACE);
-                ((AllBinaryGameCanvas) this.getGameCanvasRunnableInterface()).removeCommand(
+                ((AllBinaryGameCanvas) this.allbinaryGameCanvasRunnableInterface).removeCommand(
                     gameCommandsFactory.START_TRACE);
             }
             else if (command == gameCommandsFactory.STOP_TRACE)
@@ -423,9 +426,9 @@ public class GameMidlet extends ProgressMidlet
                 this.pauseAppBackground(false);
                 this.debugInterface.stop();
                 this.unPauseAppBackground(false);
-                ((AllBinaryGameCanvas) this.getGameCanvasRunnableInterface()).addCommand(
+                ((AllBinaryGameCanvas) this.allbinaryGameCanvasRunnableInterface).addCommand(
                     gameCommandsFactory.START_TRACE);
-                ((AllBinaryGameCanvas) this.getGameCanvasRunnableInterface()).removeCommand(
+                ((AllBinaryGameCanvas) this.allbinaryGameCanvasRunnableInterface).removeCommand(
                     gameCommandsFactory.STOP_TRACE);
             }
             else if (command == gameCommandsFactory.DEFAULT_OPTIONS)
@@ -477,12 +480,13 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == GameInputMappingCanvas.DISPLAY)
             {
-                this.pauseAppBackground(false);
+                //this.pauseAppBackground(false);
 
-                this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, this.getInputMappingCanvas());
+                this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, 
+                		this.getInputMappingCanvas()
+                		);
 
                 //this.setDisplay((Displayable) this.getInputMappingCanvas());
-
             }
             else if (command == GameInputMappingCanvas.DEFAULT)
             {
@@ -515,7 +519,7 @@ public class GameMidlet extends ProgressMidlet
                     InGameOptionsFormFactory.getInstance();
 
                 inGameOptionsForm.setItemStateListener(
-                        this.getGameCanvasRunnableInterface());
+                        this.allbinaryGameCanvasRunnableInterface);
 
                 this.commandAction(
                     gameCommandsFactory.SET_MENU_DISPLAYABLE,
@@ -541,7 +545,7 @@ public class GameMidlet extends ProgressMidlet
                 //PreLogUtil.put("Open isFullScreen: " + isFullScreen, this, MidletStrings.getInstance().COMMAND_ACTION);
 
                 ResizableListenerHandler.getInstance().fireEvent(true);
-                
+
                 this.setResized(false);
 
                 this.commandAction(
@@ -667,7 +671,7 @@ public class GameMidlet extends ProgressMidlet
                 keyValuePersistance.save(
                     this.getCurrentStateHashtable());
 
-                //this.setDisplay((Displayable) getGameCanvasRunnableInterface());
+                //this.setDisplay((Displayable) allbinaryGameCanvasRunnableInterface);
 
                 this.unPauseAppBackground(false);
             }
@@ -675,7 +679,7 @@ public class GameMidlet extends ProgressMidlet
             {
                 LogUtil.put(LogFactory.getInstance("Submitted Score", this, COMMAND_ACTION));
 
-                this.getGameCanvasRunnableInterface().setHighScoreSubmitted(true);
+                this.allbinaryGameCanvasRunnableInterface.setHighScoreSubmitted(true);
 
                 this.commandAction(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS, displayable);
             }
@@ -771,7 +775,7 @@ public class GameMidlet extends ProgressMidlet
     {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,
         // "startGameCanvasRunnableInterface"));
-        thread = new Thread(this.getGameCanvasRunnableInterface());
+        thread = new Thread(this.allbinaryGameCanvasRunnableInterface);
 
         LogUtil.put(LogFactory.getInstance(
                 "Thread Priority: " + thread.getPriority(), this,
@@ -780,7 +784,7 @@ public class GameMidlet extends ProgressMidlet
         // canvasThread.setPriority(Thread.NORM_PRIORITY + 2);
         //thread.setPriority(Thread.MAX_PRIORITY);
 
-        this.getGameCanvasRunnableInterface().setThread(thread);
+        this.allbinaryGameCanvasRunnableInterface.setThread(thread);
 
         thread.start();
     }
@@ -798,7 +802,7 @@ public class GameMidlet extends ProgressMidlet
         // this.setDisplay((Displayable) new ProgressCanvas(this));
         
         GameCanvasRunnableInterface gameCanvasRunnableInterface = 
-            this.getGameCanvasRunnableInterface();
+            this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != null)
         {
             LogUtil.put(LogFactory.getInstance("Set Running False", this,
@@ -878,9 +882,9 @@ public class GameMidlet extends ProgressMidlet
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "getCurrentStateHashtable"));
         Hashtable hashtable = new Hashtable();
 
-        if (this.getGameCanvasRunnableInterface() != null)
+        if (this.allbinaryGameCanvasRunnableInterface != null)
         {
-            Hashtable currentHashtable = this.getGameCanvasRunnableInterface().getCurrentStateHashtable();
+            Hashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
             Enumeration enumeration = currentHashtable.keys();
             while (enumeration.hasMoreElements())
             {

@@ -42,15 +42,15 @@ public class GameInputMappingCanvas extends GameCommandCanvas
 implements InputMappingInterface
 {   
     private final ProcessPaintable paintable;
- 
-    private final PersistentInputMapping inputMapping;
-    
+
     public static final Command DISPLAY  = new Command("Input Mapping", Command.SCREEN, 2);
     public static final Command DEFAULT  = new Command("Default", Command.SCREEN, 2);
     
     private final InputMappingHelpPaintable helpPaintable;
     
     protected final ColorFillPaintable colorFillPaintable;
+    
+    private final PersistentInputMapping inputMapping;
     
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
@@ -68,9 +68,13 @@ implements InputMappingInterface
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 
-
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
 
+        if(helpPaintable == null)
+        {
+        	throw new Exception("Help Paintable Exception");
+        }
+        
         this.helpPaintable = (InputMappingHelpPaintable) helpPaintable;
         
         this.inputMapping = PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
@@ -145,7 +149,7 @@ implements InputMappingInterface
             LogUtil.put(LogFactory.getInstance("Key Event Error", this, "addGameKeyEvent", e));
         }
     }
-
+    
     public void process(GameKey gameKey, Input input) throws Exception
     {
         StringBuilder stringBuffer = new StringBuilder();
@@ -166,7 +170,7 @@ implements InputMappingInterface
             this.setSelectedAction(gameKey);
         }
     }
-    
+
     private void setSelectedAction(GameKey gameKey)
     {
         LogUtil.put(LogFactory.getInstance("Selected GameKey: " + gameKey, this, "setSelectedAction"));
@@ -281,7 +285,7 @@ implements InputMappingInterface
             LogUtil.put(LogFactory.getInstance("Can't Remove Last Key Mapping", this, METHOD_NAME));
         }
     }
-
+    
     public void setDefault() throws Exception
     {
         inputMapping.setDefault();

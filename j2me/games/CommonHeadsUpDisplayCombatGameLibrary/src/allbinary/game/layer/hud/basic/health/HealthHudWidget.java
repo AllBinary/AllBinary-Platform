@@ -51,8 +51,8 @@ public class HealthHudWidget extends BasicHud
         Health healthInterface, int location,
         int direction) throws Exception
     {
-
-        super(location, direction, 12, healthInterface.getMaxHealth() * 11, 2);
+    	//width = 16
+        super(location, direction, 16, healthInterface.getMaxHealth() * 16, 2);
 
         this.animationInterface = animationInterface;
         this.healthInterface = healthInterface;
@@ -72,7 +72,8 @@ public class HealthHudWidget extends BasicHud
         {
             for (int index = 0; index < this.xArray.length; index++)
             {
-                this.xArray[index] = this.getX() + (index * 10);
+            	//width = 16
+                this.xArray[index] = this.getX() + (index * 16);
             }
         }
     }

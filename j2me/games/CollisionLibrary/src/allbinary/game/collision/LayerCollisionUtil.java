@@ -15,6 +15,8 @@ package allbinary.game.collision;
 
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 
+import allbinary.game.configuration.feature.Features;
+import allbinary.game.configuration.feature.GameFeatureFactory;
 import allbinary.layer.AllBinaryLayer;
 
 public class LayerCollisionUtil
@@ -30,7 +32,12 @@ public class LayerCollisionUtil
     
     private LayerCollisionUtil()
     {
-        if (OpenGLFeatureUtil.getInstance().isAnyThreed())
+        Features features = Features.getInstance();
+        
+        GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+        
+        if (OpenGLFeatureUtil.getInstance().isAnyThreed() && 
+                !features.isFeature(gameFeatureFactory.COLLISIONS_FORCED_TWO_DIMENSIONAL))
         {
             this.collisionProcessor = new CollisionThreedProcessor();
         }

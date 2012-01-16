@@ -25,6 +25,7 @@ import org.allbinary.game.GameAdState;
 import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.NotImplemented;
@@ -874,6 +875,8 @@ public class DemoCanvas extends RunnableCanvas
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
                 currentDisplayableFactory.setRunnable(gameRunnable);
+                //Only needed is not really using a real gamecanvas
+                OpenGLThreadUtil.getInstance().onResume();
             }
             else
             {

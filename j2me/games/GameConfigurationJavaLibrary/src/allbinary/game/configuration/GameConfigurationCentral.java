@@ -60,6 +60,21 @@ public class GameConfigurationCentral
     public final GameConfiguration MAX_GAME_OBJECTS;
     public final GameConfiguration MAX_LAYERS;
 
+    // TWB - Ignore this shit
+    // Good Total Frames 4 * n
+    // Good Angle Increments AngleIncrementInfo.TOTAL_ANGLE/(4*n)
+    // 90, 45, 30.33, 22.5, 18, 15, 12.86, 11.xx, 10
+    // 1, 2, 3, 4, 5, 6, 7, 8, 9
+    //Frames for 360 degrees
+    
+    //4 16 6 6 20 30 90 180
+    //where x and y are whole numbers
+    //90 / x = y * 4 = total increments
+    //public final int[] FIDELITY = {4,8,24,30,36,40,60,90,180,360};
+    //angle increment                    30 12 10 9  6  4  2   1  
+
+    public int gameControlFidelity = 36;
+    
     private GameConfigurationCentral()
     {
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
@@ -171,17 +186,6 @@ public class GameConfigurationCentral
         // Keep Loaded Value until next static initialization
         // valueToKeep = this.SOME_GAME_CONFIGURATION.getValue();
     }
-
-    // TWB - Ignore this shit
-    // Good Total Frames 4 * n
-    // Good Angle Increments AngleIncrementInfo.TOTAL_ANGLE/(4*n)
-    // 90, 45, 30.33, 22.5, 18, 15, 12.86, 11.xx, 10
-    // 1, 2, 3, 4, 5, 6, 7, 8, 9
-    //Frames for 360 degrees
-    //4 16 6 15 30 90 180
-    //public final int[] FIDELITY = {4,8,24,30,36,45,60,90,180,360};
-    
-    public int gameControlFidelity = 36;
 
     public int getGameControlFidelity()
     {

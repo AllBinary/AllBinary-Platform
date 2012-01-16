@@ -38,10 +38,12 @@ public class LivesHudWidget extends BasicHud
     }
      */
     //, BasicColor basicColor
+    
     public LivesHudWidget(Animation animationInterface, Life lifeInterface,
         int location, int direction) throws Exception
     {
-        super(location, direction, 12, lifeInterface.getMaxlives() * 10, 2);
+    	//width = 16
+        super(location, direction, 16, lifeInterface.getMaxlives() * 16, 2);
 
         this.lifeInterface = lifeInterface;
         
@@ -64,7 +66,8 @@ public class LivesHudWidget extends BasicHud
             int maxLives = this.getLifeInterface().getMaxlives();
             for (int index = 0; index < maxLives; index++)
             {
-                this.xArray[index] = this.getX() + (index * 10);
+            	//width = 16
+                this.xArray[index] = this.getX() + (index * 16);
             }
         }
     }

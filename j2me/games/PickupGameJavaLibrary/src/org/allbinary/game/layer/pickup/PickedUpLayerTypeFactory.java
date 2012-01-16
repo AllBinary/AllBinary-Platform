@@ -23,16 +23,15 @@ public class PickedUpLayerTypeFactory
         return instance;
     }
 
-    public PickedUpLayerType PART = new PickedUpLayerType("Part");
-
     public PickedUpLayerType BEAM = new PickedUpLayerType("BEAM");
     public PickedUpLayerType MINE = new PickedUpLayerType("MINE");
     public PickedUpLayerType PROJECTILE = new PickedUpLayerType("PROJECTILE");
-
     public PickedUpLayerType ENHANCEMENT = new PickedUpLayerType("Enhancement");
+    public PickedUpLayerType MORPH = new PickedUpLayerType("Morph");
+    
+    public PickedUpLayerType PART = new PickedUpLayerType("Part");
+
     public PickedUpLayerType HEAL = new PickedUpLayerType("Heal");
     public PickedUpLayerType LIFE = new PickedUpLayerType("Life");
     public PickedUpLayerType POINTS = new PickedUpLayerType("Points");
-    
-    public PickedUpLayerType MORPH = new PickedUpLayerType("Morph");
 }

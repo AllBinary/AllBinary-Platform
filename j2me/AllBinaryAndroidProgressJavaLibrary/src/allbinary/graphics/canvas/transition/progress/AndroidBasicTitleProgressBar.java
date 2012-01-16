@@ -393,6 +393,8 @@ implements DisplayChangeEventListener
     {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().UPDATE));
         
+        this.initOpenGL(graphics);
+        
         this.image = GameFeatureImageCacheFactory.getInstance().get(RESOURCE);
         
         PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();

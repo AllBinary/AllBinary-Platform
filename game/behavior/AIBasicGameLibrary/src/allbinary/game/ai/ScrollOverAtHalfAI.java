@@ -38,22 +38,22 @@ public class ScrollOverAtHalfAI extends BasicAI
       DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
       if (x > displayInfo.getLastWidth() - halfWidth)
       {
-         ownerLayerInterface.setPosition(halfWidth + 1, y);
+         ownerLayerInterface.setPosition(halfWidth + 1, y, ownerLayerInterface.getZ());
       }
 
       if (y > displayInfo.getLastHeight() - halfHeight)
       {
-         ownerLayerInterface.setPosition(x, halfHeight + 1);
+         ownerLayerInterface.setPosition(x, halfHeight + 1, ownerLayerInterface.getZ());
       }
 
       if (x < -halfWidth)
       {
-         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - halfWidth, y);
+         ownerLayerInterface.setPosition(displayInfo.getLastWidth() - halfWidth, y, ownerLayerInterface.getZ());
       }
 
       if (y < -halfHeight)
       {
-         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - halfHeight);
+         ownerLayerInterface.setPosition(x, displayInfo.getLastHeight() - halfHeight, ownerLayerInterface.getZ());
       }
    }   
 }

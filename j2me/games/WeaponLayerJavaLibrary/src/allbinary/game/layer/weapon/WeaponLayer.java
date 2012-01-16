@@ -17,7 +17,6 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
-import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import org.allbinary.physics.movement.Movement;
 
 import abcs.logic.basic.string.StringUtil;
@@ -492,10 +491,9 @@ implements TickableInterface
     public void set(GL gl) throws Exception
     {
         //OpenGLSurfaceChangedInterface
-        OpenGLSurfaceChangedInterface openGLSurfaceChangedInterface = 
-                (OpenGLSurfaceChangedInterface) this.initAnimationInterface;        
+        //OpenGLSurfaceChangedInterface openGLSurfaceChangedInterface = ;        
 
-        openGLSurfaceChangedInterface.set(gl);
+        this.initAnimationInterface.set(gl);
 
         //openGLSurfaceChangedInterface = 
           //      (OpenGLSurfaceChangedInterface) this.destroyedAnimationInterface;        

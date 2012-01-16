@@ -88,7 +88,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
 
             y = 40 + (count * this.height);
 
-            layerInterface.setPosition(widthEdge, y);
+            layerInterface.setPosition(widthEdge, y, layerInterface.getZ());
             layerInterface.paint(graphics);
 
             graphics.setColor(countedTotalStringColor);

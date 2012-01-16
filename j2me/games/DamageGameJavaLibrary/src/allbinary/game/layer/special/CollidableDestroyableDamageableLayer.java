@@ -58,6 +58,7 @@ OpenGLSurfaceChangedInterface
 
     private int initX;
     private int initY;
+    private int initZ;
 
     protected PartInterface[] partInterfaceArray;
     private PickupBehavior pickupBehavior;
@@ -73,13 +74,14 @@ OpenGLSurfaceChangedInterface
 
     public void initPosition() throws Exception
     {
-        this.setPosition(this.initX, this.initY);
+        this.setPosition(this.initX, this.initY, this.initZ);
     }
 
-    public void initPosition(int x, int y) throws Exception
+    public void initPosition(int x, int y, int z) throws Exception
     {        
         this.initX = x;
         this.initY = y;
+        this.initZ = z;
     }
     
     //Should be overridden
@@ -241,7 +243,8 @@ OpenGLSurfaceChangedInterface
     
     public void set(GL gl) throws Exception
     {
-        //OpenGLSurfaceChangedInterface   
+        //OpenGLSurfaceChangedInterface
+    	throw new Exception(NotImplemented.NAME);
     }
     
     //private static final String PARTS_LABEL = "Parts: ";

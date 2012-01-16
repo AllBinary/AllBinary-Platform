@@ -39,7 +39,7 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
     {
         super(
             new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0),
-            new StaticViewPosition(0, 0));
+            new StaticViewPosition(0, 0, 0));
 
         this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList());
     }

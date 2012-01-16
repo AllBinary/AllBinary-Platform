@@ -21,8 +21,9 @@ import min3d.core.Number3dBufferList;
 import min3d.objectPrimitives.Rectangle;
 import min3d.vos.Number3d;
 
-import org.allbinary.graphics.threed.min3d.renderer.Object3dProcessorUtil;
 import org.allbinary.android.device.OpenGLESGraphics;
+import org.allbinary.graphics.threed.min3d.renderer.Object3dProcessor;
+import org.allbinary.graphics.threed.min3d.renderer.Object3dProcessorUtil;
 
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.layer.AllBinaryLayer;
@@ -103,7 +104,7 @@ extends HealthBarAnimation
     	this.updateSize();
     }
 
-    private final Object3dProcessorUtil object3dUtil = Object3dProcessorUtil.getInstance();
+    private final Object3dProcessor object3dProcessor = Object3dProcessorUtil.getInstance().getInstanceObject3dProcessor();
 
     public void paintThreed(Graphics graphics, int x, int y, int z)
     {
@@ -114,13 +115,16 @@ extends HealthBarAnimation
 
         Number3d positionNumber3d = this.rectangle.getPosition();
 
-        positionNumber3d.x = -((float) viewPosition.getX() - this.allbinaryLayer.getHalfWidth() + (x2 >> 1) );
-        // 
-        positionNumber3d.z = -((float) viewPosition.getY() + (this.allbinaryLayer.getHalfHeight() + 1));
-        //+ this.allbinaryLayer.getHalfHeight() + 1
-        positionNumber3d.y = viewPosition.getZ() + 12;
+        //positionNumber3d.x = -((float) viewPosition.getX() - this.allbinaryLayer.getHalfWidth() + (x2 >> 1) ); 
+        //positionNumber3d.z = -((float) viewPosition.getY() + (this.allbinaryLayer.getHalfHeight() + 1));
+//        //+ this.allbinaryLayer.getHalfHeight() + 1
+        //positionNumber3d.y = viewPosition.getZ() + 12;
 
-        object3dUtil.drawObject(gl, this.rectangle);
+        positionNumber3d.x = -((float) viewPosition.getX()); 
+        positionNumber3d.z = -((float) viewPosition.getY());
+        positionNumber3d.y = viewPosition.getZ() + this.allbinaryLayer.getHeight();
+        
+        object3dProcessor.drawObject(gl, this.rectangle);
     }
 
     /*

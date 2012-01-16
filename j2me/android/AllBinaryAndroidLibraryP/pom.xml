@@ -21,7 +21,13 @@
 
         <module>../../AndroidBaseJavaLibraryM</module>
         <module>../../AndroidResourceLibraryM</module>
-        <module>../../AndroidToJ2MELibraryM</module>
+
+        <module>../../AllBinaryAndroidProgressJavaLibraryM</module>
+
+        <!--
+        ../../
+        -->        
+        <module>../../../../work/j2me/AndroidToJ2MELibraryM</module>
                 
         <module>../../android/AndroidAPI3AndUpJavaLibraryM</module>
         <module>../../android/AndroidAPI5AndUpJavaLibraryM</module>
@@ -30,19 +36,20 @@
         <module>../../android/VirtualKeyboardDynamicJavaLibraryM</module>
         <module>../../android/VirtualKeyboardJavaLibraryM</module>
         
-        <module>../../input/android/GameInputAndroidBaseJavaLibraryM</module>
-        <module>../../input/android/GameInputAndroidMotionJavaLibraryM</module>
-        <module>../../input/android/GyroSensorAndroidJavaLibraryM</module>
-        <module>../../input/android/MotionInputAndroidDynamicJavaLibraryM</module>
-        <module>../../input/android/MotionInputAndroidJavaLibraryM</module>
-
-        <module>../../input/android/MotionInputAPI5AndUpAndroidJavaLibraryM</module>
-        <module>../../input/android/MotionInputThroughAPI4AndroidJavaLibraryM</module>
-        <module>../../input/android/SensorAndroidJavaLibraryM</module>
-
-        <module>../../J2MEMidletAsViewJavaLibraryM</module>
-        <module>../../J2MEGameMidletAsActivityJavaLibraryM</module>
-        <module>../../J2MEMidletAsActivityJavaLibraryM</module>
+        <!--
+        ../../
+        -->
+        <module>../../../../work/j2me/input/android/GameInputAndroidBaseJavaLibraryM</module>
+        <module>../../../../work/j2me/input/android/GameInputAndroidMotionJavaLibraryM</module>
+        <module>../../../../work/j2me/input/android/GyroSensorAndroidJavaLibraryM</module>
+        <module>../../../../work/j2me/input/android/MotionInputAndroidDynamicJavaLibraryM</module>
+        <module>../../../../work/j2me/input/android/MotionInputAndroidJavaLibraryM</module>
+        <module>../../../../work/j2me/input/android/MotionInputAPI5AndUpAndroidJavaLibraryM</module>
+        <module>../../../../work/j2me/input/android/MotionInputThroughAPI4AndroidJavaLibraryM</module>
+        <module>../../../../work/j2me/input/android/SensorAndroidJavaLibraryM</module>
+        <module>../../../../work/j2me/J2MEMidletAsViewJavaLibraryM</module>
+        <module>../../../../work/j2me/J2MEGameMidletAsActivityJavaLibraryM</module>
+        <module>../../../../work/j2me/J2MEMidletAsActivityJavaLibraryM</module>
         <module>../../AndroidToAllBinaryJavaLibraryM</module>
 
     </modules>

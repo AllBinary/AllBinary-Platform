@@ -87,7 +87,13 @@ implements GeographicMapCellPositionEventListenerInterface
 
    protected void init() throws Exception
    {
-      allBinaryTiledLayer.setPosition(this.x, this.y);
+      allBinaryTiledLayer.setPosition(this.x, this.y, this.z);
+   }
+
+   public void onEvent(AllBinaryEventObject eventObject)
+   {
+       ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+      //this.onGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
    }
 
    public synchronized void onRemoveGeographicMapCellPositionEvent(GeographicMapCellPositionEvent geographicMapCellPositionEvent) 
@@ -105,7 +111,7 @@ implements GeographicMapCellPositionEventListenerInterface
            this.positionList.remove(index);
        }
    }
-
+   
    public synchronized void onGeographicMapCellPositionEvent(
       GeographicMapCellPositionEvent geographicMapCellPositionEvent)
       throws Exception
@@ -148,12 +154,6 @@ implements GeographicMapCellPositionEventListenerInterface
          //update
          this.positionList.set(layerIndex, point);
       }
-   }
-
-   public void onEvent(AllBinaryEventObject eventObject)
-   {
-       ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
-      //this.onGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
    }
 
    //private final int clearColor = BasicColor.CLEAR_COLOR.intValue();

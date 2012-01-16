@@ -27,6 +27,7 @@ import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.util.BasicArrayList;
@@ -631,15 +632,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             throw new Exception("Buffering is disabled");
         }
 
-        // LogUtil.put(LogFactory.getInstance("isDoubleBuffered: " +
-        // this.isBuffered() +
-        // "isDoubleBuffered: " + this.isDoubleBuffered(), this,
-        // commonStrings.CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(
+        //"isDoubleBuffered: " + this.isBuffered() + "isDoubleBuffered: " + this.isDoubleBuffered(), 
+        //this, commonStrings.CONSTRUCTOR));
 
         this.setGameInputProcessor(Processor.getInstance());
 
-        if (Features.getInstance().isFeature(
-                GameFeatureFactory.getInstance().CHEATING))
+        if (Features.getInstance().isFeature(GameFeatureFactory.getInstance().CHEATING))
         {
             this.isCheating = true;
             this.cheatProcessor = new CheatGameInputProcessor(this);
@@ -656,8 +655,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.realEndGameProcessor = new EndGameProcessor(this);
         this.setEndGameProcessor(Processor.getInstance());
 
-        this.realStartIntermissionProcessor = new StartIntermissionProcessor(
-                this);
+        this.realStartIntermissionProcessor = new StartIntermissionProcessor(this);
         this.startIntermissionProcessor = Processor.getInstance();
 
         this.setEndGameStatePaintable(new EndGamePaintable(this));
@@ -696,8 +694,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected synchronized void initConfigurable() throws Exception
     {
-        ProgressCanvasFactory.getInstance().addPortion(50,
-                "Setting Configurables");
+        ProgressCanvasFactory.getInstance().addPortion(50, "Setting Configurables");
 
         GameInitializationUtil.getInstance().initGame(this,
                 gameInitializationInterfaceFactoryInterface);
@@ -716,8 +713,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             changedGameFeatureListener.remove(gameFeatureFactory.SOUND);
         }
 
-        SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory
-                .getInstance();
+        SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
 
         if (changedGameFeatureListener
                 .isChanged(sensorFeatureFactory.ORIENTATION_SENSORS)
@@ -749,10 +745,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         
         this.processorInit();
 
-        // Since touch button selection is based on sensors this must come first
-        this.sensorGameUpdateProcessor.process(this.gameLayerManager);
-        this.sensorGameUpdateProcessor.sendNotifications(this.gameLayerManager);
-
         this.initTouch();
     }
 
@@ -769,6 +761,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         GameInitializedEventHandler.getInstance().fireEvent(gameInitializedEvent);
 
         TouchButtonFactory.getInstance().defaultList();
+
+        //At some point I will probably want sensor input for the main menu and or demo screen
+        //Note: if you need to do touch input on the demo screen then you need to just remove the if below
+        if (this.getLayerManager().getGameInfo().getGameType() != this.gameTypeFactory.BOT)
+        {
+            //Since touch button selection is based on sensors this must come before updateTouch
+            this.sensorGameUpdateProcessor.process(this.gameLayerManager);
+            this.sensorGameUpdateProcessor.sendNotifications(this.gameLayerManager);
+        }
 
         this.updateTouch();
 
@@ -837,8 +838,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.addCommand(gameCommandsFactory.QUIT_COMMAND);
 
-        if (TouchScreenFactory.getInstance().isTouch()
-                && new InGameFeatures().isAny())
+        if (TouchScreenFactory.getInstance().isTouch() && new InGameFeatures().isAny())
         {
             // System.out.println("InGameOptions");
             this.addCommand(InGameOptionsForm.DISPLAY);
@@ -855,8 +855,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             String itemLabel = item.getLabel();
 
-            LogUtil.put(LogFactory.getInstance("Item: " + itemLabel, this,
-                    "itemStateChanged"));
+            LogUtil.put(LogFactory.getInstance("Item: " + itemLabel, this, "itemStateChanged"));
 
             if (item instanceof ChoiceGroup)
             {
@@ -874,7 +873,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             // Since touch button selection is based on sensors this must come
             // first
-            this.getSensorGameUpdateProcessor().process(this.gameLayerManager);
+            this.sensorGameUpdateProcessor.process(this.gameLayerManager);
 
             // Swap between different touch button setups
             this.updateTouch();
@@ -882,8 +881,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             // Update whether they should be displayed or not
             this.updateScreenButtonPaintable();
 
-            this.getSensorGameUpdateProcessor().sendNotifications(
-                    this.gameLayerManager);
+            this.sensorGameUpdateProcessor.sendNotifications(this.gameLayerManager);
 
         }
         catch (Exception e)
@@ -1036,8 +1034,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
 
             // System.out.println("Clearing Keys From Last Level");
-            LogUtil.put(LogFactory.getInstance("Remove PlayerInput Listeners",
-                    this, "removeAllGameKeyInputListeners"));
+            LogUtil.put(LogFactory.getInstance("Remove PlayerInput Listeners", this, "removeAllGameKeyInputListeners"));
 
             if (this.playerGameInput != null)
             {
@@ -1086,8 +1083,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         primaryPlayerQueue.clear();
         secondaryPlayerQueue.clear();
 
-        this.gameLayerManager.cleanup();
-        
         GameLevelDisplayChangeEventListenersFactory.getInstance().clear();
     }
 
@@ -1213,8 +1208,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void loadState() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START,
-                this, "loadState"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "loadState"));
         Hashtable hashtable = getLoadStateHashtable();
 
         if (hashtable != null && hashtable.size() > 0)
@@ -1228,9 +1222,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Hashtable getLoadStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(
-                commonStrings.START_LABEL + this.hashtable, this,
-                "getLoadStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + this.hashtable, this, "getLoadStateHashtable"));
         return this.hashtable;
     }
 
@@ -1250,8 +1242,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         hashtable.put(GameInfo.LEVEL_NAME.toString(), Integer.toString(level));
 
-        LogUtil.put(LogFactory.getInstance("End: " + hashtable, this,
-                "getCurrentStateHashtable"));
+        LogUtil.put(LogFactory.getInstance("End: " + hashtable, this, "getCurrentStateHashtable"));
 
         return hashtable;
     }
@@ -1489,11 +1480,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void run()
     {
         try
-        {
-            LogUtil.put(LogFactory.getInstance(
-                    commonStrings.START_RUNNABLE, this,
-                    commonStrings.RUN));
-
+        {            
+            LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
+            
             ProgressCanvasFactory.getInstance().addPortion(50, "Game Thread");
 
             this.setCurrentThread();
@@ -1534,7 +1523,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                         CurrentDisplayableFactory.getInstance();
 
                     currentDisplayableFactory.setRunnable(gameRunnable);
-                    
+                    OpenGLThreadUtil.getInstance().onResume();
                 }
                 else
             if (Features.getInstance().isDefault(
@@ -1543,10 +1532,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
                         GameTickTimeDelayHelperFactory.getInstance();
 
+                OpenGLThreadUtil.getInstance().onResume();
+
                 while (this.isRunning())
                 {
-                	this.getLoopTimeHelper().setStartTime(
-                			gameTickTimeDelayHelperFactory.setStartTime());
+                	this.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelperFactory.setStartTime());
 
                 	this.processGame();
 

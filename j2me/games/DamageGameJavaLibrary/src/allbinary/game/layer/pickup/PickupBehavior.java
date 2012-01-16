@@ -11,6 +11,7 @@ import org.allbinary.game.layer.pickup.PickupProcessorInterface;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import abcs.logic.communication.log.PreLogUtil;
 import allbinary.game.health.HealthInterfaceCompositeInterface;
 import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import allbinary.game.part.CountedLayerInterfaceFactoryPart;
@@ -84,8 +85,8 @@ public class PickupBehavior implements PickupBehaviorInterface
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION, this, "doPickup"));
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "doPickup"));
+        	PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "doPickup", e);
         }
     }
     

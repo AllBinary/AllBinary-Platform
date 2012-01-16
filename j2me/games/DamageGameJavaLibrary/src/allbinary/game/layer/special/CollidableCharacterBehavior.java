@@ -32,7 +32,7 @@ extends CollidableDestroyableDamageableBehavior
         else
         {
             //TWB - Characters currently are unable to collide
-            //super.collide(collidableInterfaceCompositeInterface);
+            super.collide(collidableInterfaceCompositeInterface);
         }        
     }
 

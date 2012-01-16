@@ -89,23 +89,23 @@ implements CommandListener
 
     protected void startApp() throws MIDletStateChangeException
     {
-        ForcedLogUtil.log(
-                BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
     
     protected void pauseApp()
     {
-        ForcedLogUtil.log(
-                BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
     
     protected void destroyApp(boolean unconditional)
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "AllBinaryMidlet::destroyApp"));
+            final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
             
-            PreLogUtil.put(Memory.getInfo(), this, "AllBinaryMidlet::destroyApp");
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
+            
+            PreLogUtil.put(Memory.getInfo(), this, METHOD_NAME);
             
             this.setDestroyed(true);
         }

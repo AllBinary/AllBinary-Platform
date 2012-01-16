@@ -16,7 +16,7 @@ package allbinary.game.input.event;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.Log;
+import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.input.PlayerGameInput;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
@@ -69,7 +69,7 @@ public class PressGameKeyEventHandler extends BasicEventHandler
            }
            catch (Exception e)
            {
-               LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
            }
        }
 

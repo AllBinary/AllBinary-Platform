@@ -42,8 +42,7 @@ public class OpenGLFeatureFactory
 
     // Threading
     public final OpenGLFeature OPENGL_AS_GAME_THREAD = new OpenGLFeature("As game thread");
-    public final OpenGLFeature OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS = 
-        new OpenGLFeature("As different threads");
+    public final OpenGLFeature OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS = new OpenGLFeature("As different threads");
 
     // Image Color Depth
     public final OpenGLFeature IMAGE_COLOR_DEPTH_4444 = new OpenGLFeature("4444");
@@ -58,4 +57,10 @@ public class OpenGLFeatureFactory
     public final OpenGLFeature OPENGL_DRAW_TEXTURE = new OpenGLFeature("GL_OES_draw_texture");
     
     public final OpenGLFeature OPENGL_VERTEX_BUFFER_OBJECT = new OpenGLFeature("vertex_buffer_object");
+    
+    public final OpenGLFeature OPENGL_SIMPLE_OBJECT3D_PROCESSOR = new OpenGLFeature("Simple Object3d Processor");
+    public final OpenGLFeature OPENGL_COMPLEX_OBJECT3D_PROCESSOR = new OpenGLFeature("Complex Object3d Processor");
+
+    public final OpenGLFeature OPENGL_SIMPLE_TEXTURE_PROCESSOR = new OpenGLFeature("Simple Texture Processor");
+    public final OpenGLFeature OPENGL_COMPLEX_TEXTURE_PROCESSOR = new OpenGLFeature("Complex Texture Processor");
 }

@@ -64,7 +64,7 @@ public class GameInitializationUtil
                     throw new Exception("No Loading Feature Available");
                 }
             
-            GameInitializedEventHandler.getInstance().fireEvent(this.EVENT);          
+            GameInitializedEventHandler.getInstance().fireEvent(EVENT);
         }
     }
 
@@ -73,8 +73,7 @@ public class GameInitializationUtil
             BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
     throws Exception
     {
-        if (ChangedGameFeatureListener.getInstance().isChanged(
-                MainFeatureFactory.getInstance().STATIC))
+        if (ChangedGameFeatureListener.getInstance().isChanged(MainFeatureFactory.getInstance().STATIC))
         {
             GameInitializationInterface gameInitializationInterface = 
                 gameInitializationInterfaceFactoryInterface.getInstance();
@@ -88,10 +87,9 @@ public class GameInitializationUtil
                 
             this.EVENT.setResourceLoadingLevel(resourceLoadingLevelFactory.LOAD_ALL);
             
-            GameInitializedEventHandler.getInstance().fireEvent(this.EVENT);
+            GameInitializedEventHandler.getInstance().fireEvent(EVENT);
             
-            ChangedGameFeatureListener.getInstance().remove(
-                    MainFeatureFactory.getInstance().STATIC);
+            ChangedGameFeatureListener.getInstance().remove(MainFeatureFactory.getInstance().STATIC);
         }
     }
     

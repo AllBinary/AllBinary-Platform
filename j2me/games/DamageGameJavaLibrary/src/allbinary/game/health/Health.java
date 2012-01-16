@@ -13,6 +13,7 @@
 */
 package allbinary.game.health;
 
+import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.communication.log.ForcedLogUtil;
 
 public class Health implements HealthInterface
@@ -65,16 +66,20 @@ public class Health implements HealthInterface
 	{
 	    if(ahealth < 0)
 	    {
-	        ForcedLogUtil.log("******* Trying to heal when damaging: " + this.toString(), this);
+	        StringBuilder stringBuffer = new StringBuilder();
+	        
+	        stringBuffer.append("******* Trying to heal when damaging. Damage: ");
+	        stringBuffer.append(ahealth);
+	        stringBuffer.append(CommonSeps.getInstance().SPACE);
+	        stringBuffer.append(this.toString());
+
+	        ForcedLogUtil.log(stringBuffer.toString(), this);
 	        return;
 	    }
 	    
 	    int health = this.getHealth() - ahealth;
 
 	    this.setHealth(health);
-	    
-	    //PreLogUtil.put(HEALTH + this.getHealth() + " Lost: " + ahealth, this, "damage");
-        //LogUtil.put(LogFactory.getInstance(HEALTH + this.getHealth() + " Lost: " + ahealth, this, "damage"));
 	}
 
 	public boolean isAlive() 

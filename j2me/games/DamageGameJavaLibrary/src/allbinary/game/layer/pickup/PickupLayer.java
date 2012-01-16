@@ -90,9 +90,9 @@ public class PickupLayer
       this.setDestroyed(false);
    }
 
-   public void init(int x, int y)
+   public void init(int x, int y, int z)
    {
-      this.setPosition(x, y);
+      this.setPosition(x, y, z);
    }
 
    public void paint(Graphics graphics)

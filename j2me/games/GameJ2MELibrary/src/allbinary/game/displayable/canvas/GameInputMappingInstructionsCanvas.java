@@ -21,6 +21,7 @@ import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import abcs.logic.communication.log.PreLogUtil;
 import allbinary.game.layer.AllBinaryGameLayerManager;
 import allbinary.game.paint.ColorFillPaintable;
 import allbinary.game.paint.ColorFillPaintableFactory;
@@ -63,7 +64,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
             allBinaryGameLayerManager.getForegroundBasicColor());
 
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
-        
+
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance(
                     allBinaryGameLayerManager.getBackgroundBasicColor());
@@ -84,6 +85,8 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     
     public void paint(Graphics graphics)
     {
+    	PreLogUtil.put(CommonStrings.getInstance().START, this, "paint");
+    	
         final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
         
         this.colorFillPaintable.paint(graphics);

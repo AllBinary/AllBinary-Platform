@@ -20,7 +20,6 @@ import abcs.logic.communication.log.PreLogUtil;
 import allbinary.input.motion.button.TouchScreenFactory;
 import allbinary.input.motion.button.TouchScreenTypeFactory;
 import android.app.Activity;
-import android.content.res.Configuration;
 
 public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
 {
@@ -49,60 +48,16 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
         final TouchScreenFactory touchScreenFactory = 
             TouchScreenFactory.getInstance();
 
-        touchScreenFactory.setTouch(
-                this.isTouch(activity));
-
-        touchScreenFactory.setMultiTouch(
-                this.isMultiTouch(activity));
-
-        touchScreenFactory.setMultiTouchDistinct(
-                this.isMultiTouchDistinct(activity));
-
-        Configuration configuration = 
-            activity.getResources().getConfiguration();
-
-        int touchScreen = configuration.touchscreen;
+        final TouchScreenTypeFactory touchScreenTypeFactory = 
+                TouchScreenTypeFactory.getInstance();
         
-        if(touchScreen == Configuration.TOUCHSCREEN_FINGER)
-        {
-            touchScreenFactory.setTouchScreenType(
-                    TouchScreenTypeFactory.getInstance().FINGER);
-            
-            if(!touchScreenFactory.isTouch())
-            {
-                //LogUtil.put(LogFactory.getInstance("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, CommonStrings.getInstance().PROCESS));
-                PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, CommonStrings.getInstance().PROCESS);
-                
-                touchScreenFactory.setTouch(true);
-            }
-        }
-        else
-            if(touchScreen == Configuration.TOUCHSCREEN_STYLUS)
-            {
-                touchScreenFactory.setTouchScreenType(
-                        TouchScreenTypeFactory.getInstance().STYLUS);
-                
-                if(!touchScreenFactory.isTouch())
-                {
-                    //LogUtil.put(LogFactory.getInstance("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, CommonStrings.getInstance().PROCESS));
-                    
-                    PreLogUtil.put("Not Really Exception: This indicates that a touch screen does exist but is not API8 so we will try it", this, CommonStrings.getInstance().PROCESS);
-                    
-                    touchScreenFactory.setTouch(true);
-                }
-            }
-        else
-            if(touchScreen == Configuration.TOUCHSCREEN_NOTOUCH)
-            {
-                touchScreenFactory.setTouchScreenType(
-                        TouchScreenTypeFactory.getInstance().NOTOUCH);
-            }
-                else
-                    if(touchScreen == Configuration.TOUCHSCREEN_UNDEFINED)
-                    {
-                        touchScreenFactory.setTouchScreenType(
-                                TouchScreenTypeFactory.getInstance().UNDEFINED);
-                    }
+        touchScreenFactory.setTouch(this.isTouch(activity));
+
+        touchScreenFactory.setMultiTouch(this.isMultiTouch(activity));
+
+        touchScreenFactory.setMultiTouchDistinct(this.isMultiTouchDistinct(activity));
+
+        touchScreenTypeFactory.update(activity);
         
         //LogUtil.put(LogFactory.getInstance(touchScreenFactory.toString(), this, CommonStrings.getInstance().PROCESS));
         PreLogUtil.put(touchScreenFactory.toString(), this, CommonStrings.getInstance().PROCESS);
