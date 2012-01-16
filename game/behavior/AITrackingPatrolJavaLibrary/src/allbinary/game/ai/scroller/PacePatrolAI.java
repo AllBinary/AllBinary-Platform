@@ -119,22 +119,22 @@ public class PacePatrolAI extends BasePatrolAI
         
         Direction direction = directionFactory.NOT_BORDERED_WITH;
 
+        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+        
         int size = this.trackingList.size();
         for (int index = 0; index < size; index++)
         {
-            TrackingEvent lastTrackingEvent = (TrackingEvent) this.trackingList
-                    .get(0);
+            TrackingEvent lastTrackingEvent = 
+                    (TrackingEvent) this.trackingList.get(0);
 
-            LayerInterface lastTrackingLayerInterface = lastTrackingEvent
-                    .getLayerInterface();
+            LayerInterface lastTrackingLayerInterface = 
+                    lastTrackingEvent.getLayerInterface();
 
             int x = lastTrackingLayerInterface.getX();
             int y = lastTrackingLayerInterface.getY();
 
-            int yDistance = this.getOwnerLayerInterface().getY() - y
-                    - this.getOwnerLayerInterface().getHeight();
-            int xDistance = this.getOwnerLayerInterface().getX() - x
-                    - this.getOwnerLayerInterface().getWidth();
+            int yDistance = ownerLayerInterface.getY() - y - ownerLayerInterface.getHeight();
+            int xDistance = ownerLayerInterface.getX() - x - ownerLayerInterface.getWidth();
 
             // LogUtil.put(LogFactory.getInstance("x: " + x + " y: " + y +
             // " xDistance: " + xDistance + " yDistance: " + yDistance, this,
@@ -150,8 +150,9 @@ public class PacePatrolAI extends BasePatrolAI
                 // Range is close enough
                 if (absXDistance < getFiringDistance() / 2)
                 {
-                    DirectionCompositeInterface directionCompositeInterface = (DirectionCompositeInterface) this
-                            .getOwnerLayerInterface();
+                    DirectionCompositeInterface directionCompositeInterface = 
+                            (DirectionCompositeInterface) this.getOwnerLayerInterface();
+
                     // LogUtil.put(LogFactory.getInstance(" xDistance: " +
                     // xDistance + " Direction: " +
                     // directionCompositeInterface.getDirection(), this,
@@ -165,8 +166,7 @@ public class PacePatrolAI extends BasePatrolAI
                         // if on the right side and pointing right
                     }
                     else if (xDistance > 0
-                            && directionCompositeInterface.getDirection() == 
-                                directionFactory.LEFT)
+                            && directionCompositeInterface.getDirection() == directionFactory.LEFT)
                     {
                         direction = directionFactory.LEFT;
                     }

@@ -21,9 +21,9 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.opengles.TextureFactory;
 
-import allbinary.android.view.OpenGLUtil;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class OpenGLESGL10Image extends OpenGLESImage
@@ -83,7 +83,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             gl10.glDisable(GL10.GL_TEXTURE_2D);
 
-            OpenGLUtil.getInstance().logError(gl10, this);            
+            OpenGLLogUtil.getInstance().logError(gl10, this);            
         }
 
         /*
@@ -279,9 +279,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
         // ((GL11Ext) gl).glDrawTexiOES(x, a - y, z, width, height);
 
-        // gl.glPushMatrix();
         gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
-        // gl.glPopMatrix();
 
         gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
         gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
@@ -353,9 +351,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
 
-        // gl.glPushMatrix();
         gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
-        // gl.glPopMatrix();
 
         gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
         gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);

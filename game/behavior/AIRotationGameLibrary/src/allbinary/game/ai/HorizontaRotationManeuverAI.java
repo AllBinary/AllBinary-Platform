@@ -72,7 +72,10 @@ implements ArtificialIntelligenceTransitionInterface
         this.rotationAnimationInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
         
         //TWB - Hack to deal with enemies flying away when off screen
-        this.getOwnerLayerInterface().setPosition(this.getOwnerLayerInterface().getX(), 1);
+        AllBinaryLayer allbinaryLayer = this.getOwnerLayerInterface();
+        
+        allbinaryLayer.setPosition(
+                allbinaryLayer.getX(), 1, allbinaryLayer.getZ());
     }
 
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
@@ -90,8 +93,10 @@ implements ArtificialIntelligenceTransitionInterface
 
         int frame = this.rotationAnimationInterface.getFrame();
 
-        if (this.getOwnerLayerInterface().getX()
-                - this.getOwnerLayerInterface().getWidth() <= 0
+        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+        
+        if (ownerLayerInterface.getX()
+                - ownerLayerInterface.getWidth() <= 0
                 && frame == angleIncrementInfo.LEFT_FRAME.intValue())
         {
             this.reverse();
@@ -100,11 +105,10 @@ implements ArtificialIntelligenceTransitionInterface
 
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        if (this.getOwnerLayerInterface().getX2()
-                + this.getOwnerLayerInterface().getWidth() > displayInfo.getLastWidth()
+        if (ownerLayerInterface.getX2()
+                + ownerLayerInterface.getWidth() > displayInfo.getLastWidth()
                 && frame == angleIncrementInfo.RIGHT_FRAME.intValue())
         {
-
             this.reverse();
             this.accelerate();
             this.drop();
@@ -163,20 +167,20 @@ implements ArtificialIntelligenceTransitionInterface
 
     private void drop()
     {
+        AllBinaryLayer ownerLayerInterface = this.getOwnerLayerInterface();
+        
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        int y = this.getOwnerLayerInterface().getY();
-        if (this.getOwnerLayerInterface().getY2()
-                + this.getOwnerLayerInterface().getHeight() > displayInfo
-                .getLastHeight())
+        int y = ownerLayerInterface.getY();
+        if (ownerLayerInterface.getY2() + ownerLayerInterface.getHeight() > displayInfo.getLastHeight())
         {
             y = 0;
         }
         else
         {
-            y += this.getOwnerLayerInterface().getHeight() + 1;
+            y += ownerLayerInterface.getHeight() + 1;
         }
-        this.getOwnerLayerInterface().setPosition(
-                this.getOwnerLayerInterface().getX(), y);
+        ownerLayerInterface.setPosition(
+                ownerLayerInterface.getX(), y, ownerLayerInterface.getZ());
     }
 
     public int getId()

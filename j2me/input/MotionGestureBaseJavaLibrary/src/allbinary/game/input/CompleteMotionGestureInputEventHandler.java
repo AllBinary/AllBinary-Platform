@@ -16,7 +16,7 @@ package allbinary.game.input;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.Log;
+import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.EventListenerInterface;
@@ -71,7 +71,7 @@ public class CompleteMotionGestureInputEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
             }
         }
 

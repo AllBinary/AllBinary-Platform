@@ -15,5 +15,5 @@ package allbinary.layer;
 
 public interface PositionInterface
 {
-    void setPosition(int x, int y);
+    void setPosition(int x, int y, int z);
 }

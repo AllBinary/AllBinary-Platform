@@ -14,7 +14,6 @@
 package abcs.logic.system.os;
 
 import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.Log;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
@@ -58,9 +57,8 @@ public class OperatingSystemFactory
                 }
             }
             
-            Log log = LogFactory.getInstance("OperatingSystem Info: " + operatingSystemInterface, this, CommonStrings.getInstance().GET_INSTANCE);
             //PreLogUtil.put(log.toString());
-            LogUtil.put(log);
+            LogUtil.put(LogFactory.getInstance("OperatingSystem Info: " + operatingSystemInterface, this, CommonStrings.getInstance().GET_INSTANCE));
             
             return operatingSystemInterface;
         }

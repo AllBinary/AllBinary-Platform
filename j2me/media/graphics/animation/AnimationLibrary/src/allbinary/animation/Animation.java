@@ -13,12 +13,17 @@
 */
 package allbinary.animation;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+
+import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorSetUtil;
 
-public class Animation implements AnimationInterface
+public class Animation implements AnimationInterface,
+//implements 
+OpenGLSurfaceChangedInterface
 {
     protected final BasicColorSetUtil basicColorUtil = 
         BasicColorSetUtil.getInstance();
@@ -57,5 +62,10 @@ public class Animation implements AnimationInterface
     public int getColor()
     {
         return color;
+    }
+    
+    public void set(GL gl) throws Exception
+    {
+        
     }
 }

@@ -17,7 +17,6 @@ import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
-
 public class SecondaryThreadPool extends ThreadPool
 {
     private static final ThreadPool instance = new SecondaryThreadPool(1);

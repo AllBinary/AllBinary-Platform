@@ -16,6 +16,7 @@ package allbinary.input.motion.button;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import allbinary.input.motion.button.TouchScreenType;
 
 public class TouchScreenFactory
 {
@@ -128,11 +129,11 @@ public class TouchScreenFactory
         
         stringBuffer.append("TouchScreen: ");
         stringBuffer.append(this.isTouch());
-        stringBuffer.append("MultiTouch: ");
+        stringBuffer.append(" MultiTouch: ");
         stringBuffer.append(this.isMultiTouch());
-        stringBuffer.append("Distinct MultiTouch: ");
+        stringBuffer.append(" Distinct MultiTouch: ");
         stringBuffer.append(this.isMultiTouchDistinct());
-        stringBuffer.append("TouchScreenType: ");
+        stringBuffer.append(" TouchScreenType: ");
         stringBuffer.append(this.getTouchScreenType());
 
         return stringBuffer.toString();

@@ -13,6 +13,7 @@
 */
 package allbinary.animation.compound;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.CircularIndexUtil;
@@ -171,4 +172,12 @@ public class CompoundRotationAnimation extends RotationAnimation
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }
+    
+    public void set(GL gl) throws Exception
+    {
+        for(int index = this.animationInterfaceArray.length; --index >= 0;)
+        {
+            this.animationInterfaceArray[index].set(gl);
+        }
+    }    
 }

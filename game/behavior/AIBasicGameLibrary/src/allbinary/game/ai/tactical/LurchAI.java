@@ -70,7 +70,7 @@ public class LurchAI  extends BasicAI
          x -= (currentSpeed);
       }
 
-      ownerLayerInterface.setPosition(x, ownerLayerInterface.getY());
+      ownerLayerInterface.setPosition(x, ownerLayerInterface.getY(), ownerLayerInterface.getZ());
 
       if (currentRelativeAngle == 0)
       {
@@ -112,6 +112,6 @@ public class LurchAI  extends BasicAI
       {
          y += ownerLayerInterface.getHeight() + 1;
       }
-      ownerLayerInterface.setPosition(ownerLayerInterface.getX(), y);
+      ownerLayerInterface.setPosition(ownerLayerInterface.getX(), y, ownerLayerInterface.getZ());
    }
 }

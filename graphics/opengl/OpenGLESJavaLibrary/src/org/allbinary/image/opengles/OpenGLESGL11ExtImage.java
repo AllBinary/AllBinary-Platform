@@ -19,12 +19,12 @@ import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.khronos.opengles.GL11Ext;
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.opengles.TextureFactory;
 
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
-import allbinary.android.view.OpenGLUtil;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.event.DisplayChangeEvent;
 
@@ -100,14 +100,12 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
 
             gl11.glDisable(GL10.GL_TEXTURE_2D);
 
-            OpenGLUtil.getInstance().logError(gl11);
+            OpenGLLogUtil.getInstance().logError(gl11, this);
         }
     }
     
     public void draw(GL10 gl, int x, int y, int z)
     {
-        // gl.glPushMatrix();
-        
         gl.glEnable(GL10.GL_TEXTURE_2D);
         
         gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
@@ -116,7 +114,5 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         ((GL11Ext) gl).glDrawTexfOES(x, a - y, z, this.getWidth(), this.getHeight());
 
         gl.glDisable(GL10.GL_TEXTURE_2D);
-
-        // gl.glPopMatrix();
     }
 }

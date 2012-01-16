@@ -21,7 +21,6 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.image.ImageCache;
@@ -54,6 +53,21 @@ public class OpenGLImageCache extends ImageCache
     {
         OpenGLImageFactory imageFactory = 
             OpenGLImageSpecificFactory.getInstance().getImageFactory();
+             
+        int textureSize = width;
+        
+        if(height > width)
+        {
+            textureSize = height;
+        }
+        
+        while((textureSize % 4) != 0)
+        {
+            textureSize++;
+        }
+        
+        width = textureSize;
+        height = textureSize;
         
         Image image = imageFactory.getInstance(
                 ImageCacheFactory.getInstance().get(

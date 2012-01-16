@@ -13,6 +13,7 @@
 */
 package allbinary.canvas;
 
+import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.StringUtil;
 import allbinary.logic.math.PrimitiveLongSingleton;
 import allbinary.logic.math.ScaleFactorFactory;
@@ -27,7 +28,7 @@ public class BaseGameStatistics
     private long totalRefreshes;
     private long totalFrames;
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
+    protected final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
         GameTickTimeDelayHelperFactory.getInstance();
 
     // private PrimitiveLongUtil primitiveLongUtil;
@@ -190,27 +191,37 @@ public class BaseGameStatistics
         return STRING_ARRAY;
     }
 
-    public String toString()
+    public String toString(long totalTime)
     {
-        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelperFactory.getStartTime());
-        totalTime = (totalTime / 10000);
+        StringBuilder stringBuffer = new StringBuilder();
 
-        if (totalTime > 0)
+        stringBuffer.append(STRING_ARRAY[0]);
+        stringBuffer.append(totalTime);
+        stringBuffer.append(STRING_ARRAY[2]);
+        stringBuffer.append(this.totalFrames);
+        stringBuffer.append(STRING_ARRAY[4]);
+        stringBuffer.append(this.totalFrames / totalTime);
+        
+        if(this.totalRefreshes > 0)
         {
-            StringBuilder stringBuffer = new StringBuilder();
-
-            stringBuffer.append(STRING_ARRAY[0]);
-            stringBuffer.append(totalTime);
-            stringBuffer.append(STRING_ARRAY[2]);
-            stringBuffer.append(this.totalFrames);
-            stringBuffer.append(STRING_ARRAY[4]);
-            stringBuffer.append(this.totalFrames / totalTime);
             stringBuffer.append(STRING_ARRAY[6]);
             stringBuffer.append(this.totalRefreshes);
             stringBuffer.append(STRING_ARRAY[8]);
             stringBuffer.append(this.totalRefreshes / totalTime);
+            stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        }
 
-            return stringBuffer.toString();
+        return stringBuffer.toString();
+    }
+    
+    public String toString()
+    {
+        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelperFactory.getStartTime());
+        totalTime = (totalTime / 1000);
+
+        if (totalTime > 0)
+        {
+        	return this.toString(totalTime);
         } else
         {
             return NOT;

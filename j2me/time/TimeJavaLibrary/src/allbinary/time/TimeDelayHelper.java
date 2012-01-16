@@ -13,6 +13,8 @@
 */
 package allbinary.time;
 
+import abcs.logic.basic.string.StringUtil;
+
 public class TimeDelayHelper
 {
     private long startTime = -1;
@@ -124,5 +126,19 @@ public class TimeDelayHelper
     public void setStartTime()
     {
         this.startTime = System.currentTimeMillis();
+    }
+    
+    public String toString()
+    {
+        long elapsed = this.getElapsed();
+
+        if(elapsed > 0)
+        {
+            return "Elapsed: " + Long.toString(elapsed / 10000);
+        }
+        else
+        {
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
     }
 }

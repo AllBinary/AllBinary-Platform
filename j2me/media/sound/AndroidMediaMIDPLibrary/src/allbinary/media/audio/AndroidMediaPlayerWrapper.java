@@ -49,6 +49,9 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
                         " with id: " +
                         resourceUtil.getResourceId(resource));
             }
+            
+            this.mediaPlayer.setLooping(false);
+            
             // TWB- M5 does the prepare in the create method now
             // this.mediaPlayer.prepare();
 
@@ -64,6 +67,24 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
     }
 
+    public void setLoopCount(int count)
+    {
+        super.setLoopCount(count);
+        
+        if(this.mediaPlayer != null)
+        {
+            if(count == 0)
+            {
+                this.mediaPlayer.setLooping(false);
+            }
+            else
+            {
+                //??
+                //this.mediaPlayer.setLooping(true);
+            }
+        }
+    }
+    
     public synchronized void addPlayerListener(PlayerListener playerListener)
     {
         //mediaPlayerHelper = new AndroidMediaPlayerWrapperListener(this, 1);
@@ -92,7 +113,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         try
         {
-            this.getMediaPlayer().release();
+            this.mediaPlayer.release();
             this.mediaPlayer = null;
         }
         catch (Exception e)
@@ -133,7 +154,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         try
         {
-            this.getMediaPlayer().stop();
+            this.mediaPlayer.stop();
             super.stop();
         }
         catch (Exception e)

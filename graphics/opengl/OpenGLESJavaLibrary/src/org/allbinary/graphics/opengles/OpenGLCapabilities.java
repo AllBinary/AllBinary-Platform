@@ -40,6 +40,7 @@ public class OpenGLCapabilities
     private String glRenderer = StringUtil.getInstance().EMPTY_STRING;
     private String glVendor = StringUtil.getInstance().EMPTY_STRING;
     private String glExtensions = StringUtil.getInstance().EMPTY_STRING;
+    private boolean possiblyAccelerated;
     private String acceleratedString = StringUtil.getInstance().EMPTY_STRING;
     
     public final String VERSION_1_0 = "1.0";
@@ -60,24 +61,35 @@ public class OpenGLCapabilities
     public void initCapabilities(GL10 gl)
     throws Exception
     {
+        Features features = Features.getInstance();
+        OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        
+        OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
+        
+        StringBuilder stringBuffer = new StringBuilder();
+
         glVersionString = gl.glGetString(GL10.GL_VERSION);
         glRenderer = gl.glGetString(GL10.GL_RENDERER);
         glVendor = gl.glGetString(GL10.GL_VENDOR);
         glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
-        
+
         if(glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
         {
             acceleratedString = "Probably Not";
+            possiblyAccelerated = false;
         }
         else
         {
             acceleratedString = "Probably";
+            possiblyAccelerated = true;
         }
 
-        if(this.glVersion != this.VERSION_1_0 && 
-                this.isExtension(OpenGLFeatureFactory.getInstance().OPENGL_VERTEX_BUFFER_OBJECT))
+        if(possiblyAccelerated)
         {
-            this.vertexBufferObjectSupport = true;
+            if((this.glVersion != this.VERSION_1_0 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
+            {
+                this.vertexBufferObjectSupport = true;
+            }
         }
         
         /*
@@ -100,15 +112,15 @@ public class OpenGLCapabilities
         }
         */
 
+        //The device often reports that it does have it when it does not
         /*
-         * The device often reports that it does have it when it does not
-        if(this.isExtension(OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE))
+        if(this.isExtension(openGLFeatureFactory.OPENGL_DRAW_TEXTURE))
         {
-            this.setGlExtensionDrawTexture(true);
+            this.glExtensionDrawTexture = true;
         }
         else
         {
-            this.setGlExtensionDrawTexture(false);
+            this.glExtensionDrawTexture = false;
         }
         */
         this.glExtensionDrawTexture = false;
@@ -126,27 +138,21 @@ public class OpenGLCapabilities
             {
                 this.glVersion = this.VERSION_UNK;
             }
-
-        Features features = Features.getInstance();
-        OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         
-        OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
-        
-        /*
-        if (features.isDefault(
-                openGLFeatureFactory.OPENGL_AUTO_SELECT))
+        if (features.isDefault(openGLFeatureFactory.OPENGL_AUTO_SELECT))
         {
             //if (GameFeatures.getInstance().isDefault(GameFeature.OPENGL_DRAW_TEXTURE))
-            //{                   
+            //{
                 //StupidTimer.visit(new RendererSurfaceCreatedVisitor());
 
+            if(this.isVertexBufferObjectSupport())
+            {
+                openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11VBOImageFactory());
+            }
+            else
+            	/*
                 if(isGlExtensionDrawTexture())
                 {
-                    //ReloadConfiguration reloadConfiguration = 
-                        //ReloadConfiguration.getInstance();
-                    //reloadConfiguration.setOpenGL(true);
-                    //reloadConfiguration.write();
-                    
                     stringBuffer.append("Found: ");
                     stringBuffer.append(OpenGLFeatureFactory.getInstance().OPENGL_DRAW_TEXTURE);
                     
@@ -155,6 +161,7 @@ public class OpenGLCapabilities
                     openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11ExtImageFactory());
                 }
                 else
+                */
                 {
                     stringBuffer.append("OpenGL is on but ");
                     stringBuffer.append(openGLFeatureFactory.OPENGL_DRAW_TEXTURE);
@@ -174,20 +181,7 @@ public class OpenGLCapabilities
             
             openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
         }
-        */
 
-        if(
-                (features.isFeature(openGLFeatureFactory.OPENGL_2D_AND_3D) || features.isFeature(openGLFeatureFactory.OPENGL_3D))
-                && this.isVertexBufferObjectSupport()
-                )
-        {
-            openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11VBOImageFactory());
-        }
-        else
-        {
-            openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
-        }
-        
         //For now we will just use the poly version for opengl games
         //this.glThreedDrawTexture = true;
         //OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10RectangleImageFactory());

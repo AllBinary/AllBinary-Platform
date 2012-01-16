@@ -125,6 +125,7 @@ public class BasicColor
     {
         StringBuilder stringBuffer = new StringBuilder();
         
+        stringBuffer.append("BasicColor: ");
         stringBuffer.append("Red: ");
         stringBuffer.append(this.red);
         stringBuffer.append(" Green: ");

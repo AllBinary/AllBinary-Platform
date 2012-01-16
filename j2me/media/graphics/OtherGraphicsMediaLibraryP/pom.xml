@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>OtherGraphicsMediaLibrary</artifactId>
+  <packaging>pom</packaging>
+  <version>1</version>
+  <name>OtherGraphicsMediaLibrary</name>
+  <url>http://maven.apache.org</url>
+
+
+    <properties>
+        <buildLabel>${version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+        -->
+
+        <module>../../graphics/animation/AnimationLibraryM</module>
+
+        <module>../../graphics/animation/RotationAnimationJavaLibraryM</module>
+
+        <module>../../graphics/animation/vector/VectorAnimationBaseJavaLibraryM</module>
+
+        <module>../../graphics/animation/vector/VectorAnimationJ2MEJavaLibraryM</module>
+        <module>../../graphics/animation/vector/VectorAnimationJavaLibraryM</module>
+
+        <module>../../graphics/VectorJavaLibraryM</module>
+
+        <!--
+        ../../
+        -->
+        <module>../../../../../work/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryM</module>
+        <module>../../graphics/BoundsJavaLibraryM</module>
+
+
+<module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryM</module>
+<module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryM</module>
+
+        <!--
+        ../../
+        -->
+<module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimationJavaLibraryM</module>
+        <!--
+        ../../
+        -->
+<module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryM</module>
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemulator</artifactId>
+            <version>3.0.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-jsr-135</artifactId>
+            <version>3.0.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+</project>

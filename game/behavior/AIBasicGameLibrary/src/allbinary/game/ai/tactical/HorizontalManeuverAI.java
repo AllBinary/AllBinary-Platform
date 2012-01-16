@@ -65,7 +65,7 @@ public class HorizontalManeuverAI extends BasicAI
       }
 
       //super.processAI(Canvas.UP);
-      ownerLayerInterface.setPosition(x, ownerLayerInterface.getY());
+      ownerLayerInterface.setPosition(x, ownerLayerInterface.getY(), ownerLayerInterface.getZ());
 
       if (currentRelativeAngle == 0)
       {
@@ -107,6 +107,6 @@ public class HorizontalManeuverAI extends BasicAI
       {
          y += ownerLayerInterface.getHeight() + 1;
       }
-      ownerLayerInterface.setPosition(ownerLayerInterface.getX(), y);
+      ownerLayerInterface.setPosition(ownerLayerInterface.getX(), y, ownerLayerInterface.getZ());
    }
 }
