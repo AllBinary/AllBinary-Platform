@@ -22,7 +22,7 @@ tyrants of Earth.
 
 What is still needed to obtain the Self Replicating Robot Army?
 
-: MMORTS - For the control of robots using crowd sourcing. (Expect completion in 2012)
+: MMORTS - For the control of robots using Crowdsourcing. (Expect completion in 2012)
 : Resource Collection API 
 : 3D Printer API
 : Convert existing Open Robots for the 3D printer API
@@ -40,7 +40,7 @@ After the Self Replicating Robot Army is created what is needed for the Open Sou
 
 What is the Current Version?
 
-1.1.9
+1.2.0
 
 What is the License?
 
@@ -61,7 +61,7 @@ What is the AllBinary Game Development Kit?
 The AllBinary Arcade Game Development Kit contains over 120 very small libraries 
 to help ease arcade game development. The main features include the following:
 
-Multi-Platform - Android, J2ME, and J2SE 
+Multi-Platform - Android, J2ME/BlackBerry, HTML5, and J2SE 
 (Moblin, IPhone, Linux, Windows, Solaris, Mac, and More)
 Fullscreen and Windowed Support (Does not require restart to toggle between)
 Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
@@ -93,9 +93,9 @@ More...
 Future Impl:
 
 More Social stuff
+More Plaform Support - ActionScript and Native output
 Integrated and highly customizable Scene Editor - I currently use a several 3d 
 tools as scene/model editors
-More Plaform Support - ActionScript and HTML5 output
 Robotics Integration - RTS with real robots and real map integration
 MDA Integration - Probably won't ever happen but I would like to have an MDA tool 
 that speeds development.  Not that Eclipse and NetBeans aren't great.
