@@ -16,23 +16,20 @@ package allbinary.animation.compound;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
-import allbinary.animation.RotationAnimation;
-import allbinary.direction.Direction;
+import allbinary.animation.IndexedAnimation;
 import allbinary.logic.math.PrimitiveIntUtil;
-import allbinary.math.Angle;
-import allbinary.math.AngleInfo;
 
 /**
  *
  * @author Berthelot, Travis
  * @version 1.0
  */
-public class SimultaneousCompoundRotationAnimation 
-extends RotationAnimation
+public class SimultaneousCompoundIndexAnimation 
+extends IndexedAnimation
 {
-    private RotationAnimation[] animationInterfaceArray;
+    private IndexedAnimation[] animationInterfaceArray;
 
-    public SimultaneousCompoundRotationAnimation(RotationAnimation[] animationInterfaceArray)
+    public SimultaneousCompoundIndexAnimation(IndexedAnimation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }
@@ -77,22 +74,6 @@ extends RotationAnimation
         }
     }
 
-    public void previousRotation()
-    {
-        for(int index = this.animationInterfaceArray.length; --index >= 0;)
-        {
-            this.animationInterfaceArray[index].previousRotation();
-        }
-    }
-
-    public void nextRotation()
-    {
-        for(int index = this.animationInterfaceArray.length; --index >= 0;)
-        {
-            this.animationInterfaceArray[index].nextRotation();
-        }
-    }
-
     public void setSequence(int[] sequence)
     {
     }
@@ -118,44 +99,18 @@ extends RotationAnimation
         }
     }
 
-    public void setFrame(Direction direction)
+    public void set(GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
-            this.animationInterfaceArray[index].setFrame(direction);
+            this.animationInterfaceArray[index].set(gl);
         }
-    }
-
-    public void setFrame(Angle angle)
-    {
-        for(int index = this.animationInterfaceArray.length; --index >= 0;)
-        {
-            this.animationInterfaceArray[index].setFrame(angle);
-        }
-    }
-
-    public void adjustFrame(Angle newAngle)
-    {
-        this.adjustFrame(newAngle.getValue());
-    }
-
-    public void adjustFrame(short angle)
-    {
-        for(int index = this.animationInterfaceArray.length; --index >= 0;)
-        {
-            this.animationInterfaceArray[index].adjustFrame(angle);
-        }
-    }
-
-    public AngleInfo getAngleInfo()
-    {
-        return this.animationInterfaceArray[0].getAngleInfo();
     }
     
     /**
      * @return the animationInterfaceArray
      */
-    public RotationAnimation[] getAnimationInterfaceArray()
+    public IndexedAnimation[] getAnimationInterfaceArray()
     {
         return animationInterfaceArray;
     }
@@ -163,16 +118,8 @@ extends RotationAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(RotationAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(IndexedAnimation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
-    }
-    
-    public void set(GL gl) throws Exception
-    {
-        for(int index = this.animationInterfaceArray.length; --index >= 0;)
-        {
-            this.animationInterfaceArray[index].set(gl);
-        }
     }
 }

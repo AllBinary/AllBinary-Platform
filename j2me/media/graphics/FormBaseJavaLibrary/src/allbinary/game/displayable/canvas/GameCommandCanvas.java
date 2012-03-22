@@ -104,7 +104,8 @@ public class GameCommandCanvas
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDisplayChangeEvent"));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, 
+                    DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
             
             FormType formType = FormTypeFactory.getInstance().getFormType();
             

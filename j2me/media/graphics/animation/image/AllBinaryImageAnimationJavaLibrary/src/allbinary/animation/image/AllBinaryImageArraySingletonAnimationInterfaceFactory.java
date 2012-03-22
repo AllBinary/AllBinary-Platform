@@ -13,6 +13,8 @@
 */
 package allbinary.animation.image;
 
+import javax.microedition.lcdui.Image;
+
 import allbinary.animation.Animation;
 import allbinary.animation.IndexedAnimation;
 import allbinary.animation.SingletonAnimationInterfaceFactory;
@@ -30,5 +32,11 @@ extends SingletonAnimationInterfaceFactory
     throws Exception
     {
         this(new AllBinaryImageArrayAnimation(IndexedAnimationToImageArrayUtil.getInstance(width, height, animationInterface)));
+    }    
+
+    public AllBinaryImageArraySingletonAnimationInterfaceFactory(Image[] imageArray)
+    throws Exception
+    {
+        this(new AllBinaryImageArrayAnimation(imageArray));
     }    
 }

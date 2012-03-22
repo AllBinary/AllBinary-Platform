@@ -35,8 +35,7 @@ public class AllBinaryImageArrayAnimation extends IndexedAnimation
     {
         super();
 
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
+        // LogUtil.put(LogFactory.getInstance(, this, ));
 
         this.setImageArray(imageArray);
     }

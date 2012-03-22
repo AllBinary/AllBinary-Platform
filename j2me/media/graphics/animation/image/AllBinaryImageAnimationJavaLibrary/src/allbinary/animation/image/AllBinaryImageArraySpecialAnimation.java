@@ -21,8 +21,9 @@ import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.time.GameTickTimeDelayHelperFactory;
 import allbinary.time.TimeDelayHelper;
 
-public class AllBinaryImageArraySpecialAnimation extends
-        AllBinaryImageArrayAnimation implements SpecialAnimationInterface
+public class AllBinaryImageArraySpecialAnimation 
+extends AllBinaryImageArrayAnimation 
+implements SpecialAnimationInterface
 {
     private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(270);
 

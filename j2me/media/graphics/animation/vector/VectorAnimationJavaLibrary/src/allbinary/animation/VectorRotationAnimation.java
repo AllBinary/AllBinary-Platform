@@ -22,7 +22,6 @@ import allbinary.math.FrameUtil;
 
 public class VectorRotationAnimation 
     extends VectorBaseRotationAnimation 
-    implements VectorAnimationInterface
 {   
    public VectorRotationAnimation(int currentPoints[][][], BasicColor basicColor)
            throws Exception

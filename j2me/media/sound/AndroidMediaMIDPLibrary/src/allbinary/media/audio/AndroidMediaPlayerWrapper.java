@@ -58,7 +58,6 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
             //this.setTimeBase((TimeBase) new PCTimeBase());
             
             //mediaPlayerHelper = new AndroidMediaPlayerWrapperListener(this);
-
         }
         catch (Exception e)
         {
@@ -173,6 +172,11 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
             PlayerListener listener = (PlayerListener) this.listenersList.get(index);
             listener.playerUpdate(this, event, null);
         }
+    }
+
+    public long getDuration()
+    {
+        return mediaPlayer.getDuration();
     }
 
     public void setMediaPlayer(MediaPlayer mediaPlayer)

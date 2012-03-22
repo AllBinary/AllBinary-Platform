@@ -42,6 +42,11 @@ public class Sound implements SoundInterface, Runnable
     {
     }
 
+    public int getDuration()
+    {
+           return -1;
+    }
+
     public void run()
     {
         try
