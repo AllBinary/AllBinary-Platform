@@ -20,8 +20,9 @@ import allbinary.logic.math.BasicDecimal;
  *
  * @author user
  */
-public interface MovementInterface {
-   void init(short angle, BasicDecimal speed);
-   void process(AllBinaryGameLayer layer)throws Exception;
-   void stop();
+public interface MovementInterface
+{
+    void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle);
+    void process(AllBinaryGameLayer layer)throws Exception;
+    void stop();
 }

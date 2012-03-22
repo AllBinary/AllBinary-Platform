@@ -29,42 +29,57 @@ public class BasicConstantVelocityMovement
 extends Movement 
 implements VelocityInterfaceCompositeInterface
 {
-    // private VelocityProperties velocityProperties;
     private BasicVelocityProperties velocityProperties;
 
     private BasicDecimal speedBasicDecimal;
 
+    private final AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+    
+    public BasicConstantVelocityMovement(BasicDecimal basicDecimal, BasicVelocityProperties velocityProperties)
+    {
+        this.setSpeedBasicDecimal(basicDecimal);
+        this.velocityProperties = velocityProperties;
+    }
+    
     public BasicConstantVelocityMovement()
     {
         this.setSpeedBasicDecimal(ZERO_BIGDECIMAL);
         this.velocityProperties = new BasicVelocityProperties();
-        // new VelocityProperties(
-        // (int)this.getSpeedBasicDecimal().getUnscaled(),
-        // (int)this.getSpeedBasicDecimal().getUnscaled());
     }
 
-    public void init(short angle, BasicDecimal speedBasicDecimal)
+    public void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle)
     {
         this.speedBasicDecimal = speedBasicDecimal;
-        this.velocityProperties.setVelocity(speedBasicDecimal, AngleFactory.getInstance().getInstance(angle));
+        
+        AngleFactory angleFactory = AngleFactory.getInstance();
+        
+        this.velocityProperties.setVelocity(speedBasicDecimal, 
+                angleFactory.getInstance(angle), angleFactory.getInstance(otherAngle));
     }
 
-    private final AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
-    
-    public void moveOutsideRadius(AllBinaryLayer layer, int radius, short angle)
+    public void moveOutsideRadius(AllBinaryLayer layer, int radius, short angle, short otherAngle)
     {
         int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
         
         int xVector = (int) (axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue);
         int yVector = (int) (axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue);
+        int zVector = (int) (axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue);
 
-        layer.move(xVector, yVector);
+        layer.move(xVector, yVector, zVector);
     }
 
     public void process(AllBinaryGameLayer layer) throws Exception
     {
-        layer.move(this.velocityProperties.getVelocityXBasicDecimal().getScaled(),
-                this.velocityProperties.getVelocityYBasicDecimal().getScaled());
+        layer.move(
+                this.velocityProperties.getVelocityXBasicDecimal().getScaled(),
+                this.velocityProperties.getVelocityYBasicDecimal().getScaled(),
+                this.velocityProperties.getVelocityZBasicDecimal().getScaled()
+                );
+    }
+
+    public String toString()
+    {
+    	return this.velocityProperties.toString();
     }
 
     public void stop()

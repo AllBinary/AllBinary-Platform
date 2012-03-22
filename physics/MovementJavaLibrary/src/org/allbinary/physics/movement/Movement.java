@@ -29,7 +29,7 @@ public class Movement implements MovementInterface
 
    }
    
-   public void init(short angle, BasicDecimal speed)
+   public void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle)
    {
    }
    

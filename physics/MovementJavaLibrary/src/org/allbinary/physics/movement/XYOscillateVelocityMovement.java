@@ -18,7 +18,7 @@ import allbinary.game.physics.velocity.VelocityProperties;
 import allbinary.logic.math.BasicDecimal;
 
 public class XYOscillateVelocityMovement 
-extends LimitedConstantVelocityMovement
+extends BasicConstantVelocityMovement
 {
     private int oscillateMin;
     private int oscillateMax;

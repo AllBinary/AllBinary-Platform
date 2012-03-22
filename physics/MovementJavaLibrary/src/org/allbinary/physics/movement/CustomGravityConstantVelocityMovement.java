@@ -23,7 +23,7 @@ import allbinary.logic.math.BasicDecimal;
  * @author user
  */
 public class CustomGravityConstantVelocityMovement 
-   extends LimitedConstantVelocityMovement
+   extends BasicConstantVelocityMovement
 {
     private int customGravity;
     

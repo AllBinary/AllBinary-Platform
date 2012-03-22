@@ -29,28 +29,33 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
    protected BasicVelocityProperties basicVelocityProperties;
    private BasicDecimal speedBasicDecimal;
 
+   private final AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
+
    public ConstantVelocityNotifyViewChangeMovement()
    {
       this.speedBasicDecimal = ZERO_BIGDECIMAL;
       this.basicVelocityProperties = new BasicVelocityProperties();
    }
    
-   public void init(short angle, BasicDecimal speedBasicDecimal)
+   public void init(BasicDecimal speedBasicDecimal, short angle, short otherAngle)
    {
        this.speedBasicDecimal = speedBasicDecimal;
-       basicVelocityProperties.setVelocity(this.speedBasicDecimal, AngleFactory.getInstance().getInstance(angle));
+
+       AngleFactory angleFactory = AngleFactory.getInstance();
+
+       basicVelocityProperties.setVelocity(speedBasicDecimal, 
+               angleFactory.getInstance(angle), angleFactory.getInstance(otherAngle));
    }
 
-   private final AxisMathVectorUtil axisMathVectorUtil = AxisMathVectorUtil.getInstance();
-   
-   public void moveOutsideRadius(AllBinaryLayer layer, int radius, short angle)
+   public void moveOutsideRadius(AllBinaryLayer layer, int radius, short angle, short otherAngle)
    {
        int scaleFactorValue = this.speedBasicDecimal.getScaledFactorValue();
 
       int xVector = (int) (axisMathVectorUtil.calculateX(radius, angle) / scaleFactorValue);
       int yVector = (int) (axisMathVectorUtil.calculateY(radius, angle) / scaleFactorValue);
+      int zVector = (int) (axisMathVectorUtil.calculateZ(radius, otherAngle) / scaleFactorValue);
 
-      layer.move(xVector, yVector);
+      layer.move(xVector, yVector, zVector);
    }
 
    public void process(AllBinaryGameLayer layer)
@@ -58,14 +63,14 @@ public class ConstantVelocityNotifyViewChangeMovement extends Movement
    {
        int x = this.basicVelocityProperties.getVelocityXBasicDecimal().getScaled();
        int y = this.basicVelocityProperties.getVelocityYBasicDecimal().getScaled();
+       int z = this.basicVelocityProperties.getVelocityZBasicDecimal().getScaled();
        
-       layer.move(x, y);
+       layer.move(x, y, z);
        
-       if(x != 0 || y != 0)
+       if(x != 0 || y != 0 || z != 0)
        {
            layer.onViewPositionChangeEvent();
        }
-       
    }
    
    public void stop()

@@ -26,25 +26,25 @@ public interface BasicVelocityInterface
 
     void zero();
 
-    void setVelocityXBasicDecimal(BasicDecimal velocityXBasicDecimal);
+    //void setVelocityXBasicDecimal(BasicDecimal velocityXBasicDecimal);
 
-    void setVelocityYBasicDecimal(BasicDecimal velocityYBasicDecimal);
+    //void setVelocityYBasicDecimal(BasicDecimal velocityYBasicDecimal);
 
-    void setVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction);
+    void setVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
 
-    void addVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction);
+    void addVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection);
 
-    void setVelocity(long magnitude, Direction direction);
+    void setVelocity(long magnitude, Direction direction, Direction otherDirection);
 
-    void addVelocity(long magnitude, Direction direction);
+    void addVelocity(long magnitude, Direction direction, Direction otherDirection);
 
-    void setVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle);
+    void setVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
 
-    void addVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle);
+    void addVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle);
 
-    void setVelocity(long magnitude, Angle angle);
+    void setVelocity(long magnitude, Angle angle, Angle otherAngle);
 
-    void addVelocity(long magnitude, Angle angle);
+    void addVelocity(long magnitude, Angle angle, Angle otherAngle);
 
-    void addVelocity(long magnitude, short angle);
+    void addVelocity(long magnitude, short angle, short otherAngle);
 }

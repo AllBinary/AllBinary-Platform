@@ -13,8 +13,9 @@
 */
 package allbinary.game.physics.velocity;
 
-
-public class VelocityProperties extends BasicVelocityProperties implements VelocityInterface
+public class VelocityProperties 
+extends BasicVelocityProperties 
+implements VelocityInterface
 {
    private int maxForwardVelocity;
    private int maxReverseVelocity;
@@ -125,17 +126,17 @@ public class VelocityProperties extends BasicVelocityProperties implements Veloc
 
    public void limitMaxPositiveYVelocity(int maxVelocity)
    {
-       if (this.getVelocityYBasicDecimal().getUnscaled() > maxVelocity)
+       if (this.velocityYBasicDecimal.getUnscaled() > maxVelocity)
        {
-          this.getVelocityYBasicDecimal().set(maxVelocity);
+          this.velocityYBasicDecimal.set(maxVelocity);
        }
    }
 
    public void limitMaxNegativeYVelocity(int maxVelocity)
    {
-       if (this.getVelocityYBasicDecimal().getUnscaled() < -maxVelocity)
+       if (this.velocityYBasicDecimal.getUnscaled() < -maxVelocity)
        {
-          this.getVelocityYBasicDecimal().set(-maxVelocity);
+          this.velocityYBasicDecimal.set(-maxVelocity);
        }
    }
    
@@ -147,50 +148,50 @@ public class VelocityProperties extends BasicVelocityProperties implements Veloc
    
    public void limitMaxXVelocity(int maxVelocity)
    {
-      if (this.getVelocityXBasicDecimal().getUnscaled() > maxVelocity)
+      if (this.velocityXBasicDecimal.getUnscaled() > maxVelocity)
       {
-         this.getVelocityXBasicDecimal().set(maxVelocity);
+         this.velocityXBasicDecimal.set(maxVelocity);
       }
 
-      if (this.getVelocityXBasicDecimal().getUnscaled() < -maxVelocity)
+      if (this.velocityXBasicDecimal.getUnscaled() < -maxVelocity)
       {
-         this.getVelocityXBasicDecimal().set(-maxVelocity);
+         this.velocityXBasicDecimal.set(-maxVelocity);
       }
    }
    
    public boolean isOverXYMaxVelocity(int maxVelocity)
    {
-      if (this.getVelocityXBasicDecimal().getUnscaled() > maxVelocity)
+      if (this.velocityXBasicDecimal.getUnscaled() > maxVelocity)
       {
          return true;
       }
 
-      if (this.getVelocityXBasicDecimal().getUnscaled() < -maxVelocity)
+      if (this.velocityXBasicDecimal.getUnscaled() < -maxVelocity)
       {
          return true;
       }
 
-      if (this.getVelocityYBasicDecimal().getUnscaled() > maxVelocity)
+      if (this.velocityYBasicDecimal.getUnscaled() > maxVelocity)
       {
          return true;
       }
 
-      if (this.getVelocityYBasicDecimal().getUnscaled() < -maxVelocity)
+      if (this.velocityYBasicDecimal.getUnscaled() < -maxVelocity)
       {
          return true;
       }
       return false;
    }
    
-   public void setVelocity(long magnitude, short angle)
+   public void setVelocity(long magnitude, short angle, short otherAngle)
    {  
-      super.setVelocity(magnitude, angle);
+      super.setVelocity(magnitude, angle, otherAngle);
       this.limitXYToForwardAndReverseMaxVelocity();
    }
 
-   public void addVelocity(long magnitude, short angle)
+   public void addVelocity(long magnitude, short angle, short otherAngle)
    {  
-      super.addVelocity(magnitude, angle);
+      super.addVelocity(magnitude, angle, otherAngle);
       this.limitXYToForwardAndReverseMaxVelocity();
    }
 }
