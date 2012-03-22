@@ -32,8 +32,7 @@ public class ArrayUtil
     public Object[] copyOf(Object[] original, int newLength, Class newType)
     {
         Object[] copy = new Object[newLength];
-        System.arraycopy(original, 0, copy, 0,
-                Math.min(original.length, newLength));
+        System.arraycopy(original, 0, copy, 0, Math.min(original.length, newLength));
         return copy;
     }
 
@@ -55,6 +54,21 @@ public class ArrayUtil
             }
             stringBuffer.append(commonSeps.BRACE_CLOSE);
             stringBuffer.append(commonSeps.NEW_LINE);
+        }
+
+        return stringBuffer.toString();
+    }
+    
+    public String toString(Object[] objectArray)
+    {
+        StringBuilder stringBuffer = new StringBuilder();
+
+        CommonSeps commonSeps = CommonSeps.getInstance();
+
+        for (int index = 0; index < objectArray.length; index++)
+        {
+                stringBuffer.append(objectArray[index]);
+                stringBuffer.append(commonSeps.COMMA_SEP);
         }
 
         return stringBuffer.toString();

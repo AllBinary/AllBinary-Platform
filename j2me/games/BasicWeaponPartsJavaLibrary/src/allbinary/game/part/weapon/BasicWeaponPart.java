@@ -68,12 +68,12 @@ public class BasicWeaponPart
       this.relativeRelationship = relativeRelationship;
    }
    
-   public void process(AllBinaryLayerManager allbinaryLayerManager, short angle)
+   public void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle)
            throws Exception {
-      this.process(allbinaryLayerManager, angle, this.getWeaponProperties(), this.scoreableInterface);
+      this.process(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
    }
 
-   public void process(AllBinaryLayerManager allbinaryLayerManager, short angle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
+   public void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
            throws Exception {
       throw new Exception(NotImplemented.NAME);
    }

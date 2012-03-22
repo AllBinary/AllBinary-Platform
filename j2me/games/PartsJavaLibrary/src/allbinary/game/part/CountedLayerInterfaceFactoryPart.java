@@ -50,13 +50,13 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
        this.total = total;
    }
 
-   public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y)
+   public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
            throws Exception
    {
       if (this.total > 0)
       {
          this.setTotal(this.total - 1);
-         return this.getCountedPickedUpLayerInterfaceFactory().getInstance(hashtable, x, y);
+         return this.getCountedPickedUpLayerInterfaceFactory().getInstance(hashtable, x, y, z);
       } else
       {
          throw new Exception(

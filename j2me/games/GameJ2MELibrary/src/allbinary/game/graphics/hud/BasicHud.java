@@ -27,6 +27,7 @@ import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.event.DisplayChangeEvent;
+import allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import allbinary.graphics.font.MyFont;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
@@ -166,8 +167,8 @@ public class BasicHud //implements DisplayChangeEventListener
    {
        try
        {
-           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDisplayChangeEvent"));
-           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
+           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
+           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
            
            DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
@@ -179,7 +180,7 @@ public class BasicHud //implements DisplayChangeEventListener
        }
        catch(Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onDisplayChangeEvent", e));
+           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT, e));
        }
    }
    

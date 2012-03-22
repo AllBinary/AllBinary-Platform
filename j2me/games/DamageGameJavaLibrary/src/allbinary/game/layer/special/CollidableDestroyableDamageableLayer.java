@@ -176,7 +176,7 @@ OpenGLSurfaceChangedInterface
     public void fire(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
     throws Exception
     {
-    }    
+    }
 
     public void special1(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent)
     throws Exception

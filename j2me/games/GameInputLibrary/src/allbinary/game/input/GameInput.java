@@ -42,7 +42,7 @@ public class GameInput {
       //TODO TWB - fix all null and duplicate issue for better performance
       if(this.isRemoveDuplicateKeyPresses && this.gameKeyEventList.contains(gameKeyEvent))
       {
-          //LogUtil.put(LogFactory.getInstance("Danger Danger Danger Duplicate GameKeyEvent", this, CommonStrings.getInstance().ADD));
+          //LogUtil.put(LogFactory.getInstance("Danger Danger Danger: Duplicate GameKeyEvent", this, CommonStrings.getInstance().ADD));
           return;
       }
        

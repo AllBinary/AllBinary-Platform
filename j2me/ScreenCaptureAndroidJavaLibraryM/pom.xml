@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary</groupId>
-  <artifactId>AndroidToAllBinaryJavaLibrary</artifactId>
+  <artifactId>ScreenCaptureAndroidJavaLibrary</artifactId>
   <packaging>jar</packaging>
   <version>1</version>
-  <name>AndroidToAllBinaryJavaLibrary</name>
+  <name>ScreenCaptureAndroidJavaLibrary</name>
   <url>http://maven.apache.org</url>
 
     <properties>
@@ -26,6 +26,18 @@
             <artifactId>LoggingJ2MEAll</artifactId>
             <version>1</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameConfigurationJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileAndroidJavaLibrary</artifactId>
+            <version>1</version>
         </dependency>
 
         <dependency>
@@ -148,7 +160,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AndroidToAllBinaryJavaLibrary/src</sourceDirectory>
+        <sourceDirectory>../ScreenCaptureAndroidJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

@@ -142,6 +142,41 @@ extends BaseTouchInput
 
                 list.add(WEAPON);
             }
+            
+            TouchButton SPECIAL3 = new TouchButton(
+                    basicTouchInputFactory.SPECIAL_BUTTON_SIX,
+                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
+                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    commonButtons.NORMAL_BUTTON,
+                    basicTouchButtonCellPositionFactory.TOP_LEFT,
+                    touchButtonLocationHelper.getColumnsRemainderHalf(), 
+                    touchButtonLocationHelper.getRowsRemainderHalf()
+                    );
+
+            TouchButton SPECIAL4 = new TouchButton(
+                    basicTouchInputFactory.SPECIAL_BUTTON_SEVEN_TESTING_ONLY,
+                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
+                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    commonButtons.NORMAL_BUTTON,
+                    basicTouchButtonCellPositionFactory.TOP_SECOND_FROM_LEFT,
+                    touchButtonLocationHelper.getColumnsRemainderHalf(), 
+                    touchButtonLocationHelper.getRowsRemainderHalf()
+                    );
+            
+            /*
+            TouchButton ROTATE_Z = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_EIGHT_TESTING_ONLY,
+                    animationInterface,
+                    commonButtons.NORMAL_BUTTON,
+                    basicTouchButtonCellPositionFactory.SECOND_FROM_TOP_LEFT,
+                    touchButtonLocationHelper.getColumnsRemainderHalf(), 
+                    touchButtonLocationHelper.getRowsRemainderHalf()
+                    );
+            */
+            
+            list.add(SPECIAL3);
+            list.add(SPECIAL4);
+            //list.add(ROTATE_Z);
+
             return list;
         }
         catch (Exception e)

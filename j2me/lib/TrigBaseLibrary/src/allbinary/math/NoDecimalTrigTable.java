@@ -13,6 +13,9 @@
 */
 package allbinary.math;
 
+import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.communication.log.PreLogUtil;
+
 
 public class NoDecimalTrigTable
 {
@@ -1147,7 +1150,15 @@ public class NoDecimalTrigTable
         long ratio = Integer.MAX_VALUE - 1;
         if (dy != 0)
         {
-            ratio = (SCALE * dx) / dy;
+        	long dxl = dx;
+            ratio = SCALE * dxl / dy;
+
+            //Major bug in Android?
+            if(dx <= 0 && dy < 0)
+            {
+            	//PreLogUtil.put("How is dx or dy not negative? " + PositionStrings + dx + PositionStrings + dy, this, "antiTan");
+            	ratio = Math.abs(ratio);
+            }
 
             //LogUtil.put(LogFactory.getInstance("ratioUnscaled: " + ratioUnscaled, this, "antiTan"));
         }
@@ -1216,6 +1227,62 @@ public class NoDecimalTrigTable
             }
         }
 
-        throw new Exception("Invalid Ratio: " + ratio + " dx: " + dx + " dy: " + dy);
+        StringBuffer stringBuffer = new StringBuffer();
+        
+        stringBuffer.append("Invalid Ratio: ");
+        stringBuffer.append(ratio);
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(PositionStrings.getInstance().DX_LABEL);
+        stringBuffer.append(dx);
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(PositionStrings.getInstance().DX_LABEL);
+        stringBuffer.append(dy);
+        
+        throw new Exception(stringBuffer.toString());
+    }
+    
+    //Used to help figure out the correct quadrants when +- values are mixed up
+    public short antiTanDebug(int screenX, int screenY, int targetX, int targetY)
+    throws Exception
+    {
+		final String METHOD_NAME = "antiTanDebug";
+		final String TARGET_ANGLE = " Targeting angle: ";
+
+		PreLogUtil.put("screenX: " + screenX + " screenY: " + screenY + " targetX: " + targetX + " targetY: " + targetY, this, METHOD_NAME);
+		
+		int targetX2 = (int) -targetX;
+		int targetY2 = (int) -targetY;
+
+		int screenX2 = (int) -screenX;
+		int screenY2 = (int) -screenY;
+
+		int[] dx = new int[4];
+		dx[0] = (screenX - targetX);
+		dx[1] = (screenX - targetX2);
+		dx[2] = (screenX2 - targetX);
+		dx[3] = (screenX2 - targetX2);
+
+		int[] dy = new int[4];
+		dy[0] = (screenY - targetY);
+		dy[1] = (screenY - targetY2);
+		dy[2] = (screenY2 - targetY);
+		dy[3] = (screenY2 - targetY2);
+
+		short angleOfTarget;
+
+		for(int index = 0; index < dx.length; index++)
+		{
+			for(int index2 = 0; index2 < dy.length; index2++)
+			{
+				angleOfTarget = this.antiTan(dx[index], dy[index2]);
+
+				Angle angle = AngleFactory.getInstance().getInstance(angleOfTarget);
+				PreLogUtil.put("index: " + index + " index2: " + index2 + PositionStrings.getInstance().DX_LABEL + dx[index] + PositionStrings.getInstance().DY_LABEL + dy[index2] + TARGET_ANGLE + angleOfTarget + CommonSeps.getInstance().EQUALS + angle.getValue(), this, METHOD_NAME);
+			}
+		}
+
+		angleOfTarget = this.antiTan(dx[0], dy[0]);
+
+		return angleOfTarget;
     }
 }

@@ -93,6 +93,8 @@ import allbinary.game.score.displayable.HighScoreTextBox;
 import allbinary.game.state.GameState;
 import allbinary.game.state.GameStateFactory;
 import allbinary.graphics.Rectangle;
+import allbinary.graphics.ScreenCapture;
+import allbinary.graphics.ScreenCaptureFactory;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import allbinary.graphics.color.BasicColorFactory;
@@ -144,7 +146,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final IntermissionInterface startIntermissionInterface = new Intermission();
     private final IntermissionInterface endLevelIntermissionInterface = new Intermission();
     private static final int id = 0;
-    private AllBinaryGameLayerManager gameLayerManager;
+    protected AllBinaryGameLayerManager gameLayerManager;
     private GameState gameState;
     private boolean gameOver;
     public static final GameState SHOW_END_RESULT_GAME_STATE = 
@@ -172,7 +174,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private boolean isSingleKeyRepeatableProcessing;
     private BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface;
     private Paintable touchButtonsPaintable = NullPaintable.getInstance();
-    private Paintable touchPaintable;
+    protected Paintable touchPaintable;
     private PlayerGameInput cheatProcessor;
     private Processor gameInputProcessor;
     private Processor endGameProcessor;
@@ -181,7 +183,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private Processor realStartIntermissionProcessor;
     private Paintable endGamePaintable;
     private Paintable endGameStatePaintable;
-    private Paintable nonBotPaintable;
+    protected Paintable nonBotPaintable;
     private Paintable intermissionPaintable;
     // protected Paintable startIntermissionPaintable;
     private InitUpdatePaintable startIntermissionPaintable;
@@ -221,6 +223,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected final String BUILD_GAME = "buildGame";
     
     protected final GameTypeFactory gameTypeFactory = GameTypeFactory.getInstance();
+    
+    protected final ScreenCapture screenCapture = ScreenCaptureFactory.getInstance();
     
     public AllBinaryGameCanvas(
             CommandListener commandListener,
@@ -764,7 +768,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         //At some point I will probably want sensor input for the main menu and or demo screen
         //Note: if you need to do touch input on the demo screen then you need to just remove the if below
-        if (this.getLayerManager().getGameInfo().getGameType() != this.gameTypeFactory.BOT)
+        if (this.gameLayerManager.getGameInfo().getGameType() != this.gameTypeFactory.BOT)
         {
             //Since touch button selection is based on sensors this must come before updateTouch
             this.sensorGameUpdateProcessor.process(this.gameLayerManager);
@@ -1110,6 +1114,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void buildGame(int portion) throws Exception
     {
+        screenCapture.endRecording();
+        screenCapture.startRecording();
+        
         ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
         progressCanvas.addPortion(portion, "Generic Build");
@@ -1619,6 +1626,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     
     public void end() throws Exception
     {
+        screenCapture.endRecording();
+        
         AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
         allGameStatisticsFactory.add(baseGameStatistics.toString() + CommonSeps.getInstance().NEW_LINE);
         baseGameStatistics.init();

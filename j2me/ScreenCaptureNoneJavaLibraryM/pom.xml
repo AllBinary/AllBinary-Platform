@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>FullScreenNoneJavaLibrary</artifactId>
+    <artifactId>ScreenCaptureNoneJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <version>1</version>
-    <name>FullScreenNoneJavaLibrary</name>
+    <name>ScreenCaptureNoneJavaLibrary</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -25,22 +25,8 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameAnimationJavaLibrary</artifactId>
+            <artifactId>PreGameJ2MEJavaLibrary</artifactId>
             <version>1</version>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameConfigurationFormJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.microemu</groupId>
-            <artifactId>microemu-midp</artifactId>
-            <version>3.0.0-SNAPSHOT</version>
-            <optional>true</optional>
         </dependency>
 
     </dependencies>
@@ -62,7 +48,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../FullScreenNoneJavaLibrary/src</sourceDirectory>
+        <sourceDirectory>../ScreenCaptureNoneJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

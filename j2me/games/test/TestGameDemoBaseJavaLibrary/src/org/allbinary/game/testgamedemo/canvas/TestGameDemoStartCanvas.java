@@ -18,6 +18,7 @@ import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.testgamedemo.init.TestGameDemoStaticInitializerFactory;
 import org.allbinary.game.testgamedemo.layer.TestGameDemoLayerManager;
 
+import abcs.logic.communication.log.PreLogUtil;
 import allbinary.game.GameInfo;
 import allbinary.game.GameMode;
 import allbinary.game.GameTypeFactory;
@@ -61,6 +62,7 @@ public class TestGameDemoStartCanvas extends DemoCanvas
 
     protected int getNextRandom()
     {
+    	PreLogUtil.put("******************Demo Next Random Is Always 1", this, "getNextRandom");
         // return MyRandom.getAbsoluteNextInt(Integer.MAX_VALUE / 10) + 1;
         return 1;
     }

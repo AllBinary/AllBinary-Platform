@@ -143,8 +143,7 @@ extends BaseTouchInput
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
 
-            /*            
-            TouchButton ROTATE_X = new TouchButton(
+            TouchButton SPECIAL3 = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_SIX,
                     featuredAnimationInterfaceFactoryInterfaceFactory.get(
                             TouchButtonGenericActionResource.RESOURCE).getInstance(),
@@ -154,7 +153,7 @@ extends BaseTouchInput
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
 
-            TouchButton ROTATE_Y = new TouchButton(
+            TouchButton SPECIAL4 = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_SEVEN_TESTING_ONLY,
                     featuredAnimationInterfaceFactoryInterfaceFactory.get(
                             TouchButtonGenericActionResource.RESOURCE).getInstance(),
@@ -163,25 +162,24 @@ extends BaseTouchInput
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
-
-            TouchButton ROTATE_Z = new TouchButton(
-                    basicTouchInputFactory.SPECIAL_BUTTON_EIGHT_TESTING_ONLY,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+            
+            /*
+            TouchButton ROTATE_Z = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_EIGHT_TESTING_ONLY,
+                    animationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.SECOND_FROM_TOP_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
             */
-            
+
             list.add(ZOOM_IN);
             list.add(ZOOM_OUT);
             
-            //list.add(ROTATE_X);
-            //list.add(ROTATE_Y);
+            list.add(SPECIAL3);
+            list.add(SPECIAL4);
             //list.add(ROTATE_Z);
-            
+
             return list;
         }
         catch (Exception e)

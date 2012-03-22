@@ -37,16 +37,10 @@ public class TrackingEventCircularStaticPool
     public synchronized TrackingEvent getInstance(AllBinaryLayer layerInterface)
           throws Exception
     {
-    	TrackingEvent trackingEvent = 
-    	    (TrackingEvent) EVENT_POOL.getNextInstance();
+    	TrackingEvent trackingEvent = (TrackingEvent) EVENT_POOL.getNextInstance();
 
     	trackingEvent.setLayerInterfaceForCircularStaticPool(layerInterface);
 
         return trackingEvent;
     }
-
-    public static void setInstance(TrackingEventCircularStaticPool instance)
-    {
-        TrackingEventCircularStaticPool.instance = instance;
-    }          
 }

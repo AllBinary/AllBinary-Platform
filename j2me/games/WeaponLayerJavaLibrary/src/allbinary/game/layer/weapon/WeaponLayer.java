@@ -160,13 +160,14 @@ implements TickableInterface
         this.collidableWeaponBehavior = (CollidableWeaponBehavior) this.getCollidableInferface();
     }
     
-    public void init(int x, int y) throws Exception
+    public void init(int x, int y, int z) throws Exception
     {
         this.x = x;
         this.y = y;
+        this.z = z;
     }
     
-    public void init(AllBinaryLayer sourceLayerInterface, short angle,
+    public void init(AllBinaryLayer sourceLayerInterface, short angle, short otherAngle,
             WeaponProperties weaponProperties, ScoreableInterface scoreable) throws Exception
     {
         /*
@@ -206,7 +207,7 @@ implements TickableInterface
         this.initDamage = weaponProperties.getDamage();
         this.setDestroyed(false);
 
-        this.movement.init(angle, weaponProperties.getSpeed());
+        this.movement.init(weaponProperties.getSpeed(), angle, otherAngle);
     }
 
     // This is very important - does the owner of the WeaponLayer have the same
@@ -394,6 +395,11 @@ implements TickableInterface
     public void setInitAnimationInterface(Animation initAnimationInterface)
     {
         this.initAnimationInterface = initAnimationInterface;
+    }
+
+    public Animation getDestroyedAnimationInterface()
+    {
+        return destroyedAnimationInterface;
     }
 
     /**

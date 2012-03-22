@@ -37,4 +37,5 @@ public class CompositeSound extends Sound
        LogUtil.put(LogFactory.getInstance("Set MediaTime: " + this.playerComposite.getMediaTime(), this, CommonStrings.getInstance().INIT));
     }
      */
+
 }

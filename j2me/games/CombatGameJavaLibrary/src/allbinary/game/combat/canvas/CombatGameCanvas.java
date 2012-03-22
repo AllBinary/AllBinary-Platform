@@ -90,11 +90,9 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     {
         super.processPlayingGame();
 
-        AllBinaryGameLayerManager layerManager = this.getLayerManager();
-
         for (int index = basicLayerProcessor.length; --index >= 0;)
         {
-            basicLayerProcessor[index].process(layerManager);
+            basicLayerProcessor[index].process(this.gameLayerManager);
         }
     }
     
@@ -116,6 +114,6 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     protected void cleanupManager()
     throws Exception
     {
-        this.getLayerManager().cleanup();
+    	this.gameLayerManager.cleanup();
     }
 }

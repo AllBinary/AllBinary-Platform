@@ -23,12 +23,14 @@ import org.allbinary.media.audio.TestGameDemoSoundsFactoryFactory;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import abcs.logic.communication.log.PreLogUtil;
 import allbinary.game.GameInfo;
 import allbinary.game.GameMode;
 import allbinary.game.GameTypeFactory;
 import allbinary.game.PlayerTypesFactory;
 import allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import allbinary.game.layer.AllBinaryGameLayerManager;
+import allbinary.game.midlet.LicenseLevelUtil;
 import allbinary.game.midlet.LicenseLoadingTypeFactory;
 import allbinary.game.midlet.SpecialDemoGameMidlet;
 import allbinary.game.paint.help.HelpPaintable;
@@ -78,12 +80,10 @@ public class TestGameDemoMIDlet extends
 
    public int getHighestLevel()
    {
-       //return LicenseLevelUtil.getMaxLevel(
-       //      TestGameDemoLayerManager.MAX_LEVEL, 1);
-       return TestGameDemoLayerManager.MAX_LEVEL;
-       
+	   PreLogUtil.put("******************Demo Level Limited To: 6", this, "getMaxLevel");
+       return LicenseLevelUtil.getInstance().getMaxLevel(TestGameDemoLayerManager.MAX_LEVEL, 6);
    }
-   
+
    protected AllBinaryGameLayerManager createGameLayerManager()
    {
        GameInfo gameInfo = new GameInfo(

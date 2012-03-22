@@ -19,11 +19,11 @@ import allbinary.layer.AllBinaryLayerManager;
 
 public interface SalvoInterface {
 
-	void process(AllBinaryLayerManager allbinaryLayerManager, short angle) 
+	void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle) 
 	throws Exception;
 	
 	void process(AllBinaryLayerManager allbinaryLayerManager,
-			short angle, WeaponProperties weaponProperties, 
+			short angle, short otherAngle, WeaponProperties weaponProperties, 
 			ScoreableInterface scoreableInterface)
 	throws Exception;
 }

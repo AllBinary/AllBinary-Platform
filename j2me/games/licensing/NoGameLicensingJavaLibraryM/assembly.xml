@@ -14,18 +14,8 @@
                <exclude>org.allbinary:ApplicationStatisticsJ2MELibrary</exclude>
                <exclude>org.allbinary:FileLicenseInitInfoJavaLibrary</exclude>
                 
-                <exclude>org.allbinary:TempIntegrationJavaLibrary</exclude>
-                                
-                <exclude>org.allbinary:FullScreenJavaLibrary</exclude>
-
                 <exclude>org.allbinary:GameInputPCJavaLibrary</exclude>
                 <exclude>org.allbinary:GameInputPCMotionJavaLibrary</exclude>
-
-                <exclude>org.allbinary:ContentNoneJavaLibrary</exclude>
-                
-                <exclude>org.allbinary:NoThirdPartyStoreJavaLibrary</exclude>
-
-                <exclude>org.allbinary:AdvertisementClientNoneJavaLibrary</exclude>
 
                <exclude>org.allbinary:ResourceLibrary</exclude>
 

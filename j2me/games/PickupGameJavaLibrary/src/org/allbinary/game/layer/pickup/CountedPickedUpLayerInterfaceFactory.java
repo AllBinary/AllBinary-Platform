@@ -42,7 +42,7 @@ public class CountedPickedUpLayerInterfaceFactory
         list.add(this);
     }
 
-    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y)
+    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
     throws Exception
     {
         throw new Exception(NotImplemented.NAME);

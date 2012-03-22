@@ -22,6 +22,7 @@ import allbinary.game.rand.MyRandomFactory;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.logic.basic.util.visitor.Visitor;
+import allbinary.time.GameTickTimeDelayHelperFactory;
 
 public class BasicRandomAI extends BasicAI
 {
@@ -47,7 +48,7 @@ public class BasicRandomAI extends BasicAI
     
     public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        if (this.inputProbability.getTimeDelayHelper().isTime())
+        if (this.inputProbability.getTimeDelayHelper().isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
         {
             i_random = myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
 

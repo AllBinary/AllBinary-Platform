@@ -69,8 +69,9 @@ public class LayerPlacer
 
          int x = point.getX() + relativePoint.getX();
          int y = point.getY() + relativePoint.getY();
+         int z = point.getZ() + relativePoint.getZ();
 
-         AllBinaryLayer layerInterface = layerInterfaceFactory.getInstance(layerHashtable, x, y);
+         AllBinaryLayer layerInterface = layerInterfaceFactory.getInstance(layerHashtable, x, y, z);
 
          layerInterfaceVisitor.visit(layerInterface);
       }

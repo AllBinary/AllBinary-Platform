@@ -35,4 +35,11 @@ public class AxisMathVectorUtil
     {
        return magnitude * noDecimalTrigTable.sin(angle) / 10;
     }    
+
+    //Since I use z as altitude going up and down then otherAngle is swayAngle and not tiltAngle
+    //as such it is hard to say what the otherAngle is since I do not have normal orientation of the axi.
+    public long calculateZ(long magnitude, short otherAngle)
+    {
+       return magnitude * noDecimalTrigTable.sin(otherAngle) / 10;
+    }    
 }

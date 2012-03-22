@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary</groupId>
-  <artifactId>OtherGraphicsMediaLibrary</artifactId>
+  <artifactId>OtherGraphicsMediaLibraryP</artifactId>
   <packaging>pom</packaging>
   <version>1</version>
-  <name>OtherGraphicsMediaLibrary</name>
+  <name>OtherGraphicsMediaLibraryP</name>
   <url>http://maven.apache.org</url>
 
 

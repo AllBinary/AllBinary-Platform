@@ -105,7 +105,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
     protected  void updateTouch()
     throws Exception
     {
-        GameInfo gameInfo = this.getLayerManager().getGameInfo();
+        GameInfo gameInfo = this.gameLayerManager.getGameInfo();
         
         if(gameInfo.getGameType() != GameTypeFactory.getInstance().BOT)
         {
@@ -211,7 +211,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
                     list.add(new OptimizedTickableLayerProcessor());
                 }
 
-                this.getLayerManager().setLayerProcessorList(list);
+                gameLayerManager.setLayerProcessorList(list);
 
                 progressCanvas.addPortion(portion, "Initializing Game");
             }
@@ -226,11 +226,9 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
 
     public void buildGame(boolean isProgress) throws Exception
     {
-        this.loadResources(
-                this.getLayerManager().getGameInfo().getCurrentLevel());
+        this.loadResources(gameLayerManager.getGameInfo().getCurrentLevel());
         
-        ProgressCanvas progressCanvas = 
-            ProgressCanvasFactory.getInstance();
+        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
         int portion = 30;
         if (isProgress && this.isMainCanvas())
@@ -244,19 +242,16 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
             portion = 4;
         }
 
-        progressCanvas.addPortion(portion, "Cleaning Up");
-
+        //Combat games
+        //this.cleanupGame();
         PrimaryPlayerQueueFactory.getInstance().clear();
         SecondaryPlayerQueueFactory.getInstance().clear();
-
-        this.getLayerManager().cleanup();
+        gameLayerManager.cleanup();
 
         if (!this.isRunning())
         {
             return;
         }
-
-        progressCanvas.addPortion(portion, "Building Game Level");
 
         //this.getLayerManager().append(new PlayerGameInputGameLayer());
 
@@ -266,8 +261,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
 
         progressCanvas.addPortion(portion, "Building Game Level");
 
-        new TestGameDemoLevelBuilder(this.getLayerManager()).build(
-                this.getWidth(), this.getHeight());
+        new TestGameDemoLevelBuilder(this).build();
 
         progressCanvas.addPortion(portion, "Set Background");
 
@@ -282,11 +276,11 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
             return;
         }
 
-        this.getLayerManager().append(new PlayerGameInputGameLayer());
+        gameLayerManager.append(new PlayerGameInputGameLayer());
 
         progressCanvas.addPortion(portion, "Ending Custom Build");
 
-        if (this.getLayerManager().getGameInfo().getGameType() != GameTypeFactory.getInstance().BOT)
+        if (gameLayerManager.getGameInfo().getGameType() != GameTypeFactory.getInstance().BOT)
         {
             //PrimaryPlayerQueueFactory.getInstance().add(
                     //GameSounds.getBegin());
@@ -341,8 +335,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
     {
         this.clear(graphics);
 
-        this.getBasicColorUtil().setBasicColor(
-                graphics, this.getLayerManager().getForegroundBasicColor());
+        this.getBasicColorUtil().setBasicColor(graphics, gameLayerManager.getForegroundBasicColor());
 
         //graphics.drawString(TEXT, 0, halfHeight, 0);
 
@@ -350,13 +343,21 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
         graphics.drawString(soundQueue, 0, halfHeight + 15, 0);
         */
 
-        this.gamePerformanceInitUpdatePaintable.paint(graphics);
+    	gameLayerManager.paint(graphics, 0, 0);
+
+    	nonBotPaintable.paint(graphics);
+
+        gameSpecificPaintable.paint(graphics);    	
+
+    	gamePerformanceInitUpdatePaintable.paint(graphics);
         
-        graphics.drawString(this.gyroOrientationSensor.toString(), 
-                0, halfHeight + 30 + 60, 0);
-        graphics.drawString(this.accelerometerOrientationSensor.toString(), 
-                0, halfHeight + 30 + 75, 0);
+        touchPaintable.paint(graphics);
         
+        screenCapture.saveFrame();
+
+        graphics.drawString(this.gyroOrientationSensor.toString(), 0, halfHeight + 30 + 60, 0);
+        graphics.drawString(this.accelerometerOrientationSensor.toString(), 0, halfHeight + 30 + 75, 0);
+
         this.getTouchPaintable().paint(graphics);
     }
 
@@ -372,8 +373,6 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
     
     protected void processGame() throws Exception
     {
-        super.processGame();
-
         if (playerTimeDelayHelper.isTime())
         {
             if(this.features.isFeature(soundGameFeature))
@@ -381,6 +380,8 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
                 this.primaryPlayerQueue.add(TestSound.getInstance());
             }
         }
+    	
+        super.processGame();
         
         /*
         if (playerTimeDelayHelper.isTime())
@@ -396,12 +397,14 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
                 playerTimeDelayHelper.setStartTime();
             }
         }
-        */
+
         
         if (!this.primaryPlayerQueue.process())
         {
             this.secondaryPlayerQueue.process();
         }
+        
+        */
         
         //soundQueue = this.primaryPlayerQueue.toString();
         

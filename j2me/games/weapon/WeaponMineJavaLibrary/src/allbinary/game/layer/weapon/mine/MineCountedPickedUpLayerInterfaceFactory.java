@@ -25,12 +25,10 @@ import allbinary.game.combat.weapon.WeaponProperties;
 import allbinary.game.layer.weapon.WeaponLayerCircularPool;
 import allbinary.game.score.ScoreableInterface;
 import allbinary.layer.AllBinaryLayer;
-import allbinary.layer.LayerInterfaceFactoryInterface;
 import allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class MineCountedPickedUpLayerInterfaceFactory 
     extends CountedPickedUpLayerInterfaceFactory 
-    implements LayerInterfaceFactoryInterface
 {
     private final WeaponLayerCircularPool weaponLayerCircularStaticPool = 
         MineLayerCircularStaticPool.getInstance();
@@ -67,7 +65,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
     
     private final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
     
-    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y)
+    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
             throws Exception
     {
         AllBinaryLayer sourceLayerInterface = (AllBinaryLayer) 
@@ -76,7 +74,7 @@ public class MineCountedPickedUpLayerInterfaceFactory
         Integer angle = (Integer) hashtable.get(smallIntegerSingletonFactory.getInstance(1));
 
         return this.weaponLayerCircularStaticPool.getInstance(
-                sourceLayerInterface, x, y, (short) angle.intValue(),
+                sourceLayerInterface, x, y, z, (short) angle.intValue(), (short) 0,
                 weaponProperties,
                 (ScoreableInterface) sourceLayerInterface);
     }

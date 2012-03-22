@@ -14,6 +14,8 @@
 package allbinary.game.combat.weapon;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.communication.log.PreLogUtil;
 import allbinary.logic.math.BasicDecimal;
 
 /**
@@ -26,9 +28,21 @@ public class WeaponProperties extends SimpleWeaponProperties
     private long targetingTime;
     private BasicDecimal speed;
     
+    private static boolean messageSent = false;
+    
     public WeaponProperties(
             long reloadTime, long targetingTime, long speed, int damage, short dissipation)
     {
+    	if(speed < 10240 && speed != 0 && !messageSent)
+    	{
+    	    final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
+
+    	    PreLogUtil.put(MESSAGE + speed, this, CommonStrings.getInstance().CONSTRUCTOR);
+    	    //throw new Exception(MESSAGE + speed);
+    	    
+    	    messageSent = true;
+    	}
+    	
         this.setReloadTime(reloadTime);
         this.setTargetingTime(targetingTime);
         this.setDamage(damage);
@@ -57,6 +71,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     }
 
     public WeaponProperties(int speed, int damage, short dissipation)
+    throws Exception
     {
         this(-1, -1, speed, damage, dissipation);
     }

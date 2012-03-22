@@ -35,7 +35,6 @@
         <module>../../../game/behavior/ArtificialIntelligenceLibraryM</module>
 
         <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
-        <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationLibraryM</module>
         <module>../../media/graphics/animation/RotationAnimationJavaLibraryM</module>
@@ -46,11 +45,7 @@
 
         <module>../../games/GameConfigurationJavaLibraryM</module>
 
-        <module>../../input/JSEGyroSensorJavaLibraryM</module>
-
         <module>../../games/GameIntermissionLibraryM</module>
-        
-        <module>../../TempIntegrationJavaLibraryM</module>
 
         <module>../../media/graphics/ImageCacheJavaLibraryM</module>
 
@@ -64,9 +59,6 @@
         <module>../../input/MotionGestureJavaLibraryM</module>
 
         <module>../../input/MotionGestureBaseJavaLibraryM</module>
-
-        <module>../../input/PC/GameInputPCJavaLibraryM</module>
-        <module>../../input/PC/GameInputPCMotionJavaLibraryM</module>
 
         <module>../../games/GameConfigurationFormJavaLibraryM</module>
 
@@ -83,14 +75,6 @@
         -->
         <module>../../../../work/j2me/media/graphics/FormJavaLibraryM</module>
         <module>../../media/graphics/FormBaseJavaLibraryM</module>
-        <!--
-        ../../
-        -->
-        <module>../../../../work/j2me/media/graphics/FormJMEJavaLibraryM</module>
-        <!--
-        ../../
-        -->
-        <module>../../../../work/j2me/media/graphics/FormJSEJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationResourceJavaLibraryM</module>
         <module>../../media/graphics/animation/TransitionAnimationJavaLibraryM</module>
@@ -100,24 +84,18 @@
         <module>../../games/GameSoundsJavaLibraryM</module>
 
         <module>../../media/MediaDataM</module>
-        <module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryM</module>
         <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>
-        <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryM</module>
 
-        <module>../../../allbinary_src/hardware/BaseHardwareJavaLibraryM</module>
-        <module>../../../allbinary_src/hardware/BaseOperatingSystemJavaLibraryM</module>
-        <module>../../../allbinary_src/hardware/BaseSystemJavaLibraryM</module>
-        <module>../../../allbinary_src/hardware/NoSystemJavaLibraryM</module>
+        <module>../../../allbinary_src/hardware/HardwareLibraryPOM</module>
+        <!--
+        
+        -->
+
         <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
         <module>../../games/licensing/NoGameLicensingJavaLibraryM</module>
 
-        <module>../../input/TouchButtonMappingJavaLibraryM</module>
-        <module>../../input/TouchButtonBaseJavaLibraryM</module>
-        <module>../../input/NoTouchButtonJavaLibraryM</module>
-        <module>../../input/TouchButtonJavaLibraryM</module>
-        <module>../../input/TouchButtonResourceAnimationJavaLibraryM</module>
-        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryM</module>
+        <module>../../input/TouchInputLibraryPOM</module>
 
         <module>../../../allbinary_src/content/ContentNoneJavaLibraryM</module>
 
@@ -140,6 +118,8 @@
 
 <module>../../../../work/j2me/media/graphics/layer/AllBinaryLayerJavaLibraryM</module>
 
+        <module>../../ScreenCaptureNoneJavaLibraryM</module>
+
         <module>../../games/GameJ2MELibraryM</module>
         
         <module>../../games/TickableJavaLibraryM</module>
@@ -155,14 +135,14 @@
 
         <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
 
-        <module>../../games/weapon/WeaponMineJavaLibraryM</module>
-
-        <!--
         <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+        <!-- 
         -->
 
         <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
         <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>
+        
+        <module>../GameJ2MEOptionalLibraryPOM</module>
         
     </modules>
 

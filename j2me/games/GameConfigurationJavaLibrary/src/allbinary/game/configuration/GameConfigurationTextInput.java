@@ -22,7 +22,7 @@ public class GameConfigurationTextInput
     private static Hashtable hashtable = new Hashtable();
     
     public static GameConfigurationTextInput SIMULATOR_IP = 
-        new GameConfigurationTextInput("IP: ", "192.168.1.2");
+        new GameConfigurationTextInput("IP: ", "192.168.1.3");
     public static GameConfigurationTextInput SIMULATOR_PORT = 
         new GameConfigurationTextInput("Port: ", "8010");
     

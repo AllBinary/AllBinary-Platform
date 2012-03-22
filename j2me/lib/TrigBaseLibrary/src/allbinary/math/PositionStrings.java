@@ -28,4 +28,8 @@ public class PositionStrings
     public final String X_LABEL = "x: ";
     public final String Y_LABEL = "y: ";
     public final String Z_LABEL = "z: ";
+
+    public final String DX_LABEL = "dx: ";
+    public final String DY_LABEL = "dy: ";
+    public final String DZ_LABEL = "dz: ";
 }

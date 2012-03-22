@@ -26,7 +26,8 @@ public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
     }
     
     public WeaponLayer getInstance(
-            AllBinaryLayer sourceLayerInterface, int x, int y, short angle,
+            AllBinaryLayer sourceLayerInterface, int x, int y, int z, 
+            short angle, short otherAngle,
             WeaponProperties weaponProperties, 
             ScoreableInterface scoreable
             )
@@ -42,8 +43,8 @@ public class WeaponLayerCircularPool extends AllBinaryLayerCircularPool
         }
         */
 
-        weaponLayer.init(x, y);
-        weaponLayer.init(sourceLayerInterface, angle, weaponProperties, scoreable);
+        weaponLayer.init(x, y, z);
+        weaponLayer.init(sourceLayerInterface, angle, otherAngle, weaponProperties, scoreable);
 
         return weaponLayer;
     }

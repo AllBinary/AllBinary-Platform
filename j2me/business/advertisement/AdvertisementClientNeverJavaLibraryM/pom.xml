@@ -3,10 +3,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>AdvertisementClientNoneJavaLibrary</artifactId>
+    <artifactId>AdvertisementClientNeverJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <version>1</version>
-    <name>AdvertisementClientNoneJavaLibrary</name>
+    <name>AdvertisementClientNeverJavaLibrary</name>
     <url>http://maven.apache.org</url>
 
     <properties>
@@ -32,6 +32,12 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AllBinaryAdvertisementClientJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AdvertisementClientNoneJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
 
@@ -206,7 +212,7 @@
 -->
         </plugins>
 
-        <sourceDirectory>../AdvertisementClientNoneJavaLibrary/src</sourceDirectory>
+        <sourceDirectory>../AdvertisementClientNeverJavaLibrary/src</sourceDirectory>
 
     </build>
 

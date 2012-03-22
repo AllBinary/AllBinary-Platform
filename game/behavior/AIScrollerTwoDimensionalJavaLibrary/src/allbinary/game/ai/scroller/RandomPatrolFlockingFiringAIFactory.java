@@ -35,7 +35,7 @@ public class RandomPatrolFlockingFiringAIFactory
             new RandomPatrolAI(hashtable, ownerLayerInterface, gameInput);
 
         artificialIntelligenceInterface[1] = 
-            new TimedFireAI(1000, ownerLayerInterface, gameInput);
+            new TimedFireAI(1800, ownerLayerInterface, gameInput);
 
         //artificialIntelligenceInterface[2] = 
           //  new FlockingAI(hashtable, ownerLayerInterface, gameInput);

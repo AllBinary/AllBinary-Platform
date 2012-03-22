@@ -29,6 +29,17 @@ public class BaseCircularPool
         return object;
     }
     
+    public void init(
+            AllBinaryObjectFactoryInterface allBinaryObjectFactoryInterface)
+    {
+        this.circularIndexUtil.setIndex(0);
+        int size = this.circularIndexUtil.getSize();
+        for (int index = 0; index < size ; index++)
+        {
+            OBJECT_ARRAY[index] = allBinaryObjectFactoryInterface.getInstance();
+        }
+    }
+    
     public Object getInstance(int index) throws Exception
     {
         return OBJECT_ARRAY[index];

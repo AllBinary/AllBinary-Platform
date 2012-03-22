@@ -193,7 +193,7 @@ public class MotionGestureRecognizer
             else
             {
 
-                //LogUtil.put(LogFactory.getInstance("Diagonal: " + gradient + " dx: " + line.getDeltaX() + " dy: " + line.getDeltaY(), this, "processDraggedMotionEvent"));
+                //LogUtil.put(LogFactory.getInstance("Diagonal: " + gradient + CommonStrings + PositionStrings + line.getDeltaX() + PositionStrings + line.getDeltaY(), this, "processDraggedMotionEvent"));
                 
                 if (gradient > 0)
                 {

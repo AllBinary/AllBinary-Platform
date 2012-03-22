@@ -128,4 +128,9 @@ public class GameAdState implements VirtualKeyboardEventListenerInterface
     {
         return okayToShowAds;
     }
+    
+    public boolean isEnabled()
+    {
+    	return false;
+    }
 }

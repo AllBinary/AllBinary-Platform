@@ -11,21 +11,9 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.game.tracking;
+package com.abcs.logic.util.cache;
 
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
-import allbinary.logic.basic.util.event.AllBinaryEventObjectFactoryInterface;
-
-public class TrackingEventFactory 
-implements AllBinaryEventObjectFactoryInterface
+public interface AllBinaryObjectFactoryInterface
 {
-    public TrackingEventFactory()
-    {
-    }
-    
-    public AllBinaryEventObject getInstance()
-    {
-        return new TrackingEvent();
-    }
-    
+    Object getInstance();
 }

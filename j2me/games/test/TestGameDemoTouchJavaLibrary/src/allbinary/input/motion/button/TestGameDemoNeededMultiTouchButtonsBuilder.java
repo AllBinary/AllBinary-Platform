@@ -136,23 +136,27 @@ extends BaseTouchInput
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
 
-            /*
-            TouchButton ROTATE_X = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_SIX,
-                    animationInterface,
+            TouchButton SPECIAL3 = new TouchButton(
+                    basicTouchInputFactory.SPECIAL_BUTTON_SIX,
+                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
+                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
 
-            TouchButton ROTATE_Y = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_SEVEN_TESTING_ONLY,
-                    animationInterface,
+            TouchButton SPECIAL4 = new TouchButton(
+                    basicTouchInputFactory.SPECIAL_BUTTON_SEVEN_TESTING_ONLY,
+                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
+                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_SECOND_FROM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
                     touchButtonLocationHelper.getRowsRemainderHalf()
                     );
-
+            
+            /*
             TouchButton ROTATE_Z = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_EIGHT_TESTING_ONLY,
                     animationInterface,
                     commonButtons.NORMAL_BUTTON,
@@ -165,8 +169,8 @@ extends BaseTouchInput
             list.add(ZOOM_IN);
             list.add(ZOOM_OUT);
             
-            //list.add(ROTATE_X);
-            //list.add(ROTATE_Y);
+            list.add(SPECIAL3);
+            list.add(SPECIAL4);
             //list.add(ROTATE_Z);
             
             return list;

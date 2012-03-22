@@ -42,6 +42,8 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
             new StaticViewPosition(0, 0, 0));
 
         this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList());
+        
+        LogUtil.put(LogFactory.getInstance("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, "paint"));
     }
     
     public PlayerGameInput getPlayerGameInput()
@@ -60,6 +62,7 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
     
    public void paint(Graphics graphics)
    {
-       LogUtil.put(LogFactory.getInstance("Should Not Be Called Except For Testing Input", this, "paint"));
+       //LogUtil.put(LogFactory.getInstance("Should Not Be Called Except For Testing Input", this, "paint"));
+	   super.paint(graphics);
    }
 }

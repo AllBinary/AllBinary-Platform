@@ -20,6 +20,7 @@ import allbinary.game.input.GameInput;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.logic.math.SmallIntegerSingletonFactory;
+import allbinary.time.GameTickTimeDelayHelperFactory;
 import allbinary.time.TimeDelayHelper;
 
 public class TimedFireAI extends BasicAI
@@ -46,7 +47,7 @@ public class TimedFireAI extends BasicAI
         TimeFiredInterface timeFiredInterface = 
             (TimeFiredInterface) this.getOwnerLayerInterface();
         
-        if (this.maxFireDelayTimeHelper.isTime() &&
+        if (this.maxFireDelayTimeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()) &&
                 //Fire only if owner has not fired from a different behavoir/AI
                 timeFiredInterface.getLastFireTime() + this.maxFireDelayTimeHelper.getDelay() < this.maxFireDelayTimeHelper.getStartTime())
         {

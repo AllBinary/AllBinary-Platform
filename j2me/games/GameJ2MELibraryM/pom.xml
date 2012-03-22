@@ -52,6 +52,27 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>AdvertisementClientNeverJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ScreenCaptureNoneJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FullScreenNoneJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>TempIntegrationJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
@@ -271,6 +292,13 @@
             <groupId>org.allbinary</groupId>
             <artifactId>J2SEForJ2MEJavaLibrary</artifactId>
             <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary.microemu</groupId>
+            <artifactId>special-microemu-midp</artifactId>
+            <version>0</version>
             <optional>true</optional>
         </dependency>
 

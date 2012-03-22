@@ -51,6 +51,8 @@
         <module>../../../../work/j2me/J2MEGameMidletAsActivityJavaLibraryM</module>
         <module>../../../../work/j2me/J2MEMidletAsActivityJavaLibraryM</module>
         <module>../../AndroidToAllBinaryJavaLibraryM</module>
+        
+        <module>../../media/sound/MusicAndroidJavaLibraryM</module>
 
     </modules>
 

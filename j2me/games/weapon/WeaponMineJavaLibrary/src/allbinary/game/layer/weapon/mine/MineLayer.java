@@ -60,9 +60,9 @@ public class MineLayer extends SimpleWeaponLayer
    private final ViewPositionEventHandler viewPositionEventHandler = 
        ViewPositionEventHandler.getInstance();
    
-   public void init(int x, int y)
+   public void init(int x, int y, int z)
    {
-      this.setPosition(x + 5, y + 5, this.z);
+      this.setPosition(x + 5, y + 5, z);
 
       this.viewPositionEventHandler.addListener((AllBinaryLayer) this);
 

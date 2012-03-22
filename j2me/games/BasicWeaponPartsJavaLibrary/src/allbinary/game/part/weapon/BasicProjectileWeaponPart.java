@@ -54,7 +54,8 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
    }
 
    public void process(AllBinaryLayerManager allbinaryLayerManager,
-           short angle, WeaponProperties weaponProperties, 
+           short angle, short otherAngle, 
+           WeaponProperties weaponProperties, 
            ScoreableInterface scoreableInterface)
            throws Exception 
    {
@@ -62,8 +63,10 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
               weaponLayerCircularStaticPool.getInstance(
               this.getOwnerLayerInterface(), 
               this.relativeRelationship.getX(), 
-              this.relativeRelationship.getY(), 
-              angle, weaponProperties, scoreableInterface);
+              this.relativeRelationship.getY(),
+              this.relativeRelationship.getZ(),
+              angle, otherAngle,  
+              weaponProperties, scoreableInterface);
 
       allbinaryLayerManager.append(weaponLayer);
    }

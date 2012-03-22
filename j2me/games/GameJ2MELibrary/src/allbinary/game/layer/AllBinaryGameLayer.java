@@ -18,10 +18,8 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.NotImplemented;
-import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.communication.log.ForcedLogUtil;
 import allbinary.graphics.Rectangle;
-import allbinary.graphics.SpacialStrings;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.BasicColorSetUtil;
@@ -29,7 +27,6 @@ import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
-import allbinary.math.PositionStrings;
 import allbinary.view.ViewPosition;
 import allbinary.view.event.ViewPositionEvent;
 import allbinary.view.event.ViewPositionEventListenerInterface;
@@ -131,35 +128,5 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     {
     	super.setHeightImpl(height);
     	this.setHalfHeight(height >> 1);
-    }
-
-    private static final String TYPE = "Type: ";
-    
-    public String toString()
-    {
-        StringBuilder stringBuffer = new StringBuilder();
-        
-        CommonSeps commonSeps = CommonSeps.getInstance();
-        
-        stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(this.getName());
-        stringBuffer.append(commonSeps.COLON_SEP);
-        stringBuffer.append(TYPE);
-        stringBuffer.append(this.getType());
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(PositionStrings.getInstance().X_LABEL);
-        stringBuffer.append(this.getX());
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(PositionStrings.getInstance().Y_LABEL);
-        stringBuffer.append(this.getY());
-        
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
-        stringBuffer.append(this.getWidth());
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
-        stringBuffer.append(this.getHeight());
-        
-        return stringBuffer.toString();
-    }
+    }    
 }
