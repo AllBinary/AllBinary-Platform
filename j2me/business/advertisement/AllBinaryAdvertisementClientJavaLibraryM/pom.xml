@@ -54,6 +54,13 @@
             <version>1</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
     <build>

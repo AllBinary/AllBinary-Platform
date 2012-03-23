@@ -78,7 +78,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>mythirdpartyintegratedcode</artifactId>
+            <artifactId>SimpleCryptLibrary</artifactId>
             <version>1</version>
         </dependency>
         <dependency>

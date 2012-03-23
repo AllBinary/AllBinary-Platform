@@ -34,10 +34,17 @@
             <groupId>${project.groupId}</groupId>
             <artifactId>NoSystemJavaLibrary</artifactId>
             <version>${project.version}</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TempIntegrationJavaLibrary</artifactId>
+            <version>${project.version}</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>mythirdpartyintegratedcode</artifactId>
+            <artifactId>SimpleCryptLibrary</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

@@ -21,11 +21,8 @@
         LayerPlacementLibrary
         NoGyroSensorLibrary
         -->
-        
-<!--
-../../../
--->
-        <module>../../../../work/allbinary_src/mythirdpartyintegratedcodeM</module>
+
+        <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
 
         <module>../../../allbinary_src/ThreadJ2MELibraryM</module>
 
@@ -38,7 +35,7 @@
 
         <module>../../media/graphics/animation/AnimationLibraryM</module>
         <module>../../media/graphics/animation/RotationAnimationJavaLibraryM</module>
-        
+
         <module>../../games/GameInputLibraryM</module>
         <module>../../games/GameScoresBaseLibraryM</module>
         <module>../../games/GameScoresLibraryM</module>
@@ -69,10 +66,7 @@
 
         <module>../../media/motion/AllBinaryVibrationJavaLibraryM</module>
         <module>../../media/motion/NoVibrateJavaLibraryM</module>
-        
-        <!--
-        ../../
-        -->
+
         <module>../../../../work/j2me/media/graphics/FormJavaLibraryM</module>
         <module>../../media/graphics/FormBaseJavaLibraryM</module>
 
@@ -87,9 +81,7 @@
         <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>
 
         <module>../../../allbinary_src/hardware/HardwareLibraryPOM</module>
-        <!--
-        
-        -->
+
 
         <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
@@ -123,21 +115,16 @@
         <module>../../games/GameJ2MELibraryM</module>
         
         <module>../../games/TickableJavaLibraryM</module>
-
+        
         <!--
                 <module>../../lib/VectorThreeDimensionalLibraryM</module>
         -->
 
-        <!--
-        ../../
-        -->
         <module>../../../../work/j2me/games/CommonHeadsUpDisplayLibraryM</module>
 
         <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
 
         <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
-        <!-- 
-        -->
 
         <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
         <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>

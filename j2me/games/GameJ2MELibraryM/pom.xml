@@ -241,13 +241,6 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLNoneJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>NoSensorJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
@@ -318,7 +311,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>sources</id>
@@ -340,6 +332,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>

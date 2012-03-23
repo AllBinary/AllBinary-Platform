@@ -18,11 +18,6 @@
 
         <!--
         -->
-
-        <module>../../graphics/animation/AnimationLibraryM</module>
-
-        <module>../../graphics/animation/RotationAnimationJavaLibraryM</module>
-
         <module>../../graphics/animation/vector/VectorAnimationBaseJavaLibraryM</module>
 
         <module>../../graphics/animation/vector/VectorAnimationJ2MEJavaLibraryM</module>
