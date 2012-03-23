@@ -131,11 +131,14 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
     {
         try
         {
+
+        	ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+
             if (ChangedGameFeatureListener.getInstance().isChanged())
             {
                 super.initConfigurable();
 
-                ProgressCanvasFactory.getInstance().addPortion(portion, "Group Manager");
+                progressCanvas.addPortion(portion, "Group Manager");
                 GroupLayerManagerListener.getInstance().init(3);
 
                 AllBinaryVibration.init();
@@ -150,8 +153,9 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
                 }
             } else
             {
-                ProgressCanvasFactory.getInstance().addPortion(4, "Skipping Configurable");
+            	progressCanvas.addPortion(4, "Skipping Configurable");
             }
+            
         } catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "initConfigurable", e));
