@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary</groupId>
-  <artifactId>AndroidAPI3AndUpJavaLibrary</artifactId>
-  <packaging>jar</packaging>
-  <version>1</version>
-  <name>AndroidAPI3AndUpJavaLibrary</name>
-  <url>http://maven.apache.org</url>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AndroidAPI3AndUpJavaLibrary</artifactId>
+    <packaging>jar</packaging>
+    <version>1</version>
+    <name>AndroidAPI3AndUpJavaLibrary</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <buildLabel>${version}</buildLabel>
@@ -29,15 +29,15 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>VirtualKeyboardJavaLibrary</artifactId>
-  <version>1</version>
+            <groupId>org.allbinary</groupId>
+            <artifactId>VirtualKeyboardJavaLibrary</artifactId>
+            <version>1</version>
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>AndroidBaseJavaLibrary</artifactId>
-  <version>1</version>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AndroidBaseJavaLibrary</artifactId>
+            <version>1</version>
         </dependency>
 
         <dependency>
@@ -54,6 +54,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -69,7 +70,9 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>single</goal></goals>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>

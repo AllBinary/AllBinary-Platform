@@ -119,13 +119,13 @@
      </dependencies>
 
     <build>
-        <sourceDirectory>../AllBinaryJ2MELibrary/src</sourceDirectory>
 
         <plugins>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -196,6 +196,8 @@
 -->
 
         </plugins>
+        
+        <sourceDirectory>../AllBinaryJ2MELibrary/src</sourceDirectory>
     </build>
 
 </project>
