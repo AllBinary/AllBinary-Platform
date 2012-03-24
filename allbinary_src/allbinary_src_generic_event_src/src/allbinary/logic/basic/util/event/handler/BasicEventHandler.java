@@ -45,7 +45,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             try
             {
                 EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                    this.eventListenerInterfaceList.objectArray[index];
 
                 stringBuffer.append(" Listener: ");
                 stringBuffer.append(eventListenerInterface);
@@ -181,7 +181,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             try
             {
                 EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
+                    this.eventListenerInterfaceList.objectArray[index];
                 this.process(eventObject, eventListenerInterface);
             }
             catch (Exception e)
