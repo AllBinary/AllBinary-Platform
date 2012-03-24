@@ -66,7 +66,7 @@ public class KeylessBasicArrayListCache
 
         for (int index = this.getList().size() - 1; index >= 0; index--)
         {
-            ((BasicArrayList) this.getList().get(index)).clear();
+            ((BasicArrayList) this.getList().objectArray[index]).clear();
         }
     }
 
@@ -81,7 +81,7 @@ public class KeylessBasicArrayListCache
         {
             stringBuffer.append(" s: ");
             stringBuffer.append(
-            ((BasicArrayList) this.getList().get(index)).size()
+            ((BasicArrayList) this.getList().objectArray[index]).size()
                 );
         }
 

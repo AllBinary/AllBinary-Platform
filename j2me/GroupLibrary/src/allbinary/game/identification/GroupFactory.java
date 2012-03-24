@@ -29,7 +29,7 @@ public class GroupFactory {
       
    public Group getNextGroup()
    {
-      Group group = (Group) list.get(index);
+      Group group = (Group) list.objectArray[index];
       index++;
       return group;
    }

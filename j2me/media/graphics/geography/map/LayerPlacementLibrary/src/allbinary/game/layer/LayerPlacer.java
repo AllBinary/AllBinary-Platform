@@ -42,7 +42,7 @@ public class LayerPlacer
       for(int index = 0; index < size; index++)
       {
          LayerPlacementInterface layerPlacementInterface =
-            (LayerPlacementInterface) list.get(index);
+            (LayerPlacementInterface) list.objectArray[index];
 
          this.process(layerPlacementInterface);
       }

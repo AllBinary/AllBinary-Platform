@@ -49,7 +49,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
       for (int index = 0; index < size; index++)
       {
          FeatureResourceAnimationInterfaceFactoryInterface featureInterface =
-             (FeatureResourceAnimationInterfaceFactoryInterface) getList().get(index);
+             (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
 
          if (featureInterface.isFeature())
          {
@@ -96,7 +96,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
       for (int index = 0; index < size; index++)
       {
          FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
-             (FeatureResourceAnimationInterfaceFactoryInterface) getList().get(index);
+             (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
          if (featureInterface.isFeature())
          {
             resourceTypeAvailable = true;
@@ -130,7 +130,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
           {
               stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
               
-             FeatureResourceAnimationInterfaceFactoryInterface featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) getList().get(index);
+             FeatureResourceAnimationInterfaceFactoryInterface featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
              if (featureInterface.isFeature())
              {
                 stringBuffer.append(featureInterface);
@@ -151,7 +151,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
          for (int index = 0; index < size; index++)
          {
             FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 
-                (FeatureResourceAnimationInterfaceFactoryInterface) getList().get(index);
+                (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
             stringBuffer.append(featureInterface.toString());
             stringBuffer.append(CommonSeps.getInstance().SPACE);
          }

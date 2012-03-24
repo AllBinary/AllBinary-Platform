@@ -47,7 +47,7 @@ public class GameLevelDisplayChangeEventListenersFactory
         
         for(int index = this.list.size(); --index >= 0;)
         {
-            displayChangeEventListener = (DisplayChangeEventListener) this.list.get(index);
+            displayChangeEventListener = (DisplayChangeEventListener) this.list.objectArray[index];
             
             displayChangeEventHandler.removeListener(displayChangeEventListener);
         }

@@ -13,12 +13,14 @@
 */
 package allbinary.game.paint;
 
+import org.allbinary.graphics.form.item.StringComponent;
+import org.allbinary.graphics.form.item.TextItem;
+
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.ColorChangeEventHandler;
 import allbinary.graphics.color.ColorChangeListener;
 import allbinary.graphics.form.FormPaintable;
 import allbinary.graphics.form.ScrollSelectionForm;
-import allbinary.graphics.form.item.TextItem;
 import allbinary.graphics.paint.Paintable;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 
@@ -69,7 +71,13 @@ implements ColorChangeListener
         for(int index = scrollSelectionForm.size() - 1; index >= 0; index--)
         {
             TextItem item = (TextItem) scrollSelectionForm.get(index);
-            item.getLabelStringComponent().setForegroundBasicColor(basicColor);
+            
+            StringComponent stringComponent = item.getLabelStringComponent();
+            
+            if(stringComponent != null)
+            {
+                stringComponent.setForegroundBasicColor(basicColor);
+            }
         }
     }
 }

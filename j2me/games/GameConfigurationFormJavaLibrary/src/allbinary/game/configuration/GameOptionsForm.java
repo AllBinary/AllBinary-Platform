@@ -140,7 +140,7 @@ public class GameOptionsForm extends CommandForm
         for (int index = 0; index < size; index++)
         {
             GameConfiguration gameConfiguration =
-                (GameConfiguration) list.get(index);
+                (GameConfiguration) list.objectArray[index];
 
             LogUtil.put(LogFactory.getInstance(NAME + gameConfiguration.toString(), this, METHOD_NAME));
 
@@ -203,7 +203,7 @@ public class GameOptionsForm extends CommandForm
 
         for (int index = 0; index < list.size(); index++)
         {
-            Integer integer = (Integer) list.get(index);
+            Integer integer = (Integer) list.objectArray[index];
             keyValuePersistance.delete(integer.intValue());
         }
 

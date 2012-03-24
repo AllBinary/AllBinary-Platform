@@ -52,7 +52,7 @@ extends LayerManagerEventListener
         int size = list.size();
         for (int index = size - 1; index >= 0; index--)
         {
-            BasicArrayList groupList = (BasicArrayList) this.list.get(index);
+            BasicArrayList groupList = (BasicArrayList) this.list.objectArray[index];
             groupList.clear();
         }
     }
@@ -76,13 +76,13 @@ extends LayerManagerEventListener
 
     private BasicArrayList getList(int groupId)
     {
-        BasicArrayList groupList = (BasicArrayList) this.list.get(groupId);
+        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         return groupList;
     }
 
     private int getGroupSize(int groupId)
     {
-        BasicArrayList groupList = (BasicArrayList) this.list.get(groupId);
+        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         int size = groupList.size();
         return size;
     }
@@ -114,7 +114,7 @@ extends LayerManagerEventListener
         int size = excludeGroupList.size();
         for (int index = size - 1; index >= 0; index--)
         {
-            Group groupInterface = (Group) excludeGroupList.get(index);
+            Group groupInterface = (Group) excludeGroupList.objectArray[index];
             if(groupInterface.getGroupId() == id)
             {
                 return true;
@@ -195,7 +195,7 @@ extends LayerManagerEventListener
 
         int id = groupInterface.getGroupId();
 
-        BasicArrayList groupList = (BasicArrayList) this.list.get(id);
+        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[id];
 
             //if(Group.ENEMY.getGroupId() == id)
 
@@ -248,7 +248,7 @@ extends LayerManagerEventListener
 
         int id = groupInterface.getGroupId();
 
-        BasicArrayList groupList = (BasicArrayList) this.list.get(id);
+        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[id];
 
         // if(Group.ENEMY.getGroupId() == id)
         // if(layerInterface.getType() != WeaponLayer.getStaticType())
@@ -287,7 +287,7 @@ extends LayerManagerEventListener
         int size = list.size();
         for (int index = size - 1; index >= 0; index--)
         {
-            BasicArrayList groupList = (BasicArrayList) this.list.get(index);
+            BasicArrayList groupList = (BasicArrayList) this.list.objectArray[index];
             
             //stringBuffer.delete(0, stringBuffer.length());
 

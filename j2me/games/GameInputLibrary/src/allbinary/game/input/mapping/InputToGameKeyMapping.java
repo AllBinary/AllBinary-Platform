@@ -84,7 +84,7 @@ public class InputToGameKeyMapping extends InputMapping
         
         for (int index = list.size() - 1; index >= 0; index--)
         {
-            Input mappedToInput = (Input) list.get(index);
+            Input mappedToInput = (Input) list.objectArray[index];
             
             //PreLogUtil.put("Input: " + input + " == " + mappedToInput, this, "InputToGameKeyMapping::addAll");
             this.add(input, mappedToInput);

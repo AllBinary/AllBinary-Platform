@@ -66,7 +66,7 @@ public class DestroyedEventHandler extends BasicEventHandler
            try
            {
                CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer = 
-                       (CollidableDestroyableDamageableLayer) this.list.get(index);
+                       (CollidableDestroyableDamageableLayer) this.list.objectArray[index];
                collidableDestroyableDamageableLayer.onDestroyed((DestroyedEvent) eventObject);
            }
            catch (Exception e)

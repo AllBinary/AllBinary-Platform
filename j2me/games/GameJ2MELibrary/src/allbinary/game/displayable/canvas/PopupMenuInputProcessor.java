@@ -31,10 +31,6 @@ import allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import allbinary.math.RectangleCollisionUtil;
 import allbinary.time.TimeDelayHelper;
 
-/**
- *
- * @author user
- */
 public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 {
     private final int CLICK_DELAY = 120;
@@ -78,40 +74,40 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     {
         try
         {
-                int motionInputsIndex = this.processMotionInputs();
+            int motionInputsIndex = this.processMotionInputs();
 
-                BasicArrayList list = this.getGameKeyEventList();
-                
-                int size = list.size();
-                int key = 0;
+            BasicArrayList list = this.getGameKeyEventList();
 
-                GameKeyEvent gameKeyEvent;
-                
-                for (int index = 0; index < size; index++)
+            int size = list.size();
+            int key = 0;
+
+            GameKeyEvent gameKeyEvent;
+
+            for (int index = 0; index < size; index++)
+            {
+                gameKeyEvent = (GameKeyEvent) list.objectArray[index];
+
+                if (gameKeyEvent != null)
                 {
-                    gameKeyEvent = (GameKeyEvent) list.get(index);
-                    
-                    if(gameKeyEvent != null)
-                    {
-                        key = gameKeyEvent.getKey();
+                    key = gameKeyEvent.getKey();
 
-                        if (this.processInput(key) == 1)
-                        {
-                            break;
-                        }
+                    if (this.processInput(key) == 1)
+                    {
+                        break;
                     }
                 }
+            }
 
-                this.clear();
+            this.clear();
 
-                if (size > 0 || motionInputsIndex >= 0)
-                {
-                    return 1;
-                }
-                else
-                {
-                    return -1;
-                }
+            if (size > 0 || motionInputsIndex >= 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
         }
         catch (Exception e)
         {
@@ -129,7 +125,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         if (lastIndex >= 0)
         {
             MotionGestureEvent motionGestureEvent =
-                (MotionGestureEvent) this.motionGestureEventList.get(lastIndex);
+                (MotionGestureEvent) this.motionGestureEventList.objectArray[lastIndex];
 
             this.processMotionInput(motionGestureEvent);
         }

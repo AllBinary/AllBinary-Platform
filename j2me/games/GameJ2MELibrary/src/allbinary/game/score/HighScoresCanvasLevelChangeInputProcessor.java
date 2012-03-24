@@ -52,7 +52,7 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            Object object = list.get(index);
+            Object object = list.objectArray[index];
             int key = GameKeyEventUtil.getKey(object);
 
             //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + key, this, CommonStrings.getInstance().UPDATE);

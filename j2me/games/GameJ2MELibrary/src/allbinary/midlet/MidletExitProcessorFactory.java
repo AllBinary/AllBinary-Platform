@@ -19,10 +19,6 @@ import allbinary.AppletUtil;
 import allbinary.J2MEUtil;
 import allbinary.canvas.Processor;
 
-/**
- *
- * @author user
- */
 public class MidletExitProcessorFactory
 {
     private static final MidletExitProcessorFactory instance =

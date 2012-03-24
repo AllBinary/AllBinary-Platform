@@ -169,7 +169,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         int size = this.listenersList.size();
         for (int index = 0; index < size; index++)
         {
-            PlayerListener listener = (PlayerListener) this.listenersList.get(index);
+            PlayerListener listener = (PlayerListener) this.listenersList.objectArray[index];
             listener.playerUpdate(this, event, null);
         }
     }

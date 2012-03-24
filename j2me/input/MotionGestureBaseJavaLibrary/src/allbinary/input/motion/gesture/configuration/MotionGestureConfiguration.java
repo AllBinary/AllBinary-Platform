@@ -39,7 +39,7 @@ public class MotionGestureConfiguration
     public CompleteMotionGestureInputEvent getMotionGestureAction(int index) {
         if (index >= activeCommands.size())
             return null;
-        return (CompleteMotionGestureInputEvent) activeCommands.get(index);
+        return (CompleteMotionGestureInputEvent) activeCommands.objectArray[index];
     }
     
     public void addMotionGestureAction(BasicArrayList list, CompleteMotionGestureInputEvent commandAction) {

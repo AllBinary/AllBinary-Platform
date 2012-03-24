@@ -65,7 +65,7 @@ public class DatabaseEncoder
                   
          for(int index = 0; index< size; index++)
          {
-            String byteOfData = (String) vector.get(index);
+            String byteOfData = (String) vector.objectArray[index];
             byteVector.add(new Byte(byteOfData));
          }
 
@@ -74,7 +74,7 @@ public class DatabaseEncoder
 
          for(int index = 0; index < size; index++)
          {
-            Byte aByte = (Byte) byteVector.get(index);            
+            Byte aByte = (Byte) byteVector.objectArray[index];            
             decode[decodeIndex] = aByte.byteValue();
             decodeIndex++;
          }

@@ -17,33 +17,32 @@ import allbinary.graphics.GPoint;
 
 public class HudGraphicsPosition
 {
-   private int anchor;
-   private GPoint point;
-   
-   public HudGraphicsPosition(GPoint point, int anchor)
-   {
-      this.setAnchor(anchor);
-      this.setPoint(point);
-   }
+    private int anchor;
+    private GPoint point;
+    
+    public HudGraphicsPosition(GPoint point, int anchor)
+    {
+       this.setAnchor(anchor);
+       this.setPoint(point);
+    }
 
-   public int getAnchor()
-   {
-      return anchor;
-   }
+    public int getAnchor()
+    {
+       return anchor;
+    }
 
-   private void setAnchor(int anchor)
-   {
-      this.anchor = anchor;
-   }
+    private void setAnchor(int anchor)
+    {
+       this.anchor = anchor;
+    }
 
-public GPoint getPoint()
-{
-    return point;
-}
+    public GPoint getPoint()
+    {
+        return point;
+    }
 
-public void setPoint(GPoint point)
-{
-    this.point = point;
-}
-   
+    public void setPoint(GPoint point)
+    {
+        this.point = point;
+    }
 }

@@ -36,10 +36,6 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 {
     private final BasicArrayList gameKeyEventList = new BasicArrayList();
 
-    /*
-     * public AllBinaryGameLayer(int x, int y, int width, int height) { super(x,
-     * y, width, height); }
-     */
     public AllBinaryGameLayer(Rectangle layerInfo)
     {
         this(layerInfo, new ViewPosition());
@@ -120,13 +116,13 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     
     public void setWidth(int width)
     {
-    	super.setWidthImpl(width);
+    	super.setLayerWidth(width);
     	this.setHalfWidth(width >> 1);
     }
 
     public void setHeight(int height)
     {
-    	super.setHeightImpl(height);
+    	super.setLayerHeight(height);
     	this.setHalfHeight(height >> 1);
     }    
 }

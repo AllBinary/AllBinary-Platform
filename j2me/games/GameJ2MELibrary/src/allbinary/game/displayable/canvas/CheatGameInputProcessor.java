@@ -48,7 +48,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
             int size = list.size();
             for (int index = 0; index < size; index++)
             {
-                Object object = list.get(index);
+                Object object = list.objectArray[index];
                 int key = GameKeyEventUtil.getKey(object);
 
                 if (key == gameKeyFactory.LEVEL_DOWN.getId())

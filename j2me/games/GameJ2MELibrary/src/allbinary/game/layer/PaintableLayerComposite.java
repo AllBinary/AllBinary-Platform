@@ -18,10 +18,6 @@ import javax.microedition.lcdui.Graphics;
 import allbinary.graphics.paint.Paintable;
 import allbinary.layer.Layer;
 
-/**
- *
- * @author user
- */
 public class PaintableLayerComposite extends Paintable
 {
    private Layer[] paintableArray;

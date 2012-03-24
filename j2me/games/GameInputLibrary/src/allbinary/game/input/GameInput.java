@@ -73,7 +73,7 @@ public class GameInput {
        
        GameKeyEvent gameKeyEvent;
        for (int index = list.size(); --index >= 0;) {
-          gameKeyEvent = (GameKeyEvent) list.get(index);
+          gameKeyEvent = (GameKeyEvent) list.objectArray[index];
           //if (((GameKeyEventSourceInterface) gameKeyEvent.getSource()).getSourceId() != 1) {
           if (gameKeyEvent.getSourceId() != 1) {
              list.remove(index);
@@ -100,9 +100,9 @@ public class GameInput {
       BasicArrayList list = this.gameKeyEventList;
       int size = removeList.size();
       for (int index = 0; index < size; index++) {
-         Object object = removeList.get(index);
+         Object object = removeList.objectArray[index];
          for (int index2 = list.size(); --index2 >= 0;) {
-            if (list.get(index2) == object) {
+            if (list.objectArray[index2] == object) {
                list.remove(index2);
             }
          }

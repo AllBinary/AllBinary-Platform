@@ -61,7 +61,7 @@ public class MotionGestureToMotionGestureActionAssociation
 
         for (int i = size - 1; i >= 0; i--)
         {
-            if (aList.get(i) != this.list.get(i))
+            if (aList.objectArray[i] != this.list.objectArray[i])
             {
                 //LogUtil.put(LogFactory.getInstance("List is different: aList: " + aList + " list: " + this.list, this, "isMotionGestureArrayEquals"));
                 

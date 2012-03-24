@@ -201,7 +201,7 @@ public class RecordStoreHighScores extends HighScores
                     int lastIndex = size;
                     for (int index = 0; index < size; index++)
                     {
-                        HighScore highScore = (HighScore) list.get(index);
+                        HighScore highScore = (HighScore) list.objectArray[index];
 
                         // Found a spot then insert at that point
                         if (this.recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.PRECEDES)
@@ -286,7 +286,7 @@ public class RecordStoreHighScores extends HighScores
                 int size = list.size();
                 for (int index = 0; index < size; index++)
                 {
-                    HighScore highScore = (HighScore) list.get(index);
+                    HighScore highScore = (HighScore) list.objectArray[index];
 
                     if (recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.FOLLOWS)
                     // if(newHighScore.getScore() > highScore.getScore())
@@ -315,7 +315,7 @@ public class RecordStoreHighScores extends HighScores
         int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            HighScore highScore = (HighScore) list.get(index);
+            HighScore highScore = (HighScore) list.objectArray[index];
             stringBuffer.append(highScore.getScoreString());
             stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);
         }

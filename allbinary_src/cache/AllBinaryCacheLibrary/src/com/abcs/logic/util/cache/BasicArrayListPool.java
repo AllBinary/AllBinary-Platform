@@ -52,7 +52,7 @@ public class BasicArrayListPool extends AbstractArrayListPool
   {
       for(int index = usedList.size(); --index >= 0;)
       {
-          BasicArrayListCacheable list = (BasicArrayListCacheable) usedList.get(index);
+          BasicArrayListCacheable list = (BasicArrayListCacheable) usedList.objectArray[index];
           if(list.size() == 0)
           {
               usedList.remove(index);

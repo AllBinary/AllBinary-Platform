@@ -16,6 +16,8 @@ package allbinary.game.score.displayable;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.graphics.form.item.TextFieldItem;
+
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.PreLogUtil;
@@ -25,7 +27,6 @@ import allbinary.game.input.Input;
 import allbinary.game.input.InputFactory;
 import allbinary.game.input.PlatformKeyFactory;
 import allbinary.graphics.color.BasicColor;
-import allbinary.graphics.form.item.TextFieldItem;
 import allbinary.graphics.form.item.validation.TextItemVisitor;
 
 public class CustomTextBox extends GameCommandCanvas

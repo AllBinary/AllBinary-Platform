@@ -63,7 +63,7 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
 
         for(int index = 0; index < keyList.size(); index++)
         {
-            Input key = (Input) keyList.get(index);
+            Input key = (Input) keyList.objectArray[index];
 
             //Get system platform key(s) mapped to gamekey
             stringBuffer.append(key.getName());

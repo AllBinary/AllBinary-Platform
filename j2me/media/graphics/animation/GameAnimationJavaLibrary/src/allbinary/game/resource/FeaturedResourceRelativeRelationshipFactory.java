@@ -42,7 +42,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       int size = getList().size();
       for (int index = 0; index < size; index++)
       {
-         ResourceRelativeRelationshipFactoryInterface featureInterface = (ResourceRelativeRelationshipFactoryInterface) getList().get(index);
+         ResourceRelativeRelationshipFactoryInterface featureInterface = (ResourceRelativeRelationshipFactoryInterface) getList().objectArray[index];
          if (featureInterface.isFeature())
          {
             BasicArrayList list = featureInterface.getResourceRelativeRelationshipList(resource);
@@ -65,7 +65,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       
       for (int index = 0; index < list.size(); index++)
       {
-         RelativeRelationship relativeRelationship = (RelativeRelationship) list.get(index);
+         RelativeRelationship relativeRelationship = (RelativeRelationship) list.objectArray[index];
          newList.add(new RelativeLayerRelationship(
             layer, PointFactory.getInstance().getInstance(relativeRelationship.getX(), relativeRelationship.getY()), null));
       }

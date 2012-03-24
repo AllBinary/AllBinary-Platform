@@ -117,7 +117,7 @@ public class GameDifficultyOptions extends CommandForm
         int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            Object object = list.get(index);
+            Object object = list.objectArray[index];
 
             LogUtil.put(LogFactory.getInstance(NAME + object.toString(), this, METHOD_NAME));
 

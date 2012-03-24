@@ -41,7 +41,7 @@ public class Advertisements
             
             AdvertisementProcessorInterface advertisementProcessorInterface = 
                 (AdvertisementProcessorInterface)
-                this.pageList.get(random);
+                this.pageList.objectArray[random];
             
             advertisementProcessorInterface.start();
         }
@@ -61,7 +61,7 @@ public class Advertisements
                 
                 AdvertisementProcessorInterface advertisementProcessorInterface = 
                     (AdvertisementProcessorInterface)
-                    this.pageList.get(random);
+                    this.pageList.objectArray[random];
                 
                 advertisementProcessorInterface.process();
             }
@@ -74,7 +74,7 @@ public class Advertisements
         {
             AdvertisementProcessorInterface advertisementProcessorInterface = 
                 (AdvertisementProcessorInterface)
-                this.pageList.get(index);
+                this.pageList.objectArray[index];
             
             advertisementProcessorInterface.stop();
         }
@@ -93,7 +93,7 @@ public class Advertisements
         for(int index = this.bannerList.size(); --index >= 0;)
         {
             AdvertisementProcessorInterface advertisementProcessorInterface = 
-                (AdvertisementProcessorInterface) this.bannerList.get(index);
+                (AdvertisementProcessorInterface) this.bannerList.objectArray[index];
 
             advertisementProcessorInterface.start();
         }
@@ -104,7 +104,7 @@ public class Advertisements
         for(int index = this.bannerList.size(); --index >= 0;)
         {
             AdvertisementProcessorInterface advertisementProcessorInterface = 
-                (AdvertisementProcessorInterface) this.bannerList.get(index);
+                (AdvertisementProcessorInterface) this.bannerList.objectArray[index];
 
             advertisementProcessorInterface.stop();
         }
@@ -113,7 +113,7 @@ public class Advertisements
     public AdvertisementProcessorInterface getBanner(int index)
     {
         AdvertisementProcessorInterface advertisementProcessorInterface = 
-            (AdvertisementProcessorInterface) this.bannerList.get(index);
+            (AdvertisementProcessorInterface) this.bannerList.objectArray[index];
 
         return advertisementProcessorInterface;
     }

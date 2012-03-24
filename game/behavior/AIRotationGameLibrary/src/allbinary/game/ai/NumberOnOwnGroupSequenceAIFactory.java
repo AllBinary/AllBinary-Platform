@@ -70,7 +70,7 @@ public class NumberOnOwnGroupSequenceAIFactory
       Integer[] numberOnSameTeam = new Integer[list.size()];
       for (int index = 0; index < numberOnSameTeam.length; index++)
       {
-         numberOnSameTeam[index] = (Integer) list.get(index);
+         numberOnSameTeam[index] = (Integer) list.objectArray[index];
       }
 
       return new NumberOnOwnGroupSequenceAI(numberOnSameTeam,

@@ -65,7 +65,7 @@ public class CompleteMotionGestureInputEventHandler extends BasicEventHandler
             try
             {
                 CompleteMotionGestureInputEventListener completeMotionGestureInputEventListener = 
-                        (CompleteMotionGestureInputEventListener) this.list.get(index);
+                        (CompleteMotionGestureInputEventListener) this.list.objectArray[index];
                 completeMotionGestureInputEventListener.onCompleteMotionGestureInputEvent(
                         (CompleteMotionGestureInputEvent) eventObject);
             }

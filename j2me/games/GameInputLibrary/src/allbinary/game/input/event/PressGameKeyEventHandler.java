@@ -64,7 +64,7 @@ public class PressGameKeyEventHandler extends BasicEventHandler
        {
            try
            {
-               PlayerGameInput playerGameInput = (PlayerGameInput) this.list.get(index);
+               PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                playerGameInput.onPressGameKeyEvent((GameKeyEvent) eventObject);
            }
            catch (Exception e)

@@ -47,9 +47,9 @@ public class GameFeatureFormUtil
         int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            Feature gameFeature = (Feature) list.get(index);
+            Feature gameFeature = (Feature) list.objectArray[index];
             LogUtil.put(LogFactory.getInstance(
-                    name + ": " + "Adding Choice: " + gameFeature.toString(), this, "getChoiceGroup"));
+                    name + ": Adding Choice: " + gameFeature.toString(), this, "getChoiceGroup"));
             choiceGroup.append(gameFeature.toString(), null);
             if (features.isFeature(gameFeature))
             {

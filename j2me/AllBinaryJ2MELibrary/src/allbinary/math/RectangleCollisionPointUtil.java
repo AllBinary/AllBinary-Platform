@@ -31,7 +31,7 @@ public class RectangleCollisionPointUtil
 
         for (int index = list.size(); --index >= 0;)
         {
-            point = (GPoint) list.get(index);
+            point = (GPoint) list.objectArray[index];
 
             if (!RectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX(), point.getY()))
             {
@@ -48,7 +48,7 @@ public class RectangleCollisionPointUtil
 
         for (int index = list.size(); --index >= 0;)
         {
-            point = (GPoint) list.get(index);
+            point = (GPoint) list.objectArray[index];
 
             if (!RectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX() * xCellSize, point.getY() * yCellSize))
             {

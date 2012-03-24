@@ -119,7 +119,7 @@ public class PersistentInputMapping
         //TWB - Use selected profile/id for future imp
         for(int index = 0; index < list.size(); index++)
         {
-            Hashtable hashtable = (Hashtable) list.get(index);
+            Hashtable hashtable = (Hashtable) list.objectArray[index];
             Enumeration enumeration = hashtable.keys();
 
             while(enumeration.hasMoreElements())

@@ -44,7 +44,7 @@ public class OpenGLImageCache extends ImageCache
         
         for(int index = list.size() - 1; index >= 0; index--)
         {
-            ((OpenGLESImage) list.get(index)).set(gl);
+            ((OpenGLESImage) list.objectArray[index]).set(gl);
         }
     }
 

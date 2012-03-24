@@ -49,7 +49,7 @@ public class CurrentlyPressedTouchButtonSingleton
     
     public TouchButtonInput get(int index)
     {
-        return (TouchButtonInput) this.list.get(index);
+        return (TouchButtonInput) this.list.objectArray[index];
     }
     
     public boolean contains(TouchButtonInput touchButtonInput)

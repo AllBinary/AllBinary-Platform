@@ -35,7 +35,7 @@ public class LicenseInitInfo
 
     public String getServer(int index)
     {
-        return (String) this.serverVector.get(index);
+        return (String) this.serverVector.objectArray[index];
     }
 
     public int getNumberOfServers()

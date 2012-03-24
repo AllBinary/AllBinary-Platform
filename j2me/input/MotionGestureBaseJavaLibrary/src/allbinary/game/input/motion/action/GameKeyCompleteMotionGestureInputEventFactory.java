@@ -44,7 +44,7 @@ public class GameKeyCompleteMotionGestureInputEventFactory
         {
             GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent =
                 (GameKeyCompleteMotionGestureInputEvent)
-                eventList.get(index);
+                eventList.objectArray[index];
             gameKeyCompleteMotionGestureInputEvent.update();
         }
     }

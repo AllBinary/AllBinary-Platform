@@ -19,13 +19,9 @@ import allbinary.graphics.displayable.MyCanvas;
 import allbinary.graphics.form.ScrollSelectionForm;
 import allbinary.input.motion.gesture.observer.MotionGestureEvent;
 
-/**
- *
- * @author user
- */
-public class PopupCommandFormInputProcessor extends
-    CommandFormInputProcessor {
-
+public class PopupCommandFormInputProcessor 
+extends CommandFormInputProcessor 
+{
     private PopupMenuInputProcessor popupMenuInputProcessor;
 
     public PopupCommandFormInputProcessor(

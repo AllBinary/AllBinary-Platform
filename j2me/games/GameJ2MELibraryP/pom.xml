@@ -17,7 +17,7 @@
 
         <!--
         <module>../../AllBinaryJ2MELibraryP</module>
-        <module>../../../../work/j2me/games/PreGameJ2MEJavaLibraryP</module>
+        <module>../../games/PreGameJ2MEJavaLibraryP</module>
         LayerPlacementLibrary
         NoGyroSensorLibrary
         -->
@@ -67,7 +67,10 @@
         <module>../../media/motion/AllBinaryVibrationJavaLibraryM</module>
         <module>../../media/motion/NoVibrateJavaLibraryM</module>
 
-        <module>../../../../work/j2me/media/graphics/FormJavaLibraryM</module>
+        <module>../../media/graphics/NullCustomUIJavaLibraryM</module>
+        <module>../../media/graphics/NullCustomUIBaseJavaLibraryM</module>
+
+        <module>../../media/graphics/FormJavaLibraryM</module>
         <module>../../media/graphics/FormBaseJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationResourceJavaLibraryM</module>
@@ -108,7 +111,7 @@
 
         <module>../../lib/TrigJ2MELibraryM</module>
 
-<module>../../../../work/j2me/media/graphics/layer/AllBinaryLayerJavaLibraryM</module>
+        <module>../../media/graphics/layer/AllBinaryLayerJavaLibraryM</module>
 
         <module>../../ScreenCaptureNoneJavaLibraryM</module>
 
@@ -119,8 +122,8 @@
         <!--
                 <module>../../lib/VectorThreeDimensionalLibraryM</module>
         -->
-
-        <module>../../../../work/j2me/games/CommonHeadsUpDisplayLibraryM</module>
+        
+        <module>../../games/CommonHeadsUpDisplayLibraryM</module>
 
         <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
 

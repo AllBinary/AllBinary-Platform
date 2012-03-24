@@ -68,7 +68,7 @@ public class BasicPlayer implements Player
       int size = list.size();
       for(int index = 0; index < size; index++)
       {
-         PlayerListener listener = (PlayerListener) list.get(size);
+         PlayerListener listener = (PlayerListener) list.objectArray[index];
          if( listener == playerListener )
          {
             this.getListenersBasicArrayList().remove(listener);

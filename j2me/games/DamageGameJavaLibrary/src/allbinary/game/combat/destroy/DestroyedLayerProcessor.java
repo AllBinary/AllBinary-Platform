@@ -54,7 +54,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         for (int index = 0; index < size; index++)
         {
             // no physics here - just destroy them
-            AllBinaryLayer layerInterface = (AllBinaryLayer) list.get(index);
+            AllBinaryLayer layerInterface = (AllBinaryLayer) list.objectArray[index];
 
             // LogUtil.put(LogFactory.getInstance("Processing: " + allBinaryLayerManager.getSize(), this, CommonStrings.getInstance().PROCESS));
 

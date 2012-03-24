@@ -38,7 +38,7 @@ public class BasicPersitance
         int size = nameBasicArrayList.size();
         for(int index = 0; index < size; index++)
         {
-            Integer integer = (Integer) this.nameBasicArrayList.get(index);
+            Integer integer = (Integer) this.nameBasicArrayList.objectArray[index];
             this.delete(integer.intValue());
         }
         

@@ -38,7 +38,7 @@ public class ImageTypeUtil
         mediaFileType = mediaFileType.toLowerCase();
         for(int index = list.size() - 1; index >= 0; index--)
         {
-            String name = (String) list.get(index);
+            String name = (String) list.objectArray[index];
             if(mediaFileType.compareTo(name) == 0)
             {
                 return true;

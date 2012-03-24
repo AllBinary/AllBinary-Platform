@@ -229,7 +229,7 @@ public class OpenGLCapabilities
             for(int index = 0; index < list.size(); index++)
             {
                 stringBuffer.append(commonSeps.NEW_LINE);
-                stringBuffer.append(list.get(index));
+                stringBuffer.append(list.objectArray[index]);
             }
         }
         catch(Exception e)

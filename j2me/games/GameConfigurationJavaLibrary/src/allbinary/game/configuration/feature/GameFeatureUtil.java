@@ -226,11 +226,11 @@ public class GameFeatureUtil
             {
                 if(addIndex != index)
                 {
-                    features.remove((Feature) list.get(index));
+                    features.remove((Feature) list.objectArray[index]);
                 }
                 else
                 {
-                    features.add((Feature) list.get(index));
+                    features.add((Feature) list.objectArray[index]);
                 }
             }
         }

@@ -104,7 +104,7 @@ public class Tokenizer
 
       for(int index = 0; index < size; index++)
       {
-          string = (String) stringVector.get(index);
+          string = (String) stringVector.objectArray[index];
           end = string.indexOf(sep);
           
          //found next token

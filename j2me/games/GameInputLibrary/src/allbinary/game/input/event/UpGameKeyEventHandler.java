@@ -64,7 +64,7 @@ public class UpGameKeyEventHandler extends BasicEventHandler
        {
            try
            {
-               PlayerGameInput playerGameInput = (PlayerGameInput) this.list.get(index);
+               PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                playerGameInput.onUpGameKeyEvent((GameKeyEvent) eventObject);
            }
            catch (Exception e)

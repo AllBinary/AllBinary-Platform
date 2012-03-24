@@ -45,7 +45,7 @@ public class VectorExplosionGenerator
         int[][] points = new int[size][2];
         for (int index = 0; index < size; index++)
         {
-            GPoint point = (GPoint) list.get(index);
+            GPoint point = (GPoint) list.objectArray[index];
             points[index][0] = point.getX();
             points[index][1] = point.getY();
         }
@@ -58,7 +58,7 @@ public class VectorExplosionGenerator
 
         BasicArrayList pointsBasicArrayList = getInstance(points, howMuch, type, true);
 
-        BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.get(0);
+        BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[0];
 
         int[][][] newPoints = vectorAnimationUtil
                 .toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
@@ -80,9 +80,7 @@ public class VectorExplosionGenerator
 
             while (frameIndex < howMuch)
             {
-
-                BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList
-                        .get(frameIndex);
+                BasicArrayList tempBasicArrayList = (BasicArrayList) pointsBasicArrayList.objectArray[frameIndex];
 
                 BasicArrayList pointBasicArrayList = getInstance(
                         tempBasicArrayList, points, howMuch, type);
@@ -137,7 +135,7 @@ public class VectorExplosionGenerator
             // && index < tempBasicArrayList.size()
             while (points[index][0] != 1000)
             {
-                sectionBasicArrayList.add(tempBasicArrayList.get(index));
+                sectionBasicArrayList.add(tempBasicArrayList.objectArray[index]);
                 index++;
 
                 if (index >= points.length)
@@ -163,7 +161,7 @@ public class VectorExplosionGenerator
             int size = sectionBasicArrayList.size();
             for (int index2 = 0; index2 < size; index2++)
             {
-                pointBasicArrayList.add(sectionBasicArrayList.get(index2));
+                pointBasicArrayList.add(sectionBasicArrayList.objectArray[index2]);
             }
 
             if (index >= points.length)
@@ -172,7 +170,7 @@ public class VectorExplosionGenerator
             }
             else if (points[index][0] == 1000)
             {
-                pointBasicArrayList.add(tempBasicArrayList.get(index));
+                pointBasicArrayList.add(tempBasicArrayList.objectArray[index]);
                 index++;
             }
         }

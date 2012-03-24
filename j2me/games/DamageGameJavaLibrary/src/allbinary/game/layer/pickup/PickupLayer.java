@@ -46,8 +46,8 @@ public class PickupLayer
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
       
-      this.setWidthImpl(10);
-      this.setHeightImpl(10);
+      this.setLayerWidth(10);
+      this.setLayerHeight(10);
    }
 
    public PickupLayer(
@@ -61,8 +61,8 @@ public class PickupLayer
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
       
-      this.setWidthImpl(10);
-      this.setHeightImpl(10);
+      this.setLayerWidth(10);
+      this.setLayerHeight(10);
       
       this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
    }

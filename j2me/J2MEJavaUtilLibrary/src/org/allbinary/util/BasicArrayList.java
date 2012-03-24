@@ -19,7 +19,7 @@ public class BasicArrayList
     private static final String SIZE = ", Size: ";
     private final ArrayUtil arrayUtil = ArrayUtil.getInstance();
 
-    private transient Object[] objectArray;
+    public transient Object[] objectArray;
     private int currentIndex;
 
     public BasicArrayList(int size)
@@ -136,7 +136,7 @@ public class BasicArrayList
         int listSize = list.currentIndex;
 
         for (int index = 0; index < listSize; index++) {
-            objectArray[currentIndex++] = list.get(index);
+            objectArray[currentIndex++] = list.objectArray[index];
         }
 
         return true;
@@ -292,7 +292,7 @@ public class BasicArrayList
     	int size = this.size();
     	for (int index = 0; index < size; index++)
     	{
-    	    Object object = this.get(index);
+    	    Object object = this.objectArray[index];
     	    
     	    list.add(object);
     	}
@@ -306,7 +306,7 @@ public class BasicArrayList
         StringBuilder stringBuffer = new StringBuilder();
 
         for (int index = 0; index < currentIndex; index++) {
-            stringBuffer.append(get(index).toString());
+            stringBuffer.append(objectArray[index].toString());
             stringBuffer.append(COMMA_SEP);
         }
         return stringBuffer.toString();

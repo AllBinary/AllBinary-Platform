@@ -15,7 +15,6 @@ package allbinary.game.paint;
 
 import javax.microedition.lcdui.Graphics;
 
-import abcs.logic.basic.string.StringUtil;
 import allbinary.graphics.Anchor;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.font.MyFont;
@@ -25,18 +24,8 @@ public class AboutPaintable extends Paintable
 {
     private final String ABOUT = "About";
     
-    private final String INFO[] = {
-            "This game was developed",
-            "using the AllBinary",
-            "Game Development Kit.",
-            StringUtil.getInstance().EMPTY_STRING,
-            //StringUtil.getInstance()
-            //"More info at: http://allbinary.no-ip.biz"
-            "Comments or Questions:",
-            "support@allbinary.com"
-            };
+    private final String[] info;
 
-    private final static String[] DEVELOPERS = {"Developed By:", "Travis Berthelot"};
     private final String[] developers;
 
     private final Paintable[] paintableArray =
@@ -44,18 +33,14 @@ public class AboutPaintable extends Paintable
         this
     };
     
-    public static AboutPaintable getInstance()
+    public static AboutPaintable getInstance(String[] info, String[] developers)
     {
-        return new AboutPaintable(DEVELOPERS);
+        return new AboutPaintable(info, developers);
     }
 
-    public static AboutPaintable getInstance(String[] developers)
+    private AboutPaintable(String[] info, String[] developers)
     {
-        return new AboutPaintable(developers);
-    }
-
-    private AboutPaintable(String[] developers)
-    {
+        this.info = info;
         this.developers = developers;
     }
 
@@ -75,12 +60,12 @@ public class AboutPaintable extends Paintable
         
         graphics.drawString(this.ABOUT, halfWidth - beginWidth, 2 * charHeight, anchor);
         
-        int infoSize = this.INFO.length;
+        int infoSize = this.info.length;
         for(int index = 0; index < infoSize; index++)
         {
-            beginWidth = (graphics.getFont().stringWidth(this.INFO[index]) >> 1);
+            beginWidth = (graphics.getFont().stringWidth(this.info[index]) >> 1);
         
-            graphics.drawString(this.INFO[index], halfWidth - beginWidth,
+            graphics.drawString(this.info[index], halfWidth - beginWidth,
                     (4 + index) * charHeight, anchor);
         }
         

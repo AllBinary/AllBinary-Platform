@@ -55,7 +55,7 @@ public class IndexedBasicArrayListCache
 
     public Object get(int index)
     {
-        return this.getList().get(index);
+        return this.getList().objectArray[index];
     }
 
     public void add() throws Exception

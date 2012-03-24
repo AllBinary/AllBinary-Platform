@@ -49,7 +49,7 @@ public class BasicGraphicsPipeline
       
       for(int index = 0; index < size; index++)
       {
-          secondPoint = (GPoint) pointBasicArrayList.get(index);
+          secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
@@ -85,7 +85,7 @@ public class BasicGraphicsPipeline
       int size = this.pointBasicArrayList.size();
       for(int index = 0; index < size; index++)
       {
-          secondPoint = (GPoint) pointBasicArrayList.get(index);
+          secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
          //LogUtil.put("Old: " + secondPoint.toString(), this, "rotate");
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
@@ -123,7 +123,7 @@ public class BasicGraphicsPipeline
       int size = this.pointBasicArrayList.size();
       for(int index = 0; index < size; index++)
       {
-          secondPoint = (GPoint) pointBasicArrayList.get(index);
+          secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
          //LogUtil.put("Old: " + secondPoint.toString(), this, "rotate");
          //Ignore end of lines
          if (secondPoint.getX() != 1000)

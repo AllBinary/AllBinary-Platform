@@ -17,10 +17,6 @@ import javax.microedition.midlet.MIDlet;
 
 import allbinary.canvas.Processor;
 
-/**
- *
- * @author user
- */
 public class MidletExitProcessor extends Processor
 {
     private final MIDlet midlet;

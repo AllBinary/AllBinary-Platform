@@ -24,6 +24,7 @@ import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
@@ -110,7 +111,6 @@ import allbinary.graphics.form.FormTypeFactory;
 import allbinary.graphics.form.ScrollSelectionForm;
 import allbinary.graphics.form.ScrollSelectionFormNoneFactory;
 import allbinary.graphics.form.item.CommandTextItemArrayFactory;
-import allbinary.graphics.form.item.CustomItem;
 import allbinary.graphics.paint.InitUpdatePaintable;
 import allbinary.graphics.paint.NullPaintable;
 import allbinary.graphics.paint.Paintable;
@@ -752,7 +752,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.initTouch();
     }
 
-    // TWB - Hack?
     protected void initTouch() throws Exception
     {
         GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;

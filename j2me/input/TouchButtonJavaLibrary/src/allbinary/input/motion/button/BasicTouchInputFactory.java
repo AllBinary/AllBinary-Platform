@@ -125,7 +125,7 @@ public class BasicTouchInputFactory
 
         for (int index = list.size() - 1; index >= 0; index--)
         {
-            touchButtonInput = (TouchButtonInput) list.get(index);
+            touchButtonInput = (TouchButtonInput) list.objectArray[index];
             touchButtonInput.update(inputToGameKeyMapping);
         }
     }

@@ -127,7 +127,7 @@ public class TestingInputSingleton
 
         for (int index = 0; index < size; index++)
         {
-            key = ((GameKeyEvent) list.get(index)).getKey();
+            key = ((GameKeyEvent) list.objectArray[index]).getKey();
 
             inputProcessorArray[key].process(allbinaryLayerManager, null);
         }

@@ -113,7 +113,7 @@ public class LoadGameForm extends CommandForm
         int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            Object object = list.get(index);
+            Object object = list.objectArray[index];
             LogUtil.put(LogFactory.getInstance("Adding Choice: " + object.toString(), this, METHOD_NAME));
 
             choiceGroup.append(object.toString(), null);

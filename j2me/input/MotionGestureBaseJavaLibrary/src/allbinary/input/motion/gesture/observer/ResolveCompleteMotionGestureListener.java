@@ -54,7 +54,7 @@ public class ResolveCompleteMotionGestureListener implements CompleteMotionGestu
         {
             MotionGestureToMotionGestureActionAssociation association = 
                 (MotionGestureToMotionGestureActionAssociation) 
-                commandActionsList.get(index);
+                commandActionsList.objectArray[index];
             
             if (association.isMotionGestureArrayEquals(list) == true) {
 

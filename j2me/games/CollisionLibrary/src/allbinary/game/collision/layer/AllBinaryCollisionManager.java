@@ -69,18 +69,23 @@ public class AllBinaryCollisionManager
       int startIndex)
       throws Exception
    {
-	  int size = layerInterfaceManager.getSize();
-      for(int index = startIndex + 1; index < size; index++)
-      {
-          CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface2 = (CollidableInterfaceCompositeInterface) layerInterfaceManager.getLayerAt(index);
+       int size = layerInterfaceManager.getSize();
 
-         //if(collidableInterfaceCompositeInterface != collidableInterfaceCompositeInterface2)
-         //{
-        	 this.collide(layerInterfaceManager, collidableInterfaceCompositeInterface, collidableInterfaceCompositeInterface2);
-         //}
-      }
+       for (int index = startIndex + 1; index < size; index++)
+       {
+           CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface2 = 
+                   (CollidableInterfaceCompositeInterface) layerInterfaceManager.getLayerAt(index);
+
+           // if(collidableInterfaceCompositeInterface !=
+           // collidableInterfaceCompositeInterface2)
+           // {
+           this.collide(layerInterfaceManager,
+                   collidableInterfaceCompositeInterface,
+                   collidableInterfaceCompositeInterface2);
+           // }
+       }
    }
-   
+
    private void collide(
 	  LayerInterfaceManager layerInterfaceManager,
 	  CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface,

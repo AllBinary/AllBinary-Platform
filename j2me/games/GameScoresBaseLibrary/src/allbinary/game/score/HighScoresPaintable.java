@@ -80,7 +80,7 @@ implements ColorChangeListener
                 && charHeight * index < height
                         - (charHeight * 2))
         {
-            HighScore highScore = (HighScore) list.get(vectorIndex);
+            HighScore highScore = (HighScore) list.objectArray[vectorIndex];
             int nextScoreWidth = graphics.getFont()
                     .stringWidth(highScore.getScoreString());
             if (nextScoreWidth > largestSecondColumnWidth)
@@ -95,7 +95,7 @@ implements ColorChangeListener
                 && charHeight * index < height
                         - (charHeight * 2))
         {
-            HighScore highScore = (HighScore) list.get(vectorIndex);
+            HighScore highScore = (HighScore) list.objectArray[vectorIndex];
             // this.highScoresHashTable.get(enumeration.nextElement());
 
             graphics.drawString(highScore.getName(), 10, 

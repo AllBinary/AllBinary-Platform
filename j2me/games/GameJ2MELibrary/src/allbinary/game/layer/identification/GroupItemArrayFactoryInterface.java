@@ -13,13 +13,10 @@
 */
 package allbinary.game.layer.identification;
 
-import allbinary.game.identification.Group;
-import allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.form.item.CustomItem;
 
-/**
- *
- * @author user
- */
+import allbinary.game.identification.Group;
+
 public interface GroupItemArrayFactoryInterface {
     CustomItem[] getInstance(Group groupInterface)
         throws Exception;

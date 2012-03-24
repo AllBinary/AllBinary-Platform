@@ -39,7 +39,7 @@ public class DropLayerProcessor extends BasicLayerProcessor
         int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            AllBinaryLayer layerInterface = (AllBinaryLayer) list.get(index);
+            AllBinaryLayer layerInterface = (AllBinaryLayer) list.objectArray[index];
 
             DropLayerInterface dropLayerInterface = (DropLayerInterface) layerInterface;
             allBinaryLayerManager.append(

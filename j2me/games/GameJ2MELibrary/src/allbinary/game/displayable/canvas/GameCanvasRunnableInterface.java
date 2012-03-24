@@ -23,10 +23,6 @@ import allbinary.game.state.GameStateCompositeInterface;
 import allbinary.graphics.paint.PaintableInterface;
 import allbinary.thread.RunnableInterface;
 
-/**
- *
- * @author USER
- */
 public interface GameCanvasRunnableInterface 
    extends RunnableInterface, PaintableInterface, ItemStateListener, FullScreenInterface, GameStateCompositeInterface
 {

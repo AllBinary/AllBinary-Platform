@@ -15,10 +15,6 @@ package allbinary.game.score;
 
 import javax.microedition.lcdui.Command;
 
-/**
- *
- * @author user
- */
 public class HighScoreCommandsFactory extends HighScoreCommandsBaseFactory
 {
     private static final HighScoreCommandsFactory instance =

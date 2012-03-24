@@ -36,6 +36,7 @@ import org.allbinary.input.AllBinarySensorManager;
 
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -754,10 +755,26 @@ public class GameMidlet extends ProgressMidlet
         return new GameInputMappingCanvas(this, this.createGameLayerManager(), this.getHelpPaintable());
     }
 
+    //You can override this with your own Canvas
     protected MyCanvas getAboutCanvas() throws Exception
     {
+        final String INFO[] = {
+                "This game was developed",
+                "using the AllBinary",
+                "Game Development Kit.",
+                StringUtil.getInstance().EMPTY_STRING,
+                //StringUtil.getInstance()
+                //"More info at: http://"
+                "Comments or Questions:",
+                //"support@allbinary.com"
+                };
+        
+        final String[] DEVELOPERS = {
+                "Developed By:", "Travis Berthelot"
+                };
+        
         return new BasicPaintablesCanvas(this, this.createGameLayerManager(),
-            AboutPaintable.getInstance().getPaintableArrayInstance());
+            AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance());
     }
 
     protected HelpPaintable getHelpPaintable()

@@ -97,7 +97,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
         int size = layerProcessorInterfaceArray.length;
         for (int index = 0; index < size; index++)
         {
-            layerProcessorInterfaceArray[index] = (LayerProcessor) list.get(index);
+            layerProcessorInterfaceArray[index] = (LayerProcessor) list.objectArray[index];
         }
 
         this.setLayerProcessorArray(layerProcessorInterfaceArray);

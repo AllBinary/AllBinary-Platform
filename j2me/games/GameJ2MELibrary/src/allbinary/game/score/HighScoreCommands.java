@@ -15,10 +15,6 @@ package allbinary.game.score;
 
 import javax.microedition.lcdui.Command;
 
-/**
- *
- * @author user
- */
 public class HighScoreCommands
 {
     private static final HighScoreCommands instance = new HighScoreCommands();

@@ -189,7 +189,7 @@ public class TouchButtonRecognizer
 
             for (int index = list.size() - 1; index >= 0; index--)
             {
-                touchButton = (TouchButton) list.get(index);
+                touchButton = (TouchButton) list.objectArray[index];
 
                 rectangle = touchButton.getRectangle();
                 point = rectangle.getPoint();
@@ -250,7 +250,7 @@ public class TouchButtonRecognizer
         
         for (int index = list.size() - 1; index >= 0; index--)
         {
-            touchButton = (TouchButton) list.get(index);
+            touchButton = (TouchButton) list.objectArray[index];
 
             rectangle = touchButton.getRectangle();
             point = rectangle.getPoint();

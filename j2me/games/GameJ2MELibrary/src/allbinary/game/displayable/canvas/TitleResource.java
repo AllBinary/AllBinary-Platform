@@ -15,7 +15,6 @@ package allbinary.game.displayable.canvas;
 
 public class TitleResource
 {
-
     public static final String RESOURCE_TITLE = "/title_sprite_100_by_100.png";
 
 }

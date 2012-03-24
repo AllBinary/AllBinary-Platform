@@ -44,7 +44,7 @@ public class BasicArrayListUtil
         //}
         
         int i_random = this.getRandomIndex(list);
-        return list.get(i_random);
+        return list.objectArray[i_random];
     }
 
     public int getRandomIndex(BasicArrayList list)
@@ -62,7 +62,7 @@ public class BasicArrayListUtil
 
         for (int index = size - 1; index >= 0; index--)
         {
-            BasicArrayList usedList = (BasicArrayList) list.get(index);
+            BasicArrayList usedList = (BasicArrayList) list.objectArray[index];
 
             stringBuffer.append(" s: ");
             stringBuffer.append(usedList.size());

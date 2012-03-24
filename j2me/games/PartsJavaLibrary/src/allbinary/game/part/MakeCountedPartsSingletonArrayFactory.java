@@ -42,8 +42,8 @@ public class MakeCountedPartsSingletonArrayFactory
         int size = countedBasicArrayList.size();
         for (int index = 0; index < size; index++)
         {
-            CountedPickedUpLayerInterfaceFactory layerInterfaceFactoryInterface = (CountedPickedUpLayerInterfaceFactory) countedBasicArrayList
-                    .get(index);
+            CountedPickedUpLayerInterfaceFactory layerInterfaceFactoryInterface = 
+                    (CountedPickedUpLayerInterfaceFactory) countedBasicArrayList.objectArray[index];
 
             list.add(new CountedLayerInterfaceFactoryPart(0,
                     layerInterfaceFactoryInterface));

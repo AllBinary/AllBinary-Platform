@@ -63,7 +63,7 @@ public class VectorMirrorGenerator
             for (int index = 0; index < points.length; index++)
             {
                 pointsBasicArrayList.add(getInstance(
-                        (BasicArrayList) pointsBasicArrayList.get(index), width));
+                        (BasicArrayList) pointsBasicArrayList.objectArray[index], width));
             }
 
             int[][][] newPoints = vectorAnimationUtil.toAnimationArrayFromBasicArrayListOfPointBasicArrayList(

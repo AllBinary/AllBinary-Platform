@@ -121,6 +121,6 @@ public class KeyValuePersistance extends BasicPersitance
 
     public Hashtable get(int index)
     {
-        return (Hashtable) this.getList().get(index);
+        return (Hashtable) this.getList().objectArray[index];
     }
 }

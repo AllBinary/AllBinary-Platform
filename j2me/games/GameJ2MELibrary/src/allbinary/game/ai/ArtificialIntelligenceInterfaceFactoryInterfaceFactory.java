@@ -40,7 +40,7 @@ public class ArtificialIntelligenceInterfaceFactoryInterfaceFactory
       int type = typeInteger.intValue();
       
       ArtificialIntelligenceInterfaceFactoryInterface artificialIntelligenceInterfaceFactoryInterface = 
-            (ArtificialIntelligenceInterfaceFactoryInterface) list.get(type - 1);
+            (ArtificialIntelligenceInterfaceFactoryInterface) list.objectArray[type - 1];
       
       return artificialIntelligenceInterfaceFactoryInterface;
    }

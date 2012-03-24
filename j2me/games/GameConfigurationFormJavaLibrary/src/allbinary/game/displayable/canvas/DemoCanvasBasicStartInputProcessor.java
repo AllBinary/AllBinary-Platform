@@ -50,7 +50,7 @@ public class DemoCanvasBasicStartInputProcessor
         
         for (int index = 0; index < size; index++)
         {
-            gameKeyEvent = (GameKeyEvent) list.get(index);
+            gameKeyEvent = (GameKeyEvent) list.objectArray[index];
 
             LogUtil.put(LogFactory.getInstance("Start GameKey: " + gameKeyEvent, this, GameInputStrings.getInstance().PROCESS_INPUT));
         }

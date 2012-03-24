@@ -123,7 +123,7 @@ public class ClientInformation implements AbeClientInformationInterface
      */
     public String getLicenseServer(int index)
     {
-        return (String) this.licenseServers.get(index);
+        return (String) this.licenseServers.objectArray[index];
     }
 
     /*
@@ -208,11 +208,11 @@ public class ClientInformation implements AbeClientInformationInterface
 
         for (int index = size; index >= 0; index--)
         {
-            String newServerName = (String) list.get(index);
+            String newServerName = (String) list.objectArray[index];
             for (int index2 = currentSize; index2 >= 0; index2--)
             {
                 String nextOldServerName = (String) 
-                    this.licenseServers.get(index);
+                    this.licenseServers.objectArray[index];
 
                 if (newServerName.compareTo(nextOldServerName) != 0)
                 {

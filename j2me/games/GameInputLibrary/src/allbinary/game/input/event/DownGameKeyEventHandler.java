@@ -64,7 +64,7 @@ public class DownGameKeyEventHandler extends BasicEventHandler
         {
             try
             {
-                PlayerGameInput playerGameInput = (PlayerGameInput) this.list.get(index);
+                PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownGameKeyEvent((GameKeyEvent) eventObject);
             }
             catch (Exception e)

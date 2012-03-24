@@ -128,7 +128,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          
          for (int index = 0; index < size; index++)
          {
-            gameKeyEvent = (GameKeyEvent) list.get(index);
+            gameKeyEvent = (GameKeyEvent) list.objectArray[index];
             key = gameKeyEvent.getKey();
 
             /*
@@ -177,7 +177,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       if (lastIndex >= 0)
       {
          MotionGestureEvent motionGestureEvent =
-                 (MotionGestureEvent) this.motionGestureEventList.get(lastIndex);
+                 (MotionGestureEvent) this.motionGestureEventList.objectArray[lastIndex];
 
          this.processMotionInput(motionGestureEvent);
       }

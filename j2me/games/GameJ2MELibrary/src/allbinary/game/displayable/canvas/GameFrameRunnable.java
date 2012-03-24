@@ -41,8 +41,7 @@ public class GameFrameRunnable extends GameRunnable
 
             allBinaryGameCanvas.processGame();
 
-            if (!allBinaryGameCanvas.isRunning()
-                    || allBinaryGameCanvas.isPaused())
+            if (!allBinaryGameCanvas.isRunning() || allBinaryGameCanvas.isPaused())
             {
                 allBinaryGameCanvas.notifyDonePainting();
             }

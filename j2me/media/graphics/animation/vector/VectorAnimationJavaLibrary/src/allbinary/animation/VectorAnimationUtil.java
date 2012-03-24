@@ -38,7 +38,7 @@ public class VectorAnimationUtil
 
         for (int index = 0; index < size; index++)
         {
-            BasicArrayList nextBasicArrayList = (BasicArrayList) vector.get(index);
+            BasicArrayList nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
             int[][] frame = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
 
             for (int pointIndex = 0; pointIndex < frame.length; pointIndex++)
@@ -58,8 +58,7 @@ public class VectorAnimationUtil
 
         for (int index = 0; index < size; index++)
         {
-            BasicArrayList nextBasicArrayList = (BasicArrayList) vector
-                    .get(index);
+            BasicArrayList nextBasicArrayList = (BasicArrayList) vector.objectArray[index];
             int[][] framePoints = toFrameArrayFromPointBasicArrayList(nextBasicArrayList);
             points[index] = new int[framePoints.length][2];
             for (int pointIndex = 0; pointIndex < framePoints.length; pointIndex++)
@@ -117,7 +116,7 @@ public class VectorAnimationUtil
         int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            GPoint nextPoint = (GPoint) list.get(index);
+            GPoint nextPoint = (GPoint) list.objectArray[index];
             points[index][0] = nextPoint.getX();
             points[index][1] = nextPoint.getY();
         }

@@ -17,6 +17,7 @@ package allbinary.game.displayable.canvas;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
@@ -52,7 +53,6 @@ import allbinary.graphics.form.PaintableForm;
 import allbinary.graphics.form.ScrollSelectionForm;
 import allbinary.graphics.form.ScrollSelectionFormNoneFactory;
 import allbinary.graphics.form.item.CommandTextItemArrayFactory;
-import allbinary.graphics.form.item.CustomItem;
 import allbinary.graphics.form.item.validation.AllCommandsVisitor;
 import allbinary.graphics.paint.NullPaintable;
 import allbinary.graphics.paint.Paintable;
@@ -64,6 +64,8 @@ public class GameCommandCanvas
     extends MyCanvas
     implements MenuListener, DisplayChangeEventListener
 {
+    private static final int id = 0;
+    
     protected final BasicColor foregroundBasicColor;
     protected final BasicColor backgroundBasicColor;
 
@@ -77,6 +79,18 @@ public class GameCommandCanvas
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
 
     private PaintableForm menuForm;
+
+    private boolean isSingleKeyRepeatableProcessing =
+        Features.getInstance().isFeature(
+        InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
+
+    private final String NO_KEY = "Key Code Not Mapped For Game: ";
+    private final String ADD_KEY_EVENT = "addGameKeyEvent";
+    private final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
+
+    private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+
+    private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
     public GameCommandCanvas(CommandListener cmdListener, 
             BasicColor backgroundBasicColor, 
@@ -201,8 +215,6 @@ public class GameCommandCanvas
         DisplayChangeEventHandler.getInstance().removeListener(this);
     }
 
-    private static final int id = 0;
-
     public int getSourceId()
     {
         return id;
@@ -219,11 +231,7 @@ public class GameCommandCanvas
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
         this.removeGameKeyEvent(keyCode, false);
     }
-
-    private boolean isSingleKeyRepeatableProcessing =
-        Features.getInstance().isFeature(
-        InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
-
+    
     public void keyRepeated(int keyCode)
     {
         // LogUtil.put(LogFactory.getInstance("Key Repeated: " + Integer.toHexString(keyCode), this, "keyRepeated"));
@@ -232,13 +240,6 @@ public class GameCommandCanvas
             this.addGameKeyEvent(keyCode, true);
         }
     }
-    private final String NO_KEY = "Key Code Not Mapped For Game: ";
-    private final String ADD_KEY_EVENT = "addGameKeyEvent";
-    private final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
-
-    private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
-
-    private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
     private void addGameKeyEvent(int keyCode, boolean repeated)
     {

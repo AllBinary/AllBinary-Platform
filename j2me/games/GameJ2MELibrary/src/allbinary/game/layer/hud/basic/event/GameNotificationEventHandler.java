@@ -88,7 +88,7 @@ public class GameNotificationEventHandler extends BasicEventHandler
        
        if(list.size() > 0)
        {
-           eventListenerInterface = (EventListenerInterface) list.get(0);
+           eventListenerInterface = (EventListenerInterface) list.objectArray[0];
        }
        
        super.removeAllListeners();

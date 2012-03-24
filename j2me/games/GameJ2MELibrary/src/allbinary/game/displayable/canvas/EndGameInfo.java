@@ -15,10 +15,6 @@ package allbinary.game.displayable.canvas;
 
 import abcs.logic.basic.string.StringUtil;
 
-/**
- *
- * @author user
- */
 public class EndGameInfo {
     
     private final String NORMAL_GAME_OVER = "Game Over";

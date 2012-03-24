@@ -175,7 +175,7 @@ public class InputPersistance extends BasicPersitance
             {
                 outputStream.writeUTF(smallIntegerSingletonFactory.getInstance(gameActionInput.getId()).toString());
                 outputStream.writeUTF(commonSeps.EQUALS);
-                input = (Input) list.get(index2);
+                input = (Input) list.objectArray[index2];
                 outputStream.writeUTF(smallIntegerSingletonFactory.getInstance(input.getId()).toString());
 
                 //StringBuilder stringBuffer = new StringBuilder();

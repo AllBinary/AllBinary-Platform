@@ -24,11 +24,6 @@ import allbinary.graphics.Rectangle;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.view.StaticViewPosition;
 
-/**
- *
- * @author Berthelot, Travis
- * @version 1.0
- */
 public class PlayerGameInputGameLayer extends AllBinaryGameLayer
     implements PlayerGameInputCompositeInterface
 {
