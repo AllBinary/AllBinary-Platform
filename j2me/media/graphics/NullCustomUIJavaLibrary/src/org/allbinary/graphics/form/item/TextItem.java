@@ -4,8 +4,6 @@ import javax.microedition.lcdui.Graphics;
 
 import allbinary.graphics.color.BasicColor;
 
-import org.allbinary.graphics.form.item.StringComponent;
-
 public class TextItem 
 extends CustomCustomItem 
 implements CustomItemInterface
@@ -13,6 +11,7 @@ implements CustomItemInterface
     public TextItem(String label, int layout, String altText, 
             BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
+        super(label, backgroundBasicColor, foregroundBasicColor);
     }
 
     public void keyPressed(int keyCode)

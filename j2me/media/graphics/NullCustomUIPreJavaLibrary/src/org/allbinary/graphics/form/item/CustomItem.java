@@ -3,9 +3,14 @@ package org.allbinary.graphics.form.item;
 import javax.microedition.lcdui.Graphics;
 
 import abcs.logic.basic.string.StringUtil;
+import allbinary.graphics.color.BasicColor;
 
 public class CustomItem
 {
+    protected CustomItem(String label, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    {
+    }
+    
     public void paint(Graphics graphics, int x, int y)
     {
         

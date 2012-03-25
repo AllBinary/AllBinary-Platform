@@ -8,5 +8,6 @@ extends CustomItem
     public CustomGaugeItem(String label, int maxValue, int initialValue, 
             BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
+        super(label, backgroundBasicColor, foregroundBasicColor);
     }
 }
