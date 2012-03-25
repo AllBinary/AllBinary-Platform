@@ -30,7 +30,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AdvertisementClientNeverJavaLibrary</artifactId>
+            <artifactId>AdvertisementClientNoneJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
         </dependency>
