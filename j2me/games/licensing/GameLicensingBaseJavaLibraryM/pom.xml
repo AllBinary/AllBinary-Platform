@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary</groupId>
-  <artifactId>GameLicensingOnlyNormalJavaLibrary</artifactId>
+  <artifactId>GameLicensingBaseJavaLibrary</artifactId>
   <packaging>jar</packaging>
   <version>1</version>
-  <name>GameLicensingOnlyNormalJavaLibrary</name>
+  <name>GameLicensingBaseJavaLibrary</name>
   <url>http://maven.apache.org</url>
 
     <properties>
@@ -26,6 +26,19 @@
             <artifactId>LoggingJ2MEAll</artifactId>
             <version>1</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameJ2MELibrary</artifactId>
+            <version>1</version>
         </dependency>
 
         <dependency>
@@ -92,7 +105,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameLicensingOnlyNormalJavaLibrary/src</sourceDirectory>
+        <sourceDirectory>../GameLicensingBaseJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
