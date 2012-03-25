@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary</groupId>
-  <artifactId>ScreenCaptureAndroidJavaLibrary</artifactId>
+  <artifactId>AllBinaryLayerJavaLibrary</artifactId>
   <packaging>jar</packaging>
   <version>1</version>
-  <name>ScreenCaptureAndroidJavaLibrary</name>
+  <name>AllBinaryLayerJavaLibrary</name>
   <url>http://maven.apache.org</url>
 
     <properties>
@@ -30,58 +30,53 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameConfigurationJavaLibrary</artifactId>
+            <artifactId>OpenGLNoneJavaLibrary</artifactId>
             <version>1</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>FileAndroidJavaLibrary</artifactId>
+            <artifactId>BasicMathLibrary</artifactId>
             <version>1</version>
         </dependency>
-
+        
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>PreGameJ2MEJavaLibrary</artifactId>
+            <artifactId>AllBinaryJ2MELibrary</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEColorJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEJavaUtilLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GroupLibrary</artifactId>
             <version>1</version>
         </dependency>
 
         <dependency>
             <groupId>org.microemu</groupId>
-            <artifactId>microemu-jsr-135</artifactId>
+            <artifactId>microemulator</artifactId>
             <version>3.0.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
-        
-        <dependency>
-            <groupId>android</groupId>
-            <artifactId>android</artifactId>
-            <version>5</version>
-            <optional>true</optional>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.allbinary.microemu</groupId>
-            <artifactId>special-microemu-midp</artifactId>
-            <version>0</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary.microemu</groupId>
-            <artifactId>special-microemu</artifactId>
-            <version>0</version>
-            <optional>true</optional>
-        </dependency>
-        
+
     </dependencies>
 
     <build>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -150,18 +145,11 @@
                 </configuration>
             </plugin>
 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
+
         </plugins>
 
-        <sourceDirectory>../ScreenCaptureAndroidJavaLibrary/src</sourceDirectory>
+        <sourceDirectory>../AllBinaryLayerJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
+

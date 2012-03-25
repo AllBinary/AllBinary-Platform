@@ -10,11 +10,8 @@
         <dependencySet>
 
            <excludes>
-
-               <exclude>android:android</exclude>
-<!--
--->
-
+               <exclude>org.allbinary:LoggingJ2MEAll</exclude>
+               <exclude>org.microemu:microemulator</exclude>
            </excludes>
 
             <unpack>true</unpack>
