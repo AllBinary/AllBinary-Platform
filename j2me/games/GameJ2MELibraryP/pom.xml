@@ -20,6 +20,7 @@
         NoGyroSensorLibrary
         -->
 
+        <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
 
         <module>../../../allbinary_src/ThreadJ2MELibraryM</module>
