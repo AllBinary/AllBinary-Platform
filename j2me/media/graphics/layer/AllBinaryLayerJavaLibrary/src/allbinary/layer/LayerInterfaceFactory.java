@@ -39,7 +39,7 @@ public class LayerInterfaceFactory
    }
    
    private final String HASHTABLE_LABEL = "Hashtable: ";
-   
+
    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
            throws Exception
    {
