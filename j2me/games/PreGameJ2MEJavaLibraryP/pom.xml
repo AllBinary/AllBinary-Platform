@@ -15,20 +15,16 @@
     
     <modules>
 
+        <!--
+        <module>../../AllBinaryJ2MELibraryP</module>
+        -->
+
         <module>../../media/graphics/NullCustomUIPreJavaLibraryM</module>
 
         <module>../../../allbinary_src/ThreadJ2MELibraryM</module>
 
-        <!--
-        <module>../../AllBinaryJ2MELibraryM</module>
-        -->
-
-        <module>../../media/graphics/geography/map/LayerPlacementLibraryM</module>
-
-        <!--
-        ../
-        -->
         <module>../../games/PreGameJ2MEJavaLibraryM</module>
+
     </modules>
 
     <build>

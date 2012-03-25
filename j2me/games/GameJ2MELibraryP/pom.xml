@@ -16,9 +16,7 @@
     <modules>
 
         <!--
-        <module>../../AllBinaryJ2MELibraryP</module>
         <module>../../games/PreGameJ2MEJavaLibraryP</module>
-        LayerPlacementLibrary
         NoGyroSensorLibrary
         -->
 
@@ -111,6 +109,7 @@
 
         <module>../../lib/TrigJ2MELibraryM</module>
 
+        <module>../../media/graphics/geography/map/LayerPlacementLibraryM</module>
         <module>../../media/graphics/layer/AllBinaryLayerJavaLibraryM</module>
 
         <module>../../ScreenCaptureNoneJavaLibraryM</module>
