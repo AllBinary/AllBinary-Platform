@@ -28,13 +28,6 @@
             <version>1</version>
             <optional>true</optional>
         </dependency>
-        
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>AdvertisementClientNeverJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
