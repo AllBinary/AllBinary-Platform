@@ -38,7 +38,7 @@
         <module>../../media/sound/J2SEMediaMIDPMinimalJavaLibraryM</module>
         <module>../../media/sound/NotDeviceSpecificMIDP2JavaLibraryM</module>
 
-        <module>../../ScreenCaptureAndroidJavaLibraryM</module>
+        <module>../../../../work/j2me/ScreenCaptureAndroidJavaLibraryM</module>
 
     </modules>
 

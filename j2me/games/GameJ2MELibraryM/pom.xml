@@ -52,13 +52,6 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AdvertisementClientNeverJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>ScreenCaptureNoneJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
@@ -74,6 +67,13 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>TempIntegrationJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NullCustomUIJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
         </dependency>
