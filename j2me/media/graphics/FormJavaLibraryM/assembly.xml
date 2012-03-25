@@ -11,6 +11,7 @@
 
            <excludes>
                <exclude>org.allbinary:LoggingJ2MEAll</exclude>
+               <exclude>org.microemu:microemu-cldc</exclude>
                <exclude>org.microemu:microemu-midp</exclude>
            </excludes>
 
