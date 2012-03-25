@@ -66,6 +66,7 @@
         <module>../../media/graphics/NullCustomUIJavaLibraryM</module>
         <module>../../media/graphics/NullCustomUIBaseJavaLibraryM</module>
 
+        <module>../../media/graphics/FormValidationJavaLibraryM</module>
         <module>../../media/graphics/FormJavaLibraryM</module>
         <module>../../media/graphics/FormBaseJavaLibraryM</module>
 
