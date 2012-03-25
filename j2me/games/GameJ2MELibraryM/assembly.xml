@@ -34,7 +34,6 @@
                 -->
                 
                 <exclude>org.microemu:microemu-midp</exclude>
-                <exclude>org.microemu:microemu-cldc</exclude>
             </excludes>
 
             <unpack>true</unpack>
