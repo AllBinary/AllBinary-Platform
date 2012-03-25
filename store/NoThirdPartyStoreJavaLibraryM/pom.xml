@@ -24,16 +24,9 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>ThirdPartyStoreJavaLibrary</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ClientInfoNoLicensingJavaLibrary</artifactId>
+            <artifactId>ThirdPartyStoreJavaLibrary</artifactId>
             <version>1</version>
-            <optional>true</optional>
         </dependency>
 
     </dependencies>
