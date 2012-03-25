@@ -13,8 +13,6 @@
                <exclude>org.allbinary:LoggingJ2MEAll</exclude>
                <exclude>org.allbinary:OpenGLNoneJavaLibrary</exclude>
                <exclude>org.microemu:microemulator</exclude>
-               <exclude>org.microemu:microemu-cldc</exclude>
-               <exclude>org.microemu:microemu-midp</exclude>
                <exclude>org.microemu:microemu-jsr-135</exclude>
            </excludes>
 
