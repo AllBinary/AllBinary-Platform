@@ -42,8 +42,6 @@
 
         <module>../../games/GameIntermissionLibraryM</module>
 
-        <module>../../media/graphics/ImageCacheJavaLibraryM</module>
-
         <module>../../GroupLibraryM</module>
 
         <module>../../input/NoSensorJavaLibraryM</module>
