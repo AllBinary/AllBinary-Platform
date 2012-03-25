@@ -82,10 +82,11 @@
 
         <module>../../../allbinary_src/hardware/HardwareLibraryPOM</module>
 
-
         <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
         <module>../../games/licensing/NoGameLicensingJavaLibraryM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
+        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryM</module>
 
         <module>../../input/TouchInputLibraryPOM</module>
 
