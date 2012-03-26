@@ -13,8 +13,8 @@
 */
 package allbinary.game.layer;
 
+import java.util.Enumeration;
 import java.util.Hashtable;
-import java.util.Set;
 
 import org.allbinary.util.BasicArrayList;
 
@@ -56,14 +56,18 @@ public class LayerPlacer
       
       Hashtable hashtable = layerPlacementInterface.getInstance();
 
-      Set set = hashtable.keySet();
-      Object[] objectArray = set.toArray();
+      //J2ME does not have this so just leave it out for now
+      //Set set = hashtable.keySet();
+      //Object[] objectArray = set.toArray();
+      //int size = set.size();
+      //for(int index = 0; index < size; index++)
+      //{
+         //GPoint point = (GPoint) objectArray[index];
       
-      int size = set.size();
-      
-      for(int index = 0; index < size; index++)
+      Enumeration enumeration = hashtable.keys();
+      while (enumeration.hasMoreElements())
       {
-         GPoint point = (GPoint) objectArray[index];
+         GPoint point = (GPoint) enumeration.nextElement();
 
          Hashtable layerHashtable = (Hashtable) hashtable.get(point);
 

@@ -128,13 +128,17 @@
 
         <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
 
+        <!--
         <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+        -->
 
         <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
         <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>
         
+        <!--
         <module>../GameJ2MEOptionalLibraryPOM</module>
-        
+        -->
+
     </modules>
 
 </project>

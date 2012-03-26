@@ -44,9 +44,9 @@
         <module>../AllBinaryJ2MELibraryM</module>
         
         <module>../lib/TrigBaseLibraryM</module>        
-        <module>../J2SEForJ2MEJavaLibraryM</module>
         <module>../input/me/TouchJ2MENoneJavaLibraryM</module>
         
+        <module>../AllBinaryOptionalLibraryPOM</module>
     </modules>
 
 </project>
