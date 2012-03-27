@@ -225,6 +225,27 @@ public class GameMidlet extends ProgressMidlet
         }
     }
     
+    protected void destroyApp(boolean unconditional, boolean isProgress)
+    {
+        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+
+        if (isProgress)
+        {
+            progressCanvas.start();
+
+            this.commandAction(MyCommandsFactory.getInstance().SET_DISPLAYABLE, progressCanvas);
+
+            // progressCanvas.waitUntilDisplayed();
+        }
+        
+        this.destroyApp(unconditional);
+
+        if (isProgress)
+        {
+            progressCanvas.end();
+        }
+    }
+    
     protected void destroyApp(boolean unconditional)
     {
         try

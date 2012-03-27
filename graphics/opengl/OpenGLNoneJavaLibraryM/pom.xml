@@ -23,6 +23,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>J2MEColorJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -30,12 +37,6 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>PreGameJ2MEJavaLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>ImageCacheJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
 

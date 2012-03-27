@@ -16,8 +16,9 @@
     <modules>
 
         <!--
-        <module>../../AllBinaryJ2MELibraryP</module>
+        
         -->
+        <module>../../AllBinaryJ2MELibraryP</module>
 
         <module>../../media/graphics/NullCustomUIPreJavaLibraryM</module>
 

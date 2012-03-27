@@ -19,9 +19,6 @@ import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.canvas.Processor;
-import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
-import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import allbinary.graphics.displayable.command.MyCommandsFactory;
 
 public class ExitRunnable implements Runnable
 {
@@ -42,23 +39,7 @@ public class ExitRunnable implements Runnable
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_RUNNABLE, this, CommonStrings.getInstance().RUN));
 
-            ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-
-            if (this.isProgress)
-            {
-                progressCanvas.start();
-
-                this.midlet.commandAction(MyCommandsFactory.getInstance().SET_DISPLAYABLE, progressCanvas);
-
-                // progressCanvas.waitUntilDisplayed();
-            }
-
-            this.midlet.destroyApp(false);
-
-            if (this.isProgress)
-            {
-                progressCanvas.end();
-            }
+            this.midlet.destroyApp(false, this.isProgress);
 
             // Why set to null
             this.midlet.setDisplay((Displayable) null);

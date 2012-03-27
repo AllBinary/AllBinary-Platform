@@ -15,7 +15,6 @@ package allbinary.game.midlet;
 
 import java.util.Hashtable;
 
-import abcs.globals.Globals;
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.basic.string.StringUtil;
@@ -30,7 +29,6 @@ public class DemoGameMidlet extends GameMidlet
 {
     public DemoGameMidlet()
     {
-        Globals.init(this.getClass().getClassLoader(), StringUtil.getInstance().EMPTY_STRING);
     }
     
     protected boolean isContinue() throws Exception

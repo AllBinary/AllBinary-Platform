@@ -14,6 +14,7 @@
 package allbinary.canvas;
 
 
+
 public class RunnableCanvasRefreshHelper extends Processor
 {
     private RunnableCanvas runnableCanvas;

@@ -23,12 +23,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TouchButtonJavaLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.microemu</groupId>
             <artifactId>microemu-midp</artifactId>
             <version>3.0.0-SNAPSHOT</version>

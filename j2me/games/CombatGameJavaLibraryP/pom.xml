@@ -15,13 +15,11 @@
 
     <modules>
 
-<!--
+        <!--
+        
+        -->
         <module>../GameJ2MELibraryP</module>
--->
 
-<module>../../../allbinary_src/data/BaseDataJavaLibraryM</module>
-
-        <module>../../lib/Basic2DVectorLibraryM</module>
         <module>../../media/graphics/layer/CollisionLayerJavaLibraryM</module>
         <module>../../games/CollisionLibraryM</module>
         

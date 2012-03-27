@@ -37,6 +37,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>J2MEForJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>ClientInfoLicensingJavaLibrary</artifactId>
             <version>1</version>
         </dependency>

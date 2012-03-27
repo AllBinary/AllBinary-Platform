@@ -11,20 +11,23 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary;
+package allbinary.midlet;
 
-/**
- *
- * @author user
- */
-public class J2MEUtil
+import javax.microedition.midlet.MIDlet;
+
+import allbinary.canvas.Processor;
+
+public class MidletExitProcessor extends Processor
 {
-    private J2MEUtil()
+    private final MIDlet midlet;
+
+    public MidletExitProcessor(MIDlet midlet)
     {
+        this.midlet = midlet;
     }
 
-    public static boolean isJ2ME()
+    public void process() throws Exception
     {
-        return false;
+        //Never an exit in the MIDlet
     }
 }

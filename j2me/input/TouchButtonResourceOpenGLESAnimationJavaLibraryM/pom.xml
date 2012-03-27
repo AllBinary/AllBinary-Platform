@@ -22,16 +22,23 @@
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.input</groupId>
-            <artifactId>TouchButtonResourceAnimationJavaLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>OpenGLNoneJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary.input</groupId>
+            <artifactId>TouchButtonResourceAnimationJavaLibrary</artifactId>
+            <version>1</version>
         </dependency>
 
     </dependencies>

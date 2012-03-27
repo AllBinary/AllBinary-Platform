@@ -1,12 +1,11 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>TouchJ2MEJavaLibrary</artifactId>
+    <artifactId>TouchScreenJ2MENoneJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <version>1</version>
-    <name>TouchJ2MEJavaLibrary</name>
+    <name>TouchScreenJ2MENoneJavaLibrary</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -25,7 +24,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>MotionGestureJavaLibrary</artifactId>
+            <artifactId>TouchButtonJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
 
@@ -36,7 +35,7 @@
             <optional>true</optional>
         </dependency>
 
-    </dependencies>
+</dependencies>
 
     <build>
         <plugins>
@@ -55,7 +54,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TouchJ2MEJavaLibrary/src</sourceDirectory>
+        <sourceDirectory>../TouchScreenJ2MENoneJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

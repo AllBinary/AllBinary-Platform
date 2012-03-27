@@ -15,13 +15,26 @@ package allbinary.game.score;
 
 import javax.microedition.lcdui.Command;
 
+import allbinary.J2MEUtil;
+
 public class HighScoreCommandsBaseFactory {
     
     public final Command[] HIGH_SCORE_COMMANDS;
 
     protected HighScoreCommandsBaseFactory(Command[] HIGH_SCORE_COMMANDS)
     {
-        this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
+        if(J2MEUtil.isJ2ME())
+        {
+            //TWB - Hackish but it is better than a whole new library
+            this.HIGH_SCORE_COMMANDS = new Command[] 
+                    {
+                    HighScoreCommands.getInstance().PERSONAL,
+                    };
+        }
+        else
+        {
+            this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
+        }
     }
 
     public boolean isHighScoreCommand(Command command)

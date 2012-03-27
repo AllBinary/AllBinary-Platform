@@ -97,6 +97,11 @@ implements CommandListener
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
     
+    protected void destroyApp(boolean unconditional, boolean isProgress)
+    {
+        
+    }
+
     protected void destroyApp(boolean unconditional)
     {
         try

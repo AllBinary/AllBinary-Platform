@@ -16,14 +16,13 @@
     <modules>
 
         <!--
-        <module>../../games/PreGameJ2MEJavaLibraryP</module>
         NoGyroSensorLibrary
+        
         -->
+        <module>../../games/PreGameJ2MEJavaLibraryP</module>
 
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
-
-        <module>../../../allbinary_src/ThreadJ2MELibraryM</module>
 
         <module>../../ResourceLibraryM</module>
         <module>../../ResourceJ2MEJavaLibraryM</module>

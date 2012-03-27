@@ -15,7 +15,7 @@
 
     <modules>
 
-        <module>../../media/graphics/ImageCacheJavaLibraryM</module>
+        <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
 
         <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
 
