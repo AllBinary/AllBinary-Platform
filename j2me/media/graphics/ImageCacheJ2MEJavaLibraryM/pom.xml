@@ -30,13 +30,14 @@
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AndroidResourceLibrary</artifactId>
+            <artifactId>J2MEForJ2MEJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
         </dependency>
+        
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AndroidToAllBinaryJavaLibrary</artifactId>
+            <artifactId>TempIntegrationJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
         </dependency>

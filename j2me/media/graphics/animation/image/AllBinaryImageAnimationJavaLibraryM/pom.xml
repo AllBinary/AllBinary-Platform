@@ -37,6 +37,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>RotationAnimationJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
