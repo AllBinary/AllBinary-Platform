@@ -17,6 +17,7 @@ import java.util.Hashtable;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.system.security.licensing.registration.RegistrationConfiguration;
@@ -30,7 +31,7 @@ public class MobileClientInformation
     public MobileClientInformation(String name, String version, String specialName)
     {
         super(name, version, 
-                new StringBuilder().append(specialName).
+                new StringMaker().append(specialName).
                 append(CommonSeps.getInstance().SPACE).
                 append(PartnerIdentifierFileUtil.getInstance().get()).toString());
 

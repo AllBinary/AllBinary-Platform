@@ -13,7 +13,7 @@
 */
 package allbinary.game.input;
 
-import abcs.logic.basic.path.AbPathData;
+import abcs.logic.basic.string.CommonSeps;
 import org.allbinary.basic.string.CommonPhoneStrings;
 
 import java.awt.event.KeyEvent;
@@ -94,10 +94,14 @@ public class PCKeyFactory
     public final PCGameKey EIGHT = new PCGameKey(KeyEvent.VK_8,
         CommonPhoneStrings.getInstance().EIGHT);
     public final PCGameKey NINE = new PCGameKey(KeyEvent.VK_9, CommonPhoneStrings.getInstance().NINE);
-    public final PCGameKey DPAD_UP = new PCGameKey(1, "UP");
-    public final PCGameKey DPAD_DOWN = new PCGameKey(2, "DOWN");
-    public final PCGameKey DPAD_LEFT = new PCGameKey(3, "LEFT");
-    public final PCGameKey DPAD_RIGHT = new PCGameKey(4, "RIGHT");
+    public final PCGameKey DPAD_UP = new PCGameKey(KeyEvent.VK_UP, "UP");
+    public final PCGameKey DPAD_DOWN = new PCGameKey(KeyEvent.VK_DOWN, "DOWN");
+    public final PCGameKey DPAD_LEFT = new PCGameKey(KeyEvent.VK_LEFT, "LEFT");
+    public final PCGameKey DPAD_RIGHT = new PCGameKey(KeyEvent.VK_RIGHT, "RIGHT");
+    //public final PCGameKey DPAD_UP = new PCGameKey(1, "UP");
+    //public final PCGameKey DPAD_DOWN = new PCGameKey(2, "DOWN");
+    //public final PCGameKey DPAD_LEFT = new PCGameKey(3, "LEFT");
+    //public final PCGameKey DPAD_RIGHT = new PCGameKey(4, "RIGHT");
     //public final PCGameKey DPAD_CENTER = new PCGameKey(KeyEvent.VK_CENTER,
     //      "CENTER");
     public final PCGameKey COMMA = new PCGameKey(KeyEvent.VK_COMMA, "COMMA");
@@ -109,7 +113,7 @@ public class PCKeyFactory
         CommonPhoneStrings.getInstance().STAR);
     public final PCGameKey QUESTION = new PCGameKey(47, "?");
     public final PCGameKey PERIOD = new PCGameKey(KeyEvent.VK_PERIOD,
-        AbPathData.getInstance().EXTENSION_SEP);
+        CommonSeps.getInstance().PERIOD);
     public final PCGameKey ESCAPE = new PCGameKey(KeyEvent.VK_ESCAPE, "Esc");
 
     //KeyEvent.VK_BACK_SPACE = ?

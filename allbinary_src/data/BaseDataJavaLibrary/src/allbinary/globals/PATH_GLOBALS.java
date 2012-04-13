@@ -26,7 +26,7 @@ public class PATH_GLOBALS
 
    private PATH_GLOBALS()
    {
-       StringBuilder stringBuffer = new StringBuilder();
+       StringBuffer stringBuffer = new StringBuffer();
 
        stringBuffer.append("data");
        stringBuffer.append(AbPathData.getInstance().SEPARATOR);

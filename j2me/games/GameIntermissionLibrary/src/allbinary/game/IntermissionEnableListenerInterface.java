@@ -15,5 +15,5 @@ package allbinary.game;
 
 public interface IntermissionEnableListenerInterface
 {
-    void notify(boolean enable);
+    void notifyIntermission(boolean enable);
 }

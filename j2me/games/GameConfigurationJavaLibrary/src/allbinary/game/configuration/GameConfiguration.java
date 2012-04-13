@@ -13,6 +13,7 @@
 */
 package allbinary.game.configuration;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.java.bool.BooleanFactory;
 import allbinary.game.configuration.event.GameFeatureEvent;
 import allbinary.game.configuration.event.GameFeatureEventHandler;
@@ -104,7 +105,7 @@ public class GameConfiguration
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Name: ");
         stringBuffer.append(this.name);

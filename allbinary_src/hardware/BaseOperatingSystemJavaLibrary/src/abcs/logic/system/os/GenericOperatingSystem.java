@@ -14,6 +14,7 @@
 package abcs.logic.system.os;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.basic.string.StringValidationUtil;
 import abcs.logic.java.character.CharacterSet;
@@ -85,8 +86,8 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    public String toString()
    {
        final String NEW_LINE = CommonSeps.getInstance().NEW_LINE;
-       
-      StringBuilder osBuffer = new StringBuilder();
+
+      StringMaker osBuffer = new StringMaker();
       osBuffer.append("Operating System Info: \n");
       osBuffer.append(this.getName());
       osBuffer.append(NEW_LINE);

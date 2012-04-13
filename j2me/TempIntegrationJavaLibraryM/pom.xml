@@ -21,7 +21,14 @@
             <version>1</version>
             <optional>true</optional>
         </dependency>
-        
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameConfigurationJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>PreGameJ2MEJavaLibrary</artifactId>

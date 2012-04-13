@@ -13,11 +13,13 @@
 */
 package abcs.logic.java;
 
+import abcs.logic.basic.string.StringMaker;
+
 public class PrimitiveArrayToString
 {
     public static String toString(float[] floats)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         for(int index = 0; index < floats.length; index++)
         {
             stringBuffer.append(floats[index]);

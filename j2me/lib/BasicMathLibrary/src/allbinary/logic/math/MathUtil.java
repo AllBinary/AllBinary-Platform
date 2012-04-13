@@ -17,9 +17,16 @@ package allbinary.logic.math;
  *
  * @author user
  */
-public class MathUtil {
-
-    public static int getTotalDigits(int digits)
+public class MathUtil
+{
+    private static final MathUtil instance = new MathUtil();
+    
+    public static MathUtil getInstance()
+    {
+        return instance;
+    }        
+    
+    public int getTotalDigits(int digits)
     {
         int total = 0;
         while(digits > 0)
@@ -29,4 +36,33 @@ public class MathUtil {
         }
         return total;
     }
+    
+    public int sqrt(int value)
+    {
+        if (value <= 1) 
+        {
+            return value;
+        }
+
+        int accumulated = value >> 1;
+        int result = (accumulated + (value / accumulated)) >> 1;
+        do {
+            accumulated = result;
+            result = (accumulated + (value / accumulated)) >> 1;
+
+        } while (accumulated > result);
+        return accumulated;
+    }
+    
+    /*
+    public static void main(String[] args)
+    {
+        int result;
+        for(int i = 100000000; i >= 0; i=i/2)
+        {
+            result = MathUtil.getInstance().sqrt(i);
+            System.out.println(i + " = " + result);
+        }
+    }
+    */
 }

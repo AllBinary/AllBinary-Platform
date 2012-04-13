@@ -21,7 +21,7 @@ public class Intermission implements IntermissionInterface
 
     private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
 
-    private IntermissionEnableListenerInterface enableListener = NullIntermissionEnableListener.getInstance();
+    private IntermissionEnableListenerInterface intermissionEnableListener = NullIntermissionEnableListener.getInstance();
     
     public Intermission()
     {
@@ -29,7 +29,7 @@ public class Intermission implements IntermissionInterface
 
     public void setListener(IntermissionEnableListenerInterface enableListener)
     {
-        this.enableListener = enableListener;
+        this.intermissionEnableListener = enableListener;
     }
     
     public TimeDelayHelper getTimeDelayHelper()
@@ -46,7 +46,7 @@ public class Intermission implements IntermissionInterface
             this.getTimeDelayHelper().setStartTime();
         }
         
-        this.enableListener.notify(enabled);
+        this.intermissionEnableListener.notifyIntermission(enabled);
     }
 
     public boolean isEnabled()

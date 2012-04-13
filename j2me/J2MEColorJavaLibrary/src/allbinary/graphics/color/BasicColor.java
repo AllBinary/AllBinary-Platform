@@ -13,6 +13,7 @@
 */
 package allbinary.graphics.color;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 
 public class BasicColor
@@ -95,7 +96,7 @@ public class BasicColor
         this.value = tempValue;
 
         /*
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Alpha: ");
         stringBuffer.append(alpha);
@@ -123,7 +124,7 @@ public class BasicColor
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("BasicColor: ");
         stringBuffer.append("Red: ");

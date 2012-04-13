@@ -16,6 +16,7 @@ package allbinary.game.resource;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.configuration.feature.Features;
@@ -60,7 +61,7 @@ public class FeaturedResourceFactory
         GraphicsFeatureFactory graphicsFeatureFactory = 
             GraphicsFeatureFactory.getInstance();
         
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(ANIMATION_FEATURES);
         stringBuffer.append(features.isFeature(graphicsFeatureFactory.VECTOR_GRAPHICS));

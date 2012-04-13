@@ -24,9 +24,9 @@ public class CustomGameMenuUtil
         GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
  
-        if (!AppletUtil.isAppletLoader(canvas))
-        {
+        //if (!AppletUtil.isAppletLoader(canvas))
+        //{
             canvas.addCommand(gameCommandsFactory.EXIT_COMMAND);
-        }        
+        //}        
     }
 }

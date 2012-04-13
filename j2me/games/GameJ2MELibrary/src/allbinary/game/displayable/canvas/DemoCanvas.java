@@ -48,10 +48,7 @@ import allbinary.canvas.RunnableCanvas;
 import allbinary.game.GameInfo;
 import allbinary.game.commands.GameCommandsFactory;
 import allbinary.game.configuration.event.ChangedGameFeatureListener;
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.GameFeatureFactory;
-import allbinary.game.configuration.feature.InputFeatureFactory;
-import allbinary.game.configuration.feature.MainFeatureFactory;
+import allbinary.game.configuration.feature.*;
 import allbinary.game.init.BasicBuildGameInitializerFactory;
 import allbinary.game.init.GameInitializationUtil;
 import allbinary.game.input.GameKey;
@@ -103,6 +100,7 @@ import allbinary.media.audio.EarlySoundsFactoryFactory;
 import allbinary.media.audio.PrimaryPlayerQueueFactory;
 import allbinary.media.audio.SecondaryPlayerQueueFactory;
 import allbinary.thread.SecondaryThreadPool;
+import allbinary.thread.ThreadFactoryUtil;
 import allbinary.thread.ThreadUtil;
 import allbinary.time.TimeDelayHelper;
 
@@ -230,17 +228,35 @@ public class DemoCanvas extends RunnableCanvas
         GameCommandsFactory gameCommandsFactory =
             GameCommandsFactory.getInstance();
 
-        final Command[] commandArray =
-        {
-            gameCommandsFactory.START_COMMAND,
-            HighScoreCommands.getInstance().DISPLAY,
-            gameCommandsFactory.DISPLAY_OPTIONS,
-            gameCommandsFactory.DISPLAY_LOAD_FORM,
-            GameInputMappingCanvas.DISPLAY,
-            gameCommandsFactory.DISPLAY_ABOUT
-        };
+        Features features = Features.getInstance();
 
-        return commandArray;
+        if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+        {
+            //TWB - Removed Options that are not HTML5 capable yet
+            final Command[] commandArray =
+            {
+                gameCommandsFactory.START_COMMAND,
+                HighScoreCommands.getInstance().DISPLAY,
+                GameInputMappingCanvas.DISPLAY,
+                gameCommandsFactory.DISPLAY_ABOUT
+            };
+
+            return commandArray;
+        }
+        else
+        {
+            final Command[] commandArray =
+            {
+                gameCommandsFactory.START_COMMAND,
+                HighScoreCommands.getInstance().DISPLAY,
+                gameCommandsFactory.DISPLAY_OPTIONS,
+                gameCommandsFactory.DISPLAY_LOAD_FORM,
+                GameInputMappingCanvas.DISPLAY,
+                gameCommandsFactory.DISPLAY_ABOUT
+            };
+
+            return commandArray;
+        }
     }
 
     public void initCommands(CommandListener cmdListener)
@@ -658,7 +674,9 @@ public class DemoCanvas extends RunnableCanvas
 
     protected void start() throws Exception
     {
-        this.canvasThread = new Thread(this.gameCanvas);
+        PreLogUtil.put("Game Thread in DemoCanvas", this, CommonStrings.getInstance().START);
+
+        this.canvasThread = ThreadFactoryUtil.getInstance().getInstance(this.gameCanvas);
         this.gameCanvas.setThread(canvasThread);
 
         //PreLogUtil.put("Game Thread Priority: " + 
@@ -738,7 +756,7 @@ public class DemoCanvas extends RunnableCanvas
                     this.startDemoGame();
                     
                     demoGameRunnable.setRunning(true);
-                    Thread thread = new Thread(demoGameRunnable);
+                    Thread thread = ThreadFactoryUtil.getInstance().getInstance(demoGameRunnable);
                     demoGameRunnable.setThread(thread);
                     //I guess that setting a thread priority sets threads created by a thread to the same priority
                     //Don't un-remark thread.setPriority(Thread.MIN_PRIORITY);
@@ -769,18 +787,26 @@ public class DemoCanvas extends RunnableCanvas
 
     protected void showGamePaintable()
     {
-        if (this.gameCanvas != NullGameCanvas.getInstance() && this.gameCanvas.isRunning()
+        final String METHOD_NAME = "showGamePaintable";
+        
+        PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
+        
+        Features features = Features.getInstance();
+        
+        if (this.gameCanvas != NullGameCanvas.getInstance() && 
+                (this.gameCanvas.isRunning() || 
+                features.isDefault(HTMLFeatureFactory.getInstance().HTML))
                 && !(this.gameCanvas instanceof NullGameCanvas)
                 )
         {
             this.gameRunnable = new GameCanvasRunnable(this.gameCanvas);
-            //PreLogUtil.put("Showing Game", this, "showGamePaintable");
+            PreLogUtil.put("Showing Game", this, METHOD_NAME);
             this.setPaintableInterface(this.gameCanvas);
         }
         else
         {
             this.gameRunnable = GameRunnable.getInstance();
-            //PreLogUtil.put("Not Showing Game", this, "showGamePaintable");
+            PreLogUtil.put("Not Showing Game", this, METHOD_NAME);
             this.setPaintableInterface(this.getDefaultPaintableInterface());
         }
     }
@@ -792,6 +818,8 @@ public class DemoCanvas extends RunnableCanvas
     
     protected void processGame() throws Exception
     {
+        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processGame");
+        
         this.gameRunnable.run();
 
         /*
@@ -858,7 +886,7 @@ public class DemoCanvas extends RunnableCanvas
 
             //final TimeDelayHelper runningTimeDelayHelper = new TimeDelayHelper(12000);
             
-            if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+            if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
             {
                 //Process as 2 threads until initialized - allows progress to update
                 while (gameCanvas == NullGameCanvas.getInstance() || !gameCanvas.isInitialized())
@@ -869,7 +897,7 @@ public class DemoCanvas extends RunnableCanvas
 
                     this.processLoopSleep();
                 }
-
+                
                 DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
                 
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
@@ -877,6 +905,17 @@ public class DemoCanvas extends RunnableCanvas
                 currentDisplayableFactory.setRunnable(gameRunnable);
                 //Only needed is not really using a real gamecanvas
                 OpenGLThreadUtil.getInstance().onResume();
+            }
+
+            if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) ||
+                    features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+            {
+                DemoGameRunnable demoGameRunnable = new DemoGameRunnable(this);
+                
+                final CurrentDisplayableFactory currentDisplayableFactory = 
+                        CurrentDisplayableFactory.getInstance();
+                
+                currentDisplayableFactory.setRunnable(demoGameRunnable);
             }
             else
             {
@@ -903,11 +942,15 @@ public class DemoCanvas extends RunnableCanvas
     public void setRunning(boolean running) 
     {
         super.setRunning(running);
-        
+
         try
         {
+            Features features = Features.getInstance();
+            
             //If game thread is not actually running
-            if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL) && !running)
+            if ((features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL) ||
+                    features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+                    && !running)
             {
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 currentDisplayableFactory.clearRunnable();
@@ -916,7 +959,7 @@ public class DemoCanvas extends RunnableCanvas
         } catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, SET_RUNNING, e));
-        }
+        }        
     }
     
     private static final String BOT_GAME_STATS = "Bot Game Statistics: ";

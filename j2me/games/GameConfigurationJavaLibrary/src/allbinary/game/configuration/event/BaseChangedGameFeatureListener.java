@@ -16,6 +16,7 @@ package allbinary.game.configuration.event;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.NotImplemented;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -67,7 +68,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
     {
         boolean isChanged = list.contains(gameFeature);
         
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("GameFeature: ");
         stringBuffer.append(gameFeature);

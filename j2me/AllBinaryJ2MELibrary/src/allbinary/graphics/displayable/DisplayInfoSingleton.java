@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Displayable;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
@@ -135,7 +136,7 @@ public class DisplayInfoSingleton
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(DISPLAY_INFO);
         stringBuffer.append(LAST);
         stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);

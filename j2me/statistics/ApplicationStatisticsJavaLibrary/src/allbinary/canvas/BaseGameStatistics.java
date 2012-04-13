@@ -14,6 +14,7 @@
 package allbinary.canvas;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import allbinary.logic.math.PrimitiveLongSingleton;
 import allbinary.logic.math.ScaleFactorFactory;
@@ -193,7 +194,7 @@ public class BaseGameStatistics
 
     public String toString(long totalTime)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(STRING_ARRAY[0]);
         stringBuffer.append(totalTime);

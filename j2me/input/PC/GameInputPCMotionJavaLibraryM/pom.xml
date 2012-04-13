@@ -23,6 +23,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameInputPersistanceLibrary</artifactId>
+            <version>${project.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>EventJ2MELibrary</artifactId>
             <version>${project.version}</version>

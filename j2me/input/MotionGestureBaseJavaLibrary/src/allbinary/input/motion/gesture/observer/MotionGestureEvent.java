@@ -14,6 +14,7 @@
 
 package allbinary.input.motion.gesture.observer;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.graphics.GPoint;
 import allbinary.input.motion.gesture.MotionGestureInput;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
@@ -80,7 +81,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(this.motionGesture);
         stringBuffer.append(CURRENT);
         stringBuffer.append(this.currentPoint);

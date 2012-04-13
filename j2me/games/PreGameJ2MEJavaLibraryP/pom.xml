@@ -22,8 +22,6 @@
 
         <module>../../media/graphics/NullCustomUIPreJavaLibraryM</module>
 
-        <module>../../../allbinary_src/ThreadJ2MELibraryM</module>
-
         <module>../../games/PreGameJ2MEJavaLibraryM</module>
 
     </modules>

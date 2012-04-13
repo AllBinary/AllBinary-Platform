@@ -17,6 +17,7 @@ import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.ai.ArtificialIntelligenceInterface;
@@ -47,7 +48,7 @@ public class NumberOnOwnGroupSequenceAIFactory
          list.add(integer);
       }
 
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("Total AI Properties: ");
       stringBuffer.append(list.size());

@@ -19,6 +19,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.configuration.persistance.GameConfigurationPersistanceSingleton;
@@ -197,7 +198,7 @@ public class GameConfigurationCentral
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         CommonSeps commonStrings = CommonSeps.getInstance();
 

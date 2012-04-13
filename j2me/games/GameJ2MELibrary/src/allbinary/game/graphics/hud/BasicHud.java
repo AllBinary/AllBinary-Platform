@@ -19,6 +19,8 @@ import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import allbinary.game.configuration.feature.Features;
+import allbinary.game.configuration.feature.HTMLFeatureFactory;
 import allbinary.graphics.Anchor;
 import allbinary.graphics.GPoint;
 import allbinary.graphics.PointFactory;
@@ -38,6 +40,7 @@ public class BasicHud //implements DisplayChangeEventListener
    private int direction;
    
    private int bufferZone;
+   private int bufferZoneY;
    private int maxWidth;
    private int maxHeight;
    
@@ -123,22 +126,22 @@ public class BasicHud //implements DisplayChangeEventListener
       if(basicHudFactory.TOPLEFT == this.getLocation())
       {
          x = bufferZone + 2;
-         y = bufferZone;
+         y = bufferZoneY;
          anchor = Anchor.TOP_LEFT;
       }
       else
           if(basicHudFactory.TOPRIGHT == this.getLocation())
           {
              x = width - maxWidth;
-             y = bufferZone;
+             y = bufferZoneY;
              anchor = Graphics.TOP & Graphics.RIGHT;
           }
           else
               if(basicHudFactory.TOPCENTER == this.getLocation())
               {
                   x = ((width - maxWidth) / 2);
-                 y = bufferZone;
-                 anchor = Graphics.TOP & Graphics.HCENTER;
+                  y = bufferZoneY;
+                  anchor = Graphics.TOP & Graphics.HCENTER;
               }
               else
                   if(basicHudFactory.BOTTOMCENTER == this.getLocation())
@@ -196,7 +199,17 @@ public class BasicHud //implements DisplayChangeEventListener
 
    public void setBufferZone(int bufferZone)
    {
-      this.bufferZone = bufferZone;
+       this.bufferZone = bufferZone;
+
+       Features features = Features.getInstance();
+
+       if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+       {
+           this.bufferZoneY = this.bufferZone;
+       } else
+       {
+           this.bufferZoneY = this.bufferZone + 5;
+       }
    }
 
    public int getMaxWidth()

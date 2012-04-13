@@ -14,6 +14,7 @@
 package allbinary.media.graphics.geography.pathfinding;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class PathFindingNode
@@ -65,7 +66,7 @@ public class PathFindingNode
    
    public String toString()
    {
-       StringBuilder stringBuffer = new StringBuilder();
+       StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(this.getClass().getName());
       stringBuffer.append(": ");

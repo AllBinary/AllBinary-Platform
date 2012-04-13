@@ -11,7 +11,12 @@ public class LayerInterfaceManager
     public LayerInterfaceManager()
     {
     }
-
+    
+    public boolean contains(AllBinaryLayer layerInterface)
+    {
+        return this.list.contains(layerInterface);
+    }
+    
     public void append(AllBinaryLayer layerInterface) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance("append: " + layerInterface, this, "append"));

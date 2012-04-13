@@ -20,6 +20,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.commands.GameCommandsFactory;
@@ -152,7 +153,7 @@ implements InputMappingInterface
     
     public void process(GameKey gameKey, Input input) throws Exception
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Start Passed GameKey: ");
         stringBuffer.append(gameKey);
@@ -183,7 +184,7 @@ implements InputMappingInterface
 
     private void gameActionCrud(GameKey gameKey, Input input) throws Exception
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Start GameKey: ");
         stringBuffer.append(this.selectedGameKey);
@@ -236,7 +237,7 @@ implements InputMappingInterface
 
         if (!isInputAlreadyMapped && !this.inputMapping.getInputMapping().isSystemInput(input))
         {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Add Key Mapping : GameKey: ");
             stringBuffer.append(this.selectedGameKey);
@@ -266,7 +267,7 @@ implements InputMappingInterface
 
         if (list.size() > 1)
         {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Start GameKey: ");
             stringBuffer.append("Remove Key Mapping: GameKey: ");

@@ -87,7 +87,7 @@ public class XmlRpcAbeClient
         // if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
         // {
         
-        StringBuilder stringBuffer = new StringBuilder();
+        StringBuffer stringBuffer = new StringBuffer();
         
         stringBuffer.append(START_SERVER);
         stringBuffer.append(this.getServer());

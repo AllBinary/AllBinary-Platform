@@ -14,6 +14,7 @@
 package allbinary.graphics;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
@@ -46,7 +47,7 @@ public class CellPositionFactory
       this.columns = columns;
       this.rows = rows;
 
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("Init: columns: ");
       stringBuffer.append(columns);

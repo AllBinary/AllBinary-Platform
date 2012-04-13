@@ -14,6 +14,7 @@
 package allbinary.math;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 
 
 public class AngleInfo
@@ -62,7 +63,7 @@ public class AngleInfo
    
    public String toString()
    {
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append(ANGLE);
       stringBuffer.append(this.angle);

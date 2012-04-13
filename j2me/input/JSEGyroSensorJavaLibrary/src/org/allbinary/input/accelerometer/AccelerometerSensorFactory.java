@@ -13,10 +13,9 @@
 */
 package org.allbinary.input.accelerometer;
 
-import org.allbinary.input.gyro.AllBinaryOrientationSensor;
-
 import allbinary.game.configuration.feature.Features;
 import allbinary.game.configuration.feature.SensorFeatureFactory;
+import org.allbinary.input.gyro.AllBinaryOrientationSensor;
 
 public class AccelerometerSensorFactory
 {
@@ -36,12 +35,12 @@ public class AccelerometerSensorFactory
         if (features.isFeature(
                 sensorFeatureFactory.ORIENTATION_SENSORS))
         {
-            throw new Exception();
+            throw new Exception("No Orientation Sensors");
         }
         else if (features.isFeature(
                 sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS))
         {
-            throw new Exception();
+            throw new Exception("No Simulation Sensors");
         }
         else if (features.isFeature(
                 sensorFeatureFactory.NO_ORIENTATION))

@@ -50,7 +50,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
 
             String server = getClientInfo().getLicenseServer(this.getServer());
             
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(TRYING);
             stringBuffer.append(this.getServer());

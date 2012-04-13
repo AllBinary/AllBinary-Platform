@@ -17,6 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -100,7 +101,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         }
         catch (Exception e)
         {
-           StringBuilder stringBuffer = new StringBuilder();
+           StringMaker stringBuffer = new StringMaker();
 
            stringBuffer.append(CommonStrings.getInstance().EXCEPTION_LABEL);
            stringBuffer.append(ev.getMotionGesture());
@@ -132,7 +133,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         }
         catch (Exception e)
         {
-           StringBuilder stringBuffer = new StringBuilder();
+           StringMaker stringBuffer = new StringMaker();
 
            stringBuffer.append(CommonStrings.getInstance().EXCEPTION_LABEL);
            stringBuffer.append(ev.getMotionGesture());

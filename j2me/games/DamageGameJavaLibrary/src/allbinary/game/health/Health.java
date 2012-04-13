@@ -14,6 +14,7 @@
 package allbinary.game.health;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.ForcedLogUtil;
 
 public class Health implements HealthInterface
@@ -66,7 +67,7 @@ public class Health implements HealthInterface
 	{
 	    if(ahealth < 0)
 	    {
-	        StringBuilder stringBuffer = new StringBuilder();
+	        StringMaker stringBuffer = new StringMaker();
 	        
 	        stringBuffer.append("******* Trying to heal when damaging. Damage: ");
 	        stringBuffer.append(ahealth);
@@ -137,7 +138,7 @@ public class Health implements HealthInterface
 
 	public String toString()
 	{
-	    StringBuilder stringBuffer = new StringBuilder();
+	    StringMaker stringBuffer = new StringMaker();
 
 	    stringBuffer.append(this.HEALTH_LABEL);
 	    stringBuffer.append(this.health);

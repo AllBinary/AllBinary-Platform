@@ -22,6 +22,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.basic.string.tokens.Tokenizer;
 import abcs.logic.communication.log.PreLogUtil;
@@ -66,7 +67,7 @@ public class OpenGLCapabilities
         
         OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
         
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         glVersionString = gl.glGetString(GL10.GL_VERSION);
         glRenderer = gl.glGetString(GL10.GL_RENDERER);
@@ -204,7 +205,7 @@ public class OpenGLCapabilities
     {
         CommonSeps commonSeps = CommonSeps.getInstance();
         
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("GL_VERSION: ");
         stringBuffer.append(glVersionString);

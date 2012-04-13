@@ -13,6 +13,7 @@
 */
 package allbinary.game.tracking;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 
@@ -54,7 +55,7 @@ public class TrackingEvent extends AllBinaryEventObject
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("TrackingEvent: \n");
         stringBuffer.append("LayerInterface: ");

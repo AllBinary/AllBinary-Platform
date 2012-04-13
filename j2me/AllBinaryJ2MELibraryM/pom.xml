@@ -44,12 +44,6 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>J2MEExceptionLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>allbinary_src_designpatterns_src</artifactId>
             <version>1</version>
         </dependency>

@@ -16,6 +16,8 @@ package allbinary.canvas;
 import abcs.logic.communication.log.PreLogUtil;
 import allbinary.AppletUtil;
 import allbinary.game.commands.GameCommandsFactory;
+import allbinary.game.configuration.feature.Features;
+import allbinary.game.configuration.feature.HTMLFeatureFactory;
 import allbinary.graphics.displayable.MyCanvas;
 
 public class CustomGameMenuUtil
@@ -25,7 +27,8 @@ public class CustomGameMenuUtil
         GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
 
-        if (!AppletUtil.isAppletLoader(canvas))
+        if (!AppletUtil.isAppletLoader(canvas) && 
+                !Features.getInstance().isDefault(HTMLFeatureFactory.getInstance().HTML))
         {
             canvas.addCommand(gameCommandsFactory.EXIT_COMMAND);
         }

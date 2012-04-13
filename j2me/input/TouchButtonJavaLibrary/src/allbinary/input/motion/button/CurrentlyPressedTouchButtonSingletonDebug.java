@@ -14,6 +14,7 @@
 package allbinary.input.motion.button;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import allbinary.graphics.GPoint;
 
@@ -42,7 +43,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     
     private void append(String append, TouchButtonInput touchButtonInput)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(touchButtonInput.toString());
         stringBuffer.append(CommonSeps.getInstance().SPACE);

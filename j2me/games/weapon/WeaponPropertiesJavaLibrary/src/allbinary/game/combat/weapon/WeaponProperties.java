@@ -15,6 +15,7 @@ package allbinary.game.combat.weapon;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.PreLogUtil;
 import allbinary.logic.math.BasicDecimal;
 
@@ -54,7 +55,7 @@ public class WeaponProperties extends SimpleWeaponProperties
             this.setRange((int) ((((this.speed.getUnscaled() * damage) / (dissipation * this.speed.getScaledFactorValue()))) * 9) / 10);
             
             /*
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append("Range: ");
             stringBuffer.append(this.range);
@@ -136,7 +137,7 @@ public class WeaponProperties extends SimpleWeaponProperties
         int index = 0;
 
         String[] stringArray = new String[3];
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringArray[index++] = 
             stringBuffer.append(DAMAGE).append(this.getDamage()).toString();
@@ -155,7 +156,7 @@ public class WeaponProperties extends SimpleWeaponProperties
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
          
         stringBuffer.append(DAMAGE).append(this.getDamage());
         stringBuffer.append(CommonSeps.getInstance().SPACE);

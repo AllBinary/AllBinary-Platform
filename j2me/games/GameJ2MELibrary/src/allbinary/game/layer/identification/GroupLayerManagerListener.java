@@ -17,6 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -130,7 +131,7 @@ extends LayerManagerEventListener
         //final String GROUP_SIZE = "Group Size: ";
         //final String MORE_THAN = " >= ";
         
-        //StringBuilder stringBuffer = new StringBuilder();
+        //StringMaker stringBuffer = new StringMaker();
         
         int size = list.size();
         for (int index = size - 1; index >= 0; index--)
@@ -208,7 +209,7 @@ extends LayerManagerEventListener
                 /*
                 if(layerInterface.getType() != WeaponLayer.getStaticType())
                 {
-                    StringBuilder stringBuffer = new StringBuilder();
+                    StringMaker stringBuffer = new StringMaker();
 
                     stringBuffer.append("Adding: ");
                     stringBuffer.append(layerInterface.getName());
@@ -259,7 +260,7 @@ extends LayerManagerEventListener
         /*
         if(layerInterface.getType() != WeaponLayer.getStaticType())
         {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Removing: ");
             stringBuffer.append(layerInterface.getName());
@@ -277,7 +278,7 @@ extends LayerManagerEventListener
 
     public void log()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         final String GROUP = "Group: ";
         

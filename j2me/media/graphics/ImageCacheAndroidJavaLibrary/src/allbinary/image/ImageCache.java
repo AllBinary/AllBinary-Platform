@@ -22,6 +22,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.data.resource.ResourceUtil;
@@ -196,7 +197,7 @@ public class ImageCache
     
     public String toString()
     {   
-        StringBuilder stringBuffer = new StringBuilder(); 
+        StringMaker stringBuffer = new StringMaker(); 
         for (int index = this.nextIndex - 1; index >= 0; index--)
         {
             int width = widths[index];

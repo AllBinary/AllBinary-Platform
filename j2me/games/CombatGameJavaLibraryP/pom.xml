@@ -23,38 +23,44 @@
         <module>../../media/graphics/layer/CollisionLayerJavaLibraryM</module>
         <module>../../games/CollisionLibraryM</module>
         
-        <module>../../games/CombatGameJavaLibraryM</module>
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryM</module>
+        
+        <module>../../games/PickupLayerJavaLibraryM</module>
         
         <module>../../games/DamageGameJavaLibraryM</module>
         <module>../../games/DropJavaLibraryM</module>
         <module>../../games/WeaponLayerJavaLibraryM</module>
 
-<module>../../games/CommonHeadsUpDisplayCombatGameLibraryM</module>
-<module>../../games/LifeOrDeathDataJavaLibraryM</module>
+        <module>../../games/CombatGameJavaLibraryM</module>
 
-<module>../../games/BasicWeaponPartsJavaLibraryM</module>
-<module>../../games/weapon/WeaponPropertiesJavaLibraryM</module>
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryM</module>
 
         <module>../../games/weapon/WeaponMineJavaLibraryM</module>
 
-<!--
-<module>../../media/graphics/effects/fireworks/FireworksJavaLibraryM</module>
--->
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryM</module>
+        -->
 
-<module>../../media/graphics/geography/map/TerrainEventJavaLibraryM</module>
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryM</module>
 
-<module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryM</module>
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryM</module>
 
-<module>../../media/graphics/geography/map/RaceTrackP</module>
+        <!--
+        <module>../../media/graphics/geography/map/RaceTrackP</module>
+        -->
 
-<!--
-XmlRpcJavaLibrary
-RemoteXmlRpcJavaLibrary
+        <!--
+        XmlRpcJavaLibrary
+        RemoteXmlRpcJavaLibrary
 
-Since POMs are built before the other libs is it best to handle this differently
-../../
-<module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
--->
+        Since POMs are built before the other libs is it best to handle this differently
+        ../../
+        <module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
+        -->
 
     </modules>
 

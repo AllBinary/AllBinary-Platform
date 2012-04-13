@@ -15,6 +15,7 @@ package allbinary.math;
 
 import allbinary.graphics.GPoint;
 import allbinary.layer.AllBinaryLayer;
+import allbinary.logic.math.MathUtil;
 
 public class LayerDistanceUtil
 {
@@ -25,7 +26,7 @@ public class LayerDistanceUtil
         int dy = (layerInterface.getY() + layerInterface.getHalfHeight()) -
             (layerInterface2.getY() + layerInterface2.getHalfHeight());
 
-        return (int) Math.sqrt((dx * dx) + (dy * dy));
+        return (int) MathUtil.getInstance().sqrt((dx * dx) + (dy * dy));
     }
 
     public static int getDistance(AllBinaryLayer layerInterface, GPoint point)
@@ -33,6 +34,6 @@ public class LayerDistanceUtil
         int dx = layerInterface.getX() - point.getX();
         int dy = layerInterface.getY() - point.getY();
 
-        return (int) Math.sqrt((dx * dx) + (dy * dy));
+        return (int) MathUtil.getInstance().sqrt((dx * dx) + (dy * dy));
     }
 }

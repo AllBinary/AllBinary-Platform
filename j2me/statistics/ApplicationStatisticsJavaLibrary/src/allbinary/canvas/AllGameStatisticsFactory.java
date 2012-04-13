@@ -1,5 +1,7 @@
 package allbinary.canvas;
 
+import abcs.logic.basic.string.StringMaker;
+
 public class AllGameStatisticsFactory
 {
     private static final AllGameStatisticsFactory instance = new AllGameStatisticsFactory();
@@ -9,7 +11,7 @@ public class AllGameStatisticsFactory
         return instance;
     }
     
-    private StringBuilder stringBuffer = new StringBuilder();
+    private StringMaker stringBuffer = new StringMaker();
     
     public void add(String string)
     {

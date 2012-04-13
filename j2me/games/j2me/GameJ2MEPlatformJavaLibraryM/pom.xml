@@ -23,6 +23,42 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ThreadJ2MELibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ResourceJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PartnerJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameConfigurationJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameScoresBaseJ2MELibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ApplicationStatisticsHTMLLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>ContentNoneJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -54,34 +90,8 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ResourceJ2MEJavaLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>NoSystemJavaLibrary</artifactId>
             <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>NoTouchButtonJavaLibrary</artifactId>
-            <!--
-            <artifactId>MotionGestureJavaLibrary</artifactId>
-            <artifactId>NoTouchButtonJavaLibrary</artifactId>
-            <artifactId>TouchButtonJavaLibrary</artifactId>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TouchButtonMappingJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
-        </dependency>
-
-            -->
-            <version>1</version>
-            <optional>true</optional>
         </dependency>
 
         <!--
@@ -114,20 +124,6 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>NoVibrateJavaLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>ApplicationStatisticsJ2MELibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameInputMEKeyOnlyJavaLibrary</artifactId>
-            <!--
-            -->
             <version>1</version>
         </dependency>
 

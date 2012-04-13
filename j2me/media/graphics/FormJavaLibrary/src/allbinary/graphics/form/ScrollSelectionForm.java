@@ -21,6 +21,7 @@ import org.allbinary.graphics.form.item.CustomItemInterface;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.GPoint;
@@ -120,7 +121,7 @@ public class ScrollSelectionForm extends PaintableForm
 
         FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(CommonStrings.getInstance().START_LABEL);
         stringBuffer.append(start);

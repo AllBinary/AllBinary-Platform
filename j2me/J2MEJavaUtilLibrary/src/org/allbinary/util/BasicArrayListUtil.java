@@ -14,6 +14,7 @@
 package org.allbinary.util;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.game.rand.MyRandomFactory;
 
 /**
@@ -56,7 +57,7 @@ public class BasicArrayListUtil
     {
         int size = list.size();
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(CommonStrings.getInstance().TOTAL_LABEL);
         stringBuffer.append(size);
 

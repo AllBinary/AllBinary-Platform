@@ -21,6 +21,7 @@ import javax.microedition.lcdui.ChoiceGroup;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
@@ -36,7 +37,7 @@ public class GameFeatureUtil
     public void setDefault(ChoiceGroup choiceGroup)
         throws Exception
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         final String METHOD_NAME = "setDefault";
         final String SELECTED_ARRAY_RETURN = "selectedArray_return[";
@@ -83,7 +84,7 @@ public class GameFeatureUtil
 
     public void updateMultiple(ChoiceGroup choiceGroup) throws Exception
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         final String METHOD_NAME = "updateMultiple";
         final String SELECTED_ARRAY_RETURN = "selectedArray_return[";
@@ -129,7 +130,7 @@ public class GameFeatureUtil
     public void updateExclusive(ChoiceGroup choiceGroup)
             throws Exception
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         final String METHOD_NAME = "updateExclusive";
         final String SELECTED_ARRAY_RETURN = "selectedArray_return[";

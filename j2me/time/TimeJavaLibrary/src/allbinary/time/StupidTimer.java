@@ -5,6 +5,7 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
 import allbinary.logic.basic.util.visitor.Visitor;
+import allbinary.thread.ThreadObjectUtil;
 
 public class StupidTimer
 {
@@ -29,8 +30,8 @@ public class StupidTimer
             index++;
 
             synchronized (this)
-            {            
-                this.wait(1800);
+            {
+                ThreadObjectUtil.getInstance().waitObject(this, 1800);
             }
 
             if (timeDelayHelper.isTime())
@@ -55,6 +56,6 @@ public class StupidTimer
     public synchronized void stopWaiting()
     throws Exception
     {
-        this.notify();
+        ThreadObjectUtil.getInstance().notifyObject(this);
     }
 }

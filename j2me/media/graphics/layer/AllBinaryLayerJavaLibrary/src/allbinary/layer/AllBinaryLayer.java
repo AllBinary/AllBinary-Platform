@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.game.identification.BasicGroupFactory;
 import allbinary.game.identification.Group;
 import allbinary.graphics.GPoint;
@@ -164,7 +165,7 @@ implements LayerInterface
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         CommonSeps commonSeps = CommonSeps.getInstance();
 

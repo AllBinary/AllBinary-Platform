@@ -14,6 +14,7 @@
 package allbinary.graphics;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 
 public class CellPosition
 {
@@ -69,7 +70,7 @@ public class CellPosition
    {
       //return "Column: " + i_column + " Row: " + i_row;
       
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
 
       CommonSeps commonSeps = CommonSeps.getInstance();
       

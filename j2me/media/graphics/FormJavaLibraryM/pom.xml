@@ -81,12 +81,6 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ThreadJ2MELibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>PreGameJ2MEJavaLibrary</artifactId>
             <version>1</version>
         </dependency>

@@ -17,10 +17,13 @@ import javax.microedition.lcdui.CommandListener;
 
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
+import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.displayable.MyCanvas;
 import allbinary.thread.RunnableInterface;
+import allbinary.thread.ThreadObjectUtil;
 import allbinary.time.TimeDelayHelper;
 
 public class RunnableCanvas extends MyCanvas 
@@ -90,7 +93,7 @@ public class RunnableCanvas extends MyCanvas
             this.thread = null;
             synchronized(this)
             {
-                this.notify();
+                ThreadObjectUtil.getInstance().notifyObject(this);
             }
         }
 
@@ -118,11 +121,13 @@ public class RunnableCanvas extends MyCanvas
             return running;
         } else
         {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(THREAD);
-            stringBuffer.append(this.thread);
+            if(this.thread != null)
+            stringBuffer.append(this.thread.toString());
             stringBuffer.append(NOT_EQUAL);
+            if(this.currentThread != null)
             stringBuffer.append(this.currentThread);
             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, IS_RUNNING));
@@ -154,6 +159,11 @@ public class RunnableCanvas extends MyCanvas
         this.currentThread = Thread.currentThread();
     }
 
+    protected void setCurrentThreadFake()
+    {
+        this.currentThread = thread;
+    }
+
     protected void showNotify()
     {
         try
@@ -171,7 +181,7 @@ public class RunnableCanvas extends MyCanvas
     throws Exception
     {
         this.notified = true;
-        this.notify();
+        ThreadObjectUtil.getInstance().notifyObject(this);
         this.repaint();
     }
     
@@ -180,15 +190,15 @@ public class RunnableCanvas extends MyCanvas
     {
         if(!this.notified)
         {
-        if(wait > 0)
-        {
-            this.wait(wait);
+            if (wait > 0)
+            {
+                ThreadObjectUtil.getInstance().waitObject(this, wait);
+            } else
+            {
+                ThreadObjectUtil.getInstance().waitObject(this);
+            }
         }
-        else
-        {
-            this.wait();
-        }
-        }
+
             /*            try
             {
 

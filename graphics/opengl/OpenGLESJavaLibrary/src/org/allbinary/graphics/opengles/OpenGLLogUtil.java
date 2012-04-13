@@ -5,6 +5,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.opengles.OpenGLStrings;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.PreLogUtil;
 
@@ -24,7 +25,7 @@ public class OpenGLLogUtil
         int error = gl.glGetError();
         if (error != GL10.GL_NO_ERROR)
         {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(OpenGLStrings.getInstance().GL_ERROR_LABEL);
             stringBuffer.append(error);
@@ -51,7 +52,7 @@ public class OpenGLLogUtil
         int error = gl.glGetError();
         if (error != GL10.GL_NO_ERROR)
         {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(OpenGLStrings.getInstance().GL_ERROR_LABEL);
             stringBuffer.append(error);

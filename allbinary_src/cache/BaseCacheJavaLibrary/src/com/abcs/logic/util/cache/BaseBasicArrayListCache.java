@@ -15,6 +15,8 @@ package com.abcs.logic.util.cache;
 
 import org.allbinary.util.BasicArrayList;
 
+import abcs.logic.basic.string.StringMaker;
+
 /**
  *
  * @author user
@@ -33,7 +35,7 @@ public class BaseBasicArrayListCache {
 
     public String log()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("S: ");
         stringBuffer.append(this.getList().size());

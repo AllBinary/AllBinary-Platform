@@ -13,12 +13,14 @@
 */
 package allbinary.math;
 
+import allbinary.logic.math.MathUtil;
+
 public class DistanceUtil
 {
     public static int getDistance(int x1, int y1, int x2, int y2)
     {
         int dx = x1 - x2;
         int dy = y1 - y2;
-        return (int) Math.sqrt((dx * dx) + (dy * dy));
+        return (int) MathUtil.getInstance().sqrt((dx * dx) + (dy * dy));
     }
 }

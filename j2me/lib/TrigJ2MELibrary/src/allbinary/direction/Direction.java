@@ -13,6 +13,8 @@
 */
 package allbinary.direction;
 
+import abcs.logic.basic.string.StringMaker;
+
 public class Direction
 {
     private static Direction[] directionArray = new Direction[13];
@@ -70,7 +72,7 @@ public class Direction
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("Direction: ");
         stringBuffer.append(this.getName());
         stringBuffer.append(" Or: ");

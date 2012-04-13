@@ -13,6 +13,8 @@
 */
 package allbinary.system;
 
+import abcs.logic.basic.string.StringMaker;
+
 //TWB - Google fucked up they removed the class after 2.0
 //import dalvik.system.VMRuntime;
 
@@ -23,7 +25,7 @@ public class Memory
       //TWB - Google fucked up they removed the class after 2.0
         //VMRuntime vm = VMRuntime.getRuntime();
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         //stringBuffer.append("ExternalBytesAllocated: ");
         //stringBuffer.append(vm.getExternalBytesAllocated());

@@ -16,6 +16,7 @@ package allbinary.game;
 import java.util.Hashtable;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
@@ -141,7 +142,7 @@ public class GameInfo
    
    public String toString()
    {
-       StringBuilder stringBuffer = new StringBuilder();
+       StringMaker stringBuffer = new StringMaker();
 
        CommonSeps commonSeps = CommonSeps.getInstance();
        

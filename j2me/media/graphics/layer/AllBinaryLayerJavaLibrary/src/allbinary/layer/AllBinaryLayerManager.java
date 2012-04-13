@@ -62,18 +62,24 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
 
     public void append(AllBinaryLayer layerInterface) throws Exception
     {
-        this.appendProcessors(layerInterface);
+        if(!this.contains(layerInterface))
+        {
+            this.appendProcessors(layerInterface);
 
-        super.append(layerInterface);
-        
-        //PreLogUtil.put("Append: " + layerInterface + " Size: " + this.getSize(), this, "append");
+            super.append(layerInterface);
+
+          //PreLogUtil.put("Append: " + layerInterface + " Size: " + this.getSize(), this, "append");
+        }
     }
 
     public void append(AllBinaryLayer layerInterface, int index) throws Exception
     {
-        this.appendProcessors(layerInterface);
+        if(!this.contains(layerInterface))
+        {
+            this.appendProcessors(layerInterface);
 
-        super.append(layerInterface, index);
+            super.append(layerInterface, index);
+        }
     }
 
     private void appendProcessors(AllBinaryLayer layerInterface)
@@ -146,9 +152,18 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
         }
     }
 
-    //public void cleanup() throws Exception
-    //{
+    public void cleanup() throws Exception
+    {
          //PreLogUtil.put(new Integer(this.getSize()).toString(), this, "cleanup");
- 	 //super.cleanup();
-    //}
+        LayerProcessor layerProcessorInterface;
+
+        int size = this.basicLayerProcessorArray.length;
+        for (int index = 0; index < size; index++)
+        {
+            layerProcessorInterface = basicLayerProcessorArray[index];
+            layerProcessorInterface.getLayerInterfaceManager().cleanup();
+        }
+
+        super.cleanup();
+    }
 }

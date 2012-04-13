@@ -42,7 +42,7 @@ public class PrimitiveLongUtil
 
     public PrimitiveLongUtil(int powerOfTen, boolean throwException)
     {
-        this.maxDigits = MathUtil.getTotalDigits(powerOfTen);
+        this.maxDigits = MathUtil.getInstance().getTotalDigits(powerOfTen);
         
         this.powerOfTen = powerOfTen;
         this.maxValue = (powerOfTen * 10) - 1;
@@ -51,7 +51,7 @@ public class PrimitiveLongUtil
     }
     
     /*
-    private final StringBuilder stringBuffer = new StringBuilder();
+    private final StringMaker stringBuffer = new StringMaker();
     public String getString(int value)
     {
         if(value == 0)

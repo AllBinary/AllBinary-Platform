@@ -15,6 +15,7 @@ package allbinary.game.layer.hud.basic;
 
 import javax.microedition.lcdui.Graphics;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import allbinary.game.graphics.hud.BasicHud;
 import allbinary.game.layer.hud.LapInfo;
@@ -35,7 +36,7 @@ public class LapWidget extends BasicHud
    
    public void update(LapInfo lapInfo)
    {
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
       
 	   stringBuffer.delete(0, stringBuffer.length());
 	   stringBuffer.append(LAP_STR);

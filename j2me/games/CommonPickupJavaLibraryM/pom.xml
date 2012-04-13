@@ -43,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>PickupGameJavaLibrary</artifactId>
+            <artifactId>PickupLayerJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
         <dependency>

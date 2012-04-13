@@ -16,6 +16,7 @@ package allbinary.game.identification;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
@@ -36,7 +37,7 @@ public class CompositeGroup
     
     public void add(Group groupInterface)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Adding: ");
         stringBuffer.append(groupInterface.toString());

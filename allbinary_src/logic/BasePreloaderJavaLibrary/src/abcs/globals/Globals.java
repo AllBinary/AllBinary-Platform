@@ -15,6 +15,7 @@ package abcs.globals;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringValidationUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -36,7 +37,7 @@ public class Globals {
 
         WebappClassLoaderInfo.setLoader(classLoader);
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Setting Up AllBinary System Configuration Args: ");
         stringBuffer.append(pathString);

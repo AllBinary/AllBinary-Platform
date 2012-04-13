@@ -14,6 +14,7 @@
 package abcs.logic.system.os;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 
 /**
  *
@@ -100,7 +101,7 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
 
    public String toString()
    {
-      StringBuilder osBuffer = new StringBuilder();
+      StringMaker osBuffer = new StringMaker();
       
       osBuffer.append(super.toString());
       osBuffer.append(CommonSeps.getInstance().SPACE);

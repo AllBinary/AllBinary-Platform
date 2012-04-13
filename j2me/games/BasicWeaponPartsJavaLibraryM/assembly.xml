@@ -10,7 +10,6 @@
         <dependencySet>
 
            <excludes>
-               <exclude>org.allbinary:ApplicationStatisticsJ2MELibrary</exclude>
            </excludes>
 
             <unpack>true</unpack>

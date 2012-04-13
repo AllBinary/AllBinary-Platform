@@ -24,13 +24,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>BasicMathLibrary</artifactId>
+            <artifactId>GameInputPersistanceLibrary</artifactId>
             <version>1</version>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameInputLibrary</artifactId>
+            <artifactId>BasicMathLibrary</artifactId>
             <version>1</version>
         </dependency>
 

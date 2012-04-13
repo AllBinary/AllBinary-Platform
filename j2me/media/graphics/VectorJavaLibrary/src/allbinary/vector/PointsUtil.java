@@ -25,7 +25,7 @@ public class PointsUtil
     
     public int[][][] adjust(int[][][] points, int x, int y)
     {
-        // StringBuilder stringBuffer = new StringBuilder();
+        // StringMaker stringBuffer = new StringMaker();
         int[][][] newPoints = new int[points.length][0][0];
         // Frame
         for (int index = 0; index < points.length; index++)

@@ -15,6 +15,7 @@ package allbinary.game.ai;
 
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.ai.ArtificialIntelligence;
 import allbinary.game.displayable.canvas.CanvasUtil;
 import allbinary.game.input.GameInput;
@@ -106,7 +107,7 @@ implements GameKeyEventSourceInterface
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
         stringBuffer.append(this.getName());

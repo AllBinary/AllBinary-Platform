@@ -63,6 +63,7 @@ import allbinary.game.configuration.event.GameInitializedEventHandler;
 import allbinary.game.configuration.feature.Features;
 import allbinary.game.configuration.feature.GameFeatureFactory;
 import allbinary.game.configuration.feature.GameFeatureUtil;
+import allbinary.game.configuration.feature.HTMLFeatureFactory;
 import allbinary.game.configuration.feature.InputFeatureFactory;
 import allbinary.game.configuration.feature.MainFeatureFactory;
 import allbinary.game.configuration.feature.SensorFeatureFactory;
@@ -126,6 +127,7 @@ import allbinary.media.audio.PlayerQueue;
 import allbinary.media.audio.PrimaryPlayerQueueFactory;
 import allbinary.media.audio.SecondaryPlayerQueueFactory;
 import allbinary.media.audio.SelectSound;
+import allbinary.thread.ThreadObjectUtil;
 import allbinary.thread.SecondaryThreadPool;
 import allbinary.time.GameTickTimeDelayHelperFactory;
 import allbinary.time.TimeDelayHelper;
@@ -269,6 +271,20 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public AllBinaryGameCanvas()
     {
         this.highScoresFactoryInterface = null;
+    }
+
+    public void setCurrentThread()
+    {
+        Features features = Features.getInstance();
+
+        if(features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+        {
+            super.setCurrentThreadFake();
+        }
+        else
+        {
+            super.setCurrentThread();
+        }
     }
 
     public void onEvent(AllBinaryEventObject eventObject)
@@ -474,8 +490,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
-            if (Features.getInstance().isDefault(
-                    OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+            Features features = Features.getInstance();
+            
+            if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) 
+                    //|| features.isDefault(HTMLFeatureFactory.getInstance().HTML)
+                    )        
             {
                 GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(this);
 
@@ -509,16 +528,16 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         
         if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
-        if (Features.getInstance().isDefault(
-                OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
-        {
-            GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+            if (Features.getInstance().isDefault(
+                    OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+            {
+                GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
-            final CurrentDisplayableFactory currentDisplayableFactory = 
-                CurrentDisplayableFactory.getInstance();
+                final CurrentDisplayableFactory currentDisplayableFactory =
+                        CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameRunnable);
-        }
+                currentDisplayableFactory.setRunnable(gameRunnable);
+            }
         }
     }
 
@@ -670,7 +689,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.getStartIntermissionInterface().setListener(this);
     }
 
-    public void notify(boolean enable)
+    public void notifyIntermission(boolean enable)
     {
         if (enable)
         {
@@ -719,22 +738,19 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
 
-        if (changedGameFeatureListener
-                .isChanged(sensorFeatureFactory.ORIENTATION_SENSORS)
-                || changedGameFeatureListener
-                        .isChanged(sensorFeatureFactory.NO_ORIENTATION)
-                || changedGameFeatureListener
-                        .isChanged(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS))
+        if (changedGameFeatureListener.isChanged(sensorFeatureFactory.ORIENTATION_SENSORS)
+                || changedGameFeatureListener.isChanged(sensorFeatureFactory.NO_ORIENTATION)
+                || changedGameFeatureListener.isChanged(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS))
         {
             // private final AllBinarySensor[] allBinarySensorArray = new
             // AllBinarySensor[1];
 
-            changedGameFeatureListener
-                    .remove(sensorFeatureFactory.NO_ORIENTATION);
-            changedGameFeatureListener
-                    .remove(sensorFeatureFactory.ORIENTATION_SENSORS);
-            changedGameFeatureListener
-                    .remove(sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS);
+            changedGameFeatureListener.remove(
+                    sensorFeatureFactory.NO_ORIENTATION);
+            changedGameFeatureListener.remove(
+                    sensorFeatureFactory.ORIENTATION_SENSORS);
+            changedGameFeatureListener.remove(
+                    sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS);
         }
 
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
@@ -749,6 +765,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         
         this.processorInit();
 
+        // Since touch button selection is based on sensors this must come first
+        this.sensorGameUpdateProcessor.process(this.gameLayerManager);
+        this.sensorGameUpdateProcessor.sendNotifications(this.gameLayerManager);
+        
         this.initTouch();
     }
 
@@ -764,15 +784,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         GameInitializedEventHandler.getInstance().fireEvent(gameInitializedEvent);
 
         TouchButtonFactory.getInstance().defaultList();
-
-        //At some point I will probably want sensor input for the main menu and or demo screen
-        //Note: if you need to do touch input on the demo screen then you need to just remove the if below
-        if (this.gameLayerManager.getGameInfo().getGameType() != this.gameTypeFactory.BOT)
-        {
-            //Since touch button selection is based on sensors this must come before updateTouch
-            this.sensorGameUpdateProcessor.process(this.gameLayerManager);
-            this.sensorGameUpdateProcessor.sendNotifications(this.gameLayerManager);
-        }
 
         this.updateTouch();
 
@@ -841,15 +852,20 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.addCommand(gameCommandsFactory.QUIT_COMMAND);
 
-        if (TouchScreenFactory.getInstance().isTouch() && new InGameFeatures().isAny())
-        {
-            // System.out.println("InGameOptions");
-            this.addCommand(InGameOptionsForm.DISPLAY);
-        }
+        Features features = Features.getInstance();
 
-        // this.addCommand(GameCommands.DISPLAY_SAVE_FORM);
-        this.addCommand(gameCommandsFactory.SAVE);
-        this.addCommand(gameCommandsFactory.DISPLAY_LOAD_FORM);
+        if(!features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+        {
+            if (TouchScreenFactory.getInstance().isTouch() && new InGameFeatures().isAny())
+            {
+                // System.out.println("InGameOptions");
+                this.addCommand(InGameOptionsForm.DISPLAY);
+            }
+
+            // this.addCommand(GameCommands.DISPLAY_SAVE_FORM);
+            this.addCommand(gameCommandsFactory.SAVE);
+            this.addCommand(gameCommandsFactory.DISPLAY_LOAD_FORM);
+        }
     }
 
     public void itemStateChanged(Item item)
@@ -1163,8 +1179,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             // Don't try to end progress if demogame and not in resource
             // debugging mode
-            if (features.isFeature(
-                    MainFeatureFactory.getInstance().LOAD_ONDEMAND))
+            if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
             {
                 if (this.getCustomCommandListener() != null)
                 {
@@ -1179,9 +1194,17 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.setInitialized(true);
         }
 
-        if (this.gameCanvasStartListener != null)
+        //HTML5 change
+        //if (this.gameCanvasStartListener != null)
+        if (this.getCustomCommandListener() == null)
         {
+            LogUtil.put(LogFactory.getInstance("Show Game Paintable in DemoCanvas Thread", this, BUILD_GAME));
+            
             this.gameCanvasStartListener.showGamePaintable();
+        }
+        else
+        {
+            LogUtil.put(LogFactory.getInstance("No GameCanvasStartListener", this, BUILD_GAME));
         }
 
         this.colorFillPaintable.setBasicColor(this.gameLayerManager.getBackgroundBasicColor());
@@ -1477,7 +1500,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         synchronized (this)
         {
-            this.notify();
+            //TWB - Playn Testing - was remarked for GameFrameRunnable but I guess I don't need that runnable?
+            ThreadObjectUtil.getInstance().notifyObject(this);
         }
     }
 
@@ -1514,14 +1538,16 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             gameAdState.init();
             gameAdState.setGameIsReady(true);
 
+            Features features = Features.getInstance();
+            
             //Don't keep running thread if in bot/demo mode            
             if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT)
             {
                 
             }
             else
-                if (Features.getInstance().isDefault(
-                        OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+                if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) ||
+                        features.isDefault(HTMLFeatureFactory.getInstance().HTML))
                 {
                     GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
@@ -1563,7 +1589,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     synchronized (this)
                     {
                         // PreLogUtil.put("Wait", this, commonStrings.RUN);
-                        this.wait();
+                        ThreadObjectUtil.getInstance().waitObject(this);
                         // PreLogUtil.put("Notified", this, commonStrings.RUN);
                     }
 
@@ -1610,8 +1636,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         
         try
         {
+            Features features = Features.getInstance();
+            
             //If game thread is not actually running
-            if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL) && !running)
+            if (
+                    //(
+                    features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL) 
+                    //|| features.isDefault(HTMLFeatureFactory.getInstance().HTML)) 
+                    && !running
+                    )            
             {
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 currentDisplayableFactory.clearRunnable();

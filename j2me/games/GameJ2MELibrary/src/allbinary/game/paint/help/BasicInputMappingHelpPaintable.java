@@ -16,6 +16,7 @@ package allbinary.game.paint.help;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.game.input.GameKey;
 import allbinary.game.input.GameKeyFactory;
 import allbinary.game.input.Input;
@@ -59,7 +60,7 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
     
     private String get(BasicArrayList keyList)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         for(int index = 0; index < keyList.size(); index++)
         {

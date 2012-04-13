@@ -37,6 +37,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ThreadJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>NullCustomUIPreJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
@@ -74,7 +81,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ThreadJ2MELibrary</artifactId>
+            <artifactId>ThreadLibrary</artifactId>
             <version>1</version>
         </dependency>
 

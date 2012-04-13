@@ -16,6 +16,7 @@ package allbinary.input.motion.button;
 import javax.microedition.lcdui.Graphics;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.animation.Animation;
@@ -119,7 +120,7 @@ public class TouchButton extends Paintable
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("TouchButton: ");
         stringBuffer.append(this.getRectangle());

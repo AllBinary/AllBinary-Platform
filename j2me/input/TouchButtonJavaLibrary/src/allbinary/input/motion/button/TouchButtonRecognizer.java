@@ -224,7 +224,7 @@ public class TouchButtonRecognizer
         //LogUtil.put(LogFactory.getInstance("Current: " + x + CommonStrings.getInstance().SPACE + y, this, "processTouchButtonInput"));
         
         /*
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("pressed ");
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(PositionStrings.getInstance().X_LABEL);

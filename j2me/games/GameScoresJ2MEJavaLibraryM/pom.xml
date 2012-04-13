@@ -30,6 +30,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameScoresBaseJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>GameScoresBaseLibrary</artifactId>
             <version>1</version>
         </dependency>

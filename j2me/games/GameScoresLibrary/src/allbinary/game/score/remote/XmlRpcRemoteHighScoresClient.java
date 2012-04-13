@@ -21,6 +21,7 @@ import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.xmlrpc.XmlRpcAbeClient;
@@ -54,7 +55,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
 
             serverUrl = serverUrl.substring(0, index + 1) + page;
             
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
             stringBuffer.append(TRYING);
             stringBuffer.append(this.getServer());
             stringBuffer.append(SEP);

@@ -14,6 +14,7 @@
 package allbinary.direction;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 
 public class DirectionFactory
 {
@@ -45,7 +46,7 @@ public class DirectionFactory
     
     private DirectionFactory()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         CommonSeps commonSeps = CommonSeps.getInstance();
         

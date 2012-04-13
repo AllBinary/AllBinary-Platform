@@ -13,6 +13,8 @@
 */
 package allbinary.game.input;
 
+import abcs.logic.basic.string.StringMaker;
+
 
 public class Input
 {    
@@ -53,7 +55,7 @@ public class Input
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append("Name: ");
         stringBuffer.append(this.getName());
         stringBuffer.append(" Id: ");

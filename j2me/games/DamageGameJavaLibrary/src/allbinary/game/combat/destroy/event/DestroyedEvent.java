@@ -13,6 +13,7 @@
 */
 package allbinary.game.combat.destroy.event;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
@@ -51,15 +52,16 @@ public class DestroyedEvent extends AllBinaryEventObject {
 		this.allBinaryLayerInterface = allBinaryLayerInterface;
 	}
 	
-	public String toString() {
-      StringBuilder stringBuffer = new StringBuilder();
-      
-      stringBuffer.append("DestroyedEvent: \n");
-      stringBuffer.append("AllBinaryLayerInterface: ");
-      stringBuffer.append(this.allBinaryLayerInterface.toString());
-      stringBuffer.append("\nAllBinaryGameCanvas: ");
-      stringBuffer.append(this.getAllBinaryGameCanvas());
+	public String toString()
+	{
+	      StringMaker stringBuffer = new StringMaker();
+	      
+	      stringBuffer.append("DestroyedEvent: \n");
+	      stringBuffer.append("AllBinaryLayerInterface: ");
+	      stringBuffer.append(this.allBinaryLayerInterface.toString());
+	      stringBuffer.append("\nAllBinaryGameCanvas: ");
+	      stringBuffer.append(this.getAllBinaryGameCanvas());
 
-		return stringBuffer.toString();
+	      return stringBuffer.toString();
 	}
 }

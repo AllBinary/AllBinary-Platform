@@ -13,6 +13,8 @@
 */
 package allbinary.game.layer.hud;
 
+import abcs.logic.basic.string.StringMaker;
+
 public class LapInfo
 {
     private int numberOfLaps;
@@ -50,7 +52,7 @@ public class LapInfo
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("isDone: ");
         stringBuffer.append(this.isDone());

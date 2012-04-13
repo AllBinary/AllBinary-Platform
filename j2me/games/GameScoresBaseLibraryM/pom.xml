@@ -37,6 +37,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameScoresBaseJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>J2MEColorJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -63,11 +70,6 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BasicMathLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2MEExceptionLibrary</artifactId>
             <version>1</version>
         </dependency>
         <dependency>

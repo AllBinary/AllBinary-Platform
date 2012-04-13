@@ -201,7 +201,7 @@ public class BasicDecimal
    
    public String toString()
    {  
-       //StringBuilder stringBuffer = new StringBuilder();
+       //StringMaker stringBuffer = new StringMaker();
        
        //stringBuffer.append(this.getScaled());
        //stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);

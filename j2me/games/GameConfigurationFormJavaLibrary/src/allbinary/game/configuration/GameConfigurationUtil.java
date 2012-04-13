@@ -16,6 +16,7 @@ package allbinary.game.configuration;
 import javax.microedition.lcdui.Item;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -62,7 +63,7 @@ public class GameConfigurationUtil
         Integer value = smallIntegerSingletonFactory.getInstance(
                 gauge.getValue() + gameConfiguration.getMinValue().intValue());
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(GAUGE_UPDATE);
         stringBuffer.append(gameConfiguration.getName());
@@ -85,7 +86,7 @@ public class GameConfigurationUtil
         GameConfiguration gameConfiguration = gameConfigurationSingleton
                 .getInstance(gauge.getLabel());
 
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Gauge Default: ");
         stringBuffer.append(gameConfiguration.getName());

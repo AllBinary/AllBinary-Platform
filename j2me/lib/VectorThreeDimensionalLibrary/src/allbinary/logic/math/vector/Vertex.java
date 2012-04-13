@@ -14,6 +14,7 @@
 package allbinary.logic.math.vector;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.logic.math.BasicDecimal;
 import allbinary.math.PositionStrings;
 
@@ -42,7 +43,7 @@ public class Vertex
 
    public String toString()
    {
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
       
       PositionStrings positionStrings = 
           PositionStrings.getInstance();

@@ -13,6 +13,7 @@
 */
 package allbinary.input.motion.button;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class TouchButtonLocationHelper
@@ -75,7 +76,7 @@ public class TouchButtonLocationHelper
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("totalColumns: ");
         stringBuffer.append(totalColumns);

@@ -36,6 +36,7 @@ import org.allbinary.input.AllBinarySensorManager;
 
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
@@ -59,6 +60,7 @@ import allbinary.game.configuration.event.ChangedGameFeatureListener;
 import allbinary.game.configuration.event.GameFeatureEventHandler;
 import allbinary.game.configuration.feature.Features;
 import allbinary.game.configuration.feature.GameFeatureFormUtil;
+import allbinary.game.configuration.feature.HTMLFeatureFactory;
 import allbinary.game.configuration.feature.MainFeatureFactory;
 import allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import allbinary.game.configuration.persistance.KeyValuePersistance;
@@ -93,6 +95,7 @@ import allbinary.logic.math.SmallIntegerSingletonFactory;
 import allbinary.media.audio.AllBinaryMediaManager;
 import allbinary.midlet.MidletStrings;
 import allbinary.midlet.ProgressMidlet;
+import allbinary.thread.ThreadFactoryUtil;
 import allbinary.thread.ThreadUtil;
 import allbinary.time.TimeDelayHelper;
 
@@ -248,9 +251,9 @@ public class GameMidlet extends ProgressMidlet
     
     protected void destroyApp(boolean unconditional)
     {
+        final String METHOD_NAME = "GameMidlet::destroyApp";
         try
         {
-            final String METHOD_NAME = "GameMidlet::destroyApp";
             PreLogUtil.put(AllGameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
             //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
 
@@ -280,9 +283,10 @@ public class GameMidlet extends ProgressMidlet
         }
         catch (Exception e)
         {
-            final String METHOD_NAME = "GameMidlet::destroyApp";
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
         }
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, METHOD_NAME));
+        PreLogUtil.put(CommonStrings.getInstance().END, this, METHOD_NAME);
     }
  
     protected void startApp()
@@ -502,7 +506,13 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == GameInputMappingCanvas.DISPLAY)
             {
-                //this.pauseAppBackground(false);
+                //TWB - Called for HTML5 but not others?
+                Features features = Features.getInstance();
+
+                if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+                {
+                    this.pauseAppBackground(false);
+                }
 
                 this.commandAction(gameCommandsFactory.SET_MENU_DISPLAYABLE, 
                 		this.getInputMappingCanvas()
@@ -583,7 +593,7 @@ public class GameMidlet extends ProgressMidlet
                     gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS,
                     displayable);
 
-                StringBuilder stringBuffer = new StringBuilder();
+                StringMaker stringBuffer = new StringMaker();
                 stringBuffer.append("Close isFullScreen/change: ");
                 stringBuffer.append(isFullScreen);
                 stringBuffer.append(FullScreenUtil.isScreenChange(isFullScreen));
@@ -813,7 +823,8 @@ public class GameMidlet extends ProgressMidlet
     {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,
         // "startGameCanvasRunnableInterface"));
-        thread = new Thread(this.allbinaryGameCanvasRunnableInterface);
+        thread = thread = ThreadFactoryUtil.getInstance().getInstance(
+                this.allbinaryGameCanvasRunnableInterface);
 
         LogUtil.put(LogFactory.getInstance(
                 "Thread Priority: " + thread.getPriority(), this,

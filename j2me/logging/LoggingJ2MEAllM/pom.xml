@@ -15,11 +15,19 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>Log</artifactId>
             <version>1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>LogJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

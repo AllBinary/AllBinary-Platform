@@ -13,12 +13,17 @@
 */
 package org.allbinary.graphics.opengles;
 
+import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.communication.log.PreLogUtil;
+import allbinary.game.configuration.feature.Features;
+import allbinary.game.configuration.feature.HTMLFeatureFactory;
 import javax.microedition.lcdui.Displayable;
 
 import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import allbinary.game.displayable.canvas.DemoCanvas;
 import allbinary.game.displayable.canvas.GameRunnable;
 import allbinary.game.displayable.canvas.NullDisplayable;
+import allbinary.thread.NullRunnable;
 
 public class CurrentDisplayableFactory
 {
@@ -63,7 +68,7 @@ public class CurrentDisplayableFactory
 
     public void clearRunnable()
     {
-        //PreLogUtil.put("Runnable: " + NullRunnable.getInstance(), this, "clearRunnable");
+        PreLogUtil.put("Runnable: " + NullRunnable.getInstance(), this, "clearRunnable");
         this.usedRunnable = GameRunnable.getInstance(); 
     }
     
@@ -71,19 +76,23 @@ public class CurrentDisplayableFactory
     {
         synchronized (this)
         {
+            Features features = Features.getInstance();
+
             if (openGlReadydisplayable instanceof DemoCanvas || 
-                    openGlReadydisplayable instanceof AllBinaryGameCanvas)
+                    openGlReadydisplayable instanceof AllBinaryGameCanvas ||
+                    features.isDefault(HTMLFeatureFactory.getInstance().HTML)
+                    )
             {
-                //PreLogUtil.put("Runnable: " + runnable, this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put("Runnable: " + runnable, this, CommonStrings.getInstance().UPDATE);
                 this.usedRunnable = runnable;
             }
             else
             {
-                //PreLogUtil.put("Null Runnable", this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put("Null Runnable", this, CommonStrings.getInstance().UPDATE);
                 this.usedRunnable = GameRunnable.getInstance();
             }
         }
-    }
+    }    
 
     /*
     public void onDrawFrame(GL10 gl)

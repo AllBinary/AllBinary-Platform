@@ -14,6 +14,7 @@
 package allbinary.game.physics.velocity;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.direction.Direction;
 import allbinary.direction.DirectionUtil;
 import allbinary.logic.math.BasicDecimal;
@@ -130,7 +131,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
         long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
 
-        // StringBuilder stringBuffer = new StringBuilder();
+        // StringMaker stringBuffer = new StringMaker();
 
         // stringBuffer.append("Magnitude: ");
         // stringBuffer.append(magnitude);
@@ -161,7 +162,7 @@ public class BasicVelocityProperties implements BasicVelocityInterface
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Velocity ");
         stringBuffer.append(PositionStrings.getInstance().X_LABEL);

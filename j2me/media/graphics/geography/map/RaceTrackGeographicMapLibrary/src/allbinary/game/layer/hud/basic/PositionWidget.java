@@ -15,6 +15,7 @@ package allbinary.game.layer.hud.basic;
 
 import javax.microedition.lcdui.Graphics;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import allbinary.game.graphics.hud.BasicHud;
 import allbinary.graphics.color.BasicColor;
@@ -52,8 +53,10 @@ public class PositionWidget extends BasicHud
 
     public static String toString(int position)
     {
-        StringBuilder stringBuffer = new StringBuilder(Integer.toString(position));
+        StringMaker stringBuffer = new StringMaker();
 
+        stringBuffer.append(Integer.toString(position));
+        
         if (position == 1)
         {
             stringBuffer.append("st");

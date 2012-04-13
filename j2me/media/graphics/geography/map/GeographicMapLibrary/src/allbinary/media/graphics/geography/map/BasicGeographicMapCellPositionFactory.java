@@ -114,7 +114,7 @@ public class BasicGeographicMapCellPositionFactory
         if (i_column >= geographicMapCellPositionArray.length
             || i_row >= geographicMapCellPositionArray[0].length)
         {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("columns: ");
             stringBuffer.append(this.getColumns());

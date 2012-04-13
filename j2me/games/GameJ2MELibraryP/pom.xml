@@ -29,6 +29,7 @@
 
         <module>../../../game/behavior/ArtificialIntelligenceLibraryM</module>
 
+        <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationLibraryM</module>
@@ -36,6 +37,9 @@
 
         <module>../../games/GameInputLibraryM</module>
         <module>../../games/GameScoresBaseLibraryM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryM</module>
+        <module>../../games/GameScoresJ2MEJavaLibraryM</module>
         <module>../../games/GameScoresLibraryM</module>
 
         <module>../../games/GameConfigurationJavaLibraryM</module>
@@ -53,6 +57,10 @@
 
         <module>../../input/MotionGestureBaseJavaLibraryM</module>
 
+        <module>../../games/GameInputPersistanceLibraryM</module>
+        <module>../../games/GameInputNoPersistanceLibraryM</module>
+        <module>../../games/GameConfigurationHTMLJavaLibraryM</module>
+        <module>../../games/GameConfigurationJ2MEJavaLibraryM</module>
         <module>../../games/GameConfigurationFormJavaLibraryM</module>
 
         <module>../../input/NoGyroSensorJavaLibraryM</module>

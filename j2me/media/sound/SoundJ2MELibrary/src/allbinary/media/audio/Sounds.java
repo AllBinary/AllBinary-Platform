@@ -16,6 +16,7 @@ package allbinary.media.audio;
 import javax.microedition.media.Player;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -59,7 +60,7 @@ public class Sounds
                 Integer indexInteger = smallIntegerSingletonFactory.getInstance(i);
                 String indexString = indexInteger.toString();
                 
-                StringBuilder stringBuffer = new StringBuilder();
+                StringMaker stringBuffer = new StringMaker();
                 
                 stringBuffer.append(commonStrings.INDEX_LABEL);
                 stringBuffer.append(indexString);

@@ -23,6 +23,7 @@ import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.game.combat.damage.DamageableInterface;
 import allbinary.game.combat.destroy.DestroyableInterface;
 import allbinary.game.combat.destroy.event.DestroyedEvent;
@@ -253,7 +254,7 @@ OpenGLSurfaceChangedInterface
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         CommonSeps commonSeps = CommonSeps.getInstance();
         

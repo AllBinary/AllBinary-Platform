@@ -17,6 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.tokens.Tokenizer;
 import abcs.logic.communication.log.PreLogUtil;
 
@@ -32,7 +33,7 @@ public class DatabaseEncoder
       try
       {
          byte[] array = value;
-         final StringBuilder stringBuffer = new StringBuilder();
+         final StringMaker stringBuffer = new StringMaker();
          
          for(int index =0; index < array.length; index++)
          {            

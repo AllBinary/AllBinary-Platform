@@ -30,14 +30,22 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AllBinaryJ2MELibrary</artifactId>
+            <artifactId>ThreadJ2MELibrary</artifactId>
             <version>1</version>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ThreadJ2MELibrary</artifactId>
+            <artifactId>ThreadLibrary</artifactId>
             <version>1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AllBinaryJ2MELibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.microemu</groupId>
             <artifactId>microemu-midp</artifactId>

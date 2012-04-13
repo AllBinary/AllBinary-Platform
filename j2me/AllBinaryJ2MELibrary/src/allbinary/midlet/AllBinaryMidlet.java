@@ -58,10 +58,15 @@ implements CommandListener
         if (newDisplay != null)
         {
             title = newDisplay.getTitle();
+            
             if (title != null)
             {
-                LogUtil.put(LogFactory.getInstance("Setting: " + title, this, "setDisplay"));
+                LogUtil.put(LogFactory.getInstance("Setting: " + title + " Display: " + newDisplay, this, "setDisplay"));
             }
+            else
+            {
+                LogUtil.put(LogFactory.getInstance("Setting: No Title, Display: " + newDisplay, this, "setDisplay"));
+            }            
         }
         Display display = getDisplay();
         display.setCurrent(newDisplay);

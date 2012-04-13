@@ -16,6 +16,7 @@ package org.allbinary.game.layer.resources;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.configuration.feature.Features;
@@ -89,7 +90,7 @@ public class GameGraphicsResourceUtil
     public String getString(GraphicsFeature graphicsFeature)
     throws Exception
     {
-        final StringBuilder stringBuffer = new StringBuilder();
+        final StringMaker stringBuffer = new StringMaker();
         
         GraphicsFeatureFactory graphicsFeatureFactory = 
             GraphicsFeatureFactory.getInstance();

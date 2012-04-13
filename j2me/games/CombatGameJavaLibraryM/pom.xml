@@ -60,7 +60,7 @@
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ThreadJ2MELibrary</artifactId>
+            <artifactId>ThreadLibrary</artifactId>
             <version>1</version>
         </dependency>
         <dependency>

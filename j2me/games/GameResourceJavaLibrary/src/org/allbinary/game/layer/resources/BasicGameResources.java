@@ -14,13 +14,14 @@
 package org.allbinary.game.layer.resources;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.configuration.GameConfigurationCentral;
 
 public class BasicGameResources
 {
-    protected static final StringBuilder stringBuffer = new StringBuilder();
+    protected static final StringMaker stringBuffer = new StringMaker();
     
     public String RESOURCE;
     public String RESOURCE_DESTROY;

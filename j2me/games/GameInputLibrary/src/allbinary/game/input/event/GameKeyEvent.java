@@ -13,6 +13,7 @@
 */
 package allbinary.game.input.event;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 public class GameKeyEvent extends AllBinaryEventObject
@@ -81,7 +82,7 @@ public class GameKeyEvent extends AllBinaryEventObject
       
    public String toString()
    {
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
 
       /*
       stringBuffer.append("GameKeyEvent: ");

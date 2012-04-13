@@ -20,6 +20,7 @@ import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.canvas.Processor;
 import allbinary.thread.PrimaryThreadPool;
+import allbinary.thread.ThreadPool;
 
 public class ProgressMidlet extends AllBinaryMidlet
 {
@@ -35,7 +36,11 @@ public class ProgressMidlet extends AllBinaryMidlet
         
         try
         {
-            PrimaryThreadPool.getInstance().runTask(new ExitRunnable(this, processor, isProgress));
+            ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
+            
+            Runnable runnable = new ExitRunnable(this, processor, isProgress);
+
+            primaryThreadPool.runTask(runnable);
         }
         catch (Exception e)
         {

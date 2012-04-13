@@ -37,6 +37,20 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameInputPersistanceLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ThreadJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>AllBinaryJ2MELibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -69,13 +83,7 @@
             <artifactId>AllBinarySensorJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameInputLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
+        <dependency>        
             <groupId>org.allbinary</groupId>
             <artifactId>GameSoundsJavaLibrary</artifactId>
             <version>1</version>

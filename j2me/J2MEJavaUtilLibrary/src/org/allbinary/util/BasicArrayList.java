@@ -12,6 +12,7 @@ package org.allbinary.util;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 
 //This is a very fast and simple resizable list.
 public class BasicArrayList
@@ -20,11 +21,13 @@ public class BasicArrayList
     private final ArrayUtil arrayUtil = ArrayUtil.getInstance();
 
     public transient Object[] objectArray;
-    private int currentIndex;
+    private int currentIndex = 0;
 
     public BasicArrayList(int size)
     {
         super();
+
+        //currentIndex = 0;
 
         if (size < 0)
             throw new IllegalArgumentException("Init Size Exception: " + size);
@@ -35,6 +38,8 @@ public class BasicArrayList
     public BasicArrayList()
     {
         this(7);
+        
+        //currentIndex = 0;
     }
 
     protected Object[] getObjectArray()
@@ -50,7 +55,7 @@ public class BasicArrayList
     public void add(int index, Object element)
     {
         if (index > currentIndex || index < 0) {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
@@ -76,7 +81,7 @@ public class BasicArrayList
     public Object remove(int index)
     {
         if (index >= currentIndex) {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
@@ -213,7 +218,7 @@ public class BasicArrayList
     public Object get(int index)
     {
         if (index >= currentIndex) {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
@@ -229,7 +234,7 @@ public class BasicArrayList
     public Object set(int index, Object element)
     {
         if (index >= currentIndex) {
-            StringBuilder stringBuffer = new StringBuilder();
+            StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
@@ -303,7 +308,7 @@ public class BasicArrayList
     public String toString()
     {
         final String COMMA_SEP = CommonSeps.getInstance().COMMA_SEP;
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         for (int index = 0; index < currentIndex; index++) {
             stringBuffer.append(objectArray[index].toString());

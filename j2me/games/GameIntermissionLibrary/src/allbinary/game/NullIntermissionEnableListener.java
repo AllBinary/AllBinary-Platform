@@ -28,7 +28,7 @@ implements IntermissionEnableListenerInterface
         
     }
     
-    public void notify(boolean enable)
+    public void notifyIntermission(boolean enable)
     {
         
     }

@@ -14,6 +14,7 @@
 package allbinary.graphics;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.math.PositionStrings;
 
 public class GPoint 
@@ -67,7 +68,7 @@ public class GPoint
    
    public static String toStringStatic(int x, int y)
    {
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
 
       PositionStrings positionStrings = 
           PositionStrings.getInstance();

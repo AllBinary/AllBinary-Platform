@@ -13,6 +13,7 @@
 */
 package allbinary.game.identification;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class Group implements GroupInterface
@@ -29,7 +30,7 @@ public class Group implements GroupInterface
       this.teamName = teamName;
       this.teamId = teamId;
 
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
 
       stringBuffer.append("Group Name: ");
       stringBuffer.append(this.getGroupName());

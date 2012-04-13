@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.ForcedLogUtil;
 import allbinary.ai.ArtificialIntelligenceInterface;
 import allbinary.direction.Direction;
@@ -419,14 +420,14 @@ public class DiveBombAI extends BasicAI implements
     }
 
     /*
-     * public String getDebug() { StringBuilder stringBuffer = new
-     * StringBuilder(); stringBuffer.append(" Dp: ");
+     * public String getDebug() { StringMaker stringBuffer = new
+     * StringMaker(); stringBuffer.append(" Dp: ");
      * stringBuffer.append(this.initialDropped); stringBuffer.append(" Dv: ");
      * stringBuffer.append(this.dive); stringBuffer.append(" T: ");
      * stringBuffer.append(this.targeting); stringBuffer.append(" D: ");
      * stringBuffer.append(this.direction); return stringBuffer.toString(); }
-     * public String toString() { StringBuilder stringBuffer = new
-     * StringBuilder(); stringBuffer.append(" Dropped: ");
+     * public String toString() { StringMaker stringBuffer = new
+     * StringMaker(); stringBuffer.append(" Dropped: ");
      * stringBuffer.append(this.initialDropped);
      * stringBuffer.append(" Diving: "); stringBuffer.append(this.dive);
      * stringBuffer.append(" Targeting: "); stringBuffer.append(this.targeting);
@@ -478,7 +479,7 @@ public class DiveBombAI extends BasicAI implements
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(super.toString());
         stringBuffer.append(" LastDirection: ");

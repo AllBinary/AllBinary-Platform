@@ -16,6 +16,7 @@ package abcs.logic.basic.path;
 import abcs.logic.basic.io.file.FilePathData;
 import abcs.logic.basic.io.file.FilePathUtil;
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.basic.string.StringValidationUtil;
 
@@ -151,7 +152,7 @@ public class AbPath
    private static final String NETWORK_SEP = ":/";
    public String toString()
    {
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
       
       if(this.hasSchema())
       {
@@ -181,7 +182,7 @@ public class AbPath
    {
       if(this.hasSchema())
       {
-         StringBuilder stringBuffer = new StringBuilder();
+         StringMaker stringBuffer = new StringMaker();
          stringBuffer.append(this.schema);
          stringBuffer.append(CommonSeps.getInstance().COLON);
          stringBuffer.append(FilePathData.SEPARATOR);

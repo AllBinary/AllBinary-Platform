@@ -147,7 +147,7 @@ public class AbeClientLicense implements AbeLicenseInterface
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         // getKey(String keyName);
         

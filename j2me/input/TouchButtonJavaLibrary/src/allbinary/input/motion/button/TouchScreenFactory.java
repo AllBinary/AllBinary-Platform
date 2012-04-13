@@ -14,9 +14,9 @@
 package allbinary.input.motion.button;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
-import allbinary.input.motion.button.TouchScreenType;
 
 public class TouchScreenFactory
 {
@@ -116,7 +116,7 @@ public class TouchScreenFactory
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         /*
         private boolean touch;

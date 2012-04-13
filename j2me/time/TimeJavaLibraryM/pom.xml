@@ -25,6 +25,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ThreadJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>allbinary_src_designpatterns_src</artifactId>
             <version>1</version>
         </dependency>

@@ -22,6 +22,7 @@ import abcs.logic.basic.io.FileStreamFactory;
 import abcs.logic.basic.io.StreamUtil;
 import abcs.logic.basic.io.file.FileFactory;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -440,7 +441,7 @@ public class OpenGLConfiguration
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(" isOpenGL: ");
         stringBuffer.append(this.isOpenGL());

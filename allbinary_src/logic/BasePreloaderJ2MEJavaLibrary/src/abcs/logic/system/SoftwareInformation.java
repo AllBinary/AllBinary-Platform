@@ -14,6 +14,7 @@
 package abcs.logic.system;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 
 public class SoftwareInformation
 {
@@ -51,7 +52,7 @@ public class SoftwareInformation
         final String NAME = "Name: ";
         final String VERSION = "Version: ";
         
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(NAME);
         stringBuffer.append(this.getName());
         stringBuffer.append(CommonSeps.getInstance().SPACE);

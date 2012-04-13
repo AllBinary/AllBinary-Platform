@@ -13,6 +13,7 @@
  */
 package allbinary.game.terrain;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 public class TerrainEvent extends AllBinaryEventObject
@@ -32,7 +33,7 @@ public class TerrainEvent extends AllBinaryEventObject
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("TerrainEvent: \n");
         stringBuffer.append("LayerInterface: ");

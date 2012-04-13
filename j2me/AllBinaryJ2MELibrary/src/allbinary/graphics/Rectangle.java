@@ -14,6 +14,7 @@
 package allbinary.graphics;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 
 public class Rectangle 
 {
@@ -70,7 +71,7 @@ public class Rectangle
    
    public String toString()
    {
-       StringBuilder stringBuffer = new StringBuilder();
+       StringMaker stringBuffer = new StringMaker();
        stringBuffer.append(this.getPoint().toString());
        stringBuffer.append(CommonSeps.getInstance().SPACE);
        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);

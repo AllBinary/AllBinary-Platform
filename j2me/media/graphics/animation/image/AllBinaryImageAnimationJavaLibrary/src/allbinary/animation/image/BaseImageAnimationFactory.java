@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Image;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.animation.Animation;
@@ -42,7 +43,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
       this.sequenceArray = PrimitiveIntUtil.getArrayInstance();
 
-      StringBuilder stringBuffer = new StringBuilder();
+      StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("Image: ");
       stringBuffer.append(image.getHeight());

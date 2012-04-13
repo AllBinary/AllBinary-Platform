@@ -14,6 +14,7 @@
 package allbinary.animation;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import allbinary.animation.resource.FeatureResourceAnimationInterfaceFactoryInterface;
 import allbinary.game.configuration.GameConfigurationCentral;
 import allbinary.game.resource.FeaturedResourceFactory;
@@ -119,7 +120,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
       if (resourceTypeAvailable)
       {
-          StringBuilder stringBuffer = new StringBuilder();
+          StringMaker stringBuffer = new StringMaker();
           
           stringBuffer.append("No animation available from: ");
           stringBuffer.append(size);
@@ -147,7 +148,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
       }
       else
       {
-         StringBuilder stringBuffer = new StringBuilder();
+         StringMaker stringBuffer = new StringMaker();
          for (int index = 0; index < size; index++)
          {
             FeatureResourceAnimationInterfaceFactoryInterface featureInterface = 

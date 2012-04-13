@@ -16,8 +16,15 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
+            <version>${project.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameInputPersistanceLibrary</artifactId>
             <version>${project.version}</version>
             <optional>true</optional>
         </dependency>

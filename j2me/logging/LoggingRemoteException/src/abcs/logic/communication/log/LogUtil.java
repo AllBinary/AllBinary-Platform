@@ -19,6 +19,7 @@ import java.util.Hashtable;
 import org.apache.xmlrpc.XmlRpcException;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.system.security.licensing.AbeClientInformationInterface;
 import abcs.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
 import allbinary.canvas.SpecialMessageUtil;
@@ -33,7 +34,7 @@ public class LogUtil
     {
     }
 
-    private static final StringBuilder stringBuffer = new StringBuilder();
+    private static final StringMaker stringBuffer = new StringMaker();
     private static final String EMPTY = "Empty";
 
     public synchronized static void put(Log log)

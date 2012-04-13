@@ -13,6 +13,7 @@
 */
 package allbinary.game.ai.sequence;
 
+import abcs.logic.basic.string.StringMaker;
 import allbinary.ai.ArtificialIntelligenceInterface;
 import allbinary.ai.ArtificialIntelligenceTransitionInterface;
 import allbinary.game.ai.ArrayAI;
@@ -74,7 +75,7 @@ public class SequenceAI extends ArrayAI
    
    public String toString()
    {
-       StringBuilder stringBuffer = new StringBuilder();
+       StringMaker stringBuffer = new StringMaker();
        
        stringBuffer.append(super.toString());
        stringBuffer.append(" Selected AI: ");

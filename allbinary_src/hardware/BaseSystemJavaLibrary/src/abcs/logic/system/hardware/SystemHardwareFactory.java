@@ -14,6 +14,7 @@
 package abcs.logic.system.hardware;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -68,7 +69,7 @@ public class SystemHardwareFactory {
 
    public static String static_toString()
    {
-      StringBuilder osBuffer = new StringBuilder();
+      StringMaker osBuffer = new StringMaker();
       osBuffer.append("Hardware Info: \n");
       
       if(hardwareInterface != null)

@@ -13,6 +13,8 @@
 */
 package allbinary.logic.math;
 
+import abcs.logic.basic.string.StringMaker;
+
 public class Orientation
 {
     public static Orientation NONE = new Orientation(0, 0, 0);
@@ -40,7 +42,7 @@ public class Orientation
     
     public String toString()
     {
-       StringBuilder stringBuffer = new StringBuilder();
+       StringMaker stringBuffer = new StringMaker();
        
        stringBuffer.append("Y: ");
        stringBuffer.append(yaw.toString());

@@ -14,6 +14,7 @@
 package org.allbinary.util;
 
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 
 public class ArrayUtil
 {
@@ -38,7 +39,7 @@ public class ArrayUtil
 
     public String toString(int[][] twoDimensionalIntArray)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         CommonSeps commonSeps = CommonSeps.getInstance();
                 
@@ -61,7 +62,7 @@ public class ArrayUtil
     
     public String toString(Object[] objectArray)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         CommonSeps commonSeps = CommonSeps.getInstance();
 

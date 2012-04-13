@@ -15,6 +15,7 @@ package allbinary.game.combat.damage;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
@@ -49,7 +50,7 @@ public class DamageUtil
            int damage = ((CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface).getDamage(0);
            if(damage > 20000)
            {
-               StringBuilder stringBuffer = new StringBuilder();
+               StringMaker stringBuffer = new StringMaker();
                
                stringBuffer.append("Collision ");
                stringBuffer.append(collidableInterfaceCompositeInterface1.toString());

@@ -15,6 +15,7 @@ package org.allbinary.game.layer;
 
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.ForcedLogUtil;
 import allbinary.ai.ArtificialIntelligenceInterface;
 import allbinary.game.collision.CollidableBaseBehavior;
@@ -83,8 +84,8 @@ implements CollidableInterfaceCompositeInterface
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
-        
+        StringMaker stringBuffer = new StringMaker();
+
         CommonSeps commonSeps = CommonSeps.getInstance();
         
         stringBuffer.append(super.toString());
