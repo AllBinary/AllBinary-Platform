@@ -72,8 +72,7 @@ public class AdjustedColorCompositeSpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        Sprite sprite = new Sprite(this.getImage(),
-              this.width, this.height);
+        Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
 
         return new AdjustedSpriteIndexedAnimation(sprite, this.basicColorArray, this.dx, this.dy);
     }

@@ -23,6 +23,9 @@ import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import allbinary.image.ImageCache;
 import allbinary.image.ImageCacheFactory;
+import javax.microedition.lcdui.Image;
+
+import org.allbinary.animation.image.ImageCompleteUtil;
 
 public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extends
         BaseResourceAnimationInterfaceFactoryInterfaceFactory
@@ -67,58 +70,92 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extend
             ProgressCanvasFactory.getInstance();
         
         progressCanvas.addPortion(portion, loadingString, index++);
+        
+        Image touchButtonBlankResourceImage = imageCache.get(TouchButtonBlankResource.RESOURCE);
+        Image touchButtonGenericActionResource = imageCache.get(TouchButtonGenericActionResource.RESOURCE);
+        Image touchButtonStartResource = imageCache.get(TouchButtonStartResource.RESOURCE);
+        Image touchButtonUpResource = imageCache.get(TouchButtonUpResource.RESOURCE);
+        Image touchButtonDownResource = imageCache.get(TouchButtonDownResource.RESOURCE);
+        Image touchButtonTurnLeftResource = imageCache.get(TouchButtonTurnLeftResource.RESOURCE);
+        Image touchButtonTurnRightResource = imageCache.get(TouchButtonTurnRightResource.RESOURCE);
+        Image touchButtonStrafeLeftResource = imageCache.get(TouchButtonStrafeLeftResource.RESOURCE);
+        Image touchButtonStrafeRightResource = imageCache.get(TouchButtonStrafeRightResource.RESOURCE);
 
+        progressCanvas.addPortion(portion, loadingString, index++);
+
+        ImageCompleteUtil imageCompleteUtil = ImageCompleteUtil.getInstance();
+        
+        progressCanvas.addPortion(portion, loadingString, index++);
+
+        imageCompleteUtil.waitFor(touchButtonBlankResourceImage);
+        
         this.add(TouchButtonBlankResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
-                imageCache.get(TouchButtonBlankResource.RESOURCE)));
+                touchButtonBlankResourceImage));
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
+        imageCompleteUtil.waitFor(touchButtonGenericActionResource);
+        
         this.add(TouchButtonGenericActionResource.RESOURCE,
                 new OneRowSpriteIndexedAnimationFactory(
-                        imageCache.get(TouchButtonGenericActionResource.RESOURCE)));
+                touchButtonGenericActionResource));
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
+        imageCompleteUtil.waitFor(touchButtonStartResource);
+        
         this.add(TouchButtonStartResource.RESOURCE,
                 new OneRowSpriteIndexedAnimationFactory(
-                        imageCache.get(TouchButtonStartResource.RESOURCE)));
+                touchButtonStartResource));
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
+        imageCompleteUtil.waitFor(touchButtonUpResource);
+        
         this.add(TouchButtonUpResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
-                imageCache.get(TouchButtonUpResource.RESOURCE)));
+                touchButtonUpResource));
 
         progressCanvas.addPortion(portion, loadingString, index++);
+
+        imageCompleteUtil.waitFor(touchButtonDownResource);
 
         this.add(TouchButtonDownResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
-                imageCache.get(TouchButtonDownResource.RESOURCE)));
+                touchButtonDownResource));
 
         progressCanvas.addPortion(portion, loadingString, index++);
+
+        imageCompleteUtil.waitFor(touchButtonTurnLeftResource);
 
         this.add(TouchButtonTurnLeftResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
-                imageCache.get(TouchButtonTurnLeftResource.RESOURCE)));
+                touchButtonTurnLeftResource));
 
         progressCanvas.addPortion(portion, loadingString, index++);
+
+        imageCompleteUtil.waitFor(touchButtonTurnRightResource);
 
         this.add(TouchButtonTurnRightResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
-                imageCache.get(TouchButtonTurnRightResource.RESOURCE)));
+                touchButtonTurnRightResource));
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
+        imageCompleteUtil.waitFor(touchButtonStrafeLeftResource);
+        
         this.add(TouchButtonStrafeLeftResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
-                imageCache.get(TouchButtonStrafeLeftResource.RESOURCE)));
+                touchButtonStrafeLeftResource));
 
         progressCanvas.addPortion(portion, loadingString, index++);
+
+        imageCompleteUtil.waitFor(touchButtonStrafeRightResource);
 
         this.add(TouchButtonStrafeRightResource.RESOURCE, 
                 new OneRowSpriteIndexedAnimationFactory(
-                imageCache.get(TouchButtonStrafeRightResource.RESOURCE)));
+                touchButtonStrafeRightResource));
 
         super.init(level);
     }

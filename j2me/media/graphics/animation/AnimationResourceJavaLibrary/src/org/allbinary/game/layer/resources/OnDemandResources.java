@@ -21,7 +21,15 @@ public class OnDemandResources
     protected OnDemandResources()
     {
     }
+
+    public void waitFor() throws Exception
+    {
+    }
     
+    public void init() throws Exception
+    {
+    }
+
     public int init(
             ImageCache imageCache,
             BaseResourceAnimationInterfaceFactoryInterfaceFactory 

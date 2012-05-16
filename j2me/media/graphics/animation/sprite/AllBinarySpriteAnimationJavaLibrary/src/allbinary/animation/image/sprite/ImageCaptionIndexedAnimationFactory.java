@@ -24,7 +24,8 @@ import allbinary.animation.caption.CaptionIndexedAnimation;
 import allbinary.animation.image.AllBinaryImageAnimation;
 import allbinary.media.audio.Sound;
 
-public class ImageCaptionIndexedAnimationFactory implements AnimationInterfaceFactoryInterface
+public class ImageCaptionIndexedAnimationFactory 
+implements AnimationInterfaceFactoryInterface
 {
    private Image captionImage;
    private Image spriteMovieImage;
@@ -68,7 +69,9 @@ public class ImageCaptionIndexedAnimationFactory implements AnimationInterfaceFa
    public Animation getInstance() throws Exception
    {
       Animation animationInterface = new AllBinaryImageAnimation(this.captionImage);
+
       Sprite sprite = new Sprite(this.spriteMovieImage, this.frameWidth, this.frameHeight);
+
       IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite);
       
       Player player = this.soundInterface.getPlayer();

@@ -11,7 +11,6 @@
 
            <excludes>
                <exclude>org.allbinary:LoggingJ2MEAll</exclude>
-               <exclude>org.allbinary:ApplicationStatisticsJ2MELibrary</exclude>
            </excludes>
 
             <unpack>true</unpack>

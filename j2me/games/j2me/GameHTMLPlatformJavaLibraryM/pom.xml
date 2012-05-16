@@ -46,6 +46,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.allbinary.animation</groupId>
+            <artifactId>ImageHTMLJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameConfigurationHTMLJavaLibrary</artifactId>
             <version>1</version>

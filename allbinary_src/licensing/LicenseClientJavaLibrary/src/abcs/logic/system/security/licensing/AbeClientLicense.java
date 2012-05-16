@@ -18,6 +18,7 @@ import java.util.Vector;
 
 import org.allbinary.util.BasicArrayList;
 
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.basic.string.StringValidationUtil;
 

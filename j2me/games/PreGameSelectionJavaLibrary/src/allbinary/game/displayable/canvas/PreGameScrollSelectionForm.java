@@ -13,12 +13,13 @@
 */
 package allbinary.game.displayable.canvas;
 
+import org.allbinary.graphics.form.item.CustomItem;
+
 import allbinary.graphics.Rectangle;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.form.FormTypeFactory;
 import allbinary.graphics.form.ItemPaintableFactory;
 import allbinary.graphics.form.ScrollCurrentSelectionForm;
-import allbinary.graphics.form.item.CustomItem;
 
 /**
  *

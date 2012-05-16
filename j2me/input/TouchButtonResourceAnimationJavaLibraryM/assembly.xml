@@ -10,7 +10,6 @@
         <dependencySet>
 
            <excludes>
-               <exclude>org.allbinary:ApplicationStatisticsJ2MELibrary</exclude>
                <exclude>org.microemu:microemu-cldc</exclude>
                <exclude>org.microemu:microemu-midp</exclude>
            </excludes>

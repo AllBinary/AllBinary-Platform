@@ -19,8 +19,9 @@ import javax.microedition.lcdui.game.Sprite;
 import allbinary.animation.Animation;
 import allbinary.animation.image.BaseImageAnimationFactory;
 
-public class OneRowSpriteIndexedAnimationFactory extends BaseImageAnimationFactory {
-
+public class OneRowSpriteIndexedAnimationFactory 
+extends BaseImageAnimationFactory 
+{
    protected int dx;
    protected int dy;
 
@@ -52,9 +53,10 @@ public class OneRowSpriteIndexedAnimationFactory extends BaseImageAnimationFacto
    public Animation getInstance() 
       throws Exception 
    {
-      Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
+       Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
 
-      if (dx != 0 || dy != 0) {
+      if (dx != 0 || dy != 0) 
+      {
          return new AdjustedSpriteIndexedAnimation(sprite, dx, dy);
       } else {
          return new SpriteIndexedAnimation(sprite);

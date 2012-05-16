@@ -41,6 +41,7 @@ implements ColorCompositeInterface
    public void paint(Graphics graphics, int x, int y) {
        this.basicColorUtil.setBasicColor(
                graphics, this.getBasicColor(), this.getColor());
-      graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);
+      //graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);
+      graphics.fillRect(x, y, width, height);
    }
 }

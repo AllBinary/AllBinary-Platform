@@ -36,6 +36,21 @@
             <optional>true</optional>
         </dependency>
 
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2MEForJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameScoresBaseJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>LicensedGameDemoJavaLibrary</artifactId>
@@ -108,6 +123,13 @@
             <groupId>org.allbinary.game.testgamedemo</groupId>
             <artifactId>TestGameDemoJavaLibrary</artifactId>
             <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary.game.testgamedemo</groupId>
+            <artifactId>TestGameDemoTouchJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

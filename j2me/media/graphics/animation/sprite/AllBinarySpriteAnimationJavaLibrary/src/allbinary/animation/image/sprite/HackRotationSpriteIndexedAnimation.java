@@ -18,13 +18,16 @@ import javax.microedition.lcdui.game.Sprite;
 
 import allbinary.animation.RotationAnimation;
 import allbinary.logic.math.PrimitiveIntUtil;
+import allbinary.math.AngleInfo;
 
 public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 {
     private Sprite sprite;
 
-    public HackRotationSpriteIndexedAnimation(Sprite sprite)
+    public HackRotationSpriteIndexedAnimation(Sprite sprite, AngleInfo angleInfo)
     {
+        super(angleInfo);
+        
         this.setSprite(sprite);
     }
 
@@ -38,11 +41,6 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
-    }
-    
-    public Sprite getSprite()
-    {
-        return sprite;
     }
 
     public void setSprite(Sprite sprite)
@@ -58,39 +56,39 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 
     public void paint(Graphics g, int x, int y)
     {
-        this.sprite.setPosition(x, y);
+        this.getSprite().setPosition(x, y);
         this.paint(g);
     }
 
     protected void paint(Graphics g)
     {
-        this.sprite.paint(g);
+        this.getSprite().paint(g);
     }
 
     public void nextRotation()
     {
-        this.sprite.nextFrame();
+        this.getSprite().nextFrame();
     }
 
     public void previousRotation()
     {
-        this.sprite.prevFrame();
+        this.getSprite().prevFrame();
     }
 
     public int getSize()
     {
         // .getFrameSequenceLength()
-        return this.sprite.getRawFrameCount();
+        return this.getSprite().getRawFrameCount();
     }
 
     public void setFrame(int frame)
     {
-        this.sprite.setFrame(frame);
+        this.getSprite().setFrame(frame);
     }
 
     public int getFrame()
     {
-        return this.sprite.getFrame();
+        return this.getSprite().getFrame();
     }
 
     public void setSequence(int[] sequence)
@@ -101,5 +99,10 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
+    }
+
+    protected Sprite getSprite()
+    {
+        return sprite;
     }
 }

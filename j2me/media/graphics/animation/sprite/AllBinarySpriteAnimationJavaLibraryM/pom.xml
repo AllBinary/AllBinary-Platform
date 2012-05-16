@@ -24,6 +24,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>LoggingJ2MEAll</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>GameJ2MELibrary</artifactId>
             <version>1</version>
         </dependency>

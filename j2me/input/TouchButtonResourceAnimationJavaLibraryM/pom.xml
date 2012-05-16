@@ -36,6 +36,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.allbinary.animation</groupId>
+            <artifactId>ImageJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AnimationResourceJavaLibrary</artifactId>
             <version>1</version>

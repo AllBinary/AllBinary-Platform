@@ -22,16 +22,30 @@
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.game.testgamedemo</groupId>
-            <artifactId>TestGameDemoImageAnimationInterfaceResourceFactoryJavaLibrary</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>OpenGLNoneJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TempIntegrationJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary.game.testgamedemo</groupId>
+            <artifactId>TestGameDemoImageAnimationInterfaceResourceFactoryJavaLibrary</artifactId>
+            <version>1</version>
         </dependency>
 
     </dependencies>

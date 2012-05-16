@@ -69,7 +69,7 @@ public class CurrentDisplayableFactory
     public void clearRunnable()
     {
         PreLogUtil.put("Runnable: " + NullRunnable.getInstance(), this, "clearRunnable");
-        this.usedRunnable = GameRunnable.getInstance(); 
+        this.setUsedRunnable(GameRunnable.getInstance()); 
     }
     
     private void update()
@@ -84,12 +84,12 @@ public class CurrentDisplayableFactory
                     )
             {
                 PreLogUtil.put("Runnable: " + runnable, this, CommonStrings.getInstance().UPDATE);
-                this.usedRunnable = runnable;
+                this.setUsedRunnable(runnable);
             }
             else
             {
                 PreLogUtil.put("Null Runnable", this, CommonStrings.getInstance().UPDATE);
-                this.usedRunnable = GameRunnable.getInstance();
+                this.setUsedRunnable(GameRunnable.getInstance());
             }
         }
     }    
@@ -121,6 +121,14 @@ public class CurrentDisplayableFactory
     public GameRunnable getUsedRunnable()
     {
         return usedRunnable;
+    }
+
+    /**
+     * @param usedRunnable the usedRunnable to set
+     */
+    public void setUsedRunnable(GameRunnable usedRunnable)
+    {
+        this.usedRunnable = usedRunnable;
     }
 
 }

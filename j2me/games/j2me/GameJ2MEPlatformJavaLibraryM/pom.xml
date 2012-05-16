@@ -81,7 +81,12 @@
             <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
-        
+        <dependency>
+            <groupId>org.allbinary.animation</groupId>
+            <artifactId>ImageJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameScoresJ2MEJavaLibrary</artifactId>

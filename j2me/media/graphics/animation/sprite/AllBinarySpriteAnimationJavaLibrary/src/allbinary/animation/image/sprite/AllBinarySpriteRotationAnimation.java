@@ -23,16 +23,13 @@ import allbinary.math.FrameUtil;
 
 public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation
 {
-    private AngleInfo angleInfo;
-
     public AllBinarySpriteRotationAnimation(Sprite sprite)
     {
-        super(sprite);
+        super(sprite,
+                AngleInfo.getInstance(
+                AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount()));
 
-        int angleIncrement = AngleFactory.getInstance().TOTAL_ANGLE / this.getSprite().getRawFrameCount();
-
-        this.setAngleInfo(AngleInfo.getInstance(angleIncrement));
-        this.getAngleInfo().adjustAngle(this.getSprite().getFrame());
+        this.angleInfo.adjustAngle(this.getSprite().getFrame());
     }
 
     /*
@@ -46,32 +43,21 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     this.getAngleInfo().adjustAngle(this.getSprite().getFrame());
     }
      */
-    public void nextFrame()
+    
+    public void nextRotation()
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "nextFrame"));
-        Sprite sprite = this.getSprite();
-        sprite.nextFrame();
-        this.getAngleInfo().adjustAngle(sprite.getFrame());
+        getSprite().nextFrame();
+        this.angleInfo.adjustAngle(getSprite().getFrame());
     }
 
-    public void previousFrame()
+    public void previousRotation()
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "previousFrame"));
-        Sprite sprite = this.getSprite();
-        sprite.prevFrame();
-        this.getAngleInfo().adjustAngle(sprite.getFrame());
+        getSprite().prevFrame();
+        this.angleInfo.adjustAngle(getSprite().getFrame());
     }
 
-    public AngleInfo getAngleInfo()
-    {
-        return angleInfo;
-    }
-
-    protected void setAngleInfo(AngleInfo angleInfo)
-    {
-        this.angleInfo = angleInfo;
-    }
-    
     public void setFrame(Direction direction)
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "setFrame"));
@@ -87,7 +73,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     public void setFrame(int index)
     {
         this.getSprite().setFrame(index);
-        this.getAngleInfo().adjustAngle(this.getFrame());
+        this.angleInfo.adjustAngle(this.getFrame());
     }
 
     public void adjustFrame(Angle angle)
@@ -100,6 +86,6 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     public void adjustFrame(short angle)
     {
         this.setFrame(frameUtil.getFrameForAngle(angle,
-            this.getAngleInfo().getAngleIncrementInfo().getAngleIncrement()));
+                this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
     }
 }

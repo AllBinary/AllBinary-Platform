@@ -13,9 +13,9 @@
 */
 package abcs.logic.system.security.licensing;
 
+import abcs.logic.basic.string.CommonSeps;
 import org.allbinary.game.testgamedemo.canvas.TestGameDemoSoftwareInfo;
 
-import abcs.logic.basic.string.CommonStrings;
 
 public class TestDemoGamePCClientInformation
 extends AbeClientInformation
@@ -27,7 +27,7 @@ extends AbeClientInformation
                 TestGameDemoSoftwareInfo.getInstance().getName() + PC_DESC,
                 TestGameDemoSoftwareInfo.getInstance().getVersion(),
                 TestGameDemoSoftwareInfo.getInstance().getName() + PC_DESC +
-                CommonStrings.getInstance().SPACE + 
+                CommonSeps.getInstance().SPACE + 
                 TestGameDemoSoftwareInfo.getInstance().getVersion()
                 );
     }

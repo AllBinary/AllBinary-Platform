@@ -797,7 +797,7 @@ public class GameMidlet extends ProgressMidlet
                 //StringUtil.getInstance()
                 //"More info at: http://"
                 "Comments or Questions:",
-                //"support@allbinary.com"
+                "support@allbinary.com"
                 };
         
         final String[] DEVELOPERS = {
