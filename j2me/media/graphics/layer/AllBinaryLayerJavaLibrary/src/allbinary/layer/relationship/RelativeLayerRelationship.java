@@ -16,6 +16,7 @@ package allbinary.layer.relationship;
 import org.allbinary.util.BasicArrayList;
 
 import allbinary.graphics.GPoint;
+import allbinary.graphics.PointFactory;
 import allbinary.graphics.RelativeRelationship;
 import allbinary.layer.AllBinaryLayer;
 
@@ -24,6 +25,11 @@ public class RelativeLayerRelationship
 {
    private AllBinaryLayer layer;
    
+   public RelativeLayerRelationship(AllBinaryLayer layer, int x, int y) throws Exception
+   {
+	   this(layer, PointFactory.getInstance().getInstance(x, y), null);
+   }
+	
    public RelativeLayerRelationship(AllBinaryLayer layer, GPoint point, BasicArrayList typesAllowedList)
    {
       super(point, typesAllowedList);

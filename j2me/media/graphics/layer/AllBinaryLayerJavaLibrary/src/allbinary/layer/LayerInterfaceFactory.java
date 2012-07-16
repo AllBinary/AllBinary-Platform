@@ -47,8 +47,22 @@ public class LayerInterfaceFactory
 
       Integer typeInteger = (Integer) hashtable.get(Layer.ID);
 
+      /*
+      if(list.objectArray.length <= typeInteger.intValue() - 1)
+      {
+    	  PreLogUtil.put("Layer ID: " + typeInteger.toString(), this, "getInstance");
+      }
+      */
+
       LayerInterfaceFactoryInterface layerInterfaceFactoryInterface = 
             (LayerInterfaceFactoryInterface) list.objectArray[typeInteger.intValue() - 1];
+
+      /*
+      if(layerInterfaceFactoryInterface == null)
+      {
+    	  PreLogUtil.put("Layer ID: " + typeInteger.toString(), this, "getInstance");
+      }
+      */
 
       return layerInterfaceFactoryInterface.getInstance(hashtable, x, y, z);
    }

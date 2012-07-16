@@ -25,6 +25,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>LogJ2MEJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.allbinary.logging</groupId>
             <artifactId>LogConfigTypeFreeblisketJavaLibrary</artifactId>
             <version>1</version>

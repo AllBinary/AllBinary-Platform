@@ -21,7 +21,7 @@ import allbinary.game.input.GameInput;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.logic.basic.util.visitor.Visitor;
 
-public class DiveBombAIFactory 
+public class DiveAndDirectionalTrackingAIFactory 
     implements ArtificialIntelligenceInterfaceFactoryInterface
 {
     public ArtificialIntelligenceInterface getInstance(
@@ -45,6 +45,6 @@ public class DiveBombAIFactory
                 hashtable2, 
                 ownerLayerInterface, gameInput);
         
-        return new DiveBombAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, visitor);
+        return new DiveAndDirectionalTrackingAI(ownerLayerInterface, artificialIntelligenceInterface, gameInput, visitor);
     }
 }

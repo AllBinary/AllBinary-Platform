@@ -21,7 +21,7 @@ import allbinary.logic.math.BasicDecimal;
  */
 public class VelocityUtil {
 
-   public  static void reduce(VelocityProperties velocityProperties, int nominator, int denominator)
+   public  static void reduce(BasicVelocityProperties velocityProperties, int nominator, int denominator)
    {
       //LogUtil.put(LogFactory.getInstance("VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction"));
       //LogUtil.put(LogFactory.getInstance("VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction"));
@@ -44,7 +44,7 @@ public class VelocityUtil {
       }
    }   
 
-   public static void reduceX(VelocityProperties velocityProperties, int nominator, int denominator)
+   public static void reduceX(BasicVelocityProperties velocityProperties, int nominator, int denominator)
    {
       BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
       if(basicDecimal.getUnscaled() != 0)
@@ -54,7 +54,7 @@ public class VelocityUtil {
       }
    }
    
-   public  static void reduceY(VelocityProperties velocityProperties, int nominator, int denominator)
+   public  static void reduceY(BasicVelocityProperties velocityProperties, int nominator, int denominator)
    {
       if (velocityProperties.getVelocityYBasicDecimal().getUnscaled() != 0)
       {

@@ -30,6 +30,13 @@
         
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>FullScreenNoneJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>TempIntegrationJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>

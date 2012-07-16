@@ -7,6 +7,7 @@ import org.allbinary.util.BasicArrayList;
 public class LayerInterfaceManager
 {
     private final BasicArrayList list = new BasicArrayList();
+    private final Object object = new Object();
 
     public LayerInterfaceManager()
     {
@@ -31,13 +32,15 @@ public class LayerInterfaceManager
 
         this.list.add(index, layerInterface);
     }
-
+    
     public void remove(AllBinaryLayer layerInterface)
             throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance("Remove: " + layerInterface, this, "remove"));
-
-        this.list.remove(layerInterface);
+    	synchronized(object)
+    	{
+    		//LogUtil.put(LogFactory.getInstance("Remove: " + layerInterface, this, "remove"));
+    		this.list.remove(layerInterface);
+    	}
     }
 
     public Layer getLayerAt(int index)
@@ -52,14 +55,19 @@ public class LayerInterfaceManager
 
     public void cleanup() throws Exception
     {
-        this.list.clear();
+    	synchronized(object)
+    	{
+    		this.list.clear();
 
-        System.gc();
-        System.gc();
+    		System.gc();
+    		System.gc();
+    	}
     }
 
     public void paint(Graphics g, int x, int y)
     {
+    	synchronized(object)
+    	{
         Layer comp;
 
         for (int index = this.list.size(); --index >= 0;)
@@ -70,5 +78,6 @@ public class LayerInterfaceManager
                 comp.paint(g);
             }
         }
+    	}
     }
 }

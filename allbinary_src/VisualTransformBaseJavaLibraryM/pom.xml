@@ -24,6 +24,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PreLoaderJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
             <groupId>org.allbinary.data.tree.dom</groupId>
             <artifactId>DocumentObjectModelJavaLibrary</artifactId>
             <version>1</version>
@@ -32,12 +39,6 @@
         <dependency>
             <groupId>org.allbinary.data.tables</groupId>
             <artifactId>DataTableInterfaces</artifactId>
-            <version>1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>PreLoaderJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
 

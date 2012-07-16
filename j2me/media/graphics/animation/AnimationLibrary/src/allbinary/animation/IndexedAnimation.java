@@ -54,6 +54,18 @@ public class IndexedAnimation extends Animation
 
     }
 
+    public boolean isLastFrame()
+    {
+        if(this.getFrame() == this.getSize() - 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
     public void setSequence(int[] sequence)
     {
 

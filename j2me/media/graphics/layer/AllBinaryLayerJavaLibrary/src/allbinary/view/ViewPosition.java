@@ -13,21 +13,23 @@
  */
 package allbinary.view;
 
+import allbinary.graphics.GPoint;
 import allbinary.layer.AllBinaryLayer;
 
 // get the location of this vehicle relative to the top right corner of the
 // tileLayer location
-public class ViewPosition extends Position
+public class ViewPosition extends GPoint
 {
     private AllBinaryLayer allbinaryLayer;
 
     public ViewPosition()
     {
+        super(0, 0, 0);
     }
 
     protected ViewPosition(int x, int y)
     {
-        super(x, y);
+        super(x, y, 0);
     }
 
     protected ViewPosition(int x, int y, int z)

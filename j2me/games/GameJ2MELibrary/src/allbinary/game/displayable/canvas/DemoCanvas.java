@@ -736,6 +736,9 @@ public class DemoCanvas extends RunnableCanvas
                 this.stopGameDemo();
 
                 int randomLevel = this.getNextRandom();
+                
+                //PreLogUtil.put("Restarting Game Demo at Level: " + randomLevel, this, CommonStrings.getInstance().PROCESS);
+                
                 GameInfo gameInfo =
                     this.gameCanvas.getLayerManager().getGameInfo();
 

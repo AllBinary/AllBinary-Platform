@@ -60,7 +60,7 @@
                     </execution>
                 </executions>
             </plugin>
-        <plugins>
+        </plugins>
 
         <sourceDirectory>../TagsBaseJavaLibrary/src</sourceDirectory>
     </build>

@@ -19,9 +19,9 @@ import allbinary.math.PositionStrings;
 
 public class GPoint 
 {
-   private final int x;
-   private final int y;
-   private final int z;
+   protected final int x;
+   protected final int y;
+   protected final int z;
 
    public GPoint(GPoint point)
    {
@@ -61,12 +61,12 @@ public class GPoint
    
    public String toString()
    {
-       return toStringStatic(this.getX(), this.getY());
+       return toStringStatic(this.x, this.y, z);
    }
    
    private static final String POINT_LABEL = "Point: ";
    
-   public static String toStringStatic(int x, int y)
+   public static String toStringStatic(int x, int y, int z)
    {
       StringMaker stringBuffer = new StringMaker();
 
@@ -79,6 +79,9 @@ public class GPoint
       stringBuffer.append(CommonSeps.getInstance().SPACE);
       stringBuffer.append(positionStrings.Y_LABEL);
       stringBuffer.append(y);
+      stringBuffer.append(CommonSeps.getInstance().SPACE);
+      stringBuffer.append(positionStrings.Z_LABEL);
+      stringBuffer.append(z);
 
       return stringBuffer.toString();
    }

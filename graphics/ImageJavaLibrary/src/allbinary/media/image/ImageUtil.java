@@ -34,7 +34,9 @@ import org.apache.batik.ext.awt.image.codec.png.PNGImageWriter;
 import abcs.logic.basic.io.AbFileOutputStream;
 import abcs.logic.basic.io.StreamUtil;
 import abcs.logic.basic.io.file.AbFile;
+import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.Log;
+import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
 public class ImageUtil
@@ -413,7 +415,20 @@ public class ImageUtil
             if (ios != null)
             {
                ios.flush();
-               StreamUtil.getInstance().close(ios);
+               
+               //Does not implement Closeable?
+               //StreamUtil.getInstance().close(ios);
+        try
+        {
+            if (ios != null)
+            {
+                LogUtil.put(LogFactory.getInstance("Closing: " + ios, ios, "close"));
+                ios.close();
+            }
+        } catch (Exception e)
+        {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, ios, "close", e));
+        }               
             }
 
             if (writer != null)

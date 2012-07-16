@@ -32,7 +32,7 @@ extends AllBinarySpriteRotationAnimation
 
     public void paint(Graphics g, int x, int y)
     {
-        this.getSprite().setPosition(x + this.dx, y + this.dy);
+        this.sprite.setPosition(x + this.dx, y + this.dy);
         this.paint(g);
     }
     

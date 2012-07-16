@@ -33,6 +33,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>PreLoaderJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>ConfigurationJavaLibrary</artifactId>
             <version>1</version>
         </dependency>
@@ -141,7 +148,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1</version>
+            <version>1.2.1</version>
             <optional>true</optional>
         </dependency>
 

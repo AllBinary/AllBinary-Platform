@@ -41,7 +41,7 @@ import allbinary.logic.basic.util.visitor.Visitor;
 import allbinary.time.GameTickTimeDelayHelperFactory;
 import allbinary.time.TimeDelayHelper;
 
-public class DiveBombAI extends BasicAI implements
+public class DiveAndDirectionalTrackingAI extends BasicAI implements
         TrackingEventListenerInterface, DestroyedEventListenerInterface
 {
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(500);
@@ -72,7 +72,7 @@ public class DiveBombAI extends BasicAI implements
     private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = GameTickTimeDelayHelperFactory
             .getInstance();
 
-    public DiveBombAI(AllBinaryLayer ownerLayerInterface,
+    public DiveAndDirectionalTrackingAI(AllBinaryLayer ownerLayerInterface,
             ArtificialIntelligenceInterface artificialIntelligenceInterface,
             GameInput gameInput, Visitor visitor)
     {

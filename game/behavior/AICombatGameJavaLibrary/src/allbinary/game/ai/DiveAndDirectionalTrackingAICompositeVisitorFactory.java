@@ -15,9 +15,9 @@ package allbinary.game.ai;
 
 import allbinary.logic.basic.util.visitor.Visitor;
 
-public class DiveBombAICompositeVisitorFactory
+public class DiveAndDirectionalTrackingAICompositeVisitorFactory
 {
-    public Visitor getInstance(DiveBombAI diveBombAI)
+    public Visitor getInstance(DiveAndDirectionalTrackingAI diveBombAI)
     {
         return null;
     }

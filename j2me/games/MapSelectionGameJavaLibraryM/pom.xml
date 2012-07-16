@@ -30,7 +30,21 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameLicensingBaseJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>LicensedGameDemoJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NullCustomUIJavaLibrary</artifactId>
             <version>1</version>
             <optional>true</optional>
         </dependency>

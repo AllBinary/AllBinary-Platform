@@ -29,7 +29,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
                 AngleInfo.getInstance(
                 AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount()));
 
-        this.angleInfo.adjustAngle(this.getSprite().getFrame());
+        this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
 
     /*
@@ -47,15 +47,15 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     public void nextRotation()
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "nextFrame"));
-        getSprite().nextFrame();
-        this.angleInfo.adjustAngle(getSprite().getFrame());
+        this.sprite.nextFrame();
+        this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
 
     public void previousRotation()
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "previousFrame"));
-        getSprite().prevFrame();
-        this.angleInfo.adjustAngle(getSprite().getFrame());
+        this.sprite.prevFrame();
+        this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
 
     public void setFrame(Direction direction)
@@ -72,7 +72,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
 
     public void setFrame(int index)
     {
-        this.getSprite().setFrame(index);
+        this.sprite.setFrame(index);
         this.angleInfo.adjustAngle(this.getFrame());
     }
 

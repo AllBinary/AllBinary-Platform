@@ -22,7 +22,7 @@ import allbinary.math.AngleInfo;
 
 public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 {
-    private Sprite sprite;
+    protected Sprite sprite;
 
     public HackRotationSpriteIndexedAnimation(Sprite sprite, AngleInfo angleInfo)
     {
@@ -56,39 +56,39 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 
     public void paint(Graphics g, int x, int y)
     {
-        this.getSprite().setPosition(x, y);
+        this.sprite.setPosition(x, y);
         this.paint(g);
     }
 
     protected void paint(Graphics g)
     {
-        this.getSprite().paint(g);
+        this.sprite.paint(g);
     }
 
     public void nextRotation()
     {
-        this.getSprite().nextFrame();
+        this.sprite.nextFrame();
     }
 
     public void previousRotation()
     {
-        this.getSprite().prevFrame();
+        this.sprite.prevFrame();
     }
 
     public int getSize()
     {
         // .getFrameSequenceLength()
-        return this.getSprite().getRawFrameCount();
+        return this.sprite.getRawFrameCount();
     }
 
     public void setFrame(int frame)
     {
-        this.getSprite().setFrame(frame);
+        this.sprite.setFrame(frame);
     }
 
     public int getFrame()
     {
-        return this.getSprite().getFrame();
+        return this.sprite.getFrame();
     }
 
     public void setSequence(int[] sequence)
@@ -99,10 +99,5 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
     public int[] getSequence()
     {
         return PrimitiveIntUtil.getArrayInstance();
-    }
-
-    protected Sprite getSprite()
-    {
-        return sprite;
     }
 }

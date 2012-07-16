@@ -43,7 +43,7 @@ public class PaymentTypeUtil {
 
     static
     {
-    	PaymentTypeFactory.getInstance().A1MPLATFORM.hashCode();
+    	//PaymentTypeFactory.getInstance().A1MPLATFORM.hashCode();
     }
     
     /**

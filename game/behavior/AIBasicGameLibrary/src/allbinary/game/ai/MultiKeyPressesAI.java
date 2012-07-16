@@ -92,4 +92,13 @@ public class MultiKeyPressesAI extends KeyPressesAI
             this.update();
         }
     }
+
+    public void enable() throws Exception
+    {
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelperFactory.getStartTime()))
+        {
+            super.enable();
+            this.update();
+        }
+    }
 }

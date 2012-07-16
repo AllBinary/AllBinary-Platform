@@ -26,7 +26,6 @@ import allbinary.layer.AllBinaryLayer;
 
 public class NumberOnOwnGroupSequenceAIFactory
 {
-
    public ArtificialIntelligenceInterface getInstance(Hashtable hashtable,
       ArtificialIntelligenceInterface[] artificialIntelligenceInterface,
       AllBinaryLayer ownerLayerInterface,

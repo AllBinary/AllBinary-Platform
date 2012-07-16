@@ -22,17 +22,17 @@ public class StaticViewPosition extends ViewPosition
     
    public int getX()
    {
-       return this.getPositionX();
+       return this.x;
    }
 
    public int getY()
    {
-       return this.getPositionY();
+       return this.y;
    }
 
    public int getZ()
    {
-       return this.getPositionZ();
+       return this.z;
    }
 
 }

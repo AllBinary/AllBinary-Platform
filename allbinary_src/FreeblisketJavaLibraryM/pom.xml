@@ -1,0 +1,188 @@
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>FreeblisketJavaLibrary</artifactId>
+    <packaging>jar</packaging>
+    <version>1</version>
+    <name>FreeblisketJavaLibrary</name>
+    <url>http://www.allbinary.com/</url>
+    
+    <dependencies>
+        <!--
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        -->
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>LoggingGAELog</artifactId>
+            <!--
+            <artifactId>LoggingGAELog</artifactId>
+            <artifactId>LoggingGAEExceptionLog</artifactId>
+            <artifactId>LoggingJ2MEAll</artifactId>
+            -->
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PreLoaderGAEJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ThreadJ2MELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TouchJ2MENoneJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+    <groupId>org.allbinary</groupId>
+    <artifactId>ResourceLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+    <groupId>org.allbinary</groupId>
+    <artifactId>ApplicationStatisticsJ2SELibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+    <groupId>org.allbinary</groupId>
+    <artifactId>DebugNoneJavaLibrary</artifactId>
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+    
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>CustomLoaderFakeJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>BlisketJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary.logic.control.workflow</groupId>
+            <artifactId>WorkflowJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>BlisketTagsJavaLibrary</artifactId>
+            <version>1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            <!--
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            -->
+            <version>1</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.vobject.appengine</groupId>
+            <artifactId>appengine-java-io</artifactId>
+            <version>0.1.0</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-vfs</artifactId>
+            <version>2.0</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.1</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.1</version>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.1.2</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <attach>true</attach>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>
+
+
+
+
+
+

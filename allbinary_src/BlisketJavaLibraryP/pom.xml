@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.business</groupId>
+    <artifactId>BlisketJavaLibraryP</artifactId>
+    <packaging>pom</packaging>
+    <version>1</version>
+    <name>BlisketJavaLibraryP</name>
+    <url>http://www.allbinary.com/</url>
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <modules>
+
+<!--
+-->
+        <module>../../j2me/AllBinaryJ2MELibraryP</module>
+
+        <module>../data/DataJavaLibraryM</module>
+        <module>../data/DataTableInterfacesM</module>
+
+        <module>../QueueJavaLibraryM</module>
+
+<!--
+<module>../RuntimeEnvironmentJavaLibraryM</module>
+-->
+        <module>../../../work/allbinary_src/RuntimeEnvironmentJavaLibraryM</module>
+
+        <module>../TokenizerJavaLibraryM</module>
+
+        <module>../CustomLoaderJavaLibraryM</module>
+
+        <module>../PreLoggingJavaLibraryM</module>
+
+<!--
+        <module>../logic/data/file/FileJ2SEJavaLibraryM</module>
+        <module>../logic/data/file/FileGAEVFSJavaLibraryM</module>
+-->
+        <module>../../../work/allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
+        <module>../../../work/allbinary_src/logic/data/file/FileGAEVFSJavaLibraryM</module>
+        <module>../logic/data/file/FileJavaLibraryM</module>
+
+        <module>../data/SQLAllBinaryJavaLibraryM</module>
+
+        <module>../licensing/FileLicenseInitInfoJavaLibraryM</module>
+
+<!--
+<module>../security/CryptFileJavaLibraryM</module>
+-->
+        <module>../../../work/allbinary_src/security/CryptFileJavaLibraryM</module>
+        
+        <module>../DocumentObjectModelJavaLibraryM</module>
+
+        <module>../VisualStyleJavaLibraryM</module>
+
+        <module>../PreLoaderJavaLibraryM</module>
+        <module>../PreLoaderHttpJavaLibraryM</module>
+
+        <module>../ConfigurationJavaLibraryM</module>
+
+        <module>../CategoryBaseJavaLibraryM</module>
+        <module>../CategoryJavaLibraryM</module>
+
+        <module>../UserJavaLibraryM</module>
+
+        <module>../PaymentGatewayBaseJavaLibraryM</module>
+        <module>../PaymentGatewayJavaLibraryM</module>
+
+        <module>../data/vo/EntitiesBlisketVOJavaLibraryM</module>
+        <module>../data/vo/EntitiesOrderHistoryVOJavaLibraryM</module>
+        <module>../data/vo/EntityPaymentGatewayVOJavaLibraryM</module>
+        <module>../data/vo/EntityStoreFrontVOJavaLibraryM</module>
+
+        <module>../data/EntitiesBlisketBaseInterfacesJavaLibraryM</module>
+        <module>../data/EntitiesBlisketBaseJavaLibraryM</module>
+        
+        <module>../data/EntitiesAdvertisementBaseJavaLibraryM</module>
+        <module>../data/EntityOrderHistoryJavaLibraryM</module>
+        <module>../data/EntityPaymentGatewayJavaLibraryM</module>
+        <module>../data/EntityVisualTransformJavaLibraryM</module>
+        <module>../data/EntityUserJavaLibraryM</module>
+        <module>../data/EntityWorkflowJavaLibraryM</module>
+
+        <module>../SMTPConfigurationJavaLibraryM</module>
+        <module>../SMTPBaseJavaLibraryM</module>
+        <module>../VisualTransformBaseJavaLibraryM</module>
+        <module>../VisualTransformJavaLibraryM</module>
+
+        <module>../GatewayJavaLibraryM</module>
+        
+        <module>../WorkflowBaseJavaLibraryM</module>
+        <module>../WorkflowJavaLibraryM</module>
+
+        <module>../BlisketPreVOJavaLibraryM</module>
+        <module>../BlisketVOJavaLibraryM</module>
+
+        <module>../UserCommerceJavaLibraryM</module>
+
+<module>../CustomizerValidatorsJavaLibraryM</module>
+
+        <module>../BlisketBaseJavaLibraryM</module>
+        <module>../BlisketJavaLibraryM</module>
+
+    </modules>
+
+</project>

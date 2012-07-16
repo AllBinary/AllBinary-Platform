@@ -20,4 +20,6 @@ public interface RotationAnimationInterface
     extends IndexedAnimationInterface, DirectionalInterface
 {
    AngleInfo getAngleInfo();
+   void nextRotation();
+   void previousRotation();   
 }

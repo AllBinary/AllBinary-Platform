@@ -19,6 +19,7 @@ import com.abcs.logic.util.cache.CachePolicyFactory;
 import com.abcs.logic.util.cache.PoolInterface;
 import com.abcs.logic.util.cache.PoolInterfaceFactory;
 import com.abcs.logic.util.cache.PoolType;
+import com.abcs.logic.util.cache.PoolTypeFactory;
 
 public class BufferedImagePoolSingleton
 {
@@ -33,7 +34,7 @@ public class BufferedImagePoolSingleton
             poolInterface =
                 PoolInterfaceFactory.getInstance(
                 new BufferedImageCacheableFactory(),
-                PoolType.SHIFT_ONE_VECTOR_POOL, 
+                PoolTypeFactory.getInstance().SHIFT_ONE_VECTOR_POOL, 
                 CachePolicyFactory.getInstance().MAX_TIME_THOUSAND_MAX);
             
             LogUtil.put(new Log("End", "BufferedImagePoolSingleton", "Static Block"));

@@ -27,8 +27,8 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.image.ImageCompleteUtil;
 
-public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory extends
-        BaseResourceAnimationInterfaceFactoryInterfaceFactory
+public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory 
+    extends BaseResourceAnimationInterfaceFactoryInterfaceFactory
 {
     public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory()
     {

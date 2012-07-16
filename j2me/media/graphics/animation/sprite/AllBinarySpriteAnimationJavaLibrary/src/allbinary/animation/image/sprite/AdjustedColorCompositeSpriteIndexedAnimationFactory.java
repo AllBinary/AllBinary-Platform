@@ -33,6 +33,26 @@ public class AdjustedColorCompositeSpriteIndexedAnimationFactory
     private BasicColor[] basicColorArray;
 
     public AdjustedColorCompositeSpriteIndexedAnimationFactory(
+            Image image, BasicColor[] basicColorArray, int width, int height, int dx, int dy)
+            throws Exception
+        {
+            super(image, width, height);
+
+            this.basicColorArray = basicColorArray;
+            ////this.dx = - (this.width >> 2);
+            ////this.dy = - (this.height >> 2);
+            
+            ////this.dx = - this.width / 12;
+            ////this.dy = - this.height / 12;
+            //this.dx = - this.width / 20;
+            //this.dy = - this.height / 10;
+
+            //J2ME
+            this.dx = dx;
+            this.dy = dy;
+        }
+
+    public AdjustedColorCompositeSpriteIndexedAnimationFactory(
             Image image, BasicColor[] basicColorArray, int width, int height)
             throws Exception
         {

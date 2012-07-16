@@ -15,8 +15,10 @@ package allbinary.graphics;
 
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.StringMaker;
+import org.graph.V;
 
 public class CellPosition
+extends V
 {
    //TWB - SmallIntegerSingletonFactory may not be needed
    private final int id;

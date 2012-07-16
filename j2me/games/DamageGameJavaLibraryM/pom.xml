@@ -30,8 +30,9 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>FullScreenJavaLibrary</artifactId>
+            <artifactId>FullScreenNoneJavaLibrary</artifactId>
             <version>1</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

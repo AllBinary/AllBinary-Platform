@@ -61,7 +61,7 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     
     public void clearLog(int x, int y)
     {
-        this.append = GPoint.toStringStatic(x, y) + CommonSeps.getInstance().SPACE;
+        this.append = GPoint.toStringStatic(x, y, 0) + CommonSeps.getInstance().SPACE;
         this.string = listString + this.append;
         //this.append(StringUtil.getInstance());
     }

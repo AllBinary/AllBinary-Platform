@@ -20,7 +20,6 @@ import org.allbinary.image.GameFeatureImageCacheFactory;
 import allbinary.animation.Animation;
 import allbinary.animation.image.AllBinaryImageAnimation;
 import allbinary.animation.image.BaseImageAnimationFactory;
-import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.image.ImageScaleUtil;
 
 public class AllBinaryScreenRelationalImageAnimationInterfaceFactory
@@ -33,36 +32,24 @@ extends BaseImageAnimationFactory
     {
     	//int width, int height
         super(image, 0, 0);
-    }
-    
-    public Animation getInstance() throws Exception
-    {
-    	Image image = this.getImage();
-    	
+        
+    	//Image image = this.getImage();
+
     	if(lastImage != null)
     	{
     		lastImage.getBitmap().recycle();
     	}
 
-    	DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-    	
-    	float width = displayInfoSingleton.getLastWidth();
-    	float height = displayInfoSingleton.getLastHeight();
-    	
-    	float scaleX = width/image.getWidth();
-    	float scaleY = height/image.getHeight();
-    	float scale = scaleX; 
-    	
-    	if(scaleX < scaleY)
-    	{
-    		scale = scaleY; 
-    	}
-    	
+    	float scale = ScreenRelationalUtil.getInstance().getScale(image);
+
     	lastImage = 
         		//Image.createImage(displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
         		ImageScaleUtil.getInstance().createImage(GameFeatureImageCacheFactory.getInstance(), 
     			this.getImage(), scale, scale, false);
-    	
+    }
+    
+    public Animation getInstance() throws Exception
+    {    	
         return new AllBinaryImageAnimation(lastImage);
     }    
 }

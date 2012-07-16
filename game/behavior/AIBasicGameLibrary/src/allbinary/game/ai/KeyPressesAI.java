@@ -58,9 +58,13 @@ public class KeyPressesAI extends BasicAI {
    }
 
    public void disable() throws Exception {
-      setOn(false);
-   }
+       setOn(false);
+    }
 
+   public void enable() throws Exception {
+       setOn(true);
+   }
+   
    private void setOn(boolean on) {
       this.on = on;
    }

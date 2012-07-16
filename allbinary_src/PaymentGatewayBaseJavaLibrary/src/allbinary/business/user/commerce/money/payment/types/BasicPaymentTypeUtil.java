@@ -26,7 +26,7 @@ public class BasicPaymentTypeUtil {
 
     static
     {
-    	BasicPaymentTypeFactory.getInstance().A1MPLATFORM.hashCode();
+    	//BasicPaymentTypeFactory.getInstance().A1MPLATFORM.hashCode();
     }
     
     /**
