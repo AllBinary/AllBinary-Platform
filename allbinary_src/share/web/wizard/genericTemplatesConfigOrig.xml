@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2002-2004 All Binary
+All Rights Reserved. 
+Don't Duplicate or Distribute.
+Trade Secret Information 
+For Internal Use Only 
+Confidential
+Unpublished 
+-->
+<OBJECTCONFIG_NAME OBJECTCONFIG_NAME="Retail" >
+   
+   <GLOBALS_NAME>
+<!--
+//Include replacement variables for duplicate info
+-->
+   </GLOBALS_NAME>
+   
+   <TRANSFORM_INFOS_NAME>
+      
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+         Retail - Store is the business<p />
+
+This is for general E-Commerce websites.  Just sell sell sell.<p/>
+
+Note: If you already have a business website and want to keep it you should link your current website to this one.<p/>
+
+Examples: Book, Electronics, Hardware, Games, Software, and/or Furniture Stores
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>retail/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>retail/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Together With Services" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Services &amp; Retail Together - Services &amp; retail store as one<p />
+
+This is for stores that don't need seperation between services and retail.
+This should occur if you have less than a twenty products and services. <p />
+
+Examples: Computer Services &amp; Software or Furniture Repair &amp; Sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>services/together/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>services/together/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Separate From Services" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Services &amp; Retail Separate - Services separated from a retail store<p />
+
+This is for stores that need seperation between Services and retail.
+This should occur if you have more than a twenty products or Services 
+and three or more of the other.<p />
+
+Examples: Computer Services &amp; Software Sales or Furniture Repair &amp; Sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>services/separate/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>services/separate/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Together With Personal" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+         Personal &amp; Retail Together - Very personalized small store<p />
+         This is for small stores that serve a small niche market or hobby.<p />
+         Example: Personal rocketry stories of experience and Model Rocket Sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>personal/together/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>personal/together/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+      
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Separate From Personal" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+         Personal &amp; Retail Separate - Personal site with a small tag along store <p />
+         This is for small stores that serve a small niche market, but want to separate business from pleasure.<p />
+         Example: Personal rocketry stories of experience and model rocket sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>personal/separate/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>personal/separate/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+      
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Together With Support" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Support &amp; Retail Together - Support &amp; retail store as one<p />
+
+This is for stores that don't need seperation between support and retail.
+This should occur if you have less than a twenty products and support. <p />
+
+Examples: Software Support &amp; Software Sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>support/together/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>support/together/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+      
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Separate From Support" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Support &amp; Retail Separate - Services separated from a retail store<p />
+
+This is for stores that need separation between services and retail.   
+This should occur if you have more than a twenty products or services 
+and three or more of the other.<p />
+
+Examples: Software Support &amp; Software Sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME></TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>support/separate/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+      
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Together With Subscription" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Subscription &amp; Retail Together - Subscription services &amp; retail store as one<p />
+
+This is for stores that don't need seperation between subscription services and retail.
+This should occur if you have less than a twenty products. <p />
+
+Examples: News Subscription &amp; T-Shirt Sales or Forum &amp; Book Sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>subscriptions/together/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>subscriptions/together/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+      
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Retail Separate From Subscription" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Subscription &amp; Retail Separate - Subscription services separated from a retail store<p />
+
+This is for stores that need separation between subscription services and retail.   
+This should occur if you have more than a twenty products or subscription 
+and three or more of the other.<p />
+
+Examples: News Subscription &amp; Printing Product Sales or Forum &amp; Book Sales
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>subscriptions/separate/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>subscriptions/separate/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+
+   </TRANSFORM_INFOS_NAME>
+
+</OBJECTCONFIG_NAME>

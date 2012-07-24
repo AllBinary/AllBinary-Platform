@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+        "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
+<!-- template test -->
+
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>ads</short-name>
+    <uri>/WEB-INF/advertisementEntities.tld</uri>
+    <display-name>ads</display-name>
+    <description>Advertisment Tags
+    </description>
+    <tag>
+        <name>advertisements</name>
+        <tag-class>advertisement.entity.tags.AdvertisementsTag</tag-class>
+        <body-content>JSP</body-content>
+        <display-name>advertisements</display-name>
+        <description></description>
+        <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+        <tldx>
+            <packagename>advertisement.entity.tags</packagename>
+            <extendsSupportClass>TRUE</extendsSupportClass>
+            <supportClass>BodyTagSupport</supportClass>
+            <implementsTryCatchFinally>FALSE</implementsTryCatchFinally>
+            <findparent>FALSE</findparent>
+        </tldx>
+        -->
+        <attribute>
+            <name>command</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>isSelected</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <example></example>
+    </tag>
+    <tag>
+        <name>affiliates</name>
+        <tag-class>advertisement.entity.tags.AffiliatesTag</tag-class>
+        <body-content>JSP</body-content>
+        <display-name></display-name>
+        <description></description>
+        <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+        <tldx>
+            <packagename>advertisement.entity.tags</packagename>
+            <extendsSupportClass>TRUE</extendsSupportClass>
+            <supportClass>BodyTagSupport</supportClass>
+            <implementsTryCatchFinally>FALSE</implementsTryCatchFinally>
+            <findparent>FALSE</findparent>
+        </tldx>
+        -->
+        <attribute>
+            <name>command</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>isSelected</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <example></example>
+    </tag>
+    <tag>
+        <name>affiliateSales</name>
+        <tag-class>advertisement.entity.tags.AffiliatesSalesTag</tag-class>
+        <body-content>JSP</body-content>
+        <display-name></display-name>
+        <description></description>
+        <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+        <tldx>
+            <packagename>advertisement.entity.tags</packagename>
+            <extendsSupportClass>TRUE</extendsSupportClass>
+            <supportClass>BodyTagSupport</supportClass>
+            <implementsTryCatchFinally>FALSE</implementsTryCatchFinally>
+            <findparent>FALSE</findparent>
+        </tldx>
+        -->
+        <attribute>
+            <name>command</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>isSelected</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <example></example>
+    </tag>
+    <tag>
+        <name>campaignsInternal</name>
+        <tag-class>advertisement.entity.tags.AdvertisementCampaignsInternalTag</tag-class>
+        <body-content>JSP</body-content>
+        <display-name></display-name>
+        <small-icon></small-icon>
+        <large-icon></large-icon>
+        <description></description>
+        <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+        <tldx>
+            <packagename>advertisement.entity.tags</packagename>
+            <extendsSupportClass>TRUE</extendsSupportClass>
+            <supportClass>BodyTagSupport</supportClass>
+            <implementsTryCatchFinally>FALSE</implementsTryCatchFinally>
+            <findparent>FALSE</findparent>
+            <parenttype></parenttype>
+            <parentvariable></parentvariable>
+        </tldx>
+        -->
+        <attribute>
+            <name>command</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>isSelected</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <example></example>
+    </tag>
+    <tag>
+        <name>campaignsExternal</name>
+        <tag-class>advertisement.entity.tags.AdvertisementCampaignsExternalTag</tag-class>
+        <body-content>JSP</body-content>
+        <display-name></display-name>
+        <small-icon></small-icon>
+        <large-icon></large-icon>
+        <description></description>
+        <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+        <tldx>
+            <packagename>advertisement.entity.tags</packagename>
+            <extendsSupportClass>TRUE</extendsSupportClass>
+            <supportClass>BodyTagSupport</supportClass>
+            <implementsTryCatchFinally>FALSE</implementsTryCatchFinally>
+            <findparent>FALSE</findparent>
+            <parenttype></parenttype>
+            <parentvariable></parentvariable>
+        </tldx>
+        -->
+        <attribute>
+            <name>command</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <attribute>
+            <name>isSelected</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+            <type>java.lang.String</type>
+            <!-- Forte4J_TLDX:  This comment contains code generation information. Do not delete.
+            <tldx>
+                <IsReferenceID>FALSE</IsReferenceID>
+                <ReferencesTag>FALSE</ReferencesTag>
+                <ReferenceScope>Session</ReferenceScope>
+                <ReferencesTagReferentFirst>TRUE</ReferencesTagReferentFirst>
+            </tldx>
+            -->
+        </attribute>
+        <example></example>
+    </tag>
+    
+    <!-- Validators are new in JSP1.2. You may have zero or one validator
+         in a tag library. They look like this:
+      <validator>
+          <validator-class>org.your.web.app.ValidateTaglibUsage</validator-class>
+          <init-param>
+             <param-name>aparameter</param-name>
+             <param-value>value</param-value>
+             <description>Describe this parameter</description>
+	  </init-param>
+      </validator>
+   -->
+
+   <!-- listeners are new in JSP1.2. You may have as many listeners as you like
+        in a tag library. They look like this:
+     <listener>
+         <listener-class>org.your.web.app.TaglibListener1</listener-class> 
+     </listener>
+   -->
+</taglib>

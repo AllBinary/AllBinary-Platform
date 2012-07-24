@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (c) 2002-2004 All Binary
+All Rights Reserved. 
+Don't Duplicate or Distribute.
+Trade Secret Information 
+For Internal Use Only 
+Confidential
+Unpublished 
+-->
+<OBJECTCONFIG_NAME OBJECTCONFIG_NAME="Retail" >
+   
+   <GLOBALS_NAME>
+<!--
+//Include replacement variables for duplicate info
+-->
+   </GLOBALS_NAME>
+   
+   <TRANSFORM_INFOS_NAME>
+
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Test Menu" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Test Menu - Do not select</p>
+
+This store includes all links and components for administrator testing.
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>test/menu/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>test/menu/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+      
+      <TRANSFORM_INFO_NAME TRANSFORM_INFO_NAME="Test Topbar" >
+         <TRANSFORM_INFO_DESCRIPTION>
+         <![CDATA[
+Test Topbar - Do not select</p>
+
+This store includes all links and components for administrator testing.
+         ]]>
+         </TRANSFORM_INFO_DESCRIPTION>
+         <TRANSFORM_INFO_OBJECTFILENAME></TRANSFORM_INFO_OBJECTFILENAME>
+         <TRANSFORM_INFO_OBJECTCONFIGFILENAME>test/topbar/</TRANSFORM_INFO_OBJECTCONFIGFILENAME>
+         <TRANSFORM_INFO_TEMPLATEFILENAME>test/topbar/</TRANSFORM_INFO_TEMPLATEFILENAME>
+      </TRANSFORM_INFO_NAME>
+
+   </TRANSFORM_INFOS_NAME>
+
+</OBJECTCONFIG_NAME>

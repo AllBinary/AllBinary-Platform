@@ -1,0 +1,25 @@
+<%
+/*
+ *Copyright (c) 2002 All Binary
+ *All Rights Reserved.
+ *Don't Duplicate or Distributed.
+ *Trade Secret Information
+ *For Internal Use Only
+ *Confidential
+ *Unpublished
+ *
+ *Created By: Travis Berthelot
+ *Date: 11/29/02
+ *
+ *
+ *Modified By         When       ?
+ *
+ */
+%>
+<%
+   final String MOBILEAPPSTEMPLATEFILE = TEMPLATEDIR + BODYDIR + CUSTOMDIR + "apps/apps.xsl";
+   final String MOBILEGAMESTEMPLATEFILE = TEMPLATEDIR + BODYDIR + CUSTOMDIR + "games/games.xsl";
+  
+   viewNameKeyAndCompoundTemplateValueHashMap.put(MOBILEAPPSPAGE,MOBILEAPPSTEMPLATEFILE);
+   viewNameKeyAndCompoundTemplateValueHashMap.put(MOBILEGAMESPAGE,MOBILEGAMESTEMPLATEFILE);
+%>

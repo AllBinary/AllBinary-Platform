@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LOG_CONFIGS_NAME>
+
+   <LOG_CONFIG_NAME>
+      <ENTRY_ENABLE>true</ENTRY_ENABLE>
+      <LOG_CONFIG_NAME>Max Logging</LOG_CONFIG_NAME>
+      <LOG_CONFIG_DESCRIPTION>Logs everything that uses log.</LOG_CONFIG_DESCRIPTION>
+      <LOG_CONFIG_FILE>logAll.xml</LOG_CONFIG_FILE>
+   </LOG_CONFIG_NAME>
+
+   <LOG_CONFIG_NAME>
+      <ENTRY_ENABLE>false</ENTRY_ENABLE>
+      <LOG_CONFIG_NAME>Error Logging</LOG_CONFIG_NAME>
+      <LOG_CONFIG_DESCRIPTION>Logs all exceptions.</LOG_CONFIG_DESCRIPTION>
+      <LOG_CONFIG_FILE>logErrors.xml</LOG_CONFIG_FILE>
+   </LOG_CONFIG_NAME>
+
+   <LOG_CONFIG_NAME>
+      <ENTRY_ENABLE>false</ENTRY_ENABLE>
+      <LOG_CONFIG_NAME>Output Logging</LOG_CONFIG_NAME>
+      <LOG_CONFIG_DESCRIPTION>Logs all non error related logging.</LOG_CONFIG_DESCRIPTION>
+      <LOG_CONFIG_FILE>logOutput.xml</LOG_CONFIG_FILE>
+   </LOG_CONFIG_NAME>
+         
+</LOG_CONFIGS_NAME>
