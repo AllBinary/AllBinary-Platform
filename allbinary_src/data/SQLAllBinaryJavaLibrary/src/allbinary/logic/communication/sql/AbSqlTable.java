@@ -63,7 +63,7 @@ public class AbSqlTable extends AbSqlBasic
             {
                 LogUtil.put(LogFactory.getInstance("Table Creation Successful: " + this.tableName, this, "createTable"));
             }
-            return tableName + " Created Successfully";
+            return tableName + sqlStrings.CREATE_RETURN;
         } catch (Exception e)
         {
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
@@ -76,7 +76,7 @@ public class AbSqlTable extends AbSqlBasic
 
     public synchronized String dropTable()
     {
-        String sqlStatement = "DROP TABLE " + tableName;
+        String sqlStatement = sqlStrings.DROP_TABLE + tableName;
         try
         {
             this.executeSQLStatement(sqlStatement);

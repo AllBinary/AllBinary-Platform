@@ -32,15 +32,15 @@ public class AbSqlColumn extends AbSqlTable
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT ");
+        stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(columnName);
-        stringBuffer.append(" FROM ");
+        stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" WHERE ");
+        stringBuffer.append(sqlStrings.WHERE);
         stringBuffer.append(key);
-        stringBuffer.append(" = \"");
+        stringBuffer.append(sqlStrings.EQUAL_QUOTE);
         stringBuffer.append(value);
-        stringBuffer.append("\"");
+        stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
         String sqlStatement = stringBuffer.toString();
 
@@ -62,7 +62,7 @@ public class AbSqlColumn extends AbSqlTable
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append("SQL Statement: ");
+                stringBuffer.append(sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
                 stringBuffer.append("\nLargest Int Value in column: ");
                 stringBuffer.append(new Integer(largest).toString());
@@ -87,9 +87,9 @@ public class AbSqlColumn extends AbSqlTable
 
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT ");
+        stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(columnName);
-        stringBuffer.append(" FROM ");
+        stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
 
         String sqlStatement = stringBuffer.toString();
@@ -107,9 +107,9 @@ public class AbSqlColumn extends AbSqlTable
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append("SQL Statement: ");
+                stringBuffer.append(sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
-                stringBuffer.append("\nColumn Value: ");
+                stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
                 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getColumn"));
@@ -130,15 +130,15 @@ public class AbSqlColumn extends AbSqlTable
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT ");
+        stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(columnName);
-        stringBuffer.append(" FROM ");
+        stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" WHERE ");
+        stringBuffer.append(sqlStrings.WHERE);
         stringBuffer.append(key);
-        stringBuffer.append(" = \"");
+        stringBuffer.append(sqlStrings.EQUAL_QUOTE);
         stringBuffer.append(value);
-        stringBuffer.append("\"");
+        stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
         String sqlStatement = stringBuffer.toString();
         Vector column = new Vector();
@@ -155,9 +155,9 @@ public class AbSqlColumn extends AbSqlTable
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append("SQL Statement: ");
+                stringBuffer.append(sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
-                stringBuffer.append("\nColumn Value: ");
+                stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
                 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getColumnWhere"));
@@ -181,15 +181,15 @@ public class AbSqlColumn extends AbSqlTable
 
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT ");
+        stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(columnName);
-        stringBuffer.append(" FROM ");
+        stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" WHERE ");
+        stringBuffer.append(sqlStrings.WHERE);
         stringBuffer.append(key);
         stringBuffer.append(" LIKE \"");
         stringBuffer.append(value);
-        stringBuffer.append("\"");
+        stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
         String sqlStatement = stringBuffer.toString();
 
@@ -206,9 +206,9 @@ public class AbSqlColumn extends AbSqlTable
             {
                 stringBuffer.delete(0, stringBuffer.length()); 
 
-                stringBuffer.append("SQL Statement: ");
+                stringBuffer.append(sqlStrings.SQL_STATEMENT_LABEL);
                 stringBuffer.append(sqlStatement);
-                stringBuffer.append("\nColumn Value: ");
+                stringBuffer.append(sqlStrings.COLUMN_VALUE);
                 stringBuffer.append(column.toString());
 
                 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getColumnWhereLike"));

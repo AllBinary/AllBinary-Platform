@@ -48,10 +48,10 @@ public class AbSqlTablePresentation extends AbSqlBasic
    public String getTableWhere(String key,String value)
    {
       String sqlStatement = "SELECT * FROM " + tableName;
-      sqlStatement += " WHERE ";
+      sqlStatement += sqlStrings.WHERE;
       sqlStatement +=  key;
-      sqlStatement += " = \"";
-      sqlStatement += value + "\"";
+      sqlStatement += sqlStrings.EQUAL_QUOTE;
+      sqlStatement += value + sqlStrings.CLOSE_QUOTE;
       
       try
       {
@@ -72,7 +72,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
    {
       String sqlStatement = "SELECT * FROM " + tableName;
       
-      sqlStatement += " WHERE ";
+      sqlStatement += sqlStrings.WHERE;
       
       Set set = whereKeyValuePairs.keySet();
       Iterator whereIter = set.iterator();
@@ -83,9 +83,9 @@ public class AbSqlTablePresentation extends AbSqlBasic
          String value = (String) whereKeyValuePairs.get(key);
          
          sqlStatement +=  key;
-         sqlStatement += " = \"";
-         sqlStatement += value + "\"";
-         if(whereIter.hasNext()) sqlStatement += " AND ";
+         sqlStatement += sqlStrings.EQUAL_QUOTE;
+         sqlStatement += value + sqlStrings.CLOSE_QUOTE;
+         if(whereIter.hasNext()) sqlStatement += sqlStrings.AND;
       }
       
       try
@@ -108,7 +108,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
    {
       String sqlStatement = "SELECT * FROM " + tableName;
       
-      sqlStatement += " WHERE ";
+      sqlStatement += sqlStrings.WHERE;
       
       Set set = whereKeyValuePairs.keySet();
       Iterator whereIter = set.iterator();
@@ -119,18 +119,18 @@ public class AbSqlTablePresentation extends AbSqlBasic
          String value = (String) whereKeyValuePairs.get(key);
          
          sqlStatement +=  key;
-         sqlStatement += " = \"";
-         sqlStatement += value + "\"";
-         sqlStatement += " AND ";
+         sqlStatement += sqlStrings.EQUAL_QUOTE;
+         sqlStatement += value + sqlStrings.CLOSE_QUOTE;
+         sqlStatement += sqlStrings.AND;
       }
       
       sqlStatement +=  betweenColumn;
       sqlStatement += " > \"";
-      sqlStatement += smallest + "\"";
-      sqlStatement += " AND ";
+      sqlStatement += smallest + sqlStrings.CLOSE_QUOTE;
+      sqlStatement += sqlStrings.AND;
       sqlStatement +=  betweenColumn;
       sqlStatement += " < \"";
-      sqlStatement += largest + "\"";
+      sqlStatement += largest + sqlStrings.CLOSE_QUOTE;
       
       try
       {
@@ -153,10 +153,10 @@ public class AbSqlTablePresentation extends AbSqlBasic
    public String getInputWhere(String key,String value)
    {
       String sqlStatement = "SELECT * FROM " + tableName;
-      sqlStatement += " WHERE ";
+      sqlStatement += sqlStrings.WHERE;
       sqlStatement +=  key;
-      sqlStatement += " = \"";
-      sqlStatement += value + "\"";
+      sqlStatement += sqlStrings.EQUAL_QUOTE;
+      sqlStatement += value + sqlStrings.CLOSE_QUOTE;
       
       try
       {         

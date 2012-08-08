@@ -35,6 +35,8 @@ public class AbSqlBasic
     protected Connection conn;
     //protected boolean useridAndPassword;
 
+    protected final SqlStrings sqlStrings = SqlStrings.getInstance();
+    
     public AbSqlBasic(DbConnectionInfo databaseConnectionInfoInterface)
     {
         this.databaseConnectionInfoInterface = databaseConnectionInfoInterface;
@@ -114,12 +116,12 @@ public class AbSqlBasic
     {
         try
         {
-            this.executeSQLStatement("CREATE DATABASE " + databaseName);
+            this.executeSQLStatement(sqlStrings.CREATE_DATABASE + databaseName);
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance("Database Created: " + databaseName, this, "create"));
             }
-            return databaseName + " Created Successfully";
+            return databaseName + sqlStrings.CREATE_RETURN;
         } catch (Exception e)
         {
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))

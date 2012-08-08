@@ -15,6 +15,7 @@ package allbinary.logic.communication.sql;
 
 import abcs.business.init.db.DbConnectionInfo;
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.LogFactory;
 
 import abcs.logic.communication.log.LogUtil;
@@ -25,6 +26,8 @@ import java.util.Set;
 
 public class AbSqlBean extends AbSqlRow
 {
+    private final String GETFIELD = "getField";
+    
     public AbSqlBean(DbConnectionInfo databaseConnectionInfoInterface)
     {
         super(databaseConnectionInfoInterface);
@@ -34,15 +37,15 @@ public class AbSqlBean extends AbSqlRow
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT ");
+        stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(requestedField);
-        stringBuffer.append(" FROM ");
+        stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" WHERE ");
+        stringBuffer.append(sqlStrings.WHERE);
         stringBuffer.append(key);
-        stringBuffer.append(" = \"");
+        stringBuffer.append(sqlStrings.EQUAL_QUOTE);
         stringBuffer.append(value);
-        stringBuffer.append("\"");
+        stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
         String sqlStatement = stringBuffer.toString();
 
@@ -58,12 +61,12 @@ public class AbSqlBean extends AbSqlRow
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
-                    stringBuffer.append("SQL Statement: ");
+                    stringBuffer.append(sqlStrings.SQL_STATEMENT_LABEL);
                     stringBuffer.append(sqlStatement);
-                    stringBuffer.append("\nField Value: ");
+                    stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getField"));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GETFIELD));
                 }
 
                 return field;
@@ -73,7 +76,7 @@ public class AbSqlBean extends AbSqlRow
         {
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + sqlStatement, this, "getField", e));
+                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + sqlStatement, this, GETFIELD, e));
             }
             return "Failed\nSQL Statement: " + sqlStatement;
         }
@@ -83,15 +86,15 @@ public class AbSqlBean extends AbSqlRow
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT ");
+        stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(requestedField);
-        stringBuffer.append(" FROM ");
+        stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" WHERE ");
+        stringBuffer.append(sqlStrings.WHERE);
         
         try
         {
-            String field = "";
+            String field = StringUtil.getInstance().EMPTY_STRING;
 
             Set set = keysAndValues.keySet();
             Iterator iter = set.iterator();
@@ -102,13 +105,13 @@ public class AbSqlBean extends AbSqlRow
                 String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(" = \"");
+                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
                 stringBuffer.append(value);
-                stringBuffer.append("\"");
+                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
                 if (iter.hasNext())
                 {
-                    stringBuffer.append(" AND ");
+                    stringBuffer.append(sqlStrings.AND);
                 }
             }
 
@@ -122,12 +125,12 @@ public class AbSqlBean extends AbSqlRow
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
-                    stringBuffer.append("SQL Statement: ");
+                    stringBuffer.append(sqlStrings.SQL_STATEMENT_LABEL);
                     stringBuffer.append(sqlStatement);
-                    stringBuffer.append("\nField Value: ");
+                    stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getField"));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GETFIELD));
                 }
                 return field;
             }
@@ -138,7 +141,7 @@ public class AbSqlBean extends AbSqlRow
 
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + sqlStatement, this, "getField", e));
+                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + sqlStatement, this, GETFIELD, e));
             }
             return "Failed\nSQL Statement: " + sqlStatement;
         }
@@ -149,28 +152,30 @@ public class AbSqlBean extends AbSqlRow
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT ");
+        stringBuffer.append(sqlStrings.SELECT);
 
         try
         {
             Iterator iter = columnsAndValues.keySet().iterator();
 
-            stringBuffer.append(CommonSeps.getInstance().SPACE);
+            final String SPACE = CommonSeps.getInstance().SPACE;
+            
+            stringBuffer.append(SPACE);
             stringBuffer.append(key);
 
             while (iter.hasNext())
             {
-                stringBuffer.append(CommonSeps.getInstance().SPACE);
+                stringBuffer.append(SPACE);
                 stringBuffer.append(iter.next());
             }
 
-            stringBuffer.append(" FROM ");
+            stringBuffer.append(sqlStrings.FROM);
             stringBuffer.append(this.getTableName());
-            stringBuffer.append(" WHERE ");
+            stringBuffer.append(sqlStrings.WHERE);
             stringBuffer.append(key);
-            stringBuffer.append(" = \"");
+            stringBuffer.append(sqlStrings.EQUAL_QUOTE);
             stringBuffer.append(value);
-            stringBuffer.append("\"");
+            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
             String sqlStatement = stringBuffer.toString();
 
