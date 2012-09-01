@@ -27,8 +27,13 @@ public class SqlStrings
     public final String SELECT_ALL = "SELECT *";
     public final String WHERE = " WHERE ";
     public final String AND = " AND ";
+    public final String UPDATE = "UPDATE ";
+    public final String SET = " SET ";
+    
     public final String EQUAL_QUOTE = " = \"";
-    public final String CLOSE_QUOTE = "\"";    
+    public final String CLOSE_QUOTE = "\"";
+    public final String EQUAL_QUOTE_NO_SPACE = "=\"";
+    
     public final String SQL_STATEMENT_LABEL = "SQL Statement: ";
     public final String COLUMN_VALUE = "\nColumn Value: ";
     public final String CREATE_RETURN = " Created Successfully";
