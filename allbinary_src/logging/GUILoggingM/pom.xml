@@ -7,7 +7,7 @@
     <artifactId>GUILogging</artifactId>
     <packaging>jar</packaging>
     <version>1</version>
-    <url>http://maven.apache.org</url>
+    <url>http://www.allbinary.com/</url>
 
     <properties>
         <buildLabel>${version}</buildLabel>

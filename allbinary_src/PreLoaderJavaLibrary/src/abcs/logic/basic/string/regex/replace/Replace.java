@@ -13,6 +13,8 @@
 */
 package abcs.logic.basic.string.regex.replace;
 
+import abcs.globals.AppUrlGlobals;
+import abcs.globals.URLGLOBALS;
 import abcs.logic.communication.log.LogFactory;
 import java.util.HashMap;
 import java.util.Set;
@@ -23,8 +25,6 @@ import abcs.logic.communication.log.LogUtil;
 public class Replace
 {
    private HashMap hashMap;
-   
-   public boolean isModified;
    
    public Replace(String key, String value)
    {
@@ -59,7 +59,6 @@ public class Replace
 
       int totalNumberOfReplaces = 0;
       
-      this.isModified = false;
       Set keySet = hashMap.keySet();
       Iterator keyIter = keySet.iterator();
       while(keyIter.hasNext())
@@ -77,9 +76,7 @@ public class Replace
             int begin = replace.indexOf(key,index);
             //found key
             if(begin!=-1)
-            {
-               this.isModified = false;
-               
+            {               
                int end = begin + key.length();
                
                //System.out.print(replace.substring(0,begin) + "+");
@@ -118,14 +115,18 @@ public class Replace
    {
       try
       {
+       AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
+       appUrlGlobals.setWebappPath("G:/mnt/bc/mydev/work/allbinary_src/ToolsJavaLibrary/tools");
+       URLGLOBALS.init(appUrlGlobals);
+       
          String testString="\"super gun\" big tank \"goodgunriflegun";
          Replace replace=new Replace("gun","abcdefghijklmnopqrstuxwxyzabcdefghijklmnopqrstuxwxyz");
-         //System.out.println("Old String: " + testString);
+         System.out.println("Old String: " + testString);
          testString = replace.all(testString);
-         //System.out.println("New String: " + testString);
+         System.out.println("New String: " + testString);
          Replace replaceCat=new Replace("abcdefghijklmnopqrstuxwxyzabcdefghijklmnopqrstuxwxyz","");
          testString = replaceCat.all(testString);
-         //System.out.println("New String: " + testString);
+         System.out.println("New String: " + testString);
       }catch(Exception e)
       {
          //System.out.println("Error: " + e);

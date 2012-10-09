@@ -55,21 +55,29 @@ public class SmallInsert
    {
       try
       {  
-         int index = text.indexOf(after);
+         int index = this.string.indexOf(after);
          
          if(index < 0)
          {
-             throw new Exception("No such start: " + after);
+             System.out.println("No such start: " + after + " in: " + this.string);
+             return false;
          }
          
-         String start = text.substring(0, index);
+         index = index  + after.length();
          
-         String end = text.substring(index + 1, text.length());
+         String start = this.string.substring(0, index);
          
-         FileOutputStream idFile = new FileOutputStream(this.fileName);
-         DataOutputStream idOutData = new DataOutputStream(idFile);
-         idOutData.writeBytes(start + text + end);
-         //System.out.println();
+         String end = this.string.substring(index + 1, this.string.length());
+         
+         //FileOutputStream idFile = new FileOutputStream(this.fileName);
+         //DataOutputStream idOutData = new DataOutputStream(idFile);
+         //idOutData.writeBytes(start + text + end);
+         System.out.println("Output: " + start + text + end);
+         // + text + end
+         
+         //idOutData.close();
+         //idFile.close();
+
          return true;
       }
       catch(Exception e)
