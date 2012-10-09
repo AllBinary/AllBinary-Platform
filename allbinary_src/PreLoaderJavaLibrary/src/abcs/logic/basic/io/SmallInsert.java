@@ -69,14 +69,13 @@ public class SmallInsert
          
          String end = this.string.substring(index + 1, this.string.length());
          
-         //FileOutputStream idFile = new FileOutputStream(this.fileName);
-         //DataOutputStream idOutData = new DataOutputStream(idFile);
-         //idOutData.writeBytes(start + text + end);
-         System.out.println("Output: " + start + text + end);
-         // + text + end
+         FileOutputStream idFile = new FileOutputStream(this.fileName);
+         DataOutputStream idOutData = new DataOutputStream(idFile);
+         idOutData.writeBytes(start + text + end);
+         //System.out.println("Output: " + start + text + end);
          
-         //idOutData.close();
-         //idFile.close();
+         idOutData.close();
+         idFile.close();
 
          return true;
       }
