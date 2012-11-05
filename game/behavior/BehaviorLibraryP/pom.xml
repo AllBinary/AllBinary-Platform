@@ -4,7 +4,10 @@
   <groupId>org.allbinary</groupId>
   <artifactId>BehaviorLibraryP</artifactId>
   <packaging>pom</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>BehaviorLibraryP</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>

@@ -4,7 +4,10 @@
   <groupId>org.allbinary</groupId>
   <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
   <packaging>jar</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>ImageCacheJ2MEJavaLibrary</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -36,47 +39,67 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
         
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>J2MEForJ2MEJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>TempIntegrationJavaLibrary</artifactId>
-            <version>1</version>
-            <optional>true</optional>
+            <artifactId>DebugJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
-        
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>J2MEJavaUtilLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ApplicationStatisticsJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ApplicationStatisticsJ2MELibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ResourceLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 

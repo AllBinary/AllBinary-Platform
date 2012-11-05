@@ -4,7 +4,10 @@
   <groupId>org.allbinary</groupId>
   <artifactId>OtherGraphicsMediaLibraryP</artifactId>
   <packaging>pom</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>OtherGraphicsMediaLibraryP</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -39,8 +42,8 @@
 
         <!--
         ../../
-        -->
         <module>../../../../../work/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryM</module>
+        -->
         <module>../../graphics/BoundsJavaLibraryM</module>
 
 
@@ -49,12 +52,12 @@
 
         <!--
         ../../
+        <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimationJavaLibraryM</module>
         -->
-<module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimationJavaLibraryM</module>
         <!--
         ../../
+        <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryM</module>
         -->
-<module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryM</module>
 
     </modules>
 

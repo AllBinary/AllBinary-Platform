@@ -4,7 +4,10 @@
   <groupId>org.allbinary.game.testgamedemo</groupId>
   <artifactId>TestGameDemoPCClientInfoJavaLibrary</artifactId>
   <packaging>jar</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>TestGameDemoPCClientInfoJavaLibrary</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -31,19 +34,28 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ClientInfoLicensingJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ThirdPartyStoreJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
             <groupId>org.allbinary.game.testgamedemo</groupId>
             <artifactId>TestGameDemoJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
     </dependencies>

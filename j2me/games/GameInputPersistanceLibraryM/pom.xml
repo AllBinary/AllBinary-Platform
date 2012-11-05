@@ -4,7 +4,10 @@
   <groupId>org.allbinary</groupId>
   <artifactId>GameInputPersistanceLibrary</artifactId>
   <packaging>jar</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>GameInputPersistanceLibrary</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -36,62 +39,95 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameConfigurationJ2MEJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameInputLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>EventJ2MELibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AllBinaryLayerJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BasicMathLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>J2MEJavaUtilLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GroupLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameConfigurationJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BasePreloaderJ2MEJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AllBinaryJ2MELibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
@@ -136,49 +172,6 @@
 
                 </configuration>
             </plugin>
-            <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <forceCreation>true</forceCreation>
-                    <archive>
-                        <manifestEntries>
-                            <Implementation-Version>${pom.version}</Implementation-Version>
-                        </manifestEntries>
-                    </archive>
-
-                    <assembly>
-                        <inclusions>
-                            <inclusion>
-                                <groupId>org.allbinary</groupId>
-                                <artifactId>J2MEExceptionModule</artifactId>
-                                <version>1</version>
-                                <library>true</library>
-                            </inclusion>
-                            <inclusion>
-                                <groupId>org.allbinary</groupId>
-                                <artifactId>LogModule</artifactId>
-                                <version>1</version>
-                                <library>true</library>
-                            </inclusion>
-                        </inclusions>
-
-                    <exclusions>
-                        <exclusion>
-                            <groupId>org.microemu</groupId><artifactId>microemulator</artifactId>
-                        </exclusion>
-                        <exclusion>
-                            <groupId>org.microemu</groupId><artifactId>microemu-jsr-135</artifactId>
-                        </exclusion>
-                    </exclusions>
-
-                    </assembly>
-
-                </configuration>
-            </plugin>
--->
-
         </plugins>
         
         <sourceDirectory>../GameInputPersistanceLibrary/src</sourceDirectory>

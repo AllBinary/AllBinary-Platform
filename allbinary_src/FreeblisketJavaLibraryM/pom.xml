@@ -5,7 +5,10 @@
     <groupId>org.allbinary</groupId>
     <artifactId>FreeblisketJavaLibrary</artifactId>
     <packaging>jar</packaging>
-    <version>1</version>
+    <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
     <name>FreeblisketJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -39,73 +42,106 @@
             <artifactId>LoggingGAEExceptionLog</artifactId>
             <artifactId>LoggingJ2MEAll</artifactId>
             -->
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>PreLoaderGAEJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ThreadJ2MELibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>TouchJ2MENoneJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
     <groupId>org.allbinary</groupId>
     <artifactId>ResourceLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
     <groupId>org.allbinary</groupId>
     <artifactId>ApplicationStatisticsJ2SELibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
     <groupId>org.allbinary</groupId>
     <artifactId>DebugNoneJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
     
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>CustomLoaderFakeJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BlisketJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary.logic.control.workflow</groupId>
             <artifactId>WorkflowJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BlisketTagsJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
@@ -115,7 +151,10 @@
             <artifactId>FileJ2SEJavaLibrary</artifactId>
             <artifactId>FileGAEVFSJavaLibrary</artifactId>
             -->
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
         <dependency>

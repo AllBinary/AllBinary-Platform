@@ -4,7 +4,10 @@
   <groupId>org.allbinary.input</groupId>
   <artifactId>TouchButtonResourceOpenGLESAnimationJavaLibrary</artifactId>
   <packaging>jar</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>TouchButtonResourceOpenGLESAnimationJavaLibrary</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -36,21 +39,30 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>OpenGLNoneJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary.input</groupId>
             <artifactId>TouchButtonResourceAnimationJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
     </dependencies>

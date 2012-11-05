@@ -65,7 +65,7 @@ public class SmallDelete
         }
     }
 
-    public boolean deleteBetween(String start, String end)
+    public boolean deleteBetween(String start, String end, String newText)
     {
         try
         {
@@ -84,7 +84,7 @@ public class SmallDelete
 
                 FileOutputStream idFile = new FileOutputStream(this.fileName);
                 DataOutputStream idOutData = new DataOutputStream(idFile);
-                idOutData.writeBytes(newStart + text);
+                idOutData.writeBytes(newStart + newText + text);
 
                 return true;
             }

@@ -2,10 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary</groupId>
-  <artifactId>CombatGameJavaLibraryPOM</artifactId>
+  <artifactId>AdvancedCombatGameJavaLibraryPOM</artifactId>
   <packaging>pom</packaging>
-  <version>1</version>
-  <name>CombatGameJavaLibraryPOM</name>
+  <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+
+  <name>AdvancedGameJavaLibraryPOM</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -28,9 +31,36 @@
     <modules>
 
         <!--
-        
-        -->
         <module>../GameJ2MELibraryP</module>
+        -->
+
+        <module>../../games/TickableJavaLibraryM</module>
+        
+        <module>../../games/CommonHeadsUpDisplayLibraryM</module>
+
+        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
+
+        <!--
+        <module>../../../physics/MovementJavaLibraryM</module>
+        -->
+        <module>../../games/PartsJavaLibraryM</module>
+        <module>../../games/PickupGameJavaLibraryM</module>
+
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
+
+        <module>../../games/licensing/NoGameLicensingJavaLibraryM</module>
+        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryM</module>
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryM</module>
+
+        <module>../../games/GameScoresBaseLibraryM</module>
+        <module>../../games/GameScoresBaseHTMLLibraryM</module>                                
+        <module>../../games/GameScoresBaseJ2MELibraryM</module>
+        <module>../../games/GameScoresJ2MEJavaLibraryM</module>
+        <module>../../games/GameScoresLibraryM</module>
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryM</module>        
 
         <module>../../media/graphics/layer/CollisionLayerJavaLibraryM</module>
         <module>../../games/CollisionLibraryM</module>

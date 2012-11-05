@@ -4,7 +4,10 @@
   <groupId>org.allbinary.game.ai</groupId>
   <artifactId>AIRotationGameLibrary</artifactId>
   <packaging>jar</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>AIRotationGameLibrary</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -36,36 +39,54 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>OpenGLNoneJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameJ2MELibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameInputLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>VelocityLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary.game.ai</groupId>
             <artifactId>AIBasicGameLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
@@ -126,13 +147,19 @@
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>J2MEExceptionModule</artifactId>
-                                <version>1</version>
+                                <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
                                 <library>true</library>
                             </inclusion>
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>LogModule</artifactId>
-                                <version>1</version>
+                                <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
                                 <library>true</library>
                             </inclusion>
                         </inclusions>

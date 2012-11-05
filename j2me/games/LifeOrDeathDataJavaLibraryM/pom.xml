@@ -4,7 +4,10 @@
     <groupId>org.allbinary.game</groupId>
     <artifactId>LifeOrDeathDataJavaLibrary</artifactId>
     <packaging>jar</packaging>
-    <version>1</version>
+    <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
     <name>LifeOrDeathDataJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>

@@ -4,7 +4,10 @@
   <groupId>org.allbinary</groupId>
   <artifactId>GameJ2MELibraryPOM</artifactId>
   <packaging>pom</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>GameJ2MELibraryPOM</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -30,17 +33,23 @@
         <!--
         NoGyroSensorLibrary
         
-        -->
         <module>../../games/PreGameJ2MEJavaLibraryP</module>
 
+        -->
+
+        <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>
+        <module>../../../../working_thirdparty/security/communication\XmlRpcJavaLibraryM</module>
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
-
+        <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
+        <module>../../TempIntegrationJavaLibraryM</module>
+                
         <module>../../ResourceLibraryM</module>
         <module>../../ResourceJ2MEJavaLibraryM</module>
 
         <module>../../../game/behavior/ArtificialIntelligenceLibraryM</module>
 
+        <module>../../DebugJavaLibraryM</module>
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
 
@@ -48,12 +57,13 @@
         <module>../../media/graphics/animation/RotationAnimationJavaLibraryM</module>
 
         <module>../../games/GameInputLibraryM</module>
-        <module>../../games/GameScoresBaseLibraryM</module>
-        <module>../../games/GameScoresBaseHTMLLibraryM</module>
-        <module>../../games/GameScoresBaseJ2MELibraryM</module>
-        <module>../../games/GameScoresJ2MEJavaLibraryM</module>
-        <module>../../games/GameScoresLibraryM</module>
 
+        <module>../../games/GameScoresBaseLibraryM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryM</module>
+
+        <module>../../statistics/ApplicationStatisticsHTMLLibraryM</module>
+        <module>../../games/GameConfigurationHTMLJavaLibraryM</module>
+        <module>../../games/GameConfigurationJ2MEJavaLibraryM</module>   
         <module>../../games/GameConfigurationJavaLibraryM</module>
 
         <module>../../games/GameIntermissionLibraryM</module>
@@ -63,18 +73,19 @@
         <module>../../input/NoSensorJavaLibraryM</module>
 
         <module>../../input/AllBinarySensorJavaLibraryM</module>
-        <module>../../input/AllBinaryGyroSensorJavaLibraryM</module>
 
+        <module>../../input/PC/GameInputPCJavaLibraryM</module>
+        <module>../../input/PC/GameInputPCMotionJavaLibraryM</module>
+
+        <module>../../input/AllBinaryGyroSensorJavaLibraryM</module>
         <module>../../input/MotionGestureJavaLibraryM</module>
 
         <module>../../input/MotionGestureBaseJavaLibraryM</module>
 
         <module>../../games/GameInputPersistanceLibraryM</module>
         <module>../../games/GameInputNoPersistanceLibraryM</module>
-        <module>../../games/GameConfigurationHTMLJavaLibraryM</module>
-        <module>../../games/GameConfigurationJ2MEJavaLibraryM</module>
-        <module>../../games/GameConfigurationFormJavaLibraryM</module>
-
+        
+        <module>../../lib/VectorThreeDimensionalLibraryM</module>
         <module>../../input/NoGyroSensorJavaLibraryM</module>
 
         <module>../../media/sound/BasicPlayerJavaLibraryM</module>
@@ -89,6 +100,7 @@
         <module>../../media/graphics/FormValidationJavaLibraryM</module>
         <module>../../media/graphics/FormJavaLibraryM</module>
         <module>../../media/graphics/FormBaseJavaLibraryM</module>
+        <module>../../media/graphics/FormJMEJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationResourceJavaLibraryM</module>
         <module>../../media/graphics/animation/TransitionAnimationJavaLibraryM</module>
@@ -97,21 +109,16 @@
         <module>../../games/GameResourceJavaLibraryM</module>
         <module>../../games/GameSoundsJavaLibraryM</module>
 
+        <module>../../input/TouchInputLibraryPOM</module>
+
         <module>../../media/MediaDataM</module>
         <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>
 
         <module>../../../allbinary_src/hardware/HardwareLibraryPOM</module>
 
-        <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
-        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
-        <module>../../games/licensing/NoGameLicensingJavaLibraryM</module>
-        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
-        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryM</module>
-        <module>../../games/licensing/GameLicensingBaseJavaLibraryM</module>
-
-        <module>../../input/TouchInputLibraryPOM</module>
-
         <module>../../../allbinary_src/content/ContentNoneJavaLibraryM</module>
+
+        <module>../../games/GameConfigurationFormJavaLibraryM</module>
 
         <module>../../FullScreenJavaLibraryM</module>
         <module>../../FullScreenNoneJavaLibraryM</module>
@@ -119,14 +126,8 @@
         <module>../../lib/Basic2DVectorLibraryM</module>
 
         <module>../../../physics/VelocityLibraryM</module>
-        <module>../../../physics/MovementJavaLibraryM</module>
 
-        <module>../../games/PartsJavaLibraryM</module>
-        <module>../../games/PickupGameJavaLibraryM</module>
         <module>../../games/weapon/SoundsBasicWeaponsJavaLibraryM</module>
-
-        <module>../../../store/ThirdPartyStoreJavaLibraryM</module>
-        <module>../../../store/NoThirdPartyStoreJavaLibraryM</module>
 
         <module>../../lib/TrigJ2MELibraryM</module>
 
@@ -135,29 +136,24 @@
 
         <module>../../ScreenCaptureNoneJavaLibraryM</module>
 
-        <module>../../games/GameJ2MELibraryM</module>
-        
-        <module>../../games/TickableJavaLibraryM</module>
-        
-        <!--
-                <module>../../lib/VectorThreeDimensionalLibraryM</module>
-        -->
-        
-        <module>../../games/CommonHeadsUpDisplayLibraryM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
+        <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
+        <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>
 
-        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
+
+        <module>../../games/GameJ2MELibraryM</module>
 
         <!--
         <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+        <module>../TouchButtonResourceAnimationJavaLibraryM</module>
+        <module>../TouchButtonResourceOpenGLESAnimationJavaLibraryM</module>        
         -->
-
-        <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
-        <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>
         
         <!--
         <module>../GameJ2MEOptionalLibraryPOM</module>
         -->
-
+    
     </modules>
 
 </project>

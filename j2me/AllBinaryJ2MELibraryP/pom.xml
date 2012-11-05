@@ -4,7 +4,10 @@
     <groupId>org.allbinary</groupId>
     <artifactId>AllBinaryJ2MELibraryPOM</artifactId>
     <packaging>pom</packaging>
-    <version>1</version>
+    <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
     <name>AllBinaryJ2MELibraryPOM</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -21,11 +24,13 @@
     </distributionManagement>
     
     <properties>
-        <buildLabel>${version}</buildLabel>
+        <buildLabel>${project.version}</buildLabel>
         <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
     </properties>
 
     <modules>
+        <module>../CommonJavaLibraryM</module>
+        
         <module>../../allbinary_src/LogM</module>
         <module>../../allbinary_src/allbinary_src_designpatterns_srcM</module>
         <module>../../allbinary_src/data/BaseDataJavaLibraryM</module>
@@ -64,6 +69,8 @@
         <module>../lib/TrigBaseLibraryM</module>        
         <module>../input/me/TouchJ2MENoneJavaLibraryM</module>
         
+        <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
+
         <module>../AllBinaryOptionalLibraryPOM</module>
     </modules>
 

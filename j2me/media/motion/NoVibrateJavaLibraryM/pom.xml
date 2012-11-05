@@ -4,7 +4,10 @@
     <groupId>org.allbinary</groupId>
     <artifactId>NoVibrateJavaLibrary</artifactId>
     <packaging>jar</packaging>
-    <version>1</version>
+    <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
     <name>NoVibrateJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -30,12 +33,18 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AllBinaryVibrationJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameConfigurationJavaLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
     </dependencies>
 

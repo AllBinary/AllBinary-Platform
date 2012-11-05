@@ -4,7 +4,10 @@
   <groupId>org.allbinary.game.ai</groupId>
   <artifactId>AIBasicPathFollowingJavaLibrary</artifactId>
   <packaging>jar</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>AIBasicPathFollowingJavaLibrary</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -36,7 +39,10 @@
         <dependency>
             <groupId>org.allbinary.media.graphics.geography.pathfinding</groupId>
             <artifactId>GeographicPathFindingLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>

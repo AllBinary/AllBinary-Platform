@@ -4,7 +4,10 @@
   <groupId>org.allbinary</groupId>
   <artifactId>GameJ2MEOptionalLibraryPOM</artifactId>
   <packaging>pom</packaging>
-  <version>1</version>
+  <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
   <name>GameJ2MEOptionalLibraryPOM</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -27,6 +30,11 @@
 
     <modules>
 
+        <module>../../games/GameScoresBaseHTMLLibraryM</module>
+        <module>../../games/GameScoresJ2MEJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
+        <module>../../games/GameScoresLibraryM</module>
+        
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
 
         <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>

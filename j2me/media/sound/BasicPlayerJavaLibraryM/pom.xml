@@ -4,7 +4,10 @@
     <groupId>org.allbinary</groupId>
     <artifactId>BasicPlayerJavaLibrary</artifactId>
     <packaging>jar</packaging>
-    <version>1</version>
+    <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
     <name>BasicPlayerJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
@@ -30,7 +33,10 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>J2MEJavaUtilLibrary</artifactId>
-            <version>1</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>
