@@ -46,7 +46,6 @@
         -->
         <module>../../graphics/BoundsJavaLibraryM</module>
 
-
 <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryM</module>
 <module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryM</module>
 
@@ -58,6 +57,8 @@
         ../../
         <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryM</module>
         -->
+
+        <module>../../graphics/animation/image/ImageJ2MEJavaLibraryM</module>
 
     </modules>
 

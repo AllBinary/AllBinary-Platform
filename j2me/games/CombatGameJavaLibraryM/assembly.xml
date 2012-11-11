@@ -14,8 +14,6 @@
                <exclude>org.allbinary:OpenGLNoneJavaLibrary</exclude>
                 
                 <exclude>org.allbinary:TempIntegrationJavaLibrary</exclude>
-                                
-                <exclude>org.allbinary:FullScreenJavaLibrary</exclude>
                 
                 <exclude>org.allbinary:GameInputPCJavaLibrary</exclude>
                 <exclude>org.allbinary:GameInputPCMotionJavaLibrary</exclude>

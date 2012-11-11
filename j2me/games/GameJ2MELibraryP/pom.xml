@@ -38,7 +38,7 @@
         -->
 
         <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>
-        <module>../../../../working_thirdparty/security/communication\XmlRpcJavaLibraryM</module>
+        <module>../../../../working_thirdparty/communication/XmlRpcJavaLibraryM</module>
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
         <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
@@ -143,12 +143,6 @@
         <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
 
         <module>../../games/GameJ2MELibraryM</module>
-
-        <!--
-        <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
-        <module>../TouchButtonResourceAnimationJavaLibraryM</module>
-        <module>../TouchButtonResourceOpenGLESAnimationJavaLibraryM</module>        
-        -->
         
         <!--
         <module>../GameJ2MEOptionalLibraryPOM</module>

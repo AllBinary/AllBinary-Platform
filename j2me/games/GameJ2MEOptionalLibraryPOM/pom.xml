@@ -60,6 +60,12 @@
 
         <module>../../../../work/j2me/ScreenCaptureAndroidJavaLibraryM</module>
 
+        <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+        <module>../TouchButtonResourceAnimationJavaLibraryM</module>
+        <module>../TouchButtonResourceOpenGLESAnimationJavaLibraryM</module>        
+        <!--
+        -->
+
     </modules>
 
 </project>

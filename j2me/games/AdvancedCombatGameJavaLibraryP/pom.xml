@@ -40,22 +40,29 @@
 
         <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
 
-        <!--
         <module>../../../physics/MovementJavaLibraryM</module>
-        -->
+        <!--        -->
         <module>../../games/PartsJavaLibraryM</module>
         <module>../../games/PickupGameJavaLibraryM</module>
 
+        <module>../../../allbinary_src/logic/data/file/FileJavaLibraryM</module>
+        <module>../../../allbinary_src/data/DataJavaLibraryM</module>
+        <module>../../../allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/TestClientInfoJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
 
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryM</module>
         <module>../../games/licensing/NoGameLicensingJavaLibraryM</module>
         <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryM</module>
         <module>../../games/licensing/GameLicensingBaseJavaLibraryM</module>
 
+        <!--
         <module>../../games/GameScoresBaseLibraryM</module>
-        <module>../../games/GameScoresBaseHTMLLibraryM</module>                                
         <module>../../games/GameScoresBaseJ2MELibraryM</module>
+        -->
+        <module>../../games/GameScoresBaseHTMLLibraryM</module>
         <module>../../games/GameScoresJ2MEJavaLibraryM</module>
         <module>../../games/GameScoresLibraryM</module>
 
@@ -89,7 +96,9 @@
 
         <module>../../media/graphics/geography/map/TerrainEventJavaLibraryM</module>
 
+<!--
         <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryM</module>
+        -->
 
         <!--
         <module>../../media/graphics/geography/map/RaceTrackP</module>
