@@ -32,7 +32,9 @@
     <modules>
 
         <module>../AIBasicGameLibraryM</module>
+        <!--
         <module>../AIBasicPathFollowingJavaLibraryM</module>
+        -->
         <module>../AIBounceGameLibraryM</module>
         <module>../AICombatGameJavaLibraryM</module>
         <module>../AIRotationGameLibraryM</module>

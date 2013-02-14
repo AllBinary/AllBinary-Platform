@@ -58,7 +58,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LicensedGameDemoJavaLibrary</artifactId>
+            <artifactId>NoGameLicensingJavaLibrary</artifactId>
             <!--
             <artifactId>NoGameLicensingJavaLibrary</artifactId>
             <artifactId>LicensedGameDemoJavaLibrary</artifactId>
