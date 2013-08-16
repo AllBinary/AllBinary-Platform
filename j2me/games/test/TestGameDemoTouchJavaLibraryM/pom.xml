@@ -152,7 +152,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TestGameDemoTouchJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
