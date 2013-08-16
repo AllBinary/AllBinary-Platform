@@ -48,6 +48,15 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>VectorAnimationJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>CombatGameJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -88,30 +97,28 @@
             <!-- AllBinary Platform Version End -->
 
         </dependency>
+
+        <!--        
         <dependency>
             <groupId>org.allbinary.game.ai</groupId>
             <artifactId>AIBasicGameLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
         </dependency>
+        -->
+        
+        <!--
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>WeaponLayerJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
         </dependency>
+        -->
+        
+        <!--
         <dependency>
             <groupId>org.allbinary.game.parts.weapon</groupId>
             <artifactId>BasicWeaponPartsJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
         </dependency>
+        -->
+
         <dependency>
             <groupId>org.allbinary.animation.transition</groupId>
             <artifactId>TransitionAnimationJavaLibrary</artifactId>
@@ -120,15 +127,15 @@
             <!-- AllBinary Platform Version End -->
 
         </dependency>
+
+<!--
         <dependency>
             <groupId>org.allbinary.animation.transition</groupId>
             <artifactId>NoTransitionAnimationJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
             <optional>true</optional>
         </dependency>
+-->
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AllBinaryVibrationJavaLibrary</artifactId>
@@ -147,14 +154,12 @@
             <optional>true</optional>
         </dependency>
 
+<!--
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>WeaponMineJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
         </dependency>
+-->
 
         <dependency>
             <groupId>org.allbinary.game.testgamedemo</groupId>
@@ -209,7 +214,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TestGameDemoJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

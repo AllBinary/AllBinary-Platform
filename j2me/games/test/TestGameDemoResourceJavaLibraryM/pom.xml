@@ -81,7 +81,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TestGameDemoResourceJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

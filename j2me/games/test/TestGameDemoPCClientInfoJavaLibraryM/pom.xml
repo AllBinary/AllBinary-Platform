@@ -77,7 +77,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TestGameDemoPCClientInfoJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
