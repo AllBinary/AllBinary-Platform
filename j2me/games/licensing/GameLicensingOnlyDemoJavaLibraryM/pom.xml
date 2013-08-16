@@ -72,7 +72,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameLicensingOnlyDemoJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

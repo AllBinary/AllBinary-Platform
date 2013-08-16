@@ -142,7 +142,6 @@
 
         </plugins>
 
-        <sourceDirectory>../PartnerHTMLJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

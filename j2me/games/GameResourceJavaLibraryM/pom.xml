@@ -101,8 +101,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameResourceJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

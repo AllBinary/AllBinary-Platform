@@ -100,7 +100,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../J2SEForJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

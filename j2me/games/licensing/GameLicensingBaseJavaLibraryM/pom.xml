@@ -147,7 +147,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameLicensingBaseJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

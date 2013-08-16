@@ -169,7 +169,6 @@
 
         </plugins>
 
-        <sourceDirectory>../NoGameLicensingJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

@@ -160,7 +160,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../PartnerJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

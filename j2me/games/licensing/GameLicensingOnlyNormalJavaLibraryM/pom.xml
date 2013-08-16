@@ -128,7 +128,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameLicensingOnlyNormalJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

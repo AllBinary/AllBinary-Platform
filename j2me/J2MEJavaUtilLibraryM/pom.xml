@@ -75,7 +75,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../J2MEJavaUtilLibrary/src</sourceDirectory>
     </build>
 
 </project>

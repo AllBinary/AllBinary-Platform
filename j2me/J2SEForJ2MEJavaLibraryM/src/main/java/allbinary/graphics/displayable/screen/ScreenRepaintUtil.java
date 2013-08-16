@@ -23,8 +23,8 @@ public class ScreenRepaintUtil {
         //Screen screen
         //screen.repaint();
         
-        Canvas canvas = (Canvas) displayable; 
-        canvas.repaint();
+        //Canvas canvas = (Canvas) displayable; 
+        //canvas.repaint();
         
         //displayable.repaint();
     }
