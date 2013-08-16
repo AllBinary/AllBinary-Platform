@@ -83,7 +83,6 @@
             </plugin>
         </plugins>
 
-      <sourceDirectory>../ThreadHTMLLibrary/src</sourceDirectory>
   </build>
 
 </project>

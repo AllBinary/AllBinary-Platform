@@ -109,7 +109,6 @@
            
         </plugins>
 
-        <sourceDirectory>../BaseSystemJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

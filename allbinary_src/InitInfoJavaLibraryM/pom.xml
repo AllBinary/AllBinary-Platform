@@ -143,9 +143,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../InitInfoJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
 

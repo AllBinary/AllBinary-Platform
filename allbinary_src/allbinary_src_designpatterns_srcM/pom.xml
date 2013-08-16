@@ -49,7 +49,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../designpatterns_src/src</sourceDirectory>
     </build>
 
 </project>

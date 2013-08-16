@@ -94,9 +94,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CategoryBaseJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
 

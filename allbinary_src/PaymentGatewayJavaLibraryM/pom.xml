@@ -156,10 +156,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../PaymentGatewayJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
 

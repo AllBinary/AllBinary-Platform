@@ -109,11 +109,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../RemoteXmlRpcJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
 

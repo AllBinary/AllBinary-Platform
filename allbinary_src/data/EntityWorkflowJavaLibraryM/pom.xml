@@ -78,7 +78,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../EntityWorkflowJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

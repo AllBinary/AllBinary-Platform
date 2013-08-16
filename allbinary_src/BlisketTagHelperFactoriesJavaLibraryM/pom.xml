@@ -83,7 +83,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../BlisketTagHelperFactoriesJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

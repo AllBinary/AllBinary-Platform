@@ -175,7 +175,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LicenseClientJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

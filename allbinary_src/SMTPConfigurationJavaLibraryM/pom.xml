@@ -133,7 +133,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../SMTPConfigurationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

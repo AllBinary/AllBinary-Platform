@@ -77,10 +77,7 @@
             </plugin>
         <plugins>
 
-        <sourceDirectory>../LoggingGAEExceptionLog/src</sourceDirectory>
     </build>
 
 </project>
-
-
 

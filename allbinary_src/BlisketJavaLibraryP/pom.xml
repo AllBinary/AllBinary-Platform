@@ -50,6 +50,7 @@
 
         <module>../TokenizerJavaLibraryM</module>
 
+        <module>../TagsBaseJavaLibraryM</module>
         <module>../CustomLoaderJavaLibraryM</module>
 
         <module>../PreLoggingJavaLibraryM</module>
@@ -58,7 +59,7 @@
         <module>../logic/data/file/FileJ2SEJavaLibraryM</module>
         <module>../logic/data/file/FileGAEVFSJavaLibraryM</module>
 -->
-        <module>../../../work/allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
+        <module>../logic/data/file/FileJ2SEJavaLibraryM</module>
         <module>../../../work/allbinary_src/logic/data/file/FileGAEVFSJavaLibraryM</module>
         <module>../logic/data/file/FileJavaLibraryM</module>
 
@@ -114,13 +115,27 @@
         <module>../WorkflowJavaLibraryM</module>
 
         <module>../BlisketPreVOJavaLibraryM</module>
+    <!-- 
+    EntitiesOrderHistoryVOJavaLibrary
+    UserJavaLibrary
+     -->
         <module>../BlisketVOJavaLibraryM</module>
 
         <module>../UserCommerceJavaLibraryM</module>
 
 <module>../CustomizerValidatorsJavaLibraryM</module>
 
+<!-- AllBinaryCacheForShiftOneJavaLibrary
+AllBinaryJSECacheJavaLibrary
+ColorJavaLibrary
+ImageJavaLibrary
+ -->
         <module>../BlisketBaseJavaLibraryM</module>
+        <!--
+         
+         -->
+        <module>../logging/LoggingGAELogM</module>
+        <module>../../../work/allbinary_src/licensing/WeblisketClientInformationJavaLibraryM</module>
         <module>../BlisketJavaLibraryM</module>
 
     </modules>

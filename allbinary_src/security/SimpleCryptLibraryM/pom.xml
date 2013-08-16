@@ -60,7 +60,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../SimpleCryptLibrary/src</sourceDirectory>
     </build>
 
 </project>

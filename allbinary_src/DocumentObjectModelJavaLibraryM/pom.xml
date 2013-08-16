@@ -78,7 +78,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../DocumentObjectModelJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

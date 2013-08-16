@@ -144,7 +144,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../EntityVisualTransformJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

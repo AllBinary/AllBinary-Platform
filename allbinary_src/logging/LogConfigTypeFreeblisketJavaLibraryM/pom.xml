@@ -74,7 +74,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LogConfigTypeFreeblisketJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

@@ -60,15 +60,15 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- 
         <dependency>
             <groupId>org.allbinary.business</groupId>
             <artifactId>BlisketModulesJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+
 
         </dependency>
-
+         -->
+         
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>TimeJavaLibrary</artifactId>
@@ -78,6 +78,15 @@
 
         </dependency>
 
+        <dependency>
+    <groupId>org.allbinary.business.user</groupId>
+    <artifactId>UserJavaLibrary</artifactId>
+    <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+        
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-fileupload</artifactId>
@@ -118,7 +127,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../BlisketVOJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

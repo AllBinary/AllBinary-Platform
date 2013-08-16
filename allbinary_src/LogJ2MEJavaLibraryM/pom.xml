@@ -68,7 +68,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LogJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

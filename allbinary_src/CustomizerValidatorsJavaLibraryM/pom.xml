@@ -128,7 +128,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CustomizerValidatorsJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

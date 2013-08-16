@@ -69,7 +69,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GatewayJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

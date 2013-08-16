@@ -104,7 +104,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../BlisketTagsJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

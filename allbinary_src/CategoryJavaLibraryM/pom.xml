@@ -112,10 +112,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CategoryJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
 

@@ -67,7 +67,7 @@
     <groupId>com.vobject.appengine</groupId>
     <artifactId>AppEngineIOJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
+            <version>1</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
@@ -114,7 +114,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ViewsJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

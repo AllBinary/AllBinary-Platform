@@ -137,7 +137,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../VisualTransformJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

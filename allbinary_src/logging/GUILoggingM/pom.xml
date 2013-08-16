@@ -66,9 +66,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GUILogging/src</sourceDirectory>
     </build>
 </project>
-
-
 

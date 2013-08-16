@@ -69,7 +69,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../EntityPaymentGatewayVOJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

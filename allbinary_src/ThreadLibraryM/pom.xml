@@ -92,7 +92,6 @@
             </plugin>
         </plugins>
 
-      <sourceDirectory>../ThreadLibrary/src</sourceDirectory>
   </build>
 
 </project>

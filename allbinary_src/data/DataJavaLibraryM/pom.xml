@@ -59,7 +59,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../DataJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

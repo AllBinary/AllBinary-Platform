@@ -93,10 +93,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ApplicationConfigurationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
 

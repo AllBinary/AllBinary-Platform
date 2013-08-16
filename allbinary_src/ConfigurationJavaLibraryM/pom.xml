@@ -93,7 +93,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ConfigurationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

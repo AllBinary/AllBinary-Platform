@@ -86,7 +86,6 @@
 
         </plugins>
 
-        <sourceDirectory>../AndroidSystemJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

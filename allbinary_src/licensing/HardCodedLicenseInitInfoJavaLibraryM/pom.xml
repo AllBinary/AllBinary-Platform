@@ -77,13 +77,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../HardCodedLicenseInitInfoJavaLibrary/src</sourceDirectory>
     </build>
     
 </project>
-
-
-
-
-
 

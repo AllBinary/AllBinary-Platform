@@ -60,11 +60,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../FileJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
 

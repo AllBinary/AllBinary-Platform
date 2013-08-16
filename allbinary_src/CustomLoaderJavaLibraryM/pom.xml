@@ -92,8 +92,7 @@
                 </executions>
             </plugin>
         </plugins>
-    
-        <sourceDirectory>../CustomLoaderJavaLibrary/src</sourceDirectory>
+
     </build>
 
 </project>

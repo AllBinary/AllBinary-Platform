@@ -61,6 +61,14 @@
         </dependency>
 
         <dependency>
+    <groupId>org.allbinary</groupId>
+    <artifactId>CommonJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+    
+        <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>FileLicenseInitInfoJavaLibrary</artifactId>
             <!--
@@ -69,18 +77,12 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BouncyCastleDESJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>FileJ2SEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
 
         </dependency>
             -->
@@ -180,7 +182,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LicenseRegistrationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

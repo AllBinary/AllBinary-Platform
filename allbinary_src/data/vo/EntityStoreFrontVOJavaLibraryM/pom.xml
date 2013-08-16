@@ -135,7 +135,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../EntityStoreFrontVOJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

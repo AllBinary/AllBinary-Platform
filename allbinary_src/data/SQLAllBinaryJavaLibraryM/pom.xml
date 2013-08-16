@@ -89,7 +89,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../SQLAllBinaryJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

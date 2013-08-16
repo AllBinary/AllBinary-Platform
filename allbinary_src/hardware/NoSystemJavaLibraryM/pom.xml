@@ -84,12 +84,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../NoSystemJavaLibrary/src</sourceDirectory>
     </build>
     
 </project>
-
-
-
-
 

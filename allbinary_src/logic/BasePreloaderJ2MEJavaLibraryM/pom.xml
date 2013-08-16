@@ -76,16 +76,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../BasePreloaderJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
-
-
-
-
-
 

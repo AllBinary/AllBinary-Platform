@@ -116,7 +116,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../FileAndroidJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

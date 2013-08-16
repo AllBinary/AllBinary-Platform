@@ -103,12 +103,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ClientInfoLicensingJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
-
 

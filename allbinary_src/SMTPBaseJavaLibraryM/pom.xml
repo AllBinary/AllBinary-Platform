@@ -85,7 +85,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../SMTPBaseJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

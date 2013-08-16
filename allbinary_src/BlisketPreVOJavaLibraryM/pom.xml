@@ -95,7 +95,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../BlisketPreVOJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

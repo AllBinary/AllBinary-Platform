@@ -42,6 +42,15 @@
         </dependency>
 
         <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>BasePreloaderFileJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+        
+        <dependency>
             <groupId>org.allbinary.data.tables</groupId>
             <artifactId>SQLAllBinaryJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
@@ -69,7 +78,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../UserCommerceJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
