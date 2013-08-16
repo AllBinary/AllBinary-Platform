@@ -165,8 +165,6 @@
 
         </plugins>
 
-        <sourceDirectory>../FormValidationJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

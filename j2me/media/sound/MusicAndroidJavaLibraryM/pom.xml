@@ -133,8 +133,6 @@
             </plugin>
 
         </plugins>
-        
-        <sourceDirectory>../MusicAndroidJavaLibrary/src</sourceDirectory>
 
     </build>
 

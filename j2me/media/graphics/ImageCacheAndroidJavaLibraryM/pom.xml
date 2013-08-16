@@ -129,7 +129,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ImageCacheAndroidJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

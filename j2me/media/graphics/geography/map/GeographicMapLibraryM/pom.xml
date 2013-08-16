@@ -116,7 +116,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GeographicMapLibrary/src</sourceDirectory>
     </build>
 
 </project>

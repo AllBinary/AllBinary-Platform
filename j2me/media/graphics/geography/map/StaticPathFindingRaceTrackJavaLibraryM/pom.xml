@@ -83,7 +83,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../StaticPathFindingRaceTrackJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

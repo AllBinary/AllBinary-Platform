@@ -85,7 +85,6 @@
 
         </plugins>
 
-        <sourceDirectory>../GeographicPathFindingLibrary/src</sourceDirectory>
     </build>
 
 </project>

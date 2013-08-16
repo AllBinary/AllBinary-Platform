@@ -70,7 +70,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LoggingJ2MEException/src</sourceDirectory>
     </build>
 
 </project>

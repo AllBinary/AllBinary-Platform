@@ -75,7 +75,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LoggingHTMLAll/src</sourceDirectory>
     </build>
 
 </project>

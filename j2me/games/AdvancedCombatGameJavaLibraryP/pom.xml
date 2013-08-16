@@ -32,7 +32,8 @@
 
         <!--
         <module>../GameJ2MELibraryP</module>
-        -->
+
+       -->
 
         <module>../../games/TickableJavaLibraryM</module>
         
@@ -47,6 +48,8 @@
 
         <module>../../../allbinary_src/logic/data/file/FileJavaLibraryM</module>
         <module>../../../allbinary_src/data/DataJavaLibraryM</module>
+<!--
+        -->
         <module>../../../allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
@@ -112,6 +115,15 @@
         ../../
         <module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
         -->
+
+        <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryM</module>
+        <!--
+        -->
+
+        <module>../../input/TrackingEventJavaLibraryM</module>
+        <module>../../../game/behavior/BehaviorLibraryP</module>
 
     </modules>
 

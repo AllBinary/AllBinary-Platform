@@ -102,8 +102,6 @@
 
         </plugins>
 
-        <sourceDirectory>../TrigBaseLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

@@ -65,7 +65,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../NoVibrateJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

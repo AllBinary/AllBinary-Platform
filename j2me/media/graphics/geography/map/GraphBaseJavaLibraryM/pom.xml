@@ -65,7 +65,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GraphBaseJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

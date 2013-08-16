@@ -109,8 +109,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../NullCustomUIPreJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

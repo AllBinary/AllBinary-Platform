@@ -47,6 +47,39 @@
         </dependency>
 
         <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TouchButtonBaseJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AllBinaryJ2MELibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>        
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AndroidResourceLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+        
+        <dependency>
+  <groupId>org.allbinary</groupId>
+  <artifactId>AndroidResourcesTempJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+                  
+        <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
             <version>5</version>
@@ -104,19 +137,12 @@
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>J2MEExceptionModule</artifactId>
-                                <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
 
-                                <library>true</library>
+                                            <library>true</library>
                             </inclusion>
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>LogModule</artifactId>
-                                <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
                                 <library>true</library>
                             </inclusion>
                         </inclusions>
@@ -138,7 +164,6 @@
 
         </plugins>
 
-        <sourceDirectory>../MotionInputAndroidResourcesJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

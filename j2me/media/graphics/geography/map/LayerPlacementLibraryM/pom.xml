@@ -132,8 +132,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LayerPlacementLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

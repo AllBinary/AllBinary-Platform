@@ -93,8 +93,6 @@
       
         </plugins>
 
-        <sourceDirectory>../NoTransitionAnimationJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

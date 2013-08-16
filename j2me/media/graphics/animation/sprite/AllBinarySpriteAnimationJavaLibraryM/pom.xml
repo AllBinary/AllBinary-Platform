@@ -152,7 +152,6 @@
 
         </plugins>
         
-        <sourceDirectory>../AllBinarySpriteAnimationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

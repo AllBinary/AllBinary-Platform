@@ -83,7 +83,6 @@
 
         </plugins>
 
-        <sourceDirectory>../VectorJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

@@ -102,7 +102,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../J2SEMediaMIDPMinimalJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

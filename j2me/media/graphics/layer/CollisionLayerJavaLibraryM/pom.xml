@@ -154,7 +154,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CollisionLayerJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

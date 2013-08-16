@@ -68,7 +68,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LoggingNone/src</sourceDirectory>
     </build>
     
 </project>

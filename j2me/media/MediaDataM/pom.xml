@@ -49,7 +49,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../MediaData/src</sourceDirectory>
     </build>
 
 </project>

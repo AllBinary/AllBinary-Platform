@@ -129,8 +129,6 @@
 
         </plugins>
 
-        <sourceDirectory>../NullCustomUIBaseJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

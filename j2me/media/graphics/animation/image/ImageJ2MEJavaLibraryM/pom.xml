@@ -135,7 +135,6 @@
 
         </plugins>
         
-        <sourceDirectory>../ImageJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

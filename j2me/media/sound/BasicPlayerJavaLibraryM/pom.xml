@@ -65,7 +65,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../BasicPlayerJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

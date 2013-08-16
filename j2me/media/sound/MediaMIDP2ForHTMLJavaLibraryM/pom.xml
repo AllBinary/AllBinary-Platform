@@ -126,7 +126,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../MediaMIDP2ForHTMLJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

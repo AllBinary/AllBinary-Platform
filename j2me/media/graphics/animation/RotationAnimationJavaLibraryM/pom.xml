@@ -127,8 +127,6 @@
 
         </plugins>
 
-        <sourceDirectory>../RotationAnimationJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

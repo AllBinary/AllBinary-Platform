@@ -95,7 +95,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TerrainEventJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

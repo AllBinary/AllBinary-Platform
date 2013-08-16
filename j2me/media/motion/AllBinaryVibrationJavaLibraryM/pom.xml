@@ -107,8 +107,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AllBinaryVibrationJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

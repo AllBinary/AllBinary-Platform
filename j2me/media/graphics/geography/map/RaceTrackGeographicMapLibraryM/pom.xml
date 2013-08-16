@@ -1,0 +1,24 @@
+<distributionManagement>
+<snapshotRepository>
+<id>nexus-snapshots</id>
+<name>AllBinary Snapshots Nexus</name>
+<url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/<distributionManagement>
+<snapshotRepository>
+<id>nexus-snapshots</id>
+<name>AllBinary Snapshots Nexus</name>
+<url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+</snapshotRepository>
+<repository>
+<id>nexus-releases</id>
+<name>AllBinary Releases Nexus</name>
+<url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+</repository>
+</distributionManagement>
+/url>
+</snapshotRepository>
+<repository>
+<id>nexus-releases</id>
+<name>AllBinary Releases Nexus</name>
+<url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+</repository>
+</distributionManagement>

@@ -68,7 +68,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LoggingJ2MEAll/src</sourceDirectory>
     </build>
 
 </project>

@@ -126,7 +126,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../NotDeviceSpecificMIDP2JavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

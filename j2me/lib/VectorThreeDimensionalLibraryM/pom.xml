@@ -95,8 +95,6 @@
 
         </plugins>
 
-        <sourceDirectory>../VectorThreeDimensionalLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

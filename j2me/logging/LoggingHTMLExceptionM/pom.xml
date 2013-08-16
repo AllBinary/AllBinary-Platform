@@ -77,7 +77,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LoggingHTMLException/src</sourceDirectory>
     </build>
 
 </project>

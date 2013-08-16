@@ -113,8 +113,6 @@
             </plugin>
       </plugins>
 
-        <sourceDirectory>../TrigJ2MELibrary/src</sourceDirectory>
-
     </build>
 
 </project>

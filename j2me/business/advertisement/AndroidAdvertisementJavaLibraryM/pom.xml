@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>AllBinaryAdvertisementClientJavaLibrary</artifactId>
+    <artifactId>AndroidAdvertisementJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
-    <name>AllBinaryAdvertisementClientJavaLibrary</name>
+    <name>AndroidAdvertisementJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -93,6 +93,38 @@
             <!-- AllBinary Platform Version End -->
 
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AndroidResourcesTempJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+        
+
+        <dependency>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AdvertisementClientNoneJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+    <groupId>org.allbinary</groupId>
+    <artifactId>NoTouchButtonJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>1.6_r2</version>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -212,8 +244,6 @@
       </plugin>
 -->
         </plugins>
-
-        <sourceDirectory>../AllBinaryAdvertisementClientJavaLibrary/src</sourceDirectory>
 
     </build>
 

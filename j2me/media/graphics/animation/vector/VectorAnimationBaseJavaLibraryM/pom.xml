@@ -108,8 +108,6 @@
 
         </plugins>
 
-        <sourceDirectory>../VectorAnimationBaseJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

@@ -84,7 +84,6 @@
 
         </plugins>
         
-        <sourceDirectory>../TransitionAnimationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

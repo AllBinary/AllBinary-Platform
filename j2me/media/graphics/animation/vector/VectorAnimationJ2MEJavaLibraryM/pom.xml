@@ -117,11 +117,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../VectorAnimationJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
 

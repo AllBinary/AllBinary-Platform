@@ -132,7 +132,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LoggingRemoteException/src</sourceDirectory>
     </build>
 
 </project>

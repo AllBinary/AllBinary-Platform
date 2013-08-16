@@ -120,8 +120,6 @@
 
         </plugins>
 
-        <sourceDirectory>../AllBinaryImageAnimationJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

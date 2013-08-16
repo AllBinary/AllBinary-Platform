@@ -93,7 +93,6 @@
 
         </plugins>
 
-        <sourceDirectory>../Basic2DVectorLibrary/src</sourceDirectory>
     </build>
 
 </project>
