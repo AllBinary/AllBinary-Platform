@@ -173,10 +173,7 @@
 
         </plugins>
 
-        <sourceDirectory>../PartsJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
 

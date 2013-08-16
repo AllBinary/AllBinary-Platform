@@ -48,7 +48,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../LifeOrDeathDataJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

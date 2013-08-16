@@ -109,10 +109,8 @@
                 </configuration>
             </plugin>
         </plugins>
-        
-        <sourceDirectory>../PickupLayerJavaLibrary/src</sourceDirectory>
+
     </build>
 
 </project>
-
 

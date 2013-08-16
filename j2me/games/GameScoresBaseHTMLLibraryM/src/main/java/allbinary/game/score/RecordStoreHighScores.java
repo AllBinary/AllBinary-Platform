@@ -13,22 +13,20 @@
 */
 package allbinary.game.score;
 
-import java.util.Hashtable;
-
-import javax.microedition.rms.RecordComparator;
-import javax.microedition.rms.RecordEnumeration;
-import javax.microedition.rms.RecordStore;
-import javax.microedition.rms.RecordStoreException;
-import javax.microedition.rms.RecordStoreNotFoundException;
-
-import org.allbinary.util.BasicArrayList;
-
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.Unknown;
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import java.io.IOException;
+import java.util.Hashtable;
+import javax.microedition.rms.RecordComparator;
+import javax.microedition.rms.RecordEnumeration;
+import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStoreException;
+import javax.microedition.rms.RecordStoreNotFoundException;
+import org.allbinary.util.BasicArrayList;
 
 public class RecordStoreHighScores extends HighScores
 {
@@ -306,7 +304,7 @@ public class RecordStoreHighScores extends HighScores
 
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
 
         BasicArrayList list = this.getList();
         int size = list.size();

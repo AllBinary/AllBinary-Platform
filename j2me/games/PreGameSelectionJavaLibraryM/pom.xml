@@ -130,7 +130,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../PreGameSelectionJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

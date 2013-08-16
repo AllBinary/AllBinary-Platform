@@ -173,8 +173,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../PreGameJ2MEJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

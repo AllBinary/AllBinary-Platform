@@ -13,10 +13,10 @@
 */
 package allbinary.game.score;
 
-import org.allbinary.util.BasicArrayList;
-
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class HighScores implements HighScoresInterface
 {
@@ -83,7 +83,7 @@ public class HighScores implements HighScoresInterface
     
     public String toString()
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("HighScores: ");
         //stringBuffer.append(this.name);

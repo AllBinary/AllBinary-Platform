@@ -367,11 +367,7 @@
 
         </plugins>
 
-        <sourceDirectory>../HealthThreedJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
-
 

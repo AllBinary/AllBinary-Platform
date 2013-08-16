@@ -217,11 +217,7 @@
 
         </plugins>
 
-        <sourceDirectory>../GameScoresLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
-
 

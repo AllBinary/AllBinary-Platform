@@ -212,11 +212,7 @@
 
         </plugins>
 
-        <sourceDirectory>../GameScoresBaseLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
-
 

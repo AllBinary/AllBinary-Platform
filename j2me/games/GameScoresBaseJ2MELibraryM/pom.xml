@@ -202,11 +202,7 @@
 
         </plugins>
 
-        <sourceDirectory>../GameScoresBaseJ2MELibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
-
 

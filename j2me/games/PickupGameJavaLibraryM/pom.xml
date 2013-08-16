@@ -121,7 +121,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../PickupGameJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
