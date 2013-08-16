@@ -79,14 +79,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../J2MEColorJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
-
-
-
 

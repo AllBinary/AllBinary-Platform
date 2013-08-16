@@ -132,8 +132,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AIRotationGameLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

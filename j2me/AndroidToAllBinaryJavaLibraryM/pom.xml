@@ -48,15 +48,21 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>DebugJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>AndroidToJ2MELibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
             <optional>true</optional>
         </dependency>
 
-<!--
         <dependency>
             <groupId>org.allbinary.microemu</groupId>
             <artifactId>special-microemu-midp</artifactId>
@@ -69,7 +75,7 @@
             <version>0</version>
             <optional>true</optional>
         </dependency>
--->        
+   
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
@@ -107,7 +113,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AndroidToAllBinaryJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

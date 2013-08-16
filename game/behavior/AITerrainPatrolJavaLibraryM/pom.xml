@@ -102,10 +102,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AITerrainPatrolJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
 

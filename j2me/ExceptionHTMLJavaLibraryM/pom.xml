@@ -49,12 +49,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ExceptionHTMLJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
-
 

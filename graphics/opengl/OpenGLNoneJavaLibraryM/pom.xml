@@ -89,13 +89,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../OpenGLNoneJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
-
-
 

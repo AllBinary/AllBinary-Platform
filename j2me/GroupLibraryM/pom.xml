@@ -82,7 +82,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GroupLibrary/src</sourceDirectory>
     </build>
 
 </project>

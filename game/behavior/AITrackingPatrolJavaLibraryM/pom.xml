@@ -115,10 +115,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AITrackingPatrolJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
 

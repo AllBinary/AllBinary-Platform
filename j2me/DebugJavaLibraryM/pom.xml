@@ -67,7 +67,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../DebugJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

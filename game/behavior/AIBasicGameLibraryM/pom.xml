@@ -116,8 +116,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AIBasicGameLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

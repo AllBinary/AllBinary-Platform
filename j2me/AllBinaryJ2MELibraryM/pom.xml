@@ -199,8 +199,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        
-        <sourceDirectory>../AllBinaryJ2MELibrary/src</sourceDirectory>
+
     </build>
 
 </project>

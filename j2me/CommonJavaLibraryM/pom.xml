@@ -48,7 +48,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CommonJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

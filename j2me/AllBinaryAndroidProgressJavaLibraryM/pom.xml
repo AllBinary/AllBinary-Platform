@@ -182,7 +182,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AllBinaryAndroidProgressJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

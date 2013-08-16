@@ -87,7 +87,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../FullScreenNoneJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

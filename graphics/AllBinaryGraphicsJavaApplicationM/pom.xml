@@ -153,9 +153,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AllBinaryGraphicsJavaApplication/src</sourceDirectory>
     </build>
 </project>
-
-
 

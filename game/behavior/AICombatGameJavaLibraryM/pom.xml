@@ -114,8 +114,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AICombatGameJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

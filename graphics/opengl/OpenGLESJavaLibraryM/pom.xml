@@ -143,7 +143,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../OpenGLESJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

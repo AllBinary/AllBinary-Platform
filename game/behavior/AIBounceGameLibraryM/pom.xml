@@ -99,7 +99,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../AIBounceGameLibrary/src</sourceDirectory>
     </build>
 
 </project>
