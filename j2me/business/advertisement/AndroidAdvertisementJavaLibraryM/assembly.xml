@@ -10,8 +10,7 @@
         <dependencySet>
 
             <excludes>
-                <exclude>org.microemu:microemu-midp</exclude>
-                <exclude>org.microemu:microemu-cldc</exclude>
+                <exclude>org.allbinary:LoggingJ2MEAll</exclude>
             </excludes>
 
             <unpack>true</unpack>
