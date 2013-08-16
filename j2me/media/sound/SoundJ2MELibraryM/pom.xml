@@ -78,7 +78,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../SoundJ2MELibrary/src</sourceDirectory>
     </build>
 
 </project>

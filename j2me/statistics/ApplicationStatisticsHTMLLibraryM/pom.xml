@@ -76,7 +76,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ApplicationStatisticsHTMLLibrary/src</sourceDirectory>
     </build>
 
 </project>

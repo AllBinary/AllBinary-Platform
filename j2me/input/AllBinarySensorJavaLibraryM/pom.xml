@@ -115,8 +115,6 @@
 
         </plugins>
 
-        <sourceDirectory>../AllBinarySensorJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

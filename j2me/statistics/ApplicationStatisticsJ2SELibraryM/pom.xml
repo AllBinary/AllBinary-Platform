@@ -76,7 +76,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ApplicationStatisticsJ2SELibrary/src</sourceDirectory>
     </build>
 
 </project>

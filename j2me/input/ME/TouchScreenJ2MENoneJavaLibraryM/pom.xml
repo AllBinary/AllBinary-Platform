@@ -75,7 +75,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TouchScreenJ2MENoneJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

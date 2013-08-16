@@ -51,13 +51,13 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameInputLibrary</artifactId>
+            <artifactId>GameInputPersistanceLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
-
+                
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameInputMEJavaLibrary</artifactId>
@@ -120,7 +120,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameInputMEMotionJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

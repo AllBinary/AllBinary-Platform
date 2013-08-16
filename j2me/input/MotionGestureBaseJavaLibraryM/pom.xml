@@ -99,8 +99,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../MotionGestureBaseJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

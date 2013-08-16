@@ -120,8 +120,6 @@
             </plugin>
 
         </plugins>
-        
-        <sourceDirectory>../TouchButtonJavaLibrary/src</sourceDirectory>
 
     </build>
 

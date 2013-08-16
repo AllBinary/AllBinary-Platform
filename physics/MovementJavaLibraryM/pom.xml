@@ -132,7 +132,6 @@
 
         </plugins>
 
-        <sourceDirectory>../MovementJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

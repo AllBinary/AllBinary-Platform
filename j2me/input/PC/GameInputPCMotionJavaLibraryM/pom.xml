@@ -114,8 +114,7 @@
                 </executions>
             </plugin>
         </plugins>
-        
-        <sourceDirectory>../GameInputPCMotionJavaLibrary/src</sourceDirectory>
+
     </build>
 
 </project>

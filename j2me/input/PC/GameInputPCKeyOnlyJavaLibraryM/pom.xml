@@ -89,7 +89,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameInputPCKeyOnlyJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

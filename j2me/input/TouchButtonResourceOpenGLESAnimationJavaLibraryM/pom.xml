@@ -100,8 +100,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TouchButtonResourceOpenGLESAnimationJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

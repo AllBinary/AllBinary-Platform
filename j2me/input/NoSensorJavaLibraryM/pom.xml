@@ -94,12 +94,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../NoSensorJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
-
 

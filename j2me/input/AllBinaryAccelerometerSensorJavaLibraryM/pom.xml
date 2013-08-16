@@ -124,8 +124,6 @@
 
         </plugins>
 
-        <sourceDirectory>../AllBinaryAccelerometerSensorJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

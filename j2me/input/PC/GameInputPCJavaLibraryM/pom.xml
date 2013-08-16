@@ -76,7 +76,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameInputPCJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

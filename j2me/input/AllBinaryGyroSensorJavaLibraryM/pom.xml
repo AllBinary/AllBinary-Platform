@@ -116,8 +116,6 @@
 
         </plugins>
 
-        <sourceDirectory>../AllBinaryGyroSensorJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

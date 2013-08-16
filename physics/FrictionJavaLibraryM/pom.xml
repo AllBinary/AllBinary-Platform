@@ -75,7 +75,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../FrictionJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

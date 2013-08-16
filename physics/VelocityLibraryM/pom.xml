@@ -106,7 +106,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../VelocityLibrary/src</sourceDirectory>
     </build>
 
 </project>

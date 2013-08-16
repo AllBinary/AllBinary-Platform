@@ -85,7 +85,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TouchScreenJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

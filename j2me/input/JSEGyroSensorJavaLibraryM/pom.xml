@@ -164,8 +164,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../JSEGyroSensorJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

@@ -100,8 +100,6 @@
 
         </plugins>
 
-        <sourceDirectory>../SoundsBasicWeaponsJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

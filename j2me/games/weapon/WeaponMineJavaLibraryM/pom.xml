@@ -136,10 +136,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../WeaponMineJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
 

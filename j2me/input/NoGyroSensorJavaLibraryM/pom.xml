@@ -92,7 +92,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../NoGyroSensorJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
