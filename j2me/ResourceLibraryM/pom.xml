@@ -58,7 +58,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../ResourceLibrary/src</sourceDirectory>
     </build>
 
 </project>

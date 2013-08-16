@@ -238,11 +238,7 @@
             </plugin>
         </plugins>
         
-        <sourceDirectory>../GameConfigurationFormJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
-
 

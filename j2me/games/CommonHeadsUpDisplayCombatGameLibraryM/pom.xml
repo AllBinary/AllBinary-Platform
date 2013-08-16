@@ -173,7 +173,6 @@
             </plugin>
         </plugins>
         
-        <sourceDirectory>../CommonHeadsUpDisplayCombatGameLibrary/src</sourceDirectory>
     </build>
 
 </project>

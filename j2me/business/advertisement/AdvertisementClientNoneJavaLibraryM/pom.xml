@@ -192,8 +192,6 @@
 -->
         </plugins>
 
-        <sourceDirectory>../AdvertisementClientNoneJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

@@ -134,7 +134,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CollisionLibrary/src</sourceDirectory>
     </build>
 
 </project>

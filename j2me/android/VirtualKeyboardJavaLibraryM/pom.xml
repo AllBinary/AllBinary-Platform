@@ -99,7 +99,6 @@
 
         </plugins>
 
-        <sourceDirectory>../VirtualKeyboardJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

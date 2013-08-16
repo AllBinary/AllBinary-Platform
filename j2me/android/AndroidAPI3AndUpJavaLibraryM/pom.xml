@@ -110,7 +110,6 @@
 
         </plugins>
 
-        <sourceDirectory>../AndroidAPI3AndUpJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

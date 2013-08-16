@@ -256,9 +256,8 @@
             </plugin>
 
         </plugins>
-        
-        <sourceDirectory>../DamageGameJavaLibrary/src</sourceDirectory>
-    </build>
+
+     </build>
 
 </project>
 

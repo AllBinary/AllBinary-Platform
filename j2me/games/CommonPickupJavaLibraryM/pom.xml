@@ -108,7 +108,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CommonPickupJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

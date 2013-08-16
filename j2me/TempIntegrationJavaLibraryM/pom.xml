@@ -98,15 +98,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TempIntegrationJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
-
-
-
-
-
 

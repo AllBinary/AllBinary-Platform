@@ -110,7 +110,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../DropJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

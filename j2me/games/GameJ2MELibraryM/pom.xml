@@ -659,8 +659,6 @@
 -->
         </plugins>
 
-        <sourceDirectory>../GameJ2MELibrary/src</sourceDirectory>
-
     </build>
 
 </project>

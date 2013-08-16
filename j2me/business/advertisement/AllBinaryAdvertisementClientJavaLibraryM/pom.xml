@@ -213,8 +213,6 @@
 -->
         </plugins>
 
-        <sourceDirectory>../AllBinaryAdvertisementClientJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

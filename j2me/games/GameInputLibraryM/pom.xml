@@ -155,8 +155,6 @@
             </plugin>
         </plugins>
         
-        <sourceDirectory>../GameInputLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

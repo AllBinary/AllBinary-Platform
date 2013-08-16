@@ -126,7 +126,6 @@
 
         </plugins>
 
-        <sourceDirectory>../VirtualKeyboardDynamicJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

@@ -348,11 +348,8 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../CombatGameJavaLibrary/src</sourceDirectory>
-
     </build>
 
 </project>
-
 
 

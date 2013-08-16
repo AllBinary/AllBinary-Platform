@@ -174,8 +174,6 @@
             </plugin>
         </plugins>
         
-        <sourceDirectory>../GameInputPersistanceLibrary/src</sourceDirectory>
-
     </build>
 
 </project>

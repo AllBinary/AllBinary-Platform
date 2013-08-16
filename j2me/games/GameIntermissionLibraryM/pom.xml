@@ -86,8 +86,7 @@
             </plugin>
 
         </plugins>
-        
-        <sourceDirectory>../GameIntermissionLibrary/src</sourceDirectory>
+
     </build>
 
 </project>

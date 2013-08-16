@@ -145,10 +145,7 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameConfigurationHTMLJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
-
 

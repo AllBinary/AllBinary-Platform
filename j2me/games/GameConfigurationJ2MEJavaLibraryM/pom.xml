@@ -145,10 +145,8 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../GameConfigurationJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
-
 
 
