@@ -119,7 +119,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../BlisketBaseJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
