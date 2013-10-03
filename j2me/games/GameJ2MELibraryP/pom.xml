@@ -32,10 +32,10 @@
 
         <!--
         NoGyroSensorLibrary
-        
-        <module>../../games/PreGameJ2MEJavaLibraryP</module>
 
         -->
+
+        <module>../../games/PreGameJ2MEJavaLibraryP</module>
 
         <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>
         <module>../../../../working_thirdparty/communication/XmlRpcJavaLibraryM</module>
