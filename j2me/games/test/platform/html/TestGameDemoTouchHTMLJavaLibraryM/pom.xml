@@ -203,7 +203,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TestGameDemoTouchHTMLJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>

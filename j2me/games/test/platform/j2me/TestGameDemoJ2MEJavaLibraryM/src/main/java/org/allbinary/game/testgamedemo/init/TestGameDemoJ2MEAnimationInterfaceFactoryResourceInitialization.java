@@ -18,8 +18,6 @@ import org.allbinary.animation.image.TestGameDemoOpenGLESImageBasedAnimationInte
 
 import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import allbinary.game.resource.ResourceInitialization;
-import allbinary.input.motion.button.TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory;
-import allbinary.input.motion.button.TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory;
 
 public class TestGameDemoJ2MEAnimationInterfaceFactoryResourceInitialization
 extends ResourceInitialization
@@ -35,14 +33,14 @@ extends ResourceInitialization
         //Normal Loading Here
         
         //TWB - TouchButton
-        FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().add(
-                new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory());
+        //FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().add(
+          //      new TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory());
         
         FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().add(
                 new TestGameDemoImageBasedAnimationInterfaceFactoryInterfaceFactory());
 
-        FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().add(
-                new TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory());
+        //FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().add(
+          //      new TouchButtonResourceOpenGLESAnimationInterfaceFactoryInterfaceFactory());
         
         FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().add(
                 new TestGameDemoOpenGLESImageBasedAnimationInterfaceFactoryInterfaceFactory());

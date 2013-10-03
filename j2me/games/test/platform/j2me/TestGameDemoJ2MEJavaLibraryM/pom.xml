@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary.game.testgamedemo</groupId>
-  <artifactId>TestGameDemoTouchJ2MEJavaLibrary</artifactId>
+  <artifactId>TestGameDemoJ2MEJavaLibrary</artifactId>
   <packaging>jar</packaging>
   <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
-  <name>TestGameDemoTouchJ2MEJavaLibrary</name>
+  <name>TestGameDemoJ2MEJavaLibrary</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -56,19 +56,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>NoGameLicensingJavaLibrary</artifactId>
-            <!--
-            <artifactId>NoGameLicensingJavaLibrary</artifactId>
-            <artifactId>LicensedGameDemoJavaLibrary</artifactId>
-            -->
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
 
        <dependency>
             <groupId>org.allbinary</groupId>
@@ -96,7 +83,6 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
         </dependency>
 
         <dependency>
@@ -133,7 +119,7 @@
 
         <dependency>
             <groupId>org.allbinary.game.testgamedemo</groupId>
-            <artifactId>TestGameDemoTouchJavaLibrary</artifactId>
+            <artifactId>TestGameDemoNoTouchJavaLibrary</artifactId>
             
 <!--
             <artifactId>TestGameDemoTouchJavaLibrary</artifactId>
@@ -208,7 +194,6 @@
             </plugin>
         </plugins>
 
-        <sourceDirectory>../TestGameDemoTouchJ2MEJavaLibrary/src</sourceDirectory>
     </build>
 
 </project>
