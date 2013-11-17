@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>AndroidAdvertisementJavaLibrary</artifactId>
+    <artifactId>InneractiveAdvertisementTempJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
-    <name>AndroidAdvertisementJavaLibrary</name>
+    <name>InneractiveAdvertisementTempJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -24,8 +24,7 @@
     </distributionManagement>
 
     <properties>
-        <buildLabel>${version}</buildLabel>
-        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+        <buildLabel>${project.version}</buildLabel>
     </properties>
 
     <dependencies>
@@ -36,90 +35,12 @@
             <scope>test</scope>
         </dependency>
 
-<dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>GameIntermissionLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-
         <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>LoggingJ2MEAll</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>PreGameJ2MEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameIntermissionLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TrigJ2MELibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
-            <!--
-            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
-            <artifactId>GameLicensingOnlyNormalJavaLibrary</artifactId>
-            -->
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>AndroidResourcesTempJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+            <groupId>com.inneractive</groupId>
+            <artifactId>InneractiveAndroidAd</artifactId>
+            <version>3.0.4-SNAPSHOT</version>
         </dependency>
         
-
-        <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>AdvertisementClientNoneJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-
-        <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>NoTouchButtonJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
@@ -166,25 +87,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <attach>true</attach>
-                    <descriptors>
-                        <descriptor>assembly.xml</descriptor>
-                    </descriptors>
-
-                </configuration>
             </plugin>
 
 <!-- Unremark to create java doc -->

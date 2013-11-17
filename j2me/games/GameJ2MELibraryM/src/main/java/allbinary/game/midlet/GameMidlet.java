@@ -389,7 +389,8 @@ public class GameMidlet extends ProgressMidlet
                 command == gameCommandsFactory.CONTINUE_COMMAND)
             {
                 // GameState gameState = GameStateFactory.getInstance(command);
-                if (gameMidletStateFactory.getCurrentGameState() != GameState.PLAYING_GAME_STATE)
+                if (gameMidletStateFactory.getCurrentGameState() != GameState.PLAYING_GAME_STATE || 
+                		command == gameCommandsFactory.RESTART_COMMAND)
                 {
                     if (this.gameStartTimeHelper.isTime())
                     {

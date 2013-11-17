@@ -11,38 +11,37 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.game.input.event;
+package org.allbinary.android.input.motion.event;
 
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
-import allbinary.game.input.PlayerGameInput;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.EventListenerInterface;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
-public class DownGameKeyEventHandler extends BasicEventHandler
+public class AnalogControllerConfigurationEventHandler extends BasicEventHandler
 {
-    private static final DownGameKeyEventHandler instance = new DownGameKeyEventHandler();
+    private static final AnalogControllerConfigurationEventHandler instance = new AnalogControllerConfigurationEventHandler();
 
-    public static DownGameKeyEventHandler getInstance()
+    public static AnalogControllerConfigurationEventHandler getInstance()
     {
         return instance;
     }
     
     private final BasicArrayList list = new BasicArrayList();
     
-    private DownGameKeyEventHandler()
+    private AnalogControllerConfigurationEventHandler()
     {
     }
 
-    public void addListener(PlayerGameInput playerGameInput)
+    public void addListener(AnalogControllerConfigurationEventListenerInterface analogControllerConfigurationEventListenerInterface)
     {
-        if(!list.contains(playerGameInput))
+        if(!list.contains(analogControllerConfigurationEventListenerInterface))
         {
-            list.add(playerGameInput);
+            list.add(analogControllerConfigurationEventListenerInterface);
         }
     }
 
@@ -65,8 +64,10 @@ public class DownGameKeyEventHandler extends BasicEventHandler
             try
             {
             	//Add deviceId
-                PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
-                playerGameInput.onDownGameKeyEvent((GameKeyEvent) eventObject);
+            	AnalogControllerConfigurationEventListenerInterface playerGameInput = 
+            			(AnalogControllerConfigurationEventListenerInterface) this.list.objectArray[index];
+                playerGameInput.onAnalogControllerConfigurationEvent(
+                		(AnalogControllerConfigurationEvent) eventObject);
             }
             catch (Exception e)
             {
@@ -80,7 +81,7 @@ public class DownGameKeyEventHandler extends BasicEventHandler
     protected void process(AllBinaryEventObject eventObject,
             EventListenerInterface eventListenerInterface) throws Exception
     {
-        ((DownGameKeyEventListenerInterface) eventListenerInterface)
-                .onDownGameKeyEvent((GameKeyEvent) eventObject);
+        ((AnalogControllerConfigurationEventListenerInterface) eventListenerInterface)
+                .onAnalogControllerConfigurationEvent((AnalogControllerConfigurationEvent) eventObject);
     }
 }

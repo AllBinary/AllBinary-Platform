@@ -97,10 +97,11 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AndroidResourcesTempJavaLibrary</artifactId>
+            <artifactId>TestGameDemoAndroidResourcesTempJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
         </dependency>
         
 
@@ -114,10 +115,53 @@
 
         <dependency>
     <groupId>org.allbinary</groupId>
-    <artifactId>NoTouchButtonJavaLibrary</artifactId>
+    <artifactId>TouchButtonJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
+        </dependency>
+
+          <dependency>
+  <groupId>org.allbinary</groupId>
+  <artifactId>GameInputAndroidBaseJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+          <dependency>
+            <groupId>org.allbinary</groupId>
+    <artifactId>J2MEMidletAsActivityJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>        
+
+        <dependency>
+  <groupId>org.allbinary</groupId>
+  <artifactId>TestGameDemoAndroidResourcesTempJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+    <groupId>org.allbinary</groupId>
+    <artifactId>InneractiveAdvertisementTempJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.inneractive</groupId>
+            <artifactId>InneractiveAndroidAd</artifactId>
+            <version>3.0.4-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google</groupId>
+            <artifactId>GoogleAdMobAdsSdk</artifactId>
+            <version>4.3.1-SNAPSHOT</version>
         </dependency>
 
         <dependency>

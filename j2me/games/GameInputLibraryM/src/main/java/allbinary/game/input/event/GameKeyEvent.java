@@ -27,7 +27,9 @@ public class GameKeyEvent extends AllBinaryEventObject
    private int key;
    private int gameActionKey;
    private int originalKey;
-      
+   
+   private int playerId;
+   
    public GameKeyEvent(Object object, int sourceId, int originalKey, int gameActionKey, int key, boolean repeated)
    {
       super(object);
@@ -146,4 +148,9 @@ public class GameKeyEvent extends AllBinaryEventObject
    {
        return sourceId;
    }
+
+	public int getPlayerId() {
+		return playerId;
+	}
+
 }

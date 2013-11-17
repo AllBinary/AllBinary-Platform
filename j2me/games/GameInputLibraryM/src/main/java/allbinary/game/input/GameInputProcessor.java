@@ -35,4 +35,12 @@ public class GameInputProcessor
     {
         
     }
+    
+    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, 
+    		int analogValue)
+    //AnalogLocationInput analogLocationInput
+    throws Exception
+    {
+        
+    }
 }

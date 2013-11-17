@@ -28,5 +28,6 @@ extends SpecialGameInputProcessor
     throws Exception
     {
         this.collidableDestroyableDamageableLayer.down();
-    }    
+    }
+
 }

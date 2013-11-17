@@ -28,6 +28,7 @@ import allbinary.game.combat.damage.DamageableInterface;
 import allbinary.game.combat.destroy.DestroyableInterface;
 import allbinary.game.combat.destroy.event.DestroyedEvent;
 import allbinary.game.identification.Group;
+import allbinary.game.input.analog.AnalogLocationInput;
 import allbinary.game.input.event.GameKeyEvent;
 import allbinary.game.layer.pickup.PickupBehavior;
 import allbinary.game.layer.pickup.PickupCompositeInterface;
@@ -204,6 +205,27 @@ OpenGLSurfaceChangedInterface
     {
     }
 
+    public void up(int yAnalogValue)
+    throws Exception
+    {
+        
+    }
+    
+    public void down(int yAnalogValue)
+    throws Exception
+    {
+    }
+
+    public void right(int xAnalogValue)
+    throws Exception
+    {
+    }
+
+    public void left(int xAnalogValue)
+    throws Exception
+    {
+    }
+    
     /*
     //For optimized handler but currently not enables until I decide on depencies
     public void onMovement(TrackingEvent trackingEvent)

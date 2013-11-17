@@ -23,13 +23,16 @@
         </repository>
     </distributionManagement>
 
-    <properties>
-        <buildLabel>${version}</buildLabel>
-        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
-    </properties>
-
     <modules>
 
+        
+        <module>../../../TestGameDemoAndroidResourcesTempJavaLibraryM</module>
+        <module>../TestDemoGameAndroidResourceJavaLibraryM</module>
+        <module>../TestDemoGameAndroidBaseJavaLibraryM</module>
+        <module>../TestGameDemoAndroidJavaLibraryM</module>
+        <module>../TestGameDemoAndroidActivityJavaLibraryM</module>
+        <module>../TestGameDemoNoTouchAndroidJavaLibraryM</module>
+        
         <module>../TestGameDemoAndroidM</module>
 
     </modules>

@@ -20,6 +20,7 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 
+import org.allbinary.android.input.motion.event.AnalogControllerConfigurationEventHandler;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.game.resource.ResourceLoadingLevel;

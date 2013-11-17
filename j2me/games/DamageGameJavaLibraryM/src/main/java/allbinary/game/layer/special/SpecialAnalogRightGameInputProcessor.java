@@ -16,18 +16,18 @@ package allbinary.game.layer.special;
 import allbinary.game.input.event.GameKeyEvent;
 import allbinary.layer.AllBinaryLayerManager;
 
-public class SpecialUpGameInputProcessor
+public class SpecialAnalogRightGameInputProcessor
 extends SpecialGameInputProcessor
 {
-    public SpecialUpGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer)
+    public SpecialAnalogRightGameInputProcessor(CollidableDestroyableDamageableLayer collidableDestroyableDamageableLayer)
     {
         super(collidableDestroyableDamageableLayer);
     }
-    
-    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) 
+
+    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, 
+    		int xAnalogValue) 
     throws Exception
     {
-        this.collidableDestroyableDamageableLayer.up();
-    }
-
+    	this.collidableDestroyableDamageableLayer.right(xAnalogValue);
+    }    
 }
