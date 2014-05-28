@@ -26,9 +26,6 @@ import allbinary.game.input.mapping.InputToGameKeyMapping;
 public final class TouchButtonInput extends Input 
     implements GameKeyEventSourceInterface
 {
-    public static final int STANDARD_BUTTON_SIZE = 64;
-    
-    private GameKey gameKey;
     private GameKeyEvent gameKeyEvent;
 
     public TouchButtonInput(int id, String name)
@@ -44,8 +41,8 @@ public final class TouchButtonInput extends Input
     {
         try
         {
-            this.setGameKey(inputToGameKeyMapping.getInstance(this.getId()));
-            this.setGameKeyEvent(GameKeyEventFactory.getInstance().getInstance(this, getGameKey()));
+            GameKey gameKey = inputToGameKeyMapping.getInstance(this.getId());
+            this.gameKeyEvent = GameKeyEventFactory.getInstance().getInstance(this, gameKey);
         }
         catch (Exception e)
         {
@@ -56,21 +53,6 @@ public final class TouchButtonInput extends Input
     public int getSourceId()
     {
         return 2;
-    }
-
-    public void setGameKey(GameKey gameKey)
-    {
-        this.gameKey = gameKey;
-    }
-
-    public GameKey getGameKey()
-    {
-        return gameKey;
-    }
-
-    public void setGameKeyEvent(GameKeyEvent gameKeyEvent)
-    {
-        this.gameKeyEvent = gameKeyEvent;
     }
 
     public GameKeyEvent getGameKeyEvent()

@@ -13,7 +13,19 @@
 */
 package allbinary.input.motion.button;
 
-public class TouchButtonDownResource
+public class TouchButtonDownResource extends TouchButtonResource
 {
-    public static final String RESOURCE = "/touch_button_down_arrow_64_by_64.png";
+    private static final TouchButtonResource instance = new TouchButtonDownResource();
+
+    /**
+     * @return the instance
+     */
+    public static TouchButtonResource getInstance() {
+        return instance;
+    }
+    
+    private TouchButtonDownResource()
+    {
+        super("/touch_button_down_arrow_64_by_64.png", "/touch_button_down_arrow_hint_64_by_64.png");
+    }
 }

@@ -13,7 +13,19 @@
 */
 package allbinary.input.motion.button;
 
-public class TouchButtonReverseResource
+public class TouchButtonReverseResource extends TouchButtonResource
 {
-    public static final String RESOURCE = "/touch_button_reverse_64_by_64.png";
+    private static final TouchButtonResource instance = new TouchButtonReverseResource();
+
+    /**
+     * @return the instance
+     */
+    public static TouchButtonResource getInstance() {
+        return instance;
+    }
+    
+    private TouchButtonReverseResource()
+    {
+        super("/touch_button_reverse_64_by_64.png", "/touch_button_reverse_hint_64_by_64.png");
+    }
 }

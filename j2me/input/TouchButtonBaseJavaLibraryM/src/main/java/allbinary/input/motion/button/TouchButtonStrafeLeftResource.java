@@ -13,7 +13,19 @@
 */
 package allbinary.input.motion.button;
 
-public class TouchButtonStrafeLeftResource
+public class TouchButtonStrafeLeftResource extends TouchButtonResource
 {
-    public static final String RESOURCE = "/touch_button_strafe_left_arrow_64_by_64.png";
+    private static final TouchButtonResource instance = new TouchButtonStrafeLeftResource();
+
+    /**
+     * @return the instance
+     */
+    public static TouchButtonResource getInstance() {
+        return instance;
+    }
+    
+    private TouchButtonStrafeLeftResource()
+    {
+        super("/touch_button_strafe_left_arrow_64_by_64.png", "/touch_button_strafe_left_arrow_hint_64_by_64.png");
+    }    
 }

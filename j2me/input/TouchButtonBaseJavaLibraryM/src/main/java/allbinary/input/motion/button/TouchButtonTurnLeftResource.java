@@ -13,7 +13,19 @@
 */
 package allbinary.input.motion.button;
 
-public class TouchButtonTurnLeftResource
+public class TouchButtonTurnLeftResource extends TouchButtonResource
 {
-    public static final String RESOURCE = "/touch_button_turn_left_arrow_64_by_64.png";
+    private static final TouchButtonResource instance = new TouchButtonTurnLeftResource();
+
+    /**
+     * @return the instance
+     */
+    public static TouchButtonResource getInstance() {
+        return instance;
+    }
+    
+    private TouchButtonTurnLeftResource()
+    {
+        super("/touch_button_turn_left_arrow_64_by_64.png", "/touch_button_turn_left_arrow_hint_64_by_64.png");
+    }    
 }

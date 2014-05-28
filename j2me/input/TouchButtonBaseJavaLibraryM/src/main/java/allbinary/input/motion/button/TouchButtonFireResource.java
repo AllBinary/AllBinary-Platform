@@ -13,7 +13,19 @@
 */
 package allbinary.input.motion.button;
 
-public class TouchButtonFireResource
+public class TouchButtonFireResource extends TouchButtonResource
 {
-    public static final String RESOURCE = "/touch_button_fire_64_by_64.png";
+    private static final TouchButtonResource instance = new TouchButtonFireResource();
+
+    /**
+     * @return the instance
+     */
+    public static TouchButtonResource getInstance() {
+        return instance;
+    }
+    
+    private TouchButtonFireResource()
+    {
+        super("/touch_button_fire_64_by_64.png", "/touch_button_fire_hint_64_by_64.png");
+    }
 }
