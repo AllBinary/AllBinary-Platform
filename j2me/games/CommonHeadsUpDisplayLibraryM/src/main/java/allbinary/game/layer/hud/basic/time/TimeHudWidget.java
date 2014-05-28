@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import allbinary.game.graphics.hud.BasicHud;
 import allbinary.game.graphics.hud.BasicHudFactory;
 import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.font.MyFont;
 import allbinary.logic.math.PrimitiveLongSingleton;
 
 public class TimeHudWidget extends BasicHud
@@ -42,7 +43,7 @@ public class TimeHudWidget extends BasicHud
 
         this.set();
 
-        this.offset = this.getCharWidth() * this.TIME_STRING.length;
+        this.offset = (this.getCharWidth() * this.TIME_STRING.length) + (this.getCharWidth() * 3);
 
         if (direction == 0)
         {
@@ -59,7 +60,7 @@ public class TimeHudWidget extends BasicHud
     public TimeHudWidget(int location, int direction, BasicColor basicColor, Timer timer)
             throws Exception
     {
-        this(location, direction, 14, 40, 2, basicColor, timer);
+        this(location, direction, 14, MyFont.getInstance().defaultFont.getSize() * 5, 2, basicColor, timer);
     }
 
     public void update()

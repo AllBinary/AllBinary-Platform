@@ -20,6 +20,7 @@ import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.font.MyFont;
 import allbinary.graphics.paint.PaintableInterface;
 import allbinary.logic.math.PrimitiveLongUtil;
+import javax.microedition.lcdui.Font;
 
 public class LevelHudWidget extends BasicHud
    implements PaintableInterface
@@ -40,7 +41,7 @@ public class LevelHudWidget extends BasicHud
     public LevelHudWidget(int maxlevel, int location, int direction)
             throws Exception
     {
-        this(maxlevel, location, direction, 30);
+        this(maxlevel, location, direction, MyFont.getInstance().defaultFont.getSize() * 4);
     }
     
     public LevelHudWidget(int maxlevel, int location, int direction, int maxWidth)
@@ -52,7 +53,9 @@ public class LevelHudWidget extends BasicHud
 
         final String LEVEL = "Lv ";
         this.levelString = LEVEL.toCharArray();
-        this.offset = MyFont.getInstance().defaultFont.charsWidth(this.levelString, 0, this.levelString.length);
+        //Add size for space
+        Font font = MyFont.getInstance().defaultFont;
+        this.offset = font.charsWidth(this.levelString, 0, this.levelString.length) + font.getSize();
         
         this.maxlevel = maxlevel;
         this.level = maxlevel;

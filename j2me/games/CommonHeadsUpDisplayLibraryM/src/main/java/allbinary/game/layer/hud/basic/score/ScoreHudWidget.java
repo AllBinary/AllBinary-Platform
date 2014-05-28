@@ -16,6 +16,7 @@ package allbinary.game.layer.hud.basic.score;
 import allbinary.game.layer.hud.basic.NumberStringHud;
 import allbinary.graphics.color.BasicColor;
 import allbinary.graphics.color.BasicColorFactory;
+import allbinary.graphics.font.MyFont;
 
 public class ScoreHudWidget extends NumberStringHud
 {
@@ -33,6 +34,6 @@ public class ScoreHudWidget extends NumberStringHud
 
     public ScoreHudWidget(int maxscore, int location, int direction) throws Exception
     {
-        this(maxscore, location, direction, 14, 40, 2, BasicColorFactory.getInstance().GREY);
+        this(maxscore, location, direction, 14, MyFont.getInstance().defaultFont.getSize() * 5, 2, BasicColorFactory.getInstance().GREY);
     }
 }

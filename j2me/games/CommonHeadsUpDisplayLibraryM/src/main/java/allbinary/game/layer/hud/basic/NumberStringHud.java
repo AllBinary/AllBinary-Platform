@@ -31,7 +31,7 @@ public class NumberStringHud extends BasicHud
    private int value;
    private int max;
    private int offset;
-   private int halfOffset;
+   //private int halfOffset;
    //private String valueString;
    private char[] valueString;
    private int valueTotalDigits;
@@ -46,8 +46,7 @@ public class NumberStringHud extends BasicHud
 
       this.PREPEND_STRING = prependString.toCharArray();
       //this.PREPEND_STRING = prependString;
-      this.offset = this.getCharWidth() * this.PREPEND_STRING.length;
-      this.halfOffset = offset / 2;
+      this.offset = this.getCharWidth() * this.PREPEND_STRING.length + this.getCharWidth();
       
       this.valueString = PrimitiveLongSingleton.getInstance().NUMBER_CHAR_ARRAYS[0];
       //this.valueString = PrimitiveLongUtil.NUMBER_STRING_ARRAY[0];
@@ -103,20 +102,19 @@ public class NumberStringHud extends BasicHud
    public void paint(Graphics graphics, int x , int y)
    {
        char[] charArray = PREPEND_STRING;
-       int offset = 0;
+       //int offset = 0;
        int len = PREPEND_STRING.length;
        char[] charArray2 = this.valueString;
-       int offset2 = 0;
+       //int offset2 = 0;
        int len2 = this.valueTotalDigits;
-
-       //centered
-       int xOffset = - this.halfOffset;
 
        this.getBasicColorUtil().setBasicColor(graphics, getBasicColor());
 
-       graphics.drawChars(charArray, offset, len, x, y, 0);
+       graphics.drawChars(charArray, 0, //offset, 
+               len, x, y, 0);
 
-       graphics.drawChars(charArray2, offset2, len2, x + xOffset, y, 0);
+       graphics.drawChars(charArray2, 0, //offset2, 
+               len2, x - this.offset, y, 0);
    }
 
    public void paintThreed(Graphics graphics)
