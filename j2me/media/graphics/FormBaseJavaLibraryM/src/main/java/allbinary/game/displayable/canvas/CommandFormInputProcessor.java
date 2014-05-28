@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Command;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.commands.GameCommandsFactory;
@@ -52,9 +53,10 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    private ScrollSelectionForm form;
 
    public CommandFormInputProcessor(BasicArrayList gameKeyEventList,
+           int playerInputId, 
            MyCanvas gameCanvas, ScrollSelectionForm form)
    {
-      super(gameKeyEventList, gameCanvas);
+      super(gameKeyEventList, playerInputId, gameCanvas);
 
       this.form = form;
    }
@@ -242,4 +244,15 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          this.doubleClickTimeHelper.setDelay(0);
       }
    }
+   
+    private final String NAME_LABEL = " ScrollSelectionForm: ";
+    
+    public String toString()
+    {
+        return new StringMaker()
+                .append(super.toString())
+                .append(NAME_LABEL)
+                .append(this.form.toString())
+                .toString();
+    }
 }

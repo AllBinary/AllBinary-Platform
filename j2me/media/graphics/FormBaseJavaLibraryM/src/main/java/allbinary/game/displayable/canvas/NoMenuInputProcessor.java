@@ -28,7 +28,7 @@ public class NoMenuInputProcessor extends BasicMenuInputProcessor
 
     private NoMenuInputProcessor()
     {
-        super(null, null);
+        super(null, -1, null);
     }
 
     public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)

@@ -92,6 +92,9 @@ public class GameCommandCanvas
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
+    private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
+    
     public GameCommandCanvas(CommandListener cmdListener, 
             BasicColor backgroundBasicColor, 
             BasicColor foregroundBasicColor)
@@ -191,7 +194,7 @@ public class GameCommandCanvas
         {
             this.setMenuInputProcessor(
                     new ImmediateCommandFormInputProcessor(
-                    new BasicArrayList(), this, form));
+                    new BasicArrayList(), -1, this, form));
 
             this.menuPaintable = new FormPaintable(form);            
         }
@@ -222,26 +225,41 @@ public class GameCommandCanvas
 
     public void keyPressed(int keyCode)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyPressed"));
-        this.addGameKeyEvent(keyCode, false);
-    }
-
-    public void keyReleased(int keyCode)
-    {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
-        this.removeGameKeyEvent(keyCode, false);
+        this.keyPressed(keyCode, 0);
     }
     
+    public void keyReleased(int keyCode)
+    {
+        this.keyReleased(keyCode, 0);
+    }
+
     public void keyRepeated(int keyCode)
+    {
+        this.keyRepeated(keyCode, 0);
+    }
+    
+    public void keyPressed(int keyCode, int deviceId)
+    {
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyPressed"));
+        this.addGameKeyEvent(keyCode, 0, false);
+    }
+
+    public void keyReleased(int keyCode, int deviceId)
+    {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
+        this.removeGameKeyEvent(keyCode, deviceId, false);
+    }
+    
+    public void keyRepeated(int keyCode, int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance("Key Repeated: " + Integer.toHexString(keyCode), this, "keyRepeated"));
         if (this.isSingleKeyRepeatableProcessing)
         {
-            this.addGameKeyEvent(keyCode, true);
+            this.addGameKeyEvent(keyCode, deviceId, true);
         }
     }
     
-    private void addGameKeyEvent(int keyCode, boolean repeated)
+    private void addGameKeyEvent(int keyCode, int deviceId, boolean repeated)
     {
         try
         {
@@ -263,7 +281,8 @@ public class GameCommandCanvas
                  * this, "GameKeyEvent"));
                  */
 
-                DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
+                downGameKeyEventHandler.fireEvent(gameKeyEvent);
+                downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
                 //getPlayerGameInput().onDownGameKeyEvent(gameKeyEvent);
 
@@ -280,7 +299,7 @@ public class GameCommandCanvas
         }
     }
 
-    private void removeGameKeyEvent(int keyCode, boolean repeated)
+    private void removeGameKeyEvent(int keyCode, int deviceId, boolean repeated)
     {
         try
         {
@@ -305,7 +324,8 @@ public class GameCommandCanvas
                  */
 
                 // TODO TWB - Remove or improve key input event handling
-                UpGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
+                upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
                 //getPlayerGameInput().onUpGameKeyEvent(gameKeyEvent);
             }

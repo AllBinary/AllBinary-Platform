@@ -31,10 +31,11 @@ public class ImmediateCommandFormInputProcessor
     
     public ImmediateCommandFormInputProcessor(
         BasicArrayList gameKeyEventList,
+        int playerInputId, 
         MyCanvas gameCanvas,
         ScrollSelectionForm form)
     {
-        super(gameKeyEventList, gameCanvas, form);
+        super(gameKeyEventList, playerInputId, gameCanvas, form);
     }
 
     public synchronized void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)

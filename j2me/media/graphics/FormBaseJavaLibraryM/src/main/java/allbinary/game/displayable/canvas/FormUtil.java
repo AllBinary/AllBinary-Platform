@@ -56,12 +56,13 @@ public class FormUtil
         {
             // Make a smaller button for QVGA and move it to the top
             popupMenuRectangle = new Rectangle(
-                    PointFactory.getInstance().getInstance(0, 25), 22, (MyFont.getInstance().DEFAULT_CHAR_HEIGHT * 4) + 2);
+                    PointFactory.getInstance().getInstance(0, 25), (MyFont.getInstance().DEFAULT_CHAR_WIDTH * 4), (MyFont.getInstance().DEFAULT_CHAR_HEIGHT * 4) + 2);
         }
         else
         {
-            popupMenuRectangle = new Rectangle(PointFactory.getInstance().getInstance(
-                    0, displayInfo.getLastHalfHeight() - 70), 22, (MyFont.getInstance().DEFAULT_CHAR_HEIGHT * 5));
+            popupMenuRectangle = new Rectangle(
+                    PointFactory.getInstance().getInstance(
+                    0, displayInfo.getLastHalfHeight() - 70), (MyFont.getInstance().DEFAULT_CHAR_WIDTH * 4), (MyFont.getInstance().DEFAULT_CHAR_HEIGHT * 5));
         }
         
         return popupMenuRectangle;

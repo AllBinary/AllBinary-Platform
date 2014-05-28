@@ -27,9 +27,9 @@ public class BasicMenuInputProcessor extends PlayerGameInput
     public final BasicArrayList motionGestureEventList = new BasicArrayList();
     private MyCanvas canvas;
     
-    protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, MyCanvas gameCanvas)
+    protected BasicMenuInputProcessor(BasicArrayList gameKeyEventList, int playerInputId, MyCanvas gameCanvas)
     {
-        super(gameKeyEventList);
+        super(gameKeyEventList, playerInputId);
         
         this.setCanvas(gameCanvas);
     }
