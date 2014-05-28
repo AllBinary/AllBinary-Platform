@@ -44,6 +44,28 @@ public class MyCanvas extends Canvas
         this.commandStack = new Stack();
     }
 
+    public void setFullScreenMode(boolean mode)
+    {
+        //PreLogUtil.put("Old W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
+
+        super.setFullScreenMode(mode);
+
+        //PreLogUtil.put("New W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
+
+        DisplayInfoSingleton displayInfo =
+            DisplayInfoSingleton.getInstance();
+
+        displayInfo.update(this);
+    }
+
+    protected void sizeChanged(int w, int h)
+    {
+        DisplayInfoSingleton displayInfo =
+            DisplayInfoSingleton.getInstance();
+
+        displayInfo.update(this);
+    }
+    
     public Stack getCommandStack()
     {
         return this.commandStack;
