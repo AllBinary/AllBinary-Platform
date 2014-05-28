@@ -20,6 +20,7 @@ import abcs.logic.communication.log.ForcedLogUtil;
 import allbinary.ai.ArtificialIntelligenceInterface;
 import allbinary.game.collision.CollidableBaseBehavior;
 import allbinary.game.collision.CollidableInterfaceCompositeInterface;
+import allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
 import allbinary.game.layer.AllBinaryGameLayer;
 import allbinary.graphics.Rectangle;
 import allbinary.view.ViewPosition;
@@ -39,7 +40,7 @@ public class CollidableCompositeLayer
 extends AllBinaryGameLayer
 implements CollidableInterfaceCompositeInterface
 {
-    private CollidableBaseBehavior collidableInferface;
+    private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
 
     public CollidableCompositeLayer(
             Rectangle layerInfo, ViewPosition viewPosition, 
