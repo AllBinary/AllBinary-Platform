@@ -32,7 +32,7 @@ public class NoPlayerGameInput extends PlayerGameInput
     
    private NoPlayerGameInput()
    {
-      super(new BasicArrayList());
+      super(new BasicArrayList(), -1);
    }
 
    public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)

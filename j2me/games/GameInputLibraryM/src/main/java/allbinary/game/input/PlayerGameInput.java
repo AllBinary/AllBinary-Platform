@@ -24,9 +24,13 @@ import allbinary.logic.basic.util.event.handler.BasicEventHandler;
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
 {
-   public PlayerGameInput(BasicArrayList gameKeyEventList)
+    private final int playerInputId;
+    
+   public PlayerGameInput(BasicArrayList gameKeyEventList, int playerInputId)
    {
-      super(gameKeyEventList);      
+      super(gameKeyEventList);
+      
+      this.playerInputId = playerInputId;
    }
    
    /*
@@ -67,4 +71,11 @@ public class PlayerGameInput extends GameInput
       }
       */
    }
+
+    /**
+     * @return the playerInputId
+     */
+    public int getPlayerInputId() {
+        return playerInputId;
+    }
 }

@@ -25,45 +25,66 @@ public class GameKeyEventHandler
     {
         return instance;
     }
+    
+    private final String ADD_LISTENER_METHOD_NAME = "addListener";
+    private final String REMOVE_LISTENER_METHOD_NAME = "removeListener";
 
+    private final PressGameKeyEventHandler pressGameKeyEventHandler = 
+            PressGameKeyEventHandler.getInstance();
+    private final UpGameKeyEventHandler upGameKeyEventHandler = 
+            UpGameKeyEventHandler.getInstance();
+    private final DownGameKeyEventHandler downGameKeyEventHandler = 
+            DownGameKeyEventHandler.getInstance();
     public synchronized void removeAllListeners()
     {
-        PressGameKeyEventHandler.getInstance().removeAllListeners();
-        UpGameKeyEventHandler.getInstance().removeAllListeners();
-        DownGameKeyEventHandler.getInstance().removeAllListeners();
+        this.pressGameKeyEventHandler.removeAllListeners();
+        this.upGameKeyEventHandler.removeAllListeners();
+        this.downGameKeyEventHandler.removeAllListeners();
     }
 
     /*
     public synchronized void addListeners(BasicArrayList vector)
     {
-        PressGameKeyEventHandler.getInstance().addListeners(vector);
-        UpGameKeyEventHandler.getInstance().addListeners(vector);
-        DownGameKeyEventHandler.getInstance().addListeners(vector);
+        this.pressGameKeyEventHandler.addListeners(vector);
+        this.upGameKeyEventHandler.addListeners(vector);
+        this.downGameKeyEventHandler.addListeners(vector);
     }
     */
 
     //synchronized 
     public void addListener(
-            EventListenerInterface eventListenerInterface)
+            EventListenerInterface eventListenerInterface, int playerInputId)
     {
-        LogUtil.put(LogFactory.getInstance(eventListenerInterface.toString(), this, "addListener"));
+        LogUtil.put(LogFactory.getInstance(eventListenerInterface.toString(), this, ADD_LISTENER_METHOD_NAME));
         //ForcedLogUtil.log(eventListenerInterface.toString(), this);
         
-        PressGameKeyEventHandler.getInstance().addListenerSingleThreaded(eventListenerInterface);
-        UpGameKeyEventHandler.getInstance().addListenerSingleThreaded(eventListenerInterface);
-        DownGameKeyEventHandler.getInstance().addListenerSingleThreaded(eventListenerInterface);
+        this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        
+        this.upGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler.getInstanceForPlayer(playerInputId).addListenerSingleThreaded(eventListenerInterface);
     }
 
+    public void addListener(
+            EventListenerInterface eventListenerInterface)
+    {
+        LogUtil.put(LogFactory.getInstance(eventListenerInterface.toString(), this, ADD_LISTENER_METHOD_NAME));
+        //ForcedLogUtil.log(eventListenerInterface.toString(), this);
+        
+        this.pressGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler.addListenerSingleThreaded(eventListenerInterface);
+    }
+    
     //synchronized 
     public void removeListener(
             EventListenerInterface eventListenerInterface)
     {
-        LogUtil.put(LogFactory.getInstance(eventListenerInterface.toString(), this, "removeListener"));
+        LogUtil.put(LogFactory.getInstance(eventListenerInterface.toString(), this, REMOVE_LISTENER_METHOD_NAME));
         //ForcedLogUtil.log(eventListenerInterface.toString(), this);
         
-        PressGameKeyEventHandler.getInstance().removeListenerSingleThreaded(eventListenerInterface);
-        UpGameKeyEventHandler.getInstance().removeListenerSingleThreaded(eventListenerInterface);
-        DownGameKeyEventHandler.getInstance().removeListenerSingleThreaded(eventListenerInterface);
+        this.pressGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+        this.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
+        this.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "removeListener"));
     }

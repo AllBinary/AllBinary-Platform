@@ -13,74 +13,69 @@
 */
 package allbinary.game.input.event;
 
-import org.allbinary.util.BasicArrayList;
-
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.input.PlayerGameInput;
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
+import allbinary.game.input.PlayerInputIdFactory;
 import allbinary.logic.basic.util.event.EventListenerInterface;
-import allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
-public class UpGameKeyEventHandler extends BasicEventHandler
+public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
 {
    private static final UpGameKeyEventHandler instance = new UpGameKeyEventHandler();
+
+   private static final UpGameKeyEventHandlerBase[] instanceArray = {
+       new UpGameKeyEventHandlerBase(),
+       new UpGameKeyEventHandlerBase(),
+       new UpGameKeyEventHandlerBase(),
+       new UpGameKeyEventHandlerBase(),
+       new UpGameKeyEventHandlerBase(),
+       new UpGameKeyEventHandlerBase()
+   };
 
    public static UpGameKeyEventHandler getInstance()
    {
       return instance;
    }
-   
-   private final BasicArrayList list = new BasicArrayList();
+
+   public UpGameKeyEventHandlerBase getInstance(int deviceId)
+   {
+       int playerInputId = PlayerInputIdFactory.getInstance().getPlayerForDevice(deviceId);
+       return instanceArray[playerInputId];
+   }
+
+   public UpGameKeyEventHandlerBase getInstanceForPlayer(int playerInputId)
+   {
+       return instanceArray[playerInputId];
+   }
    
    private UpGameKeyEventHandler()
    {
    }
-   
-   public void addListener(PlayerGameInput playerGameInput)
-   {
-       if(!list.contains(playerGameInput))
-       {
-           list.add(playerGameInput);
-       }
-   }
 
-   public void removeAllListeners()
-   {
-       this.list.clear();
-       super.removeAllListeners();
-   }
+    public void removeAllListeners()
+    {
+        super.removeAllListeners();
 
-   public void removeListener(EventListenerInterface eventListenerInterface)
-   {
-       this.list.remove(eventListenerInterface);
-       super.removeListener(eventListenerInterface);
-   }
+        for(int index = instanceArray.length - 1; index >= 0; index--)
+        {
+            instanceArray[index].removeAllListeners();
+        }
+    }
 
-   public void fireEvent(AllBinaryEventObject eventObject) throws Exception
-   {        
-       for (int index = this.list.size(); --index >= 0;)
-       {
-           try
-           {
-        	 //Add deviceId
-               PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
-               playerGameInput.onUpGameKeyEvent((GameKeyEvent) eventObject);
-           }
-           catch (Exception e)
-           {
-               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
-           }
-       }
+    public void removeListenerSingleThreaded(EventListenerInterface eventListenerInterface)
+    {
+        super.removeListenerSingleThreaded(eventListenerInterface);
 
-       super.fireEvent(eventObject);
-   }
-   
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+        for(int index = instanceArray.length - 1; index >= 0; index--)
+        {
+            instanceArray[index].removeListenerSingleThreaded(eventListenerInterface);
+        }
+    }
+    
+    public void removeListener(EventListenerInterface eventListenerInterface)
+    {
+        super.removeListener(eventListenerInterface);
 
-      ((UpGameKeyEventListenerInterface) eventListenerInterface).onUpGameKeyEvent(
-              (GameKeyEvent) eventObject);
-   }
+        for(int index = instanceArray.length - 1; index >= 0; index--)
+        {
+            instanceArray[index].removeListener(eventListenerInterface);
+        }
+    }
 }

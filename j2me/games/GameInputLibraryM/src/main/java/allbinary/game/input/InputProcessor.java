@@ -15,7 +15,7 @@ package allbinary.game.input;
 
 public class InputProcessor
 {
-    public void keyPressed(int keyCode)
+    public void keyPressed(int keyCode, int deviceId)
     {
         
     }

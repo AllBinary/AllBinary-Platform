@@ -24,6 +24,9 @@ public class InputFactory
         return instance;
     }
 
+    public final String KEY_CODE_LABEL = "KeyCode: ";
+    public final String DEVICE_ID_LABEL = "DeviceId: ";
+    
     //TWB - Should be seperated into an initializable class with specific size for a platform
     //public final int MAX = SmallIntegerSingletonFactory.MIN;
     //SmallIntegerSingletonFactory.init(0x101);

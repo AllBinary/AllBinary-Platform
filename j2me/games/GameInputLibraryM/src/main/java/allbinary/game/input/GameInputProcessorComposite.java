@@ -13,21 +13,25 @@
 */
 package allbinary.game.input;
 
+import abcs.logic.basic.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
 public class GameInputProcessorComposite extends PlayerGameInput
 {
+    private final String name;
     private final GameInputProcessorInterface gameInputProcessorInterface;
     
-    public GameInputProcessorComposite(
+    public GameInputProcessorComposite(String name,
             GameInputProcessorInterface gameInputProcessorInterface)
     {
-        super(new BasicArrayList());
+        super(new BasicArrayList(), -1);
         
+        this.name = name;
         this.gameInputProcessorInterface = gameInputProcessorInterface;
     }
     
@@ -42,5 +46,16 @@ public class GameInputProcessorComposite extends PlayerGameInput
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
         }
+    }
+    
+    private final String NAME_LABEL = " GameInputProcessorInterface: ";
+    
+    public String toString()
+    {
+        return new StringMaker()
+                .append(super.toString())
+                .append(NAME_LABEL)
+                .append(name)
+                .toString();
     }
 }

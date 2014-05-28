@@ -7,6 +7,9 @@ public class AnalogLocationInput {
 	private final int playerId;
 	private final CustomGPoint customGPoint;
 	private int rz;
+        
+        private int rightTrigger;
+        private int leftTrigger;
 
 	protected AnalogLocationInput(int playerId) {
 		this.playerId = playerId;
@@ -28,4 +31,32 @@ public class AnalogLocationInput {
 	public void setRz(int rz) {
 		this.rz = rz;
 	}
+
+    /**
+     * @return the rightTrigger
+     */
+    public int getRightTrigger() {
+        return rightTrigger;
+    }
+
+    /**
+     * @param rightTrigger the rightTrigger to set
+     */
+    public void setRightTrigger(int rightTrigger) {
+        this.rightTrigger = rightTrigger;
+    }
+
+    /**
+     * @return the leftTrigger
+     */
+    public int getLeftTrigger() {
+        return leftTrigger;
+    }
+
+    /**
+     * @param leftTrigger the leftTrigger to set
+     */
+    public void setLeftTrigger(int leftTrigger) {
+        this.leftTrigger = leftTrigger;
+    }
 }
