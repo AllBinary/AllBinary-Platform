@@ -45,10 +45,10 @@ public class SimpleWeaponLayer extends WeaponLayer
     public SimpleWeaponLayer(Movement movement,
             Animation animationInterface,
             Animation destroyedAnimationInterface,
-            Rectangle rectangle, ViewPosition viewPosition, String username, int actorSessionId, int multiPlayerType)
+            Rectangle rectangle, ViewPosition viewPosition, String username, int actorSessionId, int id, int multiPlayerType)
             throws Exception
     {
-        super(movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition, username, actorSessionId, multiPlayerType);
+        super(movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition, username, actorSessionId, id, multiPlayerType);
         
         this.setCollidableInferface(new CollidableWeaponBehavior(this, true));
     }

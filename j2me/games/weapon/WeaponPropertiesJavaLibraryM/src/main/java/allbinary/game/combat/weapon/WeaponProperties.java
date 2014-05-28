@@ -72,7 +72,6 @@ public class WeaponProperties extends SimpleWeaponProperties
     }
 
     public WeaponProperties(int speed, int damage, short dissipation)
-    throws Exception
     {
         this(-1, -1, speed, damage, dissipation);
     }

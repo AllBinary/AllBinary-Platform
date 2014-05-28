@@ -29,4 +29,12 @@ public class LockedUtil
         //Paid
         return false;
     }
+    
+    public boolean isLockedFeature(LockableFeature lockableFeatrue)
+    {
+        //Demo
+        //return true;
+        //Paid
+        return false;
+    }    
 }

@@ -37,6 +37,10 @@ import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
+import abcs.logic.system.os.OperatingSystemFactory;
+import abcs.logic.system.security.licensing.InApplicationPurchaseFactory;
+import abcs.logic.system.security.licensing.LockableFeature;
+import abcs.logic.system.security.licensing.LockableFeatureFactory;
 import allbinary.animation.Animation;
 import allbinary.animation.special.SpecialAnimation;
 import allbinary.canvas.AllGameStatisticsFactory;
@@ -245,15 +249,40 @@ public class DemoCanvas extends RunnableCanvas
         }
         else
         {
-            final Command[] commandArray =
+            final BasicArrayList commandList = new BasicArrayList();
+            
+            commandList.add(gameCommandsFactory.START_COMMAND);
+            
+            InApplicationPurchaseFactory inApplicationPurchaseFactory =
+                    InApplicationPurchaseFactory.getInstance();
+            
+            if (inApplicationPurchaseFactory.isEnabled()) {
+                final BasicArrayList list = LockableFeatureFactory.getInstance().getList();
+
+                if (list.size() > 0 && !inApplicationPurchaseFactory.isPurchased((LockableFeature) list.get(0))) {
+                    commandList.add(gameCommandsFactory.BUY_COMMAND);
+                }
+            }
+
+            commandList.add(HighScoreCommands.getInstance().DISPLAY);
+
+            //Has nothing to do with overscan/ouya just hiding issues with the UI
+            try
             {
-                gameCommandsFactory.START_COMMAND,
-                HighScoreCommands.getInstance().DISPLAY,
-                gameCommandsFactory.DISPLAY_OPTIONS,
-                gameCommandsFactory.DISPLAY_LOAD_FORM,
-                GameInputMappingCanvas.DISPLAY,
-                gameCommandsFactory.DISPLAY_ABOUT
-            };
+                if (!OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan()) {
+                    commandList.add(gameCommandsFactory.DISPLAY_OPTIONS);
+                    commandList.add(gameCommandsFactory.DISPLAY_LOAD_FORM);
+                    commandList.add(GameInputMappingCanvas.DISPLAY);
+                }
+            }catch(Exception e)
+            {
+                
+            }
+            
+            commandList.add(gameCommandsFactory.DISPLAY_ABOUT);
+            
+            final Command[] commandArray = (Command[])
+                    commandList.toArray(new Command[commandList.size()]);
 
             return commandArray;
         }
@@ -294,21 +323,6 @@ public class DemoCanvas extends RunnableCanvas
     {
         ForcedLogUtil.log(NotImplemented.NAME, this);
     }
-
-    public void setFullScreenMode(boolean mode)
-    {
-        //PreLogUtil.put("Old H: " + this.getHeight() + " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
-
-        super.setFullScreenMode(mode);
-
-        //PreLogUtil.put("New H: " + this.getHeight() + " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
-
-        DisplayInfoSingleton displayInfo =
-            DisplayInfoSingleton.getInstance();
-
-        displayInfo.setLastHeight(this.getHeight());
-        displayInfo.setLastWidth(this.getWidth());
-    }
     
     protected void initMenu()
         throws Exception
@@ -346,7 +360,7 @@ public class DemoCanvas extends RunnableCanvas
         {
             this.setMenuInputProcessor(
                     new CommandFormInputProcessor(
-                    new BasicArrayList(), this, this.getMenuForm()));
+                    new BasicArrayList(), -1, this, this.getMenuForm()));
         }
 
         this.open();
@@ -373,11 +387,26 @@ public class DemoCanvas extends RunnableCanvas
 
     public void keyPressed(int keyCode)
     {
+        this.keyPressed(keyCode, 0);
+    }
+    
+    public void keyReleased(int keyCode)
+    {
+        this.keyReleased(keyCode, 0);
+    }
+
+    public void keyRepeated(int keyCode)
+    {
+        this.keyRepeated(keyCode, 0);
+    }
+    
+    public void keyPressed(int keyCode, int deviceId)
+    {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyPressed"));
         this.addGameKeyEvent(keyCode, false);
     }
 
-    public void keyReleased(int keyCode)
+    public void keyReleased(int keyCode, int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
         this.removeGameKeyEvent(keyCode, false);
@@ -385,7 +414,7 @@ public class DemoCanvas extends RunnableCanvas
     private boolean isSingleKeyRepeatableProcessing =
         Features.getInstance().isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
 
-    public void keyRepeated(int keyCode)
+    public void keyRepeated(int keyCode, int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance("Key Repeated: " +
         // Integer.toHexString(keyCode),
@@ -493,6 +522,18 @@ public class DemoCanvas extends RunnableCanvas
         this.gameCanvas.unPause();
     }
 
+    public boolean isPausable()
+    {
+        //TWB - Game is paused but UsedRunnable was set after the old runnable was called
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == GameRunnable.getInstance()) {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    
     public boolean isGameOver()
     {
         LogUtil.put(LogFactory.getInstance(NotImplemented.NAME + " since not a game", this, "isGameOver"));

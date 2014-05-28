@@ -18,7 +18,7 @@ import javax.microedition.lcdui.Image;
 import allbinary.animation.Animation;
 import allbinary.animation.AnimationInterfaceFactoryInterface;
 import allbinary.game.configuration.GameConfigurationCentral;
-import allbinary.image.ImageCopyUtil;
+import org.allbinary.media.image.ImageCopyUtil;
 import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
 

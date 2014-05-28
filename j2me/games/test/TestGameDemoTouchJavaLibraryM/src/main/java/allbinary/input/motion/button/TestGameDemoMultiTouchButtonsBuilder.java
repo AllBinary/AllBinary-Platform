@@ -47,8 +47,7 @@ extends BaseTouchInput
             BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
             
             TouchButton UP = new TouchButton(basicTouchInputFactory.UP,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonUpResource.RESOURCE).getInstance(),
+                    TouchButtonUpResource.getInstance(),
                     commonButtons.NORMAL_BUTTON, 
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -56,8 +55,7 @@ extends BaseTouchInput
                     );
 
             TouchButton DOWN = new TouchButton(basicTouchInputFactory.DOWN,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonDownResource.RESOURCE).getInstance(),
+                    TouchButtonDownResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -65,8 +63,7 @@ extends BaseTouchInput
                     );
             
             TouchButton LEFT = new TouchButton(basicTouchInputFactory.LEFT,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonTurnLeftResource.RESOURCE).getInstance(),
+                    TouchButtonTurnLeftResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -74,8 +71,7 @@ extends BaseTouchInput
                     );
 
             TouchButton RIGHT = new TouchButton(basicTouchInputFactory.RIGHT,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonTurnRightResource.RESOURCE).getInstance(),
+                    TouchButtonTurnRightResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -83,8 +79,7 @@ extends BaseTouchInput
                     );
 
             TouchButton LEFT_STRAFE = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_FOUR,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonStrafeLeftResource.RESOURCE).getInstance(),
+                    TouchButtonStrafeLeftResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -92,8 +87,7 @@ extends BaseTouchInput
                     );
 
             TouchButton RIGHT_STRAFE = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_THREE,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonStrafeRightResource.RESOURCE).getInstance(),
+                    TouchButtonStrafeRightResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -111,8 +105,7 @@ extends BaseTouchInput
                 CellPositionFactory.getInstance().NONE)
             {
                 TouchButton WEAPON = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_TWO,
-                        featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                                TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                        TouchButtonGenericActionResource.getInstance(),
                         commonButtons.NORMAL_BUTTON,
                         basicTouchButtonCellPositionFactory.THIRD_FROM_BOTTOM_RIGHT,
                         touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -125,8 +118,7 @@ extends BaseTouchInput
 
             TouchButton ZOOM_IN = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_ONE,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    TouchButtonGenericActionResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -135,8 +127,7 @@ extends BaseTouchInput
 
             TouchButton ZOOM_OUT = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_FIVE,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    TouchButtonGenericActionResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -145,8 +136,7 @@ extends BaseTouchInput
 
             TouchButton SPECIAL3 = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_SIX,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    TouchButtonGenericActionResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -155,8 +145,7 @@ extends BaseTouchInput
 
             TouchButton SPECIAL4 = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_SEVEN_TESTING_ONLY,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    TouchButtonGenericActionResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_SECOND_FROM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 

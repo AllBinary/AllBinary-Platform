@@ -28,17 +28,17 @@ public class AllMotionRecognizer
         this.id = index++;
     }
     
-    public void processStartMotionEvent(int x, int y, int modifiers)
+    public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
     }
 
-    public void processEndMotionEvent(int x, int y, int modifiers)
+    public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
     }
 
-    public void processDraggedMotionEvent(int x, int y, int modifiers)
+    public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
     }

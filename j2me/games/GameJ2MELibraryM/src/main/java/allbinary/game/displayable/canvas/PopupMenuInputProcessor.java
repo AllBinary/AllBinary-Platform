@@ -40,10 +40,11 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 
     public PopupMenuInputProcessor(
         BasicArrayList gameKeyEventList,
+        int playerInputId, 
         MyCanvas gameCanvas,
         Rectangle rectangle)
     {
-        super(gameKeyEventList, gameCanvas);
+        super(gameKeyEventList, playerInputId, gameCanvas);
 
         this.rectangle = rectangle;
     }
@@ -57,7 +58,8 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + "Canvas." + CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
 
-        if (key == Canvas.KEY_NUM5)
+        //4,8,KEY_STAR
+        if (key == Canvas.KEY_STAR)
         {
             //LogUtil.put(LogFactory.getInstance("Key: " + key, this, GameInputStrings.getInstance()));
             //PreLogUtil.put("Key: " + key, this, GameInputStrings.getInstance());

@@ -39,13 +39,10 @@ extends BaseTouchInput
 
             BasicTouchButtonCellPositionFactory basicTouchButtonCellPositionFactory =
                 new BasicTouchButtonCellPositionFactory();
-
-            FeaturedAnimationInterfaceFactoryInterfaceFactory
-            featuredAnimationInterfaceFactoryInterfaceFactory =
-                FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance();
             
             Animation animationInterface = 
                 NullAnimationFactory.getFactoryInstance().getInstance();
+            Animation hintAnimationInterface = animationInterface;
             
             CommonButtons commonButtons = CommonButtons.getInstance();
             
@@ -53,6 +50,7 @@ extends BaseTouchInput
             
             TouchButton UP = new TouchButton(basicTouchInputFactory.UP,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON, 
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -61,6 +59,7 @@ extends BaseTouchInput
 
             TouchButton DOWN = new TouchButton(basicTouchInputFactory.DOWN,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -69,6 +68,7 @@ extends BaseTouchInput
             
             TouchButton LEFT = new TouchButton(basicTouchInputFactory.LEFT,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -77,6 +77,7 @@ extends BaseTouchInput
 
             TouchButton RIGHT = new TouchButton(basicTouchInputFactory.RIGHT,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -85,6 +86,7 @@ extends BaseTouchInput
 
             TouchButton LEFT_STRAFE = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_FOUR,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_SECOND_FROM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -93,6 +95,7 @@ extends BaseTouchInput
 
             TouchButton RIGHT_STRAFE = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_THREE,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -110,7 +113,7 @@ extends BaseTouchInput
                 CellPositionFactory.getInstance().NONE)
             {
                 TouchButton WEAPON = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_TWO,
-                        featuredAnimationInterfaceFactoryInterfaceFactory.get(TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                        TouchButtonGenericActionResource.getInstance(),
                         commonButtons.NORMAL_BUTTON,
                         basicTouchButtonCellPositionFactory.THIRD_FROM_BOTTOM_RIGHT,
                         touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -122,6 +125,7 @@ extends BaseTouchInput
             
             TouchButton ZOOM_IN = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_ONE,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -130,6 +134,7 @@ extends BaseTouchInput
 
             TouchButton ZOOM_OUT = new TouchButton(basicTouchInputFactory.SPECIAL_BUTTON_FIVE,
                     animationInterface,
+                    hintAnimationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -138,8 +143,7 @@ extends BaseTouchInput
 
             TouchButton SPECIAL3 = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_SIX,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    TouchButtonGenericActionResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -148,8 +152,7 @@ extends BaseTouchInput
 
             TouchButton SPECIAL4 = new TouchButton(
                     basicTouchInputFactory.SPECIAL_BUTTON_SEVEN_TESTING_ONLY,
-                    featuredAnimationInterfaceFactoryInterfaceFactory.get(
-                            TouchButtonGenericActionResource.RESOURCE).getInstance(),
+                    TouchButtonGenericActionResource.getInstance(),
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.TOP_SECOND_FROM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 

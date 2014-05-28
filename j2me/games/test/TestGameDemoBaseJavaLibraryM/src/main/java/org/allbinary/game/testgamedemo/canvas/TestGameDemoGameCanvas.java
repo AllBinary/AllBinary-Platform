@@ -280,7 +280,7 @@ public class TestGameDemoGameCanvas extends AllBinaryGameCanvas
             return;
         }
 
-        gameLayerManager.append(new PlayerGameInputGameLayer());
+        gameLayerManager.append(new PlayerGameInputGameLayer(0));
 
         progressCanvas.addPortion(portion, "Ending Custom Build");
 

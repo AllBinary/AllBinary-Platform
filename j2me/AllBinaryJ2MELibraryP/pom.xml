@@ -64,13 +64,15 @@
         <module>../statistics/ApplicationStatisticsJ2MELibraryM</module>
         <module>../statistics/ApplicationStatisticsJavaLibraryM</module>
 
+        <module>../../allbinary_src/hardware/HardwareLibraryPOM</module>
+        
         <module>../AllBinaryJ2MELibraryM</module>
         
         <module>../lib/TrigBaseLibraryM</module>        
         <module>../input/me/TouchJ2MENoneJavaLibraryM</module>
         
         <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
-
+                
         <module>../AllBinaryOptionalLibraryPOM</module>
     </modules>
 

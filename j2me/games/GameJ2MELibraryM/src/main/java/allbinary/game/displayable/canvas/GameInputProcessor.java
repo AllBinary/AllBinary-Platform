@@ -45,7 +45,8 @@ extends InputProcessor
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
-    public void keyPressed(int keyCode)
+    //TWB - This is raw input from Canvas that does not include TouchButton Input
+    public void keyPressed(int keyCode, int deviceId)
     {
         try
         {
@@ -70,6 +71,7 @@ extends InputProcessor
                  */
 
                 downGameKeyEventHandler.fireEvent(gameKeyEvent);
+                downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
                 // DownGameKeyEventHandler.getInstance().fireEvent(gameKey);
 
             }

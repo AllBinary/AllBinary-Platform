@@ -117,6 +117,5 @@ extends PersistentInputMapping
 
         inputToGameKeyMapping.add(gameKeyFactory.LEVEL_DOWN, pcKeyFactory.COMMA);
         inputToGameKeyMapping.add(gameKeyFactory.LEVEL_UP, pcKeyFactory.PERIOD);
-        
     }
 }

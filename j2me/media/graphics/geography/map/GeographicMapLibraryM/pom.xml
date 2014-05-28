@@ -24,8 +24,7 @@
     </distributionManagement>
 
     <properties>
-        <buildLabel>${version}</buildLabel>
-        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+        <buildLabel>${project.version}</buildLabel>
     </properties>
 
     <dependencies>

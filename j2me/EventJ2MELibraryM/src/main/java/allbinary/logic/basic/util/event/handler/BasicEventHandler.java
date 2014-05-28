@@ -13,7 +13,8 @@
 */
 package allbinary.logic.basic.util.event.handler;
 
-import abcs.logic.communication.log.Log;
+import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.EventListenerInterface;
@@ -30,32 +31,6 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     public BasicEventHandler()
     {
         this.eventListenerInterfaceList = new BasicArrayList();
-    }
-
-    public String toString()
-    {
-        StringBuffer stringBuffer = new StringBuffer();
-
-        stringBuffer.append("Total Listeners: ");
-        stringBuffer.append(this.eventListenerInterfaceList.size());
-
-        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
-        {
-            try
-            {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
-                    this.eventListenerInterfaceList.get(index);
-
-                stringBuffer.append(" Listener: ");
-                stringBuffer.append(eventListenerInterface);
-
-            }
-            catch (Exception e)
-            {
-                LogUtil.put(new Log("Exception", this, "toString", e));
-            }
-        }
-        return stringBuffer.toString();
     }
 
     public synchronized void removeAllListeners()
@@ -95,7 +70,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * while(this.reentrantLock.getHoldCount() > 1) {
          * this.condition.await(); }
          */
-        // LogUtil.put(new Log("Start: Locks Held: " +
+        // LogUtil.put(LogFactory.getInstance("Start: Locks Held: " +
         // reentrantLock.getHoldCount() + " Held By Current Thread: " +
         // reentrantLock.isHeldByCurrentThread(), this, "addListener"));
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
@@ -157,7 +132,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
          * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * "fireEvent")); //LogUtil.put(new Log("Start", this, "fireEvent"));
+         * "fireEvent")); //LogUtil.put(LogFactory.getInstance("Start", this, "fireEvent"));
          *
          * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
@@ -183,7 +158,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(new Log("Exception", this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
             }
         }
 
@@ -203,4 +178,32 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     {
         return eventListenerInterfaceList;
     }
+    
+    private static final String TOTAL_LISTENERS = "Total Listeners: ";
+    private static final String LISTENER_LABEL = " Listener: ";
+    
+    public String toString()
+    {
+        final StringBuffer stringBuffer = new StringBuffer();
+
+        stringBuffer.append(TOTAL_LISTENERS);
+        stringBuffer.append(this.eventListenerInterfaceList.size());
+
+        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        {
+            try
+            {
+                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
+                    this.eventListenerInterfaceList.get(index);
+
+                stringBuffer.append(LISTENER_LABEL);
+                stringBuffer.append(eventListenerInterface);
+            }
+            catch (Exception e)
+            {
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toString", e));
+            }
+        }
+        return stringBuffer.toString();
+    }    
 }

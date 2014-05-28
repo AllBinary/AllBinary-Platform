@@ -60,6 +60,8 @@
 
         <module>../../graphics/animation/image/ImageHTMLJavaLibraryM</module>
         <module>../../graphics/animation/image/ImageJ2MEJavaLibraryM</module>
+        
+        <module>../../graphics/layer/AllBinaryTiledLayerJavaLibraryM</module>
 
     </modules>
 

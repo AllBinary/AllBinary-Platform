@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.allbinary.game.zeptoracer</groupId>
+    <groupId>org.allbinary.game</groupId>
     <artifactId>RaceTrackP</artifactId>
     <packaging>pom</packaging>
     <!-- AllBinary Platform Version Start -->
@@ -35,6 +35,7 @@
 <!--
 ../../
 -->
+
         <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryM</module>
 
         <module>../../GeographicPathFindingLibraryM</module>
@@ -42,13 +43,17 @@
 <!--
 ../../
 -->
+
         <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostPerformantJavaLibraryM</module>
+        
+        <module>../../../../../../physics/FrictionJavaLibraryM</module>
 
         <module>../RaceTrackGeographicMapLibraryM</module>
 
         <module>../StaticPathFindingRaceTrackJavaLibraryM</module>
+        <!--
+        -->
         <module>../DynamicPathFindingRaceTrackJavaLibraryM</module>
-
     </modules>
 
     <dependencies>

@@ -29,5 +29,6 @@ public class AndroidStrings
     public final String RESUME = "onResume";
     public final String PAUSE = "onPause";
     public final String STOP = "onStop";
+    public final String ON_SAVE_INSTANCE_STATE = "onSaveInstanceState";
     
 }

@@ -14,7 +14,6 @@
 package org.allbinary.android.input.api3;
 
 
-import org.allbinary.android.activity.ViewCompositeInterface;
 import org.allbinary.android.input.VirtualKeyboard;
 
 import abcs.logic.communication.log.ForcedLogUtil;
@@ -24,18 +23,19 @@ import allbinary.input.event.VirtualKeyboardEventListenerInterface;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
 import allbinary.logic.basic.util.event.handler.BasicEventHandler;
 import android.app.Activity;
-import android.content.Context;
-import android.os.IBinder;
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 
 public class VirtualKeyboardAPI3 extends VirtualKeyboard
 implements VirtualKeyboardEventListenerInterface
 {
     public static int MAX_API = Integer.MAX_VALUE;
     public static int MIN_API = 3;
-    
+
+    private boolean virtualKeyboard;
+        
     private Activity activity;
+    
+    private final Runnable showVirtualKeyboardRunnable;
+    private final Runnable hideVirtualKeyboardRunnable;
     
     public VirtualKeyboardAPI3(Activity activity)
     {
@@ -43,8 +43,14 @@ implements VirtualKeyboardEventListenerInterface
         
         this.activity = activity;
 
-        VirtualKeyboardEventHandler.getInstance().removeAllListeners();
-        VirtualKeyboardEventHandler.getInstance().addListener(this);
+        this.showVirtualKeyboardRunnable = new ShowVirtualKeyboardRunnable(this.activity);
+        this.hideVirtualKeyboardRunnable = new HideVirtualKeyboardRunnable(this.activity);
+        
+        VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
+                VirtualKeyboardEventHandler.getInstance();
+        
+        virtualKeyboardEventHandler.removeAllListeners();
+        virtualKeyboardEventHandler.addListener(this);
     }
     
     public void onEvent(AllBinaryEventObject eventObject)
@@ -54,28 +60,18 @@ implements VirtualKeyboardEventListenerInterface
 
     public void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent)
     {
-        InputMethodManager inputMethodManager = (InputMethodManager) 
-        this.activity.getSystemService(Context.INPUT_METHOD_SERVICE); 
-     
         Boolean isShow = (Boolean) virtualKeyboardEvent.getSource();
-        
-        if(isShow.booleanValue())
-        {
-            this.showVirtualKeyboard(inputMethodManager);
-        }
-        else
-        {
-            this.hideVirtualKeyboard(inputMethodManager);
-        }    
-    }
 
+        if (isShow.booleanValue()) {
+            this.showVirtualKeyboard();
+        } else {
+            this.hideVirtualKeyboard();
+        }         
+    }
+    
     public void forceHide()
     {
-        InputMethodManager inputMethodManager = 
-            (InputMethodManager) this.activity
-                .getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        this.hideVirtualKeyboard(inputMethodManager);
+        this.hideVirtualKeyboard();
     }
     
     public void hide()
@@ -86,75 +82,16 @@ implements VirtualKeyboardEventListenerInterface
         }
     }
 
-    private boolean virtualKeyboard;
-    private void showVirtualKeyboard(
-            InputMethodManager inputMethodManager)
+    private void showVirtualKeyboard()
     {
-        //this.activity.getWindow().setSoftInputMode(
-          //      WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-        
-        //inputMethodManager.showSoftInput(
-          //      this.getView(), InputMethodManager.SHOW_FORCED); 
-
-        //inputMethodManager.showSoftInputFromInputMethod (
-          //      this.getView().getWindowToken(), 
-            //    InputMethodManager.SHOW_FORCED);
-
-        ViewCompositeInterface viewCompositeInterface = 
-                (ViewCompositeInterface) this.activity;
-        
-        if(viewCompositeInterface == null)
-        {
-            ForcedLogUtil.log("Activity Null", this);
-        }
-
-        View view = viewCompositeInterface.getView();
-
-        inputMethodManager.toggleSoftInputFromWindow(
-                view.getWindowToken(), 
-                InputMethodManager.SHOW_FORCED, 0);
-        
+        this.activity.runOnUiThread(showVirtualKeyboardRunnable);
         virtualKeyboard = true;
     }
 
-    private void hideVirtualKeyboard(
-            InputMethodManager inputMethodManager)
+    private void hideVirtualKeyboard()
     {   
-        ViewCompositeInterface viewCompositeInterface = 
-                (ViewCompositeInterface) this.activity;
-        
-        if(viewCompositeInterface == null)
-        {
-            ForcedLogUtil.log("Activity Null", this);
-        }
-        
-        IBinder token = 
-                viewCompositeInterface.getView().getWindowToken();
-        
-        //this.activity.getWindow().setSoftInputMode(
-          //      WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        
-        //inputMethodManager.hideStatusIcon(token);
-        
-        //inputMethodManager.toggleSoftInput(
-          //      0, InputMethodManager.HIDE_NOT_ALWAYS);
-        
-        //inputMethodManager.hideSoftInputFromInputMethod(
-          //      token, InputMethodManager.HIDE_NOT_ALWAYS);
-        
-        //inputMethodManager.toggleSoftInputFromWindow(
-          //      token, 
-            //    0, InputMethodManager.HIDE_NOT_ALWAYS);
-
-        //inputMethodManager.hideSoftInputFromWindow(
-        //      token, 
-          //    InputMethodManager.HIDE_NOT_ALWAYS);
-        
-        //InputMethodManager.HIDE_NOT_ALWAYS does not hide when SHOW_FORCED is used
-        
-        inputMethodManager.hideSoftInputFromWindow(token, 0);
-        
+        this.activity.runOnUiThread(hideVirtualKeyboardRunnable);
         virtualKeyboard = false;
     }
-    
+   
 }

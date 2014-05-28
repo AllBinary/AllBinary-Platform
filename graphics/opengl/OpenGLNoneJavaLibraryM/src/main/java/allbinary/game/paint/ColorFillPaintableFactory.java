@@ -13,12 +13,24 @@
 */
 package allbinary.game.paint;
 
+import abcs.logic.system.os.OperatingSystemFactory;
+import abcs.logic.system.os.OperatingSystemInterface;
 import allbinary.graphics.color.BasicColor;
 
 public class ColorFillPaintableFactory
 {
     public static ColorFillPaintable getInstance(BasicColor basicColor)
     {
-        return new ColorFillPaintable(basicColor);
+        OperatingSystemInterface operatingSystem = 
+                OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+        
+        if(operatingSystem.isOverScan())
+        {
+            return new OverScanColorFillPaintable(basicColor);
+        }
+        else
+        {
+            return new ColorFillPaintable(basicColor);
+        }
     }
 }

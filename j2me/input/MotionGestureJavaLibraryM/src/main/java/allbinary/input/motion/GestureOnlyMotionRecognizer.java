@@ -38,7 +38,7 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
         this.motionGestureRecognizer = new MotionGestureRecognizer(id);
     }
     
-    public void processStartMotionEvent(int x, int y, int modifiers)
+    public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
             CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
@@ -46,11 +46,11 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-            this.getMotionGestureRecognizer().processPressedMotionEvent(
-                    point, modifiers);
+            this.motionGestureRecognizer.processPressedMotionEvent(
+                    point, deviceId, modifiers);
     }
 
-    public void processEndMotionEvent(int x, int y, int modifiers)
+    public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
         CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
@@ -58,11 +58,11 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
         point.setX(x);
         point.setY(y);
         
-        this.getMotionGestureRecognizer().processReleasedMotionEvent(
-                point, modifiers);
+        this.motionGestureRecognizer.processReleasedMotionEvent(
+                point, deviceId, modifiers);
     }
 
-    public void processDraggedMotionEvent(int x, int y, int modifiers)
+    public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
         CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
@@ -70,12 +70,8 @@ public class GestureOnlyMotionRecognizer extends MotionRecognizer
         point.setX(x);
         point.setY(y);
 
-        this.getMotionGestureRecognizer()
-                .processDraggedMotionEvent(point, modifiers);
+        this.motionGestureRecognizer
+                .processDraggedMotionEvent(point, deviceId, modifiers);
     }
 
-    private final MotionGestureRecognizer getMotionGestureRecognizer()
-    {
-        return motionGestureRecognizer;
-    }
 }

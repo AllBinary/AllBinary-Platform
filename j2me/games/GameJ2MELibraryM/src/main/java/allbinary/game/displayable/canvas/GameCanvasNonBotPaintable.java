@@ -28,10 +28,7 @@ public class GameCanvasNonBotPaintable extends Paintable
     
     public void paint(Graphics graphics)
     {
-        this.gameCanvas.getEndGamePaintable().paint(graphics);
-        this.gameCanvas.getIntermissionPaintable().paint(graphics);
-        this.gameCanvas.paintIntermission(graphics);
-        this.gameCanvas.getTouchPaintable().paint(graphics);
+        this.gameCanvas.nonBotPaint(graphics);
     }
     
 }

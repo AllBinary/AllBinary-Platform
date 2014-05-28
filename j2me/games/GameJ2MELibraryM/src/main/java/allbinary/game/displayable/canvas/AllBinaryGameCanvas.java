@@ -13,35 +13,15 @@
 */
 package allbinary.game.displayable.canvas;
 
-import java.util.Hashtable;
-
-import javax.microedition.lcdui.ChoiceGroup;
-import javax.microedition.lcdui.CommandListener;
-import javax.microedition.lcdui.Graphics;
-import javax.microedition.lcdui.Item;
-
-import org.allbinary.android.input.motion.event.AnalogControllerConfigurationEventHandler;
-import org.allbinary.business.advertisement.GameAdStateFactory;
-import org.allbinary.game.GameAdState;
-import org.allbinary.game.resource.ResourceLoadingLevel;
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-import org.allbinary.graphics.form.item.CustomItem;
-import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
-import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
-import org.allbinary.graphics.opengles.OpenGLThreadUtil;
-import org.allbinary.input.gyro.SensorGameUpdateProcessor;
-import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
-import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.CircularIndexUtil;
-
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
+import abcs.logic.system.os.OperatingSystemFactory;
 import allbinary.canvas.AllGameStatisticsFactory;
 import allbinary.canvas.BaseGameStatistics;
 import allbinary.canvas.GameStatisticsFactory;
@@ -84,7 +64,7 @@ import allbinary.game.input.event.GameKeyEventHandler;
 import allbinary.game.input.event.UpGameKeyEventHandler;
 import allbinary.game.input.mapping.InputToGameKeyMapping;
 import allbinary.game.layer.AllBinaryGameLayerManager;
-import allbinary.game.paint.ColorFillPaintable;
+import allbinary.game.paint.ColorFillBasePaintable;
 import allbinary.game.paint.ColorFillPaintableFactory;
 import allbinary.game.score.HighScore;
 import allbinary.game.score.HighScores;
@@ -128,10 +108,28 @@ import allbinary.media.audio.PlayerQueue;
 import allbinary.media.audio.PrimaryPlayerQueueFactory;
 import allbinary.media.audio.SecondaryPlayerQueueFactory;
 import allbinary.media.audio.SelectSound;
-import allbinary.thread.ThreadObjectUtil;
 import allbinary.thread.SecondaryThreadPool;
+import allbinary.thread.ThreadObjectUtil;
 import allbinary.time.GameTickTimeDelayHelperFactory;
 import allbinary.time.TimeDelayHelper;
+import java.util.Hashtable;
+import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Item;
+import org.allbinary.business.advertisement.GameAdStateFactory;
+import org.allbinary.game.GameAdState;
+import org.allbinary.game.resource.ResourceLoadingLevel;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
+import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+import org.allbinary.graphics.opengles.OpenGLThreadUtil;
+import org.allbinary.input.gyro.SensorGameUpdateProcessor;
+import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
+import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.CircularIndexUtil;
 
 public class AllBinaryGameCanvas 
 extends RunnableCanvas 
@@ -163,7 +161,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final TimeDelayHelper gameStateTimeHelper = new TimeDelayHelper(0);
 
     // high score vars
-    private HighScoreTextBox textBox;
     private boolean highScoreSubmitted;
     private final CircularIndexUtil circularIndexUtil = CircularIndexUtil.getInstance(0, 0);
     private HighScores selectedHighScores;
@@ -171,7 +168,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final HighScoresPaintable realHighScoresPaintable = new HighScoresPaintable();
     private Paintable highScoresPaintable = NullPaintable.getInstance();
     // TODO TWB hack around key event handling performance
-    private PlayerGameInput playerGameInput = NoPlayerGameInput.getInstance();
+    private BasicArrayList localPlayerGameInputList = new BasicArrayList();
+            //NoPlayerGameInput.getInstance();
     private boolean isCheating;
     private Hashtable hashtable;
     private boolean isSingleKeyRepeatableProcessing;
@@ -210,7 +208,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     private BaseTouchInput currentTouchInputFactory;
 
-    protected ColorFillPaintable colorFillPaintable = 
+    protected ColorFillBasePaintable colorFillPaintable = 
         ColorFillPaintableFactory.getInstance(
                 BasicColorFactory.getInstance().BLACK);
 
@@ -228,6 +226,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected final GameTypeFactory gameTypeFactory = GameTypeFactory.getInstance();
     
     protected final ScreenCapture screenCapture = ScreenCaptureFactory.getInstance();
+
+    private final BasicMotionGesturesHandler basicMotionGesturesHandler = 
+            BasicMotionGesturesHandler.getInstance();
+    private final GameKeyEventHandler gameKeyEventHandler = GameKeyEventHandler.getInstance();
+    private final UpGameKeyEventHandler upGameKeyEventHandler= UpGameKeyEventHandler.getInstance();
     
     public AllBinaryGameCanvas(
             CommandListener commandListener,
@@ -317,7 +320,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, "onDisplayChangeEvent");
 
                 // TouchButtonFactory.getInstance().toggle(this.isPaused(),
-                TouchButtonFactory.getInstance().setList(this.currentTouchInputFactory.getList());
+                if(this.currentTouchInputFactory != null)
+                {
+                    TouchButtonFactory.getInstance().setList(this.currentTouchInputFactory.getList());
+                }
 
                 // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, "onDisplayChangeEvent");
             }
@@ -349,7 +355,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             }
         }
 
-        if (this.getMenuInputProcessor().processInput() != -1)
+        if (this.menuInputProcessor.processInput() != -1)
         {
             // LogUtil.put(LogFactory.getInstance("Menu Processing While Sleeping",
             // this, "processSleep"));
@@ -372,7 +378,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     this.gameLayerManager.getForegroundBasicColor()));
 
             this.setPopupMenuInputProcessor(new PopupMenuInputProcessor(
-                    new BasicArrayList(), this, popupMenuRectangle));
+                    new BasicArrayList(), -1, this, popupMenuRectangle));
         }
     }
     
@@ -418,7 +424,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED))
                 {
                     this.mainMenuInputProcessor = new PopupCommandFormInputProcessor(
-                            new BasicArrayList(), this, scrollSelectionForm,
+                            new BasicArrayList(), -1, this, scrollSelectionForm,
                             (PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
                 }
 
@@ -542,6 +548,18 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
+    public boolean isPausable()
+    {
+        //TWB - Game is paused but UsedRunnable was set after the old runnable was called
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == GameRunnable.getInstance()) {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+    
     public void popupMenu() throws Exception
     {
         if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
@@ -550,10 +568,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             this.setMenuPaintable(this.getFormPaintable());
             this.setMenuInputProcessor(this.mainMenuInputProcessor);
-            BasicMotionGesturesHandler.getInstance().addListener(
+            
+            this.basicMotionGesturesHandler.addListener(
                     this.mainMenuInputProcessor);
-
-            GameKeyEventHandler.getInstance().addListener(
+            this.gameKeyEventHandler.addListener(
             		this.mainMenuInputProcessor);
         }
     }
@@ -583,11 +601,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             this.setMenuPaintable(this.getOpenMenuPaintable());
 
-            BasicMotionGesturesHandler.getInstance().removeListener(
+            this.basicMotionGesturesHandler.removeListener(
                     this.mainMenuInputProcessor);
-        
-            GameKeyEventHandler.getInstance().removeListener(
-            		this.mainMenuInputProcessor);
+            this.gameKeyEventHandler.removeListener(this.mainMenuInputProcessor);
 
             this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
         }
@@ -595,20 +611,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void open()
     {
-        BasicMotionGesturesHandler.getInstance().addListener(
-                this.getMenuInputProcessor());
-
-        GameKeyEventHandler.getInstance().addListener(
-        		this.getMenuInputProcessor());
+        this.basicMotionGesturesHandler.addListener(this.menuInputProcessor);
+        this.gameKeyEventHandler.addListener(this.menuInputProcessor);
     }
 
     public void close()
     {
-        BasicMotionGesturesHandler.getInstance().removeListener(
-                this.getMenuInputProcessor());
-
-        GameKeyEventHandler.getInstance().removeListener(
-        		this.getMenuInputProcessor());
+        this.basicMotionGesturesHandler.removeListener(this.menuInputProcessor);
+        this.gameKeyEventHandler.removeListener(this.menuInputProcessor);
 
         primaryPlayerQueue.clear();
         secondaryPlayerQueue.clear();
@@ -667,7 +677,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.isCheating = true;
             this.cheatProcessor = new CheatGameInputProcessor(this);
 
-            GameKeyEventHandler.getInstance().addListener(this.cheatProcessor);
+            this.gameKeyEventHandler.addListener(this.cheatProcessor);
 
         }
         else
@@ -855,7 +865,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         Features features = Features.getInstance();
 
-        if(!features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+        boolean isOverScan = 
+                OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan();
+        
+        if(!features.isDefault(HTMLFeatureFactory.getInstance().HTML) && !isOverScan)
         {
             if (TouchScreenFactory.getInstance().isTouch() && new InGameFeatures().isAny())
             {
@@ -985,6 +998,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
          * if (gameOver) { this.setEndGamePaintable(endGameStatePaintable); }
          * else { this.setEndGamePaintable(NullPaintable.getInstance()); }
          */
+        
+        //this.cleanupGame();
+        //this.closeMenu();
+        //this.close();
     }
 
     /*
@@ -1056,10 +1073,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             // System.out.println("Clearing Keys From Last Level");
             LogUtil.put(LogFactory.getInstance("Remove PlayerInput Listeners", this, "removeAllGameKeyInputListeners"));
 
-            if (this.playerGameInput != null)
+            for(int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--)
             {
-                GameKeyEventHandler.getInstance().removeListener(this.playerGameInput);
-                this.playerGameInput.removeNonAIInputGameKeyEvents();
+                PlayerGameInput playerGameInput = (PlayerGameInput) 
+                        this.localPlayerGameInputList.get(index);
+                this.gameKeyEventHandler.removeListener(playerGameInput);
+                playerGameInput.removeNonAIInputGameKeyEvents();
             }
         }
     }
@@ -1214,13 +1233,18 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             //LogUtil.put(LogFactory.getInstance("Clearing Keys From Last Level", this, BUILD_GAME));
 
-            PreLogUtil.put("Enabling PlayerGameInput: " + this.playerGameInput, this, BUILD_GAME);
+            PreLogUtil.put("Enabling PlayerGameInputs: " + this.localPlayerGameInputList.size(), this, BUILD_GAME);
             
-            if (this.playerGameInput != null)
+            for(int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--)
             {
-                this.playerGameInput.removeNonAIInputGameKeyEvents();
+                PlayerGameInput playerGameInput = (PlayerGameInput) 
+                        this.localPlayerGameInputList.get(index);
+                
+                PreLogUtil.put("Enabling PlayerGameInput: " + playerGameInput.toString(), this, BUILD_GAME);
+                
+                playerGameInput.removeNonAIInputGameKeyEvents();
                 GameKeyEventHandler.getInstance().addListener(
-                        this.playerGameInput);
+                        playerGameInput, playerGameInput.getPlayerInputId());
 
                 // ForcedLogUtil.log("DownGameKeyEventHandler: " +
                 // DownGameKeyEventHandler.getInstance().getEventListenerInterfaceList(),
@@ -1322,6 +1346,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
     }
 
+    public void nonBotPaint(Graphics graphics)
+    {
+        this.endGamePaintable.paint(graphics);
+        this.intermissionPaintable.paint(graphics);
+        this.paintIntermission(graphics);
+        this.touchPaintable.paint(graphics);
+    }
+    
     // TWB - This hack method should be removed once I figure out how it should
     // be removed
     public void paintIntermission(Graphics graphics)
@@ -1338,6 +1370,21 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void keyPressed(int keyCode)
     {
+        this.keyPressed(keyCode, 0);
+    }
+    
+    public void keyReleased(int keyCode)
+    {
+        this.keyReleased(keyCode, 0);
+    }
+
+    public void keyRepeated(int keyCode)
+    {
+        this.keyRepeated(keyCode, 0);
+    }
+
+    public void keyPressed(int keyCode, int deviceId)
+    {
         // LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL
         // + this.inputProcessor.toString() + commonStrings.SPACE
         // + keyCode, this, "keyPressed"));
@@ -1346,17 +1393,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         // keyCode, this);
 
         // this.addGameKeyEvent(keyCode, false);
-        this.inputProcessor.keyPressed(keyCode);
+        this.inputProcessor.keyPressed(keyCode, deviceId);
     }
 
-    public void keyReleased(int keyCode)
-    {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START,
-        // this, "keyReleased"));
-        this.removeGameKeyEvent(keyCode, false);
-    }
-
-    public void keyRepeated(int keyCode)
+    public void keyRepeated(int keyCode, int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance("Key Repeated: " +
         // Integer.toHexString(keyCode),
@@ -1364,10 +1404,17 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         if (this.isSingleKeyRepeatableProcessing)
         {
             // this.addGameKeyEvent(keyCode, true);
-            this.inputProcessor.keyPressed(keyCode);
+            this.inputProcessor.keyPressed(keyCode, deviceId);
         }
     }
 
+    public void keyReleased(int keyCode, int deviceId)
+    {
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START,
+        // this, "keyReleased"));
+        this.removeGameKeyEvent(keyCode, deviceId, false);
+    }
+    
     public final String NO_KEY = "Key Code Not Mapped For Game: ";
     public final String ADD_KEY_EVENT = "addGameKeyEvent";
     private final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
@@ -1380,7 +1427,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
-    private void removeGameKeyEvent(int keyCode, boolean repeated)
+    private void removeGameKeyEvent(int keyCode, int deviceId, boolean repeated)
     {
         try
         {
@@ -1403,7 +1450,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                  */
 
                 // TODO TWB - Remove or improve key input event handling
-                UpGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
+                upGameKeyEventHandler.fireEvent(gameKeyEvent);
+                upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
                 // UpGameKeyEventHandler.getInstance().fireEvent(gameKey);
                 // getPlayerGameInput().onUpGameKeyEvent(gameKeyEvent);
             }
@@ -1665,7 +1713,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         allGameStatisticsFactory.add(baseGameStatistics.toString() + CommonSeps.getInstance().NEW_LINE);
         baseGameStatistics.init();
         
-        GameKeyEventHandler.getInstance().removeListener(this.cheatProcessor);
+        this.gameKeyEventHandler.removeListener(this.cheatProcessor);
         this.close();
         this.removeAllGameKeyInputListeners();
         this.endGameThread();
@@ -1698,30 +1746,68 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      * public boolean isLevelComplete() { return this.isLevelComplete; } public
      * void levelComplete() { this.isLevelComplete = true; }
      */
-    public void setHighScore(String name, long score) throws Exception
+    public void setHighScore(String name, long score, boolean autoSubmit, final boolean isLast) throws Exception
     {
         if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
             HighScore highScore = this.createHighScore(score);
             // TWB - Technically this means that if it is not a best local score
             // then it will not become a remote high score
-            if (this.getHighScoresArray()[0].isBestScore(highScore))
-            {
-                this.textBox = new HighScoreTextBox(
+            //if (this.getHighScoresArray()[0].isBestScore(highScore))
+            //{
+                final HighScoreTextBox textBox = new HighScoreTextBox(
                         this.getCustomCommandListener(), name,
                         this.getHighScoresArray(), highScore, this
                                 .gameLayerManager.getBackgroundBasicColor(),
                         this.gameLayerManager.getForegroundBasicColor());
 
-                this.getCustomCommandListener().commandAction(
+            if (isLast) {
+                    this.getCustomCommandListener().commandAction(
                         GameCommandsFactory.getInstance().SET_MENU_DISPLAYABLE,
-                        this.textBox);
+                        textBox);                
             }
-            else
-            {
+                
+                if(autoSubmit)
+                {
+                    class SaveHighScoreRunnable implements Runnable
+                    {
+                        public void run()
+                        {
+                            try
+                            {
+                                //Let the endgame sound play first
+//                                Thread.sleep(100);
+//
+//                                ProgressCanvas progressCanvas = 
+//                                    ProgressCanvasFactory.getInstance();
+//                                
+//                                progressCanvas.addPortion(6, "Saving High Score");
+
+                                if(isLast)
+                                {
+                                    textBox.submit();
+                                }
+                                else
+                                {
+                                    textBox.saveHighScore();
+                                }
+                            }
+                            catch(Exception e)
+                            {
+                                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "run", e));
+                                ProgressCanvasFactory.getInstance().end();
+                            }                        
+                        }
+                    }
+
+                    SecondaryThreadPool.getInstance().runTask(new SaveHighScoreRunnable());
+                }
+            //}
+            //else
+            //{
                 // if score is not a high score ignore it
-                this.setHighScoreSubmitted(true);
-            }
+                //this.setHighScoreSubmitted(true);
+            //}
         }
     }
 
@@ -1867,16 +1953,23 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return selectedHighScores;
     }
 
-    protected void setPlayerGameInput(PlayerGameInput playerGameInput)
+    protected void clearPlayerGameInputList()
+    {
+        for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--)
+        {
+            PlayerGameInput playerGameInput = (PlayerGameInput) 
+                    this.localPlayerGameInputList.get(index);
+            this.gameKeyEventHandler.removeListener(playerGameInput);
+        }
+        
+        this.localPlayerGameInputList.clear();
+    }
+    
+    protected void addPlayerGameInput(PlayerGameInput playerGameInput)
     {
         //PreLogUtil.put("Setting Player Input: " + playerGameInput, this, "setPlayerGameInput");
-        
-        if (this.playerGameInput != null)
-        {
-            GameKeyEventHandler.getInstance().removeListener(this.playerGameInput);
-        }
 
-        this.playerGameInput = playerGameInput;
+        this.localPlayerGameInputList.add(playerGameInput);
     }
 
     protected void setMenuInputProcessor(

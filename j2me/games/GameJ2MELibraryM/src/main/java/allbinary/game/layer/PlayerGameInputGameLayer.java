@@ -29,14 +29,14 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
 {
     private PlayerGameInput playerGameInput;
    
-    public PlayerGameInputGameLayer()
+    public PlayerGameInputGameLayer(int playerInputId)
         throws Exception
     {
         super(
             new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0),
             new StaticViewPosition(0, 0, 0));
 
-        this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList());
+        this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList(), playerInputId);
         
         LogUtil.put(LogFactory.getInstance("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, "paint"));
     }

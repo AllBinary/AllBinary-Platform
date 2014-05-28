@@ -34,21 +34,25 @@ public class TouchScreenFactory
         return SINGLETON;
     }
 
+    /*
     public void setMultiTouch(boolean multiTouch)
     {
         this.multiTouch = multiTouch;
     }
-
+    */
+    
     public boolean isMultiTouch()
     {
         return multiTouch;
     }
 
+    /*
     public void setTouch(boolean touch)
     {
         this.touch = touch;
     }
-
+    */
+    
     public boolean isTouch()
     {
         return touch;

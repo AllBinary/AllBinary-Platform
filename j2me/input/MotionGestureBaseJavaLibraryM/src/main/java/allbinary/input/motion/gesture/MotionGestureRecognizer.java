@@ -34,6 +34,7 @@ public class MotionGestureRecognizer
 
     private final Line line = new Line(origin, origin);
 
+    //TWB - should be treated like the KeyEventHandlers per player for deviceId
     private BasicMotionGesturesHandler motionGesturesHandler;
 
     //private final int id;
@@ -57,7 +58,7 @@ public class MotionGestureRecognizer
         }
     }
 
-    public boolean processPressedMotionEvent(GPoint current, int button)
+    public boolean processPressedMotionEvent(GPoint current, int deviceId, int button)
             throws Exception
     {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,
@@ -79,7 +80,7 @@ public class MotionGestureRecognizer
         return true;
     }
 
-    public boolean processReleasedMotionEvent(GPoint current, int button)
+    public boolean processReleasedMotionEvent(GPoint current, int deviceId, int button)
             throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processReleasedMotionEvent"));
@@ -104,7 +105,7 @@ public class MotionGestureRecognizer
         return true;
     }
 
-    public void processDraggedMotionEvent(GPoint current, int buttonMask)
+    public void processDraggedMotionEvent(GPoint current, int deviceId, int buttonMask)
     // public Line processDraggedMotionEvent(GPoint current, int buttonMask)
             throws Exception
     {

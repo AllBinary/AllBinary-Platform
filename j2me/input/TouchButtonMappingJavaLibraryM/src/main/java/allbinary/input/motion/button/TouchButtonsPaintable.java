@@ -53,6 +53,12 @@ public class TouchButtonsPaintable extends Paintable
             touchButton = (TouchButton) list.objectArray[index];
             touchButton.paint(graphics);
         }
+        
+        for (int index = list.size(); --index >= 0;)
+        {
+            touchButton = (TouchButton) list.objectArray[index];
+            touchButton.paintHint(graphics);
+        }        
     }
     
 }

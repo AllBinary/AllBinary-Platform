@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary</groupId>
+  <groupId>org.allbinary.game.testgamedemo</groupId>
   <artifactId>TestGameDemoAndroidPlatformP</artifactId>
   <packaging>pom</packaging>
   <!-- AllBinary Platform Version Start -->
@@ -26,9 +26,9 @@
     <modules>
 
         
-        <module>../../../TestGameDemoAndroidResourcesTempJavaLibraryM</module>
-        <module>../TestDemoGameAndroidResourceJavaLibraryM</module>
-        <module>../TestDemoGameAndroidBaseJavaLibraryM</module>
+        <module>../TestGameDemoAndroidResourcesTempJavaLibraryM</module>
+        <module>../TestGameDemoAndroidResourceJavaLibraryM</module>
+        <module>../TestGameDemoAndroidBaseJavaLibraryM</module>
         <module>../TestGameDemoAndroidJavaLibraryM</module>
         <module>../TestGameDemoAndroidActivityJavaLibraryM</module>
         <module>../TestGameDemoNoTouchAndroidJavaLibraryM</module>

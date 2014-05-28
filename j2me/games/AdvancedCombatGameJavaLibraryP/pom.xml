@@ -31,9 +31,10 @@
     <modules>
 
         <!--
-        <module>../GameJ2MELibraryP</module>
+        
+        -->
 
-       -->
+        <module>../GameJ2MELibraryP</module>
 
         <module>../../games/TickableJavaLibraryM</module>
         

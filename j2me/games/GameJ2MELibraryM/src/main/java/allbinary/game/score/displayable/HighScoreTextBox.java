@@ -21,6 +21,9 @@ import javax.microedition.lcdui.TextField;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
+import abcs.logic.system.os.OperatingSystemFactory;
+import abcs.logic.system.os.OperatingSystemInterface;
+import abcs.logic.system.security.licensing.InApplicationPurchaseFactory;
 import allbinary.game.commands.GameCommandsFactory;
 import allbinary.game.score.HighScore;
 import allbinary.game.score.HighScoreNamePersistanceSingleton;
@@ -58,13 +61,34 @@ public class HighScoreTextBox extends CustomTextBox
 
         this.highScoresArray = highScoresArray;
         this.highScore = highScore;
+
+        OperatingSystemInterface operatingSystemInterface
+                = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+
+        if (operatingSystemInterface.isOverScan()) {
+            String username = InApplicationPurchaseFactory.getInstance().getUserName();
+            if(username != null)
+            {
+                this.getTextFieldItem().setString(username);
+            }
+            else
+            {
+                this.getTextFieldItem().setString("NoGamerInfo");
+            }
+        }        
     }
 
     public void initCommands(CommandListener cmdListener)
     {
         this.removeAllCommands();
 
-        this.addCommand(GameCommandsFactory.getInstance().TOGGLE_KEYBOARD);
+        OperatingSystemInterface operatingSystemInterface
+                = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+
+        if (!operatingSystemInterface.isOverScan()) {
+            this.addCommand(GameCommandsFactory.getInstance().TOGGLE_KEYBOARD);
+        }
+
         this.addCommand(SUBMIT_TEXTBOX_COMMAND);
 
         this.setCommandListener(cmdListener);

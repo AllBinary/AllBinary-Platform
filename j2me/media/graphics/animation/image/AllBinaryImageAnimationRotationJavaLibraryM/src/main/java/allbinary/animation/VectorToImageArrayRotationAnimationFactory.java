@@ -18,10 +18,10 @@ import javax.microedition.lcdui.Image;
 import allbinary.game.configuration.GameConfigurationCentral;
 import allbinary.graphics.color.BasicColor;
 import allbinary.image.AnimationFrameToImageUtil;
-import allbinary.image.ImageToRotationImageArrayUtil;
 import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
 import allbinary.vector.VectorInfo;
+import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
 public class VectorToImageArrayRotationAnimationFactory implements
         AnimationInterfaceFactoryInterface

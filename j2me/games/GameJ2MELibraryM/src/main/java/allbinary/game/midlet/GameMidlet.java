@@ -42,6 +42,9 @@ import abcs.logic.communication.log.ForcedLogUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
+import abcs.logic.system.security.licensing.InApplicationPurchaseFactory;
+import abcs.logic.system.security.licensing.LockableFeature;
+import abcs.logic.system.security.licensing.LockableFeatureFactory;
 import allbinary.canvas.AllGameStatisticsFactory;
 import allbinary.canvas.FullScreenUtil;
 import allbinary.debug.DebugFactory;
@@ -84,6 +87,7 @@ import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.ColorChangeEventHandler;
+import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.MyCanvas;
 import allbinary.graphics.displayable.command.MyCommandsFactory;
 import allbinary.graphics.displayable.screen.CommandForm;
@@ -98,6 +102,8 @@ import allbinary.midlet.ProgressMidlet;
 import allbinary.thread.ThreadFactoryUtil;
 import allbinary.thread.ThreadUtil;
 import allbinary.time.TimeDelayHelper;
+import org.allbinary.game.input.TextNotificationUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class GameMidlet extends ProgressMidlet
     implements CommandListener //, GameMidletEventListener
@@ -111,6 +117,8 @@ public class GameMidlet extends ProgressMidlet
     //private CommandForm saveGameForm;
     private LoadGameForm loadGameForm;
     private final DebugInterface debugInterface;
+    private boolean isFullScreen;
+    private boolean resized;
     
     //private GameOptionsForm gameOptionsForm;
 
@@ -410,6 +418,23 @@ public class GameMidlet extends ProgressMidlet
                 }
 
             }
+            else if (command == gameCommandsFactory.BUY_COMMAND)
+            {                
+                InApplicationPurchaseFactory inApplicationPurchaseFactory =
+                    InApplicationPurchaseFactory.getInstance();
+
+                final BasicArrayList list = LockableFeatureFactory.getInstance().getList();
+                LockableFeature lockableFeature = (LockableFeature) list.get(0);
+
+                if (list.size() > 0 && !inApplicationPurchaseFactory.isPurchased(lockableFeature)) {
+                    inApplicationPurchaseFactory.purchase(lockableFeature);
+                    //TextNotificationUtil.getInstance().fireSuccess("In Application Purchase Request");
+                }
+                else
+                {
+                    TextNotificationUtil.getInstance().fireSuccess("Already Purchased");
+                }
+            }
             else if (command == gameCommandsFactory.QUIT_COMMAND)
             {
                 if (this.gameStartTimeHelper.isTime())
@@ -611,15 +636,7 @@ public class GameMidlet extends ProgressMidlet
                 {
                     //PreLogUtil.put("Resized/Changed", this, MidletStrings.getInstance().COMMAND_ACTION);
 
-                    MainFeatureFactory mainFeatureFactory =
-                        MainFeatureFactory.getInstance();
-
-                    ScreenListenerHandler.getInstance().fire(
-                        Features.getInstance().isFeature(mainFeatureFactory.FULL_SCREEN)
-                        );
-
-                    this.commandAction(
-                        gameCommandsFactory.QUIT_COMMAND, displayable);
+                    this.updateFullScreen();
                 }
 
                 AllBinaryMediaManager.setMuted(false);
@@ -731,7 +748,28 @@ public class GameMidlet extends ProgressMidlet
                 
                 virtualKeyboardEventHandler.fireEvent(virtualKeyboardEventHandler.SHOW_EVENT);
             }
-            
+            else if (command.getLabel().compareTo(gameCommandsFactory.TOGGLE_FULLSCREEN.getLabel()) == 0)
+            {
+                MainFeatureFactory mainFeatureFactory
+                        = MainFeatureFactory.getInstance();
+
+                Features features = Features.getInstance();
+                
+                boolean isFullScreen
+                        = features.isFeature(mainFeatureFactory.FULL_SCREEN);
+        
+                if(isFullScreen)
+                {
+                    features.removeDefault(mainFeatureFactory.FULL_SCREEN);
+                }
+                else
+                {
+                    features.addDefault(mainFeatureFactory.FULL_SCREEN);
+                }
+                
+                this.updateFullScreen();
+            }
+
             //no else
             //if (command != gameCommandsFactory.START_COMMAND && command != gameCommandsFactory.RESTART_COMMAND)
             //{
@@ -749,7 +787,22 @@ public class GameMidlet extends ProgressMidlet
         }
     }
 
-    private boolean isFullScreen;
+    private void updateFullScreen()
+    {
+        MainFeatureFactory mainFeatureFactory
+                = MainFeatureFactory.getInstance();
+
+        boolean isFullScreen = 
+                Features.getInstance().isFeature(mainFeatureFactory.FULL_SCREEN);
+        
+        //fire should be called in Canvas setFullScreenMode
+        //ScreenListenerHandler.getInstance().fire(isFullScreen);
+        
+        this.getDisplay().getCurrent().setFullScreenMode(isFullScreen);
+
+        //this.commandAction(
+          //      gameCommandsFactory.QUIT_COMMAND, displayable);
+    }
 
     /*
     private void closeMenuListener() throws Exception
@@ -958,7 +1011,6 @@ public class GameMidlet extends ProgressMidlet
         return loadGameForm;
     }
     
-    private boolean resized;
 
     public void setResized(boolean resized)
     {

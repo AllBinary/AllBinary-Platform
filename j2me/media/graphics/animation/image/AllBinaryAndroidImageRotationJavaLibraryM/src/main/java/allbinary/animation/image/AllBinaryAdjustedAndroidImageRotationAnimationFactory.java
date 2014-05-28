@@ -16,7 +16,7 @@ package allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import allbinary.animation.Animation;
-import allbinary.image.ImageCopyUtil;
+import org.allbinary.media.image.ImageCopyUtil;
 import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
 

@@ -23,6 +23,7 @@ import allbinary.animation.Animation;
 import allbinary.graphics.font.MyFont;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.logic.math.PrimitiveLongUtil;
+import javax.microedition.lcdui.Font;
 
 public class CountedLayerInterfaceFactoryPart implements PartInterface
 {
@@ -30,7 +31,7 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
    private int total;
    //private String totalString;
    private char[] totalString;
-   private int totalStringWidth;
+   private int xOffset;
    private CountedPickedUpLayerInterfaceFactory countedPickedUpLayerInterfaceFactory;
 
    private final PrimitiveLongUtil primitiveLongUtil;
@@ -76,7 +77,10 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
       //this.totalString = this.primitiveLongUtil.getString(total);
       this.totalString = this.primitiveLongUtil.getCharArray(total);
       //this.setTotalStringWidth(MyFont.MYFONT.defaultFont.stringWidth(totalString));
-      this.setTotalStringWidth(MyFont.getInstance().defaultFont.charsWidth(totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()));
+      Font font = MyFont.getInstance().defaultFont;
+      this.setXOffset(
+              font.charsWidth(totalString, 0, this.primitiveLongUtil.getCurrentTotalDigits()) + (font.getSize() >> 1)
+      );
    }
 
    public void paint(Graphics graphics)
@@ -100,17 +104,17 @@ public class CountedLayerInterfaceFactoryPart implements PartInterface
    /**
     * @return the totalStringWidth
     */
-   public int getTotalStringWidth()
+   public int getXOffset()
    {
-      return totalStringWidth;
+      return xOffset;
    }
 
    /**
     * @param totalStringWidth the totalStringWidth to set
     */
-   private void setTotalStringWidth(int totalStringWidth)
+   private void setXOffset(int totalStringWidth)
    {
-      this.totalStringWidth = totalStringWidth;
+      this.xOffset = totalStringWidth;
    }
 
    /**

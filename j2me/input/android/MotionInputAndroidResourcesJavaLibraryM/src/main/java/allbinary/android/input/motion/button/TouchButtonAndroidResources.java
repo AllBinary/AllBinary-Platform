@@ -13,13 +13,16 @@
 */
 package allbinary.android.input.motion.button;
 
+import abcs.logic.system.os.OperatingSystemFactory;
 import org.allbinary.AndroidResources;
 
 import allbinary.data.resource.ResourceUtil;
 import allbinary.init.Init;
+import allbinary.input.motion.button.CommonButtons;
 import allbinary.input.motion.button.TouchButtonBlankResource;
 import allbinary.input.motion.button.TouchButtonDownResource;
 import allbinary.input.motion.button.TouchButtonGenericActionResource;
+import allbinary.input.motion.button.TouchButtonResource;
 import allbinary.input.motion.button.TouchButtonStartResource;
 import allbinary.input.motion.button.TouchButtonStrafeLeftResource;
 import allbinary.input.motion.button.TouchButtonStrafeRightResource;
@@ -33,40 +36,70 @@ public class TouchButtonAndroidResources extends Init
     {
         ResourceUtil resourceUtil = ResourceUtil.getInstance();
         
-        resourceUtil.addResource(
-                TouchButtonBlankResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_64_by_64));
-
-        resourceUtil.addResource(
-                TouchButtonGenericActionResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_generic_action_64_by_64));
+        final TouchButtonResource[] RESOURCE_STRING_ARRAY = {
+        TouchButtonBlankResource.getInstance(),
+            TouchButtonGenericActionResource.getInstance(),
+                TouchButtonStartResource.getInstance(),
+                TouchButtonUpResource.getInstance(),
+                TouchButtonDownResource.getInstance(),
+                TouchButtonTurnLeftResource.getInstance(),
+                TouchButtonTurnRightResource.getInstance(),
+                TouchButtonStrafeLeftResource.getInstance(),
+                TouchButtonStrafeRightResource.getInstance()
+        };
         
-        resourceUtil.addResource(
-                TouchButtonStartResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_start_64_by_64));
+        final int[] RESOURCE_ARRAY = new int[RESOURCE_STRING_ARRAY.length];
         
-        resourceUtil.addResource(
-                TouchButtonUpResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_up_arrow_64_by_64));
+        if(CommonButtons.getInstance().STANDARD_BUTTON_SIZE == 128)
+        {
+            RESOURCE_ARRAY[0] = AndroidResources.raw.touch_button_128_by_128;
+            RESOURCE_ARRAY[1] = AndroidResources.raw.touch_button_generic_action_128_by_128;
+            RESOURCE_ARRAY[2] = AndroidResources.raw.touch_button_start_128_by_128;
+            RESOURCE_ARRAY[3] = AndroidResources.raw.touch_button_up_arrow_128_by_128;
+            RESOURCE_ARRAY[4] = AndroidResources.raw.touch_button_down_arrow_128_by_128;
+            RESOURCE_ARRAY[5] = AndroidResources.raw.touch_button_turn_left_arrow_128_by_128;
+            RESOURCE_ARRAY[6] = AndroidResources.raw.touch_button_turn_right_arrow_128_by_128;
+            RESOURCE_ARRAY[7] = AndroidResources.raw.touch_button_strafe_left_arrow_128_by_128;
+            RESOURCE_ARRAY[8] = AndroidResources.raw.touch_button_strafe_right_arrow_128_by_128;
 
-        resourceUtil.addResource(
-                TouchButtonDownResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_down_arrow_64_by_64));
+            if(OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan())
+            {
+                //final int[] HINT_RESOURCE_ARRAY = new int[RESOURCE_STRING_ARRAY.length];
 
-        resourceUtil.addResource(
-                TouchButtonTurnLeftResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_turn_left_arrow_64_by_64));
+                resourceUtil.addResource(
+                        RESOURCE_STRING_ARRAY[2].HINT,
+                        Integer.valueOf(AndroidResources.raw.ouya_o));
+                
+                /*
+                for (int index = 0; index < RESOURCE_ARRAY.length; index++) {
+                    resourceUtil.addResource(
+                            RESOURCE_STRING_ARRAY[index].HINT,
+                            Integer.valueOf(HINT_RESOURCE_ARRAY[index]));
+                }
+                */
+            }
 
-        resourceUtil.addResource(
-                TouchButtonTurnRightResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_turn_right_arrow_64_by_64));
+        }
+        else
+            //if(CommonButtons.getInstance().STANDARD_BUTTON_SIZE == 64)
+        {
+            RESOURCE_ARRAY[0] = AndroidResources.raw.touch_button_64_by_64;
+            RESOURCE_ARRAY[1] = AndroidResources.raw.touch_button_generic_action_64_by_64;
+            RESOURCE_ARRAY[2] = AndroidResources.raw.touch_button_start_64_by_64;
+            RESOURCE_ARRAY[3] = AndroidResources.raw.touch_button_up_arrow_64_by_64;
+            RESOURCE_ARRAY[4] = AndroidResources.raw.touch_button_down_arrow_64_by_64;
+            RESOURCE_ARRAY[5] = AndroidResources.raw.touch_button_turn_left_arrow_64_by_64;
+            RESOURCE_ARRAY[6] = AndroidResources.raw.touch_button_turn_right_arrow_64_by_64;
+            RESOURCE_ARRAY[7] = AndroidResources.raw.touch_button_strafe_left_arrow_64_by_64;
+            RESOURCE_ARRAY[8] = AndroidResources.raw.touch_button_strafe_right_arrow_64_by_64;
+        }
+        
+        for(int index = 0; index < RESOURCE_ARRAY.length; index++)
+        {
+            resourceUtil.addResource(
+                RESOURCE_STRING_ARRAY[index].RESOURCE,
+                Integer.valueOf(RESOURCE_ARRAY[index]));            
+        }
 
-        resourceUtil.addResource(
-                TouchButtonStrafeLeftResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_strafe_left_arrow_64_by_64));
-
-        resourceUtil.addResource(
-                TouchButtonStrafeRightResource.RESOURCE,
-                Integer.valueOf(AndroidResources.raw.touch_button_strafe_right_arrow_64_by_64));
     }
 }

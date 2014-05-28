@@ -13,8 +13,6 @@
 */
 package allbinary.game.score.remote;
 
-import java.util.Hashtable;
-
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -25,6 +23,7 @@ import abcs.logic.system.security.licensing.AbeClientInformationInterfaceFactory
 import allbinary.game.configuration.GameConfigurationCentral;
 import allbinary.game.score.HighScore;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
+import java.util.Hashtable;
 
 public class LicensedRemoteHighScoresSubmissionProcessor
         implements RemoteHighScoresSubmissionProcessorInterface

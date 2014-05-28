@@ -13,18 +13,16 @@
 */
 package allbinary.canvas;
 
-import javax.microedition.lcdui.CommandListener;
-
 import abcs.logic.basic.NotImplemented;
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.basic.string.StringMaker;
-import abcs.logic.basic.string.StringUtil;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.graphics.displayable.MyCanvas;
 import allbinary.thread.RunnableInterface;
 import allbinary.thread.ThreadObjectUtil;
 import allbinary.time.TimeDelayHelper;
+import javax.microedition.lcdui.CommandListener;
 
 public class RunnableCanvas extends MyCanvas 
     implements RunnableInterface
@@ -229,6 +227,11 @@ public class RunnableCanvas extends MyCanvas
         Thread.sleep(pauseWait);
     }
 
+    public boolean isPausable()
+    {
+        return false;
+    }
+    
     public void processGameSleep(long sleep) throws Exception
     {
         Thread.sleep(sleep);
@@ -243,6 +246,11 @@ public class RunnableCanvas extends MyCanvas
         while (this.isPaused() && this.isRunning() && !this.isSingleThread())
         {
             this.processSleep();
+
+            if(!this.isPausable())
+            {
+                return;
+            }
         }
 
         //Note that if you used the game timer then elapsed would always be 0 so don't change

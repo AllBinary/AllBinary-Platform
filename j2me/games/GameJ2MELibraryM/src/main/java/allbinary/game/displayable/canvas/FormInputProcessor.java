@@ -13,7 +13,8 @@
 */
 package allbinary.game.displayable.canvas;
 
-import abcs.logic.basic.string.CommonStrings;
+import abcs.logic.basic.string.CommonSeps;
+import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
@@ -31,6 +32,8 @@ extends InputProcessor
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
+    private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
+    
     public FormInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
@@ -38,19 +41,28 @@ extends InputProcessor
     
     private final InputFactory inputFactory = InputFactory.getInstance();
     
-    public void keyPressed(int keyCode)
+    public void keyPressed(int keyCode, int deviceId)
     {
         try
         {
             // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL
             // + keyCode, this, "keyPressed"));
-            PreLogUtil.put(CommonStrings.getInstance().START_LABEL + keyCode, this, "keyPressed");
+            PreLogUtil.put(
+                    new StringMaker()
+                            .append(inputFactory.KEY_CODE_LABEL)
+                            .append(keyCode)
+                            .append(CommonSeps.getInstance().SPACE)
+                            .append(inputFactory.DEVICE_ID_LABEL)
+                            .append(deviceId)
+                            .toString()
+                    , this, "keyPressed");
 
             Input input = inputFactory.getInstance(keyCode);
 
             GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
-
-            DownGameKeyEventHandler.getInstance().fireEvent(gameKeyEvent);
+            
+            downGameKeyEventHandler.fireEvent(gameKeyEvent);
+            downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
         }
         catch (Exception e)
         {

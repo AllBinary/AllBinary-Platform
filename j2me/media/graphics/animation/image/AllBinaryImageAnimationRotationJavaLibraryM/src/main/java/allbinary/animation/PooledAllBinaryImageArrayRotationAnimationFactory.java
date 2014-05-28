@@ -16,8 +16,8 @@ package allbinary.animation;
 import javax.microedition.lcdui.Image;
 
 import allbinary.game.configuration.GameConfigurationCentral;
-import allbinary.image.ImageToRotationImageArrayUtil;
 import allbinary.math.AngleFactory;
+import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
 //TWB - Adjustments should be done in the resource creation and not at the animatoin level
 public class PooledAllBinaryImageArrayRotationAnimationFactory implements

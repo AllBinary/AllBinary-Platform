@@ -45,6 +45,7 @@ public class BasicNeededTouchButtonsBuilder
             
             TouchButton UP = new TouchButton(BasicTouchInputFactory.getInstance().UP,
                     animationInterface,
+                    animationInterface,
                     commonButtons.NORMAL_BUTTON, 
                     basicTouchButtonCellPositionFactory.SECOND_FROM_BOTTOM_LEFT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -52,6 +53,7 @@ public class BasicNeededTouchButtonsBuilder
                     );
 
             TouchButton DOWN = new TouchButton(BasicTouchInputFactory.getInstance().DOWN,
+                    animationInterface,
                     animationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_LEFT,
@@ -61,6 +63,7 @@ public class BasicNeededTouchButtonsBuilder
             
             TouchButton LEFT = new TouchButton(BasicTouchInputFactory.getInstance().LEFT,
                     animationInterface,
+                    animationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_SECOND_FROM_RIGHT,
                     touchButtonLocationHelper.getColumnsRemainderHalf(), 
@@ -68,6 +71,7 @@ public class BasicNeededTouchButtonsBuilder
                     );
 
             TouchButton RIGHT = new TouchButton(BasicTouchInputFactory.getInstance().RIGHT,
+                    animationInterface,
                     animationInterface,
                     commonButtons.NORMAL_BUTTON,
                     basicTouchButtonCellPositionFactory.BOTTOM_RIGHT,

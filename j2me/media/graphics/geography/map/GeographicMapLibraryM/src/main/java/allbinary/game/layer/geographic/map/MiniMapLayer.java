@@ -53,9 +53,10 @@ implements GeographicMapCellPositionEventListenerInterface
    
    public MiniMapLayer(BasicGeographicMap geographicMapInterface,
        //GeographicMapCellPositionFactory geographicMapCellPositionFactory,
+      //ViewPosition can only be static or setPosition will need to be in paint
       ViewPosition viewPosition) throws Exception
    {
-      super(new Rectangle(PointFactory.getInstance().getInstance(0, 13),
+      super(new Rectangle(PointFactory.getInstance().getInstance(0, viewPosition.getY()),
          geographicMapInterface.getAllBinaryTiledLayer().getWidth(),
          geographicMapInterface.getAllBinaryTiledLayer().getHeight()),
          viewPosition);

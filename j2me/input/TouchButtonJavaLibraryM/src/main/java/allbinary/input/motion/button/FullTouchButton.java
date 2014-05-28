@@ -24,13 +24,25 @@ import allbinary.graphics.Rectangle;
 
 public class FullTouchButton extends TouchButton
 {
-    public FullTouchButton(TouchButtonInput touchButtonInput, Animation animationInterface,
+    public FullTouchButton(TouchButtonInput touchButtonInput, TouchButtonResource touchButtonResource,
             Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
+            throws Exception
     {
-        super(touchButtonInput, animationInterface,
+        super(touchButtonInput, touchButtonResource,
                 rawRectangle, cellPosition, xBorder, yBorder);
     }
-    
+
+    public FullTouchButton(TouchButtonInput touchButtonInput, 
+            Animation animationInterface, 
+            Animation hintAnimationInterface,
+            Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
+            throws Exception
+    {
+        super(touchButtonInput, 
+                animationInterface, hintAnimationInterface,
+                rawRectangle, cellPosition, xBorder, yBorder);
+    }
+
     protected void updateRectangle()
     {
         try
@@ -44,6 +56,7 @@ public class FullTouchButton extends TouchButton
             GPoint point = rectangle.getPoint();
             this.animationX = point.getX() + xBorder;
             this.animationY = point.getY() + yBorder;
+            this.hintAnimationY = animationY - this.rectangle.getHeight() >> 1;
         }
         catch (Exception e)
         {

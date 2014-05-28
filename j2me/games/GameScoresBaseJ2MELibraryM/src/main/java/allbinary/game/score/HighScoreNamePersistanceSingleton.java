@@ -118,7 +118,7 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(this.name);
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getStackTrace(e), this, LOAD));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, LOAD));
         }
         return this.name;
     }

@@ -13,13 +13,16 @@
 */
 package allbinary.game.configuration.feature;
 
+import org.allbinary.util.BasicArrayList;
+
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import abcs.logic.communication.log.PreLogUtil;
+import abcs.logic.system.os.OperatingSystemFactory;
+import abcs.logic.system.os.OperatingSystemInterface;
 import allbinary.game.configuration.event.GameFeatureEvent;
 import allbinary.game.configuration.event.GameFeatureEventHandler;
-import org.allbinary.util.BasicArrayList;
 
 public class Features
 {
@@ -101,27 +104,36 @@ public class Features
         {            
             GameFeatureFactory gameFeatureFactory = 
                 GameFeatureFactory.getInstance();
+            InputFeatureFactory inputFeatureFactory = InputFeatureFactory.getInstance();
+            SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
+            TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
             
             this.addDefault(gameFeatureFactory.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
             this.addDefault(gameFeatureFactory.COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
             this.addDefault(gameFeatureFactory.GAME_INPUT_LAYER_PROCESSOR);
             this.addDefault(gameFeatureFactory.TICKABLE_LAYER_PROCESSOR);
-
-            this.addDefault(InputFeatureFactory.getInstance().MULTI_KEY_PRESS);
-            this.addDefault(InputFeatureFactory.getInstance().REMOVE_DUPLICATE_KEY_PRESSES);
+            
+            this.addDefault(inputFeatureFactory.MULTI_KEY_PRESS);
+            this.addDefault(inputFeatureFactory.REMOVE_DUPLICATE_KEY_PRESSES);
 
             this.addDefault(gameFeatureFactory.SCREEN_SHAKE);
+            
+            OperatingSystemInterface operatingSystemInterface
+                    = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
-            this.addDefault(SensorFeatureFactory.getInstance().ORIENTATION_SENSORS);
+            if (operatingSystemInterface.isOverScan()) {
+                this.addDefault(sensorFeatureFactory.NO_ORIENTATION);
+                this.addDefault(touchFeatureFactory.HIDE_SCREEN_BUTTONS);
+            } else {
+                this.addDefault(sensorFeatureFactory.ORIENTATION_SENSORS);
+                this.addDefault(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS);
+            }
+                
+              //this.addDefault(GameFeature.SIMULATED_ORIENTATION_SENSORS);
 
-            //this.addDefault(GameFeature.SIMULATED_ORIENTATION_SENSORS);
-            //this.addDefault(GameFeature.NO_ORIENTATION);
-
-            // defaultVector.addAll(vector);
-            this.addDefault(
-                    TouchFeatureFactory.getInstance().TOUCH_ENABLED);
-            this.addDefault(
-                    TouchFeatureFactory.getInstance().AUTO_HIDE_SHOW_SCREEN_BUTTONS);
+                // defaultVector.addAll(vector);
+            
+            this.addDefault(touchFeatureFactory.TOUCH_ENABLED);
 
             this.addDefault(MainFeatureFactory.getInstance().FULL_SCREEN);
 

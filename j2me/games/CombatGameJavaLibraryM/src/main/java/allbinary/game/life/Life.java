@@ -16,6 +16,7 @@ package allbinary.game.life;
 public class Life implements LifeInterface
 {
     private short lives;
+    private short startLives;
     private short maxlives;
     
     public Life(short lives, short maxlives) throws Exception
@@ -28,6 +29,7 @@ public class Life implements LifeInterface
         }
     
         this.lives = lives;
+        this.startLives = lives;
     }
     
     public short get()
@@ -38,6 +40,12 @@ public class Life implements LifeInterface
     public void set(short lives)
     {
         this.lives = lives;
+    }
+
+    public void reset()
+    {
+        this.lives = this.startLives;
+        //this.startLives = lives;
     }
     
     public void add(short lives)
@@ -97,5 +105,19 @@ public class Life implements LifeInterface
                 this.lives = 0;
             }
         }
+    }
+
+    /**
+     * @return the startLives
+     */
+    public short getStartLives() {
+        return startLives;
+    }
+
+    /**
+     * @param startLives the startLives to set
+     */
+    public void setStartLives(short startLives) {
+        this.startLives = startLives;
     }
 }

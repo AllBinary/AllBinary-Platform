@@ -30,18 +30,18 @@ public class OnlyTouchButtonRecognizer extends MotionRecognizer
         this.touchButtonRecognizer = new TouchButtonRecognizer();
     }
     
-    public void processStartMotionEvent(int x, int y, int modifiers)
+    public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
         //TWB - should now actually occur for more than one button
         //Only one touch button can be pressed by a pointer !touchButtonProcessing &&
-        if (this.touchButtonRecognizer.pressTouchButtonInput(x, y))
+        if (this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId))
         {
             touchButtonProcessing = true;
         }
     }
 
-    public void processEndMotionEvent(int x, int y, int modifiers)
+    public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
         if (touchButtonProcessing)
@@ -50,20 +50,20 @@ public class OnlyTouchButtonRecognizer extends MotionRecognizer
             //else should never occur
         }
 
-        if(this.touchButtonRecognizer.releaseTouchButtonInput(x, y))
+        if(this.touchButtonRecognizer.releaseTouchButtonInput(x, y, deviceId))
         {
             //this.touchButtonRecognizer.releaseAll();
             return;
         }
     }
 
-    public void processDraggedMotionEvent(int x, int y, int modifiers)
+    public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
         //Allows sliding from one button to the next without releasing but only if a button press was already processing
         if (touchButtonProcessing)
         {
-            this.touchButtonRecognizer.pressTouchButtonInput(x, y);
+            this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
         }
     }
 }

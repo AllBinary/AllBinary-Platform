@@ -131,15 +131,15 @@ implements TickableInterface
             ViewPosition viewPosition) throws Exception
     {
         this(movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition,
-                StringUtil.getInstance().EMPTY_STRING, -1, -1);
+                StringUtil.getInstance().EMPTY_STRING, -1, -1, -1);
     }
 
     protected WeaponLayer(Movement movement, Animation animationInterface,
             Animation destroyedAnimationInterface, Rectangle rectangle,
-            ViewPosition viewPosition, String username, int actorSessionId, int multiPlayerType)
+            ViewPosition viewPosition, String username, int actorSessionId, int id, int multiPlayerType)
             throws Exception
     {
-        super(username, actorSessionId, BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
+        super(username, actorSessionId, id, BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
         // super(Group.NONE, rectangle, viewPosition, true);
 
         this.initAnimationInterface = animationInterface;

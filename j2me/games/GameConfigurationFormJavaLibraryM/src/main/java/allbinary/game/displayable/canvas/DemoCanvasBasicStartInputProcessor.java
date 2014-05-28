@@ -29,7 +29,7 @@ public class DemoCanvasBasicStartInputProcessor
     public DemoCanvasBasicStartInputProcessor(
         BasicArrayList gameKeyEventList, RunnableCanvas gameCanvas)
     {
-        super(gameKeyEventList, gameCanvas);
+        super(gameKeyEventList, -1, gameCanvas);
     }
 
     /*

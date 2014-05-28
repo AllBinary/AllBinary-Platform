@@ -72,10 +72,6 @@ public class TouchButtonsMappingPaintable extends Paintable
         Paintable[][] paintableTable = new Paintable[totalColumns][totalRows];
 
         CellPositionFactory cellPositionFactory = CellPositionFactory.getInstance();
-        
-        Animation animationInterface = 
-            FeaturedAnimationInterfaceFactoryInterfaceFactory
-            .getInstance().get(TouchButtonBlankResource.RESOURCE).getInstance();
 
         CommonButtons commonButtons = CommonButtons.getInstance();
         
@@ -84,7 +80,7 @@ public class TouchButtonsMappingPaintable extends Paintable
             for (int rowIndex = totalRows - 1; rowIndex >= 0; rowIndex--)
             {
                 paintableTable[index][rowIndex] = new TouchButton(
-                        null, animationInterface,
+                        null, TouchButtonBlankResource.getInstance(),
                         commonButtons.NORMAL_BUTTON, 
                         cellPositionFactory.getInstance(index, rowIndex),
                         this.touchButtonLocationHelper.getColumnsRemainderHalf(), 

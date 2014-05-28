@@ -19,6 +19,8 @@ import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 
 import allbinary.game.graphics.hud.BasicHud;
 import allbinary.graphics.color.BasicColor;
+import allbinary.graphics.font.MyFont;
+import allbinary.logic.math.MathUtil;
 import allbinary.logic.math.PrimitiveLongSingleton;
 import allbinary.logic.math.PrimitiveLongUtil;
 
@@ -43,14 +45,14 @@ public class VelocityWidget extends BasicHud
     public VelocityWidget(int powerOfTenVelocity, int location, int direction,
             BasicColor basicColor) throws Exception
     {
-        super(location, direction, 10, 62, 2, basicColor);
+        super(location, direction, 14, MyFont.getInstance().defaultFont.getSize() * (5 + MathUtil.getInstance().getTotalDigits(powerOfTenVelocity) + 1), 2, basicColor);
 
         this.maxVelocity = powerOfTenVelocity;
         this.velocity = 0;
 
         this.primitiveLongUtil = new PrimitiveLongUtil(powerOfTenVelocity);
         
-        this.offset = this.primitiveLongUtil.getMaxDigits() * this.getCharWidth();
+        this.offset = this.primitiveLongUtil.getMaxDigits() * this.getCharWidth() + (2 * this.getCharWidth());
     }
 
     public int get()
@@ -88,7 +90,7 @@ public class VelocityWidget extends BasicHud
                 this.totalDigits = primitiveLongUtil.getCurrentTotalDigits();
             }
 
-            this.offset2 = this.offset - this.totalDigits * this.getCharWidth();
+            this.offset2 = this.offset - (this.totalDigits * this.getCharWidth()) - this.getCharWidth() * 2;
         }
     }
 

@@ -121,8 +121,23 @@ implements InputMappingInterface
 
         this.setCommandListener(cmdListener);
     }
-        
+
     public void keyPressed(int keyCode)
+    {
+        this.keyPressed(keyCode, 0);
+    }
+    
+    public void keyReleased(int keyCode)
+    {
+        this.keyReleased(keyCode, 0);
+    }
+
+    public void keyRepeated(int keyCode)
+    {
+        this.keyRepeated(keyCode, 0);
+    }
+    
+    public void keyPressed(int keyCode, int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyPressed"));        
         this.addGameKeyEvent(keyCode, false);

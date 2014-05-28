@@ -114,8 +114,6 @@
         <module>../../media/MediaDataM</module>
         <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>
 
-        <module>../../../allbinary_src/hardware/HardwareLibraryPOM</module>
-
         <module>../../../allbinary_src/content/ContentNoneJavaLibraryM</module>
 
         <module>../../games/GameConfigurationFormJavaLibraryM</module>

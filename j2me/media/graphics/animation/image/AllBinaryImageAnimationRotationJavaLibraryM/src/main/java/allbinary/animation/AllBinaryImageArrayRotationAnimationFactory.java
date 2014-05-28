@@ -16,9 +16,9 @@ package allbinary.animation;
 import javax.microedition.lcdui.Image;
 
 import allbinary.game.configuration.GameConfigurationCentral;
-import allbinary.image.ImageToRotationImageArrayUtil;
 import allbinary.math.AngleFactory;
 import allbinary.math.AngleInfo;
+import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
 public class AllBinaryImageArrayRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface

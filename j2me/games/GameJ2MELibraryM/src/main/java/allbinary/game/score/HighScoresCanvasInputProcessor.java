@@ -27,7 +27,7 @@ public class HighScoresCanvasInputProcessor extends PlayerGameInput
     
     public HighScoresCanvasInputProcessor(HighScoresCanvas highScoresCanvas)
     {
-        super(new BasicArrayList());
+        super(new BasicArrayList(), -1);
 
         this.setHighScoresCanvas(highScoresCanvas);
     }

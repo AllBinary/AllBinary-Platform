@@ -59,8 +59,23 @@ public class CustomTextBox extends GameCommandCanvas
     }
 
     private final InputFactory inputFactory = InputFactory.getInstance();
-    
+
     public void keyPressed(int keyCode)
+    {
+        this.keyPressed(keyCode, 0);
+    }
+    
+    public void keyReleased(int keyCode)
+    {
+        this.keyReleased(keyCode, 0);
+    }
+
+    public void keyRepeated(int keyCode)
+    {
+        this.keyRepeated(keyCode, 0);
+    }
+    
+    public void keyPressed(int keyCode, int deviceId)
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + keyCode, this, "keyPressed"));
         PreLogUtil.put(CommonStrings.getInstance().START_LABEL + keyCode, this, "keyPressed");
@@ -86,7 +101,7 @@ public class CustomTextBox extends GameCommandCanvas
         }
     }
 
-    public void keyReleased(int keyCode)
+    public void keyReleased(int keyCode, int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
     }

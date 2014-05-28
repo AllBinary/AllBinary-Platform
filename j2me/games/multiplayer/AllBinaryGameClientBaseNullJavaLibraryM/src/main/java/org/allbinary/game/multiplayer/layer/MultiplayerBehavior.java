@@ -13,9 +13,26 @@
 */
 package org.allbinary.game.multiplayer.layer;
 
+import allbinary.time.GameTickTimeDelayHelperFactory;
+
 public class MultiplayerBehavior
 {
     protected MultiplayerBehavior(String username)
     {
     }
+    
+    public void startTick()
+    {
+        
+    }
+    
+    public void endTick()
+    {
+
+    }
+    
+    public long getTildaElapse()
+    {
+        return 0;
+    }    
 }

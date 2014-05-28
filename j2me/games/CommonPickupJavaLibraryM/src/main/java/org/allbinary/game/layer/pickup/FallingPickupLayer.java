@@ -9,10 +9,10 @@ public class FallingPickupLayer
 extends PickupLayer 
 implements TickableInterface
 {
-    public FallingPickupLayer(String username, int actorSessionId)
+    public FallingPickupLayer(String username, int actorSessionId, int id)
             throws Exception
     {
-        super(username, actorSessionId, new ViewPosition());
+        super(username, actorSessionId, id, new ViewPosition());
     }
 
     public FallingPickupLayer() throws Exception

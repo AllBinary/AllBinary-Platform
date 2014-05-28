@@ -43,13 +43,13 @@ public class AllMotionRecognizer extends MotionRecognizer
         this.touchButtonRecognizer = new TouchButtonRecognizer();
     }
 
-    public void processStartMotionEvent(int x, int y, int modifiers)
+    public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
         // TWB - should now actually occur for more than one button
         // Only one touch button can be pressed by a pointer
         // !touchButtonProcessing &&
-        if (this.touchButtonRecognizer.pressTouchButtonInput(x, y))
+        if (this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId))
         {
             touchButtonProcessing = true;
         }
@@ -62,14 +62,14 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-            this.motionGestureRecognizer.processPressedMotionEvent(point, modifiers);
+            this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
         }
     }
 
-    public void processEndMotionEvent(int x, int y, int modifiers)
+    public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
-        if (this.touchButtonRecognizer.releaseTouchButtonInput(x, y))
+        if (this.touchButtonRecognizer.releaseTouchButtonInput(x, y, deviceId))
         {
             // this.touchButtonRecognizer.releaseAll();
             //return;
@@ -82,7 +82,7 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-            this.motionGestureRecognizer.processReleasedMotionEvent(point, modifiers);
+            this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
         }
         
         if (touchButtonProcessing)
@@ -93,14 +93,14 @@ public class AllMotionRecognizer extends MotionRecognizer
         }
     }
 
-    public void processDraggedMotionEvent(int x, int y, int modifiers)
+    public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
             throws Exception
     {
         // Allows sliding from one button to the next without releasing but only
         // if a button press was already processing
         if (touchButtonProcessing)
         {
-            this.touchButtonRecognizer.pressTouchButtonInput(x, y);
+            this.touchButtonRecognizer.pressTouchButtonInput(x, y, deviceId);
         }
 
         if (!touchButtonProcessing)
@@ -111,7 +111,7 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
-            this.motionGestureRecognizer.processDraggedMotionEvent(point, modifiers);
+            this.motionGestureRecognizer.processDraggedMotionEvent(point, deviceId, modifiers);
         }
     }
 

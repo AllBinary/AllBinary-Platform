@@ -28,10 +28,10 @@ import allbinary.layer.AllBinaryLayer;
  */
 public class CountedLayersHudPaintable implements PaintableInterface
 {
-   private PartInterface[] partInterfaceArray;
-   private int countedTotalStringColor;
-   private int countedPartsBorder;
-   private int startIndex;
+   private final PartInterface[] partInterfaceArray;
+   private final int countedTotalStringColor;
+   private final int countedPartsBorder;
+   private final int startIndex;
    private static final String XXString = "XX";
    private static final int XXStringWidth = MyFont.getInstance().defaultFont.stringWidth(XXString);
    private static final int myFontHeight = MyFont.getInstance().defaultFont.getHeight();
@@ -97,7 +97,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
             charArray = countedLayerInterfaceFactory.getTotalString();
             
             graphics.drawChars(charArray, 0, charArray.length,
-                    widthEdge - countedLayerInterfaceFactory.getTotalStringWidth(), y, 0);
+                    widthEdge - countedLayerInterfaceFactory.getXOffset(), y, 0);
 
             count++;
          }
@@ -108,7 +108,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
          graphics.setColor(countedPartsBorder);
          
          graphics.drawRect(lastWidth - (XXStringWidth + this.dropSize),
-                 40, XXStringWidth + this.dropSize, count * this.height);
+                 40, XXStringWidth + this.dropSize, (count * this.height) + 3);
       }
    }
    

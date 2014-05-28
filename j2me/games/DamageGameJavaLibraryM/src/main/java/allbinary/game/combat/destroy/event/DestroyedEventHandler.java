@@ -17,6 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 import abcs.logic.basic.string.CommonStrings;
 import abcs.logic.communication.log.Log;
+import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import allbinary.logic.basic.util.event.AllBinaryEventObject;
@@ -47,13 +48,13 @@ public class DestroyedEventHandler extends BasicEventHandler
        }
    }
 
-   public void removeAllListeners()
+   public synchronized void removeAllListeners()
    {
        this.list.clear();
        super.removeAllListeners();
    }
 
-   public void removeListener(EventListenerInterface eventListenerInterface)
+   public synchronized void removeListener(EventListenerInterface eventListenerInterface)
    {
        this.list.remove(eventListenerInterface);
        super.removeListener(eventListenerInterface);
@@ -71,7 +72,7 @@ public class DestroyedEventHandler extends BasicEventHandler
            }
            catch (Exception e)
            {
-               LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
            }
        }
 

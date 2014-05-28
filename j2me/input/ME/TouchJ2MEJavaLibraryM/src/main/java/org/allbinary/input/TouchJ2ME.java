@@ -27,6 +27,7 @@ import allbinary.input.motion.gesture.observer.MotionGestureReceiveInterfaceFact
  */
 public class TouchJ2ME
 {
+    private final int DEVICE_ID = 0;
     private AllMotionRecognizer motionRecognizer = new AllMotionRecognizer();
 
     public TouchJ2ME()
@@ -43,7 +44,7 @@ public class TouchJ2ME
     {
         try
         {
-            motionRecognizer.processDraggedMotionEvent(x, y, 0);
+            motionRecognizer.processDraggedMotionEvent(x, y, DEVICE_ID, 0);
         }
         catch(Exception e)
         {
@@ -55,7 +56,7 @@ public class TouchJ2ME
     {
         try
         {
-            motionRecognizer.processStartMotionEvent(x, y, 0);
+            motionRecognizer.processStartMotionEvent(x, y, DEVICE_ID, 0);
         }
         catch(Exception e)
         {
@@ -67,7 +68,7 @@ public class TouchJ2ME
     {
         try
         {
-            motionRecognizer.processEndMotionEvent(x, y, 0);
+            motionRecognizer.processEndMotionEvent(x, y, DEVICE_ID, 0);
         }
         catch(Exception e)
         {

@@ -185,7 +185,7 @@ implements DisplayChangeEventListener
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getStackTrace(e), this, 
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, 
                     DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
         }
@@ -215,7 +215,7 @@ implements DisplayChangeEventListener
         {
             LogUtil.put(LogFactory.getInstance(
                     CommonStrings.getInstance().EXCEPTION_LABEL
-                            + ExceptionUtil.getStackTrace(e), this,
+                            + ExceptionUtil.getInstance().getStackTrace(e), this,
                     "loadProgressImages"));
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
         }

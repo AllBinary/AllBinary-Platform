@@ -22,30 +22,31 @@ import allbinary.input.motion.gesture.observer.MotionGestureEvent;
 public class PopupCommandFormInputProcessor 
 extends CommandFormInputProcessor 
 {
-    private PopupMenuInputProcessor popupMenuInputProcessor;
+    //private PopupMenuInputProcessor popupMenuInputProcessor;
 
     public PopupCommandFormInputProcessor(
         BasicArrayList gameKeyEventList,
+        int playerInputId, 
         MyCanvas gameCanvas,
         ScrollSelectionForm form,
         PopupMenuInputProcessor popupMenuInputProcessor)
     {
-        super(gameKeyEventList, gameCanvas, form);
+        super(gameKeyEventList, playerInputId, gameCanvas, form);
 
-        this.popupMenuInputProcessor = popupMenuInputProcessor;
+        //this.popupMenuInputProcessor = popupMenuInputProcessor;
     }
 
     public int processInput(int key) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + " Canvas." + CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
-        this.popupMenuInputProcessor.processInput(key);
+        //this.popupMenuInputProcessor.processInput(key);
         return super.processInput(key);
     }
 
     protected void processMotionInput(MotionGestureEvent motionGestureEvent)
         throws Exception
     {
-        this.popupMenuInputProcessor.processMotionInput(motionGestureEvent);
+        //this.popupMenuInputProcessor.processMotionInput(motionGestureEvent);
         super.processMotionInput(motionGestureEvent);
     }
 }

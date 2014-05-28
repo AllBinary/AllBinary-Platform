@@ -20,6 +20,7 @@ import abcs.logic.basic.string.StringMaker;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 import allbinary.animation.Animation;
+import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import allbinary.graphics.CellPosition;
 import allbinary.graphics.GPoint;
 import allbinary.graphics.PointFactory;
@@ -30,6 +31,7 @@ public class TouchButton extends Paintable
 {
     private final TouchButtonInput touchButtonInput;
     private final Animation animationInterface;
+    private final Animation hintAnimationInterface;
     
     protected final Rectangle rawRectangle;
 
@@ -41,13 +43,32 @@ public class TouchButton extends Paintable
     
     protected int animationX;
     protected int animationY;
+    protected int hintAnimationY;
     
-    public TouchButton(TouchButtonInput touchButtonInput, Animation animationInterface,
+    public TouchButton(TouchButtonInput touchButtonInput, 
+            TouchButtonResource touchButtonResource,            
             Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
+            throws Exception
+    {            
+            this(touchButtonInput, 
+            FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
+                             touchButtonResource.RESOURCE).getInstance(),
+            FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
+                             touchButtonResource.HINT).getInstance(),
+            rawRectangle, cellPosition, xBorder, yBorder);
+    }
+
+    public TouchButton(TouchButtonInput touchButtonInput, 
+            Animation animationInterface, 
+            Animation hintAnimationInterface,
+            Rectangle rawRectangle, CellPosition cellPosition, int xBorder, int yBorder)
+            throws Exception
     {
         this.touchButtonInput = touchButtonInput;
+            
         this.animationInterface = animationInterface;
-        
+        this.hintAnimationInterface = hintAnimationInterface;
+                
         this.rawRectangle = rawRectangle;
         this.cellPosition = cellPosition;
         this.xBorder = xBorder;
@@ -57,7 +78,12 @@ public class TouchButton extends Paintable
         
         LogUtil.put(LogFactory.getInstance("Created: " + this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
-
+    
+    public void paintHint(Graphics graphics)
+    {
+        this.hintAnimationInterface.paint(graphics, animationX, this.hintAnimationY);
+    }
+    
     public void paint(Graphics graphics)
     {
         this.animationInterface.paint(graphics, animationX, animationY);
@@ -80,6 +106,8 @@ public class TouchButton extends Paintable
             GPoint point = rectangle.getPoint();
             this.animationX = point.getX();
             this.animationY = point.getY();
+            this.hintAnimationY = animationY - 32;
+            //CommonButtons.getInstance().STANDARD_BUTTON_SIZE >> 1
         }
         catch (Exception e)
         {

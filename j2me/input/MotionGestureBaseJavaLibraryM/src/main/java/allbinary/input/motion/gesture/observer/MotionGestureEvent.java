@@ -74,7 +74,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     {
         this.currentPoint = currentPoint;
     }
-
+    
     private static final String CURRENT = " Current: ";
     private static final String PREVIOUS = " Previous: ";
     private static final String HASHCODE = " hashcode: ";
@@ -96,4 +96,5 @@ public class MotionGestureEvent extends AllBinaryEventObject {
     {
         return id;
     }
+
 }

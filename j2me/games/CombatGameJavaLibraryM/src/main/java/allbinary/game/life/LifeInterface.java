@@ -20,6 +20,8 @@ public interface LifeInterface
     
    void set(short lives);
     
+   void reset();
+   
    void add(short lives);
 
    void deaths(short lives);

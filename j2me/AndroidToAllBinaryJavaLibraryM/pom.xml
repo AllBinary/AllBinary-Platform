@@ -64,14 +64,14 @@
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.microemu</groupId>
+            <groupId>org.microemu</groupId>
             <artifactId>special-microemu-midp</artifactId>
             <version>0</version>
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.allbinary.microemu</groupId>
-            <artifactId>special-microemu</artifactId>
+            <groupId>org.microemu</groupId>
+            <artifactId>special-microemu-javase</artifactId>
             <version>0</version>
             <optional>true</optional>
         </dependency>

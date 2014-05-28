@@ -225,6 +225,16 @@ OpenGLSurfaceChangedInterface
     throws Exception
     {
     }
+
+    public void rightTrigger(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent, int xAnalogValue)
+    throws Exception
+    {
+    }
+
+    public void leftTrigger(AllBinaryLayerManager layerManager, GameKeyEvent gameKeyEvent, int xAnalogValue)
+    throws Exception
+    {
+    }
     
     /*
     //For optimized handler but currently not enables until I decide on depencies
