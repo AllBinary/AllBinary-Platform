@@ -41,7 +41,11 @@
         <module>../AIScrollerTwoDimensionalJavaLibraryM</module>
         <module>../AITerrainPatrolJavaLibraryM</module>
         <module>../AITrackingPatrolJavaLibraryM</module>
+        
+        <!--
+        Already on GameJ2MELibraryPOM
         <module>../ArtificialIntelligenceLibraryM</module>
+        -->
 
     </modules>
 

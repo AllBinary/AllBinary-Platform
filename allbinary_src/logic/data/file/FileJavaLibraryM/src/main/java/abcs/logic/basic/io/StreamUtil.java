@@ -104,7 +104,7 @@ public class StreamUtil
         {
             if (closeable != null)
             {
-                LogUtil.put(LogFactory.getInstance("Closing: " + closeable, this, CLOSE));
+                //LogUtil.put(LogFactory.getInstance("Closing: " + closeable, this, CLOSE));
                 closeable.close();
             }
             return true;

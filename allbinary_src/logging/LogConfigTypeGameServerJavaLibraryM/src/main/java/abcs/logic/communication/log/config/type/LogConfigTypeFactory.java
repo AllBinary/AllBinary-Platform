@@ -41,5 +41,6 @@ public class LogConfigTypeFactory
     private LogConfigTypeFactory()
     {
         LogConfigTypes.LOGGING.add(this.INIT_SERVER);
+        //LogConfigTypes.LOGGING.add(this.GAME_SIMULATOR);
     }
 }

@@ -50,24 +50,26 @@
             <optional>true</optional>
         </dependency>
 
+<!--
         <dependency>
             <groupId>org.allbinary.data.tables</groupId>
             <artifactId>EntitiesBlisketBaseJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
         </dependency>
-
         <dependency>
             <groupId>org.allbinary.business.category</groupId>
             <artifactId>CategoryJavaLibrary</artifactId>
+        </dependency>
+-->
+
+        <dependency>
+  <groupId>org.allbinary.media.image</groupId>
+  <artifactId>ImageJ2SEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
-
+  
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ColorJavaLibrary</artifactId>

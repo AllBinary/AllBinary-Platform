@@ -100,6 +100,7 @@ public class LogFormatUtil
         return stringBuffer;
     }
 
+    private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
     public synchronized String get(Throwable exception)
     {
         if (exception != null)
@@ -116,7 +117,7 @@ public class LogFormatUtil
             }
 
             stringBuffer.append(STACK_TRACE);
-            stringBuffer.append(ExceptionUtil.getStackTrace(exception));
+            stringBuffer.append(exceptionUtil.getStackTrace(exception));
 
             /*
             String exceptionMessage = ExceptionUtil.getStackTrace(exception);
