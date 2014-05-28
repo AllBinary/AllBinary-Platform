@@ -21,5 +21,10 @@ public interface OperatingSystemInterface
    String getVersion();
    String getArch();
    CharacterSet getCharacterSet();
+   
+   boolean isOverScan();
+   public int getOverScanXPercent();
+   public int getOverScanYPercent();
+   
    String toString();      
 }

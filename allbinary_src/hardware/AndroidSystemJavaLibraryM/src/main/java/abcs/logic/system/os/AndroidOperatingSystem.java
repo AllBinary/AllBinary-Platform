@@ -32,7 +32,7 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    public AndroidOperatingSystem() throws Exception
    {
        AndroidSystemProperties properties = 
-           AndroidSystemProperties.getInstance();
+               AndroidSystemProperties.getInstance();
 
        CommonSeps commonStrings = 
            CommonSeps.getInstance();
@@ -97,8 +97,34 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
        stringBuffer.append(commonStrings.EQUALS);
        stringBuffer.append(properties.getVoiceMailNumber());
        stringBuffer.append(commonStrings.SPACE);
+       
+   }
+   
+   private final String OUYA = "ouya";
+   
+   public boolean isOverScan()
+   {
+       AndroidSystemProperties properties = 
+               AndroidSystemProperties.getInstance();
+       
+       if(properties.getDevice().toLowerCase().indexOf(OUYA) >= 0)
+       {
+    	   return true;
+       }
+       
+       return false;
    }
 
+   public int getOverScanXPercent()
+   {
+       return 90;
+   }
+
+   public int getOverScanYPercent()
+   {
+       return 90;
+   }
+   
    public String toString()
    {
       StringMaker osBuffer = new StringMaker();

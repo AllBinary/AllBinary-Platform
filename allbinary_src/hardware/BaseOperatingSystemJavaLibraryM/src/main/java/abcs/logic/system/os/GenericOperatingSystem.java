@@ -26,7 +26,7 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    private final String osVersion;
    private final CharacterSet characterSet;
 
-   public GenericOperatingSystem() throws Exception
+   public GenericOperatingSystem()
    {
        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
        
@@ -81,6 +81,21 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    public CharacterSet getCharacterSet()
    {
       return this.characterSet;
+   }
+   
+   public boolean isOverScan()
+   {
+       return false;
+   }
+
+   public int getOverScanXPercent()
+   {
+       return 100;
+   }
+
+   public int getOverScanYPercent()
+   {
+       return 100;
    }
    
    public String toString()

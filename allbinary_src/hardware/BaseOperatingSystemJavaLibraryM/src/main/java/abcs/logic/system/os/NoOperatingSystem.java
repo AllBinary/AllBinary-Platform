@@ -21,7 +21,6 @@ package abcs.logic.system.os;
 public class NoOperatingSystem extends GenericOperatingSystem
 {
     public NoOperatingSystem()
-        throws Exception
     {
     }
 }

@@ -15,6 +15,7 @@ package abcs.logic.system.os;
 
 import allbinary.data.resource.ResourceUtil;
 import android.content.Context;
+import android.os.Build;
 import android.telephony.TelephonyManager;
 
 /**
@@ -117,5 +118,80 @@ public class AndroidSystemProperties
     public int getPhoneType()
     {
         return telephonyManager.getPhoneType();
+    }
+    
+    //Build Properties
+    public String getBoard()
+    {
+    	return Build.BOARD;
+    }
+    
+    public String getBrand()
+    {
+    	return Build.BRAND;
+    }
+    
+    /*
+    public String getCpuAbi()
+    {
+    	return Build.CPU_ABI;
+    }
+    */
+    
+    public String getDevice()
+    {
+    	return Build.DEVICE;
+    }
+    
+    /*
+    public String getDisplay()
+    {
+    	return Build.DISPLAY;
+    }
+    */
+    
+    public String getFingerprint()
+    {
+    	return Build.FINGERPRINT;
+    }
+
+    public String getHost()
+    {
+    	return Build.HOST;
+    }
+
+    public String getId()
+    {
+    	return Build.ID;
+    }
+
+    public String getModel()
+    {
+    	return Build.MODEL;
+    }
+
+    public String getProduct()
+    {
+    	return Build.PRODUCT;
+    }
+
+    public String getTags()
+    {
+    	return Build.TAGS;
+    }
+
+    public long getTime()
+    {
+    	return Build.TIME;
+    }
+    
+    public String getType()
+    {
+    	return Build.TYPE;
+    }
+
+    public String getUser()
+    {
+    	return Build.USER;
     }
 }

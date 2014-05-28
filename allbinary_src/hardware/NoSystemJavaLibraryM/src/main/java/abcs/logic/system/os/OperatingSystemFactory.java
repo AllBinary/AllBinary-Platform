@@ -13,7 +13,6 @@
 */
 package abcs.logic.system.os;
 
-import abcs.logic.communication.log.Log;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
 
@@ -29,15 +28,13 @@ public class OperatingSystemFactory
         return instance;
     }
 
-    private OperatingSystemInterface operatingSystemInterface;
-    private boolean hasDetected = false;
-
+    private OperatingSystemInterface operatingSystemInterface = new NoOperatingSystem();
 
     private OperatingSystemFactory()
     {
     }
     
-    public synchronized OperatingSystemInterface getOperatingSystemInstance() throws Exception
+    public synchronized OperatingSystemInterface getOperatingSystemInstance()
     {
         try
         {
@@ -45,18 +42,11 @@ public class OperatingSystemFactory
             //String osArch = SystemProperties.getArch();
             //String osVersion = SystemProperties.getVersion();
 
-            if(operatingSystemInterface == null)
-            {
-                operatingSystemInterface = new NoOperatingSystem();
-            }
-
             final String osString = "OperatingSystem Info: " + operatingSystemInterface.toString();
             System.out.println(osString);
             LogUtil.put(LogFactory.getInstance(osString, this, "getInstance()"));
 
             //throw new Exception("OS Not Supported: " + osName);
-            
-            return operatingSystemInterface;
         }
         catch(Exception e)
         {
@@ -65,7 +55,7 @@ public class OperatingSystemFactory
             //{
                 LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()", e));
             //}
-            throw e;
         }
+        return operatingSystemInterface;
     }
 }

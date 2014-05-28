@@ -33,7 +33,7 @@ public class OperatingSystemFactory
     {
     }
     
-    public synchronized OperatingSystemInterface getOperatingSystemInstance() throws Exception
+    public synchronized OperatingSystemInterface getOperatingSystemInstance()
     {
         try
         {
@@ -58,16 +58,16 @@ public class OperatingSystemFactory
             }
             
             //PreLogUtil.put(log.toString());
-            LogUtil.put(LogFactory.getInstance("OperatingSystem Info: " + operatingSystemInterface, this, CommonStrings.getInstance().GET_INSTANCE));
-            
-            return operatingSystemInterface;
+            LogUtil.put(LogFactory.getInstance("Operating System Info: " + operatingSystemInterface.toString(), this, CommonStrings.getInstance().GET_INSTANCE));
         }
         catch(Exception e)
         {
+            operatingSystemInterface = new NoOperatingSystem();
+            
             String error = "Failed to get instance";
-
             LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET_INSTANCE, e));
-            throw e;
         }
+        
+        return operatingSystemInterface;
     }
 }
