@@ -34,12 +34,12 @@ public class GroupFactory {
       return group;
    }
 
-   public void init(int groups, String[] nameArray)
+   public void init(short groups, String[] nameArray)
    {
       final String TEAM = "Team ";
       
       index = 0;
-      int size = list.size();
+      short size = (short) list.size();
       while(size < groups)
       {
           String name = null;
@@ -52,7 +52,7 @@ public class GroupFactory {
               name = TEAM + size;
           }
 
-         list.add(new Group(name, size + 3));
+         list.add(new Group(name, (short) (size + 3)));
          size++;
       }
    }

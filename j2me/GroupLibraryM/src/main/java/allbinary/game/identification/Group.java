@@ -21,21 +21,24 @@ public class Group implements GroupInterface
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(10);
    
    private final String teamName;
-   private final int teamId;
+   private final short teamId;
 
    private final String string;
 
-   public Group(String teamName, int teamId)
+   private static final String GROUP_NAME_LABEL = "Group Name: ";
+   private static final String ID_LABEL = " Id: ";
+   
+   public Group(String teamName, short teamId)
    {
       this.teamName = teamName;
       this.teamId = teamId;
 
       StringMaker stringBuffer = new StringMaker();
 
-      stringBuffer.append("Group Name: ");
-      stringBuffer.append(this.getGroupName());
-      stringBuffer.append(" ID: ");
-      stringBuffer.append(this.getGroupId());
+      stringBuffer.append(GROUP_NAME_LABEL);
+      stringBuffer.append(this.teamName);
+      stringBuffer.append(ID_LABEL);
+      stringBuffer.append(this.teamId);
 
       this.string = stringBuffer.toString();
    }
@@ -45,7 +48,7 @@ public class Group implements GroupInterface
       return teamName;
    }
 
-   public int getGroupId()
+   public short getGroupId()
    {
       return teamId;
    }

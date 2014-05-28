@@ -25,8 +25,8 @@ public class BasicGroupFactory
     public final String NAME = "GROUP_NAME";
     public final String NO_SUCH_GROUP = "No Such Group: ";
 
-    public final Group GOOD = new Group("Good Guys", 0);
-    public final Group ENEMY = new Group("Bad Guys", 1);
-    public final Group NONE = new Group("Not On A Team", 2);
+    public final Group GOOD = new Group("Good Guys", (short) 0);
+    public final Group ENEMY = new Group("Bad Guys", (short) 1);
+    public final Group NONE = new Group("Not On A Team", (short) 2);
 
 }

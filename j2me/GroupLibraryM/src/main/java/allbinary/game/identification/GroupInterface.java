@@ -16,5 +16,5 @@ package allbinary.game.identification;
 public interface GroupInterface
 {
    String getGroupName();
-   int getGroupId();
+   short getGroupId();
 }
