@@ -26,6 +26,7 @@ public class GameCommandsFactory
         return instance;
     }
     
+    public final Command TOGGLE_FULLSCREEN  = new Command("Toggle FullScreen", Command.SCREEN, 1);
     public final Command TOGGLE_KEYBOARD  = new Command("Keyboard", Command.SCREEN, 1);
     
     public final Command SET_MENU_DISPLAYABLE  = new Command("Set Menu Displayable", Command.SCREEN, 1);
@@ -63,6 +64,8 @@ public class GameCommandsFactory
    
     public final Command FEATURE_UPDATE  = new Command("Feature Update", Command.SCREEN, 1);
 
+    public final Command BUY_COMMAND  = new Command("BUY", Command.SCREEN, 1);
+    
     protected GameCommandsFactory()
     {
     }
