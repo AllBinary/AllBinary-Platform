@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image.cache;
+package org.allbinary.media.image.cache;
 
 import java.awt.image.BufferedImage;
 

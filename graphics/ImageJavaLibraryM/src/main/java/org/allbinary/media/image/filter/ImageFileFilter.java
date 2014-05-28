@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image.filter;
+package org.allbinary.media.image.filter;
 
 import java.io.File;
 

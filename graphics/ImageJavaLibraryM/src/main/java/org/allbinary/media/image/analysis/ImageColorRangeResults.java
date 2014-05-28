@@ -11,10 +11,10 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image.analysis;
+package org.allbinary.media.image.analysis;
 
-import allbinary.media.image.analysis.ColorRange;
-import allbinary.media.image.analysis.ColorRangeInterface;
+import org.allbinary.media.image.analysis.ColorRange;
+import org.allbinary.media.image.analysis.ColorRangeInterface;
 
 public class ImageColorRangeResults
 {

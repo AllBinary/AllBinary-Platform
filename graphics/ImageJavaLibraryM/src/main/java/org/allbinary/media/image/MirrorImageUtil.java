@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image;
+package org.allbinary.media.image;
 
 import abcs.logic.communication.log.Log;
 import abcs.logic.communication.log.LogUtil;

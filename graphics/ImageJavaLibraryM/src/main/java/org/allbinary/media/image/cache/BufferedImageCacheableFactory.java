@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image.cache;
+package org.allbinary.media.image.cache;
 
 import com.abcs.logic.util.cache.CacheableInterface;
 import com.abcs.logic.util.cache.CacheableInterfaceFactoryInterface;

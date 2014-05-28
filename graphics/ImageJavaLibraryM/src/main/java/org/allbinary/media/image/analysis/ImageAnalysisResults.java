@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image.analysis;
+package org.allbinary.media.image.analysis;
 
 public class ImageAnalysisResults
 {

@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image.io;
+package org.allbinary.media.image.io;
 
 public interface ImageIOInterface
 {

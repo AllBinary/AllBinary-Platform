@@ -11,52 +11,57 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.media.image.io;
+package org.allbinary.media.image.cache;
 
 import java.awt.image.BufferedImage;
 
-import javax.imageio.IIOImage;
-
 import com.abcs.logic.util.cache.CacheableInterface;
 
-public class IIOImageCacheable
+public class BufferedImageFrameCacheable
     implements CacheableInterface
-{    
-    private String key;
- 
-    private IIOImage iioImage;
-
-    public IIOImageCacheable(String key)
+{
+    private Long frame;
+    
+    private BufferedImage bufferedImage;
+    
+    public BufferedImageFrameCacheable(
+        BufferedImage bufferedImage, Long frame)
     {
-        this.key = key;
+        this.frame = frame;
+        this.setBufferedImage(bufferedImage);
     }
     
     public Object getKey()
     {
-        return this.key;
-    }
-    
-    public void setBufferedImage(BufferedImage bufferedImage)
-    {
-        this.setIioImage(new IIOImage(bufferedImage, null, null));
+        return this.frame;
     }
 
-    public IIOImage getIioImage()
+    public BufferedImage getBufferedImage()
     {
-        return iioImage;
+        return bufferedImage;
     }
 
-    private void setIioImage(IIOImage iioImage)
+    private void setBufferedImage(BufferedImage bufferedImage)
     {
-        this.iioImage = iioImage;
+        this.bufferedImage = bufferedImage;
     }
-    
+
+    public Long getFrame()
+    {
+        return frame;
+    }
+
+    public void setFrame(Long frame)
+    {
+        this.frame = frame;
+    }
+ 
     public String toString()
     {
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(this.getClass().getName());
-        stringBuffer.append(" Reusable IIOImage");
+        stringBuffer.append(" Frame: ");
+        stringBuffer.append(this.getFrame());
         return stringBuffer.toString();
     }
-    
 }
