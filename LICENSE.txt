@@ -1,4 +1,4 @@
-AllBinary Open License Version 1
+AllBinary Open License Version 1.0
 Copyright (c) 2011 AllBinary.
 
 By agreeing to this license you and any business entity you represent are 
@@ -15,12 +15,11 @@ given that the following conditions are met:
 2.  Redistribution of the AllBinary Platform source code must include the 
     copyright notice above.
 
-3.  You must submit all of your published products using AllBinary Platform 
-    source code to one of two AllBinary Online Application Sites.  Each product 
-    submission will cost 1 dollar USD and may be paid via Paypal to: 
-    travisberthelot@hotmail.com.
-    (Until 2013 you will submit them via email to travisberthelot@hotmail.com 
-    including the binarys, screenshots, name, and description.)
+3.  You must submit each of your published products using the AllBinary Platform 
+    source code as described in the PUBLISHED.txt file in the root 
+    of the repo which AllBinary may update without notice.  
+    (Note previous submissions are not required to meet the new PUBLISHED.txt 
+    requirements.) 
 
 4.  You will fulfill one of the 2 requirements below:
 
@@ -31,8 +30,9 @@ given that the following conditions are met:
 
     "Or"
 
-    You must pay or earn a yearly subscription as determined by AllBinary.
-    (This fee is waved for 2011 and will be 2 dollars USD for the first half of 2012)
+    You must pay a yearly subscription as determined by AllBinary.  
+    The current year subscription cost is in the YEARLY_FEE.txt file in the root 
+    of the repo which AllBinary may update without notice. 
 
 AllBinary may collect, contain, and transfer personal information for licensing, 
 registration, data analysis, and security purposes.  Any messages posted on our 
