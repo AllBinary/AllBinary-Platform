@@ -280,7 +280,33 @@
 
             <optional>true</optional>
         </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary.game.threed</groupId>
+            <artifactId>AllBinaryToMin3dJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
 
+            <optional>true</optional>
+        </dependency>        
+                
+        <dependency>
+            <groupId>min3d</groupId>
+            <artifactId>Min3dJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>        
+
+        <dependency>
+            <groupId>android</groupId>
+            <artifactId>android</artifactId>
+            <version>17</version>
+            <scope>provided</scope>
+        </dependency>    
     </dependencies>
 
     <build>
@@ -333,18 +359,12 @@
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>J2MEExceptionModule</artifactId>
-                                <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
 
                                 <library>true</library>
                             </inclusion>
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>LogModule</artifactId>
-                                <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
 
                                 <library>true</library>
                             </inclusion>
@@ -361,9 +381,9 @@
 
                     </assembly>
 
-                </configuration>
-            </plugin>
--->
+                            </configuration>
+                        </plugin>
+            -->
 
         </plugins>
 
