@@ -37,8 +37,10 @@
 
         <module>../../games/PreGameJ2MEJavaLibraryP</module>
 
+        <!--
         <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>
         <module>../../../../working_thirdparty/communication/XmlRpcJavaLibraryM</module>
+        -->
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
         <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
@@ -100,8 +102,9 @@
         <module>../../media/graphics/FormValidationJavaLibraryM</module>
         <module>../../media/graphics/FormJavaLibraryM</module>
         <module>../../media/graphics/FormBaseJavaLibraryM</module>
+        <!--
         <module>../../media/graphics/FormJMEJavaLibraryM</module>
-
+        -->
         <module>../../media/graphics/animation/AnimationResourceJavaLibraryM</module>
         <module>../../media/graphics/animation/TransitionAnimationJavaLibraryM</module>
         <module>../../media/graphics/animation/NoTransitionAnimationJavaLibraryM</module>
