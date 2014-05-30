@@ -139,20 +139,9 @@
 
         <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
         
-        <module>../../../allbinary_src/logic/data/file/FileJavaLibraryM</module>
-        <module>../../../allbinary_src/data/DataJavaLibraryM</module>
-
-        <module>../../../allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
-        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryM</module>
-        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
-
-        <module>../../../store/ThirdPartyStoreJavaLibraryM</module>
-
-        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
-        <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
-        <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>
-
-        <module>../../games/GameJ2MELibraryM</module>
+        <module>../licensing/GameLicensingNullJavaLibraryM</module>
+        
+        <module>../GameJ2MELibraryM</module>
         
         <!--
         <module>../GameJ2MEOptionalLibraryPOM</module>

@@ -58,9 +58,10 @@
         </dependency>
         
         <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId> 
+            <artifactId>GameLicensingNullJavaLibrary</artifactId>            
             <!--
+            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
             <artifactId>GameLicensingInAppPurchaseJavaLibrary</artifactId>
             -->
             <!-- AllBinary Platform Version Start -->
