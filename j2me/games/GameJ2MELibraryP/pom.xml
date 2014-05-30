@@ -137,12 +137,13 @@
 
         <module>../../ScreenCaptureNoneJavaLibraryM</module>
 
+        <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>        
         <module>../../../store/ThirdPartyStoreJavaLibraryM</module>
+
         <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
         <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
         <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>
-
-        <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
 
         <module>../../games/GameJ2MELibraryM</module>
         
