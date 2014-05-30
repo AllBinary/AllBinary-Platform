@@ -83,10 +83,10 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
+            <artifactId>GameLicensingNullJavaLibrary</artifactId>            
             <!--
             <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
-            <artifactId>GameLicensingOnlyNormalJavaLibrary</artifactId>
+            <artifactId>GameLicensingInAppPurchaseJavaLibrary</artifactId>
             -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>

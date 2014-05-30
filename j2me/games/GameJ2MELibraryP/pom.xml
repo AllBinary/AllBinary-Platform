@@ -141,6 +141,9 @@
         
         <module>../licensing/GameLicensingNullJavaLibraryM</module>
         
+        <module>../../business/advertisement/AllBinaryAdvertisementClientJavaLibraryM</module>
+        <module>../../business/advertisement/AdvertisementClientNoneJavaLibraryM</module>
+
         <module>../GameJ2MELibraryM</module>
         
         <!--
