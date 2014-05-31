@@ -57,7 +57,7 @@
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.animation</groupId>
+            <groupId>org.allbinary.media.image</groupId>
             <artifactId>ImageJ2MEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
