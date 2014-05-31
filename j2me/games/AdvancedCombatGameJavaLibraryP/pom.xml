@@ -129,6 +129,8 @@
         <module>../../input/TrackingEventJavaLibraryM</module>
         <module>../../../game/behavior/BehaviorLibraryP</module>
 
+        <module>../../media/graphics/OtherSoundMediaLibraryP</module>
+        
     </modules>
 
     <dependencies>
