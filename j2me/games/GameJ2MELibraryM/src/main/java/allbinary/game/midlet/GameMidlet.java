@@ -31,7 +31,6 @@ import javax.microedition.lcdui.Displayable;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.graphics.ResizableListenerHandler;
-import org.allbinary.graphics.ScreenListenerHandler;
 import org.allbinary.input.AllBinarySensorManager;
 
 import abcs.logic.basic.NotImplemented;
@@ -87,7 +86,6 @@ import allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.color.ColorChangeEventHandler;
-import allbinary.graphics.displayable.DisplayInfoSingleton;
 import allbinary.graphics.displayable.MyCanvas;
 import allbinary.graphics.displayable.command.MyCommandsFactory;
 import allbinary.graphics.displayable.screen.CommandForm;
@@ -102,6 +100,7 @@ import allbinary.midlet.ProgressMidlet;
 import allbinary.thread.ThreadFactoryUtil;
 import allbinary.thread.ThreadUtil;
 import allbinary.time.TimeDelayHelper;
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.util.BasicArrayList;
 
@@ -798,7 +797,12 @@ public class GameMidlet extends ProgressMidlet
         //fire should be called in Canvas setFullScreenMode
         //ScreenListenerHandler.getInstance().fire(isFullScreen);
         
-        this.getDisplay().getCurrent().setFullScreenMode(isFullScreen);
+        Displayable displayable = this.getDisplay().getCurrent();
+        
+        if(displayable instanceof Canvas)
+        {
+            ((Canvas) displayable).setFullScreenMode(isFullScreen);
+        }
 
         //this.commandAction(
           //      gameCommandsFactory.QUIT_COMMAND, displayable);
@@ -1011,7 +1015,6 @@ public class GameMidlet extends ProgressMidlet
         return loadGameForm;
     }
     
-
     public void setResized(boolean resized)
     {
         this.resized = resized;
