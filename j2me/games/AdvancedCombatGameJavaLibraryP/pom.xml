@@ -121,9 +121,8 @@
         <module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
         -->
 
-        <!--
         <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
-        -->
+
         <module>../../input/TouchButtonResourceAnimationJavaLibraryM</module>
         <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryM</module>
 

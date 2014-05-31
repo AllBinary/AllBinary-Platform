@@ -40,10 +40,6 @@
 
         <module>../../graphics/VectorJavaLibraryM</module>
 
-        <!--
-        ../../
-        <module>../../../../../work/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryM</module>
-        -->
         <module>../../graphics/BoundsJavaLibraryM</module>
 
 <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryM</module>
@@ -58,10 +54,16 @@
         <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryM</module>
         -->
 
-        <module>../../graphics/animation/image/ImageHTMLJavaLibraryM</module>
         <module>../../graphics/animation/image/ImageJ2MEJavaLibraryM</module>
+        <module>../../graphics/animation/image/ImageHTMLJavaLibraryM</module>
+        <module>../../graphics/animation/image/ImageJ2SEJavaLibraryM</module>
+        <module>../../graphics/animation/image/ImageAndroidJavaLibraryM</module>
         
+        <!--
+        ../../
+        <module>../../../../../work/j2me/media/graphics/layer/AllBinaryTiledLayerJavaLibraryM</module>
         <module>../../graphics/layer/AllBinaryTiledLayerJavaLibraryM</module>
+        -->
 
     </modules>
 
