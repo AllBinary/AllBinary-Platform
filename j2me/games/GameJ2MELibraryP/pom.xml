@@ -118,7 +118,7 @@
         <module>../../games/GameResourceJavaLibraryM</module>
         <module>../../games/GameSoundsJavaLibraryM</module>
 
-        <module>../../input/TouchInputLibraryPOM</module>
+        <module>../../input/TouchInputLibraryP</module>
 
         <module>../../media/MediaDataM</module>
         <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>

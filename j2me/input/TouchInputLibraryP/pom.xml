@@ -35,6 +35,7 @@
         <module>../NoTouchButtonJavaLibraryM</module>
         <module>../TouchButtonJavaLibraryM</module>
         
+        <!-- Not really required here -->
         <module>../ME/TouchScreenJ2MENoneJavaLibraryM</module>
         <module>../ME/TouchScreenJ2MEJavaLibraryM</module>
         

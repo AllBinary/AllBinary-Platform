@@ -132,8 +132,6 @@
         
         <module>../../media/sound/OtherSoundMediaLibraryP</module>
         
-        <module>../../input/TouchInputLibraryP</module>
-        
     </modules>
 
     <dependencies>
