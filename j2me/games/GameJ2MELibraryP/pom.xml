@@ -95,6 +95,8 @@
         <module>../../input/JSEGyroSensorJavaLibraryM</module>
 
         <module>../../media/sound/BasicPlayerJavaLibraryM</module>
+        <module>../../media/sound/BasicPlayerMIDP2JavaLibraryM</module>
+        <module>../../media/sound/NoPlayerJavaLibraryM</module>
         <module>../../media/sound/SoundJ2MELibraryM</module>
 
         <module>../../media/motion/AllBinaryVibrationJavaLibraryM</module>

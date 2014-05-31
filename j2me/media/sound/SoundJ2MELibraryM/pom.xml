@@ -5,8 +5,8 @@
     <artifactId>SoundJ2MELibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>SoundJ2MELibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -24,24 +24,22 @@
     </distributionManagement>
 
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
             <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>TempIntegrationJavaLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->            
             <optional>true</optional>
         </dependency>
 

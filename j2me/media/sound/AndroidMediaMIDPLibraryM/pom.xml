@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary</groupId>
-  <artifactId>AndroidMediaMIDPLibrary</artifactId>
-  <packaging>jar</packaging>
-                  <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-  <name>AndroidMediaMIDPLibrary</name>
-  <url>http://maven.apache.org</url>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AndroidMediaMIDPLibrary</artifactId>
+    <packaging>jar</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
+    <name>AndroidMediaMIDPLibrary</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
     </properties>
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
-                            <!-- AllBinary Platform Version Start -->
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
             <optional>true</optional>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AndroidResourceLibrary</artifactId>
-                            <!-- AllBinary Platform Version Start -->
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
@@ -41,7 +41,14 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BasicPlayerJavaLibrary</artifactId>
-                            <!-- AllBinary Platform Version Start -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoPlayerJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
@@ -49,7 +56,7 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>SoundJ2MELibrary</artifactId>
-                            <!-- AllBinary Platform Version Start -->
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
@@ -57,7 +64,7 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>NoVibrateJavaLibrary</artifactId>
-                            <!-- AllBinary Platform Version Start -->
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
             <optional>true</optional>
@@ -66,7 +73,7 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>TempIntegrationJavaLibrary</artifactId>
-                            <!-- AllBinary Platform Version Start -->
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
             <optional>true</optional>
