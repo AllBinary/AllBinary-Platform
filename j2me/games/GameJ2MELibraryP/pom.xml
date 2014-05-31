@@ -76,6 +76,8 @@
 
         <module>../../input/AllBinarySensorJavaLibraryM</module>
 
+        <module>../../input/ME/GameInputMEKeyOnlyJavaLibraryM</module>
+        <module>../../input/ME/GameInputMEMotionJavaLibraryM</module>
         <module>../../input/PC/GameInputPCJavaLibraryM</module>
         <module>../../input/PC/GameInputPCMotionJavaLibraryM</module>
 
