@@ -89,6 +89,7 @@
         
         <module>../../lib/VectorThreeDimensionalLibraryM</module>
         <module>../../input/NoGyroSensorJavaLibraryM</module>
+        <module>../../input/JSEGyroSensorJavaLibraryM</module>
 
         <module>../../media/sound/BasicPlayerJavaLibraryM</module>
         <module>../../media/sound/SoundJ2MELibraryM</module>
