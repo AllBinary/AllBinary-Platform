@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.allbinary</groupId>
-  <artifactId>TouchInputLibraryPOM</artifactId>
+  <artifactId>TouchInputLibraryP</artifactId>
   <packaging>pom</packaging>
   <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
-  <name>TouchInputLibraryPOM</name>
+  <name>TouchInputLibraryP</name>
   <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -30,10 +30,13 @@
 
     <modules>
 
-        <module>../TouchButtonMappingJavaLibraryM</module>
         <module>../TouchButtonBaseJavaLibraryM</module>
+        <module>../TouchButtonMappingJavaLibraryM</module>
         <module>../NoTouchButtonJavaLibraryM</module>
         <module>../TouchButtonJavaLibraryM</module>
+        
+        <module>../ME/TouchScreenJ2MENoneJavaLibraryM</module>
+        <module>../ME/TouchScreenJ2MEJavaLibraryM</module>
         
     </modules>
 
