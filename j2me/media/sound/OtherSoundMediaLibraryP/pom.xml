@@ -42,6 +42,8 @@
         <module>../../sound/J2SEMediaMIDPMinimalJavaLibraryM</module>
         <module>../../sound/MediaMIDP2ForHTMLJavaLibraryM</module>
         
+        <module>../../../games/Resources/sounds/release/GameSoundsWavResourcesJavaLibraryM</module>
+        
     </modules>
 
 </project>
