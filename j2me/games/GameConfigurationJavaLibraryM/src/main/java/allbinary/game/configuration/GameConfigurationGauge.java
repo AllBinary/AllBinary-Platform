@@ -21,6 +21,7 @@ public class GameConfigurationGauge extends Gauge
     {
         super(gameConfiguration.getName(), 
                 gameConfiguration.isModifiable().booleanValue(), gameConfiguration.getMaxValue().intValue() - gameConfiguration.getMinValue().intValue(),
-                gameConfiguration.getDefaultValue().intValue() - gameConfiguration.getMinValue().intValue());
+                //TWB - Some how this gets set to gets changed to: gameConfiguration.getDefaultValue().intValue()
+                gameConfiguration.getValue().intValue() - gameConfiguration.getMinValue().intValue());
     }
 }
