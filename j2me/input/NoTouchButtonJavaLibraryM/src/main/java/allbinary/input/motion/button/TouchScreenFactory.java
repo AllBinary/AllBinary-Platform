@@ -46,12 +46,10 @@ public class TouchScreenFactory
         return multiTouch;
     }
 
-    /*
     public void setTouch(boolean touch)
     {
-        this.touch = touch;
+        //this.touch = touch;
     }
-    */
     
     public boolean isTouch()
     {
