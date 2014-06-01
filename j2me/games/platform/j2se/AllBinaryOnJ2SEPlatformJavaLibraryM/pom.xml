@@ -5,9 +5,9 @@
     <groupId>org.allbinary</groupId>
     <artifactId>AllBinaryOnJ2SEPlatformJavaLibrary</artifactId>
     <packaging>jar</packaging>
-                        <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
     <name>AllBinaryOnJ2SEPlatformJavaLibrary</name>
     <url>http://maven.apache.org</url>
 
@@ -96,7 +96,7 @@
         -->
 
 
-<!--
+        <!--
         <dependency>
   <groupId>org.allbinary</groupId>
   <artifactId>NoThirdPartyStoreJavaLibrary</artifactId>
@@ -155,7 +155,6 @@
                     <descriptors>
                         <descriptor>assembly.xml</descriptor>
                     </descriptors>
-
                 </configuration>
             </plugin>
 
