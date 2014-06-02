@@ -48,7 +48,7 @@
                 
         <module>../../ResourceLibraryM</module>
         <module>../../ResourceJ2MEJavaLibraryM</module>
-        <module>../../AndroidResourceJavaLibraryM</module>
+        <module>../../AndroidResourceLibraryM</module>
 
         <module>../../../game/behavior/ArtificialIntelligenceLibraryM</module>
 
