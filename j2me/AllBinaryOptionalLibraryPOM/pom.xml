@@ -35,6 +35,10 @@
 
         <module>../J2SEForJ2MEJavaLibraryM</module>
         <module>../J2MEForJ2MEJavaLibraryM</module>
+        <!--
+        <module>../AndroidToJ2MELibraryM</module>
+        -->
+        <module>../AndroidToAllBinaryJavaLibraryM</module>
     </modules>
 
 </project>

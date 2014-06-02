@@ -95,6 +95,9 @@
         <module>../../lib/VectorThreeDimensionalLibraryM</module>
         <module>../../input/NoGyroSensorJavaLibraryM</module>
         <module>../../input/JSEGyroSensorJavaLibraryM</module>
+        <!--
+        <module>../../input/android/</module>
+        -->
 
         <module>../../media/sound/BasicPlayerJavaLibraryM</module>
         <module>../../media/sound/BasicPlayerMIDP2JavaLibraryM</module>
