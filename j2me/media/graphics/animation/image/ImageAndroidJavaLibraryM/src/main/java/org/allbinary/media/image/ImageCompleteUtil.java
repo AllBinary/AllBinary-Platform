@@ -1,4 +1,4 @@
-package org.allbinary.animation.image;
+package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
 
@@ -18,7 +18,7 @@ public class ImageCompleteUtil
         return instance;
     }
 
-    public void waitFor(Image image)
+    public void waitFor(Image image, String name)
             throws Exception
     {
     }

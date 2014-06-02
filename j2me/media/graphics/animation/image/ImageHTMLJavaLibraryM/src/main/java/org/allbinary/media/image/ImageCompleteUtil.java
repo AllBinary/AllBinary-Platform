@@ -1,4 +1,4 @@
-package org.allbinary.animation.image;
+package org.allbinary.media.image;
 
 import abcs.logic.communication.log.PreLogUtil;
 import allbinary.time.TimeDelayHelper;
@@ -26,19 +26,19 @@ public class ImageCompleteUtil
 
     //private final String WAIT = "Waiting to load image";
 
-    private final String METHOD_NAME = "waitForLoad";
+    //private final String METHOD_NAME = "waitForLoad";
 
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(18000);
     private final TimeDelayHelper allTimeDelayHelper = new TimeDelayHelper(120000);
     
-    public void waitFor(Image image)
+    public void waitFor(Image image, String name)
             throws Exception
     {
         this.timeDelayHelper.setStartTime();
-        this.waitFor(image, this.timeDelayHelper);
+        this.waitFor(image, name, this.timeDelayHelper);
     }
 
-    public boolean isReady(Image image, TimeDelayHelper timeDelayHelper)
+    public boolean isReady(Image image, String name, TimeDelayHelper timeDelayHelper)
             throws Exception
     {
         PlaynImage playnImage = (PlaynImage) image;
@@ -60,14 +60,14 @@ public class ImageCompleteUtil
 
             if(timeDelayHelper.isTime())
             {
-                throw new Exception("Timeout Waiting for Images");
+                throw new Exception("isReady: Timeout Waiting for Image: " + name);
             }
             return false;
         }
         return true;
     }
 
-    private void waitFor(Image image, TimeDelayHelper timeDelayHelper)
+    private void waitFor(Image image, String name, TimeDelayHelper timeDelayHelper)
             throws Exception
     {
         PlaynImage playnImage = (PlaynImage) image;
@@ -89,7 +89,7 @@ public class ImageCompleteUtil
 
             if(timeDelayHelper.isTime())
             {
-                throw new Exception("Timeout Waiting for Images");
+                throw new Exception("waitFor: Timeout Waiting for Image: " + name);
             }
         }
     }
@@ -109,7 +109,7 @@ public class ImageCompleteUtil
         
         for (int index = 0; index < size; index++)
         {
-            this.waitFor((Image) hashtable.get(objectArray[index]), this.allTimeDelayHelper);
+            this.waitFor((Image) hashtable.get(objectArray[index]), (String) objectArray[index], this.allTimeDelayHelper);
         }
     }
 }

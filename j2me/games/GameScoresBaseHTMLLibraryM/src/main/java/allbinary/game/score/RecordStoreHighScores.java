@@ -146,13 +146,7 @@ public class RecordStoreHighScores extends HighScores
                 recordStore.deleteRecord(bestHighScore.getId());
             }
 
-            recordStore.closeRecordStore();
-            
-            if(false)
-            {
-                //TWB - Allow HTML version to build
-                throw new IOException();
-            }            
+            recordStore.closeRecordStore();            
         }
         catch (RecordStoreException e)
         {
@@ -230,6 +224,12 @@ public class RecordStoreHighScores extends HighScores
             // LogUtil.put(LogFactory.getInstance("Loaded HighScores Ordered: " +
             // this.toString(), this, "load"));
 
+            if(false)
+            {
+                //TWB - Allow HTML version to build
+                throw new IOException();
+            }            
+            
         }
         catch (RecordStoreNotFoundException e)
         {
