@@ -71,6 +71,13 @@ public class LogUtil
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
-        PlayN.log().error(LOG_SUCCESS + message, exception);
+        if(exception != null)
+        {
+            PlayN.log().error(LOG_SUCCESS + message, exception);
+        }
+        else
+        {
+            PlayN.log().debug(LOG_SUCCESS + message);
+        }
     }  
 }

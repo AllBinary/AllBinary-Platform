@@ -147,6 +147,12 @@ public class RecordStoreHighScores extends HighScores
             }
 
             recordStore.closeRecordStore();
+            
+            if(false)
+            {
+                //TWB - Allow HTML version to build
+                throw new IOException();
+            }            
         }
         catch (RecordStoreException e)
         {
