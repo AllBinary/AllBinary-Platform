@@ -60,7 +60,7 @@ public class ImageCompleteUtil
 
             if(timeDelayHelper.isTime())
             {
-                throw new Exception("isReady: Timeout Waiting for Image: " + name);
+                throw new Exception("isReady: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
             }
             return false;
         }
@@ -89,7 +89,7 @@ public class ImageCompleteUtil
 
             if(timeDelayHelper.isTime())
             {
-                throw new Exception("waitFor: Timeout Waiting for Image: " + name);
+                throw new Exception("waitFor: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
             }
         }
     }
