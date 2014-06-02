@@ -125,6 +125,7 @@
         <module>../../media/sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>
 
         <module>../../../allbinary_src/content/ContentNoneJavaLibraryM</module>
+        <module>../../../allbinary_src/content/ContentAndroidJavaLibraryM</module>
 
         <module>../../games/GameConfigurationFormJavaLibraryM</module>
 
