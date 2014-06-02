@@ -70,6 +70,7 @@
         
         <module>../lib/TrigBaseLibraryM</module>        
         <module>../input/me/TouchJ2MENoneJavaLibraryM</module>
+        <module>../input/me/TouchJ2MEJavaLibraryM</module>
         
         <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
                 
