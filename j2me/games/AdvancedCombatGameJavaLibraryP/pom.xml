@@ -62,6 +62,8 @@
         <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
 
         <module>../../games/licensing/PartnerJ2MEJavaLibraryM</module>
+        <module>../../games/licensing/PartnerHTMLJavaLibraryM</module>
+        <module>../../games/licensing/PartnerAndroidJavaLibraryM</module>
         <module>../../games/licensing/NoGameLicensingJavaLibraryM</module>
         <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
         <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryM</module>
