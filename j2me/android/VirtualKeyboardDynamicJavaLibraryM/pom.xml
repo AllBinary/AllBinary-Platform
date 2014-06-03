@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary</groupId>
-  <artifactId>VirtualKeyboardDynamicJavaLibrary</artifactId>
-  <packaging>jar</packaging>
-  <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>VirtualKeyboardDynamicJavaLibrary</artifactId>
+    <packaging>jar</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
-  <name>VirtualKeyboardDynamicJavaLibrary</name>
-  <url>http://www.allbinary.com/</url>
+    <name>VirtualKeyboardDynamicJavaLibrary</name>
+    <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
@@ -65,8 +65,8 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>AndroidThroughAPI2JavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AndroidThroughAPI2JavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -74,8 +74,8 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>AndroidAPI3AndUpJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AndroidAPI3AndUpJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -83,11 +83,19 @@
         </dependency>
 
         <dependency>
-            <groupId>android</groupId>
+            <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>5</version>
-            <optional>true</optional>
+            <version>1.5_r3</version>
+            <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>1.5_r3</version>
+            <scope>provided</scope>
+            <classifier>sources</classifier>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -112,7 +120,9 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>single</goal></goals>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>

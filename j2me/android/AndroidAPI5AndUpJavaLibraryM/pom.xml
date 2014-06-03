@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary</groupId>
-  <artifactId>AndroidAPI5AndUpJavaLibrary</artifactId>
-  <packaging>jar</packaging>
-  <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>AndroidAPI5AndUpJavaLibrary</artifactId>
+    <packaging>jar</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
-  <name>AndroidAPI5AndUpJavaLibrary</name>
-  <url>http://www.allbinary.com/</url>
+    <name>AndroidAPI5AndUpJavaLibrary</name>
+    <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
@@ -47,46 +47,54 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>VirtualKeyboardJavaLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>VirtualKeyboardJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>AndroidBaseJavaLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>AndroidBaseJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
-        <groupId>org.allbinary</groupId>
-        <artifactId>GameInputAndroidBaseJavaLibrary</artifactId>
-        <!-- AllBinary Platform Version Start -->
-        <version>1.0.0-SNAPSHOT</version>
-        <!-- AllBinary Platform Version End -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameInputAndroidBaseJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
         </dependency>
           
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>TouchButtonJavaLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>TouchButtonJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
-            <groupId>android</groupId>
+            <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>5</version>
-            <optional>true</optional>
+            <version>2.1_r1</version>
+            <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>2.1_r1</version>
+            <scope>provided</scope>
+            <classifier>sources</classifier>
+        </dependency>
+        
     </dependencies>
 
     <build>
@@ -111,7 +119,9 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>single</goal></goals>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>

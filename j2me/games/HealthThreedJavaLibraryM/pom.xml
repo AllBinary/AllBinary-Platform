@@ -48,194 +48,16 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>AllBinaryJ2MELibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameJ2MELibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>AllBinaryLayerJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>AnimationLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TrigJ2MELibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>BasicMathLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>VelocityLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameInputLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>CollisionLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GroupLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>Basic2DVectorLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>PreGameJ2MEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TempIntegrationJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2MEColorJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameAnimationJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameConfigurationJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>CollisionLayerJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>DamageGameJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
+    
         <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2MEJavaUtilLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>WeaponLayerJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameIntermissionLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>DropJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameConfigurationFormJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLNoneJavaLibrary</artifactId>
+            <groupId>org.allbinary.game.threed</groupId>
+            <artifactId>AllBinaryToMin3dJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -249,64 +71,21 @@
             <version>3.0.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
-
-
+    
         <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameInputPCMotionJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>AdvertisementClientNoneJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>BasePreloaderJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-        
-        <dependency>
-            <groupId>org.allbinary.game.threed</groupId>
-            <artifactId>AllBinaryToMin3dJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>        
-                
-        <dependency>
-            <groupId>min3d</groupId>
-            <artifactId>Min3dJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>        
-
-        <dependency>
-            <groupId>android</groupId>
+            <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>17</version>
+            <version>1.5_r3</version>
             <scope>provided</scope>
-        </dependency>    
+        </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>1.5_r3</version>
+            <scope>provided</scope>
+            <classifier>sources</classifier>
+        </dependency>
+                
     </dependencies>
 
     <build>
@@ -325,65 +104,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals><goal>single</goal></goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <attach>true</attach>
-                    <descriptors>
-                        <descriptor>assembly.xml</descriptor>
-                    </descriptors>
-
-                </configuration>
-            </plugin>
-            <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <forceCreation>true</forceCreation>
-                    <archive>
-                        <manifestEntries>
-                            <Implementation-Version>${pom.version}</Implementation-Version>
-                        </manifestEntries>
-                    </archive>
-
-                    <assembly>
-                        <inclusions>
-                            <inclusion>
-                                <groupId>org.allbinary</groupId>
-                                <artifactId>J2MEExceptionModule</artifactId>
-
-                                <library>true</library>
-                            </inclusion>
-                            <inclusion>
-                                <groupId>org.allbinary</groupId>
-                                <artifactId>LogModule</artifactId>
-
-                                <library>true</library>
-                            </inclusion>
-                        </inclusions>
-
-                    <exclusions>
-                        <exclusion>
-                            <groupId>org.microemu</groupId><artifactId>microemulator</artifactId>
-                        </exclusion>
-                        <exclusion>
-                            <groupId>org.microemu</groupId><artifactId>microemu-jsr-135</artifactId>
-                        </exclusion>
-                    </exclusions>
-
-                    </assembly>
-
-                            </configuration>
-                        </plugin>
-            -->
 
         </plugins>
 

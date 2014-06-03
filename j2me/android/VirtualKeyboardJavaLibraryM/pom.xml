@@ -55,12 +55,6 @@
 
         </dependency>
 
-        <dependency>
-            <groupId>android</groupId>
-            <artifactId>android</artifactId>
-            <version>5</version>
-            <optional>true</optional>
-        </dependency>
     </dependencies>
 
     <build>
