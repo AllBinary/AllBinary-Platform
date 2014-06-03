@@ -13,12 +13,12 @@
 */
 package allbinary.game.displayable.canvas;
 
-import javax.microedition.lcdui.Graphics;
-
 import allbinary.canvas.GameStatisticsFactory;
 import allbinary.graphics.color.BasicColorFactory;
 import allbinary.graphics.displayable.DisplayInfoSingleton;
+import allbinary.graphics.font.MyFont;
 import allbinary.graphics.paint.InitUpdatePaintable;
+import javax.microedition.lcdui.Graphics;
 
 public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
 {
@@ -66,7 +66,7 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
                     baseRefreshHelperCharArray[index].length, 0, yArray[index], 0);
             
             graphics.drawChars(baseRefreshHelperCharArray[index + 1], 0, 
-                    baseRefreshHelperCharArray[index + 1].length, 110, yArray[index + 1], 0);
+                    baseRefreshHelperCharArray[index + 1].length, (baseRefreshHelperCharArray[index].length * MyFont.getInstance().DEFAULT_CHAR_WIDTH * 2), yArray[index + 1], 0);
         }
     }
 }
