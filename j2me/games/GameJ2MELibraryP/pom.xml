@@ -45,14 +45,14 @@
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
         <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
         <module>../../TempIntegrationJavaLibraryM</module>
-                
+
+        <module>../../DebugJavaLibraryM</module>                
         <module>../../ResourceLibraryM</module>
         <module>../../ResourceJ2MEJavaLibraryM</module>
         <module>../../AndroidResourceLibraryM</module>
 
         <module>../../../game/behavior/ArtificialIntelligenceLibraryM</module>
 
-        <module>../../DebugJavaLibraryM</module>
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
 
