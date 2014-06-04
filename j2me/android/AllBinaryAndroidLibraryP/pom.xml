@@ -72,6 +72,7 @@
         
         <module>../../media/sound/MusicAndroidJavaLibraryM</module>
 
+        <module>../../media/graphics/ImageCacheAndroidJavaLibraryM</module>
     </modules>
 
 </project>
