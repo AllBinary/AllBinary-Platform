@@ -76,6 +76,8 @@
         
         <module>../../../../working/allbinary_src/logic/data/file/FileAndroidJavaLibraryM</module>
         
+        <module>../../input/android/MotionInputAndroidResourcesJavaLibraryM</module>
+        
     </modules>
 
 </project>
