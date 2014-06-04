@@ -134,6 +134,7 @@
         
         <module>../../media/sound/OtherSoundMediaLibraryP</module>
         
+        <module>../../android/AllBinaryAndroidLibraryP</module>
     </modules>
 
     <dependencies>
