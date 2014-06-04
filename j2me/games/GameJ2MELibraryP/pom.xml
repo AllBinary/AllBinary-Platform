@@ -119,6 +119,9 @@
         <module>../../media/graphics/animation/AnimationResourceJavaLibraryM</module>
         <module>../../media/graphics/animation/TransitionAnimationJavaLibraryM</module>
         <module>../../media/graphics/animation/NoTransitionAnimationJavaLibraryM</module>
+        <!--
+        AndroidTransitionAnimationJavaLibraryM
+        -->
         <module>../../media/graphics/animation/GameAnimationJavaLibraryM</module>
         <module>../../games/GameResourceJavaLibraryM</module>
         <module>../../games/GameSoundsJavaLibraryM</module>
