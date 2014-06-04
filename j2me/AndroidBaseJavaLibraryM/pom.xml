@@ -6,8 +6,8 @@
     <artifactId>AndroidBaseJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>AndroidBaseJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -48,21 +48,14 @@
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameJ2MELibrary</artifactId>
-            <!-- <artifactId>AllBinaryJ2MELibrary</artifactId> -->
+            <artifactId>J2MEColorJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
+            <optional>true</optional>
         </dependency>
-
-        <!--
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameInputAndroidBaseJavaLibrary</artifactId>
-        </dependency>
-        -->
-        
+                
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>

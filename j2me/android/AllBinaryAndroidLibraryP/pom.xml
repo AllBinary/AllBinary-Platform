@@ -40,12 +40,6 @@
         <module>../../../../working/j2me/AndroidToJ2MELibraryM</module>
         -->
 
-        <!--
-        <module>../../android/AndroidAPI3AndUpJavaLibraryM</module>
-        -->
-        <module>../../android/AndroidAPI5AndUpJavaLibraryM</module>
-        <module>../../android/AndroidThroughAPI2JavaLibraryM</module>
-        <module>../../android/AndroidThroughAPI4JavaLibraryM</module>
         <module>../../android/VirtualKeyboardDynamicJavaLibraryM</module>
         
         <!--
