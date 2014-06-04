@@ -34,13 +34,13 @@
         <module>../../sound/NotDeviceSpecificNoMediaMIDP1LibraryM</module>
         
         <module>../../sound/MusicAndroidJavaLibraryM</module>
-        <module>../../sound/AndroidMediaMIDPLibraryM</module>
         <module>../../sound/J2SEMediaMIDPJorbisJavaLibraryM</module>        
         -->
 
         <module>../../sound/NotDeviceSpecificMIDP2JavaLibraryM</module>
         <module>../../sound/J2SEMediaMIDPMinimalJavaLibraryM</module>
         <module>../../sound/MediaMIDP2ForHTMLJavaLibraryM</module>
+        <module>../../sound/AndroidMediaMIDPLibraryM</module>
         
         <module>../../../games/Resources/sounds/release/GameSoundsWavResourcesJavaLibraryM</module>
         

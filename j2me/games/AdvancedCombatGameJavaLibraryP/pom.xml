@@ -137,6 +137,7 @@
         <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryM</module>
         <module>../../android/VirtualKeyboardJavaLibraryM</module>
         <module>../../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
+        <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
         <module>../../android/AllBinaryAndroidLibraryP</module>
 
 </modules>
