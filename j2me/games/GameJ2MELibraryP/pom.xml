@@ -106,6 +106,7 @@
 
         <module>../../media/motion/AllBinaryVibrationJavaLibraryM</module>
         <module>../../media/motion/NoVibrateJavaLibraryM</module>
+        <module>../../media/motion/VibrateAndroidJavaLibraryM</module>
 
         <module>../../media/graphics/NullCustomUIJavaLibraryM</module>
         <module>../../media/graphics/NullCustomUIBaseJavaLibraryM</module>
