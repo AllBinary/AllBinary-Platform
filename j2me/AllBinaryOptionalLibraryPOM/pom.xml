@@ -38,8 +38,8 @@
         <!--
         <module>../AndroidToJ2MELibraryM</module>
         -->
-        <module>../../AndroidBaseJavaLibraryM</module>
-        <module>../../android/VirtualKeyboardJavaLibraryM</module>
+        <module>../AndroidBaseJavaLibraryM</module>
+        <module>../android/VirtualKeyboardJavaLibraryM</module>
         <module>../AndroidToAllBinaryJavaLibraryM</module>
     </modules>
 
