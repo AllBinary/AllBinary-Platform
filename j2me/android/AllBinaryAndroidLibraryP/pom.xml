@@ -34,8 +34,6 @@
         <module>../AndroidToJ2MELibraryM</module>
         -->
         <module>../../AndroidBaseJavaLibraryM</module>
-        <module>../../android/VirtualKeyboardJavaLibraryM</module>
-        <module>../../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
         <!--
         <module>../../../android/AndroidAPI3AndUpJavaLibraryM</module>
         -->
