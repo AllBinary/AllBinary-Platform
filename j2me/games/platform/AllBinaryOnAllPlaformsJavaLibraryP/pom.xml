@@ -45,6 +45,8 @@
         <module>../html/AllBinaryOnHTMLBasePlatformJavaLibrary</module>
         <module>../html/AllBinaryOnHTMLPlatformJavaLibraryM</module>
         
+        <module>../../../android/AllBinaryAndroidLibraryP</module>
+        
         <module>../android/AllBinaryOnAndroidBasePlatformJavaLibraryM</module>
         <module>../android/AllBinaryOnAndroidBasePlatformDependenciesJavaLibraryM</module>
         <module>../android/AllBinaryOnAndroidPlatformJavaLibraryM</module>
