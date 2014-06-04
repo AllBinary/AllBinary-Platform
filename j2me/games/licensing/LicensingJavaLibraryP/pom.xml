@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>LicensingJavaLibraryPOM</artifactId>
+  <packaging>pom</packaging>
+  <version>1</version>
+  <name>LicensingJavaLibraryPOM</name>
+  <url>http://maven.apache.org</url>
+
+    <properties>
+        <buildLabel>${version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <module>../AndroidResourcesTempJavaLibraryM</module>
+        <module>../../../../../working/allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryM</module>
+        
+        <!--
+        <module>../../../media/graphics/GraphicsBasicImageJavaLibraryM</module>
+
+        <module>../../../../../working/allbinary_src/licensing/LicenseClientJavaLibraryM</module>
+        <module>../../../../../working/allbinary_src/licensing/LicenseRegistrationJavaLibraryM</module>
+
+        <module>../LicensedGameDemoJavaLibraryM</module>
+        
+        <module>../../../../../working/j2me/games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
+        <module>../../../../../working/j2me/games/licensing/GameLicensingOnlyNormalJavaLibraryM</module>
+        -->
+        
+        <!--
+        <module>../StoreGameDemoJavaLibraryM</module>
+        -->
+        
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

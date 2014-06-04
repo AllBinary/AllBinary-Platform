@@ -139,6 +139,8 @@
         <module>../../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
         <module>../../android/AllBinaryAndroidLibraryP</module>
+        
+        <module>../licensing/LicensingJavaLibraryP</module>
 
 </modules>
 
