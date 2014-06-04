@@ -34,7 +34,6 @@
         <module>../../input/android/MotionInputAndroidResourcesJavaLibraryM</module>
         -->
 
-        <module>../../AndroidBaseJavaLibraryM</module>
         <module>../../AndroidResourceLibraryM</module>
 
         <module>../../AllBinaryAndroidProgressJavaLibraryM</module>
