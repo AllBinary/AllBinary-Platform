@@ -29,7 +29,23 @@
     </properties>
 
     <modules>
-
+        
+        <!--
+        <module>../AndroidToJ2MELibraryM</module>
+        -->
+        <module>../../AndroidBaseJavaLibraryM</module>
+        <module>../../android/VirtualKeyboardJavaLibraryM</module>
+        <module>../../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
+        <!--
+        <module>../../../android/AndroidAPI3AndUpJavaLibraryM</module>
+        -->
+        <module>../../android/AndroidAPI5AndUpJavaLibraryM</module>
+        <module>../../android/AndroidThroughAPI2JavaLibraryM</module>
+        <module>../../android/AndroidThroughAPI4JavaLibraryM</module>
+        <!--
+        <module>../../AndroidToAllBinaryJavaLibraryM</module>
+        -->
+        
         <!--
         <module>../../input/android/MotionInputAndroidResourcesJavaLibraryM</module>
         -->
