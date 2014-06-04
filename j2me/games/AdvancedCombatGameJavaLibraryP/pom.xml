@@ -50,7 +50,6 @@
         <module>../../../allbinary_src/logic/data/file/FileJavaLibraryM</module>
         <module>../../../allbinary_src/data/DataJavaLibraryM</module>
 
-        <module>../../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
         <module>../../../allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryM</module>        
         <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryM</module>

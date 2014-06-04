@@ -40,6 +40,7 @@
         -->
         <module>../AndroidBaseJavaLibraryM</module>
         <module>../android/VirtualKeyboardJavaLibraryM</module>
+        <module>../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
         <module>../AndroidToAllBinaryJavaLibraryM</module>
     </modules>
 
