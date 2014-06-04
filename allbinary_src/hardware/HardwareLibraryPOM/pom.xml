@@ -34,6 +34,7 @@
         <module>../BaseOperatingSystemJavaLibraryM</module>
         <module>../BaseSystemJavaLibraryM</module>
         <module>../NoSystemJavaLibraryM</module>
+        <module>../AndroidSystemJavaLibraryM</module>
         
     </modules>
 
