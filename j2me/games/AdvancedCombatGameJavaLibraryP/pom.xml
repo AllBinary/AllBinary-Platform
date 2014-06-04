@@ -133,6 +133,7 @@
         
         <module>../../media/sound/OtherSoundMediaLibraryP</module>
         
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryM</module>
         <module>../../android/AllBinaryAndroidLibraryP</module>
     </modules>
 
