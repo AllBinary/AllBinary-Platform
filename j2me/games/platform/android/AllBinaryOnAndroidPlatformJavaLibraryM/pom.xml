@@ -222,7 +222,6 @@ input\android\MotionInputThroughAPI4AndroidJavaLibrary
             <!-- AllBinary Platform Version End -->
         </dependency>
 
-
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameScoresLibrary</artifactId>

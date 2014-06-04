@@ -73,6 +73,9 @@
         <module>../../media/sound/MusicAndroidJavaLibraryM</module>
 
         <module>../../media/graphics/ImageCacheAndroidJavaLibraryM</module>
+        
+        <module>../../../../working/allbinary_src/logic/data/file/FileAndroidJavaLibraryM</module>
+        
     </modules>
 
 </project>
