@@ -49,7 +49,6 @@
         <module>../../android/AndroidThroughAPI2JavaLibraryM</module>
         <module>../../android/AndroidThroughAPI4JavaLibraryM</module>
         <module>../../android/VirtualKeyboardDynamicJavaLibraryM</module>
-        <module>../../android/VirtualKeyboardJavaLibraryM</module>
         
         <!--
         ../../
@@ -65,7 +64,6 @@
         <module>../../../../working/j2me/J2MEMidletAsViewJavaLibraryM</module>
         <module>../../../../working/j2me/J2MEGameMidletAsActivityJavaLibraryM</module>
         <module>../../../../working/j2me/J2MEMidletAsActivityJavaLibraryM</module>
-        <module>../../AndroidToAllBinaryJavaLibraryM</module>
         
         <module>../../media/sound/MusicAndroidJavaLibraryM</module>
 
