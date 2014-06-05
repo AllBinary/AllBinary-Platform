@@ -143,8 +143,9 @@
         <!-- Not used in Platform Libraries -->
         <module>../licensing/LicensingJavaLibraryP</module>
         <module>../../../allbinary_src/allbinary_src_generic_event_srcM</module>
-        <module>../../../allbinary_src/cache/BaseCacheJavaLibraryM</module>
         <module>../../../allbinary_src/cache/AllBinaryCacheLibraryM</module>
+        <!--
+        -->
 </modules>
 
     <dependencies>
