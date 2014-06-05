@@ -17,11 +17,10 @@
 
         <module>../AndroidResourcesTempJavaLibraryM</module>
         <module>../../../../../working/allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryM</module>
-        
-        <!--
-        <module>../../../media/graphics/GraphicsBasicImageJavaLibraryM</module>
 
         <module>../../../../../working/allbinary_src/licensing/LicenseClientJavaLibraryM</module>
+
+        <!--
         <module>../../../../../working/allbinary_src/licensing/LicenseRegistrationJavaLibraryM</module>
 
         <module>../LicensedGameDemoJavaLibraryM</module>

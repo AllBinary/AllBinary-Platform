@@ -5,8 +5,8 @@
     <artifactId>AllBinaryJ2MELibraryPOM</artifactId>
     <packaging>pom</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>AllBinaryJ2MELibraryPOM</name>
     <url>http://www.allbinary.com/</url>
@@ -44,10 +44,14 @@
         <module>../J2MEColorJavaLibraryM</module>
         <module>../EventJ2MELibraryM</module>
 
+        <module>../../allbinary_src/LogJ2MEJavaLibraryM</module>
+        <module>../logging/LoggingNoneM</module>
         <module>../logging/LoggingJ2MEAllM</module>
         <module>../logging/LoggingJ2MEExceptionM</module>
-        <module>../logging/LoggingNoneM</module>
-        <module>../../allbinary_src/LogJ2MEJavaLibraryM</module>
+        <module>../../allbinary_src/LogPlayNJavaLibraryM</module>
+        <module>../logging/LoggingHTMLAllM</module>
+        <module>../logging/LoggingHTMLExceptionM</module>
+        <module>../logging/LoggingAndroidAllM</module>
         <!--
         //While it is a possible dependency option it really does not fit here
         //as such it is actually build in the final POM builds instead

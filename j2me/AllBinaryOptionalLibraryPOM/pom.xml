@@ -29,10 +29,6 @@
     </properties>
 
     <modules>
-        <module>../../allbinary_src/LogPlayNJavaLibraryM</module>
-        <module>../logging/LoggingHTMLAllM</module>
-        <module>../logging/LoggingHTMLExceptionM</module>
-
         <module>../J2SEForJ2MEJavaLibraryM</module>
         <module>../J2MEForJ2MEJavaLibraryM</module>
     </modules>
