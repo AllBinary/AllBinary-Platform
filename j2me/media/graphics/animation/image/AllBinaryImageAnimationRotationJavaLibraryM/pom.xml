@@ -5,8 +5,8 @@
   <artifactId>AllBinaryImageAnimationRotationJavaLibrary</artifactId>
   <packaging>jar</packaging>
   <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
 
   <name>AllBinaryImageAnimationRotationJavaLibrary</name>
   <url>http://www.allbinary.com/</url>
@@ -67,8 +67,8 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary.media.image</groupId>
-  <artifactId>ImageJ2SEJavaLibrary</artifactId>
+            <groupId>org.allbinary.media.image</groupId>
+            <artifactId>ImageJ2SEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -85,39 +85,37 @@
 
         </dependency>
         
-
         <dependency>
-  <groupId>org.allbinary.animation</groupId>
-  <artifactId>AllBinaryImageAnimationJavaLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary.animation</groupId>
+            <artifactId>AllBinaryImageAnimationJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>        
-  
-  
+    
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>VectorJavaLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>VectorJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
     
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>VectorAnimationJ2MEJavaLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>VectorAnimationJ2MEJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
     
         <dependency>
-  <groupId>org.allbinary.cache</groupId>
-  <artifactId>AllBinaryCacheLibrary</artifactId>
-  <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary.cache</groupId>
+            <artifactId>AllBinaryCacheLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
@@ -130,7 +128,6 @@
             <optional>true</optional>
         </dependency>
 
-            
     </dependencies>
 
     <build>
@@ -203,9 +200,9 @@
 
                     </assembly>
 
-                </configuration>
-            </plugin>
--->
+                            </configuration>
+                        </plugin>
+            -->
 
         </plugins>
 
