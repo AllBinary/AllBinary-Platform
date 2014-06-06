@@ -48,8 +48,10 @@
         <module>../../input/android/MotionInputAndroidResourcesJavaLibraryM</module>
         -->
 
+        <!--
         <module>../../AllBinaryAndroidProgressJavaLibraryM</module>
-
+        -->
+        
         <!--
         <module>../../../../working/j2me/AndroidToJ2MELibraryM</module>
         -->
