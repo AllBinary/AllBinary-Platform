@@ -68,7 +68,6 @@
         <!-- Not used in Platform Libraries -->
         <module>../../graphics/GraphicsBasicImageJavaLibraryM</module>
         <module>../../graphics/animation/image/AllBinaryImageAnimationRotationJavaLibraryM</module>
-        <module>../../graphics/animation/image/AllBinaryAndroidImageRotationJavaLibraryM</module>
 
     </modules>
 
