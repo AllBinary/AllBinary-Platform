@@ -48,7 +48,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameJ2MELibrary</artifactId>
+            <artifactId>GameConfigurationJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
