@@ -48,16 +48,6 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ResourceLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
             <artifactId>J2MEForJ2MEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -84,16 +74,7 @@
             <!-- AllBinary Platform Version End -->
 
         </dependency>
-    
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameJ2MELibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-        </dependency>
-    
+        
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>FileLicenseInitInfoJavaLibrary</artifactId>
@@ -108,26 +89,6 @@
             <groupId>org.microemu</groupId>
             <artifactId>microemulator</artifactId>
             <version>3.0.0-SNAPSHOT</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameInputPCMotionJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>BasePreloaderJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
             <optional>true</optional>
         </dependency>
 
