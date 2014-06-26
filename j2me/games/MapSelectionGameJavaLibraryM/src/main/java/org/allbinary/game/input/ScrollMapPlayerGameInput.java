@@ -58,9 +58,9 @@ public class ScrollMapPlayerGameInput
     private int maxRight;
     
     public ScrollMapPlayerGameInput(
-       BasicGeographicMap geographicMapInterface, BasicArrayList list)
+       BasicGeographicMap geographicMapInterface, BasicArrayList list, int playerInputId)
     {
-        super(list);
+        super(list, playerInputId);
 
         this.initInputProcessors();
         

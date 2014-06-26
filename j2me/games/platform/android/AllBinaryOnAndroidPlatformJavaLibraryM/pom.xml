@@ -5,9 +5,9 @@
     <groupId>org.allbinary</groupId>
     <artifactId>AllBinaryOnAndroidPlatformJavaLibrary</artifactId>
     <packaging>jar</packaging>
-        <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
     <name>AllBinaryOnAndroidPlatformJavaLibrary</name>
     <url>http://maven.apache.org</url>
 
@@ -354,9 +354,9 @@ input\android\MotionInputThroughAPI4AndroidJavaLibrary
 
                     </assembly>
 
-                </configuration>
-            </plugin>
--->
+                            </configuration>
+                        </plugin>
+            -->
 
         </plugins>
 

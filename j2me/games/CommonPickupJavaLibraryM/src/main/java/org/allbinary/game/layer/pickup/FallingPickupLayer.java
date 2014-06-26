@@ -4,15 +4,16 @@ import allbinary.game.layer.pickup.PickupLayer;
 import allbinary.game.tick.TickableInterface;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.view.ViewPosition;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class FallingPickupLayer 
 extends PickupLayer 
 implements TickableInterface
 {
-    public FallingPickupLayer(String username, int actorSessionId, int id)
+    public FallingPickupLayer(RemoteInfo remoteInfo)
             throws Exception
     {
-        super(username, actorSessionId, id, new ViewPosition());
+        super(remoteInfo, new ViewPosition());
     }
 
     public FallingPickupLayer() throws Exception

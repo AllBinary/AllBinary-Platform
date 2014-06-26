@@ -16,14 +16,13 @@ package org.allbinary.game.multiplayer.layer;
 import allbinary.game.identification.Group;
 import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import allbinary.graphics.Rectangle;
-import allbinary.graphics.paint.NullLocationPaintable;
 import allbinary.view.ViewPosition;
 
 public class MultiPlayerGameLayer 
 extends CollidableDestroyableDamageableLayer 
 implements MultiPlayerGameLayerInterface
 {
-    public MultiPlayerGameLayer(String username, int actorSessionId, int id,
+    public MultiPlayerGameLayer(RemoteInfo remoteInfo,
             Group groupInterface, Rectangle layerInfo, ViewPosition viewPosition)
     {
         super(groupInterface, layerInfo, viewPosition);

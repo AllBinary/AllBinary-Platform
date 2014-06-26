@@ -57,7 +57,7 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
         this.preGameSelectorPaintable = preGameSelectorPaintable;
         this.nextGameState = nextGameState;
 
-        this.playerGameInput = new GameInputProcessorComposite(this);
+        this.playerGameInput = new GameInputProcessorComposite("Pre Game Selection", this);
         
         this.lockedIndex = lockedIndex;
     }

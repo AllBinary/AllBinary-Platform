@@ -18,6 +18,7 @@ import org.allbinary.physics.movement.Movement;
 import allbinary.animation.Animation;
 import allbinary.graphics.Rectangle;
 import allbinary.view.ViewPosition;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class SimpleWeaponLayer extends WeaponLayer
 {
@@ -42,13 +43,14 @@ public class SimpleWeaponLayer extends WeaponLayer
         this.setCollidableInferface(new CollidableWeaponBehavior(this, true));
     }
 
-    public SimpleWeaponLayer(Movement movement,
+    public SimpleWeaponLayer(RemoteInfo remoteInfo, int multiPlayerType, 
+            Movement movement,
             Animation animationInterface,
             Animation destroyedAnimationInterface,
-            Rectangle rectangle, ViewPosition viewPosition, String username, int actorSessionId, int id, int multiPlayerType)
+            Rectangle rectangle, ViewPosition viewPosition)
             throws Exception
     {
-        super(movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition, username, actorSessionId, id, multiPlayerType);
+        super(remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
         
         this.setCollidableInferface(new CollidableWeaponBehavior(this, true));
     }

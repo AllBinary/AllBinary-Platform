@@ -56,7 +56,7 @@ public class MapSelectionGameInputProcessor extends Processor
         this.raceTrackGeographicMapInterfaceFactoryInterface = raceTrackGeographicMapInterfaceFactoryInterface;
         this.preGameSelectorPaintable = mapSelectorPaintable;
 
-        this.playerGameInput = new GameInputProcessorComposite(this);
+        this.playerGameInput = new GameInputProcessorComposite("Map Selection", this);
         
         this.lockedIndex = lockedIndex;
     }

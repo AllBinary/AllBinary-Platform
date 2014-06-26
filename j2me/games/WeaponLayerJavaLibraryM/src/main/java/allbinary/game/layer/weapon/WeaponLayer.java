@@ -37,6 +37,7 @@ import allbinary.graphics.Rectangle;
 import allbinary.layer.AllBinaryLayer;
 import allbinary.layer.AllBinaryLayerManager;
 import allbinary.view.ViewPosition;
+import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class WeaponLayer 
 extends MultiPlayerGameLayer
@@ -130,16 +131,15 @@ implements TickableInterface
             Animation destroyedAnimationInterface, Rectangle rectangle,
             ViewPosition viewPosition) throws Exception
     {
-        this(movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition,
-                StringUtil.getInstance().EMPTY_STRING, -1, -1, -1);
+        this(new RemoteInfo(StringUtil.getInstance().EMPTY_STRING, -1, -1), -1, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
     }
 
-    protected WeaponLayer(Movement movement, Animation animationInterface,
+    protected WeaponLayer(RemoteInfo remoteInfo, int multiPlayerType, Movement movement, Animation animationInterface,
             Animation destroyedAnimationInterface, Rectangle rectangle,
-            ViewPosition viewPosition, String username, int actorSessionId, int id, int multiPlayerType)
+            ViewPosition viewPosition)
             throws Exception
     {
-        super(username, actorSessionId, id, BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
+        super(remoteInfo, BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
         // super(Group.NONE, rectangle, viewPosition, true);
 
         this.initAnimationInterface = animationInterface;
