@@ -47,6 +47,7 @@ public class AllBinaryMediaManager
      */
     public static void setMuted(boolean aMuted)
     {
+
     }
 
     public static boolean update()
