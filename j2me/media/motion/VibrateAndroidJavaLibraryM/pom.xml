@@ -9,7 +9,6 @@
     <!-- AllBinary Platform Version End -->
     <name>VibrateAndroidJavaLibrary</name>
     <url>http://maven.apache.org</url>
-        
 
     <distributionManagement>
         <snapshotRepository>
@@ -67,20 +66,18 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>NoVibrateJavaLibrary</artifactId>
+            <artifactId>AllBinaryVibrationJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
         </dependency>
-
+        
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>TempIntegrationJavaLibrary</artifactId>
+            <artifactId>GameConfigurationJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
         </dependency>
         
         <dependency>
