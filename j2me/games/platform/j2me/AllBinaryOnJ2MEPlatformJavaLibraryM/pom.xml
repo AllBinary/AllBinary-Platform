@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
     <artifactId>AllBinaryOnJ2MEPlatformJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
     <name>AllBinaryOnJ2MEPlatformJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
+    
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
@@ -36,15 +36,109 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-        </dependency>
+        </dependency>        
 
-        <!--
+        <dependency>
+            <groupId>org.allbinary.animation.transition</groupId>
+            <artifactId>NoTransitionAnimationJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+        
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>J2SEMediaMIDPMinimalJavaLibrary</artifactId>
+            <artifactId>NotDeviceSpecificMIDP2JavaLibrary</artifactId>
+            <!--
             <artifactId>NotDeviceSpecificNoMediaMIDP1Library</artifactId>
+            -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
         </dependency>
-        -->
+                
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoGyroSensorJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>        
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NullCustomUIJavaLibrary</artifactId>
+            <!--
+            <artifactId>MicroEmulatorCustomUIJavaLibrary</artifactId>
+            <artifactId>NullCustomUIJavaLibrary</artifactId>
+            -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoGameLicensingJavaLibrary</artifactId>
+            <!--
+                <artifactId>NoGameLicensingJavaLibrary</artifactId>
+                <artifactId>LicensedGameDemoJavaLibrary</artifactId>
+            -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <exclusions>
+                <exclusion>
+                    <artifactId>XmlRpcJavaLibrary</artifactId>
+                    <groupId>org.allbinary</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>HardCodedLicenseInitInfoJavaLibrary</artifactId>
+            <!--
+            <artifactId>HardCodedLicenseInitInfoJavaLibrary</artifactId>
+            <artifactId>FileLicenseInitInfoJavaLibrary</artifactId>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>BouncyCastleDESJavaLibrary</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+        </dependency>
+            -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>GameInputMEKeyOnlyJavaLibrary</artifactId>
+            <!--
+            -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>        
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TouchJ2MENoneJavaLibrary</artifactId>
+            <!--
+            <artifactId>TouchJ2MEJavaLibrary</artifactId>
+            <artifactId>TouchJ2MENoneJavaLibrary</artifactId>
+            -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
 
     </dependencies>
 
@@ -85,14 +179,7 @@
             </plugin>
    
         </plugins>
+
     </build>
 
 </project>
-
-
-
-
-
-
-
-
