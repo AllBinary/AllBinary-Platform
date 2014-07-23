@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary</groupId>
-  <artifactId>HardwareLibraryPOM</artifactId>
-  <packaging>pom</packaging>
-  <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>HardwareLibraryPOM</artifactId>
+    <packaging>pom</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
-  <name>HardwareLibraryPOM</name>
-  <url>http://www.allbinary.com/</url>
+    <name>HardwareLibraryPOM</name>
+    <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
@@ -34,7 +34,12 @@
         <module>../BaseOperatingSystemJavaLibraryM</module>
         <module>../BaseSystemJavaLibraryM</module>
         <module>../NoSystemJavaLibraryM</module>
+        <!--
+        AndroidResource should not be part of AndroidSystem
+        instead it is in GameJ2MELibraryPOM for now.
+        <module>../../../j2me/AndroidResourceLibraryM</module>
         <module>../AndroidSystemJavaLibraryM</module>
+        -->
         
     </modules>
 

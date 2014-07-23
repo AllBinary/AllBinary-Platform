@@ -46,10 +46,9 @@
             <optional>true</optional>
         </dependency>
         
-        
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>NoSystemJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoSystemJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -174,7 +173,7 @@
             <optional>true</optional>
         </dependency>
 
-     </dependencies>
+    </dependencies>
 
     <build>
 
@@ -199,7 +198,9 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>single</goal></goals>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>

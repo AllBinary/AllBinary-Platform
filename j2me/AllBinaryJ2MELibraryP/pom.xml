@@ -48,15 +48,15 @@
         <module>../logging/LoggingNoneM</module>
         <module>../logging/LoggingJ2MEAllM</module>
         <module>../logging/LoggingJ2MEExceptionM</module>
-        <module>../../allbinary_src/LogPlayNJavaLibraryM</module>
-        <module>../logging/LoggingHTMLAllM</module>
-        <module>../logging/LoggingHTMLExceptionM</module>
         <module>../logging/LoggingAndroidAllM</module>
         <!--
         //While it is a possible dependency option it really does not fit here
         //as such it is actually build in the final POM builds instead
         <module>../logging/LoggingRemoteExceptionM</module>  
         -->
+        
+        <module>../J2MEWindowingJavaLibraryM</module>
+        
         <module>../lib/BasicMathLibraryM</module>
         
         <module>../../allbinary_src/ThreadLibraryM</module>
@@ -69,14 +69,17 @@
         <module>../statistics/ApplicationStatisticsJavaLibraryM</module>
 
         <module>../../allbinary_src/hardware/HardwareLibraryPOM</module>
-        
-        <module>../AllBinaryJ2MELibraryM</module>
-        
+
         <module>../lib/TrigBaseLibraryM</module>        
         <module>../input/me/TouchJ2MENoneJavaLibraryM</module>
         <module>../input/me/TouchJ2MEJavaLibraryM</module>
         
+        <!--
+        On Nexus
         <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
+        -->
+
+        <module>../AllBinaryJ2MELibraryM</module>
                 
         <module>../AllBinaryOptionalLibraryPOM</module>
     </modules>

@@ -21,6 +21,8 @@ public class TouchScreenFactory
     private boolean multiTouch;
     private boolean touch;
     
+    private TouchScreenType touchScreenType;
+    
     private TouchScreenFactory()
     {
     }
@@ -55,4 +57,9 @@ public class TouchScreenFactory
     {
         return touch;
     }
+
+    public TouchScreenType getTouchScreenType()
+    {
+        return touchScreenType;
+    }    
 }

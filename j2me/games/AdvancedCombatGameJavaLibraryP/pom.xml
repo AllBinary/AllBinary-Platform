@@ -36,6 +36,14 @@
 
         <module>../GameJ2MELibraryP</module>
 
+        <!-- 
+        HTML logging should be in the AllBinaryPOM, but they depend on playn 
+        which depends on midp that depends on some of the AllBinary Platform
+        -->
+        <module>../../../allbinary_src/LogPlayNJavaLibraryM</module>
+        <module>../../logging/LoggingHTMLAllM</module>
+        <module>../../logging/LoggingHTMLExceptionM</module>
+
         <module>../../games/TickableJavaLibraryM</module>
         
         <module>../../games/CommonHeadsUpDisplayLibraryM</module>

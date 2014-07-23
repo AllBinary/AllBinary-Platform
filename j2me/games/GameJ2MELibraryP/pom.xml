@@ -50,6 +50,7 @@
         <module>../../ResourceLibraryM</module>
         <module>../../ResourceJ2MEJavaLibraryM</module>
         <module>../../AndroidResourceLibraryM</module>
+        <module>../../../allbinary_src/hardware/AndroidSystemJavaLibraryM</module>
 
         <module>../../../game/behavior/ArtificialIntelligenceLibraryM</module>
 
