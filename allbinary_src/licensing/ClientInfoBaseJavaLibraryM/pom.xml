@@ -5,8 +5,8 @@
     <artifactId>ClientInfoBaseJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>ClientInfoBaseJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -52,7 +52,6 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
         </dependency>
 
         <dependency>
@@ -61,7 +60,6 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
         </dependency>
 
         <dependency>
@@ -70,12 +68,13 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
         </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -89,6 +88,7 @@
                     </execution>
                 </executions>
             </plugin>
+
         </plugins>
 
     </build>
