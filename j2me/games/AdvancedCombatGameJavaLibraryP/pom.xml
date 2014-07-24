@@ -155,6 +155,8 @@
         <module>../../../allbinary_src/cache/AllBinaryCacheLibraryM</module>
         <!--
         -->
+        
+        <module>../CommonPickupJavaLibraryM</module>
     </modules>
 
     <dependencies>
