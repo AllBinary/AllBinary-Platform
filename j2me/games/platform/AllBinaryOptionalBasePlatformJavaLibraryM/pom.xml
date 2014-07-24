@@ -197,7 +197,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LicensedGameDemoJavaLibrary</artifactId>
+            <artifactId>NoGameLicensingJavaLibrary</artifactId>
             <!--
             <artifactId>NoGameLicensingJavaLibrary</artifactId>
             <artifactId>LicensedGameDemoJavaLibrary</artifactId>
@@ -209,10 +209,11 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameLicensingInAppPurchaseJavaLibrary</artifactId>
+            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
             <!--
-                <artifactId>GameLicensingOnlyNormalJavaLibrary</artifactId>
-                <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
+            <artifactId>GameLicensingInAppPurchaseJavaLibrary</artifactId>
+            <artifactId>GameLicensingOnlyNormalJavaLibrary</artifactId>
+            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
             -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
