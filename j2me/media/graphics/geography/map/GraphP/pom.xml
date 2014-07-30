@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary.game</groupId>
-    <artifactId>RaceTrackP</artifactId>
+    <artifactId>GraphP</artifactId>
     <packaging>pom</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
-    <name>RaceTrackP</name>
+    <name>GraphP</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -32,17 +32,17 @@
         
         <module>../GeographicMapLibraryM</module>
 
-<!--
-../../
--->
+        <!--
+        ../../
+        -->
 
         <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryM</module>
 
         <module>../../GeographicPathFindingLibraryM</module>
 
-<!--
-../../
--->
+        <!--
+        ../../
+        -->
 
         <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostPerformantJavaLibraryM</module>
         
@@ -54,6 +54,8 @@
         <!--
         -->
         <module>../DynamicPathFindingRaceTrackJavaLibraryM</module>
+        
+        <module>../BasicPlatformGeographicMapJavaLibraryM</module>
     </modules>
 
     <dependencies>

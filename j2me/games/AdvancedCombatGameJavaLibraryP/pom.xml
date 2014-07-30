@@ -157,6 +157,8 @@
         -->
         
         <module>../CommonPickupJavaLibraryM</module>
+        <module>../../../physics/FrictionJavaLibraryM</module>
+
     </modules>
 
     <dependencies>

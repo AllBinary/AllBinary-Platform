@@ -10,6 +10,7 @@
 
     <name>BasicPlayerJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
+
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
