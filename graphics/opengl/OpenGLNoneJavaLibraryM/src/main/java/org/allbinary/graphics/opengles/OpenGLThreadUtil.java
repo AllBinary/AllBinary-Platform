@@ -8,6 +8,10 @@ public class OpenGLThreadUtil
     {
         return instance;
     }
+    
+    public void set(Object glSurfaceView)
+    {
+    }    
             
     public void onPause()
     {

@@ -39,5 +39,9 @@ public class OpenGLCapabilities
     {
         return glVersion;
     }
-
+    
+    public boolean isVertexBufferObjectSupport()
+    {
+        return false;
+    }
 }

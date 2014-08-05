@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary</groupId>
-  <artifactId>TouchButtonBaseJavaLibrary</artifactId>
-  <packaging>jar</packaging>
-  <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary</groupId>
+    <artifactId>TouchButtonBaseJavaLibrary</artifactId>
+    <packaging>jar</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
-  <name>TouchButtonBaseJavaLibrary</name>
-  <url>http://www.allbinary.com/</url>
+    <name>TouchButtonBaseJavaLibrary</name>
+    <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
@@ -46,19 +46,19 @@
             <optional>true</optional>
         </dependency>
 
-<!--
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>MEMotionGestureJavaLibrary</artifactId>
-            -->
-            <!-- AllBinary Platform Version Start -->
-            <!--
-            <version>1.0.0-SNAPSHOT</version>
-            -->
-            <!-- AllBinary Platform Version End -->
-<!--
-        </dependency>
--->
+        <!--
+    <dependency>
+        <groupId>org.allbinary</groupId>
+        <artifactId>MEMotionGestureJavaLibrary</artifactId>
+        -->
+        <!-- AllBinary Platform Version Start -->
+        <!--
+        <version>1.0.0-SNAPSHOT</version>
+        -->
+        <!-- AllBinary Platform Version End -->
+        <!--
+                </dependency>
+        -->
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameInputLibrary</artifactId>
@@ -99,7 +99,9 @@
                 <executions>
                     <execution>
                         <phase>package</phase>
-                        <goals><goal>single</goal></goals>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
                     </execution>
                 </executions>
                 <configuration>
