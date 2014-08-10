@@ -34,7 +34,9 @@ public class TouchButtonAndroidResources extends Init
 {
     public void init()
     {
-        ResourceUtil resourceUtil = ResourceUtil.getInstance();
+        final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+        
+        final AndroidResources androidResources = AndroidResources.getInstance();
         
         final TouchButtonResource[] RESOURCE_STRING_ARRAY = {
         TouchButtonBlankResource.getInstance(),
@@ -52,15 +54,15 @@ public class TouchButtonAndroidResources extends Init
         
         if(CommonButtons.getInstance().STANDARD_BUTTON_SIZE == 128)
         {
-            RESOURCE_ARRAY[0] = AndroidResources.raw.touch_button_128_by_128;
-            RESOURCE_ARRAY[1] = AndroidResources.raw.touch_button_generic_action_128_by_128;
-            RESOURCE_ARRAY[2] = AndroidResources.raw.touch_button_start_128_by_128;
-            RESOURCE_ARRAY[3] = AndroidResources.raw.touch_button_up_arrow_128_by_128;
-            RESOURCE_ARRAY[4] = AndroidResources.raw.touch_button_down_arrow_128_by_128;
-            RESOURCE_ARRAY[5] = AndroidResources.raw.touch_button_turn_left_arrow_128_by_128;
-            RESOURCE_ARRAY[6] = AndroidResources.raw.touch_button_turn_right_arrow_128_by_128;
-            RESOURCE_ARRAY[7] = AndroidResources.raw.touch_button_strafe_left_arrow_128_by_128;
-            RESOURCE_ARRAY[8] = AndroidResources.raw.touch_button_strafe_right_arrow_128_by_128;
+            RESOURCE_ARRAY[0] = androidResources.raw.touch_button_128_by_128;
+            RESOURCE_ARRAY[1] = androidResources.raw.touch_button_generic_action_128_by_128;
+            RESOURCE_ARRAY[2] = androidResources.raw.touch_button_start_128_by_128;
+            RESOURCE_ARRAY[3] = androidResources.raw.touch_button_up_arrow_128_by_128;
+            RESOURCE_ARRAY[4] = androidResources.raw.touch_button_down_arrow_128_by_128;
+            RESOURCE_ARRAY[5] = androidResources.raw.touch_button_turn_left_arrow_128_by_128;
+            RESOURCE_ARRAY[6] = androidResources.raw.touch_button_turn_right_arrow_128_by_128;
+            RESOURCE_ARRAY[7] = androidResources.raw.touch_button_strafe_left_arrow_128_by_128;
+            RESOURCE_ARRAY[8] = androidResources.raw.touch_button_strafe_right_arrow_128_by_128;
 
             if(OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan())
             {
@@ -68,7 +70,7 @@ public class TouchButtonAndroidResources extends Init
 
                 resourceUtil.addResource(
                         RESOURCE_STRING_ARRAY[2].HINT,
-                        Integer.valueOf(AndroidResources.raw.ouya_o));
+                        Integer.valueOf(androidResources.raw.ouya_o));
                 
                 /*
                 for (int index = 0; index < RESOURCE_ARRAY.length; index++) {
@@ -83,15 +85,15 @@ public class TouchButtonAndroidResources extends Init
         else
             //if(CommonButtons.getInstance().STANDARD_BUTTON_SIZE == 64)
         {
-            RESOURCE_ARRAY[0] = AndroidResources.raw.touch_button_64_by_64;
-            RESOURCE_ARRAY[1] = AndroidResources.raw.touch_button_generic_action_64_by_64;
-            RESOURCE_ARRAY[2] = AndroidResources.raw.touch_button_start_64_by_64;
-            RESOURCE_ARRAY[3] = AndroidResources.raw.touch_button_up_arrow_64_by_64;
-            RESOURCE_ARRAY[4] = AndroidResources.raw.touch_button_down_arrow_64_by_64;
-            RESOURCE_ARRAY[5] = AndroidResources.raw.touch_button_turn_left_arrow_64_by_64;
-            RESOURCE_ARRAY[6] = AndroidResources.raw.touch_button_turn_right_arrow_64_by_64;
-            RESOURCE_ARRAY[7] = AndroidResources.raw.touch_button_strafe_left_arrow_64_by_64;
-            RESOURCE_ARRAY[8] = AndroidResources.raw.touch_button_strafe_right_arrow_64_by_64;
+            RESOURCE_ARRAY[0] = androidResources.raw.touch_button_64_by_64;
+            RESOURCE_ARRAY[1] = androidResources.raw.touch_button_generic_action_64_by_64;
+            RESOURCE_ARRAY[2] = androidResources.raw.touch_button_start_64_by_64;
+            RESOURCE_ARRAY[3] = androidResources.raw.touch_button_up_arrow_64_by_64;
+            RESOURCE_ARRAY[4] = androidResources.raw.touch_button_down_arrow_64_by_64;
+            RESOURCE_ARRAY[5] = androidResources.raw.touch_button_turn_left_arrow_64_by_64;
+            RESOURCE_ARRAY[6] = androidResources.raw.touch_button_turn_right_arrow_64_by_64;
+            RESOURCE_ARRAY[7] = androidResources.raw.touch_button_strafe_left_arrow_64_by_64;
+            RESOURCE_ARRAY[8] = androidResources.raw.touch_button_strafe_right_arrow_64_by_64;
         }
         
         for(int index = 0; index < RESOURCE_ARRAY.length; index++)

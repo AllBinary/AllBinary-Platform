@@ -1,13 +1,13 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
     <artifactId>AdvertisementClientNoneJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>AdvertisementClientNoneJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -134,62 +134,6 @@
                 </configuration>
             </plugin>
 
-<!-- Unremark to create java doc -->
-<!-- just this not the inner part
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.7</version>
-        <executions>
--->
-            <!--
-        <configuration>
-            <includeDependencySources>true</includeDependencySources>
-            <dependencySourceIncludes>
-                <dependencySourceInclude>org.allbinary.game.ai:ArtificialIntelligenceLibrary</dependencySourceInclude>
-            </dependencySourceIncludes>
-            <dependencySourceExcludes>
-                <dependencySourceExclude>org.allbinary:*</dependencySourceExclude>
-            </dependencySourceExcludes>
-        </configuration>
-
-            <aggregate>true</aggregate>
-
-            <localRepository url="file://g:/.m2" />
-
-            <detectOfflineLinks>true</detectOfflineLinks>
-            <includeDependencySources>true</includeDependencySources>
-            <dependencySourceIncludes>
-                <dependencySourceExclude>org.allbinary:*</dependencySourceExclude>
-            </dependencySourceIncludes>
-
-            <localRepository></localRepository>
-            <includeDependencySources>true</includeDependencySources>
-            <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
-            <show>public</show>
-            <aggregate>true</aggregate>
-          <execution>
-            <id>aggregate</id>
-            <goals>
-              <goal>aggregate</goal>
-            </goals>
-            <phase>site</phase>
-            <configuration>
-            </configuration>
-          </execution>
-          -->
-
-   <!--
-          <execution>
-            <id>javadoc-jar</id>
-            <phase>package</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
--->
         </plugins>
 
     </build>

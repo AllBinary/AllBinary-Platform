@@ -38,6 +38,11 @@ public class GameAdState implements VirtualKeyboardEventListenerInterface
         VirtualKeyboardEventHandler.getInstance().addListener(this);
     }
 
+    public void initViewArray(Object[] viewArray)
+    {
+
+    }
+    
     public void init(Object object)
     {
         this.init();
