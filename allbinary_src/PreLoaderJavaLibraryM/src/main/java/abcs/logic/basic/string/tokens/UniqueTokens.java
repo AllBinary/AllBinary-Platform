@@ -34,7 +34,7 @@ public class UniqueTokens
 	   specialCharacters.add("$");
 	   specialCharacters.add("%");
 	   specialCharacters.add("^");
-	   specialCharacters.add("&");
+	   specialCharacters.add(CommonSeps.getInstance().AMP);
 	   specialCharacters.add("*");
 	   specialCharacters.add("(");
 	   specialCharacters.add(")");

@@ -13,6 +13,7 @@
 */
 package allbinary.business.user.commerce.money.payment.gateway.transaction;
 
+import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.tokens.Tokenizer;
 import abcs.logic.communication.log.LogFactory;
 import abcs.logic.communication.log.LogUtil;
@@ -25,8 +26,6 @@ import org.allbinary.util.BasicArrayList;
 
 public class TransactionResult implements TransactionResultInterface
 {
-   private final String SEP = "&";
-   private final String SEP2 = "=";
    private HashMap keyValuePairs;
    private String result;
    
@@ -35,9 +34,9 @@ public class TransactionResult implements TransactionResultInterface
       try
       {
          this.result = result;
-         Tokenizer tokenizer = new Tokenizer(this.SEP);
+         Tokenizer tokenizer = new Tokenizer(CommonSeps.getInstance().AMP);
          BasicArrayList tokens = tokenizer.getTokens(result, new BasicArrayList());
-         Tokenizer tokenizer2 = new Tokenizer(this.SEP2);
+         Tokenizer tokenizer2 = new Tokenizer(CommonSeps.getInstance().EQUALS);
          
          Hashtable hashtable = tokenizer2.getTokens(tokens);
          //TWB - does this actually work?

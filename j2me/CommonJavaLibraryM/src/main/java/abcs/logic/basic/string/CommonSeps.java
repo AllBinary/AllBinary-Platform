@@ -1,27 +1,28 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
 package abcs.logic.basic.string;
 
 public class CommonSeps
 {
+
     private static final CommonSeps SINGLETON = new CommonSeps();
-    
+
     public static CommonSeps getInstance()
     {
         return SINGLETON;
     }
-    
+
     public final String NEW_LINE = "\n";
 
     public final String SEMICOLON = ";";
@@ -39,4 +40,7 @@ public class CommonSeps
     public final String BRACE_CLOSE = "}";
     public final String BRACKET_OPEN = "[";
     public final String BRACKET_CLOSE = "]";
+
+    public final String AMP = "&";
+    public final String QUESTION = "?";
 }

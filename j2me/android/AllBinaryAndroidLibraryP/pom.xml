@@ -33,6 +33,7 @@
         <!--
         <module>../AndroidToJ2MELibraryM</module>
         -->
+        <module>../../android/AndroidUtilJavaLibraryM</module>
         <module>../../AndroidBaseJavaLibraryM</module>
         <!--
         <module>../../../android/AndroidAPI3AndUpJavaLibraryM</module>

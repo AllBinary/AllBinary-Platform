@@ -31,7 +31,7 @@ public class SpecialCharacterUtil {
       hashMap.put("$","");
       hashMap.put("%","");
       hashMap.put("^","");
-      hashMap.put("&","");
+      hashMap.put(CommonSeps.getInstance().AMP,"");
       hashMap.put("*","");
       hashMap.put("(","");
       hashMap.put(")","");

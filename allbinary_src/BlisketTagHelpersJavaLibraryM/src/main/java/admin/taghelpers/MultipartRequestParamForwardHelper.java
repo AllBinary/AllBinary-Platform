@@ -13,6 +13,7 @@
 */
 package admin.taghelpers;
 
+import abcs.logic.basic.string.CommonSeps;
 import abcs.logic.basic.string.StringValidationUtil;
 import java.util.HashMap;
 
@@ -80,12 +81,12 @@ public class MultipartRequestParamForwardHelper
         }
     }
 
-    private static final String PARAM_SEP = "&";
-    private static final String PARAM_ASSIGN = "=";
-    private static final String PARAM_START = "?";
-
     private String getParams()
     {
+        final String AMP = CommonSeps.getInstance().AMP;
+        final String QUESTION = CommonSeps.getInstance().QUESTION;
+        final String EQUALS = CommonSeps.getInstance().EQUALS;
+
         final HashMap hashMap =
             this.requestMapInterface.getRequestHashMap();
 
@@ -101,14 +102,14 @@ public class MultipartRequestParamForwardHelper
 
             if (index != 0)
             {
-                stringBuffer.append(PARAM_SEP);
+                stringBuffer.append(AMP);
             } else
             {
-                stringBuffer.append(PARAM_START);
+                stringBuffer.append(QUESTION);
             }
 
             stringBuffer.append(key);
-            stringBuffer.append(PARAM_ASSIGN);
+            stringBuffer.append(EQUALS);
             stringBuffer.append(value);
         }
 

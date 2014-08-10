@@ -184,33 +184,33 @@
                 <dependencySourceExclude>org.allbinary:*</dependencySourceExclude>
             </dependencySourceIncludes>
 
-            <localRepository></localRepository>
-            <includeDependencySources>true</includeDependencySources>
-            <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
-            <show>public</show>
-            <aggregate>true</aggregate>
-          <execution>
-            <id>aggregate</id>
-            <goals>
-              <goal>aggregate</goal>
-            </goals>
-            <phase>site</phase>
-            <configuration>
-            </configuration>
-          </execution>
-          -->
+              <localRepository></localRepository>
+              <includeDependencySources>true</includeDependencySources>
+              <includeTransitiveDependencySources>true</includeTransitiveDependencySources>
+              <show>public</show>
+              <aggregate>true</aggregate>
+            <execution>
+              <id>aggregate</id>
+              <goals>
+                <goal>aggregate</goal>
+              </goals>
+              <phase>site</phase>
+              <configuration>
+              </configuration>
+            </execution>
+            -->
 
-   <!--
-          <execution>
-            <id>javadoc-jar</id>
-            <phase>package</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
--->
+            <!--
+                      <execution>
+                        <id>javadoc-jar</id>
+                        <phase>package</phase>
+                        <goals>
+                          <goal>jar</goal>
+                        </goals>
+                      </execution>
+                    </executions>
+                  </plugin>
+            -->
         </plugins>
 
     </build>

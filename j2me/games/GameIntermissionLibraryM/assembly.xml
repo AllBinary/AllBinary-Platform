@@ -10,7 +10,11 @@
         <dependencySet>
 
            <excludes>
+               <exclude>org.allbinary:Log</exclude>
                <exclude>org.allbinary:LoggingJ2MEAll</exclude>
+               <exclude>org.allbinary:CommonJavaLibrary</exclude>
+               <exclude>org.allbinary:J2MEExceptionLibrary</exclude>
+               <exclude>org.allbinary:LogJ2MEJavaLibrary</exclude>
            </excludes>
 
             <unpack>true</unpack>
