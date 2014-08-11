@@ -42,7 +42,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LogJ2MEJavaLibrary</artifactId>
+            <artifactId>LogAndroidJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
