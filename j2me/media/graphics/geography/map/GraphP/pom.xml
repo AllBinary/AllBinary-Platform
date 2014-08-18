@@ -37,6 +37,7 @@
         -->
 
         <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibrary_1_4_2M</module>
 
         <module>../../GeographicPathFindingLibraryM</module>
 
