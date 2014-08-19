@@ -6,6 +6,8 @@ import allbinary.graphics.color.BasicColor;
 
 public class CustomImageItem extends CustomItem
 {
+    protected int yOffset = 0;
+    
     public CustomImageItem(String label, Image image, int layout, String altText, BasicColor basicColor)
             throws Exception
     {
@@ -16,4 +18,9 @@ public class CustomImageItem extends CustomItem
     {
         super(label, basicColor, basicColor);
     }
+    
+    public Image getImage()
+    {
+        return null;
+    }    
 }

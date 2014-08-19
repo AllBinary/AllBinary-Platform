@@ -55,6 +55,7 @@
         <!--
         -->
         <module>../DynamicPathFindingRaceTrackJavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/map/DynamicPathFindingRaceTrackJavaLibrary_1_4_2M</module>
         
         <module>../BasicPlatformGeographicMapJavaLibraryM</module>
     </modules>

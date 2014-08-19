@@ -13,6 +13,7 @@
 */
 package allbinary.game.media.graphics.geography.map.racetrack;
 
+import abcs.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.jgrapht.GraphPath;
 import org.jgrapht.graph.SimpleWeightedGraph;
@@ -85,7 +86,7 @@ public class BasePathFinderGraphVisitor<V, E>
 
     public String getInvalidReason(GraphPath graphPath)
     {
-        StringBuilder stringBuffer = new StringBuilder();
+        final StringMaker stringBuffer = new StringMaker();
         
         if(graphPath.getEdgeList().size() < edgeMinimum)
         {
