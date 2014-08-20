@@ -11,6 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
+
 package allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.processors.input;
 
 import allbinary.input.automation.robot.InputRobotFactory;
