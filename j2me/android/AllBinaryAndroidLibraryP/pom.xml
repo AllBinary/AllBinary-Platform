@@ -77,7 +77,8 @@
 
         <module>../../media/graphics/ImageCacheAndroidJavaLibraryM</module>
         
-        <module>../../../../working/allbinary_src/logic/data/file/FileAndroidJavaLibraryM</module>
+        <!-- ../../../../working/allbinary_src/logic/data/file/FileAndroidJavaLibraryM -->
+        <module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryM</module>
         
         <module>../../input/android/MotionInputAndroidResourcesJavaLibraryM</module>
         
