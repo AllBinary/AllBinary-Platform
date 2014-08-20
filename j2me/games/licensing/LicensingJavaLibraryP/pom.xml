@@ -16,9 +16,9 @@
     <modules>
 
         <module>../AndroidResourcesTempJavaLibraryM</module>
-        <module>../../../../../working/allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryM</module>
+        <module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryM</module>
 
-        <module>../../../../../working/allbinary_src/licensing/LicenseClientJavaLibraryM</module>
+        <module>../../../../allbinary_src/licensing/LicenseClientJavaLibraryM</module>
 
         <!--
         <module>../../../../../working/allbinary_src/licensing/LicenseRegistrationJavaLibraryM</module>
