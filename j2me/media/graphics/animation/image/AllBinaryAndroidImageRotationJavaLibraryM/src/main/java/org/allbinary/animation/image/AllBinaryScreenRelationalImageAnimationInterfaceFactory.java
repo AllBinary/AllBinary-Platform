@@ -20,6 +20,7 @@ import org.allbinary.image.GameFeatureImageCacheFactory;
 import allbinary.animation.Animation;
 import allbinary.animation.image.AllBinaryImageAnimation;
 import allbinary.animation.image.BaseImageAnimationFactory;
+import allbinary.graphics.displayable.ScreenRelationalUtil;
 import allbinary.image.ImageScaleUtil;
 
 public class AllBinaryScreenRelationalImageAnimationInterfaceFactory
