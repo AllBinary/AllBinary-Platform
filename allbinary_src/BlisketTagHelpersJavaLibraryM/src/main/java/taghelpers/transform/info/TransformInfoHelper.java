@@ -17,12 +17,12 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.BasicTableInterface;
-import allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
-import allbinary.data.tables.transform.info.TransformInfoEntityFactory;
+import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.data.tables.transform.info.TransformInfoEntityFactory;
 
 public class TransformInfoHelper implements BasicTableInterface
 {

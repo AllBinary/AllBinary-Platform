@@ -15,8 +15,8 @@ package allbinary.media.graphics.geography.map.drop;
 
 import org.allbinary.util.BasicArrayList;
 
-import allbinary.graphics.CellPosition;
-import allbinary.layer.AllBinaryLayer;
+import org.allbinary.graphics.CellPosition;
+import org.allbinary.layer.AllBinaryLayer;
 
 /**
  *

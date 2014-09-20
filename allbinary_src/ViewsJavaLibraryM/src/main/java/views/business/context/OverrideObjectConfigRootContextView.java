@@ -16,19 +16,19 @@ package views.business.context;
 import org.w3c.dom.Document;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
-import abcs.data.tree.dom.document.DomDocumentHelper;
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.logic.visual.transform.TransformFactory;
-import allbinary.logic.visual.transform.TransformInterface;
-import allbinary.logic.visual.transform.info.GeneratorTransformInfoData;
-import allbinary.logic.visual.transform.info.RootTransformInfoData;
-import allbinary.logic.visual.transform.info.TransformInfoHttp;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactory;
-import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
-import allbinary.logic.visual.transform.template.TransformTemplateInterface;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.TransformFactory;
+import org.allbinary.logic.visual.transform.TransformInterface;
+import org.allbinary.logic.visual.transform.info.GeneratorTransformInfoData;
+import org.allbinary.logic.visual.transform.info.RootTransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttp;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactory;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
 
 public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
 {

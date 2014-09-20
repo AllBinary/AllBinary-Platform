@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.input;
 
-import allbinary.game.input.event.GameKeyEvent;
-import allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.layer.AllBinaryLayerManager;
 
 public class ScrollMapDownGameInputProcessor extends ScrollMapGameInputProcessor
 {

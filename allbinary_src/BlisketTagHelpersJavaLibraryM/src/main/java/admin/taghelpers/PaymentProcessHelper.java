@@ -17,8 +17,8 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import allbinary.logic.visual.transform.info.TransformInfoHttpFactory;
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpFactory;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 
 import views.admin.payment.PaymentProcessorComponent;
 

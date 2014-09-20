@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.media.graphics.geography.map.GeographicMapInterface;
+import org.allbinary.media.graphics.geography.map.GeographicMapInterface;
 
 public interface RaceTrackGeographicMapInterface 
    extends GeographicMapInterface

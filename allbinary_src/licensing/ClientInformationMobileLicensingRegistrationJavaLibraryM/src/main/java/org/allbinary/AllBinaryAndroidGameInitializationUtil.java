@@ -13,9 +13,9 @@
 */
 package org.allbinary;
 
-import abcs.business.init.LicenseInitInfoUtil;
-import abcs.logic.system.security.licensing.PartnerIdentifierFileUtil;
-import allbinary.data.resource.ResourceUtil;
+import org.allbinary.business.init.LicenseInitInfoUtil;
+import org.allbinary.logic.system.security.licensing.PartnerIdentifierFileUtil;
+import org.allbinary.data.resource.ResourceUtil;
 
 public class AllBinaryAndroidGameInitializationUtil {
 

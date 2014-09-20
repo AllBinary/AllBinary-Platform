@@ -17,9 +17,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 
 import views.business.context.modules.storefront.HttpStoreComponentView;

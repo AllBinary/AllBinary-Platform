@@ -18,22 +18,22 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.InputFeatureFactory;
-import allbinary.game.input.GameInputProcessor;
-import allbinary.game.input.GameInputProcessorUtil;
-import allbinary.game.input.InputFactory;
-import allbinary.game.input.PlayerGameInput;
-import allbinary.game.input.event.GameKeyEvent;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.graphics.displayable.DisplayInfoSingleton;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.layer.event.ScrollMapEvent;
-import allbinary.layer.event.ScrollMapEventHandler;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.InputFeatureFactory;
+import org.allbinary.game.input.GameInputProcessor;
+import org.allbinary.game.input.GameInputProcessorUtil;
+import org.allbinary.game.input.InputFactory;
+import org.allbinary.game.input.PlayerGameInput;
+import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.layer.event.ScrollMapEvent;
+import org.allbinary.layer.event.ScrollMapEventHandler;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 
 /**
  *

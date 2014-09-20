@@ -13,9 +13,9 @@
 */
 package org.allbinary.bounds.event;
 
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
-import allbinary.logic.basic.util.event.EventListenerInterface;
-import allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
 public class BoundsChangeEventHandler extends BasicEventHandler
 {

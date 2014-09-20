@@ -13,12 +13,12 @@
 */
 package admin.taghelpers;
 
-import abcs.globals.AppUrlGlobals;
-import abcs.globals.URLGLOBALS;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.globals.AppUrlGlobals;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogFactory;
 import javax.servlet.jsp.PageContext;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
 public class CustomLoaderHelper
@@ -35,7 +35,7 @@ public class CustomLoaderHelper
    {
       try
       {
-         return abcs.globals.URLGLOBALS.getWebappPath();
+         return org.allbinary.globals.URLGLOBALS.getWebappPath();
       }
       catch(Exception e)
       {
@@ -60,7 +60,7 @@ public class CustomLoaderHelper
       catch(Exception e)
       {         
          String error = "Failed to getWebappPath";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setWebappPath()",e));
          }

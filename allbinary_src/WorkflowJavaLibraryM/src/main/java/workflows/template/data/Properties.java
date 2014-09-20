@@ -13,12 +13,12 @@
 */
 package workflows.template.data;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
 import javax.servlet.jsp.tagext.TagSupport;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
 public class Properties
@@ -27,7 +27,7 @@ public class Properties
    
    public Properties()
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Start/Tag",this,"Constructor"));
       }
@@ -41,7 +41,7 @@ public class Properties
 
    public int doEndTag()
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Tag Ended",this,"doEndTag"));
       }

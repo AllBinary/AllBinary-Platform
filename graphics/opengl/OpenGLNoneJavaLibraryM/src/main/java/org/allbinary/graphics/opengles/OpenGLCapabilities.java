@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.opengles;
 
-import abcs.logic.basic.string.StringUtil;
+import org.allbinary.logic.basic.string.StringUtil;
 
 public class OpenGLCapabilities
 {

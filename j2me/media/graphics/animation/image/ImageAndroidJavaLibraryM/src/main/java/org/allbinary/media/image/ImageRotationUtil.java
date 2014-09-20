@@ -16,7 +16,7 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 
 
-import allbinary.graphics.Anchor;
+import org.allbinary.graphics.Anchor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;

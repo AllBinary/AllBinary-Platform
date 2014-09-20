@@ -13,11 +13,11 @@
 */
 package org.allbinary.input;
 
-import abcs.logic.basic.NotImplemented;
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.ForcedLogUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class AllBinarySensor
 implements AllBinarySensorListener

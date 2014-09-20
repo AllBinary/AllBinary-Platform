@@ -15,11 +15,11 @@ package allbinary.game.layer;
 
 import org.allbinary.util.BasicArrayList;
 
-import allbinary.animation.RotationAnimation;
-import allbinary.layer.LayerInterface;
-import allbinary.logic.math.BasicDecimal;
-import allbinary.media.graphics.geography.map.GeographicMapCellHistory;
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionTracking;
+import org.allbinary.animation.RotationAnimation;
+import org.allbinary.layer.LayerInterface;
+import org.allbinary.logic.math.BasicDecimal;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionTracking;
 
 public interface VehicleLayerInterface extends LayerInterface, VehiclePropertiesCompositeInterface
 {    

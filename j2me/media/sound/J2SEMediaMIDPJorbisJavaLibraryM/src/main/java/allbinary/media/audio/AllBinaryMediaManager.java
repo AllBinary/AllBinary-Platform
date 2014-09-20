@@ -13,9 +13,9 @@
 */
 package allbinary.media.audio;
 
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.audio.AudioContentTypeDataFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.audio.AudioContentTypeDataFactory;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -23,10 +23,10 @@ import javax.microedition.media.Manager;
 import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 
-import allbinary.data.resource.ResourceUtil;
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.GameFeatureFactory;
-import allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.GameFeatureFactory;
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import java.io.BufferedInputStream;
 
 public class AllBinaryMediaManager {

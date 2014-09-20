@@ -19,19 +19,19 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.globals.URLGLOBALS;
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.entry.EntryData;
-import allbinary.business.user.NewUserFactory;
-import allbinary.business.user.UserData;
-import allbinary.business.user.UserInterface;
-import allbinary.business.user.username.UserName;
-import allbinary.data.tables.user.UserEntityFactory;
-import allbinary.globals.FREEBLISKET_PATH_GLOBALS;
-import allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.NewUserFactory;
+import org.allbinary.business.user.UserData;
+import org.allbinary.business.user.UserInterface;
+import org.allbinary.business.user.username.UserName;
+import org.allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.logic.communication.http.request.RequestParams;
 
 public class UserHelper implements TableInterface
 {

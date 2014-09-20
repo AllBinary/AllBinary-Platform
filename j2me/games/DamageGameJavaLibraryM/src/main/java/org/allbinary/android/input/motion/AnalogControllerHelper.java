@@ -13,8 +13,8 @@
 */
 package org.allbinary.android.input.motion;
 
-import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
-import allbinary.time.TimeDelayHelper;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
+import org.allbinary.time.TimeDelayHelper;
 
 public class AnalogControllerHelper {
 

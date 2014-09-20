@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.logic.math.SmallIntegerSingletonFactory;
-import allbinary.media.graphics.geography.map.GeographicMapCellType;
-import allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 public class RaceTrackGeographicMapCellTypeFactory
 {

@@ -13,11 +13,11 @@
 */
 package views.generic.order.history;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.globals.MESSAGES;
+import org.allbinary.globals.MESSAGES;
 
 public class ValidationView extends OrderHistoryView implements ValidationComponentInterface
 {

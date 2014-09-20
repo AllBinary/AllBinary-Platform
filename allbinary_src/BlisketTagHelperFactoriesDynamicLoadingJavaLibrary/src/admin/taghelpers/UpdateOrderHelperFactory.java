@@ -18,7 +18,7 @@ import java.util.HashMap;
 import javax.servlet.jsp.PageContext;
 
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 
 public class UpdateOrderHelperFactory implements TagHelperFactoryInterface

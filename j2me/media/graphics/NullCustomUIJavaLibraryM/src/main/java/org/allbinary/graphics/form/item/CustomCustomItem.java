@@ -1,6 +1,6 @@
 package org.allbinary.graphics.form.item;
 
-import allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColor;
 
 public class CustomCustomItem extends CustomItem
 {

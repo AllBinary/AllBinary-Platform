@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.event;
 
-import allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.basic.util.event.EventListenerInterface;
 
 public interface GeographicMapCellPositionEventListenerInterface 
    extends EventListenerInterface

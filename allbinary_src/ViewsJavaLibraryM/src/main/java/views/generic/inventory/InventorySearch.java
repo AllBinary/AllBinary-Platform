@@ -18,18 +18,18 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import views.admin.inventory.listings.InventoryViewSearchInterface;
-import abcs.logic.basic.io.InputOutputTypeData;
-import abcs.logic.basic.path.AbPathData;
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.basic.string.regex.replace.Replace;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.user.commerce.inventory.item.BasicItemData;
-import allbinary.data.tables.staticpages.StaticPagesEntity;
-import allbinary.logic.control.search.SearchParams;
-import allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.basic.io.InputOutputTypeData;
+import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.data.tables.staticpages.StaticPagesEntity;
+import org.allbinary.logic.control.search.SearchParams;
+import org.allbinary.logic.control.search.SearchRequest;
 
 /*
  *This class updates the static page db table and generates/updates the html

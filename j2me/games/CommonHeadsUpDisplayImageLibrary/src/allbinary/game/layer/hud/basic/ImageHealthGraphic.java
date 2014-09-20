@@ -16,10 +16,10 @@ package allbinary.game.layer.hud.basic;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import allbinary.animation.AnimationInterface;
-import allbinary.game.health.HealthInterface;
-import allbinary.graphics.Anchor;
-import allbinary.image.ImageCacheFactory;
+import org.allbinary.animation.AnimationInterface;
+import org.allbinary.game.health.HealthInterface;
+import org.allbinary.graphics.Anchor;
+import org.allbinary.image.ImageCacheFactory;
 
 public class ImageHealthGraphic extends HealthGraphic
 {

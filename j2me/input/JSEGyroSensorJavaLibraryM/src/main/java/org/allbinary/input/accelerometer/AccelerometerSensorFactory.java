@@ -13,8 +13,8 @@
 */
 package org.allbinary.input.accelerometer;
 
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.SensorFeatureFactory;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.SensorFeatureFactory;
 import org.allbinary.input.gyro.AllBinaryOrientationSensor;
 
 public class AccelerometerSensorFactory

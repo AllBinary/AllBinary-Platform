@@ -15,17 +15,17 @@ package org.allbinary.input;
 
 import org.allbinary.android.input.motion.AnalogLocationInputProcessor;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.input.GameInputProcessor;
-import allbinary.game.input.GameKeyEventSourceInterface;
-import allbinary.game.input.GameKeyFactory;
-import allbinary.game.input.analog.AnalogLocationInput;
-import allbinary.game.input.event.GameKeyEvent;
-import allbinary.game.input.event.GameKeyEventFactory;
-import allbinary.graphics.CustomGPoint;
-import allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.input.GameInputProcessor;
+import org.allbinary.game.input.GameKeyEventSourceInterface;
+import org.allbinary.game.input.GameKeyFactory;
+import org.allbinary.game.input.analog.AnalogLocationInput;
+import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.game.input.event.GameKeyEventFactory;
+import org.allbinary.graphics.CustomGPoint;
+import org.allbinary.layer.AllBinaryLayerManager;
 
 public class DirectionalAnalogLocationInputProcessor
         extends AnalogLocationInputProcessor

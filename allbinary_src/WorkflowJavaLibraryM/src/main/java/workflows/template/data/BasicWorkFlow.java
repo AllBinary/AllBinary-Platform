@@ -13,21 +13,21 @@
 */
 package workflows.template.data;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
 import javax.servlet.jsp.tagext.TagSupport;
 
-import allbinary.logic.visual.transform.TransformFactory;
+import org.allbinary.logic.visual.transform.TransformFactory;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.logic.control.workflow.WorkFlowInterface;
-import allbinary.logic.control.workflow.WorkFlowData;
+import org.allbinary.logic.control.workflow.WorkFlowInterface;
+import org.WorkFlowData;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicWorkFlow implements WorkFlowInterface
 {
@@ -37,7 +37,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    
    public BasicWorkFlow(HashMap propertiesHashMap, PageContext pageContext) throws Exception
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.WORKFLOW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.WORKFLOW))
       {
          LogUtil.put(LogFactory.getInstance("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()"));
       }
@@ -66,7 +66,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    
    public Integer process() throws Exception
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.WORKFLOW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.WORKFLOW))
       {
          LogUtil.put(LogFactory.getInstance("Start",this,"process()"));
       }

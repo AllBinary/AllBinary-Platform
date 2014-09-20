@@ -21,29 +21,29 @@ import org.w3c.dom.Document;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.http.HttpServletRequest;
 
-import allbinary.data.tree.category.CategoryLoaderFactory;
-import allbinary.data.tree.category.CategoryLoaderInterface;
+import org.allbinary.data.tree.category.CategoryLoaderFactory;
+import org.allbinary.data.tree.category.CategoryLoaderInterface;
 
-import abcs.data.tree.dom.document.DomDocumentHelper;
-import abcs.data.tree.dom.DomNodeHelper;
-import abcs.data.tree.dom.DomSearchHelper;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.DomNodeHelper;
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import allbinary.business.category.CategoryData;
-import allbinary.business.category.CategoryInterface;
-import allbinary.business.category.CategoryComponent;
+import org.allbinary.business.category.CategoryData;
+import org.allbinary.business.category.CategoryInterface;
+import org.allbinary.business.category.CategoryComponent;
 
-import allbinary.business.category.store.StoreCategoryFactory;
+import org.allbinary.business.category.store.StoreCategoryFactory;
 
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
-import allbinary.logic.visual.transform.info.TransformInfoBasic;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoBasic;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class CategoryRequestHelper implements ModifyTableInterface
 {

@@ -6,13 +6,13 @@
 
 package org.allbinary.media.image;
 
-import abcs.logic.basic.io.AbFileOutputStream;
-import abcs.logic.basic.io.StreamUtil;
-import abcs.logic.basic.io.file.AbFile;
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.Log;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.basic.io.AbFileOutputStream;
+import org.allbinary.logic.basic.io.StreamUtil;
+import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;

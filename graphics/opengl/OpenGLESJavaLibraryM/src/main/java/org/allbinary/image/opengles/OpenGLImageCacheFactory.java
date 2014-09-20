@@ -13,7 +13,7 @@
 */
 package org.allbinary.image.opengles;
 
-import allbinary.image.ImageCache;
+import org.allbinary.image.ImageCache;
 
 public class OpenGLImageCacheFactory
 {

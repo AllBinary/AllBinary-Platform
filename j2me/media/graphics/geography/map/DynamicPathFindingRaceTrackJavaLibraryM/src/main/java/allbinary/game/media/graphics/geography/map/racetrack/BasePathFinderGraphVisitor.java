@@ -13,14 +13,14 @@
 */
 package allbinary.game.media.graphics.geography.map.racetrack;
 
-import abcs.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.jgrapht.GraphPath;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorInterface;
-import allbinary.media.graphics.geography.pathfinding.PathFindingNode;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorInterface;
+import org.allbinary.media.graphics.geography.pathfinding.PathFindingNode;
 
 /**
  *

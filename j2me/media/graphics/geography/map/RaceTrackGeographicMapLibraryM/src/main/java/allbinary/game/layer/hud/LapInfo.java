@@ -13,7 +13,7 @@
 */
 package allbinary.game.layer.hud;
 
-import abcs.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class LapInfo
 {

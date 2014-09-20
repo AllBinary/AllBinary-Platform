@@ -13,19 +13,19 @@
 */
 package views.business.context.modules.storefront.customizer.template.objectConfig;
 
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
-import allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.logic.visual.transform.info.TransformInfosData;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 
-import allbinary.logic.visual.transform.info.TransformInfoDomNodeView;
+import org.allbinary.logic.visual.transform.info.TransformInfoDomNodeView;
 
 public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplateTransformInfoObjectConfig
 {

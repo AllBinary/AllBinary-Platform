@@ -13,7 +13,7 @@
 */
 package views.generic.shipping;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -21,38 +21,38 @@ import java.util.Vector;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.data.tree.dom.ModDomHelper;
 
-import allbinary.business.user.commerce.money.tax.TaxFactory;
+import org.allbinary.business.user.commerce.money.tax.TaxFactory;
 
-import allbinary.data.tables.user.address.StreetAddressesEntityInterface;
-import allbinary.data.tables.user.address.shipping.ShippingAddressesEntityFactory;
+import org.allbinary.data.tables.user.address.StreetAddressesEntityInterface;
+import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntityFactory;
 
-import allbinary.business.user.address.StreetAddress;
+import org.allbinary.business.user.address.StreetAddress;
 
-import allbinary.business.user.commerce.inventory.basket.BasketInterface;
+import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 
-import allbinary.business.entry.EntryData;
+import org.allbinary.business.entry.EntryData;
 
-import allbinary.business.user.commerce.money.Money;
+import org.allbinary.business.user.commerce.money.Money;
 
-import allbinary.business.user.commerce.inventory.order.OrderInterface;
-
-
-import allbinary.business.user.commerce.shipping.ShippingMethodsData;
-import allbinary.business.user.commerce.shipping.modules.ShippingInterface;
-
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-
-import allbinary.data.tree.dom.DomNodeInterface;
-
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 
 
-import allbinary.business.user.commerce.shipping.ShippingMethods;
+import org.allbinary.business.user.commerce.shipping.ShippingMethodsData;
+import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
+
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+
+import org.allbinary.data.tree.dom.DomNodeInterface;
+
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+
+
+import org.allbinary.business.user.commerce.shipping.ShippingMethods;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 

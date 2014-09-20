@@ -16,11 +16,11 @@ package org.allbinary.input.gyro;
 
 import org.allbinary.input.AllBinarySensor;
 
-import abcs.logic.basic.NotImplemented;
-import allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
-import allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
-import allbinary.logic.math.Orientation;
-import allbinary.logic.math.PrimitiveFloatUtil;
+import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
+import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
+import org.allbinary.logic.math.Orientation;
+import org.allbinary.logic.math.PrimitiveFloatUtil;
 
 public class AllBinaryOrientationSensor extends AllBinarySensor
 {

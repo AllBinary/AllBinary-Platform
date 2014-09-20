@@ -19,15 +19,15 @@ import javax.servlet.jsp.PageContext;
 
 
 
-import allbinary.logic.communication.smtp.event.UserEmailEventNameData;
+import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 
-import allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
+import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
 
-import allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
 
-import allbinary.logic.communication.smtp.info.EmailInfo;
-import allbinary.logic.communication.smtp.info.BasicEmailInfo;
-import allbinary.logic.communication.smtp.info.AdminEmailInfo;
+import org.allbinary.logic.communication.smtp.info.EmailInfo;
+import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
+import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
 
 public class BasicTextEmailHelper
     implements TagHelperInterface

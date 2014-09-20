@@ -18,15 +18,15 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 
-import abcs.logic.basic.io.LineReader;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.basic.io.LineReader;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.user.address.StreetAddressData;
+import org.allbinary.business.user.address.StreetAddressData;
 
-import allbinary.data.tree.dom.DomNodeInterface;
-import allbinary.data.tree.dom.ModDomHelper;
-import allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 
 
 public class StatesView implements DomNodeInterface

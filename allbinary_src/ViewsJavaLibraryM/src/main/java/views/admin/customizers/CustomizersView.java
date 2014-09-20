@@ -21,20 +21,20 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
-import allbinary.data.tree.dom.DomNodeInterface;
-import allbinary.data.tree.dom.ModDomHelper;
-import allbinary.globals.GLOBALS;
-import allbinary.logic.control.sort.StringComparator;
-import allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.logic.visual.transform.template.customizer.TransformTemplateCustomizerData;
-import allbinary.logic.visual.transform.template.customizer.TransformTemplateCustomizersData;
-import allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
-import allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
-import allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.globals.GLOBALS;
+import org.allbinary.logic.control.sort.StringComparator;
+import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.template.customizer.TransformTemplateCustomizerData;
+import org.allbinary.logic.visual.transform.template.customizer.TransformTemplateCustomizersData;
+import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
+import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
+import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
 
 public class CustomizersView extends HttpStoreComponentView implements DomNodeInterface
 {

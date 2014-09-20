@@ -13,8 +13,8 @@
 */
 package org.allbinary.util;
 
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class ArrayUtil
 {

@@ -15,10 +15,10 @@ package org.allbinary.game.ai.path;
 
 import javax.microedition.lcdui.Canvas;
 
-import allbinary.direction.Direction;
-import allbinary.direction.DirectionFactory;
-import allbinary.math.AngleIncrementInfo;
-import allbinary.math.AngleInfo;
+import org.allbinary.direction.Direction;
+import org.allbinary.direction.DirectionFactory;
+import org.allbinary.math.AngleIncrementInfo;
+import org.allbinary.math.AngleInfo;
 
 public class BasicDirectionAIHelper
 {

@@ -16,12 +16,12 @@ package allbinary.game.layer;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
 
-import abcs.logic.communication.log.ForcedLogUtil;
-import allbinary.game.collision.CollidableInterfaceCompositeInterface;
-import allbinary.game.collision.CollisionType;
-import allbinary.game.collision.CollisionTypeFactory;
-import allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
-import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+import org.allbinary.game.collision.CollisionType;
+import org.allbinary.game.collision.CollisionTypeFactory;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 
 public class CollidableVehicleBehavior
 extends CollidableDestroyableDamageableBehavior 

@@ -15,13 +15,13 @@ package allbinary.media.graphics.geography.map.drop;
 
 import org.allbinary.util.BasicArrayList;
 
-import allbinary.game.layer.AllBinaryGameLayerManager;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.game.rand.MyRandomFactory;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.game.rand.MyRandomFactory;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 
 public class AnyRandomDropCellPositionGenerator
 extends BaseDropCellPositionGenerator

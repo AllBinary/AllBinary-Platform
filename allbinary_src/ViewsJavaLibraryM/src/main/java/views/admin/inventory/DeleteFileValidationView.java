@@ -19,19 +19,19 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
 
-import abcs.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
-import allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 
-import allbinary.business.user.commerce.inventory.item.BasicItemData;
-
-
-import allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.communication.http.request.RequestParams;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 
 public class DeleteFileValidationView extends InventoryItemView implements ValidationComponentInterface

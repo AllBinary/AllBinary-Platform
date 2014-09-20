@@ -20,14 +20,14 @@ import javax.servlet.jsp.PageContext;
 
 import tags.HelperTag;
 import views.admin.inventory.InventoryItemView;
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import admin.tags.AbTagData;
-import allbinary.business.user.commerce.inventory.item.BasicItemData;
-import allbinary.business.user.commerce.inventory.item.ItemInterface;
-import allbinary.data.tables.TableMappingInterface;
-import allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
+import org.allbinary.data.tables.TableMappingInterface;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 
 public class InventoryRequestHelper implements ModifyTableInterface
 {

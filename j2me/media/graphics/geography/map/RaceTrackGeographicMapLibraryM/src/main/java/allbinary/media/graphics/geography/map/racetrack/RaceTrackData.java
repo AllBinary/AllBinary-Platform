@@ -15,7 +15,7 @@ package allbinary.media.graphics.geography.map.racetrack;
 
 import javax.microedition.lcdui.Image;
 
-import allbinary.graphics.CellPosition;
+import org.allbinary.graphics.CellPosition;
 
 public class RaceTrackData
 {

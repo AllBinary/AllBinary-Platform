@@ -16,10 +16,10 @@ package views.admin.inventory.listings;
 
 
 import views.generic.inventory.InventorySearch;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import abcs.logic.system.security.licensing.LicensingException;
-import allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.control.search.SearchRequest;
 
 public class InventoryViewFactory
 {

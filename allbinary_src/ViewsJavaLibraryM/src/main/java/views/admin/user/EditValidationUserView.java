@@ -13,7 +13,7 @@
 */
 package views.admin.user;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,17 +22,17 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
 
-import allbinary.business.user.username.UserName;
+import org.allbinary.business.user.username.UserName;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.data.tables.user.UserEntityFactory;
 
-import allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.http.request.RequestParams;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class EditValidationUserView extends UserView 
    implements ValidationComponentInterface

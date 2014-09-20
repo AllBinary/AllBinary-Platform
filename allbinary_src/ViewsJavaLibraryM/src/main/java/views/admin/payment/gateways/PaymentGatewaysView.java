@@ -21,16 +21,16 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.entry.EntryData;
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewaysData;
-import allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
-import allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
-import allbinary.data.tree.dom.DomNodeInterface;
-import allbinary.data.tree.dom.ModDomHelper;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewaysData;
+import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
+import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class PaymentGatewaysView extends HttpStoreComponentView 
    implements DomNodeInterface

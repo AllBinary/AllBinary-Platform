@@ -13,19 +13,19 @@
 */
 package taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import javax.servlet.jsp.PageContext;
 
 import org.w3c.dom.Document;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.visual.transform.TransformFactory;
-import allbinary.logic.visual.transform.TransformInterface;
+import org.allbinary.logic.visual.transform.TransformFactory;
+import org.allbinary.logic.visual.transform.TransformInterface;
 
-import allbinary.logic.visual.transform.data.TransformDocumentInterface;
+import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
 public class ViewHelper implements TransformInterface

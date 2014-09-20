@@ -18,7 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 
-import abcs.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.NotImplemented;
 
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface

@@ -18,13 +18,13 @@ import java.util.Iterator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
+import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 
-import allbinary.business.user.address.StreetAddress;
+import org.allbinary.business.user.address.StreetAddress;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 
 public class ValidationView extends ShippingAddressesView implements ValidationComponentInterface

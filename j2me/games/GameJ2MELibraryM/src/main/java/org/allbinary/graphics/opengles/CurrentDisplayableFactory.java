@@ -13,17 +13,17 @@
 */
 package org.allbinary.graphics.opengles;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.HTMLFeatureFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import javax.microedition.lcdui.Displayable;
 
-import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-import allbinary.game.displayable.canvas.DemoCanvas;
-import allbinary.game.displayable.canvas.GameRunnable;
-import allbinary.game.displayable.canvas.NullDisplayable;
-import allbinary.thread.NullRunnable;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.game.displayable.canvas.DemoCanvas;
+import org.allbinary.game.displayable.canvas.GameRunnable;
+import org.allbinary.game.displayable.canvas.NullDisplayable;
+import org.allbinary.thread.NullRunnable;
 
 public class CurrentDisplayableFactory
 {

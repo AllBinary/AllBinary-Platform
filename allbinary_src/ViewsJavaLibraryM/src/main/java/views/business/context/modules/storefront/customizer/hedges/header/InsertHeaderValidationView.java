@@ -18,25 +18,25 @@ import java.util.HashMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
-import abcs.globals.URLGLOBALS;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogFactory;
 
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.logic.communication.http.request.MultipartRequestParams;
+import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 
-import allbinary.logic.visual.transform.template.customizer.hedges.heading.HeadingValidation;
-import allbinary.logic.visual.transform.template.customizer.widgets.logo.LogoData;
+import org.allbinary.logic.visual.transform.template.customizer.hedges.heading.HeadingValidation;
+import org.allbinary.logic.visual.transform.template.customizer.widgets.logo.LogoData;
 
-import allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomNodeInterface;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
 

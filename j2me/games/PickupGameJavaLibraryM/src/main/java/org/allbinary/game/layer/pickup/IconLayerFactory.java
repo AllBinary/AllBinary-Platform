@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import allbinary.animation.Animation;
+import org.allbinary.animation.Animation;
 
 public class IconLayerFactory {
 

@@ -17,22 +17,22 @@ import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.system.security.licensing.LockedFeatureNotificationUtil;
-import abcs.logic.system.security.licensing.LockedUtil;
-import allbinary.canvas.Processor;
-import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-import allbinary.game.displayable.canvas.PreGameSelectorPaintable;
-import allbinary.game.input.GameInputProcessorComposite;
-import allbinary.game.input.GameInputProcessorInterface;
-import allbinary.game.input.PlayerGameInput;
-import allbinary.game.input.PlayerGameInputCompositeInterface;
-import allbinary.game.input.event.GameKeyEventHandler;
-import allbinary.game.input.event.GameKeyEventUtil;
-import allbinary.game.state.GameState;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.media.audio.SecondaryPlayerQueueFactory;
-import allbinary.media.audio.SelectSound;
-import allbinary.time.TimeDelayHelper;
+import org.allbinary.logic.system.security.licensing.LockedFeatureNotificationUtil;
+import org.allbinary.logic.system.security.licensing.LockedUtil;
+import org.allbinary.canvas.Processor;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.game.displayable.canvas.PreGameSelectorPaintable;
+import org.allbinary.game.input.GameInputProcessorComposite;
+import org.allbinary.game.input.GameInputProcessorInterface;
+import org.allbinary.game.input.PlayerGameInput;
+import org.allbinary.game.input.PlayerGameInputCompositeInterface;
+import org.allbinary.game.input.event.GameKeyEventHandler;
+import org.allbinary.game.input.event.GameKeyEventUtil;
+import org.allbinary.game.state.GameState;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
+import org.allbinary.media.audio.SelectSound;
+import org.allbinary.time.TimeDelayHelper;
 
 public class PreGameSelectionGameInputProcessor extends Processor implements
         GameInputProcessorInterface, PlayerGameInputCompositeInterface

@@ -13,10 +13,11 @@
 */
 package allbinary.game.view;
 
-import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
+import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterface;
 
 public class TileLayerPositionIntoViewPositionUtil
 {

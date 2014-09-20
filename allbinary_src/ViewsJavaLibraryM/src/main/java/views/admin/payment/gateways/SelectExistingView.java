@@ -13,16 +13,16 @@
 */
 package views.admin.payment.gateways;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.Vector;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityInterface;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityInterface;
 
 import views.admin.payment.gateway.PaymentGatewayViewAbstract;
 

@@ -18,17 +18,17 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.UserData;
-import allbinary.business.user.address.StreetAddress;
-import allbinary.data.tables.user.address.billing.BillingAddressesEntity;
-import allbinary.data.tables.user.address.billing.BillingAddressesEntityFactory;
-import allbinary.data.tables.user.address.shipping.ShippingAddressesEntityFactory;
-import allbinary.logic.communication.http.request.session.WeblisketSession;
-import allbinary.logic.communication.http.request.session.WeblisketSessionData;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.UserData;
+import org.allbinary.business.user.address.StreetAddress;
+import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
+import org.allbinary.data.tables.user.address.billing.BillingAddressesEntityFactory;
+import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntityFactory;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
 
 public class BillingAddressHelper implements TableInterface
 {

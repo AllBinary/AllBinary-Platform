@@ -17,24 +17,24 @@ import javax.servlet.jsp.PageContext;
 
 import javax.servlet.jsp.tagext.TagSupport;
 
-import abcs.business.user.role.BasicUserRole;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.business.user.role.BasicUserRole;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import abcs.logic.java.bool.BooleanFactory;
-import abcs.logic.java.bool.BooleanUtil;
+import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.java.bool.BooleanUtil;
 
-import allbinary.business.user.UserInterface;
+import org.allbinary.business.user.UserInterface;
 
-import allbinary.business.user.role.UserRole;
+import org.allbinary.business.user.role.UserRole;
 
-import allbinary.data.tables.user.UserEntityFactory;
-import allbinary.data.tables.user.UserEntityInterface;
+import org.allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.data.tables.user.UserEntityInterface;
 
-import allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.role.UserRoleFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.role.UserRoleFactory;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;

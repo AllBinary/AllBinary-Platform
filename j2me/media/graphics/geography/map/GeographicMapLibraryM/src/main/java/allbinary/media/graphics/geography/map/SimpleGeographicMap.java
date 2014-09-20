@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.graphics.color.BasicColor;
-import allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class SimpleGeographicMap
 {

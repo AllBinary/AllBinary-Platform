@@ -13,14 +13,14 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.logic.math.SmallIntegerSingletonFactory;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
 
 public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
    RaceTrackGeographicMapInterface

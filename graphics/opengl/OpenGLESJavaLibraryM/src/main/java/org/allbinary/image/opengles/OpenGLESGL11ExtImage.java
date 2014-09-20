@@ -22,11 +22,11 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.opengles.TextureFactory;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.graphics.displayable.DisplayInfoSingleton;
-import allbinary.graphics.displayable.event.DisplayChangeEvent;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 
 //Many devices don't support this even though it is supposed to
 public class OpenGLESGL11ExtImage extends OpenGLESImage

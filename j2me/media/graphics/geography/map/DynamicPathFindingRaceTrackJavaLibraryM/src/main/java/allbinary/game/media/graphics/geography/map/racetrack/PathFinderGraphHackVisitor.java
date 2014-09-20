@@ -18,16 +18,16 @@ import org.jgrapht.GraphPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
-import abcs.logic.communication.log.Log;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.graphics.CellPosition;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
-import allbinary.media.graphics.geography.map.BasicGeographicMapUtil;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
-import allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMap;
-import allbinary.media.graphics.geography.pathfinding.PathFindingNode;
+import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.graphics.CellPosition;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMapUtil;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMap;
+import org.allbinary.media.graphics.geography.pathfinding.PathFindingNode;
 
 /**
  *

@@ -15,7 +15,7 @@ package org.allbinary.android.input.api1;
 
 import org.allbinary.android.input.VirtualKeyboard;
 
-import allbinary.input.event.VirtualKeyboardEventListenerInterface;
+import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
 import android.app.Activity;
 
 public class VirtualKeyboardAPI1 extends VirtualKeyboard

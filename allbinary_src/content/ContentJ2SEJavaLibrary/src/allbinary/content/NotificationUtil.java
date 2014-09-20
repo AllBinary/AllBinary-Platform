@@ -15,7 +15,7 @@ package allbinary.content;
 
 import javax.microedition.lcdui.Command;
 
-import allbinary.data.resource.ResourceUtil;
+import org.allbinary.data.resource.ResourceUtil;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;

@@ -14,7 +14,7 @@
 package org.allbinary.input.gyro;
 
 
-import allbinary.canvas.Processor;
+import org.allbinary.canvas.Processor;
 
 public class SingleSensorGameUpdateProcessor 
     extends SensorGameUpdateProcessor

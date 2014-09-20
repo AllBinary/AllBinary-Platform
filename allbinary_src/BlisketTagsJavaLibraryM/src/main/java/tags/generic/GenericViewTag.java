@@ -14,9 +14,9 @@
 package tags.generic;
 
 
-import abcs.logic.basic.io.InputOutputTypeData;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.basic.io.InputOutputTypeData;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
 

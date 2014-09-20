@@ -18,36 +18,36 @@ import org.w3c.dom.Document;
 
 //import org.apache.commons.fileupload.FileItem;
 
-import abcs.globals.URLGLOBALS;
+import org.allbinary.globals.URLGLOBALS;
 
-import abcs.logic.basic.io.file.AbFile;
-import abcs.logic.basic.io.file.FileData;
-import abcs.logic.basic.path.AbPathUtil;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.basic.io.file.FileData;
+import org.allbinary.logic.basic.path.AbPathUtil;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 
-import allbinary.business.user.commerce.inventory.item.BasicItemValidation;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemValidation;
 
-import allbinary.business.user.commerce.money.MoneyException;
+import org.allbinary.business.user.commerce.money.MoneyException;
 
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 
-import allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS;
 
-import allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
-import allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 
-import allbinary.logic.communication.http.file.upload.media.UploadMediaSingleton;
+import org.allbinary.logic.communication.http.file.upload.media.UploadMediaSingleton;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.apache.commons.fileupload.FileItem;
 
 public class AddFileValidationView

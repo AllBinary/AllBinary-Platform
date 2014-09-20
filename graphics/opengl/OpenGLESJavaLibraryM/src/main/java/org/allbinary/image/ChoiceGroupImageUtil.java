@@ -19,7 +19,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 
-import allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.Features;
 
 public class ChoiceGroupImageUtil
 {

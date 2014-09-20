@@ -20,13 +20,13 @@ import org.allbinary.image.opengles.OpenGLESGL11VBOImageFactory;
 import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.basic.string.StringMaker;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.basic.string.tokens.Tokenizer;
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.game.configuration.feature.Features;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.basic.string.tokens.Tokenizer;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.game.configuration.feature.Features;
 
 public class OpenGLCapabilities
 {

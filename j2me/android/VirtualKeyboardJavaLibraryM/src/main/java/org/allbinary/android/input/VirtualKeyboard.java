@@ -13,10 +13,10 @@
 */
 package org.allbinary.android.input;
 
-import abcs.logic.communication.log.ForcedLogUtil;
-import allbinary.input.event.VirtualKeyboardEvent;
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
-import allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.input.event.VirtualKeyboardEvent;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
 public class VirtualKeyboard
 {

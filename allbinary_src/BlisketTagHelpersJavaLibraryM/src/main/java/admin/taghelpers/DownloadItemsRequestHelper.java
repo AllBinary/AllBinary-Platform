@@ -20,12 +20,12 @@ import javax.servlet.jsp.PageContext;
 
 import tags.HelperTag;
 import views.admin.inventory.download.DownloadableInventoryItemView;
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import admin.tags.AbTagData;
-import allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
-import allbinary.data.tables.user.commerce.inventory.item.downloads.DownloadItemsEntityFactory;
+import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
+import org.allbinary.data.tables.user.commerce.inventory.item.downloads.DownloadItemsEntityFactory;
 
 public class DownloadItemsRequestHelper implements ModifyTableInterface
 {

@@ -17,14 +17,14 @@ import java.util.Vector;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 import views.business.context.modules.storefront.customizer.template.objectConfig.NoTemplateTransformInfoObjectConfig;
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.logic.visual.transform.TransformFactory;
-import allbinary.logic.visual.transform.TransformInterface;
-import allbinary.logic.visual.transform.info.TransformInfo;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.logic.visual.transform.template.TransformTemplateInterface;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.TransformFactory;
+import org.allbinary.logic.visual.transform.TransformInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfo;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
 
 public class RootContextView extends HttpStoreComponentView 
    implements TransformTemplateInterface //DomNodeInterface

@@ -17,9 +17,9 @@ import javax.servlet.jsp.JspTagException;
 
 import tags.StoreValidationTransformTag;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class TaxAddressTag extends StoreValidationTransformTag
 {

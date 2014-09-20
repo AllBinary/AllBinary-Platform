@@ -17,11 +17,11 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.globals.MESSAGES;
+import org.allbinary.globals.MESSAGES;
 
 public class SelectValidationView extends BillingAddressView implements ValidationComponentInterface
 {   

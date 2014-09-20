@@ -15,10 +15,10 @@ package allbinary.game.layer.hud.basic;
 
 import javax.microedition.lcdui.Graphics;
 
-import abcs.logic.basic.string.StringMaker;
-import abcs.logic.basic.string.StringUtil;
-import allbinary.game.graphics.hud.BasicHud;
-import allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.game.graphics.hud.BasicHud;
+import org.allbinary.graphics.color.BasicColor;
 
 //TWB - Optimization needed
 //could be optimized to display

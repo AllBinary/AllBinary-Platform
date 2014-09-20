@@ -19,8 +19,8 @@ import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
 import org.allbinary.game.layer.pickup.PickupProcessorInterface;
 
-import allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
-import allbinary.layer.AllBinaryLayer;
+import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.layer.AllBinaryLayer;
 
 public class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFactory
    implements PickupProcessorInterface

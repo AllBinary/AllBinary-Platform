@@ -13,9 +13,9 @@
 */
 package org.allbinary.physics.movement;
 
-import allbinary.game.layer.AllBinaryGameLayer;
-import allbinary.game.physics.velocity.VelocityProperties;
-import allbinary.logic.math.BasicDecimal;
+import org.allbinary.game.layer.AllBinaryGameLayer;
+import org.allbinary.game.physics.velocity.VelocityProperties;
+import org.allbinary.logic.math.BasicDecimal;
 
 public class XYOscillateVelocityMovement 
 extends BasicConstantVelocityMovement

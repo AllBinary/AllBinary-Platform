@@ -3,19 +3,19 @@ package org.allbinary.media.audio.music;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.data.resource.ResourceUtil;
-import allbinary.media.audio.Sound;
-import allbinary.time.GameTickTimeDelayHelperFactory;
-import allbinary.time.TimeDelayHelper;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.media.audio.Sound;
+import org.allbinary.time.GameTickTimeDelayHelperFactory;
+import org.allbinary.time.TimeDelayHelper;
 import android.content.Intent;
 
 public class MusicManager
 {
     private final String PLAY = "Play ";
-    private final String SONG = " for: ";
+    private final String FOR = " for: ";
 
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
@@ -49,7 +49,7 @@ public class MusicManager
 
             long duration = sound.getPlayer().getDuration();
 
-            PreLogUtil.put(PLAY + sound.getResource() + SONG + duration, this, CommonStrings.getInstance().PROCESS);
+            PreLogUtil.put(new StringBuilder().append(PLAY).append(sound.getResource()).append(FOR).append(duration).toString(), this, CommonStrings.getInstance().PROCESS);
         }
     }
 
@@ -67,11 +67,11 @@ public class MusicManager
 					//18000;
             //this.currentSongSound.getPlayer().getDuration();
 
-            PreLogUtil.put(PLAY + this.currentSongSound.getResource() + SONG + duration, this, CommonStrings.getInstance().PROCESS);
+            PreLogUtil.put(new StringBuilder().append(PLAY).append(this.currentSongSound.getResource()).append(FOR).append(duration).toString(), this, CommonStrings.getInstance().PROCESS);
 
             this.timeDelayHelper.setDelay((int) duration);
 
-            this.currentIntent.putExtra("SONG", ResourceUtil.getInstance().getResourceId(this.currentSongSound.getResource()).intValue());
+            this.currentIntent.putExtra(MusicStrings.getInstance().SONG_EXTRA, ResourceUtil.getInstance().getResourceId(this.currentSongSound.getResource()).intValue());
 
             ResourceUtil.getInstance().getContext().startService(this.currentIntent);
         } catch (Exception e)

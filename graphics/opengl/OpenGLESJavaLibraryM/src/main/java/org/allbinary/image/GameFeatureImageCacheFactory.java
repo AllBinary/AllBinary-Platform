@@ -16,9 +16,9 @@ package org.allbinary.image;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.opengles.OpenGLImageCacheFactory;
 
-import allbinary.game.configuration.feature.Features;
-import allbinary.image.ImageCache;
-import allbinary.image.ImageCacheFactory;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.image.ImageCache;
+import org.allbinary.image.ImageCacheFactory;
 
 public class GameFeatureImageCacheFactory
 {

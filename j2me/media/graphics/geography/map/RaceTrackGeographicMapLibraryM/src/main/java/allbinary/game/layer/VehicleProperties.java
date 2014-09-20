@@ -13,7 +13,7 @@
 */
 package allbinary.game.layer;
 
-import allbinary.game.physics.velocity.VelocityProperties;
+import org.allbinary.game.physics.velocity.VelocityProperties;
 
 public class VehicleProperties
 {

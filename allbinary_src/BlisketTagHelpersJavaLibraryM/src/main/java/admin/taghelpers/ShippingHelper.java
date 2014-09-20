@@ -13,24 +13,24 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.*;
 
 import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.user.commerce.inventory.order.OrderInterface;
+import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 
-import allbinary.business.user.commerce.shipping.ShippingMethodData;
+import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 
-import allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 
 public class ShippingHelper
     implements TagHelperInterface

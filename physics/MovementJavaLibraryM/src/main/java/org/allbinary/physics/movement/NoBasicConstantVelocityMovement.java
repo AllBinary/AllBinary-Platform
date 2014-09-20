@@ -13,7 +13,7 @@
 */
 package org.allbinary.physics.movement;
 
-import allbinary.game.layer.AllBinaryGameLayer;
+import org.allbinary.game.layer.AllBinaryGameLayer;
 
 public class NoBasicConstantVelocityMovement 
 extends BasicConstantVelocityMovement

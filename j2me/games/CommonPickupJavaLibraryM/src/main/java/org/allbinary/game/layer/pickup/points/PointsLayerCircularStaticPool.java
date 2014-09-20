@@ -13,10 +13,10 @@
 */
 package org.allbinary.game.layer.pickup.points;
 
-import allbinary.game.score.ScoreableInterface;
-import allbinary.layer.AllBinaryLayer;
-import allbinary.layer.AllBinaryLayerCircularPool;
-import allbinary.layer.AllBinaryLayerFactoryInterface;
+import org.allbinary.game.score.ScoreableInterface;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.layer.AllBinaryLayerCircularPool;
+import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 public class PointsLayerCircularStaticPool extends AllBinaryLayerCircularPool {
 	public PointsLayerCircularStaticPool(

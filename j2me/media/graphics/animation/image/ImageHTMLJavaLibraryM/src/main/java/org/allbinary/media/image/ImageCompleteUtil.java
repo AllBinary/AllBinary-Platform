@@ -13,8 +13,8 @@
 */
 package org.allbinary.media.image;
 
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.time.TimeDelayHelper;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.time.TimeDelayHelper;
 import java.util.Hashtable;
 import javax.microedition.lcdui.Image;
 import org.allbinary.image.GameFeatureImageCacheFactory;

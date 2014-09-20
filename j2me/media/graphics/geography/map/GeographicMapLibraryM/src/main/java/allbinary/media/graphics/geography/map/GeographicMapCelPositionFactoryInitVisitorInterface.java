@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
 
 /**
  *

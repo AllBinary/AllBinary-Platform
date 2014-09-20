@@ -13,7 +13,7 @@
 */
 package org.allbinary.android.input.motion.event;
 
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 public class AnalogControllerConfigurationEvent extends AllBinaryEventObject
 {

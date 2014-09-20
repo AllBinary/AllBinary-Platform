@@ -13,7 +13,7 @@
 */
 package org.allbinary.android.device;
 
-import allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;

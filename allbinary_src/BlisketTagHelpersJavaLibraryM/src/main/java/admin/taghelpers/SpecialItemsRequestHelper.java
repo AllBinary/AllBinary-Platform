@@ -13,20 +13,20 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.*;
 
 import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.entry.EntryData;
-import allbinary.business.user.commerce.inventory.item.BasicItemData;
-import allbinary.business.user.commerce.inventory.item.special.SpecialItemData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.business.user.commerce.inventory.item.special.SpecialItemData;
 
-import allbinary.data.tables.user.commerce.inventory.item.special.SpecialItemsEntityFactory;
+import org.allbinary.data.tables.user.commerce.inventory.item.special.SpecialItemsEntityFactory;
 
 public class SpecialItemsRequestHelper implements ModifyTableInterface
 {

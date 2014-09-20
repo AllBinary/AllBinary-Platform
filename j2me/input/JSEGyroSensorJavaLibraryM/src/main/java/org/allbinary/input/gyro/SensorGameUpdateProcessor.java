@@ -16,8 +16,8 @@ package org.allbinary.input.gyro;
 import org.allbinary.input.AllBinarySensor;
 import org.allbinary.input.NoAllBinarySensor;
 
-import allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
-import allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
 
 public class SensorGameUpdateProcessor

@@ -13,8 +13,8 @@
 */
 package org.allbinary.bounds.event;
 
-import allbinary.graphics.Rectangle;
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 public class BoundsChangeEvent extends AllBinaryEventObject
 {

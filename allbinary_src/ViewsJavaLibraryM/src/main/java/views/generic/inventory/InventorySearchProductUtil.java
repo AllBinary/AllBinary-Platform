@@ -15,19 +15,19 @@ package views.generic.inventory;
 
 import java.util.Vector;
 
-import abcs.data.tree.dom.document.DomDocumentHelper;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.commerce.inventory.item.BasicItemView;
-import allbinary.business.user.commerce.inventory.item.ItemInterface;
-import allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
-import allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
-import allbinary.logic.control.search.SearchRequest;
-import allbinary.logic.visual.transform.StoreTransformer;
-import allbinary.logic.visual.transform.data.TransformDocumentInterface;
-import allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
-import allbinary.logic.visual.transform.info.TransformInfoHttpSearch;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
+import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
+import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.visual.transform.StoreTransformer;
+import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
+import org.allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpSearch;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 /**
  *

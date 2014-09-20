@@ -17,12 +17,12 @@ import java.lang.reflect.Method;
 
 import javax.servlet.jsp.JspTagException;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class XmlValidationTransformTag extends TransformTag
 {

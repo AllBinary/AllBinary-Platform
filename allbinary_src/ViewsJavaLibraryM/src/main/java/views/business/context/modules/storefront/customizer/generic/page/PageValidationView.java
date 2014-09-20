@@ -21,18 +21,18 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
-import abcs.data.tree.dom.document.DomDocumentHelper;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.data.tables.transform.info.TransformInfoEntity;
-import allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
-import allbinary.logic.control.validate.ValidationComponentInterface;
-import allbinary.logic.visual.transform.info.TransformInfo;
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
-import allbinary.logic.visual.transform.template.customizer.page.PageValidation;
-import allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tables.transform.info.TransformInfoEntity;
+import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfo;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import org.allbinary.logic.visual.transform.template.customizer.page.PageValidation;
+import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
 
 public class PageValidationView extends PageView implements ValidationComponentInterface
 {

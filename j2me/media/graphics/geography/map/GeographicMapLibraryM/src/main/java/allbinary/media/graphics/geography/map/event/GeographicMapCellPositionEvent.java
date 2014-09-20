@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.map.event;
 
-import abcs.logic.basic.string.StringMaker;
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class GeographicMapCellPositionEvent extends AllBinaryEventObject
 {

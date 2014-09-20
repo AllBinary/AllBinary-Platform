@@ -13,13 +13,13 @@
 */
 package tags.generic.address.shipping;
 
-import allbinary.business.user.address.ShippingAddressData;
+import org.allbinary.business.user.address.ShippingAddressData;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import tags.StoreValidationTransformTag;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import javax.servlet.jsp.JspTagException;
 
 public class ShippingAddressTag extends StoreValidationTransformTag

@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColor;
 
 public class RaceTrackInfo
 {

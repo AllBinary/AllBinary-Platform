@@ -15,14 +15,14 @@ package org.allbinary.game.ai.path;
 
 import org.allbinary.util.BasicArrayList;
 
-import allbinary.direction.Direction;
-import allbinary.direction.DirectionFactory;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.math.AngleInfo;
-import allbinary.media.graphics.geography.map.GeographicMapCellHistory;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
-import allbinary.media.graphics.geography.map.GeographicMapDirectionUtil;
-import allbinary.media.graphics.geography.pathfinding.GeographicMapCellPathHistoryInfo;
+import org.allbinary.direction.Direction;
+import org.allbinary.direction.DirectionFactory;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.math.AngleInfo;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.GeographicMapDirectionUtil;
+import org.allbinary.media.graphics.geography.pathfinding.GeographicMapCellPathHistoryInfo;
 
 public class BasicAIProcessor
 {

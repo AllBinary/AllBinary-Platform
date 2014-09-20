@@ -13,7 +13,7 @@
 */
 package org.allbinary.util;
 
-import abcs.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 
 public class ImmutableBasicArrayList extends BasicArrayList
 {

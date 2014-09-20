@@ -13,7 +13,7 @@
 */
 package org.allbinary.thirdparty.store;
 
-import abcs.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 /*
  * To change this template, choose Tools | Templates

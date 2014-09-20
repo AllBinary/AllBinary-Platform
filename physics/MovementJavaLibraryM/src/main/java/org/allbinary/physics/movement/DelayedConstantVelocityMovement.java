@@ -13,11 +13,11 @@
 */
 package org.allbinary.physics.movement;
 
-import allbinary.game.layer.AllBinaryGameLayer;
-import allbinary.game.physics.velocity.BasicVelocityProperties;
-import allbinary.logic.math.BasicDecimal;
-import allbinary.time.GameTickTimeDelayHelperFactory;
-import allbinary.time.TimeDelayHelper;
+import org.allbinary.game.layer.AllBinaryGameLayer;
+import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+import org.allbinary.logic.math.BasicDecimal;
+import org.allbinary.time.GameTickTimeDelayHelperFactory;
+import org.allbinary.time.TimeDelayHelper;
 
 public class DelayedConstantVelocityMovement 
 extends BasicConstantVelocityMovement

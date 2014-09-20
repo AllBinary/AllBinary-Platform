@@ -16,10 +16,10 @@ package allbinary.game.layer.geographic.map;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import allbinary.graphics.Anchor;
-import allbinary.image.PaintableToImageUtil;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.view.ViewPosition;
+import org.allbinary.graphics.Anchor;
+import org.allbinary.image.PaintableToImageUtil;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.view.ViewPosition;
 
 public class ImageMiniMapLayer extends MiniMapLayer
 {

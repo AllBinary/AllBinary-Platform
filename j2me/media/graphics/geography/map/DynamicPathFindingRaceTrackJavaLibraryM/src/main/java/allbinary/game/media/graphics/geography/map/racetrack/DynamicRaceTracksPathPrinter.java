@@ -15,16 +15,16 @@ package allbinary.game.media.graphics.geography.map.racetrack;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.logic.math.SmallIntegerSingletonFactory;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapInterfaceFactoryInterface;
-import allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
-import allbinary.media.graphics.geography.map.racetrack.RaceTracksPathPrinter;
-import allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
-import allbinary.media.graphics.geography.pathfinding.PathGenerator;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapInterfaceFactoryInterface;
+import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
+import org.allbinary.media.graphics.geography.map.racetrack.RaceTracksPathPrinter;
+import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
+import org.allbinary.media.graphics.geography.pathfinding.PathGenerator;
 
 /**
  *

@@ -15,10 +15,10 @@ package allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 
-import allbinary.animation.Animation;
+import org.allbinary.animation.Animation;
 import org.allbinary.media.image.ImageCopyUtil;
-import allbinary.math.AngleFactory;
-import allbinary.math.AngleInfo;
+import org.allbinary.math.AngleFactory;
+import org.allbinary.math.AngleInfo;
 
 public class AllBinaryAdjustedAndroidImageRotationAnimationFactory 
     extends AllBinaryAndroidImageRotationAnimationFactory

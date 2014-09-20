@@ -9,10 +9,10 @@ import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLImageFactory;
 import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.configuration.feature.Features;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.configuration.feature.Features;
 
 public class PreResourceImageUtil
 {

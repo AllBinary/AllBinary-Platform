@@ -13,11 +13,11 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.graphics.color.BasicColorFactory;
-import allbinary.logic.math.SmallIntegerSingletonFactory;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
 
 /**
  *

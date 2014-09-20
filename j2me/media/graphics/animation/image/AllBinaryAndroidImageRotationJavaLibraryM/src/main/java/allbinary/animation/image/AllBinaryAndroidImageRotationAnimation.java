@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.util.CircularIndexUtil;
 
-import allbinary.math.AngleInfo;
+import org.allbinary.math.AngleInfo;
 import android.graphics.Color;
 import android.graphics.Matrix;
 

@@ -14,7 +14,7 @@
 package views.admin.user;
 
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -22,18 +22,18 @@ import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
    
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
-import allbinary.business.user.UsersData;
-import allbinary.business.user.UserDomNode;
-import allbinary.business.user.modules.User;
+import org.allbinary.business.user.UsersData;
+import org.allbinary.business.user.UserDomNode;
+import org.allbinary.business.user.modules.User;
 
-import allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomNodeInterface;
 
 
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 import views.business.context.HttpContextView;
 

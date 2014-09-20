@@ -16,7 +16,7 @@ package allbinary.animation.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import allbinary.math.AngleInfo;
+import org.allbinary.math.AngleInfo;
 
 public class AllBinaryAdjustedAndroidImageRotationAnimation
 extends AllBinaryAndroidImageRotationAnimation

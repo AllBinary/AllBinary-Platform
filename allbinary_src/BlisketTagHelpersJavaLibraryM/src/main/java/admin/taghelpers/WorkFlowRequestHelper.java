@@ -13,20 +13,20 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.*;
 
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
-import allbinary.logic.control.workflow.WorkFlowData;
-import allbinary.logic.control.workflow.WorkFlowInterface;
-import allbinary.logic.control.workflow.NewWorkFlowFactory;
+import org.allbinary.logic.control.workflow.WorkFlowData;
+import org.allbinary.logic.control.workflow.WorkFlowInterface;
+import org.allbinary.logic.control.workflow.NewWorkFlowFactory;
 
-import allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
 
 public class WorkFlowRequestHelper implements ModifyTableInterface
 {

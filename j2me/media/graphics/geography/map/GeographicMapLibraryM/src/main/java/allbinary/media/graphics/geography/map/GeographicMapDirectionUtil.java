@@ -13,10 +13,10 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import abcs.logic.basic.string.StringMaker;
-import allbinary.direction.Direction;
-import allbinary.direction.DirectionFactory;
-import allbinary.graphics.CellPosition;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.direction.Direction;
+import org.allbinary.direction.DirectionFactory;
+import org.allbinary.graphics.CellPosition;
 
 /**
  *

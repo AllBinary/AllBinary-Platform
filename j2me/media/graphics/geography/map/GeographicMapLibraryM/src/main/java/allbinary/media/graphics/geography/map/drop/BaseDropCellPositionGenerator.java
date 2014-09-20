@@ -13,10 +13,10 @@
 */
 package allbinary.media.graphics.geography.map.drop;
 
-import allbinary.game.layer.AllBinaryGameLayerManager;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 
 public class BaseDropCellPositionGenerator
 implements DropCellPositionGeneratorInterface

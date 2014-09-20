@@ -15,13 +15,13 @@ package tags.workflow.processing.basic;
 
 import javax.servlet.jsp.*;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import allbinary.business.DynamicObjectData;
+import org.allbinary.business.DynamicObjectData;
 
 import tags.StoreWorkFlowTag;
 

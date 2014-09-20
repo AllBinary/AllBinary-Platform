@@ -17,22 +17,22 @@ import java.util.HashMap;
 
 import org.w3c.dom.Document;
 
-import abcs.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.basic.string.regex.replace.Replace;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
-import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfig;
-import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfig;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 
-import allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
+import org.allbinary.logic.visual.transform.template.util.TransformTemplateCustomizerUtil;
 
-import abcs.logic.communication.log.LogUtil;
-import abcs.data.tree.dom.document.DomDocumentHelper;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConfig
 {

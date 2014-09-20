@@ -13,14 +13,14 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 
 public class BasketRequestHelperFactory implements TagHelperFactoryInterface

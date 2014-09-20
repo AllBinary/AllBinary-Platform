@@ -17,28 +17,28 @@ import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.user.commerce.inventory.order.Order;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.commerce.inventory.order.Order;
 
-import allbinary.business.user.commerce.inventory.order.OrderInterface;
-import allbinary.business.user.commerce.inventory.order.OrderProcessorUtil;
+import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
+import org.allbinary.business.user.commerce.inventory.order.OrderProcessorUtil;
 
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
-import allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
+import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType;
 
 
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntity;
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntity;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
 
-import allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import java.util.HashMap;
 import java.util.Vector;
 

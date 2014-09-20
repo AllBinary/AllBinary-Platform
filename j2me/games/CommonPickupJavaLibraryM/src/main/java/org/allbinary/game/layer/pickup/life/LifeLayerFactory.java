@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.layer.pickup.life;
 
-import allbinary.layer.AllBinaryLayer;
-import allbinary.layer.AllBinaryLayerFactoryInterface;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 /**
  *

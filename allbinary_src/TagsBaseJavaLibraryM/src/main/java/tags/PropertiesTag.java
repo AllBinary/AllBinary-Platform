@@ -13,10 +13,10 @@
 */
 package tags;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class PropertiesTag extends CommandTag
 {
@@ -24,7 +24,7 @@ public class PropertiesTag extends CommandTag
    
    public PropertiesTag()
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Tag Constructed", this, "Constructor()"));
       }
@@ -38,7 +38,7 @@ public class PropertiesTag extends CommandTag
 
    public int doEndTag()
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Tag Ended", this, "doEndTag"));
       }

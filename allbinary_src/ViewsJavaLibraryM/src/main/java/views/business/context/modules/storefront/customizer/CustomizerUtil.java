@@ -18,16 +18,16 @@ import java.util.Vector;
 
 import org.w3c.dom.Document;
 
-import abcs.data.tree.dom.document.DomDocumentHelper;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.data.tables.transform.info.TransformInfoEntity;
-import allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
-import allbinary.data.tree.dom.DomNodeInterface;
-import allbinary.logic.visual.transform.info.TransformInfo;
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tables.transform.info.TransformInfoEntity;
+import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfo;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 
 public class CustomizerUtil
 {

@@ -13,8 +13,8 @@
 */
 package org.allbinary.business.advertisement;
 
-import allbinary.direction.Direction;
-import allbinary.game.state.GameState;
+import org.allbinary.direction.Direction;
+import org.allbinary.game.state.GameState;
 
 public class AdConfiguration
 {

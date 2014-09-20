@@ -1,9 +1,9 @@
 package org.allbinary.physics.movement;
 
-import allbinary.game.layer.AllBinaryGameLayer;
-import allbinary.game.physics.velocity.BasicVelocityProperties;
-import allbinary.logic.math.BasicDecimal;
-import allbinary.logic.math.ScaleFactorFactory;
+import org.allbinary.game.layer.AllBinaryGameLayer;
+import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+import org.allbinary.logic.math.BasicDecimal;
+import org.allbinary.logic.math.ScaleFactorFactory;
 
 public class PreciseConstantVelocityMovement 
 extends BasicConstantVelocityMovement

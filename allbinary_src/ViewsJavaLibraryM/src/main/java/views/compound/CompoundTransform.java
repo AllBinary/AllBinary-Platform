@@ -13,25 +13,25 @@
 */
 package views.compound;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.io.InputStream;
 
 
 
 import javax.xml.transform.URIResolver;
 
-import allbinary.data.tree.dom.BasicUriResolver;
-import allbinary.data.tree.dom.StoreUriResolver;
+import org.allbinary.data.tree.dom.BasicUriResolver;
+import org.allbinary.data.tree.dom.StoreUriResolver;
 
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 
-import allbinary.logic.visual.transform.AbTransformer;
+import org.allbinary.logic.visual.transform.AbTransformer;
 
 import views.compound.objectConfig.CompoundContextTransformInfoObjectConfig;
 

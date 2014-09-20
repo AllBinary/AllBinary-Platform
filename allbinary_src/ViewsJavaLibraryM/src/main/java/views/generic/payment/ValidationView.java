@@ -16,11 +16,11 @@ package views.generic.payment;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.globals.MESSAGES;
+import org.allbinary.globals.MESSAGES;
 
 public class ValidationView extends PaymentView implements ValidationComponentInterface
 {

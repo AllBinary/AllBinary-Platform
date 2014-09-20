@@ -17,8 +17,8 @@ import taghelpers.ValidationViewHelper;
 import tags.HelperTag;
 import views.admin.inventory.InventoryItemView;
 import views.admin.inventory.download.DownloadableInventoryItemView;
-import allbinary.logic.communication.http.request.RequestMapInterface;
-import allbinary.logic.visual.transform.TransformInterface;
+import org.allbinary.logic.communication.http.request.RequestMapInterface;
+import org.allbinary.logic.visual.transform.TransformInterface;
 
 public class InventoryItemViewParentTagHelper
 {

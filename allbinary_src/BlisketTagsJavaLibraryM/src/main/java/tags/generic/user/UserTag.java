@@ -15,10 +15,10 @@ package tags.generic.user;
 
 import javax.servlet.jsp.JspTagException;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
 
-import allbinary.business.user.role.UserRoleData;
+import org.allbinary.business.user.role.UserRoleData;
 
 
 

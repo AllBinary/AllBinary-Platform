@@ -13,14 +13,14 @@
 */
 package org.allbinary.game.input;
 
-import abcs.logic.java.bool.BooleanFactory;
-import allbinary.game.layer.hud.basic.event.GameNotificationEvent;
-import allbinary.game.layer.hud.basic.event.GameNotificationEventHandler;
-import allbinary.graphics.color.BasicColorFactory;
-import allbinary.logic.math.SmallIntegerSingletonFactory;
-import allbinary.media.audio.ErrorSound;
-import allbinary.media.audio.PrimaryPlayerQueueFactory;
-import allbinary.media.audio.SelectSound;
+import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.game.layer.hud.basic.event.GameNotificationEvent;
+import org.allbinary.game.layer.hud.basic.event.GameNotificationEventHandler;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.media.audio.ErrorSound;
+import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
+import org.allbinary.media.audio.SelectSound;
 
 public class TextNotificationUtil
 {

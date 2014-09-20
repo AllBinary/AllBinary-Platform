@@ -19,12 +19,12 @@ import java.net.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.logic.control.workflow.WorkFlowInterface;
-import allbinary.logic.control.workflow.RequestWorkFlowFactory;
+import org.allbinary.logic.control.workflow.WorkFlowInterface;
+import org.allbinary.logic.control.workflow.RequestWorkFlowFactory;
 
 public class RequestHandler extends HttpServlet
 {

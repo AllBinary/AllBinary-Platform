@@ -21,24 +21,24 @@ import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-import abcs.business.user.role.BasicUserRole;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.business.user.role.BasicUserRole;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import allbinary.business.user.UserInterface;
-import allbinary.business.user.UserData;
-import allbinary.logic.communication.smtp.email.NewPasswordEmail;
-import allbinary.business.user.password.Password;
-
-
-import allbinary.data.tables.user.UserEntityFactory;
-import allbinary.data.tables.user.UserEntityInterface;
+import org.allbinary.business.user.UserInterface;
+import org.allbinary.business.user.UserData;
+import org.allbinary.logic.communication.smtp.email.NewPasswordEmail;
+import org.allbinary.business.user.password.Password;
 
 
-import allbinary.logic.communication.http.request.session.WeblisketSession;
-import allbinary.logic.communication.http.request.session.WeblisketSessionData;
+import org.allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.data.tables.user.UserEntityInterface;
 
-import abcs.logic.communication.log.LogUtil;
-import allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
+
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
+
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
 
 public class AuthenticationRequestHelper
     implements TagHelperInterface

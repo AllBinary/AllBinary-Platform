@@ -19,15 +19,15 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.commerce.inventory.basket.Basket;
-import allbinary.business.user.commerce.inventory.basket.BasketReview;
-import allbinary.business.user.commerce.inventory.order.Order;
-import allbinary.business.user.commerce.inventory.order.OrderData;
-import allbinary.business.user.commerce.inventory.order.OrderHistory;
-import allbinary.data.tree.dom.DomNodeInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.commerce.inventory.basket.Basket;
+import org.allbinary.business.user.commerce.inventory.basket.BasketReview;
+import org.allbinary.business.user.commerce.inventory.order.Order;
+import org.allbinary.business.user.commerce.inventory.order.OrderData;
+import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class OrderView
 extends HttpStoreComponentView

@@ -13,22 +13,22 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.*;
 
 import javax.servlet.jsp.PageContext;
 
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.user.commerce.inventory.basket.BasketInterface;
+import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 
 
-import allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 
 public class BasketHelper
     implements TagHelperInterface

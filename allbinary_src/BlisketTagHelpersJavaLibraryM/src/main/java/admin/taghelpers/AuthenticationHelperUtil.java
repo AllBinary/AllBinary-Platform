@@ -15,14 +15,14 @@ package admin.taghelpers;
 
 import java.util.Vector;
 
-import abcs.business.user.role.BasicUserRole;
-import abcs.globals.URLGLOBALS;
-import abcs.logic.basic.path.AbPath;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.role.UserRole;
-import allbinary.logic.communication.http.file.upload.HttpFilePermissions;
-import allbinary.logic.communication.http.request.HttpRequestUtil;
+import org.allbinary.business.user.role.BasicUserRole;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.role.UserRole;
+import org.allbinary.logic.communication.http.file.upload.HttpFilePermissions;
+import org.allbinary.logic.communication.http.request.HttpRequestUtil;
 
 public class AuthenticationHelperUtil
 {

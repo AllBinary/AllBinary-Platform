@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.logic.math.SmallIntegerSingletonFactory;
-import allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
-import allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoData;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
+import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoData;
 
 public class RaceTrackGeogrpahicMapCellTypeInitializer
 {

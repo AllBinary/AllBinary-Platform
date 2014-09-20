@@ -13,9 +13,9 @@
 */
 package org.allbinary.android.input.motion;
 
-import allbinary.game.input.analog.AnalogLocationInput;
-import allbinary.game.input.analog.AnalogLocationInputFactory;
-import allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.game.input.analog.AnalogLocationInput;
+import org.allbinary.game.input.analog.AnalogLocationInputFactory;
+import org.allbinary.layer.AllBinaryLayerManager;
 
 public class SingleAnalogControllerVisitor
 extends AnalogControllerVisitor

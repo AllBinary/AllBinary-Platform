@@ -13,8 +13,8 @@
 */
 package org.allbinary.media.image;
 
-import abcs.logic.communication.log.Log;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;

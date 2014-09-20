@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import allbinary.graphics.CellPosition;
-import allbinary.graphics.GPoint;
-import allbinary.graphics.PointFactory;
+import org.allbinary.graphics.CellPosition;
+import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.PointFactory;
 
 public class GeographicMapCellPosition extends CellPosition
 {

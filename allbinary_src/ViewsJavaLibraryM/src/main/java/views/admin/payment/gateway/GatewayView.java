@@ -15,13 +15,13 @@ package views.admin.payment.gateway;
 
 import javax.servlet.http.HttpServletRequest;
 
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
-import allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
+import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 
 public class GatewayView extends PaymentGatewayViewAbstract

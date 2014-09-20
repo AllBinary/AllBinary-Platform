@@ -13,8 +13,8 @@
 */
 package org.allbinary.media.image.cache;
 
-import abcs.logic.communication.log.Log;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogUtil;
 import com.abcs.logic.util.cache.CachePolicyFactory;
 import com.abcs.logic.util.cache.PoolInterface;
 import com.abcs.logic.util.cache.PoolInterfaceFactory;

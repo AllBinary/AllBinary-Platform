@@ -15,10 +15,10 @@ package admin.taghelpers;
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import abcs.business.init.InitInfoEntity;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.business.init.InitInfoEntity;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
  
 public class InitHelper implements BasicTableInterface

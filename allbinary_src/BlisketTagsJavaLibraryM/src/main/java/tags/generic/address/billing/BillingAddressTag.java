@@ -13,13 +13,13 @@
 */
 package tags.generic.address.billing;
 
-import allbinary.business.user.address.BillingAddressData;
+import org.allbinary.business.user.address.BillingAddressData;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import tags.StoreValidationTransformTag;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
 import javax.servlet.jsp.JspTagException;
 

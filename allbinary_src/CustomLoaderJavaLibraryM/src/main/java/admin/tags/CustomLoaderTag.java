@@ -17,14 +17,14 @@ import java.lang.reflect.Method;
 
 import javax.servlet.jsp.tagext.TagSupport;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import admin.taghelpers.CustomLoaderHelperFactory;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
 
@@ -74,7 +74,7 @@ public class CustomLoaderTag extends TagSupport
       catch(Exception e)
       {
          String error = "Failed to set WebappPath";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "setCustomLoaderWebappPath()", e));
          }
@@ -88,7 +88,7 @@ public class CustomLoaderTag extends TagSupport
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
          {
             LogUtil.put(LogFactory.getInstance("Start", this, "doStartTag()"));
          }
@@ -97,7 +97,7 @@ public class CustomLoaderTag extends TagSupport
          {
             this.propertiesHashMap = new HashMap();
             
-            if(command.compareTo(allbinary.globals.GLOBALS.SET)==0)
+            if(command.compareTo(org.allbinary.globals.GLOBALS.SET)==0)
             {
                this.setCustomLoaderWebappPath();
             }

@@ -20,7 +20,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 
-import allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.control.search.SearchRequest;
 
 
 

@@ -16,7 +16,7 @@ package allbinary.media.graphics.geography.map.racetrack.drop;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
-import allbinary.layer.LayerInterfaceFactoryInterface;
+import org.allbinary.layer.LayerInterfaceFactoryInterface;
 
 
 public class RaceTrackAdjacentDropLayerFactory

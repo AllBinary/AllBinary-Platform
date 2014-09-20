@@ -13,17 +13,17 @@
 */
 package org.allbinary.game.layer;
 
-import abcs.logic.basic.NotImplemented;
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.StringMaker;
-import abcs.logic.communication.log.ForcedLogUtil;
-import allbinary.ai.ArtificialIntelligenceInterface;
-import allbinary.game.collision.CollidableBaseBehavior;
-import allbinary.game.collision.CollidableInterfaceCompositeInterface;
-import allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
-import allbinary.game.layer.AllBinaryGameLayer;
-import allbinary.graphics.Rectangle;
-import allbinary.view.ViewPosition;
+import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.ai.ArtificialIntelligenceInterface;
+import org.allbinary.game.collision.CollidableBaseBehavior;
+import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
+import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
+import org.allbinary.game.layer.AllBinaryGameLayer;
+import org.allbinary.graphics.Rectangle;
+import org.allbinary.view.ViewPosition;
 
 /*
  * The Game Layers/Objects requirements change a bunch from game to game.

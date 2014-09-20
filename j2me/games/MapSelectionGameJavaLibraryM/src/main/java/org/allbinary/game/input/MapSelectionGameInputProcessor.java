@@ -17,22 +17,22 @@ import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.system.security.licensing.LockedFeatureNotificationUtil;
-import abcs.logic.system.security.licensing.LockedUtil;
-import allbinary.canvas.Processor;
-import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-import allbinary.game.displayable.canvas.PreGameSelectorPaintable;
-import allbinary.game.input.GameInputProcessorComposite;
-import allbinary.game.input.GameInputProcessorInterface;
-import allbinary.game.input.PlayerGameInput;
-import allbinary.game.input.PlayerGameInputCompositeInterface;
-import allbinary.game.input.event.GameKeyEventHandler;
-import allbinary.game.input.event.GameKeyEventUtil;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.media.audio.SecondaryPlayerQueueFactory;
-import allbinary.media.audio.SelectSound;
-import allbinary.media.graphics.geography.map.racetrack.MultiLevelRaceTrackGeographicMapInterfaceFactoryInterface;
-import allbinary.time.TimeDelayHelper;
+import org.allbinary.logic.system.security.licensing.LockedFeatureNotificationUtil;
+import org.allbinary.logic.system.security.licensing.LockedUtil;
+import org.allbinary.canvas.Processor;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.game.displayable.canvas.PreGameSelectorPaintable;
+import org.allbinary.game.input.GameInputProcessorComposite;
+import org.allbinary.game.input.GameInputProcessorInterface;
+import org.allbinary.game.input.PlayerGameInput;
+import org.allbinary.game.input.PlayerGameInputCompositeInterface;
+import org.allbinary.game.input.event.GameKeyEventHandler;
+import org.allbinary.game.input.event.GameKeyEventUtil;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
+import org.allbinary.media.audio.SelectSound;
+import org.allbinary.media.graphics.geography.map.racetrack.MultiLevelRaceTrackGeographicMapInterfaceFactoryInterface;
+import org.allbinary.time.TimeDelayHelper;
 
 public class MapSelectionGameInputProcessor extends Processor 
     implements GameInputProcessorInterface, PlayerGameInputCompositeInterface

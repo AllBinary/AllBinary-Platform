@@ -13,12 +13,12 @@
 */
 package views;
 
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 //Replace when validation node is added
 public class ValidationOnlyTempUtil

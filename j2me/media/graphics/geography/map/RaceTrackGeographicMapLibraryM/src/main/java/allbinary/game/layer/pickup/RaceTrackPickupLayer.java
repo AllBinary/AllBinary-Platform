@@ -13,10 +13,10 @@
 */
 package allbinary.game.layer.pickup;
 
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.game.view.TileLayerPositionIntoViewPosition;
-import allbinary.layer.AllBinaryLayer;
-import allbinary.view.event.ViewPositionEventHandler;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.game.view.TileLayerPositionIntoViewPosition;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.view.event.ViewPositionEventHandler;
 
 public class RaceTrackPickupLayer extends PickupLayer
 {

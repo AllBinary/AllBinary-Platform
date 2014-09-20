@@ -15,11 +15,11 @@ package views.admin.payment.gateway;
 
 import javax.servlet.http.HttpServletRequest;
 
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayPrimaryKey;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayPrimaryKey;
 
-import allbinary.logic.visual.transform.info.TransformInfoHttpComposite;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpComposite;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class PaymentGatewayViewAbstract extends TransformInfoHttpComposite
 {

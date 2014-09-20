@@ -13,11 +13,11 @@
 */
 package org.allbinary.game.layer.pickup.health;
 
-import allbinary.game.health.HealthInterface;
-import allbinary.game.health.HealthInterfaceCompositeInterface;
-import allbinary.layer.AllBinaryLayer;
-import allbinary.layer.AllBinaryLayerCircularPool;
-import allbinary.layer.AllBinaryLayerFactoryInterface;
+import org.allbinary.game.health.HealthInterface;
+import org.allbinary.game.health.HealthInterfaceCompositeInterface;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.layer.AllBinaryLayerCircularPool;
+import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 public class HealLayerCircularStaticPool extends AllBinaryLayerCircularPool
 {

@@ -1,0 +1,194 @@
+/*
+* AllBinary Open License Version 1
+* Copyright (c) 2011 AllBinary
+* 
+* By agreeing to this license you and any business entity you represent are
+* legally bound to the AllBinary Open License Version 1 legal agreement.
+* 
+* You may obtain the AllBinary Open License Version 1 legal agreement from
+* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+* 
+* Created By: Travis Berthelot
+* 
+*/
+package org.allbinary.business.init;
+
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.basic.io.AbDataInputStream;
+import org.allbinary.logic.basic.io.AbDataOutputStream;
+import org.allbinary.logic.basic.io.AbFileInputStream;
+import org.allbinary.logic.basic.io.DataOutputStreamFactory;
+import org.allbinary.logic.basic.io.FileStreamFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
+import org.allbinary.logic.system.security.crypt.WeakCrypt;
+import org.allbinary.globals.PATH_GLOBALS;
+
+public class LicenseInitInfoUtil
+{
+    private static final LicenseInitInfoUtil instance = new LicenseInitInfoUtil();
+
+    public static LicenseInitInfoUtil getInstance()
+    {
+        return instance;
+    }
+
+    public final String INITFILENAME = "licenseinitdata.dat";
+    private String filePath;
+
+    public synchronized void setFilePath(String filePath)
+    {
+        this.filePath = filePath;
+    }
+
+    public synchronized void write(LicenseInitInfo initData)
+            throws Exception
+    {
+        if (this.filePath == null)
+        {
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
+        }
+
+        try
+        {
+            AbDataOutputStream dataOutputStream =
+                DataOutputStreamFactory.getInstance().getInstance(
+                this.filePath, INITFILENAME);
+
+            byte[] licenseIdCrypted = new WeakCrypt(1).encrypt(
+                    initData.getLicenseId()).getBytes();
+
+            dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseIdCrypted));
+
+            int numberOfLicenseServers = initData.getNumberOfServers();
+            dataOutputStream.writeInt(numberOfLicenseServers);
+
+            for (int index = 0; index < numberOfLicenseServers; index++)
+            {
+                byte[] licenseServerCrypted = new WeakCrypt(3).encrypt(
+                        initData.getServer(index)).getBytes();
+                dataOutputStream.writeUTF(DatabaseEncoder.encode(licenseServerCrypted));
+            }
+        }
+        catch (Exception e)
+        {
+            // if
+            // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+            // {
+            LogUtil.put(LogFactory.getInstance("Command Failed: " + INITFILENAME, this, "write", e));
+            // }
+            FileStreamFactory.getInstance().delete(
+                    this.filePath, INITFILENAME);
+
+            throw e;
+        }
+    }
+
+    public synchronized LicenseInitInfo read() throws Exception
+    {
+        return readAgain(0);
+    }
+
+    //This does not work on Android LOL
+    /*
+    public static synchronized boolean exists() throws Exception
+    {
+        AbPath abPath = new AbPath(URLGLOBALS.getMainPath() + PATH_GLOBALS.INIT_PATH,
+                INITFILENAME);
+        
+        return FileUtil.isFile(abPath);
+    }
+    */
+
+    public synchronized LicenseInitInfo readAgain(int initializeCounter)
+            throws Exception
+    {
+        final String METHOD_NAME = "readAgain";
+
+        if (this.filePath == null)
+        {
+            this.filePath = URLGLOBALS.getMainPath() + PATH_GLOBALS.getInstance().INIT_PATH;
+        }
+
+        try
+        {
+            // if
+            // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
+            // {
+            // LogUtil.put(LogFactory.getInstance("LicenseInitInfo File: " +
+            // FILEABPATH.toString(),
+            LogUtil.put(LogFactory.getInstance("LicenseInitInfo File: " + INITFILENAME, this, METHOD_NAME));
+            // }
+
+            FileStreamFactory fileStreamFactory = 
+                FileStreamFactory.getInstance();
+            
+            AbFileInputStream iFile = fileStreamFactory
+                    .getFileInputStreamInstance(this.filePath, INITFILENAME);
+
+            if (iFile != null)
+            {
+
+                AbDataInputStream iData = new AbDataInputStream(iFile);
+                LicenseInitInfo initInfo = new LicenseInitInfo();
+
+                String licenseIdDecoded = new String(DatabaseEncoder.decode(iData.readUTF()));
+
+                initInfo.setLicenseId(new WeakCrypt(1).decrypt(licenseIdDecoded));
+
+                int numberOfLicenseServers = iData.readInt();
+
+                final String NEXT_FILE = "Next License Server From File: ";
+
+                String licenseServerDecoded;
+
+                for (int index = 0; index < numberOfLicenseServers; index++)
+                {
+                    licenseServerDecoded = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    initInfo.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
+
+                    // if
+                    // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
+                    // {
+                    LogUtil.put(LogFactory.getInstance(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME));
+                    // }
+                }
+                return initInfo;
+            }
+            else
+            {
+                throw new Exception("Could Not Load License InitInfo: " + INITFILENAME);
+            }
+        }
+        catch (Exception e)
+        {
+            try
+            {
+                // if
+                // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+                // {
+                LogUtil.put(LogFactory.getInstance("Command Failed: " + INITFILENAME, this, METHOD_NAME, e));
+                // }
+
+                Thread.currentThread().sleep(2000);
+
+                // give up after 10tries
+                if (initializeCounter < 3)
+                {
+                    initializeCounter++;
+                    return readAgain(initializeCounter++);
+                }
+            }
+            catch (Exception se)
+            {
+                // if
+                // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+                // {
+                LogUtil.put(LogFactory.getInstance("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", se));
+                // }
+            }
+            throw new Exception("LicenseInitInfo Read Error: " + INITFILENAME);
+        }
+    }
+}

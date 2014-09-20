@@ -19,8 +19,8 @@ import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.Tag;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.MultipartRequestParamForwardHelper;
 import java.util.Vector;
 import tags.HelperTag;

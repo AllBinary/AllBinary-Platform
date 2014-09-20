@@ -15,8 +15,8 @@ package org.allbinary.business.advertisement;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.system.security.licensing.LockedUtil;
-import allbinary.game.rand.MyRandomFactory;
+import org.allbinary.logic.system.security.licensing.LockedUtil;
+import org.allbinary.game.rand.MyRandomFactory;
 
 public class Advertisements
 {

@@ -13,12 +13,12 @@
 */
 package org.allbinary.physics.movement;
 
-import allbinary.game.layer.AllBinaryGameLayer;
-import allbinary.game.physics.velocity.BasicVelocityProperties;
-import allbinary.layer.AllBinaryLayer;
-import allbinary.logic.math.BasicDecimal;
-import allbinary.logic.math.vector.AxisMathVectorUtil;
-import allbinary.math.AngleFactory;
+import org.allbinary.game.layer.AllBinaryGameLayer;
+import org.allbinary.game.physics.velocity.BasicVelocityProperties;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.math.BasicDecimal;
+import org.allbinary.logic.math.vector.AxisMathVectorUtil;
+import org.allbinary.math.AngleFactory;
 
 /**
  *

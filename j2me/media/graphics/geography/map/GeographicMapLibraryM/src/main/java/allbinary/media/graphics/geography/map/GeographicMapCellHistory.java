@@ -17,17 +17,17 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import abcs.logic.java.bool.BooleanFactory;
-import allbinary.animation.Animation;
-import allbinary.animation.text.TextAnimation;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.graphics.GPoint;
-import allbinary.graphics.color.BasicColorFactory;
-import allbinary.graphics.font.MyFont;
-import allbinary.logic.math.BasicDecimal;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.animation.Animation;
+import org.allbinary.animation.text.TextAnimation;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.math.BasicDecimal;
 
 public class GeographicMapCellHistory
 {

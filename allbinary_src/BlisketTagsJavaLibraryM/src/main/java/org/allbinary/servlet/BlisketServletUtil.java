@@ -15,10 +15,10 @@ package org.allbinary.servlet;
 
 import javax.servlet.http.HttpServletRequest;
 
-import abcs.globals.AppUrlGlobals;
-import abcs.globals.URLGLOBALS;
-import abcs.logic.basic.path.AbPathData;
-import abcs.logic.system.loader.WebappClassLoaderInfo;
+import org.allbinary.globals.AppUrlGlobals;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 
 public class BlisketServletUtil {
 

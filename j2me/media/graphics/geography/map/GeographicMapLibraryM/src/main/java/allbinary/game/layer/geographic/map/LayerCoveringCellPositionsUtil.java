@@ -15,10 +15,10 @@ package allbinary.game.layer.geographic.map;
 
 import org.allbinary.util.BasicArrayList;
 
-import allbinary.layer.AllBinaryLayer;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.CellPositionsUtil;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.CellPositionsUtil;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 /**
  *

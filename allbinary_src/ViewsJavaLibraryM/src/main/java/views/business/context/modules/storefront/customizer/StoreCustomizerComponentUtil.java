@@ -16,12 +16,12 @@ package views.business.context.modules.storefront.customizer;
 import java.util.Iterator;
 import java.util.Vector;
 
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.logic.visual.transform.generator.TransformGeneratorUtil;
-import allbinary.logic.visual.transform.info.TransformInfo;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.generator.TransformGeneratorUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfo;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class StoreCustomizerComponentUtil
 {

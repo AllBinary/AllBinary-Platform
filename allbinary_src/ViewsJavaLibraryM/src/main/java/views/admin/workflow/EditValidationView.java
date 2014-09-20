@@ -13,21 +13,21 @@
 */
 package views.admin.workflow;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.logic.control.workflow.WorkFlowData;
+import org.allbinary.logic.control.workflow.WorkFlowData;
 
-import allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
 
 
 public class EditValidationView extends WorkFlowView implements ValidationComponentInterface

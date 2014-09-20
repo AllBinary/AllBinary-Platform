@@ -17,25 +17,25 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.communication.log.ForcedLogUtil;
-import allbinary.animation.vector.CircleFilledAnimation;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.graphics.GPoint;
-import allbinary.graphics.PointFactory;
-import allbinary.graphics.Rectangle;
-import allbinary.graphics.color.BasicColor;
-import allbinary.graphics.color.BasicColorFactory;
-import allbinary.graphics.color.ColorCompositeInterface;
-import allbinary.layer.AllBinaryLayer;
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
-import allbinary.logic.basic.util.event.handler.BasicEventHandler;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
-import allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEvent;
-import allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventHandler;
-import allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventListenerInterface;
-import allbinary.view.ViewPosition;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.animation.vector.CircleFilledAnimation;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.PointFactory;
+import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.color.ColorCompositeInterface;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEvent;
+import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventHandler;
+import org.allbinary.media.graphics.geography.map.event.GeographicMapCellPositionEventListenerInterface;
+import org.allbinary.view.ViewPosition;
 
 public class MiniMapLayer 
 extends AllBinaryLayer 

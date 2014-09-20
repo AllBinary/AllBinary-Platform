@@ -17,9 +17,9 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Command;
 
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.resource.ResourceUtil;
 
 public class CommandUriAction
 {

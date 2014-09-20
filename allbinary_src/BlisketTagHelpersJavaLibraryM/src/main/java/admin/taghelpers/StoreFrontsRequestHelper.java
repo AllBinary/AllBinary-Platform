@@ -19,22 +19,22 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.context.modules.storefront.StoreFront;
-import allbinary.business.context.modules.storefront.StoreFrontData;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
-import allbinary.logic.communication.http.request.session.WeblisketSession;
-import allbinary.logic.communication.smtp.event.UserEmailEventNameData;
-import allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
-import allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
-import allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
-import allbinary.logic.communication.smtp.info.AdminEmailInfo;
-import allbinary.logic.communication.smtp.info.BasicEmailInfo;
-import allbinary.logic.communication.smtp.info.EmailInfo;
-import allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.context.modules.storefront.StoreFront;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
+import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
+import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
+import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
+import org.allbinary.logic.communication.smtp.info.EmailInfo;
+import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 
 public class StoreFrontsRequestHelper implements ModifyTableInterface
 {

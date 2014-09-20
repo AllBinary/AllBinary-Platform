@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
 
 public class BasicGeographicMapCellPositionFactory
 {

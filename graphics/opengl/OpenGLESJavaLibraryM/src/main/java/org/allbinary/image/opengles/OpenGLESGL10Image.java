@@ -24,7 +24,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.opengles.TextureFactory;
 
-import allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class OpenGLESGL10Image extends OpenGLESImage
 {

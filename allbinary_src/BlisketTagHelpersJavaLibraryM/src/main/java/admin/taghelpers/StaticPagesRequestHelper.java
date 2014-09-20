@@ -17,43 +17,43 @@ import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-import abcs.logic.basic.io.file.FileUtil;
+import org.allbinary.logic.basic.io.file.FileUtil;
 
-import abcs.globals.URLGLOBALS;
+import org.allbinary.globals.URLGLOBALS;
 
-import abcs.logic.basic.path.AbPath;
-import abcs.logic.basic.path.AbPathData;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 import views.admin.inventory.listings.ProductListingFactory;
 
-import allbinary.logic.communication.smtp.info.EmailInfo;
-import allbinary.logic.communication.smtp.info.BasicEmailInfo;
-import allbinary.logic.communication.smtp.info.AdminEmailInfo;
-import allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.logic.communication.smtp.info.EmailInfo;
+import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
+import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
+import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 
-import allbinary.logic.communication.smtp.event.UserEmailEventNameData;
+import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 
-import allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
+import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
 
-import allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
-import allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
 
-import allbinary.business.context.AbContext;
+import org.allbinary.business.context.AbContext;
 
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.context.modules.storefront.StoreFrontData;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 
 
-import allbinary.logic.control.search.SearchRequest;
-import allbinary.logic.control.search.SearchParams;
+import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.control.search.SearchParams;
 
-import allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
-import allbinary.logic.communication.http.AcceptableResponseGenerator;
+import org.allbinary.logic.communication.http.AcceptableResponseGenerator;
 import java.util.HashMap;
 
 public class StaticPagesRequestHelper extends AbContext

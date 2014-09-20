@@ -13,15 +13,15 @@
 */
 package admin.tags;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
    
 import admin.taghelpers.OrderHelperFactory;
 

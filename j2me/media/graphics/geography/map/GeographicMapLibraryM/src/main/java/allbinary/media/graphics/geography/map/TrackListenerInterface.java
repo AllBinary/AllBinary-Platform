@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import allbinary.layer.AllBinaryLayer;
+import org.allbinary.layer.AllBinaryLayer;
 
 public interface TrackListenerInterface
 {

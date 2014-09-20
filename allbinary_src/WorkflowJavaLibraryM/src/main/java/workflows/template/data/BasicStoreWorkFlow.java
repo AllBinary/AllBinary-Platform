@@ -17,9 +17,9 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
-import allbinary.logic.control.workflow.StoreWorkFlowInterface;
+import org.allbinary.logic.control.workflow.StoreWorkFlowInterface;
 
 public class BasicStoreWorkFlow extends BasicWorkFlow implements StoreWorkFlowInterface
 {

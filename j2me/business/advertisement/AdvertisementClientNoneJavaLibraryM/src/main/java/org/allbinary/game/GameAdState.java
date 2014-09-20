@@ -16,14 +16,14 @@ package org.allbinary.game;
 import org.allbinary.business.advertisement.AdConfiguration;
 import org.allbinary.business.advertisement.Advertisements;
 
-import abcs.logic.communication.log.ForcedLogUtil;
-import allbinary.game.GameType;
-import allbinary.game.state.GameState;
-import allbinary.input.event.VirtualKeyboardEvent;
-import allbinary.input.event.VirtualKeyboardEventHandler;
-import allbinary.input.event.VirtualKeyboardEventListenerInterface;
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
-import allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.game.GameType;
+import org.allbinary.game.state.GameState;
+import org.allbinary.input.event.VirtualKeyboardEvent;
+import org.allbinary.input.event.VirtualKeyboardEventHandler;
+import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
 public class GameAdState implements VirtualKeyboardEventListenerInterface
 {

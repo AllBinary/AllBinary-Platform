@@ -21,13 +21,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import abcs.globals.AppUrlGlobals;
-import abcs.globals.URLGLOBALS;
-import abcs.logic.basic.io.CloudStreamUtil;
-import abcs.logic.basic.io.StreamUtil;
-import abcs.logic.basic.io.file.AbFile;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.globals.AppUrlGlobals;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.basic.io.CloudStreamUtil;
+import org.allbinary.logic.basic.io.StreamUtil;
+import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 /**
  *

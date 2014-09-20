@@ -1,7 +1,7 @@
 package org.allbinary.business.advertisement;
 
 import org.allbinary.game.GameAdState;
-import abcs.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class GameAdStateFactory
 {

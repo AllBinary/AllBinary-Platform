@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.pathfinding;
 
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public interface BasePathFindingNodeCostInfoFactoryInterface
 {

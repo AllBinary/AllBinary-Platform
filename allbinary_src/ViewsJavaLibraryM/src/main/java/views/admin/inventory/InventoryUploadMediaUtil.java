@@ -13,25 +13,25 @@
 */
 package views.admin.inventory;
 
-import abcs.globals.URLGLOBALS;
+import org.allbinary.globals.URLGLOBALS;
 
-import abcs.logic.basic.io.file.AbFile;
-import abcs.logic.basic.io.file.FileUtil;
-import abcs.logic.basic.path.AbPathData;
-import abcs.logic.basic.string.StringValidationUtil;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.basic.io.file.FileUtil;
+import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import abcs.logic.communication.log.LogUtil;
-import abcs.logic.visual.media.MediaData;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.media.MediaData;
 
-import allbinary.business.user.commerce.inventory.item.ItemInterface;
+import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 
-import allbinary.logic.communication.http.file.upload.media.UploadMediaSingleton;
+import org.allbinary.logic.communication.http.file.upload.media.UploadMediaSingleton;
 
-import allbinary.logic.visual.media.MediaTypeData;
-import allbinary.logic.visual.media.MediaUtil;
+import org.allbinary.logic.visual.media.MediaTypeData;
+import org.allbinary.logic.visual.media.MediaUtil;
 import java.io.ByteArrayInputStream;
 
 public class InventoryUploadMediaUtil

@@ -16,19 +16,19 @@ package views.generic.order;
 
 
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.user.commerce.inventory.order.OrderHistoryFactory;
+import org.allbinary.business.user.commerce.inventory.order.OrderHistoryFactory;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntity;
+import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntity;
 
 public class ValidationView extends OrderView implements ValidationComponentInterface
 {

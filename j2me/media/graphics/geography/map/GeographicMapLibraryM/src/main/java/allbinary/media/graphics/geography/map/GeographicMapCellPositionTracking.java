@@ -13,8 +13,8 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-import allbinary.layer.AllBinaryLayer;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.layer.AllBinaryLayer;
 
 public class GeographicMapCellPositionTracking
 {

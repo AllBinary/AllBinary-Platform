@@ -14,7 +14,7 @@
 package views.generic.address.billing;
 
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,20 +23,20 @@ import javax.servlet.http.HttpServletRequest;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.data.tree.dom.ModDomHelper;
-
-
-import allbinary.business.user.address.StreetAddress;
-import allbinary.business.user.address.BillingAddressData;
-import allbinary.business.user.address.StreetAddressData;
+import org.allbinary.data.tree.dom.ModDomHelper;
 
 
-import allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.business.user.address.StreetAddress;
+import org.allbinary.business.user.address.BillingAddressData;
+import org.allbinary.business.user.address.StreetAddressData;
 
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+
+import org.allbinary.data.tree.dom.DomNodeInterface;
+
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 
 

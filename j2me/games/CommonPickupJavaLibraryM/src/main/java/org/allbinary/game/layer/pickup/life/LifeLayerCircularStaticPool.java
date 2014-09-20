@@ -13,11 +13,11 @@
 */
 package org.allbinary.game.layer.pickup.life;
 
-import allbinary.game.life.Life;
-import allbinary.game.life.LifeInterfaceCompositeInterface;
-import allbinary.layer.AllBinaryLayer;
-import allbinary.layer.AllBinaryLayerCircularPool;
-import allbinary.layer.AllBinaryLayerFactoryInterface;
+import org.allbinary.game.life.Life;
+import org.allbinary.game.life.LifeInterfaceCompositeInterface;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.layer.AllBinaryLayerCircularPool;
+import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 public class LifeLayerCircularStaticPool extends AllBinaryLayerCircularPool
 {

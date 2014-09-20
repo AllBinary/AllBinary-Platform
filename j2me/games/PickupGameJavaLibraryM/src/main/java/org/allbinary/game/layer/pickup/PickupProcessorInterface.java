@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import allbinary.layer.AllBinaryLayer;
+import org.allbinary.layer.AllBinaryLayer;
 
 public interface PickupProcessorInterface {
 

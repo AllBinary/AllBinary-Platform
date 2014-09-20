@@ -15,7 +15,7 @@ package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
 
-import allbinary.graphics.Anchor;
+import org.allbinary.graphics.Anchor;
 
 public class ImageCopyUtil
 {

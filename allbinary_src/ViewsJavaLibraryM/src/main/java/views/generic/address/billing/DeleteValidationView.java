@@ -17,14 +17,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 
-import allbinary.business.user.address.StreetAddressData;
+import org.allbinary.business.user.address.StreetAddressData;
 
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import allbinary.data.tables.user.address.billing.BillingAddressesEntity;
+import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
 
 
 public class DeleteValidationView extends BillingAddressView implements ValidationComponentInterface

@@ -13,12 +13,12 @@
 */
 package tags.admin;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 import tags.StoreValidationTransformTag;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 
 import javax.servlet.jsp.JspTagException;
 

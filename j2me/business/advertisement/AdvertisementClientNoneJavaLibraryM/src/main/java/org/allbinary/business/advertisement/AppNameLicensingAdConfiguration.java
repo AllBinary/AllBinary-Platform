@@ -1,6 +1,6 @@
 package org.allbinary.business.advertisement;
 
-import abcs.logic.basic.string.StringUtil;
+import org.allbinary.logic.basic.string.StringUtil;
 
 public class AppNameLicensingAdConfiguration extends AdConfiguration
 {

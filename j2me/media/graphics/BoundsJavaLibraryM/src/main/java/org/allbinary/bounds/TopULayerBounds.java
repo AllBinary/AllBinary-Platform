@@ -13,7 +13,7 @@
 */
 package org.allbinary.bounds;
 
-import allbinary.graphics.Rectangle;
+import org.allbinary.graphics.Rectangle;
 
 public class TopULayerBounds extends LayerBounds
 {   

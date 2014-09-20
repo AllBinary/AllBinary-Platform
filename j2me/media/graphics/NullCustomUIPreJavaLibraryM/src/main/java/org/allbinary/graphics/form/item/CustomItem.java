@@ -2,8 +2,8 @@ package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.Graphics;
 
-import abcs.logic.basic.string.StringUtil;
-import allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.graphics.color.BasicColor;
 
 public class CustomItem
 {

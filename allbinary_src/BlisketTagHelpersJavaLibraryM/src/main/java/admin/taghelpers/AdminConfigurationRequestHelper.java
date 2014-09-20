@@ -13,16 +13,16 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 
 import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-import allbinary.business.user.modules.admin.configuration.AdminConfiguration;
-import allbinary.business.user.modules.admin.configuration.AdminConfigurationInterface;
+import org.allbinary.business.user.modules.admin.configuration.AdminConfiguration;
+import org.allbinary.business.user.modules.admin.configuration.AdminConfigurationInterface;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
 public class AdminConfigurationRequestHelper implements ModifyTableInterface

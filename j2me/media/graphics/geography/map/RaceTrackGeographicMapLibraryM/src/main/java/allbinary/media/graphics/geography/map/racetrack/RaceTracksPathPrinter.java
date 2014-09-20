@@ -15,7 +15,7 @@ package allbinary.media.graphics.geography.map.racetrack;
 
 import org.allbinary.util.BasicArrayList;
 
-import abcs.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 /**
  *

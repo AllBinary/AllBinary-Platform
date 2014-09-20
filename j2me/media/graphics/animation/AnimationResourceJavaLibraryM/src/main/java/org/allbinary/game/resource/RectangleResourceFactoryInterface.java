@@ -14,7 +14,7 @@
 package org.allbinary.game.resource;
 
 
-import allbinary.graphics.Rectangle;
+import org.allbinary.graphics.Rectangle;
 
 public interface RectangleResourceFactoryInterface
 {

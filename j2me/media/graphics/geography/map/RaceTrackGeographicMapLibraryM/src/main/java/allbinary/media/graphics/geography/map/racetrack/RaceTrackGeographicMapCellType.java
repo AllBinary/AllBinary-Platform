@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 
 public class RaceTrackGeographicMapCellType extends GeographicMapCellType
 {

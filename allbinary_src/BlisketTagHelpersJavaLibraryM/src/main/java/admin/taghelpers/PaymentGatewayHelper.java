@@ -18,14 +18,14 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
-import allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactory;
-import allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
-import allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterface;
+import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactory;
+import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 public class PaymentGatewayHelper implements BasicTableInterface
 {

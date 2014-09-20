@@ -19,8 +19,8 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import abcs.logic.communication.log.Log;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class ImageUtil
 {

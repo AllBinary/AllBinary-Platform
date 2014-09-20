@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.media.graphics.geography.map.GeographicMapCellHistory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellHistory;
 
 public class RaceTrackRoadsGeographicMapCellHistoryFactory
 {

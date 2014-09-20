@@ -16,10 +16,10 @@ package org.allbinary.bounds;
 import org.allbinary.bounds.event.BoundsChangeEvent;
 import org.allbinary.bounds.event.BoundsChangeEventListener;
 
-import abcs.logic.communication.log.ForcedLogUtil;
-import allbinary.graphics.Rectangle;
-import allbinary.logic.basic.util.event.AllBinaryEventObject;
-import allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
 public class LayerBounds implements BoundsChangeEventListener
 {   

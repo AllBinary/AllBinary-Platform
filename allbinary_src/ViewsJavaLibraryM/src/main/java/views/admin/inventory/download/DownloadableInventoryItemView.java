@@ -22,23 +22,23 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
-import abcs.globals.URLGLOBALS;
-import abcs.logic.basic.io.file.AbFile;
-import abcs.logic.basic.io.file.FilePathData;
-import abcs.logic.basic.io.file.FileUtil;
-import abcs.logic.basic.io.file.zip.ZipFileUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.user.commerce.inventory.item.BasicItemData;
-import allbinary.business.user.commerce.inventory.item.BasicItemView;
-import allbinary.business.user.commerce.inventory.item.ItemInterface;
-import allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
-import allbinary.business.user.commerce.inventory.item.download.DownloadableItemView;
-import allbinary.logic.communication.http.request.MultipartRequestParams;
-import allbinary.logic.communication.http.request.RequestMapInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.basic.io.file.FilePathData;
+import org.allbinary.logic.basic.io.file.FileUtil;
+import org.allbinary.logic.basic.io.file.zip.ZipFileUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
+import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
+import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItem;
+import org.allbinary.business.user.commerce.inventory.item.download.DownloadableItemView;
+import org.allbinary.logic.communication.http.request.MultipartRequestParams;
+import org.allbinary.logic.communication.http.request.RequestMapInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class DownloadableInventoryItemView
     extends HttpStoreComponentView

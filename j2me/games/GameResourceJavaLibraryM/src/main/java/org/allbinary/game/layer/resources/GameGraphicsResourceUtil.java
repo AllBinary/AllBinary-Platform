@@ -15,13 +15,13 @@ package org.allbinary.game.layer.resources;
 
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.basic.string.StringMaker;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.GraphicsFeature;
-import allbinary.game.configuration.feature.GraphicsFeatureFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.GraphicsFeature;
+import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
 
 /**
  *

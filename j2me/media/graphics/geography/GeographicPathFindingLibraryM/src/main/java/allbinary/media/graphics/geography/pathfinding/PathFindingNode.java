@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.pathfinding;
 
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.StringMaker;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class PathFindingNode
 {

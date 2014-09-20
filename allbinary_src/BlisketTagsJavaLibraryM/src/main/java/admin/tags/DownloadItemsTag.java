@@ -13,7 +13,7 @@
 */
 package admin.tags;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import admin.taghelpers.DownloadItemsHelperFactory;
 import admin.taghelpers.DownloadItemsRequestHelperFactory;
 import javax.servlet.jsp.JspTagException;

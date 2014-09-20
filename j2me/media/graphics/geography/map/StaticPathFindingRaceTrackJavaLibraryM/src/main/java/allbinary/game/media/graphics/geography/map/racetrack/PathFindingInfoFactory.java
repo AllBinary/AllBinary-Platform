@@ -13,12 +13,12 @@
 */
 package allbinary.game.media.graphics.geography.map.racetrack;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.racetrack.BasePathFindingInfoFactory;
-import allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
-import allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.racetrack.BasePathFindingInfoFactory;
+import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
+import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 
 /**
  *

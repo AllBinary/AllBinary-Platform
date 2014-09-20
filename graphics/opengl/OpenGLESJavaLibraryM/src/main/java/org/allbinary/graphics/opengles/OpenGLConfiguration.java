@@ -17,20 +17,20 @@ import java.io.DataInputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import abcs.logic.basic.io.AbDataOutputStream;
-import abcs.logic.basic.io.FileStreamFactory;
-import abcs.logic.basic.io.StreamUtil;
-import abcs.logic.basic.io.file.FileFactory;
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.basic.string.StringMaker;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.game.configuration.event.ChangedGameFeatureListener;
-import allbinary.game.configuration.feature.Feature;
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.logic.basic.io.AbDataOutputStream;
+import org.allbinary.logic.basic.io.FileStreamFactory;
+import org.allbinary.logic.basic.io.StreamUtil;
+import org.allbinary.logic.basic.io.file.FileFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
+import org.allbinary.game.configuration.feature.Feature;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.MainFeatureFactory;
 
 public class OpenGLConfiguration
 {

@@ -13,7 +13,7 @@
 */
 package allbinary.logic.math.vector;
 
-import allbinary.logic.math.BasicDecimal;
+import org.allbinary.logic.math.BasicDecimal;
 
 public interface MathVectorInterface
 {

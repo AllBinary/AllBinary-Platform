@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.game.configuration.feature.GameFeature;
+import org.allbinary.game.configuration.feature.GameFeature;
 
 public class RaceTrackGameFeature extends GameFeature
 {

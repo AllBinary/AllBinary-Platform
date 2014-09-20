@@ -15,7 +15,7 @@ package tags.admin;
 
 import tags.StoreValidationTransformTag;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
 import javax.servlet.jsp.JspTagException;
 

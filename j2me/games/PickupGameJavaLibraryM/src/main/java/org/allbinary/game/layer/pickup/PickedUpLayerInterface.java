@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import allbinary.layer.LayerInterface;
+import org.allbinary.layer.LayerInterface;
 
 public interface PickedUpLayerInterface extends LayerInterface
 {

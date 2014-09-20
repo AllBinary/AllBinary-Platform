@@ -18,12 +18,12 @@ import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.ModifyTableInterface;
-import allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoHttpStoreNoManipulation;
+import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreNoManipulation;
 
 public class TransformInfoRequestHelper implements ModifyTableInterface
 {   

@@ -13,10 +13,10 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import allbinary.game.layer.pickup.PickupLayer;
-import allbinary.game.tick.TickableInterface;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.view.ViewPosition;
+import org.allbinary.game.layer.pickup.PickupLayer;
+import org.allbinary.game.tick.TickableInterface;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.view.ViewPosition;
 import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class FallingPickupLayer 

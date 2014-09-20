@@ -13,21 +13,21 @@
 */
 package views.business.context.modules.storefront.customizer.bodies.generic.title;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
 
-import allbinary.logic.visual.transform.template.customizer.bodies.title.TitleBodyValidation;
+import org.allbinary.logic.visual.transform.template.customizer.bodies.title.TitleBodyValidation;
 
 public class EditTitleBodyValidationView extends TitleBodyCustomizerView implements ValidationComponentInterface
 {

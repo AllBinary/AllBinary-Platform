@@ -16,9 +16,9 @@ package admin.tags;
 import admin.taghelpers.InventoryHelperFactory;
 import admin.taghelpers.InventoryRequestHelperFactory;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.Tag;
 

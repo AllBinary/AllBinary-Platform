@@ -2,7 +2,7 @@ package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.Graphics;
 
-import allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColor;
 
 public class TextItem 
 extends CustomCustomItem 

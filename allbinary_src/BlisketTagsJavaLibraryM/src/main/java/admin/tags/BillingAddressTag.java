@@ -17,16 +17,16 @@ import java.lang.reflect.Method;
 
 import javax.servlet.jsp.*;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
-import allbinary.business.user.address.BillingAddressData;
+import org.allbinary.business.user.address.BillingAddressData;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 import admin.taghelpers.BillingAddressHelperFactory;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class BillingAddressTag extends TableTag
 {

@@ -13,8 +13,8 @@
 */
 package allbinary.game.layer.pickup;
 
-import allbinary.layer.AllBinaryLayer;
-import allbinary.layer.AllBinaryLayerFactoryInterface;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.layer.AllBinaryLayerFactoryInterface;
 
 public class RaceTrackPickupLayerFactory 
    implements AllBinaryLayerFactoryInterface

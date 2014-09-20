@@ -13,8 +13,8 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
 
 public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap
 {

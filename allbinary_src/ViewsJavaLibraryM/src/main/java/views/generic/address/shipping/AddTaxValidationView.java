@@ -13,29 +13,29 @@
 */
 package views.generic.address.shipping;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.Iterator;
 import java.util.Vector;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
+import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 
-import allbinary.business.user.address.StreetAddress;
-import allbinary.business.user.address.ShippingAddressData;
+import org.allbinary.business.user.address.StreetAddress;
+import org.allbinary.business.user.address.ShippingAddressData;
 
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 
-import allbinary.business.user.commerce.money.tax.TaxFactory;
-import allbinary.business.user.commerce.money.tax.modules.TaxModuleInterface;
+import org.allbinary.business.user.commerce.money.tax.TaxFactory;
+import org.allbinary.business.user.commerce.money.tax.modules.TaxModuleInterface;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class AddTaxValidationView extends ShippingAddressView implements ValidationComponentInterface
 {

@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import allbinary.layer.LayerInterfaceFactoryInterface;
+import org.allbinary.layer.LayerInterfaceFactoryInterface;
 
 public interface CountedPickedUpLayerInterfaceFactoryInterface
 extends PickedUpLayerInterfaceFactoryInterface, LayerInterfaceFactoryInterface

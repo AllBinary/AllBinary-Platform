@@ -5,9 +5,9 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 import javax.microedition.lcdui.Screen;
 
-import abcs.logic.basic.NotImplemented;
-import abcs.logic.communication.log.ForcedLogUtil;
-import allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.graphics.color.BasicColor;
 
 public class CustomItemJ2MEComposite extends CustomItem implements CustomItemInterface
 {

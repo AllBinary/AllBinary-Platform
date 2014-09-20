@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.layer.pickup;
 
-import allbinary.animation.Animation;
-import allbinary.layer.AllBinaryLayer;
+import org.allbinary.animation.Animation;
+import org.allbinary.layer.AllBinaryLayer;
 
 public interface PickedUpLayerInterfaceFactoryInterface
 {

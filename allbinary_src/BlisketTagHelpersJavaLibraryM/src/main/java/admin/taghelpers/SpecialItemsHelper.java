@@ -17,10 +17,10 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.data.tables.user.commerce.inventory.item.special.SpecialItemsEntityFactory;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tables.user.commerce.inventory.item.special.SpecialItemsEntityFactory;
 
 public class SpecialItemsHelper implements BasicTableInterface
 {

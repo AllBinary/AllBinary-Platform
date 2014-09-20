@@ -21,7 +21,7 @@ import javax.servlet.jsp.PageContext;
 
 import admin.taghelpers.HelperFactory;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import admin.taghelpers.TagHelperFactoryInterface;
 

@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.event;
 
-import allbinary.media.graphics.geography.map.GeographicMapCellPositionTracking;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionTracking;
 
 public class GeographicMapCellPositionEventUtil
 {

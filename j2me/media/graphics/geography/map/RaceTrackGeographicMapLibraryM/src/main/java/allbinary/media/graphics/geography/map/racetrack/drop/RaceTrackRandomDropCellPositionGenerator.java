@@ -15,16 +15,16 @@ package allbinary.media.graphics.geography.map.racetrack.drop;
 
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 
-import allbinary.game.layer.AllBinaryGameLayerManager;
-import allbinary.game.layer.AllBinaryTiledLayer;
-import allbinary.game.layer.drop.DropLayerFactory;
-import allbinary.game.layer.pickup.PickupLayerCircularStaticPool;
-import allbinary.game.layer.pickup.RaceTrackPickupLayer;
-import allbinary.game.rand.MyRandomFactory;
-import allbinary.graphics.GPoint;
-import allbinary.layer.AllBinaryLayerManager;
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.map.GeographicMapCellPosition;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.game.layer.drop.DropLayerFactory;
+import org.allbinary.game.layer.pickup.PickupLayerCircularStaticPool;
+import org.allbinary.game.layer.pickup.RaceTrackPickupLayer;
+import org.allbinary.game.rand.MyRandomFactory;
+import org.allbinary.graphics.GPoint;
+import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 /**
  * 

@@ -13,10 +13,10 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import javax.servlet.jsp.PageContext;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
 public class AdminConfigurationHelper implements BasicTableInterface 

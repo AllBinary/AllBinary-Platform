@@ -13,9 +13,9 @@
 */
 package org.allbinary.input.gyro;
 
-import allbinary.game.configuration.feature.Features;
-import allbinary.game.configuration.feature.SensorFeatureFactory;
-import allbinary.logic.math.Orientation;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.SensorFeatureFactory;
+import org.allbinary.logic.math.Orientation;
 
 public class OrientationToGameKeyEvent
 {

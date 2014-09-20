@@ -15,11 +15,11 @@ package org.allbinary.game.layer.pickup.points;
 
 import javax.microedition.lcdui.Graphics;
 
-import allbinary.game.score.ScoreableInterface;
-import allbinary.graphics.PointFactory;
-import allbinary.graphics.Rectangle;
-import allbinary.layer.AllBinaryLayer;
-import allbinary.view.ViewPosition;
+import org.allbinary.game.score.ScoreableInterface;
+import org.allbinary.graphics.PointFactory;
+import org.allbinary.graphics.Rectangle;
+import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.view.ViewPosition;
 
 public class PointsLayer extends AllBinaryLayer
 {

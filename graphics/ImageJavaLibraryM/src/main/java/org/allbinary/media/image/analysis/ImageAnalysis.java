@@ -16,11 +16,11 @@ package org.allbinary.media.image.analysis;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import abcs.logic.communication.log.Log;
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.graphics.color.ColorCacheFactory;
-import allbinary.graphics.color.ColorCacheable;
+import org.allbinary.graphics.color.ColorCacheFactory;
+import org.allbinary.graphics.color.ColorCacheable;
 
 public class ImageAnalysis
 {

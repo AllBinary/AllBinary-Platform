@@ -18,26 +18,26 @@ import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.context.modules.storefront.StoreFrontData;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
-import allbinary.business.user.UserInterface;
-import allbinary.business.user.quoterequest.QuoteRequest;
-import allbinary.data.tables.user.UserEntityFactory;
-import allbinary.data.tables.user.quoterequest.QuoteRequestEntity;
-import allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
-import allbinary.logic.communication.http.request.session.WeblisketSession;
-import allbinary.logic.communication.smtp.event.UserEmailEventNameData;
-import allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
-import allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
-import allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
-import allbinary.logic.communication.smtp.event.handler.factory.UserEmailEventHandlerSingletons;
-import allbinary.logic.communication.smtp.info.BasicEmailInfo;
-import allbinary.logic.communication.smtp.info.EmailInfo;
-import allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.business.user.UserInterface;
+import org.allbinary.business.user.quoterequest.QuoteRequest;
+import org.allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntity;
+import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
+import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
+import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.event.handler.factory.StoreAdminUserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.event.handler.factory.UserEmailEventHandlerSingletons;
+import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
+import org.allbinary.logic.communication.smtp.info.EmailInfo;
+import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 
 
 public class QuoteHelper implements BasicTableInterface

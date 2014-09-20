@@ -13,17 +13,17 @@
 */
 package admin.taghelpers;
 
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
 import tags.HelperTag;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.globals.GLOBALS;
-import allbinary.logic.communication.http.request.RequestMapInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.globals.GLOBALS;
+import org.allbinary.logic.communication.http.request.RequestMapInterface;
 import java.util.Vector;
 
 public class MultipartRequestParamForwardHelper

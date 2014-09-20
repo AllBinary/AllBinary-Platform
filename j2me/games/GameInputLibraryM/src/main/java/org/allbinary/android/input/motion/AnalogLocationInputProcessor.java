@@ -13,8 +13,8 @@
 */
 package org.allbinary.android.input.motion;
 
-import allbinary.game.input.analog.AnalogLocationInput;
-import allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.game.input.analog.AnalogLocationInput;
+import org.allbinary.layer.AllBinaryLayerManager;
 
 public class AnalogLocationInputProcessor {
 

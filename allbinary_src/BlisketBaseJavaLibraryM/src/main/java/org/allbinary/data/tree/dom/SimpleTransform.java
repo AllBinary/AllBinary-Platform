@@ -13,11 +13,11 @@
 */
 package org.allbinary.data.tree.dom;
 
-import abcs.data.tree.dom.document.DomDocumentHelper;
-import abcs.logic.basic.io.AbFileLocalInputStream;
-import abcs.logic.basic.io.file.AbFile;
-import abcs.logic.basic.path.AbPath;
-import allbinary.data.tree.dom.XslHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.basic.io.AbFileLocalInputStream;
+import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.data.tree.dom.XslHelper;
 import java.io.StringBufferInputStream;
 import javax.xml.transform.stream.StreamSource;
 import org.w3c.dom.Document;

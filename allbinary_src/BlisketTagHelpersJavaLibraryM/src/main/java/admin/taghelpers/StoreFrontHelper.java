@@ -17,11 +17,11 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.regex.replace.Replace;
-import allbinary.business.context.modules.storefront.StoreFrontData;
-import allbinary.business.context.modules.storefront.StoreFrontFactory;
-import allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
+import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 
 public class StoreFrontHelper
     implements TagHelperInterface

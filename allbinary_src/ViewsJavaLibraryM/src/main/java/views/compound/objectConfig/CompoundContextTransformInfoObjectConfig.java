@@ -20,20 +20,20 @@ import java.util.Vector;
 
 import org.w3c.dom.Document;
 
-import abcs.logic.basic.string.CommonSeps;
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.basic.string.regex.replace.Replace;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.data.tree.dom.document.DocumentToNode;
-import allbinary.logic.visual.transform.TransformFactory;
-import allbinary.logic.visual.transform.TransformInterface;
-import allbinary.logic.visual.transform.info.RootTransformInfoData;
-import allbinary.logic.visual.transform.info.TransformInfoData;
-import allbinary.logic.visual.transform.info.TransformInfoDomNode;
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.logic.visual.transform.info.objectConfig.GenericStoreTransformInfoObjectConfig;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tree.dom.document.DocumentToNode;
+import org.allbinary.logic.visual.transform.TransformFactory;
+import org.allbinary.logic.visual.transform.TransformInterface;
+import org.allbinary.logic.visual.transform.info.RootTransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoDomNode;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.objectConfig.GenericStoreTransformInfoObjectConfig;
 
 public class CompoundContextTransformInfoObjectConfig
     extends GenericStoreTransformInfoObjectConfig

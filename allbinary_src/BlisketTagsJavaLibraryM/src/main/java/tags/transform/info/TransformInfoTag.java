@@ -15,19 +15,19 @@ package tags.transform.info;
 
 import javax.servlet.jsp.JspTagException;
 
-import abcs.logic.basic.io.OutputTypeData;
+import org.allbinary.logic.basic.io.OutputTypeData;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 
 
 import admin.taghelpers.TagHelperFactoryInterface;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
-import allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 import tags.ModifyTag;
 

@@ -15,9 +15,9 @@ package org.allbinary.input.gyro;
 
 import org.allbinary.input.AllBinarySensorListener;
 
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.logic.math.Orientation;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.math.Orientation;
 
 public class NoGyroSensor extends AllBinaryOrientationSensor
 implements AllBinarySensorListener

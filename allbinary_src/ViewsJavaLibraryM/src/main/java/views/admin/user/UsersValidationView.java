@@ -13,23 +13,23 @@
 */
 package views.admin.user;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
 
-import allbinary.business.user.role.UserRole;
-import allbinary.business.user.role.UserRoleData;
+import org.allbinary.business.user.role.UserRole;
+import org.allbinary.business.user.role.UserRoleData;
 
-import allbinary.data.tables.user.UserEntityFactory;
+import org.allbinary.data.tables.user.UserEntityFactory;
 
-import allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import allbinary.logic.control.validate.ValidationComponentInterface;
+import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.role.UserRoleB;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.role.UserRoleB;
 
 public class UsersValidationView extends UsersView 
    implements ValidationComponentInterface

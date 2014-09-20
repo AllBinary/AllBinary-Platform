@@ -13,8 +13,8 @@
 */
 package org.allbinary.thirdparty.store;
 
-import abcs.logic.basic.string.StringUtil;
-import abcs.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 /**
  *

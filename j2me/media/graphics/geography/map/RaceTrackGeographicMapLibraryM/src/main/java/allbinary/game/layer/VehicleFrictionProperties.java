@@ -13,8 +13,8 @@
 */
 package allbinary.game.layer;
 
-import allbinary.game.physics.FrictionProperties;
-import allbinary.game.physics.friction.FrictionData;
+import org.allbinary.game.physics.FrictionProperties;
+import org.allbinary.game.physics.friction.FrictionData;
 
 public class VehicleFrictionProperties extends FrictionProperties
 {

@@ -16,12 +16,12 @@ package views.admin.payment.gateways;
 import java.util.Vector;
 
 import views.admin.payment.gateway.PaymentGatewayViewAbstract;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
-import allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityInterface;
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
+import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class SelectNewView extends PaymentGatewayViewAbstract
 {

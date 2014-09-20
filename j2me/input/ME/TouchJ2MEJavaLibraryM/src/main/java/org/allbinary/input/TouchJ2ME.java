@@ -13,13 +13,13 @@
 */
 package org.allbinary.input;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.input.motion.AllMotionRecognizer;
-import allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-import allbinary.input.motion.gesture.observer.GameMotionGestureListener;
-import allbinary.input.motion.gesture.observer.MotionGestureReceiveInterfaceFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.input.motion.AllMotionRecognizer;
+import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.input.motion.gesture.observer.GameMotionGestureListener;
+import org.allbinary.input.motion.gesture.observer.MotionGestureReceiveInterfaceFactory;
 
 /**
  *

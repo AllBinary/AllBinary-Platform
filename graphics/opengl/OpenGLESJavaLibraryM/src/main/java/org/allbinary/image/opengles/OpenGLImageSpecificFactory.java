@@ -13,7 +13,7 @@
 */
 package org.allbinary.image.opengles;
 
-import abcs.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class OpenGLImageSpecificFactory
 {

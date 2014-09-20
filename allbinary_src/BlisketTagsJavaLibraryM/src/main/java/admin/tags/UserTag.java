@@ -13,10 +13,10 @@
 */
 package admin.tags;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
-import allbinary.business.entry.EntryData;
-import allbinary.business.user.role.UserRoleData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.role.UserRoleData;
 
 import admin.taghelpers.UserHelperFactory;
 import javax.servlet.jsp.JspTagException;

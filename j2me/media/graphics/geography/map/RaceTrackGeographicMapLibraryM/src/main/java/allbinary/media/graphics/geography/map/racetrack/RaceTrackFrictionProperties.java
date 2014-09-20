@@ -13,7 +13,7 @@
 */
 package allbinary.media.graphics.geography.map.racetrack;
 
-import allbinary.game.physics.friction.FrictionData;
+import org.allbinary.game.physics.friction.FrictionData;
 
 public class RaceTrackFrictionProperties
 {

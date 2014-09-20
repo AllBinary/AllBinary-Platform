@@ -15,17 +15,17 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.context.modules.storefront.StoreFrontData;
 
 import admin.taghelpers.QuoteRequestHelperFactory;
 import admin.taghelpers.QuoteHelperFactory;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 import javax.servlet.jsp.JspTagException;
 
 public class QuoteRequestTag extends TableTag

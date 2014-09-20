@@ -13,7 +13,7 @@
 */
 package org.allbinary.android.input.motion;
 
-import allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.layer.AllBinaryLayerManager;
 
 public class AnalogControllerVisitor {
 

@@ -17,11 +17,11 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.GameFeatureImageCacheFactory;
 
-import allbinary.animation.Animation;
-import allbinary.animation.image.AllBinaryImageAnimation;
-import allbinary.animation.image.BaseImageAnimationFactory;
-import allbinary.graphics.displayable.ScreenRelationalUtil;
-import allbinary.image.ImageScaleUtil;
+import org.allbinary.animation.Animation;
+import org.allbinary.animation.image.AllBinaryImageAnimation;
+import org.allbinary.animation.image.BaseImageAnimationFactory;
+import org.allbinary.graphics.displayable.ScreenRelationalUtil;
+import org.allbinary.image.ImageScaleUtil;
 
 public class AllBinaryScreenRelationalImageAnimationInterfaceFactory
 extends BaseImageAnimationFactory

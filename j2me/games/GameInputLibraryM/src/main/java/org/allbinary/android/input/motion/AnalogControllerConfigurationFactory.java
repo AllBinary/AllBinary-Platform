@@ -16,7 +16,7 @@ package org.allbinary.android.input.motion;
 import org.allbinary.android.input.motion.event.AnalogControllerConfigurationEvent;
 import org.allbinary.android.input.motion.event.AnalogControllerConfigurationEventHandler;
 
-import allbinary.logic.math.ScaleFactorFactory;
+import org.allbinary.logic.math.ScaleFactorFactory;
 
 public class AnalogControllerConfigurationFactory {
 

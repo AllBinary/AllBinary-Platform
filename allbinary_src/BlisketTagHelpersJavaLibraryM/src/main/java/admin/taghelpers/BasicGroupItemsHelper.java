@@ -17,11 +17,11 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import abcs.business.installer.Portion;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntity;
-import allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntityFactory;
+import org.allbinary.business.installer.Portion;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntity;
+import org.allbinary.data.tables.user.commerce.inventory.item.groups.BasicGroupItemsEntityFactory;
 
 public class BasicGroupItemsHelper implements BasicTableInterface 
 {

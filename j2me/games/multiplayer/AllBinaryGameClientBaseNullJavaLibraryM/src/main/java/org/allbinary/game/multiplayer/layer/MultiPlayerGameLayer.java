@@ -13,10 +13,10 @@
 */
 package org.allbinary.game.multiplayer.layer;
 
-import allbinary.game.identification.Group;
-import allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
-import allbinary.graphics.Rectangle;
-import allbinary.view.ViewPosition;
+import org.allbinary.game.identification.Group;
+import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
+import org.allbinary.graphics.Rectangle;
+import org.allbinary.view.ViewPosition;
 
 public class MultiPlayerGameLayer 
 extends CollidableDestroyableDamageableLayer 

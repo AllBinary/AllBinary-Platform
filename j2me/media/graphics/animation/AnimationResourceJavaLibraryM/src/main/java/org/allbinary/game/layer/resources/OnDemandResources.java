@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.layer.resources;
 
-import allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
-import allbinary.image.ImageCache;
+import org.allbinary.animation.resource.BaseResourceAnimationInterfaceFactoryInterfaceFactory;
+import org.allbinary.image.ImageCache;
 
 public class OnDemandResources
 {

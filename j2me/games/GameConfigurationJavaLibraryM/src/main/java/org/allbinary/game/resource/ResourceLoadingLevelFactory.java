@@ -30,4 +30,26 @@ public class ResourceLoadingLevelFactory
 
     //private final int LOAD_ = Integer.MAX_VALUE;
     public final ResourceLoadingLevel LOAD_ALL = new ResourceLoadingLevel("Load All", -1);
+    
+    private final ResourceLoadingLevel[] RESOURCE_LOADING_LEVEL_ARRAY = 
+    {
+        this.LOAD_ALL,
+        this.MAX_LEVEL,
+        this.LEVEL,
+        this.LOAD_GAME,
+        this.LOAD_TOUCH,
+        this.LOAD_EARLY
+    };
+    
+    public String getLevelString(int level)
+    {
+        for(int index = 0; index < RESOURCE_LOADING_LEVEL_ARRAY.length; index++)
+        {
+            if(level == RESOURCE_LOADING_LEVEL_ARRAY[index].getLevel())
+            {
+                return RESOURCE_LOADING_LEVEL_ARRAY[index].getName();
+            }
+        }
+        return Integer.toString(level);
+    }
 }

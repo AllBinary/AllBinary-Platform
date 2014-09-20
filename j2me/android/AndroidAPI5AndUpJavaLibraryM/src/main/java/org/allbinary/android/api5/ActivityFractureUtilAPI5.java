@@ -13,13 +13,13 @@
 */
 package org.allbinary.android.api5;
 
+import org.allbinary.input.motion.button.TouchScreenTypeFactory;
 import org.allbinary.android.ActivityFractureUtil;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.PreLogUtil;
-import allbinary.input.motion.button.TouchScreenFactory;
-import allbinary.input.motion.button.TouchScreenTypeFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import android.app.Activity;
+import org.allbinary.input.motion.button.TouchScreenFactory;
 
 public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
 {

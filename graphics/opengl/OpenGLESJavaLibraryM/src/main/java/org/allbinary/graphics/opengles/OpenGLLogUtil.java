@@ -5,9 +5,9 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.opengles.OpenGLStrings;
 
-import abcs.logic.basic.string.StringMaker;
-import abcs.logic.communication.log.ForcedLogUtil;
-import abcs.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class OpenGLLogUtil
 {

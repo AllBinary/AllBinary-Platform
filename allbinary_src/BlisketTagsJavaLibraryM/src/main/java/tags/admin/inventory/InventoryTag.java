@@ -13,9 +13,9 @@
 */
 package tags.admin.inventory;
 
-import abcs.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.LicensingException;
 
-import abcs.logic.communication.http.request.AbResponseHandler;
+import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import javax.servlet.jsp.JspTagException;
 
 import tags.StoreValidationTransformTag;

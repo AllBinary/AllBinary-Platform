@@ -14,8 +14,8 @@
 
 package org.allbinary.input.gyro;
 
-import allbinary.game.input.InputFactory;
-import allbinary.input.motion.gesture.MotionGestureInput;
+import org.allbinary.game.input.InputFactory;
+import org.allbinary.input.motion.gesture.MotionGestureInput;
 
 public class OrientationMotionGestureFactory
 {

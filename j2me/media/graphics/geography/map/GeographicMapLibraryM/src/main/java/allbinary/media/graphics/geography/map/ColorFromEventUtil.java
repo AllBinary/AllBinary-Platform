@@ -13,9 +13,9 @@
 */
 package allbinary.media.graphics.geography.map;
 
-import allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-import allbinary.graphics.color.BasicColor;
-import allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 
 public class ColorFromEventUtil
 {

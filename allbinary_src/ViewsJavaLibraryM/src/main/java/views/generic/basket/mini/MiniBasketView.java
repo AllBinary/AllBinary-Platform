@@ -13,7 +13,7 @@
 */
 package views.generic.basket.mini;
 
-import abcs.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Iterator;
@@ -21,17 +21,17 @@ import java.util.Iterator;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
 
 
-import allbinary.logic.control.search.SearchData;
+import org.allbinary.logic.control.search.SearchData;
 
-import allbinary.business.user.commerce.inventory.basket.BasketData;
-import allbinary.business.user.commerce.inventory.basket.BasketInterface;
+import org.allbinary.business.user.commerce.inventory.basket.BasketData;
+import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
-import allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.data.tree.dom.DomNodeInterface;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 

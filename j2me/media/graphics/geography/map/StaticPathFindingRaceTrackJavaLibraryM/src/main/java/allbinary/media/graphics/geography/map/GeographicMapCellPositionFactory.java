@@ -15,10 +15,10 @@ package allbinary.media.graphics.geography.map;
 
 import java.util.Hashtable;
 
-import abcs.logic.basic.string.CommonStrings;
-import abcs.logic.communication.log.LogFactory;
-import abcs.logic.communication.log.LogUtil;
-import allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.layer.AllBinaryTiledLayer;
 
 public class GeographicMapCellPositionFactory extends GeographicMapCellPositionBaseFactory
 {

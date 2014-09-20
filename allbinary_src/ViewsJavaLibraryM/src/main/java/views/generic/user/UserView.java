@@ -13,16 +13,16 @@
 */
 package views.generic.user;
 
-import abcs.logic.communication.log.LogFactory;
-import allbinary.business.user.UserInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.business.user.UserInterface;
 
-import allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.data.tree.dom.DomNodeInterface;
 
-import allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import abcs.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogUtil;
 
-import allbinary.business.user.UserDomNode;
+import org.allbinary.business.user.UserDomNode;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 

@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.opengles;
 
-import allbinary.game.configuration.feature.Feature;
+import org.allbinary.game.configuration.feature.Feature;
 
 public class OpenGLFeature extends Feature
 {            

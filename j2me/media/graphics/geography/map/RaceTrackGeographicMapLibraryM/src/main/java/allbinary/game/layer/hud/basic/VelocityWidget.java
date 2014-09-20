@@ -17,12 +17,12 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 
-import allbinary.game.graphics.hud.BasicHud;
-import allbinary.graphics.color.BasicColor;
-import allbinary.graphics.font.MyFont;
-import allbinary.logic.math.MathUtil;
-import allbinary.logic.math.PrimitiveLongSingleton;
-import allbinary.logic.math.PrimitiveLongUtil;
+import org.allbinary.game.graphics.hud.BasicHud;
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.math.MathUtil;
+import org.allbinary.logic.math.PrimitiveLongSingleton;
+import org.allbinary.logic.math.PrimitiveLongUtil;
 
 public class VelocityWidget extends BasicHud
 {

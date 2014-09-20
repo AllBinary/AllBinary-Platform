@@ -13,9 +13,9 @@
 */
 package allbinary.game.media.graphics.geography.map.racetrack;
 
-import allbinary.media.graphics.geography.map.BasicGeographicMap;
-import allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryInterface;
-import allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorInterface;
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
+import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryInterface;
+import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorInterface;
 
 /**
  *
