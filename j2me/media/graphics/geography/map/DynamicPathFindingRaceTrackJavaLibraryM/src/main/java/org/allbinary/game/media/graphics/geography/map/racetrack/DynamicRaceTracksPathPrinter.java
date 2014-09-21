@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.game.media.graphics.geography.map.racetrack;
+package org.allbinary.game.media.graphics.geography.map.racetrack;
 
 import org.allbinary.util.BasicArrayList;
 

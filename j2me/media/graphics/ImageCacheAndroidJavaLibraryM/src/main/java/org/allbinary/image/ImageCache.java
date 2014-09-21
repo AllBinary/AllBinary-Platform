@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.image;
+package org.allbinary.image;
 
 import java.io.InputStream;
 import java.util.Hashtable;

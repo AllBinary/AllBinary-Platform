@@ -40,6 +40,8 @@
         <module>../ME/TouchScreenJ2MENoneJavaLibraryM</module>
         <module>../ME/TouchScreenJ2MEJavaLibraryM</module>
         
+        <module>../ME/TouchJ2MEJavaLibraryM</module>
+        
     </modules>
 
 </project>

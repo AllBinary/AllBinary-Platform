@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.game.media.graphics.geography.map.racetrack;
+package org.allbinary.game.media.graphics.geography.map.racetrack;
 
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;

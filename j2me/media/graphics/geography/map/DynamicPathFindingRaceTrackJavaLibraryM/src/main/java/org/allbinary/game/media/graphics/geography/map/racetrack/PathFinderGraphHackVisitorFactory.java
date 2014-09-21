@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.game.media.graphics.geography.map.racetrack;
+package org.allbinary.game.media.graphics.geography.map.racetrack;
 
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryInterface;
@@ -21,19 +21,20 @@ import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitor
  *
  * @author user
  */
-public class SimplePathFinderGraphVisitorFactory
-    implements PathFinderGraphVisitorFactoryInterface {
+public class PathFinderGraphHackVisitorFactory
+implements PathFinderGraphVisitorFactoryInterface
+{
 
     private final int edgeMinimum;
     private final int minPathWeight;
     private final int maxPathWeight;
 
-    public SimplePathFinderGraphVisitorFactory()
+    public PathFinderGraphHackVisitorFactory()
     {
         this(10, 8, 100000);
     }
 
-    public SimplePathFinderGraphVisitorFactory(
+    public PathFinderGraphHackVisitorFactory(
        int edgeMinimum, int minPathWeight, int maxPathWeight)
     {
         this.edgeMinimum = edgeMinimum;
@@ -42,9 +43,9 @@ public class SimplePathFinderGraphVisitorFactory
     }
 
     public PathFinderGraphVisitorInterface getInstance(
-            BasicGeographicMap geographicMapInterface)
+        final BasicGeographicMap geographicMapInterface)
     {
-        return new BasePathFinderGraphVisitor(
+        return new PathFinderGraphHackVisitor(
             geographicMapInterface,
             this.edgeMinimum, this.minPathWeight, this.maxPathWeight);
     }

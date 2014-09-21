@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.image;
+package org.allbinary.image;
 
 
 public class ImageCacheFactory
