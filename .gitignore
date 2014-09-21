@@ -1,0 +1,11 @@
+*.class
+*.iml
+.idea
+.project
+.classpath
+.settings/
+target/
+bin/
+gen/
+j2me/games/platform/AllBinaryGameClientNoPlatformJavaDocApplicationM/src
+
