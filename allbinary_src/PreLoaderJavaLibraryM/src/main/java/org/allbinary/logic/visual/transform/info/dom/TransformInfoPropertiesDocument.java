@@ -27,12 +27,11 @@ import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.basic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoProperties;
 import org.allbinary.logic.visual.transform.info.TransformInfoPropertiesFactory;
-
-import org.TransformInfoData;
-import org.TransformInfosData;
+import org.allbinary.logic.visual.transform.info.TransformInfosData;
 
 public class TransformInfoPropertiesDocument
 {

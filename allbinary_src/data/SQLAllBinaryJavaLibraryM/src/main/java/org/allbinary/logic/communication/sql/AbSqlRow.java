@@ -23,7 +23,7 @@ import java.util.Vector;
 import org.allbinary.business.init.db.DbConnectionInfo;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

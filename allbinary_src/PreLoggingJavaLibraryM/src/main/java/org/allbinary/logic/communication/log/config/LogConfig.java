@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import org.allbinary.logic.communication.log.config.LogConfigData;
 import java.util.Iterator;
 import java.util.Vector;
 
@@ -31,7 +30,7 @@ import org.allbinary.logic.basic.io.file.AbFile;
 
 import org.allbinary.logic.java.bool.BooleanUtil;
 
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 
 import org.allbinary.logic.communication.log.config.type.LogConfigTypesData;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;

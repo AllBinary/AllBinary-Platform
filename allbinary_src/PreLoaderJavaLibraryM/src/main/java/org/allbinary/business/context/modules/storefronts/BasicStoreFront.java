@@ -18,8 +18,8 @@ import org.allbinary.logic.basic.string.tokens.Tokenizer;
 import java.util.HashMap;
 
 import org.allbinary.business.user.UserData;
-import org.EntryData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.util.BasicArrayList;
 
 public class BasicStoreFront implements BasicStoreFrontInterface

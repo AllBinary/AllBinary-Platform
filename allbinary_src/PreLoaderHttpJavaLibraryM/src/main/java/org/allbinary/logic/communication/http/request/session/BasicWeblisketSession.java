@@ -19,17 +19,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.user.role.BasicUserRole;
-import org.allbinary.BooleanFactory;
-
-import org.allbinary.logic.java.bool.BooleanUtil;
 
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
-import org.BasicUserRoleData;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-
-import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
+import org.allbinary.business.user.role.BasicUserRoleData;
+import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class BasicWeblisketSession
 {

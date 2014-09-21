@@ -23,8 +23,6 @@ import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
-import org.TransformInfoData;
-
 public class TransformInfoPropertiesFactory
 {
 	private static final TransformInfoPropertiesFactory instance = new TransformInfoPropertiesFactory();

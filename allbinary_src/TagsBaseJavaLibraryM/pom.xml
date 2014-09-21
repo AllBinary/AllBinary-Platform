@@ -5,8 +5,8 @@
     <artifactId>TagsBaseJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>TagsBaseJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -60,8 +60,8 @@
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>LicenseClientJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>LicenseClientJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -69,8 +69,8 @@
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>PreLoaderJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PreLoaderJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

@@ -19,13 +19,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspTagException;
 
 import tags.PropertiesTag;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class TableTag extends PropertiesTag
 //implements TableInterface

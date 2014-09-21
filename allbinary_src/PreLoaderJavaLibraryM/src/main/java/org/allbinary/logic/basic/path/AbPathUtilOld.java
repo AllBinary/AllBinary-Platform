@@ -13,12 +13,9 @@
 */
 package org.allbinary.logic.basic.path;
 
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbFilePath;
-import org.allbinary.logic.basic.path.AbPathData;
 import org.allbinary.logic.basic.io.file.FilePathData;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

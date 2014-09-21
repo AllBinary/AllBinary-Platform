@@ -29,10 +29,10 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.http.request.session.BasicWeblisketSession;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.BooleanFactory;
 import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
+import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class FileAuthenticationTag extends TagSupport
 {
