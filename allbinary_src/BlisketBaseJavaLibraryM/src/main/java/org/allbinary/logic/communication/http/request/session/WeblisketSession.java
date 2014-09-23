@@ -13,15 +13,12 @@
 */
 package org.allbinary.logic.communication.http.request.session;
 
-import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.StringValidationUtil;
-import org.allbinary.BooleanFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
@@ -33,6 +30,8 @@ import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGateway
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleB;
 import org.allbinary.business.user.role.UserRoleData;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class WeblisketSession implements WeblisketSessionInterface
 {

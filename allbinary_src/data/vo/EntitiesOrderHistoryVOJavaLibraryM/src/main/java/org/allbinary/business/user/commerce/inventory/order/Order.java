@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.user.commerce.inventory.order;
 
-import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,14 +22,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
-import org.PaymentData;
-import org.ShippingMethodData;
+import org.allbinary.business.user.commerce.money.payment.PaymentData;
+import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class Order implements OrderInterface, Serializable
 {   

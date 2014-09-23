@@ -15,19 +15,21 @@ package org.allbinary.business.category.properties;
 
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.StringValidationUtil;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryInterface;
 import org.allbinary.business.category.CategoryUtil;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
-import org.AbSqlData;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
 /*
  *Nothing more than a parent category reference to a category on the fs.
  *i.e. unloaded category.

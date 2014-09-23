@@ -15,7 +15,6 @@ package org.allbinary.logic.visual.transform.template.customizer.widgets.title;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomData;
@@ -25,6 +24,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class TitleView implements DomNodeInterface
 {   

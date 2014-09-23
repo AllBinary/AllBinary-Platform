@@ -7,7 +7,7 @@
 * 
 * You may obtain the AllBinary Open License Version 1 legal agreement from
 * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
+* II
 * Created By: Travis Berthelot
 * 
 */
@@ -25,9 +25,9 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.control.validate.ValidationInterface;
-import org.HtmlMetaAttributeDataFactory;
-import org.HtmlMetaAttributeValuesData;
-import org.HtmlMetasData;
+import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeDataFactory;
+import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeValuesData;
+import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetasData;
 
 public class MetasValidation implements ValidationInterface, DomNodeInterface
 {   

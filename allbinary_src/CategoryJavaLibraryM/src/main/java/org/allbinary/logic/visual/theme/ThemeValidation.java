@@ -13,14 +13,12 @@
 */
 package org.allbinary.logic.visual.theme;
 
-import org.allbinary.logic.visual.theme.ThemeData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.basic.path.AbPathData;
 import org.allbinary.logic.basic.path.AbPathUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
@@ -32,7 +30,6 @@ import org.allbinary.data.tree.category.CategoryLoaderInterface;
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.AbSqlData;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface;
@@ -43,6 +40,8 @@ import org.w3c.dom.Node;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
 
 public class ThemeValidation 
    implements ThemeInterface, ValidationInterface, DomNodeInterface, CompositeTransformInfoInterface

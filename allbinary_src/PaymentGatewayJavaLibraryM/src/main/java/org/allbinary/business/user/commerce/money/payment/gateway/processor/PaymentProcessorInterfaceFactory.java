@@ -13,15 +13,13 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway.processor;
 
-import org.allbinary.business.user.commerce.money.payment.gateway.processor.PaymentProcessorInterfaceFactoryInterface;
-import org.allbinary.business.user.commerce.money.payment.gateway.processor.PaymentProcessorInterface;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterface;
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterfaceRequestFactory;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class PaymentProcessorInterfaceFactory

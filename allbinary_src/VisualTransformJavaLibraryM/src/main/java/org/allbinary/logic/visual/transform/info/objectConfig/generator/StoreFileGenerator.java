@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig.generator;
 
-import org.allbinary.logic.visual.transform.info.objectConfig.generator.TransformInfoObjectConfigGeneratorInterface;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -26,7 +25,6 @@ import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.basic.path.AbPathData;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -34,7 +32,8 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.TransformInfosData;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.visual.transform.info.TransformInfosData;
 
 public class StoreFileGenerator 
     implements TransformInfoObjectConfigGeneratorInterface

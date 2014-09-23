@@ -25,9 +25,9 @@ import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
-import org.WorkFlowData;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.control.workflow.WorkFlowData;
 
 public class BasicWorkFlow implements WorkFlowInterface
 {

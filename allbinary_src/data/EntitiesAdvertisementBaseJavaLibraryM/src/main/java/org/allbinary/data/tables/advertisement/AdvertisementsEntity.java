@@ -25,7 +25,7 @@ import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.advertisement.AdvertisementData;
 import org.allbinary.business.advertisement.AdvertisementInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEntityInterface

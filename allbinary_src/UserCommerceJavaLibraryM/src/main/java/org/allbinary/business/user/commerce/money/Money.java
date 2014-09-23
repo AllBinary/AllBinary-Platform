@@ -14,7 +14,7 @@
 package org.allbinary.business.user.commerce.money;
 
 import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.StringValidationUtil;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class Money
 {   

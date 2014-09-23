@@ -21,8 +21,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
-import org.GroupData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.group.GroupData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEntityInterface

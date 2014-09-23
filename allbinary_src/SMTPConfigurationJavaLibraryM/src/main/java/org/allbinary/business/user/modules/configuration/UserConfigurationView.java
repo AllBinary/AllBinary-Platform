@@ -13,9 +13,8 @@
 */
 package org.allbinary.business.user.modules.configuration;
 
-import org.allbinary.business.user.modules.configuration.UserConfigurationData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.EntryData;
 import org.allbinary.business.time.created.TimeCreatedView;
 import org.allbinary.business.time.modified.TimeLastModifiedView;
 import org.allbinary.data.tree.dom.DomNodeInterface;

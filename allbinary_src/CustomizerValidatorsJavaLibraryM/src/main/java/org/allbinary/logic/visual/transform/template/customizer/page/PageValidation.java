@@ -16,7 +16,6 @@ package org.allbinary.logic.visual.transform.template.customizer.page;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.PageData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
@@ -25,6 +24,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.business.page.PageData;
 
 public class PageValidation implements ValidationInterface, DomNodeInterface
 {

@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.visual.dhtml.html.input;
 
-import org.allbinary.BooleanFactory;
+import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class HtmlRadioInput extends HtmlValueInput
 {

@@ -14,15 +14,15 @@
 package org.allbinary.business.user.commerce.inventory.item;
 
 import org.allbinary.logic.basic.string.StringUtil;
-import org.EntryData;
-import org.ShippingAddressData;
 import org.allbinary.business.user.address.StreetAddress;
-import org.StreetAddressData;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.business.user.commerce.money.MoneyException;
-import org.ShippingMethodData;
 
 import java.util.HashMap;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.address.ShippingAddressData;
+import org.allbinary.business.user.address.StreetAddressData;
+import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 
 public class Item extends BasicItem implements OrderItemInterface
 {

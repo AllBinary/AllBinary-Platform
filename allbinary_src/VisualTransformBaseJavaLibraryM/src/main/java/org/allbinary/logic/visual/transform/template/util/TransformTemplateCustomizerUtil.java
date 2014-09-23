@@ -16,13 +16,12 @@ package org.allbinary.logic.visual.transform.template.util;
 import org.allbinary.logic.basic.string.CommonSeps;
 import java.util.HashMap;
 
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.GLOBALS;
-import org.CustomizerTransformInfoData;
+import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
 

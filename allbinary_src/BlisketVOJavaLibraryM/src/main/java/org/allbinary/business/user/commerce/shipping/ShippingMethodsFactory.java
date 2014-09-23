@@ -13,8 +13,6 @@
 */
 package org.allbinary.business.user.commerce.shipping;
 
-import org.ShippingMethodData;
-import org.allbinary.business.user.commerce.shipping.ShippingMethodsData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;

@@ -3,7 +3,7 @@
 * Copyright (c) 2011 AllBinary
 * 
 * By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
+* legally bound to the AllBinary Open License Version 1 leIIgal agreement.
 * 
 * You may obtain the AllBinary Open License Version 1 legal agreement from
 * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
@@ -15,13 +15,11 @@ package org.allbinary.logic.visual.transform.template.customizer.bodies.title;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.AbSqlData;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
@@ -31,6 +29,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.util.HashMap;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
 
 public class TitleBodyValidation implements ValidationInterface, DomNodeInterface
 {

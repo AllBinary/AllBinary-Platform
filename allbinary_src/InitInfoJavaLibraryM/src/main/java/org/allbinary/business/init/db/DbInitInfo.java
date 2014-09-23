@@ -52,6 +52,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
 import org.allbinary.logic.system.security.crypt.WeakCrypt;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class DbInitInfo extends DbConnectionInfo
 {   
@@ -78,7 +80,7 @@ public class DbInitInfo extends DbConnectionInfo
          //this.getUserNameKey() + this.getUserName() +
          //this.getPasswordKey() + this.getPassword();
 
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+      if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
       {
          PreLogUtil.put("Url: " + url, this, "getUrl");
       }
@@ -129,8 +131,8 @@ public class DbInitInfo extends DbConnectionInfo
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-             abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(
+             LogConfigType.PRELOADERERROR))
          {
             PreLogUtil.put("Failed Write: " + FILEABPATH.toString(), this, "write", e);
          }
@@ -187,7 +189,7 @@ public class DbInitInfo extends DbConnectionInfo
          else
          {
            hasRead = false;
-           if(  abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+           if(  LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
            {
               PreLogUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "load");
            }
@@ -195,7 +197,7 @@ public class DbInitInfo extends DbConnectionInfo
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
          {
             PreLogUtil.put("Failed Loading: " + FILEABPATH.toString(), this, "load", e);
          }
@@ -219,7 +221,7 @@ public class DbInitInfo extends DbConnectionInfo
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
          {
          PreLogUtil.put("Failed", this, "updateIfNeeded", e);
          }
@@ -230,7 +232,7 @@ public class DbInitInfo extends DbConnectionInfo
    {
       this.updateIfNeeded();
       
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+      if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
       {      
          PreLogUtil.put("Name: " + super.getName(), this, "getName");
       }
@@ -242,7 +244,7 @@ public class DbInitInfo extends DbConnectionInfo
    {
       this.updateIfNeeded();
       
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+      if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
       {      
          PreLogUtil.put("Name: " + super.getUserName(), this, "getUserName");
       }

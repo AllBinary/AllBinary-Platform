@@ -18,11 +18,9 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
-import org.WorkFlowData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -32,6 +30,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.control.workflow.WorkFlowData;
 
 /*
  *This basic workflow is the workflow representation for the workflow Dom

@@ -13,12 +13,10 @@
 */
 package org.allbinary.business.user.role;
 
-import org.allbinary.business.user.role.UserRole;
-import org.allbinary.business.user.role.BasicUserRole;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.business.user.UserFactoryInterface;
 import java.util.Iterator;
 import java.util.Vector;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 /**
  *

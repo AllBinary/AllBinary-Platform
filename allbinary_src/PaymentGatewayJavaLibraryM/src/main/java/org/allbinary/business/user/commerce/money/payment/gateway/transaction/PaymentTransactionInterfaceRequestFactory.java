@@ -13,14 +13,12 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
-import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterface;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.basic.io.file.generators.OrderIdGenerator;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
@@ -31,12 +29,13 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistory;
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.business.user.commerce.money.payment.Payment;
-import org.PaymentData;
+import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.types.TenderTypeFactory;
 import org.allbinary.business.user.commerce.money.payment.types.TransactionTypeFactory;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;

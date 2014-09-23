@@ -20,8 +20,6 @@ import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.RootTransformInfoData;
-import org.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttp;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.TransformTemplateFactory;
@@ -30,6 +28,8 @@ import org.allbinary.logic.visual.transform.template.util.TransformTemplateCusto
 import org.w3c.dom.Document;
 
 import java.util.HashMap;
+import org.allbinary.logic.visual.transform.info.RootTransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectConfig
 {

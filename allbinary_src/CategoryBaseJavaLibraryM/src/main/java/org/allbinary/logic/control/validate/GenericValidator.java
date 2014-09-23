@@ -16,7 +16,6 @@ package org.allbinary.logic.control.validate;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-
 public class GenericValidator extends ValidatorBase
 {   
    public GenericValidator()

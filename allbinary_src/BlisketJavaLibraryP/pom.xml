@@ -5,8 +5,8 @@
     <artifactId>BlisketJavaLibraryP</artifactId>
     <packaging>pom</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>BlisketJavaLibraryP</name>
     <url>http://www.allbinary.com/</url>
@@ -35,30 +35,34 @@
     <modules>
 
 <!--
--->
-        <module>../../j2me/AllBinaryJ2MELibraryP</module>
+<module>../../j2me/AllBinaryJ2MELibraryP</module>
+
 
         <module>../data/DataJavaLibraryM</module>
         <module>../data/DataTableInterfacesM</module>
 
         <module>../QueueJavaLibraryM</module>
 
-<!--
+-->
+
+        <!--
 <module>../RuntimeEnvironmentJavaLibraryM</module>
 -->
+<!--
         <module>../../../work/allbinary_src/RuntimeEnvironmentJavaLibraryM</module>
 
         <module>../TokenizerJavaLibraryM</module>
+
+        <module>../logic/data/file/FileAdvancedJavaLibraryM</module>
+        <module>../InitInfoJavaLibraryM</module>
+        <module>../PreLoaderHttpJavaLibraryM</module>
+        <module>../PreLoaderJavaLibraryM</module>
 
         <module>../TagsBaseJavaLibraryM</module>
         <module>../CustomLoaderJavaLibraryM</module>
 
         <module>../PreLoggingJavaLibraryM</module>
 
-<!--
-        <module>../logic/data/file/FileJ2SEJavaLibraryM</module>
-        <module>../logic/data/file/FileGAEVFSJavaLibraryM</module>
--->
         <module>../logic/data/file/FileJ2SEJavaLibraryM</module>
         <module>../../../work/allbinary_src/logic/data/file/FileGAEVFSJavaLibraryM</module>
         <module>../logic/data/file/FileJavaLibraryM</module>
@@ -66,20 +70,21 @@
         <module>../data/SQLAllBinaryJavaLibraryM</module>
 
         <module>../licensing/FileLicenseInitInfoJavaLibraryM</module>
+-->
 
 <!--
 <module>../security/CryptFileJavaLibraryM</module>
 -->
+
         <module>../../../work/allbinary_src/security/CryptFileJavaLibraryM</module>
         
         <module>../DocumentObjectModelJavaLibraryM</module>
 
         <module>../VisualStyleJavaLibraryM</module>
 
-        <module>../PreLoaderJavaLibraryM</module>
-        <module>../PreLoaderHttpJavaLibraryM</module>
-
         <module>../ConfigurationJavaLibraryM</module>
+
+        <module>../VisualTransformBaseJavaLibraryM</module>
 
         <module>../CategoryBaseJavaLibraryM</module>
         <module>../CategoryJavaLibraryM</module>
@@ -106,7 +111,7 @@
 
         <module>../SMTPConfigurationJavaLibraryM</module>
         <module>../SMTPBaseJavaLibraryM</module>
-        <module>../VisualTransformBaseJavaLibraryM</module>
+
         <module>../VisualTransformJavaLibraryM</module>
 
         <module>../GatewayJavaLibraryM</module>
@@ -130,10 +135,12 @@ AllBinaryJSECacheJavaLibrary
 ColorJavaLibrary
 ImageJavaLibrary
  -->
+        <module>../../../work/allbinary_src/logic/data/file/FileMediaJ2SEJavaLibraryM</module>
+ 
         <module>../BlisketBaseJavaLibraryM</module>
         <!--
          
-         -->
+        -->
         <module>../logging/LoggingGAELogM</module>
         <module>../../../work/allbinary_src/licensing/WeblisketClientInformationJavaLibraryM</module>
         <module>../BlisketJavaLibraryM</module>

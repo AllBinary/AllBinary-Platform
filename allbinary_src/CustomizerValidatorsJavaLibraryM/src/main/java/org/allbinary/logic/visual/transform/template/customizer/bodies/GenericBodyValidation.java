@@ -15,19 +15,19 @@ package org.allbinary.logic.visual.transform.template.customizer.bodies;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.AbSqlData;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.util.HashMap;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
 
 public class GenericBodyValidation implements ValidationInterface, DomNodeInterface
 {

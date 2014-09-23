@@ -17,7 +17,6 @@ import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.NameSpaceRequestParamData;
 import org.allbinary.logic.visual.dhtml.style.css.CssElementData;
 import org.allbinary.logic.visual.dhtml.style.css.CssElementsValidationFactory;
 import org.w3c.dom.Document;
@@ -26,6 +25,7 @@ import org.w3c.dom.NodeList;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.communication.http.request.NameSpaceRequestParamData;
 
 public class StylesValidationFactory
 {

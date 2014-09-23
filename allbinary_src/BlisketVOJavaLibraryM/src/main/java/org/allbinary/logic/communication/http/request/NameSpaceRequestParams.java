@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.communication.http.request;
 
-import org.NameSpaceRequestParamData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;

@@ -19,15 +19,15 @@ import java.util.Vector;
 
 import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.installer.Portion;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.EntryData;
 import org.allbinary.business.user.commerce.inventory.item.BasicItem;
-import org.BasicItemData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.business.user.commerce.money.MoneyException;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class InventoryEntity extends AbSqlBean implements InventoryEntityInterface

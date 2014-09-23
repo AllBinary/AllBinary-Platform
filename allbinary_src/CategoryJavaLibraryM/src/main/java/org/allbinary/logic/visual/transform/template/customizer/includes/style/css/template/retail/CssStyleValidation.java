@@ -18,7 +18,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.dhtml.style.StyleData;
-import org.StylesData;
 import org.allbinary.logic.visual.dhtml.style.StylesValidationFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -26,6 +25,7 @@ import org.w3c.dom.Node;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
+import org.allbinary.logic.visual.dhtml.style.StylesData;
 
 public class CssStyleValidation implements ValidationInterface, DomNodeInterface
 {

@@ -15,13 +15,13 @@ package org.allbinary.business.user.commerce.inventory.item.download;
 
 import org.allbinary.logic.basic.io.file.generators.ProductIdGenerator;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
-
-import org.EntryData;
-import org.BasicItemData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.time.TimeUtil;
 
 public class DownloadableItem

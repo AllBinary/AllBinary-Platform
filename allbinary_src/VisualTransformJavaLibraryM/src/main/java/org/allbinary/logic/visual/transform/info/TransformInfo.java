@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
@@ -27,20 +26,20 @@ import org.allbinary.logic.basic.path.AbFilePath;
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.basic.path.AbPathData;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.control.crypt.Encoder;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
-import org.TransformInfoDataData;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfig;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigAndManipulatorFactory;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
-import org.TransformInfoObjectData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.visual.transform.info.data.TransformInfoDataData;
+import org.allbinary.logic.visual.transform.info.viewObject.TransformInfoObjectData;
 
 public class TransformInfo implements TransformInfoInterface
 {

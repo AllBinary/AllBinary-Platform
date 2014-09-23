@@ -14,7 +14,6 @@
 package org.allbinary.logic.communication.smtp;
 
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.ModDomHelper;
@@ -37,6 +36,7 @@ import java.io.PrintStream;
 //import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Properties;
+import org.allbinary.logic.basic.string.StringValidationUtil;
    
 public class Email 
    implements EmailInterface

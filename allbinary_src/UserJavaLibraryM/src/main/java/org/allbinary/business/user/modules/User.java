@@ -14,11 +14,9 @@
 package org.allbinary.business.user.modules;
 
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.business.user.modules.configuration.UserConfigurationDomDocumentMapping;
@@ -39,6 +37,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class User implements UserInterface
 {

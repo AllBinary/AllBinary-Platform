@@ -27,8 +27,8 @@ import org.allbinary.business.advertisement.campaign.AdvertisementCampaignInterf
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaigns;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignsInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
-import org.TimeData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.time.TimeData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class AdvertisementCampaignInternalEntity extends AbSqlBean 

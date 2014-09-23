@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform;
 
-import org.allbinary.logic.visual.transform.TransformInterface;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
@@ -22,7 +21,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
-import org.TransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;

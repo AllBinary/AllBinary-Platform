@@ -42,11 +42,20 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
+            <groupId>commons-lang</groupId>
             <artifactId>commons-lang</artifactId>
             <version>2.0</version>
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AllBinaryJ2MELibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
 
         <dependency>
             <groupId>org.allbinary.data.tree.dom</groupId>
@@ -54,7 +63,6 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
         </dependency>
 
         <dependency>

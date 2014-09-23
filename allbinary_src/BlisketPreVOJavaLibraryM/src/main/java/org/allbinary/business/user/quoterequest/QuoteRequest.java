@@ -18,14 +18,14 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.quoterequest.QuoteRequestData;
 
 import org.allbinary.logic.basic.io.file.generators.QuoteRequestIdGenerator;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.EntryData;
-import org.QuoteRequestData;
 import org.allbinary.business.user.UserData;
-import org.AbSqlData;
+import org.allbinary.logic.communication.sql.AbSqlData;
 
 public class QuoteRequest
 {

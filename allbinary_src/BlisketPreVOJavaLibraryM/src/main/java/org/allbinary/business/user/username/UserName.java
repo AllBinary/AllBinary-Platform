@@ -14,12 +14,12 @@
 package org.allbinary.business.user.username;
 
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
 
 import java.util.HashMap;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class UserName
 {

@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.logic.basic.util.queue;
+package org.allbinary.logic.basic.util.queue;
 
 import java.util.Vector;
 

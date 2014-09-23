@@ -23,7 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFront;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInterface

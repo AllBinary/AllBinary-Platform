@@ -13,9 +13,7 @@
 */
 package org.allbinary.business.user;
 
-import org.allbinary.business.user.UserData;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.EntryData;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
@@ -23,6 +21,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.business.entry.EntryData;
 
 public class UserDomNode implements DomNodeInterface
 {

@@ -20,6 +20,8 @@ import org.allbinary.business.init.db.UserDbInitInfo;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InitInfoEntity extends InitSql
 //extends AbSqlBean
@@ -67,7 +69,7 @@ public class InitInfoEntity extends InitSql
                 return true;
             } else
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+                if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
                 {
                     PreLogUtil.put("Not In DB", "InitInfoEntity", "get()");
                 }
@@ -75,7 +77,7 @@ public class InitInfoEntity extends InitSql
             }
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
             {
                 PreLogUtil.put("Not In DB", "InitInfoEntity", "get()", e);
             }
@@ -95,7 +97,7 @@ public class InitInfoEntity extends InitSql
                 return true;
             } else
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+                if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
                 {
                     PreLogUtil.put("Not In DB", "InitInfoEntity", "is()");
                 }
@@ -103,7 +105,7 @@ public class InitInfoEntity extends InitSql
             }
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
             {
                 PreLogUtil.put("Not In DB", "InitInfoEntity", "is()", e);
             }
@@ -129,7 +131,7 @@ public class InitInfoEntity extends InitSql
 
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
             {
                 PreLogUtil.put("error", "InitInfoEntity", "add()", e);
             }

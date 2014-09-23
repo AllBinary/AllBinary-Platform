@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.user.commerce.inventory.item.download;
 
-import org.DownloadItemData;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;

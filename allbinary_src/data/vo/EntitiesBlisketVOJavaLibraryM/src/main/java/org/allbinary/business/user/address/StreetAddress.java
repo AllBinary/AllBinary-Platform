@@ -16,7 +16,7 @@ package org.allbinary.business.user.address;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.ModDomHelper;
@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class StreetAddress
 {

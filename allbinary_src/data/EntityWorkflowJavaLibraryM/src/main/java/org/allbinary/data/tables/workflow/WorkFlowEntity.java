@@ -24,10 +24,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.DynamicObjectData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.workflow.DbWorkFlowFactory;
-import org.WorkFlowData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.control.workflow.WorkFlowData;
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
 
 public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface

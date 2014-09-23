@@ -25,7 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.control.validate.ValidationInterface;
-import org.StylesData;
+import org.allbinary.logic.visual.dhtml.style.StylesData;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 
 public class GenericCssStyleValidation implements ValidationInterface, DomNodeInterface

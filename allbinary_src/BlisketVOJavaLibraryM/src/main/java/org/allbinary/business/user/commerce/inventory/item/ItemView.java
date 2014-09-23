@@ -13,9 +13,7 @@
 */
 package org.allbinary.business.user.commerce.inventory.item;
 
-import org.allbinary.business.user.commerce.inventory.item.ItemData;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.StreetAddressData;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -24,6 +22,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
+import org.allbinary.business.user.address.StreetAddressData;
 
 public class ItemView
 {

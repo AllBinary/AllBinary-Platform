@@ -5,8 +5,8 @@
     <artifactId>BlisketVOJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>BlisketVOJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -66,8 +66,8 @@
             <artifactId>BlisketModulesJavaLibrary</artifactId>
 
 
-        </dependency>
-         -->
+       </dependency>
+        -->
          
         <dependency>
             <groupId>org.allbinary</groupId>
@@ -79,19 +79,12 @@
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary.business.user</groupId>
-    <artifactId>UserJavaLibrary</artifactId>
-    <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary.business.user</groupId>
+            <artifactId>UserJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
-        </dependency>
-        
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-fileupload</artifactId>
-            <version>1.2.1</version>
-            <optional>true</optional>
         </dependency>
 
         <dependency>

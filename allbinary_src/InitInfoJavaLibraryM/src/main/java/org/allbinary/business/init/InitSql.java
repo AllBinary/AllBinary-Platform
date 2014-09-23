@@ -32,6 +32,8 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InitSql
 {
@@ -71,7 +73,7 @@ public class InitSql
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {
              PreLogUtil.put("error","InitSql","createTables()",e);
          }
@@ -89,7 +91,7 @@ public class InitSql
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {         
             PreLogUtil.put("Failed to Drop","InitSql","dropTables()",e);
          }
@@ -129,7 +131,7 @@ public class InitSql
                 }
             }
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
             {
                 PreLogUtil.put("SQL Statement: " + stringBuffer, this, "getRow");
             }
@@ -150,7 +152,7 @@ public class InitSql
                     result.put(columnName, field);
                 }
 
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
                 {
                     PreLogUtil.put("Row Value: " + result.toString(), this, "getRow");
                 }
@@ -159,7 +161,7 @@ public class InitSql
             return null;
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {
                 PreLogUtil.put("Failed\nSQL Statement: " + stringBuffer, this, "getRow", e);
             }
@@ -212,13 +214,13 @@ public class InitSql
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
             {
                 PreLogUtil.put("Update Succeeded\nSQL Statement: " + sqlStatement, this, "updateWhere");
             }
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {
                 PreLogUtil.put("Update Failed\nSQL Statement: " + stringBuffer, this, "updateWhere", e);
             }
@@ -252,13 +254,13 @@ public class InitSql
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
             {
                 PreLogUtil.put("Insert Succeeded\nSQL Statement: " + sqlStatement, this, "insert");
             }
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {
                 PreLogUtil.put("Insert Failed\nSQL Statement: " + stringBuffer.toString(), this, "insert", e);
             }
@@ -295,7 +297,7 @@ public class InitSql
       }
       catch(SQLException e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {         
             PreLogUtil.put("SQL error","InitSql","executeSQLStatement()",e);
          }
@@ -303,7 +305,7 @@ public class InitSql
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {         
             PreLogUtil.put("SQL error","InitSql","executeSQLStatement()",e);
          }
@@ -344,7 +346,7 @@ public class InitSql
          }
          catch(Exception e)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {                     
                PreLogUtil.put("Load mySQL Driver Failed: " + 
                   this.getDatabaseConnectionInfoInterface().getJdbcDriver(),
@@ -360,7 +362,7 @@ public class InitSql
       }
       catch(Exception se)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {                  
             PreLogUtil.put("Error","InitSql","initialization()",se);         
          }

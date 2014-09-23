@@ -23,7 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.CreateUserFactory;
 import org.allbinary.business.user.UserData;
 import org.allbinary.business.user.UserInterface;

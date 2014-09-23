@@ -26,7 +26,7 @@ import org.allbinary.business.advertisement.area.AdvertisementAreaData;
 import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;
 import org.allbinary.business.advertisement.campaign.AdvertisementCampaignData;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class AdvertisementAreasEntity extends AbSqlBean implements AdvertisementAreasEntityInterface

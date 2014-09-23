@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.communication.http.request;
 
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.file.upload.AbFileUploadFactory;
@@ -23,6 +22,7 @@ import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadBase.InvalidContentTypeException;
 

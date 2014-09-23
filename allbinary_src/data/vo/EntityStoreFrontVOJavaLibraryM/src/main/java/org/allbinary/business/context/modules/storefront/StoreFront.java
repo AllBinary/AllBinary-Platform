@@ -13,7 +13,6 @@
 */
 package org.allbinary.business.context.modules.storefront;
 
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
@@ -33,7 +32,6 @@ import org.allbinary.logic.basic.path.AbPathData;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.SpecialCharacterUtil;
 import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.StringValidationUtil;
 import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.basic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -41,9 +39,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.configuration.ContextConfigurationDomDocumentMapping;
 import org.allbinary.business.context.configuration.ContextConfigurationInterface;
 import org.allbinary.business.context.configuration.ContextConfigurationInterfaceFactory;
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.util.BasicArrayList;
 

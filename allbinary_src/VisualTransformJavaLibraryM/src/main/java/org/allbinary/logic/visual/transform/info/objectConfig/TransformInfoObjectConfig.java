@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -21,11 +20,8 @@ import org.allbinary.logic.basic.io.InputOutputTypeData;
 import org.allbinary.logic.basic.io.OutputTypeData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoDomNode;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.TransformInfosData;
-import org.XslData;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -34,6 +30,9 @@ import org.w3c.dom.NodeList;
 
 import java.util.Iterator;
 import java.util.Vector;
+import org.allbinary.logic.visual.transform.info.TransformInfoData;
+import org.allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.logic.visual.transform.template.XslData;
 
 public class TransformInfoObjectConfig 
    implements TransformInfoObjectConfigInterface

@@ -23,17 +23,17 @@ import org.w3c.dom.Node;
 
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
-import org.EntryData;
+import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.UserData;
-import org.BillingAddressData;
-import org.ShippingAddressData;
+import org.allbinary.business.user.address.BillingAddressData;
+import org.allbinary.business.user.address.ShippingAddressData;
 import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.business.user.commerce.money.payment.Payment;
-import org.PaymentData;
-import org.ShippingMethodData;
+import org.allbinary.business.user.commerce.money.payment.PaymentData;
+import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.ModDomHelper;
 
 public class OrderHistory extends Order

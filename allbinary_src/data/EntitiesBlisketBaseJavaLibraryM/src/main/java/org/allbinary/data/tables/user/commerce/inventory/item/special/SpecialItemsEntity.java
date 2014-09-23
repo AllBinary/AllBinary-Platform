@@ -20,9 +20,9 @@ import org.allbinary.business.init.db.InventoryDbInitInfo;
 import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.EntryData;
-import org.BasicItemData;
-import org.SpecialItemData;
+import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
+import org.allbinary.business.user.commerce.inventory.item.special.SpecialItemData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class SpecialItemsEntity extends AbSqlBean implements SpecialItemsEntityInterface
