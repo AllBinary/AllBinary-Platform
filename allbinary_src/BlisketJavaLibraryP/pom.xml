@@ -49,8 +49,6 @@
 <module>../RuntimeEnvironmentJavaLibraryM</module>
 -->
 <!--
-        <module>../../../work/allbinary_src/RuntimeEnvironmentJavaLibraryM</module>
-
         <module>../TokenizerJavaLibraryM</module>
 
         <module>../logic/data/file/FileAdvancedJavaLibraryM</module>
@@ -64,7 +62,6 @@
         <module>../PreLoggingJavaLibraryM</module>
 
         <module>../logic/data/file/FileJ2SEJavaLibraryM</module>
-        <module>../../../work/allbinary_src/logic/data/file/FileGAEVFSJavaLibraryM</module>
         <module>../logic/data/file/FileJavaLibraryM</module>
 
         <module>../data/SQLAllBinaryJavaLibraryM</module>
@@ -76,8 +73,6 @@
 <module>../security/CryptFileJavaLibraryM</module>
 -->
 
-        <module>../../../work/allbinary_src/security/CryptFileJavaLibraryM</module>
-        
         <module>../DocumentObjectModelJavaLibraryM</module>
 
         <module>../VisualStyleJavaLibraryM</module>
@@ -135,14 +130,11 @@ AllBinaryJSECacheJavaLibrary
 ColorJavaLibrary
 ImageJavaLibrary
  -->
-        <module>../../../work/allbinary_src/logic/data/file/FileMediaJ2SEJavaLibraryM</module>
- 
         <module>../BlisketBaseJavaLibraryM</module>
         <!--
          
         -->
         <module>../logging/LoggingGAELogM</module>
-        <module>../../../work/allbinary_src/licensing/WeblisketClientInformationJavaLibraryM</module>
         <module>../BlisketJavaLibraryM</module>
 
     </modules>
