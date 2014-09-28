@@ -5,8 +5,8 @@
     <artifactId>PreGameJ2MEJavaLibraryPOM</artifactId>
     <packaging>pom</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>PreGameJ2MEJavaLibraryPOM</name>
     <url>http://www.allbinary.com/</url>
@@ -31,9 +31,8 @@
     <modules>
 
         <!--
-        -->
-
         <module>../../AllBinaryJ2MELibraryP</module>
+        -->
 
         <module>../../media/graphics/NullCustomUIPreJavaLibraryM</module>
 

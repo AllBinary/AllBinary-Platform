@@ -33,7 +33,8 @@
         <!--
         
         -->
-
+        <module>./j2me/AllBinaryJ2MELibraryP</module>
+        <module>./allbinary_src/BlisketJavaLibraryP</module>
         <module>./j2me/games/platform/AllBinaryOnAllPlaformsJavaLibraryP</module>
 
     </modules>

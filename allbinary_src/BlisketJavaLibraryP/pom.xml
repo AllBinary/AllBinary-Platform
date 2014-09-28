@@ -34,18 +34,15 @@
     
     <modules>
 
-<!--
-<module>../../j2me/AllBinaryJ2MELibraryP</module>
--->
+        <!--
+        <module>../../j2me/AllBinaryJ2MELibraryP</module>
+        -->
 
         <module>../data/DataJavaLibraryM</module>
         <module>../data/DataTableInterfacesM</module>
 
         <module>../QueueJavaLibraryM</module>
 
-<!--
-<module>../RuntimeEnvironmentJavaLibraryM</module>
--->
         <module>../TokenizerJavaLibraryM</module>
         
         <module>../logging/LogConfigTypeFreeblisketJavaLibraryM</module>
@@ -109,25 +106,27 @@
         <module>../WorkflowJavaLibraryM</module>
 
         <module>../BlisketPreVOJavaLibraryM</module>
-    <!-- 
-    EntitiesOrderHistoryVOJavaLibrary
-    UserJavaLibrary
-     -->
+        
+        <!-- 
+        EntitiesOrderHistoryVOJavaLibrary
+        UserJavaLibrary
+        -->
+        
         <module>../BlisketVOJavaLibraryM</module>
 
         <module>../UserCommerceJavaLibraryM</module>
 
         <module>../CustomizerValidatorsJavaLibraryM</module>
 
-<!-- AllBinaryCacheForShiftOneJavaLibrary
-AllBinaryJSECacheJavaLibrary
-ColorJavaLibrary
-ImageJavaLibrary
- -->
-        <module>../BlisketBaseJavaLibraryM</module>
-        <!--
-         
+        <!-- 
+        AllBinaryCacheForShiftOneJavaLibrary
+        AllBinaryJSECacheJavaLibrary
+        ColorJavaLibrary
+        ImageJavaLibrary
         -->
+        
+        <module>../BlisketBaseJavaLibraryM</module>
+
         <module>../logging/LoggingGAELogM</module>
         <module>../BlisketJavaLibraryM</module>
 
