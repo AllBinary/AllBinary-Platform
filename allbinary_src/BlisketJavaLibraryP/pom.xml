@@ -47,6 +47,8 @@
 <module>../RuntimeEnvironmentJavaLibraryM</module>
 -->
         <module>../TokenizerJavaLibraryM</module>
+        
+        <module>../logging/LogConfigTypeFreeblisketJavaLibraryM</module>
 
         <module>../logic/data/file/FileAdvancedJavaLibraryM</module>
         <module>../InitInfoJavaLibraryM</module>
