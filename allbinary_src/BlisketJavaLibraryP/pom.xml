@@ -36,19 +36,16 @@
 
 <!--
 <module>../../j2me/AllBinaryJ2MELibraryP</module>
-
+-->
 
         <module>../data/DataJavaLibraryM</module>
         <module>../data/DataTableInterfacesM</module>
 
         <module>../QueueJavaLibraryM</module>
 
--->
-
-        <!--
+<!--
 <module>../RuntimeEnvironmentJavaLibraryM</module>
 -->
-<!--
         <module>../TokenizerJavaLibraryM</module>
 
         <module>../logic/data/file/FileAdvancedJavaLibraryM</module>
@@ -67,11 +64,6 @@
         <module>../data/SQLAllBinaryJavaLibraryM</module>
 
         <module>../licensing/FileLicenseInitInfoJavaLibraryM</module>
--->
-
-<!--
-<module>../security/CryptFileJavaLibraryM</module>
--->
 
         <module>../DocumentObjectModelJavaLibraryM</module>
 
@@ -123,7 +115,7 @@
 
         <module>../UserCommerceJavaLibraryM</module>
 
-<module>../CustomizerValidatorsJavaLibraryM</module>
+        <module>../CustomizerValidatorsJavaLibraryM</module>
 
 <!-- AllBinaryCacheForShiftOneJavaLibrary
 AllBinaryJSECacheJavaLibrary
