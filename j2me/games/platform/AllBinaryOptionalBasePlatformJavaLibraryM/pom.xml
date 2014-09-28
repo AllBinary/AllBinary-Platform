@@ -154,13 +154,13 @@
             <groupId>org.allbinary</groupId>
             <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
             <!--
-            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
+            <artifactId>GameLicensingInAppPurchaseJavaLibrary</artifactId>
             <artifactId>GameLicensingOnlyNormalJavaLibrary</artifactId>
+            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
             -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
         </dependency>
 
         <dependency>
@@ -195,31 +195,6 @@
             <!-- AllBinary Platform Version End -->
         </dependency>
 
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>NoGameLicensingJavaLibrary</artifactId>
-            <!--
-            <artifactId>NoGameLicensingJavaLibrary</artifactId>
-            <artifactId>LicensedGameDemoJavaLibrary</artifactId>
-            -->
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
-            <!--
-            <artifactId>GameLicensingInAppPurchaseJavaLibrary</artifactId>
-            <artifactId>GameLicensingOnlyNormalJavaLibrary</artifactId>
-            <artifactId>GameLicensingOnlyDemoJavaLibrary</artifactId>
-            -->
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-                
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>DebugJavaLibrary</artifactId>
