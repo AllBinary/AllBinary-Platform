@@ -13,8 +13,8 @@
 */
 package org.allbinary.collision;
 
-import java.awt.Point;
 import java.awt.Rectangle;
+import org.allbinary.graphics.GPoint;
 
 public class RectangleCollisionUtil
 {
@@ -24,12 +24,12 @@ public class RectangleCollisionUtil
    }
    
    public static boolean isCollision(Rectangle rectangle,
-      Point point)
+      GPoint point)
    {
-      if (point.x > ((int) rectangle.x + rectangle.getWidth()) ||
-         point.y > ((int) rectangle.y + rectangle.getHeight()) ||
-         point.x < rectangle.x ||
-         point.y < rectangle.y)
+      if (point.getX() > ((int) rectangle.x + rectangle.getWidth()) ||
+         point.getY() > ((int) rectangle.y + rectangle.getHeight()) ||
+         point.getX() < rectangle.x ||
+         point.getY() < rectangle.y)
       {
          return false;
       }

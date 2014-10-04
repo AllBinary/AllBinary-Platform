@@ -29,6 +29,7 @@ import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.input.automation.configuration.InputAutomationConfiguration;
 import org.allbinary.input.automation.configuration.InputAutomationConfigurationFactory;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputAutomationModuleFactoryFactory
 {
@@ -63,7 +64,7 @@ public class InputAutomationModuleFactoryFactory
         }
         
         this.defaultListModelHelper.initDefaultModelList();
-        LogUtil.put("Loaded " + this.hashMap.size() + " Input Automation Modules", this,"Contructor");
+        LogUtil.put(LogFactory.getInstance("Loaded " + this.hashMap.size() + " Input Automation Modules", this,"Contructor"));
     }
     
     private void add(

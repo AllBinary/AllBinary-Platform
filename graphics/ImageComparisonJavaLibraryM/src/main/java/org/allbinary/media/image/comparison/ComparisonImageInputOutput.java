@@ -13,15 +13,16 @@
 */
 package org.allbinary.media.image.comparison;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.number.LongUtil;
-import org.allbinary.logic.visual.media.MediaData;
 import org.allbinary.input.automation.ImageOutputData;
 import org.allbinary.media.image.cache.BufferedImageCacheable;
 import org.allbinary.media.image.io.ImageIOInterface;
-import org.allbinary.media.image.ImageUtil;
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.logic.visual.media.MediaDataFactory;
+import org.allbinary.media.image.ImagePersistanceUtil;
 
 public class ComparisonImageInputOutput implements ImageIOInterface
 {
@@ -37,7 +38,7 @@ public class ComparisonImageInputOutput implements ImageIOInterface
         {
             ImageComparisonResultFrameCacheable imageComparisonResultFrameCacheable =
                 (ImageComparisonResultFrameCacheable)
-                ImageComparisonResultCacheSingleton.getInstance().get(frame);
+                ((AutomaticCacheInterface) ImageComparisonResultCacheSingleton.getInstance()).get(frame);
             
             if(imageComparisonResultFrameCacheable != null)
             {
@@ -49,13 +50,13 @@ public class ComparisonImageInputOutput implements ImageIOInterface
             }
             else
             {
-                LogUtil.put(new Log("Comparison Results Not Available for Output: " +
+                LogUtil.put(LogFactory.getInstance("Comparison Results Not Available for Output: " +
                     frame, this, "save"));
             }
         }
         else
         {
-            LogUtil.put(new Log("No Comparison Results: for first frame: " +
+            LogUtil.put(LogFactory.getInstance("No Comparison Results: for first frame: " +
                 frame, this, "save"));
         }
     }
@@ -71,29 +72,29 @@ public class ComparisonImageInputOutput implements ImageIOInterface
         StringBuffer filePathStringBuffer1 = new StringBuffer();
         filePathStringBuffer1.append(filePathStringBuffer.toString());
         filePathStringBuffer1.append("_1");
-        filePathStringBuffer1.append(MediaData.JPG.getExtension());
+        filePathStringBuffer1.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath1 = filePathStringBuffer1.toString();
         
         StringBuffer filePathStringBuffer2 = new StringBuffer();
         filePathStringBuffer2.append(filePathStringBuffer.toString());
         filePathStringBuffer2.append("_2");
-        filePathStringBuffer2.append(MediaData.JPG.getExtension());
+        filePathStringBuffer2.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath2 = filePathStringBuffer2.toString();
         
         BufferedImageCacheable bufferedImageCacheables[] =
             ChangedPixelsUtil.generateBufferedImageChacheables(
             imageComparisonResult);
         
-        LogUtil.put(new Log("Comparison Image File Path 1: " + filePath1, this, "save"));
-        LogUtil.put(new Log("Comparison Image File Path 2: " + filePath2, this, "save"));
+        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 1: " + filePath1, this, "save"));
+        LogUtil.put(LogFactory.getInstance("Comparison Image File Path 2: " + filePath2, this, "save"));
         
         BufferedImage bufferedImageArray[] = new BufferedImage[2];
         
         bufferedImageArray[0] = bufferedImageCacheables[0].getBufferedImage();
         bufferedImageArray[1] = bufferedImageCacheables[1].getBufferedImage();
         
-        ImageUtil.save(filePath1, bufferedImageArray[0]);
-        ImageUtil.save(filePath2, bufferedImageArray[1]);
+        ImagePersistanceUtil.saveWithImageIO(filePath1, bufferedImageArray[0]);
+        ImagePersistanceUtil.saveWithImageIO(filePath2, bufferedImageArray[1]);
     }
     
 }

@@ -15,12 +15,12 @@ package org.allbinary.media.image.comparison;
 
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
-import java.awt.Point;
 import java.awt.image.BufferedImage;
-import org.allbinary.input.automation.PointFactory;
 import org.allbinary.media.image.comparison.pixel.PixelDeltaFactory;
-import com.abcs.logic.util.cache.AutomaticCacheInterface;
 import java.awt.Color;
+import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.PointFactory;
+import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 
 public class ImageComparator
 {
@@ -32,14 +32,14 @@ public class ImageComparator
       this.imageComparatorConstraintsInterface = imageComparatorConstraintsInterface;
    }
 
-   private void process(ImageComparisonResult imageComparisonInfo, Point point) throws Exception
+   private void process(ImageComparisonResult imageComparisonInfo, GPoint point) throws Exception
    {
       boolean isCollsionWithAvoidRectangles = this.imageComparatorConstraintsInterface.isCollisionWithAvoidRectangles(point);
 
       /*
       if(isCollsionWithAvoidRectangles)
       {
-      LogUtil.put(new Log("Pixel Collided with 1 or more avoid Rectangle(s): " +
+      LogUtil.put(LogFactory.getInstance("Pixel Collided with 1 or more avoid Rectangle(s): " +
       point, this, "compare"));
       }
        */
@@ -47,9 +47,9 @@ public class ImageComparator
       if (!isCollsionWithAvoidRectangles)
       {
 
-         int rgb1 = imageComparisonInfo.getBufferedImages()[0].getRGB(point.x, point.y);
+         int rgb1 = imageComparisonInfo.getBufferedImages()[0].getRGB(point.getX(), point.getY());
          // & 0xFF; // assuming grayscale, so r==g==b
-         int rgb2 = imageComparisonInfo.getBufferedImages()[1].getRGB(point.x, point.y);
+         int rgb2 = imageComparisonInfo.getBufferedImages()[1].getRGB(point.getX(), point.getY());
          // & 0xFF; // assuming grayscale, so r==g==b
          AutomaticCacheInterface automaticCacheInterface = ColorCacheFactory.getInstance();
 
@@ -69,7 +69,7 @@ public class ImageComparator
                imageComparisonInfo.pixelsThatMatch++;
             } else
             {
-               imageComparisonInfo.add(PixelDeltaFactory.getInstance(point.x, point.y, rgb1, rgb2));
+               imageComparisonInfo.add(PixelDeltaFactory.getInstance(point.getX(), point.getY(), rgb1, rgb2));
             }
          }
       } else
@@ -80,7 +80,7 @@ public class ImageComparator
 
    public ImageComparisonResult compare(BufferedImage bufferedImage1, BufferedImage bufferedImage2, Long frameOne, Long frameTwo, int tolerance) throws Exception
    {
-      //LogUtil.put(new Log("Start", this, "compare"));
+      //LogUtil.put(LogFactory.getInstance("Start", this, "compare"));
       if (bufferedImage1 == null || bufferedImage2 == null)
       {
          throw new Exception("Input images must not be null.");
@@ -92,7 +92,7 @@ public class ImageComparator
       {
          for (int indexX = 0; indexX < imageComparisonInfo.imageWidth; indexX++)
          {
-            this.process(imageComparisonInfo, PointFactory.getInstance(indexX, indexY));
+            this.process(imageComparisonInfo, PointFactory.getInstance().getInstance(indexX, indexY));
 
             if (imageComparisonInfo.getNonMatchingPixelVector().size() > this.imageComparatorConstraintsInterface.getMaxNonMatchingPixelDeltas())
             {
@@ -101,7 +101,7 @@ public class ImageComparator
          }
       }
 
-      //LogUtil.put(new Log("End", this, "compare"));
+      //LogUtil.put(LogFactory.getInstance("End", this, "compare"));
       return imageComparisonInfo;
    }
 }

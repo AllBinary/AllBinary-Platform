@@ -14,32 +14,32 @@
 package org.allbinary.media.image.comparison.color;
 
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import com.abcs.logic.util.cache.CacheInterface;
-import com.abcs.logic.util.cache.CacheInterfaceFactory;
-import com.abcs.logic.util.cache.CachePolicy;
-import com.abcs.logic.util.cache.CacheType;
+import org.allbinary.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.logic.util.cache.CacheInterfaceFactory;
+import org.allbinary.logic.util.cache.CachePolicyFactory;
+import org.allbinary.logic.util.cache.CacheTypeFactory;
 
 public class ColorDeltaFactory
 {
-    private static CacheInterface cacheInterface = null;
+    private static AutomaticCacheInterface cacheInterface = null;
     
     static
     {
         try
         {
-            LogUtil.put(new Log("Start", "ColorDeltaFactory", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("Start", "ColorDeltaFactory", "Static Block"));
             
-            cacheInterface = CacheInterfaceFactory.getInstance(
-                CacheType.SHIFT_ONE_CACHE,
-                CachePolicy.THIRTY_MINUTES_TEN_THOUSAND_MAX);
+            cacheInterface = (AutomaticCacheInterface) CacheInterfaceFactory.getInstance(
+                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE,
+                CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            LogUtil.put(new Log("End", "ColorDeltaFactory", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("End", "ColorDeltaFactory", "Static Block"));
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", "ColorDeltaFactory", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance("Exception", "ColorDeltaFactory", "Static Block", e));
         }
     }
     

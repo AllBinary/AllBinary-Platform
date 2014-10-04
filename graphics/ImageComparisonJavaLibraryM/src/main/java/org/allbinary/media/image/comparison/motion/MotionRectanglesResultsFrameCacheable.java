@@ -13,9 +13,7 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import java.awt.image.BufferedImage;
-
-import com.abcs.logic.util.cache.CacheableInterface;
+import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class MotionRectanglesResultsFrameCacheable
     implements CacheableInterface

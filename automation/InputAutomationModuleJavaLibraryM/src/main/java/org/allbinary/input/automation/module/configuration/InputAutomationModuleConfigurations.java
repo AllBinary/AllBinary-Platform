@@ -25,6 +25,7 @@ import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.NewInputAutomationModulesData;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputAutomationModuleConfigurations
 {
@@ -49,7 +50,7 @@ public class InputAutomationModuleConfigurations
         {
             NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
             
-            LogUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor");
+            LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor"));
             
             for(int index = 0; index < nameNodeList.getLength(); index++)
             {
@@ -65,7 +66,7 @@ public class InputAutomationModuleConfigurations
         this.setHashMap(new HashMap());
         
         NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
-        LogUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor");
+        LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor"));
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {

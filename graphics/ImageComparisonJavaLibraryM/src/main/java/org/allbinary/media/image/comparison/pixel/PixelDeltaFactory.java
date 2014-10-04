@@ -13,37 +13,37 @@
 */
 package org.allbinary.media.image.comparison.pixel;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.graphics.GPoint;
+import org.allbinary.graphics.PointFactory;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.awt.Point;
-
-import org.allbinary.input.automation.PointFactory;
+import org.allbinary.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.logic.util.cache.CacheInterfaceFactory;
+import org.allbinary.logic.util.cache.CachePolicyFactory;
+import org.allbinary.logic.util.cache.CacheTypeFactory;
 import org.allbinary.media.image.comparison.color.ColorDelta;
 import org.allbinary.media.image.comparison.color.ColorDeltaFactory;
-import com.abcs.logic.util.cache.CacheInterface;
-import com.abcs.logic.util.cache.CacheInterfaceFactory;
-import com.abcs.logic.util.cache.CachePolicy;
-import com.abcs.logic.util.cache.CacheType;
 
 public class PixelDeltaFactory
 {
-    private static CacheInterface cacheInterface = null;
+    private static AutomaticCacheInterface cacheInterface = null;
     
     static
     {
         try
         {
-            LogUtil.put(new Log("Start", "PixelDeltaFactory", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("Start", "PixelDeltaFactory", "Static Block"));
             
-            cacheInterface = CacheInterfaceFactory.getInstance(
-                CacheType.SHIFT_ONE_CACHE, 
-                CachePolicy.THIRTY_MINUTES_TEN_THOUSAND_MAX);
+            cacheInterface = (AutomaticCacheInterface) 
+                    CacheInterfaceFactory.getInstance(
+                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE, 
+                CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            LogUtil.put(new Log("End", "PixelDeltaFactory", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("End", "PixelDeltaFactory", "Static Block"));
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", "PixelDeltaFactory", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance("Exception", "PixelDeltaFactory", "Static Block", e));
         }
     }
     
@@ -54,7 +54,7 @@ public class PixelDeltaFactory
     public static PixelDelta getInstance(int x, int y, int rgb1, int rgb2)
     throws Exception
     {
-        Point point = PointFactory.getInstance(x, y);
+        GPoint point = PointFactory.getInstance().getInstance(x, y);
         ColorDelta colorDelta = ColorDeltaFactory.getInstance(rgb1, rgb2);
 
         PixelDelta pixelDelta = (PixelDelta) 

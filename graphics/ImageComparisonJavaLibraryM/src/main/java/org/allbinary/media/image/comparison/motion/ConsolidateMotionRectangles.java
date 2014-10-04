@@ -18,12 +18,9 @@ import java.awt.Rectangle;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
-import org.allbinary.collision.RectangleCollisionUtil;
-
-import org.allbinary.media.image.comparison.ImageComparisonResult;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class ConsolidateMotionRectangles extends MotionRectangles
 {
@@ -44,13 +41,13 @@ public class ConsolidateMotionRectangles extends MotionRectangles
 
         consolidateMotionRectangles();
 
-        //LogUtil.put(new Log(
+        //LogUtil.put(LogFactory.getInstance(
           //  "After - Number Of Rectangles: " + this.getVector().size(), this, "Constructor"));
     }
 
     private void consolidateMotionRectangles()
     {
-        LogUtil.put(new Log("Start - Size Before: " + this.getVector().size(),
+        LogUtil.put(LogFactory.getInstance("Start - Size Before: " + this.getVector().size(),
             this, "consolidateMotionRectangleConstraints"));
         
         Vector removeVector = new Vector();
@@ -79,7 +76,7 @@ public class ConsolidateMotionRectangles extends MotionRectangles
                         x2 >= rightX && y2 >= bottomY)
                     {
                         /*
-        LogUtil.put(new Log("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
+        LogUtil.put(LogFactory.getInstance("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
             rectangle.y + "<" + rectangle2.y + " " + x2 + ">" + rightX + " " + y2 + ">" + bottomY,
             this, "consolidateMotionRectangleConstraints"));
                         */

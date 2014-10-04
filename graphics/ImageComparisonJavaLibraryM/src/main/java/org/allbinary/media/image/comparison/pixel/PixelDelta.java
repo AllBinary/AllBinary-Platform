@@ -13,19 +13,18 @@
 */
 package org.allbinary.media.image.comparison.pixel;
 
-import java.awt.Point;
-
+import org.allbinary.graphics.GPoint;
 import org.allbinary.media.image.comparison.color.ColorDelta;
-import com.abcs.logic.util.cache.CacheableInterface;
+import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class PixelDelta implements CacheableInterface
 {
-    private Point point;
+    private GPoint point;
     private ColorDelta colorDelta;
     
     private Object key;
     
-    public PixelDelta(Point point, ColorDelta colorDelta)
+    public PixelDelta(GPoint point, ColorDelta colorDelta)
     {
         this.setPoint(point);
         this.setColorDelta(colorDelta);
@@ -37,17 +36,17 @@ public class PixelDelta implements CacheableInterface
         return key;
     }
     
-    public static Object getKey(Point point, ColorDelta colorDelta)
+    public static Object getKey(GPoint point, ColorDelta colorDelta)
     {
         return point.hashCode() + "_" + colorDelta.getKey().toString();
     }
     
-    public Point getPoint()
+    public GPoint getPoint()
     {
         return point;
     }
     
-    public void setPoint(Point point)
+    public void setPoint(GPoint point)
     {
         this.point = point;
     }

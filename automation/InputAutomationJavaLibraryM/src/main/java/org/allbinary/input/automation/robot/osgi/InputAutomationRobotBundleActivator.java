@@ -19,7 +19,6 @@ import org.osgi.framework.ServiceFactory;
 
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.osgi.OSGIActivatorUtil;
 import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;

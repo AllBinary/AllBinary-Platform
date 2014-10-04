@@ -13,16 +13,13 @@
 */
 package org.allbinary.input.automation.module;
 
-
+import org.allbinary.input.media.image.capture.CaptureWorkerInterface;
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.input.media.image.capture.CaptureWorkerInterface;
 import org.allbinary.media.image.comparison.ImageComparisonWorker;
 import org.allbinary.media.image.comparison.motion.MotionRectanglesWorker;
-
 import org.allbinary.thread.RunnableInterface;
-
-import org.allbinary.time.TimeHelper;
+import org.allbinary.time.TimeDelayHelper;
 
 abstract public class AbstractInputAutomationWorker
     implements RunnableInterface//, CapturedImageWorkerResultsListener
@@ -66,6 +63,11 @@ abstract public class AbstractInputAutomationWorker
     }
     */
     
+    public void setThread(Thread thread)throws Exception
+    {
+    
+    }
+
     public synchronized boolean isRunning()
     {
         return running;
@@ -127,7 +129,7 @@ abstract public class AbstractInputAutomationWorker
             
             this.setRunning(true);
             
-            TimeHelper timeHelper = new TimeHelper(1000);
+            TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
         /*
         Iterator iterator = robotVector.iterator();

@@ -18,7 +18,7 @@ import java.awt.image.BufferedImage;
 
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
-import com.abcs.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 
 /**
  *

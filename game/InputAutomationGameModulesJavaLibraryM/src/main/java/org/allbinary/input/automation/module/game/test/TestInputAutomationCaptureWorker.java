@@ -28,10 +28,9 @@ import org.allbinary.input.automation.module.generic.configuration.profile.actio
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.GenericProfileActionScript;
 import org.allbinary.media.image.cache.BufferedImageFrameCacheable;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
-import org.allbinary.input.media.image.capture.CapturedImageWorkerResultsListener;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
-import com.abcs.logic.util.cache.CacheInterface;
+import org.allbinary.logic.util.cache.CacheInterface;
 
 public class TestInputAutomationCaptureWorker
     extends AbstractInputAutomationWorker

@@ -16,10 +16,10 @@ package org.allbinary.graphics.color;
 
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
-import com.abcs.logic.util.cache.AutomaticCacheInterface;
-import com.abcs.logic.util.cache.AutomaticCacheInterfaceFactory;
-import com.abcs.logic.util.cache.CachePolicyFactory;
-import com.abcs.logic.util.cache.CacheTypeFactory;
+import org.allbinary.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.logic.util.cache.AutomaticCacheInterfaceFactory;
+import org.allbinary.logic.util.cache.CachePolicyFactory;
+import org.allbinary.logic.util.cache.CacheTypeFactory;
 
 
 public class ColorCacheFactory

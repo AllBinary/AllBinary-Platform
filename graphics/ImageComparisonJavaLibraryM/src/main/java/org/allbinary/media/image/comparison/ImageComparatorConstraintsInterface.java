@@ -14,9 +14,9 @@
 package org.allbinary.media.image.comparison;
 
 import java.awt.Color;
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import org.allbinary.graphics.GPoint;
 
 public interface ImageComparatorConstraintsInterface
 {
@@ -24,9 +24,9 @@ public interface ImageComparatorConstraintsInterface
     //Vector getAvoidVector();
 
     boolean isCollisionWithAvoidRectangles(Rectangle rectangle);
-    boolean isCollisionWithAvoidRectangles(Point point);
+    boolean isCollisionWithAvoidRectangles(GPoint point);
     
-    boolean isColorAllowed(int frame, Point point, Color color);
+    boolean isColorAllowed(int frame, GPoint point, Color color);
     
     boolean isImageValid(BufferedImage bufferedImage) throws Exception;
     

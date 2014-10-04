@@ -15,11 +15,11 @@ package org.allbinary.media.image.comparison.motion;
 
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.communication.log.LogFactory;
 
-import org.allbinary.time.TimeHelper;
+import org.allbinary.time.TimeDelayHelper;
 
 public class SaveMotionRectanglesResultsWorker
     implements MotionRectanglesResultsListener
@@ -68,11 +68,11 @@ public class SaveMotionRectanglesResultsWorker
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "run"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "run"));
             
             this.setRunning(true);
             
-            TimeHelper timeHelper = new TimeHelper(1000);
+            TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
             timeHelper.setStartTime();
 
@@ -88,14 +88,14 @@ public class SaveMotionRectanglesResultsWorker
             
             this.getMotionRectanglesVector().remove(motionRectangles);
             
-            LogUtil.put(new Log(
+            LogUtil.put(LogFactory.getInstance(
                 "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
             
-            LogUtil.put(new Log("End", this, "run"));
+            LogUtil.put(LogFactory.getInstance("End", this, "run"));
         }
         catch (Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
         }
     }
     

@@ -17,7 +17,7 @@ import java.awt.image.BufferedImage;
 
 import javax.imageio.IIOImage;
 
-import com.abcs.logic.util.cache.CacheableInterface;
+import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class IIOImageCacheable
     implements CacheableInterface

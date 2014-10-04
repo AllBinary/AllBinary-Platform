@@ -13,12 +13,14 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import com.abcs.logic.util.cache.CacheInterface;
-import com.abcs.logic.util.cache.CacheInterfaceFactory;
-import com.abcs.logic.util.cache.CachePolicy;
-import com.abcs.logic.util.cache.CacheType;
+import org.allbinary.logic.util.cache.CacheInterface;
+import org.allbinary.logic.util.cache.CacheInterfaceFactory;
+import org.allbinary.logic.util.cache.CachePolicy;
+import org.allbinary.logic.util.cache.CachePolicyFactory;
+import org.allbinary.logic.util.cache.CacheType;
+import org.allbinary.logic.util.cache.CacheTypeFactory;
 
 public class AllMotionRectanglesResultsCacheSingleton
 {
@@ -28,16 +30,16 @@ public class AllMotionRectanglesResultsCacheSingleton
     {
         try
         {
-            LogUtil.put(new Log("Start", "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("Start", "MotionRectanglesResultsCacheSingleton", "Static Block"));
             
             cacheInterface = CacheInterfaceFactory.getInstance(
-                CacheType.SHIFT_ONE_CACHE, CachePolicy.ONE_MINUTE_FIVE_MAX);
+                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
-            LogUtil.put(new Log("End", "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("End", "MotionRectanglesResultsCacheSingleton", "Static Block"));
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", "MotionRectanglesResultsCacheSingleton", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance("Exception", "MotionRectanglesResultsCacheSingleton", "Static Block", e));
         }
     }
     

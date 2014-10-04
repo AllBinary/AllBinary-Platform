@@ -13,7 +13,6 @@
 */
 package org.allbinary.input.automation.module;
 
-import java.awt.Point;
 import java.awt.Rectangle;
 import java.util.Iterator;
 import java.util.Vector;
@@ -24,6 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.collision.RectangleCollisionUtil;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import java.awt.image.BufferedImage;
+import org.allbinary.graphics.GPoint;
 
 abstract public class ImageComparatorConstraints
     implements ImageComparatorConstraintsInterface
@@ -64,7 +64,7 @@ abstract public class ImageComparatorConstraints
         return isCollsionWithAvoidRectangles;
     }
     
-    public boolean isCollisionWithAvoidRectangles(Point point)
+    public boolean isCollisionWithAvoidRectangles(GPoint point)
     {
         boolean isCollsionWithAvoidRectangles = false;
         

@@ -16,19 +16,18 @@ package org.allbinary.media.image.search;
 import java.awt.image.BufferedImage;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandlerAbstract;
+import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.media.image.comparison.ImageComparisonResult;
 import org.allbinary.media.image.comparison.ImageComparisonResultsEvent;
 import org.allbinary.media.image.comparison.ImageComparisonResultsListener;
-
-import org.allbinary.time.TimeHelper;
+import org.allbinary.time.TimeDelayHelper;
 
 public class ImageComparisonSearchWorker
-    extends BasicEventHandlerAbstract
+    extends BasicEventHandler
     implements ImageComparisonResultsListener
 {
     private long index;
@@ -77,18 +76,18 @@ public class ImageComparisonSearchWorker
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "run"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "run"));
             
             this.setRunning(true);
             
-            TimeHelper timeHelper = new TimeHelper(1000);
+            TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
             timeHelper.setStartTime();
             
             ImageComparisonResult imageComparisonInfo =
                 (ImageComparisonResult) this.imageComparisonInfoVector.get(0);
             
-            LogUtil.put(new Log(imageComparisonInfo.toString(), this, "run"));
+            LogUtil.put(LogFactory.getInstance(imageComparisonInfo.toString(), this, "run"));
             
             BufferedImage latestBufferedImage =
                 imageComparisonInfo.getBufferedImages()[1];
@@ -106,16 +105,16 @@ public class ImageComparisonSearchWorker
             
             this.index++;
             
-            LogUtil.put(new Log(
+            LogUtil.put(LogFactory.getInstance(
                 "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
             
             this.setRunning(false);
             
-            LogUtil.put(new Log("End", this, "run"));
+            LogUtil.put(LogFactory.getInstance("End", this, "run"));
         }
         catch (Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
         }
     }
 }

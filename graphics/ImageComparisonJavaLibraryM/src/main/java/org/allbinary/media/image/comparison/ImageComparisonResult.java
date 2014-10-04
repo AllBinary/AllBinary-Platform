@@ -13,13 +13,13 @@
 */
 package org.allbinary.media.image.comparison;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.ImageUtil;
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
 import java.awt.image.BufferedImage;
 
 import java.util.Vector;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageComparisonResult
 {
@@ -94,9 +94,9 @@ public class ImageComparisonResult
         
         if(!isSameWidth || !isSameHeight)
         {
-            LogUtil.put(new Log("Images were not the same size? Most likely a resolution change.", this, "Constructor"));
-            LogUtil.put(new Log("1: " + ImageUtil.toString(bufferedImage), this, "Constructor"));
-            LogUtil.put(new Log("2: " + ImageUtil.toString(bufferedImage2), this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("Images were not the same size? Most likely a resolution change.", this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("1: " + ImageUtil.toString(bufferedImage), this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("2: " + ImageUtil.toString(bufferedImage2), this, "Constructor"));
         }
     }
     

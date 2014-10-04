@@ -15,7 +15,7 @@ package org.allbinary.media.image.cache;
 
 import java.awt.image.BufferedImage;
 
-import com.abcs.logic.util.cache.CacheableInterface;
+import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class BufferedImageFrameCacheable
     implements CacheableInterface

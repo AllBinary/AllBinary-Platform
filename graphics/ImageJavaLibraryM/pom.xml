@@ -5,8 +5,8 @@
     <artifactId>ImageJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>ImageJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -50,20 +50,20 @@
             <optional>true</optional>
         </dependency>
 
-<!--
-        <dependency>
-            <groupId>org.allbinary.data.tables</groupId>
-            <artifactId>EntitiesBlisketBaseJavaLibrary</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.allbinary.business.category</groupId>
-            <artifactId>CategoryJavaLibrary</artifactId>
-        </dependency>
--->
+        <!--
+                <dependency>
+                    <groupId>org.allbinary.data.tables</groupId>
+                    <artifactId>EntitiesBlisketBaseJavaLibrary</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.allbinary.business.category</groupId>
+                    <artifactId>CategoryJavaLibrary</artifactId>
+                </dependency>
+        -->
 
         <dependency>
-  <groupId>org.allbinary.media.image</groupId>
-  <artifactId>ImageJ2SEJavaLibrary</artifactId>
+            <groupId>org.allbinary.media.image</groupId>
+            <artifactId>ImageJ2SEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -80,23 +80,23 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.commons</groupId>
+            <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>1.2.1</version>
             <optional>true</optional>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.batik</groupId>
+            <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-codec</artifactId>
-            <version>1</version>
+            <version>1.7</version>
 
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.apache.batik</groupId>
+            <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-awt-util</artifactId>
-            <version>1</version>
+            <version>1.7</version>
             
             <optional>true</optional>
         </dependency>

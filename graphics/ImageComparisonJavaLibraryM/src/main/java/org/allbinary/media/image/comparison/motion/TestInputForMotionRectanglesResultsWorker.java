@@ -20,15 +20,14 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-
-import org.allbinary.time.TimeHelper;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.time.TimeDelayHelper;
 
 public class TestInputForMotionRectanglesResultsWorker
    implements MotionRectanglesResultsListener
@@ -80,11 +79,11 @@ public class TestInputForMotionRectanglesResultsWorker
    {
       try
       {
-         LogUtil.put(new Log("Start", this, "run"));
+         LogUtil.put(LogFactory.getInstance("Start", this, "run"));
          
          this.setRunning(true);
          
-         TimeHelper timeHelper = new TimeHelper(1000);
+         TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
          
          timeHelper.setStartTime();
 
@@ -150,14 +149,14 @@ public class TestInputForMotionRectanglesResultsWorker
          
          this.getMotionRectanglesVector().remove(motionRectangles);
 
-         LogUtil.put(new Log(
+         LogUtil.put(LogFactory.getInstance(
             "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
          
-         LogUtil.put(new Log("End", this, "run"));
+         LogUtil.put(LogFactory.getInstance("End", this, "run"));
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "run", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
       }
    }
    

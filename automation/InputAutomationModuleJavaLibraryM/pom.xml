@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>InputAutomationGameModulesJavaLibrary</artifactId>
+    <artifactId>InputAutomationModuleJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
 
-    <name>InputAutomationGameModulesJavaLibrary</name>
+    <name>InputAutomationModuleJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -49,16 +49,18 @@
             <!-- AllBinary Platform Version End -->
 
         </dependency>
+        
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>BaseHardwareJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
+
         </dependency>
         
         <dependency>
-            <groupId>org.allbinary</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>BaseOperatingSystemJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -66,29 +68,42 @@
         </dependency>
         
         <dependency>
-            <groupId>org.allbinary.cache</groupId>
-            <artifactId>BaseCacheJavaLibrary</artifactId>   
+            <groupId>org.allbinary</groupId>
+            <artifactId>AllBinaryOSGIJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
-        
+            
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ColorJavaLibrary</artifactId>        
+            <artifactId>PreLoaderJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
-        
+            
         <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>InputAutomationModuleJavaLibrary</artifactId>     
+            <groupId>org.allbinary.media.image</groupId>
+            <artifactId>ImageComparisonJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
-        
+            
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi</artifactId>
+            <version>3.0.0</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.help</groupId>
+            <artifactId>javahelp</artifactId>
+            <version>2.0.05</version>
+        </dependency>
+
     </dependencies>
 
     <build>

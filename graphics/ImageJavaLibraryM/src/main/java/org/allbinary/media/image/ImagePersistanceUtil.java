@@ -222,6 +222,11 @@ public class ImagePersistanceUtil {
 		return alphaImg;
 	}
       */  
+
+   public static void saveWithImageIO(String filePath, BufferedImage bufferedImage)
+   {
+       saveWithImageIO(new File(filePath), bufferedImage);
+   }
    
    public static void saveWithImageIO(File file, BufferedImage bufferedImage)
    {

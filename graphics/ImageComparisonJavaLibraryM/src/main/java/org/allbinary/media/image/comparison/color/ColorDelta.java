@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.comparison.color;
 
-import com.abcs.logic.util.cache.CacheableInterface;
+import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class ColorDelta
     implements CacheableInterface

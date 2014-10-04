@@ -15,11 +15,10 @@ package org.allbinary.media.image.cache;
 
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
-import com.abcs.logic.util.cache.CachePolicyFactory;
-import com.abcs.logic.util.cache.PoolInterface;
-import com.abcs.logic.util.cache.PoolInterfaceFactory;
-import com.abcs.logic.util.cache.PoolType;
-import com.abcs.logic.util.cache.PoolTypeFactory;
+import org.allbinary.logic.util.cache.CachePolicyFactory;
+import org.allbinary.logic.util.cache.PoolInterface;
+import org.allbinary.logic.util.cache.PoolInterfaceFactory;
+import org.allbinary.logic.util.cache.PoolTypeFactory;
 
 public class BufferedImagePoolSingleton
 {

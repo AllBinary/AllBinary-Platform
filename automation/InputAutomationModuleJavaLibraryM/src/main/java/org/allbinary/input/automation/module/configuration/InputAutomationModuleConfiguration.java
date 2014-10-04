@@ -26,6 +26,7 @@ import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.input.automation.InputAutomationData;
 import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputAutomationModuleConfiguration
 {
@@ -73,7 +74,7 @@ public class InputAutomationModuleConfiguration
             {
                 this.setClassName(DomNodeHelper.getTextNodeValue(classNameNode));
                 
-                LogUtil.put("ClassName : " + getClassName(), this, "init");
+                LogUtil.put(LogFactory.getInstance("ClassName : " + getClassName(), this, "init"));
                 
                                     /*
                     JarFile jarFile = new JarFile(fileName);
@@ -89,19 +90,19 @@ public class InputAutomationModuleConfiguration
             }
             else
             {
-                LogUtil.put("Class Node Null", this,"init");
+                LogUtil.put(LogFactory.getInstance("Class Node Null", this,"init"));
             }
         }
         else
         {
-            LogUtil.put(InputAutomationData.NAME + " Node Has No Children", this,"Contructor");
+            LogUtil.put(LogFactory.getInstance(InputAutomationData.NAME + " Node Has No Children", this,"Contructor"));
         }
     }
     
     public void init()
     throws Exception
     {
-        LogUtil.put("Name : " + getName(), this, "init");
+        LogUtil.put(LogFactory.getInstance("Name : " + getName(), this, "init"));
         this.setInputAutomationModuleInterface(
             (InputAutomationModuleFactoryInterface)
             AbeFactory.getInstance(getClassName()));

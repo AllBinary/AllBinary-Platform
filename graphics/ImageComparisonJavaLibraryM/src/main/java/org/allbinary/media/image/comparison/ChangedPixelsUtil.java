@@ -22,7 +22,7 @@ import java.awt.image.BufferedImage;
 import java.util.Iterator;
 
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
-import com.abcs.logic.util.cache.PoolInterface;
+import org.allbinary.logic.util.cache.PoolInterface;
 
 public class ChangedPixelsUtil
 {
@@ -72,7 +72,7 @@ public class ChangedPixelsUtil
         for(int index = 0; index < bufferedImageCacheables.length; index++)
         {
             BufferedImageCacheable bufferedImageCacheable =
-                (BufferedImageCacheable) poolInterface.get(bufferedImageInfo);
+                (BufferedImageCacheable) poolInterface.remove(bufferedImageInfo);
             
             bufferedImageCacheables[index] = bufferedImageCacheable;
             //clear the image
@@ -94,10 +94,10 @@ public class ChangedPixelsUtil
             }
             
             bufferedImageCacheables[0].getBufferedImage().setRGB(
-                pixelDelta.getPoint().x, pixelDelta.getPoint().y, pixelDelta.getColorDelta().getRgb1());
+                pixelDelta.getPoint().getX(), pixelDelta.getPoint().getY(), pixelDelta.getColorDelta().getRgb1());
             
             bufferedImageCacheables[1].getBufferedImage().setRGB(
-                pixelDelta.getPoint().x, pixelDelta.getPoint().y, pixelDelta.getColorDelta().getRgb2());
+                pixelDelta.getPoint().getX(), pixelDelta.getPoint().getY(), pixelDelta.getColorDelta().getRgb2());
         }
         return bufferedImageCacheables;
     }

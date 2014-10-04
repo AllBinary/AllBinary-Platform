@@ -13,8 +13,8 @@
 */
 package org.allbinary.media.image.io;
 
-import com.abcs.logic.util.cache.CacheableInterface;
-import com.abcs.logic.util.cache.CacheableInterfaceFactoryInterface;
+import org.allbinary.logic.util.cache.CacheableInterface;
+import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
 
 public class IIOImageCacheableFactory
     implements CacheableInterfaceFactoryInterface

@@ -17,7 +17,6 @@ import java.io.File;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -25,6 +24,7 @@ import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.basic.io.file.FileUtil;
+import org.allbinary.logic.basic.io.file.FileWrapperUtil;
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -174,7 +174,7 @@ public class InputAutomationConfiguration
     {
         Document document = DomDocumentHelper.create();; 
         File file = new File(FILENAME);
-        FileUtil.copy(new AbPath(file.getAbsolutePath()),
+        FileUtil.getInstance().copy(new AbPath(file.getAbsolutePath()),
             new AbPath(file.getAbsolutePath() + ".bak.xml"));
         
         JAXBContext jaxbContext = 
@@ -183,6 +183,6 @@ public class InputAutomationConfiguration
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.marshal(this, document);
         
-        DomDocumentHelper.save(file, document);
+        DomDocumentHelper.save(FileWrapperUtil.wrapFile(file), document);
     }
 }

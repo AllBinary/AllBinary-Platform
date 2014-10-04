@@ -18,9 +18,9 @@ import java.awt.Rectangle;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class ConstrainedMotionRectangles extends MotionRectangles
 {
@@ -38,14 +38,14 @@ public class ConstrainedMotionRectangles extends MotionRectangles
         
         this.setMotionRectangleConstraintsInterface(motionRectangleConstraintsInterface);
 
-        //LogUtil.put(new Log(
+        //LogUtil.put(LogFactory.getInstance(
           //  "After - Number Of Rectangles: " + this.getVector().size(), this, "Constructor"));
     }
     
     public void applyMotionRectangleConstraints(MotionRectangles motionRectangles)
     throws Exception
     {
-        LogUtil.put(new Log("Start - Size Before: " + motionRectangles.getVector().size(),
+        LogUtil.put(LogFactory.getInstance("Start - Size Before: " + motionRectangles.getVector().size(),
             this, "applyMotionRectangleConstraints"));
 
         BufferedImage bufferedImageArray[] =
@@ -71,7 +71,7 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isTooSmall)
             {
-                //LogUtil.put(new Log("Target is to small: " +
+                //LogUtil.put(LogFactory.getInstance("Target is to small: " +
                   //  rectangle, this, "getTargetableRectangles"));
                 continue;
             }
@@ -82,7 +82,7 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isAreaTooSmall)
             {
-                //LogUtil.put(new Log("Target area is to small: " +
+                //LogUtil.put(LogFactory.getInstance("Target area is to small: " +
                   //  rectangle, this, "getTargetableRectangles"));
                 continue;
             }
@@ -93,7 +93,7 @@ public class ConstrainedMotionRectangles extends MotionRectangles
             
             if(isTooBig)
             {
-                //LogUtil.put(new Log("Target is to big: " +
+                //LogUtil.put(LogFactory.getInstance("Target is to big: " +
                   //  rectangle, this, "getTargetableRectangles"));
                 continue;
             }
