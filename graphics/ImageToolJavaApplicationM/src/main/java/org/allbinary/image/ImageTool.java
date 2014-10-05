@@ -13,9 +13,9 @@
 */
 package org.allbinary.image;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.image.gui.ImageToolJFrame;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageTool
 {
@@ -31,13 +31,13 @@ public class ImageTool
          {
             try
             {
-               LogUtil.put(new Log("Running", "Main", "run"));
+               LogUtil.put(LogFactory.getInstance("Running", "Main", "run"));
                new ImageToolJFrame().setVisible(true);
             }
             catch(Exception e)
             {
                String error = "Error";
-               LogUtil.put(new Log(error, "Main", "run", e));
+               LogUtil.put(LogFactory.getInstance(error, "Main", "run", e));
             }
          }
       });

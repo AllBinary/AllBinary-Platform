@@ -38,7 +38,7 @@ public class TestInputAutomationActionWorker
     {
         super(inputAutomationActionInterface);
 
-        LogUtil.put(new Log("BasicTestAttackWorder", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance("BasicTestAttackWorder", this, "Constructor"));
         
         this.sleep = sleep;
     }
@@ -50,7 +50,7 @@ public class TestInputAutomationActionWorker
     
     public void process() throws Exception
     {
-        LogUtil.put(new Log("Start", this, "process"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "process"));
 
         //this.startCaptureWorkers();
 

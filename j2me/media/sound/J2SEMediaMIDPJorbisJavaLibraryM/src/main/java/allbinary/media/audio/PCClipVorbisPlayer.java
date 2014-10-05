@@ -127,7 +127,7 @@ public class PCClipVorbisPlayer extends BasicPlayer implements LineListener
 
     public void update(LineEvent event)
     {
-        //LogUtil.put(new Log("LineEvent: " + event.getType(),  this, "update"));
+        //LogUtil.put(LogFactory.getInstance("LineEvent: " + event.getType(),  this, "update"));
         if (event.getType().equals(LineEvent.Type.STOP))
         {
             //this.close();

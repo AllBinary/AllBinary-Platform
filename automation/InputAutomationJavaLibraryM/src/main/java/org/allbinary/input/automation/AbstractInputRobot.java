@@ -15,12 +15,10 @@ package org.allbinary.input.automation;
 
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.net.URL;
 import javax.help.HelpSet;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.java.help.JavaHelpUtil;
 
 abstract public class AbstractInputRobot
 {
@@ -40,7 +38,7 @@ abstract public class AbstractInputRobot
     {
         this.mouseMove(point.x, point.y);
         
-        LogUtil.put(new Log(
+        LogUtil.put(LogFactory.getInstance(
             "Moved Mouse To: x: " + point.x + " y: " + point.y,
             this, "moveMouse"));
     }
@@ -51,7 +49,7 @@ abstract public class AbstractInputRobot
         
         this.mouseMove(point.x + x, point.y + y);
         
-        LogUtil.put(new Log(
+        LogUtil.put(LogFactory.getInstance(
             "Moved Mouse To: x: " + point.x + " y: " + point.y + " in the middle of: " + rectangle,
             this, "moveMouseToTarget"));
     }

@@ -15,9 +15,7 @@ package org.allbinary.input;
 
 import java.awt.event.KeyEvent;
 import java.util.Hashtable;
-import java.util.Vector;
-
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class KeySingletonFactory
@@ -238,7 +236,7 @@ public class KeySingletonFactory
       }
       catch(Exception e)
       {
-         LogUtil.put(new Log("Static Exception", "KeySingleFactory", "static", e));
+         LogUtil.put(LogFactory.getInstance("Static Exception", "KeySingleFactory", "static", e));
       }
    }
    

@@ -37,7 +37,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
-            LogUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTable",e);
+            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTable",e);
          }
          return "Get Table Failed";
       }
@@ -62,7 +62,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
-            LogUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere(key,value)",e);
+            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere(key,value)",e);
          }
          return "getTableWhere(key,value)";
       }
@@ -97,7 +97,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
-            LogUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere()",e);
+            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere()",e);
          }
          return "getTableWhere()";
       }
@@ -141,7 +141,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
-            LogUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhereBetween()",e);
+            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhereBetween()",e);
          }
          return "getTableWhereBetween() Failed";
       }
@@ -183,7 +183,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
-            LogUtil.put("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getInputWhere",e);
+            LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getInputWhere",e);
          }
          return "Get Html Inputs Failed";
       }

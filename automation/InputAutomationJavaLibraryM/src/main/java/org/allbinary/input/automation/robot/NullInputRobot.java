@@ -17,11 +17,11 @@ import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.input.automation.AbstractInputRobot;
 import javax.help.HelpSet;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class NullInputRobot extends AbstractInputRobot
    implements InputRobotInterface
@@ -46,27 +46,27 @@ public class NullInputRobot extends AbstractInputRobot
    
    public void keyPress(Integer keycode)
    {
-       LogUtil.put(new Log("KeyCode: " + keycode, this, "keyPress"));
+       LogUtil.put(LogFactory.getInstance("KeyCode: " + keycode, this, "keyPress"));
    }
    
    public void keyRelease(Integer keycode)
    {
-      LogUtil.put(new Log("KeyCode: " + keycode, this, "keyRelease"));
+      LogUtil.put(LogFactory.getInstance("KeyCode: " + keycode, this, "keyRelease"));
    }
    
    public void mouseMove(Integer x, Integer y)
    {
-      LogUtil.put(new Log("X: " + x + " Y: " + y, this, "mouseMove"));
+      LogUtil.put(LogFactory.getInstance("X: " + x + " Y: " + y, this, "mouseMove"));
    }
 
    public void mousePress(Integer buttons)
    {
-       LogUtil.put(new Log("Buttons: " + buttons, this, "mousePress"));
+       LogUtil.put(LogFactory.getInstance("Buttons: " + buttons, this, "mousePress"));
    }
    
    public void mouseRelease(Integer buttons)
    {
-      LogUtil.put(new Log("Buttons: " + buttons, this, "mouseRelease"));
+      LogUtil.put(LogFactory.getInstance("Buttons: " + buttons, this, "mouseRelease"));
    }
 
    public BufferedImage createScreenCapture(Rectangle screenRect)

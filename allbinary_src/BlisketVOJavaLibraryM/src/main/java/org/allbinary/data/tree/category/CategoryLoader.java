@@ -114,7 +114,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put("Command Failed", this, "get", e);
+    LogUtil.put(LogFactory.getInstance("Command Failed", this, "get", e);
     }
     return null;
     }
@@ -157,7 +157,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put("Command Failed", this, "getUpToLevel", e);
+    LogUtil.put(LogFactory.getInstance("Command Failed", this, "getUpToLevel", e);
     }
     return null;
     }
@@ -181,7 +181,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put("Command Failed", this, "getAll", e);
+    LogUtil.put(LogFactory.getInstance("Command Failed", this, "getAll", e);
     }
     return null;
     }
@@ -222,7 +222,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put("Command Failed", this, "get", e);
+    LogUtil.put(LogFactory.getInstance("Command Failed", this, "get", e);
     }
     return null;
     }

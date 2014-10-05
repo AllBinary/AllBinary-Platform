@@ -69,7 +69,7 @@ public class ViewPositionEventHandler extends BasicEventHandler
            }
            catch (Exception e)
            {
-               LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
            }
        }
 

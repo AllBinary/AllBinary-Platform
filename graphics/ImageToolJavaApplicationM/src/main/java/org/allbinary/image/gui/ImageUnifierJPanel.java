@@ -13,7 +13,6 @@
 */
 package org.allbinary.image.gui;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.ImageUnifierCell;
 import java.awt.image.BufferedImage;
@@ -28,6 +27,9 @@ import org.allbinary.media.image.ImageUnifierUtil;
 import org.allbinary.media.image.ImageUtil;
 import org.allbinary.media.image.ImagesRatioUtil;
 import java.io.File;
+import org.allbinary.logic.basic.io.file.FileWrapperUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.media.image.ImagePersistanceUtil;
 
 public class ImageUnifierJPanel extends javax.swing.JPanel
    implements ImageProcessorInputCompositeInterface
@@ -82,7 +84,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "init", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "init", e));
       }
 
    }
@@ -170,7 +172,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "updateImageWithFudgedImages", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "updateImageWithFudgedImages", e));
       }
    }
 
@@ -502,13 +504,13 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 // TODO add your handling code here:
       try
       {
-       ImageUtil.saveWithBatik(
-          new File(this.imageUnifierProperties.getColumns() + "_By_" +
-          this.imageUnifierProperties.getRows() + "_Unified.png"), this.result);
+          File file = new File(this.imageUnifierProperties.getColumns() + "_By_" +
+          this.imageUnifierProperties.getRows() + "_Unified.png");
+          ImagePersistanceUtil.saveWithBatik(FileWrapperUtil.wrapFile(file), this.result);
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "jButton1ActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "jButton1ActionPerformed", e));
       }
     }//GEN-LAST:event_jButton1ActionPerformed
 

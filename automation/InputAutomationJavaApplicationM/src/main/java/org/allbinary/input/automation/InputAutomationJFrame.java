@@ -20,15 +20,9 @@ import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
 import javax.swing.ImageIcon;
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpUtil;
-import org.allbinary.logic.system.security.licensing.AbeLicenseInterface;
-import org.allbinary.logic.system.security.licensing.AbeLicenseInterfaceFactory;
-import org.allbinary.logic.system.security.licensing.AbeNoLicense;
-import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.gui.dialog.BasicTextJDialog;
-import org.allbinary.gui.dialog.ExitCloseListener;
 import org.allbinary.gui.swing.workers.JListSwingWorker;
 import org.allbinary.input.automation.osgi.DesktopBundle;
 import org.allbinary.input.automation.robot.InputRobotFactory;
@@ -43,7 +37,8 @@ import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent
 import org.allbinary.thread.RunnableInterface;
 import bundle.input.automation.InputAutomationBundleActivatorListenerInterface;
 import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
-import bundle.input.automation.robot.InputAutomationRobotChangeListener;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;
 
 public class InputAutomationJFrame extends javax.swing.JFrame implements InputAutomationConfigurationModuleChangeListener, InputAutomationRobotChangeListener, HelpSetListener
 {
@@ -62,7 +57,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       //fileJDialog = new FileJDialog();
       //fileJDialog.addFinishedListener(this);
       URL url = this.getClass().getResource("/help/Help.hs");
-      LogUtil.put(new Log("URL: " + url, this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("URL: " + url, this, "Constructor"));
       helpSet = JavaHelpUtil.getHelpSet(url);
 
       url = this.getClass().getResource("/resources/allbinaryicon8bit.jpg");
@@ -99,10 +94,10 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
    try
    {
-   LogUtil.put(new Log("Start", this, "onFiles"));
+   LogUtil.put(LogFactory.getInstance("Start", this, "onFiles"));
    for(int index = 0; index < files.length; index++)
    {
-   LogUtil.put(new Log("Reading: " + files[index], this, "onFiles"));
+   LogUtil.put(LogFactory.getInstance("Reading: " + files[index], this, "onFiles"));
    InputAutomationConfiguration inputAutomationConfiguration =
    InputAutomationConfigurationFactory.getInstance();
    InputAutomationModuleConfigurations inputAutomationModuleConfigurations =
@@ -122,16 +117,16 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    }
    catch (Exception e)
    {
-   LogUtil.put(new Log("Exception", this, "onFiles", e));
+   LogUtil.put(LogFactory.getInstance("Exception", this, "onFiles", e));
    }
    }
     */
    /*
-   LogUtil.put(new Log("Nothing", this, "focusGained"));
+   LogUtil.put(LogFactory.getInstance("Nothing", this, "focusGained"));
    if(this.thread != null && this.thread.isAlive())
    {
    //this.thread.join();
-   LogUtil.put(new Log("Error Thread Already Running", this, "focusGained"));
+   LogUtil.put(LogFactory.getInstance("Error Thread Already Running", this, "focusGained"));
    }
    else
    {
@@ -378,7 +373,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
           Desktop.getDesktop().browse(uri);
        } catch (Exception e)
        {
-          LogUtil.put(new Log("Exception", this, "subscriptionJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance("Exception", this, "subscriptionJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_subscriptionJMenuItemActionPerformed
 
@@ -389,7 +384,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
           Desktop.getDesktop().browse(uri);
        } catch (Exception e)
        {
-          LogUtil.put(new Log("Exception", this, "updatesJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance("Exception", this, "updatesJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_updatesJMenuItemActionPerformed
 
@@ -405,7 +400,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
           new DesktopBundle().start();
        } catch (Exception e)
        {
-          LogUtil.put(new Log("Exception", this, "modulesJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance("Exception", this, "modulesJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_modulesJMenuItemActionPerformed
 
@@ -430,7 +425,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    }
    catch (Exception e)
    {
-   LogUtil.put(new Log("Exception", this, "removeModuleJMenuItemActionPerformed", e));
+   LogUtil.put(LogFactory.getInstance("Exception", this, "removeModuleJMenuItemActionPerformed", e));
    }
    }*/
    /*
@@ -457,7 +452,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
     private void formWindowLostFocus(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowLostFocus
     {//GEN-HEADEREND:event_formWindowLostFocus
 // TODO add your handling code here:
-       LogUtil.put(new Log("Nothing", this, "focusLost"));
+       LogUtil.put(LogFactory.getInstance("Nothing", this, "focusLost"));
     }//GEN-LAST:event_formWindowLostFocus
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowGainedFocus
@@ -465,7 +460,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 // TODO add your handling code here:
        if (this.stopOnFocusJCheckBoxMenuItem.isSelected())
        {
-          LogUtil.put(new Log("Stopping", this, "focusGained"));
+          LogUtil.put(LogFactory.getInstance("Stopping", this, "focusGained"));
 
           if (this.runnableInterface != null)
           {
@@ -503,14 +498,14 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
              this.gameRobotJTabbedPane.setEnabledAt(1, true);
 
-             LogUtil.put(new Log("Setting Configuration JPanel", this, "gameAutomationRobotModuleJListValueChanged"));
+             LogUtil.put(LogFactory.getInstance("Setting Configuration JPanel", this, "gameAutomationRobotModuleJListValueChanged"));
           } else
           {
              this.gameRobotJTabbedPane.setEnabledAt(1, false);
           }
        } catch (Exception e)
        {
-          LogUtil.put(new Log("Exception", this, "gameAutomationRobotModuleJListValueChanged", e));
+          LogUtil.put(LogFactory.getInstance("Exception", this, "gameAutomationRobotModuleJListValueChanged", e));
        }
     }//GEN-LAST:event_inputAutomationModuleJListValueChanged
 
@@ -530,7 +525,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {//GEN-HEADEREND:event_startJMenuItemActionPerformed
       try
       {
-         LogUtil.put(new Log("Starting", this, "startJMenuItemActionPerformed"));
+         LogUtil.put(LogFactory.getInstance("Starting", this, "startJMenuItemActionPerformed"));
 
          if (inputAutomationModuleInterface != null)
          {
@@ -551,7 +546,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          }
       } catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "startJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "startJMenuItemActionPerformed", e));
       }
    }//GEN-LAST:event_startJMenuItemActionPerformed
    private static InputAutomationJFrame INPUTAUTOMATION_JFRAME;
@@ -575,7 +570,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          {
             try
             {
-               LogUtil.put(new Log("Running", "Main", "run"));
+               LogUtil.put(LogFactory.getInstance("Running", "Main", "run"));
                INPUTAUTOMATION_JFRAME = new InputAutomationJFrame();
                InputRobotFactory.getInstance().addListener(InputAutomationJFrame.getInstance());
 
@@ -588,7 +583,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             } catch (Exception e)
             {
                String error = "Error";
-               LogUtil.put(new Log(error, this, "run", e));
+               LogUtil.put(LogFactory.getInstance(error, this, "run", e));
             }
          }
       });
@@ -613,12 +608,12 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(new Log("Start", this, "onAdd"));
+         LogUtil.put(LogFactory.getInstance("Start", this, "onAdd"));
 
          InputRobotFactory.getInstance().add(inputAutomationRobotChangeEvent.getInputAutomationRobotInterfaceWrapper().getInputRobotInterface());
       } catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "onAdd", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "onAdd", e));
       }
    }
 
@@ -626,12 +621,12 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(new Log("Start", this, "onRemove"));
+         LogUtil.put(LogFactory.getInstance("Start", this, "onRemove"));
 
          InputRobotFactory.getInstance().add(inputAutomationRobotChangeEvent.getInputAutomationRobotInterfaceWrapper().getInputRobotInterface());
       } catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "onRemove", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "onRemove", e));
       }
    }
 
@@ -639,7 +634,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(new Log("Start", this, "onAdd"));
+         LogUtil.put(LogFactory.getInstance("Start", this, "onAdd"));
 
          InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance();
 
@@ -651,7 +646,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          this.init();
       } catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "onAdd", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "onAdd", e));
       }
    }
 
@@ -659,7 +654,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(new Log("Start", this, "onRemove"));
+         LogUtil.put(LogFactory.getInstance("Start", this, "onRemove"));
 
          InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance();
 
@@ -671,7 +666,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          this.init();
       } catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "onRemove", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "onRemove", e));
       }
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables

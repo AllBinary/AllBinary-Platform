@@ -28,7 +28,7 @@ public class LogFactory
         }
         */
 
-        return new Log(specialMessage, object, functionName, exception);
+        return LogFactory.getInstance(specialMessage, object, functionName, exception);
     }
 
     public static final Log getInstance(
@@ -43,6 +43,6 @@ public class LogFactory
         }
         */
 
-        return new Log(specialMessage, object, functionName);
+        return LogFactory.getInstance(specialMessage, object, functionName);
     }
 }

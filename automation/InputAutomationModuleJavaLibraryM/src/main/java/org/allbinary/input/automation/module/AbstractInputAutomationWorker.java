@@ -48,11 +48,11 @@ abstract public class AbstractInputAutomationWorker
     {
         try
         {
-            LogUtil.put(new Log("Recieved Event", this, "onCaptureEvent"));
+            LogUtil.put(LogFactory.getInstance("Recieved Event", this, "onCaptureEvent"));
         }
         catch (Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "onCaptureEvent", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "onCaptureEvent", e));
         }
     }
     
@@ -96,7 +96,7 @@ abstract public class AbstractInputAutomationWorker
         {
             captureThread = new Thread(this.getCaptureWorker());
 
-            LogUtil.put(new Log("Starting CaptureWorkers - Need more images - Thread State: " + 
+            LogUtil.put(LogFactory.getInstance("Starting CaptureWorkers - Need more images - Thread State: " + 
                 captureThread.getState().toString(), 
                 this, "startCaptureWorkers"));
 
@@ -109,7 +109,7 @@ abstract public class AbstractInputAutomationWorker
     {
         while(isAnyDataWorkerRunning())
         {
-            LogUtil.put(new Log("Waiting", this, "run"));
+            LogUtil.put(LogFactory.getInstance("Waiting", this, "run"));
             Thread.sleep(250);
         }
     }
@@ -125,7 +125,7 @@ abstract public class AbstractInputAutomationWorker
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "run"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "run"));
             
             this.setRunning(true);
             
@@ -148,18 +148,18 @@ abstract public class AbstractInputAutomationWorker
                 
                 this.index++;
 
-                LogUtil.put(new Log(
+                LogUtil.put(LogFactory.getInstance(
                     "Time Elapsed: " + timeHelper.getElapsed() + " Index: " + this.index, this, "run"));
             }
             
             this.stopDataWorkers();
             this.waitForDataWorkers();
             
-            LogUtil.put(new Log("End", this, "run"));
+            LogUtil.put(LogFactory.getInstance("End", this, "run"));
         }
         catch (Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
         }
     }
     

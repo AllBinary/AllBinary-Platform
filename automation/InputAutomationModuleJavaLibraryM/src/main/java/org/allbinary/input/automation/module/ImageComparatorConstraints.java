@@ -56,7 +56,7 @@ abstract public class ImageComparatorConstraints
             Rectangle avoidRectangle = (Rectangle) iterator.next();
             if(RectangleCollisionUtil.isCollision(avoidRectangle, rectangle))
             {
-                //LogUtil.put(new Log(
+                //LogUtil.put(LogFactory.getInstance(
                 // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles"));
                 isCollsionWithAvoidRectangles = true;
             }
@@ -74,7 +74,7 @@ abstract public class ImageComparatorConstraints
             Rectangle avoidRectangle = (Rectangle) iterator.next();
             if(RectangleCollisionUtil.isCollision(avoidRectangle, point))
             {
-                //LogUtil.put(new Log(
+                //LogUtil.put(LogFactory.getInstance(
                 // rectangle + " collided with " + avoidRectangle, this, "isCollisionWithAvoidRectangles"));
                 isCollsionWithAvoidRectangles = true;
                 break;
@@ -101,7 +101,7 @@ abstract public class ImageComparatorConstraints
     public boolean isFrameAllowed(int frame)
     {
         int remainder = ((frame + 1) % this.doImageComparisonEveryNthFrame);
-        LogUtil.put(new Log(" Frame: " + frame + " remainder: " + remainder + " this.doImageComparisonEveryNthFrame: " + this.doImageComparisonEveryNthFrame, this, "isCollisionWithAvoidRectangles"));
+        LogUtil.put(LogFactory.getInstance(" Frame: " + frame + " remainder: " + remainder + " this.doImageComparisonEveryNthFrame: " + this.doImageComparisonEveryNthFrame, this, "isCollisionWithAvoidRectangles"));
         
         if(remainder == 0)
         {
@@ -121,7 +121,7 @@ abstract public class ImageComparatorConstraints
         while(iterator.hasNext())
         {
             Rectangle avoidRectangle = (Rectangle) iterator.next();
-            LogUtil.put(new Log(
+            LogUtil.put(LogFactory.getInstance(
                 "Avoid Rectangle: " + avoidRectangle, this, "log"));
         }
     }

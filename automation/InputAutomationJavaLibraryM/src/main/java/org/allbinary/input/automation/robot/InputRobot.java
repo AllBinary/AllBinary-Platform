@@ -18,12 +18,12 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Robot;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.PointHelper;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 import javax.help.HelpSet;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputRobot
    implements InputRobotInterface
@@ -53,7 +53,7 @@ public class InputRobot
 
       this.robot.mouseMove(point.x + x, point.y + y);
 
-      LogUtil.put(new Log(
+      LogUtil.put(LogFactory.getInstance(
             "Moved Mouse To: x: " + point.x + " y: " + point.y + " in the middle of: " + rectangle, 
             this, "moveMouseToTarget"));
    }
@@ -62,7 +62,7 @@ public class InputRobot
    {
       this.robot.mouseMove(point.x, point.y);
 
-      LogUtil.put(new Log(
+      LogUtil.put(LogFactory.getInstance(
             "Moved Mouse To: x: " + point.x + " y: " + point.y,
             this, "moveMouse"));
    }

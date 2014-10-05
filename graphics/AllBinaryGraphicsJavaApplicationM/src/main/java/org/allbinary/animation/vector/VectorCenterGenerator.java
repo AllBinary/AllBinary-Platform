@@ -54,7 +54,7 @@ public class VectorCenterGenerator {
             }
         }
 
-        LogUtil.put(new Log("minX: " + minX + " minY: " + minY + " maxX: " + maxX + " maxY: " + maxY, this, "getInstance"));
+        LogUtil.put(LogFactory.getInstance("minX: " + minX + " minY: " + minY + " maxX: " + maxX + " maxY: " + maxY, this, "getInstance"));
 
         setWidth(maxX - minX);
         setHeight(maxY - minY);
@@ -68,7 +68,7 @@ public class VectorCenterGenerator {
 
         int middle = max / 2;
 
-        LogUtil.put(new Log("width: " + getWidth() + " height: " + getHeight() + " max: " + max + " middle: " + middle, this, "getInstance"));
+        LogUtil.put(LogFactory.getInstance("width: " + getWidth() + " height: " + getHeight() + " max: " + max + " middle: " + middle, this, "getInstance"));
 
         int currentMiddleX = minX + getWidth() / 2;
         int currentMiddleY = minY + getHeight() / 2;
@@ -81,7 +81,7 @@ public class VectorCenterGenerator {
     public void transform(HashMap hashMap) throws Exception {
 
         this.calculate(hashMap);
-        LogUtil.put(new Log(" dx: " + dx + " dy: " + dy, this, "getInstance"));
+        LogUtil.put(LogFactory.getInstance(" dx: " + dx + " dy: " + dy, this, "getInstance"));
 
         Iterator iter = hashMap.keySet().iterator();
         while (iter.hasNext()) {
@@ -121,7 +121,7 @@ public class VectorCenterGenerator {
             }
 
         } catch (Exception e) {
-            LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, "VectorCenterGenerator", "getInstance", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, "VectorCenterGenerator", "getInstance", e));
             throw e;
         }
     }

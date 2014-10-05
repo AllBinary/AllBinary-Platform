@@ -32,7 +32,7 @@ public class CryptServiceFactory
     public Object getService(
         Bundle bundle, ServiceRegistration registration)
     {
-        LogUtil.put(new Log("Start", this, "getService"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "getService"));
 
         return this.cryptService;
     }

@@ -13,13 +13,13 @@
 */
 package org.allbinary.media.image;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class MirrorImageUtil
 {
@@ -31,7 +31,7 @@ public class MirrorImageUtil
    public static BufferedImage getImage(
       BufferedImage bufferedImage, boolean verticle, boolean horizontal)
    {
-      LogUtil.put(new Log("Starting", "MirrorImageUtil", "getImage"));
+      LogUtil.put(LogFactory.getInstance("Starting", "MirrorImageUtil", "getImage"));
 
       BufferedImage newBufferedImage = 
          BufferedImageUtil.create(
@@ -82,7 +82,7 @@ public class MirrorImageUtil
       if(horizontal)
          numberOfFrames *= 2;
 
-      LogUtil.put(new Log("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
+      LogUtil.put(LogFactory.getInstance("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
          " numberOfFrames: " + numberOfFrames, "MirrorImageUtil", ""));
       
       BufferedImage bufferedImageArray[] = new BufferedImage[numberOfFrames];
@@ -114,58 +114,4 @@ public class MirrorImageUtil
       return bufferedImageArray;
    }
 
-   public static BufferedImage createSpriteImage(
-      BufferedImage bufferedImageArray[])
-   {
-      GraphicsConfiguration gc = ImageUtil.getDefaultConfiguration();
-
-      int columns = bufferedImageArray.length;
-      int max = columns;
-      int rows = 0;
-
-      if (bufferedImageArray.length < columns)
-      {
-         columns = bufferedImageArray.length;
-      }
-
-      rows = (bufferedImageArray.length / columns);
-
-      //Extra row for incomplete but needed row
-      if (bufferedImageArray.length % columns != 0)
-      {
-         rows++;
-      }
-
-      BufferedImage bufferedImage = BufferedImageUtil.create(
-         bufferedImageArray[0].getWidth(null) * columns,
-         bufferedImageArray[0].getHeight(null) * rows);
-
-      Graphics2D g = bufferedImage.createGraphics();
-      //g.translate((neww-w)/2, (newh-h)/2);
-
-      int columnIndex = 0;
-      int rowIndex = 0;
-
-      for (int index = 0; index < bufferedImageArray.length; index++)
-      {
-         if (index / max != 0 && index % max == 0)
-         {
-            rowIndex++;
-            columnIndex = 0;
-         }
-
-         g.drawImage(bufferedImageArray[index],
-            bufferedImageArray[index].getWidth(null) * columnIndex,
-            bufferedImageArray[index].getHeight(null) * rowIndex,
-            bufferedImageArray[index].getWidth(null),
-            bufferedImageArray[index].getHeight(null), null);
-         //g.drawRenderedImage(image, null);
-
-         columnIndex++;
-      }
-
-      g.dispose();
-
-      return bufferedImage;
-   }
 }

@@ -48,14 +48,14 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
          
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put("Command Success",this,"insert");
+            LogUtil.put(LogFactory.getInstance("Command Success",this,"insert");
          }
       }
       catch(Exception e)
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put("Command Failed",this,"insert",e);
+            LogUtil.put(LogFactory.getInstance("Command Failed",this,"insert",e);
          }
       }
    }

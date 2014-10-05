@@ -561,7 +561,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             this.fileJDialog.setVisible(false);
         } catch (Exception e)
         {
-            LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "onFiles", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onFiles", e));
         }
     }
 
@@ -589,7 +589,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     {
         try
         {
-            LogUtil.put(new Log("Starting", this, "openImageJMenuItemActionPerformed"));
+            LogUtil.put(LogFactory.getInstance("Starting", this, "openImageJMenuItemActionPerformed"));
             fileJDialog.setVisible(true);
         } catch (Exception e)
         {

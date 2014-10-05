@@ -30,13 +30,14 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
 import org.allbinary.logic.basic.io.file.filter.BasicFileFilterUtil;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.thread.RunnableInterface;
-import org.allbinary.time.TimeHelper;
 
 import bundle.input.automation.InputAutomationBundleActivator;
+import org.allbinary.logic.basic.io.file.FileWrapperUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.time.TimeDelayHelper;
 
 public class InputAutomationNewBundleRunnable
     implements RunnableInterface
@@ -59,6 +60,11 @@ public class InputAutomationNewBundleRunnable
         this.fileVector = new Vector();
     }
     
+    public void setThread(Thread thread)throws Exception
+    {
+        
+    }
+
     public synchronized boolean isRunning()
     {
         return running;
@@ -84,7 +90,7 @@ public class InputAutomationNewBundleRunnable
     private void updateModules()
     throws Exception
     {
-        LogUtil.put(new Log("Start", this, "updateModules"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "updateModules"));
         
         Vector vector = this.findNewModules();
         Iterator iterator = vector.iterator();
@@ -102,12 +108,12 @@ public class InputAutomationNewBundleRunnable
     private HashMap getAllJarSymbolicNameHashMap()
     throws Exception
     {
-        LogUtil.put(new Log("Start", this, "getAllJarSymbolicNameHashMap"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "getAllJarSymbolicNameHashMap"));
         
         HashMap hashMap = new HashMap();
         Vector jarFileVector = this.getJarModuleFileVector();
         
-        LogUtil.put(new Log("Jar Module Files: " + jarFileVector, this, "getAllJarSymbolicNameHashMap"));
+        LogUtil.put(LogFactory.getInstance("Jar Module Files: " + jarFileVector, this, "getAllJarSymbolicNameHashMap"));
         
         Iterator iterator = jarFileVector.iterator();
         while(iterator.hasNext())
@@ -138,7 +144,7 @@ public class InputAutomationNewBundleRunnable
     
     private Vector getJarModuleFileVector()
     {
-        LogUtil.put(new Log("Start", this, "getJarModuleFileVector"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "getJarModuleFileVector"));
         
         String baseJarPath = System.getProperty(JAR_DIR_PROP);
         
@@ -151,20 +157,20 @@ public class InputAutomationNewBundleRunnable
         
         String path = baseJarPath + INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH;
         
-        LogUtil.put(new Log("Path: " + path, this, "getJarModuleFileVector"));
+        LogUtil.put(LogFactory.getInstance("Path: " + path, this, "getJarModuleFileVector"));
         
         File file = new File(path);
         
-        LogUtil.put(new Log("File: " + file.getAbsolutePath() +
+        LogUtil.put(LogFactory.getInstance("File: " + file.getAbsolutePath() +
             " isDirectory: " + file.isDirectory(), this, "getJarModuleFileVector"));
         
-        return new SubDirectory().search(jarFileFilter, file);
+        return new SubDirectory().search(jarFileFilter, FileWrapperUtil.wrapFile(file));
     }
     
     private Vector getInstalledJarSymbolicNameVector()
     throws Exception
     {
-        LogUtil.put(new Log("Start", this, "getInstalledJarSymbolicNameVector"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "getInstalledJarSymbolicNameVector"));
         
         Vector vector = new Vector();
         
@@ -175,7 +181,7 @@ public class InputAutomationNewBundleRunnable
         
         if(bundleArray != null)
         {
-            LogUtil.put(new Log("bundleArray: " + bundleArray.length,
+            LogUtil.put(LogFactory.getInstance("bundleArray: " + bundleArray.length,
                 "InputAutomationBundleActivator", "getInputAutomationModuleServices"));
             
             for(int index = 0; index < bundleArray.length; index++)
@@ -190,7 +196,7 @@ public class InputAutomationNewBundleRunnable
     private boolean isInstalled(String symbolicName)
     throws Exception
     {
-        LogUtil.put(new Log("Start: " + symbolicName, this, "isInstalled"));
+        LogUtil.put(LogFactory.getInstance("Start: " + symbolicName, this, "isInstalled"));
         
         Vector vector = this.getInstalledJarSymbolicNameVector();
         Iterator iterator = vector.iterator();
@@ -207,12 +213,12 @@ public class InputAutomationNewBundleRunnable
     
     private Vector findNewModules() throws Exception
     {
-        LogUtil.put(new Log("Start", this, "findNewModules"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "findNewModules"));
         
         Vector vector = new Vector();
         HashMap hashMap = this.getAllJarSymbolicNameHashMap();
         
-        LogUtil.put(new Log("All: " + hashMap, this, "findNewModules"));
+        LogUtil.put(LogFactory.getInstance("All: " + hashMap, this, "findNewModules"));
         
         Set set = hashMap.keySet();
         Iterator iterator = set.iterator();
@@ -229,7 +235,7 @@ public class InputAutomationNewBundleRunnable
     
     private Bundle install(URL url) throws Exception
     {
-        LogUtil.put(new Log("Start: " + url, this, "install"));
+        LogUtil.put(LogFactory.getInstance("Start: " + url, this, "install"));
         
         BundleContext bundleContext =
             InputAutomationBundleActivator.getBundleContext();
@@ -241,28 +247,28 @@ public class InputAutomationNewBundleRunnable
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "run"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "run"));
             
             this.setRunning(true);
             
-            TimeHelper timeHelper = new TimeHelper(1000);
+            TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
             while(this.isRunning())
             {
                 timeHelper.setStartTime();
                 
-                LogUtil.put(new Log(
+                LogUtil.put(LogFactory.getInstance(
                     "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
                 
                 this.updateModules();
                 //Thread.sleep(10000);
                 break;
             }
-            LogUtil.put(new Log("End", this, "run"));
+            LogUtil.put(LogFactory.getInstance("End", this, "run"));
         }
         catch (Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
         }
     }
 }

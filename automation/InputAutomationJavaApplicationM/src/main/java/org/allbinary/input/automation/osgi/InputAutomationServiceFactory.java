@@ -17,9 +17,9 @@ import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceRegistration;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.InputAutomationJFrame;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputAutomationServiceFactory
     implements ServiceFactory
@@ -39,7 +39,7 @@ public class InputAutomationServiceFactory
     public Object getService(
         Bundle bundle, ServiceRegistration registration)
     {
-        LogUtil.put(new Log("Start", this, "getService"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "getService"));
 
         return InputAutomationJFrame.getInstance();
         

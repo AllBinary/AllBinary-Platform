@@ -13,14 +13,13 @@
 */
 package org.allbinary.media.image;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
-import java.awt.Transparency;
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageUnifierUtil
 {
@@ -46,7 +45,7 @@ public class ImageUnifierUtil
             imageUnifierProperties.getHeight()
             );
         
-        LogUtil.put(new Log("Setting Image: Width: " + newBufferedImage.getWidth() + 
+        LogUtil.put(LogFactory.getInstance("Setting Image: Width: " + newBufferedImage.getWidth() + 
             " Height: " + newBufferedImage.getHeight(), 
                 "ImageUnifierUtil", "getImage"));
         
@@ -61,7 +60,7 @@ public class ImageUnifierUtil
             int y = imageUnifierProperties.getImageUnifierCell().getHeight().intValue() * rowIndex;
             //imageUnifierProperties.getRows()
             
-            LogUtil.put(new Log("Adding Image: " + index + " x: " + x + " y: " + y, 
+            LogUtil.put(LogFactory.getInstance("Adding Image: " + index + " x: " + x + " y: " + y, 
                 "ImageUnifierUtil", "getImage"));
             
             g.drawImage(bufferedImageArray[index], x , y,

@@ -105,7 +105,7 @@ public class CategoryPrivateTree
          {
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-               LogUtil.put("Removed: " + categoryInterface.getFilePath(), 
+               LogUtil.put(LogFactory.getInstance("Removed: " + categoryInterface.getFilePath(), 
                   this, "remove(CategoryInterface)");
             }
          }
@@ -229,7 +229,7 @@ public class CategoryPrivateTree
       
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
       {
-         LogUtil.put("end", this, "remove()");
+         LogUtil.put(LogFactory.getInstance("end", this, "remove()");
       }      
    }
 */   
@@ -285,7 +285,7 @@ public class CategoryPrivateTree
                {
                   if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                   {
-                     LogUtil.put("Already Exists" + newCategory,this,"modifyFile");
+                     LogUtil.put(LogFactory.getInstance("Already Exists" + newCategory,this,"modifyFile");
                   }
                   return;
                }
@@ -314,7 +314,7 @@ public class CategoryPrivateTree
                {
                   if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                   {
-                     LogUtil.put("Inserting: " + newCategory,this,"modifyFile");
+                     LogUtil.put(LogFactory.getInstance("Inserting: " + newCategory,this,"modifyFile");
                   }
 
                   categoryNode.insertBefore(newCategoryNode,categoriesNode);

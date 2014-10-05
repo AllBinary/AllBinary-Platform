@@ -87,7 +87,7 @@ public class Hardware implements HardwareInterface
       
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
       {
-         LogUtil.put(new Log("Hardware Data: " + this.toString(), this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, "Constructor()"));
       }
    }
    
@@ -102,7 +102,7 @@ public class Hardware implements HardwareInterface
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
          {
-            LogUtil.put(new Log("Hardware Data: " + this.toString(), this, "Constructor()",e));
+            LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, "Constructor()",e));
          }
          throw e;
       }
@@ -150,7 +150,7 @@ public class Hardware implements HardwareInterface
          {
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
             {
-               LogUtil.put(new Log("PCI File Found", this, "Constructor()"));
+               LogUtil.put(LogFactory.getInstance("PCI File Found", this, "Constructor()"));
             }
             
             String nextLine = lineNumberReader.readLine();
@@ -172,7 +172,7 @@ public class Hardware implements HardwareInterface
 
                if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
                {
-                  LogUtil.put(new Log("Found Hardware Device: " + componentInterfaceVector.size(), this, "Constructor()"));
+                  LogUtil.put(LogFactory.getInstance("Found Hardware Device: " + componentInterfaceVector.size(), this, "Constructor()"));
                }
                
                componentData.append(nextLine);
@@ -205,7 +205,7 @@ public class Hardware implements HardwareInterface
          {
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
             {
-               LogUtil.put(new Log("Could not load PCI File", this, "Constructor()"));
+               LogUtil.put(LogFactory.getInstance("Could not load PCI File", this, "Constructor()"));
             }
          }
          

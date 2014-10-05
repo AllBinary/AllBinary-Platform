@@ -174,7 +174,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       /*
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAX))
       {
-         LogUtil.put("Number Of Tax Nodes: " + nodeList.getLength(), this,"isValid()");
+         LogUtil.put(LogFactory.getInstance("Number Of Tax Nodes: " + nodeList.getLength(), this,"isValid()");
       }
       */
       
@@ -185,7 +185,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          /*
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAX))
          {
-            LogUtil.put("Node: " + node.getNodeName(), this,"isValid()");
+            LogUtil.put(LogFactory.getInstance("Node: " + node.getNodeName(), this,"isValid()");
          }
          */
          
@@ -194,7 +194,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          /*
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAX))
          {
-            LogUtil.put("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,"isValid()");
+            LogUtil.put(LogFactory.getInstance("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,"isValid()");
          }
          */
          

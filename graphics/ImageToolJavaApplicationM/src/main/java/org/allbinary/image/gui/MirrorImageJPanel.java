@@ -19,7 +19,7 @@ import java.awt.image.RenderedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.MirrorImageUtil;
 
@@ -35,7 +35,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
    {
       super();
 
-      LogUtil.put(new Log("Starting", this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("Starting", this, "Constructor"));
 
       initComponents();
       this.imageProcessorInput = imageProcessorInput;
@@ -82,7 +82,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                      
                      filePath = filePath.substring(0, extensionIndex) + "_mirror" + ".png";
                      
-                     LogUtil.put(new Log("Renamed File: " + filePath, this, ""));
+                     LogUtil.put(LogFactory.getInstance("Renamed File: " + filePath, this, ""));
                      
                      file = new File(filePath);
                   }
@@ -91,14 +91,14 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                         (RenderedImage) MirrorImageJPanel.this.result,
                         "PNG", file);
                   
-                  LogUtil.put(new Log("File: " + file + " Wrote: " + isWritten, this, ""));
+                  LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, ""));
                   MirrorImageJPanel.this.getParent().repaint();
                }
 
             }
             catch (Exception e)
             {
-               LogUtil.put(new Log("Exception", this, "run", e));
+               LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
             }
          }
       }.start();
@@ -139,7 +139,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
       jPanel1.setLayout(jPanel1Layout);
       jPanel1Layout.setHorizontalGroup(
          jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-         .add(0, 492, Short.MAX_VALUE)
+         .add(0, 522, Short.MAX_VALUE)
       );
       jPanel1Layout.setVerticalGroup(
          jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -194,7 +194,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                .add(verticleJCheckBox)
                .add(writeOverOriginalJRadioButton)
                .add(renameJRadioButton)
-               .add(generateJButton, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+               .add(generateJButton))
             .addContainerGap())
       );
 
@@ -223,7 +223,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
             .addContainerGap())
          .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
          .add(layout.createSequentialGroup()
-            .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 482, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
       );
       layout.setVerticalGroup(

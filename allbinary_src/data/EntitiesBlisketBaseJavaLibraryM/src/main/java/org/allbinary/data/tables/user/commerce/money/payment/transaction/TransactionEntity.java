@@ -110,7 +110,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
             
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-               LogUtil.put("Command Success",this,"getTransactionInterface()");
+               LogUtil.put(LogFactory.getInstance("Command Success",this,"getTransactionInterface()");
             }
             return (PaymentTransactionInterface) paymentTransactionInterface;
          }
@@ -123,7 +123,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put("Command Failed",this,"getTransactionResultInterface()",e);
+            LogUtil.put(LogFactory.getInstance("Command Failed",this,"getTransactionResultInterface()",e);
          }
          return null;
       }

@@ -37,14 +37,14 @@ public class OSGIServiceUtil
         
         if(serviceReferences != null)
         {
-            LogUtil.put(new Log("Service References: " + serviceReferences.length, 
+            LogUtil.put(LogFactory.getInstance("Service References: " + serviceReferences.length, 
                 "OSGIServiceUtil", "getServicesObjectVector"));
             
             for(int index = 0; index < serviceReferences.length; index++)
             {
                 ServiceReference serviceReference = serviceReferences[index];
 
-                //LogUtil.put(new Log("Service Reference Properties: " + stringBuffer.toString(), this, "getInputAutomationModuleServices"));
+                //LogUtil.put(LogFactory.getInstance("Service Reference Properties: " + stringBuffer.toString(), this, "getInputAutomationModuleServices"));
                 
                 if(serviceReference != null)
                 {

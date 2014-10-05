@@ -43,7 +43,7 @@ public class OperatingSystemFactory
                 {
                     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
                     {
-                        LogUtil.put(new Log("Found a Linux OS", "OperatingSystemsFactory", "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Linux OS", "OperatingSystemsFactory", "getInstance()"));
                     }
                     
                     OperatingSystemFactory.operatingSystemInterface =
@@ -54,7 +54,7 @@ public class OperatingSystemFactory
                 {
                     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
                     {
-                        LogUtil.put(new Log("Found a Windows OS", "OperatingSystemsFactory", "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Windows OS", "OperatingSystemsFactory", "getInstance()"));
                     }
                     OperatingSystemFactory.operatingSystemInterface =
                         (OperatingSystemInterface) 
@@ -64,7 +64,7 @@ public class OperatingSystemFactory
                 {
                     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
                     {
-                        LogUtil.put(new Log("Found a Solaris OS", "OperatingSystemsFactory", "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Solaris OS", "OperatingSystemsFactory", "getInstance()"));
                     }
                     
                     OperatingSystemFactory.operatingSystemInterface =
@@ -76,7 +76,7 @@ public class OperatingSystemFactory
                 }
             }
             
-            Log log = new Log("OperatingSystem Info: " + OperatingSystemFactory.operatingSystemInterface, "OperatingSystemFactory", "getInstance()");
+            Log log = LogFactory.getInstance("OperatingSystem Info: " + OperatingSystemFactory.operatingSystemInterface, "OperatingSystemFactory", "getInstance()");
             System.out.println(log.toString());
             LogUtil.put(log);
             

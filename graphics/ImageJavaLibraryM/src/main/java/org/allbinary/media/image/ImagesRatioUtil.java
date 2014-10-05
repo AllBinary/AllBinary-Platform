@@ -13,11 +13,11 @@
 */
 package org.allbinary.media.image;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImagesRatioUtil
 {
@@ -82,7 +82,7 @@ public class ImagesRatioUtil
             point.y = (newHeight - bufferedImage.getHeight())/2;
         }
         
-        LogUtil.put(new Log(
+        LogUtil.put(LogFactory.getInstance(
             "Height: " + bufferedImage.getHeight() + " newHeight: " + newHeight +
             "Width: " + bufferedImage.getWidth() + " newWidth: " + newWidth +
             " needed ratio: " + ((double) newWidth/newHeight),
@@ -99,7 +99,7 @@ public class ImagesRatioUtil
             int data[] = new int[bufferedImage.getHeight()];
             byte bytes[] = new byte[data.length * 4];
          
-            LogUtil.put(new Log("Get the first column of the original of: " + bytes.length, 
+            LogUtil.put(LogFactory.getInstance("Get the first column of the original of: " + bytes.length, 
                 "ImageRatioUtil", "fudge"));
 
             bufferedImage.getRGB(
@@ -125,7 +125,7 @@ public class ImagesRatioUtil
             BufferedImage lastColumnBufferedImage = bufferedImage.getSubimage(
                 bufferedImage.getWidth() - 1, 0, 1, bufferedImage.getHeight());
             
-            LogUtil.put(new Log("Draw some columns to fill in gap", "ImageRatioUtil", "fudge"));
+            LogUtil.put(LogFactory.getInstance("Draw some columns to fill in gap", "ImageRatioUtil", "fudge"));
             
             //g.setColor(Color.RED);
             
@@ -145,7 +145,7 @@ public class ImagesRatioUtil
             int data[] = new int[bufferedImage.getWidth()];
             byte bytes[] = new byte[data.length * 4];
          
-            LogUtil.put(new Log("Get the first row of the original of: " + bytes.length, 
+            LogUtil.put(LogFactory.getInstance("Get the first row of the original of: " + bytes.length, 
                 "ImageRatioUtil", "fudge"));
 
             bufferedImage.getRGB(
@@ -172,7 +172,7 @@ public class ImagesRatioUtil
             BufferedImage lastRowBufferedImage = bufferedImage.getSubimage(
                 0, bufferedImage.getHeight() - 1, bufferedImage.getWidth(), 1);
             
-            LogUtil.put(new Log("Draw some rows to fill in gap", "ImageRatioUtil", "fudge"));
+            LogUtil.put(LogFactory.getInstance("Draw some rows to fill in gap", "ImageRatioUtil", "fudge"));
             
             //g.setColor(Color.RED);
             

@@ -19,8 +19,9 @@ import java.awt.image.RenderedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.media.image.BufferedImageUtil2;
 import org.allbinary.media.image.MirrorImageUtil;
 
 public class MirrorSpriteImageJPanel extends javax.swing.JPanel
@@ -34,7 +35,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
    {
       super();
 
-      LogUtil.put(new Log("Starting", this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("Starting", this, "Constructor"));
 
       initComponents();
       this.imageProcessorInput = imageProcessorInput;
@@ -67,7 +68,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
                      MirrorSpriteImageJPanel.this.horizontalJCheckBox.isSelected());
 
                   MirrorSpriteImageJPanel.this.result =
-                     MirrorImageUtil.createSpriteImage(
+                     BufferedImageUtil2.createSpriteImage(
                      generatedBufferedImageArray);
 
                   MirrorSpriteImageJPanel.this.getParent().repaint();
@@ -81,7 +82,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
                      
                      filePath = filePath.substring(0, extensionIndex) + "_mirror" + ".png";
                      
-                     LogUtil.put(new Log("Renamed File: " + filePath, this, ""));
+                     LogUtil.put(LogFactory.getInstance("Renamed File: " + filePath, this, ""));
                      
                      file = new File(filePath);
                   }
@@ -90,14 +91,14 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
                      (RenderedImage) MirrorSpriteImageJPanel.this.result,
                      "PNG", file);
 
-                  LogUtil.put(new Log("File: " + file + " Wrote: " + isWritten, this, ""));
+                  LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, ""));
 
                }
 
             }
             catch (Exception e)
             {
-               LogUtil.put(new Log("Exception", this, "run", e));
+               LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
             }
          }
       }.start();

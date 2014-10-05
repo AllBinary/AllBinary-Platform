@@ -108,22 +108,22 @@ public class LicenseClientAndServerTest
 
                 stringBuffer.append(END);
 
-                LogUtil.put(new Log(RESULT + stringBuffer.toString(), this, "test"));
+                LogUtil.put(LogFactory.getInstance(RESULT + stringBuffer.toString(), this, "test"));
                 
                 stringBuffer.delete(0, stringBuffer.length());
 
         } catch (Exception e)
         {
             list.add(serverName);
-            LogUtil.put(new Log("Test Error: " + stringBuffer.toString(), this, "test", e));
+            LogUtil.put(LogFactory.getInstance("Test Error: " + stringBuffer.toString(), this, "test", e));
         }
 
             }
 
-            LogUtil.put(new Log("Failed: " + list.toString(), this, "test"));
+            LogUtil.put(LogFactory.getInstance("Failed: " + list.toString(), this, "test"));
         } catch (Exception e)
         {
-            LogUtil.put(new Log("Test Error: " + stringBuffer.toString(), this, "test", e));
+            LogUtil.put(LogFactory.getInstance("Test Error: " + stringBuffer.toString(), this, "test", e));
         }
     }
 
@@ -137,7 +137,7 @@ public class LicenseClientAndServerTest
     System.out.println(licenseInfo);
     } catch (Exception e)
     {
-    LogUtil.put(new Log("Exception", this, "test()", e));
+    LogUtil.put(LogFactory.getInstance("Exception", this, "test()", e));
     }
     }
      */
@@ -149,7 +149,7 @@ public class LicenseClientAndServerTest
             licensingTest.test();
         } catch (Exception e)
         {
-            LogUtil.put(new Log("Exception", "", "main()", e));
+            LogUtil.put(LogFactory.getInstance("Exception", "", "main()", e));
         }
     }
 }

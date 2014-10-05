@@ -35,7 +35,7 @@ public class CryptService
    {
       Globals.init(this.getClass().getClassLoader(), "./");
 
-      LogUtil.put(new Log("Set Globals: " + URLGLOBALS.getWebappPath(), this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("Set Globals: " + URLGLOBALS.getWebappPath(), this, "Constructor"));
    }
 
    public InputStream getDecryptedInputStream(String name, InputStream inputStream)
@@ -72,7 +72,7 @@ public class CryptService
       {
          String error = "Licensing Exception";
 
-         LogUtil.put(new Log(error, this, "init", e));
+         LogUtil.put(LogFactory.getInstance(error, this, "init", e));
 
          BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
 
@@ -89,7 +89,7 @@ public class CryptService
             }
          } catch (LicensingException e2)
          {
-            LogUtil.put(new Log(error, this, "init", e2));
+            LogUtil.put(LogFactory.getInstance(error, this, "init", e2));
          }
 
          basicTextJDialog.addCloseListener(new ExitCloseListener());
@@ -97,7 +97,7 @@ public class CryptService
       } catch (Exception e3)
       {
          String error = "Error";
-         LogUtil.put(new Log(error, this, "init", e3));
+         LogUtil.put(LogFactory.getInstance(error, this, "init", e3));
       }
    }
 }

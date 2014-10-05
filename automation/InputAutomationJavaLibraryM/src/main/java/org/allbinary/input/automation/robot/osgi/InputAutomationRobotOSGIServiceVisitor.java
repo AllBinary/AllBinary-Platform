@@ -13,11 +13,11 @@
 */
 package org.allbinary.input.automation.robot.osgi;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
 
@@ -39,7 +39,7 @@ public class InputAutomationRobotOSGIServiceVisitor
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "visit"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "visit"));
             
             InputAutomationRobotServiceInterface
                 inputAutomationRobotServiceInterface =
@@ -50,7 +50,7 @@ public class InputAutomationRobotOSGIServiceVisitor
             
             for(int index = 0; index < inputRobotInterfaceArray.length; index++)
             {
-                LogUtil.put(new Log("Adding: " + 
+                LogUtil.put(LogFactory.getInstance("Adding: " + 
                     inputRobotInterfaceArray[index].getName(), this, "visit"));
                 InputRobotFactory.getInstance().add(inputRobotInterfaceArray[index]);
             }
@@ -58,7 +58,7 @@ public class InputAutomationRobotOSGIServiceVisitor
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "visit", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "visit", e));
             return Boolean.FALSE;
         }
     }

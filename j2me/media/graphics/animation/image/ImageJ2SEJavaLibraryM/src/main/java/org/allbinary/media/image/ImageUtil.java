@@ -19,7 +19,7 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class ImageUtil
@@ -33,7 +33,7 @@ public class ImageUtil
    {
       try
       {
-         LogUtil.put(new Log("Start", "ImageUtil", "Static Block"));
+         LogUtil.put(LogFactory.getInstance("Start", "ImageUtil", "Static Block"));
 
          /*
          poolInterface =
@@ -43,11 +43,11 @@ public class ImageUtil
          CachePolicy.MAX_TIME_THOUSAND_MAX);
           */
 
-         LogUtil.put(new Log("End", "ImageUtil", "Static Block"));
+         LogUtil.put(LogFactory.getInstance("End", "ImageUtil", "Static Block"));
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", "ImageUtil", "Static Block", e));
+         LogUtil.put(LogFactory.getInstance("Exception", "ImageUtil", "Static Block", e));
       }
    }
 

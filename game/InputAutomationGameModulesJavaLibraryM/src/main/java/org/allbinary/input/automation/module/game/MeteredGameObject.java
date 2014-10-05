@@ -44,7 +44,7 @@ public class MeteredGameObject
             bufferedImage[index], this.getMinX(), this.getMaxX(), this.getY());
 
          this.getRatios()[index] = new Double(nominator / this.getSize());
-         //LogUtil.put(new Log("hitPointRatios[index]" + hitPointRatios[index], this, "Constructor"));
+         //LogUtil.put(LogFactory.getInstance("hitPointRatios[index]" + hitPointRatios[index], this, "Constructor"));
       }
       
       if (this.getRatios()[bufferedImage.length - 1].doubleValue() > 0.93F)

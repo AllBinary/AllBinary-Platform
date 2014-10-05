@@ -43,7 +43,7 @@ public class InputAutomationConfiguration
     throws Exception
     {
         /*
-        LogUtil.put("Start", this, "Constructor");
+        LogUtil.put(LogFactory.getInstance("Start", this, "Constructor");
 
         //AbPath abPath = new AbPath("", FILENAME);
         byte bytes[]= new byte[100000];
@@ -84,7 +84,7 @@ public class InputAutomationConfiguration
         InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
         throws Exception
     {
-        LogUtil.put("Adding: " + inputAutomationModuleConfiguration.getName(), this, "add");
+        LogUtil.put(LogFactory.getInstance("Adding: " + inputAutomationModuleConfiguration.getName(), this, "add");
 
         Node newNode = inputAutomationModuleConfiguration.toDomNode(
             this.getDocument());
@@ -105,7 +105,7 @@ public class InputAutomationConfiguration
     public void remove(InputAutomationModuleFactoryInterface inputAutomationModuleInterface)
         throws Exception
     {
-        LogUtil.put("Removing: " + inputAutomationModuleInterface.getName(), this, "remove");
+        LogUtil.put(LogFactory.getInstance("Removing: " + inputAutomationModuleInterface.getName(), this, "remove");
 
         Document document = this.getDocument();
         
@@ -115,7 +115,7 @@ public class InputAutomationConfiguration
         NodeList nameNodeList =
             document.getElementsByTagName(InputAutomationModuleData.NAME);
         
-        LogUtil.put("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"remove");
+        LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"remove");
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {
@@ -132,7 +132,7 @@ public class InputAutomationConfiguration
                     String className =
                         DomNodeHelper.getTextNodeValue(classNameNode);
                     
-                    LogUtil.put("Name : " + className, this, "Contructor");
+                    LogUtil.put(LogFactory.getInstance("Name : " + className, this, "Contructor");
                     
                     InputAutomationModuleFactoryInterface gameAutomationRobotModuleInterface =
                         (InputAutomationModuleFactoryInterface) AbeFactory.getInstance(className);
@@ -146,7 +146,7 @@ public class InputAutomationConfiguration
                 }
                 else
                 {
-                    LogUtil.put("Class Node Null", this,"Contructor");
+                    LogUtil.put(LogFactory.getInstance("Class Node Null", this,"Contructor");
                 }
             }
             else
@@ -166,7 +166,7 @@ public class InputAutomationConfiguration
     public void setInstalled(boolean installed)
     {
         this.installed = installed;
-        LogUtil.put(new Log("Installed: " + installed, this, "setIntalled"));
+        LogUtil.put(LogFactory.getInstance("Installed: " + installed, this, "setIntalled"));
     }
     
     public void save()

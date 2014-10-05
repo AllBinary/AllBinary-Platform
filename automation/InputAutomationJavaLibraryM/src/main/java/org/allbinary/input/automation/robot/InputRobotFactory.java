@@ -24,12 +24,12 @@ import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.logic.system.loader.SecuredNativeLibraryInterface;
 import java.util.Collection;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputRobotFactory
 {
@@ -54,12 +54,12 @@ public class InputRobotFactory
                     inputRobotInterface.getName(), inputRobotInterface);
             }
             
-            LogUtil.put(new Log(
+            LogUtil.put(LogFactory.getInstance(
                 "Number Of Robots: " + this.hashtable.size(), this, "getRobots"));
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "Constructor"));
         }
     }
     
@@ -76,7 +76,7 @@ public class InputRobotFactory
     public void add(InputRobotInterface inputRobotInterface)
     throws Exception
     {
-        LogUtil.put(new Log("Adding InputRobotInterface: " + inputRobotInterface.getName(), this, "add"));
+        LogUtil.put(LogFactory.getInstance("Adding InputRobotInterface: " + inputRobotInterface.getName(), this, "add"));
         this.get().put(
             inputRobotInterface.getName(), inputRobotInterface);
         
@@ -94,13 +94,13 @@ public class InputRobotFactory
             }
             else
             {
-                LogUtil.put(new Log("Null HelpSet For: " +
+                LogUtil.put(LogFactory.getInstance("Null HelpSet For: " +
                     inputRobotInterface.getName(), this, "add"));
             }
         }
         else
         {
-            LogUtil.put(new Log("No HelpSet Listener", this, "add"));
+            LogUtil.put(LogFactory.getInstance("No HelpSet Listener", this, "add"));
         }
     }
     
@@ -108,7 +108,7 @@ public class InputRobotFactory
     throws Exception
     {
         Set set = this.get().keySet();
-        LogUtil.put(new Log("Loading Libraries", "InputRobotFactory", "loadLibraries"));
+        LogUtil.put(LogFactory.getInstance("Loading Libraries", "InputRobotFactory", "loadLibraries"));
         Iterator iterator = set.iterator();
         while(iterator.hasNext())
         {
@@ -121,7 +121,7 @@ public class InputRobotFactory
     public static void loadLibraries(Collection collection)
     throws Exception
     {
-        LogUtil.put(new Log("Loading Libraries", "InputRobotFactory", "loadLibraries"));
+        LogUtil.put(LogFactory.getInstance("Loading Libraries", "InputRobotFactory", "loadLibraries"));
         Iterator iterator = collection.iterator();
         while(iterator.hasNext())
         {
@@ -135,7 +135,7 @@ public class InputRobotFactory
         if(InterfaceUtil.isImplemented(
             SecuredNativeLibraryInterface.class, inputRobotInterface))
         {
-            LogUtil.put(new Log("Loading Library: " + 
+            LogUtil.put(LogFactory.getInstance("Loading Library: " + 
                 inputRobotInterface.getName(), 
                 "InputRobotFactory", "loadLibraries"));
             
@@ -148,7 +148,7 @@ public class InputRobotFactory
     public void unloadLibraries() 
         throws Exception
     {
-        LogUtil.put(new Log("Unloading Libraries", this, "unloadLibraries"));
+        LogUtil.put(LogFactory.getInstance("Unloading Libraries", this, "unloadLibraries"));
         Set set = this.get().keySet();
         Iterator iterator = set.iterator();
         while(iterator.hasNext())
@@ -159,7 +159,7 @@ public class InputRobotFactory
             if(InterfaceUtil.isImplemented(
                 SecuredNativeLibraryInterface.class, inputRobotInterface))
             {
-                LogUtil.put(new Log("Unloading Library: " + inputRobotInterface.getName(),
+                LogUtil.put(LogFactory.getInstance("Unloading Library: " + inputRobotInterface.getName(),
                     this, "unloadLibraries"));
                 
                 SecuredNativeLibraryInterface securedNativeLibraryInterface =

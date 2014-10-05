@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.cache;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.cache.CachePolicyFactory;
 import org.allbinary.logic.util.cache.PoolInterface;
@@ -28,7 +28,7 @@ public class BufferedImagePoolSingleton
     {
         try
         {
-            LogUtil.put(new Log("Start", "BufferedImagePoolSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("Start", "BufferedImagePoolSingleton", "Static Block"));
             
             poolInterface =
                 PoolInterfaceFactory.getInstance(
@@ -36,11 +36,11 @@ public class BufferedImagePoolSingleton
                 PoolTypeFactory.getInstance().SHIFT_ONE_VECTOR_POOL, 
                 CachePolicyFactory.getInstance().MAX_TIME_THOUSAND_MAX);
             
-            LogUtil.put(new Log("End", "BufferedImagePoolSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance("End", "BufferedImagePoolSingleton", "Static Block"));
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", "BufferedImagePoolSingleton", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance("Exception", "BufferedImagePoolSingleton", "Static Block", e));
         }
     }
     

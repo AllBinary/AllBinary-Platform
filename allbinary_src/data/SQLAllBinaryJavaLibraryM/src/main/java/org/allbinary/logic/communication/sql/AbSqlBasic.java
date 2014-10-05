@@ -200,7 +200,7 @@ public class AbSqlBasic
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
                     {
                         LogUtil.put(LogFactory.getInstance("Load JDBC Driver Failed: " + this.getDatabaseConnectionInfoInterface().getJdbcDriver(), this, "initialize", e));
-                        //LogUtil.put("Load mySQL Driver Failed: com.mysql.jdbc.Driver",this,"initialize",e);
+                        //LogUtil.put(LogFactory.getInstance("Load mySQL Driver Failed: com.mysql.jdbc.Driver",this,"initialize",e);
                     }
                 }
 

@@ -13,7 +13,6 @@
 */
 package org.allbinary.input.automation.module.osgi;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.InputAutomationJFrame;
 import org.allbinary.input.automation.configuration.InputAutomationConfigurationUtil;
@@ -21,6 +20,7 @@ import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterfa
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
 import bundle.input.automation.module.InputAutomationModuleService;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputAutomationModuleOSGIServiceVisitor
     implements OSGIServiceVisitorInterface
@@ -54,7 +54,7 @@ public class InputAutomationModuleOSGIServiceVisitor
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "visit", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "visit", e));
             return Boolean.FALSE;
         }
     }

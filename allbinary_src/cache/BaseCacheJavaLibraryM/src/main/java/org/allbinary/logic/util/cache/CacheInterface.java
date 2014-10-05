@@ -22,6 +22,5 @@ public interface CacheInterface
 {
     void add(CacheableInterface cacheableInterface) throws Exception;
     void add(CacheableInterface[] cacheableInterfaces) throws Exception;
-    //Set keySet();
     void clear() throws Exception;
 }

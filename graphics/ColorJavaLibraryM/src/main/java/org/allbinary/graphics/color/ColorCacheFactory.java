@@ -14,7 +14,7 @@
 package org.allbinary.graphics.color;
 
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.util.cache.AutomaticCacheInterfaceFactory;
@@ -30,18 +30,18 @@ public class ColorCacheFactory
     {
         try
         {
-            LogUtil.put(new Log("Start", ColorCacheFactory.class, "Static Block"));
+            LogUtil.put(LogFactory.getInstance("Start", ColorCacheFactory.class, "Static Block"));
             
             cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
                 new ColorCacheableFactory(),
                 CacheTypeFactory.getInstance().SHIFT_ONE_CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            LogUtil.put(new Log("End", ColorCacheFactory.class, "Static Block"));
+            LogUtil.put(LogFactory.getInstance("End", ColorCacheFactory.class, "Static Block"));
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", ColorCacheFactory.class, "Static Block", e));
+            LogUtil.put(LogFactory.getInstance("Exception", ColorCacheFactory.class, "Static Block", e));
         }
     }
     

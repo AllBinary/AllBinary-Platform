@@ -54,7 +54,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
          {
-            LogUtil.put(new Log("Cpu Data: " + this.toString(), this, "Constructor()", e));
+            LogUtil.put(LogFactory.getInstance("Cpu Data: " + this.toString(), this, "Constructor()", e));
          }
          throw e;
       }
@@ -76,7 +76,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
             
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
             {
-               LogUtil.put(new Log("Cpu File Vector Size: " + fileVector.size(), this, "Constructor()"));
+               LogUtil.put(LogFactory.getInstance("Cpu File Vector Size: " + fileVector.size(), this, "Constructor()"));
             }
             
             //size() > 0

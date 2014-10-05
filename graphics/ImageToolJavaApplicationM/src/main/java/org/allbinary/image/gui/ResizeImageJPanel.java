@@ -17,9 +17,11 @@ import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 
 import java.io.File;
+import org.allbinary.logic.basic.io.file.FileWrapperUtil;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.media.image.ImagePersistanceUtil;
 import org.allbinary.media.image.ImageUtil;
 
 public class ResizeImageJPanel extends javax.swing.JPanel
@@ -79,14 +81,14 @@ public class ResizeImageJPanel extends javax.swing.JPanel
 
                     for (int index = 0; index < generatedBufferedImageArray.length; index++) {
 
-                        ImageUtil.saveWithBatik(
-                           files[index], generatedBufferedImageArray[index]);
+                        ImagePersistanceUtil.saveWithBatik(
+                           FileWrapperUtil.wrapFile(files[index]), generatedBufferedImageArray[index]);
                     }
 
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    LogUtil.put(new Log("Exception", this, "run", e));
+                    LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
                 }
             }
         }.start();

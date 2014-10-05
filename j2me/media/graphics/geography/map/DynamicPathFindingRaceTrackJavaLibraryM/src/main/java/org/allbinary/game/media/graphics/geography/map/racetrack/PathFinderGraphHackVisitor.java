@@ -85,7 +85,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
                    geographicMapCellPositionFactory.getInstance(
                    column, nextRow);
 
-                //LogUtil.put(new Log("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart"));
+                //LogUtil.put(LogFactory.getInstance("geographicMapCellPositionNeighbor: " + geographicMapCellPositionNeighbor.toString() , this, "fixStart"));
 
                 graph.removeEdge(
                    geographicMapCellPosition,
@@ -153,7 +153,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
             CellPosition overPassGeographicMapCellPosition =
                CellPositionArray[index];
 
-            LogUtil.put(new Log("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges"));
+            LogUtil.put(LogFactory.getInstance("Fixing Over Pass: " + overPassGeographicMapCellPosition.getColumn() + ", " + overPassGeographicMapCellPosition.getRow(), this, "fixOverPassEdges"));
 
             GeographicMapCellPosition underPassGeographicMapCellPosition =
                geographicMapCellPositionFactory.getInstance(

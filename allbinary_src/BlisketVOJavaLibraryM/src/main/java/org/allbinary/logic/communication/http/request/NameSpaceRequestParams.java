@@ -371,7 +371,7 @@ public class NameSpaceRequestParams extends RequestParams
          {
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
-               LogUtil.put("Adding Package with different value node", this, "add()");
+               LogUtil.put(LogFactory.getInstance("Adding Package with different value node", this, "add()");
             }
          }
          */
@@ -594,7 +594,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
       {
-         LogUtil.put("\nComparing the properties in: " +
+         LogUtil.put(LogFactory.getInstance("\nComparing the properties in: " +
          nextPackagePropertiesHashMap.toString() +
          "\nto node child leaves of node: " + node.getNodeName(),
          this, "isPropertiesSame()");
@@ -620,7 +620,7 @@ public class NameSpaceRequestParams extends RequestParams
             
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
-               LogUtil.put("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
+               LogUtil.put(LogFactory.getInstance("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
                "Node: " + node.getNodeName() + " then: " + propertyValue + "==" + existingElementNodeTextNodeValue, this, "isPropertiesSame()");
             }
             
@@ -629,7 +629,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
                {
-                  LogUtil.put("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
+                  LogUtil.put(LogFactory.getInstance("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
                }
                //found a property that does not match
                return false;
@@ -639,7 +639,7 @@ public class NameSpaceRequestParams extends RequestParams
          {
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
-               LogUtil.put("A new property from NameSpaceRequest Package existed so it is not the same.", this, "isPropertiesSame()");
+               LogUtil.put(LogFactory.getInstance("A new property from NameSpaceRequest Package existed so it is not the same.", this, "isPropertiesSame()");
             }
             return false;
          }
@@ -656,7 +656,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
       {
-         LogUtil.put("\nComparing the properties in: " +
+         LogUtil.put(LogFactory.getInstance("\nComparing the properties in: " +
          nextPackagePropertiesHashMap.toString() +
          "\nto node child leaves of node: " + node.getNodeName(),
          this, "isPropertiesSame()");
@@ -682,7 +682,7 @@ public class NameSpaceRequestParams extends RequestParams
             
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
-               LogUtil.put("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
+               LogUtil.put(LogFactory.getInstance("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
                "Node: " + node.getNodeName() + " then: " + propertyValue + "==" + existingElementNodeTextNodeValue, this, "isPropertiesSame()");
             }
             
@@ -691,7 +691,7 @@ public class NameSpaceRequestParams extends RequestParams
             {
                if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
                {
-                  LogUtil.put("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
+                  LogUtil.put(LogFactory.getInstance("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
                }
                //found a property that does not match
                return false;
@@ -716,7 +716,7 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
       {
-         LogUtil.put("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "getNodeWithDuplicatePropertiesFromVector()");
+         LogUtil.put(LogFactory.getInstance("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "getNodeWithDuplicatePropertiesFromVector()");
       }
       
       int index = 0;

@@ -16,11 +16,11 @@ package org.allbinary.media.image.analysis;
 import java.awt.Color;
 import java.awt.image.BufferedImage;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageAnalysis
 {
@@ -31,7 +31,7 @@ public class ImageAnalysis
 
    public static ImageAnalysisResults[] process(BufferedImage[] bufferedImageArray, ColorRangeInterface colorRangeInterface) throws Exception
    {
-      LogUtil.put(new Log("Start: " + colorRangeInterface.toString(), "ImageAnalysis", "process"));
+      LogUtil.put(LogFactory.getInstance("Start: " + colorRangeInterface.toString(), "ImageAnalysis", "process"));
 
       ImageAnalysisResults[] imageAnalysisResultsArray = new ImageAnalysisResults[bufferedImageArray.length];
 
@@ -86,7 +86,7 @@ public class ImageAnalysis
          imageAnalysisResults.getImageColorRangeResults().addMatchingPixelsChecked();
       } else
       {
-         // LogUtil.put(new Log("Invalid Color: " + color, "ImageAnalysis", "process"));
+         // LogUtil.put(LogFactory.getInstance("Invalid Color: " + color, "ImageAnalysis", "process"));
       }
       imageAnalysisResults.getImageColorRangeResults().addTotalPixelsChecked();
    }

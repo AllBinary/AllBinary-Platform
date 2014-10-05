@@ -75,7 +75,7 @@ public class CssProperty implements DomNodeInterface
 
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.STYLE))
       {
-         LogUtil.put("Name: " + this.getName(),this,"CssProperty()");
+         LogUtil.put(LogFactory.getInstance("Name: " + this.getName(),this,"CssProperty()");
       }
 
       HashMap propertyValuesHashMap = 

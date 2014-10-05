@@ -18,7 +18,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.input.automation.module.AbstractInputAutomationWorker;
@@ -26,11 +25,11 @@ import org.allbinary.input.automation.module.InputAutomationActionInterface;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileAction;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActions;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.GenericProfileActionScript;
-import org.allbinary.media.image.cache.BufferedImageFrameCacheable;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
-import org.allbinary.logic.util.cache.CacheInterface;
 
 public class TestInputAutomationCaptureWorker
     extends AbstractInputAutomationWorker
@@ -49,7 +48,7 @@ public class TestInputAutomationCaptureWorker
     {
         super(inputAutomationActionInterface);
         
-        LogUtil.put(new Log("GenericInputAutomationCaptureWorker", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance("GenericInputAutomationCaptureWorker", this, "Constructor"));
         
         this.setGenericProfileActions(genericProfileActions);
     }
@@ -57,16 +56,16 @@ public class TestInputAutomationCaptureWorker
     public void processDataWorkerResults()
         throws Exception
     {
-        CacheInterface cacheInterface = 
+        AutomaticCacheInterface cacheInterface = (AutomaticCacheInterface)
             CapturedBufferedImagesCacheSingleton.getInstance();
 
         if(cacheInterface.keySet().size() > 0)
         {
-            LogUtil.put(new Log("Image Available so processing", this, "processDataWorkerResults"));
+            LogUtil.put(LogFactory.getInstance("Image Available so processing", this, "processDataWorkerResults"));
             
             Object object = cacheInterface.keySet().toArray()[0];
-            BufferedImageFrameCacheable capturedBufferedImageCacheable = 
-                (BufferedImageFrameCacheable) cacheInterface.get(object);
+            //BufferedImageFrameCacheable capturedBufferedImageCacheable = 
+                //(BufferedImageFrameCacheable) cacheInterface.get(object);
             
             HashMap hashMap = this.getGenericProfileActions().getHashMap();
             Set set = hashMap.keySet();
@@ -83,17 +82,18 @@ public class TestInputAutomationCaptureWorker
                   //  capturedBufferedImageCacheable);
             }
             
-            cacheInterface.remove(object);
+            //was remove before
+            cacheInterface.get(object);
         }
         else
         {
-            LogUtil.put(new Log("Image Not Available", this, "processDataWorkerResults"));
+            LogUtil.put(LogFactory.getInstance("Image Not Available", this, "processDataWorkerResults"));
         }
     }
     
     public void process() throws Exception
     {
-        LogUtil.put(new Log("Start", this, "process"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "process"));
         
         this.startDataWorkers();
         this.processDataWorkerResults();

@@ -104,7 +104,7 @@ public class ModDomHelper
          String name = (String) objectKey;
          Object object = (Object) hashMap.get(objectKey);
          
-         //LogUtil.put("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
+         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
          
          if(object == null)
          {
@@ -151,7 +151,7 @@ public class ModDomHelper
       while(iter.hasNext())
       {
          String value = stringUtil.getInstance((String) iter.next());
-         //LogUtil.put("Adding: " + name + "=" + value ,this,"");
+         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"");
          
          node.appendChild(
          ModDomHelper.createNameValueNodes(
@@ -173,7 +173,7 @@ public class ModDomHelper
       while(iter.hasNext())
       {
          String value = stringUtil.getInstance((String) iter.next());
-         //LogUtil.put("Adding: " + name + "=" + value ,this,"");
+         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"");
 
          node.appendChild(
          ModDomHelper.createNameValueIndexNodes(
@@ -200,7 +200,7 @@ public class ModDomHelper
          String name = (String) iterSet.next();
          Object object = (Object) hashMap.get(name);
          
-         //LogUtil.put("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
+         //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"toXmlNode(document)");
 
          String value = stringUtil.getInstance((String) object);
          node.appendChild(ModDomHelper.createTextNode(document, name, value));

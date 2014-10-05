@@ -17,9 +17,9 @@ import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceFactory;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.robot.InputRobotInterface;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.osgi.OSGIActivatorUtil;
 import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;
 import org.bundle.input.automation.robot.InputAutomationRobotServiceInterface;
@@ -70,7 +70,7 @@ abstract public class InputAutomationRobotBundleActivator
         }
         else
         {
-            LogUtil.put(new Log("No ServiceReference: " +
+            LogUtil.put(LogFactory.getInstance("No ServiceReference: " +
                 InputAutomationRobotChangeListener.class.getName(), this, "getInputAutomationRobotChangeListener"));
             return null;
         }
@@ -80,7 +80,7 @@ abstract public class InputAutomationRobotBundleActivator
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "addRobots"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "addRobots"));
             
             InputAutomationRobotChangeListener
                 inputAutomationRobotChangeListener =
@@ -101,7 +101,7 @@ abstract public class InputAutomationRobotBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "addModules"));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "addModules"));
         }
     }
     
@@ -109,7 +109,7 @@ abstract public class InputAutomationRobotBundleActivator
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "removeRobots"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "removeRobots"));
             InputAutomationRobotChangeListener
                 inputAutomationRobotChangeListener =
                 this.getInputAutomationRobotChangeListener(context);
@@ -129,14 +129,14 @@ abstract public class InputAutomationRobotBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "removeRobots"));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "removeRobots"));
         }
     }
     
     public void start(BundleContext context)
     throws Exception
     {
-        LogUtil.put(new Log("Start", this, "start"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "start"));
         
         //TWB - It is possible that the injectors get 
         //added twice but that will not cause failure.
@@ -148,7 +148,7 @@ abstract public class InputAutomationRobotBundleActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        LogUtil.put(new Log("Stop", this, "start"));
+        LogUtil.put(LogFactory.getInstance("Stop", this, "start"));
         
         this.removeRobots(context);
         //TWB - add imp for removal InputRobotFactory.getInstance().remove

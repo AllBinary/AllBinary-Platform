@@ -43,7 +43,7 @@ public class GraphicsAnalysisUtil
          ColorCacheable colorCacheable = (ColorCacheable) automaticCacheInterface.get(colorInteger);
          Color color = colorCacheable.getColor();
 
-         //LogUtil.put(new Log("Color: " + color + " at: " +
+         //LogUtil.put(LogFactory.getInstance("Color: " + color + " at: " +
          //index + "," + y, this, "getNominator"));
          //If it is dark
          if (color.getRed() < MAX && color.getGreen() < MAX && color.getBlue() < MAX)

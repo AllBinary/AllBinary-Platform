@@ -54,7 +54,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(new Log("Exception", this, "toString", e));
+                LogUtil.put(LogFactory.getInstance("Exception", this, "toString", e));
             }
         }
         return stringBuffer.toString();
@@ -99,7 +99,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * while(this.reentrantLock.getHoldCount() > 1) {
          * this.condition.await(); }
          */
-        // LogUtil.put(new Log("Start: Locks Held: " +
+        // LogUtil.put(LogFactory.getInstance("Start: Locks Held: " +
         // reentrantLock.getHoldCount() + " Held By Current Thread: " +
         // reentrantLock.isHeldByCurrentThread(), this, "addListener"));
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
@@ -161,7 +161,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
          * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * "fireEvent")); //LogUtil.put(new Log("Start", this, "fireEvent"));
+         * "fireEvent")); //LogUtil.put(LogFactory.getInstance("Start", this, "fireEvent"));
          *
          * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
@@ -187,7 +187,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(new Log(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
             }
         }
 

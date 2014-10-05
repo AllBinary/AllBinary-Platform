@@ -51,7 +51,7 @@ public class ImagePersistanceUtil {
     	  StreamUtil.getInstance().close(fileOutputStream);
       }
       
-      LogUtil.put(new Log("Wrote Image: " + file.getAbsolutePath(), "ImageUtil", "save"));
+      LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), "ImageUtil", "save"));
    }
 
                         /*
@@ -88,7 +88,7 @@ public class ImagePersistanceUtil {
                     generatedBufferedImageArray[index],
                     "PNG",
                     files[index]);
-                    LogUtil.put(new Log("Wrote: " + isWritten, this, ""));
+                    LogUtil.put(LogFactory.getInstance("Wrote: " + isWritten, this, ""));
                      */
 
         /*
@@ -170,7 +170,7 @@ public class ImagePersistanceUtil {
          */
     /*
     public void paint(Graphics graphics) {
-    LogUtil.put(new Log("Painting", this, "paint"));
+    LogUtil.put(LogFactory.getInstance("Painting", this, "paint"));
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -243,7 +243,7 @@ public class ImagePersistanceUtil {
          // Validate existence of writer.
          if (!iter.hasNext())
          {
-            LogUtil.put(new Log("Unable to save image to jpeg file type.", "ImageUtil", "save"));
+            LogUtil.put(LogFactory.getInstance("Unable to save image to jpeg file type.", "ImageUtil", "save"));
             return;
          }
 
@@ -273,11 +273,11 @@ public class ImagePersistanceUtil {
 
          //poolInterface.add(iioImageCacheable);
 
-         LogUtil.put(new Log("Wrote Image: " + file.getAbsolutePath(), "ImageUtil", "save"));
+         LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), "ImageUtil", "save"));
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", "ImageUtil", "save", e));
+         LogUtil.put(LogFactory.getInstance("Exception", "ImageUtil", "save", e));
       }
       finally
       {
@@ -310,7 +310,7 @@ public class ImagePersistanceUtil {
          }
          catch (IOException e2)
          {
-            LogUtil.put(new Log("Exception", "ImageUtil", "save", e2));
+            LogUtil.put(LogFactory.getInstance("Exception", "ImageUtil", "save", e2));
          }
       }
    }

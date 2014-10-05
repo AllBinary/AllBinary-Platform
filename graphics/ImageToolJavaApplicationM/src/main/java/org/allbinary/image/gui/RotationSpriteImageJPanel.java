@@ -19,9 +19,9 @@ import java.awt.image.RenderedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.media.image.ImageRotationUtil;
+import org.allbinary.media.image.ImageJ2SERotationUtil;
 
 public class RotationSpriteImageJPanel extends javax.swing.JPanel
         implements ImageProcessorInputCompositeInterface {
@@ -58,11 +58,11 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                                 (String) RotationSpriteImageJPanel.this.totalFramseJComboBox.getSelectedItem());
                         Integer totalAngle = Integer.valueOf(
                                 (String) RotationSpriteImageJPanel.this.totalAngleJComboBox.getSelectedItem());
-                        generatedBufferedImageArray = ImageRotationUtil.getRotatedImages(
+                        generatedBufferedImageArray = ImageJ2SERotationUtil.getInstance().getRotatedImages(
                                 bufferedImageArray[index], totalFrames, totalAngle);
 
                         RotationSpriteImageJPanel.this.result =
-                                ImageRotationUtil.createSpriteImage(
+                                ImageJ2SERotationUtil.getInstance().createSpriteImage(
                                 generatedBufferedImageArray);
 
                         RotationSpriteImageJPanel.this.getParent().repaint();
@@ -75,19 +75,19 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                         boolean isWritten =
                                 ImageIO.write((RenderedImage) RotationSpriteImageJPanel.this.result, "PNG", file);
 
-                        LogUtil.put(new Log("File: " + file + " Wrote: " + isWritten, this, ""));
+                        LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, ""));
 
                     }
 
                 } catch (Exception e) {
-                    LogUtil.put(new Log("Exception", this, "run", e));
+                    LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    LogUtil.put(new Log("Painting", this, "paint"));
+    LogUtil.put(LogFactory.getInstance("Painting", this, "paint"));
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());

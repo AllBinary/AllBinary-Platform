@@ -230,7 +230,7 @@ public class NameSpaceRequestParam
       if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          abcs.logic.communication.log.config.type.LogConfigType.VIEW))
       {
-         LogUtil.put("\nNameSpace Param: " + stringBuffer.toString(),
+         LogUtil.put(LogFactory.getInstance("\nNameSpace Param: " + stringBuffer.toString(),
             this, "toString()");
       }
       

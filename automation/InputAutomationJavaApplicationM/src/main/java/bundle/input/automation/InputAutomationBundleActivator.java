@@ -16,7 +16,6 @@ package bundle.input.automation;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.input.automation.InputAutomationJFrame;
@@ -26,7 +25,8 @@ import org.allbinary.input.automation.module.osgi.InputAutomationNewBundleRunnab
 import org.allbinary.input.automation.robot.osgi.InputAutomationRobotServiceConsumer;
 import org.allbinary.osgi.OSGIActivatorUtil;
 import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
-import bundle.input.automation.robot.InputAutomationRobotChangeListener;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;
 
 public class InputAutomationBundleActivator
     implements BundleActivator, InputAutomationBundleActivatorListenerInterface
@@ -44,7 +44,7 @@ public class InputAutomationBundleActivator
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "start"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "start"));
             
             this.bundleContext = bundleContext;
         /*
@@ -53,13 +53,13 @@ public class InputAutomationBundleActivator
         {
             public Object addingService(ServiceReference serviceReference)
             {
-                LogUtil.put(new Log("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService"));
+                LogUtil.put(LogFactory.getInstance("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "addingService"));
                 Object obj = super.addingService(serviceReference);
                 return obj;
             }
             public void removedService(ServiceReference serviceReference, Object service)
             {
-                LogUtil.put(new Log("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService"));
+                LogUtil.put(LogFactory.getInstance("Start Name: " + serviceReference.getBundle().getSymbolicName(), this, "removedService"));
                 super.removedService(serviceReference, service);
             }
         };
@@ -82,7 +82,7 @@ public class InputAutomationBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "start", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "start", e));
             throw e;
         }
     }
@@ -110,14 +110,14 @@ public class InputAutomationBundleActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        LogUtil.put(new Log("Start", this, "stop"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "stop"));
         if(InputAutomationJFrame.getInstance() != null)
         {
             InputAutomationJFrame.destroy();
         }
         else
         {
-            LogUtil.put(new Log("Nothing to stop", this, "stop"));
+            LogUtil.put(LogFactory.getInstance("Nothing to stop", this, "stop"));
         }
     }
 }

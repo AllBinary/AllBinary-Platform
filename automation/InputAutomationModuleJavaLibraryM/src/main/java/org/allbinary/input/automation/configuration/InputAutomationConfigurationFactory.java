@@ -33,7 +33,7 @@ public class InputAutomationConfigurationFactory
         File file = InputAutomationConfiguration.getFile();
         if(file.isFile())
         {
-            LogUtil.put(new Log("Loaded Configuration", "InputAutomationConfiguration", "init"));
+            LogUtil.put(LogFactory.getInstance("Loaded Configuration", "InputAutomationConfiguration", "init"));
             JAXBContext jaxbContext = JAXBContext.newInstance(
                 InputAutomationConfiguration.class);
             Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
@@ -42,7 +42,7 @@ public class InputAutomationConfigurationFactory
         }
         else
         {
-            LogUtil.put(new Log("New Configuration", "InputAutomationConfiguration", "init"));
+            LogUtil.put(LogFactory.getInstance("New Configuration", "InputAutomationConfiguration", "init"));
             inputAutomationConfiguration = new InputAutomationConfiguration();
         }
     }

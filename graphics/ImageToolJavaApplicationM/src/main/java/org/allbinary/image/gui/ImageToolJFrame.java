@@ -17,11 +17,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.gui.dialog.FileJDialog;
 import org.allbinary.gui.dialog.FileJDialogListenerInterface;
+import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.media.image.analysis.ColorRange;
 import org.allbinary.media.image.analysis.ColorRangeInterface;
@@ -286,7 +286,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
        }
        catch (Exception e)
        {
-          LogUtil.put(new Log("Exception", this, "createStripImageJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance("Exception", this, "createStripImageJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_createStripImageJMenuItemActionPerformed
 
@@ -294,7 +294,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_okJButtonActionPerformed
        try
        {
-          LogUtil.put(new Log("Starting", this, "okJButtonActionPerformed"));
+          LogUtil.put(LogFactory.getInstance("Starting", this, "okJButtonActionPerformed"));
 
           ImageAnalysisResults imageAnalysisResultsArray[] = ImageAnalysis.process(
              imageProcessorInput.getBufferedImageArray(), this.getColorRangeInterface());
@@ -310,7 +310,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
        }
        catch (Exception e)
        {
-          LogUtil.put(new Log("Exception", this, "okJButtonActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance("Exception", this, "okJButtonActionPerformed", e));
        }
     }//GEN-LAST:event_okJButtonActionPerformed
 
@@ -323,12 +323,12 @@ public class ImageToolJFrame extends javax.swing.JFrame
     {//GEN-HEADEREND:event_openImageJMenuItemActionPerformed
        try
        {
-          LogUtil.put(new Log("Starting", this, "openImageJMenuItemActionPerformed"));
+          LogUtil.put(LogFactory.getInstance("Starting", this, "openImageJMenuItemActionPerformed"));
           fileJDialog.setVisible(true);
        }
        catch (Exception e)
        {
-          LogUtil.put(new Log("Exception", this, "openImageJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance("Exception", this, "openImageJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_openImageJMenuItemActionPerformed
 
@@ -336,13 +336,17 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {
       try
       {
-         LogUtil.put(new Log("Reading: " + files, this, "onFiles"));
+         LogUtil.put(LogFactory.getInstance("Reading " + files.length + " files.", this, "onFiles"));
 
          BufferedImage[] bufferedImageArray = new BufferedImage[files.length];
 
          for (int index = 0; index < files.length; index++)
          {
             bufferedImageArray[index] = ImageIO.read(files[index]);
+            if(bufferedImageArray[index] == null)
+            {
+                throw new Exception("Unable to read file: " + files[index].getPath());
+            }
          }
 
          this.imageProcessorInput = new ImageProcessorInput(
@@ -359,7 +363,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "onFiles", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "onFiles", e));
       }
    }
 
@@ -372,12 +376,12 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_analyzeJMenuItemActionPerformed
       try
       {
-         LogUtil.put(new Log("Starting", this, "analyzeJMenuItemActionPerformed"));
+         LogUtil.put(LogFactory.getInstance("Starting", this, "analyzeJMenuItemActionPerformed"));
          this.analysisActionJDialog.setVisible(true);
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "analyzeJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "analyzeJMenuItemActionPerformed", e));
       }
    }//GEN-LAST:event_analyzeJMenuItemActionPerformed
 
@@ -385,7 +389,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    {//GEN-HEADEREND:event_generateRotationSpriteJMenuItemActionPerformed
       try
       {
-         LogUtil.put(new Log("Starting", this, "generateRotationSpriteJMenuItemActionPerformed"));
+         LogUtil.put(LogFactory.getInstance("Starting", this, "generateRotationSpriteJMenuItemActionPerformed"));
 
          RotationSpriteImageJPanel spriteImageJPanel =
             new RotationSpriteImageJPanel(
@@ -399,14 +403,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "generateRotationSpriteJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "generateRotationSpriteJMenuItemActionPerformed", e));
       }
 }//GEN-LAST:event_generateRotationSpriteJMenuItemActionPerformed
 
    private void scaleImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
-         LogUtil.put(new Log("Start", this, "scaleImagesJMenuItemActionPerformed"));
+         LogUtil.put(LogFactory.getInstance("Start", this, "scaleImagesJMenuItemActionPerformed"));
 
          ResizeImageJPanel resizeImageJPanel =
             new ResizeImageJPanel(
@@ -420,14 +424,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(new Log("Exception", this, "scaleImagesJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance("Exception", this, "scaleImagesJMenuItemActionPerformed", e));
       }
 }//GEN-LAST:event_scaleImagesJMenuItemActionPerformed
 
 private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateMirrorSpriteMenuItemActionPerformed
    try
    {
-      LogUtil.put(new Log("Starting", this, "generateMirrorSpriteJMenuItemActionPerformed"));
+      LogUtil.put(LogFactory.getInstance("Starting", this, "generateMirrorSpriteJMenuItemActionPerformed"));
 
       MirrorSpriteImageJPanel spriteImageJPanel =
          new MirrorSpriteImageJPanel(
@@ -441,14 +445,14 @@ private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEv
    }
    catch (Exception e)
    {
-      LogUtil.put(new Log("Exception", this, "generateMirrorSpriteJMenuItemActionPerformed", e));
+      LogUtil.put(LogFactory.getInstance("Exception", this, "generateMirrorSpriteJMenuItemActionPerformed", e));
    }
 }//GEN-LAST:event_generateMirrorSpriteMenuItemActionPerformed
 
 private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mirrorJMenuItemActionPerformed
    try
    {
-      LogUtil.put(new Log("Starting", this, "generateMirrorJMenuItemActionPerformed"));
+      LogUtil.put(LogFactory.getInstance("Starting", this, "generateMirrorJMenuItemActionPerformed"));
 
       MirrorImageJPanel mirrorImageJPanel =
          new MirrorImageJPanel(
@@ -462,7 +466,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    }
    catch (Exception e)
    {
-      LogUtil.put(new Log("Exception", this, "generateMirrorJMenuItemActionPerformed", e));
+      LogUtil.put(LogFactory.getInstance("Exception", this, "generateMirrorJMenuItemActionPerformed", e));
    }
 }//GEN-LAST:event_mirrorJMenuItemActionPerformed
    
@@ -552,7 +556,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    /*
    public void paint(Graphics graphics)
    {
-      LogUtil.put(new Log("Painting", this, "paint"));
+      LogUtil.put(LogFactory.getInstance("Painting", this, "paint"));
    }
     */
    

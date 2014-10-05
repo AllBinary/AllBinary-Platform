@@ -42,7 +42,7 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
             storeName = pageContext.getRequest().getParameter(StoreFrontData.NAME);
             if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
             {
-               LogUtil.put("Using Request StoreName: " + storeName, this, "Constructor()");
+               LogUtil.put(LogFactory.getInstance("Using Request StoreName: " + storeName, this, "Constructor()");
             }
          }
          else

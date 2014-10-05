@@ -45,13 +45,13 @@ public class AllBinaryPreloaderActivator
     {
         try
         {
-            LogUtil.put(new Log("Start", this, "start"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "start"));
             AllBinaryPreloaderActivator.context = context;
             this.registerAsService();
         }
         catch(Exception e)
         {
-            LogUtil.put(new Log("Exception", this, "start", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "start", e));
             throw e;
         }
     }
@@ -77,6 +77,6 @@ public class AllBinaryPreloaderActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        LogUtil.put(new Log("Start", this, "stop"));
+        LogUtil.put(LogFactory.getInstance("Start", this, "stop"));
     }    
 }

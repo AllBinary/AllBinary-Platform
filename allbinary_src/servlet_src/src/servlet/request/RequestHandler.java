@@ -62,7 +62,7 @@ public class RequestHandler extends HttpServlet
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SERVLETERROR))
          {
-            LogUtil.put("Servlet LicensingException",this,"processRequest()",e);
+            LogUtil.put(LogFactory.getInstance("Servlet LicensingException",this,"processRequest()",e);
          }
          response.sendRedirect(abcs.globals.URLGLOBALS.LICENSEERRORPAGE);
       }
@@ -70,7 +70,7 @@ public class RequestHandler extends HttpServlet
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SERVLETERROR))
          {
-            LogUtil.put("Servlet Exception",this,"processRequest()",e);
+            LogUtil.put(LogFactory.getInstance("Servlet Exception",this,"processRequest()",e);
          }
          response.sendRedirect(abcs.globals.URLGLOBALS.ERRORPAGE);
       }
