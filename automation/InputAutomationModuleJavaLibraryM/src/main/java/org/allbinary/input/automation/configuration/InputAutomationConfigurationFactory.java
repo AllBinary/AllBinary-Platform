@@ -13,11 +13,11 @@
 */
 package org.allbinary.input.automation.configuration;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.io.File;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Unmarshaller;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputAutomationConfigurationFactory
 {

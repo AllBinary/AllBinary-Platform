@@ -17,7 +17,6 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import org.allbinary.globals.Globals;
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.AbCryptUtil;
 import org.allbinary.logic.system.security.AbKeys;
@@ -27,6 +26,7 @@ import org.allbinary.logic.system.security.licensing.AbeNoLicense;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.gui.dialog.BasicTextJDialog;
 import org.allbinary.gui.dialog.ExitCloseListener;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class CryptService
 {
@@ -78,7 +78,7 @@ public class CryptService
 
          try
          {
-            AbeLicenseInterface abeLicenseInterface = AbeLicenseInterfaceFactory.getInstance();
+            AbeLicenseInterface abeLicenseInterface = AbeLicenseInterfaceFactory.getInstance().getLicenseInstance();
 
             if (abeLicenseInterface != AbeNoLicense.getInstance())
             {

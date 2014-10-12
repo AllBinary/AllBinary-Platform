@@ -15,7 +15,6 @@ package org.allbinary.input.automation.module;
 
 import java.util.Iterator;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
@@ -23,6 +22,7 @@ import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
 import java.util.Hashtable;
 import java.util.Set;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class TestInputAutomationActionWorker 
     extends AbstractInputAutomationWorker

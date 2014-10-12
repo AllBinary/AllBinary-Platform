@@ -17,13 +17,13 @@ import java.awt.Rectangle;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.collision.RectangleCollisionUtil;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import java.awt.image.BufferedImage;
 import org.allbinary.graphics.GPoint;
+import org.allbinary.logic.communication.log.LogFactory;
 
 abstract public class ImageComparatorConstraints
     implements ImageComparatorConstraintsInterface

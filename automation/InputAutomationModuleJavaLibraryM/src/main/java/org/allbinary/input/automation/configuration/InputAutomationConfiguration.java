@@ -26,7 +26,7 @@ import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.basic.io.file.FileUtil;
 import org.allbinary.logic.basic.io.file.FileWrapperUtil;
 import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 //name="inputAutomationConfiguration", 
