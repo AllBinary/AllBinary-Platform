@@ -14,6 +14,8 @@
 package org.allbinary.input.automation.osgi;
 
 import bundle.input.automation.InputAutomationBundleActivator;
+import javax.swing.JDialog;
+import org.allbinary.gui.dialog.BasicTextJDialog;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
@@ -28,15 +30,24 @@ public class DesktopBundle
     {
         BundleContext bundleContext = 
             InputAutomationBundleActivator.getBundleContext();
-        Bundle bundleArray[] = bundleContext.getBundles();
-        for(int index = 0; index < bundleArray.length; index++)
+        
+        if(bundleContext != null)
         {
-            Bundle bundle = bundleArray[index];
-            String symbolicName = bundle.getSymbolicName();
-            if(symbolicName.compareTo(DESKTOP_SYMBOLIC_NAME) == 0)
-            {
-                this.bundle = bundle;
+            Bundle bundleArray[] = bundleContext.getBundles();
+            
+            for (int index = 0; index < bundleArray.length; index++) {
+                Bundle bundle = bundleArray[index];
+                String symbolicName = bundle.getSymbolicName();
+                if (symbolicName.compareTo(DESKTOP_SYMBOLIC_NAME) == 0) {
+                    this.bundle = bundle;
+                }
             }
+        }
+        else
+        {
+            JDialog textJDialog = new BasicTextJDialog("BundlContext is Null");
+            textJDialog.setVisible(true);
+            //textJDialog.setLocationRelativeTo(this);
         }
     }
     

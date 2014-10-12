@@ -13,10 +13,10 @@
 */
 package org.allbinary.osgi.service;
 
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.Iterator;
 import java.util.Vector;
+import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;

@@ -37,6 +37,7 @@ import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent
 import org.allbinary.thread.RunnableInterface;
 import bundle.input.automation.InputAutomationBundleActivatorListenerInterface;
 import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
+import javax.swing.JDialog;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;
 
@@ -161,7 +162,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
         aboutJMenuItem = new javax.swing.JMenuItem();
 
         noModuleSelectedJDialog.setMinimumSize(new java.awt.Dimension(200, 100));
-        noModuleSelectedJLabel.setText("Please Select A Game Module");
+        noModuleSelectedJLabel.setText("Please Select A Module");
 
         javax.swing.GroupLayout noModuleSelectedJDialogLayout = new javax.swing.GroupLayout(noModuleSelectedJDialog.getContentPane());
         noModuleSelectedJDialog.getContentPane().setLayout(noModuleSelectedJDialogLayout);
@@ -390,7 +391,9 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
     private void aboutJMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_aboutJMenuItemActionPerformed
     {//GEN-HEADEREND:event_aboutJMenuItemActionPerformed
-       new BasicTextJDialog("Copyright (c) 2002-2007 AllBinary").setVisible(true);
+       JDialog textJDialog = new BasicTextJDialog("Copyright (c) 2002-2007 AllBinary");
+       textJDialog.setVisible(true);
+       textJDialog.setLocationRelativeTo(this);
     }//GEN-LAST:event_aboutJMenuItemActionPerformed
 
     private void modulesJMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_modulesJMenuItemActionPerformed
@@ -518,6 +521,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       } else
       {
          this.noModuleSelectedJDialog.setVisible(true);
+         this.noModuleSelectedJDialog.setLocationRelativeTo(this);
       }
    }//GEN-LAST:event_stopJMenuItemActionPerformed
 
@@ -539,10 +543,12 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             } else
             {
                this.noModuleSelectedJDialog.setVisible(true);
+               this.noModuleSelectedJDialog.setLocationRelativeTo(this);
             }
          } else
          {
             this.noModuleSelectedJDialog.setVisible(true);
+            this.noModuleSelectedJDialog.setLocationRelativeTo(this);
          }
       } catch (Exception e)
       {

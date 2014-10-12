@@ -18,7 +18,7 @@ import java.util.Vector;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.osgi.OSGIServiceInterface;
