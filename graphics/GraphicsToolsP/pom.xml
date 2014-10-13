@@ -38,6 +38,8 @@
         
         <module>../ColorJavaLibraryM</module>
         
+        <module>../ImageJavaLibraryM</module>
+        
         <module>../AllBinaryGraphicsJavaApplicationM</module>
         
         <module>../ImageToolJavaApplicationM</module>
