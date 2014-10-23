@@ -33,6 +33,7 @@
         <!--
         -->
         <module>./j2me/AllBinaryJ2MELibraryP</module>
+        <module>./allbinary_src/cache/AllBinaryCacheLibraryM</module>
         <module>./graphics/GraphicsToolsP</module>
         <module>./automation/InputAutomationToolsP</module>
         <module>./allbinary_src/BlisketJavaLibraryP</module>
