@@ -17,10 +17,10 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.communication.log.LogFactory;
 
 public class BasicEventHandler implements BasicEventHandlerInterface
 {
