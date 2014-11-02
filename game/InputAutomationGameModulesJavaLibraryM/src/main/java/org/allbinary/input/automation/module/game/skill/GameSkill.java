@@ -15,6 +15,7 @@ package org.allbinary.input.automation.module.game.skill;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.basic.string.CommonSeps;
 
 public class GameSkill
 {
@@ -25,6 +26,10 @@ public class GameSkill
    private int time;
    
    private Vector vector;
+    
+    private final String GAME_SKILL_LABEL = "GameSkill: ";
+    private final String EXTRA_LABEL = "Extra: ";
+    private final String TIME_LABEL = "Time: ";
    
    public GameSkill(GameSkillType gameSkillType, String extra, int time)
    {
@@ -34,7 +39,7 @@ public class GameSkill
         
         this.vector = new Vector();
         
-        hashMap.put(this.getGameSkillType().getName() + " " + extra, this);
+        hashMap.put(new StringBuilder().append(this.getGameSkillType().getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString(), this);
    }
    
     public GameSkillType getGameSkillType()
@@ -81,17 +86,19 @@ public class GameSkill
         GameSkillType gameSkillType, String extra)
     {
         return (GameSkill) 
-           hashMap.get(gameSkillType.getName() + " " + extra);
+           hashMap.get(new StringBuilder().append(gameSkillType.getName()).append(CommonSeps.getInstance().SPACE).append(extra).toString());
     }
     
     public String toString()
     {
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("GameSkill: ");
+        stringBuffer.append(GAME_SKILL_LABEL);
         stringBuffer.append(this.getGameSkillType().toString());
-        stringBuffer.append(" Extra: ");
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(EXTRA_LABEL);
         stringBuffer.append(this.getExtra());
-        stringBuffer.append(" Time: ");
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(TIME_LABEL);
         stringBuffer.append(this.getTime());
         
         return stringBuffer.toString();

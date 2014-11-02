@@ -26,6 +26,7 @@ import org.allbinary.input.automation.module.generic.configuration.profile.actio
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActions;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.GenericProfileActionScript;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
@@ -38,7 +39,12 @@ public class TestInputAutomationCaptureWorker
     //private TimeHelper timeHelper;
     
     private GenericProfileActions genericProfileActions;
-    
+
+    private final String MESSAGE = "GenericInputAutomationCaptureWorker";
+    private final String PROCESS_DATA_WORKER_RESULTS = "processDataWorkerResults";
+    private final String IMAGE_AVAILABLE_SO_PROCESSING = "Image Available so processing";
+    private final String IMAGE_NOT_AVAILABLE = "Image Not Available";
+
     public TestInputAutomationCaptureWorker(
         InputAutomationActionInterface inputAutomationActionInterface,
         GenericProfileActions genericProfileActions,
@@ -48,7 +54,7 @@ public class TestInputAutomationCaptureWorker
     {
         super(inputAutomationActionInterface);
         
-        LogUtil.put(LogFactory.getInstance("GenericInputAutomationCaptureWorker", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(MESSAGE, this, CommonStrings.getInstance().CONSTRUCTOR));
         
         this.setGenericProfileActions(genericProfileActions);
     }
@@ -61,7 +67,7 @@ public class TestInputAutomationCaptureWorker
 
         if(cacheInterface.keySet().size() > 0)
         {
-            LogUtil.put(LogFactory.getInstance("Image Available so processing", this, "processDataWorkerResults"));
+            LogUtil.put(LogFactory.getInstance(IMAGE_AVAILABLE_SO_PROCESSING, this, PROCESS_DATA_WORKER_RESULTS));
             
             Object object = cacheInterface.keySet().toArray()[0];
             //BufferedImageFrameCacheable capturedBufferedImageCacheable = 
@@ -87,13 +93,13 @@ public class TestInputAutomationCaptureWorker
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Image Not Available", this, "processDataWorkerResults"));
+            LogUtil.put(LogFactory.getInstance(IMAGE_NOT_AVAILABLE, this, PROCESS_DATA_WORKER_RESULTS));
         }
     }
     
     public void process() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "process"));
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().PROCESS));
         
         this.startDataWorkers();
         this.processDataWorkerResults();

@@ -14,12 +14,17 @@
 package org.allbinary.input.automation.module.game;
 
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.basic.string.CommonSeps;
 
 public class HitPointGameObject extends MeteredGameObject
       implements HitPointGameObjectInterface
 {
    private boolean damaged = false;
    private boolean closeDeath = false;
+   
+   private final String HP_LABEL = "HP: ";
+   private final String IS_DAMAGED_LABEL = "isDamaged: ";
+   private final String IS_CLOSE_DEATH_LABEL = "isCloseDeath: ";
    
    public HitPointGameObject(BufferedImage[] bufferedImage, Integer minX, Integer maxX, Integer y)
    throws Exception
@@ -74,21 +79,21 @@ public class HitPointGameObject extends MeteredGameObject
    {
       this.damaged = damaged;
    }
-      
+
    public String toString()
    {
       StringBuffer stringBuffer = new StringBuffer();
       
-      stringBuffer.append("HP: ");
+      stringBuffer.append(HP_LABEL);
 
       stringBuffer.append(super.toString());
       
-      stringBuffer.append("\n");
-      stringBuffer.append("isDamaged: ");
+      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(IS_DAMAGED_LABEL);
       stringBuffer.append(this.isDamaged());
 
-      stringBuffer.append("\n");
-      stringBuffer.append("isCloseDeath: ");
+      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(IS_CLOSE_DEATH_LABEL);
       stringBuffer.append(this.isCloseDeath());
       
       return stringBuffer.toString();

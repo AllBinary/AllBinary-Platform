@@ -14,6 +14,7 @@
 package org.allbinary.input.automation.module.game;
 
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.basic.string.CommonSeps;
 
 public class MeteredGameObject
       implements MeteredGameObjectInterface
@@ -27,6 +28,10 @@ public class MeteredGameObject
    private Integer maxX;
    private Integer y;
    private Integer size;
+   
+   private final String RATIOS_LABEL = "Ratios: ";
+   private final String IS_GOOD_LABEL = "isGood: ";
+   private final String IS_DROPPPING_LABEL = "isDropping: ";
    
    public MeteredGameObject(BufferedImage[] bufferedImage, Integer minX, Integer maxX, Integer y)
    throws Exception
@@ -44,7 +49,7 @@ public class MeteredGameObject
             bufferedImage[index], this.getMinX(), this.getMaxX(), this.getY());
 
          this.getRatios()[index] = new Double(nominator / this.getSize());
-         //LogUtil.put(LogFactory.getInstance("hitPointRatios[index]" + hitPointRatios[index], this, "Constructor"));
+         //LogUtil.put(LogFactory.getInstance(new StringBuilder()).append("hitPointRatios[index]").append(hitPointRatios[index]).toString(), this, "Constructor"));
       }
       
       if (this.getRatios()[bufferedImage.length - 1].doubleValue() > 0.93F)
@@ -95,22 +100,23 @@ public class MeteredGameObject
    {
       StringBuffer stringBuffer = new StringBuffer();
       
-      stringBuffer.append("\nRatios: ");
+      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(RATIOS_LABEL);
       for (int index = 0; index < this.getRatios().length; index++)
       {
          stringBuffer.append(this.getRatios()[index]);
          if (index < this.getRatios().length - 1)
          {
-            stringBuffer.append(", ");
+            stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);
          }
       }
       
-      stringBuffer.append("\n");
-      stringBuffer.append("isGood: ");
+      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(IS_GOOD_LABEL);
       stringBuffer.append(this.isGood());
       
-      stringBuffer.append("\n");
-      stringBuffer.append("isDropping: ");
+      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(IS_DROPPPING_LABEL);
       stringBuffer.append(this.isDropping());
 
       return stringBuffer.toString();

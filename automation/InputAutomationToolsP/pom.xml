@@ -47,6 +47,8 @@
         <module>../InputAutomationJavaLibraryM</module>
 
         <module>../InputAutomationJavaApplicationM</module>
+        
+        <module>../../game/InputAutomationGameModulesJavaLibraryM</module>
     </modules>
 
 </project>

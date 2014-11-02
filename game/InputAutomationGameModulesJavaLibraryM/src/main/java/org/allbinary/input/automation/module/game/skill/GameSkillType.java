@@ -34,6 +34,8 @@ public class GameSkillType
     public static GameSkillType TRANSPORT = 
         new GameSkillType("Transport");
     
+    private final String SPELL_GAME_SKILL_TYPE = "SpellGameSkillType: ";
+    
     private String name;
     
     private GameSkillType(String name)
@@ -53,6 +55,6 @@ public class GameSkillType
 
     public String toString()
     {
-        return "SpellGameSkillType: " + this.getName();
+        return SPELL_GAME_SKILL_TYPE + this.getName();
     }
 }

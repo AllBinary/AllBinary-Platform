@@ -14,10 +14,13 @@
 package org.allbinary.input.automation.module.game;
 
 import java.awt.image.BufferedImage;
+import org.allbinary.logic.basic.string.CommonSeps;
 
 public class MagicGameObject extends MeteredGameObject
       implements MagicGameObjectInterface
 {
+   private final String MP_LABEL = "MP:";
+   
    public MagicGameObject(BufferedImage[] bufferedImage, Integer minX, Integer maxX, Integer y)
    throws Exception
    {
@@ -28,7 +31,8 @@ public class MagicGameObject extends MeteredGameObject
    {
       StringBuffer stringBuffer = new StringBuffer();
       
-      stringBuffer.append("\nMP:");
+      stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+      stringBuffer.append(MP_LABEL);
       stringBuffer.append(super.toString());
       
       return stringBuffer.toString();
