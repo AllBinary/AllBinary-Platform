@@ -29,7 +29,15 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class JavaHelpUtil
 {
-	private static final JavaHelpUtil instance = new JavaHelpUtil();
+    private static final JavaHelpUtil instance = new JavaHelpUtil();
+
+    /**
+     * @return the instance
+     */
+    public static JavaHelpUtil getInstance() {
+        return instance;
+    }
+
     private static final Point point = new Point(0,0);
     private static final Dimension dimension = new Dimension(640, 480);
     
@@ -50,7 +58,7 @@ public class JavaHelpUtil
     {
     }
     
-    public static HelpSet getHelpSet(String filePath)
+    public HelpSet getHelpSet(String filePath)
     {
         try
         {
@@ -60,12 +68,12 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", instance, "set", e));
+            LogUtil.put(LogFactory.getInstance("Exception", getInstance(), "set", e));
             return null;
         }
     }
 
-    public static HelpSet getHelpSet(URL url)
+    public HelpSet getHelpSet(URL url)
     {
         try
         {
@@ -73,12 +81,12 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", instance, "set", e));
+            LogUtil.put(LogFactory.getInstance("Exception", getInstance(), "set", e));
             return null;
         }
     }
     
-    public static void show(HelpSet helpSet)
+    public void show(HelpSet helpSet)
     {
         try
         {
@@ -88,11 +96,11 @@ public class JavaHelpUtil
             helpBroker.setSize(dimension);
             
             new CSH.DisplayHelpFromSource(helpBroker).actionPerformed(contextSensitiveHelpActionEvent);
-            LogUtil.put(LogFactory.getInstance("CSH Action", instance, "show"));
+            LogUtil.put(LogFactory.getInstance("CSH Action", getInstance(), "show"));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", instance, "show", e));
+            LogUtil.put(LogFactory.getInstance("Exception", getInstance(), "show", e));
         }
     }
     
@@ -100,7 +108,8 @@ public class JavaHelpUtil
     {
         try
         {
-            JavaHelpUtil.show(JavaHelpUtil.getHelpSet(
+            JavaHelpUtil javaHelpUtil = JavaHelpUtil.getInstance();
+            javaHelpUtil.show(javaHelpUtil.getHelpSet(
                 "G:/mnt/bc/mydev/working/automation/InputAutomationJavaApplication/AllBinaryInputAutomationHelp/AllBinaryInputAutomation.hs"));
         }
         catch(Exception e)

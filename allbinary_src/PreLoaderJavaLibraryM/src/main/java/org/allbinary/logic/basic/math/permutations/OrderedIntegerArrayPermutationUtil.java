@@ -14,6 +14,7 @@
 package org.allbinary.logic.basic.math.permutations;
 
 import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.util.visitor.Visitor;
 
 public class OrderedIntegerArrayPermutationUtil {
 
@@ -27,6 +28,10 @@ public class OrderedIntegerArrayPermutationUtil {
         return instance;
     }
 
+    private final String ORIGINAL_DATA_LABEL = "Original Data: ";
+    private final String TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
+    private final String FINISHED = "\nFINISHED";
+    
     private OrderedIntegerArrayPermutationUtil() {
     }
 
@@ -73,7 +78,11 @@ public class OrderedIntegerArrayPermutationUtil {
     }
 
     public void print(int[] data) {
-        StringBuilder stringBuilder = new StringBuilder();
+        final StringBuilder stringBuilder = new StringBuilder();
+        this.print(data, stringBuilder);
+    }
+    
+    public void print(int[] data, StringBuilder stringBuilder) {
         int size = data.length;
         for (int i = 0; i < size; i++) {
             stringBuilder.append(data[i]);
@@ -83,11 +92,7 @@ public class OrderedIntegerArrayPermutationUtil {
         System.out.println(stringBuilder.toString());
     }
 
-    private final String ORIGINAL_DATA_LABEL = "Original Data: ";
-    private final String TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
-    private final String FINISHED = "\nFINISHED";
-    
-    public void generate(int[] data) {
+    public void generate(int[] data, Visitor visitor) {
         System.out.print(ORIGINAL_DATA_LABEL);
         this.print(data);
         long iterations = this.factorial(data.length);
@@ -95,18 +100,29 @@ public class OrderedIntegerArrayPermutationUtil {
         System.out.println(iterations);
         for (long count = 0; count < iterations - 1; count++) {
             this.getNext(data);
-            //this.print(data);
+            visitor.visit(this);
         }
         System.out.println(FINISHED);
     }
 
     public static void main(String args[]) {
-        final int TOTAL = 10; //max for long 20;
+        final int TOTAL = 7; //max for long 20;
         final int[] data = new int[TOTAL];
 
         for (int i = 0; i < TOTAL; i++) {
             data[i] = i;
         }
-        OrderedIntegerArrayPermutationUtil.getInstance().generate(data);
+        
+        Visitor printVisitor = new Visitor()
+        {
+            private StringBuilder stringBuilder = new StringBuilder();
+            
+            public Object visit(Object object) {
+                stringBuilder.delete(0, stringBuilder.length());
+                ((OrderedIntegerArrayPermutationUtil) object).print(data, stringBuilder);
+                return null;
+            }
+        };
+        OrderedIntegerArrayPermutationUtil.getInstance().generate(data, printVisitor);
     }
 }
