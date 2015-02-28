@@ -13,10 +13,7 @@
 */
 package org.allbinary.logic.util.cache;
 
-import java.util.Set;
-
 public interface AutomaticCacheInterface extends CacheInterface
 {
     CacheableInterface get(Object key) throws Exception;
-    Set keySet();
 }

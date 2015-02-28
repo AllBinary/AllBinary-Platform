@@ -28,57 +28,14 @@
         <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
     </properties>
 
-    <modules>
-        <module>../CommonJavaLibraryM</module>
-        
-        <module>../../allbinary_src/LogM</module>
-        <module>../../allbinary_src/allbinary_src_designpatterns_srcM</module>
-        <module>../../allbinary_src/data/BaseDataJavaLibraryM</module>
-        <module>../../allbinary_src/cache/BaseCacheJavaLibraryM</module>
-        <module>../../allbinary_src/logic/BasePreloaderJavaLibraryM</module>
-        <module>../../allbinary_src/logic/BasePreloaderJ2MEJavaLibraryM</module>
-
-        <module>../ExceptionHTMLJavaLibraryM</module>
-        <module>../J2MEExceptionLibraryM</module>
-        <module>../J2MEJavaUtilLibraryM</module>
-        <module>../J2MEColorJavaLibraryM</module>
-        <module>../EventJ2MELibraryM</module>
-
-        <module>../../allbinary_src/LogJ2MEJavaLibraryM</module>
-        <module>../../allbinary_src/LogAndroidJavaLibraryM</module>
-        <module>../logging/LoggingNoneM</module>
-        <module>../logging/LoggingJ2MEAllM</module>
-        <module>../logging/LoggingJ2MEExceptionM</module>
-        <module>../logging/LoggingAndroidAllM</module>
-        <!--
-        //While it is a possible dependency option it really does not fit here
-        //as such it is actually build in the final POM builds instead
-        <module>../logging/LoggingRemoteExceptionM</module>  
-        -->
-        
-        <module>../J2MEWindowingJavaLibraryM</module>
-        
-        <module>../lib/BasicMathLibraryM</module>
-        
-        <module>../../allbinary_src/ThreadLibraryM</module>
-        <module>../../allbinary_src/ThreadHTMLLibraryM</module>
-        <module>../../allbinary_src/ThreadJ2MELibraryM</module>
-        <module>../time/TimeJavaLibraryM</module>
-
-        <module>../statistics/ApplicationStatisticsJ2SELibraryM</module>
-        <module>../statistics/ApplicationStatisticsJ2MELibraryM</module>
-        <module>../statistics/ApplicationStatisticsJavaLibraryM</module>
-
-        <module>../../allbinary_src/hardware/HardwareLibraryPOM</module>
-
-        <module>../lib/TrigBaseLibraryM</module>        
+    <modules>      
         <module>../input/me/TouchJ2MENoneJavaLibraryM</module>
         <!--
         <module>../input/me/TouchJ2MEJavaLibraryM</module>
         -->
         
         <!--
-        On Nexus
+        Nexus and AllBinaryOnDeployJavaLibraryPOM
         <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
         -->
 

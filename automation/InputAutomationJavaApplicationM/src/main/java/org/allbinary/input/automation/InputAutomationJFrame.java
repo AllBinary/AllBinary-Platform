@@ -59,7 +59,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       //fileJDialog.addFinishedListener(this);
       URL url = this.getClass().getResource("/help/Help.hs");
       LogUtil.put(LogFactory.getInstance("URL: " + url, this, "Constructor"));
-      helpSet = JavaHelpUtil.getHelpSet(url);
+      helpSet = JavaHelpUtil.getInstance().getHelpSet(url);
 
       url = this.getClass().getResource("/resources/allbinaryicon8bit.jpg");
       ImageIcon imageIcon = new ImageIcon(url);
@@ -439,7 +439,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
     */
     private void helpJMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_helpJMenuItemActionPerformed
     {//GEN-HEADEREND:event_helpJMenuItemActionPerformed
-       JavaHelpUtil.show(helpSet);
+       JavaHelpUtil.getInstance().show(helpSet);
     }//GEN-LAST:event_helpJMenuItemActionPerformed
 
     private void stopOnFocusJCheckBoxMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_stopOnFocusJCheckBoxMenuItemActionPerformed

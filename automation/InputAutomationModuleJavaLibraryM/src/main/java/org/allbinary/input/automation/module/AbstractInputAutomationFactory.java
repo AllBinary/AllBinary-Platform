@@ -42,7 +42,7 @@ abstract public class AbstractInputAutomationFactory
         this.jPanel = jPanel;
         
         URL url = this.getClass().getResource("/help/Help.hs");
-        this.helpSet = JavaHelpUtil.getHelpSet(url);
+        this.helpSet = JavaHelpUtil.getInstance().getHelpSet(url);
     }
    
     public String getName()

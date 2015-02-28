@@ -28,7 +28,7 @@ import org.allbinary.input.automation.module.InputAutomationActionInterface;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.logic.util.cache.J2SEAutomaticCacheInterface;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.ImageComparisonWorker;
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
@@ -99,7 +99,7 @@ public class GenericInputAutomationWorker
 
         this.waitForDataWorkers();
         
-        AutomaticCacheInterface cacheInterface = (AutomaticCacheInterface)
+        J2SEAutomaticCacheInterface cacheInterface = (J2SEAutomaticCacheInterface)
             CapturedBufferedImagesCacheSingleton.getInstance();
         
         Object keyArray[] = cacheInterface.keySet().toArray();
