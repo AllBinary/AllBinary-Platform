@@ -13,7 +13,6 @@
  */
 package org.allbinary.logic.basic.math.permutations;
 
-import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.util.visitor.Visitor;
 
 public class OrderedIntegerArrayPermutationUtil {
@@ -28,7 +27,6 @@ public class OrderedIntegerArrayPermutationUtil {
         return instance;
     }
 
-    private final String ORIGINAL_DATA_LABEL = "Original Data: ";
     private final String TOTAL_ITERATIONS_TABLE = "Total Iterations: ";
     private final String FINISHED = "\nFINISHED";
     
@@ -77,24 +75,7 @@ public class OrderedIntegerArrayPermutationUtil {
         return temp;
     }
 
-    public void print(int[] data) {
-        final StringBuilder stringBuilder = new StringBuilder();
-        this.print(data, stringBuilder);
-    }
-    
-    public void print(int[] data, StringBuilder stringBuilder) {
-        int size = data.length;
-        for (int i = 0; i < size; i++) {
-            stringBuilder.append(data[i]);
-            stringBuilder.append(CommonSeps.getInstance().SPACE);
-        }
-        //stringBuilder.append(CommonSeps.getInstance().NEW_LINE);
-        System.out.println(stringBuilder.toString());
-    }
-
     public void generate(int[] data, Visitor visitor) {
-        System.out.print(ORIGINAL_DATA_LABEL);
-        this.print(data);
         long iterations = this.factorial(data.length);
         System.out.print(TOTAL_ITERATIONS_TABLE);
         System.out.println(iterations);
@@ -112,17 +93,11 @@ public class OrderedIntegerArrayPermutationUtil {
         for (int i = 0; i < TOTAL; i++) {
             data[i] = i;
         }
-        
-        Visitor printVisitor = new Visitor()
-        {
-            private StringBuilder stringBuilder = new StringBuilder();
-            
-            public Object visit(Object object) {
-                stringBuilder.delete(0, stringBuilder.length());
-                ((OrderedIntegerArrayPermutationUtil) object).print(data, stringBuilder);
-                return null;
-            }
-        };
-        OrderedIntegerArrayPermutationUtil.getInstance().generate(data, printVisitor);
+
+        final PermutationVisitor permutationVisitor = new PermutationVisitor(data);        
+        final String ORIGINAL_DATA_LABEL = "Original Data: ";
+        System.out.print(ORIGINAL_DATA_LABEL);
+        permutationVisitor.print(data);
+        OrderedIntegerArrayPermutationUtil.getInstance().generate(data, permutationVisitor);
     }
 }
