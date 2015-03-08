@@ -41,10 +41,10 @@ public class LogFormatUtil
     {
     }
 
-    public synchronized String get(
+    public String get(
         String className, String functionName, String specialMessage, Throwable exception)
     {
-        StringBuffer stringBuffer = get(className, functionName);
+        StringBuffer stringBuffer = get(new StringBuffer(), className, functionName);
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
@@ -55,10 +55,10 @@ public class LogFormatUtil
         return stringBuffer.toString();
     }
 
-    public synchronized String get(
+    public String get(
         String className, String functionName, String specialMessage)
     {   
-        StringBuffer stringBuffer = get(className, functionName);
+        StringBuffer stringBuffer = get(new StringBuffer(), className, functionName);
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
@@ -72,7 +72,7 @@ public class LogFormatUtil
     //Date does not change as static
     //private final Calendar calendar = Calendar.getInstance();
     
-    private synchronized StringBuffer get(
+    private StringBuffer get(StringBuffer stringBuffer,
         String className, String functionName)
     {
         if (functionName == null)
@@ -81,7 +81,6 @@ public class LogFormatUtil
         }
 
         //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
-        StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(TIME);
         stringBuffer.append(timeStampUtil.getAsString());
         stringBuffer.append(CLASS_NAME);

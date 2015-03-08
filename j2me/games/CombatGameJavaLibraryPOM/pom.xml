@@ -1,0 +1,153 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.allbinary</groupId>
+  <artifactId>CombatGameJavaLibraryPOM</artifactId>
+  <packaging>pom</packaging>
+  <!-- AllBinary Platform Version Start -->
+  <version>1.0.0-SNAPSHOT</version>
+  <!-- AllBinary Platform Version End -->
+
+  <name>CombatGameJavaLibraryPOM</name>
+  <url>http://www.allbinary.com/</url>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>AllBinary Snapshots Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <name>AllBinary Releases Nexus</name>
+            <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </distributionManagement>
+
+    <properties>
+        <buildLabel>${version}</buildLabel>
+        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
+    </properties>
+
+    <modules>
+
+        <!--
+
+        -->
+
+        <module>../GameJ2MELibraryP</module>
+
+        <module>../../games/TickableJavaLibraryM</module>
+
+        <module>../../games/CommonHeadsUpDisplayLibraryM</module>
+
+        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
+
+        <module>../../../physics/MovementJavaLibraryM</module>
+        <!--        -->
+        <module>../../games/PartsJavaLibraryM</module>
+        <module>../../games/PickupGameJavaLibraryM</module>
+
+        <module>../../../allbinary_src/logic/data/file/FileJavaLibraryM</module>
+        <module>../../../allbinary_src/data/DataJavaLibraryM</module>
+
+        <module>../../../allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
+
+        <!--
+        -->
+        <module>../../../allbinary_src/licensing/TestClientInfoJavaLibraryM</module>
+        <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
+
+        <module>../../games/licensing/PartnerJ2MEJavaLibraryM</module>
+        <module>../../games/licensing/PartnerHTMLJavaLibraryM</module>
+        <module>../../games/licensing/PartnerAndroidJavaLibraryM</module>
+        <module>../../games/licensing/NoGameLicensingJavaLibraryM</module>
+        <module>../../games/licensing/GameLicensingOnlyDemoJavaLibraryM</module>
+        <module>../../games/licensing/GameLicensingOnlyNormalJavaLibraryM</module>
+        <module>../../games/licensing/GameLicensingBaseJavaLibraryM</module>
+
+        <!--
+        <module>../../games/GameScoresBaseLibraryM</module>
+        <module>../../games/GameScoresBaseJ2MELibraryM</module>
+        -->
+        <module>../../games/GameScoresBaseHTMLLibraryM</module>
+        <module>../../games/GameScoresJ2MEJavaLibraryM</module>
+        <module>../../games/GameScoresLibraryM</module>
+
+        <module>../../../store/ThirdPartyStoreJavaLibraryM</module>
+        <module>../../../store/NoThirdPartyStoreJavaLibraryM</module>
+
+        <module>../../media/graphics/layer/CollisionLayerJavaLibraryM</module>
+        <module>../../games/CollisionLibraryM</module>
+
+        <module>../../games/multiplayer/AllBinaryGameClientBaseNullJavaLibraryM</module>
+
+        <module>../../games/PickupLayerJavaLibraryM</module>
+
+        <module>../../games/DamageGameJavaLibraryM</module>
+        <module>../../games/DropJavaLibraryM</module>
+        <module>../../games/WeaponLayerJavaLibraryM</module>
+
+        <module>../../games/CombatGameJavaLibraryM</module>
+
+        <module>../../games/CommonHeadsUpDisplayCombatGameLibraryM</module>
+        <module>../../games/LifeOrDeathDataJavaLibraryM</module>
+
+        <module>../../games/BasicWeaponPartsJavaLibraryM</module>
+        <module>../../games/weapon/WeaponPropertiesJavaLibraryM</module>
+
+        <module>../../games/weapon/WeaponMineJavaLibraryM</module>
+
+        <!--
+        <module>../../media/graphics/effects/fireworks/FireworksJavaLibraryM</module>
+        -->
+
+        <module>../../media/graphics/geography/map/TerrainEventJavaLibraryM</module>
+
+<!--
+        <module>../../media/graphics/geography/map/BasicPlatformGeographicMapJavaLibraryM</module>
+        -->
+
+        <!--
+        <module>../../media/graphics/geography/map/RaceTrackP</module>
+        -->
+
+        <!--
+        XmlRpcJavaLibrary
+        RemoteXmlRpcJavaLibrary
+
+        Since POMs are built before the other libs is it best to handle this differently
+        ../../
+        <module>../../../../work/j2me/games/strategy/rts/RTSGameJavaLibraryP</module>
+        -->
+
+        <module>../../media/graphics/OtherGraphicsMediaLibraryP</module>
+
+        <module>../../input/NoTouchButtonResourceAnimationJavaLibraryM</module>
+        <module>../../input/TouchButtonResourceAnimationJavaLibraryM</module>
+        <module>../../input/TouchButtonResourceOpenGLESAnimationJavaLibraryM</module>
+
+        <module>../../input/TrackingEventJavaLibraryM</module>
+        <module>../../../game/behavior/BehaviorLibraryP</module>
+
+        <module>../../media/sound/OtherSoundMediaLibraryP</module>
+
+        <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryM</module>
+        <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryM</module>
+        <module>../../android/VirtualKeyboardJavaLibraryM</module>
+        <module>../../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
+
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.java.bool.logic.communication.xmlrpc;
+package org.allbinary.logic.communication.xmlrpc;
 
 import org.apache.xmlrpc.XmlRpcClient;
 

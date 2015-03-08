@@ -55,9 +55,13 @@
         -->
 
         <module>../../graphics/animation/image/ImageJ2MEJavaLibraryM</module>
+        <!--
         <module>../../graphics/animation/image/ImageHTMLJavaLibraryM</module>
+        -->
         <module>../../graphics/animation/image/ImageJ2SEJavaLibraryM</module>
+        <!--
         <module>../../graphics/animation/image/ImageAndroidJavaLibraryM</module>
+        -->
         
         <!--
         ../../
@@ -67,7 +71,9 @@
 
         <!-- Not used in Platform Libraries -->
         <module>../../graphics/GraphicsBasicImageJavaLibraryM</module>
+        <!--
         <module>../../graphics/animation/image/AllBinaryImageAnimationRotationJavaLibraryM</module>
+        -->
 
     </modules>
 

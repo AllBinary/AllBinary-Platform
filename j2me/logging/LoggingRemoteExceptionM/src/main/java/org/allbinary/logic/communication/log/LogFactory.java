@@ -21,7 +21,7 @@ public class LogFactory
             String functionName,
             Throwable exception)
     {
-        return LogFactory.getInstance(specialMessage, object, functionName, exception);
+        return new Log(specialMessage, object, functionName, exception);
     }
 
     public static final Log getInstance(
@@ -30,6 +30,6 @@ public class LogFactory
             String functionName)
     {
         return null;
-        //return LogFactory.getInstance(specialMessage, object, functionName);
+        //return new Log(specialMessage, object, functionName);
     }
 }

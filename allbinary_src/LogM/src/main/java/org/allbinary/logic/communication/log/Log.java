@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.LogFormatUtil;
-
 public class Log
 {
     private String specialMessage;
@@ -22,16 +20,23 @@ public class Log
     private String functionName;
     private Throwable exception;
 
+    private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
+
+    public Log()
+    {
+        
+    }
+    
     public Log(
         String specialMessage,
         Object object,
         String functionName,
         Throwable exception)
     {
-        this.setSpecialMessage(specialMessage);
-        this.setObject(object);
-        this.setFunctionName(functionName);
-        this.setThrowable(exception);
+        this.specialMessage = specialMessage;
+        this.object = object;
+        this.functionName = functionName;
+        this.exception = exception;
     }
 
     public Log(
@@ -39,9 +44,9 @@ public class Log
         Object object,
         String functionName)
     {
-        this.setSpecialMessage(specialMessage);
-        this.setObject(object);
-        this.setFunctionName(functionName);
+        this.specialMessage = specialMessage;
+        this.object = object;
+        this.functionName = functionName;
     }
 
     public String getSpecialMessage()
@@ -96,6 +101,6 @@ public class Log
             className = clazz.getName();
         }
 
-        return LogFormatUtil.getInstance().get(className, this.getFunctionName(), this.getSpecialMessage(), this.getThrowable());
+        return logFormatUtil.get(className, this.functionName, this.specialMessage, this.exception);
     }
 }
