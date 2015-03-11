@@ -43,6 +43,7 @@
         <module>../../sound/AndroidMediaMIDPLibraryM</module>
         
         <module>../../../games/Resources/sounds/release/GameSoundsWavResourcesJavaLibraryM</module>
+        <module>../../../games/Resources/sounds/release/GameSoundsOggResourcesJavaLibraryM</module>
         
     </modules>
 
