@@ -64,6 +64,9 @@
         <module>../CommonPickupJavaLibraryM</module>
         <module>../../../physics/FrictionJavaLibraryM</module>
 
+        <module>../working/j2me/games/Resources/images/GameImageLowResourcesJavaLibraryM</module>
+        <module>../working/j2me/games/Resources/images/GameImageMediumResourcesJavaLibraryM</module>
+
     </modules>
 
     <dependencies>
