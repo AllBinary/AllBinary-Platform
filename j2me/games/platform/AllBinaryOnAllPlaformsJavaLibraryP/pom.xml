@@ -51,8 +51,6 @@
         <module>../android/AllBinaryOnAndroidPlatformDependenciesJavaLibraryM</module>
         
         <module>../AllBinaryOptionalBasePlatformJavaLibraryM</module>
-        
-        <module>../AllBinaryOptionalBasePlatformJavaLibraryM</module>
 
     </modules>
 
