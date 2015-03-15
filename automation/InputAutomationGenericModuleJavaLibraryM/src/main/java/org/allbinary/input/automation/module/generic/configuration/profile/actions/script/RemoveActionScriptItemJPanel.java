@@ -15,7 +15,7 @@ package org.allbinary.input.automation.module.generic.configuration.profile.acti
 
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileAction;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionJPanel;
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.ProfileActionScriptConditionInterface;
+import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
 
 /**
  *

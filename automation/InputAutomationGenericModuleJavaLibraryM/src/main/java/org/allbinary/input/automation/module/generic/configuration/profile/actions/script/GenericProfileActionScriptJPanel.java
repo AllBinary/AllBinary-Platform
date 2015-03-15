@@ -13,7 +13,8 @@
 */
 package org.allbinary.input.automation.module.generic.configuration.profile.actions.script;
 
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.CustomTreeNodeInterface;
+import org.allbinary.input.automation.actions.script.JTreeInterface;
+import org.allbinary.input.automation.actions.script.condition.CustomTreeNodeInterface;
 import java.awt.event.MouseEvent;
 import javax.swing.JComponent;
 import javax.swing.JPopupMenu;
@@ -28,7 +29,7 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @author  USER
  */
 public class GenericProfileActionScriptJPanel
-    extends javax.swing.JPanel
+    extends javax.swing.JPanel implements JTreeInterface
 {
     private DefaultMutableTreeNode defaultMutableTreeNode =
         new DefaultMutableTreeNode("Root");

@@ -13,12 +13,12 @@
 */
 package org.allbinary.input.automation.module.generic.configuration.profile.actions;
 
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.ColorAtActionScriptCondition;
+import org.allbinary.input.automation.actions.script.condition.ColorAtActionScriptCondition;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.GenericProfileActionScriptJPanel;
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.GenericProfileActionScriptJPanelFactory;
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.AlwaysActionScriptCondition;
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.ProfileActionScriptConditionInterface;
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.TimeIntervalActionScriptCondition;
+import org.allbinary.input.automation.actions.script.JTreeInterfaceFactory;
+import org.allbinary.input.automation.actions.script.condition.AlwaysActionScriptCondition;
+import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
+import org.allbinary.input.automation.actions.script.condition.TimeIntervalActionScriptCondition;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -42,8 +42,13 @@ public class GenericProfileActionJPanel extends javax.swing.JPanel
     {
         this.blankProfileActionScriptJPanel.removeAll();
         
+        final GenericProfileActionScriptJPanel genericProfileActionScriptJPanel = 
+                new GenericProfileActionScriptJPanel();
+        
+        JTreeInterfaceFactory.getInstance().set(genericProfileActionScriptJPanel);
+        
         this.setGenericProfileActionScriptJPanel(
-            GenericProfileActionScriptJPanelFactory.getInstance());
+            genericProfileActionScriptJPanel);
         
         this.getGenericProfileActionScriptJPanel().setGenericProfileActionScript(
             this.getGenericProfileAction().getGenericProfileActionScript());

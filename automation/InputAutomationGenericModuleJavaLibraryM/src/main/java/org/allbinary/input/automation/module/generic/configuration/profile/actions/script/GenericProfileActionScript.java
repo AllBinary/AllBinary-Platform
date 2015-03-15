@@ -13,6 +13,7 @@
 */
 package org.allbinary.input.automation.module.generic.configuration.profile.actions.script;
 
+import org.allbinary.input.automation.actions.script.ProfileActionScriptNodeInterface;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
@@ -25,11 +26,10 @@ import org.w3c.dom.NodeList;
 
 import org.allbinary.data.tree.dom.DomSearchHelper;
 
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.ProfileActionScriptConditionFactory;
-import org.allbinary.input.automation.module.generic.configuration.profile.actions.script.condition.ProfileActionScriptConditionInterface;
+import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionFactory;
+import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionData;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionJPanel;
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
