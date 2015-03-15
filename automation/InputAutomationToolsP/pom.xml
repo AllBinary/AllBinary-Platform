@@ -41,6 +41,7 @@
         
         <module>../InputAutomationModuleJavaLibraryM</module>
         
+        <module>../InputAutomationActionScriptJavaLibraryM</module>
         <module>../InputAutomationGenericModuleJavaLibraryM</module>
         <module>../InputAutomationGeneric2ModuleJavaLibraryM</module>
 
