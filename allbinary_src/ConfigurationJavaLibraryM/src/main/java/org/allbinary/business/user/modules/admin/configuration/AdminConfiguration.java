@@ -1,19 +1,18 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
 package org.allbinary.business.user.modules.admin.configuration;
 
-import org.allbinary.business.user.modules.admin.configuration.AdminConfigurationData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.configuration.ContextConfiguration;
@@ -30,75 +29,62 @@ import java.util.HashMap;
 
 public class AdminConfiguration implements AdminConfigurationInterface
 {
-   private ContextConfigurationInterface contextConfigurationInterface;
 
-   public AdminConfiguration() throws Exception
-   {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
-      {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
-      }
+    private ContextConfigurationInterface contextConfigurationInterface;
 
-      this.contextConfigurationInterface = 
-         ContextConfigurationInterfaceFactory.getInstance(AdminConfigurationData.CONTEXTNAME);
-   }
+    public AdminConfiguration() throws Exception
+    {
+        LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
 
-   public AdminConfiguration(HttpServletRequest request) throws Exception
-   {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
-      {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
-      }
+        this.contextConfigurationInterface
+                = ContextConfigurationInterfaceFactory.getInstance(AdminConfigurationData.CONTEXTNAME);
+    }
 
-      this.getFormData(new RequestParams(request).toHashMap());
-   }
-   
-   public AdminConfiguration(HashMap storeHashMap) throws Exception
-   {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
-      {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
-      }
+    public AdminConfiguration(HttpServletRequest request) throws Exception
+    {
+        LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
 
-      this.getFormData(storeHashMap);
-   }
+        this.getFormData(new RequestParams(request).toHashMap());
+    }
 
-   private void getFormData(HashMap storeHashMap) throws Exception
-   {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
-      {
-         LogUtil.put(LogFactory.getInstance("Constructing", this, "getFormData"));
-      }
+    public AdminConfiguration(HashMap storeHashMap) throws Exception
+    {
+        LogUtil.put(LogFactory.getInstance("Constructing", this, "AdminConfiguration"));
 
-      this.setContextConfigurationInterface(
-         (ContextConfigurationInterface) 
-            new ContextConfiguration(storeHashMap));
-   }
+        this.getFormData(storeHashMap);
+    }
 
-   public synchronized void write() throws Exception
-   {
-      ContextConfigurationDomDocumentMapping
-         contextConfigurationDomDocumentMapping = 
-            new ContextConfigurationDomDocumentMapping(
-               this.getContextConfigurationInterface());
+    private void getFormData(HashMap storeHashMap) throws Exception
+    {
+        LogUtil.put(LogFactory.getInstance("Constructing", this, "getFormData"));
 
-      CryptFileWriter cryptFileWriter = new CryptFileWriter(
-         ContextConfigurationData.getInstance().UNCRYPTED_EXTENSION,
-         ContextConfigurationData.getInstance().ENCRYPTED_EXTENSION);
+        this.setContextConfigurationInterface(
+                (ContextConfigurationInterface) new ContextConfiguration(storeHashMap));
+    }
 
-      cryptFileWriter.write(
-         ContextConfigurationPathUtil.getAbPath(
-         AdminConfigurationData.CONTEXTNAME),
-         contextConfigurationDomDocumentMapping.toXmlDoc());
-   }
+    public synchronized void write() throws Exception
+    {
+        ContextConfigurationDomDocumentMapping contextConfigurationDomDocumentMapping
+                = new ContextConfigurationDomDocumentMapping(
+                        this.getContextConfigurationInterface());
 
-   public ContextConfigurationInterface getContextConfigurationInterface()
-   {
-      return contextConfigurationInterface;
-   }
+        CryptFileWriter cryptFileWriter = new CryptFileWriter(
+                ContextConfigurationData.getInstance().UNCRYPTED_EXTENSION,
+                ContextConfigurationData.getInstance().ENCRYPTED_EXTENSION);
 
-   public void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface)
-   {
-      this.contextConfigurationInterface = contextConfigurationInterface;
-   }
+        cryptFileWriter.write(
+                ContextConfigurationPathUtil.getAbPath(
+                        AdminConfigurationData.CONTEXTNAME),
+                contextConfigurationDomDocumentMapping.toXmlDoc());
+    }
+
+    public ContextConfigurationInterface getContextConfigurationInterface()
+    {
+        return contextConfigurationInterface;
+    }
+
+    public void setContextConfigurationInterface(ContextConfigurationInterface contextConfigurationInterface)
+    {
+        this.contextConfigurationInterface = contextConfigurationInterface;
+    }
 }

@@ -13,9 +13,6 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogFormatUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
