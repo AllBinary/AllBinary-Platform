@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.log;
+package org.allbinary.log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -34,7 +34,6 @@
         <module>../../games/GameScoresJ2MEJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
         <module>../../games/GameScoresLibraryM</module>
-        CommonPickupJavaLibrary
 -->
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
 

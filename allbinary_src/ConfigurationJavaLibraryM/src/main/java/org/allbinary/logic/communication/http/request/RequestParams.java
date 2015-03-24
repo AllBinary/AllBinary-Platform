@@ -127,7 +127,7 @@ public class RequestParams
             //stringBuffer.append(VALUE);
             //stringBuffer.append(value[0]);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "toHashMap()"));
+            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "toHashMap()"));
 
             //At some point they made them all String[] but you never know if they will go back or what
             String values[] = (String[]) map.get(key);

@@ -1,4 +1,4 @@
-package allbinary.graphics.form.item;
+package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.Graphics;

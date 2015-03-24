@@ -17,7 +17,7 @@
 
     <modules>
 
-        <module>../AndroidResourcesTempJavaLibraryM</module>
+        <module>../../platform/android/AndroidResourcesTempJavaLibraryM</module>
         <module>../../../../allbinary_src/licensing/ClientInformationMobileLicensingRegistrationJavaLibraryM</module>
 
         <module>../../../../allbinary_src/licensing/LicenseClientJavaLibraryM</module>
