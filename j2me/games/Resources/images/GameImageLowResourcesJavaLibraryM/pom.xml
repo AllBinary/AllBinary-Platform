@@ -25,7 +25,7 @@
     </distributionManagement>
       
     <properties>
-        <buildLabel>${version}</buildLabel>
+        <buildLabel>${project.version}</buildLabel>
     </properties>
 
     <dependencies>

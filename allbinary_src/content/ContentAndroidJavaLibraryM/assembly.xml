@@ -11,8 +11,8 @@
 
            <excludes>
 
-               <exclude>android:android</exclude>
 <!--
+               <exclude>android:android</exclude>
 -->
 
            </excludes>

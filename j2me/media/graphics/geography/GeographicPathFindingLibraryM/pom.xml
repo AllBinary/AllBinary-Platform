@@ -24,7 +24,7 @@
     </distributionManagement>
 
     <properties>
-        <buildLabel>${version}</buildLabel>
+        <buildLabel>${project.version}</buildLabel>
         <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
     </properties>
 
@@ -73,6 +73,7 @@
                 </executions>
             </plugin>
 
+<!--
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -82,6 +83,7 @@
                     <target>jsr14</target>
                 </configuration>
             </plugin>
+-->
 
         </plugins>
 

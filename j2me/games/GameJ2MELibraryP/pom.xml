@@ -24,7 +24,7 @@
     </distributionManagement>
 
     <properties>
-        <buildLabel>${version}</buildLabel>
+        <buildLabel>${project.version}</buildLabel>
         <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
     </properties>
 
@@ -113,6 +113,7 @@
         <module>../../media/graphics/NullCustomUIBaseJavaLibraryM</module>
 
         <module>../../media/graphics/FormValidationJavaLibraryM</module>
+        
         <module>../../media/graphics/FormJavaLibraryM</module>
         <module>../../media/graphics/FormBaseJavaLibraryM</module>
         <!--
@@ -138,8 +139,8 @@
 
         <module>../../games/GameConfigurationFormJavaLibraryM</module>
 
-        <module>../../FullScreenJavaLibraryM</module>
         <module>../../FullScreenNoneJavaLibraryM</module>
+        <module>../../FullScreenJavaLibraryM</module>
 
         <module>../../lib/Basic2DVectorLibraryM</module>
 

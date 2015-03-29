@@ -12,7 +12,7 @@
     <url>http://www.allbinary.com/</url>
 
     <properties>
-        <buildLabel>${version}</buildLabel>
+        <buildLabel>${project.version}</buildLabel>
     </properties>
     
     <dependencies>
