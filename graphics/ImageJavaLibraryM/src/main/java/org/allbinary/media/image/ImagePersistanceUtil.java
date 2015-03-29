@@ -10,7 +10,6 @@ import org.allbinary.logic.basic.io.AbFileOutputStream;
 import org.allbinary.logic.basic.io.StreamUtil;
 import org.allbinary.logic.basic.io.file.AbFile;
 import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.image.BufferedImage;

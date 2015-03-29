@@ -54,7 +54,6 @@
         <module>../logic/data/file/FileAdvancedJavaLibraryM</module>
         <module>../InitInfoJavaLibraryM</module>
         <module>../PreLoaderHttpJavaLibraryM</module>
-        <module>../PreLoaderJavaLibraryM</module>
         
         <module>../TagsBaseJavaLibraryM</module>
         <module>../CustomLoaderJavaLibraryM</module>
@@ -135,7 +134,7 @@
         
         <module>../BlisketBaseJavaLibraryM</module>
 
-        <module>../logging/LoggingGAELogM</module>
+        <module>../logging/LoggingGAEAllM</module>
         <module>../BlisketJavaLibraryM</module>
         
     </modules>

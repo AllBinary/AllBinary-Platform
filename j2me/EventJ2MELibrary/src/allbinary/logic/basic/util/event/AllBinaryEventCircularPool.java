@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package allbinary.logic.basic.util.event;
+package org.allbinary.logic.basic.util.event;
 
 import org.allbinary.util.CircularIndexUtil;
 

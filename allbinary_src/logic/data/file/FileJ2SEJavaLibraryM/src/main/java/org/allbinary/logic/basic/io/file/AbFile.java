@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.basic.io.file;
 
-import org.allbinary.logic.basic.io.file.AbFileInterface;
 import java.io.File;
 
 import org.allbinary.logic.basic.path.AbPath;

@@ -37,6 +37,8 @@
         <module>./allbinary_src/cache/AllBinaryCacheLibraryM</module>
         <module>./graphics/GraphicsToolsP</module>
         <module>./automation/InputAutomationToolsP</module>
+        <module>./allbinary_src/licensing/LicenseClientJavaLibraryM</module>
+        <module>./allbinary_src/PreLoaderJavaLibraryM</module>
         <module>./allbinary_src/BlisketJavaLibraryP</module>
         <module>./j2me/games/platform/AllBinaryOnAllPlaformsJavaLibraryP</module>
 
