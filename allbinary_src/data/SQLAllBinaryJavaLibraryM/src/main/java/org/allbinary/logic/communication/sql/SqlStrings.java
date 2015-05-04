@@ -22,6 +22,8 @@ public class SqlStrings
     
     public final String CREATE_DATABASE = "CREATE DATABASE ";
     public final String DROP_TABLE = "DROP TABLE ";
+    public final String CREATE_TABLE = "CREATE TABLE ";
+    public final String START = " (";
     public final String SELECT = "SELECT ";
     public final String FROM = " FROM ";
     public final String SELECT_ALL = "SELECT *";
@@ -29,6 +31,9 @@ public class SqlStrings
     public final String AND = " AND ";
     public final String UPDATE = "UPDATE ";
     public final String SET = " SET ";
+    
+    public final String PRIMARY_KEY = "PRIMARY KEY(";
+    public final String END = ") )";
     
     public final String EQUAL_QUOTE = " = \"";
     public final String CLOSE_QUOTE = "\"";

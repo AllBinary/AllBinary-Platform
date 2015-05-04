@@ -110,95 +110,95 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
     	
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("CREATE TABLE ");
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(tableName);
-        stringBuffer.append(" (");
+        stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(storeFrontData.NAME);
         stringBuffer.append(" VARCHAR(60) NOT NULL,");
 
       //UserData.USERNAME + " VARCHAR(255) NOT NULL," +
         stringBuffer.append(storeFrontData.HOMEHOSTNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.HOMEHOSTNAMEPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.HOSTNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.HOSTNAMEPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.TESTHOMEHOSTNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.TESTHOMEHOSTNAMEPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.TESTHOSTNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
       
         stringBuffer.append(storeFrontData.TESTHOSTNAMEPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.IMAGEPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
       
         stringBuffer.append(storeFrontData.STATICPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.CATEGORYPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.INVENTORYCONTROL);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.CONFIGURATION);
-        stringBuffer.append(" BLOB NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
         stringBuffer.append(storeFrontData.SUBSTORES);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.TAGLOCATION);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.PACKAGELOCATION);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.FTP);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
       
         stringBuffer.append(storeFrontData.FTPPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.FTPUSERNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.FTPPASSWORD);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.TESTFTP);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.TESTFTPPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(storeFrontData.TESTFTPUSERNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
       
         stringBuffer.append(storeFrontData.TESTFTPPASSWORD);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().TIMECREATED);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().getInstance().LASTMODIFIED);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append("PRIMARY KEY(");
+        stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(storeFrontData.NAME);
-        stringBuffer.append(") )");
+        stringBuffer.append(this.sqlStrings.END);
 
         return stringBuffer.toString();
     }

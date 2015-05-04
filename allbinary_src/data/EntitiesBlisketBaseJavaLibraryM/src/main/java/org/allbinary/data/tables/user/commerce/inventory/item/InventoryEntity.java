@@ -155,103 +155,103 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("CREATE TABLE ");
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(tableName);
-        stringBuffer.append(" (");
+        stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(BasicItemData.ID);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.NUMBER);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.INBASKETS);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.WEIGHT);
         //stringBuffer.append(" DECIMAL (11,2) NOT NULL,");
         stringBuffer.append(" VARCHAR(20) NOT NULL,");
 
         stringBuffer.append(EntryData.getInstance().ENABLE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.NEWORUSED);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.SUMMARY);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.DISTRIBUTOR);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.IDUSEDBYDISTRIBUTOR);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.PRODUCEDBY);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.PRODUCTIONDATE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.STARTPRODUCTIONDATE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.DESCRIPTION);
         stringBuffer.append(" BLOB NOT NULL,");
 
         stringBuffer.append(BasicItemData.KEYWORDS);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.CATEGORY);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.TYPE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.SMALLIMAGE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.MEDIUMIMAGE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(BasicItemData.LARGEIMAGE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().LASTMODIFIED);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().TIMECREATED);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.PRICE);
         //stringBuffer.append(" DECIMAL (11,2) NOT NULL,");
         stringBuffer.append(" VARCHAR(20) NOT NULL,");
 
         stringBuffer.append(BasicItemData.COMMENT);
-        stringBuffer.append(" BLOB NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
         //Special Inventory Types True or False
         stringBuffer.append(BasicItemData.CUSTOMS);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.DOWNLOADS);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.GROUPS);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.OPTIONS);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.PERMISSIONS);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(BasicItemData.SPECIALS);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append("PRIMARY KEY(");
+        stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(BasicItemData.ID);
-        stringBuffer.append(") )");
+        stringBuffer.append(this.sqlStrings.END);
 
         return stringBuffer.toString();
     }

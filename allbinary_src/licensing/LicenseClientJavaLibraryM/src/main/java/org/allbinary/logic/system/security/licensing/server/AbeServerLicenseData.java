@@ -24,6 +24,7 @@ public class AbeServerLicenseData {
 
     private AbeServerLicenseData() {
     }
+
     public final String AVAILABLE = "AVAILABLE";
     public final String CREATEDBY = "CREATEDBY";
     public final String CURRENTKEY = "CURRENTKEY";

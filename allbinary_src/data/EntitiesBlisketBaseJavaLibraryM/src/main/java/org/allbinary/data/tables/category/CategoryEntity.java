@@ -133,20 +133,20 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("CREATE TABLE ");
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 
         stringBuffer.append(tableName);
-        stringBuffer.append(" (");
+        stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(CategoryData.getInstance().NAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(CategoryData.getInstance().LEVEL);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append("PRIMARY KEY(");
+        stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(CategoryData.getInstance().NAME);
-        stringBuffer.append(") )");
+        stringBuffer.append(this.sqlStrings.END);
 
         return stringBuffer.toString();
     }

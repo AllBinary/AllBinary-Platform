@@ -50,7 +50,7 @@ public class AbSqlBean extends AbSqlRow
 
         try
         {
-            String field = "";
+            String field = StringUtil.getInstance().EMPTY_STRING;
             ResultSet rset = executeSQLStatement(sqlStatement);
             while (rset.next())
             {

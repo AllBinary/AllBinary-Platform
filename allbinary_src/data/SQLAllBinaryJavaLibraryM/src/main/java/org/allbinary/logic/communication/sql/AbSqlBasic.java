@@ -34,6 +34,7 @@ public class AbSqlBasic
     protected Connection conn;
     //protected boolean useridAndPassword;
 
+    protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();
     
     public AbSqlBasic(DbConnectionInfo databaseConnectionInfoInterface)
