@@ -37,6 +37,22 @@ public class AbSqlBasic
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();
     
+    protected final String FAILED_SQL_STATEMENT = "Failed\nSQL Statement: ";
+
+    private final String METHOD_EXECUTED_SQL_STATEMENT = "executedSQLStatement";
+    private final String METHOD_CREATE = "create";
+    
+    private final String DATABASE_CREATED_LABEL = "Database Created: ";
+    private final String DATABASE_CREATION_FAILED_LABEL = "Database Creation Failed: ";
+    
+    private final String SQL_CONNECTION_FAILED = "SQL Connection Failed";
+    private final String SQL_CONNECTION_RETRYING = "SQL Connection Retrying";
+    private final String SQL_CONNECTION_RETRY = "SQL Connection Retry";
+    private final String METHOD_CREATE_CONNECTION = "createConnection()";
+    private final String METHOD_INITIALIZE = "initialize";
+    
+    private final String LOAD_JDBC_DRIVER_FAILED_LABEL = "Load JDBC Driver Failed: ";
+    
     public AbSqlBasic(DbConnectionInfo databaseConnectionInfoInterface)
     {
         this.databaseConnectionInfoInterface = databaseConnectionInfoInterface;
@@ -95,13 +111,19 @@ public class AbSqlBasic
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("SQL Statement Failed\nSQL Statement: " + statement, this, "executedSQLStatement", e));
+                LogUtil.put(LogFactory.getInstance(FAILED_SQL_STATEMENT + statement, this, METHOD_EXECUTED_SQL_STATEMENT, e));
             }
 
             this.conn.close();
             this.conn = null;
 
             throw e;
+        }
+        /*
+        finally
+        {
+        this.conn.close();
+        this.conn = null;
         }
         /*
         finally
@@ -119,16 +141,16 @@ public class AbSqlBasic
             this.executeSQLStatement(sqlStrings.CREATE_DATABASE + databaseName);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Database Created: " + databaseName, this, "create"));
+                LogUtil.put(LogFactory.getInstance(this.DATABASE_CREATED_LABEL + databaseName, this, METHOD_CREATE));
             }
             return databaseName + sqlStrings.CREATE_RETURN;
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Database Creation Failed: " + databaseName, this, "create", e));
+                LogUtil.put(LogFactory.getInstance(DATABASE_CREATION_FAILED_LABEL + databaseName, this, this.METHOD_CREATE, e));
             }
-            return "Failed to Create " + databaseName;
+            return DATABASE_CREATION_FAILED_LABEL + databaseName;
         }
     }
 
@@ -151,7 +173,7 @@ public class AbSqlBasic
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("SQL Connection Retrying", this, "createConnection()", se));
+                LogUtil.put(LogFactory.getInstance(SQL_CONNECTION_RETRYING, this, METHOD_CREATE_CONNECTION, se));
             }
             try
             {
@@ -168,7 +190,7 @@ public class AbSqlBasic
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
                 {
-                    LogUtil.put(LogFactory.getInstance("SQL Connection Retry", this, "createConnection()", se));
+                    LogUtil.put(LogFactory.getInstance(SQL_CONNECTION_RETRY + se.getMessage(), this, this.METHOD_CREATE_CONNECTION, e));
                 }
 
             }
@@ -200,7 +222,7 @@ public class AbSqlBasic
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Load JDBC Driver Failed: " + this.getDatabaseConnectionInfoInterface().getJdbcDriver(), this, "initialize", e));
+                        LogUtil.put(LogFactory.getInstance(LOAD_JDBC_DRIVER_FAILED_LABEL + this.getDatabaseConnectionInfoInterface().getJdbcDriver(), this, METHOD_INITIALIZE, e));
                         //LogUtil.put(LogFactory.getInstance("Load mySQL Driver Failed: com.mysql.jdbc.Driver",this,"initialize",e);
                     }
                 }
@@ -219,7 +241,7 @@ public class AbSqlBasic
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("SQL Connection Failed", this, "initialize", se));
+                LogUtil.put(LogFactory.getInstance(SQL_CONNECTION_FAILED, this, this.METHOD_INITIALIZE, se));
             }
         }
     }

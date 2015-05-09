@@ -25,7 +25,8 @@ import java.util.Set;
 
 public class AbSqlBean extends AbSqlRow
 {
-    private final String GETFIELD = "getField";
+    private final String METHOD_GET_FIELD = "getField";
+    private final String METHOD_IS_SUBSET_OF_ENTRY = "isSubsetOfEntry";
     
     public AbSqlBean(DbConnectionInfo databaseConnectionInfoInterface)
     {
@@ -65,7 +66,7 @@ public class AbSqlBean extends AbSqlRow
                     stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GETFIELD));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET_FIELD));
                 }
 
                 return field;
@@ -75,9 +76,9 @@ public class AbSqlBean extends AbSqlRow
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + sqlStatement, this, GETFIELD, e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e));
             }
-            return "Failed\nSQL Statement: " + sqlStatement;
+            return this.FAILED_SQL_STATEMENT + sqlStatement;
         }
     }
 
@@ -129,7 +130,7 @@ public class AbSqlBean extends AbSqlRow
                     stringBuffer.append(sqlStrings.FIELD_VALUE);
                     stringBuffer.append(field);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GETFIELD));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET_FIELD));
                 }
                 return field;
             }
@@ -140,9 +141,9 @@ public class AbSqlBean extends AbSqlRow
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + sqlStatement, this, GETFIELD, e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_GET_FIELD, e));
             }
-            return "Failed\nSQL Statement: " + sqlStatement;
+            return this.FAILED_SQL_STATEMENT + sqlStatement;
         }
     }
 
@@ -207,9 +208,9 @@ public class AbSqlBean extends AbSqlRow
             String sqlStatement = stringBuffer.toString();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + sqlStatement, this, "isSubsetOfEntry", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_IS_SUBSET_OF_ENTRY, e));
             }
-            return "Failed\nSQL Statement: " + sqlStatement;
+            return this.FAILED_SQL_STATEMENT + sqlStatement;
         }
     }
 }

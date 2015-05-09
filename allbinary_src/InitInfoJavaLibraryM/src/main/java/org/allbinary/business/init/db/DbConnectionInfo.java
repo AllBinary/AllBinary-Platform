@@ -41,6 +41,7 @@ inventory835
 package org.allbinary.business.init.db;
 
 import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.basic.string.CommonSeps;
 
 public class DbConnectionInfo implements DatabaseConnectionInfoInterface
 {
@@ -55,6 +56,10 @@ public class DbConnectionInfo implements DatabaseConnectionInfoInterface
     private String url;
     private String host;
 
+    private final String SCHEMA_SEP = "://";
+    private final String USER_NAME_KEY = "?user=";
+    private final String PASSWORD_KEY = "&password=";
+    
     public DbConnectionInfo()
     {
     }
@@ -105,12 +110,12 @@ public class DbConnectionInfo implements DatabaseConnectionInfoInterface
         StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.getSchema());
-        stringBuffer.append("://");
+        stringBuffer.append(this.SCHEMA_SEP);
         stringBuffer.append(this.getServer());
         
         if (this.getPort() != null && this.getPort().length() > 1)
         {
-            stringBuffer.append(":");
+            stringBuffer.append(CommonSeps.getInstance().COLON);
             stringBuffer.append(this.getPort());
         }
 
@@ -182,11 +187,11 @@ public class DbConnectionInfo implements DatabaseConnectionInfoInterface
 
     public final String getUserNameKey()
     {
-        return "?user=";
+        return USER_NAME_KEY;
     }
 
     public final String getPasswordKey()
     {
-        return "&password=";
+        return PASSWORD_KEY;
     }
 }

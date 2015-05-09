@@ -379,7 +379,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + stringBuffer, this, "getRow", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRow", e));
             }
             return null;
         }
@@ -451,7 +451,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + stringBuffer, this, "getRows", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRows", e));
             }
             return null;
         }
@@ -501,7 +501,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + stringBuffer, this, "getAllRows", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getAllRows", e));
             }
             return null;
         }
@@ -593,7 +593,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed\nSQL Statement: " + stringBuffer, this, "getRowsWhereLike", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRowsWhereLike", e));
             }
             return new Vector();
         }

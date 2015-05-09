@@ -47,7 +47,9 @@ public class InitSql
    private Connection conn;
    
    private boolean useridAndPassword;
-      
+   
+   protected final String FAILED_SQL_STATEMENT = "Failed\nSQL Statement: ";
+   
    public InitSql(DbConnectionInfo databaseConnectionInfoInterface)
    {
       this.setDatabaseConnectionInfoInterface(databaseConnectionInfoInterface);
@@ -163,7 +165,7 @@ public class InitSql
         {
             if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {
-                PreLogUtil.put("Failed\nSQL Statement: " + stringBuffer, this, "getRow", e);
+                PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRow", e);
             }
             return null;
         }
