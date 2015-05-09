@@ -35,9 +35,14 @@ public class LogConfigType
    public static LogConfigType CRYPTERROR = new LogConfigType("Crypt Error",NO_DESCRIPTION);
    
    public static LogConfigType EMAILLOGGING = new LogConfigType("Email",NO_DESCRIPTION);
+   //org.allbinary.business.user.modules.admin.configuration.AdminConfiguration
+   //org.allbinary.business.context.configuration.ContextConfiguration
+
    public static LogConfigType EMAILLOGGINGERROR = new LogConfigType("Email Error",NO_DESCRIPTION);
    
    public static LogConfigType ENTITYFACTORYERROR = new LogConfigType("Entity Factory Error",NO_DESCRIPTION);
+   //org.allbinary.data.tables.licensing.server.LicenseServerEntityFactory
+   //org.allbinary.data.tables.licensing.server.request.LicenseServerRequestEntityFactory
    
    public static LogConfigType NETBEANS_MODULE = new LogConfigType("NetBeans Module",NO_DESCRIPTION);
    public static LogConfigType NETBEANS_MODULE_ERROR = new LogConfigType("NetBeans Module Error",NO_DESCRIPTION);
@@ -51,6 +56,7 @@ public class LogConfigType
    public static LogConfigType HTTPERROR = new LogConfigType("HTTP Error",NO_DESCRIPTION);
    
    public static LogConfigType HTTPREQUEST = new LogConfigType("Http Request",NO_DESCRIPTION);
+   //org.allbinary.logic.communication.http.request
    public static LogConfigType HTTPREQUESTERROR = new LogConfigType("Http Request Error",NO_DESCRIPTION);
    
    public static LogConfigType IDLOGGING = new LogConfigType("ID Logging",NO_DESCRIPTION);
@@ -64,6 +70,12 @@ public class LogConfigType
    
    public static LogConfigType LICENSING = new LogConfigType("Licensing",NO_DESCRIPTION);
    public static LogConfigType LICENSINGERROR = new LogConfigType("Licensing Error",NO_DESCRIPTION);
+   //org.allbinary.logic.system.security.licensing.server.AbeRequestClientInformation
+   //org.allbinary.business.object.licensing.server.request.ServerLicenseRequestFactory
+   //org.allbinary.business.object.licensing.server.ServerLicenseXmlRpcReponseFactory
+   //org.allbinary.servlet.licensing.server.AbeLicenseServerServlet
+   //org.allbinary.business.object.licensing.server.ServerLicenseFactory
+   //org.allbinary.logic.system.security.licensing.server.AbeLicenseServerXmlRpcHandler
    
    public static LogConfigType LOADER = new LogConfigType("Loader",NO_DESCRIPTION);
    
@@ -73,6 +85,7 @@ public class LogConfigType
    public static LogConfigType OSERROR = new LogConfigType("OS Error",NO_DESCRIPTION);
    
    public static LogConfigType PAYMENT = new LogConfigType("Payment",NO_DESCRIPTION);
+//   org.allbinary.business.user.commerce.money.payment.gateway.transaction.TransactionResult
    public static LogConfigType PAYMENTERROR = new LogConfigType("Payment Error",NO_DESCRIPTION);
    
    public static LogConfigType PRELOADER = new LogConfigType("PreLoader",NO_DESCRIPTION);
@@ -88,6 +101,8 @@ public class LogConfigType
    
    public static LogConfigType SQLLOGGINGERROR = new LogConfigType("SQL Error",NO_DESCRIPTION);
    public static LogConfigType SQLLOGGING = new LogConfigType("SQL Logging",NO_DESCRIPTION);
+   //org.allbinary.data.tables.licensing.server.LicenseServerEntity
+   //org.allbinary.data.tables.licensing.server.request.LicenseServerRequestEntity
    
    public static LogConfigType SQLTAGS = new LogConfigType("SQL Tag Logging",NO_DESCRIPTION);
    public static LogConfigType SQLTAGSERROR = new LogConfigType("SQL Tag Error",NO_DESCRIPTION);
