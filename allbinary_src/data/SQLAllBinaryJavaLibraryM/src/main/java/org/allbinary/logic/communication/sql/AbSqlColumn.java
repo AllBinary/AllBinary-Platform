@@ -134,7 +134,7 @@ public class AbSqlColumn extends AbSqlTable
 
     public Vector getColumnWhere(String columnName, String key, String value)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(columnName);
@@ -148,12 +148,14 @@ public class AbSqlColumn extends AbSqlTable
 
         String sqlStatement = stringBuffer.toString();
         Vector column = new Vector();
+        ResultSet rset;
+        String field;
         try
         {
-            ResultSet rset = executeSQLStatement(sqlStatement);
+            rset = executeSQLStatement(sqlStatement);
             while (rset.next())
             {
-                String field = rset.getObject(columnName).toString();
+                field = rset.getObject(columnName).toString();
                 column.add(field);
             }
 

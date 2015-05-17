@@ -344,7 +344,7 @@ public class AbSqlTable extends AbSqlBasic
             //If the readahead is less than 2 lines then this will only work some of the time
             bufferedLineReader.readUpToLines(start);
 
-            String line = StringUtil.getInstance().EMPTY_STRING;
+            String line = this.stringUtil.EMPTY_STRING;
             while (bufferedLineReader.getCurrent() < end && (line = bufferedLineReader.readLine()) != null)
             {
                 if (line.length() > 1)

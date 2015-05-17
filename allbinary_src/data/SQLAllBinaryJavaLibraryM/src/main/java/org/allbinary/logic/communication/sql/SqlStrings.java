@@ -32,6 +32,8 @@ public class SqlStrings
     public final String UPDATE = "UPDATE ";
     public final String SET = " SET ";
     
+    public final String DELETE = "DELETE";
+    
     public final String PRIMARY_KEY = "PRIMARY KEY(";
     public final String END = ") )";
     

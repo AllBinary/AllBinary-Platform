@@ -23,6 +23,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringUtil;
 
 public class AbSqlBasic
 {
@@ -34,6 +36,8 @@ public class AbSqlBasic
     protected Connection conn;
     //protected boolean useridAndPassword;
 
+    protected final StringUtil stringUtil = StringUtil.getInstance();
+    protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();
     

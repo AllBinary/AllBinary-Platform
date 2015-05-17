@@ -21,8 +21,6 @@ import java.util.Set;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -31,6 +29,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class AbSqlRow extends AbSqlColumn
 {
 
+    private final String EQUAL_QUOTE = "=\"";
+    private final String ESCAPE_QUOTES = "\\\"";
+    
     public AbSqlRow(DbConnectionInfo databaseConnectionInfoInterface)
     {
         super(databaseConnectionInfoInterface);
@@ -41,7 +42,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         if (StringValidationUtil.getInstance().isEmpty(value))
         {
-            return StringUtil.getInstance().EMPTY_STRING;
+            return this.stringUtil.EMPTY_STRING;
         } else
         {
             return value;
@@ -52,9 +53,9 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("UPDATE ");
+        stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" SET ");
+        stringBuffer.append(this.sqlStrings.SET);
 
         try
         {
@@ -62,17 +63,17 @@ public class AbSqlRow extends AbSqlColumn
             while (iter.hasNext())
             {
                 String columnName = iter.next().toString();
-                stringBuffer.append(CommonSeps.getInstance().SPACE);
+                stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
-                stringBuffer.append("=\"");
+                stringBuffer.append(EQUAL_QUOTE);
                 String columnValue = (String) updatedKeyValuePairs.get(columnName);
 
                 if (columnValue == null)
                 {
-                    columnValue = StringUtil.getInstance().EMPTY_STRING;
+                    columnValue = this.stringUtil.EMPTY_STRING;
                 } else
                 {
-                    columnValue = new Replace(sqlStrings.CLOSE_QUOTE, "\\\"").all(columnValue);
+                    columnValue = new Replace(sqlStrings.CLOSE_QUOTE, ESCAPE_QUOTES).all(columnValue);
                 }
 
                 stringBuffer.append(this.getValue(columnValue));
@@ -80,7 +81,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (iter.hasNext())
                 {
-                    stringBuffer.append(",");
+                    stringBuffer.append(this.commonSeps.COMMA);
                 }
             }
 
@@ -111,9 +112,9 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("UPDATE ");
+        stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" SET ");
+        stringBuffer.append(this.sqlStrings.SET);
 
         try
         {
@@ -121,9 +122,9 @@ public class AbSqlRow extends AbSqlColumn
             while (iter.hasNext())
             {
                 String columnName = iter.next().toString();
-                stringBuffer.append(" ");
+                stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
-                stringBuffer.append("=\"");
+                stringBuffer.append(this.EQUAL_QUOTE);
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
@@ -134,10 +135,10 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (columnValue == null)
                 {
-                    columnValue = StringUtil.getInstance().EMPTY_STRING;
+                    columnValue = this.stringUtil.EMPTY_STRING;
                 } else
                 {
-                    columnValue = new Replace(sqlStrings.CLOSE_QUOTE, "\\\"").all(columnValue);
+                    columnValue = new Replace(sqlStrings.CLOSE_QUOTE, this.ESCAPE_QUOTES).all(columnValue);
                 }
 
                 stringBuffer.append(this.getValue(columnValue));
@@ -145,7 +146,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (iter.hasNext())
                 {
-                    stringBuffer.append(",");
+                    stringBuffer.append(this.commonSeps.COMMA);
                 }
             }
 
@@ -171,7 +172,6 @@ public class AbSqlRow extends AbSqlColumn
                         stringBuffer.append(sqlStrings.AND);
                     }
                 }
-
             }
 
             String sqlStatement = stringBuffer.toString();
@@ -195,7 +195,8 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("DELETE FROM ");
+        stringBuffer.append(this.sqlStrings.DELETE);
+        stringBuffer.append(this.sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
         stringBuffer.append(sqlStrings.WHERE);
         stringBuffer.append(key);
@@ -225,9 +226,10 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("DELETE FROM ");
+        stringBuffer.append(this.sqlStrings.DELETE);
+        stringBuffer.append(this.sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(sqlStrings.WHERE);
+        stringBuffer.append(this.sqlStrings.WHERE);
 
         try
         {
@@ -240,13 +242,13 @@ public class AbSqlRow extends AbSqlColumn
                 String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
+                stringBuffer.append(this.sqlStrings.EQUAL_QUOTE);
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
+                stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
                 if (iter.hasNext())
                 {
-                    stringBuffer.append(sqlStrings.AND);
+                    stringBuffer.append(this.sqlStrings.AND);
                 }
             }
 
@@ -312,7 +314,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT *");
+        stringBuffer.append(this.sqlStrings.SELECT_ALL);
         stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
         stringBuffer.append(sqlStrings.WHERE);
@@ -461,7 +463,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT *");
+        stringBuffer.append(this.sqlStrings.SELECT_ALL);
         stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
 
@@ -605,7 +607,8 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT * FROM ");
+        stringBuffer.append(this.sqlStrings.SELECT_ALL);
+        stringBuffer.append(this.sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
 
         try
@@ -681,7 +684,8 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT * FROM ");
+        stringBuffer.append(this.sqlStrings.SELECT_ALL);
+        stringBuffer.append(this.sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
 
         try

@@ -14,8 +14,6 @@
 package org.allbinary.logic.communication.sql;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.sql.ResultSet;
@@ -35,7 +33,7 @@ public class AbSqlBean extends AbSqlRow
 
     public String getField(String key, String value, String requestedField)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(requestedField);
@@ -51,7 +49,7 @@ public class AbSqlBean extends AbSqlRow
 
         try
         {
-            String field = StringUtil.getInstance().EMPTY_STRING;
+            String field = this.stringUtil.EMPTY_STRING;
             ResultSet rset = executeSQLStatement(sqlStatement);
             while (rset.next())
             {
@@ -84,7 +82,7 @@ public class AbSqlBean extends AbSqlRow
 
     public String getField(HashMap keysAndValues, String requestedField)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(requestedField);
@@ -94,15 +92,17 @@ public class AbSqlBean extends AbSqlRow
         
         try
         {
-            String field = StringUtil.getInstance().EMPTY_STRING;
+            String field = this.stringUtil.EMPTY_STRING;
 
-            Set set = keysAndValues.keySet();
-            Iterator iter = set.iterator();
+            final Set set = keysAndValues.keySet();
+            final Iterator iter = set.iterator();
 
+            String key;
+            String value;
             while (iter.hasNext())
             {
-                String key = (String) iter.next();
-                String value = new String((String) keysAndValues.get(key));
+                key = (String) iter.next();
+                value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
                 stringBuffer.append(sqlStrings.EQUAL_QUOTE);
@@ -157,15 +157,13 @@ public class AbSqlBean extends AbSqlRow
         try
         {
             Iterator iter = columnsAndValues.keySet().iterator();
-
-            final String SPACE = CommonSeps.getInstance().SPACE;
             
-            stringBuffer.append(SPACE);
+            stringBuffer.append(this.commonSeps.SPACE);
             stringBuffer.append(key);
 
             while (iter.hasNext())
             {
-                stringBuffer.append(SPACE);
+                stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(iter.next());
             }
 
@@ -181,13 +179,16 @@ public class AbSqlBean extends AbSqlRow
 
             ResultSet rset = executeSQLStatement(sqlStatement);
 
+            String columnName;
+            String field;
+            Iterator iter2;
             while (rset.next())
             {
-                Iterator iter2 = columnsAndValues.keySet().iterator();
+                iter2 = columnsAndValues.keySet().iterator();
                 while (iter2.hasNext())
                 {
-                    String columnName = iter2.next().toString();
-                    String field = rset.getObject(columnName).toString();
+                    columnName = iter2.next().toString();
+                    field = rset.getObject(columnName).toString();
                     if (field.compareTo((String) columnsAndValues.get(columnName)) != 0)
                     {
                         return org.allbinary.globals.GLOBALS.NOTASUBSET;
