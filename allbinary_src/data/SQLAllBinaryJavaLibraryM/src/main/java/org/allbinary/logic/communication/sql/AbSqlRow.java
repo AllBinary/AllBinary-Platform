@@ -272,9 +272,9 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("INSERT INTO ");
+        stringBuffer.append(this.sqlStrings.INSERT_INTO);
         stringBuffer.append(this.getTableName());
-        stringBuffer.append(" VALUES ('");
+        stringBuffer.append(this.sqlStrings.VALUES);
 
         try
         {
@@ -282,14 +282,14 @@ public class AbSqlRow extends AbSqlColumn
             for (int i = 0; i < values.size() - 1; i++)
             {
                 String value = this.getValue((String) values.get(i));
-                value = new Replace("\\", "\\\\").all(value);
+                value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
                 stringBuffer.append(value);
-                stringBuffer.append("','");
+                stringBuffer.append(this.sqlStrings.SINGLE_QUOTE_COMMA_SEP);
             }
 
             String value = this.getValue((String) values.lastElement());
-            value = new Replace("\\", "\\\\").all(value);
+            value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
             stringBuffer.append(value);
             stringBuffer.append("')");
@@ -314,8 +314,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append(this.sqlStrings.SELECT_ALL);
-        stringBuffer.append(sqlStrings.FROM);
+        stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
         stringBuffer.append(sqlStrings.WHERE);
 
@@ -391,8 +390,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append(sqlStrings.SELECT_ALL);
-        stringBuffer.append(sqlStrings.FROM);
+        stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
         stringBuffer.append(sqlStrings.WHERE);
 
@@ -463,8 +461,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append(this.sqlStrings.SELECT_ALL);
-        stringBuffer.append(sqlStrings.FROM);
+        stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
 
         try
@@ -514,7 +511,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
         
-        stringBuffer.append("SELECT *");
+        stringBuffer.append(this.sqlStrings.SELECT_ALL);
         stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
         stringBuffer.append(sqlStrings.WHERE);
@@ -551,7 +548,7 @@ public class AbSqlRow extends AbSqlColumn
                 String value = new String((String) likeKeysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(" LIKE \"");
+                stringBuffer.append(this.sqlStrings.LIKE_QUOTE);
 
                 stringBuffer.append(this.getValue(value));
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
@@ -564,7 +561,7 @@ public class AbSqlRow extends AbSqlColumn
 
             String sqlStatement = stringBuffer.toString();
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, "getRowsWhereLike"));
             }
@@ -584,7 +581,7 @@ public class AbSqlRow extends AbSqlColumn
                     result.put(columnName, field);
                 }
 
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
                     LogUtil.put(LogFactory.getInstance("\nRow Value: " + result.toString(), this, "getRowsWhereLike"));
                 }
@@ -593,7 +590,7 @@ public class AbSqlRow extends AbSqlColumn
             return rows;
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRowsWhereLike", e));
             }
@@ -607,22 +604,21 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append(this.sqlStrings.SELECT_ALL);
-        stringBuffer.append(this.sqlStrings.FROM);
+        stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
 
         try
         {
             Vector rows = new Vector();
             stringBuffer.append(sqlStrings.WHERE);
-
             Set set = whereKeyValuePairs.keySet();
             Iterator whereIter = set.iterator();
-
+            String key;
+            String value;
             while (whereIter.hasNext())
             {
-                String key = (String) whereIter.next();
-                String value = (String) whereKeyValuePairs.get(key);
+                key = (String) whereIter.next();
+                value = (String) whereKeyValuePairs.get(key);
 
                 stringBuffer.append(key);
                 stringBuffer.append(sqlStrings.EQUAL_QUOTE);
@@ -632,12 +628,12 @@ public class AbSqlRow extends AbSqlColumn
             }
 
             stringBuffer.append(betweenColumn);
-            stringBuffer.append(" > \"");
+            stringBuffer.append(this.sqlStrings.MORE_THAN_QUOTE);
             stringBuffer.append(smallest);
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
             stringBuffer.append(sqlStrings.AND);
             stringBuffer.append(betweenColumn);
-            stringBuffer.append(" < \"");
+            stringBuffer.append(this.sqlStrings.LESS_THAN_QUOTE);
             stringBuffer.append(largest);
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
@@ -651,15 +647,21 @@ public class AbSqlRow extends AbSqlColumn
             ResultSet rset = this.executeSQLStatement(sqlStatement);
             ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
+            HashMap result;
+            Vector columnNames;
+            int columnCount;
+            String columnName;
+            String field;
+
             while (rset.next())
             {
-                HashMap result = new HashMap();
-                Vector columnNames = new Vector();
-                int columnCount = resultSetMetaData.getColumnCount();
+                result = new HashMap();
+                columnNames = new Vector();
+                columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
-                    String columnName = resultSetMetaData.getColumnName(index);
-                    String field = rset.getString(columnName);
+                    columnName = resultSetMetaData.getColumnName(index);
+                    field = rset.getString(columnName);
                     result.put(columnName, field);
                 }
 
@@ -684,8 +686,7 @@ public class AbSqlRow extends AbSqlColumn
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append(this.sqlStrings.SELECT_ALL);
-        stringBuffer.append(this.sqlStrings.FROM);
+        stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
 
         try
@@ -693,12 +694,12 @@ public class AbSqlRow extends AbSqlColumn
             Vector rows = new Vector();
             stringBuffer.append(sqlStrings.WHERE);
             stringBuffer.append(betweenColumn);
-            stringBuffer.append(" > \"");
+            stringBuffer.append(this.sqlStrings.MORE_THAN_QUOTE);
             stringBuffer.append(smallest);
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
             stringBuffer.append(sqlStrings.AND);
             stringBuffer.append(betweenColumn);
-            stringBuffer.append(" < \"");
+            stringBuffer.append(this.sqlStrings.LESS_THAN_QUOTE);
             stringBuffer.append(largest);
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
@@ -712,15 +713,20 @@ public class AbSqlRow extends AbSqlColumn
             ResultSet rset = this.executeSQLStatement(sqlStatement);
             ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
+            String columnName;
+            String field;
+            HashMap result;
+            Vector columnNames;
+            int columnCount;
             while (rset.next())
             {
-                HashMap result = new HashMap();
-                Vector columnNames = new Vector();
-                int columnCount = resultSetMetaData.getColumnCount();
+                result = new HashMap();
+                columnNames = new Vector();
+                columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
-                    String columnName = resultSetMetaData.getColumnName(index);
-                    String field = rset.getString(columnName);
+                    columnName = resultSetMetaData.getColumnName(index);
+                    field = rset.getString(columnName);
                     result.put(columnName, field);
                 }
 

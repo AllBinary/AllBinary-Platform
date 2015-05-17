@@ -27,7 +27,6 @@ import org.allbinary.logic.basic.io.file.FileUtil;
 import org.allbinary.logic.basic.io.file.directory.Directory;
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.PATH_GLOBALS;
@@ -38,6 +37,9 @@ public class AbSqlTable extends AbSqlBasic
 
     private String tableName;
     private static String EXTENSION = ".adb";
+
+    private final String SAVING_BACKUP_PATH = "Saving Backup: Path: ";
+    private final String FILE_LABEL = " File: ";
 
     public AbSqlTable(DbConnectionInfo databaseConnectionInfoInterface)
     {
@@ -154,9 +156,9 @@ public class AbSqlTable extends AbSqlBasic
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append("Saving Backup: Path: ");
+                stringBuffer.append(SAVING_BACKUP_PATH);
                 stringBuffer.append(backupAbPath.toFileSystemString());
-                stringBuffer.append(" File: ");
+                stringBuffer.append(FILE_LABEL);
                 stringBuffer.append(fileName);
 
                 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "backupFile()"));
@@ -190,6 +192,8 @@ public class AbSqlTable extends AbSqlBasic
             '\n', '\f', '\r'
         };
 
+        final String NEW_LINE = "\\n";
+
         int index = 0;
         int lastIndex = 0;
         while (index < value.length())
@@ -198,7 +202,8 @@ public class AbSqlTable extends AbSqlBasic
             if (index != -1)
             {
                 String nextLine = value.substring(lastIndex, index - 1);
-                stringBuffer.append(nextLine + "\\n");
+                stringBuffer.append(nextLine);
+                stringBuffer.append(NEW_LINE);
                 lastIndex = index + 1;
             } else
             {
@@ -223,7 +228,7 @@ public class AbSqlTable extends AbSqlBasic
         {
             int count = 0;
 
-            String sqlStatement = "SELECT * FROM " + tableName;
+            String sqlStatement = this.sqlStrings.SELECT_ALL_FROM + tableName;
             String path = org.allbinary.globals.URLGLOBALS.getMainPath()
                 + PATH_GLOBALS.getInstance().BACKUP_PATH;
 
@@ -262,7 +267,7 @@ public class AbSqlTable extends AbSqlBasic
 
                     stringBuffer.append(this.convertNewLines(value));
 
-                    stringBuffer.append("','");
+                    stringBuffer.append(this.sqlStrings.SINGLE_QUOTE_COMMA_SEP);
                 }
                 stringBuffer.append(rset.getString(colNum));
                 stringBuffer.append("')\n");
