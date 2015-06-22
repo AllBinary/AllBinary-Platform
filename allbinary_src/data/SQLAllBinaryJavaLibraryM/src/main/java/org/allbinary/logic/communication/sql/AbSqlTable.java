@@ -247,6 +247,7 @@ public class AbSqlTable extends AbSqlBasic
             int colNum = rsmd.getColumnCount();
 
             final String QUERY_START = "INSERT INTO " + tableName + " VALUES ('";
+            final String END = "')\n";
 
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -270,7 +271,7 @@ public class AbSqlTable extends AbSqlBasic
                     stringBuffer.append(this.sqlStrings.SINGLE_QUOTE_COMMA_SEP);
                 }
                 stringBuffer.append(rset.getString(colNum));
-                stringBuffer.append("')\n");
+                stringBuffer.append(END);
 
                 String sqlStatementLine = stringBuffer.toString();
 

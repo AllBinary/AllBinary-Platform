@@ -40,7 +40,11 @@ public class AbSqlBasic
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();
-    
+
+    protected final String INSERT = "insert";
+    protected final String UPDATE = "update";
+    protected final String DELETE = "delete";
+        
     protected final String FAILED_SQL_STATEMENT = "Failed\nSQL Statement: ";
 
     private final String METHOD_EXECUTED_SQL_STATEMENT = "executedSQLStatement";

@@ -32,6 +32,10 @@ public class AbSqlRow extends AbSqlColumn
     private final String EQUAL_QUOTE = "=\"";
     private final String ESCAPE_QUOTES = "\\\"";
     
+    private final String GET_ROW = "Row Value: ";
+    private final String METHOD_GET_ROW = "getRow";
+    private final String METHOD_GET_ROWS = "getRows";
+    
     public AbSqlRow(DbConnectionInfo databaseConnectionInfoInterface)
     {
         super(databaseConnectionInfoInterface);
@@ -299,13 +303,13 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Insert Succeeded\nSQL Statement: " + sqlStatement, this, "insert"));
+                LogUtil.put(LogFactory.getInstance("Insert Succeeded\nSQL Statement: " + sqlStatement, this, INSERT));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Insert Failed\nSQL Statement: " + stringBuffer.toString(), this, "insert", e));
+                LogUtil.put(LogFactory.getInstance("Insert Failed\nSQL Statement: " + stringBuffer.toString(), this, INSERT, e));
             }
         }
     }
@@ -345,7 +349,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, "getRow"));
+                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROW));
             }
 
             ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -365,14 +369,14 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Row Value: " + result.toString(), this, "getRow"));
+                    LogUtil.put(LogFactory.getInstance("Row Value: " + result.toString(), this, this.METHOD_GET_ROW));
                 }
                 return result;
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("No Results in ResultSet", this, "getRow"));
+                LogUtil.put(LogFactory.getInstance("No Results in ResultSet", this, this.METHOD_GET_ROW));
             }
 
             return null;
@@ -380,12 +384,12 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRow", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, this.METHOD_GET_ROW, e));
             }
             return null;
         }
     }
-    
+        
     public Vector getRows(HashMap keysAndValues)
     {
         StringBuffer stringBuffer = new StringBuffer();
@@ -419,7 +423,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-            	LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, "getRows"));
+            	LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ROWS));
             }
 
             String sqlStatement = stringBuffer.toString();
@@ -440,9 +444,9 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Row Value: " + result.toString(), this, "getRows"));
+                    LogUtil.put(LogFactory.getInstance(this.GET_ROW + result.toString(), this, this.METHOD_GET_ROWS));
                 }
-                LogUtil.put(LogFactory.getInstance("Row Value: " + result.toString(), this, "getRows"));
+                LogUtil.put(LogFactory.getInstance(this.GET_ROW + result.toString(), this, this.METHOD_GET_ROWS));
 
                 rows.add(result);
             }
@@ -451,7 +455,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRows", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, this.METHOD_GET_ROWS, e));
             }
             return null;
         }

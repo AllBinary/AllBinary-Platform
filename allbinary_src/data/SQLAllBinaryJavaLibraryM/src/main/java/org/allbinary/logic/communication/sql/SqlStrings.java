@@ -51,8 +51,14 @@ public class SqlStrings
     public final String LESS_THAN_QUOTE = " < \"";
     public final String SINGLE_QUOTE_COMMA_SEP = "','";
 
+    public final String ID = "ID";
+    
     public final String SQL_STATEMENT_LABEL = "SQL Statement: ";
     public final String COLUMN_VALUE = "\nColumn Value: ";
     public final String CREATE_RETURN = " Created Successfully";
     public final String FIELD_VALUE = "\nField Value: ";
+    
+    public final String COMMAND_SUCCESS = "Command Success";
+    public final String COMMAND_FAILED = "Command Failed";
+    
 }
