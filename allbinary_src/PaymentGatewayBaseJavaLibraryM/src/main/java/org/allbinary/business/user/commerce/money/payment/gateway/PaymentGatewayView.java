@@ -67,7 +67,7 @@ public class PaymentGatewayView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "toXmlNode", e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "toXmlNode", e));
          }
          throw e;
       }

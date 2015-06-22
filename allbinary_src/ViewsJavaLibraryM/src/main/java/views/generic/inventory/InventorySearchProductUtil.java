@@ -80,7 +80,7 @@ public class InventorySearchProductUtil {
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "getProduct", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getProduct", e));
             }
             throw new Exception("Failed to getProduct");
         }

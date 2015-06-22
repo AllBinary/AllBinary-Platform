@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -70,7 +71,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "toXmlNode", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "toXmlNode", e));
          }
          //throw e;
          return null;
@@ -96,7 +97,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "toXmlDoc", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "toXmlDoc", e));
          }
          //throw e;
          return null;
@@ -113,7 +114,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "view", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "view", e));
          }
          //throw e;
          return null;

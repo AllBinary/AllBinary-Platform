@@ -68,7 +68,7 @@ public class NoShippingModuleView extends NoShippingModule implements DomNodeInt
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"toXmlNode",e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "toXmlNode", e));
          }
          //throw e;
          return null;

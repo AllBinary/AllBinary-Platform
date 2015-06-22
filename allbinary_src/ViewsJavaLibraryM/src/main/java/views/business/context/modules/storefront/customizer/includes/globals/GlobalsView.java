@@ -54,7 +54,7 @@ public class GlobalsView extends HttpStoreComponentView implements DomNodeInterf
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          abcs.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"toXmlNode",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"toXmlNode",e));
          }
          throw e;
       }
