@@ -45,13 +45,13 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "insert"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, INSERT));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "insert", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, INSERT, e));
             }
         }
     }
@@ -101,7 +101,7 @@ public class StaticPagesEntity extends AbSqlBean implements StaticPagesEntityInt
                 .append(TABLENAME)
                 .append(this.sqlStrings.START)
                 .append(StoreFrontData.getInstance().NAME)
-                .append(" VARCHAR(60) NOT NULL,")
+                .append(this.sqlTypeStrings.SIXTY_CHAR_COLUMN_NOT_NULL)
                 .append(BasicItemData.KEYWORDS)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
                 .append(SearchData.PAGE)

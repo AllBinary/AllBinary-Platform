@@ -52,13 +52,13 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "remove"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "remove"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "remove", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "remove", e));
             }
         }
     }
@@ -74,7 +74,7 @@ public class TransactionResultEntity extends AbSqlBean
             values.addAll(transactionResultInterface.getValues());
 
             Calendar calendar = Calendar.getInstance();
-            String time = new String(new Long(calendar.getTimeInMillis()).toString());
+            String time = new Long(calendar.getTimeInMillis()).toString();
             values.add(time);
             values.add(time);
 
@@ -82,13 +82,13 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "add"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "add"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "add", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "add", e));
             }
         }
     }
@@ -107,7 +107,7 @@ public class TransactionResultEntity extends AbSqlBean
                 TransactionResult transactionResult = new TransactionResult(resultHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Command Success", this, "getTransactionResultInterface"));
+                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "getTransactionResultInterface"));
                 }
                 return (TransactionResultInterface) transactionResult;
             }else
@@ -118,7 +118,7 @@ public class TransactionResultEntity extends AbSqlBean
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "getTransactionResultInterface", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getTransactionResultInterface", e));
             }
             return null;
         }
@@ -141,18 +141,19 @@ public class TransactionResultEntity extends AbSqlBean
 
         //unknown max size but 0 means transaction was a success
         stringBuffer.append(paymentTransactionKeysFactory.RESULT)
-                .append(" INT(11) NOT NULL,")
+                .append(this.sqlTypeStrings.MAX_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.PNREF)
-                .append(" VARCHAR(12) NOT NULL,");
+                .append(this.sqlTypeStrings.TWELVE_CHAR_COLUMN_NOT_NULL);
         //unknown max size of alphanumeric data
-        stringBuffer.append(paymentTransactionKeysFactory.RESPMSG).append(" BLOB NOT NULL,").append(
-                paymentTransactionKeysFactory.AUTHCODE)
-                .append(" VARCHAR(6) NOT NULL,")
+        stringBuffer.append(paymentTransactionKeysFactory.RESPMSG)
+                .append(this.sqlTypeStrings.BLOB_NOT_NULL)
+                .append(paymentTransactionKeysFactory.AUTHCODE)
+                .append(this.sqlTypeStrings.SIX_CHAR_COLUMN_NOT_NULL)
                 .append(paymentTransactionKeysFactory.AVSADDR)
-                .append(" VARCHAR(1) NOT NULL,");
+                .append(this.sqlTypeStrings.ONE_CHAR_COLUMN_NOT_NULL);
         //Norwest only - unknown sizes/type of data
         stringBuffer.append(paymentTransactionKeysFactory.AVSZIP)
-                .append(" VARCHAR(1) NOT NULL,")
+                .append(this.sqlTypeStrings.ONE_CHAR_COLUMN_NOT_NULL)
                 .append(paymentTransactionKeysFactory.ORIGRESULT)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
                 .append(paymentTransactionKeysFactory.STATUS)
@@ -161,39 +162,39 @@ public class TransactionResultEntity extends AbSqlBean
         //fraud responses
         //codes available but not yet programmed
         stringBuffer.append(paymentTransactionKeysFactory.FRAUDCODE)
-                .append(" INT(2) NOT NULL,");
+                .append(this.sqlTypeStrings.TWO_INT_NOT_NULL);
         //msgs available but not yet programmed
         stringBuffer.append(
                 paymentTransactionKeysFactory.FRAUDMSG)
-                .append(" INT(11) NOT NULL,");
+                .append(this.sqlTypeStrings.MAX_INT_NOT_NULL);
         //unknown size of number
         stringBuffer.append(paymentTransactionKeysFactory.ERRCODE)
-                .append(" INT(11) NOT NULL,");
+                .append(this.sqlTypeStrings.MAX_INT_NOT_NULL);
         //1-999 where 999 is the most likely fraud
         stringBuffer.append(paymentTransactionKeysFactory.SCORE)
-                .append(" INT(3) NOT NULL,");
+                .append(this.sqlTypeStrings.THREE_INT_NOT_NULL);
         //reason codes available but not yet programmed
         stringBuffer.append(paymentTransactionKeysFactory.REASON1)
-                .append(" INT(4) NOT NULL,");
-        stringBuffer.append(paymentTransactionKeysFactory.REASON2)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
+                .append(paymentTransactionKeysFactory.REASON2)
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.REASON3);
         //exceptions available but not yet programmed
-        stringBuffer.append(" INT(4) NOT NULL,")
+        stringBuffer.append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.EXCEPTION1)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.EXCEPTION2)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.EXCEPTION3)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.EXCEPTION4)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.EXCEPTION5)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.EXCEPTION6)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(paymentTransactionKeysFactory.EXCEPTION7)
-                .append(" INT(4) NOT NULL,")
+                .append(this.sqlTypeStrings.FOUR_INT_NOT_NULL)
                 .append(EntryData.getInstance().LASTMODIFIED)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
                 .append(EntryData.getInstance().TIMECREATED)

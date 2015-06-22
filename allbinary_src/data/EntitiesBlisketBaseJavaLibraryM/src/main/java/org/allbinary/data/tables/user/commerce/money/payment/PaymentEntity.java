@@ -73,13 +73,13 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
             super.updateWhere(whereKeyAndValue, updateKeyAndValue);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "setDefault"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "setDefault"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "setDefault", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "setDefault", e));
             }
         }
     }
@@ -113,7 +113,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
             }
             return null;
         }
@@ -134,7 +134,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
                 Payment payment = new Payment(paymentHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Command Success", this, "getDefault"));
+                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "getDefault"));
                 }
                 return (PaymentInterface) payment;
             }else
@@ -145,7 +145,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "getDefault", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getDefault", e));
             }
             return null;
         }
@@ -162,13 +162,13 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "remove"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "remove"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "remove", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "remove", e));
             }
         }
     }
@@ -202,13 +202,13 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "add"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "add"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "add", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "add", e));
             }
         }
     }
@@ -223,7 +223,7 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
                 .append(tableName)
                 .append(this.sqlStrings.START)
                 .append(PaymentData.ID)
-                .append(" BIGINT(19) UNSIGNED AUTO_INCREMENT NOT NULL,")
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL)
                 .append(UserData.USERNAME)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
                 .append(entryData.DEFAULT)

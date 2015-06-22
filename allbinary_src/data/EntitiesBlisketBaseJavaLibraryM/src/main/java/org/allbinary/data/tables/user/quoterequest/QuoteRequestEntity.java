@@ -45,14 +45,14 @@ public class QuoteRequestEntity extends AbSqlBean
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Success",this,"insert"));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,INSERT));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"insert",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e));
          }
       }
    }
@@ -87,14 +87,14 @@ public class QuoteRequestEntity extends AbSqlBean
          super.deleteWhere(key,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Success",this,"deleteWhere"));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,"deleteWhere"));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"deleteWhere",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"deleteWhere",e));
          }
       }
    }
@@ -116,15 +116,14 @@ public class QuoteRequestEntity extends AbSqlBean
     {
     	QuoteRequestData quoteRequestData = QuoteRequestData.getInstance();
     	
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE)
+                .append(tableName)
+                .append(this.sqlStrings.START);
 
-        stringBuffer.append(tableName);
-        stringBuffer.append(this.sqlStrings.START);
-
-        stringBuffer.append(quoteRequestData.ID);
-        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
+        stringBuffer.append(quoteRequestData.ID)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(UserData.USERNAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);

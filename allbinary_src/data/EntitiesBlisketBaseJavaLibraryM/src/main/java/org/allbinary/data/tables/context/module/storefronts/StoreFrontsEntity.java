@@ -44,14 +44,14 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Success",this,"insert"));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, INSERT));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"insert",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, INSERT, e));
          }
       }
    }
@@ -63,14 +63,14 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
          super.deleteWhere(StoreFrontData.getInstance().NAME,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Success",this,"delete"));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, DELETE));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"delete",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, DELETE, e));
          }
       }
    }
@@ -115,7 +115,7 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
         stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(storeFrontData.NAME);
-        stringBuffer.append(" VARCHAR(60) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.SIXTY_CHAR_COLUMN_NOT_NULL);
 
       //UserData.USERNAME + " VARCHAR(255) NOT NULL," +
         stringBuffer.append(storeFrontData.HOMEHOSTNAME);

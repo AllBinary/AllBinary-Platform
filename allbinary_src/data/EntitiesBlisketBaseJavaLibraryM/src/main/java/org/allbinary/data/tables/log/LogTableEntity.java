@@ -38,7 +38,7 @@ public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
         stringBuffer.append(this.sqlStrings.CREATE_TABLE)
                 .append(tableName)
                 .append(this.sqlStrings.START)
-                .append("ID")
+                .append(this.sqlStrings.ID)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
                 .append(abeHttpRequestInfoData.HTTP_USER_AGENT)
                 .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
@@ -53,7 +53,7 @@ public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
                 .append(EntryData.getInstance().TIMECREATED)
                 .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
                 .append(this.sqlStrings.PRIMARY_KEY)
-                .append("ID")
+                .append(this.sqlStrings.ID)
                 .append(this.sqlStrings.END);
 
         return stringBuffer.toString();

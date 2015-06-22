@@ -142,14 +142,14 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Success Added: " + items.size(),this,"insert"));
+            LogUtil.put(LogFactory.getInstance("Command Success Added: " + items.size(),this,INSERT));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed: " + vector.toString(), this, "insert", e));
+            LogUtil.put(LogFactory.getInstance("Command Failed: " + vector.toString(), this, INSERT, e));
          }
       }
    }
@@ -177,7 +177,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "setStatus", e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "setStatus", e));
          }
       }
    }
@@ -204,7 +204,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "isEverythingShipped", e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "isEverythingShipped", e));
          }
          return false;
       }
@@ -256,7 +256,7 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "getBasketReview", e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getBasketReview", e));
          }
          return null;
       }

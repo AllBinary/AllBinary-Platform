@@ -83,7 +83,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "add", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "add", e));
             }
         }
     }
@@ -117,13 +117,13 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "update"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "update"));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "update", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "update", e));
             }
         }
     }
@@ -225,7 +225,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Command Success", this, "getPaymentGatewayInterface()"));
+                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "getPaymentGatewayInterface()"));
                 }
                 return paymentGatewayInterface;
             } else
@@ -269,7 +269,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Command Success", this, "getPaymentGateways()"));
+                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "getPaymentGateways()"));
                 }
                 return paymentGatewayVector;
             } else
@@ -280,7 +280,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "getPaymentGatewayInterface", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getPaymentGatewayInterface", e));
             }
             return null;
         }
@@ -299,13 +299,13 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "remove"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "remove"));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "remove", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "remove", e));
             }
         }
     }

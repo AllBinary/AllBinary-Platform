@@ -50,13 +50,13 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "remove"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "remove"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "remove", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "remove", e));
             }
         }
     }
@@ -80,13 +80,13 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Success", this, "add"));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "add"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Command Failed", this, "add", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "add", e));
             }
         }
     }
@@ -109,7 +109,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
             
      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance("Command Success",this,"getTransactionInterface()");
+     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,"getTransactionInterface()");
      }
      return (PaymentTransactionInterface) paymentTransactionInterface;
      }
@@ -122,7 +122,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
      {
      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance("Command Failed",this,"getTransactionResultInterface()",e);
+     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"getTransactionResultInterface()",e);
      }
      return null;
      }
