@@ -139,15 +139,15 @@ public class AdvertisementCampaignInternalEntity extends AbSqlBean
        //Without compound keys I use compound data in the key colum. 
        //Usually StoreName and id/name of entity
        stringBuffer.append(
-    		      entryData.ID + " BIGINT(19) UNSIGNED NOT NULL," +
-    		      StoreFrontData.getInstance().NAME + " VARCHAR(255) NOT NULL," +
-    		      advertisementCampaignData.NAME + " VARCHAR(255) NOT NULL," +
-    		      advertisementCampaignData.DESCRIPTION + " VARCHAR(255) NOT NULL," +
-    		      advertisementCampaignData.CONFIG + " BLOB NOT NULL," +
-    		      TimeData.getInstance().START + " BIGINT(19) UNSIGNED NOT NULL, " +
-    		      TimeData.getInstance().END + " BIGINT(19) UNSIGNED NOT NULL, " +
-    		      entryData.TIMECREATED + " BIGINT(19) UNSIGNED NOT NULL, " +
-    		      entryData.LASTMODIFIED + " BIGINT(19) UNSIGNED NOT NULL, "
+    		      entryData.ID + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+    		      StoreFrontData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      advertisementCampaignData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      advertisementCampaignData.DESCRIPTION + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      advertisementCampaignData.CONFIG + this.sqlTypeStrings.BLOB_NOT_NULL +
+    		      TimeData.getInstance().START + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+    		      TimeData.getInstance().END + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+    		      entryData.TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+    		      entryData.LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL
     		      );
        
        stringBuffer.append("PRIMARY KEY(");

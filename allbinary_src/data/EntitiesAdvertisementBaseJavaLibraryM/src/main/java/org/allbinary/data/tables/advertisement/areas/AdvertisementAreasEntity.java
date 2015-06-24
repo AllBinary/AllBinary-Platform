@@ -129,13 +129,13 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
        //Without compound keys I use compound data in the key colum. 
        //Usually StoreName and id/name of entity
        stringBuffer.append(
-    		   advertisementAreaData.NAME + " VARCHAR(255) NOT NULL," +
-       StoreFrontData.getInstance().NAME + " VARCHAR(255) NOT NULL," +
-       advertisementAreaData.DESCRIPTION + " VARCHAR(255) NOT NULL," +
-       advertisementAreaData.CONSTRAINTS + " BLOB NOT NULL," + 
-       AdvertisementCampaignData.getInstance().NAME + " VARCHAR(255) NOT NULL," +
-       EntryData.getInstance().TIMECREATED + " BIGINT(19) UNSIGNED NOT NULL, " +
-       EntryData.getInstance().LASTMODIFIED + " BIGINT(19) UNSIGNED NOT NULL, ");
+    		   advertisementAreaData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+       StoreFrontData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+       advertisementAreaData.DESCRIPTION + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+       advertisementAreaData.CONSTRAINTS + this.sqlTypeStrings.BLOB_NOT_NULL + 
+       AdvertisementCampaignData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+       EntryData.getInstance().TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+       EntryData.getInstance().LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
        
        stringBuffer.append("PRIMARY KEY(");
        stringBuffer.append(advertisementAreaData.NAME);

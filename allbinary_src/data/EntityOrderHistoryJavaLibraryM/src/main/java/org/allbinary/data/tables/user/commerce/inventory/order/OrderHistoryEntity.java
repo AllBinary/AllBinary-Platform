@@ -402,22 +402,22 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         stringBuffer.append(" (");
 
         stringBuffer.append(entryData.ID);
-        stringBuffer.append(" BIGINT(19) UNSIGNED AUTO_INCREMENT NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
         
         stringBuffer.append(OrderData.ID);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
  
             stringBuffer.append(UserData.USERNAME);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(StoreFrontData.getInstance().NAME);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(OrderHistoryData.SHIPPEDDATE);
             stringBuffer.append(" BIGINT(19) UNSIGNED ,");
 
             stringBuffer.append(OrderHistoryData.ORDERDATE);
-            stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
             
             stringBuffer.append(OrderHistoryData.TRANSDATE);
             stringBuffer.append(" BIGINT(19) UNSIGNED ,");
@@ -426,10 +426,10 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
             stringBuffer.append(" BIGINT(19) UNSIGNED ,");
 
             stringBuffer.append(OrderHistoryData.STATUS);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(PaymentData.METHOD);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(PaymentData.NAME);
             stringBuffer.append(" VARCHAR(255) ,");
@@ -447,70 +447,70 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
             stringBuffer.append(" BIGINT(19) UNSIGNED ,");
             
             stringBuffer.append(BillingAddressData.NAME);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(BillingAddressData.STREET);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(BillingAddressData.CITY);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(BillingAddressData.STATE);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(BillingAddressData.CODE);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(BillingAddressData.COUNTRY);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(ShippingAddressData.NAME);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(ShippingAddressData.STREET);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(ShippingAddressData.CITY);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(ShippingAddressData.STATE);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(ShippingAddressData.CODE);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(ShippingAddressData.COUNTRY);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(ShippingMethodData.NAME);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(OrderHistoryData.SUBTOTAL);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(OrderHistoryData.SHIPPINGCOST);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
             stringBuffer.append(OrderHistoryData.TAX);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(OrderHistoryData.TOTAL);
-            stringBuffer.append(" VARCHAR(255) NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
             
             stringBuffer.append(entryData.SPECIAL);
             stringBuffer.append(" VARCHAR(255) ,");
 
             stringBuffer.append(OrderData.CUSTOMERCOMMENT);
-            stringBuffer.append(" BLOB NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
             
             stringBuffer.append(OrderData.CUSTOMERCANCELCOMMENT);
-            stringBuffer.append(" BLOB NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
             
             stringBuffer.append(OrderData.STORECOMMENT);
-            stringBuffer.append(" BLOB NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
             stringBuffer.append(OrderData.STORECANCELCOMMENT);
-            stringBuffer.append(" BLOB NOT NULL,");
+            stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
         stringBuffer.append("PRIMARY KEY(");
         stringBuffer.append(entryData.ID);

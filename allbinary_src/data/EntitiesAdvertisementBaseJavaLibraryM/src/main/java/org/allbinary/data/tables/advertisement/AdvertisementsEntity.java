@@ -32,6 +32,8 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
 {
    protected final String tableName = "advertisements";
    
+   private final String _INDEX = "_index";
+   
    public AdvertisementsEntity()
    {
       super(new UserDbInitInfo());
@@ -112,31 +114,35 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
    
    public final String createTableStatement()
    {
-	   AdvertisementData advertisementData = 
-	   AdvertisementData.getInstance();
+       AdvertisementData advertisementData = AdvertisementData.getInstance();
 	   
-       StringBuffer stringBuffer = new StringBuffer();
+       final StringBuffer stringBuffer = new StringBuffer();
 
-       stringBuffer.append("CREATE TABLE ");
+       stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 
-       stringBuffer.append(this.getTableName());
-       stringBuffer.append(" (");
-
-       stringBuffer.append(
-    		   advertisementData.NAME + "_index" + " BIGINT(19) UNSIGNED NOT NULL," +
-    		      advertisementData.NAME + " VARCHAR(255) NOT NULL," +
-    		      StoreFrontData.getInstance().NAME + " VARCHAR(255) NOT NULL," + 
-    		      advertisementData.DESCRIPTION + " VARCHAR(255) NOT NULL," +
-    		      //Holds the ad component usually uses the default 
-    		      //AdComponent that uses the AdViewComponent
-    		      DynamicObjectData.NAME + " VARCHAR(255) NOT NULL," +
-    		      EntryData.getInstance().TIMECREATED + " BIGINT(19) UNSIGNED NOT NULL, " +
-    		      EntryData.getInstance().LASTMODIFIED + " BIGINT(19) UNSIGNED NOT NULL, "
-    		      );
+       stringBuffer.append(this.getTableName())
+               .append(this.sqlStrings.START)
+               .append(advertisementData.NAME)
+               .append(_INDEX)
+               .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+               .append(advertisementData.NAME)
+               .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+               .append(StoreFrontData.getInstance().NAME)
+               .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+               .append(advertisementData.DESCRIPTION)
+               .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
        
-       stringBuffer.append("PRIMARY KEY(");
-       stringBuffer.append(advertisementData.NAME);
-       stringBuffer.append(") )");
+       //Holds the ad component usually uses the default
+       //AdComponent that uses the AdViewComponent
+       stringBuffer.append(DynamicObjectData.NAME)
+               .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+               .append(EntryData.getInstance().TIMECREATED)
+               .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+               .append(EntryData.getInstance().LASTMODIFIED)
+               .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+               .append(this.sqlStrings.PRIMARY_KEY)
+               .append(advertisementData.NAME)
+               .append(this.sqlStrings.END);
 
        return stringBuffer.toString();
    }

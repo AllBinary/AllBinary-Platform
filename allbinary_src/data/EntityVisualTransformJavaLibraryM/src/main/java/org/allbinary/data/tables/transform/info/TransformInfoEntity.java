@@ -180,32 +180,32 @@ implements TransformInfoEntityInterface
         stringBuffer.append(tableName);
         stringBuffer.append(" (");
         stringBuffer.append(transformInfoData.NAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         //store should be changed to view group for template update performance
         //they could still use multiple templates but it reduces the number of views to
         //go through when updating the views
         //transformInfoData.GROUP
         stringBuffer.append(StoreFrontData.getInstance().NAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(transformInfoData.OBJECTFILENAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(transformInfoData.OBJECT);
-        stringBuffer.append(" BLOB NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
         stringBuffer.append(transformInfoData.OBJECTCONFIGFILENAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(transformInfoData.OBJECTCONFIG);
-        stringBuffer.append(" BLOB NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
         stringBuffer.append(transformInfoData.TEMPLATEFILENAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(transformInfoData.TEMPLATE);
-        stringBuffer.append(" BLOB NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
         stringBuffer.append(transformInfoData.DATAFILENAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(transformInfoData.DATA);
-        stringBuffer.append(" BLOB NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
         stringBuffer.append(EntryData.getInstance().LASTMODIFIED);
         stringBuffer.append(EntryData.getInstance().getInstance().getInstance().TIMECREATED);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
         stringBuffer.append("PRIMARY KEY(");
         stringBuffer.append(transformInfoData.NAME);
         stringBuffer.append(") )");

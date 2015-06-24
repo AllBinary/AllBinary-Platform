@@ -320,110 +320,110 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         stringBuffer.append(" (");
 
         stringBuffer.append(PaymentGatewayData.ID);
-        stringBuffer.append(" BIGINT(19) UNSIGNED AUTO_INCREMENT NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().ENABLE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(StoreFrontData.getInstance().NAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.NAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentData.METHOD);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.MODE);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         //testing or live
 
         stringBuffer.append(PaymentGatewayData.TESTPROTOCOL);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.TESTSERVER);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.TESTPORT);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.TESTPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SERVERPROTOCOL);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SERVER);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SERVERPORT);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SERVERPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(UserData.USERNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(UserData.PASSWORD);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.TIMEOUT);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.PROXYPROTOCOL);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.PROXYSERVER);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.PROXYPORT);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.PROXYPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.PROXYUSERNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.PROXYPASSWORD);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.PROXYTIMEOUT);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL1);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL2);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL3);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL4);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL5);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL6);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL7);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL8);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(PaymentGatewayData.SPECIAL9);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().LASTMODIFIED);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append(EntryData.getInstance().TIMECREATED);
-        stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL, ");
+        stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
         stringBuffer.append("PRIMARY KEY(");
         stringBuffer.append(PaymentGatewayData.ID);

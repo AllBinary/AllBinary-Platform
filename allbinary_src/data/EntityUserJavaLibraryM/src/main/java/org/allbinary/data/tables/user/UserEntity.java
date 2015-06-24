@@ -321,40 +321,40 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
         stringBuffer.append(" (");
 
         stringBuffer.append(UserData.USERNAME);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
         stringBuffer.append(UserData.PREFIXNAME);
-        stringBuffer.append(" VARCHAR(255),");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN);
 
         stringBuffer.append(UserData.FIRSTNAME);
-        stringBuffer.append(" VARCHAR(255),");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN);
 
-        stringBuffer.append(UserData.LASTNAME + " VARCHAR(255),");
+        stringBuffer.append(UserData.LASTNAME + this.sqlTypeStrings.MAX_CHAR_COLUMN);
 
-        stringBuffer.append(UserData.MIDDLENAME + " VARCHAR(255),");
+        stringBuffer.append(UserData.MIDDLENAME + this.sqlTypeStrings.MAX_CHAR_COLUMN);
 
-        stringBuffer.append(UserData.SUFFIXNAME + " VARCHAR(255),");
-        stringBuffer.append(UserData.COMPANY + " VARCHAR(255),");
-        stringBuffer.append(UserData.POSITIONATCOMPANY + " VARCHAR(255),");
-        stringBuffer.append(UserData.MAINEMAIL + " VARCHAR(255) NOT NULL,");
-        stringBuffer.append(UserData.SECONDARYEMAIL + " VARCHAR(255),");
-        stringBuffer.append(UserData.HOMEPHONE + " VARCHAR(255),");
-        stringBuffer.append(UserData.CELLPHONE + " VARCHAR(255),");
-        stringBuffer.append(UserData.WORKPHONE + " VARCHAR(255),");
-        stringBuffer.append(UserData.OTHERCONTACT + " VARCHAR(255),");
-        stringBuffer.append(UserData.ELECTRONICDEVICE + " VARCHAR(255),");
-        stringBuffer.append(UserData.FAX + " VARCHAR(255)," +
-   UserRoleData.NAME.toString() + " VARCHAR(255) NOT NULL," +
+        stringBuffer.append(UserData.SUFFIXNAME + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.COMPANY + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.POSITIONATCOMPANY + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.MAINEMAIL + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
+        stringBuffer.append(UserData.SECONDARYEMAIL + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.HOMEPHONE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.CELLPHONE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.WORKPHONE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.OTHERCONTACT + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.ELECTRONICDEVICE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
+        stringBuffer.append(UserData.FAX + this.sqlTypeStrings.MAX_CHAR_COLUMN +
+   UserRoleData.NAME.toString() + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
 
-   UserData.CONFIGURATION + " BLOB NOT NULL," +
+   UserData.CONFIGURATION + this.sqlTypeStrings.BLOB_NOT_NULL +
 
-   UserData.PERMISSIONS + " VARCHAR(255)," +
+   UserData.PERMISSIONS + this.sqlTypeStrings.MAX_CHAR_COLUMN +
    entryData.ENCRYPTION + " BIGINT(11) UNSIGNED NOT NULL," +
-   UserData.SECRET + " VARCHAR(255)," +
-   UserData.PASSWORD + " VARCHAR(255) NOT NULL," +
-   entryData.ENABLE + " VARCHAR(255)," +
-   entryData.TIMECREATED + " BIGINT(19) UNSIGNED NOT NULL, " +
-   entryData.LASTMODIFIED + " BIGINT(19) UNSIGNED NOT NULL, " +
+   UserData.SECRET + this.sqlTypeStrings.MAX_CHAR_COLUMN +
+   UserData.PASSWORD + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   entryData.ENABLE + this.sqlTypeStrings.MAX_CHAR_COLUMN +
+   entryData.TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+   entryData.LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
    "PRIMARY KEY(" + UserData.USERNAME);
         //stringBuffer.append();
 

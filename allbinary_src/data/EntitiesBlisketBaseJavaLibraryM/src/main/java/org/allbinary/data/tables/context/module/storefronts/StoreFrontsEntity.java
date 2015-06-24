@@ -117,7 +117,7 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
         stringBuffer.append(storeFrontData.NAME);
         stringBuffer.append(this.sqlTypeStrings.SIXTY_CHAR_COLUMN_NOT_NULL);
 
-      //UserData.USERNAME + " VARCHAR(255) NOT NULL," +
+      //UserData.USERNAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
         stringBuffer.append(storeFrontData.HOMEHOSTNAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 

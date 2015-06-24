@@ -24,6 +24,13 @@ public class InitDb
 {
    private Object object;
    
+   private final String METHOD_CALL_GET_HOST_NAME = "getHostName";
+   private final String METHOD_CALL_ADD_USERS = "addUsers";
+   private final String METHOD_CALL_ADD_DATABASES = "addDatabases";
+   private final String METHOD_CALL_ADD_TABLES = "addTables";
+   private final String METHOD_CALL_TEMP_MAIN_PATH = "useTemporaryMainPath";
+   private final String METHOD_CALL_MAIN_PATH = "useNormalMainPath";
+   
    public InitDb() throws LicensingException
    {
    }
@@ -47,7 +54,7 @@ public class InitDb
       try
       {
          Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod("getHostName",null);
+         Method method = dynamicClass.getMethod(METHOD_CALL_GET_HOST_NAME, null);
          
          String result = (String) method.invoke(object,null);
          return result;
@@ -63,7 +70,7 @@ public class InitDb
       try
       {
          Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod("addUsers",null);
+         Method method = dynamicClass.getMethod(METHOD_CALL_ADD_USERS, null);
          
          Boolean result = (Boolean) method.invoke(object,null);
          return result.booleanValue();
@@ -79,7 +86,7 @@ public class InitDb
       try
       {
          Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod("addDatabases",null);
+         Method method = dynamicClass.getMethod(METHOD_CALL_ADD_DATABASES, null);
          
          Boolean result = (Boolean) method.invoke(object,null);
          return result.booleanValue();
@@ -95,9 +102,9 @@ public class InitDb
       try
       {
          Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod("addTables",null);
+         Method method = dynamicClass.getMethod(METHOD_CALL_ADD_TABLES, null);
          
-         Boolean result = (Boolean) method.invoke(object,null);
+         Boolean result = (Boolean) method.invoke(object, null);
          return result.booleanValue();
       }
       catch(Exception e)
@@ -111,7 +118,7 @@ public class InitDb
       try
       {
          Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod("useTemporaryMainPath",null);
+         Method method = dynamicClass.getMethod(METHOD_CALL_TEMP_MAIN_PATH, null);
          
          Boolean result = (Boolean) method.invoke(object,null);
          return result.booleanValue();
@@ -127,7 +134,7 @@ public class InitDb
       try
       {
          Class dynamicClass = object.getClass();
-         Method method = dynamicClass.getMethod("useNormalMainPath",null);
+         Method method = dynamicClass.getMethod(METHOD_CALL_MAIN_PATH, null);
          
          Boolean result = (Boolean) method.invoke(object,null);
          return result.booleanValue();

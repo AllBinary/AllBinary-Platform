@@ -34,9 +34,20 @@ import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigType;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.communication.sql.SqlStrings;
+import org.allbinary.logic.communication.sql.SqlTypeStrings;
 
 public class InitSql
 {
+    protected final StringUtil stringUtil = StringUtil.getInstance();
+    protected final CommonSeps commonSeps = CommonSeps.getInstance();
+    protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
+    protected final SqlStrings sqlStrings = SqlStrings.getInstance();
+
+    protected final String INSERT = "insert";
+    protected final String UPDATE = "update";
+    protected final String DELETE = "delete";
+    
    private DbConnectionInfo databaseConnectionInfoInterface;
 
    private String userid;
@@ -82,24 +93,23 @@ public class InitSql
          return false;
       }
    }
-   
-   public boolean dropTable()
-   {
-      String sqlStatement = "DROP TABLE " + tableName;
-      try
-      {
-         this.executeSQLStatement(sqlStatement);
-         return true;
-      }
-      catch(Exception e)
-      {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
-         {         
-            PreLogUtil.put("Failed to Drop","InitSql","dropTables()",e);
-         }
-         return false;
-      }
-   }
+
+    public boolean dropTable()
+    {
+        String sqlStatement = sqlStrings.DROP_TABLE + tableName;
+        try
+        {
+            this.executeSQLStatement(sqlStatement);
+            return true;
+        }catch(Exception e)
+        {
+            if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+            {
+                PreLogUtil.put("Failed to Drop", "InitSql", "dropTables()", e);
+            }
+            return false;
+        }
+    }
       
     public HashMap getRow(HashMap keysAndValues)
     {

@@ -274,128 +274,128 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
 	   stringBuffer.append(" (");
 
 	   stringBuffer.append(entryData.ID);
-	   stringBuffer.append(" BIGINT(19) UNSIGNED AUTO_INCREMENT NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
 	   stringBuffer.append(OrderData.ID);
-	   stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
 	   stringBuffer.append(ShippingMethodData.GROUP);
-	   stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
 	   stringBuffer.append(UserData.USERNAME);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(StoreFrontData.getInstance().NAME);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.ID);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.NUMBER);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 	   
 	   stringBuffer.append(BasicItemData.NEWORUSED);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.SUMMARY);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.DISTRIBUTOR);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.IDUSEDBYDISTRIBUTOR);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.PRODUCEDBY);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.PRODUCTIONDATE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.STARTPRODUCTIONDATE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.DESCRIPTION);
-	   stringBuffer.append(" BLOB NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.KEYWORDS);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.CATEGORY);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.TYPE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.SMALLIMAGE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.MEDIUMIMAGE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.LARGEIMAGE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.WEIGHT);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(BasicItemData.PRICE); 
 	   //stringBuffer.append(" DECIMAL (11,2) NOT NULL,");
 	   stringBuffer.append(" VARCHAR(20) NOT NULL,");
 
 	   stringBuffer.append(BasicItemData.COMMENT);
-	   stringBuffer.append(" BLOB NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
 	   
 	   stringBuffer.append(BasicItemData.CUSTOMS);
-	   stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 	   
 	   stringBuffer.append(BasicItemData.DOWNLOADS);
-	   stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
 	   stringBuffer.append(ShippingMethodData.COST);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(OrderHistoryData.TAX);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(ShippingAddressData.NAME);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(ShippingAddressData.STREET);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(ShippingAddressData.CITY);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,"); 
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL); 
 
 	   stringBuffer.append(ShippingAddressData.STATE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(ShippingAddressData.CODE);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(ShippingAddressData.COUNTRY);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(ShippingMethodData.NAME);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(entryData.SPECIAL);
 	   stringBuffer.append(" VARCHAR(255) ,");
 
 	   stringBuffer.append(OrderHistoryData.STATUS);
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(OrderHistoryData.CANCELINFO); 
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(OrderHistoryData.CANCELTYPE); 
-	   stringBuffer.append(" VARCHAR(255) NOT NULL,");
+	   stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
 
 	   stringBuffer.append(OrderHistoryData.SHIPPEDDATE); 
 	   stringBuffer.append(" BIGINT(19) UNSIGNED ,");
 
 	   stringBuffer.append(OrderHistoryData.ORDERDATE); 
-	   stringBuffer.append(" BIGINT(19) UNSIGNED NOT NULL,"); 
+	   stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL); 
 
 	   stringBuffer.append(OrderHistoryData.TRANSDATE); 
 	   stringBuffer.append(" BIGINT(19) UNSIGNED ,"); 

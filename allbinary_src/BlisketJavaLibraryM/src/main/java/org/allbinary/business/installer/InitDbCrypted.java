@@ -1,19 +1,17 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
 package org.allbinary.business.installer;
-
-import java.net.InetAddress;
 
 import org.allbinary.business.init.InitInfoEntity;
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
@@ -44,96 +42,33 @@ import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGate
 import org.allbinary.data.tables.user.commerce.money.payment.transaction.TransactionEntityFactory;
 import org.allbinary.data.tables.user.commerce.money.payment.transaction.TransactionResultEntityFactory;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
-import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.communication.sql.AbDatabaseManagement;
 
 //Warning you must have sql root access
-public class InitDbCrypted extends AbSqlBean
+public class InitDbCrypted extends AbDatabaseManagement
 //extends InitSql
 {
-    private final StringBuffer sqlCommandLog = new StringBuffer();
+
     private UserDbInitInfo userDbInitInfo;
     private InventoryDbInitInfo inventoryDbInitInfo;
     private HistoryDbInitInfo historyDbInitInfo;
     private StaticPagesDbInitInfo staticpagesDbInitInfo;
     private LogDbInitInfo logDbInitInfo;
 
+    private final String SQL_FILE = "initWeblisket.sql";
+
     //String db, String userName, String password
     public InitDbCrypted(
-        DatabaseConnectionInfoInterface databaseConnectionInfoInterface)
+            DatabaseConnectionInfoInterface databaseConnectionInfoInterface)
     {
         super((DbConnectionInfo) databaseConnectionInfoInterface);
     }
-
-    private String getHostName()
-    {
-        try
-        {
-            InetAddress addr = InetAddress.getLocalHost();
-            return addr.getHostName();
-        } catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance("Failed", this, "getHostName()", e));
-            return null;
-        }
-    }
-
-    private boolean addDbUser(String db, String userName, String password)
-    {
-        try
-        {
-            StringBuffer stringBuffer = new StringBuffer();
-
-            stringBuffer.append("GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ");
-            stringBuffer.append("DROP, INDEX, ALTER ON ");
-            stringBuffer.append(db);
-            stringBuffer.append(".*");
-            stringBuffer.append(" TO ");
-            stringBuffer.append(userName);
-            stringBuffer.append("@localhost IDENTIFIED BY '");
-            stringBuffer.append(password);
-            stringBuffer.append("' WITH GRANT OPTION");
-
-            String sqlStatement = stringBuffer.toString();
-
-            this.sqlCommandLog.append(sqlStatement);
-            this.sqlCommandLog.append("\n");
-
-            super.executeSQLStatement(sqlStatement);
-
-            String hostName = this.getHostName();
-            if (hostName != null)
-            {
-                stringBuffer.delete(0, stringBuffer.length());
-
-                stringBuffer.append("GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ");
-                stringBuffer.append("DROP, INDEX, ALTER ON ");
-                stringBuffer.append(db);
-                stringBuffer.append(".*");
-                stringBuffer.append(" TO ");
-                stringBuffer.append(userName);
-                stringBuffer.append("@");
-                stringBuffer.append(hostName);
-                stringBuffer.append(" IDENTIFIED BY '");
-                stringBuffer.append(password);
-                stringBuffer.append("' WITH GRANT OPTION");
-
-                sqlStatement = stringBuffer.toString();
-
-                super.executeSQLStatement(sqlStatement);
-            }
-            return true;
-        } catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance("Unable to Create User", this, "addDbUser()", e));
-            return false;
-        }
-    }
-
+    
     public Boolean addUsers()
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Adding Users", this, "addUsers()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.METHOD_ADD_USERS));
 
             userDbInitInfo = new UserDbInitInfo();
             inventoryDbInitInfo = new InventoryDbInitInfo();
@@ -145,9 +80,9 @@ public class InitDbCrypted extends AbSqlBean
             String CUSTOMERDBUSER = userDbInitInfo.getUserName();
             String CUSTOMERDBPASSWORD = userDbInitInfo.getPassword();
 
-            if (!this.addDbUser(CUSTOMERDB, CUSTOMERDBUSER, CUSTOMERDBPASSWORD))
+            if(!this.addDbUser(CUSTOMERDB, CUSTOMERDBUSER, CUSTOMERDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create User: " + CUSTOMERDBUSER, this, "add()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + CUSTOMERDBUSER, this, this.METHOD_ADD_USERS));
                 return Boolean.FALSE;
             }
 
@@ -155,9 +90,9 @@ public class InitDbCrypted extends AbSqlBean
             String INVENTORYDBUSER = inventoryDbInitInfo.getUserName();
             String INVENTORYDBPASSWORD = inventoryDbInitInfo.getPassword();
 
-            if (!this.addDbUser(INVENTORYDB, INVENTORYDBUSER, INVENTORYDBPASSWORD))
+            if(!this.addDbUser(INVENTORYDB, INVENTORYDBUSER, INVENTORYDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create User: " + INVENTORYDBUSER, this, "add()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + INVENTORYDBUSER, this, this.METHOD_ADD_USERS));
                 return Boolean.FALSE;
             }
 
@@ -165,9 +100,9 @@ public class InitDbCrypted extends AbSqlBean
             String HISTORYDBUSER = historyDbInitInfo.getUserName();
             String HISTORYDBPASSWORD = historyDbInitInfo.getPassword();
 
-            if (!this.addDbUser(HISTORYDB, HISTORYDBUSER, HISTORYDBPASSWORD))
+            if(!this.addDbUser(HISTORYDB, HISTORYDBUSER, HISTORYDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create User: " + HISTORYDBUSER, this, "add()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + HISTORYDBUSER, this, this.METHOD_ADD_USERS));
                 return Boolean.FALSE;
             }
 
@@ -175,9 +110,9 @@ public class InitDbCrypted extends AbSqlBean
             String STATICPAGESDBUSER = staticpagesDbInitInfo.getUserName();
             String STATICPAGESDBPASSWORD = staticpagesDbInitInfo.getPassword();
 
-            if (!this.addDbUser(STATICPAGESDB, STATICPAGESDBUSER, STATICPAGESDBPASSWORD))
+            if(!this.addDbUser(STATICPAGESDB, STATICPAGESDBUSER, STATICPAGESDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create User: " + STATICPAGESDBUSER, this, "add()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + STATICPAGESDBUSER, this, this.METHOD_ADD_USERS));
                 return Boolean.FALSE;
             }
 
@@ -185,39 +120,20 @@ public class InitDbCrypted extends AbSqlBean
             String LOGDBUSER = logDbInitInfo.getUserName();
             String LOGDBPASSWORD = logDbInitInfo.getPassword();
 
-            if (!this.addDbUser(LOGDB, LOGDBUSER, LOGDBPASSWORD))
+            if(!this.addDbUser(LOGDB, LOGDBUSER, LOGDBPASSWORD))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create User: " + LOGDBUSER, this, "add()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_USER + LOGDBUSER, this, this.METHOD_ADD_USERS));
                 return Boolean.FALSE;
             }
 
-            LogUtil.put(LogFactory.getInstance("Users Added", this, "addUsers()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.METHOD_ADD_USERS));
 
             return Boolean.TRUE;
-        } catch (Exception e)
+        }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create User", this, "addUsers()", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_USERS, e));
             //return Boolean.FALSE;
             return Boolean.TRUE;
-        }
-    }
-
-    private Boolean addDb(String db)
-    {
-        try
-        {
-            String sqlStatement = "CREATE DATABASE " + db;
-
-            this.sqlCommandLog.append(sqlStatement);
-            this.sqlCommandLog.append("\n");
-
-            super.executeSQLStatement(sqlStatement);
-
-            return Boolean.TRUE;
-        } catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance("Unable to Create User", this, "addDb()", e));
-            return Boolean.FALSE;
         }
     }
 
@@ -225,7 +141,7 @@ public class InitDbCrypted extends AbSqlBean
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Adding Database", this, "addDatabases()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.METHOD_ADD_DATABASES));
 
             userDbInitInfo = new UserDbInitInfo();
             inventoryDbInitInfo = new InventoryDbInitInfo();
@@ -234,52 +150,52 @@ public class InitDbCrypted extends AbSqlBean
             logDbInitInfo = new LogDbInitInfo();
 
             String CUSTOMERDB = userDbInitInfo.getName();
-            if (this.addDb(CUSTOMERDB) == Boolean.FALSE)
+            if(!this.addDb(CUSTOMERDB))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create Database: " + CUSTOMERDB, this, "addDatabases()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + CUSTOMERDB, this, this.METHOD_ADD_DATABASES));
                 return Boolean.FALSE;
             }
 
             String INVENTORYDB = inventoryDbInitInfo.getName();
-            if (this.addDb(INVENTORYDB) == Boolean.FALSE)
+            if(!this.addDb(INVENTORYDB))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create Database: " + INVENTORYDB, this, "addDatabases()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + INVENTORYDB, this, this.METHOD_ADD_DATABASES));
                 return Boolean.FALSE;
             }
 
             String HISTORYDB = historyDbInitInfo.getName();
-            if (this.addDb(HISTORYDB) == Boolean.FALSE)
+            if(!this.addDb(HISTORYDB))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create Database: " + HISTORYDB, this, "addDatabases()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + HISTORYDB, this, this.METHOD_ADD_DATABASES));
                 return Boolean.FALSE;
             }
 
             String STATICPAGESDB = staticpagesDbInitInfo.getName();
-            if (this.addDb(STATICPAGESDB) == Boolean.FALSE)
+            if(!this.addDb(STATICPAGESDB))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create Database: " + STATICPAGESDB, this, "addDatabases()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + STATICPAGESDB, this, this.METHOD_ADD_DATABASES));
                 return Boolean.FALSE;
             }
 
             String LOGDB = logDbInitInfo.getName();
-            if (this.addDb(LOGDB) == Boolean.FALSE)
+            if(!this.addDb(LOGDB))
             {
-                LogUtil.put(LogFactory.getInstance("Unable to Create Database: " + LOGDB, this, "addDatabases()"));
+                LogUtil.put(LogFactory.getInstance(this.UNABLE_TO_CREATE_DATABASE + LOGDB, this, this.METHOD_ADD_DATABASES));
                 return Boolean.FALSE;
             }
 
-            AbFile file = FileFactory.getInstance().getInstance("initWeblisket.sql");
+            AbFile file = FileFactory.getInstance().getInstance(SQL_FILE);
             file.createNewFile();
 
-            AbDataOutputStream idOutData =
-                DataOutputStreamFactory.getInstance().getInstance(file);
+            AbDataOutputStream idOutData
+                    = DataOutputStreamFactory.getInstance().getInstance(file);
 
             idOutData.writeBytes(this.sqlCommandLog.toString());
 
             return Boolean.TRUE;
-        } catch (Exception e)
+        }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Database", this, "addDatabases()", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_DATABASES, e));
             //return Boolean.FALSE;
             return Boolean.TRUE;
         }
@@ -291,14 +207,14 @@ public class InitDbCrypted extends AbSqlBean
         {
             StringBuffer stringBuffer = new StringBuffer();
 
-            LogUtil.put(LogFactory.getInstance("Adding Tables", this, "addTables"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.METHOD_ADD_TABLES));
 
             stringBuffer.append(UserEntityFactory.getInstance().createTable());
 
             stringBuffer.append(StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().createTable());
 
-            stringBuffer.append(BillingAddressesEntityFactory.getInstance().getInstance("").createTable());
-            stringBuffer.append(ShippingAddressesEntityFactory.getInstance().getInstance("").createTable());
+            stringBuffer.append(BillingAddressesEntityFactory.getInstance().getInstance(this.stringUtil.EMPTY_STRING).createTable());
+            stringBuffer.append(ShippingAddressesEntityFactory.getInstance().getInstance(this.stringUtil.EMPTY_STRING).createTable());
             stringBuffer.append(PaymentEntityFactory.getInstance().getPaymentEntityInstance().createTable());
             stringBuffer.append(QuoteRequestEntityFactory.getInstance().getQuoteRequestEntityInstance().createTable());
 
@@ -313,60 +229,59 @@ public class InitDbCrypted extends AbSqlBean
             stringBuffer.append(InventoryEntityFactory.getInstance().getInventoryEntityInstance().createTable());
 
             /*
-            stringBuffer.append(CustomItemsEntityFactory.getInstance().createTable()));
-            stringBuffer.append(DownloadItemsEntityFactory.getInstance().createTable()));
-            stringBuffer.append(BasicGroupItemsEntityFactory.getInstance().createTable()));
-            stringBuffer.append(BasicOptionItemsEntityFactory.getInstance().createTable()));
-            stringBuffer.append(XmlOptionItemsEntityFactory.getInstance().createTable()));
-            stringBuffer.append(PermissionItemsEntityFactory.getInstance().createTable()));
-            stringBuffer.append(SpecialItemsEntityFactory.getInstance().createTable()));
+             stringBuffer.append(CustomItemsEntityFactory.getInstance().createTable()));
+             stringBuffer.append(DownloadItemsEntityFactory.getInstance().createTable()));
+             stringBuffer.append(BasicGroupItemsEntityFactory.getInstance().createTable()));
+             stringBuffer.append(BasicOptionItemsEntityFactory.getInstance().createTable()));
+             stringBuffer.append(XmlOptionItemsEntityFactory.getInstance().createTable()));
+             stringBuffer.append(PermissionItemsEntityFactory.getInstance().createTable()));
+             stringBuffer.append(SpecialItemsEntityFactory.getInstance().createTable()));
              */
-
             stringBuffer.append(new InitInfoEntity().createTable());
             stringBuffer.append(LogTableEntityFactory.getInstance().getLogTableEntityInstance().createTable());
             stringBuffer.append(StaticPagesEntityFactory.getInstance().getStaticPagesEntityInstance().createTable());
             stringBuffer.append(TransformInfoEntityBuilder.getInstance().createTable());
             //ViewTemplateEntityFactory.getInstance().createTable());
 
-            LogUtil.put(LogFactory.getInstance("Add Table Results: " + stringBuffer.toString(), this, "addTables"));
+            LogUtil.put(LogFactory.getInstance(ADD_TABLES_RESULTS_LABEL + stringBuffer.toString(), this, this.METHOD_ADD_TABLES));
 
             return Boolean.TRUE;
-        } catch (Exception e)
+        }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Tables", this, "addTables", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.METHOD_ADD_TABLES, e));
             return Boolean.FALSE;
         }
     }
 
     /*
-    public Boolean useTemporaryMainPath()
-    {
-    try
-    {
-    LogUtil.put(LogFactory.getInstance("Set Temp Main Path",this,"setTemporaryMainPath()");
-    URLGLOBALS.useTemporaryMainPath();
-    return Boolean.TRUE;
-    }
-    catch(Exception e)
-    {
-    LogUtil.put(LogFactory.getInstance("Unable to set temp main path",this,"setTemporaryMainPath()",e);
-    return Boolean.FALSE;
-    }
-    }
+     public Boolean useTemporaryMainPath()
+     {
+     try
+     {
+     LogUtil.put(LogFactory.getInstance("Set Temp Main Path",this,"setTemporaryMainPath()");
+     URLGLOBALS.useTemporaryMainPath();
+     return Boolean.TRUE;
+     }
+     catch(Exception e)
+     {
+     LogUtil.put(LogFactory.getInstance("Unable to set temp main path",this,"setTemporaryMainPath()",e);
+     return Boolean.FALSE;
+     }
+     }
 
-    public Boolean useNormalMainPath()
-    {
-    try
-    {
-    LogUtil.put(LogFactory.getInstance("Set Temp Main Path",this,"setTemporaryMainPath()");
-    URLGLOBALS.useNormalMainPath();
-    return Boolean.TRUE;
-    }
-    catch(Exception e)
-    {
-    LogUtil.put(LogFactory.getInstance("Unable to set temp main path",this,"setTemporaryMainPath()",e);
-    return Boolean.FALSE;
-    }
-    }
+     public Boolean useNormalMainPath()
+     {
+     try
+     {
+     LogUtil.put(LogFactory.getInstance("Set Temp Main Path",this,"setTemporaryMainPath()");
+     URLGLOBALS.useNormalMainPath();
+     return Boolean.TRUE;
+     }
+     catch(Exception e)
+     {
+     LogUtil.put(LogFactory.getInstance("Unable to set temp main path",this,"setTemporaryMainPath()",e);
+     return Boolean.FALSE;
+     }
+     }
      */
 }

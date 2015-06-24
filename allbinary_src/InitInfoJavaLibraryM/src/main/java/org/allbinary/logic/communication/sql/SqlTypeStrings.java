@@ -90,8 +90,8 @@ public class SqlTypeStrings
     public final String MAX_INT_UNSIGNED = " INT(11) UNSIGNED, ";
     public final String MAX_INT_UNSIGNED_NOT_NULL = " INT(11) UNSIGNED NOT NULL, ";
     
+    public final String MAX_BIG_INT_NOT_NULL = " BIGINT(19) NOT NULL, ";
     public final String MAX_BIG_INT_UNSIGNED = " BIGINT(19) UNSIGNED, ";
-    public final String MAX_BIG_INT_NOT_NULL = " BIGINT(19) UNSIGNED NOT NULL, ";
     public final String MAX_BIG_INT_UNSIGNED_NOT_NULL = " BIGINT(19) UNSIGNED NOT NULL, ";
     public final String MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL = " BIGINT(19) UNSIGNED AUTO_INCREMENT NOT NULL,";
     

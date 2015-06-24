@@ -124,14 +124,14 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
        //Without compound keys I use compound data in the key colum. 
        //Usually StoreName and id/name of entity
        stringBuffer.append(
-    		      entryData.ID + " BIGINT(19) UNSIGNED NOT NULL," +
-    		      StoreFrontData.getInstance().NAME + " VARCHAR(255) NOT NULL," +
-    		      //AffiliateData.NAME + " VARCHAR(255) NOT NULL," +
-    		      //AffiliateData.DESCRIPTION + " VARCHAR(255) NOT NULL," +
-    		      GroupData.NAME + " VARCHAR(255) NOT NULL," +
-    		      DynamicObjectData.NAME + " VARCHAR(255) NOT NULL," +
-    		      entryData.TIMECREATED + " BIGINT(19) UNSIGNED NOT NULL, " +
-    		      entryData.LASTMODIFIED + " BIGINT(19) UNSIGNED NOT NULL, "
+    		      entryData.ID + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+    		      StoreFrontData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      //AffiliateData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      //AffiliateData.DESCRIPTION + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      GroupData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      DynamicObjectData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+    		      entryData.TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+    		      entryData.LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL
     		      );
        
        stringBuffer.append("PRIMARY KEY(");

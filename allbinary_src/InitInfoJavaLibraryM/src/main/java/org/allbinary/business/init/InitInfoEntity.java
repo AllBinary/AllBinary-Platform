@@ -25,8 +25,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InitInfoEntity extends InitSql
 //extends AbSqlBean
-{
-
+{    
     private final String NOTHING = "NOTHING";
     //private final String tableName  = "licenseServerInitdata";
     private final String tableName = "initdata";
@@ -42,13 +41,13 @@ public class InitInfoEntity extends InitSql
         stringBuffer.append(tableName);
         stringBuffer.append(" (");
         stringBuffer.append(NOTHING);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(InitInfo.getInstance().TESTING);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(InitInfo.getInstance().TESTHTMLPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(InitInfo.getInstance().MAINPATH);
-        stringBuffer.append(" VARCHAR(255) NOT NULL,");
+        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append("PRIMARY KEY(NOTHING) )");
 
         this.tableData = stringBuffer.toString();

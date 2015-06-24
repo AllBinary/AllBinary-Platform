@@ -48,14 +48,14 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Success", this, "insert"));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, INSERT));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"insert",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e));
          }
       }
    }
@@ -73,14 +73,14 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Success",this,"delete"));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,DELETE));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"delete",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,DELETE,e));
          }
       }
    }
@@ -100,7 +100,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"get",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"get",e));
          }
          throw e;
       }
@@ -108,7 +108,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"get",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"get",e));
          }
          throw e;
       }
@@ -139,7 +139,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"get",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"get",e));
          }
          return null;
       }
@@ -161,7 +161,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed",this,"update",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"update",e));
          }
       }
    }
@@ -177,12 +177,12 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 	   stringBuffer.append(tableName);
 	   stringBuffer.append(" (");
 
-           stringBuffer.append(   workFlowData.NAME + " VARCHAR(255) NOT NULL," +
-   StoreFrontData.getInstance().NAME + " VARCHAR(255) NOT NULL," +
-   DynamicObjectData.NAME + " VARCHAR(255) NOT NULL," +
-   workFlowData.DATA + " BLOB NOT NULL," +
-   EntryData.getInstance().TIMECREATED + " BIGINT(19) UNSIGNED NOT NULL, " +
-   EntryData.getInstance().LASTMODIFIED + " BIGINT(19) UNSIGNED NOT NULL, ");
+           stringBuffer.append(   workFlowData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   StoreFrontData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   DynamicObjectData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   workFlowData.DATA + this.sqlTypeStrings.BLOB_NOT_NULL +
+   EntryData.getInstance().TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
+   EntryData.getInstance().LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
 	   stringBuffer.append("PRIMARY KEY(");
 	   stringBuffer.append(workFlowData.NAME);
