@@ -46,6 +46,7 @@ public class AbSqlBasic
     protected final String DELETE = "delete";
         
     protected final String FAILED_SQL_STATEMENT = "Failed\nSQL Statement: ";
+    protected final String SUCCESS_SQL_STATEMENT = "Success\nSQL Statement: ";
 
     private final String METHOD_EXECUTED_SQL_STATEMENT = "executedSQLStatement";
     private final String METHOD_CREATE = "create";

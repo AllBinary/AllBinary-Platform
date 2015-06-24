@@ -84,14 +84,14 @@ public class AbSqlTable extends AbSqlBasic
             this.executeSQLStatement(sqlStatement);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Table Drop Successful\nSQL Statement: " + sqlStatement, this, "dropTable"));
+                LogUtil.put(LogFactory.getInstance(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, "dropTable"));
             }
             return new String(tableName + " Dropped Successfully");
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Table Drop Failed\nSQL Statement: " + sqlStatement, this, "dropTable", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, "dropTable", e));
             }
             return "Failed to Drop " + tableName + " table.";
         }

@@ -28,13 +28,25 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AbSqlRow extends AbSqlColumn
 {
-
     private final String EQUAL_QUOTE = "=\"";
     private final String ESCAPE_QUOTES = "\\\"";
     
     private final String GET_ROW = "Row Value: ";
-    private final String METHOD_GET_ROW = "getRow";
-    private final String METHOD_GET_ROWS = "getRows";
+    private final String METHOD_GET_ROW = "getRow()";
+    private final String METHOD_GET_ROWS = "getRows()";
+    private final String METHOD_GET_ALL_ROWS = "getAllRows()";
+    private final String METHOD_UPDATE_WHERE = "updateWhere()";
+    private final String METHOD_GET_ROWS_WHERE_BETWEEN = "getRowsWhereBetween()";
+    private final String METHOD_DELETE_WHERE = "deleteWhere()";
+    
+    private final String ROW_VALUE_LABEL = "Row Value: ";
+    private final String ROW_VALUES_LABEL = "Row Values: ";
+    
+    private final String NO_RESULTS_IN_RESULT_SET = "No Results in ResultSet";
+        
+    private final String COLUMN_NAME_LABEL = "columnName: ";
+    
+    private final String INSERT_END = "')";
     
     public AbSqlRow(DbConnectionInfo databaseConnectionInfoInterface)
     {
@@ -101,13 +113,13 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Update Succeeded\nSQL Statement: " + sqlStatement, this, "updateWhere"));
+                LogUtil.put(LogFactory.getInstance(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, METHOD_UPDATE_WHERE));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Update Failed\nSQL Statement: " + stringBuffer, this, "updateWhere", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, METHOD_UPDATE_WHERE, e));
             }
         }
     }
@@ -132,7 +144,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("columnName: " + columnName, this, "updateWhere"));
+                    LogUtil.put(LogFactory.getInstance(COLUMN_NAME_LABEL + columnName, this, METHOD_UPDATE_WHERE));
                 }
 
                 String columnValue = (String) updatedKeyValuePairs.get(columnName);
@@ -183,13 +195,13 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Update Succeeded\nSQL Statement: " + sqlStatement, this, "updateWhere"));
+                LogUtil.put(LogFactory.getInstance(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, METHOD_UPDATE_WHERE));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Update Failed\nSQL Statement: " + stringBuffer, this, "updateWhere", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, METHOD_UPDATE_WHERE, e));
             }
             throw e;
         }
@@ -215,13 +227,13 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Delete Succeeded\nSQL Statement: " + sqlStatement, this, "deleteWhere"));
+                LogUtil.put(LogFactory.getInstance(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_DELETE_WHERE));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Delete Failed\nSQL Statement: " + stringBuffer.toString(), this, "deleteWhere", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this, this.METHOD_DELETE_WHERE, e));
             }
         }
     }
@@ -261,20 +273,20 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Delete Succeeded\nSQL Statement: " + sqlStatement, this, "deleteWhere"));
+                LogUtil.put(LogFactory.getInstance(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, this.METHOD_DELETE_WHERE));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Delete Failed\nSQL Statement: " + stringBuffer.toString(), this, "deleteWhere", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this, this.METHOD_DELETE_WHERE, e));
             }
         }
     }
 
     public void insert(Vector values)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.INSERT_INTO);
         stringBuffer.append(this.getTableName());
@@ -296,20 +308,20 @@ public class AbSqlRow extends AbSqlColumn
             value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
             stringBuffer.append(value);
-            stringBuffer.append("')");
+            stringBuffer.append(INSERT_END);
 
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Insert Succeeded\nSQL Statement: " + sqlStatement, this, INSERT));
+                LogUtil.put(LogFactory.getInstance(this.SUCCESS_SQL_STATEMENT + sqlStatement, this, INSERT));
             }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Insert Failed\nSQL Statement: " + stringBuffer.toString(), this, INSERT, e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this, INSERT, e));
             }
         }
     }
@@ -369,14 +381,14 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Row Value: " + result.toString(), this, this.METHOD_GET_ROW));
+                    LogUtil.put(LogFactory.getInstance(ROW_VALUE_LABEL + result.toString(), this, this.METHOD_GET_ROW));
                 }
                 return result;
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("No Results in ResultSet", this, this.METHOD_GET_ROW));
+                LogUtil.put(LogFactory.getInstance(NO_RESULTS_IN_RESULT_SET, this, this.METHOD_GET_ROW));
             }
 
             return null;
@@ -472,7 +484,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, "getAllRows"));
+                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ALL_ROWS));
             }
 
             Vector rows = new Vector();
@@ -495,7 +507,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Row Values: " + result.toString(), this, "getAllRows"));
+                    LogUtil.put(LogFactory.getInstance(ROW_VALUES_LABEL + result.toString(), this, this.METHOD_GET_ALL_ROWS));
                 }
                 rows.add(result);
             }
@@ -504,7 +516,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getAllRows", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, this.METHOD_GET_ALL_ROWS, e));
             }
             return null;
         }
@@ -587,7 +599,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("\nRow Value: " + result.toString(), this, "getRowsWhereLike"));
+                    LogUtil.put(LogFactory.getInstance(ROW_VALUE_LABEL + result.toString(), this, "getRowsWhereLike"));
                 }
                 rows.add(result);
             }
@@ -645,7 +657,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, "getRowsWhereBetween"));
+                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, METHOD_GET_ROWS_WHERE_BETWEEN));
             }
 
             ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -671,7 +683,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Row Value: " + result.toString(), this, "getRowsWhereBetween"));
+                    LogUtil.put(LogFactory.getInstance(ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN));
                 }
                 rows.add(result);
             }
@@ -680,7 +692,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + stringBuffer, this, "getRowsWhereBetween()", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, METHOD_GET_ROWS_WHERE_BETWEEN, e));
             }
             return null;
         }
@@ -711,7 +723,7 @@ public class AbSqlRow extends AbSqlColumn
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, "getRowsWhereBetween"));
+                LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, METHOD_GET_ROWS_WHERE_BETWEEN));
             }
 
             ResultSet rset = this.executeSQLStatement(sqlStatement);
@@ -736,7 +748,7 @@ public class AbSqlRow extends AbSqlColumn
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance("Row Value: " + result.toString(), this, "getRowsWhereBetween"));
+                    LogUtil.put(LogFactory.getInstance(ROW_VALUE_LABEL + result.toString(), this, METHOD_GET_ROWS_WHERE_BETWEEN));
                 }
                 rows.add(result);
             }
@@ -745,7 +757,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + stringBuffer, this, "getRowsWhereBetween()", e));
+                LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + stringBuffer, this, METHOD_GET_ROWS_WHERE_BETWEEN, e));
             }
             return null;
         }
