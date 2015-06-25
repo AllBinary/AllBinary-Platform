@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class StreetAddress
@@ -327,7 +328,7 @@ public class StreetAddress
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "toValidationInfoNode", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toValidationInfoNode", e));
          }
          //throw e;
          return null;

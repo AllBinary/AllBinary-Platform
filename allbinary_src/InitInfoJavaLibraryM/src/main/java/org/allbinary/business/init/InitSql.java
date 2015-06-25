@@ -28,6 +28,7 @@ import java.util.Vector;
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
 import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 
@@ -59,8 +60,24 @@ public class InitSql
    
    private boolean useridAndPassword;
    
+   protected final String SUCCESS_SQL_STATEMENT = "Success\nSQL Statement: ";
    protected final String FAILED_SQL_STATEMENT = "Failed\nSQL Statement: ";
    
+   private final String INIT_SQL = "InitSql";
+   
+   protected final CommonStrings commonStrings = CommonStrings.getInstance();
+   
+   private final String EQUAL_QUOTE = "=\"";
+   //private final String ESCAPE_QUOTES = "\\\"";
+
+   private final String METHOD_GET_ROW = "getRow()";
+   private final String METHOD_UPDATE_WHERE = "updateWhere()";
+
+   private final String ROW_VALUE_LABEL = "Row Value: ";
+   private final String NO_RESULTS_IN_RESULT_SET = "No Results in ResultSet";
+
+   private final String INSERT_END = "')";
+
    public InitSql(DbConnectionInfo databaseConnectionInfoInterface)
    {
       this.setDatabaseConnectionInfoInterface(databaseConnectionInfoInterface);
@@ -88,7 +105,7 @@ public class InitSql
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {
-             PreLogUtil.put("error","InitSql","createTables()",e);
+             PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "createTable()", e);
          }
          return false;
       }
@@ -105,7 +122,7 @@ public class InitSql
         {
             if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {
-                PreLogUtil.put("Failed to Drop", "InitSql", "dropTables()", e);
+                PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "dropTables()", e);
             }
             return false;
         }
@@ -115,10 +132,9 @@ public class InitSql
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("SELECT *");
-        stringBuffer.append(" FROM ");
+        stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.tableName);
-        stringBuffer.append(" WHERE ");
+        stringBuffer.append(sqlStrings.WHERE);
 
         try
         {
@@ -132,30 +148,31 @@ public class InitSql
                 String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
-                stringBuffer.append(" = \"");
+                stringBuffer.append(sqlStrings.EQUAL_QUOTE);
 
                 stringBuffer.append(this.getValue(value));
-                stringBuffer.append("\"");
+                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
                 if (iter.hasNext())
                 {
-                    stringBuffer.append(" AND ");
+                    stringBuffer.append(sqlStrings.AND);
                 }
             }
 
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
+            String sqlStatement = stringBuffer.toString();
+
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                PreLogUtil.put("SQL Statement: " + stringBuffer, this, "getRow");
+                PreLogUtil.put(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this.INIT_SQL, this.METHOD_GET_ROW);
             }
 
-            String sqlStatement = stringBuffer.toString();
             ResultSet rset = this.executeSQLStatement(sqlStatement);
             ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
             while (rset.next())
             {
                 result = new HashMap();
-                Vector columnNames = new Vector();
+                //Vector columnNames = new Vector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
@@ -164,30 +181,36 @@ public class InitSql
                     result.put(columnName, field);
                 }
 
-                if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    PreLogUtil.put("Row Value: " + result.toString(), this, "getRow");
+                    PreLogUtil.put(ROW_VALUE_LABEL + result.toString(), this.INIT_SQL, this.METHOD_GET_ROW);
                 }
                 return result;
             }
+
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            {
+                PreLogUtil.put(NO_RESULTS_IN_RESULT_SET, this.INIT_SQL, this.METHOD_GET_ROW);
+            }
+
             return null;
         } catch (Exception e)
         {
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer, this, "getRow", e);
+                PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer, this.INIT_SQL, this.METHOD_GET_ROW, e);
             }
             return null;
         }
     }
-   
+
     public synchronized void updateWhere(String key, String value, HashMap updatedKeyValuePairs)
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("UPDATE ");
+        stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.tableName);
-        stringBuffer.append(" SET ");
+        stringBuffer.append(this.sqlStrings.SET);
 
         try
         {
@@ -195,57 +218,58 @@ public class InitSql
             while (iter.hasNext())
             {
                 String columnName = iter.next().toString();
-                stringBuffer.append(CommonSeps.getInstance().SPACE);
+                stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
-                stringBuffer.append("=\"");
+                stringBuffer.append(EQUAL_QUOTE);
                 String columnValue = (String) updatedKeyValuePairs.get(columnName);
 
                 if (columnValue == null)
                 {
-                    columnValue = StringUtil.getInstance().EMPTY_STRING;
+                    columnValue = this.stringUtil.EMPTY_STRING;
                 } else
                 {
+                    //columnValue = new Replace(sqlStrings.CLOSE_QUOTE, ESCAPE_QUOTES).all(columnValue);
                 }
 
                 stringBuffer.append(this.getValue(columnValue));
-                stringBuffer.append("\"");
+                stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
                 if (iter.hasNext())
                 {
-                    stringBuffer.append(",");
+                    stringBuffer.append(this.commonSeps.COMMA);
                 }
             }
 
-            stringBuffer.append(" WHERE ");
+            stringBuffer.append(sqlStrings.WHERE);
             stringBuffer.append(key);
-            stringBuffer.append(" = \"");
+            stringBuffer.append(sqlStrings.EQUAL_QUOTE);
 
             stringBuffer.append(this.getValue(value));
-            stringBuffer.append("\"");
+            stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                PreLogUtil.put("Update Succeeded\nSQL Statement: " + sqlStatement, this, "updateWhere");
+                PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, METHOD_UPDATE_WHERE);
             }
         } catch (Exception e)
         {
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                PreLogUtil.put("Update Failed\nSQL Statement: " + stringBuffer, this, "updateWhere", e);
+                PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer, this.INIT_SQL, METHOD_UPDATE_WHERE, e);
             }
         }
     }
       
     public void insert(Vector values)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("INSERT INTO ");
+        stringBuffer.append(this.sqlStrings.INSERT_INTO);
         stringBuffer.append(this.tableName);
-        stringBuffer.append(" VALUES ('");
+        stringBuffer.append(this.sqlStrings.VALUES);
 
         try
         {
@@ -253,28 +277,30 @@ public class InitSql
             for (int i = 0; i < values.size() - 1; i++)
             {
                 String value = this.getValue((String) values.get(i));
+                //value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
                 stringBuffer.append(value);
-                stringBuffer.append("','");
+                stringBuffer.append(this.sqlStrings.SINGLE_QUOTE_COMMA_SEP);
             }
 
             String value = this.getValue((String) values.lastElement());
+            //value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);
 
             stringBuffer.append(value);
-            stringBuffer.append("')");
+            stringBuffer.append(INSERT_END);
 
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                PreLogUtil.put("Insert Succeeded\nSQL Statement: " + sqlStatement, this, "insert");
+                PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, INSERT);
             }
         } catch (Exception e)
         {
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
-                PreLogUtil.put("Insert Failed\nSQL Statement: " + stringBuffer.toString(), this, "insert", e);
+                PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this.INIT_SQL, INSERT, e);
             }
         }
     }
@@ -283,7 +309,7 @@ public class InitSql
     {
         if (StringValidationUtil.getInstance().isEmpty(value))
         {
-            return StringUtil.getInstance().EMPTY_STRING;
+            return this.stringUtil.EMPTY_STRING;
         } else
         {
             return value;
@@ -311,7 +337,7 @@ public class InitSql
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {         
-            PreLogUtil.put("SQL error","InitSql","executeSQLStatement()",e);
+            PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "executeSQLStatement()", e);
          }
          throw e;
       }
@@ -319,7 +345,7 @@ public class InitSql
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {         
-            PreLogUtil.put("SQL error","InitSql","executeSQLStatement()",e);
+            PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "executeSQLStatement()", e);
          }
          throw e;
       }      
@@ -342,7 +368,7 @@ public class InitSql
       }
       catch(SQLException se)
       {
-         PreLogUtil.put("error","InitSql","createConnection()",se);
+         PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "createConnection()", se);
          throw se;
       }
    }
@@ -361,8 +387,7 @@ public class InitSql
             if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {                     
                PreLogUtil.put("Load mySQL Driver Failed: " + 
-                  this.getDatabaseConnectionInfoInterface().getJdbcDriver(),
-                  "InitSql","initialization()",e);
+                  this.getDatabaseConnectionInfoInterface().getJdbcDriver(), INIT_SQL, "initialize()", e);
             }
             throw e;
          }         
@@ -376,7 +401,7 @@ public class InitSql
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
          {                  
-            PreLogUtil.put("Error","InitSql","initialization()",se);         
+            PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "initialize()", se);
          }
          throw se;
       }

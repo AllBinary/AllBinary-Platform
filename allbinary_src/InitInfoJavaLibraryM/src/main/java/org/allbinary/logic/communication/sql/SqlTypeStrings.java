@@ -95,5 +95,7 @@ public class SqlTypeStrings
     public final String MAX_BIG_INT_UNSIGNED_NOT_NULL = " BIGINT(19) UNSIGNED NOT NULL, ";
     public final String MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL = " BIGINT(19) UNSIGNED AUTO_INCREMENT NOT NULL,";
     
+    public final String LONG_BLOB = " LONGBLOB, ";
+    public final String BLOB = " BLOB, ";
     public final String BLOB_NOT_NULL = " BLOB NOT NULL, ";
 }

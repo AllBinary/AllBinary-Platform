@@ -22,6 +22,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class PaymentGatewayView implements DomNodeInterface
 {
@@ -67,7 +68,7 @@ public class PaymentGatewayView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "toXmlNode", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toXmlNode", e));
          }
          throw e;
       }

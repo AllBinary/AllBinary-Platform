@@ -26,20 +26,31 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 public class InitInfoEntity extends InitSql
 //extends AbSqlBean
 {    
+    private final String NAME = "InitInfoEntity";
+
     private final String NOTHING = "NOTHING";
     //private final String tableName  = "licenseServerInitdata";
     private final String tableName = "initdata";
     private final String tableData;
 
+    private final String NOT_IN_DB = "Not In DB";
+    
+    private final String METHOD_GET = "get()";
+    private final String METHOD_IS = "is()";
+    private final String METHOD_ADD = "add()";
+
+    private final String CREATED_SUCCESS = " Created Successfully";
+    private final String FAILED_TO_CREATE = "Failed to create ";
+    
     public InitInfoEntity()
     {
         super(new UserDbInitInfo());
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("CREATE TABLE ");
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(tableName);
-        stringBuffer.append(" (");
+        stringBuffer.append(this.sqlStrings.START);
         stringBuffer.append(NOTHING);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(InitInfo.getInstance().TESTING);
@@ -48,7 +59,8 @@ public class InitInfoEntity extends InitSql
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(InitInfo.getInstance().MAINPATH);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append("PRIMARY KEY(NOTHING) )");
+        stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
+        stringBuffer.append(this.sqlStrings.END);
 
         this.tableData = stringBuffer.toString();
         
@@ -70,7 +82,7 @@ public class InitInfoEntity extends InitSql
             {
                 if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
                 {
-                    PreLogUtil.put("Not In DB", "InitInfoEntity", "get()");
+                    PreLogUtil.put(this.NOT_IN_DB, NAME, this.METHOD_GET);
                 }
                 return false;
             }
@@ -78,7 +90,7 @@ public class InitInfoEntity extends InitSql
         {
             if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
             {
-                PreLogUtil.put("Not In DB", "InitInfoEntity", "get()", e);
+                PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_GET, e);
             }
             return false;
         }
@@ -98,7 +110,7 @@ public class InitInfoEntity extends InitSql
             {
                 if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
                 {
-                    PreLogUtil.put("Not In DB", "InitInfoEntity", "is()");
+                    PreLogUtil.put(this.NOT_IN_DB, this.NAME, this.METHOD_IS);
                 }
                 return false;
             }
@@ -106,7 +118,7 @@ public class InitInfoEntity extends InitSql
         {
             if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
             {
-                PreLogUtil.put("Not In DB", "InitInfoEntity", "is()", e);
+                PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_IS, e);
             }
             return false;
         }
@@ -132,7 +144,7 @@ public class InitInfoEntity extends InitSql
         {
             if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
             {
-                PreLogUtil.put("error", "InitInfoEntity", "add()", e);
+                PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_ADD, e);
             }
         }
     }
@@ -141,12 +153,12 @@ public class InitInfoEntity extends InitSql
     {
         if (super.createTable(tableData))
         {
-            return tableName + " Created Successfully";
+            return tableName + CREATED_SUCCESS;
         } else
         {
             StringBuffer stringBuffer = new StringBuffer();
 
-            stringBuffer.append("Failed to create ");
+            stringBuffer.append(FAILED_TO_CREATE);
             stringBuffer.append(tableData);
             stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
 

@@ -16,6 +16,7 @@ package org.allbinary.logic.basic.io;
 import org.allbinary.logic.basic.io.AbFileInputStream;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.io.DataInputStream;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -57,7 +58,7 @@ public class LineReader
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "hasNext", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "hasNext", e));
             //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.IDLOGGING))
             {
                 
@@ -83,7 +84,7 @@ public class LineReader
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "getNext", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getNext", e));
             //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.IDLOGGING))
             {
                 

@@ -24,6 +24,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
 
 public class AbSqlBasic
@@ -37,6 +38,7 @@ public class AbSqlBasic
     //protected boolean useridAndPassword;
 
     protected final StringUtil stringUtil = StringUtil.getInstance();
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();

@@ -1,16 +1,16 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
 package org.allbinary.data.tables.advertisement.areas;
 
 import java.util.HashMap;
@@ -31,143 +31,152 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 public class AdvertisementAreasEntity extends AbSqlBean implements AdvertisementAreasEntityInterface
 {
-   protected final String tableName = "advertisements";
-   
-   public AdvertisementAreasEntity()
-   {
-      super(new UserDbInitInfo());
-      this.setTableName(tableName);
-   }
-   
-   /*
-   public void insert(Vector values)
-   {
-      try
-      {
-         super.insert(values);
+
+    protected final String tableName = "advertisements";
+
+    public AdvertisementAreasEntity()
+    {
+        super(new UserDbInitInfo());
+        this.setTableName(tableName);
+    }
+
+    /*
+     public void insert(Vector values)
+     {
+     try
+     {
+     super.insert(values);
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,INSERT);
-         }
-      }
-      catch(Exception e)
-      {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e);
-         }
-      }
-   }
-   */
-   
-   public void delete(String value)
-   {
-      try
-      {
-         super.deleteWhere(EntryData.getInstance().ID, value);
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, DELETE));
-         }
-      }
-      catch(Exception e)
-      {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, DELETE, e));
-         }
-      }
-   }
+     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     {
+     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,INSERT);
+     }
+     }
+     catch(Exception e)
+     {
+     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     {
+     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e);
+     }
+     }
+     }
+     */
+    public void delete(String value)
+    {
+        try
+        {
+            super.deleteWhere(EntryData.getInstance().ID, value);
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            {
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, DELETE));
+            }
+        }catch(Exception e)
+        {
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            {
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, DELETE, e));
+            }
+        }
+    }
 
-   //AdvertisementAreaInterface
-   public Vector get(String storeName) throws Exception
-   {
-      HashMap keysAndValues = new HashMap();
-      keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
-      Vector hashMapVector = super.getRows(keysAndValues);
-      
-      Vector vector = new Vector();
-      Iterator iter = hashMapVector.iterator();
-      while(iter.hasNext())
-      {
-         HashMap hashMap = (HashMap) iter.next();
-         if(hashMap!=null)
-            vector.add((AdvertisementAreaInterface) new AdvertisementArea(hashMap));
-      }
+    //AdvertisementAreaInterface
+    public Vector get(String storeName) throws Exception
+    {
+        HashMap keysAndValues = new HashMap();
+        keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
+        Vector hashMapVector = super.getRows(keysAndValues);
 
-      //(AdvertisementAreaInterface) new AdvertisementArea(vector);
-      return vector;
-   }
+        Vector vector = new Vector();
+        Iterator iter = hashMapVector.iterator();
+        while(iter.hasNext())
+        {
+            HashMap hashMap = (HashMap) iter.next();
+            if(hashMap != null)
+            {
+                vector.add((AdvertisementAreaInterface) new AdvertisementArea(hashMap));
+            }
+        }
 
-   public AdvertisementAreaInterface get(
-      String storeName, String advertisementAreaName) throws Exception
-   {
-      HashMap keysAndValues = new HashMap();
-      keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
-      keysAndValues.put(AdvertisementAreaData.getInstance().NAME, advertisementAreaName);
-      HashMap hashMap = super.getRow(keysAndValues);
+        //(AdvertisementAreaInterface) new AdvertisementArea(vector);
+        return vector;
+    }
 
-      if(hashMap!=null) 
-         return (AdvertisementAreaInterface) new AdvertisementArea(hashMap);
-      else 
-      return null;
-   }
+    public AdvertisementAreaInterface get(
+            String storeName, String advertisementAreaName) throws Exception
+    {
+        HashMap keysAndValues = new HashMap();
+        keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
+        keysAndValues.put(AdvertisementAreaData.getInstance().NAME, advertisementAreaName);
+        HashMap hashMap = super.getRow(keysAndValues);
 
-   public final String createTableStatement()
-   {
-	   AdvertisementAreaData advertisementAreaData = 
-		   AdvertisementAreaData.getInstance();
-	   
-       StringBuffer stringBuffer = new StringBuffer();
+        if(hashMap != null)
+        {
+            return (AdvertisementAreaInterface) new AdvertisementArea(hashMap);
+        }else
+        {
+            return null;
+        }
+    }
 
-       stringBuffer.append("CREATE TABLE ");
+    public final String createTableStatement()
+    {
+        AdvertisementAreaData advertisementAreaData
+                = AdvertisementAreaData.getInstance();
 
-       stringBuffer.append(this.getTableName());
-       stringBuffer.append(" (");
+        StringBuffer stringBuffer = new StringBuffer();
+
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
+
+        stringBuffer.append(this.getTableName());
+        stringBuffer.append(this.sqlStrings.START);
 
        //Without compound keys I use compound data in the key colum. 
-       //Usually StoreName and id/name of entity
-       stringBuffer.append(
-    		   advertisementAreaData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-       StoreFrontData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-       advertisementAreaData.DESCRIPTION + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-       advertisementAreaData.CONSTRAINTS + this.sqlTypeStrings.BLOB_NOT_NULL + 
-       AdvertisementCampaignData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-       EntryData.getInstance().TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
-       EntryData.getInstance().LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
-       
-       stringBuffer.append("PRIMARY KEY(");
-       stringBuffer.append(advertisementAreaData.NAME);
-       stringBuffer.append(") )");
+        //Usually StoreName and id/name of entity
+        stringBuffer.append(advertisementAreaData.NAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(StoreFrontData.getInstance().NAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(advertisementAreaData.DESCRIPTION)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(advertisementAreaData.CONSTRAINTS)
+                .append(this.sqlTypeStrings.BLOB_NOT_NULL)
+                .append(AdvertisementCampaignData.getInstance().NAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(EntryData.getInstance().TIMECREATED)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(EntryData.getInstance().LASTMODIFIED)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(this.sqlStrings.PRIMARY_KEY)
+                .append(advertisementAreaData.NAME)
+                .append(this.sqlStrings.END);
 
-       return stringBuffer.toString();
-   }
-   
-   public String createTable()
-   {
-      String returnStr = super.createTable(this.createTableStatement());
-      return returnStr;
-   }
+        return stringBuffer.toString();
+    }
 
-   public void update(HashMap updatedValues)
-   {
-      super.updateWhere(AdvertisementAreaData.getInstance().NAME, 
-    		  (String) updatedValues.get(AdvertisementAreaData.getInstance().NAME),updatedValues);
-   }
+    public String createTable()
+    {
+        String returnStr = super.createTable(this.createTableStatement());
+        return returnStr;
+    }
 
-   public String backupTable()
-   {
-      return super.backupTable();
-   }
+    public void update(HashMap updatedValues)
+    {
+        super.updateWhere(AdvertisementAreaData.getInstance().NAME,
+                (String) updatedValues.get(AdvertisementAreaData.getInstance().NAME), updatedValues);
+    }
 
-   public String restoreTable(Portion portion)
-   {
-      return super.restoreTable(portion);
-   }
+    public String backupTable()
+    {
+        return super.backupTable();
+    }
 
-   public String dropTable()
-   {
-      return super.dropTable();
-   }
+    public String restoreTable(Portion portion)
+    {
+        return super.restoreTable(portion);
+    }
+
+    public String dropTable()
+    {
+        return super.dropTable();
+    }
 }

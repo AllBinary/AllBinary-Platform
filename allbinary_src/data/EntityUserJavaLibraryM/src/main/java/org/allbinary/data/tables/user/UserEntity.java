@@ -39,6 +39,15 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
 {   
    private final String tableName = "user";
             
+   private final String COMMAND_SUCCESS_FOR_USER = "Command Success for user: ";
+   private final String PASSWORD_LABEL = " Password: ";
+   private final String EQUALS = "==";
+
+   private final String COMMAND_SUCCESS_BUT_LOGIN_FAILED = "Command Success but login failed for user: ";
+   private final String INVALID_PASSWORD_LABEL = " Password: \n\"";
+   private final String NOT_EQUAL = "\"!=\"";
+   private final String END_QUOTES = "\"";
+
    public UserEntity()
    {
       super(new UserDbInitInfo());
@@ -159,14 +168,14 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          super.deleteWhere(key,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,"deleteWhere"));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "deleteWhere"));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"deleteWhere",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "deleteWhere", e));
          }
       }
    }
@@ -223,7 +232,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
             UserData.USERNAME,userName,
             EntryData.getInstance().ENCRYPTION);
          
-         if(encryption!=null && encryption.compareTo("")!=0)
+         if(encryption!=null && encryption.compareTo(this.stringUtil.EMPTY_STRING)!=0)
             isUserNameAndPasswordCorrect = result.compareTo(new SuperCrypt(new Integer(encryption).intValue()).encrypt(password));
          else
          {
@@ -238,14 +247,14 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          if(isUserNameAndPasswordCorrect==0)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-            {
+            {                
                 StringBuffer stringBuffer = new StringBuffer();
 
-                stringBuffer.append("Command Success for user: ");
+                stringBuffer.append(COMMAND_SUCCESS_FOR_USER);
                 stringBuffer.append(userName);
-                stringBuffer.append(" Password: ");
+                stringBuffer.append(PASSWORD_LABEL);
                 stringBuffer.append(password);
-                stringBuffer.append("==");
+                stringBuffer.append(EQUALS);
                 stringBuffer.append(result);
 
                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "login"));
@@ -258,13 +267,13 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
-                stringBuffer.append("Command Success but login failed for user: ");
+                stringBuffer.append(COMMAND_SUCCESS_BUT_LOGIN_FAILED);
                 stringBuffer.append(userName);
-                stringBuffer.append(" Password: \n\"");
+                stringBuffer.append(INVALID_PASSWORD_LABEL);
                 stringBuffer.append(new SuperCrypt(new Integer(encryption).intValue()).encrypt(password));
-                stringBuffer.append("\"!=\"");
+                stringBuffer.append(NOT_EQUAL);
                 stringBuffer.append(result);
-                stringBuffer.append("\"");
+                stringBuffer.append(END_QUOTES);
 
                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "login"));
             }
@@ -275,7 +284,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"login",e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "login", e));
          }
          return "Error";
       }
@@ -306,59 +315,72 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    
    public String getTable()
    {            
-      return super.getTable();
+      return super.getTable();d
    }
 */
    
     public final String createTableStatement()
     {
-    	EntryData entryData = EntryData.getInstance();
+    	final EntryData entryData = EntryData.getInstance();
     	
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("CREATE TABLE ");
-        stringBuffer.append(tableName);
-        stringBuffer.append(" (");
-
-        stringBuffer.append(UserData.USERNAME);
-        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-
-        stringBuffer.append(UserData.PREFIXNAME);
-        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN);
-
-        stringBuffer.append(UserData.FIRSTNAME);
-        stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN);
-
-        stringBuffer.append(UserData.LASTNAME + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-
-        stringBuffer.append(UserData.MIDDLENAME + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-
-        stringBuffer.append(UserData.SUFFIXNAME + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.COMPANY + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.POSITIONATCOMPANY + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.MAINEMAIL + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
-        stringBuffer.append(UserData.SECONDARYEMAIL + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.HOMEPHONE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.CELLPHONE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.WORKPHONE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.OTHERCONTACT + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.ELECTRONICDEVICE + this.sqlTypeStrings.MAX_CHAR_COLUMN);
-        stringBuffer.append(UserData.FAX + this.sqlTypeStrings.MAX_CHAR_COLUMN +
-   UserRoleData.NAME.toString() + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-
-   UserData.CONFIGURATION + this.sqlTypeStrings.BLOB_NOT_NULL +
-
-   UserData.PERMISSIONS + this.sqlTypeStrings.MAX_CHAR_COLUMN +
-   entryData.ENCRYPTION + " BIGINT(11) UNSIGNED NOT NULL," +
-   UserData.SECRET + this.sqlTypeStrings.MAX_CHAR_COLUMN +
-   UserData.PASSWORD + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-   entryData.ENABLE + this.sqlTypeStrings.MAX_CHAR_COLUMN +
-   entryData.TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
-   entryData.LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
-   "PRIMARY KEY(" + UserData.USERNAME);
-        //stringBuffer.append();
-
-        stringBuffer.append(") )");
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE)
+                .append(tableName)
+                .append(this.sqlStrings.START)
+                .append(UserData.USERNAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(UserData.PREFIXNAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.FIRSTNAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.LASTNAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.MIDDLENAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.SUFFIXNAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.COMPANY)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.POSITIONATCOMPANY)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.MAINEMAIL)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(UserData.SECONDARYEMAIL)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.HOMEPHONE)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.CELLPHONE)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.WORKPHONE)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.OTHERCONTACT)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.ELECTRONICDEVICE)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.FAX)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserRoleData.NAME.toString())
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(UserData.CONFIGURATION)
+                .append(this.sqlTypeStrings.BLOB_NOT_NULL)
+                .append(UserData.PERMISSIONS)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(entryData.ENCRYPTION)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(UserData.SECRET)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(UserData.PASSWORD)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(entryData.ENABLE)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN)
+                .append(entryData.TIMECREATED)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(entryData.LASTMODIFIED)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(this.sqlStrings.PRIMARY_KEY)
+                .append(UserData.USERNAME)
+                .append(this.sqlStrings.END);
 
         return stringBuffer.toString();
     }

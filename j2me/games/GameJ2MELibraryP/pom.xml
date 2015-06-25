@@ -39,7 +39,7 @@
 
         <!--
         <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>
-        <module>../../../../working_thirdparty/communication/XmlRpcJavaLibraryM</module>
+        <module>../../../../working_thirdparty/communication/XmlRpc/XmlRpcJavaLibraryM</module>
         -->
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>

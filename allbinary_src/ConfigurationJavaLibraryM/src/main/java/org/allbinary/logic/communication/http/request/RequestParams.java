@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 //Note: if request is destroyed or messed up this will not work. Use fileRequestParams
 public class RequestParams
@@ -95,7 +96,7 @@ public class RequestParams
             return node;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "toXmlNode(document)", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toXmlNode(document)", e));
 
             //throw e;
             return null;

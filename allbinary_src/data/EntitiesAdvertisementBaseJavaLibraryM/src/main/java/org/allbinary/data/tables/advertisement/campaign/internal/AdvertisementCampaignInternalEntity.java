@@ -1,16 +1,16 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
 package org.allbinary.data.tables.advertisement.campaign.internal;
 
 import java.util.HashMap;
@@ -31,150 +31,160 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.time.TimeData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 
-public class AdvertisementCampaignInternalEntity extends AbSqlBean 
-   implements AdvertisementCampaignInternalEntityInterface
+public class AdvertisementCampaignInternalEntity extends AbSqlBean
+        implements AdvertisementCampaignInternalEntityInterface
 {
-   protected final String tableName = "adCampaignInternal";
-   
-   public AdvertisementCampaignInternalEntity()
-   {
-      super(new UserDbInitInfo());
-      this.setTableName(tableName);
-   }
-   
-   /*
-   public void insert(Vector values)
-   {
-      try
-      {
-         super.insert(values);
+
+    protected final String tableName = "adCampaignInternal";
+
+    public AdvertisementCampaignInternalEntity()
+    {
+        super(new UserDbInitInfo());
+        this.setTableName(tableName);
+    }
+
+    /*
+     public void insert(Vector values)
+     {
+     try
+     {
+     super.insert(values);
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,INSERT);
-         }
-      }
-      catch(Exception e)
-      {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e);
-         }
-      }
-   }
-   */
-   
-   public void delete(String value)
-   {
-      try
-      {
-         super.deleteWhere(StoreFrontData.getInstance().NAME, value);
+     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     {
+     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,INSERT);
+     }
+     }
+     catch(Exception e)
+     {
+     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     {
+     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e);
+     }
+     }
+     }
+     */
+    public void delete(String value)
+    {
+        try
+        {
+            super.deleteWhere(StoreFrontData.getInstance().NAME, value);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, DELETE));
-         }
-      }
-      catch(Exception e)
-      {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
-         {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, DELETE, e));
-         }
-      }
-   }
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            {
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, DELETE));
+            }
+        }catch(Exception e)
+        {
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            {
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, DELETE, e));
+            }
+        }
+    }
 
-   public AdvertisementCampaignsInterface getCampaignsInStore(String storeName)
-   {
-      HashMap keysAndValues = new HashMap();
-      keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
-      Vector hashMapVector = super.getRows(keysAndValues);
-      
-      Vector vector = new Vector();
-      Iterator iter = hashMapVector.iterator();
-      while(iter.hasNext())
-      {
-         HashMap hashMap = (HashMap) iter.next();
-         if(hashMap!=null)
-            vector.add((AdvertisementCampaignInterface) new AdvertisementCampaign(hashMap));
-      }
+    public AdvertisementCampaignsInterface getCampaignsInStore(String storeName)
+    {
+        HashMap keysAndValues = new HashMap();
+        keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
+        Vector hashMapVector = super.getRows(keysAndValues);
 
-      return (AdvertisementCampaignsInterface) new AdvertisementCampaigns(vector);
-   }
+        Vector vector = new Vector();
+        Iterator iter = hashMapVector.iterator();
+        while(iter.hasNext())
+        {
+            HashMap hashMap = (HashMap) iter.next();
+            if(hashMap != null)
+            {
+                vector.add((AdvertisementCampaignInterface) new AdvertisementCampaign(hashMap));
+            }
+        }
 
-   public AdvertisementCampaignInterface get(String storeName, String name)
-   {
-      HashMap keysAndValues = new HashMap();
-      keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
-      keysAndValues.put(AdvertisementCampaignData.getInstance().NAME, name);
-      HashMap hashMap = super.getRow(keysAndValues);
-      
-      if(hashMap!=null) 
-         return (AdvertisementCampaignInterface) new AdvertisementCampaign(hashMap);
-      else 
-      return null;
-   }
-   
-   public void update(HashMap updatedValues)
-   {
-      super.updateWhere(EntryData.getInstance().getInstance().ID,
-    		  (String) updatedValues.get(EntryData.getInstance().getInstance().ID),
-    		  updatedValues);
-   }
-   
-   public final String createTableStatement()
-   {
-	   EntryData entryData = EntryData.getInstance().getInstance();
-	   
-	   AdvertisementCampaignData advertisementCampaignData =
-		   AdvertisementCampaignData.getInstance();
-	   
-       StringBuffer stringBuffer = new StringBuffer();
+        return (AdvertisementCampaignsInterface) new AdvertisementCampaigns(vector);
+    }
 
-       stringBuffer.append("CREATE TABLE ");
+    public AdvertisementCampaignInterface get(String storeName, String name)
+    {
+        HashMap keysAndValues = new HashMap();
+        keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
+        keysAndValues.put(AdvertisementCampaignData.getInstance().NAME, name);
+        HashMap hashMap = super.getRow(keysAndValues);
 
-       stringBuffer.append(this.getTableName());
-       stringBuffer.append(" (");
+        if(hashMap != null)
+        {
+            return (AdvertisementCampaignInterface) new AdvertisementCampaign(hashMap);
+        }else
+        {
+            return null;
+        }
+    }
+
+    public void update(HashMap updatedValues)
+    {
+        super.updateWhere(EntryData.getInstance().getInstance().ID,
+                (String) updatedValues.get(EntryData.getInstance().getInstance().ID),
+                updatedValues);
+    }
+
+    public final String createTableStatement()
+    {
+        EntryData entryData = EntryData.getInstance().getInstance();
+
+        AdvertisementCampaignData advertisementCampaignData
+                = AdvertisementCampaignData.getInstance();
+
+        StringBuffer stringBuffer = new StringBuffer();
+
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
+
+        stringBuffer.append(this.getTableName());
+        stringBuffer.append(this.sqlStrings.START);
 
        //Without compound keys I use compound data in the key colum. 
-       //Usually StoreName and id/name of entity
-       stringBuffer.append(
-    		      entryData.ID + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
-    		      StoreFrontData.getInstance().NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-    		      advertisementCampaignData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-    		      advertisementCampaignData.DESCRIPTION + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
-    		      advertisementCampaignData.CONFIG + this.sqlTypeStrings.BLOB_NOT_NULL +
-    		      TimeData.getInstance().START + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
-    		      TimeData.getInstance().END + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
-    		      entryData.TIMECREATED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL +
-    		      entryData.LASTMODIFIED + this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL
-    		      );
-       
-       stringBuffer.append("PRIMARY KEY(");
-       stringBuffer.append(entryData.ID);
-       stringBuffer.append(") )");
+        //Usually StoreName and id/name of entity
+        stringBuffer.append(entryData.ID)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(StoreFrontData.getInstance().NAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(advertisementCampaignData.NAME)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(advertisementCampaignData.DESCRIPTION)
+                .append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL)
+                .append(advertisementCampaignData.CONFIG)
+                .append(this.sqlTypeStrings.BLOB_NOT_NULL)
+                .append(TimeData.getInstance().START)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(TimeData.getInstance().END)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(entryData.TIMECREATED)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(entryData.LASTMODIFIED)
+                .append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL)
+                .append(this.sqlStrings.PRIMARY_KEY)
+                .append(entryData.ID)
+                .append(this.sqlStrings.END);
 
-       return stringBuffer.toString();
-   }
-   
-   public String createTable()
-   {
-      String returnStr = super.createTable(this.createTableStatement());
-      return returnStr;
-   }
+        return stringBuffer.toString();
+    }
 
-   public String backupTable()
-   {
-      return super.backupTable();
-   }
-   
-   public String restoreTable(Portion portion)
-   {
-      return super.restoreTable(portion);
-   }
+    public String createTable()
+    {
+        String returnStr = super.createTable(this.createTableStatement());
+        return returnStr;
+    }
 
-   public String dropTable()
-   {
-      return super.dropTable();
-   }
+    public String backupTable()
+    {
+        return super.backupTable();
+    }
+
+    public String restoreTable(Portion portion)
+    {
+        return super.restoreTable(portion);
+    }
+
+    public String dropTable()
+    {
+        return super.dropTable();
+    }
 }

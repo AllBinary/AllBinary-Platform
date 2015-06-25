@@ -36,6 +36,7 @@ import java.io.PrintStream;
 //import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Properties;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringValidationUtil;
    
 public class Email 
@@ -107,7 +108,7 @@ public class Email
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "emailConstructor", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "emailConstructor", e));
          }
          throw e;
       }

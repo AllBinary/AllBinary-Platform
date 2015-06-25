@@ -17,6 +17,7 @@ import org.allbinary.logic.basic.io.file.FileUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -45,7 +46,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "insertAtBeginning", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "insertAtBeginning", e));
          }
          return false;
       }
@@ -83,7 +84,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "after", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "after", e));
          }
          return false;
       }
@@ -102,7 +103,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "insertAtEnd", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "insertAtEnd", e));
          }
          return false;
       }

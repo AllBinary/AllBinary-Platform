@@ -59,7 +59,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance("Start", this, "add"));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "add"));
             }
 
             Vector vector = new Vector();
@@ -269,7 +269,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "getPaymentGateways()"));
+                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "findPaymentTypeVectorByStore()"));
                 }
                 return paymentGatewayVector;
             } else
@@ -280,7 +280,7 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getPaymentGatewayInterface", e));
+                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "findPaymentTypeVectorByStore", e));
             }
             return null;
         }
@@ -314,10 +314,10 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
     {
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("CREATE TABLE ");
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
 
         stringBuffer.append(tableName);
-        stringBuffer.append(" (");
+        stringBuffer.append(this.sqlStrings.START);
 
         stringBuffer.append(PaymentGatewayData.ID);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_AUTO_INCREMENT_NOT_NULL);
@@ -425,9 +425,9 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
         stringBuffer.append(EntryData.getInstance().TIMECREATED);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
 
-        stringBuffer.append("PRIMARY KEY(");
+        stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(PaymentGatewayData.ID);
-        stringBuffer.append(") )");
+        stringBuffer.append(this.sqlStrings.END);
 
         return stringBuffer.toString();
     }

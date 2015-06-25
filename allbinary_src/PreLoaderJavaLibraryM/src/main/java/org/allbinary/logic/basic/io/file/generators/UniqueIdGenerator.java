@@ -22,6 +22,7 @@ import org.allbinary.logic.basic.io.AbFileOutputStream;
 import org.allbinary.logic.basic.io.DataOutputStreamFactory;
 import org.allbinary.logic.basic.io.StreamUtil;
 import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -50,7 +51,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "initialize", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "initialize", e));
          }
          
       }
@@ -83,7 +84,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "getNext", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getNext", e));
          }
          return "Error";
       }

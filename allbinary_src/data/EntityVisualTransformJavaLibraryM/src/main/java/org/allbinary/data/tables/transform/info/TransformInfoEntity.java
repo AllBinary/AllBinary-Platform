@@ -176,9 +176,9 @@ implements TransformInfoEntityInterface
     	
         StringBuffer stringBuffer = new StringBuffer();
 
-        stringBuffer.append("CREATE TABLE ");
+        stringBuffer.append(this.sqlStrings.CREATE_TABLE);
         stringBuffer.append(tableName);
-        stringBuffer.append(" (");
+        stringBuffer.append(this.sqlStrings.START);
         stringBuffer.append(transformInfoData.NAME);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         //store should be changed to view group for template update performance
@@ -204,11 +204,11 @@ implements TransformInfoEntityInterface
         stringBuffer.append(transformInfoData.DATA);
         stringBuffer.append(this.sqlTypeStrings.BLOB_NOT_NULL);
         stringBuffer.append(EntryData.getInstance().LASTMODIFIED);
-        stringBuffer.append(EntryData.getInstance().getInstance().getInstance().TIMECREATED);
+        stringBuffer.append(EntryData.getInstance().TIMECREATED);
         stringBuffer.append(this.sqlTypeStrings.MAX_BIG_INT_UNSIGNED_NOT_NULL);
-        stringBuffer.append("PRIMARY KEY(");
+        stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
         stringBuffer.append(transformInfoData.NAME);
-        stringBuffer.append(") )");
+        stringBuffer.append(this.sqlStrings.END);
 
         return stringBuffer.toString();
     }

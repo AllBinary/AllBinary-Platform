@@ -22,6 +22,7 @@ import org.w3c.dom.Node;
 
 import java.util.Iterator;
 import java.util.Vector;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class EmailsNotUsed implements DomNodeInterface
 {
@@ -66,7 +67,7 @@ public class EmailsNotUsed implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "toXmlNode()", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toXmlNode()", e));
          }
 
          String error = "Error Processing Order.  Please contact us if error persists.<p/>";
