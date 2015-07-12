@@ -3,11 +3,11 @@ package org.allbinary.logic.basic.math.permutations;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.util.visitor.Visitor;
 
-public class PermutationVisitor extends Visitor {
+public class IntPermutationVisitor extends Visitor {
 
     protected final int[] data;
     
-    public PermutationVisitor(int[] data)
+    public IntPermutationVisitor(int[] data)
     {
         this.data = data;
     }

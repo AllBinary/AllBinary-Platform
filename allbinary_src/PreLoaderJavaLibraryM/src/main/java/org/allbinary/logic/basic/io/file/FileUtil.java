@@ -33,6 +33,9 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.io.FileInputStream;
+import java.io.OutputStream;
+import org.allbinary.logic.basic.io.FileStreamFactory;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 //data/init/views/TestStore/template/type/genericTemplateObjectConfig.xml
 public class FileUtil
@@ -860,4 +863,34 @@ public class FileUtil
             return StringUtil.getInstance().EMPTY_STRING;
         }
     }
+    
+    private final String WRITE_LABEL = "Write: ";
+    private final String WRITE_METHOD = "write";
+    
+    public void write(String filePath, String string) throws Exception
+    {
+        AbDataOutputStream dataOutputStream = null;
+        try
+        {
+            //LogUtil.put(LogFactory.getInstance("Write Configuration: " + this.toString(), this, "write"));
+            PreLogUtil.put(this.WRITE_LABEL + string, this, this.WRITE_METHOD);
+
+            FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();
+
+            OutputStream fileOutputStream = fileInputStreamFactory
+                    .getFileOutputStreamInstance(
+                            StringUtil.getInstance().EMPTY_STRING, filePath);
+
+            dataOutputStream = new AbDataOutputStream(fileOutputStream);
+
+            dataOutputStream.writeUTF(string);
+
+            dataOutputStream.flush();
+        }
+        finally
+        {
+            StreamUtil.getInstance().close(dataOutputStream);
+        }        
+    }
+    
 }
