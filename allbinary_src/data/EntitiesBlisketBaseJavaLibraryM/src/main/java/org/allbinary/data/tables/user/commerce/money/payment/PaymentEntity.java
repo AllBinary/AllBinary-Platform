@@ -31,6 +31,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 
 public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
@@ -259,11 +260,11 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
 
     public String backupTable()
     {
-        return super.backupTable();
+        return this.abSqlTableUtil.backupTable(this);
     }
 
     public String restoreTable(Portion portion)
     {
-        return super.restoreTable(portion);
+        return this.abSqlTableUtil.restoreTable(this, portion);
     }
 }

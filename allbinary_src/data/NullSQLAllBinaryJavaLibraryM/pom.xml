@@ -2,13 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary.data.tables</groupId>
-    <artifactId>EntityVisualTransformJavaLibrary</artifactId>
+    <artifactId>NullSQLAllBinaryJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-    <version>1.0.0-SNAPSHOT</version>
-    <!-- AllBinary Platform Version End -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
 
-    <name>EntityVisualTransformJavaLibrary</name>
+    <name>NullSQLAllBinaryJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -22,7 +22,7 @@
             <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
-  
+    
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -40,40 +40,35 @@
 
             <optional>true</optional>
         </dependency>
-
-        <dependency>
-            <groupId>org.allbinary.data.tables</groupId>
-            <artifactId>FileSQLAllBinaryJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary.logic.control.crypt</groupId>
-            <artifactId>CryptFileJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
+        
         <dependency>
             <groupId>org.allbinary.data.tables</groupId>
             <artifactId>SQLAllBinaryJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.business</groupId>
-            <artifactId>BlisketBaseJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PreLoaderFileJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>InitInfoJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary.data.tables</groupId>
+            <artifactId>DataTableInterfaces</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -82,48 +77,11 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>FileGAEVFSJavaLibrary</artifactId>
-            <!--
             <artifactId>FileJ2SEJavaLibrary</artifactId>
-            <artifactId>FileGAEVFSJavaLibrary</artifactId>
-        <dependency>
-            <groupId>com.vobject.appengine</groupId>
-            <artifactId>appengine-java-io</artifactId>
-            <version>0.1.0</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-vfs</artifactId>
-            <version>2.0</version>
-            <optional>true</optional>
-        </dependency>
-            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
-            <optional>true</optional>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.vobject.appengine</groupId>
-            <artifactId>appengine-java-io</artifactId>
-            <version>0.3-SNAPSHOT</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-vfs2</artifactId>
-            <version>2.0</version>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.servlet.jsp</groupId>
-            <artifactId>jsp-api</artifactId>
-            <version>2.1</version>
             <optional>true</optional>
         </dependency>
 

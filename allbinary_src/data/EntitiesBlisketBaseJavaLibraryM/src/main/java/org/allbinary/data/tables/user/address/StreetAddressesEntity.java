@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.business.installer.Portion;
 import org.allbinary.business.user.address.StreetAddressData;
 
 public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesEntityInterface
@@ -326,6 +327,16 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
     public String drop()
     {
         return super.dropTable();
+    }
+
+    public String backupTable()
+    {
+        return this.abSqlTableUtil.backupTable(this);
+    }
+
+    public String restoreTable(Portion portion)
+    {
+        return this.abSqlTableUtil.restoreTable(this, portion);
     }
 
     /*

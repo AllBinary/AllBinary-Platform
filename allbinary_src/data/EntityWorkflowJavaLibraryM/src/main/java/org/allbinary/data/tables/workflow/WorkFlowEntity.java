@@ -199,25 +199,19 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         return super.createTable(this.createTableStatement());
     }
 
-    public String backupTable()
-    {
-        return super.backupTable();
-    }
-
-    public String restoreTable(Portion portion)
-    {
-        return super.restoreTable(portion);
-    }
-
     public String dropTable()
     {
         return super.dropTable();
     }
 
-    /*
-     public String getTable()
-     {
-     return super.getTable();
-     }
-     */
+    public String backupTable()
+    {
+        return this.abSqlTableUtil.backupTable(this);
+    }
+
+    public String restoreTable(Portion portion)
+    {
+        return this.abSqlTableUtil.restoreTable(this, portion);
+    }
+
 }

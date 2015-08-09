@@ -390,13 +390,13 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
         return super.createTable(this.createTableStatement());
     }
 
-   public String backupTable()
-   {
-      return super.backupTable();
-   }
+    public String backupTable()
+    {
+        return this.abSqlTableUtil.backupTable(this);
+    }
 
-   public String restoreTable(Portion portion)
-   {
-      return super.restoreTable(portion);
-   }
+    public String restoreTable(Portion portion)
+    {
+        return this.abSqlTableUtil.restoreTable(this, portion);
+    }
 }

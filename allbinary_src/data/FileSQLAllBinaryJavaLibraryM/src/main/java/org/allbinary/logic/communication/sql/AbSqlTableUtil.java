@@ -36,7 +36,17 @@ import org.allbinary.logic.basic.string.StringUtil;
 
 public class AbSqlTableUtil
 {
-    private static String EXTENSION = ".adb";
+    private static final AbSqlTableUtil instance = new AbSqlTableUtil();
+
+    /**
+     * @return the instance
+     */
+    public static AbSqlTableUtil getInstance()
+    {
+        return instance;
+    }
+
+    private String EXTENSION = ".adb";
 
     private final String END = "')\n";
     

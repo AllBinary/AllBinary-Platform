@@ -24,6 +24,7 @@ import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.logic.communication.sql.AbSqlBean;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
 {
@@ -163,12 +164,12 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
    
    public String backupTable()
    {
-      return super.backupTable();
+       return this.abSqlTableUtil.backupTable(this);
    }
    
    public String restoreTable(Portion portion)
    {
-      return super.restoreTable(portion);
+      return this.abSqlTableUtil.restoreTable(this, portion);
    }
    
    public String dropTable()

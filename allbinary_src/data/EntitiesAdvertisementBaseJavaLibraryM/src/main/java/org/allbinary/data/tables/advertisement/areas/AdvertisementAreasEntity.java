@@ -165,18 +165,19 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
                 (String) updatedValues.get(AdvertisementAreaData.getInstance().NAME), updatedValues);
     }
 
-    public String backupTable()
-    {
-        return super.backupTable();
-    }
-
-    public String restoreTable(Portion portion)
-    {
-        return super.restoreTable(portion);
-    }
-
     public String dropTable()
     {
         return super.dropTable();
     }
+
+    public String backupTable()
+    {
+        return this.abSqlTableUtil.backupTable(this);
+    }
+
+    public String restoreTable(Portion portion)
+    {
+        return this.abSqlTableUtil.restoreTable(this, portion);
+    }
+
 }

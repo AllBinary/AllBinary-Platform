@@ -5,8 +5,8 @@
     <artifactId>EntitiesBlisketBaseJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>EntitiesBlisketBaseJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -43,12 +43,31 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>PreLoaderJavaLibrary</artifactId>
+            <artifactId>PreLoaderFileJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary.data.tables</groupId>
+            <artifactId>FileSQLAllBinaryJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PreLoaderJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
 
         <dependency>

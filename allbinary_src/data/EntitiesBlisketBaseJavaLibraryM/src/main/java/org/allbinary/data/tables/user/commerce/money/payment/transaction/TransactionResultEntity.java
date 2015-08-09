@@ -213,12 +213,12 @@ public class TransactionResultEntity extends AbSqlBean
 
     public String backupTable()
     {
-        return super.backupTable();
+        return this.abSqlTableUtil.backupTable(this);
     }
 
     public String restoreTable(Portion portion)
     {
-        return super.restoreTable(portion);
+        return this.abSqlTableUtil.restoreTable(this, portion);
     }
 
     /*
