@@ -13,30 +13,17 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import java.util.Iterator;
 import java.util.Vector;
 
-import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.AbFileLocalInputStream;
-
-import org.allbinary.logic.basic.io.file.AbFile;
 
 import org.allbinary.logic.java.bool.BooleanUtil;
 
 import org.allbinary.business.entry.EntryData;
 
-import org.allbinary.logic.communication.log.config.type.LogConfigTypesData;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.globals.PATH_GLOBALS;
 
 public class LogConfig
 {
@@ -146,27 +133,15 @@ public class LogConfig
     {
         this.fileName = value;
     }
-
+/*
     private Document getDoc() throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
-
-        stringBuffer.append(URLGLOBALS.getWebappPath());
-        //this.getPath() +
-        stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
-        stringBuffer.append(this.getFileName());
-
-        AbFile file = new AbFile(stringBuffer.toString());
-
-        Document document = DomDocumentHelper.create(
-            new AbFileLocalInputStream(file));
-
-        return document;
     }
-
+*/
     public Vector getTypeVector() throws Exception
     {
         Vector logKeyVector = new Vector();
+        /*
         Document document = this.getDoc();
 
         NodeList logConfigTypesNodeList =
@@ -185,6 +160,7 @@ public class LogConfig
             LogConfigType logType = LogConfigTypes.getInstance(node);
             logKeyVector.add(logType);
         }
+        */
         return logKeyVector;
     }
 

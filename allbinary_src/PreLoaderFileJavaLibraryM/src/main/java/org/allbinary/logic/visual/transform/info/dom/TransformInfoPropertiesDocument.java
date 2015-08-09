@@ -21,8 +21,8 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Document;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
 
 import org.allbinary.logic.basic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -40,7 +40,7 @@ public class TransformInfoPropertiesDocument
    public TransformInfoPropertiesDocument(String filePath) throws Exception
    {
       AbFile xmlFile = new AbFile(filePath);
-      this.document = DomDocumentHelper.create(xmlFile);
+      this.document = DomDocumentFileHelper.create(xmlFile);
    }
    
    public HashMap toTransformInfoPropertiesHashMap()

@@ -20,8 +20,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.basic.io.AbFileLocalInputStream;
 

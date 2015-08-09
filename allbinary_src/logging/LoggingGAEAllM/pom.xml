@@ -6,8 +6,8 @@
     <artifactId>LoggingGAEAll</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>LoggingGAEAll</name>
     <url>http://www.allbinary.com/</url>
@@ -46,7 +46,18 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
+            <exclusions>
+                <exclusion>
+                    <groupId>org.allbinary</groupId>
+                    <artifactId>J2MEExceptionLibrary</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>J2SEExceptionLibrary</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         
         <dependency>

@@ -41,8 +41,8 @@ inventory835
 package org.allbinary.business.init.db;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+//import org.allbinary.logic.communication.log.config.type.LogConfigType;
+//import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class DbInitInfo extends DbConnectionInfo
 {
@@ -58,10 +58,10 @@ public class DbInitInfo extends DbConnectionInfo
          //this.getUserNameKey() + this.getUserName() +
          //this.getPasswordKey() + this.getPassword();
 
-      if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
-      {
+      //if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+      //{
          PreLogUtil.put("Url: " + url, this, "getUrl");
-      }
+      //}
       return url;
    }
    

@@ -19,6 +19,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
 
 import org.w3c.dom.Document;
 
@@ -183,6 +184,6 @@ public class InputAutomationConfiguration
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marshaller.marshal(this, document);
         
-        DomDocumentHelper.save(FileWrapperUtil.wrapFile(file), document);
+        DomDocumentFileHelper.save(FileWrapperUtil.wrapFile(file), document);
     }
 }

@@ -27,6 +27,8 @@ import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class AbResponseHandler
 {
@@ -40,7 +42,7 @@ public class AbResponseHandler
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.JSPTAGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Jsp Tag Exception", "AbResponseHandler", "sendJspRedirect()", e));
          }
@@ -49,7 +51,7 @@ public class AbResponseHandler
       }
       catch(Exception e2)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.LICENSINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Exception in Redirect Handling","AbResponseHandler","sendJspRedirect",e));
          }
@@ -64,7 +66,7 @@ public class AbResponseHandler
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.JSPTAGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Jsp Tag Exception","AbResponseHandler","sendJspRedirect()",e));
          }
@@ -73,7 +75,7 @@ public class AbResponseHandler
       }
       catch(Exception e2)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.LICENSINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Exception in Redirect Handling","AbResponseHandler","sendJspRedirect",e));
          }
@@ -86,7 +88,7 @@ public class AbResponseHandler
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.JSPTAGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Licensing Exception","AbResponseHandler","sendJspTagLicensingRedirect()",e));
          }
@@ -94,7 +96,7 @@ public class AbResponseHandler
       }
       catch(Exception e2)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.LICENSINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Exception in Redirect Handling","AbResponseHandler","sendJspTagLicensingRedirect",e));
          }
@@ -106,7 +108,7 @@ public class AbResponseHandler
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.JSPTAGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Licensing Exception","AbResponseHandler","sendServletLicensingRedirect()",e));
          }
@@ -114,7 +116,7 @@ public class AbResponseHandler
       }
       catch(Exception e2)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.LICENSINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Exception in Redirect Handling","AbResponseHandler","sendServletLicensingRedirect",e));
          }

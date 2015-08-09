@@ -16,26 +16,8 @@ package org.allbinary.logic.communication.log.config;
 import java.util.Iterator;
 import java.util.Vector;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.AbFileLocalInputStream;
-
-import org.allbinary.logic.basic.io.file.AbFile;
-
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.globals.PATH_GLOBALS;
-
 public class LoggingInitInfo
-{
-   private static final String INITFILENAME = "logConfig.xml";
-   
-   private static final String PACKAGE = PATH_GLOBALS.getInstance().INIT_PATH;
-   
+{      
    private static Vector logConfigInfoVector = null;
    
    private static boolean hasRead = false;
@@ -44,19 +26,9 @@ public class LoggingInitInfo
    {
    }
 
-   public synchronized static Document getDoc() throws Exception
-   {
-      AbPath FILEABPATH =
-	 new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, INITFILENAME);
-      System.out.println("File Path: " + FILEABPATH);
-      
-      AbFile file = new AbFile(FILEABPATH);
-
-      Document document = 
-         DomDocumentHelper.create(new AbFileLocalInputStream(file));
-      
-      return document;
-   }
+//   public synchronized static Document getDoc() throws Exception
+//   {
+//   }
    
    public synchronized static void write() throws Exception
    {
@@ -76,7 +48,8 @@ public class LoggingInitInfo
    {
       try
       {
-         Document document = LoggingInitInfo.getDoc();
+          /*
+         //Document document = LoggingInitInfo.getDoc();
 
          NodeList logConfigsNodeList =
             document.getElementsByTagName(LogConfigsData.getInstance().NAME);
@@ -96,7 +69,7 @@ public class LoggingInitInfo
             LogConfig logConfigInfo = new LogConfig(node);
             LoggingInitInfo.logConfigInfoVector.add(logConfigInfo);
          }
-
+*/
       }
       catch(Exception e)
       {
@@ -196,8 +169,11 @@ public class LoggingInitInfo
    {
       try
       {
+          return null;
+          /*
          Document document = LoggingInitInfo.getDoc();
          return DomDocumentHelper.toString(document);
+         */
       }
       catch(Exception e)
       {

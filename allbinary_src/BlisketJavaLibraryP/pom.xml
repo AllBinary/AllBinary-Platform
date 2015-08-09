@@ -52,13 +52,15 @@
         <module>../logging/LogConfigTypeFreeblisketJavaLibraryM</module>
 
         <module>../logic/data/file/FileAdvancedJavaLibraryM</module>
+
+        <module>../JavaUtilLibraryM</module>
+        <module>../NullInitInfoJavaLibraryM</module>        
         <module>../InitInfoJavaLibraryM</module>
         <module>../PreLoaderHttpJavaLibraryM</module>
         
+        <module>../PreLoaderFileJavaLibraryM</module>
         <module>../TagsBaseJavaLibraryM</module>
         <module>../CustomLoaderJavaLibraryM</module>
-        
-        <module>../PreLoggingJavaLibraryM</module>
         
         <!--
         <module>../logic/data/file/FileJ2SEJavaLibraryM</module>
