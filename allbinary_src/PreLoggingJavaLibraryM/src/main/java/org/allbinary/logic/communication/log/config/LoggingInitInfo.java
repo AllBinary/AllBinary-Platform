@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import org.allbinary.logic.communication.log.config.LogConfigData;
-import org.allbinary.logic.communication.log.config.LogConfigsData;
 import java.util.Iterator;
 import java.util.Vector;
 

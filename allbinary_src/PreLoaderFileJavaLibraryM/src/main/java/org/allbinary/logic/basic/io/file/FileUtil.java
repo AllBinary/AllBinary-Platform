@@ -864,7 +864,8 @@ public class FileUtil
         }
     }
     
-    private final String WRITE_LABEL = "Write: ";
+    private final String WRITE_LABEL = "Write file: ";
+    private final String DATA_LABEL = " data: ";
     private final String WRITE_METHOD = "write";
     
     public void write(String filePath, String string) throws Exception
@@ -873,7 +874,7 @@ public class FileUtil
         try
         {
             //LogUtil.put(LogFactory.getInstance("Write Configuration: " + this.toString(), this, "write"));
-            PreLogUtil.put(this.WRITE_LABEL + string, this, this.WRITE_METHOD);
+            PreLogUtil.put(new StringBuilder().append(this.WRITE_LABEL).append(filePath).append(DATA_LABEL).append(string).toString(), this, this.WRITE_METHOD);
 
             FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();
 
@@ -883,7 +884,7 @@ public class FileUtil
 
             dataOutputStream = new AbDataOutputStream(fileOutputStream);
 
-            dataOutputStream.writeUTF(string);
+            dataOutputStream.write(string.getBytes(), 0, string.length());
 
             dataOutputStream.flush();
         }

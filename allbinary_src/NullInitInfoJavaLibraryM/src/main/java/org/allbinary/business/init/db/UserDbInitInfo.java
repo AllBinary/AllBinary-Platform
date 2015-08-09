@@ -13,18 +13,15 @@
 */
 package org.allbinary.business.init.db;
 
-public class StaticPagesDbInitInfo extends DbInitInfo
+public class UserDbInitInfo extends DbInitInfo
 {
-   
-   private static final String INITFILE = "staticpagesbinitdata.dat";
-               
-   public StaticPagesDbInitInfo()
+   public UserDbInitInfo()
    {
-      super(INITFILE, true);
+       super(null, false);
    }
-   
-   public StaticPagesDbInitInfo(boolean read)
+
+   public UserDbInitInfo(boolean read)
    {
-      super(INITFILE, read);
-   }         
+       super(null, false);
+   }
 }

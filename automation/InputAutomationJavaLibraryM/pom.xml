@@ -84,6 +84,14 @@
         </dependency>
             
         <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>HelpJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+            
+        <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi</artifactId>
             <version>3.0.0</version>

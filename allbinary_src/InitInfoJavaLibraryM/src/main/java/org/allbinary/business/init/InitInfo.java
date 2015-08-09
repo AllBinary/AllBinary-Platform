@@ -19,8 +19,6 @@ import org.allbinary.logic.java.bool.BooleanUtil;
 
 import org.allbinary.logic.basic.path.AbPath;
 
-import org.allbinary.logic.basic.io.file.directory.Directory;
-
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigType;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
@@ -250,16 +248,6 @@ public class InitInfo
    public boolean isTestingValid(String testing) throws Exception
    {
       return BooleanUtil.getInstance().isStringBoolean(testing);
-   }
-   
-   public boolean isTestHtmlPathValid(AbPath value)
-   {
-      return Directory.create(value);
-   }
-   
-   public boolean isMainPathValid(AbPath value)
-   {
-      return Directory.create(value);      
    }
 
    public HashMap toHashMap()
