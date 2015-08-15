@@ -358,12 +358,12 @@ public class InitSql
          if(useridAndPassword==true)
          {
             conn = DriverManager.getConnection(
-               this.getDatabaseConnectionInfoInterface().getUrl(), userid, password);
+               this.databaseConnectionInfoInterface.getUrl(), userid, password);
          }
          else
          {
             conn = DriverManager.getConnection(
-               this.getDatabaseConnectionInfoInterface().getUrl());
+               this.databaseConnectionInfoInterface.getUrl());
          }
       }
       catch(SQLException se)
@@ -379,15 +379,19 @@ public class InitSql
       {
          try
          {            
-            Class.forName(this.getDatabaseConnectionInfoInterface().getJdbcDriver()).newInstance();
+            final String jdbcDriver = this.databaseConnectionInfoInterface.getJdbcDriver();
+            PreLogUtil.put(new StringBuilder().append("Loading DbConnnectionInfo: ")
+                    .append(this.databaseConnectionInfoInterface.getClass().getName())
+                    .append(" Driver: ").append(jdbcDriver).toString(), INIT_SQL, "initialize()");
+            Class.forName(jdbcDriver).newInstance();
             //Class.forName("com.mysql.jdbc.Driver").newInstance();
          }
          catch(Exception e)
          {
             if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
             {                     
-               PreLogUtil.put("Load mySQL Driver Failed: " + 
-                  this.getDatabaseConnectionInfoInterface().getJdbcDriver(), INIT_SQL, "initialize()", e);
+               PreLogUtil.put("LoadDriver Failed: " + 
+                  this.databaseConnectionInfoInterface.getJdbcDriver(), INIT_SQL, "initialize()", e);
             }
             throw e;
          }         
