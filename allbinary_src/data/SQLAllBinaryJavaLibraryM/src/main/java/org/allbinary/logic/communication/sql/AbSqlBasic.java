@@ -42,7 +42,6 @@ public class AbSqlBasic
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final SqlTypeStrings sqlTypeStrings = SqlTypeStrings.getInstance();
     protected final SqlStrings sqlStrings = SqlStrings.getInstance();
-    protected final AbSqlTableUtil abSqlTableUtil = AbSqlTableUtil.getInstance();
 
     protected final String INSERT = "insert";
     protected final String UPDATE = "update";

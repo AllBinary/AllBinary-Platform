@@ -162,16 +162,6 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
       super.updateWhere(CategoryData.getInstance().NAME,(String) updatedValues.get(CategoryData.getInstance().NAME),updatedValues);
    }
    
-   public String backupTable()
-   {
-       return this.abSqlTableUtil.backupTable(this);
-   }
-   
-   public String restoreTable(Portion portion)
-   {
-      return this.abSqlTableUtil.restoreTable(this, portion);
-   }
-   
    public String dropTable()
    {
       return super.dropTable();

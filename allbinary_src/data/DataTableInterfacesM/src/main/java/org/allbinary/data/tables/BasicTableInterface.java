@@ -13,15 +13,9 @@
 */
 package org.allbinary.data.tables;
 
-import org.allbinary.business.installer.Portion;
-
 public interface BasicTableInterface
 {
    String createTable();
-   
-   String backupTable();
-   
-   String restoreTable(Portion portion);
-   
+      
    String dropTable();
 }

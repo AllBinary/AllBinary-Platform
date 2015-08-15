@@ -329,16 +329,6 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         return super.dropTable();
     }
 
-    public String backupTable()
-    {
-        return this.abSqlTableUtil.backupTable(this);
-    }
-
-    public String restoreTable(Portion portion)
-    {
-        return this.abSqlTableUtil.restoreTable(this, portion);
-    }
-
     /*
      public String getForm()
      {

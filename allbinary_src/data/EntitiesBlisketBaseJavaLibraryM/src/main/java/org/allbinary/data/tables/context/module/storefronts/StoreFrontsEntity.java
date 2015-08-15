@@ -207,16 +207,6 @@ public class StoreFrontsEntity extends AbSqlBean implements StoreFrontsEntityInt
     {
         return super.createTable(this.createTableStatement());
     }
-   
-   public String backupTable()
-   {
-       return this.abSqlTableUtil.backupTable(this);
-   }
-   
-   public String restoreTable(Portion portion)
-   {
-      return this.abSqlTableUtil.restoreTable(this, portion);
-   }
 
    public String dropTable()
    {

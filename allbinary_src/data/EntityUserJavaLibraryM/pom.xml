@@ -5,8 +5,8 @@
     <artifactId>EntityUserJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>EntityUserJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -42,8 +42,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.data.tables</groupId>
-            <artifactId>FileSQLAllBinaryJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NullInitInfoJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

@@ -410,16 +410,6 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
         return super.createTable(this.createTableStatement());
     }
 
-    public String backupTable()
-    {
-        return this.abSqlTableUtil.backupTable(this);
-    }
-
-    public String restoreTable(Portion portion)
-    {
-        return this.abSqlTableUtil.restoreTable(this, portion);
-    }
-
     public String dropTable()
     {
         return super.dropTable();

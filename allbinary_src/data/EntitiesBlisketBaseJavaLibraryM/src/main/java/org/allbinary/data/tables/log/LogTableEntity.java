@@ -66,14 +66,4 @@ public class LogTableEntity extends AbSqlBean implements LogTableEntityInterface
         return super.createTable(this.createTableStatement());
     }
 
-    public String backupTable()
-    {
-        return this.abSqlTableUtil.backupTable(this);
-    }
-
-    public String restoreTable(Portion portion)
-    {
-        return this.abSqlTableUtil.restoreTable(this, portion);
-    }
-
 }

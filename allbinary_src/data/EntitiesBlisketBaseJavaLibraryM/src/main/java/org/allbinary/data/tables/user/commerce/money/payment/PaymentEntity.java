@@ -20,7 +20,6 @@ import java.util.Random;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.basic.io.file.generators.PaymentIdGenerator;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -31,7 +30,6 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.commerce.money.payment.PaymentData;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.logic.communication.sql.AbSqlBean;
-import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 
 public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
@@ -256,15 +254,5 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
     public String drop()
     {
         return super.dropTable();
-    }
-
-    public String backupTable()
-    {
-        return this.abSqlTableUtil.backupTable(this);
-    }
-
-    public String restoreTable(Portion portion)
-    {
-        return this.abSqlTableUtil.restoreTable(this, portion);
     }
 }

@@ -178,14 +178,5 @@ public class QuoteRequestEntity extends AbSqlBean
    {
       super.updateWhere(UserData.USERNAME,userName,updatedValues);      
    }
-   
-   public String backupTable()
-   {
-      return this.abSqlTableUtil.backupTable(this);
-   }
 
-   public String restoreTable(Portion portion)
-   {
-      return this.abSqlTableUtil.restoreTable(this, portion);
-   }
 }

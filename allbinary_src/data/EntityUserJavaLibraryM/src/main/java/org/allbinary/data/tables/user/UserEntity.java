@@ -18,7 +18,6 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
@@ -390,13 +389,4 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
         return super.createTable(this.createTableStatement());
     }
 
-    public String backupTable()
-    {
-        return this.abSqlTableUtil.backupTable(this);
-    }
-
-    public String restoreTable(Portion portion)
-    {
-        return this.abSqlTableUtil.restoreTable(this, portion);
-    }
 }
