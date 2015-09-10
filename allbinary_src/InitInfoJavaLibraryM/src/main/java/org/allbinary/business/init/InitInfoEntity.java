@@ -60,6 +60,7 @@ public class InitInfoEntity extends InitSql
         stringBuffer.append(InitInfo.getInstance().MAINPATH);
         stringBuffer.append(this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL);
         stringBuffer.append(this.sqlStrings.PRIMARY_KEY);
+        stringBuffer.append(NOTHING);
         stringBuffer.append(this.sqlStrings.END);
 
         this.tableData = stringBuffer.toString();

@@ -29,7 +29,7 @@ public class ShippingAddressesEntityFactory
         return instance;
     }
 
-   //private final String CLASSNAME = "allbinary.data.tables.ShippingAddressesEntity";
+   //private final String CLASSNAME = "org.allbinary.data.tables.ShippingAddressesEntity";
    
    private ShippingAddressesEntityFactory()
    {

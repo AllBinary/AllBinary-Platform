@@ -28,7 +28,7 @@ public class LogTableEntityFactory
         return instance;
     }
 
-   //private final String CLASSNAME = "allbinary.data.tables.LogTableEntity";
+   //private final String CLASSNAME = "org.allbinary.data.tables.LogTableEntity";
    
    private LogTableEntityFactory()
    {

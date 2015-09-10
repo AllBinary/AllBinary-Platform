@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class OrderHistoryEntityFactory
 {
-   //private static final String CLASSNAME = "allbinary.data.tables.OrderHistoryEntity";
+   //private static final String CLASSNAME = "org.allbinary.data.tables.OrderHistoryEntity";
    
    private OrderHistoryEntityFactory()
    {

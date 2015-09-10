@@ -28,7 +28,7 @@ public class TransactionResultEntityFactory
         return instance;
     }
 
-   //private final String CLASSNAME = "allbinary.data.tables.transaction.TransactionResultEntity";
+   //private final String CLASSNAME = "org.allbinary.data.tables.transaction.TransactionResultEntity";
    
    private TransactionResultEntityFactory()
    {

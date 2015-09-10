@@ -28,7 +28,7 @@ public class StoreFrontsEntityFactory
         return instance;
     }
 
-   //private final String CLASSNAME = "allbinary.data.tables.StoreFrontsEntity";
+   //private final String CLASSNAME = "org.allbinary.data.tables.StoreFrontsEntity";
    
    private StoreFrontsEntityFactory()
    {

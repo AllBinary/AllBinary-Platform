@@ -39,7 +39,7 @@ public class TransformInfoEntityFactory
              transformInfoObjectConfigGeneratorFactoryInterface,
              transformInfoObjectConfigAndManipulatorFactoryInterface,
              transformInfoFactoryInterface);
-         //return (TransformInfoEntityInterface) AbeFactory.getInstance("allbinary.data.tables.transform.info.TransformInfoEntity");
+         //return (TransformInfoEntityInterface) AbeFactory.getInstance("org.allbinary.data.tables.transform.info.TransformInfoEntity");
       }
       /*
       catch(LicensingException e)

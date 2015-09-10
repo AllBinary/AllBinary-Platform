@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AffiliateSalesEntityFactory
 {
-   private static final String CLASSNAME = "allbinary.data.tables.AffiliatesSalesEntity";
+   private static final String CLASSNAME = "org.allbinary.data.tables.AffiliatesSalesEntity";
    
    private AffiliateSalesEntityFactory()
    {

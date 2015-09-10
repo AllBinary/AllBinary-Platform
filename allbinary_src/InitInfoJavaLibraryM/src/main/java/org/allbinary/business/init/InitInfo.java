@@ -245,6 +245,16 @@ public class InitInfo
       this.mainPath = value;
    }
 
+   public boolean isMainPathValid(AbPath abPath)
+   {
+       return true;
+   }
+   
+   public boolean isTestHtmlPathValid(AbPath abPath)
+   {
+       return true;
+   }
+   
    public boolean isTestingValid(String testing) throws Exception
    {
       return BooleanUtil.getInstance().isStringBoolean(testing);

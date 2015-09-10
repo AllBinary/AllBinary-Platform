@@ -28,7 +28,7 @@ public class StaticPagesEntityFactory
         return instance;
     }
 
-   //private final String CLASSNAME = "allbinary.data.tables.StaticPagesEntity";
+   //private final String CLASSNAME = "org.allbinary.data.tables.StaticPagesEntity";
    
    private StaticPagesEntityFactory()
    {

@@ -13,7 +13,7 @@
 * 
 */
 %>
-<%@ page import="allbinary.business.user.commerce.inventory.item.option.BasicOptionItemData" %>
+<%@ page import="org.allbinary.business.user.commerce.inventory.item.option.BasicOptionItemData" %>
 <HTML>
 <HEAD>
 <TITLE>Option Product Creation - Store Admin</TITLE>

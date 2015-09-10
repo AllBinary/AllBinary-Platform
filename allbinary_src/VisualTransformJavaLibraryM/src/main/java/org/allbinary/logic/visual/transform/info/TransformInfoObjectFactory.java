@@ -51,7 +51,7 @@ public class TransformInfoObjectFactory
             //TWB - Moved to obf on everything that is no bolted to dynamic loading
             classes[0] = TransformInfoInterface.class;
                 //AbeFactory.getClass(
-                //"allbinary.logic.visual.transform.info.TransformInfoInterface");
+                //"org.allbinary.logic.visual.transform.info.TransformInfoInterface");
 
             //Add arguments
             params[0] = (Object) transformInfoInterface;
@@ -122,7 +122,7 @@ public class TransformInfoObjectFactory
     Class classes[] = new Class[3];
     
     //Add param types
-    classes[0] = AbeFactory.getClass("allbinary.logic.visual.transform.info.TransformInfoInterface");
+    classes[0] = AbeFactory.getClass("org.allbinary.logic.visual.transform.info.TransformInfoInterface");
     classes[1] = propertiesHashMap.getClass();
     classes[2] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
     

@@ -27,6 +27,7 @@ import java.util.Vector;
 
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.basic.path.AbPathData;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
@@ -98,6 +99,13 @@ public class InitSql
    {
       try
       {
+            final StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append("Creating Table: ");
+            stringBuffer.append(tableData);
+            
+            PreLogUtil.put(stringBuffer.toString(), INIT_SQL, "createTable()");
+            
+          
          this.executeSQLStatement(tableData);
          return true;         
       }

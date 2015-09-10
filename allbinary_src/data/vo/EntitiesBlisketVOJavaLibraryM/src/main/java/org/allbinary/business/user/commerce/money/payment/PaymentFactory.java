@@ -27,7 +27,7 @@ import javax.servlet.ServletRequest;
 public class PaymentFactory
 {
    //private static final String CLASSNAME = 
-     //      "allbinary.business.user.commerce.money.payment.Payment";
+     //      "org.allbinary.business.user.commerce.money.payment.Payment";
 
    private PaymentFactory()
    {

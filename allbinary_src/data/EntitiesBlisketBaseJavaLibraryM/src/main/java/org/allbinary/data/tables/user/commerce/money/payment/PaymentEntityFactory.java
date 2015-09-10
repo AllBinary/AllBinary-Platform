@@ -28,7 +28,7 @@ public class PaymentEntityFactory
         return instance;
     }
 
-   //private final String CLASSNAME = "allbinary.data.tables.PaymentEntity";
+   //private final String CLASSNAME = "org.allbinary.data.tables.PaymentEntity";
    
    private PaymentEntityFactory()
    {

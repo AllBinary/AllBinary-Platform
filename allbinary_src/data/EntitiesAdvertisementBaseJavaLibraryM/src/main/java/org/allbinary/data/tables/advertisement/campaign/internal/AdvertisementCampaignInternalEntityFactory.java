@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class AdvertisementCampaignInternalEntityFactory
 {
-   private static final String CLASSNAME = "allbinary.data.tables.AdvertisementCampaignEntity";
+   private static final String CLASSNAME = "org.allbinary.data.tables.AdvertisementCampaignEntity";
    
    private AdvertisementCampaignInternalEntityFactory()
    {

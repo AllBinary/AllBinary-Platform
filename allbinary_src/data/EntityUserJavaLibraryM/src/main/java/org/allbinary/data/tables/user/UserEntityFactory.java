@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class UserEntityFactory
 {
-   //private static final String CLASSNAME = "allbinary.data.tables.user.UserEntity";
+   //private static final String CLASSNAME = "org.allbinary.data.tables.user.UserEntity";
    
    private UserEntityFactory()
    {

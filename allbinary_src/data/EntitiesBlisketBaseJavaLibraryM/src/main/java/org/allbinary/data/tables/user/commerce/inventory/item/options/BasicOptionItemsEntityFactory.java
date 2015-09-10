@@ -28,7 +28,7 @@ public class BasicOptionItemsEntityFactory
         return instance;
     }
 
-   //private static final String CLASSNAME = "allbinary.data.tables.InventoryEntity";
+   //private static final String CLASSNAME = "org.allbinary.data.tables.InventoryEntity";
    
    private BasicOptionItemsEntityFactory()
    {

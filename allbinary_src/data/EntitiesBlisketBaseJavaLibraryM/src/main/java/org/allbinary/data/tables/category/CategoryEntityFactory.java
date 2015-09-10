@@ -28,7 +28,7 @@ public class CategoryEntityFactory
         return instance;
     }
 
-   //private final String CLASSNAME = "allbinary.data.tables.CategoryEntity";
+   //private final String CLASSNAME = "org.allbinary.data.tables.CategoryEntity";
    
    private CategoryEntityFactory()
    {

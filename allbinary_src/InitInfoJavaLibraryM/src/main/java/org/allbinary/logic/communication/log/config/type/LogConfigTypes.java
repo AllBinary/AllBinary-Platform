@@ -39,7 +39,7 @@ public class LogConfigTypes
        LogConfigTypes.init();
    }
    
-   //public static String ALLBINARY_HELPERS_REQUEST = "allbinary.helpers.request";
+   //public static String ALLBINARY_HELPERS_REQUEST = "org.allbinary.helpers.request";
    
    private LogConfigTypes()
    {
