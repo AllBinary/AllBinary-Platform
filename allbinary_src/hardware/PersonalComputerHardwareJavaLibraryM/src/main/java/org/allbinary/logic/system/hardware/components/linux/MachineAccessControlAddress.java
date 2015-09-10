@@ -30,6 +30,6 @@ public class MachineAccessControlAddress implements HardwareComponentInterface, 
     
     public String toString()
     {
-       return StringUtil.getInstance();
+       return StringUtil.getInstance().EMPTY_STRING;
     }
 }

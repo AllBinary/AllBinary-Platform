@@ -32,7 +32,7 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -42,7 +42,27 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>InitInfoJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary.logging</groupId>
+            <artifactId>LogConfigTypeFreeblisketJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>BasePreloaderJ2MEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -50,7 +70,7 @@
 
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>BaseHardwareJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -58,7 +78,7 @@
 
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>BaseOperatingSystemJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>

@@ -13,32 +13,44 @@
 */
 package org.allbinary.logic.system.os.linux;
 
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.system.os.NoOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystemInterface;
 import org.allbinary.logic.system.os.OperatingSystems;
 import org.allbinary.logic.system.os.SystemProperties;
 
 public class LinuxOperatingSystemFactory
 {
+    private static final LinuxOperatingSystemFactory instance = new LinuxOperatingSystemFactory();
+    
+    public static LinuxOperatingSystemFactory getInstance()
+    {
+        return instance;
+    }
+
     private LinuxOperatingSystemFactory()
     {
     }
-    
-    public static synchronized OperatingSystemInterface getInstance() throws Exception
+
+    public OperatingSystemInterface getOperatingSystemInstance()
     {
         try
         {
+            final OperatingSystems operatingSystems = OperatingSystems.getInstance();
+            final String osName = SystemProperties.getName();
             OperatingSystemInterface operatingSystemInterface;
-            String osName = SystemProperties.getName();
             
-            if(osName.compareTo(OperatingSystems.LINUX)==0)
+            if(osName.compareTo(operatingSystems.LINUX)==0)
             {
                 operatingSystemInterface =
                     (OperatingSystemInterface) new Linux();
             }
             else
             {
-                if(OperatingSystems.isUnknownSpecificOSAllowed())
+                if(operatingSystems.isUnknownSpecificOSAllowed())
                 {
                     operatingSystemInterface =
                         (OperatingSystemInterface) new Linux();
@@ -53,12 +65,12 @@ public class LinuxOperatingSystemFactory
         }
         catch(Exception e)
         {
-            String error = "Failed to get instance";
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
             {
-                LogUtil.put(error, "LinuxOperatingSystemsFactory", "getInstance()", e);
+                String error = "Failed to get instance";
+                LogUtil.put(LogFactory.getInstance(error, this, "getOperatingSystemInstance()", e));
             }
-            throw e;
+            return new NoOperatingSystem();
         }
     }
 }

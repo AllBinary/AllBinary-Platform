@@ -17,12 +17,13 @@ import java.io.FileReader;
 import java.io.LineNumberReader;
 
 import java.util.Vector;
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
+import org.allbinary.logic.basic.io.file.AbFile;
 
 import org.allbinary.logic.basic.io.file.FilePathData;
 import org.allbinary.logic.basic.io.file.directory.SubDirectory;
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.system.hardware.components.linux.Cpu;
 
@@ -42,6 +43,8 @@ import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
 import org.allbinary.logic.system.hardware.HardwareInterface;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class Hardware implements HardwareInterface
 {
@@ -85,7 +88,7 @@ public class Hardware implements HardwareInterface
          componentInterfaceVector.add(cpu);
       }
       
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+      if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
       {
          LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, "Constructor()"));
       }
@@ -100,7 +103,7 @@ public class Hardware implements HardwareInterface
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
          {
             LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, "Constructor()",e));
          }
@@ -131,7 +134,7 @@ public class Hardware implements HardwareInterface
          if(lineNumberReader == null)
          {
             //Find file
-            Vector fileVector = new SubDirectory().search(filePath, new File(FilePathData.SEPARATOR));
+            Vector fileVector = new SubDirectory().search(filePath, new AbFile(FilePathData.SEPARATOR));
             
             //if(fileVector.size() > 0)
             if(!fileVector.isEmpty())
@@ -148,7 +151,7 @@ public class Hardware implements HardwareInterface
          
          if(lineNumberReader != null)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+            if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
             {
                LogUtil.put(LogFactory.getInstance("PCI File Found", this, "Constructor()"));
             }
@@ -170,7 +173,7 @@ public class Hardware implements HardwareInterface
             {
                StringBuffer componentData = new StringBuffer();
 
-               if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+               if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
                {
                   LogUtil.put(LogFactory.getInstance("Found Hardware Device: " + componentInterfaceVector.size(), this, "Constructor()"));
                }
@@ -179,7 +182,7 @@ public class Hardware implements HardwareInterface
                componentData.append("\n");
                //System.out.println(nextLine);
                nextLine = lineNumberReader.readLine();
-               String componentType = ComponentFactory.getComponentType(nextLine);
+               String componentType = PCComponentFactory.getInstance().getComponentType(nextLine);
                
                while(lineNumberReader != null)
                {
@@ -193,7 +196,7 @@ public class Hardware implements HardwareInterface
                }
                //System.out.println(componentType);
                HardwareComponentInterface componentInterface = 
-                       ComponentFactory.getInstance(
+                       PCComponentFactory.getInstance().getInstance(
                           componentType,componentData.toString());
                if(componentInterface != null)
                {
@@ -203,7 +206,7 @@ public class Hardware implements HardwareInterface
          }
          else
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+            if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
             {
                LogUtil.put(LogFactory.getInstance("Could not load PCI File", this, "Constructor()"));
             }
@@ -302,9 +305,9 @@ public class Hardware implements HardwareInterface
       return true;
    }
    
-   public HashMap difference(HardwareInterface hardwareInterface)
+   public Hashtable difference(HardwareInterface hardwareInterface)
    {
-      return new HashMap();
+      return new Hashtable();
    }
    
    public boolean isNextHardware(String nextLine)

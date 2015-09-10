@@ -14,60 +14,74 @@
 package org.allbinary.logic.system.os;
 
 import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.system.os.linux.LinuxOperatingSystemFactory;
 import org.allbinary.logic.system.os.solaris.Solaris;
 import org.allbinary.logic.system.os.windows.WindowsOperatingSystemFactory;
 
 public class OperatingSystemFactory
 {
-    private static OperatingSystemInterface operatingSystemInterface;
-    private static boolean hasDetected = false;
+    private static final OperatingSystemFactory instance = new OperatingSystemFactory();
+
+    /**
+     * @return the instance
+     */
+    public static OperatingSystemFactory getInstance()
+    {
+        return instance;
+    }
+    
+    private OperatingSystemInterface operatingSystemInterface;
+    private boolean hasDetected = false;
     
     private OperatingSystemFactory()
     {
     }
     
-    public static synchronized OperatingSystemInterface getInstance() throws Exception
+    public synchronized OperatingSystemInterface getOperatingSystemInstance() throws Exception
     {
         try
         {
-            String osName = SystemProperties.getName();
-            String osArch = SystemProperties.getArch();
-            String osVersion = SystemProperties.getVersion();
+            final OperatingSystems operatingSystems = OperatingSystems.getInstance();
+            final String osName = SystemProperties.getName();
+            final String osArch = SystemProperties.getArch();
+            final String osVersion = SystemProperties.getVersion();
             
-            if(!OperatingSystemFactory.hasDetected)
+            if(!this.hasDetected)
             {
-                OperatingSystemFactory.hasDetected = true;
-                if(osName.indexOf(OperatingSystems.LINUX) >= 0)
+                this.hasDetected = true;
+                if(osName.indexOf(operatingSystems.LINUX) >= 0)
                 {
-                    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+                    if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
                     {
                         LogUtil.put(LogFactory.getInstance("Found a Linux OS", "OperatingSystemsFactory", "getInstance()"));
                     }
                     
-                    OperatingSystemFactory.operatingSystemInterface =
+                    this.operatingSystemInterface =
                         (OperatingSystemInterface) 
                         LinuxOperatingSystemFactory.getInstance();
                 }
-                else if(osName.indexOf(OperatingSystems.WINDOWS) >= 0)
+                else if(osName.indexOf(operatingSystems.WINDOWS) >= 0)
                 {
-                    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+                    if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
                     {
                         LogUtil.put(LogFactory.getInstance("Found a Windows OS", "OperatingSystemsFactory", "getInstance()"));
                     }
-                    OperatingSystemFactory.operatingSystemInterface =
+                    this.operatingSystemInterface =
                         (OperatingSystemInterface) 
                         WindowsOperatingSystemFactory.getInstance();
                 }
-                else if(osName.indexOf(OperatingSystems.SOLARIS) >= 0)
+                else if(osName.indexOf(operatingSystems.SOLARIS) >= 0)
                 {
-                    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+                    if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
                     {
                         LogUtil.put(LogFactory.getInstance("Found a Solaris OS", "OperatingSystemsFactory", "getInstance()"));
                     }
                     
-                    OperatingSystemFactory.operatingSystemInterface =
+                    this.operatingSystemInterface =
                         (OperatingSystemInterface) new Solaris();
                 }
                 else
@@ -76,18 +90,18 @@ public class OperatingSystemFactory
                 }
             }
             
-            Log log = LogFactory.getInstance("OperatingSystem Info: " + OperatingSystemFactory.operatingSystemInterface, "OperatingSystemFactory", "getInstance()");
+            Log log = LogFactory.getInstance("OperatingSystem Info: " + this.operatingSystemInterface, "OperatingSystemFactory", "getInstance()");
             System.out.println(log.toString());
             LogUtil.put(log);
             
-            return OperatingSystemFactory.operatingSystemInterface;
+            return this.operatingSystemInterface;
         }
         catch(Exception e)
         {
             String error = "Failed to get instance";
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
             {
-                LogUtil.put(error, "OperatingSystemsFactory", "getInstance()", e);
+                LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
             }
             throw e;
         }

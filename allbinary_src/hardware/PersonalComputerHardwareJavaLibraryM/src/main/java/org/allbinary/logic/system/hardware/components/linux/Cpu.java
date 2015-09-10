@@ -18,12 +18,15 @@ import java.io.LineNumberReader;
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.basic.io.file.AbFile;
 
 import org.allbinary.logic.basic.io.file.FilePathData;
 import org.allbinary.logic.basic.io.file.directory.SubDirectory;
-import org.allbinary.logic.communication.log.Log;
+import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;
@@ -52,7 +55,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
          {
             LogUtil.put(LogFactory.getInstance("Cpu Data: " + this.toString(), this, "Constructor()", e));
          }
@@ -72,9 +75,9 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
          if(lineNumberReader == null)
          {
             //Find file
-            Vector fileVector = new SubDirectory().search(filePath, new File(FilePathData.SEPARATOR));
+            Vector fileVector = new SubDirectory().search(filePath, new AbFile(FilePathData.SEPARATOR));
             
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+            if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
             {
                LogUtil.put(LogFactory.getInstance("Cpu File Vector Size: " + fileVector.size(), this, "Constructor()"));
             }

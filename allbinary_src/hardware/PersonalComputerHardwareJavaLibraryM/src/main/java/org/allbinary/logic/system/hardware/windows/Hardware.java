@@ -14,10 +14,9 @@
 package org.allbinary.logic.system.hardware.windows;
 
 import java.util.Vector;
-import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Iterator;
-
-import org.allbinary.logic.system.hardware.components.Components;
+import org.allbinary.logic.basic.string.CommonSeps;
 
 import org.allbinary.logic.system.hardware.components.interfaces.BridgeInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;
@@ -33,6 +32,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.UsbInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
 
 import org.allbinary.logic.system.hardware.HardwareInterface;
+import org.allbinary.logic.system.hardware.components.ComponentFactory;
 
 public class Hardware implements HardwareInterface
 {
@@ -52,6 +52,8 @@ public class Hardware implements HardwareInterface
    private final String NAME = "Windows Hardware Profile";
    
    private final int MINHARDWARE = 0;
+   
+   private final ComponentFactory componentFactory = ComponentFactory.getInstance();
    
    public Hardware() throws Exception
    {
@@ -81,33 +83,33 @@ public class Hardware implements HardwareInterface
    
    private String getComponentType(String component)
    {
-      if(component.indexOf(Components.ETHERNET.toString())>=0)
+      if(component.indexOf(this.componentFactory.ETHERNET.toString())>=0)
       {
-         return Components.ETHERNET.toString();
+         return this.componentFactory.ETHERNET.toString();
       }
-      else if(component.indexOf(Components.BRIDGE.toString())>=0)
+      else if(component.indexOf(this.componentFactory.BRIDGE.toString())>=0)
       {
-         return Components.BRIDGE.toString();
+         return this.componentFactory.BRIDGE.toString();
       }
-      else if(component.indexOf(Components.IDE.toString())>=0)
+      else if(component.indexOf(this.componentFactory.IDE.toString())>=0)
       {
-         return Components.IDE.toString();
+         return this.componentFactory.IDE.toString();
       }
-      else if(component.indexOf(Components.MULTIMEDIA.toString())>=0)
+      else if(component.indexOf(this.componentFactory.MULTIMEDIA.toString())>=0)
       {
-         return Components.MULTIMEDIA.toString();
+         return this.componentFactory.MULTIMEDIA.toString();
       }
-      else if(component.indexOf(Components.SCSI.toString())>=0)
+      else if(component.indexOf(this.componentFactory.SCSI.toString())>=0)
       {
-         return Components.SCSI.toString();
+         return this.componentFactory.SCSI.toString();
       }
-      else if(component.indexOf(Components.USB.toString())>=0)
+      else if(component.indexOf(this.componentFactory.USB.toString())>=0)
       {
-         return Components.USB.toString();
+         return this.componentFactory.USB.toString();
       }
-      else if(component.indexOf(Components.VGA.toString())>=0)
+      else if(component.indexOf(this.componentFactory.VGA.toString())>=0)
       {
-         return Components.VGA.toString();
+         return this.componentFactory.VGA.toString();
       }
       else return null;
    }
@@ -190,8 +192,8 @@ public class Hardware implements HardwareInterface
       return true;
    }
    
-   public HashMap difference(HardwareInterface hardwareInterface)
+   public Hashtable difference(HardwareInterface hardwareInterface)
    {
-      return new HashMap();
+      return new Hashtable();
    }
 }
