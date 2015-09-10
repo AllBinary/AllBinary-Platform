@@ -42,36 +42,36 @@ Created By: Travis Berthelot
 
 <jsp:directive.page import="abcs.logic.system.loader.WebappClassLoaderInfo"/>
 
-<jsp:directive.page import="allbinary.business.context.modules.storefront.StoreFrontData" />
+<jsp:directive.page import="org.allbinary.business.context.modules.storefront.StoreFrontData" />
 
-<jsp:directive.page import="allbinary.business.entry.EntryData" />
+<jsp:directive.page import="org.allbinary.business.entry.EntryData" />
 
-<jsp:directive.page import="allbinary.business.forward.ForwardData" />
+<jsp:directive.page import="org.allbinary.business.forward.ForwardData" />
 
-<jsp:directive.page import="allbinary.business.quoterequest.QuoteRequestData" />
+<jsp:directive.page import="org.allbinary.business.quoterequest.QuoteRequestData" />
 
-<jsp:directive.page import="allbinary.business.user.UserData" />
+<jsp:directive.page import="org.allbinary.business.user.UserData" />
 
-<jsp:directive.page import="allbinary.business.user.address.BillingAddressData" />
-<jsp:directive.page import="allbinary.business.user.address.ShippingAddressData" />
+<jsp:directive.page import="org.allbinary.business.user.address.BillingAddressData" />
+<jsp:directive.page import="org.allbinary.business.user.address.ShippingAddressData" />
 
-<jsp:directive.page import="allbinary.business.user.commerce.inventory.basket.BasketData" />
+<jsp:directive.page import="org.allbinary.business.user.commerce.inventory.basket.BasketData" />
 
-<jsp:directive.page import="allbinary.business.user.commerce.inventory.item.BasicItemData" />
+<jsp:directive.page import="org.allbinary.business.user.commerce.inventory.item.BasicItemData" />
 
-<jsp:directive.page import="allbinary.business.user.commerce.inventory.order.OrderHistoryData" />
-<jsp:directive.page import="allbinary.business.user.commerce.inventory.order.OrderData" />
+<jsp:directive.page import="org.allbinary.business.user.commerce.inventory.order.OrderHistoryData" />
+<jsp:directive.page import="org.allbinary.business.user.commerce.inventory.order.OrderData" />
 
-<jsp:directive.page import="allbinary.business.user.commerce.money.payment.PaymentData" />
-<jsp:directive.page import="allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData" />
+<jsp:directive.page import="org.allbinary.business.user.commerce.money.payment.PaymentData" />
+<jsp:directive.page import="org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData" />
 
-<jsp:directive.page import="allbinary.business.user.role.UserRoleData" />
+<jsp:directive.page import="org.allbinary.business.user.role.UserRoleData" />
 
-<jsp:directive.page import="allbinary.globals.GLOBALS" />
+<jsp:directive.page import="org.allbinary.globals.GLOBALS" />
 
-<jsp:directive.page import="allbinary.logic.communication.http.request.session.WeblisketSessionData" />
+<jsp:directive.page import="org.allbinary.logic.communication.http.request.session.WeblisketSessionData" />
 
-<jsp:directive.page import="allbinary.logic.control.search.SearchData" />
+<jsp:directive.page import="org.allbinary.logic.control.search.SearchData" />
 
     </xsl:template>
 

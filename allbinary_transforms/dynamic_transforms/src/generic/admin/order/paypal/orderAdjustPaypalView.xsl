@@ -128,36 +128,36 @@ Paypal OrderView
 <table class="table" border="1" width="100%" >
 
 <input class="text" type="text" name="" value="" />
-   UserData.USERNAME + " VARCHAR(255) NOT NULL," +
-   storeFrontData.NAME + " VARCHAR(255) NOT NULL," +
+   UserData.USERNAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   storeFrontData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
    OrderHistoryData.SHIPPEDDATE + " BIGINT(19) UNSIGNED ," +
    OrderHistoryData.ORDERDATE + " BIGINT(19) UNSIGNED NOT NULL," +
    OrderHistoryData.TRANSDATE + " BIGINT(19) UNSIGNED ," +
    OrderHistoryData.CANCELDATE + " BIGINT(19) UNSIGNED ," +
-   OrderHistoryData.STATUS + " VARCHAR(255) NOT NULL," +
-   PaymentData.METHOD + " VARCHAR(255) NOT NULL," +
+   OrderHistoryData.STATUS + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   PaymentData.METHOD + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
    PaymentData.NAME + " VARCHAR(255) ," +
    PaymentData.TYPE + " VARCHAR(255) ," +
    PaymentData.EXPIRATION + " VARCHAR(255) ," +
    PaymentData.NUMBER + " VARCHAR(255) ," +
    EntryData.ENCRYPTION + " BIGINT(19) UNSIGNED ," +
-   BillingAddressData.NAME + " VARCHAR(255) NOT NULL," +
-   BillingAddressData.STREET + " VARCHAR(255) NOT NULL," +
-   BillingAddressData.CITY + " VARCHAR(255) NOT NULL," +
-   BillingAddressData.STATE + " VARCHAR(255) NOT NULL," +
-   BillingAddressData.CODE + " VARCHAR(255) NOT NULL," +
-   BillingAddressData.COUNTRY + " VARCHAR(255) NOT NULL," +
-   ShippingAddressData.NAME + " VARCHAR(255) NOT NULL," +
-   ShippingAddressData.STREET + " VARCHAR(255) NOT NULL," +
-   ShippingAddressData.CITY + " VARCHAR(255) NOT NULL," +
-   ShippingAddressData.STATE + " VARCHAR(255) NOT NULL," +
-   ShippingAddressData.CODE + " VARCHAR(255) NOT NULL," +
-   ShippingAddressData.COUNTRY + " VARCHAR(255) NOT NULL," +   
-   ShippingMethodData.NAME + " VARCHAR(255) NOT NULL," +
-   OrderHistoryData.SUBTOTAL + " VARCHAR(255) NOT NULL," +
-   OrderHistoryData.SHIPPINGCOST + " VARCHAR(255) NOT NULL," +
-   OrderHistoryData.TAX + " VARCHAR(255) NOT NULL," +
-   OrderHistoryData.TOTAL + " VARCHAR(255) NOT NULL," +
+   BillingAddressData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   BillingAddressData.STREET + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   BillingAddressData.CITY + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   BillingAddressData.STATE + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   BillingAddressData.CODE + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   BillingAddressData.COUNTRY + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   ShippingAddressData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   ShippingAddressData.STREET + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   ShippingAddressData.CITY + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   ShippingAddressData.STATE + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   ShippingAddressData.CODE + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   ShippingAddressData.COUNTRY + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +   
+   ShippingMethodData.NAME + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   OrderHistoryData.SUBTOTAL + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   OrderHistoryData.SHIPPINGCOST + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   OrderHistoryData.TAX + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
+   OrderHistoryData.TOTAL + this.sqlTypeStrings.MAX_CHAR_COLUMN_NOT_NULL +
    EntryData.SPECIAL + " VARCHAR(255) ," +
    OrderData.CUSTOMERCOMMENT + " BLOB NOT NULL," +
    OrderData.CUSTOMERCANCELCOMMENT + " BLOB NOT NULL," +   

@@ -191,4 +191,12 @@ public class LicenseInitInfoUtil
             throw new Exception("LicenseInitInfo Read Error: " + INITFILENAME);
         }
     }
+
+    /**
+     * @return the filePath
+     */
+    public String getFilePath()
+    {
+        return filePath;
+    }
 }

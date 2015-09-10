@@ -63,7 +63,7 @@
 <%@ page import="abcs.globals.URLGLOBALS" %>
 <%@ page import="abcs.globals.AppUrlGlobals" %>
 
-<%@ page import="allbinary.globals.FREEBLISKET_PATH_GLOBALS" %>
+<%@ page import="org.allbinary.globals.FREEBLISKET_PATH_GLOBALS" %>
 
 <%@ page import="abcs.logic.basic.io.LineReader" %>
 <%@ page import="abcs.logic.basic.io.OutputTypeData" %>
@@ -80,27 +80,27 @@
 <%@ page import="abcs.logic.visual.transform.info.TransformInfoProperties" %>
 <%@ page import="abcs.logic.visual.transform.info.dom.TransformInfoPropertiesDocument" %>
 
-<%@ page import="allbinary.globals.GLOBALS" %>
+<%@ page import="org.allbinary.globals.GLOBALS" %>
 
-<%@ page import="allbinary.business.context.modules.storefront.StoreFrontData" %>
+<%@ page import="org.allbinary.business.context.modules.storefront.StoreFrontData" %>
 
-<%@ page import="allbinary.business.user.UserData" %>
+<%@ page import="org.allbinary.business.user.UserData" %>
 
-<%@ page import="allbinary.logic.communication.http.request.NameSpaceRequestParamData" %>
+<%@ page import="org.allbinary.logic.communication.http.request.NameSpaceRequestParamData" %>
 
-<%@ page import="allbinary.logic.communication.http.request.session.WeblisketSessionData" %>
+<%@ page import="org.allbinary.logic.communication.http.request.session.WeblisketSessionData" %>
 
-<%@ page import="allbinary.logic.visual.dhtml.html.name.HtmlNameMathData" %>
+<%@ page import="org.allbinary.logic.visual.dhtml.html.name.HtmlNameMathData" %>
 
-<%@ page import="allbinary.logic.visual.transform.info.TransformInfosData" %>
-<%@ page import="allbinary.logic.visual.transform.info.TransformInfoData" %>
-<%@ page import="allbinary.logic.visual.transform.info.CustomizerTransformInfoData" %>
-<%@ page import="allbinary.logic.visual.transform.info.GeneratorTransformInfoData" %>
-<%@ page import="allbinary.logic.visual.transform.info.RootTransformInfoData" %>
-<%@ page import="allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData" %>
+<%@ page import="org.allbinary.logic.visual.transform.info.TransformInfosData" %>
+<%@ page import="org.allbinary.logic.visual.transform.info.TransformInfoData" %>
+<%@ page import="org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData" %>
+<%@ page import="org.allbinary.logic.visual.transform.info.GeneratorTransformInfoData" %>
+<%@ page import="org.allbinary.logic.visual.transform.info.RootTransformInfoData" %>
+<%@ page import="org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData" %>
 
-<%@ page import="allbinary.logic.visual.transform.template.customizer.bodies.BodyData" %>
-<%@ page import="allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData" %>
+<%@ page import="org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData" %>
+<%@ page import="org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData" %>
 
 <%
 AppUrlGlobals urlGlobals = new AppUrlGlobals();

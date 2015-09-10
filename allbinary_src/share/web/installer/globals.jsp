@@ -35,7 +35,7 @@
 
 <%@ page import="abcs.globals.URLGLOBALS" %>
 <%@ page import="abcs.globals.AppUrlGlobals" %>
-<%@ page import="allbinary.globals.PATH_GLOBALS" %>
+<%@ page import="org.allbinary.globals.PATH_GLOBALS" %>
 
 <%@ page import="abcs.business.init.InitInfo" %>
 <%@ page import="abcs.business.init.InitInfoEntity" %>
@@ -54,12 +54,12 @@
 
 <%@ page import="abcs.logic.system.loader.WebappClassLoaderInfo" %>
 
-<%@ page import="allbinary.business.user.UserData" %>
+<%@ page import="org.allbinary.business.user.UserData" %>
 
-<%@ page import="allbinary.globals.GLOBALS" %>
+<%@ page import="org.allbinary.globals.GLOBALS" %>
 
-<%@ page import="allbinary.logic.communication.http.request.session.WeblisketSessionData" %>
-<%@ page import="allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationData" %>
+<%@ page import="org.allbinary.logic.communication.http.request.session.WeblisketSessionData" %>
+<%@ page import="org.allbinary.logic.communication.smtp.configuration.server.EmailServerConfigurationData" %>
 
 <%
 AppUrlGlobals urlGlobals = new AppUrlGlobals();

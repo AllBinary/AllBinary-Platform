@@ -23,7 +23,7 @@ import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 
 public class Globals {
 
-	private static final Globals instance = new Globals();
+    private static final Globals instance = new Globals();
 	
     private Globals() {
     }

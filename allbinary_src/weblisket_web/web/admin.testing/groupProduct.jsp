@@ -16,7 +16,7 @@
  *
  */
 %>
-<%@ page import="allbinary.business.user.inventory.item.group.BasicGroupItemData" %>
+<%@ page import="org.allbinary.business.user.inventory.item.group.BasicGroupItemData" %>
 <HTML>
 <HEAD>
 <TITLE>Group Product Creation - Store Admin</TITLE>

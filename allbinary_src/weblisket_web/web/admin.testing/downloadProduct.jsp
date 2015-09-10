@@ -16,7 +16,7 @@
  *
  */
 %>
-<%@ page import="allbinary.business.user.inventory.item.download.DownloadItemData" %>
+<%@ page import="org.allbinary.business.user.inventory.item.download.DownloadItemData" %>
 <HTML>
 <HEAD>
 <TITLE>Downloadable Product Creation - Store Admin</TITLE>

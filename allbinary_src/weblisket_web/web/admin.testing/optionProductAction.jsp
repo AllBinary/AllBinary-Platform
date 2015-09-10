@@ -20,7 +20,7 @@
        uri="/WEB-INF/ecommerce.tld"
        prefix="ecommerce"
 %>
-<%@ page import="allbinary.business.user.inventory.item.BasicOptionItemData" %>
+<%@ page import="org.allbinary.business.user.inventory.item.BasicOptionItemData" %>
 <HTML>
 <HEAD>
 <TITLE>Option Product Creation - Store Admin</TITLE>
