@@ -16,6 +16,7 @@ package org.allbinary.logic.communication.log;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
+import org.allbinary.logic.basic.string.StringUtil;
 
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
@@ -62,7 +63,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             /*
              * if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING)) {
-             * LogUtil.put(LogFactory.getInstance("Xml-Rpc Client Liscense Request: \n" +
+             LogUtil.put(LogFactory.getInstance("Xml-Rpc Client Liscense Request: \n" +
              * client.toString(), this,CommonStrings.getInstance().GET)); }
              */
 
@@ -79,7 +80,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             // if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
             // {
-            //System.out.println("Result: \n" + result.toString());
+            System.out.println("Result: \n" + result.toString());
             //LogUtil.put(LogFactory.getInstance("Result: \n" + result.toString(), this, CommonStrings.getInstance().GET));
             // }
 
@@ -97,14 +98,14 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             // if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
             // {
-            //String message = LogFormatUtil.get(error, "", "", e);
+            //String message = LogFormatUtil.getInstance().get(error, "", "", e);
             //System.out.println(message);
             //LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET, e));
             // }
 
             // if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
             // {
-            //System.out.println("IOException Trying Other Servers");
+            System.out.println("IOException Trying Other Servers");
             //LogUtil.put(LogFactory.getInstance("IOException Trying Other Servers", this, CommonStrings.getInstance().GET));
             // }
 
@@ -125,7 +126,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
             // {
             //Can't log this since that is what the log is using
-            //String message = LogFormatUtil.get(error, StringUtil.getInstance(), StringUtil.getInstance(), e);
+            //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
             //LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET, e));
             // }
@@ -136,7 +137,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             // if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
             // {
-            //String message = LogFormatUtil.get(error, StringUtil.getInstance(), StringUtil.getInstance(), e);
+            //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
             //LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET, e));
             // }

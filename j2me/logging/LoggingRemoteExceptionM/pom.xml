@@ -30,7 +30,7 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-                
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>LogJ2MEJavaLibrary</artifactId>
@@ -51,34 +51,52 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BasePreloaderFileJavaLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>BasePreloaderJavaLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>BaseHardwareJavaLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>NoSystemJavaLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>TempIntegrationJavaLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>SimpleCryptLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
@@ -106,10 +124,61 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>TimeJavaLibrary</artifactId>
-            <version>${project.version}</version>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
         </dependency>
+        
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ClientInfoLicensingJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileLicenseInitInfoJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>BouncyCastleDESJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ApplicationStatisticsJ2SELibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>TestClientInfoJavaLibrary</artifactId>

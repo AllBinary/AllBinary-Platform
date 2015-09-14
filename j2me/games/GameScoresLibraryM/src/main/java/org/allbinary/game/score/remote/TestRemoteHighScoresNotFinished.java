@@ -11,22 +11,26 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.communication.log;
+package org.allbinary.game.score.remote;
 
-import org.allbinary.globals.Globals;
-import org.allbinary.logic.basic.string.CommonStrings;
+//import org.allbinary.globals.Globals;
 
 /**
  *
  * @author user
  */
-public class TestRemoteLogUtil {
+public class TestRemoteHighScoresNotFinished {
 
-    public TestRemoteLogUtil()
-        throws Exception
+    
+    public static final String PATH = "G:\\mnt\\bc\\mydev\\work\\allbinary_src\\licensing\\data\\";
+    
+    public TestRemoteHighScoresNotFinished()
     {
-        Globals.init(this.getClass().getClassLoader(), "G:\\mnt\\bc\\mydev\\licenseserver\\testing\\");
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception")));
+        //Globals.init(this.getClass().getClassLoader(), PATH);
+
+        //new RemoteHighScores(
+           //SoftwareInformation softwareInformation, GameInfo gameInfo,
+           //String heading, String columnTwoHeading, Boolean ascending)
     }
     
     /**
@@ -34,7 +38,7 @@ public class TestRemoteLogUtil {
      */
     public static void main(String[] args) throws Exception{
         // TODO code application logic here
-        new TestRemoteLogUtil();
+        new TestRemoteHighScoresNotFinished();
     }
 
 }

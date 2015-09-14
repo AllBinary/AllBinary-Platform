@@ -75,7 +75,7 @@ public class LogUtil
                     
                     //android.util.Log.i("allbinary","Eeeek");
                     
-                    //System.out.println(message);
+                    //System.out.println("message: " + message);
                     AbeClientInformationInterface abeClientInformation =
                         AbeClientInformationInterfaceFactory.getInstance();
                     Hashtable hashtable = abeClientInformation.toHashtable();
@@ -87,10 +87,13 @@ public class LogUtil
 
                     hashtable.put("message", stringBuffer.toString());
 
+                    //System.out.println("Sending");
                     new XmlRpcRemoteLogClient(abeClientInformation).get(hashtable);
                 } catch (Throwable e)
                 {
                     //Hmmmm well you will never know
+                    System.out.println("Exception");
+                    e.printStackTrace();
                 }
                 
                 /*
@@ -107,6 +110,17 @@ public class LogUtil
                 */
             }
         }
+//        else
+//        {
+//            String specialMessage = log.getSpecialMessage();
+//            Object object = log.getObject();
+//            String functionName = log.getFunctionName();
+//
+//            String className = EMPTY;
+//            String message = LogFormatUtil.getInstance().get(
+//                    className, functionName, specialMessage);
+//            System.out.println(message);
+//        }
     }
 
     /*

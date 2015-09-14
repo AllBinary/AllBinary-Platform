@@ -73,6 +73,7 @@
             <!-- AllBinary Platform Version End -->
 
         </dependency>
+
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>BaseHardwareJavaLibrary</artifactId>

@@ -5,8 +5,8 @@
     <artifactId>LicenseClientToolJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>LicenseClientToolJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
@@ -55,7 +55,7 @@
 
         </dependency>
 
-<!-- only needed for LicenseServerInitFileUtil -->
+        <!-- only needed for LicenseServerInitFileUtil -->
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>ResourceLibrary</artifactId>
@@ -96,45 +96,64 @@
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>FileLicenseInitInfoJavaLibrary</artifactId>
-    <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>BasePreloaderFileJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileLicenseInitInfoJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>LicenseClientJavaLibrary</artifactId>
-    <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>LicenseClientJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>ClientInfoLicensingJavaLibrary</artifactId>
-    <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>ClientInfoLicensingJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>TestClientInfoJavaLibrary</artifactId>
-    <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>TestClientInfoJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>BouncyCastleDESJavaLibrary</artifactId>
-    <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>BouncyCastleDESJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>NoSystemJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 

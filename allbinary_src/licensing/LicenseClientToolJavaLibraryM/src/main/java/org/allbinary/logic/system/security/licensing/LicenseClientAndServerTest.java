@@ -15,14 +15,13 @@ package org.allbinary.logic.system.security.licensing;
 
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.client.XmlRpcAbeLicenseRetrievalClient;
 import org.allbinary.globals.PATH_GLOBALS;
 import java.io.File;
 import java.io.FileReader;
 import java.io.LineNumberReader;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.util.BasicArrayList;
 
 public class LicenseClientAndServerTest
@@ -32,11 +31,10 @@ public class LicenseClientAndServerTest
     public LicenseClientAndServerTest(String[] options) throws Exception
     {
         //options[0]
-        //"G:\\mnt\\bc\\mydev\\licenseserver\\testing\\"
         //NoLicense.init("G:/mnt/bc/mydev/working/automation/obf/", this.getClass().getClassLoader());
         //Globals.init(this.getClass().getClassLoader(), "G:\\mnt\\bc\\mydev\\licenseserver\\testing\\" + PATH_GLOBALS.getInstance().INIT_PATH);
 
-        LicenseInitInfoUtil.getInstance().setFilePath("G:\\mnt\\bc\\mydev\\licenseserver\\testing\\" + PATH_GLOBALS.getInstance().INIT_PATH);
+        LicenseInitInfoUtil.getInstance().setFilePath(PrintLicenseInitInfo.PATH + PATH_GLOBALS.getInstance().INIT_PATH);
 
         for (int index = 1; index < options.length; index++)
         {
@@ -45,7 +43,7 @@ public class LicenseClientAndServerTest
 
         if(options.length < 2)
         {
-            File file = new File("G:/mnt/bc/mydev/working/allbinary_src/licensing/LicenseClientToolJavaLibrary/src/testlicenseservers.txt");
+            File file = new File(PrintLicenseInitInfo.PATH + "testlicenseservers.txt");
             FileReader reader = new FileReader(file);
 
             LineNumberReader lineNumberReader = new LineNumberReader(reader);
@@ -120,7 +118,7 @@ public class LicenseClientAndServerTest
 
             }
 
-            LogUtil.put(LogFactory.getInstance("Failed: " + list.toString(), this, "test"));
+            LogUtil.put(LogFactory.getInstance("Total Servers Failed: " + list.size() + " Failed Servers: " + list.toString(), this, "test"));
         } catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance("Test Error: " + stringBuffer.toString(), this, "test", e));

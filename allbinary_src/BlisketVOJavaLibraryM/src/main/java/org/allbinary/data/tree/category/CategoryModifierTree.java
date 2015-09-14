@@ -19,9 +19,12 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.CategoryInterface;
+import org.allbinary.logic.communication.sql.SqlStrings;
 
 public class CategoryModifierTree extends CategoryPrivateTree implements CategoryModifierTreeInterface
 {
+    protected final SqlStrings sqlStrings = SqlStrings.getInstance();
+    
    public CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)
    {
       super(categoryFactoryInterface);
@@ -70,7 +73,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "insert", e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "insert", e));
          }
       }
    }
@@ -103,7 +106,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "delete", e));
+            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "delete", e));
          }
       }
    }

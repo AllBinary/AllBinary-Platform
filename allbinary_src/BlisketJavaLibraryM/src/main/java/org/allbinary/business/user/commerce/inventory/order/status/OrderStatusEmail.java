@@ -107,7 +107,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "emailAdmin", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "emailAdmin", e));
          }
          //throw e;
       }
@@ -145,7 +145,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Command Failed", this, "notifyUser", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, "notifyUser", e));
          }
          throw e;
       }

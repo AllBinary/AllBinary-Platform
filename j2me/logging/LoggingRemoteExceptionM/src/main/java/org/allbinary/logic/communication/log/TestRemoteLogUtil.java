@@ -22,10 +22,12 @@ import org.allbinary.logic.basic.string.CommonStrings;
  */
 public class TestRemoteLogUtil {
 
+    
+    public static final String PATH = "G:\\mnt\\bc\\mydev\\work\\allbinary_src\\licensing\\data\\";
+    
     public TestRemoteLogUtil()
-        throws Exception
     {
-        Globals.init(this.getClass().getClassLoader(), "G:\\mnt\\bc\\mydev\\licenseserver\\testing\\");
+        Globals.init(this.getClass().getClassLoader(), PATH);
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, "Test", "TestClass", new Exception("Pretend Exception")));
     }
     

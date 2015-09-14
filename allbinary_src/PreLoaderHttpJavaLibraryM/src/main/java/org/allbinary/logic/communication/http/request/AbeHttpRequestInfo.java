@@ -18,11 +18,18 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.logic.basic.string.CommonSeps;
 
 import org.allbinary.logic.basic.string.StringUtil;
 
 public class AbeHttpRequestInfo
 {
+    private final String NAME = "AbeHttpRequestInfo";
+
+    private final AbeHttpRequestInfoData abeHttpRequestInfoData = 
+               AbeHttpRequestInfoData.getInstance();
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
+    
    private String httpUserAgent;
    private String remoteAddress;     
    private String remoteHost;
@@ -31,10 +38,7 @@ public class AbeHttpRequestInfo
    private String requestedFilePath;
 
    public AbeHttpRequestInfo(HashMap hashMap)
-   {
-       AbeHttpRequestInfoData abeHttpRequestInfoData = 
-               AbeHttpRequestInfoData.getInstance();
-	   
+   {	   
        StringUtil stringUtil = StringUtil.getInstance();
            
       this.httpUserAgent = stringUtil.getInstance(
@@ -90,14 +94,11 @@ public class AbeHttpRequestInfo
       httpServletRequest.getServerPort()
       */
       this.requestedFilePath = httpServletRequest.getServletPath();
-      this.remotePort = "";
+      this.remotePort = Integer.toString(httpServletRequest.getRemotePort());
    }
    
    public HashMap toHashMap()
    {
-      AbeHttpRequestInfoData abeHttpRequestInfoData = 
-		   AbeHttpRequestInfoData.getInstance();
-
       HashMap hashMap = new HashMap();
 
       hashMap.put(abeHttpRequestInfoData.HTTP_USER_AGENT, this.httpUserAgent);
@@ -122,5 +123,35 @@ public class AbeHttpRequestInfo
       vector.add(this.requestedFilePath);
 
       return vector;
-   }   
+   }
+   
+   public String toString()
+   {
+       return new StringBuilder()
+               .append(this.NAME)
+               .append(this.commonSeps.COLON_SEP)
+               .append(abeHttpRequestInfoData.HTTP_USER_AGENT)
+               .append(this.commonSeps.COLON_SEP)
+               .append(this.httpUserAgent)
+               .append(this.commonSeps.SPACE)
+               .append(abeHttpRequestInfoData.REMOTE_ADDRESS)
+               .append(this.commonSeps.COLON_SEP)
+               .append(this.remoteAddress)
+               .append(this.commonSeps.SPACE)
+               .append(abeHttpRequestInfoData.REMOTE_HOST)
+               .append(this.commonSeps.COLON_SEP)
+               .append(this.remoteHost)
+               .append(this.commonSeps.SPACE)
+               .append(abeHttpRequestInfoData.REMOTE_HOST_BY_ADDRESS)
+               .append(this.commonSeps.COLON_SEP)
+               .append(this.remoteHostByAddr)
+               .append(this.commonSeps.SPACE)
+               .append(abeHttpRequestInfoData.REMOTE_PORT)
+               .append(this.commonSeps.COLON_SEP)
+               .append(this.remotePort)
+               .append(this.commonSeps.SPACE)
+               .append(abeHttpRequestInfoData.REQUEST_FILE_PATH)
+               .append(this.commonSeps.COLON_SEP)
+               .append(this.requestedFilePath).toString();
+   }
 }

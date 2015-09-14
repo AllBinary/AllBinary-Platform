@@ -29,7 +29,7 @@ public class ValidatorFactory
          Class classes[] = new Class[3];
          
          //Add param types
-         classes[0] = AbeFactory.getClass("allbinary.logic.visual.transform.info.ValidationInterface");
+         classes[0] = AbeFactory.getClass("org.allbinary.logic.visual.transform.info.ValidationInterface");
          classes[1] = this.propertiesHashMap.getClass();
          classes[2] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
          

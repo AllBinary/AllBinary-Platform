@@ -13,8 +13,9 @@
 */
 package org.allbinary.init;
 
-import org.allbinary.globals.Globals;
 //import org.allbinary.logic.system.os.OperatingSystemFactory;
+
+import org.allbinary.globals.Globals;
 
 public class NoLicense
 {

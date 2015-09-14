@@ -24,6 +24,8 @@ import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.util.BasicArrayList;
 public class PrintLicenseInitInfo
 {
+    public static final String PATH = "G:\\mnt\\bc\\mydev\\work\\allbinary_src\\licensing\\data\\";
+    
    //private static BufferedReader stdinput = new BufferedReader(new InputStreamReader(System.in));
 
    public PrintLicenseInitInfo(String[] options) throws Exception
@@ -32,18 +34,19 @@ public class PrintLicenseInitInfo
       //NoLicense.init(options[0], this.getClass().getClassLoader());
       //NoLicense.init("G:\\mnt\\bc\\mydev\\licenseserver\\testing\\", this.getClass().getClassLoader());
        //Globals.init(this.getClass().getClassLoader(), "G:\\mnt\\bc\\mydev\\licenseserver\\testing\\");
-       LicenseInitInfoUtil.getInstance().setFilePath("G:\\mnt\\bc\\mydev\\licenseserver\\testing\\" + PATH_GLOBALS.getInstance().INIT_PATH);
+       LicenseInitInfoUtil.getInstance().setFilePath(PATH + PATH_GLOBALS.getInstance().INIT_PATH);
    }
 
    public LicenseInitInfo getLicenseInitInfo() throws Exception
    {
        LicenseInitInfoUtil licenseInitInfoUtil = LicenseInitInfoUtil.getInstance();
 
-      if (FileFactory.getInstance().isFile(licenseInitInfoUtil.INITFILENAME))
+      if (FileFactory.getInstance().isFile(licenseInitInfoUtil.getFilePath()))
       {
          return licenseInitInfoUtil.read();
       } else
       {
+          System.out.println("No Licence File at: " + licenseInitInfoUtil.getFilePath());
          return new LicenseInitInfo();
       }
    }

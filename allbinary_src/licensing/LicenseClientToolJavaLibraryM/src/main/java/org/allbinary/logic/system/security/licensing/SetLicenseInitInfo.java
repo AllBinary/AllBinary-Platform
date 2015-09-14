@@ -39,7 +39,7 @@ public class SetLicenseInitInfo
         //NoLicense.init(options[0], this.getClass().getClassLoader());
         //NoLicense.init("G:\\mnt\\bc\\mydev\\licenseserver\\testing\\", this.getClass().getClassLoader());
         //Globals.init(this.getClass().getClassLoader(), "G:\\mnt\\bc\\mydev\\licenseserver\\testing\\");
-        LicenseInitInfoUtil.getInstance().setFilePath("G:\\mnt\\bc\\mydev\\licenseserver\\testing\\" + PATH_GLOBALS.getInstance().INIT_PATH);
+        LicenseInitInfoUtil.getInstance().setFilePath(PrintLicenseInitInfo.PATH + PATH_GLOBALS.getInstance().INIT_PATH);
 
         for (int index = 1; index < options.length; index++)
         {
@@ -110,7 +110,7 @@ public class SetLicenseInitInfo
             }
             */
 
-            File file = new File("G:/mnt/bc/mydev/working/allbinary_src/licensing/LicenseClientToolJavaLibrary/src/licenseservers.txt");
+            File file = new File(PrintLicenseInitInfo.PATH + "licenseservers.txt");
             FileReader reader = new FileReader(file);
 
             LineNumberReader lineNumberReader = new LineNumberReader(reader);

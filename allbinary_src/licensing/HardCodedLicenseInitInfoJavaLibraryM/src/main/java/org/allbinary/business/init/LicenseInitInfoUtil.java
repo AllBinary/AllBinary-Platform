@@ -24,6 +24,8 @@ public class LicenseInitInfoUtil
 
     public final String INITFILENAME = "licenseinitdata.dat";
 
+    private final String OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://allbinaryservices.appspot.com/LicServ/server.php";
+
     public synchronized void setFilePath(String filePath)
     {
     }
@@ -60,7 +62,7 @@ public class LicenseInitInfoUtil
         licenseInitInfo.clearServers();
 
         //Add your servers here
-        //licenseInitInfo.addServer();
+        licenseInitInfo.addServer(OFFICIAL_ALLBINARY_SERVICES_SERVER);
 
         return licenseInitInfo;
     }

@@ -21,10 +21,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.quoterequest.QuoteRequestData;
 
-import org.allbinary.logic.basic.io.file.generators.QuoteRequestIdGenerator;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
+import org.allbinary.data.generator.QuoteRequestIdGenerator;
 import org.allbinary.logic.communication.sql.AbSqlData;
 
 public class QuoteRequest

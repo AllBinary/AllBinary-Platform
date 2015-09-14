@@ -22,7 +22,7 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntit
 //Retrieves a single order for a user
 public class OrderHistoryFactory
 {
-   //private static final String CLASSNAME = "allbinary.data.tables.OrderHistoryEntity";
+   //private static final String CLASSNAME = "org.allbinary.data.tables.OrderHistoryEntity";
    
    private OrderHistoryFactory()
    {
