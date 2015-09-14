@@ -13,6 +13,7 @@
  */
 package org.allbinary.data.tables.user.commerce.money.payment;
 
+import org.allbinary.data.generator.PaymentIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,7 +21,6 @@ import java.util.Random;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.basic.io.file.generators.PaymentIdGenerator;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

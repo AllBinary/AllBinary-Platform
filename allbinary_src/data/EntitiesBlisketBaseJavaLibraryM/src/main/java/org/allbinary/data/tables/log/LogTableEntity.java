@@ -15,7 +15,6 @@ package org.allbinary.data.tables.log;
 
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.init.db.LogDbInitInfo;
-import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.http.request.AbeHttpRequestInfoData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 

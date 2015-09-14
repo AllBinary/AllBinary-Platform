@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.basic.io.file.generators;
+package org.allbinary.data.generator;
 
 import java.io.IOException;
 
@@ -28,6 +28,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class UniqueIdGenerator implements IdGeneratorInterface
 {
+    public static final String EXT = ".unq";
+            
    //private String uniqueIdFile;
    private AbFile newFile;
    private long id = 0;
@@ -57,10 +59,10 @@ public class UniqueIdGenerator implements IdGeneratorInterface
       }
    }
    
-   public synchronized void setFile(String filePathName) throws Exception
+   public synchronized void setFile(String filePathName, String name) throws Exception
    {
-      //uniqueIdFile=filePathName;
-      newFile = new AbFile(filePathName);
+       //uniqueIdFile=filePathName;
+       newFile = new AbFile(filePathName);
    }
    
    public synchronized String getNext() throws IOException

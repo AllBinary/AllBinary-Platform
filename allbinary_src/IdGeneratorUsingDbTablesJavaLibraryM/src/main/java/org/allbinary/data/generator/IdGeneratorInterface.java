@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.basic.io.file.generators;
+package org.allbinary.data.generator;
 
 import java.io.IOException;
 

@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.allbinary.data.tables</groupId>
-    <artifactId>EntityPaymentGatewayJavaLibrary</artifactId>
+    <groupId>org.allbinary</groupId>
+    <artifactId>IdGeneratorUsingFilesJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
-    <name>EntityPaymentGatewayJavaLibrary</name>
+    <name>IdGeneratorUsingFilesJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -43,7 +43,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>IdGeneratorUsingFilesJavaLibrary</artifactId>
+            <artifactId>FileInitInfoJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -53,21 +53,47 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>NullInitInfoJavaLibrary</artifactId>
+            <artifactId>BasicSecurityJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileAdvancedJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <!--
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <artifactId>FileGAEVFSJavaLibrary</artifactId>
+        <dependency>
+            <groupId>com.vobject.appengine</groupId>
+            <artifactId>appengine-java-io</artifactId>
+            <version>0.1.0</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-vfs</artifactId>
+            <version>2.0</version>
+            <optional>true</optional>
+        </dependency>
+            -->
+
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
             <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary.business</groupId>
-            <artifactId>BlisketBaseJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
         </dependency>
 
     </dependencies>
@@ -92,3 +118,4 @@
     </build>
 
 </project>
+

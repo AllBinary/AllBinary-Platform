@@ -11,24 +11,25 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.basic.io.file.generators;
+package org.allbinary.data.generator;
 
+import org.allbinary.data.generator.UniqueIdGenerator;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.globals.PATH_GLOBALS;
 
-public class PaymentIdGenerator extends UniqueIdGenerator
+public class OrderItemIdGenerator extends UniqueIdGenerator
 {
+    private final String IDFILE = "orderitemId.unq";
 
-    private static final String IDFILE = "paymentId.unq";
-
-    public PaymentIdGenerator() throws Exception
+    public OrderItemIdGenerator() throws Exception
     {
         StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(URLGLOBALS.getMainPath());
         stringBuffer.append(PATH_GLOBALS.getInstance().INIT_PATH);
         stringBuffer.append(IDFILE);
+        stringBuffer.append(UniqueIdGenerator.EXT);
 
-        super.setFile(stringBuffer.toString());
-    }
+        super.setFile(stringBuffer.toString(), IDFILE);
+   }
 }

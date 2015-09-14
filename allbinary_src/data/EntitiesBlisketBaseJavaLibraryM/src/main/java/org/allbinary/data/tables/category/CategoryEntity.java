@@ -17,14 +17,12 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.InventoryDbInitInfo;
-import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.Category;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.logic.communication.sql.AbSqlBean;
-import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
 {

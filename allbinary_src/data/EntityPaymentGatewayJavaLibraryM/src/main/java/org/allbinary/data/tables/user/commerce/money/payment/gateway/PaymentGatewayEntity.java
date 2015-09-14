@@ -13,13 +13,13 @@
 */
 package org.allbinary.data.tables.user.commerce.money.payment.gateway;
 
+import org.allbinary.data.generator.PaymentGatewayIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.basic.io.file.generators.PaymentGatewayIdGenerator;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;

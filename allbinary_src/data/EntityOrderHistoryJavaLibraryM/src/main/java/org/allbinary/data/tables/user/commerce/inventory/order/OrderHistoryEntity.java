@@ -13,6 +13,7 @@
 */
 package org.allbinary.data.tables.user.commerce.inventory.order;
 
+import org.allbinary.data.generator.OrderHistoryIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,8 +21,6 @@ import java.util.Random;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.HistoryDbInitInfo;
-import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.basic.io.file.generators.OrderHistoryIdGenerator;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -50,6 +49,7 @@ import org.allbinary.data.tables.TableDataFactory;
 import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
 import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
+import org.allbinary.data.generator.UniqueIdGenerator;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 

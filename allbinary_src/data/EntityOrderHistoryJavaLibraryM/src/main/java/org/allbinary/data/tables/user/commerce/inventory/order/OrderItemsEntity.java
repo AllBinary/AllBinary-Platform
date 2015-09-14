@@ -13,6 +13,7 @@
  */
 package org.allbinary.data.tables.user.commerce.inventory.order;
 
+import org.allbinary.data.generator.OrderItemIdGenerator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ListIterator;
@@ -21,7 +22,6 @@ import java.util.Vector;
 
 import org.allbinary.business.init.db.HistoryDbInitInfo;
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.basic.io.file.generators.OrderItemIdGenerator;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
