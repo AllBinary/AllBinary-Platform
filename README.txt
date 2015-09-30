@@ -22,7 +22,7 @@ tyrants of Earth.
 
 What is still needed to obtain the Self Replicating Robot Army?
 
-: MMORTS - For the control of robots using Crowdsourcing. (Expect completion in 2012)
+: MMORTS - For the control of robots based on my ZeptoWars RTS game
 : Resource Collection API 
 : 3D Printer API
 : Convert existing Open Robots for the 3D printer API

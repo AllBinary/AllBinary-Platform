@@ -22,15 +22,16 @@ import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
 import org.allbinary.game.GameInfo;
+import org.allbinary.game.GameInfoData;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.java.bool.BooleanFactory;
 
-public class LicensedRemoteHighScoresProcessor 
+public class RemoteHighScoresProcessor 
    implements RemoteHighScoresProcessorInterface
 {
 
-   public LicensedRemoteHighScoresProcessor()
+   public RemoteHighScoresProcessor()
    {
    }
 
@@ -39,6 +40,8 @@ public class LicensedRemoteHighScoresProcessor
            throws Exception
    {
       LogUtil.put(LogFactory.getInstance("Begin Remote HighScores", this, CommonStrings.getInstance().PROCESS));
+
+      final GameInfoData gameInfoData = GameInfoData.getInstance();
 
       // System.out.println(message);
       AbeClientInformationInterface abeClientInformation =
@@ -52,7 +55,7 @@ public class LicensedRemoteHighScoresProcessor
       //hashtable.put(RemoteHighScoresData.getInstance().GAME_INFO, gameInfo.toString());
 
       hashtable.put(
-              remoteHighScores.SOFTWARE_INFORMATION,
+              gameInfoData.SOFTWARE_INFORMATION,
               remoteHighScores.getSoftwareInformation().toString());
 
       hashtable.put(

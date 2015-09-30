@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class GameInfo 
 {
    public static final String LEVEL_NAME = "LEVEL";
+   
+   private final GameInfoData gameInfoData = GameInfoData.getInstance();
 
    private final GameType gameType;
    private final GameMode gameMode;
@@ -120,22 +122,16 @@ public class GameInfo
          return false;
       }
    }
-
-   private final String GAME_TYPE = "GAME_TYPE";
-   private final String GAME_MODE = "GAME_MODE";
-   private final String PLAYER_TYPE = "PLAYER_TYPE";
-   private final String HIGHEST_LEVEL = "HIGHEST_LEVEL";
-   private final String CURRENT_LEVEL = "CURRENT_LEVEL";
    
    public Hashtable toHashtable()
    {
        Hashtable hashtable = new Hashtable();
 
-       hashtable.put(GAME_TYPE, this.getGameType().toString());
-       hashtable.put(GAME_MODE, this.gameMode.toString());
-       hashtable.put(PLAYER_TYPE, this.playerType.toString());
-       hashtable.put(HIGHEST_LEVEL, Integer.toString(this.getHighestLevel()));
-       hashtable.put(CURRENT_LEVEL, Integer.toString(this.currentLevel));
+       hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
+       hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());
+       hashtable.put(this.gameInfoData.PLAYER_TYPE, this.playerType.toString());
+       hashtable.put(this.gameInfoData.HIGHEST_LEVEL, Integer.toString(this.getHighestLevel()));
+       hashtable.put(this.gameInfoData.CURRENT_LEVEL, Integer.toString(this.currentLevel));
 
        return hashtable;
    }
@@ -146,31 +142,31 @@ public class GameInfo
 
        CommonSeps commonSeps = CommonSeps.getInstance();
        
-       stringBuffer.append(GAME_TYPE);
+       stringBuffer.append(this.gameInfoData.GAME_TYPE);
        stringBuffer.append(commonSeps.EQUALS);
        stringBuffer.append(this.getGameType().toString());
 
        stringBuffer.append(commonSeps.COMMA_SEP);
        
-       stringBuffer.append(GAME_MODE);
+       stringBuffer.append(this.gameInfoData.GAME_MODE);
        stringBuffer.append(commonSeps.EQUALS);
        stringBuffer.append(this.gameMode.toString());
        
        stringBuffer.append(commonSeps.COMMA_SEP);
        
-       stringBuffer.append(PLAYER_TYPE);
+       stringBuffer.append(this.gameInfoData.PLAYER_TYPE);
        stringBuffer.append(commonSeps.EQUALS);
        stringBuffer.append(this.playerType);
        
        stringBuffer.append(commonSeps.COMMA_SEP);
        
-       stringBuffer.append(HIGHEST_LEVEL);
+       stringBuffer.append(this.gameInfoData.HIGHEST_LEVEL);
        stringBuffer.append(commonSeps.EQUALS);
        stringBuffer.append(this.getHighestLevel());
        
        stringBuffer.append(commonSeps.COMMA_SEP);
        
-       stringBuffer.append(CURRENT_LEVEL);
+       stringBuffer.append(this.gameInfoData.CURRENT_LEVEL);
        stringBuffer.append(commonSeps.EQUALS);
        stringBuffer.append(this.currentLevel);
        

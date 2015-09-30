@@ -16,7 +16,7 @@ package org.allbinary.game.score.remote;
 public class RemoteHighScoresSubmissionProcessorFactory
 {
     private static final RemoteHighScoresSubmissionProcessorInterface SINGLETON = 
-        new LicensedRemoteHighScoresSubmissionProcessor();
+        new RemoteHighScoresSubmissionProcessor();
     
     public static final RemoteHighScoresSubmissionProcessorInterface getInstance()
     {

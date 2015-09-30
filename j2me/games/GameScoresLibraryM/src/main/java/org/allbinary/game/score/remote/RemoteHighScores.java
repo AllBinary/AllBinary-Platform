@@ -32,8 +32,6 @@ public class RemoteHighScores extends HighScores
    private final SoftwareInformation softwareInformation;
    private Boolean ascending;
    
-   private final String HIGH_SCORES = "HIGH_SCORES";
-   public final String SOFTWARE_INFORMATION = "SOFTWARE_INFORMATION";
    public final String ASCENDING = "ASCENDING";
 
    private RemoteHighScores(
@@ -84,7 +82,7 @@ public class RemoteHighScores extends HighScores
    public void update(Hashtable hashtable)
    {
       this.getList().clear();
-      Vector vector = (Vector) hashtable.get(HIGH_SCORES);
+      Vector vector = (Vector) hashtable.get(RemoteHighScoresData.getInstance().HIGH_SCORES);
       for (int index = 0; index < vector.size(); index++)
       {
          Vector highScoreVector = (Vector) vector.elementAt(index);

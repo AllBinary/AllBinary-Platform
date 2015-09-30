@@ -22,6 +22,8 @@ public class RemoteHighScoresData
         return SINGLETON;
     }
     
+    public final String HIGH_SCORES = "HIGH_SCORES";
+    
     public String CUSTOMER_USER_NAME = "CUSTOMER_USER_NAME";
     public String DISPLAY_NAME = "DISPLAY_NAME";
     public String SCORE = "SCORE";

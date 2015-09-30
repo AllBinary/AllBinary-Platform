@@ -23,12 +23,13 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import java.util.Hashtable;
+import org.allbinary.game.GameInfoData;
 import org.allbinary.logic.java.bool.BooleanFactory;
 
-public class LicensedRemoteHighScoresSubmissionProcessor
+public class RemoteHighScoresSubmissionProcessor
         implements RemoteHighScoresSubmissionProcessorInterface
 {
-    public LicensedRemoteHighScoresSubmissionProcessor()
+    public RemoteHighScoresSubmissionProcessor()
     {
     }
 
@@ -39,29 +40,31 @@ public class LicensedRemoteHighScoresSubmissionProcessor
         {
             LogUtil.put(LogFactory.getInstance("Begin Remote HighScores", this, CommonStrings.getInstance().PROCESS));
 
+            final GameInfoData gameInfoData = GameInfoData.getInstance();
+            
             // System.out.println(message);
-            AbeClientInformationInterface abeClientInformation = 
+            final AbeClientInformationInterface abeClientInformation = 
                 AbeClientInformationInterfaceFactory.getInstance();
             
-            Hashtable hashtable = abeClientInformation.toHashtable();
+            final Hashtable hashtable = abeClientInformation.toHashtable();
 
             //hashtable.put(RemoteHighScoresData.getInstance().GAME_INFO, highScore.getGameInfo().toString());
 
             //HashtableUtil.putAll(highScore.getGameInfo().toHashtable(), hashtable);
             hashtable.putAll(highScore.getGameInfo().toHashtable());
-            
+
             hashtable.put(RemoteHighScoresData.getInstance().CUSTOMER_USER_NAME, "None");
             hashtable.put(RemoteHighScoresData.getInstance().DISPLAY_NAME, highScore.getName());
 
             hashtable.put(
-                    remoteHighScores.SOFTWARE_INFORMATION, 
+                    gameInfoData.SOFTWARE_INFORMATION, 
                     remoteHighScores.getSoftwareInformation().toString());
-            
+
             hashtable.put(
                     remoteHighScores.ASCENDING, 
                     remoteHighScores.getAscending().toString());
             
-            DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+            final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
             
             hashtable.put(
                     displayInfoSingleton.ORIENTATION,
@@ -76,7 +79,7 @@ public class LicensedRemoteHighScoresSubmissionProcessor
             
             if (XmlRpcAbeClient.isOnline)
             {
-                Hashtable resultHashtable = (Hashtable) new XmlRpcRemoteHighScoresClient(
+                final Hashtable resultHashtable = (Hashtable) new XmlRpcRemoteHighScoresClient(
                         abeClientInformation, "highscoresubmissionservice.php",
                         "HighScoreSubmissionService.process").get(hashtable);
 
