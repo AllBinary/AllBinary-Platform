@@ -35,6 +35,13 @@ public class SqlTypeStrings
     public final String ELEVEN_SIZE = "(11)";
     public final String TWELVE_SIZE = "(12)";
     
+    public final String ONE_KB_CHAR_COLUMN = new StringBuilder()
+            .append(CommonSeps.getInstance().SPACE)
+            .append(CHAR_COLUMN)
+            .append("(1024)")
+            .append(CommonSeps.getInstance().COMMA_SEP)
+            .toString();
+
     public final String MAX_CHAR_COLUMN = new StringBuilder()
             .append(CommonSeps.getInstance().SPACE)
             .append(CHAR_COLUMN)

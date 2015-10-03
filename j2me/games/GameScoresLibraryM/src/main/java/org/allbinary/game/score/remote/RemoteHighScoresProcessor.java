@@ -39,7 +39,7 @@ public class RemoteHighScoresProcessor
    public synchronized void process(RemoteHighScores remoteHighScores, GameInfo gameInfo)
            throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Begin Remote HighScores", this, CommonStrings.getInstance().PROCESS));
+      LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Retrieval", this, CommonStrings.getInstance().PROCESS));
 
       final GameInfoData gameInfoData = GameInfoData.getInstance();
 

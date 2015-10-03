@@ -38,7 +38,7 @@ public class RemoteHighScoresSubmissionProcessor
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Begin Remote HighScores", this, CommonStrings.getInstance().PROCESS));
+            LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Submission", this, CommonStrings.getInstance().PROCESS));
 
             final GameInfoData gameInfoData = GameInfoData.getInstance();
             
