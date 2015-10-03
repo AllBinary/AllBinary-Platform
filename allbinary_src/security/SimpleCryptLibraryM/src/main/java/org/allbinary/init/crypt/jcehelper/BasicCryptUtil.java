@@ -16,12 +16,25 @@ package org.allbinary.init.crypt.jcehelper;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class BasicCryptUtil
 {
-    //private static final BasicCryptUtil instance = new BasicCryptUtil();
+    private static final BasicCryptUtil instance = new BasicCryptUtil();
 
-    public static InputStream getDecryptedInputStream(
+    /**
+     * @return the instance
+     */
+    public static BasicCryptUtil getInstance()
+    {
+        return instance;
+    }
+
+    private final String XML_START = "<?xml";
+
+    public InputStream getDecryptedInputStream(
             InputStream in, CryptInterface cryptInterface)
             throws Exception
     {
@@ -34,7 +47,7 @@ public class BasicCryptUtil
         }
 
         //TWB - debug output
-        //LogUtil.put(LogFactory.getInstance("Crypted: " + buffer.toString(), this, "encRespXMLRPC"));
+        //LogUtil.put(LogFactory.getInstance("Crypted: " + buffer.toString(), instance, "encRespXMLRPC"));
         //PreLogUtil.put("Crypted: " + buffer.toString(), instance, "encRespXMLRPC");
 
         //String responseData = buffer.toString();
@@ -48,7 +61,7 @@ public class BasicCryptUtil
         ////LogUtil.put(decryptedString, this, "decRespXMLRPC");
         //PreLogUtil.put(decryptedString, instance, "decRespXMLRPC");
 
-        int index = decryptedString.indexOf("<?xml");
+        int index = decryptedString.indexOf(XML_START);
         if (index > 0)
         {
             //LogUtil.put(LogFactory.getInstance("Removing Pre Decrypted XML data", instance, "encRespXMLRPC"));
@@ -56,7 +69,7 @@ public class BasicCryptUtil
             decryptedString = decryptedString.substring(index);
         }
 
-        //LogUtil.put(LogFactory.getInstance(new String(decryptedString), this, "decRespXMLRPC"));
+        //LogUtil.put(LogFactory.getInstance(new String(decryptedString), instance, "decRespXMLRPC"));
         ////PreLogUtil.put(new String(decryptedString), this, "decRespXMLRPC");
         return new ByteArrayInputStream(decryptedString.getBytes());
     }
