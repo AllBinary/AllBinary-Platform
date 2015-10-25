@@ -147,10 +147,13 @@ public class HighScoreTextBox extends CustomTextBox
 
     public void saveHighScore()
     {
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "saveHighScore"));
+        
         this.update();
 
         for (int index = 0; index < this.highScoresArray.length; index++)
         {
+            LogUtil.put(LogFactory.getInstance("Adding HighScore to board: " + highScoresArray[index], this, "saveHighScore"));
             highScoresArray[index].add(this.highScore);
         }
     }

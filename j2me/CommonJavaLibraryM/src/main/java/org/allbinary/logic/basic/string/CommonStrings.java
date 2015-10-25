@@ -31,6 +31,7 @@ public class CommonStrings
     public final String CONSTRUCTOR = "Constructor";
     public final String START = "Start";
     public final String END = "End";
+    public final String END_LABEL = "End: ";
     public final String EXCEPTION = "Exception";
     public final String EXCEPTION_LABEL = "Exception: ";
     
@@ -63,4 +64,7 @@ public class CommonStrings
     
     public final String DISABLE = "disable";
     public final String ENABLE = "enable";
+    
+    public final String SUCCESS = "Command Success";
+    public final String FAILURE = "Command Failed";
 }

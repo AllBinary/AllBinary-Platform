@@ -49,6 +49,8 @@ implements HighScoresFactoryInterface
 
         try
         {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "createHighScores"));
+            
             highScoresArray[0] = RecordStoreHighScores.getInstance(
                     TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
 
@@ -70,6 +72,8 @@ implements HighScoresFactoryInterface
                     this.softwareInformation, gameInfo,
                     WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE);
 
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "createHighScores"));
+            
             return highScoresArray;
         }
         catch (Exception e)

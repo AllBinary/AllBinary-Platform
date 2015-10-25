@@ -49,14 +49,14 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
          
      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,INSERT);
+     LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT);
      }
      }
      catch(Exception e)
      {
      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
-     LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e);
+     LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e);
      }
      }
      }
@@ -68,13 +68,13 @@ public class AdvertisementAreasEntity extends AbSqlBean implements Advertisement
             super.deleteWhere(EntryData.getInstance().ID, value);
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, DELETE));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, DELETE));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, DELETE, e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, DELETE, e));
             }
         }
     }

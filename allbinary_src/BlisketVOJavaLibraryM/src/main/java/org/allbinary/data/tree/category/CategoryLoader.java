@@ -95,7 +95,7 @@ public class CategoryLoader
                 {
                     LogUtil.put(LogFactory.getInstance("Could Not Log Category", this, "getDoc", e));
                 }
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getDoc", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "getDoc", e));
             }
             return null;
         }
@@ -114,7 +114,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e);
+    LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e);
     }
     return null;
     }
@@ -134,7 +134,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }
@@ -157,7 +157,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getUpToLevel", e);
+    LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "getUpToLevel", e);
     }
     return null;
     }
@@ -181,7 +181,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getAll", e);
+    LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "getAll", e);
     }
     return null;
     }
@@ -202,7 +202,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }
@@ -222,7 +222,7 @@ public class CategoryLoader
     {
     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
     {
-    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e);
+    LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e);
     }
     return null;
     }
@@ -239,7 +239,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }
@@ -261,7 +261,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }
@@ -296,7 +296,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }
@@ -330,7 +330,7 @@ public class CategoryLoader
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }

@@ -45,14 +45,14 @@ public class QuoteRequestEntity extends AbSqlBean
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,INSERT));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,INSERT,e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e));
          }
       }
    }
@@ -87,14 +87,14 @@ public class QuoteRequestEntity extends AbSqlBean
          super.deleteWhere(key,value);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS,this,"deleteWhere"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,"deleteWhere"));
          }
       }
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED,this,"deleteWhere",e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"deleteWhere",e));
          }
       }
    }

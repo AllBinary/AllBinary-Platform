@@ -34,4 +34,5 @@ public class HttpData
     public final String EQUALS = CommonSeps.getInstance().EQUALS;
     public final String PARAM_SEP = CommonSeps.getInstance().AMP;
     public final String URL_PARAM_SEP = CommonSeps.getInstance().QUESTION;
+    public final String URL_LABEL = "Url: ";
 }

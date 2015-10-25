@@ -126,7 +126,7 @@ public class StaticPagesRequestHelper extends AbContext
       {
          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "email", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "email", e));
          }
          //throw e;
       }

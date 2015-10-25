@@ -523,7 +523,7 @@ public class InventorySearchUtil {
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, instance, "search", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, instance, "search", e));
             }
             return null;
         }

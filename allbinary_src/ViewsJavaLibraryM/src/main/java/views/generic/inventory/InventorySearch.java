@@ -87,7 +87,7 @@ public class InventorySearch implements InventoryViewSearchInterface
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "searchSingleStaticPage", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "searchSingleStaticPage", e));
             }
             throw new Exception("Failed retrieve Single Product Page Static");
         }
@@ -105,7 +105,7 @@ public class InventorySearch implements InventoryViewSearchInterface
             if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "searchSingleDynamicPage", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "searchSingleDynamicPage", e));
             }
             throw new Exception("Failed retrieve Single Product Page Dynamically");
         }

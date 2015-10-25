@@ -62,6 +62,11 @@ public class IdGeneratorEntity extends AbSqlBean
         keysAndValues.put(NAME, name);
         HashMap hashMap = super.getRow(keysAndValues);
         
+        if(((String) hashMap.get(NAME)).compareTo(name) != 0)
+        {
+            throw new Exception("results do not match");
+        }
+
         String value = (String) hashMap.get(VALUE);
         
         return Long.parseLong(value);
@@ -77,9 +82,9 @@ public class IdGeneratorEntity extends AbSqlBean
 
             super.insert(values);
 
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, INSERT));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, INSERT, e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
         }
     }
 
@@ -88,11 +93,11 @@ public class IdGeneratorEntity extends AbSqlBean
 
             super.deleteWhere(NAME, value);
 
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, DELETE));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, DELETE));
 
         } catch (Exception e) {
 
-            LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, DELETE, e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, DELETE, e));
         }
     }
     

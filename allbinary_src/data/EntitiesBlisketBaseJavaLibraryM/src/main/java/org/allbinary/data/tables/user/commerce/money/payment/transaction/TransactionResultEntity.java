@@ -51,13 +51,13 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "remove"));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "remove"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "remove", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "remove", e));
             }
         }
     }
@@ -81,13 +81,13 @@ public class TransactionResultEntity extends AbSqlBean
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "add"));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "add"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "add", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "add", e));
             }
         }
     }
@@ -106,7 +106,7 @@ public class TransactionResultEntity extends AbSqlBean
                 TransactionResult transactionResult = new TransactionResult(resultHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "getTransactionResultInterface"));
+                    LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "getTransactionResultInterface"));
                 }
                 return (TransactionResultInterface) transactionResult;
             }else
@@ -117,7 +117,7 @@ public class TransactionResultEntity extends AbSqlBean
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getTransactionResultInterface", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "getTransactionResultInterface", e));
             }
             return null;
         }

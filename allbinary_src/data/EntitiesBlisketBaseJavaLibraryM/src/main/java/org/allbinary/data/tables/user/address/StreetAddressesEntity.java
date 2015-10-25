@@ -57,13 +57,13 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "remove"));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "remove"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "remove", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "remove", e));
             }
         }
     }
@@ -99,13 +99,13 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "add"));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "add"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "add", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "add", e));
             }
         }
     }
@@ -128,13 +128,13 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "update"));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "update"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "add", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "add", e));
             }
         }
     }
@@ -173,7 +173,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }
@@ -200,7 +200,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "get", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "get", e));
             }
             return null;
         }
@@ -221,7 +221,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
                 StreetAddress streetAddress = new StreetAddress(addressHashMap);
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "getDefault"));
+                    LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "getDefault"));
                 }
                 return streetAddress;
             }else
@@ -236,7 +236,7 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "getDefault", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "getDefault", e));
             }
             return null;
         }
@@ -268,13 +268,13 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_SUCCESS, this, "setDefault"));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "setDefault"));
             }
         }catch(Exception e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(this.sqlStrings.COMMAND_FAILED, this, "setShippingAddress", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "setShippingAddress", e));
             }
         }
     }
