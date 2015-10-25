@@ -1,0 +1,22 @@
+1.  Download, Install, and Configure Maven
+
+    a.  Download at: http://maven.apache.org/download.cgi
+
+    b.  Install by extracting the Maven binary archive to the desired location.
+
+    c.  Add the Maven path with the bin folder to the PATH environment variable.
+
+    d.  Add the following to the Maven Settings.xml:
+
+
+Now you have should have access to the AllBinary Game Plaform Client libraries from the nexus.
+
+You may rely on the nexus builds of the AllBinary Game Plaform Client libraries if you want.  However, if you want to build locally then follow the remaining steps:
+
+2.  Download, Install and Configure Git
+
+    a.  Download: http://maven.apache.org/download.cgi
+
+    b.  Install by extracting the Maven binary archive to the desired location.
+
+    c.  Add the Maven path with the bin folder the the PATH environment variable.
