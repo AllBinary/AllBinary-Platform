@@ -21,6 +21,8 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import org.allbinary.android.AndroidInfoFactory;
 
 public class NotificationUtil
 {
@@ -50,13 +52,32 @@ public class NotificationUtil
 
         Integer integer = ResourceUtil.getInstance().getResourceId(resource);
         
-        Notification notification = new Notification(
-                integer.intValue(), message, System.currentTimeMillis());
-        
-        PendingIntent pendingIntent = PendingIntent.getActivity( context, 0, intent, 0);
+        Notification notification = null;
 
-        notification.setLatestEventInfo(
-                context, command.getLabel(), message, pendingIntent);
+        int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        
+        if(SDK_VERSION > 22)
+        {
+            //int icon, java.lang.CharSequence tickerText, long when
+            notification = new Notification.Builder(context)
+                    .setSmallIcon(integer.intValue())
+                    .setTicker(message)
+                    .setWhen(System.currentTimeMillis())
+                    .setContentTitle(command.getLabel())
+                    .setContentText(message)
+                    .setContentIntent(pendingIntent)
+                    .build();
+        }
+        else
+        {
+            notification = new Notification(
+                    integer.intValue(), message, System.currentTimeMillis());
+
+            notification.setLatestEventInfo(
+                    context, command.getLabel(), message, pendingIntent);
+        }
         
         notificationManager.notify(command.hashCode(), notification);
 

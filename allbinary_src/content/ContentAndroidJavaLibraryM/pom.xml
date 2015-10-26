@@ -35,7 +35,15 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AndroidResourceLibrary</artifactId>
-                    <!-- AllBinary Platform Version Start -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>AndroidUtilJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
@@ -50,13 +58,13 @@
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>1.5_r3</version>
+            <version>4.1.1.4</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
-            <version>1.5_r3</version>
+            <version>4.1.1.4</version>
             <scope>provided</scope>
             <classifier>sources</classifier>
         </dependency>
@@ -132,9 +140,9 @@
 
                     </assembly>
 
-                </configuration>
-            </plugin>
--->
+                            </configuration>
+                        </plugin>
+            -->
 
         </plugins>
 
