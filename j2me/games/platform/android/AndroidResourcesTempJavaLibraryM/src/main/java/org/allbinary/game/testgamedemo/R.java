@@ -47,10 +47,12 @@ public final class R {
         public static final int touch_button_up_arrow_64_by_64=0x7f040043;
         
         public static final int ouya_a=0x7f040012;
-        public static final int ouya_key=0x7f040013;
         public static final int ouya_o=0x7f040014;
         public static final int ouya_u=0x7f040015;
         public static final int ouya_y=0x7f040016;   
+
+        public static final int ouya_key=0x7f040013;
+        public static final int google_key=0x7f040013;
     }
     public static final class string {
         public static final int progressbar_in_title_string=0x7f050001;

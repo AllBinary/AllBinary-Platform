@@ -73,4 +73,9 @@ implements ThirdPartyInApplicationPurchaseInterface {
     {
         return false;
     } 
+    
+    protected void requestProducts()
+    {
+            
+    }
 }
