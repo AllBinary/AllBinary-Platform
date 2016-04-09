@@ -43,7 +43,7 @@ public class KeylessBasicArrayListCache
     {
         try
         {
-            if (this.index >= this.getList().size())
+            if (this.index >= this.list.size())
             {
                 this.add();
             }
@@ -65,9 +65,9 @@ public class KeylessBasicArrayListCache
     {
         super.clear();
 
-        for (int index = this.getList().size() - 1; index >= 0; index--)
+        for (int index = this.list.size() - 1; index >= 0; index--)
         {
-            ((BasicArrayList) this.getList().objectArray[index]).clear();
+            ((BasicArrayList) this.list.objectArray[index]).clear();
         }
     }
 
@@ -76,13 +76,13 @@ public class KeylessBasicArrayListCache
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("S: ");
-        stringBuffer.append(this.getList().size());
+        stringBuffer.append(this.list.size());
 
-        for (int index = this.getList().size() - 1; index >= 0; index--)
+        for (int index = this.list.size() - 1; index >= 0; index--)
         {
             stringBuffer.append(" s: ");
             stringBuffer.append(
-            ((BasicArrayList) this.getList().objectArray[index]).size()
+            ((BasicArrayList) this.list.objectArray[index]).size()
                 );
         }
 

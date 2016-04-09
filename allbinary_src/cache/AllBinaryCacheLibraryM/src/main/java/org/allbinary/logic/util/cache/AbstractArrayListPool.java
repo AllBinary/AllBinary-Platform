@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.util.cache;
 
-import org.allbinary.logic.util.cache.CacheableInterface;
-import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.NotImplemented;

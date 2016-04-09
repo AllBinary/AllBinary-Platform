@@ -44,7 +44,7 @@ public class IndexedBasicArrayListCache
 
         if(this.size < size)
         {
-            this.getList().ensureCapacity(size);
+            this.list.ensureCapacity(size);
             for(int index = size - 1; index >= this.size; index--)
             {
                 this.add();
@@ -55,7 +55,7 @@ public class IndexedBasicArrayListCache
 
     public Object get(int index)
     {
-        return this.getList().objectArray[index];
+        return this.list.objectArray[index];
     }
 
     public void add() throws Exception
@@ -65,12 +65,12 @@ public class IndexedBasicArrayListCache
 
     public void add(Object object) throws Exception
     {
-        this.getList().add(object);
+        this.list.add(object);
     }
 
     public void add(CacheableInterface cacheableInterface) throws Exception
     {
-        this.getList().add(cacheableInterface);
+        this.list.add(cacheableInterface);
     }
 
     public void add(CacheableInterface[] cacheableInterfaces) throws Exception

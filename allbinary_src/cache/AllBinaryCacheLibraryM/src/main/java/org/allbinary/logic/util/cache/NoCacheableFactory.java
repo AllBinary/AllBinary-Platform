@@ -13,9 +13,6 @@
 */
 package org.allbinary.logic.util.cache;
 
-import org.allbinary.logic.util.cache.CacheableInterface;
-import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
-
 public class NoCacheableFactory
    implements CacheableInterfaceFactoryInterface
 {

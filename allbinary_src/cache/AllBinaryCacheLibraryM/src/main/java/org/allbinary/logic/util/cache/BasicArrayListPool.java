@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.util.cache;
 
-import org.allbinary.logic.util.cache.CacheableInterface;
-import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
 import org.allbinary.util.BasicArrayList;
 
 public class BasicArrayListPool extends AbstractArrayListPool
@@ -48,6 +46,16 @@ public class BasicArrayListPool extends AbstractArrayListPool
 
     return (CacheableInterface) buffers.remove(pos--);
     */
+  }
+
+  public void addAll(BasicArrayList usedList) throws Exception
+  {
+      for(int index = usedList.size(); --index >= 0;)
+      {
+          CacheableInterface object = (CacheableInterface) usedList.objectArray[index];
+          this.add(object);
+      }
+      usedList.clear();
   }
   
   public void releaseUsedBackToPool(BasicArrayList usedList) throws Exception

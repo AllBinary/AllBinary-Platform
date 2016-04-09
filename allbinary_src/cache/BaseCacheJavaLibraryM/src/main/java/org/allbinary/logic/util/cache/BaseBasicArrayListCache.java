@@ -23,7 +23,7 @@ import org.allbinary.logic.basic.string.StringMaker;
  */
 public class BaseBasicArrayListCache {
 
-    private final BasicArrayList list = new BasicArrayList();
+    protected final BasicArrayList list = new BasicArrayList();
 
     /**
      * @return the list
@@ -38,7 +38,7 @@ public class BaseBasicArrayListCache {
         StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("S: ");
-        stringBuffer.append(this.getList().size());
+        stringBuffer.append(this.list.size());
 
         return stringBuffer.toString();
     }
