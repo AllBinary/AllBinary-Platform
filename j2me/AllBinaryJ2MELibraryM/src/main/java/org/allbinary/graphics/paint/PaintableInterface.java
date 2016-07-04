@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 public interface PaintableInterface 
 {
-    void paint(Graphics graphics);
+    public void paint(Graphics graphics);
     
     public void paintThreed(Graphics graphics);
 }
