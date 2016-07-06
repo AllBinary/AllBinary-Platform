@@ -24,11 +24,14 @@ public class InApplicationPurchaseFactory {
         return instance;
     }
 
-    
     private InApplicationPurchaseFactory()
     {
     }
 
+    public void init(Object object, Object stateObject)
+    {
+    }
+    
     public void onCreate(Object object, Object stateObject)
     {
     }
