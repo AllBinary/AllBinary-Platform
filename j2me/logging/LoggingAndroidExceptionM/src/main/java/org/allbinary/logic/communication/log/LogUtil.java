@@ -38,9 +38,6 @@ public class LogUtil
       String functionName)
    {
    }
-
-   private static final String EMPTY = "Empty";
-   
    private static final String LABEL = "allbinary";
    private static final String LOGGING_LABEL = "Logging Successful: ";
    
@@ -50,13 +47,16 @@ public class LogUtil
       String functionName,
       Throwable exception)
    {
-      String className = EMPTY;
-      
-      if(object.getClass().getName() != null)
+      String className = LABEL;
+      /*
+      if(object != null && object.getClass().getName() != null)
       {
          className = new String(object.getClass().getName());
       }
+      */
       
+      className = object.getClass().getName();
+
       String message = LogFormatUtil.getInstance().get(
          className, functionName, specialMessage, exception);
       
