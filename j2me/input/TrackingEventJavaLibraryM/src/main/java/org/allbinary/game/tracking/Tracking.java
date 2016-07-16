@@ -14,9 +14,13 @@
 package org.allbinary.game.tracking;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class Tracking 
 {
+    //private final DisplayInfoSingleton displayInfoSingleton = 
+//            DisplayInfoSingleton.getInstance();
+    
    /*
    private final int MAXTRACKING = 4;
    private final int UP = 0;
@@ -52,8 +56,10 @@ public class Tracking
       this.trackingIndex--;
       while(this.trackingIndex>=0)
       {
-      int clipWidth = graphics.getClipWidth();
-      int clipHeight = graphics.getClipHeight();
+      //int clipWidth = graphics.getClipWidth();
+      //int clipHeight = graphics.getClipHeight();
+      int clipWidth = this.;
+      int clipHeight = this.;
       int tracking = -1;
       int arrowX = 0;
       int arrowY = 0;

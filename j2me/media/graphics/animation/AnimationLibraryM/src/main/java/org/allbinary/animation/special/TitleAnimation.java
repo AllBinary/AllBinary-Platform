@@ -19,6 +19,7 @@ import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class TitleAnimation extends SpecialAnimation 
@@ -40,9 +41,9 @@ public class TitleAnimation extends SpecialAnimation
 
     private int loopCount;
     private long lastFrameStartTime;
-    
-    protected final BasicColorSetUtil basicColorUtil = 
-        BasicColorSetUtil.getInstance();
+
+    private final DisplayInfoSingleton displayInfoSingleton = 
+            DisplayInfoSingleton.getInstance();
     
     public TitleAnimation(IndexedAnimation[] animationInterfaceArray,
             BasicColor[] basicColorArray, int[] dxArray, int[] dyArray)
@@ -192,7 +193,8 @@ public class TitleAnimation extends SpecialAnimation
         
         if(this.width != Integer.MIN_VALUE)
         {
-            x = ((graphics.getClipWidth() - this.width) / 2);
+            //x = ((graphics.getClipWidth() - this.width) / 2);
+            x = ((displayInfoSingleton.getLastWidth() - this.width) / 2);
         }
         
         int deltaX;
@@ -221,7 +223,8 @@ public class TitleAnimation extends SpecialAnimation
         
         if(this.width != Integer.MIN_VALUE)
         {
-            dx = ((graphics.getClipWidth() - this.width) / 2);
+            //dx = ((graphics.getClipWidth() - this.width) / 2);
+            dx = ((displayInfoSingleton.getLastWidth() - this.width) / 2);
         }
         
         int deltaX;

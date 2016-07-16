@@ -16,11 +16,13 @@ package org.allbinary.game.paint;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.color.ColorCompositeInterface;
-import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class ColorFillPaintable extends ColorFillBasePaintable
 {
+    protected final DisplayInfoSingleton displayInfoSingleton = 
+            DisplayInfoSingleton.getInstance();
+    
     public ColorFillPaintable(BasicColor basicColor)
     {
         super(basicColor);
@@ -29,6 +31,7 @@ public class ColorFillPaintable extends ColorFillBasePaintable
     public void paint(Graphics graphics)
     {        
         graphics.setColor(this.color);
-        graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
+        //graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
+        graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
     }
 }

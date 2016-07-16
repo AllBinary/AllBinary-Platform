@@ -22,6 +22,7 @@ import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.graphics.Anchor;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 
 public class HighScoresCanvasLevelChangeInputProcessor extends
@@ -73,6 +74,9 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         list.clear();
     }
 
+    private final DisplayInfoSingleton displayInfoSingleton = 
+            DisplayInfoSingleton.getInstance();
+    
     // Accelerate or Right Turn Left Turn or Reverse
     // private final String INSTRUCTIONS =
     // "(Up = Next Track, Down = Previous Track)";
@@ -80,11 +84,14 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
 
     // private final String INSTRUCTIONS = "(Change Tracks With Game Controls)";
 
+    
     private int anchor = Anchor.TOP_LEFT;
     
     public void paint(Graphics graphics)
     {
-        int width = graphics.getClipWidth();
+        //int width = graphics.getClipWidth();
+        int width = this.displayInfoSingleton.getLastWidth();
+        
 
         int topScoresWidth = (graphics.getFont().stringWidth(INSTRUCTIONS) >> 1);
 

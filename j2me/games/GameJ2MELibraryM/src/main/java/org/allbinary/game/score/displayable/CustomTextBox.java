@@ -27,12 +27,16 @@ import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
 
 public class CustomTextBox extends GameCommandCanvas
 {
     private final TextFieldItem textFieldItem;
     //private final int viewPortHeight = MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
+
+    private final DisplayInfoSingleton displayInfoSingleton = 
+            DisplayInfoSingleton.getInstance();
     
     public CustomTextBox(CommandListener cmdListener, String label, String text, int maxSize, int constraints,
             BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
@@ -109,7 +113,8 @@ public class CustomTextBox extends GameCommandCanvas
     public void paint(Graphics graphics)
     {
         graphics.setColor(this.backgroundColor);
-        graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
+        //graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
+        graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
 
         //g.translate(0, viewPortY);
         graphics.setColor(this.foregroundColor);

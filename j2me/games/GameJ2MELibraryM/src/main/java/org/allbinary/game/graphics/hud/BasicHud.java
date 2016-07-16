@@ -96,7 +96,9 @@ public class BasicHud //implements DisplayChangeEventListener
    public HudGraphicsPosition getHudGraphicsPosition(Graphics graphics)
            throws Exception
    {
-      return this.getHudGraphicsPosition(graphics.getClipWidth(), graphics.getClipHeight());
+        return this.getHudGraphicsPosition(graphics.getClipWidth(), graphics.getClipHeight());
+        return this.getHudGraphicsPosition(this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
+
    }
    */
 

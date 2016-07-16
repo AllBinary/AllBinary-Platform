@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 
 public class SimpleTextPaintable extends Paintable
@@ -35,9 +36,13 @@ public class SimpleTextPaintable extends Paintable
     
     private final int HEIGHT = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
     
+    private final DisplayInfoSingleton displayInfoSingleton = 
+            DisplayInfoSingleton.getInstance();
+    
     public void paint(Graphics graphics)
     {
-        int width = graphics.getClipWidth();
+        //int width = graphics.getClipWidth();
+        int width = this.displayInfoSingleton.getLastWidth();
         
         int topScoresWidth = (graphics.getFont().stringWidth(this.text) >> 1);
 

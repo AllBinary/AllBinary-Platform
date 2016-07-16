@@ -27,6 +27,7 @@ public class OverScanColorFillPaintable extends ColorFillPaintable
     public void paint(Graphics graphics)
     {        
         graphics.setColor(this.color);
-        graphics.fillRect(-graphics.getClipX(), -graphics.getClipY(), graphics.getClipWidth() + (graphics.getClipX() * 2), graphics.getClipHeight() + (graphics.getClipY() * 2));
+        //graphics.fillRect(-graphics.getClipX(), -graphics.getClipY(), graphics.getClipWidth() + (graphics.getClipX() * 2), graphics.getClipHeight() + (graphics.getClipY() * 2));
+        graphics.fillRect(-graphics.getClipX(), -graphics.getClipY(), this.displayInfoSingleton.getLastWidth() + (graphics.getClipX() * 2), this.displayInfoSingleton.getLastHeight() + (graphics.getClipY() * 2));
     }
 }

@@ -22,6 +22,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.ColorChangeEvent;
 import org.allbinary.graphics.color.ColorChangeListener;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
@@ -30,6 +31,9 @@ public class HighScoresPaintable
 extends Paintable
 implements ColorChangeListener
 {
+    private final DisplayInfoSingleton displayInfoSingleton = 
+            DisplayInfoSingleton.getInstance();
+    
     private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
 
     private HighScores highScores = NullHighScoresSingletonFactory.getInstance();
@@ -50,8 +54,10 @@ implements ColorChangeListener
     {
         final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
         
-        int width = graphics.getClipWidth();
-        int height = graphics.getClipHeight();
+        //int width = graphics.getClipWidth();
+        //int height = graphics.getClipHeight();
+        int width = this.displayInfoSingleton.getLastWidth();
+        int height = this.displayInfoSingleton.getLastHeight();
 
         graphics.setColor(getBasicColor().intValue());
 
