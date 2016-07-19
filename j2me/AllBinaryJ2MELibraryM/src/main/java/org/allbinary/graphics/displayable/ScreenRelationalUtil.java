@@ -2,7 +2,6 @@ package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 
 public class ScreenRelationalUtil
 {
@@ -22,8 +21,9 @@ public class ScreenRelationalUtil
     {
         DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
-        float width = displayInfoSingleton.getLastWidth();
-        float height = displayInfoSingleton.getLastHeight();
+        int[] last = displayInfoSingleton.getLast();
+        float width = last[displayInfoSingleton.WIDTH];
+        float height = last[displayInfoSingleton.HEIGHT];
 
         float largestSize = width;
 

@@ -39,7 +39,7 @@ public class MyCanvas extends Canvas
     {
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
-        DisplayInfoSingleton.getInstance().update(this);
+        DisplayInfoSingleton.getInstance().update(this, "MyCanvas::MyCanvas");
 
         this.commandStack = new Stack();
     }
@@ -55,7 +55,7 @@ public class MyCanvas extends Canvas
         DisplayInfoSingleton displayInfo =
             DisplayInfoSingleton.getInstance();
 
-        displayInfo.update(this);
+        displayInfo.update(this, "setFullScreenMode");
     }
 
     protected void sizeChanged(int w, int h)
@@ -63,7 +63,7 @@ public class MyCanvas extends Canvas
         DisplayInfoSingleton displayInfo =
             DisplayInfoSingleton.getInstance();
 
-        displayInfo.update(this);
+        displayInfo.update(this, "sizeChanged");
     }
     
     public Stack getCommandStack()

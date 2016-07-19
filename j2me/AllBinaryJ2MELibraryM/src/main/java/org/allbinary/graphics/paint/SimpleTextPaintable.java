@@ -42,7 +42,7 @@ public class SimpleTextPaintable extends Paintable
     public void paint(Graphics graphics)
     {
         //int width = graphics.getClipWidth();
-        int width = this.displayInfoSingleton.getLastWidth();
+        int width = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
         
         int topScoresWidth = (graphics.getFont().stringWidth(this.text) >> 1);
 
