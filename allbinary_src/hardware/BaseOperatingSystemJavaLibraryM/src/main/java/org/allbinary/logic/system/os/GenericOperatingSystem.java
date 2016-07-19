@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.system.os;
 
-import org.allbinary.logic.system.os.SystemProperties;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
@@ -97,6 +96,11 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    public int getOverScanYPercent()
    {
        return 100;
+   }
+
+   public boolean isScalable()
+   {
+       return false;
    }
    
    public String toString()

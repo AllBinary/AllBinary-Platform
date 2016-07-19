@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.os;
 
+import org.allbinary.android.AndroidInfoFactory;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
 
@@ -29,8 +30,17 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    private final String DEVICE_SOFTWARE_VERSION ="DeviceSoftwareVersion";
    private final String LINE_1_NUMBER = "Line1Number";
 
+   private boolean scalable = false;
+   
    public AndroidOperatingSystem() throws Exception
    {
+        int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
+        
+        if(SDK_VERSION > 10)
+        {
+            this.scalable = true;
+        }
+               
        AndroidSystemProperties properties = 
                AndroidSystemProperties.getInstance();
 
@@ -114,7 +124,7 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
        
        return false;
    }
-
+   
    public int getOverScanXPercent()
    {
        return 90;
@@ -124,6 +134,11 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    {
        return 90;
    }
+
+   public boolean isScalable()
+   {
+       return scalable;
+   }   
    
    public String toString()
    {
