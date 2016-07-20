@@ -27,7 +27,8 @@ import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 
-public class DisplayInfoSingleton {
+public class DisplayInfoSingleton
+{
 
     private static final DisplayInfoSingleton SINGLETON = new DisplayInfoSingleton();
 
@@ -40,34 +41,38 @@ public class DisplayInfoSingleton {
     private int top;
     private int left;
 
-    private int scaleLargestTo = 720;
+    private float scaleLargestTo = 720;
 
     public final int WIDTH = 0;
     public final int HEIGHT = 1;
 
-    public static final DisplayInfoSingleton getInstance() {
+    public static final DisplayInfoSingleton getInstance()
+    {
         return SINGLETON;
     }
 
-    public int[] getLastHalf() {
+    public int[] getLastHalf()
+    {
         return lastHalf;
     }
 
-    public int[] getLast() {
+    public int[] getLast()
+    {
         return last;
     }
 
     /**
      * @return the fullWidth
      */
-    public int[] getFull() {
+    public int[] getFull()
+    {
         return full;
     }
 
     /**
      * @return the scaleLargestTo
      */
-    public int getScaleLargestTo()
+    public float getScaleLargestTo()
     {
         return scaleLargestTo;
     }
@@ -79,129 +84,136 @@ public class DisplayInfoSingleton {
     {
         this.scaleLargestTo = scaleLargestTo;
     }
-    
-    public void setLastSize(int aLastWidth, int aFullWidth,
-            int aLastHeight, int aFullHeight, String reason) {
-        
+
+    public void setLastSize(int aLastWidth, int aLastHeight, String reason)
+    {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + reason, this, "setLastSize"));
 
-            LogUtil.put(LogFactory.getInstance(
-                    new StringBuilder()
-                            .append(" aLastWidth: ").append(aLastWidth)
-                            .append(" aLastHeight: ").append(aLastHeight)
-                            .append(" aFullWidth: ").append(aFullWidth)
-                            .append(" aFullHeight: ").append(aFullHeight)
-                            .append(this.toString())
-                            .toString(), this, "setLastSize"));
-        
-        if (this.last[WIDTH] != aLastWidth || this.last[HEIGHT] != aLastHeight ||
-                this.full[WIDTH] != aFullWidth || this.full[HEIGHT] != aFullHeight) {
-            
+        int aFullWidth = aLastWidth;
+        int aFullHeight = aLastHeight;
+
+        LogUtil.put(LogFactory.getInstance(new StringBuilder()
+                .append(" aFullWidth: ").append(aFullWidth)
+                .append(" aFullHeight: ").append(aFullHeight)
+                .append(this.toString())
+                .toString(), this, "setLastSize"));
+
+        if(this.full[WIDTH] != aLastWidth || this.full[HEIGHT] != aLastHeight)
+        {
+
             LogUtil.put(LogFactory.getInstance("Changing", this, "setLastSize"));
-            
+
             OperatingSystemInterface operatingSystemInterface
                     = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
-            if (operatingSystemInterface.isOverScan()) {
+            if(operatingSystemInterface.isOverScan())
+            {
                 aLastWidth = aLastWidth * operatingSystemInterface.getOverScanXPercent() / 100;
-                aLastHeight = aLastHeight * operatingSystemInterface.getOverScanYPercent() / 100;                
+                aLastHeight = aLastHeight * operatingSystemInterface.getOverScanYPercent() / 100;
             }
 
-            /*
-            if(this.isPortrait(aFullWidth, aFullHeight))
+            if(operatingSystemInterface.isScalable())
             {
-                if(this.full[HEIGHT] > scaleLargestTo)
+                if(this.isPortrait(aLastWidth, aLastHeight))
                 {
-                    LogUtil.put(LogFactory.getInstance("Adjusting for Scaling", this, "setLast"));
-                    final float displayRatio = scaleLargestTo / aFullWidth;
-                    aLastWidth = (int) (aLastWidth * displayRatio);
-                    aLastHeight = (int) (aLastHeight * displayRatio);
-                }
-            }else
-            {
-                if(this.full[WIDTH] > scaleLargestTo)
+                    if(aLastHeight > scaleLargestTo)
+                    {
+                        final float displayRatio = scaleLargestTo / aLastHeight;
+                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, "setLastSize"));
+                        aLastWidth = (int) (aLastWidth * displayRatio);
+                        aLastHeight = (int) (aLastHeight * displayRatio);
+                        //this.scaleView(displayRatio);
+                    }
+                }else
                 {
-                    LogUtil.put(LogFactory.getInstance("Adjusting for Scaling", this, "setLast"));
-                    final float displayRatio = scaleLargestTo / aFullHeight;
-                    aLastWidth = (int) (aLastWidth * displayRatio);
-                    aLastHeight = (int) (aLastHeight * displayRatio);
+                    if(aLastWidth > scaleLargestTo)
+                    {
+                        final float displayRatio = scaleLargestTo / aLastWidth;
+                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, "setLastSize"));
+                        aLastWidth = (int) (aLastWidth * displayRatio);
+                        aLastHeight = (int) (aLastHeight * displayRatio);
+                        //this.scaleView(displayRatio);
+                    }
                 }
             }
-            */
 
-            LogUtil.put(LogFactory.getInstance(
-                    new StringBuilder()
-                            .append("aLastWidth: ").append(aLastWidth)
-                            .append(" aLastHeight: ").append(aLastHeight)
-                            .toString(), this, "setLastSize"));
-            
+            LogUtil.put(LogFactory.getInstance(new StringBuilder()
+                    .append("aLastWidth: ").append(aLastWidth)
+                    .append(" aLastHeight: ").append(aLastHeight)
+                    .toString(), this, "setLastSize"));
+
             this.left = (aFullWidth - aLastWidth) >> 1;
             this.top = (aFullHeight - aLastHeight) >> 1;
 
             this.full[WIDTH] = aFullWidth;
             this.full[HEIGHT] = aFullHeight;
-            
+
             last[WIDTH] = aLastWidth;
             lastHalf[WIDTH] = (last[WIDTH] >> 1);
             last[HEIGHT] = aLastHeight;
             lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
-            this.fire("setLast");
+            this.fire("setLastSize");
         }
     }
 
     public boolean isPortrait(
-            int lastWidth, int lastHeight) {
-        if (lastHeight > lastWidth) {
+            int lastWidth, int lastHeight)
+    {
+        if(lastHeight > lastWidth)
+        {
             return true;
-        } else {
+        }else
+        {
             return false;
         }
     }
 
-    public boolean isPortrait() {
+    public boolean isPortrait()
+    {
         return this.isPortrait(this.last[WIDTH], this.last[HEIGHT]);
     }
 
     private final DisplayChangeEvent displayChangeEvent = new DisplayChangeEvent(this);
 
     private final String FIRE_METHOD_NAME = "fire";
-    
-    private void fire(String reason) {
-        try {
+
+    private void fire(String reason)
+    {
+        try
+        {
             LogUtil.put(LogFactory.getInstance("reason: " + reason, this, FIRE_METHOD_NAME));
             LogUtil.put(LogFactory.getInstance(this.toString(), this, FIRE_METHOD_NAME));
             //PreLogUtil.put("Display Change Event" + this.toString(), this, CommonStrings.getInstance().UPDATE);
             DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
-        } catch (Exception e) {
+        }catch(Exception e)
+        {
             PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, FIRE_METHOD_NAME, e);
         }
     }
 
-    public void update(Displayable displayable, String reason) {
+    public void update(Displayable displayable, String reason)
+    {
         int aLastWidth = displayable.getWidth();
         int aLastHeight = displayable.getHeight();
-        int aFullWidth = this.full[WIDTH];
-        int aFullHeight = this.full[HEIGHT];
-        
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + reason, this, "update"));
 
-                LogUtil.put(LogFactory.getInstance(
-                        new StringBuilder()
-                        .append("aLastWidth: ").append(aLastWidth)
-                        .append(" aLastHeight: ").append(aLastHeight)
-                        .append(" aFullWidth: ").append(aFullWidth)
-                        .append(" aFullHeight: ").append(aFullHeight)
-                        .append(this.toString())
-                        .toString(), this, "update"));
+        int aFullWidth = aLastWidth;
+        int aFullHeight = aLastHeight;
         
+        LogUtil.put(LogFactory.getInstance(new StringBuilder()
+                .append(CommonStrings.getInstance().START_LABEL).append(reason)
+                .append("aLastWidth: ").append(aLastWidth)
+                .append(" aLastHeight: ").append(aLastHeight)
+                .append(this.toString())
+                .toString(), this, "update"));
+
         if(aLastWidth > 0 && aLastHeight > 0)
         {
             //The getters fire and set on change by calling the setters of this class
-            if(this.last[WIDTH] != aLastWidth || this.last[HEIGHT] != aLastHeight
-                    || this.full[WIDTH] != aFullWidth || this.full[HEIGHT] != aFullHeight)
+            //This does not actually get called often as the displayable width and height are usually the last value
+            //Not really sure if this ever happens?
+            if(this.last[WIDTH] != aLastWidth || this.last[HEIGHT] != aLastHeight)
             {
-
                 LogUtil.put(LogFactory.getInstance(
                         new StringBuilder().append("Updating from Orientation Change")
                         .toString(), this, "update"));
@@ -215,42 +227,43 @@ public class DisplayInfoSingleton {
                     aLastHeight = aLastHeight * operatingSystemInterface.getOverScanYPercent() / 100;
                 }
 
-                /*
-                 if(operatingSystemInterface.isScalable())
-                 {
-                 if(this.isPortrait(aFullWidth, aFullHeight))
-                 {
-                 if(aFullWidth > scaleLargestTo)
-                 {
-                 LogUtil.put(LogFactory.getInstance("Adjusting for Scaling", this, "setLast"));
-                 final float displayRatio = scaleLargestTo / aFullWidth;
-                 aLastWidth = (int) (aLastWidth * displayRatio);
-                 aLastHeight = (int) (aLastHeight * displayRatio);
-                 }
-                 }else
-                 {
-                 if(aFullWidth > scaleLargestTo)
-                 {
-                 LogUtil.put(LogFactory.getInstance("Adjusting for Scaling", this, "setLast"));
-                 final float displayRatio = scaleLargestTo / aFullHeight;
-                 aLastWidth = (int) (aLastWidth * displayRatio);
-                 aLastHeight = (int) (aLastHeight * displayRatio);
-                 }
-                 }
-                 }
-                 */
+                if(operatingSystemInterface.isScalable())
+                {
+                    if(this.isPortrait(aLastWidth, aLastHeight))
+                    {
+                        if(aLastHeight > scaleLargestTo)
+                        {
+                            final float displayRatio = scaleLargestTo / aLastHeight;
+                            LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, "update"));
+                            aLastWidth = (int) (aLastWidth * displayRatio);
+                            aLastHeight = (int) (aLastHeight * displayRatio);
+                            //this.scaleView(displayRatio);
+                        }
+                    }else
+                    {
+                        if(aLastWidth > scaleLargestTo)
+                        {
+                            final float displayRatio = scaleLargestTo / aLastWidth;
+                            LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, "update"));
+                            aLastWidth = (int) (aLastWidth * displayRatio);
+                            aLastHeight = (int) (aLastHeight * displayRatio);
+                            //this.scaleView(displayRatio);
+                        }
+                    }
+                }
+
                 LogUtil.put(LogFactory.getInstance(
                         new StringBuilder().append("Updating from Orientation Change -")
                         .append(" aLastWidth: ").append(aLastWidth)
                         .append(" aLastHeight: ").append(aLastHeight)
                         .toString(), this, "update"));
 
-                this.left = (this.full[WIDTH] - aLastWidth) >> 1;
-                this.top = (this.full[HEIGHT] - aLastHeight) >> 1;
-
-                this.full[HEIGHT] = this.nextFullHeight;
-                this.full[WIDTH] = this.nextFullWidth;
-
+                this.left = (aFullWidth - aLastWidth) >> 1;
+                this.top = (aFullHeight - aLastHeight) >> 1;
+                
+                this.full[WIDTH] = aFullWidth;
+                this.full[HEIGHT] = aFullHeight;
+                
                 last[WIDTH] = aLastWidth;
                 lastHalf[WIDTH] = (last[WIDTH] >> 1);
 
@@ -258,16 +271,18 @@ public class DisplayInfoSingleton {
                 lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
                 this.fire(CommonStrings.getInstance().UPDATE);
+                return;
             }
         }
     }
-    
+
     private final String DISPLAY_INFO = "Display Info: ";
     private final String FULL = "full";
     private final String LAST = "last";
     private final String LAST_HALF = "lastHalf";
 
-    public String toString() {
+    public String toString()
+    {
         StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(DISPLAY_INFO);
         stringBuffer.append(FULL);
@@ -300,14 +315,16 @@ public class DisplayInfoSingleton {
     /**
      * @return the top
      */
-    public int getTop() {
+    public int getTop()
+    {
         return top;
     }
 
     /**
      * @return the left
      */
-    public int getLeft() {
+    public int getLeft()
+    {
         return left;
     }
 
@@ -320,7 +337,7 @@ public class DisplayInfoSingleton {
     {
         return this.last[HEIGHT];
     }
-    
+
     public int getLastHalfWidth()
     {
         return this.lastHalf[WIDTH];
@@ -330,14 +347,5 @@ public class DisplayInfoSingleton {
     {
         return this.lastHalf[HEIGHT];
     }
-    
-    private int nextFullWidth;
-    private int nextFullHeight;
-    public void setNewFull(int fullWidth, int fullHeight)
-    {
-        LogUtil.put(LogFactory.getInstance(new StringBuilder().append("fullWidth: ").append(fullWidth).append(" fullHeight: ").append(fullHeight).toString(), this, "setNewFull"));
-        this.nextFullWidth = fullWidth;
-        this.nextFullHeight = fullHeight;
-    }
-    
+
 }
