@@ -13,6 +13,7 @@
 */
 package org.allbinary.data.resource;
 
+import android.app.Activity;
 import java.io.InputStream;
 import java.util.Hashtable;
 
@@ -30,6 +31,7 @@ public class ResourceUtil
 {
     private static ResourceUtil RESOURCES = new ResourceUtil();
 
+    private Activity activity;
     private Context context;
     private Resources resources;
     private Hashtable hashMap = new Hashtable();
@@ -48,6 +50,19 @@ public class ResourceUtil
         return context;
     }
 
+    /*
+    public Activity getActivity()
+    {
+        return activity;
+    }
+    */
+    
+    public void setContext(Activity activity)
+    {
+        //this.activity = activity;
+        this.context = activity;
+    }
+    
     public void setContext(Context aContext)
     {
         this.context = aContext;

@@ -46,6 +46,8 @@ public class DisplayInfoSingleton
     public final int WIDTH = 0;
     public final int HEIGHT = 1;
 
+    private BaseScalable scalableListener = new BaseScalable();
+    
     public static final DisplayInfoSingleton getInstance()
     {
         return SINGLETON;
@@ -119,20 +121,22 @@ public class DisplayInfoSingleton
                     if(aLastHeight > scaleLargestTo)
                     {
                         final float displayRatio = scaleLargestTo / aLastHeight;
+                        final float ratio = aLastHeight / scaleLargestTo;
                         LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, "setLastSize"));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
-                        //this.scaleView(displayRatio);
+                        this.scalableListener.scale(ratio);
                     }
                 }else
                 {
                     if(aLastWidth > scaleLargestTo)
                     {
                         final float displayRatio = scaleLargestTo / aLastWidth;
+                        final float ratio = aLastWidth / scaleLargestTo;
                         LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, "setLastSize"));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
-                        //this.scaleView(displayRatio);
+                        this.scalableListener.scale(ratio);
                     }
                 }
             }
@@ -234,20 +238,22 @@ public class DisplayInfoSingleton
                         if(aLastHeight > scaleLargestTo)
                         {
                             final float displayRatio = scaleLargestTo / aLastHeight;
+                            final float ratio = aLastHeight / scaleLargestTo;
                             LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, "update"));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
-                            //this.scaleView(displayRatio);
+                            this.scalableListener.scale(ratio);
                         }
                     }else
                     {
                         if(aLastWidth > scaleLargestTo)
                         {
                             final float displayRatio = scaleLargestTo / aLastWidth;
+                            final float ratio = aLastWidth / scaleLargestTo;
                             LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, "update"));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
-                            //this.scaleView(displayRatio);
+                            this.scalableListener.scale(ratio);
                         }
                     }
                 }
@@ -348,4 +354,8 @@ public class DisplayInfoSingleton
         return this.lastHalf[HEIGHT];
     }
 
+    public void setScalableListener(BaseScalable scalableListener)
+    {
+        this.scalableListener = scalableListener;
+    }
 }

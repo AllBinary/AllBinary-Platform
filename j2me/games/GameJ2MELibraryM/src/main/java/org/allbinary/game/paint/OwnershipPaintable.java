@@ -56,8 +56,8 @@ public class OwnershipPaintable extends Paintable
         
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         int halfWidth = displayInfo.getLastHalfWidth();
-        int height = graphics.getClipHeight();
-        //displayInfo.getLastHeight()
+        //int height = graphics.getClipHeight();
+        int height = displayInfo.getLastHeight();
 
         Font font = graphics.getFont();
 
