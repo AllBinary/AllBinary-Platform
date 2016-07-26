@@ -274,8 +274,7 @@ public class ScrollSelectionForm extends PaintableForm
     
     public boolean isInForm(GPoint point)
     {
-        //LogUtil.put(LogFactory.getInstance(
-        //"Checking: Rectangle: " + this.rectangle + " to " + point, this, "isInForm"));
+        //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, "isInForm"));
 
         //- halfBorder
         if (RectangleCollisionUtil.isInside(
