@@ -53,7 +53,6 @@ public class PreLogUtil
     }
     
     private static final String LABEL = "allbinary";
-    private static final String EMPTY = "Empty";
     private final static String LOG_SUCCESS = "Logging Successful: ";
 
     public synchronized static void put(
@@ -62,17 +61,18 @@ public class PreLogUtil
         String functionName,
         Throwable exception)
     {
-        String className = EMPTY;
+        String className = LABEL;
         
-        if(object.getClass().getName() != null)
+        String actualClassName = object.getClass().getName();
+        if(actualClassName != null)
         {
-            className = new String(object.getClass().getName());
+            className = actualClassName;
         }
         
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        android.util.Log.i(LABEL, LOG_SUCCESS + message);
+        android.util.Log.i(className, LOG_SUCCESS + message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
     }
@@ -94,7 +94,7 @@ public class PreLogUtil
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
         
-        android.util.Log.i(LABEL, LOG_SUCCESS + message);
+        android.util.Log.i(className, LOG_SUCCESS + message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
     }
