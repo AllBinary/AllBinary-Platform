@@ -40,13 +40,31 @@ public class DisplayInfoSingleton
 
     private int top;
     private int left;
+    private int xOffset;
+    private int yOffset;
 
-    private float scaleLargestTo = 720;
-
+    private float scaleLargestTo = 640;
+    //640
+    /*
+    Test Android Scaling resolutions
+        284
+        320
+        480
+        720
+        1024
+        1920
+        2550
+        3000
+        4000
+    */
+    
     public final int WIDTH = 0;
     public final int HEIGHT = 1;
 
     private BaseScalable scalableListener = new BaseScalable();
+    
+    private float displayRatio;
+    private float ratio;
     
     public static final DisplayInfoSingleton getInstance()
     {
@@ -87,23 +105,24 @@ public class DisplayInfoSingleton
         this.scaleLargestTo = scaleLargestTo;
     }
 
+    private final String SET_LAST_SIZE_METHOD_NAME = "setLastSize";
+    
     public void setLastSize(int aLastWidth, int aLastHeight, String reason)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + reason, this, "setLastSize"));
-
-        int aFullWidth = aLastWidth;
-        int aFullHeight = aLastHeight;
-
-        LogUtil.put(LogFactory.getInstance(new StringBuilder()
-                .append(" aFullWidth: ").append(aFullWidth)
-                .append(" aFullHeight: ").append(aFullHeight)
-                .append(this.toString())
-                .toString(), this, "setLastSize"));
-
         if(this.full[WIDTH] != aLastWidth || this.full[HEIGHT] != aLastHeight)
         {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + reason, this, SET_LAST_SIZE_METHOD_NAME));
+            
+            int aFullWidth = aLastWidth;
+            int aFullHeight = aLastHeight;
 
-            LogUtil.put(LogFactory.getInstance("Changing", this, "setLastSize"));
+            LogUtil.put(LogFactory.getInstance(new StringBuilder()
+                    .append(" aFullWidth: ").append(aFullWidth)
+                    .append(" aFullHeight: ").append(aFullHeight)
+                    .append(this.toString())
+                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
+
+            //LogUtil.put(LogFactory.getInstance("Changing", this, SET_LAST_SIZE_METHOD_NAME));
 
             OperatingSystemInterface operatingSystemInterface
                     = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -120,9 +139,9 @@ public class DisplayInfoSingleton
                 {
                     if(aLastHeight > scaleLargestTo)
                     {
-                        final float displayRatio = scaleLargestTo / aLastHeight;
-                        final float ratio = aLastHeight / scaleLargestTo;
-                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, "setLastSize"));
+                        this.displayRatio = scaleLargestTo / aLastHeight;
+                        this.ratio = aLastHeight / scaleLargestTo;
+                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
                         this.scalableListener.scale(ratio);
@@ -131,9 +150,9 @@ public class DisplayInfoSingleton
                 {
                     if(aLastWidth > scaleLargestTo)
                     {
-                        final float displayRatio = scaleLargestTo / aLastWidth;
-                        final float ratio = aLastWidth / scaleLargestTo;
-                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, "setLastSize"));
+                        this.displayRatio = scaleLargestTo / aLastWidth;
+                        this.ratio = aLastWidth / scaleLargestTo;
+                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
                         this.scalableListener.scale(ratio);
@@ -144,10 +163,12 @@ public class DisplayInfoSingleton
             LogUtil.put(LogFactory.getInstance(new StringBuilder()
                     .append("aLastWidth: ").append(aLastWidth)
                     .append(" aLastHeight: ").append(aLastHeight)
-                    .toString(), this, "setLastSize"));
+                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
 
-            this.left = (aFullWidth - aLastWidth) >> 1;
-            this.top = (aFullHeight - aLastHeight) >> 1;
+            this.xOffset = aFullWidth - aLastWidth;
+            this.yOffset = aFullHeight - aLastHeight;
+            this.left = (xOffset) >> 1;
+            this.top = (yOffset) >> 1;
 
             this.full[WIDTH] = aFullWidth;
             this.full[HEIGHT] = aFullHeight;
@@ -157,7 +178,7 @@ public class DisplayInfoSingleton
             last[HEIGHT] = aLastHeight;
             lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
-            this.fire("setLastSize");
+            this.fire(SET_LAST_SIZE_METHOD_NAME);
         }
     }
 
@@ -182,7 +203,7 @@ public class DisplayInfoSingleton
 
     private final String FIRE_METHOD_NAME = "fire";
 
-    private void fire(String reason)
+    public void fire(String reason)
     {
         try
         {
@@ -206,8 +227,9 @@ public class DisplayInfoSingleton
         
         LogUtil.put(LogFactory.getInstance(new StringBuilder()
                 .append(CommonStrings.getInstance().START_LABEL).append(reason)
-                .append("aLastWidth: ").append(aLastWidth)
+                .append(" aLastWidth: ").append(aLastWidth)
                 .append(" aLastHeight: ").append(aLastHeight)
+                .append(CommonSeps.getInstance().SPACE)
                 .append(this.toString())
                 .toString(), this, "update"));
 
@@ -237,8 +259,8 @@ public class DisplayInfoSingleton
                     {
                         if(aLastHeight > scaleLargestTo)
                         {
-                            final float displayRatio = scaleLargestTo / aLastHeight;
-                            final float ratio = aLastHeight / scaleLargestTo;
+                            this.displayRatio = scaleLargestTo / aLastHeight;
+                            this.ratio = aLastHeight / scaleLargestTo;
                             LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, "update"));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
@@ -248,8 +270,8 @@ public class DisplayInfoSingleton
                     {
                         if(aLastWidth > scaleLargestTo)
                         {
-                            final float displayRatio = scaleLargestTo / aLastWidth;
-                            final float ratio = aLastWidth / scaleLargestTo;
+                            this.displayRatio = scaleLargestTo / aLastWidth;
+                            this.ratio = aLastWidth / scaleLargestTo;
                             LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, "update"));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
@@ -264,6 +286,8 @@ public class DisplayInfoSingleton
                         .append(" aLastHeight: ").append(aLastHeight)
                         .toString(), this, "update"));
 
+                this.xOffset = aFullWidth - aLastWidth;
+                this.yOffset = aFullHeight - aLastHeight;                
                 this.left = (aFullWidth - aLastWidth) >> 1;
                 this.top = (aFullHeight - aLastHeight) >> 1;
                 
@@ -298,6 +322,7 @@ public class DisplayInfoSingleton
         stringBuffer.append(FULL);
         stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
         stringBuffer.append(full[HEIGHT]);
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(LAST);
         stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
         stringBuffer.append(last[WIDTH]);
@@ -357,5 +382,42 @@ public class DisplayInfoSingleton
     public void setScalableListener(BaseScalable scalableListener)
     {
         this.scalableListener = scalableListener;
+    }
+
+    /**
+     * @return the ratio
+     */
+    public float getRatio()
+    {
+        return ratio;
+    }
+
+    /**
+     * @return the displayRatio
+     */
+    public float getDisplayRatio()
+    {
+        return displayRatio;
+    }
+    
+    public void setOffset(int left, int top)
+    {
+        this.left = left;
+    }
+
+    /**
+     * @return the xOffset
+     */
+    public int getxOffset()
+    {
+        return xOffset;
+    }
+
+    /**
+     * @return the yOffset
+     */
+    public int getyOffset()
+    {
+        return yOffset;
     }
 }
