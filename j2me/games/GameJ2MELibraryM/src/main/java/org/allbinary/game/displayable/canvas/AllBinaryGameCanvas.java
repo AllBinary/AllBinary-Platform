@@ -322,7 +322,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 // TouchButtonFactory.getInstance().toggle(this.isPaused(),
                 if(this.currentTouchInputFactory != null)
                 {
-                    TouchButtonFactory.getInstance().setList(this.currentTouchInputFactory.getList());
+                    TouchButtonFactory.getInstance().toggle(this.isPaused(), this.currentTouchInputFactory.getList());
                 }
 
                 // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, "onDisplayChangeEvent");
