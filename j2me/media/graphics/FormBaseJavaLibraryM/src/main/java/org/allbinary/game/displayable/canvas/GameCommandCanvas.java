@@ -184,7 +184,7 @@ public class GameCommandCanvas
             items,
             rectangle,
             FormTypeFactory.getInstance().VERTICAL_CENTER_FORM,
-            25, false,
+            15, false,
             this.backgroundBasicColor, this.foregroundBasicColor
             );
 

@@ -346,7 +346,7 @@ public class DemoCanvas extends RunnableCanvas
         this.setMenuForm(
             CommandCurrentSelectionFormFactory.getInstance(
                     StringUtil.getInstance().EMPTY_STRING, 
-                    items, rectangle, formType, 25, true,
+                    items, rectangle, formType, 15, true,
                     BasicColorFactory.getInstance().BLACK, 
                     BasicColorFactory.getInstance().WHITE));
 

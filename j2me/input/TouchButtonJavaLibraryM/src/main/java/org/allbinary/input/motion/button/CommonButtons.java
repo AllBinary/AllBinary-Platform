@@ -37,7 +37,7 @@ public class CommonButtons
         
         int commonButtonSize = 128;
 
-        while(commonButtonSize >= 64)
+        while(commonButtonSize > 64)
         {
             int totalColumns = displayInfo.getLastWidth() / commonButtonSize;
             int totalRows = displayInfo.getLastHeight() / commonButtonSize;        

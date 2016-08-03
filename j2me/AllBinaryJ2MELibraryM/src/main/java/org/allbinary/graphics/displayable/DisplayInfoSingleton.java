@@ -33,7 +33,9 @@ public class DisplayInfoSingleton
     private static final DisplayInfoSingleton SINGLETON = new DisplayInfoSingleton();
 
     public final String ORIENTATION = "ORIENTATION";
-
+    public final String ADJUSTING_FOR_SCALING_IN_PORTRAIT = "Adjusting for Scaling in portrait display ratio: ";
+    public final String ADJUSTING_FOR_SCALING_IN_LANDSCAPE = "Adjusting for Scaling in landscape display ratio: ";
+    
     private int[] last = new int[2];
     private int[] lastHalf = new int[2];
     private int[] full = new int[2];
@@ -141,7 +143,7 @@ public class DisplayInfoSingleton
                     {
                         this.displayRatio = scaleLargestTo / aLastHeight;
                         this.ratio = aLastHeight / scaleLargestTo;
-                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
+                        LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
                         this.scalableListener.scale(ratio);
@@ -152,7 +154,7 @@ public class DisplayInfoSingleton
                     {
                         this.displayRatio = scaleLargestTo / aLastWidth;
                         this.ratio = aLastWidth / scaleLargestTo;
-                        LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
+                        LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
                         this.scalableListener.scale(ratio);
@@ -231,7 +233,7 @@ public class DisplayInfoSingleton
                 .append(" aLastHeight: ").append(aLastHeight)
                 .append(CommonSeps.getInstance().SPACE)
                 .append(this.toString())
-                .toString(), this, "update"));
+                .toString(), this, CommonStrings.getInstance().UPDATE));
 
         if(aLastWidth > 0 && aLastHeight > 0)
         {
@@ -242,7 +244,7 @@ public class DisplayInfoSingleton
             {
                 LogUtil.put(LogFactory.getInstance(
                         new StringBuilder().append("Updating from Orientation Change")
-                        .toString(), this, "update"));
+                        .toString(), this, CommonStrings.getInstance().UPDATE));
 
                 OperatingSystemInterface operatingSystemInterface
                         = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -261,7 +263,7 @@ public class DisplayInfoSingleton
                         {
                             this.displayRatio = scaleLargestTo / aLastHeight;
                             this.ratio = aLastHeight / scaleLargestTo;
-                            LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in portrait display ratio: " + displayRatio, this, "update"));
+                            LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT + displayRatio, this, CommonStrings.getInstance().UPDATE));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale(ratio);
@@ -272,7 +274,7 @@ public class DisplayInfoSingleton
                         {
                             this.displayRatio = scaleLargestTo / aLastWidth;
                             this.ratio = aLastWidth / scaleLargestTo;
-                            LogUtil.put(LogFactory.getInstance("Adjusting for Scaling in landscape display ratio: " + displayRatio, this, "update"));
+                            LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE + displayRatio, this, CommonStrings.getInstance().UPDATE));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale(ratio);
@@ -284,7 +286,7 @@ public class DisplayInfoSingleton
                         new StringBuilder().append("Updating from Orientation Change -")
                         .append(" aLastWidth: ").append(aLastWidth)
                         .append(" aLastHeight: ").append(aLastHeight)
-                        .toString(), this, "update"));
+                        .toString(), this, CommonStrings.getInstance().UPDATE));
 
                 this.xOffset = aFullWidth - aLastWidth;
                 this.yOffset = aFullHeight - aLastHeight;                
