@@ -118,7 +118,7 @@ public class DisplayInfoSingleton
             int aFullWidth = aLastWidth;
             int aFullHeight = aLastHeight;
 
-            LogUtil.put(LogFactory.getInstance(new StringBuilder()
+            LogUtil.put(LogFactory.getInstance(new StringMaker()
                     .append(" aFullWidth: ").append(aFullWidth)
                     .append(" aFullHeight: ").append(aFullHeight)
                     .append(this.toString())
@@ -162,7 +162,7 @@ public class DisplayInfoSingleton
                 }
             }
 
-            LogUtil.put(LogFactory.getInstance(new StringBuilder()
+            LogUtil.put(LogFactory.getInstance(new StringMaker()
                     .append("aLastWidth: ").append(aLastWidth)
                     .append(" aLastHeight: ").append(aLastHeight)
                     .toString(), this, SET_LAST_SIZE_METHOD_NAME));
@@ -227,7 +227,7 @@ public class DisplayInfoSingleton
         int aFullWidth = aLastWidth;
         int aFullHeight = aLastHeight;
         
-        LogUtil.put(LogFactory.getInstance(new StringBuilder()
+        LogUtil.put(LogFactory.getInstance(new StringMaker()
                 .append(CommonStrings.getInstance().START_LABEL).append(reason)
                 .append(" aLastWidth: ").append(aLastWidth)
                 .append(" aLastHeight: ").append(aLastHeight)
@@ -243,7 +243,7 @@ public class DisplayInfoSingleton
             if(this.last[WIDTH] != aLastWidth || this.last[HEIGHT] != aLastHeight)
             {
                 LogUtil.put(LogFactory.getInstance(
-                        new StringBuilder().append("Updating from Orientation Change")
+                        new StringMaker().append("Updating from Orientation Change")
                         .toString(), this, CommonStrings.getInstance().UPDATE));
 
                 OperatingSystemInterface operatingSystemInterface
@@ -283,7 +283,7 @@ public class DisplayInfoSingleton
                 }
 
                 LogUtil.put(LogFactory.getInstance(
-                        new StringBuilder().append("Updating from Orientation Change -")
+                        new StringMaker().append("Updating from Orientation Change -")
                         .append(" aLastWidth: ").append(aLastWidth)
                         .append(" aLastHeight: ").append(aLastHeight)
                         .toString(), this, CommonStrings.getInstance().UPDATE));

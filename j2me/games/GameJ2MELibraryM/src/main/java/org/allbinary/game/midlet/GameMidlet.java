@@ -107,15 +107,21 @@ import org.allbinary.util.BasicArrayList;
 public class GameMidlet extends ProgressMidlet
     implements CommandListener //, GameMidletEventListener
 {
-    private GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface;
-    private Thread thread;
+    private final String DISPLAYABLE = " Displayable: ";
+    private final String COMMAND_NAME = "command Name/Label: ";
+    private final String COMMAND_ACTION = "GameMidlet::" + MidletStrings.getInstance().COMMAND_ACTION;
+    
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
     private final TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(2200);
+
+    private final DebugInterface debugInterface;
+    
+    private GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface;
+    private Thread thread;
 
     // Screens/Canvas
     //private CommandForm saveGameForm;
     private LoadGameForm loadGameForm;
-    private final DebugInterface debugInterface;
     private boolean isFullScreen;
     private boolean resized;
     
@@ -348,11 +354,13 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            final String COMMAND_ACTION = MidletStrings.getInstance().COMMAND_ACTION;
             
-            //PreLogUtil.put(COMMAND_NAME + command.getLabel() +
-              //  " Displayable: " + displayable, this,
-                //"GameMidlet::commandAction");
+            String label = null;
+            if(command != null)
+            {
+                label = command.getLabel();
+            }
+            PreLogUtil.put(new StringMaker().append(COMMAND_NAME).append(label).append(DISPLAYABLE).append(displayable).toString(), this, this.COMMAND_ACTION);
 
             GameCommandsFactory gameCommandsFactory = 
                 GameCommandsFactory.getInstance();
