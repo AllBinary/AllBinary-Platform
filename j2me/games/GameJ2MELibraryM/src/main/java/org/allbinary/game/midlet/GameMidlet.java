@@ -109,6 +109,8 @@ public class GameMidlet extends ProgressMidlet
 {
     private final String DISPLAYABLE = " Displayable: ";
     private final String COMMAND_NAME = "command Name/Label: ";
+    private final String NO_COMMAND = "No Command";
+    private final String NO_DISPLAYABLE = "No Displayable";
     private final String COMMAND_ACTION = "GameMidlet::" + MidletStrings.getInstance().COMMAND_ACTION;
     
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
@@ -354,13 +356,19 @@ public class GameMidlet extends ProgressMidlet
     {
         try
         {
-            
-            String label = null;
+            String displayableAsString = NO_DISPLAYABLE;
+            if(displayable != null)
+            {
+                 displayableAsString = displayable.toString();
+            }
+
+            String label = NO_COMMAND;
             if(command != null)
             {
                 label = command.getLabel();
             }
-            PreLogUtil.put(new StringMaker().append(COMMAND_NAME).append(label).append(DISPLAYABLE).append(displayable).toString(), this, this.COMMAND_ACTION);
+
+            PreLogUtil.put(new StringMaker().append(COMMAND_NAME).append(label).append(DISPLAYABLE).append(displayableAsString).toString(), this, this.COMMAND_ACTION);
 
             GameCommandsFactory gameCommandsFactory = 
                 GameCommandsFactory.getInstance();
