@@ -45,6 +45,16 @@ public class AllBinarySpriteRotationAnimationFactory
       //this.height = frameSize;
    }
 
+   public AllBinarySpriteRotationAnimationFactory(Image image, String nullish)
+           throws Exception {
+      //90 degrees per row with 4 rows
+      //Future imp may include Control fidelity for non square frames
+       super(image, (image.getHeight()), (image.getHeight()));
+      //int frameSize = (image.getHeight() >> 2);
+      //this.width = frameSize;
+      //this.height = frameSize;
+   }
+   
    public Animation getInstance()
       throws Exception 
    {

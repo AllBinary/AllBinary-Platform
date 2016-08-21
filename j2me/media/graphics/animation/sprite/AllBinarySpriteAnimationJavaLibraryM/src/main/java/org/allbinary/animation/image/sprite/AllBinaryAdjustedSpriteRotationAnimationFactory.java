@@ -32,5 +32,10 @@ public class AllBinaryAdjustedSpriteRotationAnimationFactory
            throws Exception {
       this(image, 0, 0);
    }
+
+   public AllBinaryAdjustedSpriteRotationAnimationFactory(Image image, String nullish)
+           throws Exception {
+      super(image, nullish);
+   }
    
 }
