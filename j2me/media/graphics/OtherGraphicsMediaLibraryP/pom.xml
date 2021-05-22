@@ -87,7 +87,7 @@
 
         <dependency>
             <groupId>org.microemu</groupId>
-            <artifactId>microemulator</artifactId>
+            <artifactId>microemu-midp</artifactId>
             <version>3.0.0-SNAPSHOT</version>
         </dependency>
         <dependency>

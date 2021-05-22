@@ -130,7 +130,7 @@
 
                     <exclusions>
                         <exclusion>
-                            <groupId>org.microemu</groupId><artifactId>microemulator</artifactId>
+                            <groupId>org.microemu</groupId><artifactId>microemu-midp</artifactId>
                         </exclusion>
                         <exclusion>
                             <groupId>org.microemu</groupId><artifactId>microemu-jsr-135</artifactId>
