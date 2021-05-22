@@ -33,8 +33,6 @@
         <module>../AllBinaryCoreJavaLibraryM</module>        
         -->
 
-        <module>../../allbinary_src/logic/data/file/FileUnamedJavaLibraryM</module>
-
         <module>../../allbinary_src/AllBinaryOSGIJavaLibraryM</module>
 
         <module>../../graphics/ImageComparisonJavaLibraryM</module>

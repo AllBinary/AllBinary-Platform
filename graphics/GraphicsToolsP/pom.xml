@@ -35,11 +35,7 @@
         <module>../AllBinaryGraphicsUserInterfaceJavaLibraryM</module>
         
         <module>../../allbinary_src/logging/GUILoggingM</module>
-        
-        <module>../ColorJavaLibraryM</module>
-        
-        <module>../ImageJavaLibraryM</module>
-        
+                
         <module>../AllBinaryGraphicsJavaApplicationM</module>
         
         <module>../ImageToolJavaApplicationM</module>

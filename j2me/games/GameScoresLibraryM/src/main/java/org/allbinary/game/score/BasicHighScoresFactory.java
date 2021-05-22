@@ -68,7 +68,9 @@ implements HighScoresFactoryInterface
                     gameInfo = BasicHighScoresGameInfoFactory.getInstance().MULTI_PLAYER_SERVER;
             }
             
-            highScoresArray[1] = RemoteHighScores.getInstance(
+            highScoresArray[1] = 
+                    //RemoteErrorHighScoresSingletonFactory.getInstance();
+                    RemoteHighScores.getInstance(
                     this.softwareInformation, gameInfo,
                     WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE);
 

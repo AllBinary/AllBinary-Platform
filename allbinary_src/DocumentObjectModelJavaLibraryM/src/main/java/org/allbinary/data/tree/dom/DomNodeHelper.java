@@ -13,7 +13,7 @@
 */
 package org.allbinary.data.tree.dom;
 
-import javax.xml.soap.Text;
+//import javax.xml.soap.Text;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

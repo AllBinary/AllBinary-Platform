@@ -26,6 +26,7 @@ public class AndroidInfoFactory
     
     private final int version = Integer.parseInt(Build.VERSION.SDK);
     //int SDK_VERSION = Build.VERSION.SDK_INT;
+    //https://source.android.com/source/build-numbers
     
     public int getVersion()
     {

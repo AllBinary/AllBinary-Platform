@@ -42,9 +42,7 @@
         <module>../../../../working_thirdparty/communication/XmlRpc/XmlRpcJavaLibraryM</module>
         -->
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
-        <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
         <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
-        <module>../../TempIntegrationJavaLibraryM</module>
 
         <module>../../DebugJavaLibraryM</module>                
         <module>../../ResourceLibraryM</module>
@@ -154,8 +152,6 @@
         <module>../../media/graphics/layer/AllBinaryLayerJavaLibraryM</module>
 
         <module>../../ScreenCaptureNoneJavaLibraryM</module>
-
-        <module>../../../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
         
         <module>../licensing/GameLicensingNullJavaLibraryM</module>
         

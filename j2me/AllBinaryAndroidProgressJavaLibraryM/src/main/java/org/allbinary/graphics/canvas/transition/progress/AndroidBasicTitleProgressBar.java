@@ -212,6 +212,14 @@ implements DisplayChangeEventListener
             }
 
         }
+        catch (IllegalArgumentException e)
+        {
+            LogUtil.put(LogFactory.getInstance(
+                    "IllegalArgumentException "
+                            + ExceptionUtil.getInstance().getStackTrace(e), this,
+                    "loadProgressImages"));
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
+        }
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(

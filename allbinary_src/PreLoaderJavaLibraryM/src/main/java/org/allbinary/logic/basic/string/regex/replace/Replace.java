@@ -31,29 +31,29 @@ public class Replace
       hashMap = new HashMap();
       this.hashMap.put(key,value);      
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
-      {
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
+      //{
          LogUtil.put(LogFactory.getInstance("Replacers: " + this.hashMap.toString(),this,"all()"));
          //LogUtil.put(LogFactory.getInstance("Replacers: key=" + key + " value=" + value,this,"all()"));
-      }
+      //}
    }
    
    public Replace(HashMap hashMap)
    {      
       this.hashMap=hashMap;
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE_INFO))
-      {
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE_INFO))
+      //{
          LogUtil.put(LogFactory.getInstance("Replacers: " + this.hashMap.toString(),this,"all()"));
-      }
+      //}
    }
    
    public String all(String replace)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
-      {
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
+      //{
          LogUtil.put(LogFactory.getInstance("Replacers: " + this.hashMap.toString(),this,"all()"));
-      }
+      //}
 
       StringBuffer newStringBuffer = new StringBuffer();
 
@@ -98,15 +98,15 @@ public class Replace
          }
       }
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
-      {
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
+      //{
          LogUtil.put(LogFactory.getInstance("Replace Result: " + replace,this,"all()"));
-      }
+      //}
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
-      {
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
+      //{
          LogUtil.put(LogFactory.getInstance("Total Number Of Replaces: " + totalNumberOfReplaces, this, "all()"));
-      }
+      //}
       
       return replace;
    }

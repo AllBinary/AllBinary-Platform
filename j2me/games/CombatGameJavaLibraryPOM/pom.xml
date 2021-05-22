@@ -47,10 +47,6 @@
         <module>../../games/PartsJavaLibraryM</module>
         <module>../../games/PickupGameJavaLibraryM</module>
 
-        <module>../../../allbinary_src/logic/data/file/FileJavaLibraryM</module>
-        <module>../../../allbinary_src/data/DataJavaLibraryM</module>
-
-        <module>../../../allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/HardCodedLicenseInitInfoJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
@@ -58,7 +54,6 @@
         <!--
         -->
         <module>../../../allbinary_src/licensing/TestClientInfoJavaLibraryM</module>
-        <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
 
         <module>../../games/licensing/PartnerJ2MEJavaLibraryM</module>
         <module>../../games/licensing/PartnerHTMLJavaLibraryM</module>
@@ -137,7 +132,6 @@
         <module>../../../allbinary_src/licensing/ApplicationConfigurationJavaLibraryM</module>
         <module>../../input/AllBinaryMagneticFieldSensorJavaLibraryM</module>
         <module>../../android/VirtualKeyboardJavaLibraryM</module>
-        <module>../../../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
 
     </modules>
 

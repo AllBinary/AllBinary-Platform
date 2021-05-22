@@ -34,14 +34,13 @@
         -->
         <module>./j2me/AllBinaryBaseLibraryPOM</module>
         <module>./j2me/AllBinaryJ2MELibraryP</module>
-        <module>./allbinary_src/cache/AllBinaryCacheLibraryM</module>
-        <module>./graphics/GraphicsToolsP</module>
+        <module>./AllBinaryPersistenceLibraryP</module>
+
         <module>./automation/InputAutomationToolsP</module>
-        <module>./allbinary_src/licensing/LicenseClientJavaLibraryM</module>
-        <module>./allbinary_src/PreLoaderJavaLibraryM</module>
+        <module>./graphics/GraphicsToolsP</module>
         <module>./allbinary_src/BlisketJavaLibraryP</module>
         <module>./j2me/games/platform/AllBinaryOnAllPlaformsJavaLibraryP</module>
-
+        <module>AllBinaryPersistenceLibraryP</module>
     </modules>
 
     <dependencies>
