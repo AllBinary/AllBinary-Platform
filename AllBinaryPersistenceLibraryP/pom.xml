@@ -33,6 +33,7 @@
         <module>../allbinary_src/cache/AllBinaryCacheLibraryM</module>        
         <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryM</module>
         <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryM</module>
+        <module>../allbinary_src/PreLoaderJavaLibraryM</module>
         <module>../allbinary_src/PreLoaderFileJavaLibraryM</module>
         <module>../j2me/TempIntegrationJavaLibraryM</module>
         <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
