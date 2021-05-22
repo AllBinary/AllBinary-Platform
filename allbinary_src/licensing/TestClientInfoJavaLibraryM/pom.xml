@@ -129,19 +129,13 @@
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>J2MEExceptionModule</artifactId>
-                                <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
+                                <version>1.0.0-SNAPSHOT</version>
                                 <library>true</library>
                             </inclusion>
                             <inclusion>
                                 <groupId>org.allbinary</groupId>
                                 <artifactId>LogModule</artifactId>
-                                <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
+                                <version>1.0.0-SNAPSHOT</version>
                                 <library>true</library>
                             </inclusion>
                         </inclusions>
