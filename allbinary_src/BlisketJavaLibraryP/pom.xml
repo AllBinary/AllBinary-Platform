@@ -111,6 +111,7 @@
         <module>../WorkflowBaseJavaLibraryM</module>
         <module>../WorkflowJavaLibraryM</module>
 
+        <module>../IdGeneratorUsingFilesJavaLibraryM</module>
         <module>../BlisketPreVOJavaLibraryM</module>
 
         <!-- 

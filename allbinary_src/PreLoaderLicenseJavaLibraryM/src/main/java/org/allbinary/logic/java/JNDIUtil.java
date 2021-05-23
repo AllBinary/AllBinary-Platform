@@ -17,11 +17,12 @@ import javax.naming.Context;
 import javax.naming.NameClassPair;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
-import org.omg.CosNaming.NamingContext;
+//import org.omg.CosNaming.NamingContext;
 
 public class JNDIUtil
 {
 
+    /*
     public static void printNamingEnumerationPair(
         Context ctx, String spaces)
         throws NamingException
@@ -42,6 +43,7 @@ public class JNDIUtil
             }
         }
     }
+    */
 
     /*
      *
