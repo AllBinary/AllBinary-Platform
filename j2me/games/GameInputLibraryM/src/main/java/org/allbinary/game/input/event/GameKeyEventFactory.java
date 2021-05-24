@@ -16,6 +16,9 @@ package org.allbinary.game.input.event;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class GameKeyEventFactory
 {
@@ -26,8 +29,13 @@ public class GameKeyEventFactory
         return instance;
     }
 
-    private final int MAX_SOURCES = 3;
+    public final int TOUCH_BUTTON_SOURCE_ID = 2;
+    public final int MOTION_GESTURE_SOURCE_ID = 3;
+    
+    private final int MAX_SOURCES = 4;
 
+    //private final String SOURCE_ID = "sourceId";    
+    
     private GameKeyEvent[][] ARRAY = new GameKeyEvent[MAX_SOURCES][InputFactory.getInstance().MAX];
     //private GameKeyEvent[] ARRAY = new GameKeyEvent[MAX];
 
@@ -60,6 +68,8 @@ public class GameKeyEventFactory
             GameKeyEventSourceInterface object, int key)
     throws Exception
     {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, SOURCE_ID + object.getSourceId()));
+
         GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][key];
         //GameKeyEvent gameKeyEvent = ARRAY[key];
         //gameKeyEvent.init(object);
@@ -70,6 +80,8 @@ public class GameKeyEventFactory
             GameKeyEventSourceInterface object, Input input)
     throws Exception
     {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL, this, SOURCE_ID + object.getSourceId()));
+
         GameKeyEvent gameKeyEvent = ARRAY[object.getSourceId()][input.getId()];
         //GameKeyEvent gameKeyEvent = ARRAY[gameKey.getKey().intValue()];
         //gameKeyEvent.init(object);

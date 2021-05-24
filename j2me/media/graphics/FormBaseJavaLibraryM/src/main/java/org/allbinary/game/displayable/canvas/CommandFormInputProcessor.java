@@ -26,6 +26,7 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.form.CommandCurrentSelectionForm;
@@ -41,6 +42,8 @@ import org.allbinary.time.TimeDelayHelper;
 //In general allow scrolling of the menu and selection the center item
 public class CommandFormInputProcessor extends BasicMenuInputProcessor
 {
+   private final int MOTION_GESTURE_SOURCE_ID = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
+    
    private final int CLICK_DELAY = 150;
    private TimeDelayHelper clickTimeHelper = new TimeDelayHelper(CLICK_DELAY);
    private final int DOUBLE_CLICK_DELAY = 1200;
@@ -139,11 +142,14 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
              * this.addForRemoval(gameKeyEvent); }
              */
 
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processInput - GameKeyEvent source: " + gameKeyEvent.getSourceId()));
             // LogUtil.put(LogFactory.getInstance("CommonStrings.getInstance().START_LABEL + "Canvas." +
             // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
-            if (this.processInput(key) == 1)
+            if(gameKeyEvent.getSourceId() != MOTION_GESTURE_SOURCE_ID)
             {
-               break;
+                if (this.processInput(key) == 1) {
+                    break;
+                }
             }
          }
 

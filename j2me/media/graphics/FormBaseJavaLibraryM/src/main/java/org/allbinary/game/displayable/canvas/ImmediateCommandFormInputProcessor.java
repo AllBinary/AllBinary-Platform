@@ -42,7 +42,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onPressGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onPressGameKeyEvent: " + gameKeyEvent.getSourceId()));
             //PreLogUtil.put(CommonStrings.getInstance().START, this, "onPressGameKeyEvent");
 
             super.onPressGameKeyEvent(gameKeyEvent);
@@ -63,7 +63,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDownGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDownGameKeyEvent: " + gameKeyEvent.getSourceId()));
             //PreLogUtil.put(CommonStrings.getInstance().START, this, "onDownGameKeyEvent");
 
             super.onDownGameKeyEvent(gameKeyEvent);
@@ -84,6 +84,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onUpGameKeyEvent: " + gameKeyEvent.getSourceId()));
             //PreLogUtil.put(CommonStrings.getInstance().START, this, "onUpGameKeyEvent");
             
             super.onUpGameKeyEvent(gameKeyEvent);
@@ -104,6 +105,7 @@ public class ImmediateCommandFormInputProcessor
     {
         try
         {
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onMotionGestureEvent: " + motionGestureEvent.getId()));
             //PreLogUtil.put(CommonStrings.getInstance().START, this, "onMotionGestureEvent");
             
             super.onMotionGestureEvent(motionGestureEvent);
