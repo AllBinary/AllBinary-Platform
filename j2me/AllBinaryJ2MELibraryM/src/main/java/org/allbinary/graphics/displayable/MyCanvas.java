@@ -52,7 +52,7 @@ public class MyCanvas extends Canvas
 
         //PreLogUtil.put("New W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
 
-        DisplayInfoSingleton displayInfo =
+        final DisplayInfoSingleton displayInfo =
             DisplayInfoSingleton.getInstance();
 
         displayInfo.update(this, "setFullScreenMode");
@@ -60,7 +60,7 @@ public class MyCanvas extends Canvas
 
     protected void sizeChanged(int w, int h)
     {
-        DisplayInfoSingleton displayInfo =
+        final DisplayInfoSingleton displayInfo =
             DisplayInfoSingleton.getInstance();
 
         displayInfo.update(this, "sizeChanged");

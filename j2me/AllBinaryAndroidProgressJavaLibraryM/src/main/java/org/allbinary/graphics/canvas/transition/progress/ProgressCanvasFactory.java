@@ -13,8 +13,8 @@
 */
 package org.allbinary.graphics.canvas.transition.progress;
 
-import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.basic.string.StringUtil;
 
 public class ProgressCanvasFactory {
 
@@ -24,7 +24,9 @@ public class ProgressCanvasFactory {
                 BasicColorFactory.getInstance().BLACK, 
                 BasicColorFactory.getInstance().WHITE);
         // new AndroidProgressDialog(StringUtil.getInstance());
-        // new ProgressCanvas(StringUtil.getInstance());
+         //new ProgressCanvas(StringUtil.getInstance().EMPTY_STRING, 
+                //BasicColorFactory.getInstance().BLACK, 
+                //BasicColorFactory.getInstance().WHITE);
     
     public static ProgressCanvas getInstance()
     {

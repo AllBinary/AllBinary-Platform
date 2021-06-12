@@ -3,6 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
     <artifactId>OpenGLESJavaLibrary</artifactId>
+    <!-- gl.gl OpenGLES Calls -->
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
