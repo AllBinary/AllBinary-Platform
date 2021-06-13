@@ -26,7 +26,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
-import org.allbinary.animation.image.AllBinaryImageAnimation;
 
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
@@ -40,6 +39,7 @@ import org.allbinary.image.ImageScaleUtil;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 import android.app.Activity;
+import org.allbinary.animation.image.AllBinaryImageAnimation;
 import org.allbinary.data.resource.ResourceUtil;
 
 public class AndroidBasicTitleProgressBar 
@@ -439,6 +439,8 @@ implements DisplayChangeEventListener
     {
         try
         {
+            //LogUtil.put(LogFactory.getInstance(StringUtil.getInstance().EMPTY_STRING, this, "paint"));
+            
             // Only show background when not loading in the background
             animation.paint(graphics, 0, 20);
 
