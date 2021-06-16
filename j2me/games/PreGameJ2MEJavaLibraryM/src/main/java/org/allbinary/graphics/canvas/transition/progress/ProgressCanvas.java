@@ -27,6 +27,7 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.PaintableInterface;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.midlet.AllBinaryMidlet;
 
@@ -144,7 +145,7 @@ public class ProgressCanvas extends RunnableCanvas
     {
         //CommonStrings.getInstance().START_LABEL + 
         //LogUtil.put(LogFactory.getInstance(this.text, this, ADD_PORTION));
-        //PreLogUtil.put(this.text, this, ADD_PORTION);
+        PreLogUtil.put(this.text, this, ADD_PORTION);
         
         this.setText(text + SmallIntegerSingletonFactory.getInstance().getInstance(index));
 
@@ -158,7 +159,7 @@ public class ProgressCanvas extends RunnableCanvas
     {
         //CommonStrings.getInstance().START_LABEL + 
         //LogUtil.put(LogFactory.getInstance(text, this, ADD_PORTION));
-        //PreLogUtil.put(text, this, ADD_PORTION);
+        PreLogUtil.put(text, this, ADD_PORTION);
 
         this.setText(text);
 
