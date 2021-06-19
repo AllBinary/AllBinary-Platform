@@ -25,10 +25,11 @@ import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.opengles.TextureFactory;
 
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class OpenGLESGL10Image extends OpenGLESImage
 {
-    private FloatBuffer textureVertexFloatBuffer = 
+    private final FloatBuffer textureVertexFloatBuffer = 
         ByteBuffer.allocateDirect(4 * 4 * 2).order(
             ByteOrder.nativeOrder()).asFloatBuffer();
     
@@ -37,6 +38,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
         super(image);
         
         this.init();
+        
+        this.regionRectangleVertexFloatBuffer.put(FloatBuffer.wrap(regionRectangleFloatArray));
+        this.regionTextureVertexFloatBuffer.put(FloatBuffer.wrap(regionTextureRectangleFloatArray));
     }
 
     /*
@@ -124,16 +128,16 @@ public class OpenGLESGL10Image extends OpenGLESImage
     protected final float[] regionRectangleFloatArray = 
             //new float[12];
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    protected FloatBuffer regionRectangleVertexFloatBuffer = 
-            FloatBuffer.wrap(regionRectangleFloatArray);
-            //ByteBuffer.allocateDirect(4 * 4 * 3)
-                //.order(ByteOrder.nativeOrder()).asFloatBuffer();
+    protected final FloatBuffer regionRectangleVertexFloatBuffer = 
+            //FloatBuffer.wrap(regionRectangleFloatArray);
+            ByteBuffer.allocateDirect(4 * 4 * 3)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
 
     private final float[] regionTextureRectangleFloatArray = new float[8];
-    private FloatBuffer regionTextureVertexFloatBuffer =
-        FloatBuffer.wrap(regionTextureRectangleFloatArray);
-        //ByteBuffer.allocateDirect(4 * 4 * 2).order(
-          //ByteOrder.nativeOrder()).asFloatBuffer();
+    private final FloatBuffer regionTextureVertexFloatBuffer =
+        //FloatBuffer.wrap(regionTextureRectangleFloatArray);
+        ByteBuffer.allocateDirect(4 * 4 * 2).order(
+          ByteOrder.nativeOrder()).asFloatBuffer();
 
     public void drawRegion(GL10 gl, int viewHeight, 
             float x_src, float y_src, 
@@ -339,7 +343,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
         //regionRectangleVertexFloatBuffer.rewind();
         
         //textureVertexFloatBuffer.rewind();
-                
+
+        PreLogUtil.put("regionRectangleVertexFloatBuffer: " + regionRectangleVertexFloatBuffer, this, "draw");
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 

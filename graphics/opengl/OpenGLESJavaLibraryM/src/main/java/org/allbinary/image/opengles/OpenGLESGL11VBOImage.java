@@ -37,6 +37,9 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         super(image);
         
         this.init();
+        
+        this.regionRectangleVertexFloatBuffer.put(FloatBuffer.wrap(regionRectangleFloatArray));
+        this.regionTextureVertexFloatBuffer.put(FloatBuffer.wrap(regionTextureRectangleFloatArray));        
     }
 
     /*
@@ -125,15 +128,15 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
             //new float[12];
         { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
     protected FloatBuffer regionRectangleVertexFloatBuffer = 
-            FloatBuffer.wrap(regionRectangleFloatArray);
-            //ByteBuffer.allocateDirect(4 * 4 * 3)
-                //.order(ByteOrder.nativeOrder()).asFloatBuffer();
+        //FloatBuffer.wrap(regionRectangleFloatArray);
+        ByteBuffer.allocateDirect(4 * 4 * 3)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
 
     private final float[] regionTextureRectangleFloatArray = new float[8];
     private FloatBuffer regionTextureVertexFloatBuffer =
-        FloatBuffer.wrap(regionTextureRectangleFloatArray);
-        //ByteBuffer.allocateDirect(4 * 4 * 2).order(
-          //ByteOrder.nativeOrder()).asFloatBuffer();
+        //FloatBuffer.wrap(regionTextureRectangleFloatArray);
+        ByteBuffer.allocateDirect(4 * 4 * 2)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
 
     public void drawRegion(GL10 gl, int viewHeight, 
             float x_src, float y_src, 
