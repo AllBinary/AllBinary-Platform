@@ -344,7 +344,6 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         //textureVertexFloatBuffer.rewind();
 
-        PreLogUtil.put("regionRectangleVertexFloatBuffer: " + regionRectangleVertexFloatBuffer, this, "draw");
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
