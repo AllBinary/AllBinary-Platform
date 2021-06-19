@@ -29,17 +29,19 @@ public class LogFormatUtil
         return instance;
     }
 
-    private final TimeStampUtil timeStampUtil = TimeStampUtil.getInstance();
+    //private final TimeStampUtil timeStampUtil = TimeStampUtil.getInstance();
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
 
 
     private final String NONE = "None";
     private final String LOG_ERROR = "\nLog-Error: ";
     private final String EMPTY = "Empty";
     private final String STACK_TRACE = "\nStack Trace: ";
-    private final String TIME = "Time: ";
-    private final String CLASS_NAME = "\nClass Name: ";
-    private final String FUNCTION_CALL = "\nFunction Call: ";
-    private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
+    //private final String TIME = "Time: ";
+    //private final String CLASS_NAME = "\nClass Name: ";
+    //private final String FUNCTION_CALL = "\nFunction Call: ";
+    //private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
+    private final String SPECIAL_MESSAGE = "\n Special Msg: ";
     
     private LogFormatUtil()
     {
@@ -54,7 +56,7 @@ public class LogFormatUtil
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
 
         //"\nClassLoader: " +  hashCode +
 
@@ -68,7 +70,7 @@ public class LogFormatUtil
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
 
         //"\nClassLoader: " +  hashCode +
 
@@ -88,12 +90,16 @@ public class LogFormatUtil
 
         //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
         StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(TIME);
-        stringBuffer.append(timeStampUtil.getAsString());
-        stringBuffer.append(CLASS_NAME);
-        stringBuffer.append(className);
-        stringBuffer.append(FUNCTION_CALL);
+        
+        stringBuffer.append(this.commonSeps.SPACE);
         stringBuffer.append(functionName);
+        
+        //stringBuffer.append(TIME);
+        //stringBuffer.append(timeStampUtil.getAsString());
+        //stringBuffer.append(CLASS_NAME);
+        //stringBuffer.append(className);
+        //stringBuffer.append(FUNCTION_CALL);
+        //stringBuffer.append(functionName);
 
         //"\nClassLoader: " +  hashCode +
 
