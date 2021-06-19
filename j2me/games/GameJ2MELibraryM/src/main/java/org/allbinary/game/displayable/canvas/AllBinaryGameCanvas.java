@@ -1323,6 +1323,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void paint(Graphics graphics)
     {
+        //PreLogUtil.put("AllBinaryGameCanvas", this, "paint");
+        
         //TWB - was in MyCanvas paint -- super.paint(graphics);
         baseGameStatistics.nextRefresh();
 

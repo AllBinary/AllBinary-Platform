@@ -567,6 +567,8 @@ public class DemoCanvas extends RunnableCanvas
 
     public void paint(Graphics graphics)
     {
+        //PreLogUtil.put("DemoCanvas", this, "paint");
+        
         // Draw Game
         this.paintableInterface.paint(graphics);
         
