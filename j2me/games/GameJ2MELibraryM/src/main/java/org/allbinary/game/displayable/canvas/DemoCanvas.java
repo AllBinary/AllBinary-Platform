@@ -866,12 +866,10 @@ public class DemoCanvas extends RunnableCanvas
         
         this.gameRunnable.run();
 
-        /*
-        if(runningTimeDelayHelper.isTime())
-        {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().RUNNING, this, CommonStrings.getInstance().RUN));
-        }
-        */
+        //if(runningTimeDelayHelper.isTime())
+        //{
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().RUNNING, this, CommonStrings.getInstance().RUN));
+        //}
 
         //Viewer Game is initialized and and
         //&& gameCanvasRunnableInterface.isInitialized()
@@ -932,6 +930,8 @@ public class DemoCanvas extends RunnableCanvas
             
             if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
             {
+                //PreLogUtil.put(CommonStrings.getInstance().START, this, "OPENGL_AS_GAME_THREAD");
+                
                 //Process as 2 threads until initialized - allows progress to update
                 while (gameCanvas == NullGameCanvas.getInstance() || !gameCanvas.isInitialized())
                 {
@@ -942,7 +942,7 @@ public class DemoCanvas extends RunnableCanvas
                     this.processLoopSleep();
                 }
                 
-                DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
+                final DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
                 
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
@@ -954,7 +954,9 @@ public class DemoCanvas extends RunnableCanvas
             if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) ||
                     features.isDefault(HTMLFeatureFactory.getInstance().HTML))
             {
-                DemoGameRunnable demoGameRunnable = new DemoGameRunnable(this);
+                //PreLogUtil.put(CommonStrings.getInstance().START, this, "OPENGL_AS_GAME_THREAD 2");
+
+                final DemoGameRunnable demoGameRunnable = new DemoGameRunnable(this);
                 
                 final CurrentDisplayableFactory currentDisplayableFactory = 
                         CurrentDisplayableFactory.getInstance();
@@ -963,6 +965,8 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
+                //PreLogUtil.put(CommonStrings.getInstance().START, this, "Starting Run Loop");
+                
                 while (this.isRunning())
                 {
                     this.getLoopTimeHelper().setStartTime();
