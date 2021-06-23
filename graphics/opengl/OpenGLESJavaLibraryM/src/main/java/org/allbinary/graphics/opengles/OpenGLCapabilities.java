@@ -14,6 +14,7 @@
 package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.khronos.opengles.GL11;
 
 import org.allbinary.image.opengles.OpenGLESGL10ImageFactory;
 import org.allbinary.image.opengles.OpenGLESGL11VBOImageFactory;
@@ -27,6 +28,8 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class OpenGLCapabilities
 {
@@ -49,6 +52,7 @@ public class OpenGLCapabilities
     public final String VERSION_UNK = "Unk";
     
     private String glVersion = this.glVersionString;
+    public String glInstanceVersion = VERSION_UNK;
     private boolean glExtensionDrawTexture;
     
     private boolean glThreedDrawTexture;
@@ -60,40 +64,39 @@ public class OpenGLCapabilities
     }
 
     public void initCapabilities(GL10 gl)
-    throws Exception
     {
-        Features features = Features.getInstance();
-        OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
-        
-        OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
-        
-        StringMaker stringBuffer = new StringMaker();
+        try {
+            Features features = Features.getInstance();
+            OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
 
-        glVersionString = gl.glGetString(GL10.GL_VERSION);
-        glRenderer = gl.glGetString(GL10.GL_RENDERER);
-        glVendor = gl.glGetString(GL10.GL_VENDOR);
-        glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
+            OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
 
-        if(glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
-        {
-            acceleratedString = "Probably Not";
-            possiblyAccelerated = false;
-        }
-        else
-        {
-            acceleratedString = "Probably";
-            possiblyAccelerated = true;
-        }
+            StringMaker stringBuffer = new StringMaker();
 
-        if(possiblyAccelerated)
-        {
-            if((this.glVersion != this.VERSION_1_0 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
+            glVersionString = gl.glGetString(GL10.GL_VERSION);
+            glRenderer = gl.glGetString(GL10.GL_RENDERER);
+            glVendor = gl.glGetString(GL10.GL_VENDOR);
+            glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
+
+            if (glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
             {
-                this.vertexBufferObjectSupport = true;
+                acceleratedString = "Probably Not";
+                possiblyAccelerated = false;
+            } else
+            {
+                acceleratedString = "Probably";
+                possiblyAccelerated = true;
             }
-        }
-        
-        /*
+
+            if (possiblyAccelerated)
+            {
+                if ((this.glVersion != this.VERSION_1_0 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
+                {
+                    this.vertexBufferObjectSupport = true;
+                }
+            }
+
+            /*
         class RendererSurfaceCreatedVisitor 
         implements VisitorInterface
         {
@@ -111,10 +114,9 @@ public class OpenGLCapabilities
                     }
             }
         }
-        */
-
-        //The device often reports that it does have it when it does not
-        /*
+             */
+            //The device often reports that it does have it when it does not
+            /*
         if(this.isExtension(openGLFeatureFactory.OPENGL_DRAW_TEXTURE))
         {
             this.glExtensionDrawTexture = true;
@@ -123,35 +125,37 @@ public class OpenGLCapabilities
         {
             this.glExtensionDrawTexture = false;
         }
-        */
-        this.glExtensionDrawTexture = false;
+             */
+            this.glExtensionDrawTexture = false;
 
-        if(this.glVersionString.indexOf(" 1.0") >= 0)
-        {
-            this.glVersion = this.VERSION_1_0;
-        }
-        else
-            if(this.glVersionString.indexOf(" 1.1") >= 0)
-        {
+            if (this.glVersionString.indexOf(" 1.0") >= 0)
+            {
+                this.glVersion = this.VERSION_1_0;
+            } else if (this.glVersionString.indexOf(" 1.1") >= 0)
+            {
                 this.glVersion = this.VERSION_1_1;
-        }
-            else
+            } else
             {
                 this.glVersion = this.VERSION_UNK;
             }
-        
-        if (features.isDefault(openGLFeatureFactory.OPENGL_AUTO_SELECT))
-        {
-            //if (GameFeatures.getInstance().isDefault(GameFeature.OPENGL_DRAW_TEXTURE))
-            //{
+
+            if(gl instanceof GL11) {
+                this.glInstanceVersion = this.VERSION_1_1;
+            } else if(gl instanceof GL11) {
+                this.glInstanceVersion = this.VERSION_1_0;
+            }
+            
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AUTO_SELECT))
+            {
+                //if (GameFeatures.getInstance().isDefault(GameFeature.OPENGL_DRAW_TEXTURE))
+                //{
                 //StupidTimer.visit(new RendererSurfaceCreatedVisitor());
 
-            if(this.isVertexBufferObjectSupport())
-            {
-                openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11VBOImageFactory());
-            }
-            else
-            	/*
+                if (this.isVertexBufferObjectSupport())
+                {
+                    openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11VBOImageFactory());
+                } else
+                /*
                 if(isGlExtensionDrawTexture())
                 {
                     stringBuffer.append("Found: ");
@@ -162,7 +166,7 @@ public class OpenGLCapabilities
                     openGLImageSpecificFactory.setImageFactory(new OpenGLESGL11ExtImageFactory());
                 }
                 else
-                */
+                 */
                 {
                     stringBuffer.append("OpenGL is on but ");
                     stringBuffer.append(openGLFeatureFactory.OPENGL_DRAW_TEXTURE);
@@ -172,20 +176,25 @@ public class OpenGLCapabilities
 
                     openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
                 }
-            //}
-        } else
-        {
-            stringBuffer.append(openGLFeatureFactory.OPENGL_AUTO_SELECT);
-            stringBuffer.append(" is not on");
-            
-            PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
-            
-            openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
-        }
+                //}
+            } else
+            {
+                stringBuffer.append(openGLFeatureFactory.OPENGL_AUTO_SELECT);
+                stringBuffer.append(" is not on");
 
-        //For now we will just use the poly version for opengl games
-        //this.glThreedDrawTexture = true;
-        //OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10RectangleImageFactory());
+                PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
+
+                openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
+            }
+
+            //For now we will just use the poly version for opengl games
+            //this.glThreedDrawTexture = true;
+            //OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10RectangleImageFactory());
+        }
+        catch (Exception e)
+        {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "initCapabilities", e));
+        }
     }
     
     private boolean isExtension(OpenGLFeature gameFeature)
