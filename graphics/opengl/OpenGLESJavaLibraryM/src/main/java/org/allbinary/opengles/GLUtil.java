@@ -13,13 +13,28 @@
  */
 package org.allbinary.opengles;
 
+import org.allbinary.graphics.opengles.OpenGLCapabilities;
+
 /**
  *
  * @author User
  */
 public class GLUtil
 {
-    public static org.allbinary.opengles.GL10 get(javax.microedition.khronos.opengles.GL10 gl) {
-        return new org.allbinary.opengles.GL10(gl);
+
+    public static org.allbinary.opengles.GL10 get(final javax.microedition.khronos.opengles.GL10 gl, final String glInstanceVersion)
+    {
+        final OpenGLCapabilities openGLCapabilities = OpenGLCapabilities.getInstance();
+        
+        if (glInstanceVersion == openGLCapabilities.VERSION_1_1)
+        {
+            return new org.allbinary.opengles.GL11((javax.microedition.khronos.opengles.GL11) gl);
+        } else if (glInstanceVersion == openGLCapabilities.VERSION_1_0)
+        {
+            return new org.allbinary.opengles.GL10(gl);
+        } else
+        {
+            return new org.allbinary.opengles.GL11((javax.microedition.khronos.opengles.GL11) gl);
+        }
     }
 }

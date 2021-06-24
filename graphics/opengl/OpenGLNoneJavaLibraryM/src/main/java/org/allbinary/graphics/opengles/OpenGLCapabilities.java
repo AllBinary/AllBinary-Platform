@@ -25,11 +25,17 @@ public class OpenGLCapabilities
     }
 
     private String glVersion = StringUtil.getInstance().EMPTY_STRING;
+    public String glInstanceVersion = StringUtil.getInstance().EMPTY_STRING;
 
     private OpenGLCapabilities()
     {
     }
 
+    public void initCapabilities(Object gl)
+    {
+        
+    }
+    
     public boolean isGlExtensionDrawTexture()
     {
         return false;
