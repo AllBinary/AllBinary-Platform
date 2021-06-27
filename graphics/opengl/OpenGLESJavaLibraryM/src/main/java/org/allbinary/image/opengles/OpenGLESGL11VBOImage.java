@@ -262,6 +262,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         textureVertexFloatBuffer.put(textureY1);
         */
 
+        regionRectangleVertexFloatBuffer.position(0);
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
@@ -271,6 +272,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
 
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
         
+        regionTextureVertexFloatBuffer.position(0);
         gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, regionTextureVertexFloatBuffer);
 
         // GLUtils.texSubImage2D(GL10.GL_TEXTURE_2D, 0, x_src, y_src,
@@ -342,7 +344,8 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         //regionRectangleVertexFloatBuffer.rewind();
         
         //textureVertexFloatBuffer.rewind();
-                
+
+        regionRectangleVertexFloatBuffer.position(0);
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
@@ -352,6 +355,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
 
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
         
+        textureVertexFloatBuffer.position(0);
         gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
 
         gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
