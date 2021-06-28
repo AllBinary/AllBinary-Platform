@@ -40,6 +40,8 @@ public class OpenGLCapabilities
         return instance;
     }
     
+    public final boolean CUSTOM_GL_SURFACE_VIEW = true;
+    
     private String glVersionString = StringUtil.getInstance().EMPTY_STRING;
     private String glRenderer = StringUtil.getInstance().EMPTY_STRING;
     private String glVendor = StringUtil.getInstance().EMPTY_STRING;
@@ -88,14 +90,6 @@ public class OpenGLCapabilities
                 possiblyAccelerated = true;
             }
 
-            if (possiblyAccelerated)
-            {
-                if ((this.glVersion != this.VERSION_1_0 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
-                {
-                    this.vertexBufferObjectSupport = true;
-                }
-            }
-
             /*
         class RendererSurfaceCreatedVisitor 
         implements VisitorInterface
@@ -141,8 +135,17 @@ public class OpenGLCapabilities
 
             if(gl instanceof GL11) {
                 this.glInstanceVersion = this.VERSION_1_1;
-            } else if(gl instanceof GL11) {
+            } else if(gl instanceof GL10) {
                 this.glInstanceVersion = this.VERSION_1_0;
+            }
+
+            if (possiblyAccelerated)
+            {
+                PreLogUtil.put("VBO:?" + (this.glInstanceVersion == this.VERSION_1_1) + "||" +  this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT), this, "initGLCapabilities");
+                if ((this.glInstanceVersion == this.VERSION_1_1 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
+                {
+                    //this.vertexBufferObjectSupport = true;
+                }
             }
             
             if (features.isDefault(openGLFeatureFactory.OPENGL_AUTO_SELECT))
