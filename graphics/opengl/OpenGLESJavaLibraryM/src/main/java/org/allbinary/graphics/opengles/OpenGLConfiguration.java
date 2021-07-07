@@ -60,6 +60,9 @@ public class OpenGLConfiguration
         
     private OpenGLConfiguration()
     {
+        //PreLogUtil.put(imageColor.getName(), this, "Constructor - imageColor - depth");
+        //PreLogUtil.put(color.getName(), this, "Constructor - color - depth");
+        
         try
         {
             if (FileFactory.getInstance().isFile(FILE))
@@ -401,6 +404,7 @@ public class OpenGLConfiguration
 
     public void setImageColor(OpenGLFeature imageColor)
     {
+        //PreLogUtil.put(imageColor.getName(), this, "setImageColor - depth");
         this.imageColor = imageColor;
     }
 
@@ -411,6 +415,7 @@ public class OpenGLConfiguration
 
     public void setColor(OpenGLFeature color)
     {
+        //PreLogUtil.put(imageColor.getName(), this, "setColor - depth");
         this.color = color;
     }
 
