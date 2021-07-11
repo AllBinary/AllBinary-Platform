@@ -70,7 +70,7 @@ public class TextureFactory extends BaseTextureFactory
     {
 
         return super.makeByteBuffer(bmp, ByteBuffer.allocateDirect(bmp.getHeight() * bmp.getWidth()
-                * 4), bmp.getHeight(), bmp.getWidth());
+                * 4).order?, bmp.getHeight(), bmp.getWidth());
     }
 
     protected int loadTexture(GL10 gl, int resource) {
