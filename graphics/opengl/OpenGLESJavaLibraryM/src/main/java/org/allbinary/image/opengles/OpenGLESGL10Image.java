@@ -25,6 +25,7 @@ import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.opengles.TextureFactory;
 
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class OpenGLESGL10Image extends OpenGLESImage
@@ -144,6 +145,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
             float width, float height, 
             int x, int y, int z)
     {
+        //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, "drawRegion");
+        
         this.regionRectangleFloatArray[0] = x;
         this.regionRectangleFloatArray[7] = viewHeight - y;
         this.regionRectangleFloatArray[1] = this.regionRectangleFloatArray[7] - height;
