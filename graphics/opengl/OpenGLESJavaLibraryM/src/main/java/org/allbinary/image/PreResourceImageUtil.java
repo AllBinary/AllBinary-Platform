@@ -13,6 +13,7 @@ import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class PreResourceImageUtil
 {
@@ -25,6 +26,7 @@ public class PreResourceImageUtil
 
     public Image encapsulate(Image image)
     {
+        //PreLogUtil.put((image != null) + " && " + !(image instanceof OpenGLESImage) + " && " + Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL), this, "encapsulate");
         if (image != null && !(image instanceof OpenGLESImage)
                 && Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
         {
