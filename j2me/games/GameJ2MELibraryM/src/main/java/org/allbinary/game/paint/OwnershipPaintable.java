@@ -22,6 +22,9 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class OwnershipPaintable extends Paintable
 {
@@ -50,19 +53,21 @@ public class OwnershipPaintable extends Paintable
 
     private int anchor = Anchor.TOP_LEFT;
     
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "paint"));
+        
         graphics.setColor(color);
         
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        int halfWidth = displayInfo.getLastHalfWidth();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final int halfWidth = displayInfo.getLastHalfWidth();
         //int height = graphics.getClipHeight();
-        int height = displayInfo.getLastHeight();
+        final int height = displayInfo.getLastHeight();
 
-        Font font = graphics.getFont();
+        final Font font = graphics.getFont();
 
-        int beginWidth = (font.stringWidth(COPYRIGHT) >> 1);
-
+        final int beginWidth = (font.stringWidth(COPYRIGHT) >> 1);
+        
         graphics.drawString(COPYRIGHT, halfWidth - beginWidth, height - COPYRIGHT_Y, anchor);
 
         /*
@@ -70,7 +75,7 @@ public class OwnershipPaintable extends Paintable
 
         graphics.drawString(COMPANY, halfWidth - beginWidth,
                 height - COMPANY_Y, anchor);
-        */
+        */        
     }
 
     public void setBasicColor(BasicColor basicColor)
