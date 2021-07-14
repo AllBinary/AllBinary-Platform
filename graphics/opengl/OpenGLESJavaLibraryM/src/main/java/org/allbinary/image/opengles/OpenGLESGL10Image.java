@@ -33,15 +33,26 @@ public class OpenGLESGL10Image extends OpenGLESImage
     private final FloatBuffer textureVertexFloatBuffer = 
         ByteBuffer.allocateDirect(4 * 4 * 2).order(
             ByteOrder.nativeOrder()).asFloatBuffer();
+
+    protected final float[] regionRectangleFloatArray = 
+            //new float[12];
+        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    protected final FloatBuffer regionRectangleVertexFloatBuffer = 
+            //FloatBuffer.wrap(regionRectangleFloatArray);
+            ByteBuffer.allocateDirect(4 * 4 * 3)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
+
+    private final float[] regionTextureRectangleFloatArray = new float[8];
+    private final FloatBuffer regionTextureVertexFloatBuffer =
+        //FloatBuffer.wrap(regionTextureRectangleFloatArray);
+        ByteBuffer.allocateDirect(4 * 4 * 2).order(
+          ByteOrder.nativeOrder()).asFloatBuffer();
     
     public OpenGLESGL10Image(Image image)
     {
         super(image);
         
         this.init();
-        
-        this.regionRectangleVertexFloatBuffer.put(FloatBuffer.wrap(regionRectangleFloatArray));
-        this.regionTextureVertexFloatBuffer.put(FloatBuffer.wrap(regionTextureRectangleFloatArray));
     }
 
     /*
@@ -126,20 +137,6 @@ public class OpenGLESGL10Image extends OpenGLESImage
         */        
     }
     
-    protected final float[] regionRectangleFloatArray = 
-            //new float[12];
-        { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    protected final FloatBuffer regionRectangleVertexFloatBuffer = 
-            //FloatBuffer.wrap(regionRectangleFloatArray);
-            ByteBuffer.allocateDirect(4 * 4 * 3)
-                .order(ByteOrder.nativeOrder()).asFloatBuffer();
-
-    private final float[] regionTextureRectangleFloatArray = new float[8];
-    private final FloatBuffer regionTextureVertexFloatBuffer =
-        //FloatBuffer.wrap(regionTextureRectangleFloatArray);
-        ByteBuffer.allocateDirect(4 * 4 * 2).order(
-          ByteOrder.nativeOrder()).asFloatBuffer();
-
     public void drawRegion(GL10 gl, int viewHeight, 
             float x_src, float y_src, 
             float width, float height, 
@@ -266,7 +263,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
         textureVertexFloatBuffer.put(textureY1);
         */
 
-        regionRectangleVertexFloatBuffer.position(0);
+        this.regionRectangleVertexFloatBuffer.put(this.regionRectangleFloatArray);
+        this.regionRectangleVertexFloatBuffer.position(0);
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
@@ -275,8 +273,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
         gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
 
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-        
-        regionTextureVertexFloatBuffer.position(0);
+
+        this.regionTextureVertexFloatBuffer.put(this.regionTextureRectangleFloatArray);
+        this.regionTextureVertexFloatBuffer.position(0);
         gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, regionTextureVertexFloatBuffer);
 
         // GLUtils.texSubImage2D(GL10.GL_TEXTURE_2D, 0, x_src, y_src,
@@ -349,7 +348,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         //textureVertexFloatBuffer.rewind();
 
-        regionRectangleVertexFloatBuffer.position(0);
+        this.regionRectangleVertexFloatBuffer.put(this.regionRectangleFloatArray);
+        this.regionRectangleVertexFloatBuffer.position(0);
         gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
 
@@ -358,8 +358,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
         gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
 
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-        
-        textureVertexFloatBuffer.position(0);
+
+        this.textureVertexFloatBuffer.position(0);
         gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
 
         gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
