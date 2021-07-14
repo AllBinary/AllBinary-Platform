@@ -24,13 +24,17 @@ public class PreResourceImageUtil
         return instance;
     }
 
-    public Image encapsulate(Image image)
+    private final Features features = Features.getInstance();
+    private final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+
+    public Image encapsulate(final Image image)
     {
         //PreLogUtil.put((image != null) + " && " + !(image instanceof OpenGLESImage) + " && " + Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL), this, "encapsulate");
-        if (image != null && !(image instanceof OpenGLESImage)
-                && Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
+        if (image != null && !(image instanceof OpenGLESImage) && 
+                (features.isDefault(openGLFeatureFactory.OPENGL) || features.isDefault(openGLFeatureFactory.OPENGL_SURFACE_VIEW))
+                )
         {
-            OpenGLImageFactory imageFactory = 
+            final OpenGLImageFactory imageFactory = 
                     OpenGLImageSpecificFactory.getInstance().getImageFactory();
 
             return imageFactory.getInstance(image);
@@ -41,12 +45,11 @@ public class PreResourceImageUtil
         }
     }
 
-    public void update(Graphics graphics, Image image)
+    public void update(final Graphics graphics, final Image image)
     {
         try
         {
-            if (Features.getInstance().isDefault(
-                    OpenGLFeatureFactory.getInstance().OPENGL))
+            if (this.features.isDefault(this.openGLFeatureFactory.OPENGL))
             {
                 ((OpenGLESImage) image).set(
                         ((OpenGLESGraphics) graphics).getGl());

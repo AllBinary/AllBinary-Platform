@@ -289,9 +289,9 @@ public class OpenGLConfiguration
     public void update(Feature gameFeature, boolean colorLocked)
     throws Exception
     {
-        Features features = Features.getInstance();
+        final Features features = Features.getInstance();
         
-        OpenGLFeatureFactory openGLFeatureFactory = 
+        final OpenGLFeatureFactory openGLFeatureFactory = 
             OpenGLFeatureFactory.getInstance();
         
         boolean modified = false;

@@ -30,6 +30,8 @@ public class OpenGLFeatureFactory
     public final OpenGLFeature OPENGL_OPTIONS = new OpenGLFeature("OpenGL Options");
 
     public final OpenGLFeature OPENGL = new OpenGLFeature("OpenGL");
+    
+    public final OpenGLFeature OPENGL_SURFACE_VIEW = new OpenGLFeature("GLSurfaceView");
 
     public final OpenGLFeature OPENGL_2D = new OpenGLFeature("OpenGL 2D");
     public final OpenGLFeature OPENGL_3D = new OpenGLFeature("OpenGL 3D");
