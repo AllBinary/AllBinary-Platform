@@ -68,38 +68,44 @@ public class TrueTypeFontUtil
 
     public Bitmap getFontBitmap(String filename, int fontSize, int cellSize, int cellsPerRow, BasicColor basicColor)
     {
-        int cellsPerRow2 = cellsPerRow * 2;
-        int cellsPerRow3 = cellsPerRow * 3;
-        int cellsPerRow4 = cellsPerRow * 4;
-        int cellsPerRow5 = cellsPerRow * 5;
-        int cellsPerRow6 = cellsPerRow * 6;
-        int cellsPerRow7 = cellsPerRow * 7;
+        final int cellsPerRow2 = cellsPerRow * 2;
+        final int cellsPerRow3 = cellsPerRow * 3;
+        final int cellsPerRow4 = cellsPerRow * 4;
+        final int cellsPerRow5 = cellsPerRow * 5;
+        final int cellsPerRow6 = cellsPerRow * 6;
+        final int cellsPerRow7 = cellsPerRow * 7;
 
-        Typeface typeface = Typeface.DEFAULT;
+        final Typeface typeface = Typeface.DEFAULT;
         // Typeface.createFromAsset(
         // ResourceUtil.getInstance().getContext().getAssets(),
         // filename);
 
         //Must make bitmap as texture for GL so it must be as a texture size. 
-        int textureSize = this.getAsTextureSize(cellsPerRow * cellSize);
+        final int textureSize = this.getAsTextureSize(cellsPerRow * cellSize);
 
-        Bitmap bitmap = Bitmap.createBitmap(
+        final Bitmap bitmap = Bitmap.createBitmap(
                 //cellsPerRow * cellSize, 8 * cellSize,
                 textureSize, textureSize, 
                 Bitmap.Config.ARGB_8888);
         // AndroidBitmapConfigUtil.get());
 
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
+        final Canvas canvas = new Canvas(bitmap);
+        final Paint paint = new Paint();
         paint.setTypeface(typeface);
         paint.setTextSize(fontSize);
-        paint.setARGB((int) (basicColor.getAlphaComponent() * 255),
-                (int) (basicColor.getRedComponent() * 255),
-                (int) (basicColor.getGreenComponent() * 255),
-                (int) (basicColor.getBlueComponent() * 255));
+        //paint.setARGB((int) (basicColor.getAlphaComponent() * 255),
+                //(int) (basicColor.getRedComponent() * 255),
+                //(int) (basicColor.getGreenComponent() * 255),
+                //(int) (basicColor.getBlueComponent() * 255));
+        //paint.setARGB((int) basicColor.alpha, 
+                //(int) basicColor.red,
+                //(int) basicColor.green,
+                //(int) basicColor.blue);
+        paint.setAlpha(basicColor.alpha);
+        paint.setColor(basicColor.intValue());
 
         int biggestHeight = 0;
-        Rect bounds = new Rect();
+        final Rect bounds = new Rect();
         int x;
         int y;
         for (int index = 0; index < size; index++)
