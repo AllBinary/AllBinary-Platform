@@ -34,6 +34,8 @@ public class DemoGameRunnable extends GameRunnable
     {
         try
         {
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().RUN));
+
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
             demoCanvas.getLoopTimeHelper().setStartTime(

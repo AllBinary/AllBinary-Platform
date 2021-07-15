@@ -34,6 +34,7 @@ import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.PrimaryThreadPool;

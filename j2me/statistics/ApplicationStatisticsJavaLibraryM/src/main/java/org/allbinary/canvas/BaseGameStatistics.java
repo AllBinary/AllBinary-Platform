@@ -114,9 +114,9 @@ public class BaseGameStatistics
 
     private final char[][] CHAR_ARRAY =
     {
-    { 'F', 'r', 'a', 'm', 'e', 's', '/', '1', '0', 'S', 'e', 'c', ':' },
+    { 'F', 'r', 'a', 'm', 'e', 's', '/', '1', '0', ' ', 'S', 'e', 'c', ':' },
     { 'X', 'X' },
-    { 'P', 'a', 'i', 'n', 't', 's', '/', '1', '0', 'S', 'e', 'c', ':' },
+    { 'P', 'a', 'i', 'n', 't', 's', '/', '1', '0', ' ', 'S', 'e', 'c', ':' },
     { 'X', 'X' } };
 
     private final PrimitiveLongSingleton primitiveLongSingleton = PrimitiveLongSingleton.getInstance();
