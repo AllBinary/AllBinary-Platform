@@ -20,19 +20,4 @@ public class StaticViewPosition extends ViewPosition
         super(x, y, z);
     }
     
-   public int getX()
-   {
-       return this.x;
-   }
-
-   public int getY()
-   {
-       return this.y;
-   }
-
-   public int getZ()
-   {
-       return this.z;
-   }
-
 }

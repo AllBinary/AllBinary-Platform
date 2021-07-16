@@ -35,7 +35,7 @@ public class MotionGestureRecognizer
     private final Line line = new Line(origin, origin);
 
     //TWB - should be treated like the KeyEventHandlers per player for deviceId
-    private BasicMotionGesturesHandler motionGesturesHandler;
+    private final BasicMotionGesturesHandler motionGesturesHandler;
 
     //private final int id;
     
@@ -48,42 +48,47 @@ public class MotionGestureRecognizer
         this.motionEventCircularPool =
             MotionEventCircularPool.getInstance(id);
         
+        
+        BasicMotionGesturesHandler motionGesturesHandler = null;
         try
         {
-            this.motionGesturesHandler = BasicMotionGesturesHandler.getInstance();
+            motionGesturesHandler = BasicMotionGesturesHandler.getInstance();
         }
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR, e));
         }
+        
+        this.motionGesturesHandler = motionGesturesHandler;
     }
 
-    public boolean processPressedMotionEvent(GPoint current, int deviceId, int button)
+    public boolean processPressedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,
-        // "processPressedMotionEvent"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + current.toString(), this, "processPressedMotionEvent"));
         //PreLogUtil.put(CommonStrings.getInstance().START, this, "processPressedMotionEvent");
 
         intermediate = origin;
         previous = origin;
 
-        MotionGestureEvent event =
+        final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(
                     TouchMotionGestureFactory.getInstance().PRESSED);
 
         event.setPreviousPoint(previous);
         event.setCurrentPoint(current);
 
+        //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
+        
         motionGesturesHandler.fireEvent(event);
 
         return true;
     }
 
-    public boolean processReleasedMotionEvent(GPoint current, int deviceId, int button)
+    public boolean processReleasedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processReleasedMotionEvent"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
 
         /*
          * if(this.touchButtonRecognizer.processTouchButtonInput(UpGameKeyEventHandler
@@ -91,7 +96,7 @@ public class MotionGestureRecognizer
          * true; }
          */
 
-        MotionGestureEvent event =
+        final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(
                     TouchMotionGestureFactory.getInstance().RELEASED);
 
@@ -99,13 +104,13 @@ public class MotionGestureRecognizer
         event.setCurrentPoint(current);
 
         //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
-
+        
         motionGesturesHandler.fireEvent(event);
 
         return true;
     }
 
-    public void processDraggedMotionEvent(GPoint current, int deviceId, int buttonMask)
+    public void processDraggedMotionEvent(final GPoint current, final int deviceId, final int buttonMask)
     // public Line processDraggedMotionEvent(GPoint current, int buttonMask)
             throws Exception
     {
@@ -144,8 +149,7 @@ public class MotionGestureRecognizer
         double gradient = line.getGradient();
         double absGradient = Math.abs(gradient);
 
-        MotionGestureConfiguration conf = MotionGestureConfigurationFactory
-                .getInstance();
+        final MotionGestureConfiguration conf = MotionGestureConfigurationFactory.getInstance();
 
         MotionGestureInput newMotionGesture = 
             TouchMotionGestureFactory.getInstance().NO_MOTION;
@@ -238,7 +242,7 @@ public class MotionGestureRecognizer
         previous = current;
         intermediate = current;
 
-        MotionGestureEvent event =
+        final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(newMotionGesture);
 
         event.setPreviousPoint(previous);

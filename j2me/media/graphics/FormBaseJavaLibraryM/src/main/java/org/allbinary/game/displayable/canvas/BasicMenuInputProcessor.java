@@ -20,6 +20,10 @@ import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.observer.BaseMotionGestureEventListener;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class BasicMenuInputProcessor extends PlayerGameInput
     implements BaseMotionGestureEventListener
@@ -36,7 +40,9 @@ public class BasicMenuInputProcessor extends PlayerGameInput
     
     public void onMotionGestureEvent(MotionGestureEvent motionGestureEvent)
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "onMotionGestureEvent");
+        //PreLogUtil.put(CommonStrings.getInstance().START, this, 
+                //new StringBuilder().append("onMotionGestureEvent - id: ").append(motionGestureEvent.getId())
+                        //.append(" point: ").append(motionGestureEvent.getCurrentPoint()).toString());
        
         motionGestureEventList.add(motionGestureEvent);
     }

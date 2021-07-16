@@ -185,7 +185,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
       if (lastIndex >= 0)
       {
-         MotionGestureEvent motionGestureEvent =
+         final MotionGestureEvent motionGestureEvent =
                  (MotionGestureEvent) this.motionGestureEventList.objectArray[lastIndex];
 
          this.processMotionInput(motionGestureEvent);

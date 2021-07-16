@@ -19,9 +19,9 @@ import org.allbinary.math.PositionStrings;
 
 public class GPoint 
 {
-   protected final int x;
-   protected final int y;
-   protected final int z;
+   private final int x;
+   private final int y;
+   private final int z;
 
    public GPoint(GPoint point)
    {
@@ -61,7 +61,7 @@ public class GPoint
    
    public String toString()
    {
-       return toStringStatic(this.x, this.y, z);
+       return toStringStatic(this.getX(), this.getY(), this.getZ());
    }
    
    private static final String POINT_LABEL = "Point: ";
