@@ -109,15 +109,15 @@ public class DisplayInfoSingleton
 
     private final String SET_LAST_SIZE_METHOD_NAME = "setLastSize";
     
-    public void setLastSize(int aLastWidth, int aLastHeight, String reason)
+    public void setLastSize(int aLastWidth, int aLastHeight, final String reason)
     {
         if(this.full[WIDTH] != aLastWidth || this.full[HEIGHT] != aLastHeight)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + reason, this, SET_LAST_SIZE_METHOD_NAME));
             
-            int aFullWidth = aLastWidth;
-            int aFullHeight = aLastHeight;
-
+            final int aFullWidth = aLastWidth;
+            final int aFullHeight = aLastHeight;
+        
             LogUtil.put(LogFactory.getInstance(new StringMaker()
                     .append(" aFullWidth: ").append(aFullWidth)
                     .append(" aFullHeight: ").append(aFullHeight)
@@ -126,7 +126,7 @@ public class DisplayInfoSingleton
 
             //LogUtil.put(LogFactory.getInstance("Changing", this, SET_LAST_SIZE_METHOD_NAME));
 
-            OperatingSystemInterface operatingSystemInterface
+            final OperatingSystemInterface operatingSystemInterface
                     = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
             if(operatingSystemInterface.isOverScan())
@@ -136,7 +136,7 @@ public class DisplayInfoSingleton
             }
 
             if(operatingSystemInterface.isScalable())
-            {
+            {                
                 if(this.isPortrait(aLastWidth, aLastHeight))
                 {
                     if(aLastHeight > scaleLargestTo)
@@ -158,7 +158,7 @@ public class DisplayInfoSingleton
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
                         this.scalableListener.scale(ratio);
-                    }
+                    }                    
                 }
             }
 
@@ -169,9 +169,20 @@ public class DisplayInfoSingleton
 
             this.xOffset = aFullWidth - aLastWidth;
             this.yOffset = aFullHeight - aLastHeight;
-            this.left = (xOffset) >> 1;
-            this.top = (yOffset) >> 1;
+            
+//            LogUtil.put(LogFactory.getInstance(new StringMaker()
+//                    .append("xOffset: ").append(this.xOffset)
+//                    .append(" yOffset: ").append(this.yOffset)
+//                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
+            
+            this.left = this.scalableListener.getLeft(this.xOffset);
+            this.top = this.scalableListener.getTop(this.yOffset);
 
+//            LogUtil.put(LogFactory.getInstance(new StringMaker()
+//                    .append("left: ").append(this.left)
+//                    .append(" top: ").append(this.top)
+//                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
+            
             this.full[WIDTH] = aFullWidth;
             this.full[HEIGHT] = aFullHeight;
 
@@ -219,13 +230,13 @@ public class DisplayInfoSingleton
         }
     }
 
-    public void update(Displayable displayable, String reason)
+    public void update(final Displayable displayable, final String reason)
     {
         int aLastWidth = displayable.getWidth();
         int aLastHeight = displayable.getHeight();
 
-        int aFullWidth = aLastWidth;
-        int aFullHeight = aLastHeight;
+        final int aFullWidth = aLastWidth;
+        final int aFullHeight = aLastHeight;
         
         LogUtil.put(LogFactory.getInstance(new StringMaker()
                 .append(CommonStrings.getInstance().START_LABEL).append(reason)
@@ -246,7 +257,7 @@ public class DisplayInfoSingleton
                         new StringMaker().append("Updating from Orientation Change")
                         .toString(), this, CommonStrings.getInstance().UPDATE));
 
-                OperatingSystemInterface operatingSystemInterface
+                final OperatingSystemInterface operatingSystemInterface
                         = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
                 if(operatingSystemInterface.isOverScan())
@@ -289,10 +300,21 @@ public class DisplayInfoSingleton
                         .toString(), this, CommonStrings.getInstance().UPDATE));
 
                 this.xOffset = aFullWidth - aLastWidth;
-                this.yOffset = aFullHeight - aLastHeight;                
-                this.left = (aFullWidth - aLastWidth) >> 1;
-                this.top = (aFullHeight - aLastHeight) >> 1;
+                this.yOffset = aFullHeight - aLastHeight;
                 
+//                LogUtil.put(LogFactory.getInstance(new StringMaker()
+//                    .append("xOffset: ").append(this.xOffset)
+//                    .append(" yOffset: ").append(this.yOffset)
+//                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
+            
+                this.left = this.scalableListener.getLeft(this.xOffset);
+                this.top = this.scalableListener.getTop(this.yOffset);
+
+//                LogUtil.put(LogFactory.getInstance(new StringMaker()
+//                    .append("left: ").append(this.left)
+//                    .append(" top: ").append(this.top)
+//                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
+
                 this.full[WIDTH] = aFullWidth;
                 this.full[HEIGHT] = aFullHeight;
                 

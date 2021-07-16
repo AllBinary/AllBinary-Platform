@@ -38,10 +38,10 @@ public class ScrollSelectionForm extends PaintableForm
     private ItemPaintable paintable = ItemPaintableFactory.getInstance();
 
     public ScrollSelectionForm(
-            String title, CustomItem[] items, 
-            ItemPaintableFactory formPaintableFactory, 
-            Rectangle rectangle, FormType formType, int border,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+            final String title, final CustomItem[] items, 
+            final ItemPaintableFactory formPaintableFactory, 
+            final Rectangle rectangle, final FormType formType, final int border,
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
     {
         this(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
@@ -50,8 +50,8 @@ public class ScrollSelectionForm extends PaintableForm
     }
     
     public ScrollSelectionForm(
-            String title, CustomItem[] items, Rectangle rectangle, FormType formType, int border,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+            final String title, final CustomItem[] items, final Rectangle rectangle, final FormType formType, final int border,
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         super(title, items, rectangle, formType, backgroundBasicColor, foregroundBasicColor);
 
@@ -90,10 +90,10 @@ public class ScrollSelectionForm extends PaintableForm
     public int getItemIndex(CustomItem item)
         throws Exception
     {
-        int size = this.size();
+        final int size = this.size();
         for (int index = 0; index < size; index++)
         {
-            CustomItemInterface nextItem = 
+            final CustomItemInterface nextItem = 
                 (CustomItemInterface) this.get(index);
 
             if(nextItem == item)
@@ -133,10 +133,10 @@ public class ScrollSelectionForm extends PaintableForm
 
         for (int index = start; index < size; index++)
         {
-            CustomItemInterface item = (CustomItemInterface) this.get(index);
+            final CustomItemInterface item = (CustomItemInterface) this.get(index);
 
-            int width = item.getMinimumWidth();
-            int height = item.getMinimumHeight();
+            final int width = item.getMinimumWidth();
+            final int height = item.getMinimumHeight();
 
             //originally for both formtypes
             //int diffX = dx + this.getDiffX(item) - this.halfBorder;

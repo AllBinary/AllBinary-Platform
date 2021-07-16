@@ -19,9 +19,9 @@ public class PaintableForm extends CustomForm
     
     private FormType formType;    
 
-    public PaintableForm(String title, CustomItem[] items, 
-            Rectangle rectangle, FormType formType,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    public PaintableForm(final String title, final CustomItem[] items, 
+            final Rectangle rectangle, final FormType formType,
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         super(title, items, backgroundBasicColor, foregroundBasicColor);
 
@@ -37,12 +37,12 @@ public class PaintableForm extends CustomForm
         }
     }
 
-    public void init(Rectangle rectangle, FormType formType)
+    public void init(final Rectangle rectangle, final FormType formType)
     throws Exception
     {
         this.rectangle = rectangle;
 
-        GPoint point = this.rectangle.getPoint();
+        final GPoint point = this.rectangle.getPoint();
         
         this.x = point.getX();
         this.y = point.getY();
