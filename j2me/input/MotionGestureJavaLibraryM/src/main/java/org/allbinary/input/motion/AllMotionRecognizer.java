@@ -17,6 +17,9 @@ import org.allbinary.graphics.CustomGPoint;
 import org.allbinary.graphics.GPointCircularPool;
 import org.allbinary.input.motion.button.TouchButtonRecognizer;
 import org.allbinary.input.motion.gesture.MotionGestureRecognizer;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 /**
  * 
@@ -62,6 +65,11 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
+//            LogUtil.put(LogFactory.getInstance(
+//                    new StringBuilder().append(CommonStrings.getInstance().START_LABEL)
+//                            .append("point: ").append(point.toString()).toString(),
+//                    this, "processStartMotionEvent"));
+            
             this.motionGestureRecognizer.processPressedMotionEvent(point, deviceId, modifiers);
         }
     }
@@ -82,6 +90,11 @@ public class AllMotionRecognizer extends MotionRecognizer
             point.setX(x);
             point.setY(y);
 
+//            LogUtil.put(LogFactory.getInstance(
+//                    new StringBuilder().append(CommonStrings.getInstance().START_LABEL)
+//                            .append("point: ").append(point.toString()).toString(),
+//                    this, "processEndMotionEvent"));
+            
             this.motionGestureRecognizer.processReleasedMotionEvent(point, deviceId, modifiers);
         }
         

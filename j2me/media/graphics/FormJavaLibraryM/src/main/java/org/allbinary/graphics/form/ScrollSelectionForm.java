@@ -119,9 +119,9 @@ public class ScrollSelectionForm extends PaintableForm
         int dx = this.getDx();
         int dy = this.getDy();
 
-        FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+        final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(CommonStrings.getInstance().START_LABEL);
         stringBuffer.append(start);
@@ -137,12 +137,6 @@ public class ScrollSelectionForm extends PaintableForm
 
             int width = item.getMinimumWidth();
             int height = item.getMinimumHeight();
-
-            //LogUtil.put(LogFactory.getInstance(
-            //"Checking: " + PositionStrings + " + dx + PositionStrings + dy + " x2: " + (dx + width) +
-            //" y2: " + (dy + height) + " with " + point, this, "getSelectedIndex"));
-
-            //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.getRectangle().getMaxY(),
 
             //originally for both formtypes
             //int diffX = dx + this.getDiffX(item) - this.halfBorder;
@@ -161,6 +155,14 @@ public class ScrollSelectionForm extends PaintableForm
                 throw new Exception(formTypeFactory.UNK);
             }
             
+//            LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Checking: ")
+//                    .append(diffX).append(CommonSeps.getInstance().COMMA)
+//                    .append((dy - this.halfBorder)).append(CommonSeps.getInstance().COMMA)
+//                    .append((diffX + width + this.border)).append(CommonSeps.getInstance().COMMA)
+//                    .append((dy + height + this.halfBorder + 1))
+//                    .append(" with ").append(point.toString()).toString(), this, "getSelectedIndex"));
+
+            //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.getRectangle().getMaxY(),
             
             if (RectangleCollisionUtil.isInside(
                 diffX, dy - this.halfBorder, diffX + width + this.border, dy + height + this.halfBorder + 1,

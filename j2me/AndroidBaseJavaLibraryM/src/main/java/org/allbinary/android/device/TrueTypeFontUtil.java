@@ -162,14 +162,14 @@ public class TrueTypeFontUtil
 
             if (index < lastCapIndex)
             {
-                if (characterArray[0] == 'J' || characterArray[0] == 'V')
+                if (characterArray[0] == '1')
                 {
-                    _characterWidth[index] = bounds.right + 1;
-                } else if (characterArray[0] == '1' || characterArray[0] == '2'
-                        || characterArray[0] == '9' || characterArray[0] == 'B'
-                        || characterArray[0] == 'H' || characterArray[0] == 'I'
-                        || characterArray[0] == 'N' || characterArray[0] == 'S'
-                        || characterArray[0] == 'U')
+                    _characterWidth[index] = bounds.right + 3;
+                } else if (characterArray[0] == 'J' || characterArray[0] == 'V' || 
+                        characterArray[0] == '2' || characterArray[0] == '9' || characterArray[0] == 'B' || 
+                        characterArray[0] == 'H' || characterArray[0] == 'I' || characterArray[0] == 'N' || 
+                        characterArray[0] == 'S' || characterArray[0] == 'U'
+                        )
                 {
                     _characterWidth[index] = bounds.right + 1;
                 } else if (characterArray[0] == '4' || characterArray[0] == 'C'
@@ -179,7 +179,10 @@ public class TrueTypeFontUtil
                 } else if (characterArray[0] == 'A' || characterArray[0] == 'T'
                         || characterArray[0] == 'W')
                 {
-                    _characterWidth[index] = bounds.right - 2;
+                    _characterWidth[index] = bounds.right - 3;
+                } else if (characterArray[0] == 'm')
+                {
+                    _characterWidth[index] = bounds.right - 4;
                 } else
                 {
                     _characterWidth[index] = bounds.right;
@@ -187,25 +190,26 @@ public class TrueTypeFontUtil
 
             } else
             {
-                if (characterArray[0] == 'l')
+                if (characterArray[0] == 'l' || characterArray[0] == 'i' || 
+                        characterArray[0] == 'j' || characterArray[0] == '.' || 
+                        characterArray[0] == '!' || characterArray[0] == '|')
                 {
-                    _characterWidth[index] = bounds.right + 3;
-                } else if (characterArray[0] == 'i' || characterArray[0] == 'j'
-                        || characterArray[0] == '.' || characterArray[0] == '!'
-                        || characterArray[0] == '|')
+                    _characterWidth[index] = bounds.right + 6;
+                } else if (characterArray[0] == 'f' || characterArray[0] == 't'
+                        || characterArray[0] == 'u' || characterArray[0] == 'v' || 
+                        characterArray[0] == 'r')
                 {
-                    _characterWidth[index] = bounds.right + 2;
-                } else if (characterArray[0] == 'g')
+                    _characterWidth[index] = bounds.right + 1;
+                } else if (characterArray[0] == 'a' || characterArray[0] == 'b' || 
+                        characterArray[0] == 'g')
+                {
+                    _characterWidth[index] = bounds.right - 1;
+                } else if (characterArray[0] == 'y')
                 {
                     _characterWidth[index] = bounds.right - 2;
                 } else if (characterArray[0] == 'm')
                 {
-                    _characterWidth[index] = bounds.right - 1;
-                } else if (characterArray[0] == 'f' || characterArray[0] == 't'
-                        || characterArray[0] == 'u' || characterArray[0] == 'v'
-                        || characterArray[0] == 'y')
-                {
-                    _characterWidth[index] = bounds.right + 1;
+                    _characterWidth[index] = bounds.right - 6;
                 } else
                 {
                     _characterWidth[index] = bounds.right;
