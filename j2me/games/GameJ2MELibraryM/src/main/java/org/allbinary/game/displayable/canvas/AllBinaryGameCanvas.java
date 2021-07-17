@@ -176,7 +176,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface;
     private Paintable touchButtonsPaintable = NullPaintable.getInstance();
     protected Paintable touchPaintable;
-    private PlayerGameInput cheatProcessor;
+    private PlayerGameInput cheatProcessor = NoPlayerGameInput.getInstance();
     private Processor gameInputProcessor;
     private Processor endGameProcessor;
     private Processor realEndGameProcessor;
@@ -305,7 +305,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
             {
-                Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
+                final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
                 ((BasicPopupMenuPaintable) this.getOpenMenuPaintable()).init(popupMenuRectangle);
 
                 if (this.getPopupMenuInputProcessor() != NoMenuInputProcessor.getInstance())
@@ -313,8 +313,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     ((PopupMenuInputProcessor) this.getPopupMenuInputProcessor()).init(popupMenuRectangle);
                 }
 
-                FormType formType = FormTypeFactory.getInstance().getFormType();
-                Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+                final FormType formType = FormTypeFactory.getInstance().getFormType();
+                final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
                 this.menuForm.init(rectangle, formType);
 
                 //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, "onDisplayChangeEvent");
@@ -342,8 +342,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      */
     public void processSleep() throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START,
-        // this, "processSleep"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processSleep"));
 
         super.processSleep();
 
@@ -368,7 +367,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected void initPopupMenu() throws Exception
     {
         // Popup Menu Tab Init
-        Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
+        final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
 
         if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED))
         {
@@ -390,21 +389,21 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             {
                 this.closeMenu();
 
-                FormUtil formUtil = FormUtil.getInstance();
-                FormType formType = FormTypeFactory.getInstance().getFormType();
+                final FormUtil formUtil = FormUtil.getInstance();
+                final FormType formType = FormTypeFactory.getInstance().getFormType();
 
-                GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory = 
+                final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory = 
                     GameLimitedCommandTextItemArrayFactory.getInstance();
 
-                CommandTextItemArrayFactory commandTextItemArrayFactory = 
+                final CommandTextItemArrayFactory commandTextItemArrayFactory = 
                     gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
 
-                CustomItem[] items = commandTextItemArrayFactory.getInstance(
+                final CustomItem[] items = commandTextItemArrayFactory.getInstance(
                         this.getCommandStack(), this.gameLayerManager
                                 .getBackgroundBasicColor(), this
                                 .gameLayerManager.getForegroundBasicColor());
 
-                Rectangle rectangle = formUtil.createFormRectangle();
+                final Rectangle rectangle = formUtil.createFormRectangle();
 
                 this.setMenuForm(CommandCurrentSelectionFormFactory.getInstance(
                         StringUtil.getInstance().EMPTY_STRING, 
@@ -419,7 +418,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                  * this));
                  */
 
-                ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
+                final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
                 
                 if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED))
                 {
@@ -441,8 +440,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    commonStrings.EXCEPTION, this, "initMenu", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "initMenu", e));
         }
     }
 
@@ -452,47 +450,45 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
             {
-                ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
+                final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
                 
                 scrollSelectionForm.deleteAll();
 
-                GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory = 
+                final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory = 
                     GameLimitedCommandTextItemArrayFactory.getInstance();
 
-                CommandTextItemArrayFactory commandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory
+                final CommandTextItemArrayFactory commandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory
                         .getCommandTextItemArrayFactory();
 
-                CustomItem[] items = commandTextItemArrayFactory.getInstance(
+                final CustomItem[] items = commandTextItemArrayFactory.getInstance(
                         this.getCommandStack(), this.gameLayerManager
                                 .getBackgroundBasicColor(), this
                                 .gameLayerManager.getForegroundBasicColor());
 
-                int size = items.length;
+                final int size = items.length;
                 for (int index = 0; index < size; index++)
                 {
                     scrollSelectionForm.append(items[index]);
                 }
 
-                FormUtil formUtil = FormUtil.getInstance();
-                FormType formType = FormTypeFactory.getInstance().getFormType();                
-                Rectangle rectangle = formUtil.createFormRectangle();
+                final FormUtil formUtil = FormUtil.getInstance();
+                final FormType formType = FormTypeFactory.getInstance().getFormType();                
+                final Rectangle rectangle = formUtil.createFormRectangle();
                 scrollSelectionForm.init(rectangle, formType);
             }
 
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    commonStrings.EXCEPTION, this, "initMenu", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "initMenu", e));
         }
 
     }
 
     public synchronized void pause()
     {
-    	final String METHOD_NAME = "pause";
-    	
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
+    	//final String METHOD_NAME = "pause";
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
         // PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
 
         if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
@@ -503,6 +499,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     //|| features.isDefault(HTMLFeatureFactory.getInstance().HTML)
                     )        
             {
+                //LogUtil.put(LogFactory.getInstance("pause", this, METHOD_NAME));
                 GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(this);
 
                 final CurrentDisplayableFactory currentDisplayableFactory = 
@@ -525,7 +522,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public synchronized void unPause()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "unPause"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "unPause"));
         // PreLogUtil.put(commonStrings.START, this, "unPause");
         
         this.closeMenu();
@@ -538,7 +535,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             if (Features.getInstance().isDefault(
                     OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
             {
-                GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+                //LogUtil.put(LogFactory.getInstance("unPause", this, "unPause"));
+                final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
                 final CurrentDisplayableFactory currentDisplayableFactory =
                         CurrentDisplayableFactory.getInstance();
@@ -564,15 +562,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "popupMenu"));
+            
             primaryPlayerQueue.add(SelectSound.getInstance());
 
             this.setMenuPaintable(this.getFormPaintable());
             this.setMenuInputProcessor(this.mainMenuInputProcessor);
-            
-            this.basicMotionGesturesHandler.addListener(
-                    this.mainMenuInputProcessor);
-            this.gameKeyEventHandler.addListener(
-            		this.mainMenuInputProcessor);
+
+            this.basicMotionGesturesHandler.addListener(this.mainMenuInputProcessor);
+            this.gameKeyEventHandler.addListener(this.mainMenuInputProcessor);
         }
     }
 
@@ -599,10 +597,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
         {
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "closeMenu"));
+            
             this.setMenuPaintable(this.getOpenMenuPaintable());
 
-            this.basicMotionGesturesHandler.removeListener(
-                    this.mainMenuInputProcessor);
+            this.basicMotionGesturesHandler.removeListener(this.mainMenuInputProcessor);
             this.gameKeyEventHandler.removeListener(this.mainMenuInputProcessor);
 
             this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
@@ -1584,12 +1583,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             this.open();
 
-            GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
 
             gameAdState.init();
             gameAdState.setGameIsReady(true);
 
-            Features features = Features.getInstance();
+            final Features features = Features.getInstance();
             
             //Don't keep running thread if in bot/demo mode            
             if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT)
@@ -1600,7 +1599,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) ||
                         features.isDefault(HTMLFeatureFactory.getInstance().HTML))
                 {
-                    GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+                    //LogUtil.put(LogFactory.getInstance("run", this, commonStrings.RUN));
+                    final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
                     final CurrentDisplayableFactory currentDisplayableFactory = 
                         CurrentDisplayableFactory.getInstance();
@@ -1612,6 +1612,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             if (Features.getInstance().isDefault(
             		OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS))
             {
+                //LogUtil.put(LogFactory.getInstance("2 - run", this, commonStrings.RUN));
                 final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
                         GameTickTimeDelayHelperFactory.getInstance();
 

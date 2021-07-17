@@ -13,7 +13,6 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.input.motion.button.TouchScreenFactory;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.game.input.event.DownGameKeyEventHandler;
@@ -21,6 +20,8 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.UpGameKeyEventHandler;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.RectangleCollisionUtil;
 
 public class TouchButtonRecognizer
@@ -159,10 +160,7 @@ public class TouchButtonRecognizer
         // Release associated button if not released
         this.releaseHelper.release(touchButtonInput, deviceId);
 
-        // LogUtil.put(LogFactory.getInstance(
-        // "Event Inside Button Area - Action: " +
-        // touchButtonInput.getGameKey(),
-        // this, "processTouchButtonInput"));
+        //LogUtil.put(LogFactory.getInstance("Event Inside Button Area - Action: " + touchButtonInput.getGameKeyEvent(), this, "processTouchButtonInput"));
         
         GameKeyEvent gameKeyEvent = touchButtonInput.getGameKeyEvent();
 

@@ -196,24 +196,22 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       return lastIndex;
    }
 
-   protected void processMotionInput(MotionGestureEvent motionGestureEvent)
+   protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
-       //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processMotionInput"));
+       //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + motionGestureEvent, this, "processMotionInput"));
        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processMotionInput");
        
-      MotionGestureInput motionGestureInput =
-              motionGestureEvent.getMotionGesture();
+      final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
 
       if (motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED)
       // ||
-      // motionGestureInput ==
-      // TouchMotionGestureFactory.getInstance().PRESSED)
+      // motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED)
       {
-         GPoint point = motionGestureEvent.getCurrentPoint();
+         final GPoint point = motionGestureEvent.getCurrentPoint();
          if (this.form.isInForm(point))
          {
-            int index = this.form.getSelectedIndex(point);
+            final int index = this.form.getSelectedIndex(point);
 
             if (index != -1)
             {
