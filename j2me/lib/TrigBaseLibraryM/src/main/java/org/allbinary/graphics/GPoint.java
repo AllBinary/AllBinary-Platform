@@ -58,6 +58,21 @@ public class GPoint
    {
       return z;
    }
+
+   public int getRawX()
+   {
+      return x;
+   }
+   
+   public int getRawY()
+   {
+      return y;
+   }
+
+   public int getRawZ()
+   {
+      return z;
+   }
    
    public String toString()
    {
