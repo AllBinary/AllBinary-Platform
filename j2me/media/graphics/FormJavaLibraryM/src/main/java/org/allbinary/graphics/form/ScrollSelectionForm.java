@@ -112,7 +112,7 @@ public class ScrollSelectionForm extends PaintableForm
     private static final String GET_SELECTED_INDEX = "getSelectedIndex";
     private static final String ITEM_LABEL = "Item: ";
     
-    public int getSelectedIndex(GPoint point) throws Exception
+    public int getSelectedIndex(final GPoint point) throws Exception
     {
         int start = this.getStartIndex();
         int size = this.size();

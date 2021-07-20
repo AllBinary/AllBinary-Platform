@@ -230,6 +230,8 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
                {
                   this.form.setSelectedIndex(index);
                }
+            } else {
+                //LogUtil.put(LogFactory.getInstance("No Form Selected Index: " + index, this, "processMotionInput"));
             }
          }
 
