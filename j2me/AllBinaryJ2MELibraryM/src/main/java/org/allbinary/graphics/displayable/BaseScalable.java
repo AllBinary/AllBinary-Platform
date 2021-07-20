@@ -19,6 +19,10 @@ package org.allbinary.graphics.displayable;
  */
 public class BaseScalable implements ScalableListener
 {
+    public float getRatio(final float ratio) {
+        return 1;
+    }
+
     public int getLeft(final int xOffset)
     {
         return -1;

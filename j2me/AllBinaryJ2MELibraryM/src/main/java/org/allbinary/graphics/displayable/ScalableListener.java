@@ -19,5 +19,11 @@ package org.allbinary.graphics.displayable;
  */
 public interface ScalableListener
 {
+    float getRatio(final float ratio);
+    
+    int getLeft(final int xOffset);
+
+    int getTop(final int yOffset);
+    
     void scale(float ratio);
 }

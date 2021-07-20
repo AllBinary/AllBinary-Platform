@@ -408,6 +408,10 @@ public class DisplayInfoSingleton
         this.scalableListener = scalableListener;
     }
 
+    public ScalableListener getScalableListener() {
+        return scalableListener;
+    }
+
     /**
      * @return the ratio
      */
