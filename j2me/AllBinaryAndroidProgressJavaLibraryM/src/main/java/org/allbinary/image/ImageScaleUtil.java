@@ -19,6 +19,7 @@ import org.allbinary.graphics.Anchor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
+import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
 
 public class ImageScaleUtil
 {
@@ -70,7 +71,8 @@ public class ImageScaleUtil
         else
         {
           //TWB - Image Create
-            image = Image.createImage(width, height);
+            //image = Image.createImage(width, height);
+            image = imageCache.get("createImage", width, height);
         }
 
         if (image.isMutable())
