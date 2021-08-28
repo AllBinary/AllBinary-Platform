@@ -79,7 +79,7 @@ public class StreamUtil
         return outputStream;
     }
 
-    public byte[] getByteArray(InputStream inputStream)
+    public byte[] getByteArray(final InputStream inputStream)
         throws Exception
     {
     	ByteArrayOutputStream outputStream = null;
@@ -96,6 +96,11 @@ public class StreamUtil
         }        
     }
 
+    public String getAsString(final InputStream inputStream) throws Exception {
+        final byte[] byteArray = this.getByteArray(inputStream);
+        return new String(byteArray);
+    }
+    
     private final String CLOSE = "close";
     
     public boolean close(Closeable closeable)

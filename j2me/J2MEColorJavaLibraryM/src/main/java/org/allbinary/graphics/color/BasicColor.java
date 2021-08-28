@@ -42,19 +42,19 @@ public class BasicColor
      * BasicColor.setAlpha(alpha); BasicColor.ffOpaque = ffOpaque; }
      */
 
-    public BasicColor(int value)
+    public BasicColor(final int value)
     {
         this(value, StringUtil.getInstance().EMPTY_STRING);
         // this.id = index++;
 
     }
 
-    BasicColor(int value, String name)
+    BasicColor(final int value, final String name)
     {
         this(BasicColorUtil.getInstance().ALPHA, value, name);
     }
     
-    BasicColor(int alphaValue, int value, String name)
+    BasicColor(final int alphaValue, final int value, final String name)
     {
 
         this.name = name;
@@ -117,6 +117,51 @@ public class BasicColor
         */
     }
 
+    public BasicColor(final int alphaValue, final int r, final int g, final int b, final String name)
+    {
+
+        this.name = name;
+
+        final int alphaInt = ((alphaValue >> 24) & 255);
+        this.alpha = (short) alphaInt;
+        this.alphaComponent = ((float) alphaInt) / 255;
+
+        final int redInt = r;
+        this.red = (short) redInt;
+        this.redComponent = ((float) redInt) / 255;
+
+        final int greenInt = g;
+        this.green = (short) greenInt;
+        this.greenComponent = ((float) greenInt) / 255;
+
+        final int blueInt = b;
+        this.blue = (short) blueInt;
+        this.blueComponent = ((float) blueInt) / 255;
+
+        this.value = alphaValue + (redInt << 16) + (greenInt << 8) + blueInt;
+
+        /*
+        StringMaker stringBuffer = new StringMaker();
+        
+        stringBuffer.append("Alpha: ");
+        stringBuffer.append(alpha);
+        stringBuffer.append(" ffOpaque: ");
+        stringBuffer.append(ffOpaque);
+        stringBuffer.append(" Value: ");
+        stringBuffer.append(Integer.toHexString(this.intValue()));
+        stringBuffer.append(" a: ");
+        stringBuffer.append(this.alphaComponent);
+        stringBuffer.append(" r: ");
+        stringBuffer.append(this.redComponent);
+        stringBuffer.append(" g: ");
+        stringBuffer.append(this.greenComponent);
+        stringBuffer.append(" b: ");
+        stringBuffer.append(this.blueComponent);
+        
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),this, CommonStrings.getInstance().CONSTRUCTOR));
+        */
+    }
+    
     public int intValue()
     {
         return value;

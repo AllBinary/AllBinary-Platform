@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.basic.string.CommonStrings;
+
 public class LogUtil
 {
    private LogUtil()
@@ -20,7 +22,7 @@ public class LogUtil
    }
 
    private static final String LABEL = "allbinary";
-   private static final String LOGGING_LABEL = "Logging Successful: ";
+   //private static final String LOGGING_LABEL = "Logging Successful: ";
 
    public synchronized static void put(Log log)
    {
@@ -37,11 +39,19 @@ public class LogUtil
       }
       */
       
+      /*
+      if(exception == null && specialMessage.indexOf(CommonStrings.getInstance().EXCEPTION) < 0)
+      {
+          return;
+      }
+      */
+      
       className = object.getClass().getName();
       
-      String message = LogFormatUtil.getInstance().get(
+      final String message = LogFormatUtil.getInstance().get(
          className, functionName, specialMessage, exception);
       
-      android.util.Log.i(className, LOGGING_LABEL + message);
+      android.util.Log.i(className, message);
+      //android.util.Log.i(className, LOGGING_LABEL + message);
    }
 }
