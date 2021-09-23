@@ -172,6 +172,8 @@ public class BasicColor
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("BasicColor: ");
+        stringBuffer.append("Alpha: ");
+        stringBuffer.append(this.alpha);
         stringBuffer.append("Red: ");
         stringBuffer.append(this.red);
         stringBuffer.append(" Green: ");

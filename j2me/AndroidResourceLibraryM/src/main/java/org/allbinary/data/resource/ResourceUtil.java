@@ -23,9 +23,12 @@ import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
 import android.content.Context;
 import android.content.res.Resources;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class ResourceUtil
 {
@@ -70,13 +73,21 @@ public class ResourceUtil
     
     public Integer getResourceId(String resource)
     {
-        return (Integer) this.hashMap.get(resource);
+        final Integer value = (Integer) this.hashMap.get(resource);
+        
+        if(DebugFactory.getInstance() != NoDebug.getInstance())
+        {
+            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value).toString(), this, "getResourceId");
+        }        
+        
+        return value;
     }
 
     public void addResource(String resource, Integer value)
     {
         if(DebugFactory.getInstance() != NoDebug.getInstance())
         {
+            PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value).toString(), this, "addResource");
             if(this.containsDuplicate(resource, value))
             {
                 ForcedLogUtil.log("Found Duplicate Resource: " + resource, this);

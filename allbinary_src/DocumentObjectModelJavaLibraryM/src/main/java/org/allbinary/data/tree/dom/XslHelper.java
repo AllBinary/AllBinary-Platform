@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.data.tree.dom;
 
 import javax.xml.transform.Transformer;
@@ -27,141 +27,140 @@ import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.w3c.dom.Document;
 
 //import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-
 public class XslHelper
 {
-   
-   private XslHelper()
-   {
-   }
-   
-   public static OutputStream translate(StreamSource xsltStreamSource,
-                            StreamSource xmlStreamSource,
-                            StreamResult streamResult) throws Exception
-   {
-      try
-      {
-          //TWB - GAE needed xalan.jar and serializer.jar
-         TransformerFactory tFactory = TransformerFactory.newInstance(
-             //"org.apache.xalan.processor.TransformerFactoryImpl",
-             //Thread.currentThread().getContextClassLoader()
-             );
-         
-         Transformer transformer =
-            tFactory.newTransformer(xsltStreamSource);
-         
-         transformer.transform(
-            xmlStreamSource,
-            streamResult);
-                  
-         return streamResult.getOutputStream();
-      }
-      catch(Exception e)
-      {
-         throw e;
-      }
-   }
 
-   public static OutputStream translate(URIResolver resolver, 
-                            StreamSource xsltStreamSource,
-                            StreamSource xmlStreamSource,
-                            StreamResult streamResult) throws Exception
-   {
-      try
-      {
-          //TWB - GAE needed xalan.jar and serializer.jar
-         TransformerFactory tFactory = TransformerFactory.newInstance(
-             //"org.apache.xalan.processor.TransformerFactoryImpl",
-             //Thread.currentThread().getContextClassLoader()
-             );
-         
-         tFactory.setURIResolver(resolver);
-         
-         Transformer transformer =
-            tFactory.newTransformer(xsltStreamSource);
+    private static final XslHelper instance = new XslHelper();
 
-         //transformer.setURIResolver(resolver);
-         
-         transformer.transform(xmlStreamSource, streamResult);
-                  
-         return streamResult.getOutputStream();
-      }
-      catch(Exception e)
-      {
-         throw e;
-      }
-   }
-   
-   public static String translate(StreamSource xsltStreamSource,
-                                  Document xmlDocument) throws Exception
-   {
-      try
-      {
-         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-         return XslHelper.translate(xsltStreamSource,
-            new StreamSource(new StringBufferInputStream(DomDocumentHelper.toString(xmlDocument))),
-            new StreamResult(outputStream)).toString();         
-      }
-      catch(Exception e)
-      {
-         throw e;
-      }
-   }   
-   
+    /**
+     * @return the instance
+     */
+    public static XslHelper getInstance()
+    {
+        return instance;
+    }
 
-   public static String translate(StreamSource xsltStreamSource,
-                                  StreamSource xmlStreamSource) 
-                                  throws Exception
-   {
-      try
-      {
-         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-         return XslHelper.translate(xsltStreamSource,
-            xmlStreamSource,
-            new StreamResult(outputStream)).toString();
-      }
-      catch(Exception e)
-      {
-         throw e;
-      }
-   }   
+    private XslHelper()
+    {
+    }
 
-   public static String translate(
-      URIResolver resolver, 
-      StreamSource xsltStreamSource,
-      StreamSource xmlStreamSource)
-      throws Exception
-   {
-      try
-      {
-         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    public OutputStream translate(StreamSource xsltStreamSource,
+            StreamSource xmlStreamSource,
+            StreamResult streamResult) throws Exception
+    {
+        try
+        {
+            //TWB - GAE needed xalan.jar and serializer.jar
+            TransformerFactory tFactory = TransformerFactory.newInstance( //"org.apache.xalan.processor.TransformerFactoryImpl",
+                    //Thread.currentThread().getContextClassLoader()
+                    );
 
-         return XslHelper.translate(
-             resolver, xsltStreamSource, xmlStreamSource,
-             new StreamResult(outputStream)).toString();
-      }
-      catch(Exception e)
-      {
-         throw e;
-      }
-   }   
-   
-   public static void export(
-      File outputFile, String xsltFilePath, Document xmlDocument) 
-      throws Exception
-   {
-      try
-      {
-         outputFile.createNewFile();
-                  
-         XslHelper.translate(
-            new StreamSource(xsltFilePath),
-            new StreamSource(new StringBufferInputStream(DomDocumentHelper.toString(xmlDocument))),            
-            new StreamResult(outputFile));     
-      }
-      catch(Exception e)
-      {
-         throw e;
-      }
-   }
+            Transformer transformer
+                    = tFactory.newTransformer(xsltStreamSource);
+
+            transformer.transform(
+                    xmlStreamSource,
+                    streamResult);
+
+            return streamResult.getOutputStream();
+        } catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
+    public OutputStream translate(URIResolver resolver,
+            StreamSource xsltStreamSource,
+            StreamSource xmlStreamSource,
+            StreamResult streamResult) throws Exception
+    {
+        try
+        {
+            //TWB - GAE needed xalan.jar and serializer.jar
+            TransformerFactory tFactory = TransformerFactory.newInstance( //"org.apache.xalan.processor.TransformerFactoryImpl",
+                    //Thread.currentThread().getContextClassLoader()
+                    );
+
+            tFactory.setURIResolver(resolver);
+
+            Transformer transformer
+                    = tFactory.newTransformer(xsltStreamSource);
+
+            //transformer.setURIResolver(resolver);
+            transformer.transform(xmlStreamSource, streamResult);
+
+            return streamResult.getOutputStream();
+        } catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
+    public String translate(StreamSource xsltStreamSource,
+            Document xmlDocument) throws Exception
+    {
+        try
+        {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            return this.translate(xsltStreamSource,
+                    new StreamSource(new StringBufferInputStream(DomDocumentHelper.toString(xmlDocument))),
+                    new StreamResult(outputStream)).toString();
+        } catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
+    public String translate(StreamSource xsltStreamSource,
+            StreamSource xmlStreamSource)
+            throws Exception
+    {
+        try
+        {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            return this.translate(xsltStreamSource,
+                    xmlStreamSource,
+                    new StreamResult(outputStream)).toString();
+        } catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
+    public String translate(
+            URIResolver resolver,
+            StreamSource xsltStreamSource,
+            StreamSource xmlStreamSource)
+            throws Exception
+    {
+        try
+        {
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+
+            return this.translate(
+                    resolver, xsltStreamSource, xmlStreamSource,
+                    new StreamResult(outputStream)).toString();
+        } catch (Exception e)
+        {
+            throw e;
+        }
+    }
+
+    public void export(
+            File outputFile, String xsltFilePath, Document xmlDocument)
+            throws Exception
+    {
+        try
+        {
+            outputFile.createNewFile();
+
+            this.translate(
+                    new StreamSource(xsltFilePath),
+                    new StreamSource(new StringBufferInputStream(DomDocumentHelper.toString(xmlDocument))),
+                    new StreamResult(outputFile));
+        } catch (Exception e)
+        {
+            throw e;
+        }
+    }
 }

@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.data.tree.dom;
 
 import javax.xml.transform.Source;
@@ -30,84 +30,81 @@ import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateD
 
 public class BasicUriResolver implements URIResolver
 {
-   private String extension;
-   
-   //private TransformInfoInterface parentTransformInfoInterface;
-   
-   //TransformInfoInterface parentTransformInfoInterface,
-   public BasicUriResolver(String extension)
-   {
-      //this.parentTransformInfoInterface = parentTransformInfoInterface;
-      this.extension = extension;
-   }
-   
-   public String getExtension()
-   {
-      return this.extension;
-   }
-   
-   public Source resolve(String href, String base) throws TransformerException
-   {
-      try
-      {
-    	  StringBuffer stringBuffer = new StringBuffer();
-    	  
-    	  stringBuffer.append(URLGLOBALS.getMainPath());
-    	  stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-    	  stringBuffer.append(href);
-    	  
-         AbPath abPath = (AbPath) new AbFilePath(stringBuffer.toString());
 
-         if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-              org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
-         {
-        	 stringBuffer.delete(0, stringBuffer.length());
-        	 
-        	 stringBuffer.append("attempt to use xsl:import: href=");
-        	 stringBuffer.append(href);
-        	 stringBuffer.append("\nBase= ");
-        	 stringBuffer.append(base);
-        	 stringBuffer.append("\nNew path= ");
-        	 stringBuffer.append(abPath.toString());
-        	 stringBuffer.append("\nNote: ");
-        	 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-        	 stringBuffer.append(" is a urlglobal");
-        	 stringBuffer.append("\nRequired Extension: ");
-        	 stringBuffer.append(extension);
+    private String extension;
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "resolve"));
-         }
+    //private TransformInfoInterface parentTransformInfoInterface;
+    //TransformInfoInterface parentTransformInfoInterface,
+    public BasicUriResolver(String extension)
+    {
+        //this.parentTransformInfoInterface = parentTransformInfoInterface;
+        this.extension = extension;
+    }
 
-         return new StreamSource(new CryptFileReader(
-            TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION,
-            TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(abPath));
-      }
-      catch(TransformerException e)
-      {
-         throw e;
-      }
-      catch(Exception e)
-      {
-         throw new TransformerException(e);
-      }
-   }
-   
-   public String toString()
-   {
-      try
-      {
-    	  StringBuffer stringBuffer = new StringBuffer();
-    	  
-    	  stringBuffer.append(URLGLOBALS.getMainPath());
-    	  stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-    	  stringBuffer.append("/{import url}");
-    	  
-         return stringBuffer.toString();
-      }
-      catch(Exception e)
-      {
-         //Log Error
-         return "BasicUriResolver - Does not work without webapp path should be changed";
-      }
-   }
+    public String getExtension()
+    {
+        return this.extension;
+    }
+
+    public Source resolve(String href, String base) throws TransformerException
+    {
+        try
+        {
+            final StringBuffer stringBuffer = new StringBuffer();
+
+            stringBuffer.append(URLGLOBALS.getMainPath());
+            stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
+            stringBuffer.append(href);
+
+            final AbPath abPath = (AbPath) new AbFilePath(stringBuffer.toString());
+
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                    org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
+            {
+                stringBuffer.delete(0, stringBuffer.length());
+
+                stringBuffer.append("attempt to use xsl:import: href=");
+                stringBuffer.append(href);
+                stringBuffer.append("\nBase= ");
+                stringBuffer.append(base);
+                stringBuffer.append("\nNew path= ");
+                stringBuffer.append(abPath.toString());
+                stringBuffer.append("\nNote: ");
+                stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
+                stringBuffer.append(" is a urlglobal");
+                stringBuffer.append("\nRequired Extension: ");
+                stringBuffer.append(extension);
+
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "resolve"));
+            }
+
+            return new StreamSource(new CryptFileReader(
+                    TransformInfoTemplateData.getInstance().UNCRYPTED_EXTENSION,
+                    TransformInfoTemplateData.getInstance().ENCRYPTED_EXTENSION).getInputStream(abPath));
+        } catch (TransformerException e)
+        {
+            throw e;
+        } catch (Exception e)
+        {
+            throw new TransformerException(e);
+        }
+    }
+
+    public String toString()
+    {
+        try
+        {
+            StringBuffer stringBuffer = new StringBuffer();
+
+            stringBuffer.append(URLGLOBALS.getMainPath());
+            stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
+            stringBuffer.append("/{import url}");
+
+            return stringBuffer.toString();
+        } catch (Exception e)
+        {
+            //Log Error
+            return "BasicUriResolver - Does not work without webapp path should be changed";
+        }
+    }
 }

@@ -41,7 +41,7 @@ public class CustomUriResolver implements URIResolver
    {
       try
       {
-         AbPath fileAbPath = (AbPath) 
+         final AbPath fileAbPath = (AbPath) 
              new AbFilePath(path + AbPathData.getInstance().SEPARATOR + href);
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(

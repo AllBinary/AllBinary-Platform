@@ -55,4 +55,16 @@ public class SpecialAnimation extends IndexedAnimation implements SpecialAnimati
     {
         return false;
     }
+    
+    public void open() {
+        
+    }
+
+    public void close() {
+        
+    }
+    
+    public void process() {
+        
+    }
 }

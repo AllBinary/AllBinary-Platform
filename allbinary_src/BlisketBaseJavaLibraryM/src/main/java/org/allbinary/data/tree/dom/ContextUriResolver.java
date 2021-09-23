@@ -42,7 +42,7 @@ public class ContextUriResolver implements URIResolver
    {
       try
       {
-    	  StringBuffer stringBuffer = new StringBuffer();
+    	  final StringBuffer stringBuffer = new StringBuffer();
     	  
     	  stringBuffer.append(URLGLOBALS.getMainPath());
     	  stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
@@ -50,7 +50,7 @@ public class ContextUriResolver implements URIResolver
     	  stringBuffer.append(AbPathData.getInstance().SEPARATOR);
     	  stringBuffer.append(href);
 
-         AbPath fileAbPath = new AbFilePath(stringBuffer.toString());
+         final AbPath fileAbPath = new AbFilePath(stringBuffer.toString());
          
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
               org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))

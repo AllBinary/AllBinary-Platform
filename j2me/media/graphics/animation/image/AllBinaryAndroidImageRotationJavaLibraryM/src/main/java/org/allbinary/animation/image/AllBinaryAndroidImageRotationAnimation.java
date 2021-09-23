@@ -37,8 +37,8 @@ extends AllBinaryImageBaseRotationAnimation
     private final Image originalImage;
     
     protected AllBinaryAndroidImageRotationAnimation(
-            Image originalImage, Image image,
-            AngleInfo angleInfo, short totalAngle) throws Exception
+            final Image originalImage, final Image image,
+            final AngleInfo angleInfo, final short totalAngle) throws Exception
     {
         super(image, angleInfo, totalAngle);
 
@@ -63,7 +63,7 @@ extends AllBinaryImageBaseRotationAnimation
         matrix.setRotate(inc, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
-        Image image = this.getImage();
+        final Image image = this.getImage();
         image.getBitmap().eraseColor(Color.TRANSPARENT);
         image.getCanvas().concat(matrix);
         image.getGraphics().drawImage(originalImage, 0, 0, 0);
@@ -76,26 +76,26 @@ extends AllBinaryImageBaseRotationAnimation
         matrix.setRotate(-inc, this.halfWidth, this.halfHeight);        
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
-        Image image = this.getImage();
+        final Image image = this.getImage();
         image.getBitmap().eraseColor(Color.TRANSPARENT);
         image.getCanvas().concat(matrix);
         image.getGraphics().drawImage(originalImage, 0, 0, 0);
     }
 
-    public void setFrame(int index)
+    public void setFrame(final int index)
     {
-        int currentFrame = this.circularIndexUtil.getIndex();
+        final int currentFrame = this.circularIndexUtil.getIndex();
         
         this.circularIndexUtil.setIndex(index);
 
-        int newFrame = this.circularIndexUtil.getIndex();
+        final int newFrame = this.circularIndexUtil.getIndex();
         
         this.angleInfo.adjustAngle(newFrame);
                 
         if(newFrame > currentFrame)
         {
             matrix.setRotate((newFrame - currentFrame) * inc, this.halfWidth, this.halfHeight);
-            Image image = this.getImage();
+            final Image image = this.getImage();
             image.getBitmap().eraseColor(Color.TRANSPARENT);
             image.getCanvas().concat(matrix);
             image.getGraphics().drawImage(originalImage, 0, 0, 0);
@@ -104,7 +104,7 @@ extends AllBinaryImageBaseRotationAnimation
             if(newFrame < currentFrame)
         {
             matrix.setRotate((currentFrame - newFrame) * -inc, this.halfWidth, this.halfHeight);
-            Image image = this.getImage();
+            final Image image = this.getImage();
             image.getBitmap().eraseColor(Color.TRANSPARENT);
             image.getCanvas().concat(matrix);
             image.getGraphics().drawImage(originalImage, 0, 0, 0);

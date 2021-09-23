@@ -25,6 +25,8 @@ import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface
@@ -42,6 +44,10 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+    
     public void init(int level) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
@@ -60,6 +66,8 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
             BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
             throws Exception
     {
+        PreLogUtil.put(resource, this, CommonStrings.getInstance().ADD);
+
         if (hashtable.containsKey(resource))
         {
             throw new Exception("Resource Already Created: " + resource);

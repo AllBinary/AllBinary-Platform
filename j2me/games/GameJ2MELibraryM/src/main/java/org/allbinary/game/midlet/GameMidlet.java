@@ -895,7 +895,7 @@ public class GameMidlet extends ProgressMidlet
         throw new Exception(NotImplemented.NAME);
     }
 
-    protected void startGameCanvasRunnableInterface() throws Exception
+    public void startGameCanvasRunnableInterface() throws Exception
     {
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,
         // "startGameCanvasRunnableInterface"));
@@ -961,7 +961,7 @@ public class GameMidlet extends ProgressMidlet
         return allbinaryGameCanvasRunnableInterface;
     }
 
-    protected void setGameCanvasRunnableInterface(
+    public void setGameCanvasRunnableInterface(
         GameCanvasRunnableInterface myGameCanvasInterface)
     {
         this.allbinaryGameCanvasRunnableInterface = myGameCanvasInterface;
