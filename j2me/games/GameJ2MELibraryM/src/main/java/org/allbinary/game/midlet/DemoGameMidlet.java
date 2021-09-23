@@ -49,7 +49,7 @@ public class DemoGameMidlet extends GameMidlet
         return 1;
     }
     
-    protected GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
+    public GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
             throws Exception
     {
         throw new Exception(NotImplemented.NAME);

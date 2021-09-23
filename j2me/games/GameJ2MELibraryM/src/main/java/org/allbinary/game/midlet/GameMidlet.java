@@ -897,14 +897,12 @@ public class GameMidlet extends ProgressMidlet
 
     public void startGameCanvasRunnableInterface() throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,
-        // "startGameCanvasRunnableInterface"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "startGameCanvasRunnableInterface"));
+        
         thread = thread = ThreadFactoryUtil.getInstance().getInstance(
                 this.allbinaryGameCanvasRunnableInterface);
 
-        LogUtil.put(LogFactory.getInstance(
-                "Thread Priority: " + thread.getPriority(), this,
-                "startGameCanvasRunnableInterface"));
+        LogUtil.put(LogFactory.getInstance("Thread Priority: " + thread.getPriority(), this,"startGameCanvasRunnableInterface"));
 
         // canvasThread.setPriority(Thread.NORM_PRIORITY + 2);
         //thread.setPriority(Thread.MAX_PRIORITY);
