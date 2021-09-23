@@ -55,6 +55,7 @@ OpenGLSurfaceChangedInterface
 
     public void setBasicColor(BasicColor basicColor)
     {
+        //LogUtil.put(LogFactory.getInstance("setBasicColor", this, basicColor.toString()));
         this.basicColor = basicColor;
         this.color = this.basicColor.intValue();
     }

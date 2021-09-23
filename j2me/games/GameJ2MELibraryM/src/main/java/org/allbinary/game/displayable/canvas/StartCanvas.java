@@ -118,7 +118,7 @@ public class StartCanvas extends RunnableCanvas
         StatePaintableFactory.getInstance();
     private SpecialAnimation specialAnimationInterface = SpecialAnimation.getInstance();
     private Animation paintedSpecialAnimationInterface = SpecialAnimation.getInstance();
-    private AllBinaryGameCanvas gameCanvas = NullGameCanvas.getInstance();
+    //private AllBinaryGameCanvas gameCanvas = NullGameCanvas.getInstance();
     
     private final HighScoresHelper highScoresHelper = new HighScoresHelper();
 
@@ -511,7 +511,7 @@ public class StartCanvas extends RunnableCanvas
         this.close();
 
         this.setPaused(true);
-        this.gameCanvas.pause();
+        //this.gameCanvas.pause();
     }
 
     public synchronized void unPause()
@@ -519,7 +519,7 @@ public class StartCanvas extends RunnableCanvas
         this.open();
 
         this.setPaused(false);
-        this.gameCanvas.unPause();
+        //this.gameCanvas.unPause();
     }
 
     public boolean isPausable()
@@ -566,9 +566,7 @@ public class StartCanvas extends RunnableCanvas
     }
 
     public void paint(Graphics graphics)
-    {
-        //PreLogUtil.put("DemoCanvas", this, "paint");
-        
+    {        
         // Draw Game
         this.paintableInterface.paint(graphics);
         
@@ -646,11 +644,11 @@ public class StartCanvas extends RunnableCanvas
             this.paintedSpecialAnimationInterface = this.getSpecialAnimationInterface();
 
             //if (!this.demoGameRunnable.isRunning() && gameCanvas.isInitialized())
-            if (gameCanvas.isInitialized())
-            {
+            //if (gameCanvas.isInitialized())
+            //{
                 //PreLogUtil.put("Reset", this, CommonStrings.getInstance().RUN);
                 this.getSpecialAnimationInterface().reset();
-            }
+            //}
             
             //PreLogUtil.put("isComplete: " + this.getSpecialAnimationInterface().isComplete(), this, CommonStrings.getInstance().RUN);
         }
@@ -693,11 +691,11 @@ public class StartCanvas extends RunnableCanvas
 
         int randomLevel = this.getNextRandom();
 
-        this.gameCanvas = (AllBinaryGameCanvas) this.createRunnable(randomLevel);
+        //this.gameCanvas = (AllBinaryGameCanvas) this.createRunnable(randomLevel);
 
-        this.basicColor =
-            this.gameCanvas.getLayerManager().getForegroundBasicColor();
-        this.getRealHighScoresPaintable().setBasicColor(this.basicColor);
+        //this.basicColor =
+            //this.gameCanvas.getLayerManager().getForegroundBasicColor();
+        //this.getRealHighScoresPaintable().setBasicColor(this.basicColor);
         
         //this.gameCanvas.setGameCanvasStartListener(this);
         
@@ -706,38 +704,39 @@ public class StartCanvas extends RunnableCanvas
 
     public void setHighScores() throws Exception
     {
-       GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
+       //GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
 
-       HighScores[] highScoresArray =
-               this.getHighScoresFactoryInterface().createHighScores(gameInfo);
+       //HighScores[] highScoresArray =
+               //this.getHighScoresFactoryInterface().createHighScores(gameInfo);
 
-       this.highScoresHelper.setHighScoresArray(highScoresArray);
+       //this.highScoresHelper.setHighScoresArray(highScoresArray);
     }
 
     protected void start() throws Exception
     {
-        PreLogUtil.put("Game Thread in DemoCanvas", this, CommonStrings.getInstance().START);
+        //PreLogUtil.put("Game Thread in DemoCanvas", this, CommonStrings.getInstance().START);
 
-        this.canvasThread = ThreadFactoryUtil.getInstance().getInstance(this.gameCanvas);
-        this.gameCanvas.setThread(canvasThread);
+        //this.canvasThread = ThreadFactoryUtil.getInstance().getInstance(this.gameCanvas);
+        //this.gameCanvas.setThread(canvasThread);
 
         //PreLogUtil.put("Game Thread Priority: " + 
         //      canvasThread.getPriority(), this, CommonStrings.getInstance());
         //LogUtil.put(LogFactory.getInstance(
         //      "Game Thread Priority: " + canvasThread.getPriority(), this, CommonStrings.getInstance()));
 
-        this.canvasThread.start();
+        //this.canvasThread.start();
 
-        if(this.getWait() == LOAD_WAIT)
-        {
-            this.setWait(this.getTempWait());
-        }
+        //if(this.getWait() == LOAD_WAIT)
+        //{
+            //this.setWait(this.getTempWait());
+        //}
 
         //PreLogUtil.put(CommonStrings.getInstance().END, this, CommonStrings.getInstance());
     }
 
     public void preDemoProcess()
     {
+        /*
         if (!gameCanvas.isInitialized() ||
                 gameCanvas.getTitle() == NullGameCanvas.NO_GAME)
         {
@@ -749,6 +748,7 @@ public class StartCanvas extends RunnableCanvas
                 }
             }
         }
+        */
 
         this.overlayPaintable.update();
     }
@@ -770,29 +770,29 @@ public class StartCanvas extends RunnableCanvas
             DemoGameMidlet demoGameMidlet =
                     (DemoGameMidlet) this.getCustomCommandListener();
 
-            if (this.gameCanvas != NullGameCanvas.getInstance()
-                && this.gameCanvas.isGameOver())
-            {
+            //if (this.gameCanvas != NullGameCanvas.getInstance()
+                //&& this.gameCanvas.isGameOver())
+            //{
                 //PreLogUtil.put("Restarting Game Demo", this, CommonStrings.getInstance().PROCESS);
 
-                this.stopGameDemo();
+                //this.stopGameDemo();
 
-                int randomLevel = this.getNextRandom();
+                //int randomLevel = this.getNextRandom();
                 
                 //PreLogUtil.put("Restarting Game Demo at Level: " + randomLevel, this, CommonStrings.getInstance().PROCESS);
                 
-                GameInfo gameInfo =
-                    this.gameCanvas.getLayerManager().getGameInfo();
+                //GameInfo gameInfo =
+                    //this.gameCanvas.getLayerManager().getGameInfo();
 
-                gameInfo.setCurrentLevel(randomLevel);
+                //gameInfo.setCurrentLevel(randomLevel);
 
-                this.gameCanvas.setGameOver(false);
+                //this.gameCanvas.setGameOver(false);
 
-                this.start();
-            }
-            else if (this.gameCanvas == NullGameCanvas.getInstance()
-                && demoGameMidlet.isReady())
-            {
+                //this.start();
+            //}
+            //else if (this.gameCanvas == NullGameCanvas.getInstance()
+                //&& demoGameMidlet.isReady())
+            //{
 //                if (!demoGameRunnable.isRunning())
 //                {
 //                    //LogUtil.put(LogFactory.getInstance("Starting Game Demo", this, CommonStrings.getInstance().PROCESS));
@@ -807,7 +807,7 @@ public class StartCanvas extends RunnableCanvas
 //                    //Don't un-remark thread.setPriority(Thread.MIN_PRIORITY);
 //                    thread.start();
 //                }
-            }
+            //}
         }
     }
 
@@ -818,53 +818,53 @@ public class StartCanvas extends RunnableCanvas
         //DemoCanvasProgressUtil.showProgress(this);
     }
     
-    protected void stopGameDemo() throws Exception
-    {
-        if (this.gameCanvas != NullGameCanvas.getInstance())
-        {
-            //PreLogUtil.put("Set Running False", this, "stopGameDemo");
-            LogUtil.put(LogFactory.getInstance("Set Running False", this, "stopGameDemo"));
-            this.gameCanvas.setRunning(false);
-        }
+//    protected void stopGameDemo() throws Exception
+//    {
+//        if (this.gameCanvas != NullGameCanvas.getInstance())
+//        {
+//            //PreLogUtil.put("Set Running False", this, "stopGameDemo");
+//            LogUtil.put(LogFactory.getInstance("Set Running False", this, "stopGameDemo"));
+//            this.gameCanvas.setRunning(false);
+//        }
+//
+//        ThreadUtil.getInstance().join(this.canvasThread);
+//    }
 
-        ThreadUtil.getInstance().join(this.canvasThread);
-    }
+//    protected void showGamePaintable()
+//    {
+//        final String METHOD_NAME = "showGamePaintable";
+//        
+//        PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
+//        
+//        Features features = Features.getInstance();
+//        
+//        if (this.gameCanvas != NullGameCanvas.getInstance() && 
+//                (this.gameCanvas.isRunning() || 
+//                features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+//                && !(this.gameCanvas instanceof NullGameCanvas)
+//                )
+//        {
+//            this.gameRunnable = new GameCanvasRunnable(this.gameCanvas);
+//            PreLogUtil.put("Showing Game", this, METHOD_NAME);
+//            this.setPaintableInterface(this.gameCanvas);
+//        }
+//        else
+//        {
+//            this.gameRunnable = GameRunnable.getInstance();
+//            PreLogUtil.put("Not Showing Game", this, METHOD_NAME);
+//            this.setPaintableInterface(this.getDefaultPaintableInterface());
+//        }
+//    }
 
-    protected void showGamePaintable()
-    {
-        final String METHOD_NAME = "showGamePaintable";
-        
-        PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
-        
-        Features features = Features.getInstance();
-        
-        if (this.gameCanvas != NullGameCanvas.getInstance() && 
-                (this.gameCanvas.isRunning() || 
-                features.isDefault(HTMLFeatureFactory.getInstance().HTML))
-                && !(this.gameCanvas instanceof NullGameCanvas)
-                )
-        {
-            this.gameRunnable = new GameCanvasRunnable(this.gameCanvas);
-            PreLogUtil.put("Showing Game", this, METHOD_NAME);
-            this.setPaintableInterface(this.gameCanvas);
-        }
-        else
-        {
-            this.gameRunnable = GameRunnable.getInstance();
-            PreLogUtil.put("Not Showing Game", this, METHOD_NAME);
-            this.setPaintableInterface(this.getDefaultPaintableInterface());
-        }
-    }
-
-    protected boolean isReadyForStateChange()
-    {
-        //return !this.demoGameRunnable.isRunning() && gameCanvas.isInitialized();
-        return gameCanvas.isInitialized();
-    }
+//    protected boolean isReadyForStateChange()
+//    {
+//        //return !this.demoGameRunnable.isRunning() && gameCanvas.isInitialized();
+//        return gameCanvas.isInitialized();
+//    }
     
     protected void processGame() throws Exception
     {
-        PreLogUtil.put(CommonStrings.getInstance().START, this, "processGame");
+        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processGame");
         
         this.gameRunnable.run();
 
@@ -877,26 +877,26 @@ public class StartCanvas extends RunnableCanvas
         //&& gameCanvasRunnableInterface.isInitialized()
         //If animation is not completed
         
-        PreLogUtil.put("isComplete: " + this.specialAnimationInterface.isComplete(), this, "processGame");
-        PreLogUtil.put("isReadyForStateChange: " + this.isReadyForStateChange(), this, "processGame");
-        if (!this.specialAnimationInterface.isComplete() && this.isReadyForStateChange())
-        {
-            PreLogUtil.put("nextFrame", this, "processGame");
+        //PreLogUtil.put("isComplete: " + this.specialAnimationInterface.isComplete(), this, "processGame");
+        //PreLogUtil.put("isReadyForStateChange: " + this.isReadyForStateChange(), this, "processGame");
+        //if (!this.specialAnimationInterface.isComplete() && this.isReadyForStateChange())
+        //{
+            //PreLogUtil.put("nextFrame", this, "processGame");
             this.specialAnimationInterface.nextFrame();
-        }
+        //}
 
         // || this.circularIndexUtil.getSize() > 0
         
-        if (timeDelayHelper.isTime() && this.isReadyForStateChange())
-        {
-            this.demoStateChange();
-        }
-        else
-        {
+        //if (timeDelayHelper.isTime() && this.isReadyForStateChange())
+        //{
+            //this.demoStateChange();
+        //}
+        //else
+        //{
             // allow title animation to finish before counting down for
             // next screen and starting a new demo game
             this.process();
-        }
+        //}
     }
     
     public void run()
@@ -938,14 +938,14 @@ public class StartCanvas extends RunnableCanvas
                 //PreLogUtil.put(CommonStrings.getInstance().START, this, "OPENGL_AS_GAME_THREAD");
                 
                 //Process as 2 threads until initialized - allows progress to update
-                while (gameCanvas == NullGameCanvas.getInstance() || !gameCanvas.isInitialized())
-                {
-                    this.getLoopTimeHelper().setStartTime();
-
-                    this.processGame();
-
-                    this.processLoopSleep();
-                }
+//                while (!this.isInitialized())
+//                {
+//                    this.getLoopTimeHelper().setStartTime();
+//
+//                    this.processGame();
+//
+//                    this.processLoopSleep();
+//                }
                 
                 //final DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
                 
@@ -1038,7 +1038,7 @@ public class StartCanvas extends RunnableCanvas
         this.close();
         DisplayChangeEventHandler.getInstance().removeListener(this);
 
-        this.stopGameDemo();
+        //this.stopGameDemo();
     }
     
     public void setGameState(GameState gameState)
@@ -1051,10 +1051,10 @@ public class StartCanvas extends RunnableCanvas
         return GameState.PLAYING_GAME_STATE;
     }
 
-    public AllBinaryGameCanvas getGameCanvasRunnableInterface()
-    {
-        return gameCanvas;
-    }
+//    public AllBinaryGameCanvas getGameCanvasRunnableInterface()
+//    {
+//        return gameCanvas;
+//    }
 
     protected int getState()
     {

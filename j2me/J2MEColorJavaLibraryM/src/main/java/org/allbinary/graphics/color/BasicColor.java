@@ -122,9 +122,8 @@ public class BasicColor
 
         this.name = name;
 
-        final int alphaInt = ((alphaValue >> 24) & 255);
-        this.alpha = (short) alphaInt;
-        this.alphaComponent = ((float) alphaInt) / 255;
+        this.alpha = (short) alphaValue;
+        this.alphaComponent = ((float) alphaValue) / 255;
 
         final int redInt = r;
         this.red = (short) redInt;
@@ -138,7 +137,7 @@ public class BasicColor
         this.blue = (short) blueInt;
         this.blueComponent = ((float) blueInt) / 255;
 
-        this.value = alphaValue + (redInt << 16) + (greenInt << 8) + blueInt;
+        this.value = ((alphaValue << 24) & 0xFF000000) + ((redInt << 16) & 0x00FF0000) + ((greenInt << 8) & 0x0000FF00) + (blueInt & 0x000000FF);
 
         /*
         StringMaker stringBuffer = new StringMaker();
@@ -174,12 +173,14 @@ public class BasicColor
         stringBuffer.append("BasicColor: ");
         stringBuffer.append("Alpha: ");
         stringBuffer.append(this.alpha);
-        stringBuffer.append("Red: ");
+        stringBuffer.append(" Red: ");
         stringBuffer.append(this.red);
         stringBuffer.append(" Green: ");
         stringBuffer.append(this.green);
         stringBuffer.append(" Blue: ");
         stringBuffer.append(this.blue);
+        stringBuffer.append(" Value: ");
+        stringBuffer.append(this.value);
 
         return stringBuffer.toString();
     }
