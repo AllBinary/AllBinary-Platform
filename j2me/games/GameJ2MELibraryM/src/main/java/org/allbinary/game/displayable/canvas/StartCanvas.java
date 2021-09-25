@@ -1191,4 +1191,9 @@ public class StartCanvas extends RunnableCanvas
    {
       return gameInitializationInterfaceFactoryInterface;
    }
+
+    //Hack for GD
+    public void stop() {
+        this.paintedSpecialAnimationInterface = SpecialAnimation.getInstance();
+    }
 }

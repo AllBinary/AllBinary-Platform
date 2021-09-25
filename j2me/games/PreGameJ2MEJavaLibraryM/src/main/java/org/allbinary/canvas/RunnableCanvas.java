@@ -309,4 +309,9 @@ public class RunnableCanvas extends MyCanvas
     {
         this.setCurrentThread();
     }
+    
+    //Hack for GD
+    public void stop() {
+        
+    }
 }

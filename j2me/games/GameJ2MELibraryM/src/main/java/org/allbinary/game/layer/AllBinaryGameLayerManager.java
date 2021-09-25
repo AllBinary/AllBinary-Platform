@@ -34,8 +34,8 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
 
     private PlayerGameInputCompositeInterface playerGameInputCompositeInterface;
 
-    public AllBinaryGameLayerManager(BasicColor backgroundBasicColor,
-            BasicColor foregroundBasicColor, GameInfo gameInfo)
+    public AllBinaryGameLayerManager(final BasicColor backgroundBasicColor,
+            final BasicColor foregroundBasicColor, final GameInfo gameInfo)
     {
         this.backgroundBasicColor = backgroundBasicColor;
         this.foregroundBasicColor = foregroundBasicColor;
@@ -61,7 +61,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
         return backgroundBasicColor;
     }
 
-    public void setBackgroundBasicColor(BasicColor backgroundBasicColor)
+    public void setBackgroundBasicColor(final BasicColor backgroundBasicColor)
     {
         this.backgroundBasicColor = backgroundBasicColor;
 
@@ -73,7 +73,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
         return foregroundBasicColor;
     }
 
-    public void setForegroundBasicColor(BasicColor foregroundBasicColor)
+    public void setForegroundBasicColor(final BasicColor foregroundBasicColor)
     {
         this.foregroundBasicColor = foregroundBasicColor;
 
@@ -85,14 +85,14 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
         return gameInfo;
     }
 
-    public void setGameInfo(GameInfo gameInfo)
+    public void setGameInfo(final GameInfo gameInfo)
     {
         this.gameInfo = gameInfo;
     }
 
-    public void setLayerProcessorList(BasicArrayList list)
+    public void setLayerProcessorList(final BasicArrayList list)
     {
-        LayerProcessor[] layerProcessorInterfaceArray = new LayerProcessor[list.size()];
+        final LayerProcessor[] layerProcessorInterfaceArray = new LayerProcessor[list.size()];
 
         int size = layerProcessorInterfaceArray.length;
         for (int index = 0; index < size; index++)
@@ -104,7 +104,7 @@ public class AllBinaryGameLayerManager extends AllBinaryLayerManager
     }
 
     public void setPlayerGameInputCompositeInterface(
-            PlayerGameInputCompositeInterface playerGameInputCompositeInterface)
+            final PlayerGameInputCompositeInterface playerGameInputCompositeInterface)
     {
         this.playerGameInputCompositeInterface = playerGameInputCompositeInterface;
     }
