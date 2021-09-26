@@ -32,7 +32,6 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.basic.NotImplemented;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -49,7 +48,6 @@ import org.allbinary.canvas.CustomGameMenuUtil;
 import org.allbinary.canvas.FullScreenUtil;
 import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.RunnableCanvas;
-import org.allbinary.game.GameInfo;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.feature.*;
@@ -67,7 +65,6 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.midlet.DemoGameMidlet;
 import org.allbinary.game.score.HighScoreCommands;
-import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresCompositeInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelper;
@@ -77,18 +74,12 @@ import org.allbinary.game.state.GameState;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
-import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormType;
 import org.allbinary.graphics.form.FormTypeFactory;
 import org.allbinary.graphics.form.ScrollSelectionForm;
-import org.allbinary.graphics.form.ScrollSelectionFormNoneFactory;
-import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
@@ -101,11 +92,7 @@ import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactoryFactory;
-import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
-import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.thread.SecondaryThreadPool;
-import org.allbinary.thread.ThreadFactoryUtil;
-import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 
 public class StartCanvas extends RunnableCanvas 
@@ -125,10 +112,10 @@ public class StartCanvas extends RunnableCanvas
     private final HighScoresPaintable realHighScoresPaintable = new HighScoresPaintable();
     private Paintable highScoresPaintable = NullPaintable.getInstance();
     private int state = 0;
-    private Thread canvasThread;
+    //private Thread canvasThread;
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(6000);
     
-    private BasicColor basicColor = BasicColorFactory.getInstance().RED;
+    //private BasicColor basicColor = BasicColorFactory.getInstance().RED;
 
     private final HighScoresFactoryInterface highScoresFactoryInterface;
     //Menu
@@ -329,26 +316,26 @@ public class StartCanvas extends RunnableCanvas
     {
         this.close();
         
-        CommandTextItemArrayFactory commandTextItemArrayFactory = 
-            DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
-        
-        CustomItem[] items = commandTextItemArrayFactory.getInstance(
-            this.getCommandStack(), 
-            BasicColorFactory.getInstance().BLACK, 
-            BasicColorFactory.getInstance().WHITE);
-
-        FormType formType = FormTypeFactory.getInstance().getFormType();
-        
-        Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
-
-        PreLogUtil.put(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "initMenu");
-        
-        this.setMenuForm(
-            CommandCurrentSelectionFormFactory.getInstance(
-                    StringUtil.getInstance().EMPTY_STRING, 
-                    items, rectangle, formType, 15, true,
-                    BasicColorFactory.getInstance().BLACK, 
-                    BasicColorFactory.getInstance().WHITE));
+//        CommandTextItemArrayFactory commandTextItemArrayFactory = 
+//            DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
+//        
+//        CustomItem[] items = commandTextItemArrayFactory.getInstance(
+//            this.getCommandStack(), 
+//            BasicColorFactory.getInstance().BLACK, 
+//            BasicColorFactory.getInstance().WHITE);
+//
+//        FormType formType = FormTypeFactory.getInstance().getFormType();
+//        
+//        Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+//
+//        PreLogUtil.put(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "initMenu");
+//        
+//        this.setMenuForm(
+//            CommandCurrentSelectionFormFactory.getInstance(
+//                    StringUtil.getInstance().EMPTY_STRING, 
+//                    items, rectangle, formType, 15, true,
+//                    BasicColorFactory.getInstance().BLACK, 
+//                    BasicColorFactory.getInstance().WHITE));
 
         /*
         this.setMenuInputProcessor(
@@ -356,12 +343,12 @@ public class StartCanvas extends RunnableCanvas
         new BasicArrayList(), this));
          */
 
-        if(this.getMenuForm() != ScrollSelectionFormNoneFactory.getInstance())
-        {
-            this.setMenuInputProcessor(
-                    new CommandFormInputProcessor(
-                    new BasicArrayList(), -1, this, this.getMenuForm()));
-        }
+//        if(this.getMenuForm() != ScrollSelectionFormNoneFactory.getInstance())
+//        {
+//            this.setMenuInputProcessor(
+//                    new CommandFormInputProcessor(
+//                    new BasicArrayList(), -1, this, this.getMenuForm()));
+//        }
 
         this.open();
     }
