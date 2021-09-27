@@ -21,7 +21,7 @@ import org.allbinary.graphics.Anchor;
 
 public class TextAnimation  extends Animation
 {
-    private String text = StringUtil.getInstance().EMPTY_STRING;
+    protected String text = StringUtil.getInstance().EMPTY_STRING;
     
     private int anchor = Anchor.TOP_LEFT;
     

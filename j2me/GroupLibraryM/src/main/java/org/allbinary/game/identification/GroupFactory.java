@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.identification;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class GroupFactory {
@@ -55,6 +57,8 @@ public class GroupFactory {
          list.add(new Group(name, (short) (size + 3)));
          size++;
       }
+      
+      //LogUtil.put(LogFactory.getInstance("size: " + list.objectArray.length, this, "init"));
    }
    
 }
