@@ -60,7 +60,8 @@ extends LayerManagerEventListener
 
     public int getGroupSize(GroupInterfaceCompositeInterface groupInterfaceCompositeInterface)
     {
-        return this.getGroupSize(groupInterfaceCompositeInterface.getGroupInterface());
+        final Group[] groupInterfaceArray = groupInterfaceCompositeInterface.getGroupInterface();
+        return this.getGroupSize(groupInterfaceArray[0]);
     }
 
     public int getGroupSize(Group groupInterface)
@@ -90,9 +91,9 @@ extends LayerManagerEventListener
 
     public boolean areAllOtherGroupsEmpty(Group groupInterface)
     {
-        int id = groupInterface.getGroupId();
+        final int id = groupInterface.getGroupId();
 
-        int size = list.size();
+        final int size = list.size();
         for (int index = size - 1; index >= 0; index--)
         {
             if (id != index)
@@ -112,10 +113,11 @@ extends LayerManagerEventListener
 
     private boolean isIdInList(int id, BasicArrayList excludeGroupList)
     {
-        int size = excludeGroupList.size();
+        final int size = excludeGroupList.size();
+        Group groupInterface;
         for (int index = size - 1; index >= 0; index--)
         {
-            Group groupInterface = (Group) excludeGroupList.objectArray[index];
+            groupInterface = (Group) excludeGroupList.objectArray[index];
             if(groupInterface.getGroupId() == id)
             {
                 return true;
@@ -133,7 +135,7 @@ extends LayerManagerEventListener
         
         //StringMaker stringBuffer = new StringMaker();
         
-        int size = list.size();
+        final int size = list.size();
         for (int index = size - 1; index >= 0; index--)
         {
             if (!this.isIdInList(index, excludeGroupList))
@@ -181,7 +183,7 @@ extends LayerManagerEventListener
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onLayerManagerEvent"));
 
-        AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
+        final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
         //Ignore weapons
         /*
@@ -191,12 +193,16 @@ extends LayerManagerEventListener
         }
         */
         
-        Group groupInterface =
+        final Group[] groupInterfaceArray =
             ((GroupInterfaceCompositeInterface) layerInterface).getGroupInterface();
+        final int size = groupInterfaceArray.length;
 
-        int id = groupInterface.getGroupId();
+        int id;
+        BasicArrayList groupList;
+        for(int index = 0; index < size; index++) {
+            id = groupInterfaceArray[index].getGroupId();
 
-        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[id];
+            groupList = (BasicArrayList) this.list.objectArray[id];
 
             //if(Group.ENEMY.getGroupId() == id)
 
@@ -227,7 +233,8 @@ extends LayerManagerEventListener
             else
             {
                 //throw new Exception("layerInterface: " + layerInterface + " is already in group");
-            }
+            }            
+        }
     }
 
     public void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent)
@@ -245,15 +252,21 @@ extends LayerManagerEventListener
         // return;
         // }
 
-        Group groupInterface = ((GroupInterfaceCompositeInterface) layerInterface).getGroupInterface();
+        final Group[] groupInterfaceArray = 
+                ((GroupInterfaceCompositeInterface) layerInterface).getGroupInterface();
 
-        int id = groupInterface.getGroupId();
+        final int size = groupInterfaceArray.length;
+        int id;
+        BasicArrayList groupList;
+        for(int index = 0; index < size; index++) {
+            
+            id = groupInterfaceArray[index].getGroupId();
 
-        BasicArrayList groupList = (BasicArrayList) this.list.objectArray[id];
+            groupList = (BasicArrayList) this.list.objectArray[id];
 
-        // if(Group.ENEMY.getGroupId() == id)
-        // if(layerInterface.getType() != WeaponLayer.getStaticType())
-        groupList.remove(layerInterface);
+            // if(Group.ENEMY.getGroupId() == id)
+            // if(layerInterface.getType() != WeaponLayer.getStaticType())
+            groupList.remove(layerInterface);
 
         // Ignore removing weapon for logging -- to much logging
 
@@ -274,6 +287,8 @@ extends LayerManagerEventListener
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "onLayerManagerEvent"));
         }
         */        
+            
+        }        
     }
 
     public void log()

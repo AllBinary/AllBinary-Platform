@@ -35,13 +35,13 @@ public class SimpleTransform {
 
     public String transform() throws Exception
     {
-        AbFileLocalInputStream inputStream =
+        final AbFileLocalInputStream inputStream =
             new AbFileLocalInputStream(new AbFile(xsltFilePath));
 
-        Document document = DomDocumentHelper.create(
+        final Document document = DomDocumentHelper.create(
             new AbFileLocalInputStream(new AbFile(dataFilePath)));
 
-        String result = XslHelper.translate(
+        final String result = XslHelper.getInstance().translate(
             new StreamSource(inputStream),
             new StreamSource(
             new StringBufferInputStream(DomDocumentHelper.toString(document))

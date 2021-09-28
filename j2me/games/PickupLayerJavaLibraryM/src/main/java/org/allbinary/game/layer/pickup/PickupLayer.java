@@ -42,7 +42,7 @@ public class PickupLayer
 
    public PickupLayer(RemoteInfo remoteInfo, ViewPosition viewPosition) throws Exception
    {
-      super(remoteInfo, BasicGroupFactory.getInstance().NONE, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), viewPosition);
+      super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), viewPosition);
       
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
@@ -57,7 +57,7 @@ public class PickupLayer
            Animation animationInterface, Rectangle rectangle, ViewPosition viewPosition)
       throws Exception
    {
-      super(remoteInfo, BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
+      super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, rectangle, viewPosition);
 
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());

@@ -36,14 +36,14 @@ public class NumberOnOwnGroupSequenceAI extends SequenceAI
 
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
-      GroupInterfaceCompositeInterface groupInterfaceCompositeInterface =
+      final GroupInterfaceCompositeInterface groupInterfaceCompositeInterface =
          this.getOwnerLayerInterface();
 
       int index = this.getIndex();
       if (numberOnSameTeam.length > index)
       {
-         int size = GroupLayerManagerListener.getInstance().getGroupSize(
-                 groupInterfaceCompositeInterface.getGroupInterface());
+         final int size = GroupLayerManagerListener.getInstance().getGroupSize(
+                 groupInterfaceCompositeInterface);
          
          if (numberOnSameTeam[index].intValue() > size)
          {

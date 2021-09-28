@@ -83,7 +83,7 @@ public class AbTransformer implements BasicTransformerInterface
              throw new Exception("No URIResolver");
          }
 
-         String result = XslHelper.translate(this.getURIResolver(),
+         String result = XslHelper.getInstance().translate(this.getURIResolver(),
             new StreamSource(this.getInputStream()),
             new StreamSource(new StringBufferInputStream(xmlDocumentStr)));
 

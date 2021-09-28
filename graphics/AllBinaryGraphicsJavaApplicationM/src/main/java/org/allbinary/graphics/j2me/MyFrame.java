@@ -47,7 +47,8 @@ public class MyFrame extends javax.swing.JFrame
         implements FileJDialogListenerInterface, HashMapJDialogListenerInterface,
         java.awt.event.KeyListener
 {
-
+    private final XslHelper xslHelper = XslHelper.getInstance();
+    
     private static final int MAXWORKAREAS = 10;
     private static int numberOfWorkAreas = 0;
     private final String JAVA_TEMPLATE = "javaExport.xsl";
@@ -610,7 +611,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
 
             LogUtil.put(LogFactory.getInstance("Export: " + DomHelper.getInstance().toString(document), this, "exportJMenuItem1ActionPerformed"));
 
-            XslHelper.export(file, this.TEMPLATE_EXPORT_PATH + "/" + this.JAVA_TEMPLATE, document);
+            xslHelper.export(file, this.TEMPLATE_EXPORT_PATH + "/" + this.JAVA_TEMPLATE, document);
         } catch (Exception e)
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))

@@ -23,7 +23,7 @@ extends CollidableDestroyableDamageableLayer
 implements MultiPlayerGameLayerInterface
 {
     public MultiPlayerGameLayer(RemoteInfo remoteInfo,
-            Group groupInterface, Rectangle layerInfo, ViewPosition viewPosition)
+            Group[] groupInterface, Rectangle layerInfo, ViewPosition viewPosition)
     {
         super(groupInterface, layerInfo, viewPosition);
     }

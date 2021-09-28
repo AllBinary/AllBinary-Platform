@@ -121,9 +121,9 @@ implements LayerInterface
         this.viewPosition = viewPosition;
     }
 
-    public Group getGroupInterface()
+    public Group[] getGroupInterface()
     {
-        return BasicGroupFactory.getInstance().NONE;
+        return BasicGroupFactory.getInstance().NONE_ARRAY;
     }
 
     public boolean implmentsTickableInterface()

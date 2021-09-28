@@ -55,7 +55,7 @@ implements DestroyableInterface, DamageableInterface,
 PickupCompositeInterface, SpecialGameInputInterface,
 OpenGLSurfaceChangedInterface
 {
-    private Group groupInterface;
+    private Group[] groupInterface;
     private boolean readyForExplosion;
 
     private int initX;
@@ -66,7 +66,7 @@ OpenGLSurfaceChangedInterface
     private PickupBehavior pickupBehavior;
     
     public CollidableDestroyableDamageableLayer(
-            Group groupInterface, 
+            Group[] groupInterface, 
             Rectangle layerInfo, ViewPosition viewPosition)
     {
         super(layerInfo, viewPosition);
@@ -116,12 +116,12 @@ OpenGLSurfaceChangedInterface
     }
     */
     
-    public Group getGroupInterface()
+    public Group[] getGroupInterface()
     {
         return groupInterface;
     }
 
-    public void setGroupInterface(Group teamInterface)
+    public void setGroupInterface(Group[] teamInterface)
     {
         this.groupInterface = teamInterface;
     }

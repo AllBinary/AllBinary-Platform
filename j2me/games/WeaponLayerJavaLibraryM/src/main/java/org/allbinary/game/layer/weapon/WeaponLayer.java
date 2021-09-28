@@ -139,7 +139,7 @@ implements TickableInterface
             ViewPosition viewPosition)
             throws Exception
     {
-        super(remoteInfo, BasicGroupFactory.getInstance().NONE, rectangle, viewPosition);
+        super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, rectangle, viewPosition);
         // super(Group.NONE, rectangle, viewPosition, true);
 
         this.initAnimationInterface = animationInterface;

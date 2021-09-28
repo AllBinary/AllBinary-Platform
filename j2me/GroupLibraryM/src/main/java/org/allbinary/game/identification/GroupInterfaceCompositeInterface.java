@@ -15,5 +15,5 @@ package org.allbinary.game.identification;
 
 public interface GroupInterfaceCompositeInterface
 {
-   Group getGroupInterface();
+   Group[] getGroupInterface();
 }
