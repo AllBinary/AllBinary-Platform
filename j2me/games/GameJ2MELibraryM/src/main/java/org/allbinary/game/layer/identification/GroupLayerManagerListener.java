@@ -85,6 +85,9 @@ extends LayerManagerEventListener
     private int getGroupSize(int groupId)
     {
         BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
+        //if(groupList == null) {
+            //LogUtil.put(LogFactory.getInstance("groupId: " + groupId, this, "getGroupSize"));
+        //}
         int size = groupList.size();
         return size;
     }
@@ -171,6 +174,9 @@ extends LayerManagerEventListener
         {
             this.list.add(new BasicArrayList());
         }
+        
+        //LogUtil.put(LogFactory.getInstance("size: " + total, this, "init"));
+        
     }
 
     public void onEvent(AllBinaryEventObject eventObject)
@@ -204,6 +210,10 @@ extends LayerManagerEventListener
 
             groupList = (BasicArrayList) this.list.objectArray[id];
 
+            if(groupList == null) {
+                LogUtil.put(LogFactory.getInstance("id: " + id, this, "onLayerManagerEvent"));
+            }
+            
             //if(Group.ENEMY.getGroupId() == id)
 
             if (!groupList.contains(layerInterface))
