@@ -59,6 +59,15 @@ public class TimeDelayHelper
         return false;
     }
 
+    public boolean isTimeWithoutReset(long currentTime)
+    {
+        if (currentTime - this.startTime > this.getDelay())
+        {
+            return true;
+        }
+        return false;
+    }
+    
     public boolean isTimeSince(int delay, long currentTime)
     {
         if (currentTime - this.startTime > this.getDelay())
@@ -126,6 +135,18 @@ public class TimeDelayHelper
     public void setStartTime()
     {
         this.startTime = System.currentTimeMillis();
+    }
+    
+    public void pause() {
+        this.startTime = Long.MAX_VALUE;
+    }
+
+    public void resume() {
+        this.setStartTime();
+    }
+
+    public void unPause() {
+        this.setStartTime();
     }
     
     public String toString()

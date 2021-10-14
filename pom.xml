@@ -40,7 +40,9 @@
         <module>./graphics/GraphicsToolsP</module>
         <module>./allbinary_src/BlisketJavaLibraryP</module>
         <module>./j2me/games/platform/AllBinaryOnAllPlaformsJavaLibraryP</module>
+        <!--
         <module>AllBinaryPersistenceLibraryP</module>
+        -->
     </modules>
 
     <dependencies>
