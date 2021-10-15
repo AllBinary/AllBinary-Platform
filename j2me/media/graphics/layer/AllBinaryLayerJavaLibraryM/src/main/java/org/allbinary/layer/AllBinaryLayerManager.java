@@ -40,7 +40,7 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
     }
 
     // , int damageIndex
-    public void setLayerProcessorArray(LayerProcessor[] layerProcessorArray)
+    public void setLayerProcessorArray(final LayerProcessor[] layerProcessorArray)
     {
         this.basicLayerProcessorArray = layerProcessorArray;
         // this.damageIndex = damageIndex;
@@ -59,8 +59,8 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
             layerProcessorInterface.getLayerInterfaceManager().getSize(), this, "log"));
         }
     }
-
-    public void append(AllBinaryLayer layerInterface) throws Exception
+    
+    public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         if(!this.contains(layerInterface))
         {
@@ -72,7 +72,7 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
         }
     }
 
-    public void append(AllBinaryLayer layerInterface, int index) throws Exception
+    public void append(final AllBinaryLayer layerInterface, final int index) throws Exception
     {
         if(!this.contains(layerInterface))
         {
@@ -82,7 +82,7 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
         }
     }
 
-    private void appendProcessors(AllBinaryLayer layerInterface)
+    private void appendProcessors(final AllBinaryLayer layerInterface)
         throws Exception
     {
         //LogUtil.put(LogFactory.getInstance("Append: " + layerInterface, this, "appendProcessors"));
@@ -105,7 +105,7 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
         }
     }
 
-    public synchronized void remove(AllBinaryLayer layerInterface)
+    public synchronized void remove(final AllBinaryLayer layerInterface)
         throws Exception
     {
         //LogUtil.put(LogFactory.getInstance("Remove: " + layerInterface, this, "remove"));

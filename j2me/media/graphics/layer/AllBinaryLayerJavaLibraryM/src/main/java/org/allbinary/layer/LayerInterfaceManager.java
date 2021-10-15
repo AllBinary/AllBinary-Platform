@@ -16,19 +16,33 @@ public class LayerInterfaceManager
     {
     }
     
-    public boolean contains(AllBinaryLayer layerInterface)
+    public boolean contains(final AllBinaryLayer layerInterface)
     {
         return this.list.contains(layerInterface);
     }
     
-    public void append(AllBinaryLayer layerInterface) throws Exception
+    public void insert(final AllBinaryLayer layerInterface) throws Exception
+    {
+        AllBinaryLayer nextLayerInterface;
+        final int size = this.list.size();
+        for(int index = 0; index < size; index++) {
+            nextLayerInterface = (AllBinaryLayer) this.list.get(index);
+            if(layerInterface.z < nextLayerInterface.z) {
+                this.append(layerInterface, index);
+                return;
+            }
+        }
+        this.append(layerInterface);
+    }
+    
+    public void append(final AllBinaryLayer layerInterface) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance("append: " + layerInterface, this, "append"));
 
         this.list.add(layerInterface);
     }
 
-    public void append(AllBinaryLayer layerInterface, int index)
+    public void append(final AllBinaryLayer layerInterface, final int index)
             throws Exception
     {
         //LogUtil.put(LogFactory.getInstance("append: " + layerInterface, this, "append"));
@@ -36,7 +50,7 @@ public class LayerInterfaceManager
         this.list.add(index, layerInterface);
     }
     
-    public void remove(AllBinaryLayer layerInterface)
+    public void remove(final AllBinaryLayer layerInterface)
             throws Exception
     {
     	synchronized(object)
@@ -46,7 +60,7 @@ public class LayerInterfaceManager
     	}
     }
 
-    public Layer getLayerAt(int index)
+    public Layer getLayerAt(final int index)
     {
         return (Layer) this.list.objectArray[index];
     }
