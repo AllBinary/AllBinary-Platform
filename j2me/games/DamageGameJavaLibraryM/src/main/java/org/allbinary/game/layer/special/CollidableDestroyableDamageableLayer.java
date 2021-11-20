@@ -284,13 +284,13 @@ OpenGLSurfaceChangedInterface
     
     private static final String READYFOREXPLOSION = "ReadyForExplosion: ";
     
-    public String toString()
+    public String toString(final StringMaker stringBuffer)
     {
-        StringMaker stringBuffer = new StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
         
-        CommonSeps commonSeps = CommonSeps.getInstance();
+        final PositionStrings positionStrings = PositionStrings.getInstance();
         
-        stringBuffer.append(super.toString());
+        stringBuffer.append(super.toString(stringBuffer));
         stringBuffer.append(commonSeps.NEW_LINE);
         final GroupInterface[] groupInterfaceArray = this.getGroupInterface();
         final int size = groupInterfaceArray.length;
@@ -328,12 +328,19 @@ OpenGLSurfaceChangedInterface
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(CommonStrings.getInstance().INIT);
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(PositionStrings.getInstance().X_LABEL);
+        stringBuffer.append(positionStrings.X_LABEL);
         stringBuffer.append(initX);
-        stringBuffer.append(PositionStrings.getInstance().Y_LABEL);
+        stringBuffer.append(positionStrings.Y_LABEL);
         stringBuffer.append(initX);
         
         return stringBuffer.toString();
+    }
+    
+    public String toString()
+    {
+        final StringMaker stringBuffer = new StringMaker();
+
+        return this.toString(stringBuffer);
     }
     
 }

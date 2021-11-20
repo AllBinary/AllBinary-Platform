@@ -163,10 +163,8 @@ implements LayerInterface
 
     private static final String TYPE = "Type: ";
 
-    public String toString()
+    public String toString(final StringMaker stringBuffer)
     {
-        final StringMaker stringBuffer = new StringMaker();
-
         final CommonSeps commonSeps = CommonSeps.getInstance();
 
         final PositionStrings positionStrings = PositionStrings.getInstance();
@@ -195,5 +193,12 @@ implements LayerInterface
         stringBuffer.append(this.getHeight());
 
         return stringBuffer.toString();
+    }
+    
+    public String toString()
+    {
+        final StringMaker stringBuffer = new StringMaker();
+
+        return this.toString(stringBuffer);
     }
 }

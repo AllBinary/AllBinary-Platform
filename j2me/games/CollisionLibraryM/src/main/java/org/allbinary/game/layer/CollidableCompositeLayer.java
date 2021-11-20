@@ -83,18 +83,23 @@ implements CollidableInterfaceCompositeInterface
         return true;
     }
     
-    public String toString()
+    public String toString(final StringMaker stringBuffer)
     {
-        final StringMaker stringBuffer = new StringMaker();
-
         final CommonSeps commonSeps = CommonSeps.getInstance();
         
-        stringBuffer.append(super.toString());
+        stringBuffer.append(super.toString(stringBuffer));
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(this.getCollidableInferface().toString());
         //stringBuffer.append(commonSeps.NEW_LINE);
         //stringBuffer.append(this.getArtificialIntelligenceInterface().toString());
         
         return stringBuffer.toString();
-    }    
+    }
+    
+    public String toString()
+    {
+        final StringMaker stringBuffer = new StringMaker();
+        
+        return super.toString(stringBuffer);
+    }
 }
