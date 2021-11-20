@@ -36,12 +36,12 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 {
     private final BasicArrayList gameKeyEventList = new BasicArrayList();
 
-    public AllBinaryGameLayer(Rectangle layerInfo)
+    public AllBinaryGameLayer(final Rectangle layerInfo)
     {
         this(layerInfo, new ViewPosition());
     }
 
-    public AllBinaryGameLayer(Rectangle layerInfo, ViewPosition viewPosition)
+    public AllBinaryGameLayer(final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(layerInfo, viewPosition);
     }
@@ -51,17 +51,17 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         return gameKeyEventList;
     }
 
-    public void processInput(AllBinaryLayerManager allBinaryLayerManager) throws Exception
+    public void processInput(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         throw new Exception(NotImplemented.NAME);
     }
 
-    public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
+    public void processTick(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
         throw new Exception(NotImplemented.NAME);
     }
 
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
 
@@ -73,7 +73,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         this.onChangeEvent(this.viewPositionEvent);
     }
 
-    public void onChangeEvent(ViewPositionEvent layerManagerEvent)
+    public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
        throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onChangeEvent"));
@@ -93,13 +93,13 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     private final BasicColor RED = BasicColorFactory.getInstance().RED;
     
     //Should be overridden
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         //LogUtil.put(LogFactory.getInstance(NotImplemented.NAME, this, "paint"));
 
-        ViewPosition viewPosition = this.getViewPosition();
-        int viewX = viewPosition.getX();
-        int viewY = viewPosition.getY();
+        final ViewPosition viewPosition = this.getViewPosition();
+        final int viewX = viewPosition.getX();
+        final int viewY = viewPosition.getY();
 
         //LogUtil.put(LogFactory.getInstance("viewX: " + viewX + " viewY: " + viewY, this, "paint"));
 
@@ -114,13 +114,13 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         //super.paint(graphics);
     }
     
-    public void setWidth(int width)
+    public void setWidth(final int width)
     {
     	super.setLayerWidth(width);
     	this.setHalfWidth(width >> 1);
     }
 
-    public void setHeight(int height)
+    public void setHeight(final int height)
     {
     	super.setLayerHeight(height);
     	this.setHalfHeight(height >> 1);

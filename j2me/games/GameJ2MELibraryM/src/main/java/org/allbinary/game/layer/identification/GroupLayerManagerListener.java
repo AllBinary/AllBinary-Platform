@@ -187,10 +187,11 @@ extends LayerManagerEventListener
     public void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onLayerManagerEvent"));
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onLayerManagerEvent: " + layerInterface.toString()));
+        
         //Ignore weapons
         /*
         if(!this.countWeapons && (layerInterface.getType() == WeaponLayer.getStaticType()))

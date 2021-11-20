@@ -43,8 +43,8 @@ implements CollidableInterfaceCompositeInterface
     private CollidableBaseBehavior collidableInferface = CollidableNeverCollideBehaviorFactory.getInstance();
 
     public CollidableCompositeLayer(
-            Rectangle layerInfo, ViewPosition viewPosition, 
-            CollidableBaseBehavior collidableInferface)
+            final Rectangle layerInfo, final ViewPosition viewPosition, 
+            final CollidableBaseBehavior collidableInferface)
     {
         super(layerInfo, viewPosition);
 
@@ -52,12 +52,12 @@ implements CollidableInterfaceCompositeInterface
     }
 
     public CollidableCompositeLayer(
-            Rectangle layerInfo, ViewPosition viewPosition)
+            final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(layerInfo, viewPosition);
     }
 
-    public CollidableCompositeLayer(Rectangle layerInfo)
+    public CollidableCompositeLayer(final Rectangle layerInfo)
     {
         super(layerInfo);
     }
@@ -73,7 +73,7 @@ implements CollidableInterfaceCompositeInterface
         return collidableInferface;
     }
 
-    public void setCollidableInferface(CollidableBaseBehavior collidableInferface)
+    public void setCollidableInferface(final CollidableBaseBehavior collidableInferface)
     {
         this.collidableInferface = collidableInferface;
     }
@@ -85,9 +85,9 @@ implements CollidableInterfaceCompositeInterface
     
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
-        CommonSeps commonSeps = CommonSeps.getInstance();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
         
         stringBuffer.append(super.toString());
         stringBuffer.append(commonSeps.NEW_LINE);

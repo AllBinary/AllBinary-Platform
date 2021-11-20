@@ -40,11 +40,11 @@ implements LayerInterface
 
     private ViewPosition viewPosition;
 
-    public AllBinaryLayer(Rectangle rectangle, ViewPosition viewPosition)
+    public AllBinaryLayer(final Rectangle rectangle, final ViewPosition viewPosition)
     {
         super(rectangle.getWidth(), rectangle.getHeight());
 
-        GPoint point = rectangle.getPoint();
+        final GPoint point = rectangle.getPoint();
 
         this.setPosition(point.getX(), point.getY(), point.getZ());
 
@@ -56,12 +56,12 @@ implements LayerInterface
         this.viewPosition.setAllbinaryLayer(this);
     }
 
-    public void onChangeEvent(ViewPositionEvent layerManagerEvent)
+    public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
             throws Exception
     {
     }
 
-    public void paintThreed(Graphics graphics)
+    public void paintThreed(final Graphics graphics)
     {
 
     }
@@ -86,7 +86,7 @@ implements LayerInterface
         return name;
     }
 
-    protected void setHalfWidth(int halfWidth)
+    protected void setHalfWidth(final int halfWidth)
     {
         this.halfWidth = halfWidth;
     }
@@ -96,7 +96,7 @@ implements LayerInterface
         return halfWidth;
     }
 
-    protected void setHalfHeight(int halfHeight)
+    protected void setHalfHeight(final int halfHeight)
     {
         this.halfHeight = halfHeight;
     }
@@ -116,7 +116,7 @@ implements LayerInterface
         return viewPosition;
     }
 
-    public void setViewPosition(ViewPosition viewPosition)
+    public void setViewPosition(final ViewPosition viewPosition)
     {
         this.viewPosition = viewPosition;
     }
@@ -165,9 +165,12 @@ implements LayerInterface
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
-        CommonSeps commonSeps = CommonSeps.getInstance();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+
+        final PositionStrings positionStrings = PositionStrings.getInstance();
+        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(this.getName());
@@ -175,20 +178,20 @@ implements LayerInterface
         stringBuffer.append(TYPE);
         stringBuffer.append(this.getType());
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(PositionStrings.getInstance().X_LABEL);
+        stringBuffer.append(positionStrings.X_LABEL);
         stringBuffer.append(this.getX());
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(PositionStrings.getInstance().Y_LABEL);
+        stringBuffer.append(positionStrings.Y_LABEL);
         stringBuffer.append(this.getY());
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(PositionStrings.getInstance().Z_LABEL);
+        stringBuffer.append(positionStrings.Z_LABEL);
         stringBuffer.append(this.getZ());
 
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+        stringBuffer.append(spacialStrings.WIDTH_LABEL);
         stringBuffer.append(this.getWidth());
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
         stringBuffer.append(this.getHeight());
 
         return stringBuffer.toString();
