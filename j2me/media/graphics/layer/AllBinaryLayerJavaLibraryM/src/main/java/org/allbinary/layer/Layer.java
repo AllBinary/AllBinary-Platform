@@ -16,9 +16,11 @@ package org.allbinary.layer;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.math.PositionStrings;
 
 public class Layer
 {
@@ -57,11 +59,24 @@ public class Layer
         this.z = z;
     }
 
-    public void move(int dx, int dy)
+    //private static final String MOVE = "move";
+    
+    public void move(final int dx, final int dy)
     {
-        //LogUtil.put(LogFactory.getInstance(PositionStrings + dx + PositionStrings + dy + PositionStrings + dz, this, "move"));
+        //final PositionStrings positionStrings = PositionStrings.getInstance();
+        //final StringMaker stringMaker = new StringMaker();
+        //LogUtil.put(LogFactory.getInstance(stringMaker.append(
+                //positionStrings.DX_LABEL).append(dx)
+                //.append(positionStrings.DY_LABEL).append(dy)
+                ////.append(positionStrings.DZ_LABEL).append(dz)
+                //.toString(), this, MOVE));
+
         this.x += dx;
         this.y += dy;
+        
+        //stringMaker.delete(0, stringMaker.length());
+        //this.toString(stringMaker);
+        //LogUtil.put(LogFactory.getInstance(stringMaker.toString(), this, MOVE));
     }
     
     public void move(int dx, int dy, int dz)
@@ -138,4 +153,9 @@ public class Layer
         }
         this.height = height;
     }
+    
+    public void toString(final StringMaker stringBuffer) {
+        
+    }    
+    
 }
