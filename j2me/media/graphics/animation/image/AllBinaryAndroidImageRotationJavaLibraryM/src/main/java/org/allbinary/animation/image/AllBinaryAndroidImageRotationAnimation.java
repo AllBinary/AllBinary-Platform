@@ -20,6 +20,8 @@ import org.allbinary.util.CircularIndexUtil;
 import org.allbinary.math.AngleInfo;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class AllBinaryAndroidImageRotationAnimation 
 extends AllBinaryImageBaseRotationAnimation
@@ -54,6 +56,8 @@ extends AllBinaryImageBaseRotationAnimation
         this.halfHeight = (image.getHeight() >> 1);
         
         inc = this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
+        
+        //LogUtil.put(LogFactory.getInstance("inc: " + inc, this, "setRotation"));
     }
 
     public void nextRotation()
@@ -84,16 +88,21 @@ extends AllBinaryImageBaseRotationAnimation
 
     public void setFrame(final int index)
     {
+        //LogUtil.put(LogFactory.getInstance("index: " + index, this, "setRotation"));
+
         final int currentFrame = this.circularIndexUtil.getIndex();
+        //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
         
         this.circularIndexUtil.setIndex(index);
 
         final int newFrame = this.circularIndexUtil.getIndex();
+        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
         
         this.angleInfo.adjustAngle(newFrame);
                 
         if(newFrame > currentFrame)
         {
+            //LogUtil.put(LogFactory.getInstance(">" + inc, this, "setRotation"));
             matrix.setRotate((newFrame - currentFrame) * inc, this.halfWidth, this.halfHeight);
             final Image image = this.getImage();
             image.getBitmap().eraseColor(Color.TRANSPARENT);
@@ -103,6 +112,7 @@ extends AllBinaryImageBaseRotationAnimation
         else
             if(newFrame < currentFrame)
         {
+            //LogUtil.put(LogFactory.getInstance("<" + inc, this, "setRotation"));
             matrix.setRotate((currentFrame - newFrame) * -inc, this.halfWidth, this.halfHeight);
             final Image image = this.getImage();
             image.getBitmap().eraseColor(Color.TRANSPARENT);
