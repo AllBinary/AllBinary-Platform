@@ -27,16 +27,16 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 {
     private Image image;
 
-    private int angleIncrement;
+    private final int angleIncrement;
 
-    public AllBinaryAndroidImageRotationAnimationFactory(Image image, int width, int height)
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height)
             throws Exception
     {
         this.setImage(image);
         this.angleIncrement = AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
     }
 
-    public AllBinaryAndroidImageRotationAnimationFactory(Image image, int width, int height,
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
             int angleIncrement) throws Exception
     {
         this.setImage(image);
@@ -45,7 +45,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     
     public Animation getInstance() throws Exception
     {
-        Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
+        final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
         
         return new AllBinaryAndroidImageRotationAnimation(
                 this.getImage(), image,

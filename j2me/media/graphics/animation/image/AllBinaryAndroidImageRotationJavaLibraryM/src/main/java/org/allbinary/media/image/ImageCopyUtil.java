@@ -26,6 +26,8 @@ public class ImageCopyUtil
         return instance;
     }
     
+    private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
+
     private ImageCopyUtil()
     {
     }
@@ -36,12 +38,32 @@ public class ImageCopyUtil
     public Image createImage(Image originalImage)
             throws Exception
     {
-        Image image = ImageCreationUtil.getInstance().getInstance(
+        final Image image = imageCreationUtil.getInstance(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())
         {
             image.getGraphics().drawImage(originalImage, 0, 0, anchor);
+            
+            return image;
+        }
+        else
+        {
+            throw new Exception("Not Mutable");
+        }
+    }
+
+    public Image createImage(Image originalImage, float canvasScale)
+            throws Exception
+    {
+        final int newWidth = (int) (originalImage.getWidth() * canvasScale);
+        final int newHeight = (int) (originalImage.getHeight() * canvasScale);
+        
+        final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
+
+        if (image.isMutable())
+        {
+            image.getGraphics().drawImage(originalImage, newWidth - originalImage.getWidth(), newHeight - originalImage.getHeight(), anchor);
             
             return image;
         }

@@ -25,8 +25,8 @@ extends AllBinaryAndroidImageRotationAnimation
     private final int dy;
 
     protected AllBinaryAdjustedAndroidImageRotationAnimation(
-            Image originalImage, Image image, AngleInfo angleInfo, short totalAngle, 
-            int dx, int dy) 
+            final Image originalImage, final Image image, final AngleInfo angleInfo, 
+            final short totalAngle, final int dx, final int dy) 
     throws Exception
     {
         super(originalImage, image, angleInfo, totalAngle);
@@ -35,7 +35,7 @@ extends AllBinaryAndroidImageRotationAnimation
         this.dy = dy;
     }
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);
     }    

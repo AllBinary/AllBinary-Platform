@@ -28,7 +28,7 @@ extends BaseImageAnimationFactory
 {
 	private Image lastImage;
 	
-    public AllBinaryScreenRelationalImageAnimationInterfaceFactory(Image image)
+    public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image)
         throws Exception
     {
     	//int width, int height
