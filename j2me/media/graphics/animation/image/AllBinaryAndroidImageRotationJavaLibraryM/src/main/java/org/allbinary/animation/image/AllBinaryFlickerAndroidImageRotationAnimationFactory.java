@@ -22,21 +22,21 @@ import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
-public class AllBinaryAndroidImageRotationAnimationFactory 
+public class AllBinaryFlickerAndroidImageRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
     private Image image;
 
     private final short angleIncrement;
 
-    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height)
+    public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height)
             throws Exception
     {
         this.setImage(image);
         this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
     }
 
-    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
+    public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement) throws Exception
     {
         this.setImage(image);
@@ -47,7 +47,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     {
         final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
         
-        return new AllBinaryNoFlickerAndroidImageRotationAnimation(
+        return new AllBinaryAndroidImageRotationAnimation(
                 this.getImage(), image,
                 AngleInfo.getInstance(this.angleIncrement), 
                 AngleFactory.getInstance().TOTAL_ANGLE);

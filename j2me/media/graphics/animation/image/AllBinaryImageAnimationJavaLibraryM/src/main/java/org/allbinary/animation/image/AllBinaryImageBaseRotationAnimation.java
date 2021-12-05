@@ -49,7 +49,7 @@ public class AllBinaryImageBaseRotationAnimation extends RotationAnimation
         return PrimitiveIntUtil.getArrayInstance();
     }
 
-    private int anchor = Anchor.TOP_LEFT;
+    protected int anchor = Anchor.TOP_LEFT;
     
     public void paint(Graphics graphics, int x, int y)
     {

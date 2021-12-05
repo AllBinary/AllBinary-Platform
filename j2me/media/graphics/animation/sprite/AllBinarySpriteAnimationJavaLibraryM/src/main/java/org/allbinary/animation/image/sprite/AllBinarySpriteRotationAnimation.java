@@ -27,7 +27,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     {
         super(sprite,
                 AngleInfo.getInstance(
-                AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount()));
+                (short) (AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount())));
 
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }

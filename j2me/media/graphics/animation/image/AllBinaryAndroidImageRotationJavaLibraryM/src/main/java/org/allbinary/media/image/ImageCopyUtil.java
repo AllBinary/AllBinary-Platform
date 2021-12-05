@@ -16,6 +16,10 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class ImageCopyUtil
 {
@@ -56,14 +60,25 @@ public class ImageCopyUtil
     public Image createImage(Image originalImage, float canvasScale)
             throws Exception
     {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "width: " + originalImage.getWidth() + " height: " + originalImage.getHeight()));
+        
         final int newWidth = (int) (originalImage.getWidth() * canvasScale);
         final int newHeight = (int) (originalImage.getHeight() * canvasScale);
+        
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "newWidth: " + newWidth + " newHeight: " + newHeight));
         
         final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
 
         if (image.isMutable())
         {
-            image.getGraphics().drawImage(originalImage, newWidth - originalImage.getWidth(), newHeight - originalImage.getHeight(), anchor);
+            final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
+            final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "deltas width: " + halfWidthDelta + " height: " + halfHeightDelta));
+            image.getGraphics().drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
+            //image.getGraphics().setColor(BasicColorFactory.getInstance().YELLOW.intValue());
+            //image.getGraphics().drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
+            //image.getGraphics().setColor(BasicColorFactory.getInstance().WHITE.intValue());
+            //image.getGraphics().drawRect(0, 0, newWidth, newHeight);
             
             return image;
         }

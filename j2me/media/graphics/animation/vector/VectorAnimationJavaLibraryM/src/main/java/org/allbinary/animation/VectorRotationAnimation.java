@@ -27,7 +27,7 @@ public class VectorRotationAnimation
            throws Exception
    {
        //int angleIncrement
-       super(AngleInfo.getInstance(AngleFactory.getInstance().TOTAL_ANGLE/currentPoints.length), currentPoints, basicColor);
+       super(AngleInfo.getInstance((short) (AngleFactory.getInstance().TOTAL_ANGLE / currentPoints.length)), currentPoints, basicColor);
 
       this.angleInfo.adjustAngle(this.getFrame());
       

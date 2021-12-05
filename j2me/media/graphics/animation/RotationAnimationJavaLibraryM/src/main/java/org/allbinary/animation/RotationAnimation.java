@@ -48,7 +48,7 @@ public class RotationAnimation
 
     protected RotationAnimation()
     {
-        this.angleInfo = AngleInfo.getInstance((AngleFactory.getInstance().TOTAL_ANGLE >> 2)); //
+        this.angleInfo = AngleInfo.getInstance((short) (AngleFactory.getInstance().TOTAL_ANGLE >> 2)); //
         //AngleFactory.getInstance().TOTAL_ANGLE / angleInfo.getAngleIncrementInfo().getAngleIncrement() == 4
         this.circularIndexUtil = CircularIndexUtil.getInstance(4);
     }

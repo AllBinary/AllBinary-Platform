@@ -67,7 +67,7 @@ public class AllBinaryImageArrayRotationAnimationFactory
         // width, height), dx, dy);
 
         return new AllBinaryImageArrayRotationAnimation(this.getImageArray(),
-                AngleInfo.getInstance(getAngleIncrement()), AngleFactory.getInstance().TOTAL_ANGLE);
+                AngleInfo.getInstance((short) this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE);
 
     }
 

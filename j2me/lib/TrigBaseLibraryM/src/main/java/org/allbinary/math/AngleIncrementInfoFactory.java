@@ -24,11 +24,11 @@ public class AngleIncrementInfoFactory
     
     private final AngleIncrementInfo[] angleIncrementInfoArray = new AngleIncrementInfo[AngleFactory.getInstance().TOTAL_ANGLE];
     
-    public AngleIncrementInfo getInstance(int angleIncrement)
+    public AngleIncrementInfo getInstance(short angleIncrement)
     {
        //Integer integer = SmallIntegerSingletonFactory.getInstance(angleIncrement);
         
-        int halfAngleIncrement = (angleIncrement >> 1);
+        short halfAngleIncrement = (short) (angleIncrement >> 1);
         
        AngleIncrementInfo angleIncrementInfo = angleIncrementInfoArray[halfAngleIncrement];
        //hashtable.get(integer);

@@ -56,7 +56,7 @@ public class AllBinaryImageArrayRotationAnimation extends
     public AllBinaryImageArrayRotationAnimation(Image[] imageArray)
             throws Exception
     {
-        this(imageArray, AngleInfo.getInstance(10), AngleFactory.getInstance().TOTAL_ANGLE);
+        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE);
     }
 
     public AllBinaryImageArrayRotationAnimation(Image[] imageArray,

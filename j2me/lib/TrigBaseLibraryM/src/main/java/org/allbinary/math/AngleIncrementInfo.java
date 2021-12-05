@@ -17,14 +17,14 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class AngleIncrementInfo
 {
-   private final int angleIncrement;
+   private final short angleIncrement;
    
    public final Integer DOWN_FRAME;
    public final Integer UP_FRAME;
    public final Integer LEFT_FRAME;
    public final Integer RIGHT_FRAME;
       
-   protected AngleIncrementInfo(int angleIncrement)
+   protected AngleIncrementInfo(short angleIncrement)
    {
       this.angleIncrement = angleIncrement;
 
@@ -57,7 +57,7 @@ public class AngleIncrementInfo
    }
       
    //public Integer getAngleIncrement()
-   public int getAngleIncrement()
+   public short getAngleIncrement()
    {
       return angleIncrement;
    }

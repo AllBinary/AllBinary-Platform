@@ -57,7 +57,7 @@ public class VectorToImageArrayRotationAnimationFactory implements
         // width, height), dx, dy);
 
         return new AllBinaryAdjustedImageArrayRotationAnimation(
-                this.getImageArray(), AngleInfo.getInstance(getAngleIncrement()), 
+                this.getImageArray(), AngleInfo.getInstance((short) this.angleIncrement), 
                 AngleFactory.getInstance().TOTAL_ANGLE);
     }
 

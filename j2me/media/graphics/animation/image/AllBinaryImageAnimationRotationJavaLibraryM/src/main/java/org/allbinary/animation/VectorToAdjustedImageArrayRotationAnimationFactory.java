@@ -41,7 +41,7 @@ VectorToImageArrayRotationAnimationFactory
 		//width, height), dx, dy);
 		
 		return new AllBinaryAdjustedImageArrayRotationAnimation(
-				this.getImageArray(), AngleInfo.getInstance(this.getAngleIncrement()), 
+				this.getImageArray(), AngleInfo.getInstance((short) this.getAngleIncrement()), 
 				AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
 	}
 	

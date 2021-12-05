@@ -40,13 +40,13 @@ public class AllBinaryAdjustedImageArrayRotationAnimation extends
     public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray)
             throws Exception
     {
-        this(imageArray, AngleInfo.getInstance(10), AngleFactory.getInstance().TOTAL_ANGLE, 0, 0);
+        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, 0, 0);
     }
 
     public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray,
             int dx, int dy) throws Exception
     {
-        this(imageArray, AngleInfo.getInstance(10), AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
+        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
     }
 
     public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray,

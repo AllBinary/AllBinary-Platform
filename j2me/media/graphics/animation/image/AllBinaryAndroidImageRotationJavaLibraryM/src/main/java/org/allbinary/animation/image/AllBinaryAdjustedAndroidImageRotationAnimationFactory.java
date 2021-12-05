@@ -21,7 +21,7 @@ import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
 public class AllBinaryAdjustedAndroidImageRotationAnimationFactory 
-    extends AllBinaryAndroidImageRotationAnimationFactory
+    extends AllBinaryFlickerAndroidImageRotationAnimationFactory
 {
     private final int dx;
     private final int dy;
@@ -38,14 +38,14 @@ public class AllBinaryAdjustedAndroidImageRotationAnimationFactory
         this(image, image.getWidth(), image.getHeight(), dx, dy);
     }
 
-    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement) 
+    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement) 
     throws Exception
     {
         this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement);
     }
     
     public AllBinaryAdjustedAndroidImageRotationAnimationFactory(Image image,
-            final int width, final int height, final int dx, final int dy, final int angleIncrement) throws Exception
+            final int width, final int height, final int dx, final int dy, final short angleIncrement) throws Exception
     {
 
         super(image, width, height, angleIncrement);

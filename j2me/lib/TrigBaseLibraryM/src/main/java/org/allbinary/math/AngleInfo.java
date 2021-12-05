@@ -23,7 +23,7 @@ public class AngleInfo
 
    private short angle;
       
-   public static AngleInfo getInstance(int angleIncrement)
+   public static AngleInfo getInstance(short angleIncrement)
    {
       return new AngleInfo(AngleIncrementInfoFactory.getInstance().getInstance(angleIncrement));
    }
