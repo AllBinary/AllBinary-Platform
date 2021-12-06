@@ -133,16 +133,6 @@ public class GLOBALS
    //Commands
    public static final String GENERATE = "Generate";
    
-   public static final String INSERT = "Insert";
-   
-   public static final String UPDATE = "Update";
-   
-   public static final String CREATE = "Create";
-   
-   public static final String DROP = "Drop";
-   
-   public static final String DELETE = "Delete";
-
    public static final String VIEW = "View";
 
    public static final String EDIT = "Edit";

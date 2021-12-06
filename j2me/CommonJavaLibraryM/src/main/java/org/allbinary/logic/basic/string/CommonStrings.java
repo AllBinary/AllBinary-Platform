@@ -42,9 +42,15 @@ public class CommonStrings
     
     public final String INIT = "init";
 
-    public final String ADD = "add";
-    public final String REMOVE = "remove";
+    public final String CREATE = "Create";
+    public final String REMOVE = "Remove";
+    public final String UPDATE = "Update";
+    public final String DELETE = "Delete";
     
+    public final String ADD = "Add";
+    public final String DROP = "Drop";
+    public final String INSERT = "Insert";
+
     public final String VISIT = "visit";
 
     public final String START_METHOD_NAME = START; //"start";
@@ -54,7 +60,6 @@ public class CommonStrings
     public final String PROCESS = "process";
     public final String GET_INSTANCE = "getInstance";
 
-    public final String UPDATE = "update";
     public final String GET_LIST = "getList";
 
     public final String RUN = "run";
