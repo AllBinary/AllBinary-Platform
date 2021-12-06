@@ -57,7 +57,7 @@ public class Directory
             AbFile directoryFile = FileFactory.getInstance().getInstance(directory);
             if (!directoryFile.isDirectory())
             {
-                //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+                //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
                 //{
                 PreLogUtil.put("Creating Directories: " + directory, "Directory", "create");
                 //}
@@ -70,7 +70,7 @@ public class Directory
             return true;
         } catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILEERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
             //{
             PreLogUtil.put("Error Creating Directories: " + directory, "Directory", "create", e);
             //}
@@ -89,7 +89,7 @@ public class Directory
                 throw new Exception("Did not remove category: " + existingDirectory + " because files exist");
             } else if (existingDirectoryFile.delete())
             {
-                //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+                //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
                 //{
                 PreLogUtil.put("Successfully Removed: " + existingDirectory,
                     "Directory", "remove");

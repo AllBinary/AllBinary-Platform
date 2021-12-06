@@ -58,7 +58,7 @@ public class NewMetaValidationView extends MetaView implements ValidationCompone
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
          }
@@ -78,7 +78,7 @@ public class NewMetaValidationView extends MetaView implements ValidationCompone
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

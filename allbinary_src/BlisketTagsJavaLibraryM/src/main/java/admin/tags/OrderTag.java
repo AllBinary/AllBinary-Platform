@@ -73,7 +73,7 @@ public class OrderTag extends TagSupport
       {
          String error = "Failed to Process Order: ";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"process()",e));
          }
@@ -102,7 +102,7 @@ public class OrderTag extends TagSupport
       catch(Exception e)
       {
          String error = "Failed to setPaymentGateway for Order";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "setPaymentGateway()", e));
          }
@@ -131,7 +131,7 @@ public class OrderTag extends TagSupport
       {
          String error = "Failed Get Max Amount for delayed credit card processing for Order: ";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getMaxAmount()",e);
          }
@@ -160,7 +160,7 @@ public class OrderTag extends TagSupport
       {
          String error = "Failed to get Order id from session";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getOrderIdFromSession()",e);
          }

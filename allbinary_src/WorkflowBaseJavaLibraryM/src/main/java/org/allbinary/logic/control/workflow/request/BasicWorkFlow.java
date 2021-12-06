@@ -105,7 +105,7 @@ public class BasicWorkFlow
       catch(Exception e)
       {
          String error = "Failed to process workflow";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(error,this,"process()",e);
          }
@@ -210,7 +210,7 @@ public class BasicWorkFlow
       catch(Exception e)
       {
          String error = "Failed to view WorkFlow";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(error,this,"view()",e);
          }

@@ -107,7 +107,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
             
      paymentTransactionInterface = (PaymentTransactionInterface) new VerisignTransaction(verisignHashMap);
             
-     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
      LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,"getTransactionInterface()");
      }
@@ -120,7 +120,7 @@ public class TransactionEntity extends AbSqlBean implements TransactionEntityInt
      }
      catch(Exception e)
      {
-     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
      LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"getTransactionResultInterface()",e);
      }

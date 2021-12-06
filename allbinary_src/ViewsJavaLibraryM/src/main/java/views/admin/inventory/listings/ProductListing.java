@@ -88,7 +88,7 @@ public class ProductListing implements ProductListingInterface
             keywords.addAll(substoreKeywords);
         }
 
-        //if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.S))
+        //if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.S))
         //{
         //  LogUtil.put(LogFactory.getInstance("Keyword/Categories: " + keywords, this, "generateAll()"));
         //}
@@ -101,7 +101,7 @@ public class ProductListing implements ProductListingInterface
     private void savePage(String file, String data)
         throws Exception
     {
-        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
         {
             //Creates a new File
             LogUtil.put(LogFactory.getInstance("Creating File: " + file, this, "generateAll()"));
@@ -124,7 +124,7 @@ public class ProductListing implements ProductListingInterface
 
             StreamUtil.getInstance().close(idOutData);
 
-        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Wrote Total Bytes: " + newFile.length(), this, "generateAll()"));
         }
@@ -171,8 +171,8 @@ public class ProductListing implements ProductListingInterface
                 break;
             }
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance("Saving Listing: " + index, this, "generateAll()"));
             }
@@ -242,7 +242,7 @@ public class ProductListing implements ProductListingInterface
 
             final AbPath staticPath = new AbPath(stringBuffer.toString());
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.STATICPAGEGENERATIONLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance("Store Static Pages Path: " + staticPath, this, "generateAll()"));
             }

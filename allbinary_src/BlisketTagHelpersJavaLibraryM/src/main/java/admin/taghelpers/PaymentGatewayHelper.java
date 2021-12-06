@@ -48,7 +48,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PAYMENTERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENTERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed", this, "Constructor()", e));
          }
@@ -70,7 +70,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
 
          String success = "Successfully Added New Payment Gateway";
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"insert()"));
          }
@@ -81,7 +81,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String error = "Failed to add";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "add()", e));
          }
@@ -98,7 +98,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
          paymentGatewayInterface.setStoreName(
             this.weblisketSession.getStoreName());
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
         	 StringBuffer stringBuffer = new StringBuffer();
         	 
@@ -115,7 +115,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
          
          String success = "Successfully Updated Payment Gateway information";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success, this, "update()"));
          }
@@ -125,7 +125,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String error = "Failed to update payment gateway information";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "update()", e));
          }
@@ -157,7 +157,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
 
          String success = stringBuffer.toString();
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"delete()"));
          }
@@ -167,7 +167,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String error = "Failed to remove payment gateway from table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"remove()",e));
          }
@@ -180,7 +180,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       try
       {
          String success = PaymentGatewayEntityFactory.getInstance().dropTable();
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
          }
@@ -190,7 +190,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String error = "Failed to drop payment transaction result table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
          }
@@ -204,7 +204,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String success = PaymentGatewayEntityFactory.getInstance().createTable();
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"create()"));
          }
@@ -214,7 +214,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String error = "Failed to create payment transaction result table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
          }
@@ -228,7 +228,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String success = "Restore Successful";
          String result = PaymentGatewayEntityFactory.getInstance().restoreTable(this.portion);
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
          }
@@ -238,7 +238,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String error = "Failed to restore backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
          }
@@ -252,7 +252,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String success = "Restore Successful";
          String result = PaymentGatewayEntityFactory.getInstance().backupTable();
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
          }
@@ -262,7 +262,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          String error = "Failed to make backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
          }

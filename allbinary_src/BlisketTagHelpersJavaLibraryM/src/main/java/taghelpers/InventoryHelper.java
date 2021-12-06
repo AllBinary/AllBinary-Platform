@@ -93,7 +93,7 @@ public class InventoryHelper implements TagHelperInterface
 
          String result = inventoryViewSearchInterface.getProduct(this.id);
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("Successfull Inventory View Summary",this,"viewSummary()"));
          }
@@ -103,7 +103,7 @@ public class InventoryHelper implements TagHelperInterface
       {
          String error = "Failed to View Summary";
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"viewSummary()",e));
          }
@@ -127,7 +127,7 @@ public class InventoryHelper implements TagHelperInterface
          //if(inventoryDomNodeInterface==null) 
          String result = inventoryViewSearchInterface.searchSingleDynamicPage();
             
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("Successful Inventory Dynamic Search",this,"searchSingleDynamicPage()"));
          }
@@ -141,7 +141,7 @@ public class InventoryHelper implements TagHelperInterface
             String result = inventoryDomNodeInterface.searchSingleDynamicPage();
             
             
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                LogUtil.put(LogFactory.getInstance("Successful Inventory Dynamic Search",this,"search(String,HttpServletResponse)"));
             }
@@ -150,7 +150,7 @@ public class InventoryHelper implements TagHelperInterface
          else
          {            
             response.sendRedirect(fileName);            
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                LogUtil.put(LogFactory.getInstance("Successful Inventory Static Search",this,"search(String,HttpServletResponse)"));
             }
@@ -162,7 +162,7 @@ public class InventoryHelper implements TagHelperInterface
       {
          String error = "Failed to search Inventory by keyword";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"searchSingleDynamicPage()",e));
          }

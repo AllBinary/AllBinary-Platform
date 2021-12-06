@@ -79,7 +79,7 @@ public class ShippingHelper
          OrderInterface order = this.weblisketSession.getOrder();
          order.setShippingMethod(shippingType);
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {            
             LogUtil.put(LogFactory.getInstance(success,this,"setShippingType()"));
          }
@@ -89,7 +89,7 @@ public class ShippingHelper
       {
          String error = "Failed to view Shipping Type";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setShippingType()",e));
          }

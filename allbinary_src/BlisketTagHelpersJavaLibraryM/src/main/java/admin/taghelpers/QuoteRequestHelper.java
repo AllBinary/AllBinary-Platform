@@ -75,7 +75,7 @@ public class QuoteRequestHelper
          String success
             = "New QuoteRequest Successfully added to the QuoteRequest Table";
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"add()"));
          }
@@ -84,7 +84,7 @@ public class QuoteRequestHelper
       catch(Exception e)
       {
          String error = "Failed to add QuoteRequest";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "add()", e));
          }
@@ -103,7 +103,7 @@ public class QuoteRequestHelper
 
          String success = "New QuoteRequest Successfully updated";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success, this, "update()"));
          }
@@ -112,7 +112,7 @@ public class QuoteRequestHelper
       catch(Exception e)
       {
          String error = "Failed to update QuoteRequest";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
          }

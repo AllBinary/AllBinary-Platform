@@ -50,14 +50,14 @@ public class AdvertisementCampaignInternalEntity extends AbSqlBean
      {
      super.insert(values);
          
-     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
      LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT);
      }
      }
      catch(Exception e)
      {
-     if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
      {
      LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e);
      }

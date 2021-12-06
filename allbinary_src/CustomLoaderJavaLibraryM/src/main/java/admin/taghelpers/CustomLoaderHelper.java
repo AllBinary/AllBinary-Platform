@@ -41,7 +41,7 @@ public class CustomLoaderHelper
       {
          /*
          String error = "Failed to getWebappPath";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(error,this,"getWebappPath()",e);
          }*/

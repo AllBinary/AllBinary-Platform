@@ -164,8 +164,8 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          if(transformInfoInterface != null &&
                !stringValidationUtil.isEmpty(transformInfoInterface.getStoreName()))
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                  abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                  org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
             {
                LogUtil.put(LogFactory.getInstance("Creating GenericStoreTransformInfoObjectConfig",
                      instance, "getInstance()"));
@@ -177,8 +177,8 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          }
          else
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                  abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                  org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
             {
                LogUtil.put(LogFactory.getInstance("Creating TransformInfoObjectConfig",
                      instance, "getInstance()"));
@@ -197,8 +197,8 @@ public class TransformInfoObjectConfigAndManipulatorFactory
              error = error + transformInfoInterface.getName();
          }
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-               abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+               org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(
                 error, instance, "getInstance(name,type)", e));

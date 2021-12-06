@@ -33,7 +33,7 @@ public class RootContextView extends HttpStoreComponentView
    {
       super(transformInfoInterface);
 
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
       {
          LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "RootContextView()"));
       }
@@ -44,7 +44,7 @@ public class RootContextView extends HttpStoreComponentView
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
             LogUtil.put(LogFactory.getInstance("View Name: " + this.getTransformInfoInterface().getName(), this, "view()"));
          }
@@ -60,7 +60,7 @@ public class RootContextView extends HttpStoreComponentView
       catch(Exception e)
       {
          String error = "Failed To View Store Template Compound Component";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
          }
@@ -92,7 +92,7 @@ public class RootContextView extends HttpStoreComponentView
 
          String viewName = transformInfoInterface.getName();
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Root Template With View Name: " + viewName, this, "getName()"));
          }
@@ -107,7 +107,7 @@ public class RootContextView extends HttpStoreComponentView
       catch(Exception e)
       {
          String error = "Failed To Get Root Template";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getName()", e));
          }

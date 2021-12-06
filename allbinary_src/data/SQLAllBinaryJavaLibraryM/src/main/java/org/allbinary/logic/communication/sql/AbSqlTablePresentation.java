@@ -35,7 +35,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTable",e);
          }
@@ -60,7 +60,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere(key,value)",e);
          }
@@ -95,7 +95,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhere()",e);
          }
@@ -139,7 +139,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getTableWhereBetween()",e);
          }
@@ -181,7 +181,7 @@ public class AbSqlTablePresentation extends AbSqlBasic
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Get Table Failed\nSQL Statement: " + sqlStatement,this,"getInputWhere",e);
          }

@@ -87,7 +87,7 @@ public class AbPathUtil
         }
 
         /*
-        if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
         {
             PreLogUtil.put("FileExtension: " + extension, "AbPathUtil", "getExtension()");
         }
@@ -119,7 +119,7 @@ public class AbPathUtil
             pathWithoutExtension = filePath.substring(0, indexOfFileExtensionDelmiter);
         }
         /*
-        if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
         {
             PreLogUtil.put("FileWithoutExtension: " + pathWithoutExtension, "AbPathUtil", "getWithoutExtension()");
         }
@@ -204,7 +204,7 @@ public class AbPathUtil
             path = path.replace('\\', abPathData.SEPARATORCHAR);
         }
         /*
-        if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
         {
             PreLogUtil.put("Path: " + path, "AbPathUtil", "adjust");
         }

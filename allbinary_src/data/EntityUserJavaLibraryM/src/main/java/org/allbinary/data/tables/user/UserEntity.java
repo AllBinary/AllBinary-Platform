@@ -190,7 +190,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          {
             String role = new String(super.getField(UserData.USERNAME,userName,RoleData.ROLE));
             
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance("Command Successful",this,"getUserRole");
             }
@@ -198,7 +198,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          }
          else
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance("Command Failed Incorrect Login",this,"getUserRole");
             }
@@ -208,7 +208,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"getUserRole",e);
          }

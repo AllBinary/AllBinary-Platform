@@ -37,7 +37,7 @@ public class OrderItemsHelper implements BasicTableInterface
       {
          String success = OrderItemsEntityFactory.getInstance().dropTable();         
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
          }
@@ -46,7 +46,7 @@ public class OrderItemsHelper implements BasicTableInterface
       catch(Exception e)
       {
          String error = "Failed to drop order history table";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
          }
@@ -60,7 +60,7 @@ public class OrderItemsHelper implements BasicTableInterface
       {
          String success = OrderItemsEntityFactory.getInstance().createTable();        
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"create()"));
          }
@@ -69,7 +69,7 @@ public class OrderItemsHelper implements BasicTableInterface
       catch(Exception e)
       {
          String error="Failed to create new order history table";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
          }
@@ -84,7 +84,7 @@ public class OrderItemsHelper implements BasicTableInterface
          String success = "Restore Successful";         
          String result = OrderItemsEntityFactory.getInstance().restoreTable(this.portion);
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
          }
@@ -94,7 +94,7 @@ public class OrderItemsHelper implements BasicTableInterface
       {
          String error = "Failed to restore backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
          }
@@ -108,7 +108,7 @@ public class OrderItemsHelper implements BasicTableInterface
       {
          String success = "Restore Successful";
          String result = OrderItemsEntityFactory.getInstance().backupTable();         
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
          }
@@ -118,7 +118,7 @@ public class OrderItemsHelper implements BasicTableInterface
       {
          String error = "Failed to make backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
          }

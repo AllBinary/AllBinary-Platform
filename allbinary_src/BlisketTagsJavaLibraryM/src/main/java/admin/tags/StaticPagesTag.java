@@ -70,7 +70,7 @@ public class StaticPagesTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to generate staticpages table";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"generateStaticPages()",e));
          }
@@ -100,7 +100,7 @@ public class StaticPagesTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to makePublic";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"makePublic()",e));
          }
@@ -123,7 +123,7 @@ public class StaticPagesTag extends TableTag
                   this.getPropertiesHashMap().put(TransformInfoData.getInstance().TEMPLATEFILENAME, this.xslFile);
 
                   final String output = this.generateStaticPages();
-                  if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
                   {
                      this.pageContext.getOut().print(output);
                   }
@@ -132,7 +132,7 @@ public class StaticPagesTag extends TableTag
                if (this.getCommand().compareTo(SearchData.MAKEPUBLIC)==0)
                {
                    final String output = this.makePublic();
-                  if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
                   {
                      this.pageContext.getOut().print(output);
                   }

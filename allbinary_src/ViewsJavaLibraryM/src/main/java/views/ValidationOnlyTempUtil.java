@@ -34,13 +34,13 @@ public class ValidationOnlyTempUtil
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
             LogUtil.put(LogFactory.getInstance("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), instance, "view()"));
          }
 
 /*
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPEXTRAOUTPUT))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPEXTRAOUTPUT))
          {
             return validationComponentInterface.validationInfo();
          }
@@ -51,7 +51,7 @@ public class ValidationOnlyTempUtil
       catch(Exception e)
       {
          String error = "Failed to view: " + validationComponentInterface.getTransformInfoInterface().getName();
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, instance, "view()", e));
          }

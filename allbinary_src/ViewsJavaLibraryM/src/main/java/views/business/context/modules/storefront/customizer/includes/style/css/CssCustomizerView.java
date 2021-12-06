@@ -65,7 +65,7 @@ public class CssCustomizerView extends HttpStoreComponentView //implements DomNo
       catch(Exception e)
       {
          String error = "Failed to view Css Retail Template";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }

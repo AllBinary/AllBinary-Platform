@@ -38,7 +38,7 @@ public class BasicErrorNodeUtil
       catch(Exception e)
       {
          /*
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.XMLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Error Node Creation Failure","BasicErrorNodeUtil","get()",e);
          }

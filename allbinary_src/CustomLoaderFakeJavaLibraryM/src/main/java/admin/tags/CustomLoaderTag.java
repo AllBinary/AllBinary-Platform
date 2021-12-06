@@ -25,6 +25,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import javax.servlet.jsp.JspTagException;
+import org.allbinary.globals.GLOBALS;
 
 public class CustomLoaderTag extends TagSupport
 {
@@ -58,7 +59,7 @@ public class CustomLoaderTag extends TagSupport
       catch(Exception e)
       {
          String error = "Failed to set WebappPath";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "setCustomLoaderWebappPath()", e));
          }
@@ -72,7 +73,7 @@ public class CustomLoaderTag extends TagSupport
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
          {
             LogUtil.put(LogFactory.getInstance("Start", this, "doStartTag()"));
          }
@@ -80,7 +81,7 @@ public class CustomLoaderTag extends TagSupport
          if(command!=null)
          {
             
-            if(command.compareTo(allbinary.globals.GLOBALS.SET)==0)
+            if(command.compareTo(GLOBALS.SET)==0)
             {
                this.setCustomLoaderWebappPath();
             }

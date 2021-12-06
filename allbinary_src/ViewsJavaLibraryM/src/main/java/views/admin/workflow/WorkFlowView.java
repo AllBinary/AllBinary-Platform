@@ -49,7 +49,7 @@ implements DomNodeInterface
       catch(Exception e)
       {
          String error = "Failed to get node";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"toXmlNode()",e));
          }
@@ -72,7 +72,7 @@ implements DomNodeInterface
       catch(Exception e)
       {
          String error = "Failed to view Mini Basket";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }

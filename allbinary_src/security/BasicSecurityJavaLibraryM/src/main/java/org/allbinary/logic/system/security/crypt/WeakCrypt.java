@@ -58,7 +58,7 @@ public class WeakCrypt
             abCrypt = new AbCrypt(KeySpecFactory.getInstance().DES, keys[key]);
         } catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
             //{
             PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "SuperCrypt(key)", e);
             //}
@@ -74,7 +74,7 @@ public class WeakCrypt
             return new String(DatabaseEncoder.encode(crypted));
         } catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
             //{
             PreLogUtil.put("Encrypt Failed", this, "encrypt", e);
             //}
@@ -91,7 +91,7 @@ public class WeakCrypt
             return new String(decrypted);
         } catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
             //{
             PreLogUtil.put("decrypt Failed", this, "decrypt", e);
             //}

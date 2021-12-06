@@ -51,7 +51,7 @@ public class MetaView extends HttpStoreComponentView implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
          }
@@ -69,8 +69,8 @@ public class MetaView extends HttpStoreComponentView implements DomNodeInterface
       catch(Exception e)
       {
          String error = "Failed to view Meta";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }

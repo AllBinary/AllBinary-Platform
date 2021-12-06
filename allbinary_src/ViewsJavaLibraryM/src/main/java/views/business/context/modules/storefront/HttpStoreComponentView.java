@@ -28,7 +28,7 @@ public class HttpStoreComponentView extends HttpComponentView
    {
       super(transformInfoInterface);
       
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
       {
          LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "Constructor"));
       }
@@ -42,7 +42,7 @@ public class HttpStoreComponentView extends HttpComponentView
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Start", this, "view"));
          }
@@ -57,7 +57,7 @@ public class HttpStoreComponentView extends HttpComponentView
       }
       catch(Exception e)
       {
-          if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
           {
               String error = "Failed to view";
               LogUtil.put(LogFactory.getInstance(error, this, "view", e));

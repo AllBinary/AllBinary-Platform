@@ -55,7 +55,7 @@ public class StoreTagWorkFlowHelper
       hashMap.put(TransformInfoData.NAME, viewName);
       */
      
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
       {
          LogUtil.put(LogFactory.getInstance("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()"));
       }
@@ -68,7 +68,7 @@ public class StoreTagWorkFlowHelper
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
          {
             LogUtil.put(LogFactory.getInstance("Process",this,"process()"));
          }
@@ -81,7 +81,7 @@ public class StoreTagWorkFlowHelper
          //if(this.componentInterface!=null) error += this
          //else error += "Unknown";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }

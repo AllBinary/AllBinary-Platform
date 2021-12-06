@@ -38,8 +38,8 @@ public class OrderItemsRequestHelperFactory implements TagHelperFactoryInterface
             return new OrderItemsRequestHelper(hashMap, pageContext);
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
             {
                 String error = "Failed To Get Instance";
 

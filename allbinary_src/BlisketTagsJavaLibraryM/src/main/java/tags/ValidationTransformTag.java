@@ -60,7 +60,7 @@ public class ValidationTransformTag extends TransformTag
       {
          String error = "Failed to validate";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"isValid()",e));
          }
@@ -81,7 +81,7 @@ public class ValidationTransformTag extends TransformTag
       catch(Exception e)
       {
          String error = "Failed to add Validation Info";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"validationInfo()",e));
          }
@@ -93,7 +93,7 @@ public class ValidationTransformTag extends TransformTag
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
          {
              StringBuffer stringBuffer = new StringBuffer();
 
@@ -116,7 +116,7 @@ public class ValidationTransformTag extends TransformTag
          {
             super.doStartTag();
             
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
             {
              StringBuffer stringBuffer = new StringBuffer();
 
@@ -143,7 +143,7 @@ public class ValidationTransformTag extends TransformTag
             //super.doStartTag();
             pageContext.getOut().print(this.validationInfo());
             
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
             {
                 StringBuffer stringBuffer = new StringBuffer();
                 
@@ -180,7 +180,7 @@ public class ValidationTransformTag extends TransformTag
    
    public int doEndTag()
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Tag Ended",this,"doEndTag"));
       }

@@ -166,7 +166,7 @@ public class AbPathUtilOld
       }
       
       /*
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
       {
          LogUtil.put(LogFactory.getInstance("Path: " + path, instance, "adjust"));
       }

@@ -36,7 +36,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       try
       {
          String success = new TransactionResultEntity().dropTable();
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
          }
@@ -46,7 +46,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       {
          String error = "Failed to drop payment transaction result table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
          }
@@ -60,7 +60,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       {
          String success = new TransactionResultEntity().createTable();
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"create()"));
          }
@@ -70,7 +70,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       {
          String error = "Failed to create payment transaction result table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
          }
@@ -84,7 +84,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       {
          String success = "Restore Successful";         
          String result = new TransactionResultEntity().restoreTable(this.portion);
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
          }
@@ -94,7 +94,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       {
          String error = "Failed to restore backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
          }
@@ -108,7 +108,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       {
          String success = "Restore Successful";
          String result = new TransactionResultEntity().backupTable();         
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
          }
@@ -118,7 +118,7 @@ public class PaymentTransactionResultHelper implements BasicTableInterface
       {
          String error = "Failed to make backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
          }

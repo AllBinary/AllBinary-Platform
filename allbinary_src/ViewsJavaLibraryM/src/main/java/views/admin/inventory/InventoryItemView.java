@@ -96,7 +96,7 @@ public class InventoryItemView extends HttpStoreComponentView
                 this.mediaData = MediaData.get(AbPathUtil.getInstance().getExtension(this.imageFileName));
                 this.imageFileName = AbPathUtil.getInstance().getWithoutExtension(this.imageFileName);
 
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -142,7 +142,7 @@ public class InventoryItemView extends HttpStoreComponentView
         } catch (Exception e)
         {
             String error = "Failed to view";
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
             }

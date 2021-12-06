@@ -29,7 +29,7 @@ public class BasicCrypt implements CryptInterface
             this.key = key.getBytes();
         } catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
             //{
             PreLogUtil.put("constructor Failed", this, "AbCrypt(alg,key)", e);
             //}
@@ -43,7 +43,7 @@ public class BasicCrypt implements CryptInterface
             return this.mutilate(array);
         } catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
             //{
             PreLogUtil.put("Encrypt Failed", this, "encrypt", e);
             //}
@@ -58,7 +58,7 @@ public class BasicCrypt implements CryptInterface
             return this.mutilate(array);
         } catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
             //{
             PreLogUtil.put("decrypt Failed", this, "decrypt", e);
             //}

@@ -128,7 +128,7 @@ public class BasicGroupItemsRequestHelper implements ModifyTableInterface
          
          String success = "Successfully inserted " + id + " into items table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"insert()"));
          }
@@ -138,7 +138,7 @@ public class BasicGroupItemsRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to insert " + id + " into items table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"inserts()",e));
          }
@@ -154,7 +154,7 @@ public class BasicGroupItemsRequestHelper implements ModifyTableInterface
          
          String success = "Successfully deleted";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"delete()"));
          }
@@ -164,7 +164,7 @@ public class BasicGroupItemsRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to delete";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
          }
@@ -181,7 +181,7 @@ public class BasicGroupItemsRequestHelper implements ModifyTableInterface
          HashMap values = this.getHashMap();
          BasicGroupItemsEntityFactory.getInstance().getBasicGroupItemsEntityInstance().update(values);
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(id + " " + success,this,"update()"));
          }
@@ -191,7 +191,7 @@ public class BasicGroupItemsRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to update: " + id;
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
          }

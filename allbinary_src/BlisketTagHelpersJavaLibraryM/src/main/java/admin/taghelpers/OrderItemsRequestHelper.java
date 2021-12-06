@@ -60,7 +60,7 @@ public class OrderItemsRequestHelper
          String success = "Status successfully set to: " + newStatus;
          OrderItemsEntityFactory.getInstance().setStatus(id,groupId,newStatus);                  
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"setOrderStatus(newStatus)"));
          }
@@ -69,7 +69,7 @@ public class OrderItemsRequestHelper
       catch(Exception e)
       {
          String error = "Failed to view order table";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus(newStatus)",e));
          }
@@ -84,7 +84,7 @@ public class OrderItemsRequestHelper
          String success = "Status successfully set to: " + this.status;
          OrderItemsEntityFactory.getInstance().setStatus(id, groupId, this.status);
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"setOrderStatus(newStatus)"));
          }
@@ -93,7 +93,7 @@ public class OrderItemsRequestHelper
       catch(Exception e)
       {
          String error = "Failed to view order table";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus(newStatus)",e));
          }

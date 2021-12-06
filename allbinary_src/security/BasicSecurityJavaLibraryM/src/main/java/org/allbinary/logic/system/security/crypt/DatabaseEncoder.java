@@ -47,7 +47,7 @@ public class DatabaseEncoder
       }
       catch(Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
          //{
             PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, "DatabaseEncoder", "decode", e);
          //}
@@ -83,7 +83,7 @@ public class DatabaseEncoder
       }
       catch(Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
          //{
             PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, "DatabaseEncoder", "decode", e);
          //}

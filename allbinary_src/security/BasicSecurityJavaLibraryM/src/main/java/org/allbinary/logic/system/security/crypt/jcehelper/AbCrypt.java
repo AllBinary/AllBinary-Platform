@@ -44,7 +44,7 @@ public class AbCrypt implements CryptInterface
       }
       catch(Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
          //{
             PreLogUtil.put("constructor Failed",this,"AbCrypt(alg,key)",e);
          //}
@@ -76,7 +76,7 @@ public class AbCrypt implements CryptInterface
       }
       catch(Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
          //{
           PreLogUtil.put("init Failed",this, CommonStrings.getInstance().INIT, e);
          //}
@@ -93,7 +93,7 @@ public class AbCrypt implements CryptInterface
       }
       catch(Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
          //{
             PreLogUtil.put("Encrypt Failed",this,"encrypt",e);
          //}
@@ -110,7 +110,7 @@ public class AbCrypt implements CryptInterface
       }
       catch(Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CRYPTERROR))
          //{
             PreLogUtil.put("decrypt Failed",this,"decrypt",e);
          //}

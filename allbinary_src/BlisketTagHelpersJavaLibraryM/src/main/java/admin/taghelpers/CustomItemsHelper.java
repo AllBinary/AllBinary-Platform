@@ -37,7 +37,7 @@ public class CustomItemsHelper implements BasicTableInterface
       {
          String success =CustomItemsEntityFactory.getInstance().getCustomItemsEntityInstance().createTable();
                   
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"create()"));
          }
@@ -47,7 +47,7 @@ public class CustomItemsHelper implements BasicTableInterface
       {
          String error = "Failed to create table";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"create()",e));
          }
@@ -61,7 +61,7 @@ public class CustomItemsHelper implements BasicTableInterface
       {
          String success = CustomItemsEntityFactory.getInstance().getCustomItemsEntityInstance().dropTable();
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"drop()"));
          }
@@ -71,7 +71,7 @@ public class CustomItemsHelper implements BasicTableInterface
       {
          String error = "Failed to drop pricing tables";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"drop()",e));
          }
@@ -87,7 +87,7 @@ public class CustomItemsHelper implements BasicTableInterface
 
          String result = CustomItemsEntityFactory.getInstance().getCustomItemsEntityInstance().restoreTable(this.portion);
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
          }
@@ -97,7 +97,7 @@ public class CustomItemsHelper implements BasicTableInterface
       {
          String error = "Failed to restore backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"restore()",e));
          }
@@ -113,7 +113,7 @@ public class CustomItemsHelper implements BasicTableInterface
 
          String result = CustomItemsEntityFactory.getInstance().getCustomItemsEntityInstance().backupTable();
 
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
          }
@@ -123,7 +123,7 @@ public class CustomItemsHelper implements BasicTableInterface
       {
          String error = "Failed to make backup";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"backup()",e));
          }

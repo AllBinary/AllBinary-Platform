@@ -54,8 +54,8 @@ public class InventoryViewFactory
       catch(LicensingException e)
       {
          String error = "Failed To Get Instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+            org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, "InventoryViewFactory", "getInstance(SearchRequest)", e));
          }
@@ -65,8 +65,8 @@ public class InventoryViewFactory
       catch(Exception e)
       {
          String error = "Failed To Get Instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+            org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,"InventoryViewFactory", "getInstance(SearchRequest)",e));
          }

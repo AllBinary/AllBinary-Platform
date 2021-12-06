@@ -21,6 +21,7 @@ import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.GLOBALS;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
@@ -34,6 +35,7 @@ public class TransformTemplateCustomizerUtil
         return instance;
     }
 
+    
     private final String CUSTOMIZER_NAME;
     private final String BODY_VIEWNAMEKEY;
     private final String TITLE_VIEWNAMEKEY;
@@ -45,6 +47,8 @@ public class TransformTemplateCustomizerUtil
 
     private TransformTemplateCustomizerUtil()
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        
         final String SPACE = CommonSeps.getInstance().SPACE;
 
         CUSTOMIZER_NAME = SPACE + CustomizerTransformInfoData.NAME;
@@ -54,10 +58,10 @@ public class TransformTemplateCustomizerUtil
         TITLE_VIEWNAMEKEY = SPACE + TitleData.getInstance().VIEWNAMEKEY;
 
         GLOBALS_NEW = GLOBALS.NEW + SPACE;
-        GLOBALS_INSERT = GLOBALS.INSERT + SPACE;
-        GLOBALS_DELETE = GLOBALS.DELETE + SPACE;
+        GLOBALS_INSERT = commonStrings.INSERT + SPACE;
+        GLOBALS_DELETE = commonStrings.DELETE + SPACE;
         GLOBALS_EDIT = GLOBALS.EDIT + SPACE;
-        GLOBALS_UPDATE = GLOBALS.UPDATE + SPACE;
+        GLOBALS_UPDATE = commonStrings.UPDATE + SPACE;
     }
 
     public String getPageNameHack(String viewName, String storeName)

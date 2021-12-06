@@ -71,7 +71,7 @@ public class FileUtil
     outputStream = (ByteArrayOutputStream)
     StreamUtil.get(inputStream, outputStream);
     /*
-    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
     {
     LogUtil.put(LogFactory.getInstance(
     "Copied File from: " + from.toString() + " to: " + to.toString(),
@@ -82,7 +82,7 @@ public class FileUtil
     }
     catch(Exception e)
     {
-    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILEERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
     {
     LogUtil.put(LogFactory.getInstance("Error Copying File from: " + from.toString() + " to: " +
     to.toString(),instance,"copyFile", e);
@@ -263,7 +263,7 @@ public class FileUtil
             /*
             } else
             {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
             {
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -343,7 +343,7 @@ public class FileUtil
             /*
             } else
             {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
             {
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -673,7 +673,7 @@ public class FileUtil
                 }
             }
             /*
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
             {
             LogUtil.put(LogFactory.getInstance(
             "Copied Directory fromFile: " + fromFile.toString() + " to: " + to.toString(),

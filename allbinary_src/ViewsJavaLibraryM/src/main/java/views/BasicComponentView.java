@@ -34,7 +34,7 @@ public class BasicComponentView implements TransformInterface
 
    public BasicComponentView(TransformInfoInterface transformInfoInterface) throws Exception
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
       {
          LogUtil.put(LogFactory.getInstance(
                  "View Name: " + transformInfoInterface.getName(), this, "ComponentView()"));
@@ -105,7 +105,7 @@ public class BasicComponentView implements TransformInterface
       catch(Exception e)
       {
          String error = "Failed to Component view";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
          }

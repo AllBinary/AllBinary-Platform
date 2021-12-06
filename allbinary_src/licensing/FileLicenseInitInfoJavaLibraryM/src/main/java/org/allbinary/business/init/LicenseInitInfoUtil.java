@@ -74,7 +74,7 @@ public class LicenseInitInfoUtil
         catch (Exception e)
         {
             // if
-            // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+            // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
             // {
             LogUtil.put(LogFactory.getInstance("Command Failed: " + INITFILENAME, this, "write", e));
             // }
@@ -114,7 +114,7 @@ public class LicenseInitInfoUtil
         try
         {
             // if
-            // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
+            // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSING))
             // {
             // LogUtil.put(LogFactory.getInstance("LicenseInitInfo File: " +
             // FILEABPATH.toString(),
@@ -149,7 +149,7 @@ public class LicenseInitInfoUtil
                     initInfo.setServer(new WeakCrypt(3).decrypt(licenseServerDecoded), index);
 
                     // if
-                    // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
+                    // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSING))
                     // {
                     LogUtil.put(LogFactory.getInstance(NEXT_FILE + initInfo.getServer(index), this, METHOD_NAME));
                     // }
@@ -166,7 +166,7 @@ public class LicenseInitInfoUtil
             try
             {
                 // if
-                // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADER))
+                // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADER))
                 // {
                 LogUtil.put(LogFactory.getInstance("Command Failed: " + INITFILENAME, this, METHOD_NAME, e));
                 // }
@@ -183,7 +183,7 @@ public class LicenseInitInfoUtil
             catch (Exception se)
             {
                 // if
-                // (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+                // (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
                 // {
                 LogUtil.put(LogFactory.getInstance("LicenseInitInfo Read Retry: " + INITFILENAME, this, "readAgain()", se));
                 // }

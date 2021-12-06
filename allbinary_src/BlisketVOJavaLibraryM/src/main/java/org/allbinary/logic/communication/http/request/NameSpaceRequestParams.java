@@ -369,7 +369,7 @@ public class NameSpaceRequestParams extends RequestParams
          /*
          if(isElementValueTextNodeUnique)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
                LogUtil.put(LogFactory.getInstance("Adding Package with different value node", this, "add()");
             }
@@ -592,7 +592,7 @@ public class NameSpaceRequestParams extends RequestParams
    Node node)
    throws Exception
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance("\nComparing the properties in: " +
          nextPackagePropertiesHashMap.toString() +
@@ -618,7 +618,7 @@ public class NameSpaceRequestParams extends RequestParams
             String existingElementNodeTextNodeValue =
             DomNodeHelper.getTextNodeValue(valueNode);
             
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
                LogUtil.put(LogFactory.getInstance("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
                "Node: " + node.getNodeName() + " then: " + propertyValue + "==" + existingElementNodeTextNodeValue, this, "isPropertiesSame()");
@@ -627,7 +627,7 @@ public class NameSpaceRequestParams extends RequestParams
             //Node does not have the same properties
             if(propertyValue.compareTo(existingElementNodeTextNodeValue) != 0)
             {
-               if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
                {
                   LogUtil.put(LogFactory.getInstance("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
                }
@@ -637,7 +637,7 @@ public class NameSpaceRequestParams extends RequestParams
          }
          else
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
                LogUtil.put(LogFactory.getInstance("A new property from NameSpaceRequest Package existed so it is not the same.", this, "isPropertiesSame()");
             }
@@ -654,7 +654,7 @@ public class NameSpaceRequestParams extends RequestParams
    Node node)
    throws Exception
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance("\nComparing the properties in: " +
          nextPackagePropertiesHashMap.toString() +
@@ -680,7 +680,7 @@ public class NameSpaceRequestParams extends RequestParams
             String existingElementNodeTextNodeValue =
             DomNodeHelper.getTextNodeValue(valueNode);
             
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
             {
                LogUtil.put(LogFactory.getInstance("\nIf property: \"" + nextPropertyName + " is the same as:\n" +
                "Node: " + node.getNodeName() + " then: " + propertyValue + "==" + existingElementNodeTextNodeValue, this, "isPropertiesSame()");
@@ -689,7 +689,7 @@ public class NameSpaceRequestParams extends RequestParams
             //Node does not have the same properties
             if(propertyValue.compareTo(existingElementNodeTextNodeValue) != 0)
             {
-               if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
                {
                   LogUtil.put(LogFactory.getInstance("At least one Property from NameSpaceRequest Package was different from Node", this, "isPropertiesSame()");
                }
@@ -714,7 +714,7 @@ public class NameSpaceRequestParams extends RequestParams
    Vector elementNodeVector)
    throws Exception
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "getNodeWithDuplicatePropertiesFromVector()");
       }

@@ -37,7 +37,7 @@ public class AuthenticationHelperUtil
         AuthenticationHelper authenticationHelper, String filePath)
         throws Exception
     {
-        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
         {
             LogUtil.put(LogFactory.getInstance("Start: " + filePath, this, "isAuthorized()"));
         }
@@ -56,7 +56,7 @@ public class AuthenticationHelperUtil
 
         if (userRoles.contains(basicUserRole))
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Authorized", this, "isAuthorized()"));
             }
@@ -64,7 +64,7 @@ public class AuthenticationHelperUtil
             return true;
         } else
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Not Authorized: " + basicUserRole.toString(), this, "isAuthorized()"));
             }

@@ -48,7 +48,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
          {
             LogUtil.put(error, this, "getInstance(String, int)", e);
          }
@@ -73,7 +73,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
          {
             LogUtil.put(error, this, "getInstance(String, int)", e);
          }
@@ -128,7 +128,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
          {
             LogUtil.put(error, this, "getInstance(String, int)", e);
          }
@@ -208,7 +208,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
          {
             LogUtil.put(error, this, "getInstance(Node, int)", e);
          }
@@ -263,7 +263,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
          {
             LogUtil.put(error, this, "getInstance(HashMap)", e);
          }

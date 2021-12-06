@@ -40,7 +40,7 @@ public class StoreValidationTransformTag extends ValidationTransformTag
     {
         try
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
             {
                 LogUtil.put(LogFactory.getInstance("Tag Start", this, "doStartTag"));
             }

@@ -89,7 +89,7 @@ implements DomNodeInterface
             node.appendChild(orderHistory.toXmlNode(document));
          }
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Attempt to View a users order history",this,"view"));
          }
@@ -122,8 +122,8 @@ implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         abcs.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+         org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
          }
@@ -146,7 +146,7 @@ implements DomNodeInterface
       catch(Exception e)
       {
          String error = "Failed to view Order History";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }

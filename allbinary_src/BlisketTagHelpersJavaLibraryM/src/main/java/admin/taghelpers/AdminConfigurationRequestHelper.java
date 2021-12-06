@@ -31,7 +31,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
 
    public AdminConfigurationRequestHelper(HashMap hashMap, PageContext pageContext)
    {
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
       {
          LogUtil.put(LogFactory.getInstance("Constructor",this,"Constructor"));
       }
@@ -43,7 +43,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("Start",this,"insert()"));
          }
@@ -55,7 +55,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
          
          adminConfigurationInterface.write();
             
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"insert()"));
          }
@@ -66,7 +66,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to created AdminConfiguration";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "insert()", e));
          }
@@ -80,7 +80,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
       {
          String success = "Successfully deleted AdminConfiguration";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"delete()"));
          }
@@ -91,7 +91,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to delete";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
          }
@@ -108,7 +108,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
          AdminConfigurationInterface adminConfigurationInterface = 
             (AdminConfigurationInterface) new AdminConfiguration(this.request);
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"update()"));
          }
@@ -118,7 +118,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to update";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
          }

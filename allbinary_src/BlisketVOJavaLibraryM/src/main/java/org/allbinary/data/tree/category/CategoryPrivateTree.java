@@ -103,7 +103,7 @@ public class CategoryPrivateTree
 
          if(categoryFile.delete())
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance("Removed: " + categoryInterface.getFilePath(), 
                   this, "remove(CategoryInterface)");
@@ -227,7 +227,7 @@ public class CategoryPrivateTree
          new File(parentCategoryInterface.getFilePath());
       DomHelper.save(modifiedCategoryFile,document);
       
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("end", this, "remove()");
       }      
@@ -283,7 +283,7 @@ public class CategoryPrivateTree
 
                if(newCategory.compareTo(category) == 0)
                {
-                  if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                   {
                      LogUtil.put(LogFactory.getInstance("Already Exists" + newCategory,this,"modifyFile");
                   }
@@ -312,7 +312,7 @@ public class CategoryPrivateTree
                //add alphabetically
                if(newCategory.compareToIgnoreCase(category) < 0)
                {
-                  if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
                   {
                      LogUtil.put(LogFactory.getInstance("Inserting: " + newCategory,this,"modifyFile");
                   }

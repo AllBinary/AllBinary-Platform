@@ -70,7 +70,7 @@ public class StreamUtil
         }
 
         /*
-        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
         {
         LogUtil.put(LogFactory.getInstance("Total Bytes Written: " + total, this, CommonStrings.getInstance().GET));
         }

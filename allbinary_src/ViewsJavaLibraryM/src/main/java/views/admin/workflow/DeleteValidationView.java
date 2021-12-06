@@ -39,7 +39,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
       
       this.workFlowName = this.getPageContext().getRequest().getParameter(WorkFlowData.getInstance().NAME);
       
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Name: " + this.workFlowName,this,"Constructor()"));
       }
@@ -58,7 +58,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
             this.workFlowName, 
             this.getWeblisketSession().getStoreName())==null)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("WorkFlow does not exist.",this,"isValid()"));
             }
@@ -69,7 +69,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate form",this,"isValid()",e));
          }
@@ -92,7 +92,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
             this.workFlowName, 
             this.getWeblisketSession().getStoreName())==null)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("WorkFlow does not exist.",this,"validationInfo()"));
             }
@@ -103,7 +103,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

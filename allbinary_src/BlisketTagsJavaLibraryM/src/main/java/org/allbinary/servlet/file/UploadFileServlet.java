@@ -108,7 +108,7 @@ public class UploadFileServlet extends HttpServlet
 
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Exception", this, "processRequest()", e));
             }
@@ -151,7 +151,7 @@ public class UploadFileServlet extends HttpServlet
 
                 AbFile file = new AbFile(URLGLOBALS.getWebappPath() + filePath);
 
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 

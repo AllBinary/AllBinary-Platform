@@ -60,7 +60,7 @@ public class RequestHandler extends HttpServlet
       }
       catch(LicensingException e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SERVLETERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SERVLETERROR))
          {
             LogUtil.put(LogFactory.getInstance("Servlet LicensingException",this,"processRequest()",e);
          }
@@ -68,7 +68,7 @@ public class RequestHandler extends HttpServlet
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SERVLETERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SERVLETERROR))
          {
             LogUtil.put(LogFactory.getInstance("Servlet Exception",this,"processRequest()",e);
          }

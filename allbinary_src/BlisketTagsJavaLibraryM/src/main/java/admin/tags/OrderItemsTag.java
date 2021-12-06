@@ -77,7 +77,7 @@ public class OrderItemsTag extends TableTag
       catch(Exception e)
       {
          String error = "Failed to set Order status to: " + this.status;
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus()",e));
          }

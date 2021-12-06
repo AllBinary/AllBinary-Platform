@@ -57,7 +57,7 @@ public class PaymentGatewayTag extends TableTag
       {
          String error = "Failed to process a gateway to a store";
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"process()",e));
          }
@@ -77,7 +77,7 @@ public class PaymentGatewayTag extends TableTag
                //AUTHORIZEFORMEVALBODYONERROR is used for form payment processing instead of order in session
             {
                String output = this.process();
-               //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+               //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
                {
                   this.pageContext.getOut().print(output + "<br />");
                }

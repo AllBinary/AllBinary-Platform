@@ -45,8 +45,8 @@ public class InventoryView extends HttpStoreComponentView
    {
       try
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Starting",this,"toXmlNode"));
          }
@@ -85,8 +85,8 @@ public class InventoryView extends HttpStoreComponentView
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
          }
@@ -109,7 +109,7 @@ public class InventoryView extends HttpStoreComponentView
       catch(Exception e)
       {
          String error = "Failed to view Inventory";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }

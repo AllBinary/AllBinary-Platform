@@ -30,7 +30,7 @@ public class AbKeys
    {
       try
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LOADER))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADER))
          //{
             LogUtil.put(LogFactory.getInstance("Getting Key: " + keyName, instance, "getKey"));
          //}
@@ -52,7 +52,7 @@ public class AbKeys
       }
       catch (Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
          //{
             LogUtil.put(LogFactory.getInstance("Licensing Failure", instance, "getKey()", e));
          //}

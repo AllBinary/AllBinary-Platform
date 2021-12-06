@@ -51,8 +51,8 @@ public class TopBarView
             return this.heading.toXmlNode(document);
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "toXmlNode", e));
             }
@@ -68,7 +68,7 @@ public class TopBarView
             return super.view();
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
             {
                 String error = "Failed to view TopBar";
                 LogUtil.put(LogFactory.getInstance(error, this, "view()", e));

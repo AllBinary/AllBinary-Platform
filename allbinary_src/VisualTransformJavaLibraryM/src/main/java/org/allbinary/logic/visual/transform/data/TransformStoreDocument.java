@@ -40,7 +40,7 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
          if(StringValidationUtil.isEmpty(storeName))
          {
             storeName = pageContext.getRequest().getParameter(StoreFrontData.NAME);
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Using Request StoreName: " + storeName, this, "Constructor()");
             }

@@ -25,11 +25,14 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class TableTag extends PropertiesTag
 //implements TableInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private String enabled;
     private TagHelperFactoryInterface tagHelperFactoryInterface;
     private TagHelperFactoryInterface tagRequestHelperFactoryInterface;
@@ -271,7 +274,7 @@ public class TableTag extends PropertiesTag
     {
     String error = "Failed to view";
 
-    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
     {
     LogUtil.put(LogFactory.getInstance(error,this,"view()",e);
     }
@@ -297,7 +300,7 @@ public class TableTag extends PropertiesTag
     {
     String error = "Failed to edit";
 
-    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
     {
     LogUtil.put(LogFactory.getInstance(error,this,"editPricing()",e);
     }
@@ -375,9 +378,9 @@ public class TableTag extends PropertiesTag
                     //object Holds InventoryRequestHelper because the multipart processing makes
                     //the request object work only once for getInputStream()
 
-                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.INSERT) == 0
-                        || this.getCommand().compareTo(org.allbinary.globals.GLOBALS.DELETE) == 0
-                        || this.getCommand().compareTo(org.allbinary.globals.GLOBALS.UPDATE) == 0)
+                    if (this.getCommand().compareTo(commonStrings.INSERT) == 0
+                        || this.getCommand().compareTo(commonStrings.DELETE) == 0
+                        || this.getCommand().compareTo(commonStrings.UPDATE) == 0)
                     {
                         this.requestObject = getTagRequestHelperFactoryInterface().getInstance(
                             this.getPropertiesHashMap(), pageContext);
@@ -402,7 +405,7 @@ public class TableTag extends PropertiesTag
                             this.pageContext.getOut().print(output + "<br />");
                         }
                         return SKIP_BODY;
-                    } else if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.DROP) == 0)
+                    } else if (this.getCommand().compareTo(commonStrings.DROP) == 0)
                     {
                         String output = this.drop();
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -410,7 +413,7 @@ public class TableTag extends PropertiesTag
                             this.pageContext.getOut().print(output + "<br />");
                         }
                         return SKIP_BODY;
-                    } else if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.CREATE) == 0)
+                    } else if (this.getCommand().compareTo(commonStrings.CREATE) == 0)
                     {
                         String output = this.create();
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -418,21 +421,21 @@ public class TableTag extends PropertiesTag
                             this.pageContext.getOut().print(output + "<br />");
                         }
                         return SKIP_BODY;
-                    } else if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.INSERT) == 0)
+                    } else if (this.getCommand().compareTo(commonStrings.INSERT) == 0)
                     {
                         String output = this.insert();
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
-                    } else if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.DELETE) == 0)
+                    } else if (this.getCommand().compareTo(commonStrings.DELETE) == 0)
                     {
                         String output = this.delete();
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
-                    } else if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.UPDATE) == 0)
+                    } else if (this.getCommand().compareTo(commonStrings.UPDATE) == 0)
                     {
                         String output = this.update();
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -445,7 +448,7 @@ public class TableTag extends PropertiesTag
                     if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
                     {
                     String output = this.view();
-                    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
                     {
                     this.pageContext.getOut().print(output);
                     }
@@ -454,7 +457,7 @@ public class TableTag extends PropertiesTag
                     if (this.getCommand().compareTo(allbinary.globals.GLOBALS.EDIT)==0)
                     {
                     String output = this.edit();
-                    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
                     {
                     this.pageContext.getOut().print(output);
                     }

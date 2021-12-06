@@ -60,7 +60,7 @@ public class UpdateFileValidationView
             if (StringValidationUtil.getInstance().isEmpty(command) ||
                 command.compareTo(GLOBALS.UPDATE) != 0)
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("Invalid AdminCommand=" + command, this, "isValid()"));
                 }
@@ -76,8 +76,8 @@ public class UpdateFileValidationView
 
             } catch (MoneyException e)
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                    org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("Existing Item With MoneyException", this, "isValid()", e));
                 }
@@ -85,7 +85,7 @@ public class UpdateFileValidationView
 
             if (this.itemInterface == null)
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("Item Does Not Exist", this, "isValid()"));
                 }
@@ -95,7 +95,7 @@ public class UpdateFileValidationView
 
             if (new BasicItemValidation(this.itemInterface).isValid() == Boolean.FALSE)
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("BasicItem is not valid", this, "isValid()"));
                 }
@@ -120,7 +120,7 @@ public class UpdateFileValidationView
             AbFile categoryFile = new AbFile(fullCategory);
             if (!categoryFile.isDirectory())
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("Category Does Not Exist: " + fullCategory, this, "isValid()"));
                 }
@@ -242,7 +242,7 @@ public class UpdateFileValidationView
 
             if (downloadableItemValidation.isValid() == Boolean.FALSE)
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("DownloadableItem is not valid", this, "isValid()"));
                 }
@@ -253,7 +253,7 @@ public class UpdateFileValidationView
             return Boolean.TRUE;
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Exception in validation", this, "isValid()", e));
             }
@@ -290,7 +290,7 @@ public class UpdateFileValidationView
             {
                 final String ITEM_NOT_FOUND = "Item Does Not Exist";
 
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance(ITEM_NOT_FOUND, this, "validationInfo()"));
                 }
@@ -316,8 +316,8 @@ public class UpdateFileValidationView
                 storeFrontInterface.getCurrentHostNamePath()).append(
                 this.itemInterface.getCategory()).toString();
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Category: " + fullCategory, this, "validationInfo()"));
             }
@@ -393,7 +393,7 @@ public class UpdateFileValidationView
                 if (downloadableItemValidation.isValid() == Boolean.FALSE)
                 {
                     final String log = downloadableItemValidation.validationInfo();
-                    if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                     {
                         LogUtil.put(LogFactory.getInstance(log, this, "isValid()"));
                     }
@@ -407,7 +407,7 @@ public class UpdateFileValidationView
 
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
             }
@@ -429,7 +429,7 @@ public class UpdateFileValidationView
                     fileName, fileData.MINLEN, fileData.MAXLEN))
                 {
 
-                    if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                     {
                         StringBuffer stringBuffer = new StringBuffer();
 
@@ -458,7 +458,7 @@ public class UpdateFileValidationView
                 }
             } else
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -474,7 +474,7 @@ public class UpdateFileValidationView
             }
         } else
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 

@@ -137,8 +137,8 @@ public class TransformInfoObjectFactory
     catch(LicensingException e)
     {
     String error = "Failed To Get Instance";
-    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-    abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+    org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
     {
     LogUtil.put(error, propertiesHashMap.get(TransformInfoData.NAME) + "->ViewFactory",
     "getInstance(HashMap, PageContext)",e);
@@ -148,8 +148,8 @@ public class TransformInfoObjectFactory
     catch(Exception e)
     {
     String error = "Failed To Get Instance";
-    if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-    abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+    org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
     {
     LogUtil.put(error, propertiesHashMap.get(TransformInfoData.NAME) + "->TransformInfoFactory",
     "getInstance(HashMap, PageContext)",e);

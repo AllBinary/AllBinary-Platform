@@ -41,7 +41,7 @@ public class LineReader
         catch(Exception e)
         {
             LogUtil.put(LogFactory.getInstance("File: " + fileName, this, "LineReader", e));
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.IDLOGGING))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
             {
                 
             }
@@ -59,7 +59,7 @@ public class LineReader
         catch(Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "hasNext", e));
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.IDLOGGING))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
             {
                 
             }
@@ -85,7 +85,7 @@ public class LineReader
         catch(Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getNext", e));
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.IDLOGGING))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
             {
                 
             }

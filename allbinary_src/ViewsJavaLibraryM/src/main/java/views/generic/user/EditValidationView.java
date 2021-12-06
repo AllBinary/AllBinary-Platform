@@ -44,7 +44,7 @@ public class EditValidationView extends UserView
       {
          if(UserName.isValid(this.getWeblisketSession().getUserName()) == Boolean.FALSE)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Failed to validate username",this,"isValid()"));
             }
@@ -56,7 +56,7 @@ public class EditValidationView extends UserView
          
          if(this.user==null)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("User does not exist",this,"isValid()"));
             }
@@ -65,7 +65,7 @@ public class EditValidationView extends UserView
          
          if(this.user.isValid() == Boolean.FALSE)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("User exists but is invalid - Probably manually modified",this,"isValid()"));
             }
@@ -76,7 +76,7 @@ public class EditValidationView extends UserView
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
          }
@@ -92,7 +92,7 @@ public class EditValidationView extends UserView
          
          if(UserName.isValid(this.getWeblisketSession().getUserName()) == Boolean.FALSE)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Failed to validate username",this,"validationInfo()"));
             }
@@ -101,7 +101,7 @@ public class EditValidationView extends UserView
 
          if(this.user==null)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("User does not exist",this,"isValid()"));
             }
@@ -110,7 +110,7 @@ public class EditValidationView extends UserView
          
          if(this.user.isValid() == Boolean.FALSE)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("User exists but is invalid - Probably manually modified",this,"isValid()"));
             }
@@ -120,7 +120,7 @@ public class EditValidationView extends UserView
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

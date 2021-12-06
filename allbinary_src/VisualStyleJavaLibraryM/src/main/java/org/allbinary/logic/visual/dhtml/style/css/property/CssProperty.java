@@ -73,7 +73,7 @@ public class CssProperty implements DomNodeInterface
    {
       this.propertyName = (String) hashMap.get(CssPropertyData.NAME);
 
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.STYLE))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.STYLE))
       {
          LogUtil.put(LogFactory.getInstance("Name: " + this.getName(),this,"CssProperty()");
       }

@@ -58,7 +58,7 @@ public class AbeLicenseInterfaceFactory
     {
         try
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSING))
             //{
                 LogUtil.put(LogFactory.getInstance("Getting Keys", this, CommonStrings.getInstance().GET));
             //}
@@ -67,7 +67,7 @@ public class AbeLicenseInterfaceFactory
             AbeLicenseClient licenseClient = new AbeLicenseClient();
             abeLicenseInterface = licenseClient.get();
 
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSING))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSING))
          //{
             if(abeLicenseInterface!=null)
             {
@@ -81,7 +81,7 @@ public class AbeLicenseInterfaceFactory
         }
         catch (IOException e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
             //{
                 LogUtil.put(LogFactory.getInstance("Licensing IO Error", this, CommonStrings.getInstance().GET, e));
             //}
@@ -95,7 +95,7 @@ public class AbeLicenseInterfaceFactory
        */
         catch (Exception e)
         {
-            //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+            //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
             //{
                 LogUtil.put(LogFactory.getInstance("Licensing Failure", this, CommonStrings.getInstance().GET, e));
             //}

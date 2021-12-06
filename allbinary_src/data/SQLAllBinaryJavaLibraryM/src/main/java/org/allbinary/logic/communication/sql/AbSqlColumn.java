@@ -210,7 +210,7 @@ public class AbSqlColumn extends AbSqlTable
                 column.add(field);
             }
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
             {
                 stringBuffer.delete(0, stringBuffer.length()); 
 
@@ -225,7 +225,7 @@ public class AbSqlColumn extends AbSqlTable
             return column;
         } catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, "getColumn", e));
             }

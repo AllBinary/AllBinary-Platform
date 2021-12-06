@@ -44,7 +44,7 @@ public class SystemHardwareFactory {
     	      hardwareInterface = HardwareFactory.getInstance().getInstance(operatingSystemInterface);
     	  }
 
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OS))
          //{
             //LogUtil.put(LogFactory.getInstance(static_toString(), instance, CommonStrings.getInstance().CONSTRUCTOR));
     	    LogUtil.put(LogFactory.getInstance("Found Hardware", this, CommonStrings.getInstance().CONSTRUCTOR));
@@ -52,7 +52,7 @@ public class SystemHardwareFactory {
       }
       catch(Exception e)
       {
-         //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.OS))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OS))
          //{
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR, e));
          //}

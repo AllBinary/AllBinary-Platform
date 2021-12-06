@@ -54,7 +54,7 @@ public class UpdateValidationUserView extends HttpContextView
       {
          if(UserEntityFactory.getInstance().getUser(this.user.getUserName())==null)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("User does not exist",this,"isValid()"));
             }
@@ -70,7 +70,7 @@ public class UpdateValidationUserView extends HttpContextView
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
          }
@@ -86,7 +86,7 @@ public class UpdateValidationUserView extends HttpContextView
 
          if(UserEntityFactory.getInstance().getUser(this.user.getUserName())==null)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("User does not exist",this,"validationInfo()"));
             }
@@ -102,7 +102,7 @@ public class UpdateValidationUserView extends HttpContextView
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

@@ -45,8 +45,8 @@ public class StoreFrontsHelper implements BasicTableInterface
         {
             String success = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().dropTable();
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "drop()"));
             }
@@ -54,8 +54,8 @@ public class StoreFrontsHelper implements BasicTableInterface
         } catch (Exception e)
         {
             String error = "Failed to drop storefronts table";
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "drop()", e));
             }
@@ -69,8 +69,8 @@ public class StoreFrontsHelper implements BasicTableInterface
         {
             String success = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().createTable();
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "create()"));
             }
@@ -79,8 +79,8 @@ public class StoreFrontsHelper implements BasicTableInterface
         {
             String error = "Failed to create new storefronts table";
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "create()", e));
             }
@@ -96,8 +96,8 @@ public class StoreFrontsHelper implements BasicTableInterface
 
             String result = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().restoreTable(this.portion);
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "restore()"));
             }
@@ -106,8 +106,8 @@ public class StoreFrontsHelper implements BasicTableInterface
         {
             String error = "Failed to restore backup";
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "restore()", e));
             }
@@ -123,8 +123,8 @@ public class StoreFrontsHelper implements BasicTableInterface
 
             String result = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().backupTable();
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "backup()"));
             }
@@ -133,8 +133,8 @@ public class StoreFrontsHelper implements BasicTableInterface
         {
             String error = "Failed to make backup";
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "backup()", e));
             }
@@ -168,8 +168,8 @@ public class StoreFrontsHelper implements BasicTableInterface
             }
             success += storeSelect;
 
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "generateSelect()"));
             }
@@ -177,8 +177,8 @@ public class StoreFrontsHelper implements BasicTableInterface
         } catch (Exception e)
         {
             String error = "Failed to generate storefronts select";
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "generateSelect()", e));
             }

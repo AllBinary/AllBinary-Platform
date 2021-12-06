@@ -51,7 +51,7 @@ public class CompoundTransform extends AbTransformer
             this.getTransformInfoInterface(), 
             this.getTransformInfoInterface().getObjectConfigInterface().toXmlDoc());
 
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
       {
          LogUtil.put(LogFactory.getInstance("\nObjectConfig: \n" + objectConfig.toString(), this, "CompoundTransform("));
       }

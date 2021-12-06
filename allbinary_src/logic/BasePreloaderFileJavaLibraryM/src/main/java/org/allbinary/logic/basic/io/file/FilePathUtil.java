@@ -113,7 +113,7 @@ public class FilePathUtil
       
       //Causes recursive loop on log initialization
       /*
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.FILE))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
       {
          PreLogUtil.put("Path: " + path, "PathUtil", "adjust");
       }

@@ -84,8 +84,8 @@ public class InventorySearch implements InventoryViewSearchInterface
         }
         catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "searchSingleStaticPage", e));
             }
@@ -102,8 +102,8 @@ public class InventorySearch implements InventoryViewSearchInterface
         }
         catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "searchSingleDynamicPage", e));
             }

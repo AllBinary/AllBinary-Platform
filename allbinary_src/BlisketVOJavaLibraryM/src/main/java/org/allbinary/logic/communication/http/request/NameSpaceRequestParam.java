@@ -227,8 +227,8 @@ public class NameSpaceRequestParam
             stringBuffer.append(NameSpaceRequestParamData.SEP);
       }
 
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
       {
          LogUtil.put(LogFactory.getInstance("\nNameSpace Param: " + stringBuffer.toString(),
             this, "toString()");

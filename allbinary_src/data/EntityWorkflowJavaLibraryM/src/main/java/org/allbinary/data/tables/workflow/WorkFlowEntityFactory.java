@@ -36,7 +36,7 @@ public class WorkFlowEntityFactory
       catch(LicensingException e)
       {
          String error = "Failed to get instance";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
          {
             LogUtil.put(error,"StoreFrontsEntityFactory","getInstance()",e);
          }

@@ -264,7 +264,7 @@ public class FileAuthenticationTag extends TagSupport
             /*
             if (timeFirst > timePassed)
             {
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -512,7 +512,7 @@ public class FileAuthenticationTag extends TagSupport
 
                     if (this.isSessionOld())
                     {
-                        //if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                        //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
                         //{
                         // LogUtil.put(LogFactory.getInstance("Session is old", this, "doStartTag()"));
                         //}

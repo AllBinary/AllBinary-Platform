@@ -134,7 +134,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       catch(Exception e)
       {
          String error = "Failed to view DateRangeOrderHistory";
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
          }
@@ -147,7 +147,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       try
       {
          
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
         	 StringBuffer stringBuffer = new StringBuffer();
         	 
@@ -252,7 +252,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(preprocessing!=null && preprocessing.compareTo(ON)==0)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Adding Preprocessing Orders", this, "toXmlNode"));
             }
@@ -269,7 +269,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(shipped!=null && shipped.compareTo(ON)==0)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Adding Shipped Orders",this, "toXmlNode"));
             }
@@ -286,7 +286,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(partiallyShipped!=null && partiallyShipped.compareTo(ON)==0)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Adding Partially Shipped Orders", this, "toDomNode"));
             }
@@ -303,7 +303,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(processing!=null && processing.compareTo(ON)==0)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Adding Processing Orders", this, "toXmlNode"));
             }
@@ -320,7 +320,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          
          if(cancelled!=null && cancelled.compareTo(ON)==0)
          {
-            if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Adding Cancelled Orders", this, "view"));
             }
@@ -363,8 +363,8 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         abcs.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+         org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "toXmlNode", e));
          }
@@ -460,7 +460,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
             
             
          }
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
         	 StringBuffer stringBuffer = new StringBuffer();
 
@@ -478,7 +478,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Exception in validation", this, "isValid()", e));
          }
@@ -526,7 +526,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       }
       catch(Exception e)
       {
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
          }

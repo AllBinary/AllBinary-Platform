@@ -172,7 +172,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       NodeList nodeList = document.getElementsByTagName(TaxData.NAME);
 
       /*
-      if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAX))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
       {
          LogUtil.put(LogFactory.getInstance("Number Of Tax Nodes: " + nodeList.getLength(), this,"isValid()");
       }
@@ -183,7 +183,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          Node node = nodeList.item(index);
 
          /*
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAX))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
          {
             LogUtil.put(LogFactory.getInstance("Node: " + node.getNodeName(), this,"isValid()");
          }
@@ -192,7 +192,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          NodeList taxNodeChildren = node.getChildNodes();
 
          /*
-         if(abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(abcs.logic.communication.log.config.type.LogConfigType.TAX))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
          {
             LogUtil.put(LogFactory.getInstance("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,"isValid()");
          }

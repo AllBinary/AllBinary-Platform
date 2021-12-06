@@ -89,8 +89,8 @@ public class InventorySearchUtil {
             storeFrontInterface.getCategoryPath(),
             BasicItemData.ID);
 
-        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Number Of Items Found: " + column.size(), this, "search"));
         }
@@ -108,8 +108,8 @@ public class InventorySearchUtil {
             column.addAll(substoreIdColumn);
         }
 
-        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Number Of Items Found Including SubStores: "
                 + column.size(), this, "search"));
@@ -130,8 +130,8 @@ public class InventorySearchUtil {
 
         String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());
 
-        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance(
                 "No Results Xml: " + success, this, "search"));
@@ -167,8 +167,8 @@ public class InventorySearchUtil {
             StringBuffer stringBuffer = new StringBuffer();
 
             /*
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
             {
             	stringBuffer.append(KEYWORD);
                 stringBuffer.append(keyword);
@@ -226,8 +226,8 @@ public class InventorySearchUtil {
                 }
 
                 /*
-                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                    org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
                 {
                     LogUtil.put(LogFactory.getInstance("Initial Document Created", instance, "search"));
                 }
@@ -245,8 +245,8 @@ public class InventorySearchUtil {
                     keywords = keywords.toUpperCase();
 
                     /*
-                    if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                        abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                        org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
                     {
                         stringBuffer.delete(0, stringBuffer.length());
 
@@ -278,8 +278,8 @@ public class InventorySearchUtil {
                         numberOfResultsOnCurrentPage++;
 
                         /*
-                        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                            abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
                         {
                             stringBuffer.delete(0, stringBuffer.length());
 
@@ -299,8 +299,8 @@ public class InventorySearchUtil {
                             if (currentPage >= startPage && currentPage <= endPage)
                             {
                                 /*
-                                if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                                    abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                                    org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
                                 {
                                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -373,8 +373,8 @@ public class InventorySearchUtil {
                     && (currentPage + 1 >= startPage && currentPage + 1 <= endPage))
                 {
                     /*
-                    if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                        abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                        org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
                     {
                         stringBuffer.delete(0, stringBuffer.length());
 
@@ -423,8 +423,8 @@ public class InventorySearchUtil {
                         Document tempDocument = documents[index];
 
                         /*
-                        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                            abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
                         {
                             stringBuffer.delete(0, stringBuffer.length());
 
@@ -477,8 +477,8 @@ public class InventorySearchUtil {
                         String success = DomDocumentHelper.toString(tempDocument);
 
                         /*
-                        if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                            abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
                         {
                             stringBuffer.delete(0, stringBuffer.length());
 
@@ -520,8 +520,8 @@ public class InventorySearchUtil {
         }
         catch (Exception e)
         {
-            if (abcs.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                abcs.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+                org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, instance, "search", e));
             }
