@@ -36,6 +36,7 @@ import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchData;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
@@ -60,6 +61,8 @@ public class InventorySearchUtil {
     {
         return instance;
     }
+
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     //private static final String START_PAGE = " StartPage:";
     //private static final String END_PAGE = " EndPage:";

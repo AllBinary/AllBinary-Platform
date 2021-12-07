@@ -24,13 +24,13 @@ public class UserEntityFactory
    {
    }
    
-   public static UserEntityInterface getInstance() //throws LicensingException
+   public static UserEntity getInstance() //throws LicensingException
    {
       try
       {
          //Object object = AbeFactory.getInstance(CLASSNAME);
          //return (UserEntityInterface) InterfaceCastProxy.newInstance(object);
-         return (UserEntityInterface) new org.allbinary.data.tables.user.UserEntity();
+         return (UserEntity) new org.allbinary.data.tables.user.UserEntity();
       }
       /*
       catch(LicensingException e)

@@ -38,7 +38,7 @@
 
         <module>./automation/InputAutomationToolsP</module>
         <module>./graphics/GraphicsToolsP</module>
-        <module>./allbinary_src/BlisketJavaLibraryP</module>
+        <module>./allbinary_src/FreeblisketJavaLibraryP</module>
         <module>./j2me/games/platform/AllBinaryOnAllPlaformsJavaLibraryP</module>
         <!--
         <module>AllBinaryPersistenceLibraryP</module>

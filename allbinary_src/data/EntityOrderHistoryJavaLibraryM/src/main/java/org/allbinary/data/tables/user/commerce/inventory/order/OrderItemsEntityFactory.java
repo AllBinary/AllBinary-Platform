@@ -24,13 +24,13 @@ public class OrderItemsEntityFactory
    {
    }
    
-   public static OrderItemsEntityInterface getInstance() //throws LicensingException
+   public static OrderItemsEntity getInstance() //throws LicensingException
    {
       try
       {
          //Object object = AbeFactory.getInstance(CLASSNAME);
          //return (OrderItemsEntityInterface) InterfaceCastProxy.newInstance(object);
-         return (OrderItemsEntityInterface) new org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntity();
+         return new org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntity();
       }
       /*
       catch(LicensingException e)

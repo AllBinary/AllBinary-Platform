@@ -29,6 +29,7 @@ import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionData;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class ShippingAddressHelper implements BasicTableInterface
 {
@@ -113,8 +114,8 @@ public class ShippingAddressHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = new ShippingAddressesEntity(StringUtil.getInstance().EMPTY_STRING).restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(new ShippingAddressesEntity(StringUtil.getInstance().EMPTY_STRING), portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -137,8 +138,8 @@ public class ShippingAddressHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = new ShippingAddressesEntity("").backupTable();
+         final String success = "Backup Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(new ShippingAddressesEntity(StringUtil.getInstance().EMPTY_STRING));
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

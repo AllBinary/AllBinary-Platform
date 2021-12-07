@@ -37,6 +37,7 @@ import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.globals.GLOBALS;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -45,7 +46,8 @@ public class UpdateFileValidationView
     extends DownloadableInventoryItemView
     implements ValidationComponentInterface
 {
-
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public UpdateFileValidationView(TransformInfoInterface transformInfoInterface) throws Exception
     {
         super(transformInfoInterface);
@@ -58,7 +60,7 @@ public class UpdateFileValidationView
             String command = (String) this.getRequestHashMap().get(GLOBALS.ADMINCOMMAND);
 
             if (StringValidationUtil.getInstance().isEmpty(command) ||
-                command.compareTo(GLOBALS.UPDATE) != 0)
+                command.compareTo(this.commonStrings.UPDATE) != 0)
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
                 {
@@ -280,7 +282,7 @@ public class UpdateFileValidationView
             String command = (String) this.getRequestHashMap().get(GLOBALS.ADMINCOMMAND);
 
             if (StringValidationUtil.getInstance().isEmpty(command) ||
-                command.compareTo(GLOBALS.UPDATE) != 0)
+                command.compareTo(this.commonStrings.UPDATE) != 0)
             {
                 //stringBuffer.append("Invalid Command<br/>");
                 return StringUtil.getInstance().EMPTY_STRING;

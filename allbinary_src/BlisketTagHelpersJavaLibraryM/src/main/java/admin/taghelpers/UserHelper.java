@@ -32,6 +32,7 @@ import org.allbinary.business.user.username.UserName;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.communication.http.request.RequestParams;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class UserHelper implements TableInterface
 {
@@ -219,8 +220,8 @@ public class UserHelper implements TableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = UserEntityFactory.getInstance().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(UserEntityFactory.getInstance(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -243,8 +244,8 @@ public class UserHelper implements TableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = UserEntityFactory.getInstance().backupTable();
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(UserEntityFactory.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

@@ -39,7 +39,7 @@ public class ShippingMethodsTag extends StoreValidationTransformTag
             this.setObjectFile("views.generic.shipping.ValidationView");
             //   this.propertiesHashMap.put(ShippingData.SHIPPINGTYPE, this.shippingType);
             
-            if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
             {
                
             }

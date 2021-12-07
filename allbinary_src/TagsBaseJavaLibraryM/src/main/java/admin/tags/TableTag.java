@@ -30,9 +30,7 @@ import org.allbinary.logic.basic.string.StringValidationUtil;
 
 public class TableTag extends PropertiesTag
 //implements TableInterface
-{
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
-    
+{   
     private String enabled;
     private TagHelperFactoryInterface tagHelperFactoryInterface;
     private TagHelperFactoryInterface tagRequestHelperFactoryInterface;
@@ -445,7 +443,7 @@ public class TableTag extends PropertiesTag
                     }
                     /*
                     else
-                    if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
                     {
                     String output = this.view();
                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -454,7 +452,7 @@ public class TableTag extends PropertiesTag
                     }
                     }
                     else
-                    if (this.getCommand().compareTo(allbinary.globals.GLOBALS.EDIT)==0)
+                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
                     {
                     String output = this.edit();
                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))

@@ -21,6 +21,7 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class OrderItemsHelper implements BasicTableInterface
 {
@@ -81,9 +82,9 @@ public class OrderItemsHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";         
-         String result = OrderItemsEntityFactory.getInstance().restoreTable(this.portion);
-         
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(OrderItemsEntityFactory.getInstance(), this.portion);
+
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -106,8 +107,8 @@ public class OrderItemsHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = OrderItemsEntityFactory.getInstance().backupTable();         
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(OrderItemsEntityFactory.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

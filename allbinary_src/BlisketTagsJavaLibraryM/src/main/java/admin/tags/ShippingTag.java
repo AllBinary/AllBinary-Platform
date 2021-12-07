@@ -90,7 +90,7 @@ public class ShippingTag extends TagSupport
             this.propertiesHashMap = new HashMap();
             propertiesHashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
             
-            if (command.compareTo(allbinary.globals.GLOBALS.SETSHIPPINGTYPE)==0)
+            if (command.compareTo(org.allbinary.globals.GLOBALS.SETSHIPPINGTYPE)==0)
             {
                this.setShippingType();
             }

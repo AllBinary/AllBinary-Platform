@@ -20,9 +20,12 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSessionIn
 
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class AbContext
-{      
+{
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private HashMap propertiesHashMap;
    
    private PageContext pageContext;

@@ -136,7 +136,7 @@ public class OrderHistoryTag extends StoreValidationTransformTag
                pageContext.getOut().print(this.setOrderStatus());
             }
             else
-               if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
                {
                   
                }

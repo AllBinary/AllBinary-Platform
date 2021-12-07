@@ -114,12 +114,12 @@ public class StoreFrontTag extends TagSupport
             this.propertiesHashMap = new HashMap();
             this.propertiesHashMap.put(StoreFrontData.getInstance().NAME, this.storeName);
             
-            if (command.compareTo(allbinary.globals.GLOBALS.GETCURRENTLOCATION)==0)
+            if (command.compareTo(org.allbinary.globals.GLOBALS.GETCURRENTLOCATION)==0)
             {
                pageContext.getOut().print(this.getCurrentLocation());
             }
             else
-               if (command.compareTo(allbinary.globals.GLOBALS.GETCURRENTHOMELOCATION)==0)
+               if (command.compareTo(org.allbinary.globals.GLOBALS.GETCURRENTHOMELOCATION)==0)
                {
                   pageContext.getOut().print(this.getCurrentHomeLocation());
                }

@@ -21,6 +21,7 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class WorkFlowHelper implements BasicTableInterface
 {
@@ -75,8 +76,8 @@ public class WorkFlowHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = WorkFlowEntityFactory.getInstance().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(WorkFlowEntityFactory.getInstance(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -99,8 +100,8 @@ public class WorkFlowHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = WorkFlowEntityFactory.getInstance().backupTable();
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(WorkFlowEntityFactory.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
@@ -109,7 +110,7 @@ public class WorkFlowHelper implements BasicTableInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to make backup";
+         final String error = "Failed to make backup";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {

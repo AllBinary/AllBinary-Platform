@@ -32,6 +32,7 @@ import org.allbinary.business.user.password.Password;
 
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.UserEntityInterface;
+import org.allbinary.globals.GLOBALS;
 
 
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
@@ -214,7 +215,7 @@ public class AuthenticationRequestHelper
          UserInterface userInterface = userEntityInterface.getUser(userName);
          String login = userEntityInterface.login(userName, passwordString);
          
-         if(login.compareTo(allbinary.globals.GLOBALS.LOGINSUCCESS)==0)
+         if(login.compareTo(GLOBALS.LOGINSUCCESS)==0)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
             {

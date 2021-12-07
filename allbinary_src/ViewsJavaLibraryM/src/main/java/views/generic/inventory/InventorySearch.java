@@ -28,6 +28,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.tables.staticpages.StaticPagesEntity;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
 
@@ -38,6 +39,7 @@ import org.allbinary.logic.control.search.SearchRequest;
  */
 public class InventorySearch implements InventoryViewSearchInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final SearchRequest searchRequest;
 

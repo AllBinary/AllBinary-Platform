@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.BasicTableInterface;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class TransformInfoHelper implements BasicTableInterface
 {
@@ -71,8 +72,9 @@ public class TransformInfoHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = TransformInfoEntityBuilder.getInstance().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(TransformInfoEntityBuilder.getInstance(), this.portion);
+
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -95,8 +97,8 @@ public class TransformInfoHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = TransformInfoEntityBuilder.getInstance().backupTable();         
+         final String success = "Backup Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(TransformInfoEntityBuilder.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

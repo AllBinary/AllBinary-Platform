@@ -45,31 +45,31 @@ public class BillingAddressTag extends StoreValidationTransformTag
          if(this.getCommand()!=null)
          {
             
-            if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
             {
                this.setName("Basic Billing Address View");
                this.setObjectFile("views.generic.address.billing.ValidationView");
             }
             else
-               if (this.getCommand().compareTo(allbinary.globals.GLOBALS.EDIT)==0)
+               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
                {
                   this.setName("Basic Billing Address View");
                   this.setObjectFile("views.generic.address.billing.EditValidationView");
                }
                else
-                  if (this.getCommand().compareTo(allbinary.globals.GLOBALS.NEW)==0)
+                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.NEW)==0)
                   {
                      this.setName("Basic Billing Address View");
                      this.setObjectFile("views.generic.address.billing.NewValidationView");
                   }
                   else
-                     if (this.getCommand().compareTo(allbinary.globals.GLOBALS.INSERT)==0)
+                     if (this.getCommand().compareTo(this.commonStrings.INSERT)==0)
                      {
                         this.setName("Basic Billing Address View");
                         this.setObjectFile("views.generic.address.billing.AddValidationView");
                      }
                      else
-                        if (this.getCommand().compareTo(allbinary.globals.GLOBALS.DELETE)==0)
+                        if (this.getCommand().compareTo(this.commonStrings.DELETE)==0)
                         {
                            this.setName("Basic Billing Address View");
                            this.setObjectFile("views.generic.address.billing.DeleteValidationView");

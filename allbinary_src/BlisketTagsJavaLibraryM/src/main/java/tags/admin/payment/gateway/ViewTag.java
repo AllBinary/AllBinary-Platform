@@ -31,7 +31,7 @@ public class ViewTag extends StoreValidationTransformTag
       {
          if(this.getCommand()!=null)
          {
-            if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
             {
                this.setName("Validation Gateway View");
                this.setObjectFile("views.admin.payment.gateway.GatewayValidationView");

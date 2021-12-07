@@ -21,6 +21,7 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class InventoryHelper implements BasicTableInterface
 {
@@ -82,10 +83,8 @@ public class InventoryHelper implements BasicTableInterface
     {
         try
         {
-            String success = "Restore Successful";
-
-            String result = InventoryEntityFactory.getInstance().getInventoryEntityInstance().restoreTable(this.portion);
-
+            final String success = "Restore Successful";
+            final String result = AbSqlTableUtil.getInstance().restoreTable(InventoryEntityFactory.getInstance().getInventoryEntityInstance(), this.portion);
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "restore()"));
@@ -107,9 +106,8 @@ public class InventoryHelper implements BasicTableInterface
     {
         try
         {
-            String success = "Backup Successful";
-
-            String result = InventoryEntityFactory.getInstance().getInventoryEntityInstance().backupTable();
+            final String success = "Backup Successful";
+            final String result = AbSqlTableUtil.getInstance().backupTable(InventoryEntityFactory.getInstance().getInventoryEntityInstance());
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
             {

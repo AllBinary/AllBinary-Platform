@@ -21,6 +21,7 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.staticpages.StaticPagesEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class StaticPagesHelper implements BasicTableInterface
 {
@@ -82,7 +83,7 @@ public class StaticPagesHelper implements BasicTableInterface
       try
       {
          String success = "Restore Successful";         
-         String result = StaticPagesEntityFactory.getInstance().getStaticPagesEntityInstance().restoreTable(this.portion);
+         final String result = AbSqlTableUtil.getInstance().restoreTable(StaticPagesEntityFactory.getInstance().getStaticPagesEntityInstance(), portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -105,8 +106,8 @@ public class StaticPagesHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = StaticPagesEntityFactory.getInstance().getStaticPagesEntityInstance().backupTable();
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(StaticPagesEntityFactory.getInstance().getStaticPagesEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

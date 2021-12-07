@@ -21,10 +21,11 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.inventory.item.options.XmlOptionItemsEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class XmlOptionItemsHelper implements BasicTableInterface
 {
-	private final Portion portion;
+    private final Portion portion;
 	
    public XmlOptionItemsHelper(HashMap hashMap, PageContext pageContext)
    {
@@ -83,8 +84,8 @@ public class XmlOptionItemsHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";         
-         String result = XmlOptionItemsEntityFactory.getInstance().getXmlOptionItemsEntityInstance().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(XmlOptionItemsEntityFactory.getInstance().getXmlOptionItemsEntityInstance(), portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -107,8 +108,8 @@ public class XmlOptionItemsHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = XmlOptionItemsEntityFactory.getInstance().getXmlOptionItemsEntityInstance().backupTable();
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(XmlOptionItemsEntityFactory.getInstance().getXmlOptionItemsEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));
@@ -117,7 +118,7 @@ public class XmlOptionItemsHelper implements BasicTableInterface
       }
       catch(Exception e)
       {
-         String error = "Failed to make backup";
+         final String error = "Failed to make backup";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
          {

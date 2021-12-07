@@ -27,6 +27,7 @@ import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class PaymentHelper implements TableInterface
 {
@@ -218,12 +219,8 @@ public class PaymentHelper implements TableInterface
    {
       try
       {
-         String success = "Restore Successful";
-
-         PaymentEntity paymentEntity =
-             PaymentEntityFactory.getInstance().getPaymentEntityInstance();
-
-         String result = paymentEntity.restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(PaymentEntityFactory.getInstance().getPaymentEntityInstance(), portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -246,12 +243,8 @@ public class PaymentHelper implements TableInterface
    {
       try
       {
-         String success = "Restore Successful";
-
-         PaymentEntity paymentEntity =
-             PaymentEntityFactory.getInstance().getPaymentEntityInstance();
-
-         String result = paymentEntity.backupTable();
+         final String success = "Backup Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(PaymentEntityFactory.getInstance().getPaymentEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

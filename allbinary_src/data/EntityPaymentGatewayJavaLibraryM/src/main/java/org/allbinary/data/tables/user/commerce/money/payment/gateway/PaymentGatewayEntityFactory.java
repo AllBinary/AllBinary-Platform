@@ -24,13 +24,13 @@ public class PaymentGatewayEntityFactory
    {
    }
    
-   public static PaymentGatewayEntityInterface getInstance() throws Exception
+   public static PaymentGatewayEntity getInstance() throws Exception
    {
       try
       {
          //Object object = AbeFactory.getInstance(CLASSNAME);
          //return (PaymentGatewayTransactionEntityInterface) InterfaceCastProxy.newInstance(object);
-         return (PaymentGatewayEntityInterface) new org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntity();
+         return new org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntity();
       }
       /*
       catch(LicensingException e)

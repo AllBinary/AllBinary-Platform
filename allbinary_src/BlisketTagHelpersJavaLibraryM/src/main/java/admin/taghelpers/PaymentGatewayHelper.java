@@ -26,6 +26,7 @@ import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGateway
 import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentTypeUtil;
 import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class PaymentGatewayHelper implements BasicTableInterface
 {
@@ -226,8 +227,8 @@ public class PaymentGatewayHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = PaymentGatewayEntityFactory.getInstance().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(PaymentGatewayEntityFactory.getInstance(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -250,8 +251,8 @@ public class PaymentGatewayHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = PaymentGatewayEntityFactory.getInstance().backupTable();
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(PaymentGatewayEntityFactory.getInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

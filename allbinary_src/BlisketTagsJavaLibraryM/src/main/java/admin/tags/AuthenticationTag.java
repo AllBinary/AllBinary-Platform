@@ -390,7 +390,7 @@ public class AuthenticationTag extends TagSupport
 
                 this.propertiesHashMap = new HashMap();
 
-                if (command.compareTo(allbinary.globals.GLOBALS.NEWPASSWORD) == 0)
+                if (command.compareTo(org.allbinary.globals.GLOBALS.NEWPASSWORD) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
                     {
@@ -406,7 +406,7 @@ public class AuthenticationTag extends TagSupport
                         pageContext.getOut().print("New Password Was Sent.<p/>");
                         return SKIP_BODY;
                     }
-                } else if (command.compareTo(allbinary.globals.GLOBALS.CHANGEPASSWORD) == 0)
+                } else if (command.compareTo(org.allbinary.globals.GLOBALS.CHANGEPASSWORD) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
                     {
@@ -456,7 +456,7 @@ public class AuthenticationTag extends TagSupport
 
                             //invalidates session based on a timeout
                             pageContext.getOut().print("Please login again.<p>");
-                            if (command.compareTo(allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -471,7 +471,7 @@ public class AuthenticationTag extends TagSupport
                             }
 
                             //prepares session for timeout
-                            if (command.compareTo(allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -505,7 +505,7 @@ public class AuthenticationTag extends TagSupport
                             LogUtil.put(LogFactory.getInstance("Authenticated session is valid", this, "doStartTag()"));
                         }
 
-                        if (command.compareTo(allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                        if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
                         {
                             return TagSupport.EVAL_BODY_INCLUDE;
                         } else
@@ -529,7 +529,7 @@ public class AuthenticationTag extends TagSupport
                             }
 
                             pageContext.getOut().print(validRole());
-                            if (command.compareTo(allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return EVAL_BODY_INCLUDE;
                             } else
@@ -544,7 +544,7 @@ public class AuthenticationTag extends TagSupport
                             }
 
                             pageContext.getOut().print(invalidRole());
-                            if (command.compareTo(allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return SKIP_BODY;
                             } else
@@ -574,7 +574,7 @@ public class AuthenticationTag extends TagSupport
 
                     //pageContext.getOut().print("Not a new attempt or previously authorized<p>");
                     //I hope this never occurs - I may add an exception for this case in the future
-                    if (command.compareTo(allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                    if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
                     {
                         return TagSupport.SKIP_BODY;
                     } else

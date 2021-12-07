@@ -15,6 +15,7 @@ package views.business.context.modules.storefront;
 
 import views.HttpComponentView;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.StoreTransformer;
@@ -23,6 +24,8 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class HttpStoreComponentView extends HttpComponentView
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    public HttpStoreComponentView(TransformInfoInterface transformInfoInterface)
        throws Exception
    {

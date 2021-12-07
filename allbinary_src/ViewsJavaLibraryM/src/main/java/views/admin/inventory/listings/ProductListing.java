@@ -44,6 +44,7 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity;
 import org.allbinary.data.tables.staticpages.StaticPagesEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
+import org.allbinary.globals.GLOBALS;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
 
@@ -310,7 +311,7 @@ public class ProductListing implements ProductListingInterface
 
             if (storeName != null)
             {
-                if (storeName.compareTo(allbinary.globals.GLOBALS.GENERATEALLSTORES) != 0)
+                if (storeName.compareTo(GLOBALS.GENERATEALLSTORES) != 0)
                 {
                     this.searchRequest.setStoreFront(this.storeFronts.getStoreFrontInterface(storeName));
 

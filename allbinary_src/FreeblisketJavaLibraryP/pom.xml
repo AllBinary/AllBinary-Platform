@@ -34,9 +34,10 @@
     
     <modules>
 
-<!--
-<module>../BlisketJavaLibraryP</module>
--->
+        <module>../BlisketJavaLibraryP</module>
+
+        <module>../logging/LogConfigTypeFreeblisketJavaLibraryM</module>
+        
         <module>../TagsBaseJavaLibraryM</module>
         <module>../CustomLoaderFakeJavaLibraryM</module>
 

@@ -21,6 +21,7 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.money.payment.transaction.TransactionEntity;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class PaymentTransactionHelper implements BasicTableInterface
 {
@@ -82,8 +83,9 @@ public class PaymentTransactionHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";         
-         String result = new TransactionEntity().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(new TransactionEntity(), portion);
+         
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -106,8 +108,8 @@ public class PaymentTransactionHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = new TransactionEntity().backupTable();         
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(new TransactionEntity());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

@@ -26,6 +26,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 import org.allbinary.logic.visual.dhtml.html.select.HtmlSelect;
 
 public class StoreFrontsHelper implements BasicTableInterface
@@ -92,9 +93,8 @@ public class StoreFrontsHelper implements BasicTableInterface
     {
         try
         {
-            String success = "Restore Successful";
-
-            String result = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().restoreTable(this.portion);
+            final String success = "Restore Successful";
+            final String result = AbSqlTableUtil.getInstance().restoreTable(StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance(), this.portion);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
@@ -119,9 +119,8 @@ public class StoreFrontsHelper implements BasicTableInterface
     {
         try
         {
-            String success = "Restore Successful";
-
-            String result = StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance().backupTable();
+            final String success = "Restore Successful";
+            final String result = AbSqlTableUtil.getInstance().backupTable(StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance());
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))

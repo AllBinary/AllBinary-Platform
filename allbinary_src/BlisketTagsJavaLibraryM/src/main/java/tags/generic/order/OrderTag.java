@@ -45,7 +45,7 @@ public class OrderTag extends StoreValidationTransformTag
          
          if(this.getCommand()!=null)
          {
-            if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
             {
                
             }

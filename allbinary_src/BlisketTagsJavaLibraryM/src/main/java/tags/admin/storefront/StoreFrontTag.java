@@ -35,53 +35,53 @@ public class StoreFrontTag extends StoreValidationTransformTag
          if(this.getCommand()!=null)
          {
             
-            if (this.getCommand().compareTo(allbinary.globals.GLOBALS.INSERT)==0)
+            if (this.getCommand().compareTo(this.commonStrings.INSERT)==0)
             {
                this.setName("Add Validation StoreFront View");
                this.setObjectFile("views.admin.storefront.AddValidationStoreFrontView");
             }
             else
-               if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
                {
                   throw new Exception("View not implemented");
                   //this.setName("Validation User View");
                   //this.setObjectFile("views.admin.storefront.ViewValidationStoreFrontView");
                }
                else
-                  if (this.getCommand().compareTo(allbinary.globals.GLOBALS.EDIT)==0)
+                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
                   {
                      this.setName("Edit Validation StoreFront View");
                      this.setObjectFile("views.admin.storefront.EditValidationStoreFrontView");
                   }
                   else
-                     if (this.getCommand().compareTo(allbinary.globals.GLOBALS.UPDATE)==0)
+                     if (this.getCommand().compareTo(this.commonStrings.UPDATE)==0)
                      {                        
                         this.setName("Update Validation StoreFront View");
                         this.setObjectFile("views.admin.storefront.UpdateValidationStoreFrontView");
                      }
                      else
-                        if (this.getCommand().compareTo(allbinary.globals.GLOBALS.DELETE)==0)
+                        if (this.getCommand().compareTo(this.commonStrings.DELETE)==0)
                         {                           
                            this.setName("Delete Validation StoreFront View");
                            this.setObjectFile("views.admin.storefront.DeleteValidationStoreFrontView");
                         }
                         else
-                           if (this.getCommand().compareTo(allbinary.globals.GLOBALS.BACKUP)==0)
+                           if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.BACKUP)==0)
                            {
                               throw new Exception("View not implemented");
                            }
                            else
-                              if (this.getCommand().compareTo(allbinary.globals.GLOBALS.RESTORE)==0)
+                              if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.RESTORE)==0)
                               {
                                  throw new Exception("View not implemented");
                               }
                               else
-                                 if (this.getCommand().compareTo(allbinary.globals.GLOBALS.DROP)==0)
+                                 if (this.getCommand().compareTo(this.commonStrings.DROP)==0)
                                  {
                                     throw new Exception("View not implemented");
                                  }
                                  else
-                                    if (this.getCommand().compareTo(allbinary.globals.GLOBALS.CREATE)==0)
+                                    if (this.getCommand().compareTo(this.commonStrings.CREATE)==0)
                                     {
                                        throw new Exception("View not implemented");
                                     }

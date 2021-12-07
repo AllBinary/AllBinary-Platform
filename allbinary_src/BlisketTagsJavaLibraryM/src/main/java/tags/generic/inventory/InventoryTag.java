@@ -126,7 +126,7 @@ public class InventoryTag extends StoreValidationTransformTag
          {
             //this.propertiesHashMap.put(BasicItemData.ID, this.id);
             
-            if (this.getCommand().compareTo(allbinary.globals.GLOBALS.SEARCH)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.SEARCH)==0)
             {
                this.setName("Basic Search Inventory View");
                this.setObjectFile("views.generic.inventory.AutoSearchValidationInventoryView");
@@ -134,7 +134,7 @@ public class InventoryTag extends StoreValidationTransformTag
                return EVAL_BODY_INCLUDE;
             }
             else
-               if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEWSUMMARY)==0)
+               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEWSUMMARY)==0)
                {
                   this.setName("Basic Inventory View");
                   this.setObjectFile("views.generic.inventory.AutoValidationInventoryView");
@@ -143,7 +143,7 @@ public class InventoryTag extends StoreValidationTransformTag
                   return EVAL_BODY_INCLUDE;
                }
                else
-                  if (this.getCommand().compareTo(allbinary.globals.GLOBALS.VIEW)==0)
+                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
                   {
                      this.setName("Basic Inventory View");
                      this.setObjectFile("views.generic.inventory.AutoValidationInventoryView");

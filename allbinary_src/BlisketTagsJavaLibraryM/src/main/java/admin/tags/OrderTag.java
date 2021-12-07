@@ -178,7 +178,7 @@ public class OrderTag extends TagSupport
             this.propertiesHashMap = new HashMap();
             this.propertiesHashMap.put(StoreFrontData.getInstance().NAME,this.storeName);            
             
-            if (command.compareTo(allbinary.globals.GLOBALS.PROCESS)==0)
+            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESS)==0)
             {
                this.process();
             }

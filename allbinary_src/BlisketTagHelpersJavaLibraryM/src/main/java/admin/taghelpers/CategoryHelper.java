@@ -21,6 +21,7 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.category.CategoryEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class CategoryHelper implements BasicTableInterface
 {
@@ -83,8 +84,9 @@ public class CategoryHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = CategoryEntityFactory.getInstance().getCategoryEntityInstance().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(CategoryEntityFactory.getInstance().getCategoryEntityInstance(), this.portion);
+
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -107,8 +109,9 @@ public class CategoryHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = CategoryEntityFactory.getInstance().getCategoryEntityInstance().backupTable();
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(CategoryEntityFactory.getInstance().getCategoryEntityInstance());
+
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

@@ -24,13 +24,13 @@ public class WorkFlowEntityFactory
    {
    }
    
-   public static WorkFlowEntityInterface getInstance() //throws LicensingException
+   public static WorkFlowEntity getInstance() //throws LicensingException
    {
       try
       {
          //Object object = AbeFactory.getInstance(CLASSNAME);
          //return (StoreFrontsEntityInterface) InterfaceCastProxy.newInstance(object);
-         return (WorkFlowEntityInterface) new org.allbinary.data.tables.workflow.WorkFlowEntity();
+         return new org.allbinary.data.tables.workflow.WorkFlowEntity();
       }
       /*
       catch(LicensingException e)

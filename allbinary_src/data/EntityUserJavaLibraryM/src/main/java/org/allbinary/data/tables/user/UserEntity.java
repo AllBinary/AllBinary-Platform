@@ -186,7 +186,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    {
       try
       {
-         if(this.login(userName,password).compareTo(allbinary.globals.GLOBALS.LOGINSUCCESS)==0)
+         if(this.login(userName,password).compareTo(org.allbinary.globals.GLOBALS.LOGINSUCCESS)==0)
          {
             String role = new String(super.getField(UserData.USERNAME,userName,RoleData.ROLE));
             

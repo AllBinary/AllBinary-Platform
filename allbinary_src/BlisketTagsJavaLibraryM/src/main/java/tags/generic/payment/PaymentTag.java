@@ -45,12 +45,12 @@ public class PaymentTag extends StoreValidationTransformTag
                
             }
             else
-               if (this.getCommand().compareTo(allbinary.globals.GLOBALS.INSERT)==0)
+               if (this.getCommand().compareTo(this.commonStrings.INSERT)==0)
                {
                   //pageContext.getOut().print("Payment Info Failed To Validate - All fields must contain data<p>");
                }
                else
-                  if (this.getCommand().compareTo(allbinary.globals.GLOBALS.DELETE)==0)
+                  if (this.getCommand().compareTo(this.commonStrings.DELETE)==0)
                   {
                      return this.EVAL_BODY_INCLUDE;
                   }

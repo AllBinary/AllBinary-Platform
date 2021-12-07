@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.user.commerce.inventory.item.options.BasicOptionItemsEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.options.BasicOptionItemsEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class BasicOptionItemsHelper implements BasicTableInterface
 {
@@ -84,12 +85,12 @@ public class BasicOptionItemsHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
+         final String success = "Restore Successful";
          
-         BasicOptionItemsEntity basicOptionItemsEntity = 
+         final BasicOptionItemsEntity basicOptionItemsEntity = 
         	 BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance();
-         
-         String result = basicOptionItemsEntity.restoreTable(this.portion);
+
+         final String result = AbSqlTableUtil.getInstance().restoreTable(basicOptionItemsEntity, this.portion);
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
@@ -114,9 +115,9 @@ public class BasicOptionItemsHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
+         final String success = "Restore Successful";
          
-         String result = BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance().backupTable();
+         final String result = AbSqlTableUtil.getInstance().backupTable(BasicOptionItemsEntityFactory.getInstance().getBasicOptionItemsEntityInstance());
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {

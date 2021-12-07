@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class ModifyTag extends HelperTag 
 {
@@ -130,7 +131,9 @@ public class ModifyTag extends HelperTag
          {
             this.setHelper();
 
-            if (this.getCommand().compareTo(allbinary.globals.GLOBALS.INSERT)==0)
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            
+            if (this.getCommand().compareTo(commonStrings.INSERT)==0)
             {
                String output = this.insert();
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -139,7 +142,7 @@ public class ModifyTag extends HelperTag
                }
             }
             else
-               if (this.getCommand().compareTo(allbinary.globals.GLOBALS.DELETE)==0)
+               if (this.getCommand().compareTo(commonStrings.DELETE)==0)
                {
                   String output = this.delete();
                   if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -148,7 +151,7 @@ public class ModifyTag extends HelperTag
                   }
                }
                else
-                  if (this.getCommand().compareTo(allbinary.globals.GLOBALS.UPDATE)==0)
+                  if (this.getCommand().compareTo(commonStrings.UPDATE)==0)
                   {
                      String output = this.update();
                      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))

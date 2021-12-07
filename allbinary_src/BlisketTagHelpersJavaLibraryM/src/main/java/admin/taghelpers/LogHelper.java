@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.log.LogTableEntity;
 import org.allbinary.data.tables.log.LogTableEntityFactory;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
  
 public class LogHelper implements BasicTableInterface
 {
@@ -72,12 +73,9 @@ public class LogHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         
-         LogTableEntity logTableEntity = 
-        	 LogTableEntityFactory.getInstance().getLogTableEntityInstance();
-
-         String result = logTableEntity.restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final LogTableEntity logTableEntity = LogTableEntityFactory.getInstance().getLogTableEntityInstance();
+         final String result = AbSqlTableUtil.getInstance().restoreTable(logTableEntity, this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -100,8 +98,8 @@ public class LogHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = LogTableEntityFactory.getInstance().getLogTableEntityInstance().backupTable();
+         final String success = "Backup Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(LogTableEntityFactory.getInstance().getLogTableEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

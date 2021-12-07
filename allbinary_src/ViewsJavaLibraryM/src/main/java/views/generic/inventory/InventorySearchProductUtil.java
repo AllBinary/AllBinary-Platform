@@ -22,6 +22,7 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.visual.transform.StoreTransformer;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
@@ -37,9 +38,11 @@ public class InventorySearchProductUtil {
 	
     private static final InventorySearchProductUtil instance = new InventorySearchProductUtil();
 
-	public static InventorySearchProductUtil getInstance() {
-		return instance;
-	}
+    public static InventorySearchProductUtil getInstance() {
+        return instance;
+    }
+
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final String ITEM_NOT_FOUND = "Item Not Found.";
     

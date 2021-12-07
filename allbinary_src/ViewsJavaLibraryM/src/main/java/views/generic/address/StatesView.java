@@ -27,10 +27,14 @@ import org.allbinary.business.user.address.StreetAddressData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 
 public class StatesView implements DomNodeInterface
-{   
+{
+   private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    public StatesView()
    { 
    }
@@ -42,7 +46,7 @@ public class StatesView implements DomNodeInterface
          Node node = document.createElement(StreetAddressData.STATES);
 
          String statesFile 
-            = abcs.globals.URLGLOBALS.getMainPath() + 
+            = URLGLOBALS.getMainPath() + 
               FREEBLISKET_PATH_GLOBALS.getInstance().LINEDATAPATH +
               "states.txt";      
 

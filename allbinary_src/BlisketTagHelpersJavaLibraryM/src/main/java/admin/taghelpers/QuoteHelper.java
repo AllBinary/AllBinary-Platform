@@ -29,6 +29,7 @@ import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntity;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;
@@ -38,10 +39,13 @@ import org.allbinary.logic.communication.smtp.event.handler.factory.UserEmailEve
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 
 public class QuoteHelper implements BasicTableInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final WeblisketSession weblisketSession;
    
    private final StoreFrontInterface storeFrontInterface;
@@ -233,8 +237,8 @@ public class QuoteHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = QuoteRequestEntityFactory.getInstance().getQuoteRequestEntityInstance().restoreTable(this.portion);
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().restoreTable(QuoteRequestEntityFactory.getInstance().getQuoteRequestEntityInstance(), portion);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
@@ -260,8 +264,8 @@ public class QuoteHelper implements BasicTableInterface
    {
       try
       {
-         String success = "Restore Successful";
-         String result = QuoteRequestEntityFactory.getInstance().getQuoteRequestEntityInstance().backupTable();
+         final String success = "Restore Successful";
+         final String result = AbSqlTableUtil.getInstance().backupTable(QuoteRequestEntityFactory.getInstance().getQuoteRequestEntityInstance());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success, this, "backup()"));
