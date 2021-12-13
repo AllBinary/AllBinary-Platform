@@ -16,12 +16,13 @@ package org.allbinary.animation.image.sprite;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.game.Sprite;
 
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.graphics.color.ColorCompositeInterface;
+import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class SpriteIndexedAnimation extends IndexedAnimation
@@ -44,7 +45,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
 
         if(this.getSize() != this.basicColorArray.length)
         {
-            throw new Exception(CommonStrings.getInstance().TOTAL_LABEL + this.getSize() + "!=" + this.basicColorArray.length);
+            throw new Exception(new StringMaker().append(CommonLabels.getInstance().TOTAL_LABEL).append(this.getSize()).append("!=").append(this.basicColorArray.length).toString());
         }
     }
 

@@ -16,7 +16,6 @@ package org.allbinary.game.layer.identification;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -27,6 +26,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
 import org.allbinary.layer.event.LayerManagerEventListener;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
@@ -309,7 +309,7 @@ extends LayerManagerEventListener
         final String GROUP = "Group: ";
         
         final String SPACE = CommonSeps.getInstance().SPACE;
-        final String TOTAL_LABEL = CommonStrings.getInstance().TOTAL_LABEL;
+        final String TOTAL_LABEL = CommonLabels.getInstance().TOTAL_LABEL;
 
         int size = list.size();
         for (int index = size - 1; index >= 0; index--)

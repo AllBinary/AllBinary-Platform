@@ -23,6 +23,7 @@ import org.allbinary.thread.RunnableInterface;
 import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.CommandListener;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class RunnableCanvas extends MyCanvas 
     implements RunnableInterface
@@ -39,6 +40,7 @@ public class RunnableCanvas extends MyCanvas
     protected Processor runnableCanvasRefreshHelper;
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final CommonLabels commonLabels = CommonLabels.getInstance();
     
     public RunnableCanvas(CommandListener commandListener)
     {

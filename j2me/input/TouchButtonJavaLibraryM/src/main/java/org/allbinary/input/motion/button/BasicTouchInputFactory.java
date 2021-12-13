@@ -15,11 +15,11 @@ package org.allbinary.input.motion.button;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class BasicTouchInputFactory
 // extends BaseTouchInputFactory
@@ -118,7 +118,7 @@ public class BasicTouchInputFactory
             InputToGameKeyMapping inputToGameKeyMapping)
     {
         LogUtil.put(LogFactory.getInstance(
-                CommonStrings.getInstance().START_LABEL + list.size(), this,
+                CommonLabels.getInstance().START_LABEL + list.size(), this,
                 "updateAll"));
 
         TouchButtonInput touchButtonInput;

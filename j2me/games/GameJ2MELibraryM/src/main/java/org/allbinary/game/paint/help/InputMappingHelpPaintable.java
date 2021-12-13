@@ -33,6 +33,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class InputMappingHelpPaintable extends HelpPaintable 
 {
@@ -75,7 +76,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
     public void update(GameKey selectedGameKey, Input selectedInput)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + "selected GameKey: " + selectedGameKey + " Input: " + selectedInput, this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + "selected GameKey: " + selectedGameKey + " Input: " + selectedInput, this, CommonStrings.getInstance().UPDATE));
         
         PersistentInputMapping gameKeyMapping = 
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();

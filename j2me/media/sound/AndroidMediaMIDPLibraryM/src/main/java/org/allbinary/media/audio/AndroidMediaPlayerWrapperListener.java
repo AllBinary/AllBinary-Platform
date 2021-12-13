@@ -6,6 +6,8 @@ import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import android.media.MediaPlayer;
+import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class AndroidMediaPlayerWrapperListener
 {
@@ -88,8 +90,7 @@ public class AndroidMediaPlayerWrapperListener
     {
         public boolean onError(MediaPlayer mp, int what, int extra)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + "What: " + what + " Extra: " + extra,
-                    this, "onError()"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("What: ").append(what).append(" Extra: ").append(extra).toString(), this, "onError()"));
             AndroidMediaPlayerWrapperListener.this.androidMediaPlayerWrapper.update(PlayerListener.ERROR);
             return true;
         }

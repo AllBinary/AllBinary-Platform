@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureControlledInterface;
 import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -118,7 +119,7 @@ public class FeaturedResourceFactory
 
     public void add(GameFeatureControlledInterface featureInterface)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + featureInterface, this, CommonStrings.getInstance().ADD));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + featureInterface, this, CommonStrings.getInstance().ADD));
         
         this.list.add(featureInterface);
     }

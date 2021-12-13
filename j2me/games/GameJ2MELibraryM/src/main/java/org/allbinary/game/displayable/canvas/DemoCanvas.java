@@ -341,7 +341,7 @@ public class DemoCanvas extends RunnableCanvas
         
         Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
 
-        PreLogUtil.put(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "initMenu");
+        PreLogUtil.put(commonLabels.START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "initMenu");
         
         this.setMenuForm(
             CommandCurrentSelectionFormFactory.getInstance(

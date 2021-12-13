@@ -18,7 +18,6 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.form.item.TextFieldItem;
 
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.J2MEUtil;
@@ -29,6 +28,7 @@ import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class CustomTextBox extends GameCommandCanvas
 {
@@ -82,7 +82,7 @@ public class CustomTextBox extends GameCommandCanvas
     public void keyPressed(int keyCode, int deviceId)
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + keyCode, this, "keyPressed"));
-        PreLogUtil.put(CommonStrings.getInstance().START_LABEL + keyCode, this, "keyPressed");
+        PreLogUtil.put(CommonLabels.getInstance().START_LABEL + keyCode, this, "keyPressed");
         
         PlatformKeyFactory platformKeyFactory =
             PlatformKeyFactory.getInstance();

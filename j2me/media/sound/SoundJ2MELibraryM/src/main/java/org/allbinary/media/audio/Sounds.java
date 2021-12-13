@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class Sounds
@@ -62,12 +63,12 @@ public class Sounds
                 
                 StringMaker stringBuffer = new StringMaker();
                 
-                stringBuffer.append(commonStrings.INDEX_LABEL);
+                stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
                 stringBuffer.append(indexString);
                 stringBuffer.append(SOUND);
                 stringBuffer.append(soundInterface.getClass().getName());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
                 
                 soundInterface.init();
                 

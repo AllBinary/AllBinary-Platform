@@ -1275,14 +1275,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Hashtable getLoadStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + this.hashtable, this, "getLoadStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(commonLabels.START_LABEL + this.hashtable, this, "getLoadStateHashtable"));
         return this.hashtable;
     }
 
     public void setLoadStateHashtable(Hashtable hashtable)
     {
         LogUtil.put(LogFactory.getInstance(
-                commonStrings.START_LABEL + hashtable, this,
+                commonLabels.START_LABEL + hashtable, this,
                 "setLoadStateHashtable"));
         this.hashtable = hashtable;
     }

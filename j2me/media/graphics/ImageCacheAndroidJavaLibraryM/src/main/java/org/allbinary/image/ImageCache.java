@@ -28,6 +28,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.system.Memory;
 
 public class ImageCache
@@ -212,7 +213,7 @@ public class ImageCache
             stringBuffer.append(" h: ");
             stringBuffer.append(height);
             stringBuffer.append(CommonSeps.getInstance().SPACE);
-            stringBuffer.append(CommonStrings.getInstance().TOTAL_LABEL);
+            stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
             stringBuffer.append(total);
             stringBuffer.append(" available: ");
             stringBuffer.append(totalAvailable);

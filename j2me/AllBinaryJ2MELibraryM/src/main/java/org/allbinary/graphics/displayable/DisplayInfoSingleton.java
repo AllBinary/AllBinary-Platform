@@ -26,6 +26,7 @@ import org.allbinary.logic.system.os.OperatingSystemInterface;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class DisplayInfoSingleton
 {
@@ -113,7 +114,7 @@ public class DisplayInfoSingleton
     {
         if(this.full[WIDTH] != aLastWidth || this.full[HEIGHT] != aLastHeight)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + reason, this, SET_LAST_SIZE_METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + reason, this, SET_LAST_SIZE_METHOD_NAME));
             
             final int aFullWidth = aLastWidth;
             final int aFullHeight = aLastHeight;
@@ -239,7 +240,7 @@ public class DisplayInfoSingleton
         final int aFullHeight = aLastHeight;
         
         LogUtil.put(LogFactory.getInstance(new StringMaker()
-                .append(CommonStrings.getInstance().START_LABEL).append(reason)
+                .append(CommonLabels.getInstance().START_LABEL).append(reason)
                 .append(" aLastWidth: ").append(aLastWidth)
                 .append(" aLastHeight: ").append(aLastHeight)
                 .append(CommonSeps.getInstance().SPACE)

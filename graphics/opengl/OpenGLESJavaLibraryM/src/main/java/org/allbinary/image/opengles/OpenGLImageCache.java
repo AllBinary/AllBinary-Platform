@@ -25,6 +25,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class OpenGLImageCache extends ImageCache
 {
@@ -38,7 +39,7 @@ public class OpenGLImageCache extends ImageCache
     
     public void update(GL10 gl) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + list, this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + list, this, CommonStrings.getInstance().UPDATE));
      
         this.gl = gl;
         

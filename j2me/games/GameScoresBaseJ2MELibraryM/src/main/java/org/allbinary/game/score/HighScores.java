@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.score;
 
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonSeps;
@@ -93,7 +94,7 @@ public class HighScores implements HighScoresInterface
         //stringBuffer.append(this.columnTwoHeading);
         
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(CommonStrings.getInstance().TOTAL_LABEL);
+        stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
         stringBuffer.append(this.orderedHighScoresList.size());
         
         return stringBuffer.toString();

@@ -24,6 +24,7 @@ import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class InputToGameKeyMapping extends InputMapping
 {
@@ -101,7 +102,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     public void remove(Input input, Input mappedToInput)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::remove"));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::remove"));
         super.remove(input, mappedToInput);
         this.set(input, gameKeyFactory.NONE);
     }

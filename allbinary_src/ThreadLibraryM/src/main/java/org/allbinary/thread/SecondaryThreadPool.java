@@ -13,7 +13,7 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.thread.ThreadPool;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -34,7 +34,7 @@ public class SecondaryThreadPool extends ThreadPool
 
     public synchronized void runTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + task, this, "runTask"));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + task, this, "runTask"));
 
         super.runTask(task);
     }

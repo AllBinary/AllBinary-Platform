@@ -10,6 +10,7 @@
 */
 package org.allbinary.util;
 
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
@@ -57,7 +58,7 @@ public class BasicArrayList
         if (index > currentIndex || index < 0) {
             StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
+            stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
             stringBuffer.append(SIZE);
             stringBuffer.append(currentIndex);
@@ -83,7 +84,7 @@ public class BasicArrayList
         if (index >= currentIndex) {
             StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
+            stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
             stringBuffer.append(SIZE);
             stringBuffer.append(currentIndex);
@@ -220,7 +221,7 @@ public class BasicArrayList
         if (index >= currentIndex) {
             StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
+            stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
             stringBuffer.append(SIZE);
             stringBuffer.append(currentIndex);
@@ -236,7 +237,7 @@ public class BasicArrayList
         if (index >= currentIndex) {
             StringMaker stringBuffer = new StringMaker();
 
-            stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
+            stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
             stringBuffer.append(SIZE);
             stringBuffer.append(currentIndex);

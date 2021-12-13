@@ -13,9 +13,9 @@
 */
 package org.allbinary.game.input.motion.action;
 
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -38,7 +38,7 @@ public class GameKeyCompleteMotionGestureInputEventFactory
     
     public void updateAll()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + eventList.size(), this, "updateAll"));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + eventList.size(), this, "updateAll"));
         
         for(int index = eventList.size() - 1; index >= 0; index--)
         {

@@ -13,9 +13,9 @@
 */
 package org.allbinary.util;
 
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.game.rand.MyRandomFactory;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 /**
  * 
@@ -58,7 +58,7 @@ public class BasicArrayListUtil
         int size = list.size();
 
         StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(CommonStrings.getInstance().TOTAL_LABEL);
+        stringBuffer.append(CommonLabels.getInstance().TOTAL_LABEL);
         stringBuffer.append(size);
 
         for (int index = size - 1; index >= 0; index--)

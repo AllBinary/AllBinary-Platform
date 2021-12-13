@@ -27,6 +27,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.math.RectangleCollisionUtil;
 
 public class ScrollSelectionForm extends PaintableForm
@@ -120,13 +121,14 @@ public class ScrollSelectionForm extends PaintableForm
         int dy = this.getDy();
 
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
         
         final StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(CommonStrings.getInstance().START_LABEL);
+        stringBuffer.append(commonLabels.START_LABEL);
         stringBuffer.append(start);
         stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(CommonStrings.getInstance().TOTAL_LABEL);
+        stringBuffer.append(commonLabels.TOTAL_LABEL);
         stringBuffer.append(size);
         
         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GET_SELECTED_INDEX));
@@ -173,7 +175,7 @@ public class ScrollSelectionForm extends PaintableForm
                 stringBuffer.append(ITEM_LABEL);
                 stringBuffer.append(item.getLabel());
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
-                stringBuffer.append(CommonStrings.getInstance().INDEX_LABEL);
+                stringBuffer.append(commonLabels.INDEX_LABEL);
                 stringBuffer.append(index);
                 
                 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GET_SELECTED_INDEX));

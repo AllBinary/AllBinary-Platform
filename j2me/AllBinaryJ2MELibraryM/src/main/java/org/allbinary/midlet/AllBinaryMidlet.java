@@ -29,6 +29,7 @@ import javax.microedition.lcdui.Display;
 import javax.microedition.lcdui.Displayable;
 import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
@@ -127,13 +128,13 @@ implements CommandListener
     
     public void setStartStateHashtable(Hashtable hashtable) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + hashtable, this, "setStartStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + hashtable, this, "setStartStateHashtable"));
         this.hashtable = hashtable;
     }
 
     public Hashtable getStartStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + hashtable, this, "getStartStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + hashtable, this, "getStartStateHashtable"));
         return this.hashtable;
     }
 

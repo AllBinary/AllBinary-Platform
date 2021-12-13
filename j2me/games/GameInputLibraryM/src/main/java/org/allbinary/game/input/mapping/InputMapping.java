@@ -18,11 +18,11 @@ import java.util.Hashtable;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.NotImplemented;
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.Input;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class InputMapping
 {    
@@ -59,7 +59,7 @@ public class InputMapping
     {
         StringMaker stringBuffer = new StringMaker();
         
-        stringBuffer.append(CommonStrings.getInstance().START_LABEL);
+        stringBuffer.append(CommonLabels.getInstance().START_LABEL);
         stringBuffer.append(input);
         stringBuffer.append(" == ");
         stringBuffer.append(mappedToInput);

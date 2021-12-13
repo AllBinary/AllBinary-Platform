@@ -25,6 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class AllBinaryMediaManager
 {
@@ -137,7 +138,7 @@ public class AllBinaryMediaManager
             {
                 LogUtil.put(LogFactory.getInstance(
                         "Could not create AndroidMediaPlayerWrapper using NoPlayer at " + 
-                        CommonStrings.getInstance().TOTAL_LABEL
+                        CommonLabels.getInstance().TOTAL_LABEL
                                 + mostUsedTotal, "AllBinaryMediaManager",
                         "createPlayer", e));
                 return new NoPlayer();
