@@ -74,6 +74,15 @@ OpenGLSurfaceChangedInterface
         this.groupInterface = groupInterface;
     }
 
+    public CollidableDestroyableDamageableLayer(
+            final Group[] groupInterface, 
+            final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+    {
+        super(name, layerInfo, viewPosition);
+
+        this.groupInterface = groupInterface;
+    }
+    
     public void initPosition() throws Exception
     {
         this.setPosition(this.initX, this.initY, this.initZ);

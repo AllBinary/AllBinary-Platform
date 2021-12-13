@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
 import org.allbinary.canvas.SpecialMessageUtil;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class LicenseRegistrationUtil
 {
@@ -31,7 +32,7 @@ public class LicenseRegistrationUtil
     {
         try
         {
-            PreLogUtil.put(CommonStrings.getInstance().START_LABEL + "License Registration", "LicenseRegistrationUtil", CommonStrings.getInstance().PROCESS);
+            PreLogUtil.put(CommonLabels.getInstance().START_LABEL + "License Registration", "LicenseRegistrationUtil", CommonStrings.getInstance().PROCESS);
             
             RegistrationConfiguration.getInstance().setRegistrationCode(registrationId);
             RegistrationConfiguration.getInstance().write();

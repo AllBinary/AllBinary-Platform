@@ -52,11 +52,26 @@ implements CollidableInterfaceCompositeInterface
     }
 
     public CollidableCompositeLayer(
+            final String name, final Rectangle layerInfo, final ViewPosition viewPosition, 
+            final CollidableBaseBehavior collidableInferface)
+    {
+        super(name, layerInfo, viewPosition);
+
+        this.setCollidableInferface(collidableInferface);
+    }
+    
+    public CollidableCompositeLayer(
             final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(layerInfo, viewPosition);
     }
 
+    public CollidableCompositeLayer(
+            final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+    {
+        super(name, layerInfo, viewPosition);
+    }
+    
     public CollidableCompositeLayer(final Rectangle layerInfo)
     {
         super(layerInfo);

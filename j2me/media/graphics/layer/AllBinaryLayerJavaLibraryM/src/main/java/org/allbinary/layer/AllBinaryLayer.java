@@ -37,14 +37,25 @@ implements LayerInterface
 
     private int halfWidth;
     private int halfHeight;
-    private final String name = this.getClass().getName();
+    private final String name;
 
     private ViewPosition viewPosition;
 
     public AllBinaryLayer(final Rectangle rectangle, final ViewPosition viewPosition)
     {
+        this(null, rectangle, viewPosition);
+    }
+    
+    public AllBinaryLayer(final String name, final Rectangle rectangle, final ViewPosition viewPosition)
+    {
         super(rectangle.getWidth(), rectangle.getHeight());
 
+        if(name == null) {
+            this.name = this.getClass().getName();
+        } else {
+            this.name = name;
+        }
+        
         final GPoint point = rectangle.getPoint();
 
         this.setPosition(point.getX(), point.getY(), point.getZ());

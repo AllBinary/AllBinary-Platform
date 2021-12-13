@@ -16,6 +16,7 @@ package org.allbinary.logic.system.security.licensing.registration;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
@@ -58,7 +59,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
             stringBuffer.append(SEP);
             stringBuffer.append(server);
             
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + stringBuffer.toString(), this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, CommonStrings.getInstance().GET));
             
             // }
 

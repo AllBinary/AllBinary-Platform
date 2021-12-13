@@ -46,6 +46,11 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         super(layerInfo, viewPosition);
     }
 
+    public AllBinaryGameLayer(final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+    {
+        super(name, layerInfo, viewPosition);
+    }
+    
     public BasicArrayList getGameKeyEventList()
     {
         return gameKeyEventList;
