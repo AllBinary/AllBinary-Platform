@@ -1,18 +1,18 @@
                              AllBinary Platform
 
-What is it?
+What is the AllBinary Platform?
 
-This Repository Contains The AllBinary Platform without thirdparty stuff.
-The AllBinary Platform contains the following:
+This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform).  
+This repo does not include the rest of the AllBinary Platform that includes tigher thirdparty integration code or individual apps or games that are not tools.
+The AllBinary Platform includes but is not limited to the following projects:
 
 : AllBinary Game Development Kit (https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp) includes the AllBinary Multi-Platform Development Kit
 : Freeblisket/Weblisket E-Commerce Solution (https://www.allbinary.com)
 : AllBinary Input Automation
 : AllBinary Vector Graphics Tool
 : AllBinary Sprite Tool
-: And Everything Else AllBinary.
 
-It represents 10 years of development and > 1 million LOC.
+The AllBinary Platform represents more than 10 years of development and > 1 million LOC.  Some of which is represented by the this repo info: https://www.ohloh.net/p/AllBinary-Platform
 
 What is the goal?
 
@@ -58,53 +58,70 @@ Travis Berthelot travisberthelot@allbinary.com
 
 What is the AllBinary Game Development Kit?
 
-The AllBinary Arcade Game Development Kit contains over 120 very small libraries 
-to help ease arcade game development. The main features include the following:
+The AllBinary Game Development Kit speeds game development for 2D/3D Single or Multi-
+Player Multi-Platform games. It supports many platforms including Android, HTML5, J2ME
+(MIDP), and J2SE (Applet/JNLP/Standalone Applications). I will add Flash/Adobe and Native
+support via AOT. The device support is wide ranging including Desktops, Laptops,
+Notebooks, Phones, Tablets, PDAs, and more including 100,000 different devices. The
+Operating System support is extensive as well including Windows, Mac, Linux, Android, and
+more totaling >20 operating systems. It contains rapid game development tools and over 200
+small libraries for creating games. The main features include the following:
 
-Multi-Platform - Android, J2ME/BlackBerry, HTML5, and J2SE 
+- Multi-Platform - Android, J2ME/BlackBerry, HTML5, and J2SE 
 (Moblin, IPhone, Linux, Windows, Solaris, Mac, and More)
-Fullscreen and Windowed Support (Does not require restart to toggle between)
-Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
-OpenGL Support (1.5 and ES 1.0+) with various 2d, 2d/3d, and 3d renderers
-Game Object Placement (Maps, Levels, Enemy Positions and More)
-Genre Specific Libraries (Racing, Scroller, Map Based, and More)
-Network Libraries (Licensing, Remote Scores, and More)
-Partial Scene Editor Integration with GDevelop
-Feature/Configuration Options Framework
-Tile Map Creation, Editing, and Loading
-Touch Screen Buttons & Gestures
-Save/Load/Delete Game State
-Special Collision Detection
-Vector Graphics Support
-Custom Input Mapping
-Key Input Processing
-Orientation Controls
-Transitions/Progress
-Special Animations
-Heads Up Displays
-Power-Ups/Drops
-Screen Shakes
-Path Finding
-Vibration
-Physics
-AI/Bots
-Teams
-More...
+- Fullscreen and Windowed Support (Does not require restart to toggle between)
+- Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
+- OpenGL Support (1.5 and ES 1.0+) with various 2d, 2d/3d, and 3d renderers
+- Game Object Placement (Maps, Levels, Enemy Positions and More)
+- Genre Specific Libraries (Racing, Scroller, Map Based, and More)
+- Network Libraries (Licensing, Remote Scores, and More)
+- Partial Scene Editor Integration with GDevelop
+- Feature/Configuration Options Framework
+- Tile Map Creation, Editing, and Loading
+- Touch Screen Buttons & Gestures
+- Save/Load/Delete Game State
+- Special Collision Detection
+- Vector Graphics Support
+- Custom Input Mapping
+- Key Input Processing
+- Orientation Controls
+- Transitions/Progress
+- Special Animations
+- Heads Up Displays
+- Power-Ups/Drops
+- Screen Shakes
+- Path Finding
+- Vibration
+- Physics
+- AI/Bots
+- Teams
+- More...
 
-Future Impl:
-
-More Social stuff
-More Plaform Support - ActionScript and Native output
-Integrated and highly customizable Scene Editor - I currently use a several 3d 
-tools as scene/model editors
-Robotics Integration - RTS with real robots and real map integration
-MDA Integration - Probably won't ever happen but I would like to have an MDA tool 
-that speeds development.  Not that Eclipse and NetBeans aren't great.
+For more info on the AllBinary Arcade Game Development Kit please visit:
+http://allbinarygames.appspot.com/AllBinaryGameDevelopmentKit.jsp
 
 What is the Freeblisket/Weblisket E-Commerce Solution?
 
+Freeblisket uses J2EE, Java, SQL, XML, XSL, and more to provide for a complete e-commerce
+solution. I developed various JSP custom tag libraries, modules, and APIs for Freeblisket.
 Freeblisket/Weblisket E-Commerce Solution is a complete E-Commerce solutions with 
 the following features:
+
+Feature Summary:
+
+- Store Builder
+- Shopping Cart
+- Custom Tag Library
+- Order Management
+- Secure Authentication
+- Inventory Management
+- Customer Management
+- Store Manager Web Interface
+- Multiple User Roles and Permissions
+- Single Admin Interface for multiple sites
+- Paypal and other Payment Processing Plug-ins
+
+Extensive Feature List:
 
 Main Administrative Web Interface
  Separate User Access Control 
@@ -126,7 +143,7 @@ Payment Gateway Integration
  Others 
 
 Installation 
- Store Wizard 
+ Store Wizard/Builder
  Web Installer 
  Static Page Generation For Search Engines 
 
@@ -186,3 +203,21 @@ Adjustment Manager
  Order Review Manager 
  Email Notifications 
  Customer Order Review
+
+You can find more about Freeblisket at: http://www.allbinary.com
+
+What is the AllBinary InputAutomationTool Solution? 
+
+It speeds up application testing by providing a base framework for automating input.
+: C/C++ DLLs for human input device hooks
+: OSGI plug-ins
+
+Future Implementation for the AllBinary Platform:
+
+More Social stuff
+More Plaform Support - ActionScript and Native output
+Integrated and highly customizable Scene Editor - I currently use a several 3d 
+tools as scene/model editors
+Robotics Integration - RTS with real robots and real map integration
+MDA Integration - Probably won't ever happen but I would like to have an MDA tool 
+that speeds development.  Not that Eclipse and NetBeans aren't great.
