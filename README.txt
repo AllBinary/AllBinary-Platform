@@ -5,8 +5,8 @@ What is it?
 This Repository Contains The AllBinary Platform without thirdparty stuff.
 The AllBinary Platform contains the following:
 
-: AllBinary Game Development Kit (http://allbinarygames.appspot.com) includes the AllBinary Multi-Platform Development Kit
-: Freeblisket/Weblisket E-Commerce Solution (http://www.allbinary.com)
+: AllBinary Game Development Kit (https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp) includes the AllBinary Multi-Platform Development Kit
+: Freeblisket/Weblisket E-Commerce Solution (https://www.allbinary.com)
 : AllBinary Input Automation
 : AllBinary Vector Graphics Tool
 : AllBinary Sprite Tool
@@ -54,7 +54,7 @@ repository.
 
 Who is responsible for all this shit?
 
-Travis Berthelot travisberthelot@hotmail.com
+Travis Berthelot travisberthelot@allbinary.com
 
 What is the AllBinary Game Development Kit?
 
@@ -69,6 +69,7 @@ OpenGL Support (1.5 and ES 1.0+) with various 2d, 2d/3d, and 3d renderers
 Game Object Placement (Maps, Levels, Enemy Positions and More)
 Genre Specific Libraries (Racing, Scroller, Map Based, and More)
 Network Libraries (Licensing, Remote Scores, and More)
+Partial Scene Editor Integration with GDevelop
 Feature/Configuration Options Framework
 Tile Map Creation, Editing, and Loading
 Touch Screen Buttons & Gestures
