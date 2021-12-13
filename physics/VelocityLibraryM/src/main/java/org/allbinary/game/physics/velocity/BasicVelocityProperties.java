@@ -17,6 +17,9 @@ import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionUtil;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.math.vector.AxisMathVectorUtil;
 import org.allbinary.math.Angle;
@@ -125,12 +128,16 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         this.addVelocity(magnitude, angle.getValue(), otherAngle.getValue());
     }
 
-    protected void setVelocity(long magnitude, short angle, short otherAngle)
+    public void setVelocity(long magnitude, short angle, short otherAngle)
     {
         long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
         long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
         long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
 
+        //LogUtil.put(LogFactory.getInstance(new StringBuilder()
+                //.append(CommonStrings.getInstance().ADD).append(xVector)
+                //.append(CommonStrings.getInstance().ADD).append(yVector).toString(), this, CommonStrings.getInstance().ADD));
+        
         // StringMaker stringBuffer = new StringMaker();
 
         // stringBuffer.append("Magnitude: ");
@@ -154,7 +161,10 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
         long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
         long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
-
+        
+        //LogUtil.put(LogFactory.getInstance(new StringBuilder()
+                //.append(CommonStrings.getInstance().ADD).append(xVector)
+                //.append(CommonStrings.getInstance().ADD).append(yVector).toString(), this, CommonStrings.getInstance().ADD));
         velocityXBasicDecimal.add(xVector);
         velocityYBasicDecimal.add(yVector);
         velocityZBasicDecimal.add(zVector);

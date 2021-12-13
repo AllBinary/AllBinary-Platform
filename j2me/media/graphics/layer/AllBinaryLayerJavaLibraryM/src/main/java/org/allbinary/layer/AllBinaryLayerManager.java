@@ -19,9 +19,12 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class AllBinaryLayerManager extends LayerInterfaceManager
 {
+    private final CommonLabels commonLabels = CommonLabels.getInstance();
+    
     private final LayerManagerEventHandler layerManagerEventHandler = 
         LayerManagerEventHandler.getInstance();
     
@@ -48,14 +51,14 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
 
     public final void log()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().TOTAL_LABEL + this.getSize(), this, "log"));
+        LogUtil.put(LogFactory.getInstance(this.commonLabels.TOTAL_LABEL + this.getSize(), this, "log"));
 
         int size = this.basicLayerProcessorArray.length;
         for (int index = 0; index < size; index++)
         {
             LayerProcessor layerProcessorInterface = basicLayerProcessorArray[index];
 
-            LogUtil.put(LogFactory.getInstance(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + CommonStrings.getInstance().TOTAL_LABEL +
+            LogUtil.put(LogFactory.getInstance(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + this.commonLabels.TOTAL_LABEL +
             layerProcessorInterface.getLayerInterfaceManager().getSize(), this, "log"));
         }
     }

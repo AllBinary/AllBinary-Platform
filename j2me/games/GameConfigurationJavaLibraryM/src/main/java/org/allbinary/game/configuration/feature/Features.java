@@ -23,6 +23,7 @@ import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.os.OperatingSystemInterface;
 import org.allbinary.game.configuration.event.GameFeatureEvent;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
+import org.allbinary.logic.basic.string.CommonLabels;
 
 public class Features
 {
@@ -68,7 +69,7 @@ public class Features
 //                ForcedLogUtil.log("here it is: " + this.getClass().getClassLoader().getClass().getName() + this.getClass().getClassLoader().hashCode() , this);
 //            }
             LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().START_LABEL + gameFeature.toString(), this, CommonStrings.getInstance().ADD));
+                    CommonLabels.getInstance().START_LABEL + gameFeature.toString(), this, CommonStrings.getInstance().ADD));
 
             list.add(gameFeature);
 
@@ -81,7 +82,7 @@ public class Features
     public void removeDefault(Feature gameFeature) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
-                CommonStrings.getInstance().START_LABEL + gameFeature.toString(), this, "removeDefault"));
+                CommonLabels.getInstance().START_LABEL + gameFeature.toString(), this, "removeDefault"));
 
         this.remove(gameFeature);
         defaultList.remove(gameFeature);

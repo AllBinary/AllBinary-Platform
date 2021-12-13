@@ -24,6 +24,7 @@ import org.allbinary.game.identification.Group;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.SpacialStrings;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEvent;
@@ -166,11 +167,12 @@ implements LayerInterface
     public void toString(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
 
         final PositionStrings positionStrings = PositionStrings.getInstance();
         final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 
-        stringBuffer.append(commonSeps.NEW_LINE);
+        stringBuffer.append(commonLabels.NAME_LABEL);
         stringBuffer.append(this.getName());
         stringBuffer.append(commonSeps.COLON_SEP);
         stringBuffer.append(TYPE);

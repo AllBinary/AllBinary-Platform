@@ -36,9 +36,13 @@
 
         <module>../BlisketJavaLibraryP</module>
 
+        <!--
         <module>../logging/LogConfigTypeFreeblisketJavaLibraryM</module>
+        -->
         
+        <!--
         <module>../TagsBaseJavaLibraryM</module>
+        -->
         <module>../CustomLoaderFakeJavaLibraryM</module>
 
         <module>../ViewsJavaLibraryM</module>
@@ -47,7 +51,9 @@
         <module>../BlisketTagHelperFactoriesJavaLibraryM</module>
         <module>../BlisketTagsJavaLibraryM</module>
         
+        <!--
         <module>../WorkflowJavaLibraryM</module>
+        -->
 
     </modules>
 

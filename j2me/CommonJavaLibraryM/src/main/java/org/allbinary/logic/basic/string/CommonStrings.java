@@ -31,15 +31,9 @@ public class CommonStrings
     public final String CONSTRUCTOR = "Constructor";
     public final String START = "Start";
     public final String END = "End";
-    public final String END_LABEL = "End: ";
     public final String EXCEPTION = "Exception";
     public final String EXCEPTION_LABEL = "Exception: ";
-    
-    public final String TOTAL_LABEL = "Total: ";
-    public final String INDEX_LABEL = "Index: ";
-    public final String START_LABEL = "Start: ";
-    public final String COMMAND_LABEL = "Command: ";
-    
+        
     public final String INIT = "init";
 
     public final String CREATE = "Create";

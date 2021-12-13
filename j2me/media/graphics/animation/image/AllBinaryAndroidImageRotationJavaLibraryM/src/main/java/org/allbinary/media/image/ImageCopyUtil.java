@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.image;
 
+import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
@@ -74,11 +75,12 @@ public class ImageCopyUtil
             final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
             final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
             //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "deltas width: " + halfWidthDelta + " height: " + halfHeightDelta));
-            image.getGraphics().drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
-            //image.getGraphics().setColor(BasicColorFactory.getInstance().YELLOW.intValue());
-            //image.getGraphics().drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
-            //image.getGraphics().setColor(BasicColorFactory.getInstance().WHITE.intValue());
-            //image.getGraphics().drawRect(0, 0, newWidth, newHeight);
+            final Graphics graphics = image.getGraphics();
+            graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
+            //graphics.setColor(BasicColorFactory.getInstance().YELLOW.intValue());
+            //graphics.drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
+            //graphics.setColor(BasicColorFactory.getInstance().WHITE.intValue());
+            //graphics.drawRect(0, 0, newWidth, newHeight);
             
             return image;
         }
