@@ -60,7 +60,7 @@ extends AllBinaryImageBaseRotationAnimation
         this.halfWidth = (image.getWidth() >> 1);
         this.halfHeight = (image.getHeight() >> 1);
         
-        inc = this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
+        inc = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement() * 2);
         
         //LogUtil.put(LogFactory.getInstance("inc: " + inc, this, "setRotation"));
     }

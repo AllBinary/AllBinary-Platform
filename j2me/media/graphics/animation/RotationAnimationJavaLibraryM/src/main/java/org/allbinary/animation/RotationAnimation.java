@@ -17,6 +17,7 @@ import org.allbinary.util.CircularIndexUtil;
 
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionUtil;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -140,5 +141,9 @@ public class RotationAnimation
     public AngleInfo getAngleInfo()
     {
         return this.angleInfo;
+    }
+    
+    public String toString() {
+        return new StringMaker().append("circularIndexUtil: ").append(this.circularIndexUtil.toString()).append("angleInfo: ").append(this.angleInfo.toString()).toString();
     }
 }

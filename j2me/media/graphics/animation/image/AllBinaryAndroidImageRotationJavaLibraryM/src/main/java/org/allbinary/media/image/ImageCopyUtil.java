@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -32,6 +33,7 @@ public class ImageCopyUtil
     }
     
     private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
+    private final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
 
     private ImageCopyUtil()
     {
@@ -77,9 +79,9 @@ public class ImageCopyUtil
             //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "deltas width: " + halfWidthDelta + " height: " + halfHeightDelta));
             final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
-            //graphics.setColor(BasicColorFactory.getInstance().YELLOW.intValue());
+            //this.basicColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().YELLOW);
             //graphics.drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
-            //graphics.setColor(BasicColorFactory.getInstance().WHITE.intValue());
+            //this.basicColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().WHITE);
             //graphics.drawRect(0, 0, newWidth, newHeight);
             
             return image;

@@ -15,12 +15,13 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.util.CircularIndexUtil;
 
 import org.allbinary.math.AngleInfo;
-import android.graphics.Color;
 import android.graphics.Matrix;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.AndroidImageUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 
@@ -37,7 +38,7 @@ extends AllBinaryImageBaseRotationAnimation
     private final int halfWidth;
     private final int halfHeight;
     
-    private final int inc;
+    private final short inc;
     
     private final Image originalImage;
     
@@ -54,22 +55,19 @@ extends AllBinaryImageBaseRotationAnimation
 
         this.originalImage = originalImage;
         
-        this.circularIndexUtil = CircularIndexUtil.getInstance(
-                totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement());
-
         //this.width = image.getWidth();
         //this.height = image.getHeight();
         
         this.halfWidth = (this.getImage().getWidth() >> 1);
         this.halfHeight = (this.getImage().getHeight() >> 1);
         
-        inc = this.angleInfo.getAngleIncrementInfo().getAngleIncrement();
+        inc = (short)(this.angleInfo.getAngleIncrementInfo().getAngleIncrement() * 2);
         
         this.imageToShow = image;
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImage(image);
         
-        //LogUtil.put(LogFactory.getInstance("inc: " + inc, this, "setRotation"));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
     public void nextRotation()

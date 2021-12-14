@@ -13,6 +13,8 @@
 */
 package org.allbinary.util;
 
+import org.allbinary.logic.basic.string.StringMaker;
+
 public class CircularIndexUtil
 {
     private int index = 0;
@@ -93,4 +95,7 @@ public class CircularIndexUtil
         return size;
     }
     
+    public String toString() {
+        return new StringMaker().append("index: ").append(this.index).append("lastIndex: ").append(this.lastIndex).append("size: ").append(this.size).toString();
+    }
 }
