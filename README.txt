@@ -7,7 +7,7 @@ This repo does not include the rest of the AllBinary Platform that includes tigh
 The AllBinary Platform includes but is not limited to the following projects:
 
 : AllBinary Game Development Kit (https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp) includes the AllBinary Multi-Platform Development Kit
-: Freeblisket/Weblisket E-Commerce Solution (https://www.allbinary.com)
+: Freeblisket/Weblisket E-Commerce Solution (https://allbinary.com)
 : AllBinary Input Automation
 : AllBinary Vector Graphics Tool
 : AllBinary Sprite Tool
@@ -204,7 +204,7 @@ Adjustment Manager
  Email Notifications 
  Customer Order Review
 
-You can find more about Freeblisket at: http://www.allbinary.com
+You can find more about Freeblisket at: https://allbinary.com
 
 What is the AllBinary InputAutomationTool Solution? 
 
