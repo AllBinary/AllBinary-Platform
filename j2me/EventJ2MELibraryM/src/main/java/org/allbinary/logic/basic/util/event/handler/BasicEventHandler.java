@@ -54,8 +54,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance(
-              //      "Start: " + eventListenerInterface, this, "addListener"));
+            //LogUtil.put(LogFactory.getInstance("Start: " + eventListenerInterface, this, "addListener"));
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -75,8 +74,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         // reentrantLock.isHeldByCurrentThread(), this, "addListener"));
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance(
-              //      "Start: " + eventListenerInterface, this, "addListener"));
+            //LogUtil.put(LogFactory.getInstance("Start: " + eventListenerInterface, this, "addListener"));
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
         /*
