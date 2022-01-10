@@ -25,6 +25,8 @@ public class ArrayUtil
         return instance;
     }
 
+    public final Object[] ZERO_OBJECT_ARRAY = new Object[0];
+    
     public Object[] copyOf(Object[] original, int newLength)
     {
         return copyOf(original, newLength, original.getClass());

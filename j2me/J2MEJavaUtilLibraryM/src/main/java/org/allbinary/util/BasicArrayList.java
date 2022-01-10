@@ -36,6 +36,10 @@ public class BasicArrayList
         objectArray = new Object[size];
     }
 
+    public BasicArrayList(Object[] objectArray) {
+        this.objectArray = objectArray;
+    }
+    
     public BasicArrayList()
     {
         this(7);

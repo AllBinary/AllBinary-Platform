@@ -224,8 +224,11 @@ public class RunnableCanvas extends MyCanvas
     private int attemptFrameTime = preferredFrameTime;
     */
 
+    //private final String PAUSE_SLEEP = "pause sleep";
+    //private final String GAME_SLEEP = "game sleep";
     public void processSleep() throws Exception
     {
+        //LogUtil.put(LogFactory.getInstance(commonStrings.PROCESS, this, PAUSE_SLEEP));
         Thread.sleep(pauseWait);
     }
 
@@ -236,6 +239,7 @@ public class RunnableCanvas extends MyCanvas
     
     public void processGameSleep(long sleep) throws Exception
     {
+        //LogUtil.put(LogFactory.getInstance(commonStrings.PROCESS, this, GAME_SLEEP + sleep));
         Thread.sleep(sleep);
     }
     
