@@ -60,13 +60,23 @@ public class ImageCopyUtil
         }
     }
 
-    public Image createImage(Image originalImage, float canvasScale)
+    public Image createImage(Image originalImage, float canvasScale, boolean resize)
             throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "width: " + originalImage.getWidth() + " height: " + originalImage.getHeight()));
         
-        final int newWidth = (int) (originalImage.getWidth() * canvasScale);
-        final int newHeight = (int) (originalImage.getHeight() * canvasScale);
+        int newWidth = (int) (originalImage.getWidth() * canvasScale);
+        int newHeight = (int) (originalImage.getHeight() * canvasScale);
+        
+        if(resize) {
+            if (newWidth < newHeight) {
+                newWidth = newHeight;
+            }
+
+            if (newHeight < newWidth) {
+                newHeight = newWidth;
+            }
+        }
         
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "newWidth: " + newWidth + " newHeight: " + newHeight));
         
