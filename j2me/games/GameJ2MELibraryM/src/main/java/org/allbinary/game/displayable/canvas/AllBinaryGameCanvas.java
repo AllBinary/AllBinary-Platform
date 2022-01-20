@@ -1484,6 +1484,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void processPlayingGame() throws Exception
     {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processPlayingGame"));
+        
         /*
          * if(this.hasRepeatEvents()) { this.setRepeated(true); }
          */
