@@ -23,24 +23,16 @@ public class Group implements GroupInterface
    private String name;
    private final short teamId;
 
-   private final String string;
+   private String string;
 
    private static final String GROUP_NAME_LABEL = "Group Name: ";
    private static final String ID_LABEL = " Id: ";
    
    public Group(String teamName, short teamId)
    {
-      this.name = teamName;
+      this.setName(teamName);
       this.teamId = teamId;
 
-      final StringMaker stringBuffer = new StringMaker();
-
-      stringBuffer.append(GROUP_NAME_LABEL);
-      stringBuffer.append(this.name);
-      stringBuffer.append(ID_LABEL);
-      stringBuffer.append(this.teamId);
-
-      this.string = stringBuffer.toString();
    }
 
    public String getGroupName()
@@ -51,6 +43,15 @@ public class Group implements GroupInterface
    public void setName(final String name)
    {
       this.name = name;
+      
+      final StringMaker stringBuffer = new StringMaker();
+
+      stringBuffer.append(GROUP_NAME_LABEL);
+      stringBuffer.append(this.name);
+      stringBuffer.append(ID_LABEL);
+      stringBuffer.append(this.teamId);
+
+      this.string = stringBuffer.toString();
    }
    
    public short getGroupId()

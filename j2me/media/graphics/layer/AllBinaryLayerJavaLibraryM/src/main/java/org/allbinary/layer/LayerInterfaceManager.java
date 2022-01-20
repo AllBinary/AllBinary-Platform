@@ -45,7 +45,7 @@ public class LayerInterfaceManager
     public void append(final AllBinaryLayer layerInterface, final int index)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("append: " + layerInterface, this, "append"));
+        //LogUtil.put(LogFactory.getInstance("append: " + layerInterface + " at: " + index, this, "append"));
 
         this.list.add(index, layerInterface);
     }

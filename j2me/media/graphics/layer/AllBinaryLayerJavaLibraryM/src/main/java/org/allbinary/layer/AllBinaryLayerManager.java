@@ -95,6 +95,7 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
 
         LayerProcessor layerProcessorInterface;
 
+        //LogUtil.put(LogFactory.getInstance("Total BasicLayerProcessors: " + this.basicLayerProcessorArray.length, this, "appendProcessors"));
         for (int index = this.basicLayerProcessorArray.length; --index >= 0;)
         {
             layerProcessorInterface = basicLayerProcessorArray[index];
