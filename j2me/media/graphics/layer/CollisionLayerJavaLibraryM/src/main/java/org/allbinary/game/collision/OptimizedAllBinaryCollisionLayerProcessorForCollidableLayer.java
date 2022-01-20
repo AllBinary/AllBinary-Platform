@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.collision;
 
-import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 
 import org.allbinary.layer.AllBinaryLayer;
@@ -44,7 +43,7 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
             LayerInterfaceManager layerInterfaceManager = this.getLayerInterfaceManager();
 
             int size = layerInterfaceManager.getSize();
-            //LogUtil.put(LogFactory.getInstance("startIndex: " + startIndex + CommonStrings.getInstance().SPACE + CommonStrings.getInstance().TOTAL_LABEL + size, this, CommonStrings.getInstance().PROCESS));
+            //LogUtil.put(LogFactory.getInstance("startIndex: " + startIndex + CommonSeps.getInstance().SPACE + CommonLabels.getInstance().TOTAL_LABEL + size, this, CommonStrings.getInstance().PROCESS));
             for (int index = startIndex + 1; index < size; index++)
             {
                 CollidableCompositeLayer collidableInterfaceCompositeInterface2 =
