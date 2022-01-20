@@ -55,7 +55,7 @@ extends CollidableDestroyableDamageableBehavior
     {
        if (this.collisionHelper.isCollidable(collisionLayer))
        {
-          if (this.ownerLayer.getGroupInterface() != collisionLayer.getGroupInterface())
+          if (this.ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
           {
               //LogUtil.put(LogFactory.getInstance("isCollision: " + this.getGroupInterface().getGroupName() + "==" + collisionLayer.getGroupInterface().getGroupName(), this, "isCollision"));
               return super.isCollision(collisionLayer);
