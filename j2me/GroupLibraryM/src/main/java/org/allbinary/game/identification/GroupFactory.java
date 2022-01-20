@@ -36,6 +36,13 @@ public class GroupFactory {
       return group;
    }
 
+   public Group getNextGroup(final String name)
+   {
+      final Group group = this.getNextGroup();
+      group.setName(name);
+      return group;
+   }
+   
    public void init(short groups, String[] nameArray)
    {
       final String TEAM = "Team ";
