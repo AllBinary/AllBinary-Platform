@@ -35,22 +35,28 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
         CollidableCompositeLayer collidableInterfaceCompositeInterface = (CollidableCompositeLayer) layerInterface;
         CollidableBaseBehavior collidableBase = collidableInterfaceCompositeInterface.getCollidableInferface();
         
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + layerInterface.toString(), this, CommonStrings.getInstance().PROCESS));
         //LogUtil.put(LogFactory.getInstance(collidableInterfaceCompositeInterface.toString(), this, CommonStrings.getInstance().START));
         
         if (collidableBase.isCollidable())
         {
 
-            LayerInterfaceManager layerInterfaceManager = this.getLayerInterfaceManager();
+            final LayerInterfaceManager layerInterfaceManager = this.getLayerInterfaceManager();
 
-            int size = layerInterfaceManager.getSize();
+            final int size = layerInterfaceManager.getSize();
+            CollidableCompositeLayer collidableInterfaceCompositeInterface2;
+            CollidableBaseBehavior collidableBase2;
             //LogUtil.put(LogFactory.getInstance("startIndex: " + startIndex + CommonSeps.getInstance().SPACE + CommonLabels.getInstance().TOTAL_LABEL + size, this, CommonStrings.getInstance().PROCESS));
             for (int index = startIndex + 1; index < size; index++)
             {
-                CollidableCompositeLayer collidableInterfaceCompositeInterface2 =
+                collidableInterfaceCompositeInterface2 =
                     (CollidableCompositeLayer) layerInterfaceManager.getLayerAt(index);
 
-                CollidableBaseBehavior collidableBase2 = 
+                collidableBase2 = 
                     collidableInterfaceCompositeInterface2.getCollidableInferface();
+                
+                //LogUtil.put(LogFactory.getInstance(layerInterface.toString(), this, CommonStrings.getInstance().START));
+                //LogUtil.put(LogFactory.getInstance(collidableInterfaceCompositeInterface2.toString(), this, CommonStrings.getInstance().PROCESS));
 
                 if (collidableBase2.isCollidable() && collidableBase.isCollision(collidableInterfaceCompositeInterface2))
                 {
@@ -64,11 +70,14 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
 
     public boolean isProcessorLayer(AllBinaryLayer layerInterface)
     {
+        //LogUtil.put(LogFactory.getInstance(layerInterface.toString(), this, "isProcessorLayer"));
         if (layerInterface.implmentsCollidableInterface())
         {
+            //LogUtil.put(LogFactory.getInstance("implmentsCollidableInterface - true: " + layerInterface.toString(), this, "isProcessorLayer"));
             return true;
         } else
         {
+            //LogUtil.put(LogFactory.getInstance("implmentsCollidableInterface - false: " + layerInterface.toString(), this, "isProcessorLayer"));
             return false;
         }
     }
