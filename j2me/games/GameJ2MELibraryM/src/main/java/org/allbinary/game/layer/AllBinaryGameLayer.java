@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -58,12 +58,12 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
     public void processInput(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public void processTick(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public void onEvent(final AllBinaryEventObject eventObject)
@@ -100,7 +100,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     //Should be overridden
     public void paint(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(NotImplemented.NAME, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "paint"));
 
         final ViewPosition viewPosition = this.getViewPosition();
         final int viewX = viewPosition.getX();

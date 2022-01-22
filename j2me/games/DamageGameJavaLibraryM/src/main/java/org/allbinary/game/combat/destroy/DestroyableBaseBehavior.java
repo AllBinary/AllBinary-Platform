@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.combat.destroy;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class DestroyableBaseBehavior implements DestroyableInterface
 {
@@ -31,7 +31,7 @@ public class DestroyableBaseBehavior implements DestroyableInterface
     
     public boolean isDestroyed() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
     
     public void setDestroyed(boolean destroyed)

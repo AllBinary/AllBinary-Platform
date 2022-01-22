@@ -18,7 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
@@ -55,7 +55,7 @@ implements OpenGLSurfaceChangedInterface
 
     public void set(GL gl) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
  
     private GL10 gl;

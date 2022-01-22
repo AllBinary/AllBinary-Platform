@@ -15,7 +15,7 @@ package org.allbinary.game.collision;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.layer.AllBinaryLayer;
 
 public class CollidableBaseBehavior 
@@ -51,7 +51,7 @@ implements CollidableInterface
     public void collide(CollidableCompositeLayer allbinaryCollidableLayer)
             throws Exception
     {
-        throw new Exception(NotImplemented.NAME + ": " + this.getClass().getName());
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED + ": " + this.getClass().getName());
     }
 
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
@@ -90,7 +90,7 @@ implements CollidableInterface
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)

@@ -26,6 +26,7 @@ import org.allbinary.business.user.commerce.money.payment.PaymentFactory;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntityFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
@@ -265,7 +266,7 @@ public class PaymentHelper implements TableInterface
    
    public String update() throws LicensingException
    {
-      return "Not Implemented";
+      return CommonStrings.getInstance().NOT_IMPLEMENTED;
    }
    
 }

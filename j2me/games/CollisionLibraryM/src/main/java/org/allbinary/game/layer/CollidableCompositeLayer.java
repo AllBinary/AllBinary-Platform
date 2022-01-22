@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.layer;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -79,7 +79,7 @@ implements CollidableInterfaceCompositeInterface
 
     public ArtificialIntelligenceInterface getArtificialIntelligenceInterface()
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
         return null;
     }
     

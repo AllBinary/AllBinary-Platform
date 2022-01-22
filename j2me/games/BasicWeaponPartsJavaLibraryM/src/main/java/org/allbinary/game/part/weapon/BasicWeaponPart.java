@@ -15,7 +15,7 @@ package org.allbinary.game.part.weapon;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.part.PartInterface;
@@ -75,7 +75,7 @@ public class BasicWeaponPart
 
    public void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
            throws Exception {
-      throw new Exception(NotImplemented.NAME);
+      throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
    }
 
    public AllBinaryLayer getOwnerLayerInterface() {

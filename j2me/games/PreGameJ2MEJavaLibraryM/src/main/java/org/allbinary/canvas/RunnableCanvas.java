@@ -13,7 +13,6 @@
 */
 package org.allbinary.canvas;
 
-import org.allbinary.logic.basic.NotImplemented;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -61,7 +60,7 @@ public class RunnableCanvas extends MyCanvas
     //Empty method for overriding 
     public void initCommands(CommandListener cmdListener)
     {
-        LogUtil.put(LogFactory.getInstance(NotImplemented.NAME, this, "initCommands"));
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "initCommands"));
     }
 
     public boolean isMainCanvas()

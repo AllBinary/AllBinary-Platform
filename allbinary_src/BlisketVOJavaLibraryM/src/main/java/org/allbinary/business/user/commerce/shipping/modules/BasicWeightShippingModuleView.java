@@ -19,7 +19,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.java.exception.ExceptionUtil;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -108,7 +108,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
    {
       try
       {
-         return "Not Implemented";
+         return CommonStrings.getInstance().NOT_IMPLEMENTED;
       }
       catch(Exception e)
       {

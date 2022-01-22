@@ -15,7 +15,7 @@ package org.allbinary.input.motion.gesture.observer;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -40,7 +40,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 
     public void onUpMotionGestureEvent(MotionGestureEvent ev)

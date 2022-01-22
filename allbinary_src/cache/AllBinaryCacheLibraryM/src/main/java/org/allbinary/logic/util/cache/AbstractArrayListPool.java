@@ -15,7 +15,7 @@ package org.allbinary.logic.util.cache;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class AbstractArrayListPool implements PoolInterface {
 
@@ -29,12 +29,12 @@ public class AbstractArrayListPool implements PoolInterface {
 
     public void clear()
             throws Exception {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public CacheableInterface remove(Object key)
             throws Exception {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public void add(CacheableInterface cacheableInterface) throws Exception {

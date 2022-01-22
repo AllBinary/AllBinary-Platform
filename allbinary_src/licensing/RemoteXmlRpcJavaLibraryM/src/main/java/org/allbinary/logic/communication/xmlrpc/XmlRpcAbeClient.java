@@ -15,7 +15,7 @@ package org.allbinary.logic.communication.xmlrpc;
 
 import org.apache.xmlrpc.XmlRpcClient;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -100,7 +100,7 @@ public class XmlRpcAbeClient
 
     public Object get(Object object) throws Exception
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
         return null;
     }
 

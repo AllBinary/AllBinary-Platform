@@ -19,6 +19,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontView;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -36,7 +37,7 @@ public class GlobalsValidation implements ValidationInterface, DomNodeInterface
    //from db
    public GlobalsValidation(Document document) throws Exception
    {
-      throw new Exception("Not Implemented");
+      throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
       //this.storeFrontInterface = new StoreFront(document);
    }
    

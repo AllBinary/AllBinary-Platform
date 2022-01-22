@@ -14,7 +14,6 @@
 package org.allbinary.game.score;
 
 import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.Unknown;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -237,15 +236,15 @@ public class RecordStoreHighScores extends HighScores
         }
         catch (RecordStoreException e)
         {
-            LogUtil.put(LogFactory.getInstance(Unknown.NAME, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().UNKNOWN, this, "load", e));
         }
         catch (IOException e)
         {
-            LogUtil.put(LogFactory.getInstance(Unknown.NAME, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().UNKNOWN, this, "load", e));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(Unknown.NAME, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().UNKNOWN, this, "load", e));
         }
     }
 

@@ -15,7 +15,7 @@ package org.allbinary.layer;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -130,7 +130,7 @@ public class Layer
     //Should be overridden
     public void paint(Graphics graphics)
     {
-        LogUtil.put(LogFactory.getInstance(NotImplemented.NAME, this, "paint"));
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "paint"));
         
         //graphics.setColor(BasicColor.RED.intValue());
         //graphics.drawRect(x, y, width, height);

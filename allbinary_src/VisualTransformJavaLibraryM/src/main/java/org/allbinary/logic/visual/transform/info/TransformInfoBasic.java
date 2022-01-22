@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -25,6 +24,7 @@ import org.allbinary.logic.basic.path.AbPath;
 
 import org.allbinary.business.context.AbContext;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 
@@ -48,7 +48,7 @@ public class TransformInfoBasic extends AbContext implements TransformInfoHttpIn
 
    public String log()
    {
-      return "Not Implemented";
+      return CommonStrings.getInstance().NOT_IMPLEMENTED;
    }
    
    public void override(HashMap hashMap)
@@ -106,7 +106,7 @@ public class TransformInfoBasic extends AbContext implements TransformInfoHttpIn
    
    public Document getDataDocument() throws Exception
    {
-      throw new Exception("Not Implemented");
+      throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
    }
 
    public void setName(String value)

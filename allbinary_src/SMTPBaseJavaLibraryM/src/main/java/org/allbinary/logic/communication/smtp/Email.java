@@ -286,7 +286,7 @@ public class Email
 
    public Document toXmlDoc() throws Exception
    {
-      throw new Exception("Not Implemented");
+      throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
    }
 
 }

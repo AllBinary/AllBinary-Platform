@@ -66,4 +66,8 @@ public class CommonStrings
     
     public final String SUCCESS = "Command Success";
     public final String FAILURE = "Command Failed";
+    
+    public final String NOT_IMPLEMENTED = "Not Implemented";
+    public final String UNKNOWN = "Unknown";
+
 }

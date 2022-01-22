@@ -20,7 +20,7 @@ import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
@@ -98,30 +98,30 @@ OpenGLSurfaceChangedInterface
     //Should be overridden
     public void paint(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(NotImplemented.NAME, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "paint"));
         super.paint(graphics);
     }
 
     public void damage(final int damage, final int damageType) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public int getDamage(final int damageType) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public boolean isDestroyed() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     /*
     private void setDestroyed(boolean destroyed) 
     throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
     */
     
@@ -286,7 +286,7 @@ OpenGLSurfaceChangedInterface
     public void set(final GL gl) throws Exception
     {
         //OpenGLSurfaceChangedInterface
-    	throw new Exception(NotImplemented.NAME);
+    	throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
     
     //private static final String PARTS_LABEL = "Parts: ";

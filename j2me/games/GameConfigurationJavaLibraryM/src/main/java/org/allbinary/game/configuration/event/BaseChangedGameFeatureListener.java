@@ -15,7 +15,7 @@ package org.allbinary.game.configuration.event;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -31,7 +31,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 
     public void onGameFeatureChange(GameFeatureEvent gameFeatureEvent)

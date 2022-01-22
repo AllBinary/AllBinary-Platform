@@ -106,7 +106,7 @@ public class Replace
       
       //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))
       //{
-         LogUtil.put(LogFactory.getInstance("Replace Result: " + replace, this, ALL));
+         //LogUtil.put(LogFactory.getInstance("Replace Result: " + replace, this, ALL));
       //}
       
       //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.REPLACE))

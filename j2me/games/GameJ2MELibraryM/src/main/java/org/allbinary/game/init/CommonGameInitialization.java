@@ -17,7 +17,7 @@ import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.game.resource.ResourceInitialization;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -70,6 +70,6 @@ extends BaseGameInitialization
     public void initGame()
     throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 }

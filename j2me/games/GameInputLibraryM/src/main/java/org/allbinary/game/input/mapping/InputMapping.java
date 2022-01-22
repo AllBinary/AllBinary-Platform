@@ -17,7 +17,7 @@ import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -95,7 +95,7 @@ public class InputMapping
     public void add(InputToGameKeyMapping inputToGameKeyMapping)
     throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
     
     public void add(Input input, Input mappedToInput)
@@ -130,12 +130,12 @@ public class InputMapping
     //TWB - Hack Method for Plaform Independence - Maybe a better place for this
     public boolean isDelete(Input input) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public boolean isSystemInput(Input input) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public Hashtable getHashtable()

@@ -15,7 +15,7 @@ package org.allbinary.logic.java.character;
 
 //import java.nio.charset.Charset;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 
 public class CharacterSet
@@ -29,6 +29,6 @@ public class CharacterSet
    {
       //Charset charset = Charset.defaultCharset();
       //return "Default Character Set: " + charset.toString();
-       return "Default Character Set: " + NotImplemented.NAME;
+       return "Default Character Set: " + CommonStrings.getInstance().NOT_IMPLEMENTED;
    }
 }

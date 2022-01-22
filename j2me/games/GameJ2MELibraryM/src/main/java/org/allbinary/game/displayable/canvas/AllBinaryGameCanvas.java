@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
@@ -722,7 +722,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void mediaInit() throws Exception
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 
     protected synchronized void initConfigurable() throws Exception
@@ -1302,7 +1302,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void paintGameOver(Graphics graphics)
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 
     public void draw(Graphics graphics)

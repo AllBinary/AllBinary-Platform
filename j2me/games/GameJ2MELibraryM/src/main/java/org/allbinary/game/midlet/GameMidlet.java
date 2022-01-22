@@ -33,7 +33,7 @@ import org.allbinary.game.GameAdState;
 import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.input.AllBinarySensorManager;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
@@ -157,17 +157,17 @@ public class GameMidlet extends ProgressMidlet
 
     protected void setDemo() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected void createGame() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected void mediaShutdown() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public void stopAll()
@@ -887,12 +887,12 @@ public class GameMidlet extends ProgressMidlet
     protected HelpPaintable getHelpPaintable()
         throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected HighScoresCanvas createHighScoresCanvas() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public void startGameCanvasRunnableInterface() throws Exception

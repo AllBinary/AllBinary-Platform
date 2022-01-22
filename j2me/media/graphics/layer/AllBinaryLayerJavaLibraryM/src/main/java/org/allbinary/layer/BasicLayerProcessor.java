@@ -15,7 +15,7 @@ package org.allbinary.layer;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class BasicLayerProcessor
 {
@@ -36,7 +36,7 @@ public class BasicLayerProcessor
     public void process(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected BasicArrayList getList()

@@ -172,7 +172,7 @@ public class TitleAnimation extends SpecialAnimation
     //this is called from nextFrame. Logical? probably not.
     public void previousFrame()
     {
-        //ForcedLogUtil.log(NotImplemented.NAME, this);
+        //ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
         for (int index = 0; index < size; index++)
         {
             this.animationInterfaceArray[index].previousFrame();

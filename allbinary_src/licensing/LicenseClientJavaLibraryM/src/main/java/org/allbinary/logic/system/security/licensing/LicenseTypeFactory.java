@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.basic.Unknown;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class LicenseTypeFactory
 {
@@ -24,7 +24,7 @@ public class LicenseTypeFactory
         return instance;
     }
 
-    public final LicenseType UNKNOWN = new LicenseType(Unknown.NAME);
+    public final LicenseType UNKNOWN = new LicenseType(CommonStrings.getInstance().UNKNOWN);
     public final LicenseType DEMO = new LicenseType("Demo");
     public final LicenseType NORMAL = new LicenseType("Normal");
 

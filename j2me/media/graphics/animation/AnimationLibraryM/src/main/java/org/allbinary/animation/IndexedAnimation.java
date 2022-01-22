@@ -13,7 +13,7 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 /**
@@ -40,7 +40,7 @@ public class IndexedAnimation extends Animation
 
     public int getAnimationSize() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
         //return this.getSize();
     }
     

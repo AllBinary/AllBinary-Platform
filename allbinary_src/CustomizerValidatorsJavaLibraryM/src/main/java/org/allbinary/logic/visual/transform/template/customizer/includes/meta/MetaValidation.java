@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeData;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeDataFactory;
@@ -55,7 +56,7 @@ public class MetaValidation implements ValidationInterface, DomNodeInterface
    //from db
    public MetaValidation(Document document) throws Exception
    {
-      throw new Exception("Not Implemented");
+      throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
       //this.storeFrontInterface = new StoreFront(document);
    }
    

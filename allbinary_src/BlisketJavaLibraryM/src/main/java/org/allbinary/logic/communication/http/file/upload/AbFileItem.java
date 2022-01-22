@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.http.file.upload;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -48,7 +48,7 @@ public class AbFileItem
 
     public InputStream getInputStream() throws IOException
     {
-        throw new IOException(NotImplemented.NAME);
+        throw new IOException(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public String getContentType()
@@ -99,12 +99,12 @@ public class AbFileItem
 
     public void write(File file) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public void delete()
     {
-        ForcedLogUtil.log(NotImplemented.NAME, "delete()");
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, "delete()");
     }
 
     public String getFieldName()
@@ -137,6 +137,6 @@ public class AbFileItem
     public OutputStream getOutputStream()
         throws IOException
     {
-        throw new IOException(NotImplemented.NAME);
+        throw new IOException(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 }

@@ -16,7 +16,7 @@ package org.allbinary.media.graphics.geography.map.racetrack.drop;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
@@ -163,6 +163,6 @@ public class RaceTrackDropCellPositionGenerator
 
     protected void drop(AllBinaryLayerManager allBinaryLayerManager, int index) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 }

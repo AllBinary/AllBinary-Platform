@@ -15,7 +15,7 @@ package org.allbinary.input.gyro;
 
 import org.allbinary.input.AllBinarySensor;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
 import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
 import org.allbinary.logic.math.Orientation;
@@ -38,6 +38,6 @@ public class AllBinaryOrientationSensor extends AllBinarySensor
     
     public Orientation getOrientation() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 }

@@ -15,7 +15,7 @@ package org.allbinary.game.midlet;
 
 import java.util.Hashtable;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -52,14 +52,14 @@ public class DemoGameMidlet extends GameMidlet
     public GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
             throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected GameCanvasRunnableInterface createGameCanvasRunnableInterface(
             AllBinaryGameLayerManager allBinaryGameLayerManager)
             throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
     
     protected GameCanvasRunnableInterface createGameCanvasRunnableInterface()

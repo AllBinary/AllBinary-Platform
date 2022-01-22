@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.ai.ArtificialIntelligence;
@@ -57,7 +57,7 @@ implements GameKeyEventSourceInterface
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public void processAI(int key) throws Exception

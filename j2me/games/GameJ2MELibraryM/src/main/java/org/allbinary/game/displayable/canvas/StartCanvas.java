@@ -29,7 +29,7 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -308,7 +308,7 @@ public class StartCanvas extends RunnableCanvas
 
     public void itemStateChanged(Item item)
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
     
     protected void initMenu()
@@ -523,7 +523,7 @@ public class StartCanvas extends RunnableCanvas
     
     public boolean isGameOver()
     {
-        LogUtil.put(LogFactory.getInstance(NotImplemented.NAME + " since not a game", this, "isGameOver"));
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED + " since not a game", this, "isGameOver"));
         return false;
     }
 
@@ -655,19 +655,19 @@ public class StartCanvas extends RunnableCanvas
 
     protected int getNextRandom() throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected AllBinaryGameLayerManager createGameLayerManager(int randomValue)
         throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected GameCanvasRunnableInterface createRunnable(int randomLevel)
         throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     protected void create() throws Exception

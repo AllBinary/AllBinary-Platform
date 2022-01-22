@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.system.hardware.components;
 
-import org.allbinary.logic.basic.Unknown;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 /**
  *
@@ -46,6 +46,6 @@ public class ComponentFactory
     public final Component PIC = new Component("PIC");
     public final Component Class = new Component("Class");
     
-    public final Component UNKNOWN = new Component(Unknown.NAME);
+    public final Component UNKNOWN = new Component(CommonStrings.getInstance().UNKNOWN);
     
 }

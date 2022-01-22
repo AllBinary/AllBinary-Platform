@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.system.hardware.components;
 
-import org.allbinary.logic.basic.Unknown;
-
 public class Component
 {
     private String name;

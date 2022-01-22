@@ -17,7 +17,7 @@ import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.layer.AllBinaryLayer;
 
@@ -45,7 +45,7 @@ public class CountedPickedUpLayerInterfaceFactory
     public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
     throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
     
     public int getTotal()

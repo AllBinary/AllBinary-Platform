@@ -13,7 +13,7 @@
 */
 package org.allbinary.input;
 
-import org.allbinary.logic.basic.NotImplemented;
+
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -61,6 +61,6 @@ implements AllBinarySensorListener
     
     public void onSensorChange()
     {
-        ForcedLogUtil.log(NotImplemented.NAME, this);
+        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
     }
 }

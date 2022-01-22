@@ -13,7 +13,7 @@
 */
 package org.allbinary.layer;
 
-import org.allbinary.logic.basic.NotImplemented;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 public class LayerProcessor implements LayerProcessorInterface
 {
@@ -34,13 +34,13 @@ public class LayerProcessor implements LayerProcessorInterface
     public void process(AllBinaryLayerManager allBinaryLayerManager,
             AllBinaryLayer layerInterface, int index) throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public boolean isProcessorLayer(AllBinaryLayer layerInterface)
             throws Exception
     {
-        throw new Exception(NotImplemented.NAME);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
     public LayerInterfaceManager getLayerInterfaceManager()
