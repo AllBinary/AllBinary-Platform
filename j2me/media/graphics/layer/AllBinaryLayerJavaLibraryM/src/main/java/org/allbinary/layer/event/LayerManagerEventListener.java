@@ -18,18 +18,18 @@ import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 public class LayerManagerEventListener
 implements LayerManagerEventListenerInterface
 {
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         
     }
 
-    public void onCreateLayerManagerEvent(LayerManagerEvent layerManagerEvent)
+    public void onCreateLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
     throws Exception
     {
         
     }
     
-    public void onDeleteLayerManagerEvent(LayerManagerEvent layerManagerEvent)
+    public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
     throws Exception
     {
         

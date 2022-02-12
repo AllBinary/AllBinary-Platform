@@ -21,6 +21,7 @@ public class TickableLayerProcessor extends LayerProcessor
 {
     public TickableLayerProcessor()
     {
+        super(new TickableLayerInterfaceManager());
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager,

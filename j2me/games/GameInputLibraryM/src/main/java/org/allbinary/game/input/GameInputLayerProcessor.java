@@ -18,7 +18,9 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;
 
 public class GameInputLayerProcessor extends LayerProcessor {
+    
 	public GameInputLayerProcessor() {
+            super(new GameInputLayerInterfaceManager());
 	}
 
 	public void process(AllBinaryLayerManager allBinaryLayerManager,

@@ -19,9 +19,9 @@ public class LayerProcessor implements LayerProcessorInterface
 {
     private final LayerInterfaceManager layerInterfaceManager;
 
-    public LayerProcessor()
+    public LayerProcessor(final LayerInterfaceManager layerInterfaceManager)
     {
-        this.layerInterfaceManager = new LayerInterfaceManager();
+        this.layerInterfaceManager = layerInterfaceManager;
     }
 
     /*

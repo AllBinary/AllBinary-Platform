@@ -38,7 +38,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
     {
     }
 
-    public void addListener(LayerManagerEventListener layerManagerEventListener)
+    public void addListener(final LayerManagerEventListener layerManagerEventListener)
     {
         if(!list.contains(layerManagerEventListener))
         {
@@ -52,19 +52,19 @@ public class LayerManagerEventHandler extends BasicEventHandler
         super.removeAllListeners();
     }
 
-    public void removeListener(EventListenerInterface eventListenerInterface)
+    public void removeListener(final EventListenerInterface eventListenerInterface)
     {
         this.list.remove(eventListenerInterface);
         super.removeListener(eventListenerInterface);
     }
 
-    public void fireEvent(AllBinaryEventObject eventObject) throws Exception
+    public void fireEvent(final AllBinaryEventObject eventObject) throws Exception
     {        
         for (int index = this.list.size(); --index >= 0;)
         {
             try
             {
-                LayerManagerEventListener layerManagerEventListener = (LayerManagerEventListener) this.list.objectArray[index];
+                final LayerManagerEventListener layerManagerEventListener = (LayerManagerEventListener) this.list.objectArray[index];
                 layerManagerEventListener.onCreateLayerManagerEvent((LayerManagerEvent) eventObject);
             }
             catch (Exception e)
@@ -79,14 +79,14 @@ public class LayerManagerEventHandler extends BasicEventHandler
     public final String CREATE = "Create";
     public final String DELETE = "Delete";
     
-    public synchronized void fireDeleteEvent(AllBinaryEventObject eventObject)
+    public synchronized void fireDeleteEvent(final AllBinaryEventObject eventObject)
             throws Exception
     {
         for (int index = this.list.size(); --index >= 0;)
         {
             try
             {
-                LayerManagerEventListener layerManagerEventListener = (LayerManagerEventListener) this.list.objectArray[index];
+                final LayerManagerEventListener layerManagerEventListener = (LayerManagerEventListener) this.list.objectArray[index];
                 layerManagerEventListener.onDeleteLayerManagerEvent((LayerManagerEvent) eventObject);
             }
             catch (Exception e)
@@ -102,7 +102,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) eventListenerInterfaceList
+                final EventListenerInterface eventListenerInterface = (EventListenerInterface) eventListenerInterfaceList
                         .objectArray[index];
 
                 ((LayerManagerEventListenerInterface) eventListenerInterface)
@@ -115,8 +115,8 @@ public class LayerManagerEventHandler extends BasicEventHandler
         }
     }
 
-    protected void process(AllBinaryEventObject eventObject,
-            EventListenerInterface eventListenerInterface) throws Exception
+    protected void process(final AllBinaryEventObject eventObject,
+            final EventListenerInterface eventListenerInterface) throws Exception
     {
         ((LayerManagerEventListenerInterface) eventListenerInterface)
                 .onCreateLayerManagerEvent((LayerManagerEvent) eventObject);

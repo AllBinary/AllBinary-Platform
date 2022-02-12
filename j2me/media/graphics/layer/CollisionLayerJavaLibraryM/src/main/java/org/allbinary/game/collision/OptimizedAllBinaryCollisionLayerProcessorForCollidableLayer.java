@@ -26,6 +26,7 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
 
     public OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer()
     {
+        super(new OptimizedAllBinaryCollisionLayerInterfaceManager());
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager,

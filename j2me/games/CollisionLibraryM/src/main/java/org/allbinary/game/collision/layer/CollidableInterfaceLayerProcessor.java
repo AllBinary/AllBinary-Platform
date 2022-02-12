@@ -22,6 +22,7 @@ public class CollidableInterfaceLayerProcessor extends LayerProcessor
 {
    public CollidableInterfaceLayerProcessor()
    {
+       super(new CollidableInterfaceLayerInterfaceManager());
    }
    
    public void process(AllBinaryLayerManager allBinaryLayerManager, 

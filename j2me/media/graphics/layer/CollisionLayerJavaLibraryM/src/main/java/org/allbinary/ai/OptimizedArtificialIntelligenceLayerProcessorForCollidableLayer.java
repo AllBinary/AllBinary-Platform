@@ -20,8 +20,10 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerProcessor;
 
 public class OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer extends LayerProcessor  {
+    
 	public OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer() 
 	{
+            super(new OptimizedArtificialIntelligenceLayerInterfaceManager());
 	}
 
 	public void process(AllBinaryLayerManager allBinaryLayerManager,

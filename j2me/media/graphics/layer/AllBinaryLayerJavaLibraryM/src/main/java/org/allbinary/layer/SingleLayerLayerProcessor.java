@@ -18,6 +18,7 @@ extends LayerProcessor
 {
     public SingleLayerLayerProcessor()
     {
+        super(new SingleLayerLayerInterfaceManager());
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager)

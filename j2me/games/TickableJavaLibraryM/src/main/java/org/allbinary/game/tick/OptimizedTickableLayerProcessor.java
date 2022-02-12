@@ -23,6 +23,7 @@ public class OptimizedTickableLayerProcessor extends LayerProcessor
 
     public OptimizedTickableLayerProcessor()
     {
+        super(new OptimizedTickableLayerInterfaceManager());
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager,
