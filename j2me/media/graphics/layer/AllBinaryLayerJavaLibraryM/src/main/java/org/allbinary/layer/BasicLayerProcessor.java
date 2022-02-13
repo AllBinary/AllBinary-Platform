@@ -16,6 +16,8 @@ package org.allbinary.layer;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicLayerProcessor
 {
@@ -29,6 +31,9 @@ public class BasicLayerProcessor
     {
         if(!list.contains(layerInterface))
         {
+            //if(layerInterface.getName().indexOf("debrish") >= 0) {
+                //LogUtil.put(LogFactory.getInstance("Adding: " + layerInterface, this, "add", new Exception()));
+            //}
             list.add(layerInterface);
         }
     }

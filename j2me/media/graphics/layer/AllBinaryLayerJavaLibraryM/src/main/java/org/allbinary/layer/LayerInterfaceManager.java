@@ -1,19 +1,23 @@
 package org.allbinary.layer;
 
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.util.BasicArrayList;
 
 public class LayerInterfaceManager
 {
+    private final LayerInterfaceManagerLoggingBase layerInterfaceManagerLogging;
     private final BasicArrayList list = new BasicArrayList();
     private final Object object = new Object();
 
+    public LayerInterfaceManager(final LayerInterfaceManagerLogging layerInterfaceManagerLogging)
+    {
+        this.layerInterfaceManagerLogging = layerInterfaceManagerLogging;
+    }
+
     public LayerInterfaceManager()
     {
+        this.layerInterfaceManagerLogging = LayerInterfaceManagerNoDebug.getInstance();
     }
     
     public boolean contains(final AllBinaryLayer layerInterface)
@@ -37,7 +41,7 @@ public class LayerInterfaceManager
     
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("append: " + layerInterface, this, "append"));
+        this.layerInterfaceManagerLogging.append(layerInterface);
 
         this.list.add(layerInterface);
     }
@@ -45,7 +49,7 @@ public class LayerInterfaceManager
     public void append(final AllBinaryLayer layerInterface, final int index)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("append: " + layerInterface + " at: " + index, this, "append"));
+        this.layerInterfaceManagerLogging.append(layerInterface, index);
 
         this.list.add(index, layerInterface);
     }
@@ -55,8 +59,10 @@ public class LayerInterfaceManager
     {
     	synchronized(object)
     	{
-    		//LogUtil.put(LogFactory.getInstance("Remove: " + layerInterface, this, "remove"));
-    		this.list.remove(layerInterface);
+            this.layerInterfaceManagerLogging.remove(layerInterface);
+    	    final boolean result = 
+                    this.list.remove(layerInterface);
+            this.layerInterfaceManagerLogging.remove(layerInterface, result);
     	}
     }
 

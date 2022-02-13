@@ -23,7 +23,7 @@ import org.allbinary.logic.basic.string.CommonLabels;
 
 public class AllBinaryLayerManager extends LayerInterfaceManager
 {
-    private final CommonLabels commonLabels = CommonLabels.getInstance();
+    //private final CommonLabels commonLabels = CommonLabels.getInstance();
     
     private final LayerManagerEventHandler layerManagerEventHandler = 
         LayerManagerEventHandler.getInstance();
@@ -34,6 +34,7 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
 
     protected AllBinaryLayerManager()
     {
+        //super(LayerInterfaceManagerLogging.getInstance());
     }
 
     // private int damageIndex = -1;
