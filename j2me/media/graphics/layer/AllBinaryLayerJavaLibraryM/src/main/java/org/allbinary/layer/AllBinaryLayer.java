@@ -185,7 +185,8 @@ implements LayerInterface
 
         stringBuffer.append(commonLabels.NAME_LABEL);
         stringBuffer.append(this.getName());
-        stringBuffer.append(commonSeps.COLON_SEP);
+        stringBuffer.append(commonSeps.COLON);
+        stringBuffer.append(Integer.toHexString(this.hashCode()));
         stringBuffer.append(TYPE);
         stringBuffer.append(this.getType());
         stringBuffer.append(commonSeps.SPACE);
