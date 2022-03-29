@@ -29,9 +29,9 @@ public class BasicGroupFactory
     public final Group ENEMY = new Group("Bad Guys", (short) 1);
     public final Group NONE = new Group("Not On A Team", (short) 2);
 
-    public final Group[] GOOD_ARRAY = {BasicGroupFactory.getInstance().GOOD};
-    public final Group[] ENEMY_ARRAY = {BasicGroupFactory.getInstance().ENEMY};
+    public final Group[] GOOD_ARRAY = {this.GOOD};
+    public final Group[] ENEMY_ARRAY = {this.ENEMY};
 
-    public final Group[] NONE_ARRAY = {BasicGroupFactory.getInstance().NONE};
+    public final Group[] NONE_ARRAY = {this.NONE};
 
 }
