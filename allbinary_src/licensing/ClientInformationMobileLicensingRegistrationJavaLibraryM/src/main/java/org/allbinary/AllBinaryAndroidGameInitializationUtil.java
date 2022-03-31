@@ -25,19 +25,21 @@ public class AllBinaryAndroidGameInitializationUtil {
 
         final AndroidResources androidResources = AndroidResources.getInstance();
         
+        final LicenseInitInfoUtil licenseInitInfoUtil = LicenseInitInfoUtil.getInstance();
+        
         resourceUtil.addResource(
-                LicenseInitInfoUtil.getInstance().INITFILENAME,
-                new Integer(androidResources.raw.licenseinitdata)
+                licenseInitInfoUtil.INITFILENAME,
+                Integer.valueOf(androidResources.raw.licenseinitdata)
                 );
 
         resourceUtil.addResource(
                 PartnerIdentifierFileUtil.getInstance().FILE_NAME,
-                new Integer(androidResources.raw.partner)
+                Integer.valueOf(androidResources.raw.partner)
                 );
         
         resourceUtil.addResource(
-                LicenseInitInfoUtil.getInstance().ABOUT, 
-                Integer.valueOf(AndroidResources.getInstance().raw.about));
+                licenseInitInfoUtil.ABOUT, 
+                Integer.valueOf(androidResources.raw.about));
         
     }
 	
