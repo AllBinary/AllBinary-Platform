@@ -102,6 +102,7 @@ import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.TextNotificationUtil;
+import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.util.BasicArrayList;
 
 public class GameMidlet extends ProgressMidlet
@@ -865,23 +866,8 @@ public class GameMidlet extends ProgressMidlet
     //You can override this with your own Canvas
     protected MyCanvas getAboutCanvas() throws Exception
     {
-        final String INFO[] = {
-                "This game was developed",
-                "using the AllBinary",
-                "Game Development Kit.",
-                StringUtil.getInstance().EMPTY_STRING,
-                //StringUtil.getInstance()
-                //"More info at: http://"
-                "Comments or Questions:",
-                "support@allbinary.com"
-                };
-        
-        final String[] DEVELOPERS = {
-                "Developed By:", "Travis Berthelot"
-                };
-        
         return new BasicPaintablesCanvas(this, this.createGameLayerManager(),
-            AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance());
+                AboutPaintableFactory.getInstance().paintableArray);
     }
 
     protected HelpPaintable getHelpPaintable()

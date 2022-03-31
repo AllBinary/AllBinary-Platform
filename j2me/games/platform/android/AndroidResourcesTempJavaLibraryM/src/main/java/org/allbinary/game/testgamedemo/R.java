@@ -21,6 +21,7 @@ public final class R {
     public static final class layout {
     }
     public static final class raw {
+        public static final int about=0x7f030000;
     	public static final int error=0x7f040000;
         public static final int licenseinitdata=0x7f040001;
         public static final int partner=0x7f040002;
