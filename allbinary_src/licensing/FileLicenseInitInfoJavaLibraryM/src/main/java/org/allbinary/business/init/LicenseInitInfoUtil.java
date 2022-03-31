@@ -35,6 +35,8 @@ public class LicenseInitInfoUtil
     }
 
     public final String INITFILENAME = "licenseinitdata.dat";
+    public final String ABOUT = "about";
+
     private String filePath;
 
     public synchronized void setFilePath(String filePath)

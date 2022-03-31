@@ -34,6 +34,11 @@ public class AllBinaryAndroidGameInitializationUtil {
                 PartnerIdentifierFileUtil.getInstance().FILE_NAME,
                 new Integer(androidResources.raw.partner)
                 );
+        
+        resourceUtil.addResource(
+                LicenseInitInfoUtil.getInstance().ABOUT, 
+                Integer.valueOf(AndroidResources.getInstance().raw.about));
+        
     }
 	
 }
