@@ -53,7 +53,7 @@ public class AboutPaintableFactory {
                 StringUtil.getInstance().EMPTY_STRING,
                 StringUtil.getInstance().EMPTY_STRING,
                 StringUtil.getInstance().EMPTY_STRING,
-                "https://www.allbinary.com/Privacy.jsp"
+                //"https://www.allbinary.com/Privacy.jsp"
                 };        
         */
 
@@ -66,7 +66,7 @@ public class AboutPaintableFactory {
                 //"More info at: http://"
                 "Comments or Questions:",
                 "support@allbinary.com",
-                "Privacy Policy"                
+                //"Privacy Policy"                
                 };
         
         final String[] DEVELOPERS = {
