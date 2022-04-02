@@ -36,7 +36,6 @@ import org.allbinary.input.AllBinarySensorManager;
 
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -75,7 +74,6 @@ import org.allbinary.game.displayable.canvas.GameInputMappingInstructionsCanvas;
 import org.allbinary.game.displayable.canvas.MenuListener;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.hud.basic.event.GameNotificationEventHandler;
-import org.allbinary.game.paint.AboutPaintable;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.score.HighScoreCommands;
 import org.allbinary.game.score.HighScoreCommandsFactory;
@@ -102,6 +100,7 @@ import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.TextNotificationUtil;
+import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.util.BasicArrayList;
 
@@ -113,7 +112,8 @@ public class GameMidlet extends ProgressMidlet
     private final String NO_COMMAND = "No Command";
     private final String NO_DISPLAYABLE = "No Displayable";
     private final String COMMAND_ACTION = "GameMidlet::" + MidletStrings.getInstance().COMMAND_ACTION;
-    
+
+    private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
     private final TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(2200);
 
@@ -371,7 +371,7 @@ public class GameMidlet extends ProgressMidlet
 
             PreLogUtil.put(new StringMaker().append(COMMAND_NAME).append(label).append(DISPLAYABLE).append(displayableAsString).toString(), this, this.COMMAND_ACTION);
 
-            GameCommandsFactory gameCommandsFactory = 
+            final GameCommandsFactory gameCommandsFactory = 
                 GameCommandsFactory.getInstance();
 
             if (command == gameCommandsFactory.SHOW_GAME_CANVAS)
@@ -753,9 +753,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.DISPLAY_ABOUT)
             {
-                this.commandAction(
-                    gameCommandsFactory.SET_MENU_DISPLAYABLE,
-                    this.getAboutCanvas());
+                this.aboutCommandProcessor.process(this, gameCommandsFactory.SET_MENU_DISPLAYABLE, this.getAboutCanvas());
             }
             else if (command == gameCommandsFactory.TOGGLE_KEYBOARD)
             {

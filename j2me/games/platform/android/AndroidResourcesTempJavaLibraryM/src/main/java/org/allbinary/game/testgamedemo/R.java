@@ -13,15 +13,18 @@ public final class R {
     public static final class drawable {
     }
     public static final class id {
+        public static final int custom_web_view=0x7f050000;
         public static final int ad_area_bottom=0x7f060002;
         public static final int ad_area_left=0x7f060003;
         public static final int ad_area_right=0x7f060004;
         public static final int ad_area_top=0x7f060001;
     }
     public static final class layout {
+        public static final int webview_layout=0x7f020000;
     }
     public static final class raw {
         public static final int about=0x7f030000;
+        public static final int privacy_policy=0x7f030001;
     	public static final int error=0x7f040000;
         public static final int licenseinitdata=0x7f040001;
         public static final int partner=0x7f040002;

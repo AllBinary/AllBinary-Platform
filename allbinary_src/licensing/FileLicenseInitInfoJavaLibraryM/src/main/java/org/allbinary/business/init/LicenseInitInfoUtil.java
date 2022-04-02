@@ -36,6 +36,7 @@ public class LicenseInitInfoUtil
 
     public final String INITFILENAME = "licenseinitdata.dat";
     public final String ABOUT = "about";
+    public final String PRIVACY_POLICY = "privacy_policy";
 
     private String filePath;
 
