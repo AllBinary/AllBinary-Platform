@@ -16,6 +16,9 @@ package org.allbinary.game.score;
 import javax.microedition.lcdui.Command;
 
 import org.allbinary.J2MEUtil;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class HighScoreCommandsBaseFactory {
     
@@ -25,6 +28,8 @@ public class HighScoreCommandsBaseFactory {
     {
         if(J2MEUtil.isJ2ME())
         {
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + "J2ME", this, CommonStrings.getInstance().CONSTRUCTOR));
+            
             //TWB - Hackish but it is better than a whole new library
             this.HIGH_SCORE_COMMANDS = new Command[] 
                     {
@@ -33,6 +38,8 @@ public class HighScoreCommandsBaseFactory {
         }
         else
         {
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + "not J2ME", this, CommonStrings.getInstance().CONSTRUCTOR));
+
             this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
         }
     }
