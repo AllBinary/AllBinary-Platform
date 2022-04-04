@@ -61,7 +61,7 @@ extends AllBinaryImageBaseRotationAnimation
         this.halfWidth = (this.getImage().getWidth() >> 1);
         this.halfHeight = (this.getImage().getHeight() >> 1);
         
-        inc = (short)(this.angleInfo.getAngleIncrementInfo().getAngleIncrement() * 2);
+        inc = (short)(this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
         
         this.imageToShow = image;
         this.twoImages[0] = image;
