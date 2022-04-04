@@ -37,14 +37,6 @@ public class AllBinaryAndroidGameInitializationUtil {
                 Integer.valueOf(androidResources.raw.partner)
                 );
         
-        resourceUtil.addResource(
-                licenseInitInfoUtil.ABOUT, 
-                Integer.valueOf(androidResources.raw.about));
-
-        resourceUtil.addResource(
-                licenseInitInfoUtil.PRIVACY_POLICY, 
-                Integer.valueOf(androidResources.raw.privacy_policy));
-        
     }
 	
 }

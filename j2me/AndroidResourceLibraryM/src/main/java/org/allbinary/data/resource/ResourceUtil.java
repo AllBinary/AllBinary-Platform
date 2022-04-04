@@ -145,9 +145,9 @@ public class ResourceUtil
         // Try getting resource with normal resource access
         // AssetManager assetManager = resources.getAssets();
         // InputStream inputStream = assetManager.open(resourcePath);
-        Integer integer = (Integer) this.hashMap.get(resource);
+        final Integer integer = (Integer) this.hashMap.get(resource);
         int id = integer.intValue();
-        InputStream inputStream = this.resources.openRawResource(id);
+        final InputStream inputStream = this.resources.openRawResource(id);
 
         if (inputStream != null)
         {
