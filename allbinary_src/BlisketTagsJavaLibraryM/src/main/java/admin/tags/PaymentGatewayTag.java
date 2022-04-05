@@ -71,9 +71,9 @@ public class PaymentGatewayTag extends TableTag
       {
          if(this.isEnabled())
          {
-            if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEORDEREVALBODYONERROR)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEORDERANDEVALBODY)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEFORMEVALBODYONERROR)==0 )
+            if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0 ||
+            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDERANDEVALBODY)==0 ||
+            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEFORMEVALBODYONERROR)==0 )
                //AUTHORIZEFORMEVALBODYONERROR is used for form payment processing instead of order in session
             {
                String output = this.process();
@@ -82,7 +82,7 @@ public class PaymentGatewayTag extends TableTag
                   this.pageContext.getOut().print(output + "<br />");
                }
                
-               if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEORDEREVALBODYONERROR)==0)
+               if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0)
                {
                   return this.SKIP_BODY;
                }

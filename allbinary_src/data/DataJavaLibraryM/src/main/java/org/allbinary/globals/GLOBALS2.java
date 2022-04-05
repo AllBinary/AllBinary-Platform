@@ -13,7 +13,7 @@
 */
 package org.allbinary.globals;
 
-public class GLOBALS
+public class GLOBALS2
 {
    //public static final String EMAIL = "EMAIL";
          

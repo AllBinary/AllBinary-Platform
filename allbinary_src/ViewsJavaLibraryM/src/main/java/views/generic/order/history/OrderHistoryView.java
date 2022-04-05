@@ -28,7 +28,7 @@ import org.allbinary.data.tree.dom.ModDomHelper;
 
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntity;
 
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 
 import org.allbinary.business.user.commerce.inventory.order.OrderData;
 
@@ -115,8 +115,8 @@ implements DomNodeInterface
          OrderHistoryData.SHIPPED));
          
          node.appendChild(ModDomHelper.createNameValueNodes(document,
-         GLOBALS.VIEWNAME,
-         GLOBALS.VIEW));
+         GLOBALS2.VIEWNAME,
+         GLOBALS2.VIEW));
          
          return node;
       }

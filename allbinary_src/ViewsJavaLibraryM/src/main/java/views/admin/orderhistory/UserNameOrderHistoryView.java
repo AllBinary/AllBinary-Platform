@@ -44,7 +44,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 
@@ -148,8 +148,8 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
          OrderHistoryData.SHIPPED));
          
          node.appendChild(ModDomHelper.createNameValueNodes(document,
-         GLOBALS.VIEWNAME,
-         GLOBALS.VIEW));
+         GLOBALS2.VIEWNAME,
+         GLOBALS2.VIEW));
          
          return node;
       }

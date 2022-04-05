@@ -44,7 +44,7 @@ public class ValidatorFactory
       {
          String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         GLOBALS.TAGHELPERFACTORYERROR))
+         GLOBALS2.TAGHELPERFACTORYERROR))
          {
             LogUtil.put(error, this.getViewFile() + "->TransformInfoFactory",
             "getDomNodeInterface(HashMap, PageContext)",e);
@@ -56,7 +56,7 @@ public class ValidatorFactory
       {
          String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         GLOBALS.TAGHELPERFACTORYERROR))
+         GLOBALS2.TAGHELPERFACTORYERROR))
          {
             LogUtil.put(error,this.getViewFile() + "->TransformInfoFactory",
             "getDomNodeInterface(HashMap, PageContext)",e);

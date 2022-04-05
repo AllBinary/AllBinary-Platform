@@ -33,7 +33,7 @@ public class StoreFrontStatisticsTag extends StoreValidationTransformTag
       {
          if(this.getCommand()!=null)
          {
-            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
             {
                this.setName("Validation StoreFrontStatistics View");
                this.setObjectFile("views.admin.storefront.statistics.ValidationStoreFrontStatisticsView");

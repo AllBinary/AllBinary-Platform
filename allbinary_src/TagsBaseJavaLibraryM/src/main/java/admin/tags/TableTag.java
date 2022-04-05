@@ -384,7 +384,7 @@ public class TableTag extends PropertiesTag
                             this.getPropertiesHashMap(), pageContext);
                     }
 
-                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.BACKUP) == 0)
+                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.BACKUP) == 0)
                     {
                         String output = this.backup();
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -392,7 +392,7 @@ public class TableTag extends PropertiesTag
                             this.pageContext.getOut().print(output + "<br />");
                         }
                         return SKIP_BODY;
-                    } else if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.RESTORE) == 0)
+                    } else if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.RESTORE) == 0)
                     {
                         this.getPropertiesHashMap().put("current", this.getCurrent());
                         this.getPropertiesHashMap().put("total", this.getTotal());
@@ -443,7 +443,7 @@ public class TableTag extends PropertiesTag
                     }
                     /*
                     else
-                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
                     {
                     String output = this.view();
                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
@@ -452,7 +452,7 @@ public class TableTag extends PropertiesTag
                     }
                     }
                     else
-                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
+                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT)==0)
                     {
                     String output = this.edit();
                     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))

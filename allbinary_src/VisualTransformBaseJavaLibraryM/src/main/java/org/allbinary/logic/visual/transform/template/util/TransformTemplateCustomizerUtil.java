@@ -20,7 +20,7 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
@@ -57,10 +57,10 @@ public class TransformTemplateCustomizerUtil
 
         TITLE_VIEWNAMEKEY = SPACE + TitleData.getInstance().VIEWNAMEKEY;
 
-        GLOBALS_NEW = GLOBALS.NEW + SPACE;
+        GLOBALS_NEW = GLOBALS2.NEW + SPACE;
         GLOBALS_INSERT = commonStrings.INSERT + SPACE;
         GLOBALS_DELETE = commonStrings.DELETE + SPACE;
-        GLOBALS_EDIT = GLOBALS.EDIT + SPACE;
+        GLOBALS_EDIT = GLOBALS2.EDIT + SPACE;
         GLOBALS_UPDATE = commonStrings.UPDATE + SPACE;
     }
 

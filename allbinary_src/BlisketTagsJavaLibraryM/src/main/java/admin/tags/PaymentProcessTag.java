@@ -72,14 +72,14 @@ public class PaymentProcessTag extends StoreValidationTransformTag
    {
       try
       {
-         if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEORDEREVALBODYONERROR)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEORDERANDEVALBODY)==0 ||
-            this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEFORMEVALBODYONERROR)==0 )
+         if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0 ||
+            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDERANDEVALBODY)==0 ||
+            this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEFORMEVALBODYONERROR)==0 )
             //AUTHORIZEFORMEVALBODYONERROR is used for form payment processing instead of order in session
          {
             this.pageContext.getOut().print(this.process() + "<br />");
             
-            if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEORDEREVALBODYONERROR)==0)
+            if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEORDEREVALBODYONERROR)==0)
                return this.SKIP_BODY;
             else return this.EVAL_BODY_INCLUDE;
          }

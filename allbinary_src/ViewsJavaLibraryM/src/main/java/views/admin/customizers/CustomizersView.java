@@ -26,7 +26,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.control.sort.StringComparator;
 import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
@@ -63,7 +63,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
                 final String viewName = (String) iter.next();
 
                 if (viewName.indexOf(CustomizerTransformInfoData.NAME) > 0
-                        && viewName.indexOf(GLOBALS.EDIT) > 0
+                        && viewName.indexOf(GLOBALS2.EDIT) > 0
                         && viewName.indexOf(BodyData.getInstance().VIEWNAMEKEY) > 0
                         && viewName.indexOf(TitleData.getInstance().VIEWNAMEKEY) > 0) //TransformTemplateCustomizerData.EDITNAMEKEY
                 {

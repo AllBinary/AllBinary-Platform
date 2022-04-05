@@ -31,7 +31,7 @@ public class WorkFlowsTag extends StoreValidationTransformTag
       {
          if(this.getCommand()!=null)
          {
-            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.NEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.NEW)==0)
             {
                this.setName("New WorkFlow View");
                this.setObjectFile("views.admin.workflow.NewView");
@@ -43,13 +43,13 @@ public class WorkFlowsTag extends StoreValidationTransformTag
                   this.setObjectFile("views.admin.workflow.AddValidationView");
                }
                else
-                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
                   {
                      this.setName("Validation WorkFlow View");
                      this.setObjectFile("views.admin.workflow.WorkflowsValidationView");
                   }
                   else
-                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
+                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT)==0)
                      {
                         this.setName("Validation WorkFlow View");
                         this.setObjectFile("views.admin.workflow.EditValidationView");
@@ -67,12 +67,12 @@ public class WorkFlowsTag extends StoreValidationTransformTag
                               this.setObjectFile("views.admin.workflow.DeleteValidationView");
                            }
                            else
-                              if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.BACKUP)==0)
+                              if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.BACKUP)==0)
                               {
                                  throw new Exception("View not implemented");
                               }
                               else
-                                 if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.RESTORE)==0)
+                                 if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.RESTORE)==0)
                                  {
                                     throw new Exception("View not implemented");
                                  }

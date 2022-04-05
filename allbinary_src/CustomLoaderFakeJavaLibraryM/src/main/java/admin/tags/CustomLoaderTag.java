@@ -25,7 +25,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import javax.servlet.jsp.JspTagException;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 
 public class CustomLoaderTag extends TagSupport
 {
@@ -81,7 +81,7 @@ public class CustomLoaderTag extends TagSupport
          if(command!=null)
          {
             
-            if(command.compareTo(GLOBALS.SET)==0)
+            if(command.compareTo(GLOBALS2.SET)==0)
             {
                this.setCustomLoaderWebappPath();
             }

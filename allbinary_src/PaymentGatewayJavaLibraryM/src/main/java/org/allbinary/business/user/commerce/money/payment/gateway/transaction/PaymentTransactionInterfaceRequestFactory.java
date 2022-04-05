@@ -65,10 +65,10 @@ public class PaymentTransactionInterfaceRequestFactory
                     = (HttpServletRequest) pageContext.getRequest();
 
             String command
-                    = httpServletRequest.getParameter(org.allbinary.globals.GLOBALS.ADMINCOMMAND);
+                    = httpServletRequest.getParameter(org.allbinary.globals.GLOBALS2.ADMINCOMMAND);
 
             //Only if testing a gateway with a form instead of using OrderHistory
-            if(command != null && command.compareTo(org.allbinary.globals.GLOBALS.AUTHORIZEFORMEVALBODYONERROR) == 0)
+            if(command != null && command.compareTo(org.allbinary.globals.GLOBALS2.AUTHORIZEFORMEVALBODYONERROR) == 0)
             {
                 return generateFromTestData(transformInfoInterface);
             }else

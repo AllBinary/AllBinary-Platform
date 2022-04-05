@@ -49,7 +49,7 @@ public class UsersTag extends StoreValidationTransformTag
          {
             this.getPropertiesHashMap().put(UserRoleData.NAME,this.role);
             
-            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
             {
                
             }

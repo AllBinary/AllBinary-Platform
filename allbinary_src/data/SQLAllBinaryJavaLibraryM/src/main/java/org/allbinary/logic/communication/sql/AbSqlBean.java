@@ -191,7 +191,7 @@ public class AbSqlBean extends AbSqlRow
                     field = rset.getObject(columnName).toString();
                     if (field.compareTo((String) columnsAndValues.get(columnName)) != 0)
                     {
-                        return org.allbinary.globals.GLOBALS.NOTASUBSET;
+                        return org.allbinary.globals.GLOBALS2.NOTASUBSET;
                     }
                 }
 
@@ -199,10 +199,10 @@ public class AbSqlBean extends AbSqlRow
 
             if (rset.getRow() != 1)
             {
-                return org.allbinary.globals.GLOBALS.NOTASUBSET;
+                return org.allbinary.globals.GLOBALS2.NOTASUBSET;
             } else
             {
-                return org.allbinary.globals.GLOBALS.ISASUBSET;
+                return org.allbinary.globals.GLOBALS2.ISASUBSET;
             }
         } catch (Exception e)
         {

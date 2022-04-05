@@ -40,7 +40,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 
 public class AuthenticationHelper
     implements TagHelperInterface
@@ -353,16 +353,16 @@ public class AuthenticationHelper
                 InstallerInfo installerInfo = new InstallerInfo();
                 if(installerInfo.isValid(userName, password))
                 {
-                login = allbinary.globals.GLOBALS.LOGINSUCCESS;
+                login = allbinary.globals.GLOBALS2.LOGINSUCCESS;
                 }
                 else
                 {
-                login = allbinary.globals.GLOBALS.LOGINFAILED;
+                login = allbinary.globals.GLOBALS2.LOGINFAILED;
                 }
                 }
                  */
 
-                if (login.compareTo(GLOBALS.LOGINSUCCESS) == 0)
+                if (login.compareTo(GLOBALS2.LOGINSUCCESS) == 0)
                 {
                     UserInterface userInterface = userEntityInterface.getUser(userName);
                     if (userInterface.isSessionValid().booleanValue())

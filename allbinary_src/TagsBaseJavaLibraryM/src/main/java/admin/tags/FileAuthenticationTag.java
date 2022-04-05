@@ -402,13 +402,13 @@ public class FileAuthenticationTag extends TagSupport
                 InstallerInfo installerInfo = new InstallerInfo();
                 if (installerInfo.isValid(userName, password))
                 {
-                    login = org.allbinary.globals.GLOBALS.LOGINSUCCESS;
+                    login = org.allbinary.globals.GLOBALS2.LOGINSUCCESS;
                 } else
                 {
-                    login = org.allbinary.globals.GLOBALS.LOGINFAILED;
+                    login = org.allbinary.globals.GLOBALS2.LOGINFAILED;
                 }
 
-                if (login.compareTo(org.allbinary.globals.GLOBALS.LOGINSUCCESS) == 0)
+                if (login.compareTo(org.allbinary.globals.GLOBALS2.LOGINSUCCESS) == 0)
                 {
                     this.weblisketSession.setAttempts(new Integer(0));
                     return Boolean.TRUE.booleanValue();
@@ -475,7 +475,7 @@ public class FileAuthenticationTag extends TagSupport
                 //if(command!=null) throw new JspTagException(e2);
                 //if(command!=null) throw new LicensingException();
 
-                if (command.compareTo(org.allbinary.globals.GLOBALS.CHANGEPASSWORD) == 0)
+                if (command.compareTo(org.allbinary.globals.GLOBALS2.CHANGEPASSWORD) == 0)
                 {
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
                     {
@@ -526,7 +526,7 @@ public class FileAuthenticationTag extends TagSupport
 
                             //invalidates session based on a timeout
                             pageContext.getOut().print("Please login again.<p>");
-                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -541,7 +541,7 @@ public class FileAuthenticationTag extends TagSupport
                             }
 
                             //prepares session for timeout
-                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return TagSupport.SKIP_BODY;
                             } else
@@ -575,7 +575,7 @@ public class FileAuthenticationTag extends TagSupport
                             LogUtil.put(LogFactory.getInstance("Authenticated session is valid", this, "doStartTag()"));
                         }
 
-                        if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                        if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                         {
                             return TagSupport.EVAL_BODY_INCLUDE;
                         } else
@@ -599,7 +599,7 @@ public class FileAuthenticationTag extends TagSupport
                             }
 
                             pageContext.getOut().print(validRole());
-                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return EVAL_BODY_INCLUDE;
                             } else
@@ -614,7 +614,7 @@ public class FileAuthenticationTag extends TagSupport
                             }
 
                             pageContext.getOut().print(invalidRole());
-                            if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                            if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                             {
                                 return SKIP_BODY;
                             } else
@@ -652,7 +652,7 @@ public class FileAuthenticationTag extends TagSupport
 
                     //pageContext.getOut().print("Not a new attempt or previously authorized<p>");
                     //I hope this never occurs - I may add an exception for this case in the future
-                    if (command.compareTo(org.allbinary.globals.GLOBALS.PROCESSBODYIFAUTHENTICATED) == 0)
+                    if (command.compareTo(org.allbinary.globals.GLOBALS2.PROCESSBODYIFAUTHENTICATED) == 0)
                     {
                         return TagSupport.SKIP_BODY;
                     } else

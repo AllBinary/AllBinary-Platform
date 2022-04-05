@@ -100,7 +100,7 @@ public class BasicWeblisketSession
 
    public String getWebAppPath()
    {      
-      return (String) this.session.getAttribute(org.allbinary.globals.GLOBALS.WEBAPPPATH);
+      return (String) this.session.getAttribute(org.allbinary.globals.GLOBALS2.WEBAPPPATH);
    }
 
    public String getUserName()

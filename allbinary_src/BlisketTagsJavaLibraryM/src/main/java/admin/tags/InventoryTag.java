@@ -46,8 +46,8 @@ public class InventoryTag extends TableTag
          {
             if(this.getCommand()!=null)
             {
-               if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS.BACKUP)!=0 &&
-               this.getCommand().compareTo(org.allbinary.globals.GLOBALS.RESTORE)!=0 &&
+               if(this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.BACKUP)!=0 &&
+               this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.RESTORE)!=0 &&
                this.getCommand().compareTo(this.commonStrings.CREATE)!=0 &&
                this.getCommand().compareTo(this.commonStrings.DROP)!=0)
                {

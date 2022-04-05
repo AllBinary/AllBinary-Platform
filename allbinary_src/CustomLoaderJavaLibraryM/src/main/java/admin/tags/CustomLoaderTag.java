@@ -97,7 +97,7 @@ public class CustomLoaderTag extends TagSupport
          {
             this.propertiesHashMap = new HashMap();
             
-            if(command.compareTo(org.allbinary.globals.GLOBALS.SET)==0)
+            if(command.compareTo(org.allbinary.globals.GLOBALS2.SET)==0)
             {
                this.setCustomLoaderWebappPath();
             }

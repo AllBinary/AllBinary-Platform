@@ -22,7 +22,7 @@ import javax.servlet.jsp.PageContext;
 import tags.HelperTag;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.communication.http.request.RequestMapInterface;
 import java.util.Vector;
 
@@ -121,7 +121,7 @@ public class MultipartRequestParamForwardHelper
     {
         final HashMap hashMap = this.requestMapInterface.getRequestHashMap();
 
-        String requestCommand = (String) hashMap.get(GLOBALS.ADMINCOMMAND);
+        String requestCommand = (String) hashMap.get(GLOBALS2.ADMINCOMMAND);
 
         if (StringValidationUtil.getInstance().isEmpty(command)
             || (!StringValidationUtil.getInstance().isEmpty(requestCommand) &&

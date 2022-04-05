@@ -30,7 +30,7 @@ import org.allbinary.business.user.modules.User;
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleData;
 import org.allbinary.business.user.role.UserRoleFactory;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
 
@@ -186,7 +186,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
    {
       try
       {
-         if(this.login(userName,password).compareTo(org.allbinary.globals.GLOBALS.LOGINSUCCESS)==0)
+         if(this.login(userName,password).compareTo(org.allbinary.globals.GLOBALS2.LOGINSUCCESS)==0)
          {
             String role = new String(super.getField(UserData.USERNAME,userName,RoleData.ROLE));
             
@@ -240,7 +240,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
                LogUtil.put(LogFactory.getInstance("Command Success but login failed for user: " +
                  userName + " because user did not exist",this,"login"));
             }
-            return GLOBALS.LOGINFAILED;
+            return GLOBALS2.LOGINFAILED;
          }
 
          if(isUserNameAndPasswordCorrect==0)
@@ -258,7 +258,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
 
                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "login"));
             }
-            return GLOBALS.LOGINSUCCESS;
+            return GLOBALS2.LOGINSUCCESS;
          }
          else
          {
@@ -276,7 +276,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
 
                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "login"));
             }
-            return GLOBALS.LOGINFAILED;
+            return GLOBALS2.LOGINFAILED;
          }
       }
       catch(Exception e)

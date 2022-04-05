@@ -45,19 +45,19 @@ public class BillingAddressTag extends StoreValidationTransformTag
          if(this.getCommand()!=null)
          {
             
-            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
             {
                this.setName("Basic Billing Address View");
                this.setObjectFile("views.generic.address.billing.ValidationView");
             }
             else
-               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
+               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT)==0)
                {
                   this.setName("Basic Billing Address View");
                   this.setObjectFile("views.generic.address.billing.EditValidationView");
                }
                else
-                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.NEW)==0)
+                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.NEW)==0)
                   {
                      this.setName("Basic Billing Address View");
                      this.setObjectFile("views.generic.address.billing.NewValidationView");

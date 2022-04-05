@@ -36,7 +36,7 @@ public class MiniBasketTag extends StoreValidationTransformTag
          
          if(this.getCommand()!=null)
          {
-            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
             {
                
             }

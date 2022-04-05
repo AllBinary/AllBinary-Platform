@@ -36,7 +36,7 @@ import org.allbinary.business.user.commerce.inventory.item.download.Downloadable
 import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -58,7 +58,7 @@ public class AddFileValidationView
     {
         try
         {
-            String command = (String) this.getRequestHashMap().get(GLOBALS.ADMINCOMMAND);
+            String command = (String) this.getRequestHashMap().get(GLOBALS2.ADMINCOMMAND);
 
             if (StringValidationUtil.getInstance().isEmpty(command)
                 || (command.compareTo(ADDPRODUCT) != 0
@@ -281,7 +281,7 @@ public class AddFileValidationView
         {
             StringBuffer stringBuffer = new StringBuffer();
 
-            String command = (String) this.getRequestHashMap().get(GLOBALS.ADMINCOMMAND);
+            String command = (String) this.getRequestHashMap().get(GLOBALS2.ADMINCOMMAND);
 
             if (StringValidationUtil.getInstance().isEmpty(command)
                 || (command.compareTo(ADDPRODUCT) != 0

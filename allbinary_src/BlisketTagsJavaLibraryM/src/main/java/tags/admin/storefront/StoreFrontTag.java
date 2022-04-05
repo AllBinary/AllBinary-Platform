@@ -41,14 +41,14 @@ public class StoreFrontTag extends StoreValidationTransformTag
                this.setObjectFile("views.admin.storefront.AddValidationStoreFrontView");
             }
             else
-               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
                {
                   throw new Exception("View not implemented");
                   //this.setName("Validation User View");
                   //this.setObjectFile("views.admin.storefront.ViewValidationStoreFrontView");
                }
                else
-                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
+                  if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT)==0)
                   {
                      this.setName("Edit Validation StoreFront View");
                      this.setObjectFile("views.admin.storefront.EditValidationStoreFrontView");
@@ -66,12 +66,12 @@ public class StoreFrontTag extends StoreValidationTransformTag
                            this.setObjectFile("views.admin.storefront.DeleteValidationStoreFrontView");
                         }
                         else
-                           if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.BACKUP)==0)
+                           if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.BACKUP)==0)
                            {
                               throw new Exception("View not implemented");
                            }
                            else
-                              if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.RESTORE)==0)
+                              if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.RESTORE)==0)
                               {
                                  throw new Exception("View not implemented");
                               }

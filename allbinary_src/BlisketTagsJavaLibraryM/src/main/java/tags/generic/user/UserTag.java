@@ -44,12 +44,12 @@ public class UserTag  extends StoreValidationTransformTag
       {
          if(this.getCommand()!=null)
          {
-            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT + org.allbinary.globals.GLOBALS.EDIT)==0)
+            if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT + org.allbinary.globals.GLOBALS2.EDIT)==0)
             {
                this.setName("Edit Session Validation User View - i.e. User Profile Edit");
                this.setObjectFile("views.generic.user.EditValidationView");
             }
-               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.NEW)==0)
+               if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.NEW)==0)
                {
                   this.setName("New User View");
                   this.setObjectFile("views.generic.user.NewUserView");
@@ -61,13 +61,13 @@ public class UserTag  extends StoreValidationTransformTag
                      this.setObjectFile("views.generic.user.AddValidationUserView");
                   }
                   else
-                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.VIEW)==0)
+                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
                      {
                         this.setName("Validation User View");
                         this.setObjectFile("views.generic.user.ViewValidationUserView");
                      }
                      else
-                        if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.EDIT)==0)
+                        if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT)==0)
                         {
                            this.setName("Validation User View");
                            this.setObjectFile("views.generic.user.EditValidationUserView");
@@ -85,12 +85,12 @@ public class UserTag  extends StoreValidationTransformTag
                                  this.setObjectFile("views.generic.user.DeleteValidationUserView");
                               }
                               else
-                                 if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.BACKUP)==0)
+                                 if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.BACKUP)==0)
                                  {
                                     throw new Exception("View not implemented");
                                  }
                                  else
-                                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS.RESTORE)==0)
+                                    if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.RESTORE)==0)
                                     {
                                        throw new Exception("View not implemented");
                                     }

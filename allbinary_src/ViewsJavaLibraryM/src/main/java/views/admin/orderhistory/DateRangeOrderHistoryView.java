@@ -33,7 +33,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.globals.GLOBALS;
+import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.time.TimeUtil;
@@ -116,7 +116,7 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
       this.toDay = request.getParameter(OrderHistoryData.TODAY);
       this.toHour = request.getParameter(OrderHistoryData.TOHOUR);
       
-      this.command = request.getParameter(GLOBALS.ADMINCOMMAND);
+      this.command = request.getParameter(GLOBALS2.ADMINCOMMAND);
    }
    
    public void addDomNodeInterfaces()
@@ -356,8 +356,8 @@ public class DateRangeOrderHistoryView extends HttpStoreComponentView implements
          OrderHistoryData.SHIPPED));
          
          node.appendChild(ModDomHelper.createNameValueNodes(document,
-         GLOBALS.VIEWNAME,
-         GLOBALS.VIEW));
+         GLOBALS2.VIEWNAME,
+         GLOBALS2.VIEW));
          
          return node;
       }
