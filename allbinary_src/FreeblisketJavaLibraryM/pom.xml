@@ -1,4 +1,4 @@
-project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
@@ -35,9 +35,9 @@ project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LoggingGAELog</artifactId>
+            <artifactId>LoggingGAEAll</artifactId>
             <!--
-            <artifactId>LoggingGAELog</artifactId>
+            <artifactId>LoggingGAEAll</artifactId>
             <artifactId>LoggingGAEExceptionLog</artifactId>
             <artifactId>LoggingJ2MEAll</artifactId>
             -->
@@ -48,9 +48,18 @@ project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2
             <optional>true</optional>
         </dependency>
 
+        <!--
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>PreLoaderGAEJavaLibrary</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+        -->
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ClientInfoLicensingJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -98,15 +107,14 @@ project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2
             <optional>true</optional>
         </dependency>
 
+        <!--
         <dependency>
     <groupId>org.allbinary</groupId>
     <artifactId>DebugNoneJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
             <optional>true</optional>
         </dependency>
+        -->
     
         <dependency>
             <groupId>org.allbinary</groupId>
@@ -144,6 +152,26 @@ project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2
         </dependency>
 
         <dependency>
+
+            <groupId>org.allbinary</groupId>
+            <artifactId>IdGeneratorUsingDbTablesJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+
+            <groupId>org.allbinary.data.tables</groupId>
+            <artifactId>NullSQLAllBinaryJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>FileGAEVFSJavaLibrary</artifactId>
             <!--
@@ -156,12 +184,14 @@ project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2
 
             <optional>true</optional>
         </dependency>
+        <!--
         <dependency>
             <groupId>com.vobject.appengine</groupId>
             <artifactId>appengine-java-io</artifactId>
             <version>0.1.0</version>
             <optional>true</optional>
         </dependency>
+        -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-vfs</artifactId>
@@ -243,6 +273,7 @@ project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2
                     </descriptors>
                 </configuration>
             </plugin>
+                        
         </plugins>
 
     </build>

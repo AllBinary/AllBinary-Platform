@@ -103,12 +103,14 @@
 
             <optional>true</optional>
         </dependency>
+        <!--
         <dependency>
             <groupId>com.vobject.appengine</groupId>
             <artifactId>appengine-java-io</artifactId>
             <version>0.1.0</version>
             <optional>true</optional>
         </dependency>
+        -->
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-vfs</artifactId>

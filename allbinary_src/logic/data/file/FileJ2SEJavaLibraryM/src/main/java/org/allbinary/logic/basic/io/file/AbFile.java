@@ -73,7 +73,7 @@ public class AbFile implements AbFileInterface
       return this.file.getParent();
    }
 
-   public File getParentFile()
+   public Object getParentFile()
    {
       return this.file.getParentFile();
    }
@@ -93,7 +93,7 @@ public class AbFile implements AbFileInterface
       return this.file.getAbsolutePath();
    }
 
-   public File getAbsoluteFile()
+   public Object getAbsoluteFile()
    {
       return this.file.getAbsoluteFile();
    }
@@ -103,7 +103,7 @@ public class AbFile implements AbFileInterface
       return this.file.getCanonicalPath();
    }
 
-   public File getCanonicalFile() throws IOException
+   public Object getCanonicalFile() throws IOException
    {
       return this.file.getCanonicalFile();
    }
@@ -205,17 +205,17 @@ public class AbFile implements AbFileInterface
       return this.file.list(filter);
    }
 
-   public File[] listFiles()
+   public Object[] listFiles()
    {
       return this.file.listFiles();
    }
 
-   public File[] listFiles(FilenameFilter filter)
+   public Object[] listFiles(FilenameFilter filter)
    {
       return this.file.listFiles(filter);
    }
 
-   public File[] listFiles(FileFilter filter)
+   public Object[] listFiles(FileFilter filter)
    {
       return this.file.listFiles(filter);
    }

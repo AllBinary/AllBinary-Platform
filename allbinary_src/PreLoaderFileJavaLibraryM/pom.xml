@@ -75,6 +75,7 @@
             <!--
             <artifactId>FileJ2SEJavaLibrary</artifactId>
             <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            appengine-java-io manually included from AppEngineIOJavaLibrary.jar
         <dependency>
             <groupId>com.vobject.appengine</groupId>
             <artifactId>appengine-java-io</artifactId>

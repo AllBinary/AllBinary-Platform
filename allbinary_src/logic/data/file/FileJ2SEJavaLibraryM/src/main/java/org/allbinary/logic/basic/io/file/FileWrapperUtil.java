@@ -18,7 +18,7 @@ import java.io.File;
 
 public class FileWrapperUtil {
 
-    public static AbFile[] wrapFiles(File[] files)
+    public static AbFile[] wrapFiles(Object[] files)
     {
         try
         {
@@ -26,7 +26,7 @@ public class FileWrapperUtil {
 
             for (int index = files.length - 1; index >= 0; index--)
             {
-                abFileArray[index] = new AbFile(files[index]);
+                abFileArray[index] = new AbFile((File) files[index]);
             }
 
             return abFileArray;
