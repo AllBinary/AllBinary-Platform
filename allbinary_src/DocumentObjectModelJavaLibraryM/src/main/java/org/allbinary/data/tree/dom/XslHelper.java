@@ -44,19 +44,18 @@ public class XslHelper
     {
     }
 
-    public OutputStream translate(StreamSource xsltStreamSource,
-            StreamSource xmlStreamSource,
-            StreamResult streamResult) throws Exception
+    public OutputStream translate(final StreamSource xsltStreamSource,
+            final StreamSource xmlStreamSource,
+            final StreamResult streamResult) throws Exception
     {
         try
         {
             //TWB - GAE needed xalan.jar and serializer.jar
-            TransformerFactory tFactory = TransformerFactory.newInstance( //"org.apache.xalan.processor.TransformerFactoryImpl",
+            final TransformerFactory transformerFactory = TransformerFactory.newInstance( //"org.apache.xalan.processor.TransformerFactoryImpl",
                     //Thread.currentThread().getContextClassLoader()
                     );
 
-            Transformer transformer
-                    = tFactory.newTransformer(xsltStreamSource);
+            final Transformer transformer = transformerFactory.newTransformer(xsltStreamSource);
 
             transformer.transform(
                     xmlStreamSource,
@@ -69,22 +68,21 @@ public class XslHelper
         }
     }
 
-    public OutputStream translate(URIResolver resolver,
-            StreamSource xsltStreamSource,
-            StreamSource xmlStreamSource,
-            StreamResult streamResult) throws Exception
+    public OutputStream translate(final URIResolver resolver,
+            final StreamSource xsltStreamSource,
+            final StreamSource xmlStreamSource,
+            final StreamResult streamResult) throws Exception
     {
         try
         {
             //TWB - GAE needed xalan.jar and serializer.jar
-            TransformerFactory tFactory = TransformerFactory.newInstance( //"org.apache.xalan.processor.TransformerFactoryImpl",
+            final TransformerFactory tFactory = TransformerFactory.newInstance( //"org.apache.xalan.processor.TransformerFactoryImpl",
                     //Thread.currentThread().getContextClassLoader()
                     );
 
             tFactory.setURIResolver(resolver);
 
-            Transformer transformer
-                    = tFactory.newTransformer(xsltStreamSource);
+            final Transformer transformer = tFactory.newTransformer(xsltStreamSource);
 
             //transformer.setURIResolver(resolver);
             transformer.transform(xmlStreamSource, streamResult);
@@ -96,12 +94,11 @@ public class XslHelper
         }
     }
 
-    public String translate(StreamSource xsltStreamSource,
-            Document xmlDocument) throws Exception
+    public String translate(final StreamSource xsltStreamSource, final Document xmlDocument) throws Exception
     {
         try
         {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             return this.translate(xsltStreamSource,
                     new StreamSource(new StringBufferInputStream(DomDocumentHelper.toString(xmlDocument))),
                     new StreamResult(outputStream)).toString();
@@ -111,13 +108,13 @@ public class XslHelper
         }
     }
 
-    public String translate(StreamSource xsltStreamSource,
-            StreamSource xmlStreamSource)
+    public String translate(final StreamSource xsltStreamSource,
+            final StreamSource xmlStreamSource)
             throws Exception
     {
         try
         {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             return this.translate(xsltStreamSource,
                     xmlStreamSource,
                     new StreamResult(outputStream)).toString();
@@ -128,15 +125,14 @@ public class XslHelper
     }
 
     public String translate(
-            URIResolver resolver,
-            StreamSource xsltStreamSource,
-            StreamSource xmlStreamSource)
+            final URIResolver resolver,
+            final StreamSource xsltStreamSource,
+            final StreamSource xmlStreamSource)
             throws Exception
     {
         try
         {
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
+            final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
             return this.translate(
                     resolver, xsltStreamSource, xmlStreamSource,
                     new StreamResult(outputStream)).toString();
@@ -147,7 +143,7 @@ public class XslHelper
     }
 
     public void export(
-            File outputFile, String xsltFilePath, Document xmlDocument)
+            final File outputFile, final String xsltFilePath, final Document xmlDocument)
             throws Exception
     {
         try
@@ -163,4 +159,5 @@ public class XslHelper
             throw e;
         }
     }
+        
 }
