@@ -28,19 +28,19 @@ Created By: Travis Berthelot
 
 <jsp:directive.page import="java.util.*" />
 
-<jsp:directive.page import="abcs.business.context.modules.storefronts.BasicStoreFrontInterface" />
-<jsp:directive.page import="abcs.business.context.modules.storefronts.BasicStoreFrontFactory" />
-<jsp:directive.page import="abcs.business.user.role.BasicUserRole" />
+<jsp:directive.page import="org.allbinary.business.context.modules.storefronts.BasicStoreFrontInterface" />
+<jsp:directive.page import="org.allbinary.business.context.modules.storefronts.BasicStoreFrontFactory" />
+<jsp:directive.page import="org.allbinary.business.user.role.BasicUserRole" />
 
-<jsp:directive.page import="abcs.globals.URLGLOBALS" />
+<jsp:directive.page import="org.allbinary.globals.URLGLOBALS" />
 
-<jsp:directive.page import="abcs.logic.basic.io.LineReader" />
-<jsp:directive.page import="abcs.logic.basic.string.StringUtil"/>
-<jsp:directive.page import="abcs.logic.basic.string.StringValidationUtil"/>
+<jsp:directive.page import="org.allbinary.logic.basic.io.LineReader" />
+<jsp:directive.page import="org.allbinary.logic.basic.string.StringUtil"/>
+<jsp:directive.page import="org.allbinary.logic.basic.string.StringValidationUtil"/>
 
-<jsp:directive.page import="abcs.logic.communication.http.request.session.BasicWeblisketSession" />
+<jsp:directive.page import="org.allbinary.logic.communication.http.request.session.BasicWeblisketSession" />
 
-<jsp:directive.page import="abcs.logic.system.loader.WebappClassLoaderInfo"/>
+<jsp:directive.page import="org.allbinary.logic.system.loader.WebappClassLoaderInfo"/>
 
 <jsp:directive.page import="org.allbinary.business.context.modules.storefront.StoreFrontData" />
 

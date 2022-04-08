@@ -144,13 +144,13 @@ public class LoggingInitInfo
    {
       LoggingInitInfo.updateIfNeeded();
       
-      Vector allLogTypeVector = new Vector();
-      Iterator iter = LoggingInitInfo.logConfigInfoVector.iterator();
+      final Vector allLogTypeVector = new Vector();
+      final Iterator iter = LoggingInitInfo.logConfigInfoVector.iterator();
       
       while(iter.hasNext())
       {
-         LogConfig logConfigInfo = (LogConfig) iter.next();
-         Vector logTypeVector = logConfigInfo.getTypeVector();
+         final LogConfig logConfigInfo = (LogConfig) iter.next();
+         final Vector logTypeVector = logConfigInfo.getTypeVector();
 
          if(logConfigInfo.isEnabled())
          {

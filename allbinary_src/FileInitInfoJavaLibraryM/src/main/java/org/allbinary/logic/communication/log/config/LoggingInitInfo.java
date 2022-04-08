@@ -46,8 +46,11 @@ public class LoggingInitInfo
 
    public synchronized static Document getDoc() throws Exception
    {
-      AbPath FILEABPATH =
-	 new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, INITFILENAME);
+      System.out.println("WebApp Path: " + URLGLOBALS.getWebappPath());
+      System.out.println("Package: " + PACKAGE);
+      String path = URLGLOBALS.getWebappPath() + PACKAGE;
+      path = path.replace('\\', '/');
+      AbPath FILEABPATH = new AbPath(path, INITFILENAME);
       System.out.println("File Path: " + FILEABPATH);
       
       AbFile file = new AbFile(FILEABPATH);

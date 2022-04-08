@@ -79,8 +79,8 @@ public class LogConfigTypes
          PreLogUtil.put("Initialize LogconfigTypes" ,"LogConfigTypes","init()");
 
          //Load the Specified configuration files
-         LoggingInitInfo loggingInitInfo = new LoggingInitInfo();
-         Vector logConfigTypeVector = loggingInitInfo.getTypeVector();
+         final LoggingInitInfo loggingInitInfo = new LoggingInitInfo();
+         final Vector logConfigTypeVector = loggingInitInfo.getTypeVector();
          PreLogUtil.put("Number Of Log Configs: " + loggingInitInfo.getNumberOfLogConfigs(),"LogConfigTypes","init()");
          PreLogUtil.put("Number Of Log Config Type Names: " + logConfigTypeVector.size(),"LogConfigTypes","init()");
          
