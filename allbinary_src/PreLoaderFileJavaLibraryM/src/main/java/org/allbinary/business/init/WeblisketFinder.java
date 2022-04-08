@@ -24,7 +24,14 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class WeblisketFinder
 {
-	private static final WeblisketFinder instance = new WeblisketFinder();
+    private static final WeblisketFinder instance = new WeblisketFinder();
+
+    /**
+     * @return the instance
+     */
+    public static WeblisketFinder getInstance() {
+        return instance;
+    }
 	
     private static final String KEY = "installerdata.dat";
 
@@ -33,20 +40,20 @@ public class WeblisketFinder
     }
 
     //searches for all paths that contain the path provided
-    public static Vector findAll(String path)
+    public Vector findAll(String path)
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", instance, "findAll"));
+            LogUtil.put(LogFactory.getInstance("Start", this, "findAll"));
 
             SubDirectory subDirectory = new SubDirectory();
             return subDirectory.search(KEY, new AbFile(path));
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Failed", instance, "findAll", e));
+            LogUtil.put(LogFactory.getInstance("Failed", this, "findAll", e));
             if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed", instance, "findAll", e));
+                LogUtil.put(LogFactory.getInstance("Failed", this, "findAll", e));
             }
 
             //return new Vector();
@@ -55,7 +62,7 @@ public class WeblisketFinder
     }
 
     //Retrieves the intallation path
-    public static String getInstallationPath(AbFile file)
+    public String getInstallationPath(AbFile file)
     {
         try
         {
@@ -70,7 +77,7 @@ public class WeblisketFinder
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Failed", instance, "getInstallationPath", e));
+                LogUtil.put(LogFactory.getInstance("Failed", this, "getInstallationPath", e));
             }
             return null;
         }
