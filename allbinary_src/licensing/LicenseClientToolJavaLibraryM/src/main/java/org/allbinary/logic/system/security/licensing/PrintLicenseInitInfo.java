@@ -25,6 +25,7 @@ import org.allbinary.util.BasicArrayList;
 public class PrintLicenseInitInfo
 {
     public static final String PATH = "G:\\mnt\\bc\\mydev\\work\\allbinary_src\\licensing\\data\\";
+    //public static final String PATH = "G:\\mnt\\bc\\mydev\\work_other\\allbinary_webapp\\src\\main\\webapp\\";
     
    //private static BufferedReader stdinput = new BufferedReader(new InputStreamReader(System.in));
 

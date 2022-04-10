@@ -64,7 +64,7 @@ public class AbSqlBasic
     
     private final String LOAD_JDBC_DRIVER_FAILED_LABEL = "Load JDBC Driver Failed: ";
     
-    public AbSqlBasic(DbConnectionInfo databaseConnectionInfoInterface)
+    public AbSqlBasic(final DbConnectionInfo databaseConnectionInfoInterface)
     {
         this.databaseConnectionInfoInterface = databaseConnectionInfoInterface;
         this.connectAttemptCounter = 0;
@@ -96,7 +96,7 @@ public class AbSqlBasic
     return password;
     }
      */
-    public ResultSet executeSQLStatement(String statement) throws SQLException
+    public ResultSet executeSQLStatement(final String statement) throws SQLException
     {
         try
         {
@@ -145,7 +145,7 @@ public class AbSqlBasic
          */
     }
 
-    public String create(String databaseName)
+    public String create(final String databaseName)
     {
         try
         {
@@ -262,7 +262,7 @@ public class AbSqlBasic
         return databaseConnectionInfoInterface;
     }
 
-    public void setDatabaseConnectionInfoInterface(DbConnectionInfo databaseConnectionInfoInterface)
+    public void setDatabaseConnectionInfoInterface(final DbConnectionInfo databaseConnectionInfoInterface)
     {
         this.databaseConnectionInfoInterface = databaseConnectionInfoInterface;
     }

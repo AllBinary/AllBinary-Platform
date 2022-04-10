@@ -79,23 +79,23 @@ public class LoggingInitInfo
    {
       try
       {
-         Document document = LoggingInitInfo.getDoc();
+         final Document document = LoggingInitInfo.getDoc();
 
-         NodeList logConfigsNodeList =
+         final NodeList logConfigsNodeList =
             document.getElementsByTagName(LogConfigsData.getInstance().NAME);
 
-         Node logConfigsNode = logConfigsNodeList.item(0);
+         final Node logConfigsNode = logConfigsNodeList.item(0);
          
-         Vector logConfigNodeVector = 
+         final Vector logConfigNodeVector = 
             DomSearchHelper.getAllNodes(
                LogConfigData.getInstance().NAME, logConfigsNode.getChildNodes());
 	    
          LoggingInitInfo.logConfigInfoVector = new Vector();
 	    
-         Iterator iter = logConfigNodeVector.iterator();
+         final Iterator iter = logConfigNodeVector.iterator();
          while(iter.hasNext())
          {
-            Node node = (Node) iter.next();
+            final Node node = (Node) iter.next();
             LogConfig logConfigInfo = new LogConfig(node);
             LoggingInitInfo.logConfigInfoVector.add(logConfigInfo);
          }
@@ -174,13 +174,13 @@ public class LoggingInitInfo
    {
       LoggingInitInfo.updateIfNeeded();
       
-      Vector allLogTypeVector = new Vector();
-      Iterator iter = LoggingInitInfo.logConfigInfoVector.iterator();
+      final Vector allLogTypeVector = new Vector();
+      final Iterator iter = LoggingInitInfo.logConfigInfoVector.iterator();
       
       while(iter.hasNext())
       {
-         LogConfig logConfigInfo = (LogConfig) iter.next();
-         Vector logTypeVector = logConfigInfo.getTypeVector();
+         final LogConfig logConfigInfo = (LogConfig) iter.next();
+         final Vector logTypeVector = logConfigInfo.getTypeVector();
 
          if(logConfigInfo.isEnabled())
          {
@@ -199,7 +199,7 @@ public class LoggingInitInfo
    {
       try
       {
-         Document document = LoggingInitInfo.getDoc();
+         final Document document = LoggingInitInfo.getDoc();
          return DomDocumentHelper.toString(document);
       }
       catch(Exception e)
