@@ -16,6 +16,7 @@ package org.allbinary.logic.basic.path;
 import org.allbinary.logic.basic.io.file.FilePathData;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 //Used to correct user input for paths
 public class AbPathUtil
@@ -201,7 +202,9 @@ public class AbPathUtil
         //Convert \ to / I.E. from dos/windows file path to uri/unix path
         if(path.indexOf("\\") >= 0)
         {
+            //PreLogUtil.put("Adjusting Path: " + path, this, "adjust");
             path = path.replace('\\', abPathData.SEPARATORCHAR);
+            //PreLogUtil.put("Adjusted Path: " + path, this, "adjust");
         }
         /*
         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))

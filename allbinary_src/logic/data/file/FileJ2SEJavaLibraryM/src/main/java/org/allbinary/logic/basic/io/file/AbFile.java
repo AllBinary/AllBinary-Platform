@@ -25,32 +25,32 @@ public class AbFile implements AbFileInterface
 {
    private final File file;
 
-   protected AbFile(String filePath, boolean unknown) throws Exception
+   protected AbFile(final String filePath, final boolean unknown) throws Exception
    {
       this.file = new File(filePath);
    }
 
-   protected AbFile(File file) throws Exception
+   protected AbFile(final File file) throws Exception
    {
       this.file = file;
    }
 
-   public AbFile(AbFile file, String childPathName) throws Exception
+   public AbFile(final AbFile file, final String childPathName) throws Exception
    {
       this.file = new File(file.getFile(), childPathName);
    }
 
-   public AbFile(String filePath) throws Exception
+   public AbFile(final String filePath) throws Exception
    {
       this.file = new File(new AbPath(filePath).toFileSystemString());
    }
 
-   public AbFile(String filePath, String fileName) throws Exception
+   public AbFile(final String filePath, final String fileName) throws Exception
    {
       this.file = new File(new AbPath(filePath).toFileSystemString(), fileName);
    }
 
-   public AbFile(AbPath abPath)
+   public AbFile(final AbPath abPath)
    {
       this.file = new File(abPath.toFileSystemString());
    }
@@ -200,7 +200,7 @@ public class AbFile implements AbFileInterface
       return this.file.list();
    }
 
-   public String[] list(FilenameFilter filter)
+   public String[] list(final FilenameFilter filter)
    {
       return this.file.list(filter);
    }
@@ -210,12 +210,12 @@ public class AbFile implements AbFileInterface
       return this.file.listFiles();
    }
 
-   public Object[] listFiles(FilenameFilter filter)
+   public Object[] listFiles(final FilenameFilter filter)
    {
       return this.file.listFiles(filter);
    }
 
-   public Object[] listFiles(FileFilter filter)
+   public Object[] listFiles(final FileFilter filter)
    {
       return this.file.listFiles(filter);
    }
@@ -230,12 +230,12 @@ public class AbFile implements AbFileInterface
       return this.file.mkdirs();
    }
 
-   public boolean renameTo(AbFile dest)
+   public boolean renameTo(final AbFile dest)
    {
       return this.file.renameTo(dest.getFile());
    }
 
-   public boolean setLastModified(long time)
+   public boolean setLastModified(final long time)
    {
       return this.file.setLastModified(time);
    }
@@ -245,33 +245,33 @@ public class AbFile implements AbFileInterface
       return this.file.setReadOnly();
    }
 
-   public boolean setWritable(boolean writable, boolean ownerOnly)
+   public boolean setWritable(final boolean writable, final boolean ownerOnly)
    {
       return this.file.setExecutable(writable, ownerOnly);
    }
 
-   public boolean setWritable(boolean writable)
+   public boolean setWritable(final boolean writable)
    {
       return this.file.setWritable(writable);
    }
 
-   public boolean setReadable(boolean readable, boolean ownerOnly)
+   public boolean setReadable(final boolean readable, final boolean ownerOnly)
    {
       return this.file.setReadable(readable, ownerOnly);
    }
 
-   public boolean setReadable(boolean readable)
+   public boolean setReadable(final boolean readable)
    {
       return this.file.setReadable(readable);
 
    }
 
-   public boolean setExecutable(boolean executable, boolean ownerOnly)
+   public boolean setExecutable(final boolean executable, final boolean ownerOnly)
    {
       return this.file.setExecutable(executable, ownerOnly);
    }
 
-   public boolean setExecutable(boolean executable)
+   public boolean setExecutable(final boolean executable)
    {
       return this.file.setExecutable(executable);
    }

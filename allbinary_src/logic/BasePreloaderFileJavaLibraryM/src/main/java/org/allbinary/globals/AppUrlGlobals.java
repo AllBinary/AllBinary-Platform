@@ -14,6 +14,7 @@
 package org.allbinary.globals;
 
 import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 //implements
 public class AppUrlGlobals extends UrlGlobalsInterface
@@ -38,6 +39,8 @@ public class AppUrlGlobals extends UrlGlobalsInterface
       {
           this.path = this.path + "\\";
       }
+      
+      //PreLogUtil.put("Webapp Path: " + this.path, this, "setWebappPath");
    }  
    
    public String getTestHtmlPath()

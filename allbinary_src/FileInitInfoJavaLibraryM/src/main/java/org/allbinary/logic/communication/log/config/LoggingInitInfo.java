@@ -29,6 +29,7 @@ import org.allbinary.logic.basic.io.file.AbFile;
 
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.globals.PATH_GLOBALS;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class LoggingInitInfo
 {
@@ -46,16 +47,15 @@ public class LoggingInitInfo
 
    public synchronized static Document getDoc() throws Exception
    {
-      System.out.println("WebApp Path: " + URLGLOBALS.getWebappPath());
-      System.out.println("Package: " + PACKAGE);
-      String path = URLGLOBALS.getWebappPath() + PACKAGE;
-      path = path.replace('\\', '/');
-      AbPath FILEABPATH = new AbPath(path, INITFILENAME);
-      System.out.println("File Path: " + FILEABPATH);
+      //PreLogUtil.put("Webapp Path: " + URLGLOBALS.getWebappPath(), "LoggingInitInfo", "getDoc");
+      //PreLogUtil.put("Package: " + PACKAGE, "LoggingInitInfo", "getDoc");
+      final String path = URLGLOBALS.getWebappPath() + PACKAGE;
+      final AbPath FILEABPATH = new AbPath(path, INITFILENAME);
+      //PreLogUtil.put("File Path: " + FILEABPATH, "LoggingInitInfo", "getDoc");
       
-      AbFile file = new AbFile(FILEABPATH);
+      final AbFile file = new AbFile(FILEABPATH);
 
-      Document document = 
+      final Document document = 
          DomDocumentHelper.create(new AbFileLocalInputStream(file));
       
       return document;
