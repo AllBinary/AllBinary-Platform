@@ -93,28 +93,28 @@ public class LogConfigTypes
       }
    }
    
-   public static LogConfigType getInstance(Node node) throws Exception
+   public static LogConfigType getInstance(final Node node) throws Exception
    {
-      Node nameValueNode =
+      final Node nameValueNode =
          DomSearchHelper.getNode(LogConfigTypeData.getInstance().NAME, node.getChildNodes());
-      String name = 
-         DomNodeHelper.getTextNodeValue(nameValueNode);
+      final String name = DomNodeHelper.getTextNodeValue(nameValueNode);
 
-      Node descriptionValueNode =
+      final Node descriptionValueNode =
          DomSearchHelper.getNodeNoThrow(LogConfigTypeData.getInstance().DESCRIPTION, node.getChildNodes());
       
       if(descriptionValueNode != null)
       {
-         String description = 
+         final String description = 
             DomNodeHelper.getTextNodeValue(descriptionValueNode);
       }
 
-      BasicArrayList availableLogConfigTypes = LogConfigType.availableLogConfigTypes;
+      final BasicArrayList availableLogConfigTypes = LogConfigType.availableLogConfigTypes;
       
-      int size = availableLogConfigTypes.size();
+      final int size = availableLogConfigTypes.size();
+      LogConfigType logConfigType;
       for(int index = 0; index < size; index++)
       {
-         LogConfigType logConfigType = (LogConfigType) availableLogConfigTypes.get(index);
+         logConfigType = (LogConfigType) availableLogConfigTypes.get(index);
          if(logConfigType.getName().compareTo(name) == 0)
          {
             return logConfigType;
