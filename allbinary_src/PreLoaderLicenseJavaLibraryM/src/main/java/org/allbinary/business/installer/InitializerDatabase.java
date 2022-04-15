@@ -198,7 +198,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Users", this, "create()", e));
+            LogUtil.put(LogFactory.getInstance("Unable to Create Users", this, "createUsers()", e));
             return false;
         }
     }
@@ -211,7 +211,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Databases", this, "create()", e));
+            LogUtil.put(LogFactory.getInstance("Unable to Create Databases", this, "createDatabases()", e));
             return false;
         }
     }
@@ -224,7 +224,7 @@ public class InitializerDatabase
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Unable to Create Tables", this, "create()", e));
+            LogUtil.put(LogFactory.getInstance("Unable to Create Tables", this, "createTables()", e));
             return false;
         }
     }

@@ -148,7 +148,6 @@ public class LoggingInitInfo
       return LoggingInitInfo.logConfigInfoVector;
    }
 
-   /*
    public static Vector getTypeNameVector() throws Exception
    {
       LoggingInitInfo.updateIfNeeded();
@@ -168,7 +167,6 @@ public class LoggingInitInfo
       }
       return allLogTypeVector;
    }
-    */
 
    public static Vector getTypeVector() throws Exception
    {
