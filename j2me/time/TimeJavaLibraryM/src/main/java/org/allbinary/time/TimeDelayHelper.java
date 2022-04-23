@@ -149,17 +149,33 @@ public class TimeDelayHelper
         this.setStartTime();
     }
     
-    public String toString()
+    public String toString(long currentTime)
     {
-        long elapsed = this.getElapsed();
+        long elapsed = this.getElapsed(currentTime);
 
         if(elapsed > 0)
         {
-            return "Elapsed: " + Long.toString(elapsed / 10000);
+            return new StringBuilder().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
         }
         else
         {
             return StringUtil.getInstance().EMPTY_STRING;
         }
     }
+    
+    public String toString()
+    {
+        long currentTime = System.currentTimeMillis();
+        long elapsed = this.getElapsed(currentTime);
+
+        if(elapsed > 0)
+        {
+            return new StringBuilder().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
+        }
+        else
+        {
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
+    }
+    
 }
