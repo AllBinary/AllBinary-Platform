@@ -2,6 +2,8 @@ package org.allbinary.logic.basic.string;
 
 public class StringMaker 
 {
+    private final StringUtil stringUtil = StringUtil.getInstance();
+    
     private char[] charArray;
     private int currentLength;
 
@@ -10,7 +12,7 @@ public class StringMaker
         charArray = new char[20];
     }
     
-    public StringMaker append(String string)
+    public StringMaker append(final String string)
     {
         int stringLength = string.length();
         ensureCapacity(currentLength + stringLength);
@@ -19,27 +21,31 @@ public class StringMaker
         return this;
     }
 
-    public StringMaker append(Object object)
+    public StringMaker append(final Object object)
     {
-        this.append(object.toString());
+        if(object != null) {
+            this.append(object.toString());
+        } else {
+            this.append(stringUtil.NULL_STRING);
+        }
         return this;
     }
     
-    public StringMaker append(char c)
+    public StringMaker append(final char c)
     {
         ensureCapacity(currentLength + 1);
         charArray[currentLength++] = c;
         return this;
     }
 
-    public StringMaker append(int i)
+    public StringMaker append(final int i)
     {
       //change to PrimitiveLongUtil
         this.append(Integer.toString(i));
         return this;
     }
 
-    public StringMaker append(long l)
+    public StringMaker append(final long l)
     {
       //change to PrimitiveLongUtil
         this.append(Long.toString(l));
@@ -55,7 +61,7 @@ public class StringMaker
     }
     */
     
-    public StringMaker append(boolean bool)
+    public StringMaker append(final boolean bool)
     {
         if (bool)
         {
@@ -75,9 +81,9 @@ public class StringMaker
         return this;
     }
 
-    public void ensureCapacity(int minSize)
+    public void ensureCapacity(final int minSize)
     {
-        int oldCapacity = charArray.length;
+        final int oldCapacity = charArray.length;
 
         if (minSize > oldCapacity) 
         {
@@ -86,13 +92,13 @@ public class StringMaker
             if (newCapacity < minSize)
                 newCapacity = minSize;
 
-            char[] copy = new char[newCapacity];
+            final char[] copy = new char[newCapacity];
             System.arraycopy(charArray, 0, copy, 0, Math.min(charArray.length, newCapacity));
             charArray = copy;
         }
     }
 
-    public StringMaker delete(int start, int end)
+    public StringMaker delete(final int start, final int end)
     { 
         this.currentLength -= (end - start);
         return this;

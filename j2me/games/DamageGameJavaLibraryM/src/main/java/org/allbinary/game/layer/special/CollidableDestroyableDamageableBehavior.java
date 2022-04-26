@@ -22,14 +22,13 @@ import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 public class CollidableDestroyableDamageableBehavior 
 extends CollidableBaseBehavior 
 {
-    public CollidableDestroyableDamageableBehavior(CollidableCompositeLayer ownerLayer, boolean collidable)
+    public CollidableDestroyableDamageableBehavior(final CollidableCompositeLayer ownerLayer, final boolean collidable)
     {
         super(ownerLayer, collidable);
     }
     
     // TODO TWB Special Super Efficient Collision Processing
-    public boolean isCollision(
-            CollidableCompositeLayer collisionLayer)
+    public boolean isCollision(final CollidableCompositeLayer collisionLayer)
     {
         if (this.ownerLayer.getGroupInterface()[0] != collisionLayer.getGroupInterface()[0])
         {
@@ -40,14 +39,14 @@ extends CollidableBaseBehavior
     
     // TODO TWB Special Super Efficient Collision Processing
     //public void collide(CollidableDestroyableDamageableTeamLayer collisionLayer)
-    public void collide(CollidableCompositeLayer collidableInterfaceCompositeInterface)
+    public void collide(final CollidableCompositeLayer collidableInterfaceCompositeInterface)
             throws Exception
     {
         ((CollidableDestroyableDamageableLayer) this.ownerLayer).damage(
                 ((CollidableDestroyableDamageableLayer) collidableInterfaceCompositeInterface).getDamage(0), 0);
     }
 
-    public boolean isCollision(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public boolean isCollision(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
     {
         ForcedLogUtil.log("No Longer Used", this);
         return false;
@@ -68,7 +67,7 @@ extends CollidableBaseBehavior
         */
     }
     
-    public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
+    public void collide(final CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
         ForcedLogUtil.log("No Longer Used", this);

@@ -28,7 +28,7 @@ public class AngleIncrementInfo
    {
       this.angleIncrement = angleIncrement;
 
-      AngleFactory angleFactory = AngleFactory.getInstance();
+      final AngleFactory angleFactory = AngleFactory.getInstance();
       
       final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
       
