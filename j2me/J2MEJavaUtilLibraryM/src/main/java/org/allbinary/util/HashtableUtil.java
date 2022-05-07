@@ -27,7 +27,7 @@ public class HashtableUtil
 
     public void putAll(Hashtable fromHashtable, Hashtable hashtable)
     {
-        Enumeration enumeration = fromHashtable.keys();
+        final Enumeration enumeration = fromHashtable.keys();
         while (enumeration.hasMoreElements())
         {
             Object key = enumeration.nextElement();
@@ -51,7 +51,7 @@ public class HashtableUtil
         Object[] objectArray = new Object[hashtable.size()];
 
         int index = 0;
-        Enumeration enumeration = hashtable.keys();
+        final Enumeration enumeration = hashtable.keys();
         while (enumeration.hasMoreElements())
         {
             objectArray[index++] = enumeration.nextElement();
@@ -62,20 +62,18 @@ public class HashtableUtil
 
     public BasicArrayList getKeysAsList(Hashtable hashtable)
     {
-        throw new IllegalArgumentException("Should not use - to much object creation");
+        //throw new IllegalArgumentException("Should not use - to much object creation");
         //return hashtable.keySet().toArray();
 
-        /*
-        BasicArrayList list = new BasicArrayList(hashtable.size());
+        final BasicArrayList list = new BasicArrayList(hashtable.size());
         
-        Enumeration enumeration = hashtable.keys();
+        final Enumeration enumeration = hashtable.keys();
         while(enumeration.hasMoreElements())
         {
-        list.add(enumeration.nextElement());
+            list.add(enumeration.nextElement());
         }
         
         return list;
-         */
     }
 
 }

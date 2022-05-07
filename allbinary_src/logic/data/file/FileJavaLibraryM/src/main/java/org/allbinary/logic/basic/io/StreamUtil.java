@@ -55,7 +55,7 @@ public class StreamUtil
     public OutputStream get(InputStream inputStream,
         OutputStream outputStream) throws Exception
     {
-        return this.get(inputStream, outputStream, new byte[4096]);
+        return this.get(inputStream, outputStream, new byte[16384]);
     }
 
     public OutputStream get(InputStream inputStream,
@@ -79,20 +79,25 @@ public class StreamUtil
         return outputStream;
     }
 
-    public byte[] getByteArray(final InputStream inputStream)
+    public byte[] getByteArray(final InputStream inputStream) 
         throws Exception
     {
-    	ByteArrayOutputStream outputStream = null;
+        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream(8000);
+        return this.getByteArray(inputStream, outputStream);
+    }
+
+    public byte[] getByteArray(final InputStream inputStream, final ByteArrayOutputStream outputStream2)
+        throws Exception
+    {
+        final ByteArrayOutputStream outputStream = outputStream2;
     	try
     	{
-    		outputStream = (ByteArrayOutputStream) 
-            this.get(inputStream, new ByteArrayOutputStream(8000));
-
-        return outputStream.toByteArray();
+            this.get(inputStream, outputStream);
+            return outputStream.toByteArray();
         } 
         finally
         {
-        	this.close(outputStream);
+            this.close(outputStream);
         }        
     }
 

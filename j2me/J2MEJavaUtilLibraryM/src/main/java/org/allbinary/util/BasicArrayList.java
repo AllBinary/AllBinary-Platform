@@ -12,7 +12,6 @@ package org.allbinary.util;
 
 import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringMaker;
 
 //This is a very fast and simple resizable list.
