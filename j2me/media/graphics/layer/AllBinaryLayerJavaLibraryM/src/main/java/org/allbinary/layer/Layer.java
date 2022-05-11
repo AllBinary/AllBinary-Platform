@@ -81,7 +81,9 @@ public class Layer
     
     public void move(int dx, int dy, int dz)
     {
-        //LogUtil.put(LogFactory.getInstance(PositionStrings + dx + PositionStrings + dy + PositionStrings + dz, this, "move"));
+        //final PositionStrings positionStrings = PositionStrings.getInstance();
+        //final StringMaker stringMaker = new StringMaker();
+        //LogUtil.put(LogFactory.getInstance(stringMaker.append(positionStrings.DX_LABEL).append(dx).append(positionStrings.DY_LABEL).append(dy).append(positionStrings.DZ_LABEL).append(dz).toString(), this, "move"));
         this.x += dx;
         this.y += dy;
         this.z += dz;

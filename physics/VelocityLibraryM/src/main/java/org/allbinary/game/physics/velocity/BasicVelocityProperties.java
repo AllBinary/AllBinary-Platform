@@ -17,7 +17,6 @@ import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionUtil;
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.BasicDecimal;
@@ -78,66 +77,64 @@ public class BasicVelocityProperties implements BasicVelocityInterface
     
     protected final DirectionUtil directionUtil = DirectionUtil.getInstance();
     
-    public void setVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection)
+    public void setVelocity(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
-        Angle angle = directionUtil.getAngle(direction);
-        Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = directionUtil.getAngle(direction);
+        final Angle otherAngle = directionUtil.getAngle(otherDirection);
         this.setVelocity(magnitudeBasicDecimal, angle, otherAngle);
     }
 
-    public void setVelocity(long magnitude, Direction direction, Direction otherDirection)
+    public void setVelocity(final long magnitude, final Direction direction, final Direction otherDirection)
     {
-        Angle angle = directionUtil.getAngle(direction);
-        Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = directionUtil.getAngle(direction);
+        final Angle otherAngle = directionUtil.getAngle(otherDirection);
         this.setVelocity(magnitude, angle, otherAngle);
     }
 
-    public void addVelocity(BasicDecimal magnitudeBasicDecimal, Direction direction, Direction otherDirection)
+    public void addVelocity(final BasicDecimal magnitudeBasicDecimal, final Direction direction, final Direction otherDirection)
     {
-        Angle angle = directionUtil.getAngle(direction);
-        Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = directionUtil.getAngle(direction);
+        final Angle otherAngle = directionUtil.getAngle(otherDirection);
         this.addVelocity(magnitudeBasicDecimal, angle, otherAngle);
     }
     
-    public void addVelocity(long magnitude, Direction direction, Direction otherDirection)
+    public void addVelocity(final long magnitude, final Direction direction, final Direction otherDirection)
     {
-        Angle angle = directionUtil.getAngle(direction);
-        Angle otherAngle = directionUtil.getAngle(otherDirection);
+        final Angle angle = directionUtil.getAngle(direction);
+        final Angle otherAngle = directionUtil.getAngle(otherDirection);
         this.addVelocity(magnitude, angle, otherAngle);
     }
 
-    public void setVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle)
+    public void setVelocity(final BasicDecimal magnitudeBasicDecimal, final Angle angle, final Angle otherAngle)
     {
-        long magnitude = magnitudeBasicDecimal.getUnscaled();
+        final long magnitude = magnitudeBasicDecimal.getUnscaled();
         this.setVelocity(magnitude, angle, otherAngle);
     }
 
-    public void addVelocity(BasicDecimal magnitudeBasicDecimal, Angle angle, Angle otherAngle)
+    public void addVelocity(final BasicDecimal magnitudeBasicDecimal, final Angle angle, final Angle otherAngle)
     {
-        long magnitude = magnitudeBasicDecimal.getUnscaled();
+        final long magnitude = magnitudeBasicDecimal.getUnscaled();
         this.addVelocity(magnitude, angle, otherAngle);
     }
 
-    public void setVelocity(long magnitude, Angle angle, Angle otherAngle)
+    public void setVelocity(final long magnitude, final Angle angle, final Angle otherAngle)
     {
         this.setVelocity(magnitude, angle.getValue(), otherAngle.getValue());
     }
 
-    public void addVelocity(long magnitude, Angle angle, Angle otherAngle)
+    public void addVelocity(final long magnitude, final Angle angle, final Angle otherAngle)
     {
         this.addVelocity(magnitude, angle.getValue(), otherAngle.getValue());
     }
 
-    public void setVelocity(long magnitude, short angle, short otherAngle)
+    public void setVelocity(final long magnitude, final short angle, final short otherAngle)
     {
-        long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
-        long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
-        long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
+        final long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
+        final long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
+        final long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
 
-        //LogUtil.put(LogFactory.getInstance(new StringBuilder()
-                //.append(CommonStrings.getInstance().ADD).append(xVector)
-                //.append(CommonStrings.getInstance().ADD).append(yVector).toString(), this, CommonStrings.getInstance().ADD));
-        
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().ADD));
+
         // StringMaker stringBuffer = new StringMaker();
 
         // stringBuffer.append("Magnitude: ");
@@ -156,15 +153,13 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         // BlowingInTheWindTestInput.getInstance().append(this.toString());
     }
 
-    public void addVelocity(long magnitude, short angle, short otherAngle)
+    public void addVelocity(final long magnitude, final short angle, final short otherAngle)
     {
-        long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
-        long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
-        long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
+        final long xVector = (axisMathVectorUtil.calculateX(magnitude, angle) / velocityXBasicDecimal.getScaledFactorValue());
+        final long yVector = (axisMathVectorUtil.calculateY(magnitude, angle) / velocityYBasicDecimal.getScaledFactorValue());
+        final long zVector = (axisMathVectorUtil.calculateZ(magnitude, otherAngle) / velocityZBasicDecimal.getScaledFactorValue());
         
-        //LogUtil.put(LogFactory.getInstance(new StringBuilder()
-                //.append(CommonStrings.getInstance().ADD).append(xVector)
-                //.append(CommonStrings.getInstance().ADD).append(yVector).toString(), this, CommonStrings.getInstance().ADD));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().ADD));
         velocityXBasicDecimal.add(xVector);
         velocityYBasicDecimal.add(yVector);
         velocityZBasicDecimal.add(zVector);
@@ -172,16 +167,18 @@ public class BasicVelocityProperties implements BasicVelocityInterface
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final PositionStrings positionStrings = PositionStrings.getInstance();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Velocity ");
-        stringBuffer.append(PositionStrings.getInstance().X_LABEL);
+        stringBuffer.append(positionStrings.X_LABEL);
         stringBuffer.append(this.velocityXBasicDecimal);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(PositionStrings.getInstance().Y_LABEL);
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(positionStrings.Y_LABEL);
         stringBuffer.append(this.velocityYBasicDecimal);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(PositionStrings.getInstance().Z_LABEL);
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(positionStrings.Z_LABEL);
         stringBuffer.append(this.velocityZBasicDecimal);
 
         return stringBuffer.toString();

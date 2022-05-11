@@ -341,6 +341,8 @@ OpenGLSurfaceChangedInterface
         stringBuffer.append(initX);
         stringBuffer.append(positionStrings.Y_LABEL);
         stringBuffer.append(initX);
+        stringBuffer.append(positionStrings.Z_LABEL);
+        stringBuffer.append(initZ);
         
     }
     
