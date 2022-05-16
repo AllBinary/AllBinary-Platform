@@ -25,7 +25,6 @@ import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
@@ -39,7 +38,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     private boolean initialized;
 
-    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(String name)
+    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name)
     {
         this.name = name;
     }
@@ -48,7 +47,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         return this.name;
     }
     
-    public void init(int level) throws Exception
+    public void init(final int level) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
                 "Available List of Animations: " + hashtable.toString(),
@@ -57,13 +56,13 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         this.setInitialized(true);
     }
 
-    protected void init(ImageCache imageCache, int level) throws Exception
+    protected void init(final ImageCache imageCache, final int level) throws Exception
     {
     }
 
     public void add(
-            String resource,
-            BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
+            final String resource,
+            final BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
             throws Exception
     {
         PreLogUtil.put(resource, this, CommonStrings.getInstance().ADD);
@@ -77,17 +76,17 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     }
 
     public BasicAnimationInterfaceFactoryInterface getBasicAnimationInterfaceFactoryInstance(
-            String resource) throws Exception
+            final String resource) throws Exception
     {
         return (BasicAnimationInterfaceFactoryInterface) hashtable.get(resource);
     }
 
-    public Rectangle getRectangle(String resource) throws Exception
+    public Rectangle getRectangle(final String resource) throws Exception
     {
         return (Rectangle) rectangleHashtable.get(resource);
     }
 
-    public void addRectangle(String resource, Rectangle rectangle) throws Exception
+    public void addRectangle(final String resource, final Rectangle rectangle) throws Exception
     {
         rectangleHashtable.put(resource, rectangle);
     }
@@ -97,9 +96,9 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         return false;
     }
 
-    public boolean isLoadingLevel(int level)
+    public boolean isLoadingLevel(final int level)
     {
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory
                 = ResourceLoadingLevelFactory.getInstance();
 
         if (level == resourceLoadingLevelFactory.LOAD_ALL.getLevel())

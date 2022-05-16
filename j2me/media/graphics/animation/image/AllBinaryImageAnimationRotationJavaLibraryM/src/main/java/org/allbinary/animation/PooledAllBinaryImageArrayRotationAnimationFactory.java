@@ -29,8 +29,6 @@ public class PooledAllBinaryImageArrayRotationAnimationFactory implements
 
     private AllBinaryImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo;
 
-    private int angleIncrement;
-
     public PooledAllBinaryImageArrayRotationAnimationFactory(Image image)
             throws Exception
     {
@@ -52,25 +50,38 @@ public class PooledAllBinaryImageArrayRotationAnimationFactory implements
         this.init(image, image.getWidth(), image.getHeight(), dx, dy);
     }
 
-    protected PooledAllBinaryImageArrayRotationAnimationFactory(Image image,
+    public PooledAllBinaryImageArrayRotationAnimationFactory(Image image,
             int width, int height, int dx, int dy) throws Exception
     {
-
         this.init(image, width, height, dx, dy);
     }
 
+    public PooledAllBinaryImageArrayRotationAnimationFactory(Image image,
+            int width, int height, int dx, int dy, short angleIncrement) throws Exception
+    {
+        this.init(image, width, height, dx, dy, angleIncrement);
+    }
+    
     private void init(Image image, int width, int height, int dx, int dy)
             throws Exception
     {
+        final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        
+        final short angleIncrement = (short) (totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        
+        this.init(image, width, height, dx, dy, angleIncrement);
+    }
+    
+    private void init(Image image, int width, int height, int dx, int dy, short angleIncrement)
+            throws Exception
+    {
 
+        final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
+        
         // this.width = width;
         // this.height = height;
 
-        int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
-        
-        this.angleIncrement = totalAngle / GameConfigurationCentral.getInstance().getGameControlFidelity();
-
-        Image[] imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image,
+        final Image[] imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image,
                 angleIncrement, totalAngle);
 
         allBinaryImageRotationAnimationInfo = new AllBinaryImageArrayRotationAnimationInfo(
