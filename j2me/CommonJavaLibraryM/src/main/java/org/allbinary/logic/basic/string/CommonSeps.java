@@ -29,6 +29,7 @@ public class CommonSeps
     public final String EQUALS = "=";
     public final String SPACE = " ";
     public final String COMMA = ",";
+    public final String SEMI_COLON = ";";
     public final String COLON = ":";
     public final String PERIOD = ".";
     public final String UNDERSCORE = "_";
@@ -40,6 +41,12 @@ public class CommonSeps
     public final String BRACE_CLOSE = "}";
     public final String BRACKET_OPEN = "[";
     public final String BRACKET_CLOSE = "]";
+    
+    public final String DASH = "-";
+        
+    public final String POUND = "#";
+    public final String PERCENT = "%";
+    public final String AMPERSAND = "&";
     
     public final String FORWARD_SLASH = "/";
     public final String BACK_SLASH = "\\";
