@@ -24,13 +24,13 @@ import java.io.RandomAccessFile;
 
 import java.util.Calendar;
 import java.util.Date;
-
-import org.allbinary.graphics.j2me.MyFrame;
+import org.allbinary.logic.communication.log.LogFormatUtil;
 
 public class FileLog
 {
    private static final long logLength = 50000000;  // 50MB
-   private static final String logPath = MyFrame.PATH + "/log/";
+   //private static final String logPath = MyFrame.PATH + "/log/";
+   private static final String logPath = "g:\\log\\";
    private static final String extension = new String("dat");
    private static final String fileName = new String("log." + extension);
    private static final String backupFileName = fileName.concat(".bak");
@@ -149,8 +149,7 @@ public class FileLog
          if(object.getClass().getName() != null) className = new String(object.getClass().getName());
          
          if(exception!=null)
-         {
-            
+         {   
             if(exception.toString() != null) exceptionInfo = new String(exception.toString());
             ByteArrayOutputStream bs = new ByteArrayOutputStream();
             PrintStream pStream = new PrintStream(bs);
@@ -158,18 +157,17 @@ public class FileLog
             if(bs.toString() != null) exceptionMessage = new String(bs.toString());
          }
          
-         String msg=new String("Time: " + time +
-         "\nClass Name: " + className +
-         "\nFunction Call: " + functionName +
-         "\nError: " + exceptionInfo +
-         "\nError: " + exceptionMessage +
-         "\nSpecial Msg: " + specialMessage +
-         "\n");
+         String message = LogFormatUtil.getInstance().get(
+                 className, functionName, specialMessage);
          
-         fileOut.write(msg, 0, msg.length());
+         message = new StringBuilder().append("Time: ").append(time).append(message)
+                 .append("\nError: ").append(exceptionInfo)
+                 .append("\nError: ").append(exceptionMessage).toString();
+         
+         fileOut.write(message, 0, message.length());
          fileOut.newLine();
          fileOut.flush();
-         return new String("Logging Successful: " + msg);
+         return new String("org.allbinary: " + message);
       }
       catch (Exception e)
       {
@@ -229,19 +227,18 @@ public class FileLog
             exception.printStackTrace(pStream);
             if(bs.toString() != null) exceptionMessage = new String(bs.toString());
          }
+
+         String message = LogFormatUtil.getInstance().get(
+                 className, functionName, specialMessage);
          
-         String msg=new String("Time: " + time +
-         "\nClass Name: " + className +
-         "\nFunction Call: " + functionName +
-         "\nError: " + exceptionInfo +
-         "\nError: " + exceptionMessage +
-         "\nSpecial Msg: " + specialMessage +
-         "\n");
-         
-         fileOut.write(msg, 0, msg.length());
+         message = new StringBuilder().append("Time: ").append(time).append(message)
+                 .append("\nError: ").append(exceptionInfo)
+                 .append("\nError: ").append(exceptionMessage).toString();
+                  
+         fileOut.write(message, 0, message.length());
          fileOut.newLine();
          fileOut.flush();
-         return new String("Logging Successful: " + msg);
+         return new String("org.allbinary: " + message);
       }
       catch (Exception e)
       {

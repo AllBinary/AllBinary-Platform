@@ -37,9 +37,12 @@ public class LogFormatUtil
     private final String EMPTY = "Empty";
     private final String STACK_TRACE = "\nStack Trace: ";
     private final String TIME = "Time: ";
-    private final String CLASS_NAME = "\nClass Name: ";
-    private final String FUNCTION_CALL = "\nFunction Call: ";
-    private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
+    //private final String CLASS_NAME = "\nClass Name: ";
+    //private final String FUNCTION_CALL = "\nFunction Call: ";
+    //private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
+    private final String CLASS_NAME = CommonSeps.getInstance().SPACE;
+    private final String FUNCTION_CALL = ": ";
+    private final String SPECIAL_MESSAGE = "> ";
     
     private LogFormatUtil()
     {

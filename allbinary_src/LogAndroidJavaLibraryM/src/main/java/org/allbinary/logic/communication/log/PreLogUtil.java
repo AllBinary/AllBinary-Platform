@@ -52,8 +52,8 @@ public class PreLogUtil
         put(specialMessage, object, functionName, null);
     }
     
-    private static final String LABEL = "allbinary";
-    //private final static String LOG_SUCCESS = "Logging Successful: ";
+    private static final String LABEL = "org.allbinary";
+    //private final static String LOG_SUCCESS = "org.allbinary: ";
 
     public synchronized static void put(
         String specialMessage,
@@ -73,7 +73,8 @@ public class PreLogUtil
             className, functionName, specialMessage, exception);
         
         //android.util.Log.i(className, LOG_SUCCESS + message);
-        android.util.Log.i(className, message);
+        android.util.Log.i(LABEL, message);
+        //android.util.Log.i(className, message);
         //System.out.print(LOG_SUCCESS);
         //System.out.println(message);
     }

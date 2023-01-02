@@ -21,8 +21,8 @@ public class LogUtil
    {
    }
 
-   private static final String LABEL = "allbinary";
-   //private static final String LOGGING_LABEL = "Logging Successful: ";
+   private static final String LABEL = "org.allbinary";
+   //private final static String LOG_SUCCESS = "org.allbinary: ";
 
    public synchronized static void put(Log log)
    {
@@ -51,7 +51,8 @@ public class LogUtil
       final String message = LogFormatUtil.getInstance().get(
          className, functionName, specialMessage, exception);
       
-      android.util.Log.i(className, message);
+      android.util.Log.i(LABEL, message);
+      //android.util.Log.i(className, message);
       //android.util.Log.i(className, LOGGING_LABEL + message);
    }
 }

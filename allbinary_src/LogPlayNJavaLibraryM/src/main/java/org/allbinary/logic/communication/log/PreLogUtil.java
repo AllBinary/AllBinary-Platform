@@ -66,7 +66,7 @@ public class PreLogUtil
     }
 
     private static final String EMPTY = "Empty";
-    private final static String LOG_SUCCESS = "Logging Successful: ";
+    private final static String LOG_SUCCESS = "org.allbinary: ";
 
     public synchronized static void put(
         String specialMessage,

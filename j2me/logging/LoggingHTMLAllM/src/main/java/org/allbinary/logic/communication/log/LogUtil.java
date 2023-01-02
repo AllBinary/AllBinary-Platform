@@ -20,7 +20,7 @@ import playn.core.PlayN;
 public class LogUtil
 {
     private final static String EMPTY = "Empty";
-    private final static String LOG_SUCCESS = "Logging Successful: ";
+    private final static String LOG_SUCCESS = "org.allbinary: ";
     
    private LogUtil()
    {

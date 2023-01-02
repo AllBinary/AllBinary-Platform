@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogFormatUtil;
 
 public class LogUtil
 {
-    private final static String LOG_SUCCESS = "Logging Successful: ";
+    private final static String LOG_SUCCESS = "org.allbinary: ";
     
    private LogUtil()
    {

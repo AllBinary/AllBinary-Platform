@@ -52,7 +52,7 @@ public class LogUtil
         System.out.println(message);
     }
     private final static String EMPTY = "Empty";
-    private final static String LOG_SUCCESS = "Logging Successful: ";
+    private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //TWB - Public or Private?
     private synchronized static void put(
