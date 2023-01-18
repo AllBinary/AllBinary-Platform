@@ -52,14 +52,8 @@ public class StreamUtil
      * return buffer; }
      */
 
-    public OutputStream get(InputStream inputStream,
-        OutputStream outputStream) throws Exception
-    {
-        return this.get(inputStream, outputStream, new byte[16384]);
-    }
-
-    public OutputStream get(InputStream inputStream,
-        OutputStream outputStream, byte[] buffer) throws Exception
+    public OutputStream get(final InputStream inputStream,
+        final OutputStream outputStream, byte[] buffer) throws Exception
     {
         //int total = 0;
         int len = 0;
@@ -79,20 +73,20 @@ public class StreamUtil
         return outputStream;
     }
 
-    public byte[] getByteArray(final InputStream inputStream) 
-        throws Exception
-    {
-        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream(8000);
-        return this.getByteArray(inputStream, outputStream);
-    }
+//    public byte[] getByteArray(final InputStream inputStream, final byte[] byteArray) 
+//        throws Exception
+//    {
+//        final ByteArrayOutputStream outputStream = new ByteArrayOutputStream(8000);
+//        return this.getByteArray(inputStream, outputStream, byteArray);
+//    }
 
-    public byte[] getByteArray(final InputStream inputStream, final ByteArrayOutputStream outputStream2)
+    public byte[] getByteArray(final InputStream inputStream, final ByteArrayOutputStream outputStream2, final byte[] byteArray)
         throws Exception
     {
         final ByteArrayOutputStream outputStream = outputStream2;
     	try
     	{
-            this.get(inputStream, outputStream);
+            this.get(inputStream, outputStream, byteArray);
             return outputStream.toByteArray();
         } 
         finally
@@ -101,10 +95,10 @@ public class StreamUtil
         }        
     }
 
-    public String getAsString(final InputStream inputStream) throws Exception {
-        final byte[] byteArray = this.getByteArray(inputStream);
-        return new String(byteArray);
-    }
+//    public String getAsString(final InputStream inputStream, final byte[] byteArray1) throws Exception {
+//        final byte[] byteArray = this.getByteArray(inputStream, byteArray1);
+//        return new String(byteArray);
+//    }
     
     private final String CLOSE = "close";
     
