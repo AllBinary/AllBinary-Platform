@@ -21,18 +21,25 @@ import java.io.InputStream;
 
 public class AbCryptUtil {
 
+    private static final AbCryptUtil instance = new AbCryptUtil();
+    
+    public static AbCryptUtil getInstance() {
+        return instance;
+    }
+
+    private final StreamUtil streamUtil = StreamUtil.getInstance();
+    
     private AbCryptUtil() {
     }
 
-    public static byte[] decrypt(InputStream inputStream, String key)
+    public byte[] decrypt(final InputStream inputStream, final String key)
             throws Exception {
         ByteArrayOutputStream outputStream = null;
 
-        StreamUtil streamUtil = StreamUtil.getInstance();
         try {
-            outputStream = (ByteArrayOutputStream) streamUtil.get(inputStream, new ByteArrayOutputStream());
+            outputStream = (ByteArrayOutputStream) streamUtil.get(inputStream, new ByteArrayOutputStream(), new byte[16384]);
 
-            AbCrypt abCrypt = new AbCrypt(KeySpecFactory.getInstance().DESEDE, key);
+            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.getInstance().DESEDE, key);
             return abCrypt.decrypt(outputStream.toByteArray());
         } finally {
             streamUtil.close(outputStream);

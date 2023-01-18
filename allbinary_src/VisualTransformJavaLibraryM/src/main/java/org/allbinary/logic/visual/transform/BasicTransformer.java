@@ -35,6 +35,8 @@ import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateD
 
 public class BasicTransformer extends AbTransformer
 {
+    private final StreamUtil streamUtil = StreamUtil.getInstance();
+
     //private InputStream inputStream;
 
     public BasicTransformer(TransformInfoInterface transformInfoInterface) throws Exception
@@ -50,14 +52,14 @@ public class BasicTransformer extends AbTransformer
     	AbFileInputStream inputStream = null;
         try
         {
-        	outputStream = new ByteArrayOutputStream();
-        	inputStream = new AbFileInputStream(file);
+            outputStream = new ByteArrayOutputStream();
+            inputStream = new AbFileInputStream(file);
 
-        	outputStream = (ByteArrayOutputStream)
-        	    StreamUtil.getInstance().get(inputStream, outputStream);              
+            outputStream = (ByteArrayOutputStream)
+                    this.streamUtil.get(inputStream, outputStream, new byte[16384]);
             
-            AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getKey(file.getAbsolutePath()));
-            byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
+            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getKey(file.getAbsolutePath()));
+            final byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
             {
@@ -87,8 +89,8 @@ public class BasicTransformer extends AbTransformer
         }
         finally
         {
-        	StreamUtil.getInstance().close(outputStream);
-        	StreamUtil.getInstance().close(inputStream);
+        	this.streamUtil.close(outputStream);
+        	this.streamUtil.close(inputStream);
         }
     }
 
@@ -103,11 +105,11 @@ public class BasicTransformer extends AbTransformer
                 this.getTransformInfoInterface().getTemplate().getBytes());
             
             outputStream = (ByteArrayOutputStream) 
-                StreamUtil.getInstance().get(inputStream, outputStream); 
+                this.streamUtil.get(inputStream, outputStream, new byte[16384]); 
             
-            AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getKey(this.getTransformInfoInterface().getName()));
+            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getKey(this.getTransformInfoInterface().getName()));
 
-            byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
+            final byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
             {
@@ -132,8 +134,8 @@ public class BasicTransformer extends AbTransformer
         }
         finally
         {
-        	StreamUtil.getInstance().close(outputStream);
-        	StreamUtil.getInstance().close(inputStream);
+        	this.streamUtil.close(outputStream);
+        	this.streamUtil.close(inputStream);
         }
     }
 
@@ -152,16 +154,16 @@ public class BasicTransformer extends AbTransformer
                     this.getTransformInfoInterface().log(), this, "setTemplateAsInputStream()"));
             }
 
-            TransformInfoTemplateData transformInfoTemplateData = 
+            final TransformInfoTemplateData transformInfoTemplateData = 
             	TransformInfoTemplateData.getInstance();
             
-            AbPathUtil abPathUtil = AbPathUtil.getInstance();
+            final AbPathUtil abPathUtil = AbPathUtil.getInstance();
             
             if (this.getTransformInfoInterface().getTemplateFilePath() != null)
             {
-                String extension = abPathUtil.getExtension(
+                final String extension = abPathUtil.getExtension(
                     this.getTransformInfoInterface().getTemplateFilePath());
-                String filePath = abPathUtil.getWithoutExtension(
+                final String filePath = abPathUtil.getWithoutExtension(
                     this.getTransformInfoInterface().getTemplateFilePath());
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
@@ -180,7 +182,7 @@ public class BasicTransformer extends AbTransformer
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
                     stringBuffer.append(transformInfoTemplateData.ENCRYPTED_EXTENSION);
 
-                    AbFile encFile = new AbFile(stringBuffer.toString());
+                    final AbFile encFile = new AbFile(stringBuffer.toString());
 
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
                     {
@@ -208,7 +210,7 @@ public class BasicTransformer extends AbTransformer
                         return;
                     } else
                     {
-                        AbFile file =
+                        final AbFile file =
                             new AbFile(this.getTransformInfoInterface().getTemplateFilePath());
 
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
@@ -229,7 +231,7 @@ public class BasicTransformer extends AbTransformer
                             outputStream = new ByteArrayOutputStream();
 
                             outputStream = (ByteArrayOutputStream) 
-                                StreamUtil.getInstance().get(inputStream, outputStream); 
+                                this.streamUtil.get(inputStream, outputStream, new byte[16384]); 
 
                             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
                             {
@@ -246,13 +248,13 @@ public class BasicTransformer extends AbTransformer
                     }
                 } else if (extension.compareTo(transformInfoTemplateData.ENCRYPTED_EXTENSION) == 0)
                 {
-                    StringBuffer stringBuffer = new StringBuffer();
+                    final StringBuffer stringBuffer = new StringBuffer();
 
                     stringBuffer.append(filePath);
                     stringBuffer.append(AbPathData.getInstance().EXTENSION_SEP);
                     stringBuffer.append(transformInfoTemplateData.ENCRYPTED_EXTENSION);
 
-                    AbFile file = new AbFile(stringBuffer.toString());
+                    final AbFile file = new AbFile(stringBuffer.toString());
 
                     if (file.isFile())
                     {
@@ -280,8 +282,8 @@ public class BasicTransformer extends AbTransformer
         }
         finally
         {
-        	StreamUtil.getInstance().close(outputStream);
-        	StreamUtil.getInstance().close(inputStream);
+        	this.streamUtil.close(outputStream);
+        	this.streamUtil.close(inputStream);
         }        
         throw new Exception("Error setTemplateAsInputStream()");
     }

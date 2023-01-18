@@ -106,7 +106,7 @@ public class FileUtil
         try
         {
             dataOutputStream = (AbDataOutputStream)
-                StreamUtil.getInstance().get(inputStream, dataOutputStream);
+                StreamUtil.getInstance().get(inputStream, dataOutputStream, new byte[16384]);
 
             dataOutputStream.flush();
         } finally
@@ -135,7 +135,7 @@ public class FileUtil
     {
         try
         {
-            dataOutputStream = (AbDataOutputStream) StreamUtil.getInstance().get(dataInputStream, dataOutputStream);
+            dataOutputStream = (AbDataOutputStream) StreamUtil.getInstance().get(dataInputStream, dataOutputStream, new byte[16384]);
 
             dataOutputStream.flush();
         } finally

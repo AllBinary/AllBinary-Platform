@@ -30,6 +30,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class CryptService
 {
+    private final AbCryptUtil abCryptUtil = AbCryptUtil.getInstance();
 
    public CryptService()
    {
@@ -42,9 +43,9 @@ public class CryptService
    {
       try
       {
-         String key = AbKeys.getKey(name);
+         final String key = AbKeys.getKey(name);
 
-         byte[] decrypted = AbCryptUtil.decrypt(inputStream, key);
+         final byte[] decrypted = this.abCryptUtil.decrypt(inputStream, key);
 
          /*
          //TWB - test decryption
@@ -74,11 +75,11 @@ public class CryptService
 
          LogUtil.put(LogFactory.getInstance(error, this, "init", e));
 
-         BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
+         final BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
 
          try
          {
-            AbeLicenseInterface abeLicenseInterface = AbeLicenseInterfaceFactory.getInstance().getLicenseInstance();
+            final AbeLicenseInterface abeLicenseInterface = AbeLicenseInterfaceFactory.getInstance().getLicenseInstance();
 
             if (abeLicenseInterface != AbeNoLicense.getInstance())
             {

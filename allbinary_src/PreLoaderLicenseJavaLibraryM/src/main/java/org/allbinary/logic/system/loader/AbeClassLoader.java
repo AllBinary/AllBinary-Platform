@@ -29,6 +29,8 @@ import org.allbinary.logic.system.security.AbCryptUtil;
 public class AbeClassLoader extends ClassLoader
 //extends WebappClassLoader
 {
+    private final AbCryptUtil abCryptUtil = AbCryptUtil.getInstance();
+
     private static Map classes = new HashMap();
     private final String ENCRYPTED_EXTENSION = AbPathData.getInstance().EXTENSION_SEP + "abc";
     private static String PATH;
@@ -216,7 +218,7 @@ public class AbeClassLoader extends ClassLoader
             
             in = new FileInputStream(cname);
             
-            byte[] decrypted = AbCryptUtil.decrypt(in, this.key);
+            final byte[] decrypted = this.abCryptUtil.decrypt(in, this.key);
                         
          /*
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADER))

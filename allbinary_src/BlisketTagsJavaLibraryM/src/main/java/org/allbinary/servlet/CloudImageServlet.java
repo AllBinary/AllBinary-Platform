@@ -13,6 +13,7 @@
 */
 package org.allbinary.servlet;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -37,7 +38,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class CloudImageServlet extends HttpServlet
 {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
         throws ServletException, IOException
     {
         InputStream inputStream = null;
@@ -46,13 +47,14 @@ public class CloudImageServlet extends HttpServlet
             //response.setContentType("text/plain");
             //response.getOutputStream().write("OK!".getBytes());
 
-        	BlisketServletUtil.getInstance().init(request);
+            BlisketServletUtil.getInstance().init(request);
 
-            String requestURI = request.getRequestURI();
-            AbFile file = new AbFile(URLGLOBALS.getWebappPath() + requestURI);
+            final String requestURI = request.getRequestURI();
+            final AbFile file = new AbFile(URLGLOBALS.getWebappPath() + requestURI);
 
             inputStream = CloudStreamUtil.getInstance().getFile(file);
-            byte[] byteArray = StreamUtil.getInstance().getByteArray(inputStream);
+            final ByteArrayOutputStream outputStream = new ByteArrayOutputStream(8000);
+            final byte[] byteArray = StreamUtil.getInstance().getByteArray(inputStream, outputStream, new byte[16384]);
 
             response.setContentType("image/jpeg;charset=utf-8");
 
