@@ -12,7 +12,7 @@ The AllBinary Platform includes but is not limited to the following projects:
 : AllBinary Vector Graphics Tool
 : AllBinary Sprite Tool
 
-The AllBinary Platform represents more than 10 years of development and > 1 million LOC.  Some of which is represented by the this repo info: https://www.ohloh.net/p/AllBinary-Platform
+The AllBinary Platform represents more than 10 years of development and > 1 million LOC.  Some of which is represented by the this repo info: https://www.openhub.net/p/AllBinary-Platform/analyses/latest/languages_summary
 
 What is the goal?
 
