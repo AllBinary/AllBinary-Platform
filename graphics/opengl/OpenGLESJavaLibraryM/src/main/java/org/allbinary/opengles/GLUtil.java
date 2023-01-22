@@ -13,6 +13,10 @@
  */
 package org.allbinary.opengles;
 
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
 import org.allbinary.graphics.opengles.OpenGLCapabilities;
 
 /**
@@ -22,7 +26,18 @@ import org.allbinary.graphics.opengles.OpenGLCapabilities;
 public class GLUtil
 {
 
-    public static org.allbinary.opengles.GL10 get(final javax.microedition.khronos.opengles.GL10 gl, final String glInstanceVersion)
+    private static final GLUtil instance = new GLUtil();
+
+    /**
+     * @return the instance
+     */
+    public static GLUtil getInstance() {
+        return instance;
+    }
+
+    private final int BYTES_PER_FLOAT = 4;
+    
+    public org.allbinary.opengles.GL10 get(final javax.microedition.khronos.opengles.GL10 gl, final String glInstanceVersion)
     {
         final OpenGLCapabilities openGLCapabilities = OpenGLCapabilities.getInstance();
         
@@ -37,4 +52,33 @@ public class GLUtil
             return new org.allbinary.opengles.GL11((javax.microedition.khronos.opengles.GL11) gl);
         }
     }
+    
+    public FloatBuffer makeFloatBuffer3(float $a, float $b, float $c) {
+        final ByteBuffer b = ByteBuffer.allocateDirect(3 * BYTES_PER_FLOAT);
+        b.order(ByteOrder.nativeOrder());
+        final FloatBuffer buffer = b.asFloatBuffer();
+        buffer.put($a);
+        buffer.put($b);
+        buffer.put($c);
+        this.position(buffer, 0);
+        return buffer;
+    }
+
+    public FloatBuffer makeFloatBuffer4(float $a, float $b, float $c, float $d) {
+        final ByteBuffer b = ByteBuffer.allocateDirect(4 * BYTES_PER_FLOAT);
+        b.order(ByteOrder.nativeOrder());
+        final FloatBuffer buffer = b.asFloatBuffer();
+        buffer.put($a);
+        buffer.put($b);
+        buffer.put($c);
+        buffer.put($d);
+        this.position(buffer, 0);
+        return buffer;
+    }
+    
+    //Hack for Android Studio using internal JDK 11 or newer in builds.
+    public Buffer position(final Buffer buffer, final int newPosition) {
+        return buffer.position(newPosition);
+    }
+    
 }

@@ -26,7 +26,7 @@ public class BaseTextureFactory
         bb.order(ByteOrder.nativeOrder());
         FloatBuffer fb = bb.asFloatBuffer();
         fb.put(arr);
-        fb.position(0);
+        this.glUtil.position(fb, 0);
         return fb;
     }
     
@@ -35,7 +35,7 @@ public class BaseTextureFactory
         bb.order(ByteOrder.nativeOrder());
         IntBuffer ib = bb.asIntBuffer();
         ib.put(arr);
-        ib.position(0);
+        this.glUtil.position(ib, 0);
         return ib;
     }
     
@@ -58,8 +58,8 @@ public class BaseTextureFactory
                 ib.put(((red & 0xFF) << 24) | ((green & 0xFF) << 16) | ((blue & 0xFF) << 8)
                         | ((alpha & 0xFF))); // 255-alpha);
             }
-        ib.position(0);
-        bb.position(0);
+        this.glUtil.position(ib, 0);
+        this.glUtil.position(bb, 0);
         return bb;
     }
 

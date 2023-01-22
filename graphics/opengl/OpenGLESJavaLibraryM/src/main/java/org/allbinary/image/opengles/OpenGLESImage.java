@@ -132,8 +132,8 @@ implements OpenGLSurfaceChangedInterface
           for(int x = 0; x &lt; bmp.getWidth(); x++) {
             pixelbuf.put(bmp.getPixel(x, y));
           }
-        pixelbuf.position(0);
-        bytebuf.position(0);
+        this.glUtil.position(pixelbuf, 0);
+        this.glUtil.position(bytebuf, 0);
          
         gl.glTexImage2D(GL10.GL_TEXTURE_2D, level, GL10.GL_RGBA, bmp.getWidth(), bmp.getHeight(), 0, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, pixelbuf);
         */        
