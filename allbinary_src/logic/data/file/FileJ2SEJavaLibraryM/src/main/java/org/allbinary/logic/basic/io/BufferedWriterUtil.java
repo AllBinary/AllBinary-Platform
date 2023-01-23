@@ -20,9 +20,37 @@ import java.io.FileWriter;
 
 public class BufferedWriterUtil {
 
-    public static void write(AbFile abFile, String data) throws Exception
+    private static final BufferedWriterUtil instance = new BufferedWriterUtil();
+
+    /**
+     * @return the instance
+     */
+    public static BufferedWriterUtil getInstance() {
+        return instance;
+    }
+
+    public void overwrite(final String path, final String data) throws Exception
     {
-         BufferedWriter fileOut = new BufferedWriter(
+        final AbFile abFile = new AbFile(path);
+        if(abFile.exists()) {
+            abFile.delete();
+        }
+
+        this.write(abFile, data);
+    }
+    
+    public void overwrite(final AbFile abFile, final String data) throws Exception
+    {
+        if(abFile.exists()) {
+            abFile.delete();
+        }
+
+        this.write(abFile, data);
+    }
+    
+    public void write(final AbFile abFile, final String data) throws Exception
+    {
+         final BufferedWriter fileOut = new BufferedWriter(
              new FileWriter(AbFileNativeUtil.get(abFile)));
 
          fileOut.write(data, 0, data.length());
