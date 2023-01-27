@@ -30,6 +30,7 @@ public class LogFormatUtil
     }
 
     private final TimeStampUtil timeStampUtil = TimeStampUtil.getInstance();
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
 
 
     private final String NONE = "None";
@@ -40,7 +41,7 @@ public class LogFormatUtil
     //private final String CLASS_NAME = "\nClass Name: ";
     //private final String FUNCTION_CALL = "\nFunction Call: ";
     //private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
-    private final String CLASS_NAME = CommonSeps.getInstance().SPACE;
+    private final String CLASS_NAME = this.commonSeps.SPACE;
     private final String FUNCTION_CALL = ": ";
     private final String SPECIAL_MESSAGE = "> ";
     
@@ -48,30 +49,30 @@ public class LogFormatUtil
     {
     }
 
-    public synchronized String get(
-        String className, String functionName, String specialMessage, Throwable exception)
+    public String get(
+        final String className, final String functionName, final String specialMessage, final Throwable exception)
     {
-        StringMaker stringBuffer = get(className, functionName);
+        final StringMaker stringBuffer = get(className, functionName);
 
         stringBuffer.append(this.get(exception));
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
 
         //"\nClassLoader: " +  hashCode +
 
         return stringBuffer.toString();
     }
 
-    public synchronized String get(
-        String className, String functionName, String specialMessage)
+    public String get(
+        final String className, final String functionName, final String specialMessage)
     {
-        StringMaker stringBuffer = get(className, functionName);
+        final StringMaker stringBuffer = get(className, functionName);
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
 
         //"\nClassLoader: " +  hashCode +
 
@@ -81,8 +82,8 @@ public class LogFormatUtil
     //Date does not change as static
     //private final Calendar calendar = Calendar.getInstance();
     
-    private synchronized StringMaker get(
-        String className, String functionName)
+    private StringMaker get(
+        final String className, String functionName)
     {
         if (functionName == null)
         {
@@ -90,7 +91,7 @@ public class LogFormatUtil
         }
 
         //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(TIME);
         stringBuffer.append(timeStampUtil.getAsString());
         stringBuffer.append(CLASS_NAME);
@@ -104,11 +105,11 @@ public class LogFormatUtil
     }
 
     private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
-    public synchronized String get(Throwable exception)
+    public String get(final Throwable exception)
     {
         if (exception != null)
         {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append(LOG_ERROR);
 
             if (exception.toString() != null)

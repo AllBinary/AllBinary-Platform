@@ -13,8 +13,12 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.time.TimeStampUtil;
+
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.java.exception.ExceptionUtil;
 
 public class LogFormatUtil
 {
@@ -26,6 +30,7 @@ public class LogFormatUtil
     }
 
     private final TimeStampUtil timeStampUtil = TimeStampUtil.getInstance();
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
 
 
     private final String NONE = "None";
@@ -33,36 +38,41 @@ public class LogFormatUtil
     private final String EMPTY = "Empty";
     private final String STACK_TRACE = "\nStack Trace: ";
     private final String TIME = "Time: ";
-    private final String CLASS_NAME = "\nClass Name: ";
-    private final String FUNCTION_CALL = "\nFunction Call: ";
-    private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
+    //private final String CLASS_NAME = "\nClass Name: ";
+    //private final String FUNCTION_CALL = "\nFunction Call: ";
+    //private final String SPECIAL_MESSAGE = "\nSpecial Msg: ";
+    private final String CLASS_NAME = this.commonSeps.SPACE;
+    private final String FUNCTION_CALL = ": ";
+    private final String SPECIAL_MESSAGE = "> ";
     
     private LogFormatUtil()
     {
     }
 
-    public String get(
-        String className, String functionName, String specialMessage, Throwable exception)
+    public synchronized String get(
+        final String className, final String functionName, final String specialMessage, final Throwable exception)
     {
-        StringBuffer stringBuffer = get(new StringBuffer(), className, functionName);
+        final StringMaker stringBuffer = get(className, functionName);
+
+        stringBuffer.append(this.get(exception));
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
 
         //"\nClassLoader: " +  hashCode +
 
         return stringBuffer.toString();
     }
 
-    public String get(
-        String className, String functionName, String specialMessage)
-    {   
-        StringBuffer stringBuffer = get(new StringBuffer(), className, functionName);
+    public synchronized String get(
+        final String className, final String functionName, final String specialMessage)
+    {
+        final StringMaker stringBuffer = get(className, functionName);
 
         stringBuffer.append(SPECIAL_MESSAGE);
         stringBuffer.append(specialMessage);
-        stringBuffer.append(CommonSeps.getInstance().NEW_LINE);
+        stringBuffer.append(this.commonSeps.NEW_LINE);
 
         //"\nClassLoader: " +  hashCode +
 
@@ -72,8 +82,8 @@ public class LogFormatUtil
     //Date does not change as static
     //private final Calendar calendar = Calendar.getInstance();
     
-    private StringBuffer get(StringBuffer stringBuffer,
-        String className, String functionName)
+    private synchronized StringMaker get(
+        final String className, String functionName)
     {
         if (functionName == null)
         {
@@ -81,6 +91,7 @@ public class LogFormatUtil
         }
 
         //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
+        final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(TIME);
         stringBuffer.append(timeStampUtil.getAsString());
         stringBuffer.append(CLASS_NAME);
@@ -91,6 +102,44 @@ public class LogFormatUtil
         //"\nClassLoader: " +  hashCode +
 
         return stringBuffer;
+    }
+
+    private final ExceptionUtil exceptionUtil = ExceptionUtil.getInstance();
+    public synchronized String get(final Throwable exception)
+    {
+        if (exception != null)
+        {
+            final StringMaker stringBuffer = new StringMaker();
+            stringBuffer.append(LOG_ERROR);
+
+            if (exception.toString() != null)
+            {
+                stringBuffer.append(exception.toString());
+            } else
+            {
+                stringBuffer.append(EMPTY);
+            }
+
+            stringBuffer.append(STACK_TRACE);
+            stringBuffer.append(exceptionUtil.getStackTrace(exception));
+
+            /*
+            String exceptionMessage = ExceptionUtil.getStackTrace(exception);
+
+            if(exceptionMessage == null)
+            {
+            exceptionMessage = EMPTY;
+            }
+             */
+
+            //+
+            //"\nLog-Error: " + exceptionMessage;
+
+            return stringBuffer.toString();
+        } else
+        {
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
     }
 
 }
