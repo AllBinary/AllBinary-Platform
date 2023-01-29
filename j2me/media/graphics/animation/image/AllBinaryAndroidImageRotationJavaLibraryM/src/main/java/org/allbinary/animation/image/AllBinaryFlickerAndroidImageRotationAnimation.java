@@ -24,7 +24,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.AndroidImageUtil;
 
-public class AllBinaryAndroidImageRotationAnimation 
+public class AllBinaryFlickerAndroidImageRotationAnimation 
 extends AllBinaryImageBaseRotationAnimation
 {
     private final AndroidImageUtil androidImageUtil = AndroidImageUtil.getInstance();
@@ -43,7 +43,7 @@ extends AllBinaryImageBaseRotationAnimation
     
     private short rotation;
     
-    protected AllBinaryAndroidImageRotationAnimation(
+    protected AllBinaryFlickerAndroidImageRotationAnimation(
             final Image originalImage, final Image image,
             final AngleInfo angleInfo, final short totalAngle) throws Exception
     {

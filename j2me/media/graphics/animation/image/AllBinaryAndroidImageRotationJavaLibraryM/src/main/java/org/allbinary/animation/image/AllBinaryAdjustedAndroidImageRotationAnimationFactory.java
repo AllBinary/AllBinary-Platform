@@ -22,6 +22,7 @@ import org.allbinary.math.AngleInfo;
 
 public class AllBinaryAdjustedAndroidImageRotationAnimationFactory 
     extends AllBinaryFlickerAndroidImageRotationAnimationFactory
+    //extends AllBinaryNoFlickerAndroidImageRotationAnimationFactory
 {
     private final int dx;
     private final int dy;

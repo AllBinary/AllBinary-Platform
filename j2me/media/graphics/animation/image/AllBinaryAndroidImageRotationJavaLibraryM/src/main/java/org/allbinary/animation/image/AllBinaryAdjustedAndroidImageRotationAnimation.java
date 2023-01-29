@@ -19,8 +19,8 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.math.AngleInfo;
 
 public class AllBinaryAdjustedAndroidImageRotationAnimation
+        extends AllBinaryFlickerAndroidImageRotationAnimation
         //extends AllBinaryNoFlickerAndroidImageRotationAnimation
-        extends AllBinaryAndroidImageRotationAnimation
 {
     private final int dx;
     private final int dy;

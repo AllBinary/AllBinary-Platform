@@ -47,7 +47,7 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
     {
         final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
         
-        return new AllBinaryAndroidImageRotationAnimation(
+        return new AllBinaryFlickerAndroidImageRotationAnimation(
                 this.getImage(), image,
                 AngleInfo.getInstance(this.angleIncrement), 
                 AngleFactory.getInstance().TOTAL_ANGLE);

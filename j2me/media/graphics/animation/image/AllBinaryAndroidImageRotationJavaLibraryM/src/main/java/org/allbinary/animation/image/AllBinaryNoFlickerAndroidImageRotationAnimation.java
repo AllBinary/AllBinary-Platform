@@ -38,7 +38,7 @@ extends AllBinaryImageBaseRotationAnimation
     private final int halfWidth;
     private final int halfHeight;
     
-    private final short inc;
+    private final float increment;
     
     private final Image originalImage;
     
@@ -61,7 +61,7 @@ extends AllBinaryImageBaseRotationAnimation
         this.halfWidth = (this.getImage().getWidth() >> 1);
         this.halfHeight = (this.getImage().getHeight() >> 1);
         
-        inc = (short)(this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
+        this.increment = (short)(this.angleInfo.getAngleIncrementInfo().getAngleIncrement() * 2.44);
         
         this.imageToShow = image;
         this.twoImages[0] = image;
@@ -74,7 +74,7 @@ extends AllBinaryImageBaseRotationAnimation
     {
         this.angleInfo.adjustAngle(this.circularIndexUtil.next());
 
-        matrix.setRotate(inc, this.halfWidth, this.halfHeight);
+        matrix.setRotate(this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
         androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix);
@@ -86,7 +86,7 @@ extends AllBinaryImageBaseRotationAnimation
     {
         this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
 
-        matrix.setRotate(-inc, this.halfWidth, this.halfHeight);        
+        matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);        
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
         androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix);     
@@ -108,7 +108,7 @@ extends AllBinaryImageBaseRotationAnimation
         
         this.angleInfo.adjustAngle(newFrame);
                 
-        matrix.setRotate((newFrame - currentFrame) * inc, this.halfWidth, this.halfHeight);
+        matrix.setRotate((newFrame - currentFrame) * this.increment, this.halfWidth, this.halfHeight);
         androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix);     
         this.imageToShow = this.twoImages[this.bufferedImageIndex];
         this.swap();
