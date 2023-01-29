@@ -178,15 +178,14 @@ implements LayerInterface
     public void toString(final StringMaker stringBuffer)
     {
         final CommonSeps commonSeps = CommonSeps.getInstance();
-        final CommonLabels commonLabels = CommonLabels.getInstance();
 
         final PositionStrings positionStrings = PositionStrings.getInstance();
         final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 
-        stringBuffer.append(commonLabels.NAME_LABEL);
         stringBuffer.append(this.getName());
         stringBuffer.append(commonSeps.COLON);
         stringBuffer.append(Integer.toHexString(this.hashCode()));
+        stringBuffer.append(commonSeps.COLON);
         stringBuffer.append(TYPE);
         stringBuffer.append(this.getType());
         stringBuffer.append(commonSeps.SPACE);
