@@ -21,6 +21,9 @@ import org.allbinary.game.combat.destroy.event.DestroyedEventHandler;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.BasicLayerProcessor;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class DestroyedLayerProcessor extends BasicLayerProcessor
 {
@@ -40,32 +43,45 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         return DESTROYED_LAYER_PROCESSOR;
     }
 
+    //private final String LAYER_LABEL = "layerInterface: ";
+    
     public void process(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
     {
         BasicArrayList list = this.getList();
         int size = list.size();
 
-        DestroyEventCircularStaticPool destroyEventCircularStaticPool =
+        final DestroyedEventHandler destroyedEventHandler = DestroyedEventHandler.getInstance();
+        final DestroyEventCircularStaticPool destroyEventCircularStaticPool =
             DestroyEventCircularStaticPool.getInstance();
         
-        //LogUtil.put(LogFactory.getInstance("Removing: " + size + " left: " + allBinaryLayerManager.getSize(), this, CommonStrings.getInstance().PROCESS));
+        //final StringBuilder stringBuilder = new StringBuilder();
+        //LogUtil.put(LogFactory.getInstance(stringBuilder.append("Removing: ").append(size).append(" left: ").append(allBinaryLayerManager.getSize()).toString(), this, CommonStrings.getInstance().PROCESS));
+
         //GroupLayerManagerListener.getInstance().log();
+        AllBinaryLayer layerInterface;
+        DestroyedEvent destroyedEvent;
         for (int index = 0; index < size; index++)
         {
             // no physics here - just destroy them
-            AllBinaryLayer layerInterface = (AllBinaryLayer) list.objectArray[index];
+            layerInterface = (AllBinaryLayer) list.objectArray[index];
 
-            // LogUtil.put(LogFactory.getInstance("Processing: " + allBinaryLayerManager.getSize(), this, CommonStrings.getInstance().PROCESS));
+            //stringBuilder.delete(0, stringBuilder.length());
+            //LogUtil.put(LogFactory.getInstance(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, CommonStrings.getInstance().PROCESS));
+
+            //stringBuilder.delete(0, stringBuilder.length());
+            //LogUtil.put(LogFactory.getInstance(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, CommonStrings.getInstance().PROCESS));
 
             allBinaryLayerManager.remove(layerInterface);
-            // LogUtil.put(LogFactory.getInstance("After: " + allBinaryLayerManager.getSize(), this, CommonStrings.getInstance().PROCESS));
 
-            DestroyedEvent destroyedEvent = 
+            //stringBuilder.delete(0, stringBuilder.length());
+            //LogUtil.put(LogFactory.getInstance(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, CommonStrings.getInstance().PROCESS));
+
+            destroyedEvent = 
                 destroyEventCircularStaticPool.getInstance(layerInterface);
 
             // Notify Listeners of Destroyed Layer
-            DestroyedEventHandler.getInstance().fireEvent(destroyedEvent);
+            destroyedEventHandler.fireEvent(destroyedEvent);
         }
         list.clear();
     }

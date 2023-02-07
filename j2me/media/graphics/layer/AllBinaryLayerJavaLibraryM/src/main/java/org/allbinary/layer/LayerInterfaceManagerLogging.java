@@ -40,6 +40,7 @@ public class LayerInterfaceManagerLogging extends LayerInterfaceManagerLoggingBa
     private final String _AT_ = " at: ";
     private final String REMOVE_ = "Remove: ";
     private final String REMOVE = "remove";
+    private final String DID_NOT_REMOVE = "Did not remove: ";
 
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
@@ -59,7 +60,7 @@ public class LayerInterfaceManagerLogging extends LayerInterfaceManagerLoggingBa
 
     public void remove(final AllBinaryLayer layerInterface, final boolean result) {
         if(!result) {
-            LogUtil.put(LogFactory.getInstance(layerInterface.toString(), this, REMOVE, new Exception()));
+            LogUtil.put(LogFactory.getInstance(DID_NOT_REMOVE + layerInterface.toString(), this, REMOVE, new Exception()));
         }
         
         stringBuilder.delete(0, stringBuilder.length());
