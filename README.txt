@@ -1,5 +1,9 @@
                              AllBinary Platform
 
+About
+
+AllBinary Game Development Kit (HTML5 Examples: https://html5.allbinary.com), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation, and everything else AllBinary. It represents >10 years of development and > 1 million SLOC. The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
+
 What is the AllBinary Platform?
 
 This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform).  
@@ -56,6 +60,12 @@ Who is responsible for all this shit?
 
 Travis Berthelot travisberthelot@allbinary.com
 
+What games use the AllBinary Game Development Kit?
+
+- Android https://play.google.com/store/apps/developer?id=AllBinary
+- HTML5 https://html5.allbinary.com
+- J2SE and J2ME https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
+
 What is the AllBinary Game Development Kit?
 
 The AllBinary Game Development Kit speeds game development for 2D/3D Single or Multi-
@@ -98,7 +108,7 @@ small libraries for creating games. The main features include the following:
 - More...
 
 For more info on the AllBinary Arcade Game Development Kit please visit:
-http://allbinarygames.appspot.com/AllBinaryGameDevelopmentKit.jsp
+https://allbinarygames.appspot.com/AllBinaryGameDevelopmentKit.jsp
 
 What is the Freeblisket/Weblisket E-Commerce Solution?
 
