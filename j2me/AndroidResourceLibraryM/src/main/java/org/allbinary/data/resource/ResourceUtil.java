@@ -32,8 +32,13 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class ResourceUtil
 {
-    private static ResourceUtil RESOURCES = new ResourceUtil();
+    private static final ResourceUtil instance = new ResourceUtil();
 
+    public static ResourceUtil getInstance()
+    {
+        return instance;
+    }
+    
     private Activity activity;
     private Context context;
     private Resources resources;
@@ -42,12 +47,7 @@ public class ResourceUtil
     private ResourceUtil()
     {
     }
-
-    public static ResourceUtil getInstance()
-    {
-        return RESOURCES;
-    }
-
+    
     public Context getContext()
     {
         return context;

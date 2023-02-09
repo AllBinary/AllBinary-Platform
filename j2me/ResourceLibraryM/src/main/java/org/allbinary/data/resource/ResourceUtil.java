@@ -22,28 +22,26 @@ public class ResourceUtil
 {
    private static ClassLoader classLoader;
    
-   private static ResourceUtil STATIC = new ResourceUtil();
+   private static final ResourceUtil instance = new ResourceUtil();
+  
+   public static ResourceUtil getInstance()
+   {
+       return instance;
+   }
    
    private ResourceUtil()
    {
    }
-  
-   public static ResourceUtil getInstance()
-   {
-       return STATIC;
-   }
-   
-   public static ClassLoader getClassLoader()
-   {
-      return ResourceUtil.classLoader;
-   }
+     
+//    public ClassLoader getClassLoader() {
+//        return ResourceUtil.classLoader;
+//    }
 
-   public static void setClassLoader(ClassLoader classLoader)
-   {
-      LogUtil.put(LogFactory.getInstance("Resource Loader: " + classLoader.getClass().getName(), STATIC, "setClassLoader"));
+    public void setClassLoader(ClassLoader classLoader) {
+        LogUtil.put(LogFactory.getInstance("Resource Loader: " + classLoader.getClass().getName(), instance, "setClassLoader"));
 
-      ResourceUtil.classLoader = classLoader;
-   }
+        ResourceUtil.classLoader = classLoader;
+    }
    
    public InputStream getResourceAsStream(String resource)
       //, Object emulatorObject)
@@ -84,11 +82,11 @@ public class ResourceUtil
       }
 
       //Try getting resource with ClassLoader
-      inputStream = ResourceUtil.getClassLoader().getResourceAsStream(resourcePath);
+      inputStream = ResourceUtil.classLoader.getResourceAsStream(resourcePath);
       
       if(inputStream != null)
       {
-         LogUtil.put(LogFactory.getInstance("Resource Found with: " + ResourceUtil.getClassLoader().getClass().getName(), this, METHOD_NAME));
+         LogUtil.put(LogFactory.getInstance("Resource Found with: " + ResourceUtil.classLoader.getClass().getName(), this, METHOD_NAME));
 
          return inputStream;
       }
