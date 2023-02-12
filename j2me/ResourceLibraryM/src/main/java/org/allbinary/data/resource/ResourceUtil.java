@@ -95,7 +95,7 @@ public class ResourceUtil
 
       if(inputStream != null)
       {
-         LogUtil.put(LogFactory.getInstance("Resource Found with: " + Thread.currentThread().getContextClassLoader().getClass().getName(), this, METHOD_NAME));
+         LogUtil.put(LogFactory.getInstance("Resource Found with ContextClassLoader: " + Thread.currentThread().getContextClassLoader().getClass().getName(), this, METHOD_NAME));
          return inputStream;
       }
 

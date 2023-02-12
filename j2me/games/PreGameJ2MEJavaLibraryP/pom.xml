@@ -36,6 +36,8 @@
 
         <module>../../media/graphics/NullCustomUIPreJavaLibraryM</module>
 
+        <module>../../games/ScreenCaptureJavaLibraryM</module>
+
         <module>../../games/PreGameJ2MEJavaLibraryM</module>
 
     </modules>
