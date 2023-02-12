@@ -32,11 +32,11 @@ public class ImageToRotationImageArrayUtil
     public Image[] generate(Image image, int angleIncrement, int totalAngle) 
         throws Exception
     {
-        ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
+        final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
         
-        int totalFrames = totalAngle / angleIncrement;
+        final int totalFrames = totalAngle / angleIncrement;
 
-        Image[] imageArray = new Image[totalFrames];
+        final Image[] imageArray = new Image[totalFrames];
 
         imageArray[0] = image;
         
