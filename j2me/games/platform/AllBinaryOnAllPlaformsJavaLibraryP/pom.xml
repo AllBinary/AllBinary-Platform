@@ -36,13 +36,13 @@
         
         <module>../../AdvancedCombatGameJavaLibraryP</module>
         
-        <module>../j2me/AllBinaryOnJ2MEBasePlatformJavaLibrary</module>
+        <module>../j2me/AllBinaryOnJ2MEBasePlatformJavaLibraryM</module>
         <module>../j2me/AllBinaryOnJ2MEPlatformJavaLibraryM</module>
         
-        <module>../j2se/AllBinaryOnJ2SEBasePlatformJavaLibrary</module>
+        <module>../j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryM</module>
         <module>../j2se/AllBinaryOnJ2SEPlatformJavaLibraryM</module>
         
-        <module>../html/AllBinaryOnHTMLBasePlatformJavaLibrary</module>
+        <module>../html/AllBinaryOnHTMLBasePlatformJavaLibraryM</module>
         <module>../html/AllBinaryOnHTMLPlatformJavaLibraryM</module>
 
         <module>../android/AllBinaryOnAndroidBasePlatformJavaLibraryM</module>
