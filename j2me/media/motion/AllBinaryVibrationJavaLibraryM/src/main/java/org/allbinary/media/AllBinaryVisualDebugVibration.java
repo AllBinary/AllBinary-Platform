@@ -22,6 +22,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
 {
+    private final MyFont myFont = MyFont.getInstance();
+
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(
             Integer.MAX_VALUE);
 
@@ -40,10 +42,10 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
         {
             this.timeDelayHelper.setDelay(Integer.MAX_VALUE);
             
-            DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton
-                    .getInstance();
+            final DisplayInfoSingleton displayInfoSingleton = 
+                    DisplayInfoSingleton.getInstance();
             
-            int width = MyFont.getInstance().DEFAULT_CHAR_WIDTH * VIBRATING.length();
+            final int width = myFont.stringWidth(VIBRATING);
 
             graphics.drawString(VIBRATING, 
                     displayInfoSingleton.getLastHalfWidth() - (width >> 1), 0, anchor);

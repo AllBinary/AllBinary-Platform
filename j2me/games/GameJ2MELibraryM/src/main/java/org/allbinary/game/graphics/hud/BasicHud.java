@@ -30,12 +30,11 @@ import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
 public class BasicHud //implements DisplayChangeEventListener
-{   
+{
    private int location;
    private int direction;
    
@@ -55,8 +54,6 @@ public class BasicHud //implements DisplayChangeEventListener
    private BasicColor basicColor;
    private int color;
 
-   private final int charWidth = MyFont.getInstance().DEFAULT_CHAR_WIDTH;
-   
    public BasicHud(int location, int direction,
        int maxHeight, int maxWidth, int bufferZone)
        throws Exception
@@ -389,11 +386,6 @@ public class BasicHud //implements DisplayChangeEventListener
     protected int getY()
     {
         return y;
-    }
-
-    protected int getCharWidth()
-    {
-        return charWidth;
     }
 
     protected BasicColorSetUtil getBasicColorUtil()

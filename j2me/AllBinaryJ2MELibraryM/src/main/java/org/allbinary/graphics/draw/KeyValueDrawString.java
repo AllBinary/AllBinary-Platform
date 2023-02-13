@@ -36,7 +36,7 @@ public class KeyValueDrawString {
     public KeyValueDrawString(String label, int x, int y)
     {
         this.LABEL = label;
-        this.labelWidth = (MyFont.getInstance().DEFAULT_CHAR_WIDTH - 1) * LABEL.length();
+        this.labelWidth = MyFont.getInstance().stringWidth(LABEL) - LABEL.length();
         this.labelX = x;
         this.valueX = this.labelWidth + x;
         this.y = y;

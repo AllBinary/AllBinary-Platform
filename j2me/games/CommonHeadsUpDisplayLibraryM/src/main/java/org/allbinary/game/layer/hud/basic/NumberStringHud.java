@@ -18,13 +18,14 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.PrimitiveLongUtil;
 
 public class NumberStringHud extends BasicHud
    implements PaintableInterface
-{
+{   
    //private final String PREPEND_STRING;
     private final char[] PREPEND_STRING;
 
@@ -46,7 +47,8 @@ public class NumberStringHud extends BasicHud
 
       this.PREPEND_STRING = prependString.toCharArray();
       //this.PREPEND_STRING = prependString;
-      this.offset = this.getCharWidth() * this.PREPEND_STRING.length + this.getCharWidth();
+      final MyFont myFont = MyFont.getInstance();
+      this.offset = myFont.stringWidth(prependString) + myFont.charWidth();
       
       this.valueString = PrimitiveLongSingleton.getInstance().NUMBER_CHAR_ARRAYS[0];
       //this.valueString = PrimitiveLongUtil.NUMBER_STRING_ARRAY[0];

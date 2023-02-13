@@ -22,6 +22,8 @@ import javax.microedition.lcdui.Graphics;
 
 public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
 {
+    private final MyFont myFont = MyFont.getInstance();
+    
     //private final String TEXT = "Implement Your Own GameCanvas Draw Method";
 
     //private String[] baseRefreshHelperStringArray = StringUtil.getArrayInstance();
@@ -66,7 +68,7 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
                     baseRefreshHelperCharArray[index].length, 0, yArray[index], 0);
             
             graphics.drawChars(baseRefreshHelperCharArray[index + 1], 0, 
-                    baseRefreshHelperCharArray[index + 1].length, (baseRefreshHelperCharArray[index].length * MyFont.getInstance().DEFAULT_CHAR_WIDTH * 2), yArray[index + 1], 0);
+                    baseRefreshHelperCharArray[index + 1].length, baseRefreshHelperCharArray[index].length * myFont.stringWidth(2), yArray[index + 1], 0);
         }
     }
 }
