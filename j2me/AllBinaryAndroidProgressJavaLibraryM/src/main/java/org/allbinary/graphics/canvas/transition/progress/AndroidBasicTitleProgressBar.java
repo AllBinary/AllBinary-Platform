@@ -35,7 +35,7 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
 import org.allbinary.image.ImageCacheFactory;
-import org.allbinary.image.ImageScaleUtil;
+import org.allbinary.media.image.ImageScaleUtil;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 import android.app.Activity;

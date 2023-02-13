@@ -38,7 +38,7 @@ public class ImageRotationUtil
             throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " rotationInDegrees: " + rotationInDegrees, this, "createRotatedImage");
-        Image image = ImageCreationUtil.getInstance().getInstance(
+        final Image image = ImageCreationUtil.getInstance().getInstance(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())

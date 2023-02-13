@@ -11,15 +11,16 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.image;
+package org.allbinary.media.image;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
 
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
+import org.allbinary.image.ImageCache;
 
 public class ImageScaleUtil
 {
