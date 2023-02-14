@@ -27,9 +27,22 @@ public class MyFont
    //fonts
    public final Font defaultFont = Font.getDefaultFont();
    public final int DEFAULT_CHAR_HEIGHT = defaultFont.getHeight();
-   public final int DEFAULT_CHAR_WIDTH = defaultFont.charWidth('C');
+   private final int DEFAULT_CHAR_WIDTH = defaultFont.charWidth('C');
 
    private MyFont()
    {
+   }
+
+   public int charWidth() {
+       return DEFAULT_CHAR_WIDTH;
+   }
+   
+   public int stringWidth(int size) {
+       return DEFAULT_CHAR_WIDTH * size;
+   }
+
+   public int stringWidth(String string) {
+       return DEFAULT_CHAR_WIDTH * string.length();
+       //return defaultFont.stringWidth(string);
    }
 }
