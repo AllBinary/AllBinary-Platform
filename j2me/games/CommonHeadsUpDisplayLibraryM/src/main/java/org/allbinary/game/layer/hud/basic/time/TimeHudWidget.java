@@ -61,7 +61,7 @@ public class TimeHudWidget extends BasicHud
     public TimeHudWidget(int location, int direction, BasicColor basicColor, Timer timer)
             throws Exception
     {
-        this(location, direction, 14, MyFont.getInstance().defaultFont.getSize() * 5, 2, basicColor, timer);
+        this(location, direction, 14, MyFont.getInstance().getSize() * 5, 2, basicColor, timer);
     }
 
     public void update()

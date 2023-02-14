@@ -33,8 +33,8 @@ public class CountedLayersHudPaintable implements PaintableInterface
    private final int countedPartsBorder;
    private final int startIndex;
    private static final String XXString = "XX";
-   private static final int XXStringWidth = MyFont.getInstance().defaultFont.stringWidth(XXString);
-   private static final int myFontHeight = MyFont.getInstance().defaultFont.getHeight();
+   private static final int XXStringWidth = MyFont.getInstance().stringWidth(XXString);
+   private static final int myFontHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
    
    private final int dropSize;
    private final int height;

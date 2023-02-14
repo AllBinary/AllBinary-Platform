@@ -135,7 +135,7 @@ extends GameNotificationHud
         this.string = (String) this.gameNotification.stringList.remove(0);
 
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().defaultFont.stringWidth(this.string)) >> 1));
+        this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().stringWidth2(this.string)) >> 1));
         //
         this.point.setX(this.getX());
         this.point.setY(this.getY());
@@ -162,7 +162,7 @@ extends GameNotificationHud
         this.string = (String) this.permanentGameNotification.stringList.objectArray[index];
 
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-        this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().defaultFont.stringWidth(this.string)) >> 1));
+        this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().stringWidth2(this.string)) >> 1));
         //
         this.point.setX(this.getX());
         this.point.setY(this.getY());

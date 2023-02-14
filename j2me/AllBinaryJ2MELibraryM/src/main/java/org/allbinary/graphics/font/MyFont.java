@@ -25,7 +25,7 @@ public class MyFont
    }
    
    //fonts
-   public final Font defaultFont = Font.getDefaultFont();
+   private final Font defaultFont = Font.getDefaultFont();
    public final int DEFAULT_CHAR_HEIGHT = defaultFont.getHeight();
    private final int DEFAULT_CHAR_WIDTH = defaultFont.charWidth('C');
 
@@ -37,12 +37,25 @@ public class MyFont
        return DEFAULT_CHAR_WIDTH;
    }
    
-   public int stringWidth(int size) {
+   public int stringWidth(final int size) {
        return DEFAULT_CHAR_WIDTH * size;
    }
 
-   public int stringWidth(String string) {
+   public int stringWidth(final String string) {
        return DEFAULT_CHAR_WIDTH * string.length();
        //return defaultFont.stringWidth(string);
    }
+   
+   public int stringWidth2(final String string) {
+       return defaultFont.stringWidth(string);
+   }
+   
+   public int getSize() {
+       return defaultFont.getSize();
+   }
+
+   public int charsWidth(final char[] charArray, final int offset, final int length) {
+       return defaultFont.charsWidth(charArray, offset, length);
+   }
+   
 }

@@ -41,7 +41,7 @@ public class LevelHudWidget extends BasicHud
     public LevelHudWidget(int maxlevel, int location, int direction)
             throws Exception
     {
-        this(maxlevel, location, direction, MyFont.getInstance().defaultFont.getSize() * 4);
+        this(maxlevel, location, direction, MyFont.getInstance().getSize() * 4);
     }
     
     public LevelHudWidget(int maxlevel, int location, int direction, int maxWidth)
@@ -49,13 +49,14 @@ public class LevelHudWidget extends BasicHud
     {
         super(location, direction, 14, maxWidth, 2, BasicColorFactory.getInstance().GREY);
 
+        final MyFont myFont = MyFont.getInstance();
+        
         this.primitiveLongUtil = new PrimitiveLongUtil(1000);
 
         final String LEVEL = "Lv ";
         this.levelString = LEVEL.toCharArray();
         //Add size for space
-        Font font = MyFont.getInstance().defaultFont;
-        this.offset = font.charsWidth(this.levelString, 0, this.levelString.length) + font.getSize();
+        this.offset = myFont.charsWidth(this.levelString, 0, this.levelString.length) + myFont.getSize();
         
         this.maxlevel = maxlevel;
         this.level = maxlevel;

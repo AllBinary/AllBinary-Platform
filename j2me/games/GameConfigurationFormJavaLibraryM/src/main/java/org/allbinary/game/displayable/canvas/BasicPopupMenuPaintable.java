@@ -41,6 +41,8 @@ public class BasicPopupMenuPaintable extends Paintable
     protected final BasicColorSetUtil basicColorUtil = 
         BasicColorSetUtil.getInstance();
 
+    private final int BORDER = MyFont.getInstance().charWidth() * 2;
+    
     private final BasicColor foregroundBasicColor;
     
     private Rectangle rectangle;
@@ -130,7 +132,7 @@ public class BasicPopupMenuPaintable extends Paintable
 
        this.basicColorUtil.setBasicColor(graphics, this.foregroundBasicColor);
        
-       drawStringUtil.paintVerticle(graphics, label, x + 4, y + offset, 0);
+       drawStringUtil.paintVerticle(graphics, label, x + BORDER, y + offset, 0);
        graphics.drawRect(x, y, width, height);
    }
    

@@ -34,6 +34,6 @@ public class ScoreHudWidget extends NumberStringHud
 
     public ScoreHudWidget(int maxscore, int location, int direction) throws Exception
     {
-        this(maxscore, location, direction, 14, MyFont.getInstance().defaultFont.getSize() * 5, 2, BasicColorFactory.getInstance().GREY);
+        this(maxscore, location, direction, 14, MyFont.getInstance().getSize() * 5, 2, BasicColorFactory.getInstance().GREY);
     }
 }
