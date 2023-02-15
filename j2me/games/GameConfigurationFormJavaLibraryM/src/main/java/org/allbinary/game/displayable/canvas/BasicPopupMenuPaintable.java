@@ -14,6 +14,7 @@
 package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.AndroidUtil;
 
 import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
@@ -41,7 +42,7 @@ public class BasicPopupMenuPaintable extends Paintable
     protected final BasicColorSetUtil basicColorUtil = 
         BasicColorSetUtil.getInstance();
 
-    private final int BORDER = MyFont.getInstance().charWidth() * 2;
+    private final int BORDER;
     
     private final BasicColor foregroundBasicColor;
     
@@ -71,6 +72,12 @@ public class BasicPopupMenuPaintable extends Paintable
 
         this.rectangle = rectangle;
         
+        if(AndroidUtil.isAndroid()) {
+            this.BORDER = 4;
+        } else {
+            this.BORDER = MyFont.getInstance().charWidth() * 2;
+        }
+
         if(J2MEUtil.isJ2ME())
         {
             //Image image = ImageCacheFactory.getInstance().get(

@@ -47,7 +47,7 @@ public class VelocityWidget extends BasicHud
     public VelocityWidget(int powerOfTenVelocity, int location, int direction,
             BasicColor basicColor) throws Exception
     {
-        super(location, direction, 14, MyFont.getInstance().defaultFont.getSize() * (5 + MathUtil.getInstance().getTotalDigits(powerOfTenVelocity) + 1), 2, basicColor);
+        super(location, direction, 14, MyFont.getInstance().getSize() * (5 + MathUtil.getInstance().getTotalDigits(powerOfTenVelocity) + 1), 2, basicColor);
 
         this.maxVelocity = powerOfTenVelocity;
         this.velocity = 0;
