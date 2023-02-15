@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.paint;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
@@ -20,8 +21,11 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
 
+//J2SEForJ2ME
 public class AboutPaintable extends Paintable
 {
+    private final MyFont myFont = MyFont.getInstance();
+    
     private final String ABOUT = "About";
     
     private final String[] info;
@@ -54,16 +58,17 @@ public class AboutPaintable extends Paintable
     public void paint(Graphics graphics)
     {
         final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
-        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
-        
-        int beginWidth = (graphics.getFont().stringWidth(this.ABOUT) >> 1);
+        final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
+        final Font font = graphics.getFont();
+
+        int beginWidth = (font.stringWidth(this.ABOUT) >> 1);
         
         graphics.drawString(this.ABOUT, halfWidth - beginWidth, 2 * charHeight, anchor);
         
         int infoSize = this.info.length;
         for(int index = 0; index < infoSize; index++)
         {
-            beginWidth = (graphics.getFont().stringWidth(this.info[index]) >> 1);
+            beginWidth = (font.stringWidth(this.info[index]) >> 1);
         
             graphics.drawString(this.info[index], halfWidth - beginWidth,
                     (4 + index) * charHeight, anchor);
@@ -72,7 +77,7 @@ public class AboutPaintable extends Paintable
         int size = this.developers.length;
         for(int index = 0; index < size; index++)
         {
-            beginWidth = (graphics.getFont().stringWidth(this.developers[index]) >> 1);
+            beginWidth = (font.stringWidth(this.developers[index]) >> 1);
 
             graphics.drawString(this.developers[index], halfWidth - beginWidth,
                     (5 + infoSize + index) * charHeight, anchor);

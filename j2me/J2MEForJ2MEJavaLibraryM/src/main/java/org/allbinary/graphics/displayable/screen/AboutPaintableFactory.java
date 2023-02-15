@@ -58,21 +58,20 @@ public class AboutPaintableFactory {
         */
 
         final String INFO[] = {
-                "This game was developed",
-                "using the AllBinary",
-                "Game Development Kit.",
-                StringUtil.getInstance().EMPTY_STRING,
-                //StringUtil.getInstance()
-                //"More info at: http://"
-                "Comments or Questions:",
-                "support@allbinary.com",
-                //"Privacy Policy"                
-                };
+            "This game was developed",
+            "using the AllBinary",
+            "Game Development Kit.",
+            StringUtil.getInstance().EMPTY_STRING,
+            //StringUtil.getInstance()
+            //"More info at: http://"
+            "Comments or Questions:",
+            "support@allbinary.com", 
+            //"Privacy Policy"                
+        };
         
         final String[] DEVELOPERS = {
-                "Developed By:", "Travis Berthelot"
-                };
-        
+            "Developed By:", "Travis Berthelot"};
+                
         this.paintableArray = AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();        
     }
     
