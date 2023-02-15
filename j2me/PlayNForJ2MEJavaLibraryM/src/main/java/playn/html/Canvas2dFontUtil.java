@@ -15,8 +15,14 @@
  */
 package playn.html;
 
-import org.allbinary.graphics.color.BasicColor;
+import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.media.image.ImageScaleUtil;
 
 /**
  *
@@ -43,7 +49,7 @@ public class Canvas2dFontUtil
     
     //34 1 23 23
     //2011
-    public final String pattern = " 0123456789     ABCDEFGHIJKLM   NOPQRSTUVWXYZ   abcdefghijklm   nopqrstuvwxyz   .?!$%`¬\"£^&*   ()_+-=[]{};'#   :@~,/<>\\|©®";
+    public final String pattern = " 0123456789     ABCDEFGHIJKLM   NOPQRSTUVWXYZ   abcdefghijklm   nopqrstuvwxyz   .?!$%`¬\"£^&*   ()_+-=[]{};' #   :~,/<>\\|©® @";
     
     public final int[] charWidthArray = new int[125];
     
@@ -55,9 +61,9 @@ public class Canvas2dFontUtil
         //htmlGraphicsGL.createTexture(canvasElement);
         //context2d.
 
-        final javax.microedition.lcdui.Image image = Image.createImage(128, 128);
+        final Image image = Image.createImage(128, 128);
 
-        final javax.microedition.lcdui.Graphics graphics = image.getGraphics();
+        final Graphics graphics = image.getGraphics();
 
         graphics.setColor(basicColor.intValue());
 
@@ -126,14 +132,26 @@ public class Canvas2dFontUtil
 
         y += 16;
 
-        final String SPECIAL_3 = ":@~,/<>\\|®©";
+        final String SPECIAL_3 = ":~,/<>\\|©®";
 
-        for(int index = 0; index < 13; index++)
+        for(int index = 0; index < 12; index++)
         {
-            graphics.drawString(SPECIAL_3.substring(index, index + 1), index * 8, y, 0);
+            graphics.drawString(SPECIAL_3.substring(index, index + 1), (index * 8), y, 0);
         }
 
         return image;
+    }
+
+    public Image getAtImage(final BasicColor basicColor) {
+
+        final String SPECIAL_4 = "@";
+        //graphics.drawString(SPECIAL_4, (11 * 8) - 2, y, 0);
+        final Image atImage = javax.microedition.lcdui.Image.createImage(16, 16);
+        final Graphics graphics2 = atImage.getGraphics();
+        graphics2.setColor(basicColor.intValue());
+        graphics2.drawString(SPECIAL_4, 1, 7, 0);
+        
+        return atImage;
     }
 
     public int getSize()
