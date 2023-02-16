@@ -61,10 +61,7 @@ implements ColorChangeListener
         ScrollSelectionForm scrollSelectionForm = 
             (ScrollSelectionForm) formPaintable.getForm();
         
-        OwnershipPaintable ownershipPaintable = (OwnershipPaintable) 
-        mainGameDemoStatePaintable.getOwnershipPaintableInterface();
-        
-        ownershipPaintable.setBasicColor(basicColor);
+        mainGameDemoStatePaintable.getOwnershipPaintableInterface().setBasicColor(basicColor);
         
         scrollSelectionForm.setButtonBasicColor(basicColor);
         

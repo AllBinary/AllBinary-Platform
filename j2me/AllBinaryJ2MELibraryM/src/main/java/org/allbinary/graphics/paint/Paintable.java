@@ -14,6 +14,7 @@
 package org.allbinary.graphics.paint;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.graphics.color.BasicColor;
 
 /**
  *
@@ -22,6 +23,10 @@ import javax.microedition.lcdui.Graphics;
 public class Paintable 
 implements PaintableInterface
 {
+    public void setBasicColor(BasicColor basicColor)
+    {
+    }
+    
     public void paint(Graphics graphics)
     {
     }
