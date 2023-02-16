@@ -70,7 +70,8 @@ public class AboutPaintableFactory {
         };
         
         final String[] DEVELOPERS = {
-            "Developed By:", "Travis Berthelot"};
+            "Developed By:", "Travis Berthelot",
+        };
                 
         this.paintableArray = AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();        
     }

@@ -43,13 +43,31 @@ public class Canvas2dFontUtil
     //private final CanvasElement canvasElement = Document.get().createElement("canvas").<CanvasElement>cast();
     //private final Context2d context2d = canvasElement.getContext2d();
     
-    private Canvas2dFontUtil()
-    {
-    }
-    
     //34 1 23 23
     //2011
     public final String pattern = " 0123456789     ABCDEFGHIJKLM   NOPQRSTUVWXYZ   abcdefghijklm   nopqrstuvwxyz   .?!$%`¬\"£^&*    ()_+-=[]{};'#   :~,/<>\\|©® @";
+    
+    public final float[] SCALE_ARRAY = new float[5];
+    public final int[] FONT_SIZE_TO_SCALE_INDEX_ARRAY = new int[49];
+    
+    private Canvas2dFontUtil()
+    {
+        final int size = this.FONT_SIZE_TO_SCALE_INDEX_ARRAY.length;
+        
+        for(int index = 0; index < size; index++) {
+            if (index < 16) {
+                this.FONT_SIZE_TO_SCALE_INDEX_ARRAY[index] = 0;
+            } else if (index <= 19) {
+                this.FONT_SIZE_TO_SCALE_INDEX_ARRAY[index] = 1;
+            } else if (index <= 23) {
+                this.FONT_SIZE_TO_SCALE_INDEX_ARRAY[index] = 2;
+            } else if (index <= 27) {
+                this.FONT_SIZE_TO_SCALE_INDEX_ARRAY[index] = 3;
+            } else if (index <= 48) {
+                this.FONT_SIZE_TO_SCALE_INDEX_ARRAY[index] = 4;
+            }
+        }
+    }
     
     public final int[] charWidthArray = new int[125];
     
