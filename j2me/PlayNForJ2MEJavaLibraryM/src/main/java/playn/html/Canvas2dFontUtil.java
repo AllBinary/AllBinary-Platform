@@ -49,7 +49,7 @@ public class Canvas2dFontUtil
     
     //34 1 23 23
     //2011
-    public final String pattern = " 0123456789     ABCDEFGHIJKLM   NOPQRSTUVWXYZ   abcdefghijklm   nopqrstuvwxyz   .?!$%`¬\"£^&*   ()_+-=[]{};' #   :~,/<>\\|©® @";
+    public final String pattern = " 0123456789     ABCDEFGHIJKLM   NOPQRSTUVWXYZ   abcdefghijklm   nopqrstuvwxyz   .?!$%`¬\"£^&*    ()_+-=[]{};'#   :~,/<>\\|©® @";
     
     public final int[] charWidthArray = new int[125];
     
