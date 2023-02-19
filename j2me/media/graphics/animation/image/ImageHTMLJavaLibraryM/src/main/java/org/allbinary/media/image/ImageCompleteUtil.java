@@ -13,11 +13,12 @@
 */
 package org.allbinary.media.image;
 
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.time.TimeDelayHelper;
 import java.util.Hashtable;
 import javax.microedition.lcdui.Image;
 import org.allbinary.image.GameFeatureImageCacheFactory;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.HashtableUtil;
 import org.microemu.device.playn.PlaynImage;
 
@@ -73,6 +74,7 @@ public class ImageCompleteUtil
             }
             return false;
         }
+        //PreLogUtil.put("Image loading complete for: " + name, this, CommonStrings.getInstance().SUCCESS);
         return true;
     }
 
