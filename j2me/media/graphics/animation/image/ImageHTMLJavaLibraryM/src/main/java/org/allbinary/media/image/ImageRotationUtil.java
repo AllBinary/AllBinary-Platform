@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Image;
 
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;
-import org.microemu.device.playn.PlaynSurfaceDisplayGraphics;
 import playn.core.CanvasImage;
 import playn.core.CanvasSurface;
 
@@ -34,7 +33,7 @@ public class ImageRotationUtil
     {
     }
 
-    public Image createRotatedImage(Image originalImage, int rotationInDegrees)
+    public Image createRotatedImage(final Image originalImage, final int rotationInDegrees)
             throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " rotationInDegrees: " + rotationInDegrees, this, "createRotatedImage");
@@ -62,8 +61,10 @@ public class ImageRotationUtil
             final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
             final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
             final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
-            canvasSurface.drawImage(originalPlayNImage, 0, 0);
-            canvasSurface.rotate(rotationInDegrees);
+            
+            canvasSurface.translate(originalPlayNImage.width() / 2, originalPlayNImage.height() / 2);
+            canvasSurface.rotate((float) Math.toRadians(rotationInDegrees));
+            canvasSurface.drawImage(originalPlayNImage, -originalPlayNImage.width() / 2, -originalPlayNImage.height() / 2);
 
             return image;
         }
