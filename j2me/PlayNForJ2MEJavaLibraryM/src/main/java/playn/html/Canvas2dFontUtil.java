@@ -89,7 +89,7 @@ public class Canvas2dFontUtil
         
         final String NUMBERS = " 0123456789";
 
-        for(int index = 0; index < 10; index++)
+        for(int index = 0; index < 11; index++)
         {
             graphics.drawString(NUMBERS.substring(index, index + 1), index * 8, y, 0);
         }
