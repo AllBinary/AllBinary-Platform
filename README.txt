@@ -21,30 +21,8 @@ The AllBinary Platform represents more than 10 years of development and > 1 mill
 What is the goal?
 
 The goal of the AllBinary Platform is to create a Self Replicating Robot Army 
-dedicated to protecting, building, and maintaining Open Source Space Ships to escape the 
+dedicated to protecting, building, and maintaining space ships to escape the 
 tyrants of Earth.
-
-What is still needed to obtain the Self Replicating Robot Army?
-
-: MMORTS - For the control of robots based on my ZeptoWars RTS game
-: Resource Collection API 
-: 3D Printer API
-: Convert existing Open Robots for the 3D printer API
-: Convert existing Open Resource Machines for the 3D Printer API - mainly smelting, ore separation, extrusion material formation
-
-After the Self Replicating Robot Army is created what is needed for the Open Source Space Ships?
-
-: Parts Development using all off the self technologies for the following APIs in order of need:
-: Environmental Control/Life Support - Oxygen, Temperature, Gravity, and other Controls and Sensors
-: Defense
-: Propulsion
-: Navigation
-: Repair
-: Communications
-
-What is the Current Version?
-
-1.2.0
 
 What is the License?
 
@@ -77,9 +55,10 @@ Operating System support is extensive as well including Windows, Mac, Linux, And
 more totaling >20 operating systems. It contains rapid game development tools and over 200
 small libraries for creating games. The main features include the following:
 
-- Multi-Platform - Android, J2ME/BlackBerry, HTML5, and J2SE 
-(Moblin, IPhone, Linux, Windows, Solaris, Mac, and More)
+- Multi-Platform - Android, J2ME, HTML5, and J2SE 
+  (OS support: Android, Linux/Solaris, Windows, Mac, iOS, Chrome, and More)
 - Fullscreen and Windowed Support (Does not require restart to toggle between)
+- Scene editor support for GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 - Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
 - OpenGL Support (1.5 and ES 1.0+) with various 2d, 2d/3d, and 3d renderers
 - Game Object Placement (Maps, Levels, Enemy Positions and More)
@@ -224,10 +203,34 @@ It speeds up application testing by providing a base framework for automating in
 
 Future Implementation for the AllBinary Platform:
 
-More Social stuff
-More Plaform Support - ActionScript and Native output
-Integrated and highly customizable Scene Editor - I currently use a several 3d 
-tools as scene/model editors
-Robotics Integration - RTS with real robots and real map integration
-MDA Integration - Probably won't ever happen but I would like to have an MDA tool 
-that speeds development.  Not that Eclipse and NetBeans aren't great.
+Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
+
+Add native support using Avian and add other build targets.
+
+3D/OpenGLES support for platforms other than Android.
+
+Multiplayer for platforms other than J2ME, Android, and J2SE.
+
+Social API integration and improvements
+
+Integration with other Scene Editors, 2d/3d animation tools (currently Spline), and other graphics tools.
+
+Robotics Integration API, 3D Printer Integration API and Resource Collection API - RTS with real robots and real maps
+
+What is still needed to obtain the Self Replicating Robot Army to start building Space Ships?
+
+: MMORTS - For the control of robots based on my ZeptoWars RTS game
+: Resource Collection API 
+: 3D Printer API
+: Convert existing Open Robots for the 3D printer API
+: Convert existing Open Resource Machines for the 3D Printer API - mainly smelting, ore separation, extrusion material formation
+
+After the Self Replicating Robot Army is created what is needed for the Space Ships?
+
+: Parts Development using all off the self technologies for the following APIs in order of need:
+: Environmental Control/Life Support - Oxygen, Temperature, Gravity, and other Controls and Sensors
+: Defense
+: Propulsion
+: Navigation
+: Repair
+: Communications
