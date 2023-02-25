@@ -30,6 +30,9 @@ public class BooleanFactory
     public final String TRUE_STRING = TRUE.toString();
     public final String FALSE_STRING = FALSE.toString();
 
+    public final String YES = "yes";
+    public final String NO = "no";
+    
     public String toString(boolean bool)
     {
         if(bool)
