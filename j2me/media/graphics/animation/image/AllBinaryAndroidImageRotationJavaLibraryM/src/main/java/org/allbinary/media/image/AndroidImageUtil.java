@@ -13,8 +13,10 @@
 */
 package org.allbinary.media.image;
 
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import javax.microedition.lcdui.Image;
 
 /**
@@ -32,9 +34,17 @@ public class AndroidImageUtil {
         return instance;
     }
 
+    public void rotate(final Image image, final Image originalImage, final Matrix matrix, final Paint paint) {
+        image.getBitmap().eraseColor(Color.TRANSPARENT);
+        final Canvas canvas = image.getCanvas();
+        canvas.concat(matrix);
+        canvas.drawBitmap(originalImage.getBitmap(), 0, 0, paint);
+    }
+
     public void rotate(final Image image, final Image originalImage, final Matrix matrix) {
         image.getBitmap().eraseColor(Color.TRANSPARENT);
-        image.getCanvas().concat(matrix);
+        final Canvas canvas = image.getCanvas();
+        canvas.concat(matrix);
         image.getGraphics().drawImage(originalImage, 0, 0, 0);
     }
 }

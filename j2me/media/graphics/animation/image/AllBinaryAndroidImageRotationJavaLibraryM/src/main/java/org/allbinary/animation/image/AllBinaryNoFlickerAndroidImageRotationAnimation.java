@@ -19,15 +19,14 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.math.AngleInfo;
 import android.graphics.Matrix;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.AndroidImageUtil;
 import org.allbinary.media.image.ImageCopyUtil;
+import org.allbinary.media.image.ImageModifierUtil;
 
 public class AllBinaryNoFlickerAndroidImageRotationAnimation 
 extends AllBinaryImageBaseRotationAnimation
 {
+    private final ImageModifierUtil imageModifierUtil = new ImageModifierUtil();
     private final AndroidImageUtil androidImageUtil = AndroidImageUtil.getInstance();
     
     private final Matrix matrix = new Matrix();
@@ -70,16 +69,22 @@ extends AllBinaryImageBaseRotationAnimation
         //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
+    public void setAlpha(final int alpha) {
+        super.setAlpha(alpha);
+        imageModifierUtil.setAlpha(this.imageToShow, this.alpha);
+
+        //matrix.setRotate(0, this.halfWidth, this.halfHeight);
+        //this.updateImage();
+    }
+    
     public void nextRotation()
     {
         this.angleInfo.adjustAngle(this.circularIndexUtil.next());
 
         matrix.setRotate(this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
-
-        androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix);
-        this.imageToShow = this.twoImages[this.bufferedImageIndex];
-        this.swap();
+        
+        this.updateImage();
     }
 
     public void previousRotation()
@@ -88,10 +93,16 @@ extends AllBinaryImageBaseRotationAnimation
 
         matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);        
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
+        
+        this.updateImage();
+    }
 
-        androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix);     
+    private void updateImage() {        
+
+        androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix, imageModifierUtil.paint);
         this.imageToShow = this.twoImages[this.bufferedImageIndex];
-        this.swap();
+        
+        this.swap();        
     }
 
     public void setFrame(final int index)
@@ -107,11 +118,10 @@ extends AllBinaryImageBaseRotationAnimation
         //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
         
         this.angleInfo.adjustAngle(newFrame);
-                
+        
         matrix.setRotate((newFrame - currentFrame) * this.increment, this.halfWidth, this.halfHeight);
-        androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix);     
-        this.imageToShow = this.twoImages[this.bufferedImageIndex];
-        this.swap();
+
+        this.updateImage();
     }
     
     public void swap() {

@@ -25,4 +25,8 @@ public class Processor
     public void process() throws Exception
     {
     }
+
+    public void process(final long timeDelta) throws Exception
+    {
+    }
 }

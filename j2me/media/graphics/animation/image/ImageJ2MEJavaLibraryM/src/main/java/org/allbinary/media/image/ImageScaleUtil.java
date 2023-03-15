@@ -37,9 +37,9 @@ public class ImageScaleUtil
 
     private int anchor = Anchor.TOP_LEFT;
 
-    public Image createImage(final ImageCache imageCache, final Image originalImage,
-            final float scaleNominatorX, final float scaleDenominatorX, 
-            final float scaleNominatorY, final float scaleDenominatorY, final boolean cached) 
+    public Image createImage(ImageCache imageCache, Image originalImage,
+            float scaleNominatorX, float scaleDenominatorX, 
+            float scaleNominatorY, float scaleDenominatorY, boolean cached) 
     throws Exception
     {
         float scaleX = scaleNominatorX / scaleDenominatorX;
@@ -48,8 +48,8 @@ public class ImageScaleUtil
         return this.createImage(imageCache, originalImage, scaleX, scaleY, cached);
     }
     
-    public Image createImage(final ImageCache imageCache, final Image originalImage, 
-            final float scaleX, final float scaleY, final boolean cached) 
+    public Image createImage(ImageCache imageCache, Image originalImage, 
+            float scaleX, float scaleY, boolean cached) 
     throws Exception
     {
         Bitmap originalBitmap = originalImage.getBitmap();
@@ -57,8 +57,8 @@ public class ImageScaleUtil
         //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, 
           //      "ImageScaleUtil", "createImage"));
 
-        final int width = (int) (originalBitmap.getWidth() * scaleX);
-        final int height = (int) (originalBitmap.getHeight() * scaleY);
+        int width = (int) (originalBitmap.getWidth() * scaleX);
+        int height = (int) (originalBitmap.getHeight() * scaleY);
 
         //if(width % 2 != 0 && 3d) throw new Exception because it is really a texture
         
@@ -91,11 +91,11 @@ public class ImageScaleUtil
         }
     }
     
-    public void scale(final Image image, final Matrix matrix, final float scaleX, final float scaleY)
+    public void scale(Image image, Matrix matrix, float scaleX, float scaleY)
     {
         matrix.setScale(scaleX, scaleY);
 
-        final Canvas canvas = image.getCanvas();
+        Canvas canvas = image.getCanvas();
         canvas.concat(matrix);
     }
 }

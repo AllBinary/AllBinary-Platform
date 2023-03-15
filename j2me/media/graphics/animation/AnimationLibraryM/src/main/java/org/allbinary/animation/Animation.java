@@ -30,10 +30,15 @@ OpenGLSurfaceChangedInterface
 
     private BasicColor basicColor;
     private int color;
+    protected int alpha;
 
     protected Animation()
     {
         //this.setBasicColor(BasicColor.WHITE);
+    }
+
+    public void setAlpha(final int alpha) {
+        this.alpha = alpha;
     }
 
     public void nextFrame() throws Exception
