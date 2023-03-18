@@ -18,7 +18,7 @@ import org.allbinary.logic.basic.string.StringUtil;
 public class TimeDelayHelper
 {
     private long startTime = -1;
-    private long pauseTime = -1;
+    private long elapsedTimeAtPause = Long.MIN_VALUE;
     private int delay;
 
     public TimeDelayHelper(int delay)
@@ -139,12 +139,18 @@ public class TimeDelayHelper
     }
     
     public void pause() {
-        this.pauseTime = this.startTime;
+        this.elapsedTimeAtPause = this.getElapsed();
         this.startTime = Long.MAX_VALUE;
     }
 
-    public void resume() {
-        this.startTime = this.pauseTime;
+    public boolean resume() {
+        if(this.elapsedTimeAtPause != Long.MIN_VALUE) {
+            this.startTime = System.currentTimeMillis() + this.elapsedTimeAtPause;
+            this.elapsedTimeAtPause = Long.MIN_VALUE;
+            this.setStartTime();
+            return true;
+        }
+        return false;
     }
     
     public String toString(long currentTime)
