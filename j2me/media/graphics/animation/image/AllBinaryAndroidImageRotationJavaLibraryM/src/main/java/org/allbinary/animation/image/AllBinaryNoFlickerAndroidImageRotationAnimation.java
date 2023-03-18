@@ -70,11 +70,20 @@ extends AllBinaryImageBaseRotationAnimation
     }
 
     public void setAlpha(final int alpha) {
+        
+        boolean changed = false;
+        if(this.alpha != alpha) {
+            changed = true;
+        }
+        
         super.setAlpha(alpha);
-        imageModifierUtil.setAlpha(this.imageToShow, this.alpha);
 
-        //matrix.setRotate(0, this.halfWidth, this.halfHeight);
-        //this.updateImage();
+        imageModifierUtil.setAlpha(this.alpha);
+
+        if(changed) {
+            matrix.setRotate(0, this.halfWidth, this.halfHeight);
+            this.updateImage();
+        }
     }
     
     public void nextRotation()
@@ -91,18 +100,16 @@ extends AllBinaryImageBaseRotationAnimation
     {
         this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
 
-        matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);        
+        matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
         
         this.updateImage();
     }
 
-    private void updateImage() {        
+    private void updateImage() {
 
         androidImageUtil.rotate(this.twoImages[this.bufferedImageIndex], originalImage, matrix, imageModifierUtil.paint);
-        this.imageToShow = this.twoImages[this.bufferedImageIndex];
-        
-        this.swap();        
+        this.swap();
     }
 
     public void setFrame(final int index)
@@ -125,6 +132,9 @@ extends AllBinaryImageBaseRotationAnimation
     }
     
     public void swap() {
+        
+        this.imageToShow = this.twoImages[this.bufferedImageIndex];
+
         if(this.bufferedImageIndex == 0) {
             this.bufferedImageIndex = 1;
         } else {
