@@ -14,6 +14,8 @@
 package org.allbinary.media.image;
 
 import android.graphics.Paint;
+
+import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -27,6 +29,10 @@ public class ImageModifierUtil {
     private final String SET_ALPHA = "setAlpha: ";
     
     public final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    
+    public void setBasicColor(final BasicColor basicColor) {
+        paint.setARGB(basicColor.alpha, basicColor.red, basicColor.green, basicColor.blue);
+    }
     
     public void setAlpha(final int alpha) {
         if(alpha != paint.getAlpha()) {

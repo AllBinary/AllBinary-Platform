@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.math.AngleInfo;
 import android.graphics.Matrix;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.media.image.AndroidImageUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
@@ -69,6 +70,23 @@ extends AllBinaryImageBaseRotationAnimation
         //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
+    public void setBasicColor(final BasicColor basicColor) {
+        
+        boolean changed = false;
+        if(this.getBasicColor() == null || this.getBasicColor().intValue() != basicColor.intValue()) {
+            changed = true;
+        }
+        
+        super.setBasicColor(basicColor);
+        
+        imageModifierUtil.setBasicColor(basicColor);
+        
+        if(changed) {
+            matrix.setRotate(0, this.halfWidth, this.halfHeight);
+            this.updateImage();
+        }
+    }
+    
     public void setAlpha(final int alpha) {
         
         boolean changed = false;
