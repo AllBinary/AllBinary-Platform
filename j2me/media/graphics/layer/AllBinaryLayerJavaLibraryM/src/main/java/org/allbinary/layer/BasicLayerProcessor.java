@@ -44,7 +44,7 @@ public class BasicLayerProcessor
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
-    protected BasicArrayList getList()
+    public BasicArrayList getList()
     {
         return list;
     }

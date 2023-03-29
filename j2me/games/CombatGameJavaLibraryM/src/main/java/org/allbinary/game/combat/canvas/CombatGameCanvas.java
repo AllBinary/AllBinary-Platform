@@ -100,6 +100,11 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     {
         super.cleanupGame();
 
+        for (int index = basicLayerProcessor.length; --index >= 0;)
+        {
+            basicLayerProcessor[index].getList().clear();
+        }
+        
         GroupLayerManagerListener.getInstance().clear();
         GroupLayerManagerListener.getInstance().log();
         
