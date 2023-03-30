@@ -114,10 +114,6 @@ public class AllBinaryLayerManager extends LayerManager
     public synchronized void remove(final AllBinaryLayer layerInterface)
         throws Exception
     {
-        if(layerInterface == null) {
-            LogUtil.put(LogFactory.getInstance("Remove: null", this, "remove"));
-            return;
-        }
         //LogUtil.put(LogFactory.getInstance("Remove: " + layerInterface, this, "remove"));
         
         deleteLayerManagerEvent.setLayerInterface(layerInterface);
