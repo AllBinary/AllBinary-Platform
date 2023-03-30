@@ -4,20 +4,20 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-public class LayerInterfaceManager
+public class LayerManager
 {
-    private final LayerInterfaceManagerLoggingBase layerInterfaceManagerLogging;
+    private final LayerManagerLoggingBase layerManagerLogging;
     private final BasicArrayList list = new BasicArrayList();
     private final Object object = new Object();
 
-    public LayerInterfaceManager(final LayerInterfaceManagerLogging layerInterfaceManagerLogging)
+    public LayerManager(final LayerManagerLogging layerManagerLogging)
     {
-        this.layerInterfaceManagerLogging = layerInterfaceManagerLogging;
+        this.layerManagerLogging = layerManagerLogging;
     }
 
-    public LayerInterfaceManager()
+    public LayerManager()
     {
-        this.layerInterfaceManagerLogging = LayerInterfaceManagerNoDebug.getInstance();
+        this.layerManagerLogging = LayerManagerNoDebug.getInstance();
     }
     
     public boolean contains(final AllBinaryLayer layerInterface)
@@ -41,7 +41,7 @@ public class LayerInterfaceManager
     
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
-        this.layerInterfaceManagerLogging.append(layerInterface);
+        this.layerManagerLogging.append(layerInterface);
 
         this.list.add(layerInterface);
     }
@@ -49,7 +49,7 @@ public class LayerInterfaceManager
     public void append(final AllBinaryLayer layerInterface, final int index)
             throws Exception
     {
-        this.layerInterfaceManagerLogging.append(layerInterface, index);
+        this.layerManagerLogging.append(layerInterface, index);
 
         this.list.add(index, layerInterface);
     }
@@ -59,10 +59,10 @@ public class LayerInterfaceManager
     {
     	synchronized(object)
     	{
-            this.layerInterfaceManagerLogging.remove(layerInterface);
+            this.layerManagerLogging.remove(layerInterface);
     	    final boolean result = 
                     this.list.remove(layerInterface);
-            this.layerInterfaceManagerLogging.remove(layerInterface, result);
+            this.layerManagerLogging.remove(layerInterface, result);
     	}
     }
 
@@ -83,6 +83,7 @@ public class LayerInterfaceManager
     	synchronized(object)
     	{
     		this.list.clear();
+                this.layerManagerLogging.clear();
 
     		System.gc();
     		System.gc();

@@ -17,17 +17,17 @@ import org.allbinary.logic.basic.string.CommonStrings;
 
 public class LayerProcessor implements LayerProcessorInterface
 {
-    private final LayerInterfaceManager layerInterfaceManager;
+    private final LayerManager layerManager;
 
-    public LayerProcessor(final LayerInterfaceManager layerInterfaceManager)
+    public LayerProcessor(final LayerManager layerManager)
     {
-        this.layerInterfaceManager = layerInterfaceManager;
+        this.layerManager = layerManager;
     }
 
     /*
-    public LayerProcessor(LayerInterfaceManager layerInterfaceManager)
+    public LayerProcessor(LayerInterfaceManager layerManager)
     {
-        this.setLayerInterfaceManager(layerInterfaceManager);
+        this.setLayerInterfaceManager(layerManager);
     }
     */
     
@@ -43,23 +43,23 @@ public class LayerProcessor implements LayerProcessorInterface
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
-    public LayerInterfaceManager getLayerInterfaceManager()
+    public LayerManager getLayerInterfaceManager()
     {
-        return layerInterfaceManager;
+        return layerManager;
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
-        LayerInterfaceManager layerInterfaceManager = this
+        LayerManager layerManager = this
                 .getLayerInterfaceManager();
 
-        int size = layerInterfaceManager.getSize();
+        int size = layerManager.getSize();
         for (int index = 0; index < size; index++)
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().TOTAL_LABEL + layerInterfaceManager.getSize(), this, CommonStrings.getInstance().PROCESS));
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().TOTAL_LABEL + layerManager.getSize(), this, CommonStrings.getInstance().PROCESS));
             this.process(allBinaryLayerManager,
-               (AllBinaryLayer) layerInterfaceManager.getLayerAt(index), index);
+               (AllBinaryLayer) layerManager.getLayerAt(index), index);
         }
     }
 }

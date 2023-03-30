@@ -18,14 +18,14 @@ package org.allbinary.layer;
  *
  * @author User
  */
-public class LayerInterfaceManagerNoDebug extends LayerInterfaceManagerLoggingBase {
+public class LayerManagerNoDebug extends LayerManagerLoggingBase {
 
-    private static final LayerInterfaceManagerNoDebug instance = new LayerInterfaceManagerNoDebug();
+    private static final LayerManagerNoDebug instance = new LayerManagerNoDebug();
 
     /**
      * @return the instance
      */
-    public static LayerInterfaceManagerNoDebug getInstance() {
+    public static LayerManagerNoDebug getInstance() {
         return instance;
     }
 

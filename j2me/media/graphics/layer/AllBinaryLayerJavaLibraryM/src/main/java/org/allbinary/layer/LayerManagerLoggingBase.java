@@ -18,7 +18,7 @@ package org.allbinary.layer;
  *
  * @author User
  */
-public class LayerInterfaceManagerLoggingBase {
+public class LayerManagerLoggingBase {
 
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
@@ -36,5 +36,8 @@ public class LayerInterfaceManagerLoggingBase {
     public void remove(final AllBinaryLayer layerInterface, final boolean result) {
         
     }
-    
+ 
+    public void clear() {
+        
+    }
 }

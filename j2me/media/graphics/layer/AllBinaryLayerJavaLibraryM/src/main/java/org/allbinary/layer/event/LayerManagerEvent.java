@@ -15,7 +15,7 @@ package org.allbinary.layer.event;
 
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 public class LayerManagerEvent extends AllBinaryEventObject
@@ -23,7 +23,7 @@ public class LayerManagerEvent extends AllBinaryEventObject
     private AllBinaryLayer layerInterface;
     private final String crud;
 
-    public LayerManagerEvent(LayerInterfaceManager layerManager, String crud)
+    public LayerManagerEvent(LayerManager layerManager, String crud)
     {
         super(layerManager);
         

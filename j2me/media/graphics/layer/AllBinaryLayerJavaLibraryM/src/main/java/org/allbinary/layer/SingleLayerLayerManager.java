@@ -14,12 +14,12 @@
 
 package org.allbinary.layer;
 
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 
 /**
  *
  * @author User
  */
-public class SingleLayerLayerInterfaceManager extends LayerInterfaceManager {
+public class SingleLayerLayerManager extends LayerManager {
         
 }

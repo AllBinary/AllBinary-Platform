@@ -18,16 +18,16 @@ extends LayerProcessor
 {
     public SingleLayerLayerProcessor()
     {
-        super(new SingleLayerLayerInterfaceManager());
+        super(new SingleLayerLayerManager());
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
-        LayerInterfaceManager layerInterfaceManager = 
+        LayerManager layerManager = 
             this.getLayerInterfaceManager();
 
         this.process(allBinaryLayerManager, 
-                (AllBinaryLayer) layerInterfaceManager.getLayerAt(0), 0);
+                (AllBinaryLayer) layerManager.getLayerAt(0), 0);
     }
 }

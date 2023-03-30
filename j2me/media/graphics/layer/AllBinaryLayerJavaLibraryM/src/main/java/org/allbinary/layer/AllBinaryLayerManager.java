@@ -21,7 +21,7 @@ import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
 import org.allbinary.logic.basic.string.CommonLabels;
 
-public class AllBinaryLayerManager extends LayerInterfaceManager
+public class AllBinaryLayerManager extends LayerManager
 {
     //private final CommonLabels commonLabels = CommonLabels.getInstance();
     
@@ -34,7 +34,7 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
 
     protected AllBinaryLayerManager()
     {
-        //super(LayerInterfaceManagerLogging.getInstance());
+        //super(LayerManagerLogging.getInstance());
     }
 
     // private int damageIndex = -1;
@@ -114,8 +114,12 @@ public class AllBinaryLayerManager extends LayerInterfaceManager
     public synchronized void remove(final AllBinaryLayer layerInterface)
         throws Exception
     {
+        if(layerInterface == null) {
+            LogUtil.put(LogFactory.getInstance("Remove: null", this, "remove"));
+            return;
+        }
         //LogUtil.put(LogFactory.getInstance("Remove: " + layerInterface, this, "remove"));
-
+        
         deleteLayerManagerEvent.setLayerInterface(layerInterface);
         layerManagerEventHandler.fireDeleteEvent(this.deleteLayerManagerEvent);
 
