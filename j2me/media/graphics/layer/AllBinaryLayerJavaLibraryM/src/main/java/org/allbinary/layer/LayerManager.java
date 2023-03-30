@@ -15,7 +15,7 @@ public class LayerManager
 
     public LayerManager(final LayerManagerLogging layerManagerLogging)
     {
-        LogUtil.put(LogFactory.getInstance(Integer.toHexString(this.hashCode()), this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
         
         this.layerManagerLogging = layerManagerLogging;
     }
