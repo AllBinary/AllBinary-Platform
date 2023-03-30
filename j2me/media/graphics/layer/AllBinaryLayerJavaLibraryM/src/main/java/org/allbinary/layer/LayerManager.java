@@ -1,6 +1,9 @@
 package org.allbinary.layer;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.util.BasicArrayList;
 
@@ -12,6 +15,8 @@ public class LayerManager
 
     public LayerManager(final LayerManagerLogging layerManagerLogging)
     {
+        LogUtil.put(LogFactory.getInstance(Integer.toHexString(this.hashCode()), this, CommonStrings.getInstance().CONSTRUCTOR));
+        
         this.layerManagerLogging = layerManagerLogging;
     }
 
@@ -62,7 +67,7 @@ public class LayerManager
             this.layerManagerLogging.remove(layerInterface);
     	    final boolean result = 
                     this.list.remove(layerInterface);
-            this.layerManagerLogging.remove(layerInterface, result);
+            this.layerManagerLogging.remove(this, layerInterface, result);
     	}
     }
 

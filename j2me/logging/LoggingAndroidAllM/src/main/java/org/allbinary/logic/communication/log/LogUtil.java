@@ -13,7 +13,9 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class LogUtil
 {
@@ -46,7 +48,7 @@ public class LogUtil
       }
       */
       
-      className = object.getClass().getName();
+      className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
       
       final String message = LogFormatUtil.getInstance().get(
          className, functionName, specialMessage, exception);

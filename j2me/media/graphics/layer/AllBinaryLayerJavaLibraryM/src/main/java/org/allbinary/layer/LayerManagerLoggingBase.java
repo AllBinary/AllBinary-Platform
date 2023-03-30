@@ -33,7 +33,7 @@ public class LayerManagerLoggingBase {
         
     }
     
-    public void remove(final AllBinaryLayer layerInterface, final boolean result) {
+    public void remove(final LayerManager layerManager, final AllBinaryLayer layerInterface, final boolean result) {
         
     }
  

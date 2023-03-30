@@ -53,7 +53,7 @@ implements LayerInterface
         if(name == null) {
             this.name = this.getClass().getName();
         } else {
-            this.name = name;
+            this.name = new StringBuilder().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(this.hashCode())).toString();
         }
         
         final GPoint point = rectangle.getPoint();
@@ -183,8 +183,6 @@ implements LayerInterface
         final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 
         stringBuffer.append(this.getName());
-        stringBuffer.append(commonSeps.COLON);
-        stringBuffer.append(Integer.toHexString(this.hashCode()));
         stringBuffer.append(commonSeps.COLON);
         stringBuffer.append(TYPE);
         stringBuffer.append(this.getType());

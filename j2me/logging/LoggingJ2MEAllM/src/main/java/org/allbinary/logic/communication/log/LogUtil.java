@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogFormatUtil;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class LogUtil
 {
@@ -42,7 +42,7 @@ public class LogUtil
 
         if (object.getClass().getName() != null)
         {
-            className = new String(object.getClass().getName());
+            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
         }
 
         String message = LogFormatUtil.getInstance().get(
@@ -65,7 +65,7 @@ public class LogUtil
 
         if (object.getClass().getName() != null)
         {
-            className = new String(object.getClass().getName());
+            className = new String(new StringMaker().append(object.getClass().getName()).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(object.hashCode())).toString());
         }
 
         String message = LogFormatUtil.getInstance().get(
