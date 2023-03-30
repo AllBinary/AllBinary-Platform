@@ -68,9 +68,12 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
 
     public void remove(final AllBinaryLayer layerInterface, final boolean result) {
         
-        if(layerInterface == null || result) {
+        if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
-            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(result).toString(), this, REMOVE));
+            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface).toString(), this, REMOVE));
+        } else if(result) {
+            stringBuilder.delete(0, stringBuilder.length());
+            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE));
         } else {
             stringBuilder.delete(0, stringBuilder.length());
             //LogUtil.put(LogFactory.getInstance(stringBuilder.append(DID_NOT_REMOVE).append(layerInterface.toString()).toString(), this, REMOVE, new Exception()));
