@@ -20,6 +20,6 @@ import org.allbinary.layer.LayerManager;
  *
  * @author User
  */
-public class OptimizedGameInputLayerInterfaceManager extends LayerManager {
+public class OptimizedGameInputLayerManager extends LayerManager {
 
 }

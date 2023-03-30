@@ -26,7 +26,7 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
 
     public OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer()
     {
-        super(new OptimizedAllBinaryCollisionLayerInterfaceManager());
+        super(new OptimizedAllBinaryCollisionLayerManager());
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager,
@@ -42,7 +42,7 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
         if (collidableBase.isCollidable())
         {
 
-            final LayerManager layerManager = this.getLayerInterfaceManager();
+            final LayerManager layerManager = this.getLayerManager();
 
             final int size = layerManager.getSize();
             CollidableCompositeLayer collidableInterfaceCompositeInterface2;

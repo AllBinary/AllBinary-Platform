@@ -25,9 +25,9 @@ public class LayerProcessor implements LayerProcessorInterface
     }
 
     /*
-    public LayerProcessor(LayerInterfaceManager layerManager)
+    public LayerProcessor(LayerManager layerManager)
     {
-        this.setLayerInterfaceManager(layerManager);
+        this.setLayerManager(layerManager);
     }
     */
     
@@ -43,7 +43,7 @@ public class LayerProcessor implements LayerProcessorInterface
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
-    public LayerManager getLayerInterfaceManager()
+    public LayerManager getLayerManager()
     {
         return layerManager;
     }
@@ -52,7 +52,7 @@ public class LayerProcessor implements LayerProcessorInterface
             throws Exception
     {
         LayerManager layerManager = this
-                .getLayerInterfaceManager();
+                .getLayerManager();
 
         int size = layerManager.getSize();
         for (int index = 0; index < size; index++)

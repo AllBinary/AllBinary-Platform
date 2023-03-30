@@ -61,7 +61,7 @@ public class AllBinaryLayerManager extends LayerManager
             LayerProcessor layerProcessorInterface = basicLayerProcessorArray[index];
 
             //LogUtil.put(LogFactory.getInstance(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + this.commonLabels.TOTAL_LABEL +
-            //    layerProcessorInterface.getLayerInterfaceManager().getSize(), this, "log"));
+            //    layerProcessorInterface.getLayerManager().getSize(), this, "log"));
         }
     }
     
@@ -106,7 +106,7 @@ public class AllBinaryLayerManager extends LayerManager
             if (layerProcessorInterface.isProcessorLayer(layerInterface))
             {
                 //LogUtil.put(LogFactory.getInstance("Appending BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "appendProcessors"));
-                layerProcessorInterface.getLayerInterfaceManager().append(layerInterface);
+                layerProcessorInterface.getLayerManager().append(layerInterface);
             }
         }
     }
@@ -131,7 +131,7 @@ public class AllBinaryLayerManager extends LayerManager
 
             //LogUtil.put(LogFactory.getInstance("Processing BasicLayerProcessor: " + layerProcessorInterface.getClass().getName(), this, "processGame"));
 
-            layerProcessorInterface.getLayerInterfaceManager().remove(layerInterface);
+            layerProcessorInterface.getLayerManager().remove(layerInterface);
         }
 
         super.remove(layerInterface);
@@ -153,7 +153,7 @@ public class AllBinaryLayerManager extends LayerManager
             layerProcessorInterface = basicLayerProcessorArray[index];
 
             //LogUtil.put(LogFactory.getInstance(layerProcessorInterface.getClass().getName() + CommonSeps.getInstance().SPACE + CommonLabels.getInstance().TOTAL_LABEL + 
-            //        layerProcessorInterface.getLayerInterfaceManager().getSize(), this, CommonStrings.getInstance().PROCESS));
+            //        layerProcessorInterface.getLayerManager().getSize(), this, CommonStrings.getInstance().PROCESS));
 
             // if(index != damageIndex)
             layerProcessorInterface.process(this);
@@ -175,7 +175,7 @@ public class AllBinaryLayerManager extends LayerManager
         for (int index = 0; index < size; index++)
         {
             layerProcessorInterface = basicLayerProcessorArray[index];
-            layerProcessorInterface.getLayerInterfaceManager().cleanup();
+            layerProcessorInterface.getLayerManager().cleanup();
         }
 
         super.cleanup();

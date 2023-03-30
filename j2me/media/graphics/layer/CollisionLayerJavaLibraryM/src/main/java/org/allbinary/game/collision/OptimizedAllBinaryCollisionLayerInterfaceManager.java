@@ -20,6 +20,6 @@ import org.allbinary.layer.LayerManager;
  *
  * @author User
  */
-public class OptimizedAllBinaryCollisionLayerInterfaceManager extends LayerManager {
+public class OptimizedAllBinaryCollisionLayerManager extends LayerManager {
 
 }

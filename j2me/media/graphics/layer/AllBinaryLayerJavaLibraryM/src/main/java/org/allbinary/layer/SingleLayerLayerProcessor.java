@@ -25,7 +25,7 @@ extends LayerProcessor
             throws Exception
     {
         LayerManager layerManager = 
-            this.getLayerInterfaceManager();
+            this.getLayerManager();
 
         this.process(allBinaryLayerManager, 
                 (AllBinaryLayer) layerManager.getLayerAt(0), 0);

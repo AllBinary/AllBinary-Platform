@@ -14,12 +14,12 @@
 
 package org.allbinary.game.collision.layer;
 
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 
 /**
  *
  * @author User
  */
-public class CollidableInterfaceLayerInterfaceManager extends LayerInterfaceManager {
+public class CollidableInterfaceLayerManager extends LayerManager {
         
 }

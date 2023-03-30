@@ -21,7 +21,7 @@ import org.allbinary.layer.LayerProcessor;
 public class OptimizedGameInputLayerProcessorForCollidableLayer extends LayerProcessor {
     
 	public OptimizedGameInputLayerProcessorForCollidableLayer() {
-            super(new OptimizedGameInputLayerInterfaceManager());
+            super(new OptimizedGameInputLayerManager());
 	}
 
 	public void process(AllBinaryLayerManager allBinaryLayerManager,

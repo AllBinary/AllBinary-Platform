@@ -15,14 +15,14 @@ package org.allbinary.ai;
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 import org.allbinary.layer.LayerProcessor;
 
 public class ArtificialIntelligenceLayerProcessor extends LayerProcessor
 {    
     public ArtificialIntelligenceLayerProcessor()
     {
-        super(new ArtificialIntelligenceLayerInterfaceManager());
+        super(new ArtificialIntelligenceLayerManager());
     }
 
     public void process(AllBinaryLayerManager allBinaryLayerManager, AllBinaryLayer layerInterface,

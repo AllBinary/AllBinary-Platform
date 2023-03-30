@@ -16,7 +16,7 @@ package org.allbinary.layer;
 public interface LayerProcessorInterface 
 extends BasicLayerProcessorInterface
 {
-    LayerManager getLayerInterfaceManager();
+    LayerManager getLayerManager();
 
     void process(AllBinaryLayerManager allBinaryLayerManager,
             AllBinaryLayer layerInterface, int index) throws Exception;

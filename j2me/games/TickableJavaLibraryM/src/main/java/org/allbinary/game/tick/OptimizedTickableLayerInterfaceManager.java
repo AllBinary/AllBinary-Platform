@@ -14,12 +14,12 @@
 
 package org.allbinary.game.tick;
 
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 
 /**
  *
  * @author User
  */
-public class OptimizedTickableLayerInterfaceManager extends LayerInterfaceManager {
+public class OptimizedTickableLayerManager extends LayerManager {
 
 }

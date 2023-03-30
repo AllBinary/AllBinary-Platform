@@ -20,6 +20,6 @@ import org.allbinary.layer.LayerManager;
  *
  * @author User
  */
-public class OptimizedArtificialIntelligenceLayerInterfaceManager extends LayerManager {
+public class OptimizedArtificialIntelligenceLayerManager extends LayerManager {
 
 }

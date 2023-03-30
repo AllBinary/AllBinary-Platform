@@ -15,7 +15,7 @@ package org.allbinary.game.collision.layer;
 
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 
 public class AllBinaryCollisionManager
 {
@@ -64,22 +64,22 @@ public class AllBinaryCollisionManager
    */
    
    public void process(
-		   LayerInterfaceManager layerInterfaceManager,
+		   LayerManager layerManager,
 		   CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface,
       int startIndex)
       throws Exception
    {
-       int size = layerInterfaceManager.getSize();
+       int size = layerManager.getSize();
 
        for (int index = startIndex + 1; index < size; index++)
        {
            CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface2 = 
-                   (CollidableInterfaceCompositeInterface) layerInterfaceManager.getLayerAt(index);
+                   (CollidableInterfaceCompositeInterface) layerManager.getLayerAt(index);
 
            // if(collidableInterfaceCompositeInterface !=
            // collidableInterfaceCompositeInterface2)
            // {
-           this.collide(layerInterfaceManager,
+           this.collide(layerManager,
                    collidableInterfaceCompositeInterface,
                    collidableInterfaceCompositeInterface2);
            // }
@@ -87,7 +87,7 @@ public class AllBinaryCollisionManager
    }
 
    private void collide(
-	  LayerInterfaceManager layerInterfaceManager,
+	  LayerManager layerManager,
 	  CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface,
 	  CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface2)
       throws Exception

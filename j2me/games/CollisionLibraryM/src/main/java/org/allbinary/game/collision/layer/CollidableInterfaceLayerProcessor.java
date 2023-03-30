@@ -22,7 +22,7 @@ public class CollidableInterfaceLayerProcessor extends LayerProcessor
 {
    public CollidableInterfaceLayerProcessor()
    {
-       super(new CollidableInterfaceLayerInterfaceManager());
+       super(new CollidableInterfaceLayerManager());
    }
    
    public void process(AllBinaryLayerManager allBinaryLayerManager, 
@@ -35,7 +35,7 @@ public class CollidableInterfaceLayerProcessor extends LayerProcessor
          if(collidableInterfaceCompositeInterface.getCollidableInferface().isCollidable())
          {
             AllBinaryCollisionManager.getInstance().process(
-               this.getLayerInterfaceManager(), collidableInterfaceCompositeInterface, index);
+               this.getLayerManager(), collidableInterfaceCompositeInterface, index);
          }
    }
    

@@ -23,7 +23,7 @@ public class OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer ext
     
 	public OptimizedArtificialIntelligenceLayerProcessorForCollidableLayer() 
 	{
-            super(new OptimizedArtificialIntelligenceLayerInterfaceManager());
+            super(new OptimizedArtificialIntelligenceLayerManager());
 	}
 
 	public void process(AllBinaryLayerManager allBinaryLayerManager,
