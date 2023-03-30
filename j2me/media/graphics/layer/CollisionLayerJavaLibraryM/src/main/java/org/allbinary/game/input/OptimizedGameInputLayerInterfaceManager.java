@@ -14,12 +14,12 @@
 
 package org.allbinary.game.input;
 
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 
 /**
  *
  * @author User
  */
-public class OptimizedGameInputLayerInterfaceManager extends LayerInterfaceManager {
+public class OptimizedGameInputLayerInterfaceManager extends LayerManager {
 
 }

@@ -17,7 +17,7 @@ import org.allbinary.game.layer.CollidableCompositeLayer;
 
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.layer.LayerInterfaceManager;
+import org.allbinary.layer.LayerManager;
 import org.allbinary.layer.LayerProcessor;
 
 public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
@@ -42,16 +42,16 @@ public class OptimizedAllBinaryCollisionLayerProcessorForCollidableLayer
         if (collidableBase.isCollidable())
         {
 
-            final LayerInterfaceManager layerInterfaceManager = this.getLayerInterfaceManager();
+            final LayerManager layerManager = this.getLayerInterfaceManager();
 
-            final int size = layerInterfaceManager.getSize();
+            final int size = layerManager.getSize();
             CollidableCompositeLayer collidableInterfaceCompositeInterface2;
             CollidableBaseBehavior collidableBase2;
             //LogUtil.put(LogFactory.getInstance("startIndex: " + startIndex + CommonSeps.getInstance().SPACE + CommonLabels.getInstance().TOTAL_LABEL + size, this, CommonStrings.getInstance().PROCESS));
             for (int index = startIndex + 1; index < size; index++)
             {
                 collidableInterfaceCompositeInterface2 =
-                    (CollidableCompositeLayer) layerInterfaceManager.getLayerAt(index);
+                    (CollidableCompositeLayer) layerManager.getLayerAt(index);
 
                 collidableBase2 = 
                     collidableInterfaceCompositeInterface2.getCollidableInferface();
