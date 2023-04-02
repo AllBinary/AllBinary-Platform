@@ -113,7 +113,7 @@ public class FileLog
    String specialMessage,
    Object object,
    String functionName,
-   Exception exception)
+   Throwable exception)
    {
       
       try
