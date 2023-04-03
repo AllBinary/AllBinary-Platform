@@ -24,6 +24,7 @@ import java.io.RandomAccessFile;
 
 import java.util.Calendar;
 import java.util.Date;
+import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.communication.log.LogFormatUtil;
 
 public class FileLog
@@ -38,6 +39,7 @@ public class FileLog
    private static File logFile = new File(logPath, fileName);
    private static File logFileBak;
    private static BufferedWriter fileOut;
+   private static int backupIndex;
    
    private FileLog()
    {
@@ -73,7 +75,8 @@ public class FileLog
    {
       try
       {
-         logFileBak = new File(logPath, backupFileName);
+         logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
+         backupIndex++;
          
          //Calendar calendar=Calendar.getInstance();
          //Date date = calendar.getTime();
