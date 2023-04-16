@@ -26,6 +26,7 @@ import java.util.Calendar;
 import java.util.Date;
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.communication.log.LogFormatUtil;
+import org.allbinary.logic.java.exception.ExceptionUtil;
 
 public class FileLog
 {
@@ -143,29 +144,31 @@ public class FileLog
          String time = new String(date.toString());
          
          String className = new String("Empty");
-         String exceptionInfo = new String("Empty");
-         String exceptionMessage = new String("Empty");
+         //String exceptionInfo = new String("Empty");
+         //String exceptionMessage = new String("Empty");
          
          if(functionName==null) functionName = new String("None");
          if(specialMessage==null) specialMessage = new String("None");
          
          if(object.getClass().getName() != null) className = new String(object.getClass().getName());
          
-         if(exception!=null)
-         {   
-            if(exception.toString() != null) exceptionInfo = new String(exception.toString());
-            ByteArrayOutputStream bs = new ByteArrayOutputStream();
-            PrintStream pStream = new PrintStream(bs);
-            exception.printStackTrace(pStream);
-            if(bs.toString() != null) exceptionMessage = new String(bs.toString());
-         }
+         //if(exception!=null)
+         //{   
+            //exceptionMessage = ExceptionUtil.getInstance().getStackTrace(exception);
+            //if(exception.toString() != null) exceptionInfo = new String(exception.toString());
+            //ByteArrayOutputStream bs = new ByteArrayOutputStream();
+            //PrintStream pStream = new PrintStream(bs);
+            //exception.printStackTrace(pStream);
+            //if(bs.toString() != null) exceptionMessage = new String(bs.toString());
+         //}
          
          String message = LogFormatUtil.getInstance().get(
-                 className, functionName, specialMessage);
+                 className, functionName, specialMessage, exception);
          
          message = new StringBuilder().append("Time: ").append(time).append(message)
-                 .append("\nError: ").append(exceptionInfo)
-                 .append("\nError: ").append(exceptionMessage).toString();
+                 //.append("\nError: ").append(exceptionInfo)
+                 //.append("\nError: ").append(exceptionMessage)
+                 .toString();
          
          fileOut.write(message, 0, message.length());
          fileOut.newLine();
