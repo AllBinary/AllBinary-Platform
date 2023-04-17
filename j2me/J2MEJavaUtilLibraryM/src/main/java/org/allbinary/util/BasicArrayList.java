@@ -296,13 +296,13 @@ public class BasicArrayList
 
     public Object clone()
     {
-    	BasicArrayList list = new BasicArrayList();
+    	final BasicArrayList list = new BasicArrayList();
     	
-    	int size = this.size();
+    	final int size = this.size();
+        Object object;
     	for (int index = 0; index < size; index++)
     	{
-    	    Object object = this.objectArray[index];
-    	    
+    	    object = this.objectArray[index];
     	    list.add(object);
     	}
     	
