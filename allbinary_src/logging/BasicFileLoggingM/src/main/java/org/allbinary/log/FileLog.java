@@ -15,27 +15,25 @@ package org.allbinary.log;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.PrintStream;
 import java.io.RandomAccessFile;
-
-import java.util.Calendar;
-import java.util.Date;
 import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFormatUtil;
-import org.allbinary.logic.java.exception.ExceptionUtil;
 
 public class FileLog
 {
+    private static final StringUtil stringUtil = StringUtil.getInstance();
+
    private static final long logLength = 50000000;  // 50MB
    //private static final String logPath = MyFrame.PATH + "/log/";
    private static final String logPath = "g:\\log\\";
    private static final String extension = new String("dat");
    private static final String fileName = new String("log." + extension);
    private static final String backupFileName = fileName.concat(".bak");
+   private static final String ORG_ALLBINARY = "org.allbinary: ";
    private static boolean firstTime = true;
    private static File logFile = new File(logPath, fileName);
    private static File logFileBak;
@@ -139,41 +137,21 @@ public class FileLog
                return new String("Couldn't Create a Backup file");
             }
          }
-         Calendar calendar=Calendar.getInstance();
-         Date date = calendar.getTime();
-         String time = new String(date.toString());
          
-         String className = new String("Empty");
-         //String exceptionInfo = new String("Empty");
-         //String exceptionMessage = new String("Empty");
-         
-         if(functionName==null) functionName = new String("None");
-         if(specialMessage==null) specialMessage = new String("None");
-         
+         String className = new String(stringUtil.NULL_STRING);
+
+         if(functionName==null) functionName = new String(stringUtil.NULL_STRING);
+         if(specialMessage==null) specialMessage = new String(stringUtil.NULL_STRING);
+
          if(object.getClass().getName() != null) className = new String(object.getClass().getName());
-         
-         //if(exception!=null)
-         //{   
-            //exceptionMessage = ExceptionUtil.getInstance().getStackTrace(exception);
-            //if(exception.toString() != null) exceptionInfo = new String(exception.toString());
-            //ByteArrayOutputStream bs = new ByteArrayOutputStream();
-            //PrintStream pStream = new PrintStream(bs);
-            //exception.printStackTrace(pStream);
-            //if(bs.toString() != null) exceptionMessage = new String(bs.toString());
-         //}
-         
-         String message = LogFormatUtil.getInstance().get(
+
+         final String message = LogFormatUtil.getInstance().get(
                  className, functionName, specialMessage, exception);
-         
-         message = new StringBuilder().append("Time: ").append(time).append(message)
-                 //.append("\nError: ").append(exceptionInfo)
-                 //.append("\nError: ").append(exceptionMessage)
-                 .toString();
-         
+
          fileOut.write(message, 0, message.length());
          fileOut.newLine();
          fileOut.flush();
-         return new String("org.allbinary: " + message);
+         return new String(ORG_ALLBINARY + message);
       }
       catch (Exception e)
       {
@@ -182,18 +160,18 @@ public class FileLog
    }
 
    public synchronized static String put(
-   String specialMessage,
-   String className,
-   String functionName)
+   final String specialMessage,
+   final String className,
+   final String functionName)
    {
       return put(specialMessage, className, functionName, null);
    }
    
    public synchronized static String put(
-   String specialMessage,   
-   String className,
+   String specialMessage, 
+   final String className,
    String functionName,
-   Exception exception)
+   final Exception exception)
    {      
       try
       {
@@ -214,37 +192,18 @@ public class FileLog
                return new String("Couldn't Create a Backup file");
             }
          }
-         Calendar calendar=Calendar.getInstance();
-         Date date = calendar.getTime();
-         String time = new String(date.toString());
-                  
-         String exceptionInfo = new String("Empty");
-         String exceptionMessage = new String("Empty");
          
-         if(functionName==null) functionName = new String("None");
-         if(specialMessage==null) specialMessage = new String("None");                  
+         if(functionName==null) functionName = new String(stringUtil.NULL_STRING);
+         if(specialMessage==null) specialMessage = new String(stringUtil.NULL_STRING);                  
          
-         if(exception!=null)
-         {
-            
-            if(exception.toString() != null) exceptionInfo = new String(exception.toString());
-            ByteArrayOutputStream bs = new ByteArrayOutputStream();
-            PrintStream pStream = new PrintStream(bs);
-            exception.printStackTrace(pStream);
-            if(bs.toString() != null) exceptionMessage = new String(bs.toString());
-         }
-
-         String message = LogFormatUtil.getInstance().get(
-                 className, functionName, specialMessage);
-         
-         message = new StringBuilder().append("Time: ").append(time).append(message)
-                 .append("\nError: ").append(exceptionInfo)
-                 .append("\nError: ").append(exceptionMessage).toString();
-                  
+         final String message = LogFormatUtil.getInstance().get(
+                 className, functionName, specialMessage, exception);
+                           
          fileOut.write(message, 0, message.length());
          fileOut.newLine();
          fileOut.flush();
-         return new String("org.allbinary: " + message);
+         
+         return new String(ORG_ALLBINARY + message);
       }
       catch (Exception e)
       {

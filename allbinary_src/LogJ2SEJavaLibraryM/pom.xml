@@ -1,15 +1,14 @@
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <name>BasicFileLogging</name>
     <groupId>org.allbinary</groupId>
-    <artifactId>BasicFileLogging</artifactId>
+    <artifactId>LogJ2SEJavaLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
+    <name>LogJ2SEJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -24,11 +23,6 @@
         </repository>
     </distributionManagement>
 
-    <properties>
-        <buildLabel>${project.version}</buildLabel>
-        <assemblyPluginVersion>2.2-beta-1</assemblyPluginVersion>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -37,26 +31,22 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>CommonJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>LogJ2SEJavaLibrary</artifactId>
+            <artifactId>J2MEExceptionLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-            
-            <optional>true</optional>
-            
-        </dependency>
 
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2SEExceptionLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-    
-            <optional>true</optional>
         </dependency>
 
     </dependencies>
@@ -79,8 +69,7 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-
-
+            
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -97,5 +86,13 @@
         </plugins>
 
     </build>
+
 </project>
+
+
+
+
+
+
+
 
