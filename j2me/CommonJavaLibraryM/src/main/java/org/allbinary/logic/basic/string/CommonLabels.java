@@ -31,7 +31,7 @@ public class CommonLabels {
     
     public final String END_LABEL = "End: ";
     public final String TOTAL_LABEL = "Total: ";
-    public final String INDEX_LABEL = "Index: ";
+    public final String INDEX_LABEL = "index: ";
     public final String START_LABEL = "Start: ";
     public final String COMMAND_LABEL = "Command: ";
     public final String NAME_LABEL = "Name: ";

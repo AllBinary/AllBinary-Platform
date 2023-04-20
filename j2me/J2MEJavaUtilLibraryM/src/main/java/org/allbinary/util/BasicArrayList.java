@@ -153,14 +153,19 @@ public class BasicArrayList
 
     public boolean addAll(BasicArrayList list)
     {
-        Object[] newObjectArray = list.toArray();
+        final Object[] newObjectArray = list.toArray();
+        return this.addAll(newObjectArray);
+    }
+
+    public boolean addAll(final Object[] newObjectArray)
+    {
         int numSize = newObjectArray.length;
         ensureCapacity(currentIndex + numSize);
         System.arraycopy(newObjectArray, 0, objectArray, currentIndex, numSize);
         currentIndex += numSize;
         return numSize != 0;
     }
-
+    
     public void ensureCapacity(int minSize)
     {
         int oldCapacity = objectArray.length;
