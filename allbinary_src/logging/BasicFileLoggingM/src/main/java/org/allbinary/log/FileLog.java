@@ -27,7 +27,7 @@ public class FileLog
 {
     private static final StringUtil stringUtil = StringUtil.getInstance();
 
-   private static final long logLength = 50000000;  // 50MB
+   private static final long logLength = 33000000;  // 33MB
    //private static final String logPath = MyFrame.PATH + "/log/";
    private static final String logPath = "g:\\log\\";
    private static final String extension = new String("dat");

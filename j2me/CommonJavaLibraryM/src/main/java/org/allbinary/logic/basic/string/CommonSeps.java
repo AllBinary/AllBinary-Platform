@@ -53,4 +53,7 @@ public class CommonSeps
 
     public final String AMP = "&";
     public final String QUESTION = "?";
+    
+    public final String QUOTE = "\"";
+    public final String QUOTE_END = "\",";
 }
