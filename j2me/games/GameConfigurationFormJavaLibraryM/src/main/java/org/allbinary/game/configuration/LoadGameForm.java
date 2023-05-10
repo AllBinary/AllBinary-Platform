@@ -30,6 +30,7 @@ import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class LoadGameForm extends CommandForm
 {
@@ -114,7 +115,7 @@ public class LoadGameForm extends CommandForm
         for (int index = 0; index < size; index++)
         {
             Object object = list.objectArray[index];
-            LogUtil.put(LogFactory.getInstance("Adding Choice: " + object.toString(), this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding Choice: ").append(object.toString()).toString(), this, METHOD_NAME));
 
             choiceGroup.append(object.toString(), null);
         }

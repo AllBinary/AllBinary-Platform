@@ -32,6 +32,7 @@ import javax.microedition.midlet.MIDletStateChangeException;
 import org.allbinary.logic.basic.string.CommonLabels;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -62,11 +63,11 @@ implements CommandListener
             
             if (title != null)
             {
-                LogUtil.put(LogFactory.getInstance("Setting: " + title + " Display: " + newDisplay, this, "setDisplay"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: ").append(title).append(" Display: ").append(newDisplay).toString(), this, "setDisplay"));
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance("Setting: No Title, Display: " + newDisplay, this, "setDisplay"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: No Title, Display: ").append(newDisplay).toString(), this, "setDisplay"));
             }            
         }
         Display display = getDisplay();
@@ -128,13 +129,13 @@ implements CommandListener
     
     public void setStartStateHashtable(Hashtable hashtable) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + hashtable, this, "setStartStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(hashtable).toString(), this, "setStartStateHashtable"));
         this.hashtable = hashtable;
     }
 
     public Hashtable getStartStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + hashtable, this, "getStartStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(hashtable).toString(), this, "getStartStateHashtable"));
         return this.hashtable;
     }
 

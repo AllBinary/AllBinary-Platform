@@ -3,6 +3,7 @@ package org.allbinary.game.midlet;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.state.GameState;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class GameMidletStateFactory {
 
@@ -25,7 +26,7 @@ public class GameMidletStateFactory {
 	}
 
 	public void setCurrentGameState(GameState currentGameState) {
-		LogUtil.put(LogFactory.getInstance("Current GameState: " + currentGameState, this, "setCurrentGameState"));
+		LogUtil.put(LogFactory.getInstance(new StringMaker().append("Current GameState: ").append(currentGameState).toString(), this, "setCurrentGameState"));
 		this.currentGameState = currentGameState;
 	}
 	
