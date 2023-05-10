@@ -316,7 +316,7 @@ public class RunnableCanvas extends MyCanvas
     }
     
     //Hack for GD
-    public void stop() {
+    public void end() throws Exception {
         
     }
 }
