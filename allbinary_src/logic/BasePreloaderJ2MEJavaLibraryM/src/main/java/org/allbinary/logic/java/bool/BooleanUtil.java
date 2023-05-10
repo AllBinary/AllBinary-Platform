@@ -31,31 +31,41 @@ public class BooleanUtil
     {
     }
 
-    public boolean getFromString(String booleanString) throws Exception
+    public boolean getFromString(final String booleanString) throws Exception
     {
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+        final BooleanFactory booleanFactory = BooleanFactory.getInstance();
 
-        if (stringValidationUtil.isEmpty(booleanString))
+        if (stringValidationUtil.isEmpty(booleanString)) {
             return false;
+        }
 
-        Boolean bool = Boolean.valueOf(booleanString);
-        return bool.booleanValue();
+        final String booleanStringLowerCase = booleanString.toLowerCase();
 
-        /*
-         * if(booleanString.compareToIgnoreCase("true") == 0) { return true; }
-         * else if(booleanString.compareToIgnoreCase("false") == 0) { return
-         * false; } else { throw new
-         * Exception("Invalid booleanString - Must be true or false"); }
-         */
+        //compareToIgnoreCase is probably faster
+        if (booleanStringLowerCase.compareTo(booleanFactory.TRUE_STRING) == 0)
+        {
+            return true;
+        } else if(booleanStringLowerCase.compareTo(booleanFactory.FALSE_STRING) == 0) {
+            return false;
+        } else { 
+            throw new Exception("Invalid booleanString - Must be true or false"); 
+        }
+
+        //final Boolean bool = Boolean.valueOf(booleanString);
+        //return bool.booleanValue();
     }
 
-    public boolean isStringBoolean(String booleanString)
+    public boolean isStringBoolean(final String booleanString)
             throws Exception
     {
-        BooleanFactory booleanFactory = BooleanFactory.getInstance();
+        final BooleanFactory booleanFactory = BooleanFactory.getInstance();
         
-        if (booleanString.compareToIgnoreCase(booleanFactory.TRUE_STRING) == 0
-                || booleanString.compareToIgnoreCase(booleanFactory.FALSE_STRING) == 0)
+        final String booleanStringLowerCase = booleanString.toLowerCase();
+        
+        //compareToIgnoreCase is probably faster
+        if (booleanStringLowerCase.compareTo(booleanFactory.TRUE_STRING) == 0
+                || booleanStringLowerCase.compareTo(booleanFactory.FALSE_STRING) == 0)
         {
             return true;
         }

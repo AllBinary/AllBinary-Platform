@@ -49,6 +49,15 @@
 
         </dependency>
 
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TokenizerJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
     </dependencies>
 
     <build>

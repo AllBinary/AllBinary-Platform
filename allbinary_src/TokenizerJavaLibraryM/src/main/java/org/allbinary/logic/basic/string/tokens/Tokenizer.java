@@ -25,7 +25,7 @@ public class Tokenizer
    
    public Tokenizer(String sep) throws Exception
    {
-      if(sep == null || sep.compareTo(StringUtil.getInstance().EMPTY_STRING)==0) 
+      if(sep == null || sep.compareTo(StringUtil.getInstance().EMPTY_STRING) == 0) 
       {
          throw new Exception("Sep provided is not valid");
       }

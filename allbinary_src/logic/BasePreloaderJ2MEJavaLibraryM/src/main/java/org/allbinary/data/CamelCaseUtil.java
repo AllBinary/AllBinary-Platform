@@ -13,7 +13,11 @@
  */
 package org.allbinary.data;
 
+import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.basic.string.tokens.Tokenizer;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -31,27 +35,37 @@ public class CamelCaseUtil
         return instance;
     }
 
-    private final String FORMAT = "[\\W_]+";
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
+    //private final String FORMAT = "[\\W_]+";
 
-    public String getAsCamelCase(final String string, final StringMaker stringBuilder) {
+    public String getAsCamelCase(final String string, final StringMaker stringBuilder) throws Exception {
 
+        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();    
+        
         stringBuilder.delete(0, stringBuilder.length());
         
-        final String[] words = string.split(FORMAT);
+        final BasicArrayList list = new BasicArrayList();
+        final Tokenizer tokenizer = new Tokenizer(commonSeps.UNDERSCORE);
+        tokenizer.getTokens(string, list);
+        //final String[] words = string.split(FORMAT);
+        //final int size = words.length;
         
-        for (int i = 0; i < words.length; i++)
+        final int size = list.size();
+        String word;
+        for (int i = 0; i < size; i++)
         {
-            String word = words[i];
+            //word = words[i];
+            word = (String) list.get(i);
+            
             //if (i == 0)
             //{
                 //word = word.isEmpty() ? word : word.toLowerCase();
             //} else
             //{
-                word = word.isEmpty() ? word : Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase();
+                word = stringValidationUtil.isEmpty(word) ? word : Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase();
             //}
             stringBuilder.append(word);
         }
         return stringBuilder.toString();
     }
-
 }
