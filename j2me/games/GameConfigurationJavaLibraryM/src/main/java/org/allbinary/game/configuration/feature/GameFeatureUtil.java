@@ -187,7 +187,7 @@ public class GameFeatureUtil
             throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
-                "Item: " + selectedChoiceLabel, this, "updateExclusive"));
+                new StringMaker().append("Item: ").append(selectedChoiceLabel).toString(), this, "updateExclusive"));
 
         Feature gameFeature = Feature.getInstance(selectedChoiceLabel);
 

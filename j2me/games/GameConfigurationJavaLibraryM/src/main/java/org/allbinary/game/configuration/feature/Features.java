@@ -24,6 +24,7 @@ import org.allbinary.logic.system.os.OperatingSystemInterface;
 import org.allbinary.game.configuration.event.GameFeatureEvent;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
 import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class Features
 {
@@ -49,7 +50,7 @@ public class Features
     public void addDefault(Feature gameFeature) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(
-          //      CommonStrings.getInstance().START_LABEL + gameFeature.toString(), 
+          //      CommonStrings.getInstance().START_LABEL).append(gameFeature.toString(), 
             //    "GameFeature", "addDefault"));
 
         this.add(gameFeature);
@@ -66,10 +67,10 @@ public class Features
         {
 //            if(gameFeature == SensorFeatureFactory.getInstance().ORIENTATION_SENSORS)
 //            {
-//                ForcedLogUtil.log("here it is: " + this.getClass().getClassLoader().getClass().getName() + this.getClass().getClassLoader().hashCode() , this);
+//                ForcedLogUtil.log("here it is: ").append(this.getClass().getClassLoader().getClass().getName()).append(this.getClass().getClassLoader().hashCode() , this);
 //            }
             LogUtil.put(LogFactory.getInstance(
-                    CommonLabels.getInstance().START_LABEL + gameFeature.toString(), this, CommonStrings.getInstance().ADD));
+                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, CommonStrings.getInstance().ADD));
 
             list.add(gameFeature);
 
@@ -82,7 +83,7 @@ public class Features
     public void removeDefault(Feature gameFeature) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
-                CommonLabels.getInstance().START_LABEL + gameFeature.toString(), this, "removeDefault"));
+                new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault"));
 
         this.remove(gameFeature);
         defaultList.remove(gameFeature);

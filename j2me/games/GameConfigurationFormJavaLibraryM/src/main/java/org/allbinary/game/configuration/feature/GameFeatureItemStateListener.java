@@ -25,6 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.configuration.GameOptionsForm;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class GameFeatureItemStateListener implements ItemStateListener
 {
@@ -78,7 +79,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
         {
             String itemLabel = item.getLabel();
 
-            LogUtil.put(LogFactory.getInstance("Item: " + itemLabel, this, "itemStateChanged"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Item: ").append(itemLabel).toString(), this, "itemStateChanged"));
 
             if (item instanceof GameConfigurationGauge)
             {

@@ -61,7 +61,7 @@ public class BasicGameDemoPaintable
             //this.currentStatePaintable = NullPaintable.getInstance();
             this.setCurrentStatePaintable(this.ownershipPaintable);
         }
-        //LogUtil.put(LogFactory.getInstance("Paintable is now: " + this.currentStatePaintable, this, "setState"));
+        //LogUtil.put(LogFactory.getInstance("Paintable is now: ").append(this.currentStatePaintable, this, "setState"));
     }
 
     public void paint(Graphics graphics)

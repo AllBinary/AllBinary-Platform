@@ -152,7 +152,7 @@ implements InputMappingInterface
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Raw Device Key Code: " + Integer.toHexString(keyCode), this, "addGameKeyEvent"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Raw Device Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, "addGameKeyEvent"));
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
@@ -190,7 +190,7 @@ implements InputMappingInterface
 
     private void setSelectedAction(GameKey gameKey)
     {
-        LogUtil.put(LogFactory.getInstance("Selected GameKey: " + gameKey, this, "setSelectedAction"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Selected GameKey: ").append(gameKey).toString(), this, "setSelectedAction"));
         
         this.selectedGameKey = gameKey;
         this.selectedInput = NONE;
@@ -218,7 +218,7 @@ implements InputMappingInterface
             
             if (isInputAlreadyMappedToSelectedAction)
             {
-                LogUtil.put(LogFactory.getInstance("Already Mapped Input: " + input, this, "gameActionCrud"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Already Mapped Input: ").append(input).toString(), this, "gameActionCrud"));
 
                 this.selectedInput = input;
                 this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
@@ -246,7 +246,7 @@ implements InputMappingInterface
     {
         final String METHOD_NAME = "addNewMapping";
             
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + "Dissallow if " + input + " is in { " + AndroidKeyFactory.getInstance().MENU + " }", this, "addNewMapping"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping"));
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
 
         boolean isInputAlreadyMapped = inputMapping.getInputMapping().isMapped(input);

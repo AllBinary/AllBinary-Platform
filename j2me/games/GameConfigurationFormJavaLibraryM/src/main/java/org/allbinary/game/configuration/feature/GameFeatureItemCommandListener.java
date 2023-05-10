@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.configuration.GameOptionsForm;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.midlet.MidletStrings;
 
 public class GameFeatureItemCommandListener implements ItemCommandListener
@@ -47,7 +48,7 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         try
         {
             String itemLabel = item.getLabel();
-            LogUtil.put(LogFactory.getInstance("Item: " + itemLabel, this, MidletStrings.getInstance().COMMAND_ACTION));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Item: ").append(itemLabel).toString(), this, MidletStrings.getInstance().COMMAND_ACTION));
 
             if (item instanceof GameConfigurationGauge)
             {

@@ -31,6 +31,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -77,11 +78,11 @@ extends GameNotificationHud
     //private final String TEMP_GAME_NOTIFICATION = "Temp Game Notification: ";
     
     //Add event if it is not already there
-    protected void add(String string, Integer seconds, BasicColor basicColor, Boolean permanent)
+    protected void add(final String string, final Integer seconds, final BasicColor basicColor, final Boolean permanent)
     {
         if (permanent.booleanValue())
         {
-            LogUtil.put(LogFactory.getInstance(PERMANENT_GAME_NOTIFICATION + string, this, CommonStrings.getInstance().ADD));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, CommonStrings.getInstance().ADD));
             this.permanentGameNotification.add(string, seconds, basicColor);
             this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
         }
@@ -89,7 +90,7 @@ extends GameNotificationHud
         {
             //if(seconds.intValue() > 0)
             //{
-                //LogUtil.put(LogFactory.getInstance(TEMP_GAME_NOTIFICATION + string, this, CommonStrings.getInstance().ADD));
+                //LogUtil.put(LogFactory.getInstance(TEMP_GAME_NOTIFICATION).append(string, this, CommonStrings.getInstance().ADD));
             //}
 
             this.gameNotification.add(string, seconds, basicColor);
@@ -105,7 +106,7 @@ extends GameNotificationHud
             
             if(gameAdState.isShowingAt(this.getLocation()))
             {
-                //PreLogUtil.put("Y: " + this.getY(), this, GameStrings.getInstance().PROCESS_TICK);
+                //PreLogUtil.put("Y: ").append(this.getY(), this, GameStrings.getInstance().PROCESS_TICK);
                 this.offsetY = -54;
             }
             else

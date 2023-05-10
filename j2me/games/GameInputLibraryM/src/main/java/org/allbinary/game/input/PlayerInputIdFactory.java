@@ -16,6 +16,7 @@ package org.allbinary.game.input;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.analog.AnalogLocationInputFactory;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class PlayerInputIdFactory {
 
@@ -54,7 +55,7 @@ public class PlayerInputIdFactory {
             int playerInputId = deviceIdToplayerId[deviceId];
             if(playerInputId != -1)
             {
-                //LogUtil.put(LogFactory.getInstance("Fast Find DeviceId: " + deviceId + " at playerInputId: " + playerInputId, this, "getPlayerForDevice"));
+                //LogUtil.put(LogFactory.getInstance("Fast Find DeviceId: ").append(deviceId).append(" at playerInputId: ").append(playerInputId, this, "getPlayerForDevice"));
                 return playerInputId;
             }
         }
@@ -62,7 +63,7 @@ public class PlayerInputIdFactory {
         {
             for (index = totalDevicesMapped - 1; index >= 0; index--) {
                 if (this.playerIdToDeviceId[index] == deviceId) {
-                    //LogUtil.put(LogFactory.getInstance("Found DeviceId: " + deviceId + " at playerInputId: " + index, this, "getPlayerForDevice"));
+                    //LogUtil.put(LogFactory.getInstance("Found DeviceId: ").append(deviceId).append(" at playerInputId: ").append(index, this, "getPlayerForDevice"));
                     return index;
                 }
             }
@@ -77,7 +78,7 @@ public class PlayerInputIdFactory {
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Added DeviceId: " + deviceId + " beyond fast Id list", this, "getPlayerForDevice"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Added DeviceId: ").append(deviceId).append(" beyond fast Id list").toString(), this, "getPlayerForDevice"));
         }
 
         this.playerIdToDeviceId[index] = deviceId;
@@ -86,7 +87,7 @@ public class PlayerInputIdFactory {
 
         totalDevicesMapped++;
 
-        LogUtil.put(LogFactory.getInstance("Added DeviceId: " + deviceId + " at: " + index + " Total: " + this.totalDevicesMapped, this, "getPlayerForDevice"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Added DeviceId: ").append(deviceId).append(" at: ").append(index).append(" Total: ").append(this.totalDevicesMapped).toString(), this, "getPlayerForDevice"));
         //At some point add Ouya and other special mapping here and return it instead of the internal mapping
         //int playerNum = OuyaController.getPlayerNumByDeviceId(deviceId);
         return index;
@@ -116,14 +117,14 @@ public class PlayerInputIdFactory {
     public void setDeviceInPlay(int deviceId)
     {
         int playerInputId = this.getPlayerForDevice(deviceId);
-        LogUtil.put(LogFactory.getInstance("Setting DeviceInPlay with DEVICE_ID_LABEL: " + deviceId + " playerInputId: " + playerInputId, this, "setDeviceInPlay"));
+        LogUtil.put(LogFactory.getInstance("Setting DeviceInPlay with DEVICE_ID_LABEL: ").append(deviceId).append(" playerInputId: ").append(playerInputId, this, "setDeviceInPlay"));
         playersInPlay[playerInputId] = true;
     }
 
     public void setDeviceOutOfPlay(int deviceId)
     {
         int playerInputId = this.getPlayerForDevice(deviceId);
-        LogUtil.put(LogFactory.getInstance("Setting DeviceOutOfPlay with DEVICE_ID_LABEL: " + deviceId + " playerInputId: " + playerInputId, this, "setDeviceInPlay"));
+        LogUtil.put(LogFactory.getInstance("Setting DeviceOutOfPlay with DEVICE_ID_LABEL: ").append(deviceId).append(" playerInputId: ").append(playerInputId, this, "setDeviceInPlay"));
         playersInPlay[playerInputId] = false;
     }
     */
@@ -135,13 +136,13 @@ public class PlayerInputIdFactory {
 
     public void setPlayerInPlay(int playerInputId)
     {
-        LogUtil.put(LogFactory.getInstance("Setting PlayerInPlay with playerInputId: " + playerInputId, this, "setPlayerInPlay"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting PlayerInPlay with playerInputId: ").append(playerInputId).toString(), this, "setPlayerInPlay"));
         playersInPlay[playerInputId] = true;
     }
 
     public void setPlayerOutOfPlay(int playerInputId)
     {
-        LogUtil.put(LogFactory.getInstance("Setting PlayerOutOfPlay with playerInputId: " + playerInputId, this, "setPlayerOutOfPlay"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting PlayerOutOfPlay with playerInputId: ").append(playerInputId).toString(), this, "setPlayerOutOfPlay"));
         playersInPlay[playerInputId] = false;
     }   
     

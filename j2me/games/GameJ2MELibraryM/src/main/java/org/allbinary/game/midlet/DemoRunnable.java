@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class DemoRunnable implements Runnable
 {
@@ -40,8 +41,7 @@ public class DemoRunnable implements Runnable
         try
         {
             LogUtil.put(LogFactory.getInstance(
-                    CommonLabels.getInstance().START_LABEL +
-                    "GameCanvasRunnableInterface",
+                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(),
                     this, CommonStrings.getInstance().RUN));
 
             this.demoGameMidlet.commandAction(

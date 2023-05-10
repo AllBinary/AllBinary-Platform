@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
 
 public class J2MEGameKey extends Input
@@ -32,7 +33,7 @@ public class J2MEGameKey extends Input
 
     public String toString()
     {
-        return "J2MEGameKey: " + super.toString();
+        return new StringMaker().append("J2MEGameKey: ").append(super.toString()).toString();
     }
 
     public static String getString(int keyCode)

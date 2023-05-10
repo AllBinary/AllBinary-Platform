@@ -22,6 +22,7 @@ import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class CheatGameInputProcessor extends PlayerGameInput 
 {
@@ -54,8 +55,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 if (key == gameKeyFactory.LEVEL_DOWN.getId())
                 {
                     gameLayerManager.getGameInfo().previousGameLevel();
-                    LogUtil.put(LogFactory.getInstance("Down Level Cheat: "
-                            + gameLayerManager.getGameInfo().getCurrentLevel(),
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),
                             this, "processGame"));
                     this.gameCanvas.buildGame(true);
                     break;
@@ -63,8 +63,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 else if (key == gameKeyFactory.LEVEL_UP.getId())
                 {
                     gameLayerManager.getGameInfo().nextGameLevel();
-                    LogUtil.put(LogFactory.getInstance("Up Level Cheat: "
-                            + gameLayerManager.getGameInfo().getCurrentLevel(),
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),
                             this, "processGame"));
                     this.gameCanvas.buildGame(true);
                     break;

@@ -13,6 +13,7 @@
 */
 package org.allbinary.logic.system.os;
 
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -86,11 +87,11 @@ public class OperatingSystemFactory
                 }
                 else
                 {
-                    throw new Exception("OS Not Supported: " + osName);
+                    throw new Exception(new StringMaker().append("OS Not Supported: ").append(osName).toString());
                 }
             }
             
-            Log log = LogFactory.getInstance("OperatingSystem Info: " + this.operatingSystemInterface, "OperatingSystemFactory", "getInstance()");
+            Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(this.operatingSystemInterface).toString(), "OperatingSystemFactory", "getInstance()");
             System.out.println(log.toString());
             LogUtil.put(log);
             

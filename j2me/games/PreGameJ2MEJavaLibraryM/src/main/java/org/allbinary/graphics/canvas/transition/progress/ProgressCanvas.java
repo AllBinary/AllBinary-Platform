@@ -27,6 +27,7 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.PaintableInterface;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.midlet.AllBinaryMidlet;
@@ -136,18 +137,18 @@ public class ProgressCanvas extends RunnableCanvas
         //LogUtil.put(LogFactory.getInstance(this.text, this, ADD_EARLY_PORTION));
         //PreLogUtil.put(this.text, this, ADD_PORTION);
         
-        this.setText(text + SmallIntegerSingletonFactory.getInstance().getInstance(index));
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
     }
     
     public void addPortion(int value, String text, int index)
     {
-        //CommonStrings.getInstance().START_LABEL + 
+        //CommonStrings.getInstance().START_LABEL).append(
         //LogUtil.put(LogFactory.getInstance(this.text, this, ADD_PORTION));
         PreLogUtil.put(this.text, this, ADD_PORTION);
         
-        this.setText(text + SmallIntegerSingletonFactory.getInstance().getInstance(index));
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
 
@@ -157,7 +158,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void addPortion(int value, String text)
     {
-        //CommonStrings.getInstance().START_LABEL + 
+        //CommonStrings.getInstance().START_LABEL).append(
         //LogUtil.put(LogFactory.getInstance(text, this, ADD_PORTION));
         PreLogUtil.put(text, this, ADD_PORTION);
 

@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.system.security.licensing.registration;
 
+import org.allbinary.logic.basic.string.StringMaker;
+
 public class RegistrationConfiguration
 {
     private static final RegistrationConfiguration SINGLETON = new RegistrationConfiguration();
@@ -40,7 +42,7 @@ public class RegistrationConfiguration
 
     public String toString()
     {
-        return "Registration Code: " + this.getRegistrationCode();
+        return new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).toString();
     }
 
     public void setRegistrationCode(String registrationCode)

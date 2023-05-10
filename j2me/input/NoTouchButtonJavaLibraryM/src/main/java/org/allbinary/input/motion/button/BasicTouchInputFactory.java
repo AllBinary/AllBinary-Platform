@@ -13,13 +13,13 @@
 */
 package org.allbinary.input.motion.button;
 
-import org.allbinary.input.motion.button.TouchButtonInput;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class BasicTouchInputFactory
         //extends BaseTouchInputFactory
@@ -87,7 +87,7 @@ public class BasicTouchInputFactory
     
     public void updateAll(BasicArrayList list, InputToGameKeyMapping inputToGameKeyMapping)
     {
-        LogUtil.put(LogFactory.getInstance("Start: " + list.size(), this, "updateAll"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Start: ").append(list.size()).toString(), this, "updateAll"));
 
         for (int index = list.size() - 1; index >= 0; index--)
         {

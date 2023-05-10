@@ -87,7 +87,7 @@ extends LayerManagerEventListener
     {
         BasicArrayList groupList = (BasicArrayList) this.list.objectArray[groupId];
         //if(groupList == null) {
-            //LogUtil.put(LogFactory.getInstance("groupId: " + groupId, this, "getGroupSize"));
+            //LogUtil.put(LogFactory.getInstance("groupId: ").append(groupId, this, "getGroupSize"));
         //}
         int size = groupList.size();
         return size;
@@ -107,7 +107,7 @@ extends LayerManagerEventListener
                 if (groupSize != 0)
                 {
                     LogUtil.put(LogFactory.getInstance(
-                        "Group Size: " + groupSize, this, "areAllOtherGroupsEmpty"));
+                        new StringMaker().append("Group Size: ").append(groupSize).toString(), this, "areAllOtherGroupsEmpty"));
                     return false;
                 }
             }
@@ -176,7 +176,7 @@ extends LayerManagerEventListener
             this.list.add(new BasicArrayList());
         }
         
-        //LogUtil.put(LogFactory.getInstance("size: " + total, this, "init"));
+        //LogUtil.put(LogFactory.getInstance("size: ").append(total, this, "init"));
         
     }
 
@@ -191,7 +191,7 @@ extends LayerManagerEventListener
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onCreateLayerManagerEvent: " + layerInterface.toString()));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onCreateLayerManagerEvent: ").append(layerInterface.toString()));
         
         //Ignore weapons
         /*
@@ -213,7 +213,7 @@ extends LayerManagerEventListener
             groupList = (BasicArrayList) this.list.objectArray[id];
 
             if(groupList == null) {
-                LogUtil.put(LogFactory.getInstance("id: " + id, this, "onCreateLayerManagerEvent"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("id: ").append(id).toString(), this, "onCreateLayerManagerEvent"));
             }
             
             //if(Group.ENEMY.getGroupId() == id)
@@ -244,7 +244,7 @@ extends LayerManagerEventListener
             }
             else
             {
-                //throw new Exception("layerInterface: " + layerInterface + " is already in group");
+                //throw new Exception("layerInterface: ").append(layerInterface).append(" is already in group");
             }            
         }
     }

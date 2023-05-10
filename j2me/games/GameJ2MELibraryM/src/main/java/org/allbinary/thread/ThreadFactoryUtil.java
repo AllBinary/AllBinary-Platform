@@ -21,6 +21,7 @@ import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.RunnableCanvasSingleThreadStartRunnable;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class ThreadFactoryUtil
 {
@@ -46,7 +47,7 @@ public class ThreadFactoryUtil
                 RunnableCanvasSingleThreadStartRunnable demoGameSingleThreadStartRunnable =
                         new RunnableCanvasSingleThreadStartRunnable((RunnableCanvas) runnable);
 
-                PreLogUtil.put("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN: " + runnable, this, CommonStrings.getInstance().CONSTRUCTOR);
+                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN: ").append(runnable).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
 
                 ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
 
@@ -54,7 +55,7 @@ public class ThreadFactoryUtil
                 //currentDisplayableFactory.setRunnable(demoGameSingleThreadStartRunnable);
             } else
             {
-                PreLogUtil.put("Using Pseudo Thread for Runnable under PlayN: " + runnable, this, CommonStrings.getInstance().CONSTRUCTOR);
+                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN: ").append(runnable).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
 
                 ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
 

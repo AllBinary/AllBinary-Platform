@@ -21,6 +21,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class StartIntermissionPaintable extends InitUpdatePaintable
 {
@@ -72,7 +73,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     public void update()
     {
         int level = gameCanvas.getLayerManager().getGameInfo().getCurrentLevel();
-        this.stringArray[0] = BEGIN_LEVEL + level;
+        this.stringArray[0] = new StringMaker().append(BEGIN_LEVEL).append(level).toString();
 
         for(int index = this.stringArray.length - 1; index >= 1; index--)
         {

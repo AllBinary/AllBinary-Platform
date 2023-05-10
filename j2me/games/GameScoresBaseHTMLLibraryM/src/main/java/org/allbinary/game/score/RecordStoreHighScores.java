@@ -67,7 +67,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Adding HighScore: " + newHighScore.getScore(),
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore: ").append(newHighScore.getScore()).toString(),
                     this, CommonStrings.getInstance().ADD));
 
             // remove score replacing
@@ -78,7 +78,7 @@ public class RecordStoreHighScores extends HighScores
                 this.removeLowestHighScore();
             }
 
-            RecordStore recordStore = RecordStore.openRecordStore(this.getName() + RECORD_ID, true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
 
             byte[] highScoreBytes = newHighScore.getBytes();
 
@@ -109,9 +109,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            RecordStore recordStore = RecordStore.openRecordStore(this
-                    .getName()
-                    + RECORD_ID, true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
 
             RecordEnumeration recordEnum = recordStore.enumerateRecords(null,
                     null, true);
@@ -165,12 +163,11 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            RecordStore recordStore = RecordStore.openRecordStore(
-                    this.getName() + RECORD_ID, true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
 
             this.setList(new BasicArrayList());
 
-            RecordEnumeration recordEnum = recordStore.enumerateRecords(null,
+            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,
                     null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this,
             // true);
@@ -190,8 +187,8 @@ public class RecordStoreHighScores extends HighScores
 
                     // Forced Sorting for bad RecordEnumeration Implementations
                     // Sadly this issue is common on many devices
-                    BasicArrayList list = this.getList();
-                    int size = list.size();
+                    final BasicArrayList list = this.getList();
+                    final int size = list.size();
                     int lastIndex = size;
                     for (int index = 0; index < size; index++)
                     {
@@ -205,11 +202,11 @@ public class RecordStoreHighScores extends HighScores
                         //}
                     }
 
-                    //LogUtil.put(LogFactory.getInstance("Loading HighScore: " + newHighScore.getScore() + " for: " + this.getName(), this, "load"));
+                    //LogUtil.put(LogFactory.getInstance("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName(), this, "load"));
 
                     //list.add(lastIndex, newHighScore);
 
-                    //LogUtil.put(LogFactory.getInstance("Loaded HighScores Ordered: " + this.toString(), this, "load"));
+                    //LogUtil.put(LogFactory.getInstance("Loaded HighScores Ordered: ").append(this.toString(), this, "load"));
                 }
                 catch (Exception e)
                 {
@@ -259,8 +256,7 @@ public class RecordStoreHighScores extends HighScores
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("HighScores RecordStore Max Reached: "
-                    + this.MAXHIGHSCORES, this, "isTooManyHighScores"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("HighScores RecordStore Max Reached: ").append(this.MAXHIGHSCORES).toString(), this, "isTooManyHighScores"));
             return true;
         }
     }

@@ -14,6 +14,7 @@
 package org.allbinary.logic.system.os;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -52,11 +53,11 @@ public class OperatingSystemFactory
                         AndroidOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                     
                     //PreLogUtil.put(log.toString());
-                    LogUtil.put(LogFactory.getInstance("Operating System Info: " + operatingSystemInterface.toString(), this, CommonStrings.getInstance().GET_INSTANCE));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Operating System Info: ").append(operatingSystemInterface.toString()).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
                 }
                 else
                 {
-                    throw new Exception("OS Not Supported: " + osName);
+                    throw new Exception(new StringMaker().append("OS Not Supported: ").append(osName).toString());
                 }                
             }            
         }

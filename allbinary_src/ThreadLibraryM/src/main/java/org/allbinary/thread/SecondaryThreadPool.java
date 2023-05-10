@@ -15,6 +15,7 @@ package org.allbinary.thread;
 
 import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -34,7 +35,7 @@ public class SecondaryThreadPool extends ThreadPool
 
     public synchronized void runTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + task, this, "runTask"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(task).toString(), this, "runTask"));
 
         super.runTask(task);
     }
@@ -44,12 +45,12 @@ public class SecondaryThreadPool extends ThreadPool
 
     protected void startTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(START_TASK + task, this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(START_TASK).append(task).toString(), this, CommonStrings.getInstance().RUN));
     }
 
     protected void completedTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(COMPLETE_TASK + task, this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPLETE_TASK).append(task).toString(), this, CommonStrings.getInstance().RUN));
     }
 
 }

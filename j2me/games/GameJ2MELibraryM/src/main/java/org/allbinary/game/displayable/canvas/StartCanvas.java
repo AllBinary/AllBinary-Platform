@@ -87,6 +87,7 @@ import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.graphics.paint.StatePaintable;
 import org.allbinary.graphics.paint.StatePaintableFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -194,8 +195,8 @@ public class StartCanvas extends RunnableCanvas
         try
         {
             //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDisplayChangeEvent"));
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
-            //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent");
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
+            //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent");
             
             ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             
@@ -328,7 +329,7 @@ public class StartCanvas extends RunnableCanvas
 //        
 //        Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
 //
-//        PreLogUtil.put(CommonStrings.getInstance().START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "initMenu");
+//        PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "initMenu");
 //        
 //        this.setMenuForm(
 //            CommandCurrentSelectionFormFactory.getInstance(
@@ -423,11 +424,11 @@ public class StartCanvas extends RunnableCanvas
     {
         try
         {
-        	//LogUtil.put(LogFactory.getInstance("Key Code (Hex): " + Integer.toHexString(keyCode), this, "addGameKeyEvent"));
+        	//LogUtil.put(LogFactory.getInstance("Key Code (Hex): ").append(Integer.toHexString(keyCode), this, "addGameKeyEvent"));
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: " + gameKey, this, "addGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, "addGameKeyEvent"));
 
             if (gameKey != NONE)
             {
@@ -444,7 +445,7 @@ public class StartCanvas extends RunnableCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(NO_KEY + keyCode, this, ADD_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, ADD_KEY_EVENT));
             }
         }
         catch (Exception e)
@@ -463,7 +464,7 @@ public class StartCanvas extends RunnableCanvas
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: " + gameKey, this, "removeGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, "removeGameKeyEvent"));
 
             if (gameKey != NONE)
             {
@@ -484,7 +485,7 @@ public class StartCanvas extends RunnableCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(NO_KEY + keyCode, this, REMOVE_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
             }
         }
         catch (Exception e)
@@ -523,7 +524,7 @@ public class StartCanvas extends RunnableCanvas
     
     public boolean isGameOver()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED + " since not a game", this, "isGameOver"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver"));
         return false;
     }
 
@@ -619,7 +620,7 @@ public class StartCanvas extends RunnableCanvas
     protected void setState()
     {
         PreLogUtil.put(SmallIntegerSingletonFactory.getInstance().createInstance(this.state).toString(), this, SET_STATE);
-        //LogUtil.put(LogFactory.getInstance("Current Demo State: " + this.getState(), this, SET_STATE));
+        //LogUtil.put(LogFactory.getInstance("Current Demo State: ").append(this.getState(), this, SET_STATE));
 
         this.getBasicGameDemoPaintable().setState(this.state);
 
@@ -637,7 +638,7 @@ public class StartCanvas extends RunnableCanvas
                 this.getSpecialAnimationInterface().reset();
             //}
             
-            //PreLogUtil.put("isComplete: " + this.getSpecialAnimationInterface().isComplete(), this, CommonStrings.getInstance().RUN);
+            //PreLogUtil.put("isComplete: ").append(this.getSpecialAnimationInterface().isComplete(), this, CommonStrings.getInstance().RUN);
         }
         else if (this.state == 1)
         {
@@ -706,10 +707,10 @@ public class StartCanvas extends RunnableCanvas
         //this.canvasThread = ThreadFactoryUtil.getInstance().getInstance(this.gameCanvas);
         //this.gameCanvas.setThread(canvasThread);
 
-        //PreLogUtil.put("Game Thread Priority: " + 
+        //PreLogUtil.put("Game Thread Priority: ").append(
         //      canvasThread.getPriority(), this, CommonStrings.getInstance());
         //LogUtil.put(LogFactory.getInstance(
-        //      "Game Thread Priority: " + canvasThread.getPriority(), this, CommonStrings.getInstance()));
+        //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, CommonStrings.getInstance()));
 
         //this.canvasThread.start();
 
@@ -766,7 +767,7 @@ public class StartCanvas extends RunnableCanvas
 
                 //int randomLevel = this.getNextRandom();
                 
-                //PreLogUtil.put("Restarting Game Demo at Level: " + randomLevel, this, CommonStrings.getInstance().PROCESS);
+                //PreLogUtil.put("Restarting Game Demo at Level: ").append(randomLevel, this, CommonStrings.getInstance().PROCESS);
                 
                 //GameInfo gameInfo =
                     //this.gameCanvas.getLayerManager().getGameInfo();
@@ -864,8 +865,8 @@ public class StartCanvas extends RunnableCanvas
         //&& gameCanvasRunnableInterface.isInitialized()
         //If animation is not completed
         
-        //PreLogUtil.put("isComplete: " + this.specialAnimationInterface.isComplete(), this, "processGame");
-        //PreLogUtil.put("isReadyForStateChange: " + this.isReadyForStateChange(), this, "processGame");
+        //PreLogUtil.put("isComplete: ").append(this.specialAnimationInterface.isComplete(), this, "processGame");
+        //PreLogUtil.put("isReadyForStateChange: ").append(this.isReadyForStateChange(), this, "processGame");
         //if (!this.specialAnimationInterface.isComplete() && this.isReadyForStateChange())
         //{
             //PreLogUtil.put("nextFrame", this, "processGame");
@@ -1012,7 +1013,7 @@ public class StartCanvas extends RunnableCanvas
         Features features = Features.getInstance();
         
         AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
-        allGameStatisticsFactory.add(BOT_GAME_STATS + baseGameStatistics.toString() + CommonSeps.getInstance().NEW_LINE);    
+        allGameStatisticsFactory.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
         baseGameStatistics.init();
         
         if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))

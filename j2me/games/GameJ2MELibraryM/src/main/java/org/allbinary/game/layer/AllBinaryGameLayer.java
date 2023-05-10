@@ -106,7 +106,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         final int viewX = viewPosition.getX();
         final int viewY = viewPosition.getY();
 
-        //LogUtil.put(LogFactory.getInstance("viewX: " + viewX + " viewY: " + viewY, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance("viewX: ").append(viewX).append(" viewY: ").append(viewY, this, "paint"));
 
         this.basicColorUtil.setBasicColor(graphics, RED);
 

@@ -43,7 +43,7 @@ extends CommandFormInputProcessor
 
     public int processInput(int key) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + " Canvas." + CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
         //this.popupMenuInputProcessor.processInput(key);
         return super.processInput(key);
     }

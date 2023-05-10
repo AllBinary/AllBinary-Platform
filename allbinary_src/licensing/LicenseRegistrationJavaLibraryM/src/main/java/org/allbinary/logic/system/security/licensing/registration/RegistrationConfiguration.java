@@ -22,6 +22,7 @@ import org.allbinary.logic.basic.io.FileStreamFactory;
 import org.allbinary.logic.basic.io.StreamUtil;
 import org.allbinary.logic.basic.io.file.FileFactory;
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -76,7 +77,7 @@ public class RegistrationConfiguration
 
         this.setRegistrationCode(dataInputStream.readUTF());
         
-        PreLogUtil.put("Read Configuration: " + this.toString(), this, "read");
+        PreLogUtil.put(new StringMaker().append("Read Configuration: ").append(this.toString()).toString(), this, "read");
     }
 
     public void write() throws Exception
@@ -86,8 +87,8 @@ public class RegistrationConfiguration
         {
             
         LogUtil.put(LogFactory.getInstance(
-                "Write Configuration: " + this.toString(), this, "write"));        
-        //PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
+                new StringMaker().append("Write Configuration: ").append(this.toString()).toString(), this, "write"));
+        //PreLogUtil.put("Write Configuration: ").append(this.toString(), this, "write");
         
         FileStreamFactory fileInputStreamFactory = 
             FileStreamFactory.getInstance();
@@ -113,7 +114,7 @@ public class RegistrationConfiguration
 
     public String toString()
     {
-        return "Registration Code: " + this.getRegistrationCode();
+        return new StringMaker().append("Registration Code: ").append(this.getRegistrationCode()).toString();
     }
 
     public void setRegistrationCode(String registrationCode)

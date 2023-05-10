@@ -18,6 +18,7 @@ import java.util.Hashtable;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -43,14 +44,14 @@ public class LayerInterfaceFactory
    public AllBinaryLayer getInstance(Hashtable hashtable, int x, int y, int z)
            throws Exception
    {
-      LogUtil.put(LogFactory.getInstance(HASHTABLE_LABEL + hashtable, this, CommonStrings.getInstance().GET_INSTANCE));
+      LogUtil.put(LogFactory.getInstance(new StringMaker().append(HASHTABLE_LABEL).append(hashtable).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
 
       Integer typeInteger = (Integer) hashtable.get(Layer.ID);
 
       /*
       if(list.objectArray.length <= typeInteger.intValue() - 1)
       {
-    	  PreLogUtil.put("Layer ID: " + typeInteger.toString(), this, "getInstance");
+    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, "getInstance");
       }
       */
 
@@ -60,7 +61,7 @@ public class LayerInterfaceFactory
       /*
       if(layerInterfaceFactoryInterface == null)
       {
-    	  PreLogUtil.put("Layer ID: " + typeInteger.toString(), this, "getInstance");
+    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, "getInstance");
       }
       */
 

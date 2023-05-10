@@ -23,6 +23,7 @@ import org.allbinary.game.input.event.DownGameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class GameInputProcessor
 extends InputProcessor
@@ -50,8 +51,8 @@ extends InputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance("Key Code: " + Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT));
-            //PreLogUtil.put("Key Code: " + Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT);
+            //LogUtil.put(LogFactory.getInstance("Key Code: ").append(Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT));
+            //PreLogUtil.put("Key Code: ").append(Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT);
             
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(
                     this.allBinaryGameCanvas, keyCode);
@@ -77,7 +78,7 @@ extends InputProcessor
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(this.allBinaryGameCanvas.NO_KEY + keyCode, this, 
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.allBinaryGameCanvas.NO_KEY).append(keyCode).toString(), this, 
                         this.allBinaryGameCanvas.ADD_KEY_EVENT));
             }
 

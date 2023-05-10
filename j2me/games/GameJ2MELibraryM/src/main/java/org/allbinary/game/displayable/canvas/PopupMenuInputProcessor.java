@@ -56,13 +56,13 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     
     public int processInput(int key) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + "Canvas." + CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
 
         //4,8,KEY_STAR
         if (key == Canvas.KEY_STAR)
         {
-            //LogUtil.put(LogFactory.getInstance("Key: " + key, this, GameInputStrings.getInstance()));
-            //PreLogUtil.put("Key: " + key, this, GameInputStrings.getInstance());
+            //LogUtil.put(LogFactory.getInstance("Key: ").append(key, this, GameInputStrings.getInstance()));
+            //PreLogUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
                         
             ((AllBinaryGameCanvas) this.getCanvas()).toggleMenu();
             
@@ -157,7 +157,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         {
             GPoint point = motionGestureEvent.getCurrentPoint();
             
-            //PreLogUtil.put("Rect: " + rectangle.toString() + " " + point.toString(), this, "processMotionInput");
+            //PreLogUtil.put("Rect: ").append(rectangle.toString()).append(" ").append(point.toString(), this, "processMotionInput");
             
             GPoint rectPoint = rectangle.getPoint();
             if (RectangleCollisionUtil.isInside(
@@ -169,7 +169,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             {
                 if (this.clickTimeHelper.isTime())
                 {
-                    //PreLogUtil.put("Toggle Menu: " + motionGestureInput.toString(), this, "processMotionInput");
+                    //PreLogUtil.put("Toggle Menu: ").append(motionGestureInput.toString(), this, "processMotionInput");
 
                     ((AllBinaryGameCanvas) this.getCanvas()).toggleMenu();
                 }

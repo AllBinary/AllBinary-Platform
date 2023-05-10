@@ -76,7 +76,7 @@ public class TouchButton extends Paintable
         
         this.updateRectangle();
         
-        LogUtil.put(LogFactory.getInstance("Created: " + this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Created: ").append(this.toString()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
     
     public void paintHint(Graphics graphics)

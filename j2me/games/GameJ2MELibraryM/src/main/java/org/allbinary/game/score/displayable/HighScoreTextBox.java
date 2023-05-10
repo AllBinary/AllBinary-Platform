@@ -34,6 +34,7 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox
@@ -56,7 +57,7 @@ public class HighScoreTextBox extends CustomTextBox
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, 
                 backgrounBasicColor, foregroundBasicColor);
 
-        // LogUtil.put(LogFactory.getInstance("Score: " + score, this,
+        // LogUtil.put(LogFactory.getInstance("Score: ").append(score, this,
         // "compare"));
 
         this.highScoresArray = highScoresArray;
@@ -153,7 +154,7 @@ public class HighScoreTextBox extends CustomTextBox
 
         for (int index = 0; index < this.highScoresArray.length; index++)
         {
-            LogUtil.put(LogFactory.getInstance("Adding HighScore to board: " + highScoresArray[index], this, "saveHighScore"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore to board: ").append(highScoresArray[index]).toString(), this, "saveHighScore"));
             highScoresArray[index].add(this.highScore);
         }
     }

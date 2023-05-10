@@ -19,6 +19,7 @@ import javax.microedition.rms.RecordStore;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -59,7 +60,7 @@ public class HighScoreNamePersistanceSingleton
 
     public void delete(int deleteId) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Deleting: " + deleteId, this, "delete"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
 
         RecordStore recordStore = RecordStore.openRecordStore(RECORD_ID, true);
 
@@ -94,7 +95,7 @@ public class HighScoreNamePersistanceSingleton
                 {
                     int id = recordEnum.nextRecordId();
 
-                    LogUtil.put(LogFactory.getInstance(LOADING_ID + id, this, LOAD));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, LOAD));
 
                     //ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
                       //      recordStore.getRecord(id));
@@ -113,7 +114,7 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(this.name);
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, LOAD));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, LOAD));
         }
         return this.name;
     }
@@ -122,7 +123,7 @@ public class HighScoreNamePersistanceSingleton
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Saving: " + name, this, "save"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(name).toString(), this, "save"));
 
             RecordStore recordStore = RecordStore.openRecordStore(RECORD_ID, true);
 

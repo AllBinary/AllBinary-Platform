@@ -23,6 +23,7 @@ import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameRunnable;
 import org.allbinary.game.displayable.canvas.NullDisplayable;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.thread.NullRunnable;
 
 public class CurrentDisplayableFactory
@@ -68,7 +69,7 @@ public class CurrentDisplayableFactory
 
     public void clearRunnable()
     {
-        PreLogUtil.put("Runnable: " + NullRunnable.getInstance(), this, "clearRunnable");
+        PreLogUtil.put(new StringMaker().append("Runnable: ").append(NullRunnable.getInstance()).toString(), this, "clearRunnable");
         this.setUsedRunnable(GameRunnable.getInstance()); 
     }
     
@@ -83,7 +84,7 @@ public class CurrentDisplayableFactory
                     features.isDefault(HTMLFeatureFactory.getInstance().HTML)
                     )
             {
-                PreLogUtil.put("Runnable: " + runnable, this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(new StringMaker().append("Runnable: ").append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(runnable);
             }
             else

@@ -16,6 +16,7 @@ package org.allbinary.graphics.form.item.validation;
 import java.util.Vector;
 
 import org.allbinary.graphics.form.item.TextFieldItem;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.java.bool.BooleanFactory;
@@ -96,40 +97,47 @@ public class NumberTextFieldItemValidator extends ValidatorBase
         final String name = this.textFieldItem.getLabel().substring(0, this.textFieldItem.getLabel().length() - 2);
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+        final StringMaker stringMaker = new StringMaker();
         
         if (textLength > 0 && textLength < maxChars)
         {
+
             try
             {
                 Integer number = smallIntegerSingletonFactory.createInstance(Integer.parseInt(this.textFieldItem.getString()));
     
                 //vector.addAll(this.toNumberVector(number));
-                
+
                 if(number.intValue() > min)
                 {
-                    list.add(name + " is to small");
+                    stringMaker.delete(0, stringMaker.length());
+                    list.add(stringMaker.append(name).append(" is to small").toString());
                 }
                 else
                     if(number.intValue() > max)
                 {
-                    list.add(name + " is to large");
+                    stringMaker.delete(0, stringMaker.length());
+                    list.add(stringMaker.append(name).append(" is to large").toString());
                 }
 
             } catch (NumberFormatException e)
             {
-                list.add(name + " is not a number");
+                stringMaker.delete(0, stringMaker.length());
+                list.add(stringMaker.append(name).append(" is not a number").toString());
             }
 
         } else
         {
             if(textLength < 1)
             {
-                list.add(name + " is to short");
+                stringMaker.delete(0, stringMaker.length());
+                list.add(stringMaker.append(name).append(" is to short").toString());
             }
             else
                 if(textLength > maxChars)
                 {
-                    list.add(name + " is to long");
+                    stringMaker.delete(0, stringMaker.length());
+                    list.add(stringMaker.append(name).append(" is to long").toString());
                 }
         }
         return list;

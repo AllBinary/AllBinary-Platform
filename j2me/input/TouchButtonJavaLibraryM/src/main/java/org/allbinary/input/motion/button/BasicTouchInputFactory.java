@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class BasicTouchInputFactory
 // extends BaseTouchInputFactory
@@ -118,7 +119,7 @@ public class BasicTouchInputFactory
             InputToGameKeyMapping inputToGameKeyMapping)
     {
         LogUtil.put(LogFactory.getInstance(
-                CommonLabels.getInstance().START_LABEL + list.size(), this,
+                new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(list.size()).toString(), this,
                 "updateAll"));
 
         TouchButtonInput touchButtonInput;

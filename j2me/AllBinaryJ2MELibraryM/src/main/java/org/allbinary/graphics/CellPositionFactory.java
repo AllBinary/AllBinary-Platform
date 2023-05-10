@@ -58,10 +58,10 @@ public class CellPositionFactory
       
       for (int column = 0; column < columns; column++)
       {
-         // LogUtil.put(LogFactory.getInstance("Initializing Column: " + col, this, CommonStrings.getInstance().INIT));
+         // LogUtil.put(LogFactory.getInstance("Initializing Column: ").append(col, this, CommonStrings.getInstance().INIT));
          for (int row = 0; row < rows; row++)
          {
-            // LogUtil.put(LogFactory.getInstance("Initializing Row: " + row, this, CommonStrings.getInstance().INIT));
+            // LogUtil.put(LogFactory.getInstance("Initializing Row: ").append(row, this, CommonStrings.getInstance().INIT));
             //CellPosition cellPosition =
                this.createInstance(column, row);
          }
@@ -76,7 +76,7 @@ public class CellPositionFactory
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("columns: " + this.getColumns() + " rows: " + this.getRows() + " col: " + i_column + " row: " + i_row, this, CommonStrings.getInstance().GET_INSTANCE, e));
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append("columns: ").append(this.getColumns()).append(" rows: ").append(this.getRows()).append(" col: ").append(i_column).append(" row: ").append(i_row).toString(), this, CommonStrings.getInstance().GET_INSTANCE, e));
          return null;
       }
    }

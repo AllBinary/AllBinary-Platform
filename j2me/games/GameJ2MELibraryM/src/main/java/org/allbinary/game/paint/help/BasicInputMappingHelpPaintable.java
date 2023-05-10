@@ -45,15 +45,17 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
         PersistentInputMapping gameKeyMapping = 
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         
-        int size = gameInputMappingArray.length;
-        String[] keyInfo = new String[size];
+        final StringMaker stringMaker = new StringMaker();
+        final int size = gameInputMappingArray.length;
+        final String[] keyInfo = new String[size];
         for(int index = 0; index < size; index++)
         {
             GameInputMapping gameInputMapping = gameInputMappingArray[index];
             GameKey gameKey = gameInputMapping.getGameKey();
             BasicArrayList list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
-                        
-            keyInfo[index] = gameInputMapping.getName() + " = " + this.get(list);
+            
+            stringMaker.delete(0, stringMaker.length());
+            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(" = ").append(this.get(list)).toString();
         }
         super.setInputInfo(keyInfo);
     }

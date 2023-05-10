@@ -41,6 +41,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class GameOptionsForm extends CommandForm
     //CommandForm
@@ -142,7 +143,7 @@ public class GameOptionsForm extends CommandForm
             GameConfiguration gameConfiguration =
                 (GameConfiguration) list.objectArray[index];
 
-            LogUtil.put(LogFactory.getInstance(NAME + gameConfiguration.toString(), this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(NAME).append(gameConfiguration.toString()).toString(), this, METHOD_NAME));
 
             GameConfigurationGauge gauge = new GameConfigurationGauge(gameConfiguration);
 

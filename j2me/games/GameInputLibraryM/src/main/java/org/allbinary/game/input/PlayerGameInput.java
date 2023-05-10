@@ -36,27 +36,27 @@ public class PlayerGameInput extends GameInput
    /*
    public synchronized void add(GameKeyEvent gameKeyEvent)
    {
-       LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + gameKeyEvent.getSource() + " " + ((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, CommonStrings.getInstance().ADD));
+       LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(gameKeyEvent.getSource()).append(" ").append(((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, CommonStrings.getInstance().ADD));
        super.add(gameKeyEvent);
    }
    */
 
    public synchronized void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
    {
-       //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + gameKeyEvent.toString(), this, "onPressGameKeyEvent");
+       //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(gameKeyEvent.toString(), this, "onPressGameKeyEvent");
        super.add(gameKeyEvent);
        this.addForRemoval(gameKeyEvent);
    }
    
    public synchronized void onDownGameKeyEvent(GameKeyEvent gameKeyEvent)
    {
-       //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + gameKeyEvent.toString(), this, "onDownGameKeyEvent");
+       //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(gameKeyEvent.toString(), this, "onDownGameKeyEvent");
        super.add(gameKeyEvent);
    }
 
    public synchronized void onUpGameKeyEvent(GameKeyEvent gameKeyEvent)
    {
-       //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + gameKeyEvent.toString(), this, "onUpGameKeyEvent");
+       //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(gameKeyEvent.toString(), this, "onUpGameKeyEvent");
        this.addForRemoval(gameKeyEvent);
    }
    

@@ -43,7 +43,7 @@ implements ColorChangeListener
     {
         //LogUtil.put(LogFactory.getInstance("Setting Main Demo State Paintable", this, "setState"));
         this.setCurrentStatePaintable(this.getMainDemoStatePaintable());
-        //LogUtil.put(LogFactory.getInstance("Paintable is now: " + this.currentStatePaintable, this, "setState"));
+        //LogUtil.put(LogFactory.getInstance("Paintable is now: ").append(this.currentStatePaintable, this, "setState"));
     }
     
     public void onEvent(AllBinaryEventObject eventObject)

@@ -13,8 +13,7 @@
 */
 package org.allbinary.game.identification;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 public class GroupFactory {
@@ -58,7 +57,7 @@ public class GroupFactory {
           }
           else
           {
-              name = TEAM + size;
+              name = new StringMaker().append(TEAM).append(size).toString();
           }
 
          list.add(new Group(name, (short) (size + 3)));

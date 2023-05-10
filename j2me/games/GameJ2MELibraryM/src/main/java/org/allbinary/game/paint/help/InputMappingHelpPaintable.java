@@ -76,7 +76,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
     public void update(GameKey selectedGameKey, Input selectedInput)
     {
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + "selected GameKey: " + selectedGameKey + " Input: " + selectedInput, this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(selectedGameKey).append(" Input: ").append(selectedInput).toString(), this, CommonStrings.getInstance().UPDATE));
         
         PersistentInputMapping gameKeyMapping = 
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
@@ -103,12 +103,12 @@ public class InputMappingHelpPaintable extends HelpPaintable
             
             if(gameKey == selectedGameKey)
             {
-                LogUtil.put(LogFactory.getInstance("Found: selected GameKey: " + selectedGameKey, this, CommonStrings.getInstance().UPDATE));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Found: selected GameKey: ").append(selectedGameKey).toString(), this, CommonStrings.getInstance().UPDATE));
                 actionBasicColor[index] = this.selectedBasicColor;
                 int indexOfSelectedInput = list.indexOf(selectedInput);
                 if(indexOfSelectedInput >= 0)
                 {
-                    LogUtil.put(LogFactory.getInstance("Found: selected Input: " + selectedInput, this, CommonStrings.getInstance().UPDATE));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Found: selected Input: ").append(selectedInput).toString(), this, CommonStrings.getInstance().UPDATE));
                     inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor; 
                 }
             }
@@ -117,7 +117,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 actionBasicColor[index] = this.basicColor;
             }
             
-            //keyInfo[index] = gameInputMapping.getName() + " = " + this.get(list);
+            //keyInfo[index] = gameInputMapping.getName()).append(" = ").append(this.get(list);
             keyInfo[index] = gameInputMapping.getName();
             keyMappingArray[index] = list;
             //keyInfo[index] = this.get(list);
@@ -201,12 +201,12 @@ public class InputMappingHelpPaintable extends HelpPaintable
             String keyMappings = this.get(list);
 
             //For same line action and mappings
-            String actionString = getInputInfo()[index] + ": ";
+            final String actionString = new StringMaker().append(getInputInfo()[index]).append(": ").toString();
             //For multiline
             //String actionString = getInputInfo()[index];
 
             //For same line action and mappings
-            beginWidth = (graphics.getFont().stringWidth(actionString + keyMappings) >> 1);
+            beginWidth = (graphics.getFont().stringWidth(new StringMaker().append(actionString).append(keyMappings).toString()) >> 1);
             //For multiline
             //beginWidth = (graphics.getFont().stringWidth(actionString) >> 1);
 

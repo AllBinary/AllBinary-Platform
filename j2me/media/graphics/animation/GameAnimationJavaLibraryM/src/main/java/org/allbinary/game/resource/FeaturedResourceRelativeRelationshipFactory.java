@@ -19,6 +19,7 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.relationship.RelativeLayerRelationship;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactory
 {
@@ -55,7 +56,7 @@ public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourc
       }
 
       throw new Exception(
-         "Not available for current feature selection or Resource: " + resource);
+         new StringMaker().append("Not available for current feature selection or Resource: ").append(resource).toString());
    }
 
    private BasicArrayList duplicate(BasicArrayList list, AllBinaryLayer layer)
