@@ -21,6 +21,7 @@ import javax.microedition.rms.RecordStore;
 import org.allbinary.util.HashtableUtil;
 
 import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
@@ -61,7 +62,7 @@ public class KeyValuePersistance extends BasicPersitance
         {
             int id = recordEnum.nextRecordId();
 
-            LogUtil.put(LogFactory.getInstance(LOADING_ID + id, this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, METHOD_NAME));
             
             //byteArrayInputStream = 
               //  new ByteArrayInputStream(recordStore.getRecord(id));
@@ -85,7 +86,7 @@ public class KeyValuePersistance extends BasicPersitance
     
     public void save(Hashtable hashtable) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Saving: " + hashtable, this, "save"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(hashtable).toString(), this, "save"));
         
         RecordStore recordStore = RecordStore.openRecordStore(
                 this.getRecordStoreName(), true);

@@ -119,7 +119,7 @@ public class FeaturedResourceFactory
 
     public void add(GameFeatureControlledInterface featureInterface)
     {
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + featureInterface, this, CommonStrings.getInstance().ADD));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(featureInterface).toString(), this, CommonStrings.getInstance().ADD));
         
         this.list.add(featureInterface);
     }

@@ -26,6 +26,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.graphics.displayable.screen.CommandForm;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class GameFeatureFormUtil
 {
@@ -38,18 +39,21 @@ public class GameFeatureFormUtil
     
     public ChoiceGroup getChoiceGroup(Hashtable hashtable, String name, int option)
     {
-        ChoiceGroup choiceGroup = new ChoiceGroup(name, option);
-
-        BasicArrayList list = (BasicArrayList) hashtable.get(name);
-
-        Features features = Features.getInstance();
+        final StringMaker stringMaker = new StringMaker();
         
-        int size = list.size();
+        final ChoiceGroup choiceGroup = new ChoiceGroup(name, option);
+
+        final BasicArrayList list = (BasicArrayList) hashtable.get(name);
+
+        final Features features = Features.getInstance();
+        
+        final int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            Feature gameFeature = (Feature) list.objectArray[index];
-            LogUtil.put(LogFactory.getInstance(
-                    name + ": Adding Choice: " + gameFeature.toString(), this, "getChoiceGroup"));
+            final Feature gameFeature = (Feature) list.objectArray[index];
+            
+            stringMaker.delete(0, stringMaker.length());
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(name).append(": Adding Choice: ").append(gameFeature.toString()).toString(), this, "getChoiceGroup"));
             choiceGroup.append(gameFeature.toString(), null);
             if (features.isFeature(gameFeature))
             {
@@ -61,16 +65,18 @@ public class GameFeatureFormUtil
 
     public void addChoiceGroup(CommandForm form, Hashtable hashtable, int option)
     {
-        int size = hashtable.size();
-        Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
+        final StringMaker stringMaker = new StringMaker();
+
+        final int size = hashtable.size();
+        final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
         for (int index = 0; index < size; index++)
         {
             String name = (String) objectArray[index];
 
-            LogUtil.put(LogFactory.getInstance("Adding Choice Group: " + name, this, "addChoiceGroup"));
+            stringMaker.delete(0, stringMaker.length());
+            LogUtil.put(LogFactory.getInstance(stringMaker.append("Adding Choice Group: ").append(name).toString(), this, "addChoiceGroup"));
 
-            form.append(this.getChoiceGroup(
-                    hashtable, name, option));
+            form.append(this.getChoiceGroup(hashtable, name, option));
         }
     }
 

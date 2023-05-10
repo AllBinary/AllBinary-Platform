@@ -69,7 +69,7 @@ public class ImageCache
             availableListOfList[index].clear();
             availableListOfList[index].addAll(listOfList[index]);            
         }
-        LogUtil.put(LogFactory.getInstance("ImageCache: " + this.toString(), this, "releaseAll"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll"));
     }
 
     private int getIndex(int width, int height)
@@ -121,7 +121,7 @@ public class ImageCache
             volume += width * height;
             if (volume > 32000)
             {
-                //LogUtil.put(LogFactory.getInstance("Image for: " + caller, this, CommonStrings.getInstance().GET));
+                //LogUtil.put(LogFactory.getInstance("Image for: ").append(caller, this, CommonStrings.getInstance().GET));
                 System.gc();
                 //System.gc();
                 volume = 0;
@@ -165,7 +165,7 @@ public class ImageCache
             {
                 LogUtil.put(LogFactory.getInstance("Exception: Trying Again After GC", this, CommonStrings.getInstance().GET, e));
                 
-                LogUtil.put(LogFactory.getInstance("InputStream: " + inputStream, this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(inputStream).toString(), this, CommonStrings.getInstance().GET));
                 System.gc();
                 System.gc();
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));

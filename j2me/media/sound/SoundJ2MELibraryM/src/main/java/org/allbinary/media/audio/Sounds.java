@@ -72,7 +72,7 @@ public class Sounds
                 
                 soundInterface.init();
                 
-                progressCanvas.addPortion(100, INIT_SOUND + indexString);
+                progressCanvas.addPortion(100, new StringMaker().append(INIT_SOUND).append(indexString).toString());
             }
         }
 

@@ -57,6 +57,7 @@ import org.allbinary.graphics.form.item.validation.AllCommandsVisitor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
@@ -252,7 +253,7 @@ public class GameCommandCanvas
     
     public void keyRepeated(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance("Key Repeated: " + Integer.toHexString(keyCode), this, "keyRepeated"));
+        // LogUtil.put(LogFactory.getInstance("Key Repeated: ").append(Integer.toHexString(keyCode), this, "keyRepeated"));
         if (this.isSingleKeyRepeatableProcessing)
         {
             this.addGameKeyEvent(keyCode, deviceId, true);
@@ -263,11 +264,11 @@ public class GameCommandCanvas
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance("Key Code: " + Integer.toHexString(keyCode), this, "addGameKeyEvent"));
+            // LogUtil.put(LogFactory.getInstance("Key Code: ").append(Integer.toHexString(keyCode), this, "addGameKeyEvent"));
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: " + gameKey, this, "addGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, "addGameKeyEvent"));
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
@@ -290,7 +291,7 @@ public class GameCommandCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(NO_KEY + keyCode, this, ADD_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, ADD_KEY_EVENT));
             }
         }
         catch (Exception e)
@@ -309,7 +310,7 @@ public class GameCommandCanvas
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: " + gameKey, this, "removeGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, "removeGameKeyEvent"));
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
@@ -331,7 +332,7 @@ public class GameCommandCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(NO_KEY + keyCode, this, REMOVE_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
             }
         }
         catch (Exception e)

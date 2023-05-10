@@ -68,11 +68,11 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
         /*
          * LogUtil.put(LogFactory.getInstance( "No animation available for current feature
-         * selection or Resource: " + resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
+         * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
          * "getAnimationInterfaceInstance"));
          */
         throw new Exception(
-                "No rectangle available for current feature selection or Resource: " + resource);
+                new StringMaker().append("No rectangle available for current feature selection or Resource: ").append(resource).toString());
     }
 
     public ProceduralAnimationInterfaceFactoryInterface getProcedural(
@@ -115,7 +115,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
 
         /*
          * LogUtil.put(LogFactory.getInstance( "No animation available for current feature
-         * selection or Resource: " + resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
+         * selection or Resource: ").append(resource, "FeaturedAnimationInterfaceFactoryInterfaceFactory",
          * "getAnimationInterfaceInstance"));
          */
         if (resourceTypeAvailableList.size() > 0)
@@ -163,7 +163,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
             throw new Exception(stringBuffer.toString());
         } else
         {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
             for (int index = 0; index < size; index++)
             {
                 FeatureResourceAnimationInterfaceFactoryInterface featureInterface
@@ -172,8 +172,10 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
                 stringBuffer.append(CommonSeps.getInstance().SPACE);
             }
 
+            final String result = stringBuffer.toString();
+            stringBuffer.delete(0, stringBuffer.length());
             throw new Exception(
-                    "No feature resource type available for Resource: " + resource + " Resource Factories Available: " + stringBuffer.toString());
+                    stringBuffer.append("No feature resource type available for Resource: ").append(resource).append(" Resource Factories Available: ").append(result).toString());
         }
     }
 }

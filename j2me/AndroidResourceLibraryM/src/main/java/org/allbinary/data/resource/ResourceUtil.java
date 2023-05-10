@@ -90,7 +90,7 @@ public class ResourceUtil
             PreLogUtil.put(new StringMaker().append(resource).append(CommonSeps.getInstance().COLON).append(value).toString(), this, "addResource");
             if(this.containsDuplicate(resource, value))
             {
-                ForcedLogUtil.log("Found Duplicate Resource: " + resource, this);
+                ForcedLogUtil.log(new StringMaker().append("Found Duplicate Resource: ").append(resource).toString(), this);
             }
         }        
 
@@ -128,7 +128,7 @@ public class ResourceUtil
 
     public void setResources(Resources resources)
     {
-        LogUtil.put(LogFactory.getInstance("Resource Loader: " + resources.getClass().getName(), this, "setResources"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Resource Loader: ").append(resources.getClass().getName()).toString(), this, "setResources"));
 
         this.resources = resources;
     }
@@ -139,8 +139,8 @@ public class ResourceUtil
 
     public InputStream getResourceAsStream(String resource) // , Object emulatorObject)
         throws Exception
-    {
-        LogUtil.put(LogFactory.getInstance(GETTING + resource, this, METHOD_NAME));
+    {   
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME));
 
         // Try getting resource with normal resource access
         // AssetManager assetManager = resources.getAssets();

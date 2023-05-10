@@ -19,6 +19,7 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.basic.string.StringMaker;
 
 /**
  *
@@ -65,7 +66,7 @@ public class DrawStringUtil
         }
         catch(Exception e)
         {
-            PreLogUtil.put("Exception: stringLength: " + string.length() + " offset: " + offset + " currentLength: " + length, graphics, "drawCenterString");
+            PreLogUtil.put(new StringMaker().append("Exception: stringLength: ").append(string.length()).append(" offset: ").append(offset).append(" currentLength: ").append(length).toString(), graphics, "drawCenterString");
         }
     }
     
@@ -122,7 +123,7 @@ public class DrawStringUtil
                         }
                     }
 
-                    //PreLogUtil.put("stringLength: " + string.length() + " offset: " + offset + " currentLength: " + currentLength, graphics, "drawCenterStrings");
+                    //PreLogUtil.put("stringLength: ").append(string.length()).append(" offset: ").append(offset).append(" currentLength: ").append(currentLength, graphics, "drawCenterStrings");
 
                     this.drawCenterString(graphics,
                             string, offset, currentLength, 

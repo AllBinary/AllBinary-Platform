@@ -50,7 +50,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     public void init(final int level) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
-                "Available List of Animations: " + hashtable.toString(),
+                new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(),
                 this, CommonStrings.getInstance().INIT));
 
         this.setInitialized(true);
@@ -69,7 +69,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
         if (hashtable.containsKey(resource))
         {
-            throw new Exception("Resource Already Created: " + resource);
+            throw new Exception(new StringMaker().append("Resource Already Created: ").append(resource).toString());
         }
 
         hashtable.put(resource, animationInterfaceFactoryInterface);

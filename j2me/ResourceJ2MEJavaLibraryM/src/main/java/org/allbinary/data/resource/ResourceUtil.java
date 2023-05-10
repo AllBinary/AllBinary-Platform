@@ -17,6 +17,7 @@ import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.io.InputStream;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class ResourceUtil
 {
@@ -50,32 +51,37 @@ public class ResourceUtil
                 inputStream = this.getResourceAsStream(resource, 1);
                 if (inputStream == null)
                 {
-
+                    final StringMaker stringMaker = new StringMaker();
+                    
                     int index = resource.lastIndexOf('/');
                     String resourcePath = resource.substring(index + 1);
-                    LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                    LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                     inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                     if (inputStream == null)
                     {
 
                         resourcePath = resource.substring(index);
-                        LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                        stringMaker.delete(0, stringMaker.length());
+                        LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                         inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                         if (inputStream == null)
                         {
 
                             final String RES = "res";
-                            resourcePath = RES + resource.substring(index);
-                            LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                            resourcePath = stringMaker.append(RES).append(resource.substring(index)).toString();
+                            stringMaker.delete(0, stringMaker.length());
+                            LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                             inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                             if (inputStream == null)
                             {
 
-                                resourcePath = "/" + RES + resource.substring(index);
-                                LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                                stringMaker.delete(0, stringMaker.length());
+                                resourcePath = stringMaker.append("/").append(RES).append(resource.substring(index)).toString();
+                                stringMaker.delete(0, stringMaker.length());
+                                LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                                 inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                                 final String COLON = CommonSeps.getInstance().COLON;
@@ -83,44 +89,52 @@ public class ResourceUtil
                                 if (inputStream == null)
                                 {
 
-                                    resourcePath = RES + COLON + resource.substring(index);
-                                    LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                                    stringMaker.delete(0, stringMaker.length());
+                                    resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index)).toString();
+                                    stringMaker.delete(0, stringMaker.length());
+                                    LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                                     inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                                     if (inputStream == null)
                                     {
 
-                                        resourcePath = RES + COLON + resource.substring(index + 1);
-                                        LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                                        stringMaker.delete(0, stringMaker.length());
+                                        resourcePath = stringMaker.append(RES).append(COLON).append(resource.substring(index + 1)).toString();
+                                        stringMaker.delete(0, stringMaker.length());
+                                        LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                                         inputStream = resource.getClass().getResourceAsStream(resourcePath);
                                         if (inputStream == null)
                                         {
 
                                             final String RESOURCE_STRING = "resource";
-                                            resourcePath = RESOURCE_STRING + COLON + resource.substring(index);
-                                            LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                                            stringMaker.delete(0, stringMaker.length());
+                                            resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index)).toString();
+                                            stringMaker.delete(0, stringMaker.length());
+                                            LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                                             inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
                                             if (inputStream == null)
                                             {
-
-                                                resourcePath = RESOURCE_STRING + COLON + resource.substring(index + 1);
-                                                LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
+                                                stringMaker.delete(0, stringMaker.length());
+                                                resourcePath = stringMaker.append(RESOURCE_STRING).append(COLON).append(resource.substring(index + 1)).toString();
+                                                stringMaker.delete(0, stringMaker.length());
+                                                LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                                                 inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
-                                                //inputStream = resource.getClass().getResourceAsStream("res:" + resource);
-                                                //inputStream = resource.getClass().getResourceAsStream("resource:" + resource);
+                                                //inputStream = resource.getClass().getResourceAsStream("res:").append(resource);
+                                                //inputStream = resource.getClass().getResourceAsStream("resource:").append(resource);
                                                 //int index = resource.indexOf(':');
-                                                //String resourcePath = resource.substring(index + 1);
-                                                //String resourcePath = "res:" + resource.substring(index + 2);
+                                                //String resourcePath = resource.substring(index).append(1);
+                                                //String resourcePath = "res:").append(resource.substring(index + 2);
                                                 //int index = 0;
                                                 //String resourcePath = resource.substring(index + 2);
-                                                //String resourcePath = "res:" + resource.substring(index + 2);
+                                                //String resourcePath = "res:").append(resource.substring(index + 2);
                                                 //String resourcePath = resource;
 
                                                 if (inputStream == null)
                                                 {
-                                                    throw new Exception("Unable to obtain: " + resource);
+                                                    stringMaker.delete(0, stringMaker.length());
+                                                    throw new Exception(stringMaker.append("Unable to obtain: ").append(resource).toString());
                                                 }
                                             }
                                         }
@@ -139,14 +153,17 @@ public class ResourceUtil
             //, Object emulatorObject)
             throws Exception
     {
+        final StringMaker stringMaker = new StringMaker();
+        
         int index = resource.indexOf(CommonSeps.getInstance().COLON);
-        String resourcePath = resource.substring(index + startIndex);
+        final String resourcePath = resource.substring(index + startIndex);
 
-        LogUtil.put(LogFactory.getInstance(GET_RESOURCE + resourcePath, this, METHOD_NAME));
-        LogUtil.put(LogFactory.getInstance("Start Index: " + startIndex, this, METHOD_NAME));
+        LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
+        stringMaker.delete(0, stringMaker.length());
+        LogUtil.put(LogFactory.getInstance(stringMaker.append("Start Index: ").append(startIndex).toString(), this, METHOD_NAME));
 
         //Try getting resource with normal resource access
-        InputStream inputStream = resource.getClass().getResourceAsStream(resourcePath);
+        final InputStream inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
         if (inputStream != null)
         {

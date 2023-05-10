@@ -15,6 +15,7 @@
 package org.allbinary.layer;
 
 import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -33,7 +34,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         return instance;
     }
     
-    private final StringBuilder stringBuilder = new StringBuilder();
+    private final StringMaker stringBuilder = new StringMaker();
     
     private final String APPEND = "append";
     private final String APPEND_ = " append: ";
@@ -44,7 +45,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
     private final String DID_NOT_REMOVE = " Did not remove: ";
     private final String CLEAR = " Clear List";
 
-    private boolean removeFailed = false;
+    private static boolean removeFailed = false;
     
     public void append(final AllBinaryLayer layerInterface) throws Exception
     {
@@ -99,10 +100,10 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         stringBuilder.append(Integer.toHexString(layerManager.hashCode())).append(commonSeps.COLON_SEP);
         stringBuilder.append(size).append(commonSeps.COLON_SEP);
 
-        for (int index = 0; index < size; index++) {
+        for (int index = 0; index < size; index++) { 
             stringBuilder.append(((AllBinaryLayer) layerManager.getLayerAt(index)).getName()).append(commonSeps.COMMA);
         }
-        LogUtil.put(LogFactory.getInstance(stringBuilder.toString(), this, REMOVE, new Exception()));
+        LogUtil.put(LogFactory.getInstance(stringBuilder.toString(), this, REMOVE));
     }
 
     public void clear() {

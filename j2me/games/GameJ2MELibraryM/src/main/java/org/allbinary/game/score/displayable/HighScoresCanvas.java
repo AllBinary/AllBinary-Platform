@@ -38,6 +38,7 @@ import org.allbinary.game.score.HighScoresUpdateRunnable;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.thread.SecondaryThreadPool;
 
 public class HighScoresCanvas extends GameCommandCanvas
@@ -188,7 +189,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             throws Exception
     {
 //        if(highScoresArray != null) {
-//            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + highScoresArray.length, this, "setHighScoresArray"));
+//            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START).append(highScoresArray.length, this, "setHighScoresArray"));
 //        } else {
 //            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "setHighScoresArray"));
 //        }
@@ -206,7 +207,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     public void updateCommand(Command command) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + command, this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().START).append(command).toString(), this, CommonStrings.getInstance().UPDATE));
 
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
@@ -218,7 +219,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         {
             int index = highScoreCommandsFactory.getIndex(command);
             
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + index, this, CommonStrings.getInstance().UPDATE));
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START).append(index, this, CommonStrings.getInstance().UPDATE));
             
             int nextIndex = index + 1;
 
