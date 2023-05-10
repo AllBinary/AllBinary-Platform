@@ -13,6 +13,7 @@
 */
 package org.allbinary.time;
 
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
 
 public class TimeDelayHelper
@@ -159,7 +160,7 @@ public class TimeDelayHelper
 
         if(elapsed > 0)
         {
-            return new StringBuilder().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
+            return new StringMaker().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
         }
         else
         {
@@ -174,7 +175,7 @@ public class TimeDelayHelper
 
         if(elapsed > 0)
         {
-            return new StringBuilder().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
+            return new StringMaker().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
         }
         else
         {

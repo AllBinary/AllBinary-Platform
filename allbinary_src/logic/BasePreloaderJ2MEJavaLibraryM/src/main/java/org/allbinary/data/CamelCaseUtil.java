@@ -13,6 +13,8 @@
  */
 package org.allbinary.data;
 
+import org.allbinary.logic.basic.string.StringMaker;
+
 /**
  *
  * @author User
@@ -31,7 +33,7 @@ public class CamelCaseUtil
 
     private final String FORMAT = "[\\W_]+";
 
-    public String getAsCamelCase(final String string, final StringBuilder stringBuilder) {
+    public String getAsCamelCase(final String string, final StringMaker stringBuilder) {
 
         stringBuilder.delete(0, stringBuilder.length());
         

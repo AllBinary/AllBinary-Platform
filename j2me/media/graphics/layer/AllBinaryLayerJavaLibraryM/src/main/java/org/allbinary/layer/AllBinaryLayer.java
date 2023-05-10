@@ -53,7 +53,7 @@ implements LayerInterface
         if(name == null) {
             this.name = this.getClass().getName();
         } else {
-            this.name = new StringBuilder().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(this.hashCode())).toString();
+            this.name = new StringMaker().append(name).append(CommonSeps.getInstance().COLON).append(Integer.toHexString(this.hashCode())).toString();
         }
         
         final GPoint point = rectangle.getPoint();
