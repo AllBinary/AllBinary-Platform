@@ -16,6 +16,7 @@ package org.allbinary.thread;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -56,8 +57,8 @@ public class ThreadPool
         if (task != null)
         {
 
-            //LogUtil.put(LogFactory.getInstance("Add: " + task, this, "runTask"));
-            //PreLogUtil.put("Add: " + task, this, "runTask");
+            //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, "runTask"));
+            //PreLogUtil.put("Add: ").append(task, this, "runTask");
 
             taskQueue.add(task);
             notify();
@@ -150,7 +151,7 @@ public class ThreadPool
 
         public PooledThread()
         {
-            //super(ThreadPool.this, "PooledThread-" + (threadID++));
+            //super(ThreadPool.this, "PooledThread-").append((threadID++));
         }
 
         private final String INTERRUPT_EXCEPTION = "Exit InterruptedException";
@@ -185,7 +186,7 @@ public class ThreadPool
                 /*
                 else
                 {
-                PreLogUtil.put("Running: " + task, this, CommonStrings.getInstance().RUN);
+                PreLogUtil.put("Running: ").append(task, this, CommonStrings.getInstance().RUN);
                 }
                  */
 
@@ -196,7 +197,7 @@ public class ThreadPool
                     runningTask = false;
                 } catch (Exception e)
                 {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + task, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(task).toString(), this, CommonStrings.getInstance().RUN, e));
                 }
             }
 

@@ -65,8 +65,8 @@ public class ThreadPool
         }
         if (task != null)
         {
-            //LogUtil.put(LogFactory.getInstance("Add: " + task, this, "runTask"));
-            //PreLogUtil.put("Add: " + task, this, "runTask");
+            //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, "runTask"));
+            //PreLogUtil.put("Add: ").append(task, this, "runTask");
 
             taskQueue.add(task);
             //TWB - Playn Testing

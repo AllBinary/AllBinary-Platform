@@ -67,12 +67,12 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
    public int processInput(int key) throws Exception
    {
-      // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + "Canvas." +
+      // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append("Canvas." +
       // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
 
       if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN)
       {
-          //PreLogUtil.put("Key: " + key, this, GameInputStrings.getInstance());
+          //PreLogUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
 
          //ForcedLogUtil.log();
 
@@ -90,7 +90,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          PrimaryPlayerQueueFactory.getInstance().add(
                  SelectSound.getInstance());
 
-         // LogUtil.put(LogFactory.getInstance("Key: " + key, this, GameInputStrings.getInstance()));
+         // LogUtil.put(LogFactory.getInstance("Key: ").append(key, this, GameInputStrings.getInstance()));
          return this.processCommand();
       }
       return 0;
@@ -143,8 +143,8 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
              * this.addForRemoval(gameKeyEvent); }
              */
 
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processInput - GameKeyEvent source: " + gameKeyEvent.getSourceId()));
-            // LogUtil.put(LogFactory.getInstance("CommonStrings.getInstance().START_LABEL + "Canvas." +
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId()));
+            // LogUtil.put(LogFactory.getInstance("CommonStrings.getInstance().START_LABEL).append("Canvas." +
             // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
             if(gameKeyEvent.getSourceId() != MOTION_GESTURE_SOURCE_ID)
             {
@@ -170,7 +170,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          }
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + e.getMessage(), this, GameInputStrings.getInstance().PROCESS_INPUT));
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(e.getMessage()).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT));
          
          return -1;
       }
@@ -199,7 +199,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
-       //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + motionGestureEvent, this, "processMotionInput"));
+       //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(motionGestureEvent, this, "processMotionInput"));
        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processMotionInput");
        
       final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
@@ -215,7 +215,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
             if (index != -1)
             {
-               //LogUtil.put(LogFactory.getInstance("Form Selected Index: " + index, this, "processMotionInput"));
+               //LogUtil.put(LogFactory.getInstance("Form Selected Index: ").append(index, this, "processMotionInput"));
 
                PrimaryPlayerQueueFactory.getInstance().add(
                        SelectSound.getInstance());
@@ -231,11 +231,11 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
                   this.form.setSelectedIndex(index);
                }
             } else {
-                //LogUtil.put(LogFactory.getInstance("No Form Selected Index: " + index, this, "processMotionInput"));
+                //LogUtil.put(LogFactory.getInstance("No Form Selected Index: ").append(index, this, "processMotionInput"));
             }
          }
 
-         // LogUtil.put(LogFactory.getInstance("No Double Press Time: " + this.doubleClickTimeHelper.getElapsed(), this, "processMotionInput"));
+         // LogUtil.put(LogFactory.getInstance("No Double Press Time: ").append(this.doubleClickTimeHelper.getElapsed(), this, "processMotionInput"));
 
          if (!this.doubleClickTimeHelper.isTime())
          {

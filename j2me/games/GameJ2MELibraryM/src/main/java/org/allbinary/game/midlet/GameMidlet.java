@@ -111,7 +111,7 @@ public class GameMidlet extends ProgressMidlet
     private final String COMMAND_NAME = "command Name/Label: ";
     private final String NO_COMMAND = "No Command";
     private final String NO_DISPLAYABLE = "No Displayable";
-    private final String COMMAND_ACTION = "GameMidlet::" + MidletStrings.getInstance().COMMAND_ACTION;
+    private final String COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(MidletStrings.getInstance().COMMAND_ACTION).toString();
 
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
@@ -618,7 +618,7 @@ public class GameMidlet extends ProgressMidlet
                 isFullScreen = features.isFeature(
                     mainFeatureFactory.FULL_SCREEN);
                 
-                //PreLogUtil.put("Open isFullScreen: " + isFullScreen, this, MidletStrings.getInstance().COMMAND_ACTION);
+                //PreLogUtil.put("Open isFullScreen: ").append(isFullScreen, this, MidletStrings.getInstance().COMMAND_ACTION);
 
                 ResizableListenerHandler.getInstance().fireEvent(true);
 
@@ -886,9 +886,9 @@ public class GameMidlet extends ProgressMidlet
         thread = thread = ThreadFactoryUtil.getInstance().getInstance(
                 this.allbinaryGameCanvasRunnableInterface);
 
-        LogUtil.put(LogFactory.getInstance("Thread Priority: " + thread.getPriority(), this,"startGameCanvasRunnableInterface"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Thread Priority: ").append(thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface"));
 
-        // canvasThread.setPriority(Thread.NORM_PRIORITY + 2);
+        // canvasThread.setPriority(Thread.NORM_PRIORITY).append(2);
         //thread.setPriority(Thread.MAX_PRIORITY);
 
         this.allbinaryGameCanvasRunnableInterface.setThread(thread);
@@ -947,11 +947,7 @@ public class GameMidlet extends ProgressMidlet
         GameCanvasRunnableInterface myGameCanvasInterface)
     {
         this.allbinaryGameCanvasRunnableInterface = myGameCanvasInterface;
-        
-        if(this.allbinaryGameCanvasRunnableInterface == null) {
-            LogUtil.put(LogFactory.getInstance("allbinaryGameCanvasRunnableInterface: " + this.allbinaryGameCanvasRunnableInterface, this, "setGameCanvasRunnableInterface", new Exception()));
-        }
-        
+                
     }
 
     protected AllBinaryGameLayerManager createGameLayerManager()

@@ -87,7 +87,7 @@ public class OrderedIntArrayPermutationUtil {
     }
 
     public static void main(String args[]) {
-        final int TOTAL = 7; //max for long 20;
+        final int TOTAL = 3; //max for long 20;
         final int[] data = new int[TOTAL];
 
         for (int i = 0; i < TOTAL; i++) {
