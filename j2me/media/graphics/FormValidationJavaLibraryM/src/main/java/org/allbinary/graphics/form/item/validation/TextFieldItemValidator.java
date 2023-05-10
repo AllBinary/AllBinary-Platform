@@ -14,6 +14,7 @@
 package org.allbinary.graphics.form.item.validation;
 
 import org.allbinary.graphics.form.item.TextFieldItem;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.java.bool.BooleanFactory;
@@ -83,12 +84,12 @@ public class TextFieldItemValidator extends ValidatorBase
             
             if(textLength < this.min)
             {
-                list.add(name + " is to short");
+                list.add(new StringMaker().append(name).append(" is to short").toString());
             }
             else
                 if(textLength > this.max)
                 {
-                    list.add(name + " is to long");
+                    list.add(new StringMaker().append(name).append(" is to long").toString());
                 }
         }
         return list;

@@ -48,8 +48,7 @@ public class GameConfiguration
             Integer oldValue = this.value;
             this.value = value;
             GameFeatureEventHandler.getInstance().fireEvent(
-                    new GameFeatureEvent(this, this.name + " value: from: "
-                            + oldValue + " to " + this.value));
+                    new GameFeatureEvent(this, new StringMaker().append(this.name).append(" value: from: ").append(oldValue).append(" to ").append(this.value).toString()));
         }
     }
 

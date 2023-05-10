@@ -38,7 +38,7 @@ public class WeaponProperties extends SimpleWeaponProperties
     	{
     	    final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
 
-    	    PreLogUtil.put(MESSAGE + speed, this, CommonStrings.getInstance().CONSTRUCTOR);
+    	    PreLogUtil.put(new StringMaker().append(MESSAGE).append(speed).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
     	    //throw new Exception(MESSAGE + speed);
     	    
     	    messageSent = true;

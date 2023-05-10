@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.logic.basic.string.StringMaker;
+
 
 /*
  * These are imaginary inputs outside of J2ME Canvas keys.
@@ -26,6 +28,6 @@ public class GameKey extends Input
 
     public String toString()
     {
-        return "GameKey " + super.toString();
+        return new StringMaker().append("GameKey ").append(super.toString()).toString();
     }
 }

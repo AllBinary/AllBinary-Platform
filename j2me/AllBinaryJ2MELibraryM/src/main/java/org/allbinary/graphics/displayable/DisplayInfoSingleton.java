@@ -114,7 +114,7 @@ public class DisplayInfoSingleton
     {
         if(this.full[WIDTH] != aLastWidth || this.full[HEIGHT] != aLastHeight)
         {
-            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + reason, this, SET_LAST_SIZE_METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(reason).toString(), this, SET_LAST_SIZE_METHOD_NAME));
             
             final int aFullWidth = aLastWidth;
             final int aFullHeight = aLastHeight;
@@ -144,7 +144,7 @@ public class DisplayInfoSingleton
                     {
                         this.displayRatio = scaleLargestTo / aLastHeight;
                         this.ratio = aLastHeight / scaleLargestTo;
-                        LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
+                        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
                         this.scalableListener.scale(ratio);
@@ -155,7 +155,7 @@ public class DisplayInfoSingleton
                     {
                         this.displayRatio = scaleLargestTo / aLastWidth;
                         this.ratio = aLastWidth / scaleLargestTo;
-                        LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE + displayRatio, this, SET_LAST_SIZE_METHOD_NAME));
+                        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME));
                         aLastWidth = (int) (aLastWidth * displayRatio);
                         aLastHeight = (int) (aLastHeight * displayRatio);
                         this.scalableListener.scale(ratio);
@@ -221,9 +221,9 @@ public class DisplayInfoSingleton
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("reason: " + reason, this, FIRE_METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("reason: ").append(reason).toString(), this, FIRE_METHOD_NAME));
             LogUtil.put(LogFactory.getInstance(this.toString(), this, FIRE_METHOD_NAME));
-            //PreLogUtil.put("Display Change Event" + this.toString(), this, CommonStrings.getInstance().UPDATE);
+            //PreLogUtil.put("Display Change Event").append(this.toString(), this, CommonStrings.getInstance().UPDATE);
             DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
         }catch(Exception e)
         {
@@ -275,7 +275,7 @@ public class DisplayInfoSingleton
                         {
                             this.displayRatio = scaleLargestTo / aLastHeight;
                             this.ratio = aLastHeight / scaleLargestTo;
-                            LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT + displayRatio, this, CommonStrings.getInstance().UPDATE));
+                            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, CommonStrings.getInstance().UPDATE));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale(ratio);
@@ -286,7 +286,7 @@ public class DisplayInfoSingleton
                         {
                             this.displayRatio = scaleLargestTo / aLastWidth;
                             this.ratio = aLastWidth / scaleLargestTo;
-                            LogUtil.put(LogFactory.getInstance(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE + displayRatio, this, CommonStrings.getInstance().UPDATE));
+                            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, CommonStrings.getInstance().UPDATE));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale(ratio);

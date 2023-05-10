@@ -13,10 +13,10 @@
 */
 package org.allbinary.media.audio;
 
-import org.allbinary.media.audio.Sound;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
@@ -38,10 +38,10 @@ public class PlayerQueue
 
             if (!list.contains(sound))
             {
-                //final String message = "Adding: " + sound.getResource();
+                //final String message = "Adding: ").append(sound.getResource();
                 
-                //PreLogUtil.put("Adding: " + sound.getResource(), this, CommonStrings.getInstance().ADD);
-                //LogUtil.put(LogFactory.getInstance("Adding: " + sound.getResource(), this, CommonStrings.getInstance().ADD));
+                //PreLogUtil.put("Adding: ").append(sound.getResource(), this, CommonStrings.getInstance().ADD);
+                //LogUtil.put(LogFactory.getInstance("Adding: ").append(sound.getResource(), this, CommonStrings.getInstance().ADD));
 
                 list.add(sound);
             }
@@ -66,8 +66,8 @@ public class PlayerQueue
                 //Should be possible, but it still happens?
                 if (sound != null)
                 {
-                    //final String message = "Playing: " + sound.getResource();
-                    //PreLogUtil.put("Playing: " + sound.getResource(), this, CommonStrings.getInstance().PROCESS);
+                    //final String message = "Playing: ").append(sound.getResource();
+                    //PreLogUtil.put("Playing: ").append(sound.getResource(), this, CommonStrings.getInstance().PROCESS);
 
                     //For BB only
                     //SoundThreadPool.getInstance().runTask(sound);
@@ -90,7 +90,7 @@ public class PlayerQueue
             {
                 resource = sound.getResource();
             }
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + resource, this,
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL).append(resource, this,
             //      CommonStrings.getInstance().PROCESS, e));
 
             /*
@@ -114,7 +114,7 @@ public class PlayerQueue
             }
             */
             
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION_LABEL + resource, this, CommonStrings.getInstance().PROCESS);
+            PreLogUtil.put(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(resource).toString(), this, CommonStrings.getInstance().PROCESS);
 
             return false;
         }
@@ -127,6 +127,6 @@ public class PlayerQueue
 
     public String toString()
     {
-        return TOTAL + this.list.size();
+        return new StringMaker().append(TOTAL).append(this.list.size()).toString();
     }
 }

@@ -1,6 +1,7 @@
 package org.allbinary.time;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -16,15 +17,15 @@ public class StupidTimer
         boolean tookTooLong = false;
 
         final String WAITING_FOR = "Waiting for: ";
-        //LogUtil.put(LogFactory.getInstance(WAITING_FOR + visitorInterface, this, CommonStrings.getInstance().VISIT));
-        PreLogUtil.put(WAITING_FOR + visitorInterface, this, CommonStrings.getInstance().VISIT);
+        //LogUtil.put(LogFactory.getInstance(WAITING_FOR).append(visitorInterface, this, CommonStrings.getInstance().VISIT));
+        PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(visitorInterface).toString(), this, CommonStrings.getInstance().VISIT);
 
         int index = 0;
         while (((Boolean) visitorInterface.visit(null)).booleanValue())
         {
             if(index % 10 == 0)
             {
-                PreLogUtil.put(WAITING_FOR + index, this, CommonStrings.getInstance().VISIT);
+                PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(index).toString(), this, CommonStrings.getInstance().VISIT);
             }
             
             index++;
@@ -45,7 +46,7 @@ public class StupidTimer
         {
             LogUtil.put(LogFactory.getInstance(
                     CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().VISIT, 
-                    new Exception("Took Too Long: " + visitorInterface)));
+                    new Exception(new StringMaker().append("Took Too Long: ").append(visitorInterface).toString())));
         }
         else
         {

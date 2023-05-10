@@ -52,14 +52,12 @@ public class StringMaker
         return this;
     }
 
-    /*
     public StringMaker append(float f)
     {
       //change to PrimitiveLongUtil
         this.append(Float.toString(f));
         return this;
     }
-    */
     
     public StringMaker append(final boolean bool)
     {

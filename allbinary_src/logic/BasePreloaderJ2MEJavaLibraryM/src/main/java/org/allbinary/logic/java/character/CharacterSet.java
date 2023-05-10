@@ -16,6 +16,7 @@ package org.allbinary.logic.java.character;
 //import java.nio.charset.Charset;
 
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 
 
 public class CharacterSet
@@ -29,6 +30,6 @@ public class CharacterSet
    {
       //Charset charset = Charset.defaultCharset();
       //return "Default Character Set: " + charset.toString();
-       return "Default Character Set: " + CommonStrings.getInstance().NOT_IMPLEMENTED;
+       return new StringMaker().append("Default Character Set: ").append(CommonStrings.getInstance().NOT_IMPLEMENTED).toString();
    }
 }

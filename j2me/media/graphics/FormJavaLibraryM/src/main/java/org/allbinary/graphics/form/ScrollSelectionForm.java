@@ -211,8 +211,8 @@ public class ScrollSelectionForm extends PaintableForm
 
     public int processInput(int gameKeyCode) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("Start - Selected " + CommonStrings.getInstance().INDEX_LABEL + this.getSelectedIndex() + " of: " + this.size(), this, GameInputStrings.getInstance()));
-        //PreLogUtil.put("Start - Selected " CommonStrings.getInstance().INDEX_LABEL + this.getSelectedIndex() + " of: " + this.size(), this, GameInputStrings.getInstance());
+        //LogUtil.put(LogFactory.getInstance("Start - Selected ").append(CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance()));
+        //PreLogUtil.put("Start - Selected " CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
 
         FormTypeFactory formTypeFactory = 
             FormTypeFactory.getInstance();
@@ -268,8 +268,8 @@ public class ScrollSelectionForm extends PaintableForm
             this.setSelectedIndex(index);
         }
 
-        //PreLogUtil.put("End - Selected " + CommonStrings.getInstance().INDEX_LABEL + this.getSelectedIndex(), this, GameInputStrings.getInstance());
-        //LogUtil.put(LogFactory.getInstance("End - Selected " + CommonStrings.getInstance().INDEX_LABEL + this.getSelectedIndex(), this, GameInputStrings.getInstance()));
+        //PreLogUtil.put("End - Selected ").append(CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
+        //LogUtil.put(LogFactory.getInstance("End - Selected ").append(CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance()));
         return -1;
     }
 
@@ -285,7 +285,7 @@ public class ScrollSelectionForm extends PaintableForm
             x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,
             point.getX(), point.getY()))
         {
-            LogUtil.put(LogFactory.getInstance(point + INSIDE_FORM, this, IS_IN_FORM));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(point).append(INSIDE_FORM).toString(), this, IS_IN_FORM));
             return true;
         }
         return false;

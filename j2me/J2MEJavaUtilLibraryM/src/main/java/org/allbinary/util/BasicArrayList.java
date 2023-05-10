@@ -29,8 +29,9 @@ public class BasicArrayList
 
         //currentIndex = 0;
 
-        if (size < 0)
-            throw new IllegalArgumentException("Init Size Exception: " + size);
+        if (size < 0) {
+            throw new IllegalArgumentException(new StringMaker().append("Init Size Exception: ").append(size).toString());
+        }
 
         objectArray = new Object[size];
     }

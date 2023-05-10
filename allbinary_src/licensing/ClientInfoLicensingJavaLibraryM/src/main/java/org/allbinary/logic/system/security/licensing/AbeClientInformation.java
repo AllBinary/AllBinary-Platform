@@ -16,6 +16,7 @@ package org.allbinary.logic.system.security.licensing;
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -50,7 +51,7 @@ public class AbeClientInformation extends ClientInformation
                 this.setLicenseId(NONE);
             }
 
-            PreLogUtil.put("Special Name: " + this.getSpecialName(), this, CommonStrings.getInstance().CONSTRUCTOR);
+            PreLogUtil.put(new StringMaker().append("Special Name: ").append(this.getSpecialName()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
         }
         catch (Exception e)
         {

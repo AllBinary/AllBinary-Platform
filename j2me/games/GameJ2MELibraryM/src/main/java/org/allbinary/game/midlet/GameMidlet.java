@@ -947,6 +947,11 @@ public class GameMidlet extends ProgressMidlet
         GameCanvasRunnableInterface myGameCanvasInterface)
     {
         this.allbinaryGameCanvasRunnableInterface = myGameCanvasInterface;
+        
+        if(this.allbinaryGameCanvasRunnableInterface == null) {
+            LogUtil.put(LogFactory.getInstance("allbinaryGameCanvasRunnableInterface: " + this.allbinaryGameCanvasRunnableInterface, this, "setGameCanvasRunnableInterface", new Exception()));
+        }
+        
     }
 
     protected AllBinaryGameLayerManager createGameLayerManager()

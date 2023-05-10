@@ -14,6 +14,7 @@
 package org.allbinary.game.configuration.persistance;
 
 import javax.microedition.rms.RecordStore;
+import org.allbinary.logic.basic.string.StringMaker;
 
 import org.allbinary.util.BasicArrayList;
 
@@ -47,7 +48,7 @@ public class BasicPersitance
     
     public void delete(int deleteId) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Deleting: " + deleteId, this, "delete"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
         
         RecordStore recordStore = RecordStore.openRecordStore(this.getRecordStoreName(), true);
 

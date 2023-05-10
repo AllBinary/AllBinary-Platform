@@ -89,7 +89,7 @@ public class GameInfo
    public void setCurrentLevel(int currentLevel)
    {
       this.currentLevel = currentLevel;
-      LogUtil.put(LogFactory.getInstance(NEW_LEVEL + this.getCurrentLevel(), this, SET_CURRENT_LEVEL));
+      LogUtil.put(LogFactory.getInstance(new StringMaker().append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, SET_CURRENT_LEVEL));
    }
 
    private final String NEXT = "Next ";
@@ -102,7 +102,7 @@ public class GameInfo
           this.currentLevel++;
       }
 
-      LogUtil.put(LogFactory.getInstance(NEXT + NEW_LEVEL + this.getCurrentLevel(), this, NEXT_GAME_LEVEL));
+      LogUtil.put(LogFactory.getInstance(new StringMaker().append(NEXT).append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, NEXT_GAME_LEVEL));
    }
    
    public void previousGameLevel()

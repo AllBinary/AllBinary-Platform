@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.math;
 
+import org.allbinary.logic.basic.string.StringMaker;
+
 public class PrimitiveLongSingleton
 {
     private static final PrimitiveLongSingleton instance = new PrimitiveLongSingleton();
@@ -38,6 +40,6 @@ public class PrimitiveLongSingleton
                 return this.NUMBER_ARRAY[index];
             }
         }
-        throw new Exception("numberAsChar was not in array: " + numberAsChar);
+        throw new Exception(new StringMaker().append("numberAsChar was not in array: ").append(numberAsChar).toString());
     }
 }

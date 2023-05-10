@@ -31,7 +31,8 @@ public class NoHighScoresFactory implements HighScoresFactoryInterface
         
     }
     
-    public HighScores[] createHighScores(GameInfo gameInfo)
+    public HighScores[] createHighScores(
+            GameInfo gameInfo)
     {
         return NO_HIGH_SCORES;
     }

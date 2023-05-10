@@ -70,7 +70,7 @@ public class InputPersistance extends BasicPersitance
         {
             int id = recordEnum.nextRecordId();
 
-            LogUtil.put(LogFactory.getInstance(LOADING_ID + id, this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, METHOD_NAME));
 
             //byteArrayInputStream = 
               //  new ByteArrayInputStream(recordStore.getRecord(id));
@@ -120,8 +120,8 @@ public class InputPersistance extends BasicPersitance
                 else
                 {
                     //LogUtil.put(LogFactory.getInstance("Load Mapping from: "
-                      //      + input.toString() + " to: "
-                        //    + gameActionInput.toString(), this, "loadAll"));
+                      //     ).append(input.toString()).append(" to: "
+                        //   ).append(gameActionInput.toString(), this, "loadAll"));
                 }
 
                 hashtable.put(input, gameActionInput);
@@ -137,9 +137,9 @@ public class InputPersistance extends BasicPersitance
 
     public void save(Hashtable hashtable) throws Exception
     {
-        //PreLogUtil.put("Saving: " + hashtable, this, "save");
+        //PreLogUtil.put("Saving: ").append(hashtable, this, "save");
         //LogUtil.put(LogFactory
-          //      .getInstance("Saving: " + hashtable, this, "save"));
+          //      .getInstance("Saving: ").append(hashtable, this, "save"));
 
         RecordStore recordStore = RecordStore.openRecordStore(
                 this.getRecordStoreName(), true);
@@ -183,8 +183,8 @@ public class InputPersistance extends BasicPersitance
                 //PreLogUtil.put(stringBuffer.toString(), this, "save");
                 
                 //LogUtil.put(LogFactory.getInstance("Save Mapping from: "
-                //      + input.toString() + " to: "
-                  //    + gameActionInput.toString(), this, "save"));
+                //     ).append(input.toString()).append(" to: "
+                  //   ).append(gameActionInput.toString(), this, "save"));
             }
         }
 

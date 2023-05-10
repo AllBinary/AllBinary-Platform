@@ -96,7 +96,7 @@ public class RunnableCanvas extends MyCanvas
             }
         }
 
-        LogUtil.put(LogFactory.getInstance(IS_RUNNING + this.running, this, SET_RUNNING));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(IS_RUNNING).append(this.running).toString(), this, SET_RUNNING));
     }
 
     protected final String SET_RUNNING = "setRunning";

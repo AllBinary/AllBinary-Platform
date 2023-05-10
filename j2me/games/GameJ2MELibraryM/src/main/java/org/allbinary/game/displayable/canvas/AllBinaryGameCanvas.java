@@ -128,6 +128,7 @@ import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.CircularIndexUtil;
 
@@ -300,8 +301,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
-            //PreLogUtil.put(commonStrings.START_LABEL + DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent");
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
+            //PreLogUtil.put(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent");
 
             if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
             {
@@ -666,7 +667,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
 
         //LogUtil.put(LogFactory.getInstance(
-        //"isDoubleBuffered: " + this.isBuffered() + "isDoubleBuffered: " + this.isDoubleBuffered(), 
+        //"isDoubleBuffered: ").append(this.isBuffered()).append("isDoubleBuffered: ").append(this.isDoubleBuffered(), 
         //this, commonStrings.CONSTRUCTOR));
 
         this.setGameInputProcessor(Processor.getInstance());
@@ -739,8 +740,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (changedGameFeatureListener.isChanged(gameFeatureFactory.SOUND))
         {
-            LogUtil.put(LogFactory.getInstance("Sound Changing To: " + 
-                    Features.getInstance().isFeature(gameFeatureFactory.SOUND), this, "initConfigurable"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Sound Changing To: ").append(
+                    Features.getInstance().isFeature(gameFeatureFactory.SOUND)).toString(), this, "initConfigurable"));
 
             this.mediaInit();
             changedGameFeatureListener.remove(gameFeatureFactory.SOUND);
@@ -887,7 +888,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             String itemLabel = item.getLabel();
 
-            LogUtil.put(LogFactory.getInstance("Item: " + itemLabel, this, "itemStateChanged"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Item: ").append(itemLabel).toString(), this, "itemStateChanged"));
 
             if (item instanceof ChoiceGroup)
             {
@@ -1017,7 +1018,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         this.highScoreSubmitted = highScoreSubmitted;
 
-        LogUtil.put(LogFactory.getInstance("isHighScoreSubmitted: " + this.isHighScoreSubmitted(), this, "setHighScoreSubmitted"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("isHighScoreSubmitted: ").append(this.isHighScoreSubmitted()).toString(), this, "setHighScoreSubmitted"));
     }
 
     public GameState getGameState()
@@ -1027,8 +1028,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void setGameState(GameState gameState) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Game State: " + gameState, this, "setGameState"));
-        // PreLogUtil.put("Game State: " + gameState, this, "setGameState");
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Game State: ").append(gameState).toString(), this, "setGameState"));
+        // PreLogUtil.put("Game State: ").append(gameState, this, "setGameState");
 
         this.gameState = gameState;
         this.gameStateTimeHelper.setStartTime();
@@ -1232,14 +1233,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             //LogUtil.put(LogFactory.getInstance("Clearing Keys From Last Level", this, BUILD_GAME));
 
-            PreLogUtil.put("Enabling PlayerGameInputs: " + this.localPlayerGameInputList.size(), this, BUILD_GAME);
+            PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInputs: ").append(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
             
             for(int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--)
             {
                 PlayerGameInput playerGameInput = (PlayerGameInput) 
                         this.localPlayerGameInputList.get(index);
                 
-                PreLogUtil.put("Enabling PlayerGameInput: " + playerGameInput.toString(), this, BUILD_GAME);
+                PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInput: ").append(playerGameInput.toString()).toString(), this, BUILD_GAME);
                 
                 playerGameInput.removeNonAIInputGameKeyEvents();
                 GameKeyEventHandler.getInstance().addListener(
@@ -1275,14 +1276,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Hashtable getLoadStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonLabels.START_LABEL + this.hashtable, this, "getLoadStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(this.hashtable).toString(), this, "getLoadStateHashtable"));
         return this.hashtable;
     }
 
     public void setLoadStateHashtable(Hashtable hashtable)
     {
         LogUtil.put(LogFactory.getInstance(
-                commonLabels.START_LABEL + hashtable, this,
+                new StringMaker().append(commonLabels.START_LABEL).append(hashtable).toString(), this,
                 "setLoadStateHashtable"));
         this.hashtable = hashtable;
     }
@@ -1295,7 +1296,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         hashtable.put(GameInfo.LEVEL_NAME.toString(), Integer.toString(level));
 
-        LogUtil.put(LogFactory.getInstance("End: " + hashtable, this, "getCurrentStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("End: ").append(hashtable).toString(), this, "getCurrentStateHashtable"));
 
         return hashtable;
     }
@@ -1387,10 +1388,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void keyPressed(int keyCode, int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL
-        // + this.inputProcessor.toString() + commonStrings.SPACE
-        // + keyCode, this, "keyPressed"));
+        //).append(this.inputProcessor.toString()).append(commonStrings.SPACE
+        //).append(keyCode, this, "keyPressed"));
         // ForcedLogUtil.log(commonStrings.START_LABEL +
-        // this.inputProcessor.toString() + commonStrings.SPACE +
+        // this.inputProcessor.toString()).append(commonStrings.SPACE +
         // keyCode, this);
 
         // this.addGameKeyEvent(keyCode, false);
@@ -1458,7 +1459,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(NO_KEY + keyCode, this, REMOVE_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
             }
         }
         catch (Exception e)
@@ -1514,7 +1515,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
          * totalTimeElapsed, this, "processGame"));
          * 
          * if (totalTimeElapsed > debugInterface.getMaxTime()) { PreLogUtil.put(
-         * //LogFactory.getInstance( "Elapsed Time: " + totalTimeElapsed, this,
+         * //LogFactory.getInstance( "Elapsed Time: ").append(totalTimeElapsed, this,
          * "processPlayingGame"); //));
          * 
          * debugInterface.stop(); } } }
@@ -1715,7 +1716,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         screenCapture.endRecording();
         
         AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
-        allGameStatisticsFactory.add(baseGameStatistics.toString() + CommonSeps.getInstance().NEW_LINE);
+        allGameStatisticsFactory.add(new StringMaker().append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
         baseGameStatistics.init();
         
         this.gameKeyEventHandler.removeListener(this.cheatProcessor);
@@ -1848,7 +1849,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void setTouchPaintable(Paintable paintable)
     {
-        //ForcedLogUtil.log("Touch Paintable: " + paintable, this);
+        //ForcedLogUtil.log("Touch Paintable: ").append(paintable, this);
         this.touchPaintable = paintable;
     }
 
@@ -1972,7 +1973,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     
     protected void addPlayerGameInput(PlayerGameInput playerGameInput)
     {
-        //PreLogUtil.put("Setting Player Input: " + playerGameInput, this, "setPlayerGameInput");
+        //PreLogUtil.put("Setting Player Input: ").append(playerGameInput, this, "setPlayerGameInput");
 
         this.localPlayerGameInputList.add(playerGameInput);
     }

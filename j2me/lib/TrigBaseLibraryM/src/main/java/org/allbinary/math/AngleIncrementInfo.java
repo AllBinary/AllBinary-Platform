@@ -13,6 +13,7 @@
 */
 package org.allbinary.math;
 
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class AngleIncrementInfo
@@ -66,7 +67,7 @@ public class AngleIncrementInfo
    
    public String toString()
    {
-      return INCREMENT + this.angleIncrement;
+      return new StringMaker().append(INCREMENT).append(this.angleIncrement).toString();
    }
    
    public int getClosestGeneralDirection(short angle)

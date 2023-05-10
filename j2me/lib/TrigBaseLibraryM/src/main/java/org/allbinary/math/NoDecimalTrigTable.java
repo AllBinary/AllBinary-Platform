@@ -14,6 +14,7 @@
 package org.allbinary.math;
 
 import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 
@@ -1248,7 +1249,9 @@ public class NoDecimalTrigTable
 		final String METHOD_NAME = "antiTanDebug";
 		final String TARGET_ANGLE = " Targeting angle: ";
 
-		PreLogUtil.put("screenX: " + screenX + " screenY: " + screenY + " targetX: " + targetX + " targetY: " + targetY, this, METHOD_NAME);
+                final StringMaker stringMaker = new StringMaker();
+                
+		PreLogUtil.put(stringMaker.append("screenX: ").append(screenX).append(" screenY: ").append(screenY).append(" targetX: ").append(targetX).append(" targetY: ").append(targetY).toString(), this, METHOD_NAME);
 		
 		int targetX2 = (int) -targetX;
 		int targetY2 = (int) -targetY;
@@ -1277,7 +1280,8 @@ public class NoDecimalTrigTable
 				angleOfTarget = this.antiTan(dx[index], dy[index2]);
 
 				Angle angle = AngleFactory.getInstance().getInstance(angleOfTarget);
-				PreLogUtil.put("index: " + index + " index2: " + index2 + PositionStrings.getInstance().DX_LABEL + dx[index] + PositionStrings.getInstance().DY_LABEL + dy[index2] + TARGET_ANGLE + angleOfTarget + CommonSeps.getInstance().EQUALS + angle.getValue(), this, METHOD_NAME);
+                                stringMaker.delete(0, stringMaker.length());
+				PreLogUtil.put(stringMaker.append("index: ").append(index).append(" index2: ").append(index2).append(PositionStrings.getInstance().DX_LABEL).append(dx[index]).append(PositionStrings.getInstance().DY_LABEL).append(dy[index2]).append(TARGET_ANGLE).append(angleOfTarget).append(CommonSeps.getInstance().EQUALS).append(angle.getValue()).toString(), this, METHOD_NAME);
 			}
 		}
 
