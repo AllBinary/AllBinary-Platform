@@ -1180,7 +1180,7 @@ public class StartCanvas extends RunnableCanvas
    }
 
     //Hack for GD
-    public void stop() {
+    public void end2() {
         this.paintedSpecialAnimationInterface = SpecialAnimation.getInstance();
     }
 }
