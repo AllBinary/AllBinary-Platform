@@ -181,9 +181,11 @@ public class GeographicMapDirectionUtil
         {
             return directionFactory.DOWN;
         }
-        String string = CellPosition.toString(fromGeographicMapCellPosition)
-                + " == " + CellPosition.toString(toGeographicMapCellPosition);
-        throw new Exception("Error: " + string);
+        final StringMaker stringMaker = new StringMaker();
+        final String string = stringMaker.append(CellPosition.toString(fromGeographicMapCellPosition)
+               ).append(" == ").append(CellPosition.toString(toGeographicMapCellPosition)).toString();
+        stringMaker.delete(0, stringMaker.length());
+        throw new Exception(stringMaker.append("Error: ").append(string).toString());
     }
 
     private final String ERROR = "Error: ";

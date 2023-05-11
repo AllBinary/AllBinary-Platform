@@ -17,6 +17,7 @@ import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.direction.Direction;
 import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.Angle;
@@ -33,7 +34,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
                 (short) (AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount())));
 
         //(sprite.getWidth() / sprite.getHeight()) % 
-        LogUtil.put(LogFactory.getInstance("sprite.getRawFrameCount(): " + sprite.getRawFrameCount(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("sprite.getRawFrameCount(): ").append(sprite.getRawFrameCount()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
 
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
