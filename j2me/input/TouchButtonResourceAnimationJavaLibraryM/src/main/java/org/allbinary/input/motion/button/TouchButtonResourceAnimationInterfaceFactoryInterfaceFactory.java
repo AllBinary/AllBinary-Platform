@@ -26,6 +26,7 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import javax.microedition.lcdui.Image;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.media.image.ImageCompleteUtil;
 
 public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
@@ -64,7 +65,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
         // final String loadingString =
         // baseResourceAnimationInterfaceFactoryInterfaceFactory.toString() +
         // " Loading: ";
-        final String loadingString = this.toString() + " Loading: ";
+        final String loadingString = new StringMaker().append(this.toString()).append(" Loading: ").toString();
 
         int index = 0;
 
