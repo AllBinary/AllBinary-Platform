@@ -27,6 +27,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.paint.ProcessPaintable;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 import org.allbinary.time.TimeDelayHelper;
@@ -101,7 +102,7 @@ implements CompleteMotionGestureInputEventListenerInterface
             
             released = false;
             
-            LogUtil.put(LogFactory.getInstance("GameKey: " + gameKey + " MotionGestureInput: " + motionGestureInput, this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("GameKey: ").append(gameKey).append(" MotionGestureInput: ").append(motionGestureInput).toString(), this, METHOD_NAME));
             
             this.inputMappingInterface.process(gameKey, motionGestureInput);
         }
