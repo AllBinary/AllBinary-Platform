@@ -948,9 +948,10 @@ public class GameMidlet extends ProgressMidlet
     {
         this.allbinaryGameCanvasRunnableInterface = myGameCanvasInterface;
         
-        if(this.allbinaryGameCanvasRunnableInterface == null) {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("allbinaryGameCanvasRunnableInterface: ").append(this.allbinaryGameCanvasRunnableInterface).toString(), this, "setGameCanvasRunnableInterface", new Exception()));
-        }
+//        if(this.allbinaryGameCanvasRunnableInterface == null) {
+//            
+//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("allbinaryGameCanvasRunnableInterface: ").append(this.allbinaryGameCanvasRunnableInterface).toString(), this, "setGameCanvasRunnableInterface", new Exception()));
+//        }
         
     }
 

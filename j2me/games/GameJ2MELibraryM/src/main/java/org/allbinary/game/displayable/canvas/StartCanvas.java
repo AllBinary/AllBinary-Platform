@@ -514,11 +514,11 @@ public class StartCanvas extends RunnableCanvas
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
         if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullGameRunnable.getInstance()) {
-            return false;
+            return true;
         }
         else
         {
-            return true;
+            return false;
         }
     }
     
