@@ -15,12 +15,6 @@ package org.allbinary.game.displayable.canvas;
 
 public class GameRunnable implements Runnable
 {
-    private static final GameRunnable instance = new GameRunnable();
-
-    public static GameRunnable getInstance()
-    {
-        return instance;
-    }
 
     public void run()
     {

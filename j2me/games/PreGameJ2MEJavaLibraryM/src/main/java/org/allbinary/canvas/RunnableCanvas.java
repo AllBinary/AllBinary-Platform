@@ -248,14 +248,17 @@ public class RunnableCanvas extends MyCanvas
         
         //this.processPaintable.process();
         
-        while (this.isPaused() && this.isRunning() && !this.isSingleThread())
-        {
-            this.processSleep();
+        if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
+            LogUtil.put(LogFactory.getInstance("start pause - game thread sleep", this, commonStrings.RUN));
+            while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
+                this.processSleep();
 
-            if(!this.isPausable())
-            {
-                return;
+                if (!this.isPausable()) {
+                    LogUtil.put(LogFactory.getInstance("end pause - game thread sleep", this, commonStrings.RUN));
+                    return;
+                }
             }
+
         }
 
         //Note that if you used the game timer then elapsed would always be 0 so don't change

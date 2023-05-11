@@ -550,7 +550,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == GameRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullGameRunnable.getInstance()) {
             return false;
         }
         else
@@ -1596,13 +1596,20 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             //Don't keep running thread if in bot/demo mode            
             if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT)
             {
-                
+                LogUtil.put(LogFactory.getInstance(gameTypeFactory.BOT.toString(), this, commonStrings.RUN));
             }
             else
                 if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) ||
                         features.isDefault(HTMLFeatureFactory.getInstance().HTML))
                 {
-                    //LogUtil.put(LogFactory.getInstance("run", this, commonStrings.RUN));
+                    if(features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
+                        LogUtil.put(LogFactory.getInstance(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD.getName(), this, commonStrings.RUN));
+                    }
+                    
+                    if(features.isDefault(HTMLFeatureFactory.getInstance().HTML)) {
+                        LogUtil.put(LogFactory.getInstance(HTMLFeatureFactory.getInstance().HTML.getName(), this, commonStrings.RUN));
+                    }
+
                     final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
                     final CurrentDisplayableFactory currentDisplayableFactory = 
@@ -1615,7 +1622,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             if (Features.getInstance().isDefault(
             		OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS))
             {
-                //LogUtil.put(LogFactory.getInstance("2 - run", this, commonStrings.RUN));
+                LogUtil.put(LogFactory.getInstance(OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName(), this, commonStrings.RUN));
+                
                 final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
                         GameTickTimeDelayHelperFactory.getInstance();
 
@@ -1661,6 +1669,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             }
             else
             {
+                LogUtil.put(LogFactory.getInstance("this thread", this, commonStrings.RUN));
+                
                 final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
                     GameTickTimeDelayHelperFactory.getInstance();
                 

@@ -137,7 +137,7 @@ public class StartCanvas extends RunnableCanvas
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    private GameRunnable gameRunnable = GameRunnable.getInstance();
+    private GameRunnable gameRunnable = NullGameRunnable.getInstance();
     
     public StartCanvas(CommandListener commandListener,
         HighScoresFactoryInterface highScoresFactoryInterface,
@@ -513,7 +513,7 @@ public class StartCanvas extends RunnableCanvas
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == GameRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullGameRunnable.getInstance()) {
             return false;
         }
         else

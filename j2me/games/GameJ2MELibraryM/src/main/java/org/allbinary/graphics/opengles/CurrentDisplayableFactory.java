@@ -23,6 +23,7 @@ import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameRunnable;
 import org.allbinary.game.displayable.canvas.NullDisplayable;
+import org.allbinary.game.displayable.canvas.NullGameRunnable;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.thread.NullRunnable;
 
@@ -38,8 +39,10 @@ public class CurrentDisplayableFactory
     private Displayable displayable = NullDisplayable.getInstance();
     private Displayable openGlReadydisplayable = NullDisplayable.getInstance();
 
-    private GameRunnable runnable = GameRunnable.getInstance();
-    private GameRunnable usedRunnable = GameRunnable.getInstance();
+    private GameRunnable runnable = NullGameRunnable.getInstance();
+    private GameRunnable usedRunnable = NullGameRunnable.getInstance();
+
+    private final String RUNNABLE = "Runnable: ";
     
     public void setDisplayable(Displayable displayable)
     {
@@ -69,8 +72,8 @@ public class CurrentDisplayableFactory
 
     public void clearRunnable()
     {
-        PreLogUtil.put(new StringMaker().append("Runnable: ").append(NullRunnable.getInstance()).toString(), this, "clearRunnable");
-        this.setUsedRunnable(GameRunnable.getInstance()); 
+        PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, "clearRunnable");
+        this.setUsedRunnable(NullGameRunnable.getInstance()); 
     }
     
     private void update()
@@ -84,13 +87,13 @@ public class CurrentDisplayableFactory
                     features.isDefault(HTMLFeatureFactory.getInstance().HTML)
                     )
             {
-                PreLogUtil.put(new StringMaker().append("Runnable: ").append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(new StringMaker().append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(runnable);
             }
             else
             {
-                PreLogUtil.put("Null Runnable", this, CommonStrings.getInstance().UPDATE);
-                this.setUsedRunnable(GameRunnable.getInstance());
+                PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
+                this.setUsedRunnable(NullGameRunnable.getInstance());
             }
         }
     }    

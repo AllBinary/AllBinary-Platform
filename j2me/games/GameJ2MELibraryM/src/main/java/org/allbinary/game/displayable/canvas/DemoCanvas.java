@@ -154,7 +154,7 @@ public class DemoCanvas extends RunnableCanvas
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    private GameRunnable gameRunnable = GameRunnable.getInstance();
+    private GameRunnable gameRunnable = NullGameRunnable.getInstance();
     
     public DemoCanvas(CommandListener commandListener,
         HighScoresFactoryInterface highScoresFactoryInterface,
@@ -530,7 +530,7 @@ public class DemoCanvas extends RunnableCanvas
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == GameRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullGameRunnable.getInstance()) {
             return false;
         }
         else
@@ -854,7 +854,7 @@ public class DemoCanvas extends RunnableCanvas
         }
         else
         {
-            this.gameRunnable = GameRunnable.getInstance();
+            this.gameRunnable = NullGameRunnable.getInstance();
             PreLogUtil.put("Not Showing Game", this, METHOD_NAME);
             this.setPaintableInterface(this.getDefaultPaintableInterface());
         }
