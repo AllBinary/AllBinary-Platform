@@ -16,6 +16,7 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCelPositionFactoryInitVisitorInterface;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -36,7 +37,7 @@ public class BasePathFindingInfoFactory {
         throws Exception
     {
         //TWB - PathFinding
-        //LogUtil.put(LogFactory.getInstance("Map Info: \n" + ArrayUtil.toString(mapArray), this, CommonStrings.getInstance().INIT));
+        //LogUtil.put(LogFactory.getInstance("Map Info: \n").append(ArrayUtil.toString(mapArray), this, CommonStrings.getInstance().INIT));
 
         class RaceTrackGeographicMapCellPositionFactoryInitVisitor implements
            GeographicMapCelPositionFactoryInitVisitorInterface
@@ -54,8 +55,8 @@ public class BasePathFindingInfoFactory {
                 this.finishLineId = raceTrackGeographicMapCellTypeFactory.FINISH_LINE_ROAD_CELL_TYPE.getType().intValue();
 
                 //LogUtil.put(LogFactory.getInstance(
-                  // "Race Track Map Array: " + PathFindingInfoFactory.this.getName() +
-                   //" columns: " + this.i_Map2DArray.length + " rows: " + this.i_Map2DArray[0].length, this, CommonStrings.getInstance().CONSTRUCTOR));
+                  // "Race Track Map Array: ").append(PathFindingInfoFactory.this.getName() +
+                   //" columns: ").append(this.i_Map2DArray.length).append(" rows: ").append(this.i_Map2DArray[0].length, this, CommonStrings.getInstance().CONSTRUCTOR));
             }
 
             public void visit(AllBinaryTiledLayer tiledLayer,
@@ -118,7 +119,7 @@ public class BasePathFindingInfoFactory {
                 else
                 {
                     // LogUtil.put(LogFactory.getInstance("Not Added For Tracking: " +
-                    // cellPosition + " Type: " + this.i_Map2DArray[row][col],
+                    // cellPosition).append(" Type: ").append(this.i_Map2DArray[row][col],
                     // this, "setMap"));
                 }
                 
@@ -126,8 +127,8 @@ public class BasePathFindingInfoFactory {
                 catch(Exception e)
                 {
                     LogUtil.put(LogFactory.getInstance(
-                            "[" + row + "][" + column + "] in [" + 
-                            mapArray.length + "][" + mapArray[0].length + "]", 
+                            new StringMaker().append("[").append(row).append("][").append(column).append("] in [").append(
+                            mapArray.length).append("][").append(mapArray[0].length).append("]").toString(), 
                             this, "visit", e));
                     throw e;
                 }

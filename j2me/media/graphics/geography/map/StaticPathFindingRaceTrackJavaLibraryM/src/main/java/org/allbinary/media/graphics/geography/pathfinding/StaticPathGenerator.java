@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.graphics.CellPosition;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
@@ -113,7 +114,7 @@ public class StaticPathGenerator
             pathCacheFactory.remove(smallIntegerSingletonFactory.getInstance(id));
          }
 
-         LogUtil.put(LogFactory.getInstance("Using Cached Path(s): " + list, this, CommonStrings.getInstance().GET_INSTANCE));
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Using Cached Path(s): ").append(list).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
 
          return list;
 

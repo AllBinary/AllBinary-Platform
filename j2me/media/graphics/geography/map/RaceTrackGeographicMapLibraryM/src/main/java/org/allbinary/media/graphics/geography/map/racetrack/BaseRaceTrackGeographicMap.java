@@ -17,6 +17,7 @@ import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
@@ -63,8 +64,8 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
         if (miniTiledLayer.getColumns() !=
            this.getGeographicMapCellPositionFactory().getColumns())
         {
-            String error = "RaceTrackMap has incorrect Mini Map columns: " + miniTiledLayer.getColumns() + " != " +
-                this.getGeographicMapCellPositionFactory().getColumns();
+            final String error = new StringMaker().append("RaceTrackMap has incorrect Mini Map columns: ").append(miniTiledLayer.getColumns()).append(" != ")
+                    .append(this.getGeographicMapCellPositionFactory().getColumns()).toString();
             LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().CONSTRUCTOR));
             throw new Exception(error);
         }

@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -30,7 +31,7 @@ public class RaceTracksPathPrinter {
         for (int index = 0; index < list.size(); index++)
         {
             Object object = list.get(index);
-            PreLogUtil.put("pathList.add(cellPositionFactory.getInstance" + object.toString() + ");", this, "printPath");
+            PreLogUtil.put(new StringMaker().append("pathList.add(cellPositionFactory.getInstance").append(object.toString()).append(");").toString(), this, "printPath");
         }
     }
 
@@ -38,7 +39,7 @@ public class RaceTracksPathPrinter {
     {
         for (int index = 0; index < list.size(); index++)
         {
-            System.out.println(" Path " + index + ": ");
+            System.out.println(new StringMaker().append(" Path ").append(index).append(": ").toString());
             this.printPath((BasicArrayList) list.get(index));
         }
     }

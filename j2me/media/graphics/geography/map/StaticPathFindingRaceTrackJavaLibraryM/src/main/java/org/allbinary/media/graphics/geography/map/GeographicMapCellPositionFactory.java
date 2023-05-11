@@ -19,6 +19,7 @@ import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class GeographicMapCellPositionFactory extends GeographicMapCellPositionBaseFactory
 {
@@ -37,7 +38,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         if (geographicMapCellPositionFactory != null)
         {
             LogUtil.put(LogFactory.getInstance(
-                "Reusing GeographicMapCellPositionFactory for TileLayer: " + allBinaryTiledLayer.getDataId(), 
+                new StringMaker().append("Reusing GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
                 this, CommonStrings.getInstance().GET_INSTANCE));
 
             return geographicMapCellPositionFactory;
@@ -45,9 +46,8 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         else
         {
             LogUtil.put(LogFactory.getInstance(
-                "Creating GeographicMapCellPositionFactory for TileLayer: "
-                + allBinaryTiledLayer.getDataId(), "GeographicMapCellPositionFactory",
-                CommonStrings.getInstance().GET_INSTANCE));
+                new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
+                    this,CommonStrings.getInstance().GET_INSTANCE));
 
             geographicMapCellPositionFactory = new BasicGeographicMapCellPositionFactory(
                 geographicMapInterface);
