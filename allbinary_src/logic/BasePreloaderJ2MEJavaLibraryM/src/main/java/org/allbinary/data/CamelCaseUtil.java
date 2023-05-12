@@ -15,6 +15,7 @@ package org.allbinary.data;
 
 import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.basic.string.tokens.Tokenizer;
 import org.allbinary.util.BasicArrayList;
@@ -39,6 +40,10 @@ public class CamelCaseUtil
     //private final String FORMAT = "[\\W_]+";
 
     public String getAsCamelCase(final String string, final StringMaker stringBuilder) throws Exception {
+
+        if(string == null) {
+            return StringUtil.getInstance().EMPTY_STRING;
+        }
 
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();    
         

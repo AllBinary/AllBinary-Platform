@@ -38,11 +38,10 @@ public class RunnableCanvas extends MyCanvas
     //protected ProcessPaintable processPaintable;
     protected Processor runnableCanvasRefreshHelper;
 
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CommonLabels commonLabels = CommonLabels.getInstance();
     
     public RunnableCanvas(CommandListener commandListener)
-    {
+    {   
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
 
@@ -53,7 +52,7 @@ public class RunnableCanvas extends MyCanvas
     }
 
     public RunnableCanvas()
-    {
+    {   
         this(null);
     }
 

@@ -31,12 +31,16 @@ import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 public class MyCanvas extends Canvas 
     implements DisplayableInterface, MyCommandInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     //private boolean displayed;
     private boolean isPaused;
     private final Stack commandStack;
 
     public MyCanvas()
     {
+        LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
+        
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
         DisplayInfoSingleton.getInstance().update(this, "MyCanvas::MyCanvas");

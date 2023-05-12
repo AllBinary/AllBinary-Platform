@@ -50,19 +50,19 @@ public class CurrentlyPressedTouchButtonSingletonDebug
         stringBuffer.append(append);
 
         this.append = stringBuffer.toString();
-        this.string = listString + this.append;
+        this.string = new StringMaker().append(listString).append(this.append).toString();
     }
 
     private void append(String append)
     {
-        this.append = this.append + append;
-        this.string = listString + this.append;
+        this.append = new StringMaker().append(this.append).append(append).toString();
+        this.string = new StringMaker().append(listString).append(this.append).toString();
     }
     
     public void clearLog(int x, int y)
     {
-        this.append = GPoint.toStringStatic(x, y, 0) + CommonSeps.getInstance().SPACE;
-        this.string = listString + this.append;
+        this.append = new StringMaker().append(GPoint.toStringStatic(x, y, 0)).append(CommonSeps.getInstance().SPACE).toString();
+        this.string = new StringMaker().append(listString).append(this.append).toString();
         //this.append(StringUtil.getInstance());
     }
 
@@ -100,8 +100,8 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     {
         TouchButtonInput touchButtonInput = super.remove(index);
 
-        listString = list.toString();
-        this.string = listString + this.append;
+        this.listString = list.toString();
+        this.string = new StringMaker().append(listString).append(this.append).toString();
         
         return touchButtonInput;
     }
@@ -110,8 +110,8 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     { 
         boolean isRemoved = super.remove(touchButtonInput);
 
-        listString = list.toString();
-        this.string = listString + this.append;
+        this.listString = list.toString();
+        this.string = new StringMaker().append(listString).append(this.append).toString();
 
         return isRemoved;
     }
@@ -119,8 +119,8 @@ public class CurrentlyPressedTouchButtonSingletonDebug
     public void add(TouchButtonInput touchButtonInput)
     {
         super.add(touchButtonInput);
-        listString = list.toString();
-        this.string = listString + this.append;
+        this.listString = list.toString();
+        this.string = new StringMaker().append(listString).append(this.append).toString();
     }
     
     public String toString()

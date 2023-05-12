@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 
 /**
@@ -105,7 +106,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
                 return;
             isMouseGestureOccurring = false;
             
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + ev.getMotionGesture(), this, "release"));
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(ev.getMotionGesture(), this, "release"));
             signed.onMotionGestureCompleted(motionGestureCollection);
             //List is only compared and not referenced again so it is safe just to clear
             //TWB - Although this could be dangerous
@@ -113,13 +114,13 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ev.getMotionGesture(), this, "release", e));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(ev.getMotionGesture()).toString(), this, "release", e));
         }
     }
 
     public void onMotionGestureEvent(MotionGestureEvent ev)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + ev.getMotionGesture(), this, "onMotionGestureEvent"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(ev.getMotionGesture(), this, "onMotionGestureEvent"));
 
         //currentMotionGesture == TouchMotionGestureFactory.getInstance().NO_MOTION &&
         if (isMouseGestureOccurring == false)
