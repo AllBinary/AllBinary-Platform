@@ -51,10 +51,11 @@ public class MyFrame extends javax.swing.JFrame
     
     private static final int MAXWORKAREAS = 10;
     private static int numberOfWorkAreas = 0;
-    private final String JAVA_TEMPLATE = "javaExport.xsl";
+    //private final String JAVA_TEMPLATE = "javaExport.xsl";
+    private final String JAVA_TEMPLATE = "svgExport.xsl";
     private final String SAVEEXTENSION = ".gxml";
     private final String JAVAEXTENSION = ".javax";
-    private static final String PATH = "G:/mnt/bc/mydev/working/graphics/AllBinaryGraphicsJavaApplication";
+    private static final String PATH = "G:/mnt/bc/mydev/work/graphics/AllBinaryGraphicsJavaApplication";
     private static final String SAVE_PATH = PATH + "/save";
     private static final String TEMPLATE_EXPORT_PATH = PATH + "/templates/export";
     private FileJDialog fileJDialog;
