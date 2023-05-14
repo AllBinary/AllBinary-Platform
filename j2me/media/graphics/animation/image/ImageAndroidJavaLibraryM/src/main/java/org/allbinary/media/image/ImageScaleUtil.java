@@ -67,7 +67,7 @@ public class ImageScaleUtil
         if(cached)
         {
             image = imageCache.get(
-                    getInstance().getClass().getName(), width, height);
+                    this.getClass().getName(), width, height);
         }
         else
         {
