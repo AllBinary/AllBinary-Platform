@@ -105,7 +105,7 @@ public class StartCanvas extends RunnableCanvas
         //new StateNotifyPaintable(this);
         StatePaintableFactory.getInstance();
     private SpecialAnimation specialAnimationInterface = SpecialAnimation.getInstance();
-    private Animation paintedSpecialAnimationInterface = SpecialAnimation.getInstance();
+    protected Animation paintedSpecialAnimationInterface = SpecialAnimation.getInstance();
     //private AllBinaryGameCanvas gameCanvas = NullGameCanvas.getInstance();
     
     private final HighScoresHelper highScoresHelper = new HighScoresHelper();
@@ -1072,9 +1072,9 @@ public class StartCanvas extends RunnableCanvas
         return realHighScoresPaintable;
     }
 
-    protected void setSpecialAnimationInterface(
-        SpecialAnimation specialAnimationInterface)
+    protected void setSpecialAnimationInterface(SpecialAnimation specialAnimationInterface)
     {
+        //LogUtil.put(LogFactory.getInstance("specialAnimationInterface: " + specialAnimationInterface, this, "setSpecialAnimationInterface"));
         specialAnimationInterface.setFrame(0);
         this.specialAnimationInterface = specialAnimationInterface;
     }
@@ -1180,8 +1180,4 @@ public class StartCanvas extends RunnableCanvas
       return gameInitializationInterfaceFactoryInterface;
    }
 
-    //Hack for GD
-    public void end2() {
-        this.paintedSpecialAnimationInterface = SpecialAnimation.getInstance();
-    }
 }
