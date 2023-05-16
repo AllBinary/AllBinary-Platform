@@ -1,0 +1,44 @@
+/*
+ * AllBinary Open License Version 1
+ * Copyright (c) 2022 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+package org.allbinary.media.image;
+
+import javax.microedition.lcdui.Image;
+import org.microemu.device.playn.PlaynMutableImage;
+import playn.core.CanvasImage;
+import playn.core.CanvasSurface;
+
+/**
+ *
+ * @author User
+ */
+public class ImageModifierUtil {
+    
+    private static final ImageModifierUtil instance = new ImageModifierUtil();
+
+    /**
+     * @return the instance
+     */
+    public static ImageModifierUtil getInstance() {
+        return instance;
+    }
+
+    public void setAlpha(final Image image, final int alpha) {
+        
+        //final int alphaInt = alpha * 100 / 255;
+        final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
+        final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
+        //canvasImage.canvas().s
+        //final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
+    }
+}

@@ -39,6 +39,7 @@
         <!-- Should be in OtherGraphicsMediaLibrary but android dependencies ar not available then -->
         <module>../../media/graphics/animation/image/ImageAndroidJavaLibraryM</module>
         <module>../../media/graphics/animation/image/ImageHTMLJavaLibraryM</module>
+        <module>../../media/graphics/animation/image/ImageHTMLJavaLibraryM_1_0_3</module>
 
         <!--
         HTML logging should be in the AllBinaryPOM, but they depend on playn
