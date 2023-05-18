@@ -29,10 +29,19 @@ public class ImageModifierUtil {
     /**
      * @return the instance
      */
-    public static ImageModifierUtil getInstance() {
+    public static ImageModifierUtil getInstanceOrCreate() {
         return instance;
     }
     
     public void setAlpha(final Image originalImage, final Image image,  final float alphaInt) {
     }
+    
+    public Image[] getImageArray(final Image[] originalImageArray, final Image[] imageArray) {
+        return imageArray;
+    }
+
+    public void handleImage(final Image[] imageArray, final int index, final Image image) {
+        
+    }
+    
 }

@@ -27,7 +27,7 @@ import org.allbinary.media.image.ImageModifierUtil;
 public class AllBinaryNoFlickerAndroidImageRotationAnimation 
 extends AllBinaryImageBaseRotationAnimation
 {
-    private final ImageModifierUtil imageModifierUtil = new ImageModifierUtil();
+    private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     private final AndroidImageUtil androidImageUtil = AndroidImageUtil.getInstance();
     
     private final Matrix matrix = new Matrix();

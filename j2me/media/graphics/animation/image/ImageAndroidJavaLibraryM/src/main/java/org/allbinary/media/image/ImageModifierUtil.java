@@ -26,7 +26,7 @@ import org.allbinary.graphics.color.BasicColor;
  */
 public class ImageModifierUtil {
     
-    public static ImageModifierUtil getInstance() {
+    public static ImageModifierUtil getInstanceOrCreate() {
         return new ImageModifierUtil();
     }
 
@@ -62,5 +62,13 @@ public class ImageModifierUtil {
             paint.setAlpha(alpha);
             //LogUtil.put(LogFactory.getInstance(new StringBuilder().append(SET_ALPHA).append(alpha).append('/').append(alpha).toString(), this, CommonStrings.getInstance().PROCESS));
         }
+    }
+    
+    public Image[] getImageArray(final Image[] originalImageArray, final Image[] imageArray) {
+        return imageArray;
+    }
+    
+    public void handleImage(final Image[] imageArray, final int index, final Image image) {
+        
     }
 }

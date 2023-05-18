@@ -30,7 +30,7 @@ public class ImageModifierUtil {
     /**
      * @return the instance
      */
-    public static ImageModifierUtil getInstance() {
+    public static ImageModifierUtil getInstanceOrCreate() {
         return instance;
     }
 
@@ -58,4 +58,13 @@ public class ImageModifierUtil {
         }
 
     }
+    
+    public Image[] getImageArray(final Image[] originalImageArray, final Image[] imageArray) {
+        return imageArray;
+    }
+
+    public void handleImage(final Image[] imageArray, final int index, final Image image) {
+        
+    }
+    
 }
