@@ -57,9 +57,9 @@ public class ImageModifierUtil {
         
     }
     
-    public void setAlpha(final Image originalImage, final Image alphaImage, final int alpha) {
-        if(alpha != paint.getAlpha()) {
-            paint.setAlpha(alpha);
+    public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
+        if(alphaInt != paint.getAlpha()) {
+            paint.setAlpha(alphaInt);
             //LogUtil.put(LogFactory.getInstance(new StringBuilder().append(SET_ALPHA).append(alpha).append('/').append(alpha).toString(), this, CommonStrings.getInstance().PROCESS));
         }
     }
@@ -71,4 +71,9 @@ public class ImageModifierUtil {
     public void handleImage(final Image[] imageArray, final int index, final Image image) {
         
     }
+    
+    public void reset() {
+        
+    }
+    
 }

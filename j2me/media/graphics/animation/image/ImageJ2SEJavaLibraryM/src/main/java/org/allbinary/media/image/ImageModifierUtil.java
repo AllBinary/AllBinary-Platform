@@ -34,7 +34,7 @@ public class ImageModifierUtil {
         return instance;
     }
 
-    public void setAlpha(final Image originalImage, final Image image,  final float alphaInt) {
+    public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
         
         byte alpha = (byte) alphaInt;
         final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
@@ -64,6 +64,10 @@ public class ImageModifierUtil {
     }
 
     public void handleImage(final Image[] imageArray, final int index, final Image image) {
+        
+    }
+
+    public void reset() {
         
     }
     
