@@ -16,11 +16,9 @@ package org.allbinary.media.image;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 
 /**
  *
@@ -55,7 +53,7 @@ public class ImageModifierUtil {
         
     }
     
-    public void setAlpha(final int alpha) {
+    public void setAlpha(final Image originalImage, final Image alphaImage, final int alpha) {
         if(alpha != paint.getAlpha()) {
             paint.setAlpha(alpha);
             //LogUtil.put(LogFactory.getInstance(new StringBuilder().append(SET_ALPHA).append(alpha).append('/').append(alpha).toString(), this, CommonStrings.getInstance().PROCESS));

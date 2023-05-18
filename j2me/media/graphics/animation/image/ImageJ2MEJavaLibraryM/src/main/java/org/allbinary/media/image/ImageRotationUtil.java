@@ -17,9 +17,6 @@ import javax.microedition.lcdui.Image;
 
 
 import org.allbinary.graphics.Anchor;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
 
 public class ImageRotationUtil
 {
@@ -30,8 +27,6 @@ public class ImageRotationUtil
         return instance;
     }
     
-    private final Matrix matrix = new Matrix();
-    
     private ImageRotationUtil()
     {
     }
@@ -39,55 +34,9 @@ public class ImageRotationUtil
     private int anchor = Anchor.TOP_LEFT;
     
     // String resource,
-    public Image createRotatedImage(Image originalImage, int rotationInDegrees)
+    public Image createRotatedImage(final Image originalImage, final int rotationInDegrees)
             throws Exception
     {
-        Image image = ImageCreationUtil.getInstance().getInstance(
-                originalImage.getWidth() , originalImage.getHeight());
-
-        if (image.isMutable())
-        {
-
-            //Bitmap originalBitmap = originalImage.getBitmap();
-            Bitmap bitmap = image.getBitmap();
-
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-
-            /*
-             * 
-             * int[] intArray = new int[width * height];
-             * originalBitmap.getPixels(intArray, 0, width, 0, 0, width,
-             * height); bitmap.setPixels(intArray, 0, width, 0, 0, width,
-             * height);
-             */
-
-            /*
-             * for (int index = 0; index < width; index++) { for (int index2 =
-             * 0; index2 < height; index2++) {
-             * 
-             * int pixel = originalBitmap.getPixel(index, index2);
-             * bitmap.setPixel(index, index2, pixel);
-             *  } }
-             */
-
-            //image.getGraphics().drawRect(0, 0, width, height);
-            
-            matrix.setRotate(rotationInDegrees, (width >> 1), (height >> 1));
-            Canvas canvas = image.getCanvas();
-            //canvas.save();
-            
-            canvas.concat(matrix);
-
-            image.getGraphics().drawImage(originalImage, 0, 0, anchor);
-
-            //canvas.restore();
-            
-            return image;
-        }
-        else
-        {
-            throw new Exception("Not Mutable");
-        }
+        return originalImage;
     }
 }

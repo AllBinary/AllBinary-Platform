@@ -13,12 +13,7 @@
 */
 package org.allbinary.media.image;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-
 import javax.microedition.lcdui.Image;
-
 import org.allbinary.graphics.Anchor;
 import org.allbinary.image.ImageCache;
 
@@ -37,65 +32,25 @@ public class ImageScaleUtil
 
     private int anchor = Anchor.TOP_LEFT;
 
-    public Image createImage(ImageCache imageCache, Image originalImage,
-            float scaleNominatorX, float scaleDenominatorX, 
-            float scaleNominatorY, float scaleDenominatorY, boolean cached) 
+    public Image createImage(final ImageCache imageCache, final Image originalImage,
+            final float scaleNominatorX, final float scaleDenominatorX, 
+            final float scaleNominatorY, final float scaleDenominatorY, final boolean cached) 
     throws Exception
     {
-        float scaleX = scaleNominatorX / scaleDenominatorX;
-        float scaleY = scaleNominatorY / scaleDenominatorY;
+        //float scaleX = scaleNominatorX / scaleDenominatorX;
+        //float scaleY = scaleNominatorY / scaleDenominatorY;
         
-        return this.createImage(imageCache, originalImage, scaleX, scaleY, cached);
+        //return this.createImage(imageCache, originalImage, scaleX, scaleY, cached);
+        throw new RuntimeException("Image Scaling is not supported by J2ME");
     }
     
-    public Image createImage(ImageCache imageCache, Image originalImage, 
-            float scaleX, float scaleY, boolean cached) 
-    throws Exception
-    {
-        Bitmap originalBitmap = originalImage.getBitmap();
-
-        //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, 
-          //      "ImageScaleUtil", "createImage"));
-
-        int width = (int) (originalBitmap.getWidth() * scaleX);
-        int height = (int) (originalBitmap.getHeight() * scaleY);
-
-        //if(width % 2 != 0 && 3d) throw new Exception because it is really a texture
-        
-        Image image = null;
-        
-        if(cached)
-        {
-            image = imageCache.get(
-                    getInstance().getClass().getName(), width, height);
-        }
-        else
-        {
-          //TWB - Image Create
-            //image = Image.createImage(width, height);
-            image = imageCache.get("createImage", width, height);
-        }
-
-        if (image.isMutable())
-        {
-            final Matrix matrix = new Matrix();
-            this.scale(image, matrix, scaleX, scaleY);
-
-            image.getGraphics().drawImage(originalImage, 0, 0, anchor);
-
-            return image;
-        }
-        else
-        {
-            throw new Exception("Not Mutable");
-        }
-    }
-    
-    public void scale(Image image, Matrix matrix, float scaleX, float scaleY)
-    {
-        matrix.setScale(scaleX, scaleY);
-
-        Canvas canvas = image.getCanvas();
-        canvas.concat(matrix);
-    }
+//    public Image createImage(final ImageCache imageCache, final Image originalImage, 
+//            final float scaleX, final float scaleY, final boolean cached) 
+//    throws Exception
+//    {
+//    }
+//    
+//    public void scale(final Image image, final Matrix matrix, final float scaleX, final float scaleY)
+//    {
+//    }
 }

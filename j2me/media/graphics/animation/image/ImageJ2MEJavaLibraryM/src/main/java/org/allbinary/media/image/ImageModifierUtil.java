@@ -14,9 +14,6 @@
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
-import org.microemu.device.playn.PlaynMutableImage;
-import playn.core.CanvasImage;
-import playn.core.CanvasSurface;
 
 /**
  *
