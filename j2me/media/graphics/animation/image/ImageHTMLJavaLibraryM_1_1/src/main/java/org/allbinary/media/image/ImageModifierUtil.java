@@ -27,15 +27,10 @@ import playn.core.CanvasImage;
  */
 public class ImageModifierUtil {
     
-    private static final ImageModifierUtil instance = new ImageModifierUtil();
-
-    /**
-     * @return the instance
-     */
     public static ImageModifierUtil getInstance() {
-        return instance;
+        return new ImageModifierUtil();
     }
-
+    
     public void setAlpha(final Image originalImage, final Image alphaImage, final int alpha) {
         final float alphaF = alpha;
         final float alphaFloat = alphaF / 255;

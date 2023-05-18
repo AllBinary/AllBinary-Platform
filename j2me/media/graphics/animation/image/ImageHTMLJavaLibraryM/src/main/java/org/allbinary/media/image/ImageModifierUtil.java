@@ -23,7 +23,7 @@ import playn.core.CanvasSurface;
  * @author User
  */
 public class ImageModifierUtil {
-    
+
     private static final ImageModifierUtil instance = new ImageModifierUtil();
 
     /**
@@ -32,7 +32,7 @@ public class ImageModifierUtil {
     public static ImageModifierUtil getInstance() {
         return instance;
     }
-
+    
     public void setAlpha(final Image originalImage, final Image image,  final float alphaInt) {
     }
 }

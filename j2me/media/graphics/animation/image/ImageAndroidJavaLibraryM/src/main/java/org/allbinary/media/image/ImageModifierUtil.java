@@ -26,6 +26,10 @@ import org.allbinary.graphics.color.BasicColor;
  */
 public class ImageModifierUtil {
     
+    public static ImageModifierUtil getInstance() {
+        return new ImageModifierUtil();
+    }
+
     //private final String SET_ALPHA = "setAlpha: ";
     //private final String SET_COLOR = "setBasicColor: ";
     
