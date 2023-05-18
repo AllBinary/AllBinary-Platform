@@ -37,12 +37,11 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
     
     private int totalFrames;
 
-    public AllBinaryImageArrayBaseRotationAnimation(Image[] imageArray, AngleInfo angleInfo) throws Exception
+    public AllBinaryImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo) throws Exception
     {
         super(angleInfo);
 
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
+        //LogUtil.put(LogFactory.getInstance("Constructing", this, "AllBinaryImageRotationAnimation"));
 
         this.setImageArray(imageModifierUtil.getImageArray(originalImageArray, imageArray));
         
