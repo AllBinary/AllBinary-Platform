@@ -28,8 +28,9 @@ import org.allbinary.media.image.ImageModifierUtil;
 
 public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
 {
-    private final ImageModifierUtil imageModifierUtil = new ImageModifierUtil();
+    private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
+    private Image[] originalImageArray;
     private Image[] imageArray;
 
     private Image currentImage;
@@ -43,7 +44,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
         // LogUtil.put(LogFactory.getInstance("Constructing", this,
         // "AllBinaryImageRotationAnimation"));
 
-        this.setImageArray(imageArray);
+        this.setImageArray(imageModifierUtil.getImageArray(originalImageArray, imageArray));
         
         this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()]; 
     }
@@ -62,7 +63,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
             final int size = this.imageArray.length;
             //LogUtil.put(LogFactory.getInstance("total: " + size, this, "setAlpha"));
             for (int index = 0; index < size; index++) {
-                imageModifierUtil.setAlpha(this.imageArray[index], this.imageArray[index], this.alpha);
+                imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], this.alpha);
             }
             
         }        

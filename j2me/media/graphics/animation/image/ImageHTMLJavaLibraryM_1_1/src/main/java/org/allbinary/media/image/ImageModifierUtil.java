@@ -35,6 +35,11 @@ public class ImageModifierUtil {
         return new ImageModifierUtil();
     }
     
+    private final String HANDLE_IMAGE = "handleImage";
+    private final String DONE = "ResourceCallback:done";
+    private final String ERROR = "ResourceCallback:error";
+    private final String NULL = "ResourceCallback:null";
+    
     public void setAlpha(final Image originalImage, final Image alphaImage, final int alpha) {
         final float alphaF = alpha;
         final float alphaFloat = alphaF / 255;
@@ -72,13 +77,17 @@ public class ImageModifierUtil {
         //final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
     }
     
-    public Image[] getImageArray(final Image[] originalImageArray, final Image[] imageArray) {
+    public Image[] getImageArray(Image[] originalImageArray, final Image[] imageArray) {
         
         final int size = imageArray.length;
+        
+        originalImageArray = new Image[size];
+        
         for(int index = 0; index < size; index++) {
-            imageArray[index] = originalImageArray[index];
+            originalImageArray[index] = imageArray[index];
+            this.handleImage(imageArray, index, originalImageArray[index]);
         }
-        return imageArray;
+        return originalImageArray;
     }
 
     public void handleImage(final Image[] imageArray, final int index, final Image image) {
@@ -89,20 +98,20 @@ public class ImageModifierUtil {
                 @Override
                 public void done(Object resource) {
                     try {
-                        LogUtil.put(LogFactory.getInstance("ResourceCallback:done", this, "handleImage"));
+                        LogUtil.put(LogFactory.getInstance(DONE, this, HANDLE_IMAGE));
                         //final javax.microedition.lcdui.Image image2 = javax.microedition.lcdui.Image.createImage(image.getWidth(), image.getHeight());
                         final javax.microedition.lcdui.Image image2 = javax.microedition.lcdui.Image.createImage(64, 64);
                         final javax.microedition.lcdui.Graphics graphics = image2.getGraphics();
                         graphics.drawImage(image, 0, 0, Anchor.TOP_LEFT);
                         imageArray[index] = image2;
                     } catch (Exception e) {
-                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + "ResourceCallback:done", this, "handleImage"));
+                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + DONE, this, HANDLE_IMAGE));
                     }
                 }
 
                 @Override
                 public void error(Throwable e) {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + "ResourceCallback:error", this, "handleImage"));
+                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ERROR, this, HANDLE_IMAGE));
                 }
             };
 
@@ -113,7 +122,7 @@ public class ImageModifierUtil {
             }
 
         } else {
-            LogUtil.put(LogFactory.getInstance("ResourceCallback:null", this, "handleImage"));
+            LogUtil.put(LogFactory.getInstance(NULL, this, HANDLE_IMAGE));
         }
         
     }
