@@ -63,31 +63,34 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
             imageModifierUtil.reset();
             final int index = this.circularIndexUtil.getIndex();
             imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
-        }        
+        }
     }
     
     public void nextRotation()
     {
         super.nextRotation();
         
-        imageModifierUtil.setAlpha(this.originalImageArray[this.circularIndexUtil.getIndex()], this.imageArray[this.circularIndexUtil.getIndex()], this.circularIndexUtil.getIndex(), this.alpha);
-        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
+        final int index = this.circularIndexUtil.getIndex();
+        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
+        this.currentImage = this.imageArray[index];
     }
 
     public void previousRotation()
     {
         super.previousRotation();
         
-        imageModifierUtil.setAlpha(this.originalImageArray[this.circularIndexUtil.getIndex()], this.imageArray[this.circularIndexUtil.getIndex()], this.circularIndexUtil.getIndex(), this.alpha);
-        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
+        final int index = this.circularIndexUtil.getIndex();
+        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
+        this.currentImage = this.imageArray[index];
     }
 
-    public void setFrame(int index)
+    public void setFrame(int index2)
     {
-        super.setFrame(index);
+        super.setFrame(index2);
         
-        imageModifierUtil.setAlpha(this.originalImageArray[this.circularIndexUtil.getIndex()], this.imageArray[this.circularIndexUtil.getIndex()], this.circularIndexUtil.getIndex(), this.alpha);
-        this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()];
+        final int index = this.circularIndexUtil.getIndex();
+        imageModifierUtil.setAlpha(this.originalImageArray[index], this.imageArray[index], index, this.alpha);
+        this.currentImage = this.imageArray[index];
     }
     
     public void setSequence(int[] sequence)

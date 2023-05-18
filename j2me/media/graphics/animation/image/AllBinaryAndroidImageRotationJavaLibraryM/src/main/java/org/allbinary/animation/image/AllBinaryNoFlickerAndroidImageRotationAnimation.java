@@ -96,7 +96,7 @@ extends AllBinaryImageBaseRotationAnimation
         
         super.setAlpha(alpha);
 
-        imageModifierUtil.setAlpha(this.originalImage, this.imageToShow, this.alpha);
+        imageModifierUtil.setAlpha(this.originalImage, this.imageToShow, 0, this.alpha);
 
         if(changed) {
             matrix.setRotate(0, this.halfWidth, this.halfHeight);
