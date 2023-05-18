@@ -13,6 +13,7 @@
  */
 package org.allbinary.media.image;
 
+import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.basic.string.CommonStrings;
@@ -94,36 +95,43 @@ public class ImageModifierUtil {
         
         final playn.core.Image image3 = ((PlaynImmutableImage) image).getImage();
         if (image3 != null) {
-            final ResourceCallback callback = new ResourceCallback() {
-                @Override
-                public void done(Object resource) {
-                    try {
-                        LogUtil.put(LogFactory.getInstance(DONE, this, HANDLE_IMAGE));
-                        //final javax.microedition.lcdui.Image image2 = javax.microedition.lcdui.Image.createImage(image.getWidth(), image.getHeight());
-                        final javax.microedition.lcdui.Image image2 = javax.microedition.lcdui.Image.createImage(64, 64);
-                        final javax.microedition.lcdui.Graphics graphics = image2.getGraphics();
-                        graphics.drawImage(image, 0, 0, Anchor.TOP_LEFT);
-                        imageArray[index] = image2;
-                    } catch (Exception e) {
-                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + DONE, this, HANDLE_IMAGE));
-                    }
-                }
-
-                @Override
-                public void error(Throwable e) {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ERROR, this, HANDLE_IMAGE));
-                }
-            };
 
             if (image3.isReady()) {
-                callback.done(this);
+                copy(imageArray, index, image, image3);
             } else {
+                final ResourceCallback callback = new ResourceCallback() {
+                    @Override
+                    public void done(Object resource) {
+                        LogUtil.put(LogFactory.getInstance(DONE, this, HANDLE_IMAGE));
+                        copy(imageArray, index, image, image3);
+                    }
+
+                    @Override
+                    public void error(Throwable e) {
+                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ERROR, this, HANDLE_IMAGE));
+                    }
+                };
+                
                 image3.addCallback(callback);
             }
 
         } else {
-            LogUtil.put(LogFactory.getInstance(NULL, this, HANDLE_IMAGE));
+            //LogUtil.put(LogFactory.getInstance(NULL, this, HANDLE_IMAGE));
         }
         
     }
+    
+    public void copy(final Image[] imageArray, final int index, final Image image, final playn.core.Image image3) {
+        try {
+            //final Image image2 = Image.createImage(image.getWidth(), image.getHeight());
+            //LogUtil.put(LogFactory.getInstance(DONE + image3.width() + ", " + image3.height(), this, HANDLE_IMAGE));
+            final Image image2 = Image.createImage(image3.width(), image3.height());
+            final Graphics graphics = image2.getGraphics();
+            graphics.drawImage(image, 0, 0, Anchor.TOP_LEFT);
+            imageArray[index] = image2;
+
+        } catch (Exception e) {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + DONE, this, HANDLE_IMAGE));
+        }
+    }    
 }
