@@ -153,8 +153,13 @@ public class ImageCache
 
         if (image == null)
         {
-            InputStream inputStream = 
+            final InputStream inputStream = 
                     ResourceUtil.getInstance().getResourceAsStream((String) key);
+            
+            if(inputStream == null) {
+                throw new RuntimeException("Image resource is not available for key: " + key);
+            }
+
             try
             {
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
