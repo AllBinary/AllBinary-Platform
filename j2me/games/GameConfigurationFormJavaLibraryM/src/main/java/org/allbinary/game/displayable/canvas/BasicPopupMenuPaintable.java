@@ -27,6 +27,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.draw.DrawStringUtil;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.paint.Paintable;
 
 /**
@@ -102,6 +103,10 @@ public class BasicPopupMenuPaintable extends Paintable
         this.rectangle = rectangle;
         
         int heightOffset = rectangle.getHeight() - (MyFont.getInstance().DEFAULT_CHAR_HEIGHT * NAME.length());
+
+        if(OpenGLFeatureUtil.getInstance().isAnyThreed()) {
+            heightOffset -= MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2;
+        }
         
         this.offset = (heightOffset >> 1);
 

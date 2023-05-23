@@ -19,6 +19,7 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.logic.basic.string.StringMaker;
 
 /**
@@ -37,13 +38,27 @@ public class DrawStringUtil
     public void paintVerticle(Graphics graphics,
             String string, int x, int y, int anchor)
     {
-        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
-        
+        final MyFont myFont = MyFont.getInstance();
+        final OpenGLFeatureUtil openGLFeatureUtil = OpenGLFeatureUtil.getInstance();
+
+        int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
+        if(openGLFeatureUtil.isAnyThreed()) {
+            charHeight += 2;
+        }
+
         int size = string.length();
+        int offsetX = 0;
+        char aChar;
         for (int index = size - 1; index >= 0; index--)
         {
-            graphics.drawChar(string.charAt(index),
-                    x, y + (charHeight * index), anchor);
+            aChar = string.charAt(index);
+
+            if(openGLFeatureUtil.isAnyThreed()) {
+                offsetX = myFont.charWidth(aChar) / 2;
+            }
+
+            graphics.drawChar(aChar,
+                    x + offsetX, y + (charHeight * index), anchor);
         }
     }
 

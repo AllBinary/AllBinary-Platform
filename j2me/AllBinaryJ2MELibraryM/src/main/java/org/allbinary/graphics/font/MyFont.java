@@ -54,6 +54,10 @@ public class MyFont
        return defaultFont.getSize();
    }
 
+   public int charWidth(final char aChar) {
+       return defaultFont.charWidth(aChar);
+   }
+
    public int charsWidth(final char[] charArray, final int offset, final int length) {
        return defaultFont.charsWidth(charArray, offset, length);
    }
