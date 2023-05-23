@@ -31,8 +31,8 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface
 {
 
-    private final Hashtable hashtable = new Hashtable();
-    private final Hashtable rectangleHashtable = new Hashtable();
+    private final Hashtable hashtable;
+    private final Hashtable rectangleHashtable;
 
     private final String name;
 
@@ -40,9 +40,18 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name)
     {
+        this.hashtable = new Hashtable();
+        this.rectangleHashtable = new Hashtable();
         this.name = name;
     }
 
+    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final Hashtable hashtable, final Hashtable rectangleHashtable)
+    {
+        this.hashtable = hashtable;
+        this.rectangleHashtable = rectangleHashtable;
+        this.name = name;
+    }
+    
     public String getName() {
         return this.name;
     }
