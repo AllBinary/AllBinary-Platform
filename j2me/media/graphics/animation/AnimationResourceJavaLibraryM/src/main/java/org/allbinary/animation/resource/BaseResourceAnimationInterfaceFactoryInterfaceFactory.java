@@ -129,6 +129,11 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         return hashtable;
     }
 
+    public Hashtable getRectangleHashtable()
+    {
+        return rectangleHashtable;
+    }
+    
     protected void setInitialized(boolean initialized)
     {
         this.initialized = initialized;
