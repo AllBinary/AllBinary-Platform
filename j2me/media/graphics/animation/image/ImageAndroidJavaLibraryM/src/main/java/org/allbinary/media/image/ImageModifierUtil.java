@@ -64,8 +64,8 @@ public class ImageModifierUtil {
         }
     }
     
-    public Image[] getImageArray(final Image[] originalImageArray, final Image[] imageArray) {
-        return imageArray;
+    public Image[] getImageArray(final Image[] originalImageArray) {
+        return originalImageArray;
     }
     
     public void handleImage(final Image[] imageArray, final int index, final Image image) {

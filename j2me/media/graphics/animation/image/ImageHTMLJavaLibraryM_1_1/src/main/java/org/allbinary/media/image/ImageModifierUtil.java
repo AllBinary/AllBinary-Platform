@@ -91,12 +91,12 @@ public class ImageModifierUtil {
         }
     }
     
-    public Image[] getImageArray(final Image[] originalImageArray, Image[] imageArray) {
+    public Image[] getImageArray(final Image[] originalImageArray) {
         
         final int size = originalImageArray.length;
         
         this.alphaArray = new boolean[size];
-        imageArray = new Image[size];
+        final Image[] imageArray = new Image[size];
         
         for(int index = 0; index < size; index++) {
             imageArray[index] = originalImageArray[index];

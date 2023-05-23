@@ -30,7 +30,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
 {
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
-    private Image[] originalImageArray;
+    private final Image[] originalImageArray;
     private Image[] imageArray;
 
     private Image currentImage;
@@ -44,7 +44,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
         //LogUtil.put(LogFactory.getInstance("Constructing", this, "AllBinaryImageRotationAnimation"));
 
         this.originalImageArray = originalImageArray;
-        this.setImageArray(imageModifierUtil.getImageArray(originalImageArray, imageArray));
+        this.setImageArray(imageModifierUtil.getImageArray(originalImageArray));
         //this.setImageArray(originalImageArray);
         
         this.currentImage = this.imageArray[this.circularIndexUtil.getIndex()]; 
@@ -84,7 +84,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
         this.currentImage = this.imageArray[index];
     }
 
-    public void setFrame(int index2)
+    public void setFrame(final int index2)
     {
         super.setFrame(index2);
         
@@ -93,7 +93,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
         this.currentImage = this.imageArray[index];
     }
     
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
 
     }
@@ -103,7 +103,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
         return PrimitiveIntUtil.getArrayInstance();
     }
 
-    protected void setImageArray(Image[] imageArray)
+    protected void setImageArray(final Image[] imageArray)
     {
         this.imageArray = imageArray;
         this.totalFrames = imageArray.length;
@@ -112,7 +112,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
 
     private int anchor = Anchor.TOP_LEFT;
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.currentImage, x, y, anchor);
     }

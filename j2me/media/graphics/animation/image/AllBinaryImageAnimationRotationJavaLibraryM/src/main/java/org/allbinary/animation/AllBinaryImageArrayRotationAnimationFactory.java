@@ -16,6 +16,8 @@ package org.allbinary.animation;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
@@ -74,6 +76,17 @@ public class AllBinaryImageArrayRotationAnimationFactory
     protected void setImageArray(Image[] imageArray)
     {
         this.imageArray = imageArray;
+        
+//        if(this.imageArray == null) {
+//            throw new RuntimeException();
+//        } else {
+//            final int size = this.imageArray.length;
+//            for (int index = 0; index < size; index++) {
+//                if (this.imageArray[index] == null) {
+//                    throw new RuntimeException("null at: " + index);
+//                }
+//            } 
+//        }
     }
 
     protected Image[] getImageArray()
