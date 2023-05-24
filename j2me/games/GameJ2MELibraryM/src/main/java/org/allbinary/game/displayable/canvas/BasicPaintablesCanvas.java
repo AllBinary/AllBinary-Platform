@@ -17,14 +17,14 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.game.paint.ColorFillPaintable;
+import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.graphics.paint.Paintable;
 
 public class BasicPaintablesCanvas extends GameCommandCanvas
 {
     private final Paintable[] paintableArray;
-    private final ColorFillPaintable colorFillPaintable;
+    private final ColorFillBasePaintable colorFillPaintable;
 
     public BasicPaintablesCanvas(CommandListener cmdListener, 
             AllBinaryGameLayerManager allBinaryGameLayerManager, Paintable[] paintableArray)
@@ -39,7 +39,7 @@ public class BasicPaintablesCanvas extends GameCommandCanvas
         
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance(
-                    allBinaryGameLayerManager.getBackgroundBasicColor());
+                    allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 
     /*

@@ -211,7 +211,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected ColorFillBasePaintable colorFillPaintable = 
         ColorFillPaintableFactory.getInstance(
-                BasicColorFactory.getInstance().BLACK);
+                BasicColorFactory.getInstance().BLACK, true);
 
     private final BaseGameStatistics baseGameStatistics = 
             GameStatisticsFactory.getInstance();

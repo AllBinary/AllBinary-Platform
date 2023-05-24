@@ -19,9 +19,9 @@ import org.allbinary.graphics.color.BasicColor;
 
 public class ColorFillPaintableFactory
 {
-    public static ColorFillPaintable getInstance(BasicColor basicColor)
+    public static ColorFillBasePaintable getInstance(final BasicColor basicColor, final boolean forThreedCanvas)
     {
-        OperatingSystemInterface operatingSystem = 
+        final OperatingSystemInterface operatingSystem = 
                 OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         
         if(operatingSystem.isOverScan())

@@ -23,7 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.game.paint.ColorFillPaintable;
+import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -54,7 +54,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
         "(Example: Press the key '1' to select the '1' key input for the selected Fire action)",
         "3. Press the Delete Key." };
 
-    private ColorFillPaintable colorFillPaintable;
+    private ColorFillBasePaintable colorFillPaintable;
     
     public GameInputMappingInstructionsCanvas(CommandListener commandListener,
             AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception
@@ -67,7 +67,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance(
-                    allBinaryGameLayerManager.getBackgroundBasicColor());
+                    allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
     
     public void initCommands(CommandListener cmdListener)

@@ -24,7 +24,7 @@ import org.allbinary.game.GameInfo;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.game.paint.ColorFillPaintable;
+import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.score.HighScoreCommandsFactory;
 import org.allbinary.game.score.HighScores;
@@ -53,7 +53,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     private final HighScoresPaintable highScoresPaintable;
     private final HighScoresFactoryInterface highScoresFactoryInterface;
 
-    protected ColorFillPaintable colorFillPaintable;
+    protected ColorFillBasePaintable colorFillPaintable;
 
     private HighScores[] highScoresArray;
 
@@ -114,7 +114,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                 allBinaryGameLayerManager.getForegroundBasicColor());
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance(
-                allBinaryGameLayerManager.getBackgroundBasicColor());
+                allBinaryGameLayerManager.getBackgroundBasicColor(), false);
 
         this.executeUpdate();
     }

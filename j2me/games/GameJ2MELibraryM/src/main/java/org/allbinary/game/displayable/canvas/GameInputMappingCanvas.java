@@ -33,7 +33,7 @@ import org.allbinary.game.input.mapping.InputMappingInterface;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.game.paint.ColorFillPaintable;
+import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.paint.help.InputMappingHelpPaintable;
@@ -50,7 +50,7 @@ implements InputMappingInterface
     
     private final InputMappingHelpPaintable helpPaintable;
     
-    protected final ColorFillPaintable colorFillPaintable;
+    protected final ColorFillBasePaintable colorFillPaintable;
     
     private final PersistentInputMapping inputMapping;
     
@@ -92,7 +92,7 @@ implements InputMappingInterface
         
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance(
-                    allBinaryGameLayerManager.getBackgroundBasicColor());
+                    allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 
     public void close() throws Exception
