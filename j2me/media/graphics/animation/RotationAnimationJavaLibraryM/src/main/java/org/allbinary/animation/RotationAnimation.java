@@ -66,6 +66,14 @@ public class RotationAnimation
         this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
     }
 
+    public void nextRotationZ()
+    {
+    }
+
+    public void previousRotationZ()
+    {
+    }
+    
     public void setFrame(int index)
     {
         //int currentFrame = this.circularIndexUtil.getIndex();
