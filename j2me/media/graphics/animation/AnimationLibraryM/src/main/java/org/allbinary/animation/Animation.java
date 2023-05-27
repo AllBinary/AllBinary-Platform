@@ -53,6 +53,10 @@ OpenGLSurfaceChangedInterface
     {
     }
     
+    public boolean isThreed() {
+        return false;
+    }
+    
     public BasicColor getBasicColor()
     {
         return basicColor;
