@@ -19,6 +19,7 @@ import org.allbinary.logic.java.byteutil.ByteUtil;
 
 public class BasicCrypt implements CryptInterface
 {
+    private final ByteUtil byteUtil = ByteUtil.getInstance();
 
     private byte[] key;
 
@@ -76,8 +77,6 @@ public class BasicCrypt implements CryptInterface
      */
     public byte[] mutilate(byte[] array)
     {
-        ByteUtil byteUtil = new ByteUtil();
-
         for (int index = 0; index < key.length; index++)
         {
             byte val = key[index];

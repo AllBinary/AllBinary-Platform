@@ -15,19 +15,26 @@ package org.allbinary.logic.java.byteutil;
 
 public class ByteUtil
 {
-   public ByteUtil()
+   private static final ByteUtil instance = new ByteUtil();
+   
+   public static final ByteUtil getInstance() {
+       return instance;
+   }
+
+   private ByteUtil()
    {
    }
 
-   public byte[] xor(byte array[], byte mask)
+   public byte[] xor(final byte array[], final byte mask)
    {
-      byte bytes[] = new byte[array.length];
+      final byte bytes[] = new byte[array.length];
       
+      final int size = array.length;
       int index = 0;
-      int size = array.length;
+      byte currentByte;
       while(index < size)
       {
-         byte currentByte = array[index];
+         currentByte = array[index];
          //System.out.print("Dec: " + currentByte);
          bytes[index] = (byte) (currentByte ^ mask);         
          //System.out.println(" Crp: " + bytes[index]);
@@ -36,12 +43,12 @@ public class ByteUtil
       return bytes;
    }
    
-   public byte[] not(byte array[])
+   public byte[] not(final byte array[])
    {
-      byte bytes[] = new byte[array.length];
+      final byte bytes[] = new byte[array.length];
       
+      final int size = array.length;
       int index = 0;
-      int size = array.length;
       while(index < size)
       {
          bytes[index] = (byte) ~array[index];
@@ -51,7 +58,7 @@ public class ByteUtil
       //return this.xor(array, Byte.MAX_VALUE);
    }
    
-   public byte[] xorByte(byte array[], byte index)
+   public byte[] xorByte(final byte array[], final byte index)
    {
       byte mask = 0;
       if(index==0) mask = 1;
@@ -65,4 +72,21 @@ public class ByteUtil
       
       return this.xor(array,mask);
    }
+   
+    public boolean compare(final byte[] newByteArray, final byte[] oldByteArray) {
+
+        if(newByteArray.length != oldByteArray.length) {
+            return false;
+        }
+
+        final int size = newByteArray.length;
+        for(int index = 0; index < size; index++) {
+            if(newByteArray[index] != oldByteArray[index]) {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+   
 }

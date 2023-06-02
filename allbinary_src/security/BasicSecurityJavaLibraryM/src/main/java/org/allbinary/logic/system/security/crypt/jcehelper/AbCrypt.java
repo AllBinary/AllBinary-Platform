@@ -29,6 +29,8 @@ import org.allbinary.logic.java.byteutil.ByteUtil;
 
 public class AbCrypt implements CryptInterface
 {
+   private final ByteUtil byteUtil = ByteUtil.getInstance();
+    
    private Cipher cipher;
    private SecretKey secretKey;
    private String algorithm;
@@ -125,7 +127,6 @@ public class AbCrypt implements CryptInterface
          byte val = key[index];
          if(val < 8 && val >0)
          {
-            ByteUtil byteUtil = new ByteUtil();
             array = byteUtil.xorByte(array, val);
          }
       }
