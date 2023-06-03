@@ -14,6 +14,7 @@
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.graphics.color.BasicColor;
 
 /**
  *
@@ -30,6 +31,10 @@ public class ImageModifierUtil {
         return instance;
     }
 
+    public void setBasicColor(final BasicColor basicColor) {
+        
+    }
+    
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
     }
     

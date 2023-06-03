@@ -17,6 +17,7 @@ import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import javax.microedition.lcdui.Image;
+import org.allbinary.graphics.color.BasicColor;
 import org.microemu.device.j2se.J2SEMutableImage;
 
 /**
@@ -32,6 +33,10 @@ public class ImageModifierUtil {
      */
     public static ImageModifierUtil getInstanceOrCreate() {
         return instance;
+    }
+
+    public void setBasicColor(final BasicColor basicColor) {
+        
     }
 
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
