@@ -157,7 +157,7 @@ public class ImageCache
                     ResourceUtil.getInstance().getResourceAsStream((String) key);
             
             if(inputStream == null) {
-                throw new RuntimeException("Image resource is not available for key: " + key);
+                throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(key).toString());
             }
 
             try
