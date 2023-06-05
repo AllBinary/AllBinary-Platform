@@ -209,6 +209,7 @@
                 </executions>
             </plugin>
 
+        </plugins>
         
     </build>
 
