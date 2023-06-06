@@ -123,7 +123,7 @@
         <!--
         <module>../../media/graphics/FormJMEJavaLibraryM</module>
         -->
-        <module>../../../your/j2me/media/graphics/YourFormJMEJavaLibraryM</module>
+        <module>../../../j2me/media/graphics/FormJMEJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationResourceJavaLibraryM</module>
         <module>../../media/graphics/animation/TransitionAnimationJavaLibraryM</module>

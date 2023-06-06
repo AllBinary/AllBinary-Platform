@@ -48,9 +48,8 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>YourFormJMEJavaLibrary</artifactId>
+            <artifactId>FormJMEJavaLibrary</artifactId>
             <!-- 
-                 YourFormJMEJavaLibrary
                  FormJSEJavaLibrary
                  FormJMEJavaLibrary 
             -->
