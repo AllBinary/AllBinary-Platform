@@ -142,7 +142,7 @@
             <optional>true</optional>
             <exclusions>
                 <exclusion>
-                    <artifactId>XmlRpcJavaLibrary</artifactId>
+                    <artifactId>YourSecurityJavaLibrary</artifactId>
                     <groupId>org.allbinary</groupId>
                 </exclusion>
                 <exclusion>
@@ -174,7 +174,8 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>BouncyCastleDESJavaLibrary</artifactId>
+            <artifactId>YourSecurityJavaLibrary</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

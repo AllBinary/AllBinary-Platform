@@ -22,7 +22,7 @@ public class FullScreenUtil
 {
 
     public static final void init(
-        FullScreenInterface fullScreenInterface,
+        Canvas fullScreenInterface,
         CommandListener commandListener)
         throws Exception
     {
@@ -34,7 +34,7 @@ public class FullScreenUtil
         }
     }
 
-    public static final void init(FullScreenInterface fullScreenInterface)
+    public static final void init(Canvas fullScreenInterface)
     {
         MainFeatureFactory mainFeatureFactory =
             MainFeatureFactory.getInstance();
@@ -68,7 +68,7 @@ public class FullScreenUtil
     }
 
     public static final boolean isScreenChange(
-        FullScreenInterface fullScreenInterface)
+        Canvas fullScreenInterface)
     {
         return isScreenChange(fullScreenInterface.isFullScreenMode());
     }

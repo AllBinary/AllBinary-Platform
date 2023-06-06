@@ -52,7 +52,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
             <!--
             <artifactId>FileJ2SEJavaLibrary</artifactId>
             <artifactId>FileGAEVFSJavaLibrary</artifactId>

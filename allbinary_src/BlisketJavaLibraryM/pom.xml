@@ -198,16 +198,20 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>TestClientInfoJavaLibrary</artifactId>
+            <!--
             <artifactId>WeblisketClientInformationJavaLibrary</artifactId>
+            <artifactId>TestClientInfoJavaLibrary</artifactId>
+            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
             <!--
             <artifactId>FileJ2SEJavaLibrary</artifactId>
             <artifactId>FileGAEVFSJavaLibrary</artifactId>
@@ -218,6 +222,18 @@
 
             <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileMediaJ2SEJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <!--
         
         <dependency>
             <groupId>com.vobject.appengine</groupId>
@@ -226,12 +242,14 @@
             <optional>true</optional>
         </dependency>
         
+        -->
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-vfs2</artifactId>
             <version>2.0</version>
             <optional>true</optional>
-        </dependency>
+        </dependency>                
 
         <dependency>
             <groupId>commons-fileupload</groupId>

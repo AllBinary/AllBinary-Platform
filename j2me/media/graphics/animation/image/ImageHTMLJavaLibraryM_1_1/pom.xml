@@ -90,10 +90,53 @@
         <dependency>
             <groupId>org.microemu</groupId>
             <artifactId>microemu-midp</artifactId>
+            <version>2.0.4</version>
+            <optional>true</optional>
+        </dependency>
+        <!--
+        Public microemu
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-midp</artifactId>
+            <version>2.0.4</version>
+            <optional>true</optional>
+        </dependency>
+        Custom microemu
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-midp</artifactId>
             <version>3.0.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
+        -->
 
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-jsr-135</artifactId>
+            <version>2.0.4</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <artifactId>microemu-javase-swing</artifactId>
+                    <groupId>org.microemu</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--
+        Public microemu
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-jsr-135</artifactId>
+            <version>2.0.4</version>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <artifactId>microemu-javase-swing</artifactId>
+                    <groupId>org.microemu</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        Custom microemu
         <dependency>
             <groupId>org.microemu</groupId>
             <artifactId>microemu-jsr-135</artifactId>
@@ -106,6 +149,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        -->
 
     </dependencies>
 

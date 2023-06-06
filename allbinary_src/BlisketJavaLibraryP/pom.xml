@@ -106,6 +106,7 @@
 
         <module>../VisualTransformJavaLibraryM</module>
 
+        <module>../../your/allbinary_src/YourRuntimeEnvironmentJavaLibraryM</module>
         <module>../GatewayJavaLibraryM</module>
         
         <module>../WorkflowBaseJavaLibraryM</module>
@@ -132,6 +133,7 @@
         ImageJavaLibrary
         -->
         
+        <module>../logic/data/file/FileMediaJ2SEJavaLibraryM</module>
         <module>../BlisketBaseJavaLibraryM</module>
 
         <module>../logging/LoggingGAEAllM</module>

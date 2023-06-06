@@ -60,20 +60,6 @@
             <classifier>sources</classifier>
         </dependency>
         
-        <!--
-        <dependency>
-            <groupId>org.microemu</groupId>
-            <artifactId>microemu-midp</artifactId>
-            <version>2.0.2-SPECIAL-SNAPSHOT</version>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.microemu</groupId>
-            <artifactId>microemu-javase</artifactId>
-            <version>2.0.2-SPECIAL-SNAPSHOT</version>
-            <optional>true</optional>
-        </dependency>
-        -->
     </dependencies>
 
     <build>

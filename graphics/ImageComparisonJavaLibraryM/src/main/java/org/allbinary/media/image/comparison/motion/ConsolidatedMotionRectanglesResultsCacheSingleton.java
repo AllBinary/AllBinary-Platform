@@ -32,8 +32,7 @@ public class ConsolidatedMotionRectanglesResultsCacheSingleton
         {
             LogUtil.put(LogFactory.getInstance("Start", "MotionRectanglesResultsCacheSingleton", "Static Block"));
             
-            cacheInterface = CacheInterfaceFactory.getInstance(
-                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
+            cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
             LogUtil.put(LogFactory.getInstance("End", "MotionRectanglesResultsCacheSingleton", "Static Block"));
         }

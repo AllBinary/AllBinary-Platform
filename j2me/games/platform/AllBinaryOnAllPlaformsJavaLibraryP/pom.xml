@@ -40,6 +40,8 @@
         <module>../j2me/AllBinaryOnJ2MEPlatformJavaLibraryM</module>
         
         <module>../j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryM</module>
+        
+        <!--
         <module>../j2se/AllBinaryOnJ2SEPlatformJavaLibraryM</module>
         
         <module>../html/AllBinaryOnHTMLBasePlatformJavaLibraryM</module>
@@ -49,6 +51,8 @@
         <module>../android/AllBinaryOnAndroidBasePlatformDependenciesJavaLibraryM</module>
         <module>../android/AllBinaryOnAndroidPlatformJavaLibraryM</module>
         <module>../android/AllBinaryOnAndroidPlatformDependenciesJavaLibraryM</module>
+        
+        -->
         
         <module>../AllBinaryOptionalBasePlatformJavaLibraryM</module>
 

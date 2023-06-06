@@ -37,10 +37,14 @@
 
         <module>../../games/PreGameJ2MEJavaLibraryP</module>
 
+        <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
         <!--
         <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>
         <module>../../../../working_thirdparty/communication/XmlRpc/XmlRpcJavaLibraryM</module>
         -->
+        <module>../../../your/security/YourCryptFileJavaLibraryM</module>
+        <module>../../../your/security/YourSecurityJavaLibraryM</module>
+        <module>../../../your/communication/YourXmlRpcJavaLibraryM</module>
         <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
 
@@ -92,11 +96,13 @@
         <module>../../games/GameInputNoPersistanceLibraryM</module>
         
         <module>../../lib/VectorThreeDimensionalLibraryM</module>
+        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
         <module>../../input/NoGyroSensorJavaLibraryM</module>
         <module>../../input/JSEGyroSensorJavaLibraryM</module>
         <!--
         <module>../../input/android/</module>
         -->
+        <module>../../input/android/GameInputAndroidBaseJavaLibraryM</module>
 
         <module>../../media/sound/BasicPlayerJavaLibraryM</module>
         <module>../../media/sound/BasicPlayerMIDP2JavaLibraryM</module>
@@ -117,6 +123,8 @@
         <!--
         <module>../../media/graphics/FormJMEJavaLibraryM</module>
         -->
+        <module>../../../your/j2me/media/graphics/YourFormJMEJavaLibraryM</module>
+
         <module>../../media/graphics/animation/AnimationResourceJavaLibraryM</module>
         <module>../../media/graphics/animation/TransitionAnimationJavaLibraryM</module>
         <module>../../media/graphics/animation/NoTransitionAnimationJavaLibraryM</module>
@@ -138,7 +146,9 @@
         <module>../../games/GameConfigurationFormJavaLibraryM</module>
 
         <module>../../FullScreenNoneJavaLibraryM</module>
+        <!--
         <module>../../FullScreenJavaLibraryM</module>
+        -->
 
         <module>../../lib/Basic2DVectorLibraryM</module>
 

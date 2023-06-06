@@ -30,8 +30,7 @@ public class ImageComparisonResultCacheSingleton
         {
             LogUtil.put(LogFactory.getInstance("Start", "ImageComparisonCacheSingleton", "Static Block"));
             
-            cacheInterface = CacheInterfaceFactory.getInstance(
-                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
+            cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
             LogUtil.put(LogFactory.getInstance("End", "ImageComparisonCacheSingleton", "Static Block"));
         }

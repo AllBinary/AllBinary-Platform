@@ -33,7 +33,7 @@ public class BufferedImagePoolSingleton
             poolInterface =
                 PoolInterfaceFactory.getInstance(
                 new BufferedImageCacheableFactory(),
-                PoolTypeFactory.getInstance().SHIFT_ONE_VECTOR_POOL, 
+                PoolTypeFactory.getInstance().VECTOR_POOL, 
                 CachePolicyFactory.getInstance().MAX_TIME_THOUSAND_MAX);
             
             LogUtil.put(LogFactory.getInstance("End", "BufferedImagePoolSingleton", "Static Block"));

@@ -33,8 +33,11 @@
         <module>../AllBinaryCoreJavaLibraryM</module>        
         -->
 
+        <module>../../your/osgi/YourOSGIComponentLibraryM</module>
         <module>../../allbinary_src/AllBinaryOSGIJavaLibraryM</module>
 
+        <module>../../graphics/ColorJavaLibraryM</module>
+        <module>../../graphics/ImageJavaLibraryM</module>
         <module>../../graphics/ImageComparisonJavaLibraryM</module>
         
         <module>../InputAutomationModuleJavaLibraryM</module>
@@ -43,6 +46,7 @@
         <module>../InputAutomationGenericModuleJavaLibraryM</module>
         <module>../InputAutomationGeneric2ModuleJavaLibraryM</module>
 
+        <module>../../allbinary_src/HelpJavaLibraryM</module>
         <module>../InputAutomationJavaLibraryM</module>
 
         <module>../InputAutomationJavaApplicationM</module>

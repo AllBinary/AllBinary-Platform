@@ -94,13 +94,13 @@ public class PlayerComposite implements Controllable, Player
 
    public TimeBase getTimeBase()
    {
-      return this.player.getTimeBase();
+      return ((TimeBaseInterface) this.player).getTimeBase();
    }
 
    public synchronized void setTimeBase(TimeBase timeBase)
        throws MediaException
    {
-      this.player.setTimeBase(timeBase);
+      ((TimeBaseInterface) this.player).setTimeBase(timeBase);
    }
 
     public void prefetch()

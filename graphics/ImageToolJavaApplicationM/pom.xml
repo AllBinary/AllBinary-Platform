@@ -119,12 +119,14 @@
             <!-- AllBinary Platform Version End -->
         </dependency>
   
+        <!--
         <dependency>
             <groupId>org.shiftone.cache</groupId>
             <artifactId>shiftone-cache</artifactId>
             <version>2.1</version>
             <optional>true</optional>
         </dependency>
+        -->
 
     </dependencies>
 

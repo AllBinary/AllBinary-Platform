@@ -36,22 +36,25 @@
 
         <module>../CombatGameJavaLibraryPOM</module>
 
-        <!-- Should be in OtherGraphicsMediaLibrary but android dependencies ar not available then -->
-        <module>../../media/graphics/animation/image/ImageAndroidJavaLibraryM</module>
-        <!--
-        <module>../../media/graphics/animation/image/ImageHTMLJavaLibraryM</module>
+        <!-- Should be in OtherGraphicsMediaLibrary but android dependencies ar not available then 
+        <module>../working/media/graphics/animation/image/ImageAndroidJavaLibraryM</module>
         -->
-        <module>../../media/graphics/animation/image/ImageHTMLJavaLibraryM_1_1</module>
+        <!--
+        <module>../working/media/graphics/animation/image/ImageHTMLJavaLibraryM</module>
+        <module>../working/media/graphics/animation/image/ImageHTMLJavaLibraryM_1_1</module>
+        -->
 
         <!--
         HTML logging should be in the AllBinaryPOM, but they depend on playn
         which depends on midp that depends on some of the AllBinary Platform
+        <module>../working/allbinary_src/LogPlayNJavaLibraryM</module>
+        <module>../working/logging/LoggingHTMLAllM</module>
+        <module>../working/logging/LoggingHTMLExceptionM</module>
         -->
-        <module>../../../allbinary_src/LogPlayNJavaLibraryM</module>
-        <module>../../logging/LoggingHTMLAllM</module>
-        <module>../../logging/LoggingHTMLExceptionM</module>
 
+        <!--
         <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
+        -->
 
         <!-- Not used in Platform Libraries -->
         <module>../licensing/LicensingJavaLibraryP</module>
@@ -61,8 +64,10 @@
 
         <module>../../android/AllBinaryAndroidLibraryP</module>
         <!-- Not used in Platform Libraries -->
+        <!--
         <module>../../AllBinaryAndroidProgressJavaLibraryM</module>
         <module>../../media/graphics/animation/image/AllBinaryAndroidImageRotationJavaLibraryM</module>
+        -->
 
         <module>../CommonPickupJavaLibraryM</module>
         <module>../../../physics/FrictionJavaLibraryM</module>

@@ -35,8 +35,7 @@ public class PixelDeltaFactory
             LogUtil.put(LogFactory.getInstance("Start", "PixelDeltaFactory", "Static Block"));
             
             cacheInterface = (AutomaticCacheInterface) 
-                    CacheInterfaceFactory.getInstance(
-                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE, 
+                    CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
             LogUtil.put(LogFactory.getInstance("End", "PixelDeltaFactory", "Static Block"));

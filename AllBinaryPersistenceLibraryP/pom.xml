@@ -33,6 +33,10 @@
         <!--
         -->
         <module>../allbinary_src/cache/AllBinaryCacheLibraryM</module>
+        <module>../allbinary_src/logic/BasePreloaderFileJavaLibraryM</module>
+        <module>../allbinary_src/logic/data/file/FileJavaLibraryM</module>
+        <module>../allbinary_src/logic/data/file/FileJ2SEJavaLibraryM</module>
+        <module>../allbinary_src/data/DataJavaLibraryM</module>
         <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryM</module>
         <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryM</module>
         <module>../allbinary_src/logging/BasicLogConfigTypeJavaLibraryM</module>

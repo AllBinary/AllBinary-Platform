@@ -40,13 +40,15 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- <artifactId>AllBinaryJSECacheJavaLibrary</artifactId> -->
         <dependency>
             <groupId>org.allbinary.cache</groupId>
-            <artifactId>AllBinaryJSECacheJavaLibrary</artifactId>
+            <artifactId>AllBinaryCacheLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
+            <optional>true</optional>
         </dependency>
 
     </dependencies>

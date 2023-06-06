@@ -21,7 +21,7 @@ import javax.microedition.media.TimeBase;
 
 import org.allbinary.util.BasicArrayList;
 
-public class BasicPlayer implements Player
+public class BasicPlayer implements Player, TimeBaseInterface
 {
    public static String CONTROL_TYPE = "ToneControl";
    

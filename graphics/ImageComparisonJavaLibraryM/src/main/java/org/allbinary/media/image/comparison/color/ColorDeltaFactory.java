@@ -31,8 +31,7 @@ public class ColorDeltaFactory
         {
             LogUtil.put(LogFactory.getInstance("Start", "ColorDeltaFactory", "Static Block"));
             
-            cacheInterface = (AutomaticCacheInterface) CacheInterfaceFactory.getInstance(
-                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE,
+            cacheInterface = (AutomaticCacheInterface) CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE,
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
             LogUtil.put(LogFactory.getInstance("End", "ColorDeltaFactory", "Static Block"));

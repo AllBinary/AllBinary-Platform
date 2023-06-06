@@ -42,8 +42,12 @@
         </dependency>
 
         <dependency>
-    <groupId>org.allbinary</groupId>
-    <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <!--
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -52,28 +56,43 @@
         </dependency>
 
         <dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-fileupload</artifactId>
-            <version>1.2.1</version>
-        </dependency>
-
-        <dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-lang</artifactId>
-            <version>2.0</version>
-        </dependency>
-
-        <dependency>
-    <groupId>com.vobject.appengine</groupId>
-    <artifactId>AppEngineIOJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileMediaJ2SEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
-            <!-- AllBinary Platform Version End -->
-
+            <optional>true</optional>
         </dependency>
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <!--
+            <groupId>org.apache.commons</groupId>
+            -->
+            <artifactId>commons-fileupload</artifactId>
+            <version>1.2.1</version>
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <!--
+            <groupId>org.apache.commons</groupId>
+            -->
+            <artifactId>commons-lang</artifactId>
+            <version>2.0</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--
+
+        <dependency>
+            <groupId>com.vobject.appengine</groupId>
+            <artifactId>AppEngineIOJavaLibrary</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        -->
 
         <dependency>
             <groupId>org.allbinary</groupId>

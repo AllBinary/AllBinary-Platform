@@ -34,7 +34,7 @@ public class ColorCacheFactory
             
             cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
                 new ColorCacheableFactory(),
-                CacheTypeFactory.getInstance().SHIFT_ONE_CACHE, 
+                CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
             LogUtil.put(LogFactory.getInstance("End", ColorCacheFactory.class, "Static Block"));

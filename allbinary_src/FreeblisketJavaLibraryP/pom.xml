@@ -47,6 +47,7 @@
 
         <module>../ViewsJavaLibraryM</module>
 
+        <module>../data/NullSQLAllBinaryJavaLibraryM</module>
         <module>../BlisketTagHelpersJavaLibraryM</module>
         <module>../BlisketTagHelperFactoriesJavaLibraryM</module>
         <module>../BlisketTagsJavaLibraryM</module>

@@ -13,6 +13,7 @@
 */
 package org.allbinary.canvas;
 
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 
@@ -26,7 +27,7 @@ public class FullScreenUtil
 {
 
     public static final void init(
-        FullScreenInterface fullScreenInterface,
+        Canvas fullScreenInterface,
         CommandListener commandListener)
         throws Exception
     {
@@ -36,7 +37,7 @@ public class FullScreenUtil
         }
     }
 
-    public static final void init(FullScreenInterface fullScreenInterface)
+    public static final void init(Canvas fullScreenInterface)
     {
     }
 
@@ -57,7 +58,7 @@ public class FullScreenUtil
     }
 
     public static final boolean isScreenChange(
-        FullScreenInterface fullScreenInterface)
+        Canvas fullScreenInterface)
     {
         return isScreenChange(false);
     }

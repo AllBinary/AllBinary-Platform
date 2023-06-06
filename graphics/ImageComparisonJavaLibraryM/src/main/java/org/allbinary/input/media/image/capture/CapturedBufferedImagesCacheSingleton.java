@@ -38,7 +38,7 @@ public class CapturedBufferedImagesCacheSingleton
 				"CapturedBufferedImagesCacheSingleton",
 				"Static Block"));
 	    cacheInterface = (AutomaticCacheInterface) 
-                    CacheInterfaceFactory.getInstance((CacheTypeFactory.getInstance().SHIFT_ONE_CACHE_SET),
+                    CacheInterfaceFactory.getInstance((CacheTypeFactory.getInstance().SET),
 						    (CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX));
 	    LogUtil.put(LogFactory.getInstance("End", "CapturedBufferedImagesCacheSingleton",
 				"Static Block"));

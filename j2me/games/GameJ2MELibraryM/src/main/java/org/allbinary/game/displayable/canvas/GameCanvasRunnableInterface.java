@@ -18,13 +18,12 @@ import java.util.Hashtable;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.ItemStateListener;
 
-import org.allbinary.canvas.FullScreenInterface;
 import org.allbinary.game.state.GameStateCompositeInterface;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.thread.RunnableInterface;
 
 public interface GameCanvasRunnableInterface 
-   extends RunnableInterface, PaintableInterface, ItemStateListener, FullScreenInterface, GameStateCompositeInterface
+   extends RunnableInterface, PaintableInterface, ItemStateListener, GameStateCompositeInterface
 {
    String getTitle();
    

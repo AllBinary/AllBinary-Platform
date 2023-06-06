@@ -40,8 +40,6 @@
 
         <module>../../games/CommonHeadsUpDisplayLibraryM</module>
 
-        <module>../../input/AllBinaryAccelerometerSensorJavaLibraryM</module>
-
         <module>../../../physics/MovementJavaLibraryM</module>
         <!--        -->
         <module>../../games/PartsJavaLibraryM</module>

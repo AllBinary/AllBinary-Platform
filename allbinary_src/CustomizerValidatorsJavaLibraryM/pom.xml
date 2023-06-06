@@ -43,7 +43,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>FileGAEVFSJavaLibrary</artifactId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
             <!--
             <artifactId>FileJ2SEJavaLibrary</artifactId>
             <artifactId>FileGAEVFSJavaLibrary</artifactId>
@@ -75,12 +75,14 @@
             <!-- AllBinary Platform Version End -->
         </dependency>
 
+        <!--
         <dependency>
             <groupId>com.vobject.appengine</groupId>
             <artifactId>appengine-java-io</artifactId>
             <version>0.3-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
+        -->
 
         <dependency>
             <groupId>commons-fileupload</groupId>

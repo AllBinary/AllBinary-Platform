@@ -91,7 +91,7 @@
             <!-- AllBinary Platform Version End -->
             <exclusions>
                 <exclusion>
-                    <artifactId>XmlRpcJavaLibrary</artifactId>
+                    <artifactId>YourSecurityJavaLibrary</artifactId>
                     <groupId>org.allbinary</groupId>
                 </exclusion>
             </exclusions>
@@ -106,7 +106,8 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>BouncyCastleDESJavaLibrary</artifactId>
+            <artifactId>YourSecurityJavaLibrary</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>

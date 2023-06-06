@@ -43,7 +43,9 @@
         <module>../../android/AndroidThroughAPI2JavaLibraryM</module>
         <module>../../android/AndroidThroughAPI4JavaLibraryM</module>
 
+        <!--
         <module>../../AndroidToAllBinaryJavaLibraryM</module>
+        -->
         
         <!--
         <module>../../input/android/MotionInputAndroidResourcesJavaLibraryM</module>
@@ -53,14 +55,18 @@
         <module>../../../../working/j2me/AndroidToJ2MELibraryM</module>
         -->
 
+        <!--
         <module>../../android/VirtualKeyboardDynamicJavaLibraryM</module>
+        -->
         
         <!-- Several Move to PostPlatforms -->
         
         <module>../../media/sound/MusicAndroidJavaLibraryM</module>
 
+        <!--
         <module>../../media/graphics/ImageCacheAndroidJavaLibraryM</module>
-        
+        -->
+                
         <!-- ../../../../working/allbinary_src/logic/data/file/FileAndroidJavaLibraryM -->
         <module>../../../allbinary_src/logic/data/file/FileAndroidJavaLibraryM</module>
         
