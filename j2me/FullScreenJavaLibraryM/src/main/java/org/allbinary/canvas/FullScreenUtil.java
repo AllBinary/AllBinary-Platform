@@ -13,6 +13,7 @@
 */
 package org.allbinary.canvas;
 
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 
