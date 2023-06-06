@@ -36,9 +36,9 @@
         
         <!--
         Nexus and AllBinaryOnDeployJavaLibraryPOM
-        <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
         -->
 
+        <module>../media/graphics/geography/map/GraphBaseJavaLibraryM</module>
         <module>../AllBinaryJ2MELibraryM</module>
                 
         <module>../AllBinaryOptionalLibraryPOM</module>
