@@ -41,8 +41,7 @@ public class DefaultGameInitializationListener
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(
-                BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
 
     public void onGameInitialized(GameInitializedEvent gameInitializedEvent)

@@ -22,12 +22,10 @@ import javax.microedition.lcdui.CommandListener;
 public class FullScreenUtil
 {
 
-    public static final void init(
-        Canvas fullScreenInterface,
-        CommandListener commandListener)
+    public static final void init(Canvas fullScreenInterface, CommandListener commandListener)
         throws Exception
     {
-        fullScreenInterface.waitOnNotify(0);
+        ((RunnableCanvas) fullScreenInterface).waitOnNotify(0);
 
         if (commandListener != null)
         {
@@ -52,8 +50,7 @@ public class FullScreenUtil
         }
     }
 
-    public static final boolean isScreenChange(
-        boolean isFullScreen)
+    public static final boolean isScreenChange(boolean isFullScreen)
     {
         MainFeatureFactory mainFeatureFactory =
             MainFeatureFactory.getInstance();
@@ -68,8 +65,7 @@ public class FullScreenUtil
         return false;
     }
 
-    public static final boolean isScreenChange(
-        Canvas fullScreenInterface)
+    public static final boolean isScreenChange(Canvas fullScreenInterface)
     {
         return isScreenChange(fullScreenInterface.isFullScreenMode());
     }

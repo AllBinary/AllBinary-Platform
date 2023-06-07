@@ -24,10 +24,6 @@ import org.allbinary.game.resource.FeatureResourceInitializationUtil;
 import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
-/**
- *
- * @author user
- */
 public class DefaultGameInitializationListener
     implements GameInitializedListenerInterface
 {

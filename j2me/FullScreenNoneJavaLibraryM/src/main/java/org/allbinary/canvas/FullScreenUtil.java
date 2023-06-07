@@ -19,16 +19,10 @@ import org.allbinary.game.configuration.feature.MainFeatureFactory;
 
 import javax.microedition.lcdui.CommandListener;
 
-/**
- *
- * @author user
- */
 public class FullScreenUtil
 {
 
-    public static final void init(
-        Canvas fullScreenInterface,
-        CommandListener commandListener)
+    public static final void init(Canvas fullScreenInterface, CommandListener commandListener)
         throws Exception
     {
         if (commandListener != null)
@@ -41,8 +35,7 @@ public class FullScreenUtil
     {
     }
 
-    public static final boolean isScreenChange(
-        boolean isFullScreen)
+    public static final boolean isScreenChange(boolean isFullScreen)
     {
         MainFeatureFactory mainFeatureFactory =
             MainFeatureFactory.getInstance();
@@ -57,8 +50,7 @@ public class FullScreenUtil
         return false;
     }
 
-    public static final boolean isScreenChange(
-        Canvas fullScreenInterface)
+    public static final boolean isScreenChange(Canvas fullScreenInterface)
     {
         return isScreenChange(false);
     }
