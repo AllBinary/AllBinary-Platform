@@ -42,17 +42,17 @@ public class ImageRotationUtil
     public Image createRotatedImage(Image originalImage, int rotationInDegrees)
             throws Exception
     {
-        Image image = ImageCreationUtil.getInstance().getInstance(
+        final Image image = ImageCreationUtil.getInstance().getInstance(
                 originalImage.getWidth() , originalImage.getHeight());
 
         if (image.isMutable())
         {
 
             //Bitmap originalBitmap = originalImage.getBitmap();
-            Bitmap bitmap = image.getBitmap();
+            final Bitmap bitmap = image.getBitmap();
 
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
+            final int width = bitmap.getWidth();
+            final int height = bitmap.getHeight();
 
             /*
              * 
@@ -74,7 +74,7 @@ public class ImageRotationUtil
             //image.getGraphics().drawRect(0, 0, width, height);
             
             matrix.setRotate(rotationInDegrees, (width >> 1), (height >> 1));
-            Canvas canvas = image.getCanvas();
+            final Canvas canvas = image.getCanvas();
             //canvas.save();
             
             canvas.concat(matrix);

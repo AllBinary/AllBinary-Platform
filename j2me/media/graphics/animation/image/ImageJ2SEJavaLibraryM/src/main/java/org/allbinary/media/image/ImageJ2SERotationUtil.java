@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.image;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -28,30 +29,26 @@ public class ImageJ2SERotationUtil
         return instance;
     }
    
-   private ImageJ2SERotationUtil()
-   {
-   }
+    private ImageJ2SERotationUtil() {
+    }
 
-   public BufferedImage getRotatedImage(
-      Image bufferedImage, double radians)
+   public BufferedImage getRotatedImage(final Image bufferedImage, final double radians)
    {
-      BufferedImage newBufferedImage = 
+      final BufferedImage newBufferedImage = 
          BufferedImageUtil.create(
          bufferedImage.getWidth(null), 
          bufferedImage.getHeight(null));
       
-      return this.getRotatedImage(bufferedImage, newBufferedImage, radians);
+      return this.getRotatedImage(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians);
    }
    
-   public BufferedImage getRotatedImage(
-      Image bufferedImage, BufferedImage newBufferedImage, double radians)
+   public BufferedImage getRotatedImage(final Image bufferedImage, final BufferedImage newBufferedImage, final Graphics2D g, final double radians)
    {
-      Graphics2D g = newBufferedImage.createGraphics();
       //g.translate((neww-w)/2, (newh-h)/2);
 
       g.rotate(radians, 
-         newBufferedImage.getWidth(null)/2, 
-         newBufferedImage.getHeight(null)/2);
+         newBufferedImage.getWidth(null) / 2, 
+         newBufferedImage.getHeight(null) / 2);
 
       g.drawImage(bufferedImage, 0, 0, 
          bufferedImage.getWidth(null), bufferedImage.getHeight(null), null);
@@ -63,31 +60,38 @@ public class ImageJ2SERotationUtil
    }
 
    private final double TWO_PIE = 2 * Math.PI;
-   
-   public BufferedImage getRotatedImage(
-      Image bufferedImage, BufferedImage newBufferedImage, int totalAngle)
+   private final Color TRANSPARENT_COLOR = new Color(0,0,0,0);
+
+   public BufferedImage rotateImage(final Image bufferedImage, final BufferedImage newBufferedImage, final int totalAngle)
    {
-       return this.getRotatedImage(bufferedImage, newBufferedImage, TWO_PIE * totalAngle / 360);
+       final Graphics2D g = newBufferedImage.createGraphics();
+       g.setBackground(TRANSPARENT_COLOR);
+       g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
+       return this.getRotatedImage(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
    }
    
-   public BufferedImage[] getRotatedImages(
-       Image bufferedImage, int numberOfFrames, int totalAngle)
+   public BufferedImage getRotatedImage(final Image bufferedImage, final BufferedImage newBufferedImage, final int totalAngle)
    {
-      BufferedImage bufferedImageArray[] = new BufferedImage[numberOfFrames];
+       final Graphics2D g = newBufferedImage.createGraphics();
+       return this.getRotatedImage(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
+   }
+   
+   public BufferedImage[] getRotatedImages(final Image bufferedImage, final int numberOfFrames, final int totalAngle)
+   {
+      final BufferedImage bufferedImageArray[] = new BufferedImage[numberOfFrames];
       
-      double arc = (TWO_PIE) * totalAngle / 360;
+      final double arc = (TWO_PIE) * totalAngle / 360;
       
       for(int index = 0; index < bufferedImageArray.length; index++)
       {
-         double radians = (arc / bufferedImageArray.length) * index;
+         final double radians = (arc / bufferedImageArray.length) * index;
          bufferedImageArray[index] =
             this.getRotatedImage(bufferedImage, radians);
       }
       return bufferedImageArray;
    }
 
-   public BufferedImage createSpriteImage(
-      BufferedImage bufferedImageArray[])
+   public BufferedImage createSpriteImage(final BufferedImage[] bufferedImageArray)
    {
       int columns = 9;
       int rows = 0;
@@ -105,12 +109,12 @@ public class ImageJ2SERotationUtil
           rows++;
       }
       
-      BufferedImage bufferedImage = 
+      final BufferedImage bufferedImage = 
          BufferedImageUtil.create(
          bufferedImageArray[0].getWidth(null) * columns, 
          bufferedImageArray[0].getHeight(null) * rows);
 
-      Graphics2D g = bufferedImage.createGraphics();
+      final Graphics2D g = bufferedImage.createGraphics();
       //g.translate((neww-w)/2, (newh-h)/2);
 
       int columnIndex = 0;
