@@ -112,7 +112,7 @@ extends AllBinaryImageBaseRotationAnimation
 
     private void updateImage() {
 
-        this.imageRotationUtil.rotateImage(originalImage, imageToShow, this.angleInfo.getAngle());
+        this.imageRotationUtil.rotateImage(originalImage, imageToShow, this.angleInfo.getAngle() + 90);
         this.swap();
     }
 
@@ -120,7 +120,7 @@ extends AllBinaryImageBaseRotationAnimation
     {
         //LogUtil.put(LogFactory.getInstance("index: " + index, this, "setRotation"));
 
-        final int currentFrame = this.circularIndexUtil.getIndex();
+        //final int currentFrame = this.circularIndexUtil.getIndex();
         //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
         
         this.circularIndexUtil.setIndex(index);
