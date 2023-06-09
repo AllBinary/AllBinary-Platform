@@ -29,9 +29,13 @@ public class GameInput {
 
    private final boolean isRemoveDuplicateKeyPresses;
    
-   public GameInput(BasicArrayList gameKeyEventList) {
+   public GameInput(final BasicArrayList gameKeyEventList) {
+       this(gameKeyEventList, new BasicArrayList());
+   }
+   
+   public GameInput(final BasicArrayList gameKeyEventList, final BasicArrayList removalGameKeyEventList) {
       this.gameKeyEventList = gameKeyEventList;
-      this.removalGameKeyEventList = new BasicArrayList();
+      this.removalGameKeyEventList = removalGameKeyEventList;
       
       this.isRemoveDuplicateKeyPresses = Features.getInstance().isFeature(
               InputFeatureFactory.getInstance().REMOVE_DUPLICATE_KEY_PRESSES);
@@ -114,6 +118,14 @@ public class GameInput {
       removeList.clear();
    }
 
+    /**
+     * @return the gameKeyEventList
+     */
+    protected BasicArrayList getRemovalGameKeyEventList()
+    {
+        return this.removalGameKeyEventList;
+    }
+   
     /**
      * @return the gameKeyEventList
      */

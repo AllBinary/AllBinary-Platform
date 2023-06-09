@@ -35,6 +35,12 @@ public class GameInputProcessor
     {
         
     }
+
+    public void processReleased(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) 
+    throws Exception
+    {
+        
+    }
     
     public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, 
     		int analogValue)
