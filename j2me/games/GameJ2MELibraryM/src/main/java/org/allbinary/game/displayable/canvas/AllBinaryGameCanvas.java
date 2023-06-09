@@ -128,6 +128,7 @@ import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
+import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.CircularIndexUtil;
@@ -1387,9 +1388,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void keyPressed(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL
-        //).append(this.inputProcessor.toString()).append(commonStrings.SPACE
-        //).append(keyCode, this, "keyPressed"));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, "keyPressed"));
         // ForcedLogUtil.log(commonStrings.START_LABEL +
         // this.inputProcessor.toString()).append(commonStrings.SPACE +
         // keyCode, this);
@@ -1412,8 +1411,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void keyReleased(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START,
-        // this, "keyReleased"));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, "keyReleased"));
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
     
@@ -1433,9 +1431,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance("Key Code: " +
-            // Integer.toHexString(keyCode),
-            // this, "removeGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT));
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
@@ -1445,11 +1441,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
-                 * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode,
-                 * gameActionKeyCode, gameKey.getKey(), repeated);
-                 * LogUtil.put(LogFactory.getInstance(gameKeyEvent.toString(),
-                 * this, "GameKeyEvent"));
+                 * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
                  */
+                //LogUtil.put(LogFactory.getInstance(gameKeyEvent.toString(), this, REMOVE_KEY_EVENT));
 
                 // TODO TWB - Remove or improve key input event handling
                 upGameKeyEventHandler.fireEvent(gameKeyEvent);
