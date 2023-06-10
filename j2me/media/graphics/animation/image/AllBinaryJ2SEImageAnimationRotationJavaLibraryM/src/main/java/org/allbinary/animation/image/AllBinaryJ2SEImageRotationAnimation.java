@@ -43,6 +43,8 @@ extends AllBinaryImageBaseRotationAnimation
     private Image imageToShow;
     private int bufferedImageIndex;
     
+    private AlphaBaseProcessor alphaProcessor = AlphaBaseProcessor.getInstance();
+    
     protected AllBinaryJ2SEImageRotationAnimation(
             final Image originalImage, final Image image,
             final AngleInfo angleInfo, final short totalAngle) throws Exception
@@ -91,9 +93,8 @@ extends AllBinaryImageBaseRotationAnimation
         
         super.setAlpha(alpha);
 
-        imageModifierUtil.setAlpha(this.originalImage, this.imageToShow, 0, this.alpha);
-
         if(changed) {
+            this.alphaProcessor = AlphaProcessor.getInstance();
             this.updateImage();
         }
     }
@@ -112,7 +113,8 @@ extends AllBinaryImageBaseRotationAnimation
 
     private void updateImage() {
 
-        this.imageRotationUtil.rotateImage(originalImage, imageToShow, this.angleInfo.getAngle() + 90);
+        this.imageRotationUtil.rotateImage(originalImage, this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
+        alphaProcessor.setAlpha(imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], 0, this.alpha);
         this.swap();
     }
 
