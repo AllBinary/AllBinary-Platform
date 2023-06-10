@@ -16,11 +16,11 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.Anchor;
+import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.microemu.device.playn.PlaynImage;
-import org.microemu.device.playn.PlaynMutableImage;
 import playn.core.Canvas;
 import playn.core.CanvasImage;
 import playn.core.ResourceCallback;
@@ -42,6 +42,10 @@ public class ImageModifierUtil {
     
     private boolean[] alphaArray;
     
+    public void setBasicColor(final BasicColor basicColor) {
+        
+    }
+
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alpha) {
         final float alphaF = alpha;
         final float alphaFloat = alphaF / 255;

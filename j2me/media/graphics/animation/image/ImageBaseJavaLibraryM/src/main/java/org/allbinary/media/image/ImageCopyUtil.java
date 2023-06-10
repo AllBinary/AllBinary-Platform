@@ -33,7 +33,7 @@ public class ImageCopyUtil
     }
     
     private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
-    private final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
+    //private final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
 
     private ImageCopyUtil()
     {

@@ -14,6 +14,7 @@
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.graphics.color.BasicColor;
 import org.microemu.device.playn.PlaynMutableImage;
 import playn.core.CanvasImage;
 import playn.core.CanvasSurface;
@@ -33,6 +34,10 @@ public class ImageModifierUtil {
         return instance;
     }
     
+    public void setBasicColor(final BasicColor basicColor) {
+        
+    }
+
     public void setAlpha(final Image originalImage, final Image image, final int imageIndex, final int alphaInt) {
     }
     
