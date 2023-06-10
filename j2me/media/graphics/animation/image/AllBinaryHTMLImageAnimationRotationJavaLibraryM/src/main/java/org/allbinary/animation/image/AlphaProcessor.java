@@ -31,8 +31,9 @@ public class AlphaProcessor extends AlphaBaseProcessor {
         return instance;
     }
     
-    public void setAlpha(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final int alpha) {
-        imageModifierUtil.setAlpha(originalImage, imageToShow, index, alpha);
+    @Override
+    public void setAlpha(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int alpha) {
+        imageModifierUtil.setAlpha3(imageToShow, alpha);
     }
     
 }

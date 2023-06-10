@@ -59,6 +59,13 @@ public class ImageModifierUtil {
         if(this.alphaArray[imageIndex]) {
             
             this.alphaArray[imageIndex] = false;
+            
+            this.setAlpha2(originalImage, image, imageIndex, alpha);
+        }
+    }
+
+    public void setAlpha2(final Image originalImage, final Image image, final int imageIndex, final float alpha) {
+        
             //LogUtil.put(LogFactory.getInstance("image: " + image, this, "setAlpha"));
 
 //            if(originalImage != null) {
@@ -92,7 +99,15 @@ public class ImageModifierUtil {
 
             //canvasImage.canvas().s
             //final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
-        }
+    }
+
+    public void setAlpha3(final Image image, final float alpha) {
+        final float alphaF = alpha;
+        final float alphaFloat = alphaF / 255;
+        final PlaynImage htmlImage = (PlaynImage) image;
+        final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
+        final Canvas canvas = canvasImage.canvas();
+        canvas.setAlpha(alphaFloat);
     }
     
     public Image[] getImageArray(final Image[] originalImageArray) {

@@ -112,7 +112,7 @@ extends AllBinaryImageBaseRotationAnimation
         super.setAlpha(alpha);
 
         if(changed) {
-            //this.alphaProcessor = AlphaProcessor.getInstance();
+            this.alphaProcessor = AlphaProcessor.getInstance();
             this.updateImage();
         }
     }
@@ -130,8 +130,12 @@ extends AllBinaryImageBaseRotationAnimation
     }
 
     private void updateImage() {
-        this.imageRotationUtil.rotateImageClear(originalImage, this.twoImages[this.bufferedImageIndex], this.canvasSurfaceArray[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
-        this.alphaProcessor.setAlpha(imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], 0, this.alpha);
+        final CanvasSurface canvasSurface = this.canvasSurfaceArray[this.bufferedImageIndex];
+        canvasSurface.save();
+        this.imageRotationUtil.rotateImageClear(originalImage, this.twoImages[this.bufferedImageIndex], canvasSurface, this.angleInfo.getAngle() + 90);
+        this.alphaProcessor.setAlpha(imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], this.alpha);
+        this.imageRotationUtil.drawImage(originalImage, imageToShow, canvasSurface);
+        canvasSurface.restore();
         this.swap();
     }
 

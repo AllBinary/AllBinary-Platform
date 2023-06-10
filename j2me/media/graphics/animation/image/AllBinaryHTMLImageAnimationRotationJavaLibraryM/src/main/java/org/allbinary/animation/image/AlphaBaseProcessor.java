@@ -31,7 +31,7 @@ public class AlphaBaseProcessor {
         return instance;
     }
     
-    public void setAlpha(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int index, final int alpha) {    
+    public void setAlpha(final ImageModifierUtil imageModifierUtil, final Image originalImage, final Image imageToShow, final int alpha) {    
         
     }
 }
