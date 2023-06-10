@@ -118,8 +118,10 @@
         
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameInputPCMotionJavaLibrary</artifactId>
+            <artifactId>GameInputMEMotionJavaLibrary</artifactId>
             <!--
+            ME is used for custom playn 1.0.3, 1.1
+            <artifactId>GameInputMEMotionJavaLibrary</artifactId>
             <artifactId>GameInputPCKeyOnlyJavaLibrary</artifactId>
             <artifactId>GameInputPCMotionJavaLibrary</artifactId>
             -->
