@@ -67,7 +67,7 @@ extends AllBinaryImageBaseRotationAnimation
 
     public void nextRotation()
     {
-        this.angleInfo.adjustAngle(this.circularIndexUtil.next());
+        super.nextRotation();
 
         matrix.setRotate(inc, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
@@ -77,7 +77,7 @@ extends AllBinaryImageBaseRotationAnimation
 
     public void previousRotation()
     {
-        this.angleInfo.adjustAngle(this.circularIndexUtil.previous());
+        super.previousRotation();
 
         matrix.setRotate(-inc, this.halfWidth, this.halfHeight);        
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);

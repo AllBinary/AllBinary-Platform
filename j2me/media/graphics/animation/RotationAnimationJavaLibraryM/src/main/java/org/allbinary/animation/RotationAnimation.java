@@ -79,7 +79,8 @@ public class RotationAnimation
         //int currentFrame = this.circularIndexUtil.getIndex();
         this.circularIndexUtil.setIndex(index);
 
-        int newFrame = this.circularIndexUtil.getIndex();
+        final int newFrame = this.circularIndexUtil.getIndex();
+        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
         
         this.angleInfo.adjustAngle(newFrame);
     }

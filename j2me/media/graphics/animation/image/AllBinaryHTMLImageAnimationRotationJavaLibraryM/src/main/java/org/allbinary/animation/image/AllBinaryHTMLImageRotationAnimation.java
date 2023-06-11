@@ -119,13 +119,13 @@ extends AllBinaryImageBaseRotationAnimation
     
     public void nextRotation()
     {
-        this.angleInfo.adjustAngle(this.circularIndexUtil.next());
+        super.nextRotation();
         this.updateImage();
     }
 
     public void previousRotation()
     {
-        this.angleInfo.adjustAngle(this.circularIndexUtil.previous());        
+        super.previousRotation();
         this.updateImage();
     }
 
@@ -146,12 +146,7 @@ extends AllBinaryImageBaseRotationAnimation
         //final int currentFrame = this.circularIndexUtil.getIndex();
         //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
         
-        this.circularIndexUtil.setIndex(index);
-
-        final int newFrame = this.circularIndexUtil.getIndex();
-        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
-        
-        this.angleInfo.adjustAngle(newFrame);
+        super.setFrame(index);
 
         this.updateImage();
     }
