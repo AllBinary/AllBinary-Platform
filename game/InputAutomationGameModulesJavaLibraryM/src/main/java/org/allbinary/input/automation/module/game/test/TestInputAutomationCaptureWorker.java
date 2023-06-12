@@ -29,6 +29,7 @@ import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingle
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
+import org.allbinary.logic.util.cache.J2SECacheInterface;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
 
@@ -62,7 +63,7 @@ public class TestInputAutomationCaptureWorker
     public void processDataWorkerResults()
         throws Exception
     {
-        final AutomaticCacheInterface cacheInterface = (AutomaticCacheInterface)
+        final J2SECacheInterface cacheInterface = (J2SECacheInterface)
             CapturedBufferedImagesCacheSingleton.getInstance();
 
         if(cacheInterface.keySet().size() > 0)
