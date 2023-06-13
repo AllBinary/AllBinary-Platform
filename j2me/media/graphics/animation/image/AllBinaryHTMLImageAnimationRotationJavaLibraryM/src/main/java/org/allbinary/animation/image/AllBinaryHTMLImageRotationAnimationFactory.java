@@ -26,10 +26,16 @@ import org.allbinary.media.image.ImageCreationUtil;
 public class AllBinaryHTMLImageRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {    
-    private Image image;
+    protected Image image;
 
-    private final short angleIncrement;
+    protected final short angleIncrement;
 
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image)
+            throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight());
+    }
+    
     public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height)
             throws Exception
     {

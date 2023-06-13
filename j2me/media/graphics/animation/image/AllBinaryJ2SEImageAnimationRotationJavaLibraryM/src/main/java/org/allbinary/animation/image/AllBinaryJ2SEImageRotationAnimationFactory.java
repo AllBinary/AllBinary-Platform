@@ -25,10 +25,16 @@ import org.allbinary.math.AngleInfo;
 public class AllBinaryJ2SEImageRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
-    private Image image;
+    protected Image image;
 
-    private final short angleIncrement;
+    protected final short angleIncrement;
 
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image)
+            throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight());
+    }
+    
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height)
             throws Exception
     {
