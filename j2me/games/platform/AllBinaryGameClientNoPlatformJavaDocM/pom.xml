@@ -142,10 +142,6 @@
             <optional>true</optional>
             <exclusions>
                 <exclusion>
-                    <artifactId>YourSecurityJavaLibrary</artifactId>
-                    <groupId>org.allbinary</groupId>
-                </exclusion>
-                <exclusion>
                     <artifactId>BasicPlayerJavaLibrary</artifactId>
                     <groupId>org.allbinary</groupId>
                 </exclusion>
