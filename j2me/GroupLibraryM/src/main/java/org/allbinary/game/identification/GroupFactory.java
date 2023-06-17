@@ -31,6 +31,7 @@ public class GroupFactory {
    public Group getNextGroup()
    {
       Group group = (Group) list.objectArray[index];
+      //LogUtil.put(LogFactory.getInstance("group: " + group + " index: " + index, this, "getNextGroup"));
       index++;
       return group;
    }
@@ -64,7 +65,7 @@ public class GroupFactory {
          size++;
       }
       
-      //LogUtil.put(LogFactory.getInstance("size: " + list.objectArray.length, this, "init"));
+      //LogUtil.put(LogFactory.getInstance("size: " + list.size(), this, "init"));
    }
    
 }
