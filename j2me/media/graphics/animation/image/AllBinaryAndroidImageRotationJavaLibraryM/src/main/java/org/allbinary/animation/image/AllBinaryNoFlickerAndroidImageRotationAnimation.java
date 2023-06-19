@@ -20,6 +20,8 @@ import org.allbinary.math.AngleInfo;
 import android.graphics.Matrix;
 import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.AndroidImageUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
@@ -107,6 +109,7 @@ extends AllBinaryImageBaseRotationAnimation
     public void nextRotation()
     {
         super.nextRotation();
+        //LogUtil.put(LogFactory.getInstance("Frame: " + this.getFrame(), this, "nextRotation"));
 
         matrix.setRotate(this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
@@ -117,6 +120,7 @@ extends AllBinaryImageBaseRotationAnimation
     public void previousRotation()
     {
         super.previousRotation();
+        //LogUtil.put(LogFactory.getInstance("Frame: " + this.getFrame(), this, "previousRotation"));
 
         matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
@@ -136,15 +140,34 @@ extends AllBinaryImageBaseRotationAnimation
 
         final int currentFrame = this.circularIndexUtil.getIndex();
         //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
-        
-        this.circularIndexUtil.setIndex(index);
 
-        final int newFrame = this.circularIndexUtil.getIndex();
+        //this.circularIndexUtil.setIndex(index);
+
+        //final int newFrame = this.circularIndexUtil.getIndex();
         //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
+
+        //this.angleInfo.adjustAngle(newFrame);
+
+        final short angleAdjustment = (short) -currentFrame;
+            if(angleAdjustment > 0) {
+                short value = angleAdjustment;
+                while(value > 0) {
+                    this.nextRotation();                    
+                    value--;
+                }
+                
+            } else {
+                short value = angleAdjustment;
+                while(value < 0) {
+                    this.previousRotation();
+                    value++;
+                }
+                
+            }
         
-        this.angleInfo.adjustAngle(newFrame);
-        
-        matrix.setRotate((newFrame - currentFrame) * this.increment, this.halfWidth, this.halfHeight);
+        //final float result = (newFrame - currentFrame) * this.increment;
+        //LogUtil.put(LogFactory.getInstance("result: " + result, this, "setRotation"));
+        //matrix.setRotate(result, this.halfWidth, this.halfHeight);
 
         this.updateImage();
     }
