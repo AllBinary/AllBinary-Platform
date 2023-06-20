@@ -102,6 +102,7 @@ import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
+import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
 import org.allbinary.util.BasicArrayList;
 
 public class GameMidlet extends ProgressMidlet
@@ -114,6 +115,7 @@ public class GameMidlet extends ProgressMidlet
     private final String COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(MidletStrings.getInstance().COMMAND_ACTION).toString();
 
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
+    private final WebCommandProcessor webCommandProcessor = WebCommandProcessor.getInstance();
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
     private final TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(2200);
 
@@ -754,6 +756,10 @@ public class GameMidlet extends ProgressMidlet
             else if (command == gameCommandsFactory.DISPLAY_ABOUT)
             {
                 this.aboutCommandProcessor.process(this, gameCommandsFactory.SET_MENU_DISPLAYABLE, this.getAboutCanvas());
+            }
+            else if (command == gameCommandsFactory.OPEN_WEB_URL)
+            {
+                this.webCommandProcessor.process(this, gameCommandsFactory.OPEN_WEB_URL, null);
             }
             else if (command == gameCommandsFactory.TOGGLE_KEYBOARD)
             {

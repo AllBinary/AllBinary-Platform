@@ -34,6 +34,7 @@ public class GameCommandsFactory
     public final Command APPLICATION_UPDATE  = new Command("Update", Command.SCREEN, 1);
 
     public final Command DISPLAY_ABOUT  = new Command("About", Command.SCREEN, 2);
+    public final Command OPEN_WEB_URL  = new Command("Open Web URL", Command.SCREEN, 2);
 
     //general commands
     public final Command CLOSE_OPTIONS  = new Command("Back", Command.SCREEN, 1);
