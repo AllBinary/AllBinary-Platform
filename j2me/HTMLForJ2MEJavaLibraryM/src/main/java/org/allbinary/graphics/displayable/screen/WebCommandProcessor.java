@@ -21,6 +21,7 @@ import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
+import playn.core.PlayN;
 
 /**
  *
@@ -44,8 +45,8 @@ public class WebCommandProcessor {
     
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         try {
-            //J2SE
-            list.remove(0);
+            //HTML
+            PlayN.openURL((String) list.remove(0));
 
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "process", e));

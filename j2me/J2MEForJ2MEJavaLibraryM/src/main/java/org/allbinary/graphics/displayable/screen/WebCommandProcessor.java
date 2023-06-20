@@ -44,7 +44,7 @@ public class WebCommandProcessor {
     
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         try {
-            //J2SE
+            //J2ME
             list.remove(0);
 
         } catch(Exception e) {
