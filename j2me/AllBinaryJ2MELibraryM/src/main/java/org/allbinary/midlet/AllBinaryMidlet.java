@@ -54,7 +54,7 @@ implements CommandListener
                 CommonStrings.getInstance().CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet"));
     }
 
-    protected void setDisplay(Displayable newDisplay)
+    protected void setDisplay(final Displayable newDisplay)
     {
         String title = StringUtil.getInstance().EMPTY_STRING;
         if (newDisplay != null)
@@ -70,7 +70,7 @@ implements CommandListener
                 LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: No Title, Display: ").append(newDisplay).toString(), this, "setDisplay"));
             }            
         }
-        Display display = getDisplay();
+        final Display display = getDisplay();
         display.setCurrent(newDisplay);
     }
 

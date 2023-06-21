@@ -144,11 +144,11 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void addPortion(int value, String text, int index)
     {
+        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
+        
         //CommonStrings.getInstance().START_LABEL).append(
         //LogUtil.put(LogFactory.getInstance(this.text, this, ADD_PORTION));
         PreLogUtil.put(this.text, this, ADD_PORTION);
-        
-        this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
 
@@ -158,11 +158,11 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void addPortion(int value, String text)
     {
+        this.setText(text);
+        
         //CommonStrings.getInstance().START_LABEL).append(
         //LogUtil.put(LogFactory.getInstance(text, this, ADD_PORTION));
-        PreLogUtil.put(text, this, ADD_PORTION);
-
-        this.setText(text);
+        PreLogUtil.put(this.text, this, ADD_PORTION);
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
 

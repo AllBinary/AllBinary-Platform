@@ -79,6 +79,7 @@
             <artifactId>playn-core</artifactId>
             <version>1.1-SNAPSHOT</version>
 
+            <optional>true</optional>
         </dependency>
 
         <dependency>
