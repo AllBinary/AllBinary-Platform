@@ -14,6 +14,8 @@
 
 package org.allbinary.graphics.displayable.screen;
 
+import java.awt.Desktop;
+import java.net.URI;
 import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
@@ -45,7 +47,9 @@ public class WebCommandProcessor {
     public void process(final CommandListener midletCommandListener, final Command command, final Canvas canvas) {
         try {
             //J2SE
-            list.remove(0);
+            if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+                Desktop.getDesktop().browse(new URI((String) list.remove(0)));
+            }
 
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "process", e));
