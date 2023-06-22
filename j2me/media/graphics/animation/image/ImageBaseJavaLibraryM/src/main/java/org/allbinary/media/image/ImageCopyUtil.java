@@ -42,7 +42,7 @@ public class ImageCopyUtil
     private int anchor = Anchor.TOP_LEFT;
     
     // String resource,
-    public Image createImage(Image originalImage)
+    public Image createImage(final Image originalImage)
             throws Exception
     {
         final Image image = imageCreationUtil.getInstance(
@@ -60,10 +60,10 @@ public class ImageCopyUtil
         }
     }
 
-    public Image createImage(Image originalImage, float canvasScale, boolean resize)
+    public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "width: " + originalImage.getWidth() + " height: " + originalImage.getHeight()));
+        //LogUtil.put(LogFactory.getInstance("width: " + originalImage.getWidth() + " height: " + originalImage.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
         
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
@@ -78,7 +78,7 @@ public class ImageCopyUtil
             }
         }
         
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "newWidth: " + newWidth + " newHeight: " + newHeight));
+        //LogUtil.put(LogFactory.getInstance("newWidth: " + newWidth + " newHeight: " + newHeight, this, CommonStrings.getInstance().CONSTRUCTOR));
         
         final Image image = imageCreationUtil.getInstance(newWidth, newHeight);
 
@@ -86,7 +86,7 @@ public class ImageCopyUtil
         {
             final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
             final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "deltas width: " + halfWidthDelta + " height: " + halfHeightDelta));
+            //LogUtil.put(LogFactory.getInstance("deltas width: " + halfWidthDelta + " height: " + halfHeightDelta, this, CommonStrings.getInstance().CONSTRUCTOR));
             final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
             //this.basicColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().YELLOW);

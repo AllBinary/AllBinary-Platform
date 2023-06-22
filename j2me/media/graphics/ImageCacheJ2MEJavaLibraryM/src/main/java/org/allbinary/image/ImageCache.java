@@ -178,13 +178,14 @@ public class ImageCache
             }
             inputStream.close();
             //Put in the name is really only for debugging
-            if(DebugFactory.getInstance() != NoDebug.getInstance())
-            {
-                this.hashtable.put(key, image);
-            }
+//            if(DebugFactory.getInstance() != NoDebug.getInstance())
+//            {
+//                this.hashtable.put(key, image);
+//            }
             this.hashtable.put(key, image);
         }
 
+        //LogUtil.put(LogFactory.getInstance("width: " + image.getWidth() + " height: " + image.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
         return image;
     }
 
