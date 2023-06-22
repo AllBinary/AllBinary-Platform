@@ -18,10 +18,16 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.graphics.Anchor;
+import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class TextAnimation  extends Animation
 {
-    protected String text = StringUtil.getInstance().EMPTY_STRING;
+    protected String[] textArray = {StringUtil.getInstance().EMPTY_STRING};
     
     private int anchor = Anchor.TOP_LEFT;
     
@@ -31,7 +37,8 @@ public class TextAnimation  extends Animation
 
     public TextAnimation(String text)
     {
-        this.text = text;
+        this.textArray = new String[1];
+        this.textArray[0] = text;
     }
     
     public void nextFrame() throws Exception
@@ -43,16 +50,44 @@ public class TextAnimation  extends Animation
         this.basicColorUtil.setBasicColor(
                 graphics, this.getBasicColor(), this.getColor());
 
-        graphics.drawString(text, x, y, anchor);
+        final int height = this.getHeight();
+        final int size = textArray.length;
+        for(int index = 0; index < size; index++) {
+            graphics.drawString(textArray[index], x, y + (index * height), anchor);
+        }
+
     }
 
     public void setText(String text)
     {
-        this.text = text;
+        final BasicArrayList list = new BasicArrayList();
+
+        int index = 0;
+        int startIndex = 0;
+        int endIndex = 0;
+        while(index >= 0) {
+            startIndex = index;
+            index = text.indexOf('\n', startIndex);
+            endIndex = index;
+            if(index < 0) {
+                endIndex = text.length();
+            }
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("startIndex: ").append(startIndex).append(" endIndex: ").append(endIndex).toString(), this, CommonStrings.getInstance().PROCESS));
+            list.add(text.substring(startIndex, endIndex));
+            if(index < 0) break;
+            index++;
+        }
+
+        this.textArray = (String[]) list.toArray(new String[list.size()]);
     }
 
-    public String getText()
+    public String[] getText()
     {
-        return text;
+        return textArray;
     }
+    
+    public int getHeight() {
+        return MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+    }
+    
 }

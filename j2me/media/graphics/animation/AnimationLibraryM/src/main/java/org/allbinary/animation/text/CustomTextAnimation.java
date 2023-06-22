@@ -45,7 +45,11 @@ public class CustomTextAnimation extends TextAnimation
         fontDebugFactory.setFont(existingFont, graphics);
     }
   
+    public int getHeight() {
+        return this.font.getHeight();
+    }
+
     public int getWidth() {
-        return this.font.stringWidth(this.text);
+        return this.font.stringWidth(this.textArray[0]);
     }
 }
