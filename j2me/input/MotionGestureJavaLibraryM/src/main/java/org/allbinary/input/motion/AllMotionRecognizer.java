@@ -46,7 +46,7 @@ public class AllMotionRecognizer extends MotionRecognizer
         this.touchButtonRecognizer = new TouchButtonRecognizer();
     }
 
-    public void processStartMotionEvent(int x, int y, int deviceId, int modifiers)
+    public void processStartMotionEvent(final int x, final int y, final int deviceId, final int modifiers)
             throws Exception
     {
         // TWB - should now actually occur for more than one button
@@ -60,7 +60,7 @@ public class AllMotionRecognizer extends MotionRecognizer
         // Only if touch buttons are not in processing can a gesture start
         if (!touchButtonProcessing)
         {
-            CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);
@@ -74,7 +74,7 @@ public class AllMotionRecognizer extends MotionRecognizer
         }
     }
 
-    public void processEndMotionEvent(int x, int y, int deviceId, int modifiers)
+    public void processEndMotionEvent(final int x, final int y, final int deviceId, final int modifiers)
             throws Exception
     {
         if (this.touchButtonRecognizer.releaseTouchButtonInput(x, y, deviceId))
@@ -85,7 +85,7 @@ public class AllMotionRecognizer extends MotionRecognizer
         
         if (!touchButtonProcessing)
         {
-            CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);
@@ -106,7 +106,7 @@ public class AllMotionRecognizer extends MotionRecognizer
         }
     }
 
-    public void processDraggedMotionEvent(int x, int y, int deviceId, int modifiers)
+    public void processDraggedMotionEvent(final int x, final int y, final int deviceId, final int modifiers)
             throws Exception
     {
         // Allows sliding from one button to the next without releasing but only
@@ -118,8 +118,7 @@ public class AllMotionRecognizer extends MotionRecognizer
 
         if (!touchButtonProcessing)
         {
-            CustomGPoint point = (CustomGPoint) pointCircularPool
-                    .getNextInstance();
+            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
 
             point.setX(x);
             point.setY(y);
@@ -128,6 +127,25 @@ public class AllMotionRecognizer extends MotionRecognizer
         }
     }
 
+    private int lastX;
+    private int lastY;
+    public void processMovedMotionEvent(final int x, final int y, final int deviceId, final int modifiers)
+            throws Exception
+    {
+        if(x != lastX || y != lastY) {
+
+            this.lastX = x;
+            this.lastY = y;
+            
+            final CustomGPoint point = (CustomGPoint) pointCircularPool.getNextInstance();
+
+            point.setX(x);
+            point.setY(y);
+
+            this.motionGestureRecognizer.processMovedMotionEvent(point, deviceId, modifiers);
+        }
+    }
+    
     public final MotionGestureRecognizer getMotionGestureRecognizer()
     {
         return motionGestureRecognizer;

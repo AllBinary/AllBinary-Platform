@@ -24,6 +24,8 @@ import org.allbinary.input.motion.gesture.configuration.MotionGestureConfigurati
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.input.motion.gesture.observer.MotionEventCircularPool;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.input.motion.gesture.observer.MovedMotionGesturesHandler;
+import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 
 public class MotionGestureRecognizer
 {
@@ -36,6 +38,7 @@ public class MotionGestureRecognizer
 
     //TWB - should be treated like the KeyEventHandlers per player for deviceId
     private final BasicMotionGesturesHandler motionGesturesHandler;
+    private final BasicEventHandler movedMotionGesturesHandler;
 
     //private final int id;
     
@@ -50,9 +53,11 @@ public class MotionGestureRecognizer
         
         
         BasicMotionGesturesHandler motionGesturesHandler = null;
+        BasicEventHandler movedMotionGesturesHandler = null;
         try
         {
             motionGesturesHandler = BasicMotionGesturesHandler.getInstance();
+            movedMotionGesturesHandler = MovedMotionGesturesHandler.getInstance();
         }
         catch (Exception e)
         {
@@ -60,6 +65,7 @@ public class MotionGestureRecognizer
         }
         
         this.motionGesturesHandler = motionGesturesHandler;
+        this.movedMotionGesturesHandler = movedMotionGesturesHandler;
     }
 
     public boolean processPressedMotionEvent(final GPoint current, final int deviceId, final int button)
@@ -255,6 +261,25 @@ public class MotionGestureRecognizer
 
     }
 
+    public boolean processMovedMotionEvent(final GPoint current, final int deviceId, final int button)
+            throws Exception
+    {
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
+
+        final MotionGestureEvent event =
+            this.motionEventCircularPool.getInstance(
+                    TouchMotionGestureFactory.getInstance().NO_MOTION);
+
+        event.setPreviousPoint(previous);
+        event.setCurrentPoint(current);
+
+        //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
+        
+        movedMotionGesturesHandler.fireEvent(event);
+
+        return true;
+    }
+    
     public BasicMotionGesturesHandler getMotionGesturesHandler()
     {
         return motionGesturesHandler;

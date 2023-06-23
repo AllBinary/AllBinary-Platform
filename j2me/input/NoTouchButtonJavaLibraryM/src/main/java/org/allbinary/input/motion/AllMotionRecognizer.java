@@ -43,6 +43,11 @@ public class AllMotionRecognizer
     {
     }
 
+    public void processMovedMotionEvent(int x, int y, int deviceId, int modifiers)
+            throws Exception
+    {
+    }
+    
     public int getId()
     {
         return id;
