@@ -43,7 +43,9 @@ extends AllBinaryImageBaseRotationAnimation
     private Image imageToShow;
     private int bufferedImageIndex;
     
-    private AlphaBaseProcessor alphaProcessor = AlphaBaseProcessor.getInstance();
+    private ModifierBaseProcessor alphaProcessor = ModifierBaseProcessor.getInstance();
+    private ModifierBaseProcessor setColorProcessor = ModifierBaseProcessor.getInstance();
+    private ModifierBaseProcessor changeColorProcessor = ModifierBaseProcessor.getInstance();
     
     protected AllBinaryJ2SEImageRotationAnimation(
             final Image originalImage, final Image image,
@@ -77,9 +79,23 @@ extends AllBinaryImageBaseRotationAnimation
         
         super.setBasicColor(basicColor);
         
-        imageModifierUtil.setBasicColor(basicColor);
+        if(changed) {
+            this.setColorProcessor = SetColorProcessor.getInstance();
+            this.updateImage();
+        }
+    }
+
+    public void changeBasicColor(final BasicColor basicColor) {
+        
+        boolean changed = false;
+        if(this.getBasicColor() == null || this.getBasicColor().intValue() != basicColor.intValue()) {
+            changed = true;
+        }
+        
+        super.changeBasicColor(basicColor);
         
         if(changed) {
+            this.changeColorProcessor = ChangeColorProcessor.getInstance();
             this.updateImage();
         }
     }
@@ -114,7 +130,9 @@ extends AllBinaryImageBaseRotationAnimation
     private void updateImage() {
 
         this.imageRotationUtil.rotateImage(originalImage, this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
-        alphaProcessor.setAlpha(imageModifierUtil, this.originalImage, this.twoImages[this.bufferedImageIndex], 0, this.alpha);
+        this.alphaProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.alpha);
+        this.setColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
+        this.changeColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColor);
         this.swap();
     }
 

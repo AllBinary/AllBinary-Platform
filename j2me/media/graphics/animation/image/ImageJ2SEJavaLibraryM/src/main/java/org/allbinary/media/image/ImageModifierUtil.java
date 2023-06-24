@@ -14,6 +14,7 @@
 package org.allbinary.media.image;
 
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
 import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.Anchor;
@@ -45,7 +46,106 @@ public class ImageModifierUtil {
     //private final int MAX_WIDTH = 1024;
     //private final int MAX_HEIGHT = 1024;
     //private final int[] alphaArray = new int[MAX_WIDTH * MAX_HEIGHT];
-    private final int[] alphaArray = new int[1];
+    private final int[] colorArray = new int[1];
+
+    public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
+
+        BufferedImage newBufferedImage;
+        //java.awt.Image newBufferedImage;
+        if(image.isMutable()) {
+            final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
+            newBufferedImage = (BufferedImage) j2seImage.getImage();
+        } else {
+            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) image;
+            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
+            newBufferedImage = (BufferedImage) j2seImage.getImage();                        
+        }
+
+        final short r = basicColor.red;
+        final short g = basicColor.green;
+        final short b = basicColor.blue;
+        
+        final int width = image.getWidth();
+        final int height = image.getHeight();
+        
+        ColorModel colorModel;
+        Object dataElements;
+        int ax;
+        int rx;
+        int gx;
+        int bx;
+        for (int index = 0; index < width; index++) {
+            for (int index2 = 0; index2 < height; index2++) {
+                colorModel = newBufferedImage.getColorModel();
+                dataElements = newBufferedImage.getRaster().getDataElements(index, index2, null);
+                ax = colorModel.getAlpha(dataElements);
+                rx = colorModel.getRed(dataElements);
+                gx = colorModel.getGreen(dataElements);
+                bx = colorModel.getBlue(dataElements);
+                if(rx != 0 || gx != 0 || bx != 0) {
+                    newBufferedImage.setRGB(index, index2, (ax << 24) | (r << 16) | (g << 8) | (b));
+                }
+            }
+        }
+        
+    }
+
+    public void changeColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
+        
+        BufferedImage newBufferedImage;
+        //java.awt.Image newBufferedImage;
+        if(image.isMutable()) {
+            final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
+            newBufferedImage = (BufferedImage) j2seImage.getImage();
+        } else {
+            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) image;
+            //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
+            newBufferedImage = (BufferedImage) j2seImage.getImage();                        
+        }
+
+        final float MAX = 255;
+        final float r = ((float) basicColor.red) / MAX;
+        final float g = ((float) basicColor.green) / MAX;
+        final float b = ((float) basicColor.blue) / MAX;
+        
+        final int width = image.getWidth();
+        final int height = image.getHeight();
+        
+        ColorModel colorModel;
+        Object dataElements;
+        int ax;
+        int rx;
+        int gx;
+        int bx;
+        for (int index = 0; index < width; index++) {
+            for (int index2 = 0; index2 < height; index2++) {
+                colorModel = newBufferedImage.getColorModel();
+                dataElements = newBufferedImage.getRaster().getDataElements(index, index2, null);
+                ax = colorModel.getAlpha(dataElements);
+                rx = colorModel.getRed(dataElements);
+                gx = colorModel.getGreen(dataElements);
+                bx = colorModel.getBlue(dataElements);
+                //ax *= a;
+                rx *= r;
+                gx *= g;
+                bx *= b;
+                newBufferedImage.setRGB(index, index2, (ax << 24) | (rx << 16) | (gx << 8) | (bx));
+            }
+        }
+
+//        final Graphics2D graphics = newBufferedImage.createGraphics();
+//        graphics.setBackground(new Color(0, 0, 0, 0));
+//        graphics.clearRect(0, 0, newBufferedImage.getWidth(),
+//                newBufferedImage.getHeight());
+//        
+//        final Color newColor = new Color(color);
+//        graphics.setXORMode(newColor);
+//        graphics.drawImage( ((BufferedImage) ((J2SEMutableImage) originalImage).getImage()), null, 0, 0);
+//        //graphics.drawImage( ((BufferedImage) ((J2SEImmutableImage) originalImage).getImage()), null, 0, 0);
+//        graphics.dispose();
+        
+    }
+    
     public void setAlpha(final Image unusedOriginalImage, final Image image, final int imageIndex, final int alphaInt) {
         
         byte alpha = (byte) alphaInt;
@@ -59,7 +159,7 @@ public class ImageModifierUtil {
             //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
             newBufferedImage = (BufferedImage) j2seImage.getImage();                        
         }
-        
+
         final int width = image.getWidth();
         final int height = image.getHeight();
 
@@ -68,9 +168,9 @@ public class ImageModifierUtil {
         //raster.getPixels(0, 0, width, height, alphaArray);
         for (int index = 0; index < width; index++) {
             for (int index2 = 0; index2 < height; index2++) {
-                raster.getPixel(index, index2, alphaArray);
-                alphaArray[0] = alpha & alphaArray[0];
-                raster.setPixel(index, index2, alphaArray);
+                raster.getPixel(index, index2, colorArray);
+                colorArray[0] = alpha & colorArray[0];
+                raster.setPixel(index, index2, colorArray);
                 //alphaArray[index * index2] = alpha & alphaArray[index * index2];
             }
         }

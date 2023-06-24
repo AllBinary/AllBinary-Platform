@@ -80,9 +80,7 @@ extends AllBinaryImageBaseRotationAnimation
         }
         
         super.setBasicColor(basicColor);
-        
-        imageModifierUtil.setBasicColor(basicColor);
-        
+
         if(changed) {
             matrix.setRotate(0, this.halfWidth, this.halfHeight);
             this.updateImage();

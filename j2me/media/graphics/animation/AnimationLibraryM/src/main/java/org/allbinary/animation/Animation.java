@@ -28,8 +28,10 @@ OpenGLSurfaceChangedInterface
     protected final BasicColorSetUtil basicColorUtil = 
         BasicColorSetUtil.getInstance();
 
-    private BasicColor basicColor;
-    private int color;
+    protected BasicColor basicColor;
+    protected int color;
+    protected BasicColor changeBasicColor;
+    protected int changeColor;
     protected int alpha;
 
     protected Animation()
@@ -59,19 +61,36 @@ OpenGLSurfaceChangedInterface
     
     public BasicColor getBasicColor()
     {
-        return basicColor;
+        return this.basicColor;
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColor(final BasicColor basicColor)
     {
         //LogUtil.put(LogFactory.getInstance("setBasicColor", this, basicColor.toString()));
         this.basicColor = basicColor;
         this.color = this.basicColor.intValue();
     }
 
+    public BasicColor getChangeBasicColor()
+    {
+        return this.changeBasicColor;
+    }
+
+    public void changeBasicColor(final BasicColor basicColor)
+    {
+        //LogUtil.put(LogFactory.getInstance("setBasicColor", this, basicColor.toString()));
+        this.changeBasicColor = basicColor;
+        this.changeColor = this.changeBasicColor.intValue();
+    }
+
+    public int getChangeColor()
+    {
+        return this.changeColor;
+    }
+    
     public int getColor()
     {
-        return color;
+        return this.color;
     }
     
     public void set(GL gl) throws Exception

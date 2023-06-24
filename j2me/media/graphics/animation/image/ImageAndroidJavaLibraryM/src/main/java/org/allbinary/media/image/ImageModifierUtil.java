@@ -35,8 +35,8 @@ public class ImageModifierUtil {
     
     public final Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     
-    public void setBasicColor(final BasicColor basicColor) {
-        
+    
+    public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
         //LogUtil.put(LogFactory.getInstance(new StringBuilder().append(SET_COLOR).append(basicColor.toString()).toString(), this, CommonStrings.getInstance().PROCESS));
 
         paint.setColorFilter(new PorterDuffColorFilter(basicColor.intValue(), PorterDuff.Mode.SRC_IN));
@@ -53,7 +53,10 @@ public class ImageModifierUtil {
 //        colorMatrix.set(colorFloatMatrix);
 //        paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
 
-        //BlendModeColorFilter
+        //BlendModeColorFilter        
+    }
+
+    public void changeColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
         
     }
     

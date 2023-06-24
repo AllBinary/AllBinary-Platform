@@ -94,9 +94,7 @@ extends AllBinaryImageBaseRotationAnimation
         }
         
         super.setBasicColor(basicColor);
-        
-        imageModifierUtil.setBasicColor(basicColor);
-        
+                
         if(changed) {
             this.updateImage();
         }

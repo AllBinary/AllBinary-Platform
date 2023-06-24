@@ -42,7 +42,11 @@ public class ImageModifierUtil {
     
     private boolean[] alphaArray;
     
-    public void setBasicColor(final BasicColor basicColor) {
+    public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
+        
+    }
+
+    public void changeColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
         
     }
 

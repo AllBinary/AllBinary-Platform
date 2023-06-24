@@ -30,8 +30,12 @@ public class ImageModifierUtil {
     public static ImageModifierUtil getInstanceOrCreate() {
         return instance;
     }
+    
+    public void setColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
+        
+    }
 
-    public void setBasicColor(final BasicColor basicColor) {
+    public void changeColor(final Image unusedOriginalImage, final Image image, final int imageIndex, final BasicColor basicColor) {
         
     }
     
