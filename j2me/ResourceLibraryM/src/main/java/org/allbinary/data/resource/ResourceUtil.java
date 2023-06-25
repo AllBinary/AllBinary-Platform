@@ -35,13 +35,13 @@ public class ResourceUtil {
 //    public ClassLoader getClassLoader() {
 //        return ResourceUtil.classLoader;
 //    }
-    public void setClassLoader(ClassLoader classLoader) {
+    public void setClassLoader(final ClassLoader classLoader) {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Resource Loader: ").append(classLoader.getClass().getName()).toString(), instance, "setClassLoader"));
 
         ResourceUtil.classLoader = classLoader;
     }
 
-    public InputStream getResourceAsStream(String resource)
+    public InputStream getResourceAsStream(final String resource)
             //, Object emulatorObject)
             throws Exception {
         InputStream inputStream = this.getResourceAsStream(resource, 2);
@@ -55,7 +55,7 @@ public class ResourceUtil {
         return inputStream;
     }
 
-    private InputStream getResourceAsStream(String resource, int startIndex)
+    private InputStream getResourceAsStream(final String resource, final int startIndex)
             //, Object emulatorObject)
             throws Exception {
         final StringMaker stringMaker = new StringMaker();

@@ -126,7 +126,7 @@ public class ResourceUtil
     }
     */
 
-    public void setResources(Resources resources)
+    public void setResources(final Resources resources)
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Resource Loader: ").append(resources.getClass().getName()).toString(), this, "setResources"));
 
@@ -137,7 +137,7 @@ public class ResourceUtil
     final String GETTING = "Getting Resource: ";
     final String RESOURCE = "Resource Found";
 
-    public InputStream getResourceAsStream(String resource) // , Object emulatorObject)
+    public InputStream getResourceAsStream(final String resource) // , Object emulatorObject)
         throws Exception
     {   
         LogUtil.put(LogFactory.getInstance(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME));
