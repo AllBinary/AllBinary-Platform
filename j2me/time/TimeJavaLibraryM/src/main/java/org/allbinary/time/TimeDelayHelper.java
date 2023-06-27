@@ -24,7 +24,7 @@ public class TimeDelayHelper
 
     public TimeDelayHelper(final int delay)
     {
-        this.setDelay(new TimeDelay() {
+        this.setTimeDelay(new TimeDelay() {
             public int getDelay() {
                 return delay;
             }
@@ -34,14 +34,14 @@ public class TimeDelayHelper
 
     public TimeDelayHelper(final TimeDelay timeDelay)
     {
-        this.setDelay(timeDelay);
+        this.setTimeDelay(timeDelay);
         this.setStartTime();
     }
     
     public boolean isTime()
     {
         long currentTime = System.currentTimeMillis();
-        if (currentTime - this.startTime > this.timeDelay.getDelay())
+        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
         {
 
             this.startTime = currentTime;
@@ -63,7 +63,7 @@ public class TimeDelayHelper
     
     public boolean isTime(long currentTime)
     {
-        if (currentTime - this.startTime > this.timeDelay.getDelay())
+        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
         {
             this.startTime = currentTime;
             return true;
@@ -73,7 +73,7 @@ public class TimeDelayHelper
 
     public boolean isTimeWithoutReset(long currentTime)
     {
-        if (currentTime - this.startTime > this.timeDelay.getDelay())
+        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
         {
             return true;
         }
@@ -82,7 +82,7 @@ public class TimeDelayHelper
     
     public boolean isTimeSince(int delay, long currentTime)
     {
-        if (currentTime - this.startTime > this.timeDelay.getDelay())
+        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
         {
             this.startTime = currentTime;
             return true;
@@ -124,7 +124,17 @@ public class TimeDelayHelper
         }
     }
     
-    public void setDelay(final TimeDelay timeDelay) {
+    /**
+     * @return the timeDelay
+     */
+    public TimeDelay getTimeDelay() {
+        return timeDelay;
+    }
+
+    /**
+     * @param timeDelay the timeDelay to set
+     */
+    public void setTimeDelay(final TimeDelay timeDelay) {
         this.timeDelay = timeDelay;
     }
     
