@@ -41,7 +41,7 @@ public class TimeDelayHelper
     public boolean isTime()
     {
         long currentTime = System.currentTimeMillis();
-        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
+        if (currentTime - this.startTime > this.timeDelay.getDelay())
         {
 
             this.startTime = currentTime;
@@ -63,7 +63,7 @@ public class TimeDelayHelper
     
     public boolean isTime(long currentTime)
     {
-        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
+        if (currentTime - this.startTime > this.timeDelay.getDelay())
         {
             this.startTime = currentTime;
             return true;
@@ -73,7 +73,7 @@ public class TimeDelayHelper
 
     public boolean isTimeWithoutReset(long currentTime)
     {
-        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
+        if (currentTime - this.startTime > this.timeDelay.getDelay())
         {
             return true;
         }
@@ -82,7 +82,7 @@ public class TimeDelayHelper
     
     public boolean isTimeSince(int delay, long currentTime)
     {
-        if (currentTime - this.startTime > this.getTimeDelay().getDelay())
+        if (currentTime - this.startTime > this.timeDelay.getDelay())
         {
             this.startTime = currentTime;
             return true;
