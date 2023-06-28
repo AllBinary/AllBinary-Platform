@@ -96,7 +96,7 @@ public class TimeIntervalActionScriptCondition
         HashMap hashMap = new HashMap();
 
         hashMap.put(TimeIntervalActionScriptConditionData.TIME, 
-            Integer.toString(this.getTimeDelayHelper().getDelay()));
+            Integer.toString(this.timeHelper.getTimeDelay().getDelay()));
 
         LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "toHashMap()"));
 
@@ -115,7 +115,7 @@ public class TimeIntervalActionScriptCondition
     
     public void log()
     {
-        LogUtil.put(LogFactory.getInstance("Time Interval: " + this.getTimeDelayHelper().getDelay(), this, "log"));
+        LogUtil.put(LogFactory.getInstance("Time Interval: " + this.timeHelper.getTimeDelay().getDelay(), this, "log"));
     }
 
     public TimeDelayHelper getTimeDelayHelper()
@@ -123,7 +123,7 @@ public class TimeIntervalActionScriptCondition
         return timeHelper;
     }
 
-    public void setTimeDelayHelper(TimeDelayHelper timeHelper)
+    public void setTimeDelayHelper(final TimeDelayHelper timeHelper)
     {
         this.timeHelper = timeHelper;
     }
@@ -131,7 +131,7 @@ public class TimeIntervalActionScriptCondition
     public boolean shouldProcess(Long frame)
     throws Exception
     {
-        TimeDelayHelper timeHelper = this.getTimeDelayHelper();
+        final TimeDelayHelper timeHelper = this.getTimeDelayHelper();
         if(timeHelper.isTime())
         {
             timeHelper.setStartTime();

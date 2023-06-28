@@ -11,13 +11,15 @@ import org.allbinary.media.audio.Sound;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 import android.content.Intent;
+import org.allbinary.time.SimpleTimeDelay;
 
 public class MusicManager
 {
     private final String PLAY = "Play ";
     private final String FOR = " for: ";
 
-    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
+    private final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(0);
+    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(simpleTimeDelay);
 
     private final BasicArrayList songList;
 
@@ -69,7 +71,7 @@ public class MusicManager
 
             PreLogUtil.put(new StringBuilder().append(PLAY).append(this.currentSongSound.getResource()).append(FOR).append(duration).toString(), this, CommonStrings.getInstance().PROCESS);
 
-            this.timeDelayHelper.setDelay((int) duration);
+            this.simpleTimeDelay.delay = (int) duration;
 
             this.currentIntent.putExtra(MusicStrings.getInstance().SONG_EXTRA, ResourceUtil.getInstance().getResourceId(this.currentSongSound.getResource()).intValue());
 

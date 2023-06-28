@@ -18,18 +18,19 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.time.SimpleTimeDelay;
 import org.allbinary.time.TimeDelayHelper;
 
 public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
 {
     private final MyFont myFont = MyFont.getInstance();
 
-    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(
-            Integer.MAX_VALUE);
+    private final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(Integer.MAX_VALUE);
+    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(simpleTimeDelay);
 
-    public void vibrate(int duration, int type, int volume)
+    public void vibrate(final int duration, final int type, final int volume)
     {
-        timeDelayHelper.setDelay(duration);
+        this.simpleTimeDelay.delay = duration;
     }
 
     private final String VIBRATING = "Vibrating";
@@ -40,7 +41,7 @@ public class AllBinaryVisualDebugVibration extends AllBinaryVibrationME
     {
         if (timeDelayHelper.isTime())
         {
-            this.timeDelayHelper.setDelay(Integer.MAX_VALUE);
+            this.simpleTimeDelay.delay = Integer.MAX_VALUE;
             
             final DisplayInfoSingleton displayInfoSingleton = 
                     DisplayInfoSingleton.getInstance();

@@ -33,7 +33,7 @@
         <module>../AllBinaryCoreJavaLibraryM</module>        
         -->
 
-        <module>../../your/osgi/YourOSGIComponentLibraryM</module>
+        <module>../../replace_these_stub_projects/osgi/YourOSGIComponentLibraryM</module>
         <module>../../allbinary_src/AllBinaryOSGIJavaLibraryM</module>
 
         <module>../../graphics/ColorJavaLibraryM</module>

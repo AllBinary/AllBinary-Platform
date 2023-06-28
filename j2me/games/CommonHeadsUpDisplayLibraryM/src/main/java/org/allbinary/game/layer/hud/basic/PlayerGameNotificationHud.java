@@ -33,6 +33,7 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
+import org.allbinary.time.SimpleTimeDelay;
 import org.allbinary.time.TimeDelayHelper;
 
 public class PlayerGameNotificationHud
@@ -41,7 +42,8 @@ extends GameNotificationHud
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
     private String string = this.EMPTY_STRING;
     
-    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
+    private final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(0);
+    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(simpleTimeDelay);
 
     private final CircularIndexUtil circularIndexUtil;
     private final GameNotification gameNotification = new GameNotification();
@@ -150,7 +152,7 @@ extends GameNotificationHud
              iTime = 500;
         }
         
-        this.timeDelayHelper.setDelay(iTime);
+        this.simpleTimeDelay.delay = iTime;
 
         this.setBasicColor((BasicColor) this.gameNotification.colorList.remove(0));
     }
@@ -169,7 +171,7 @@ extends GameNotificationHud
         this.point.setY(this.getY());
 
         Integer time = (Integer) this.permanentGameNotification.timeList.objectArray[index];
-        this.timeDelayHelper.setDelay(time.intValue() * 1000);
+        this.simpleTimeDelay.delay = time.intValue() * 1000;
 
         this.setBasicColor((BasicColor)
             this.permanentGameNotification.colorList.objectArray[index]);

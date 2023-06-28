@@ -34,10 +34,10 @@ import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.PrimaryThreadPool;
+import org.allbinary.time.SimpleTimeDelay;
 import org.allbinary.time.TimeDelayHelper;
 
 //In general allow scrolling of the menu and selection the center item
@@ -46,10 +46,11 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    private final int MOTION_GESTURE_SOURCE_ID = GameKeyEventFactory.getInstance().MOTION_GESTURE_SOURCE_ID;
     
    private final int CLICK_DELAY = 150;
-   private TimeDelayHelper clickTimeHelper = new TimeDelayHelper(CLICK_DELAY);
+   private final SimpleTimeDelay clickSimpleTimeDelay = new SimpleTimeDelay(CLICK_DELAY);
+   private final TimeDelayHelper clickTimeHelper = new TimeDelayHelper(clickSimpleTimeDelay);
    private final int DOUBLE_CLICK_DELAY = 1200;
-   private TimeDelayHelper doubleClickTimeHelper =
-           new TimeDelayHelper(DOUBLE_CLICK_DELAY);
+   private final SimpleTimeDelay doubleClickSimpleTimeDelay = new SimpleTimeDelay(DOUBLE_CLICK_DELAY);
+   private final TimeDelayHelper doubleClickTimeHelper = new TimeDelayHelper(doubleClickSimpleTimeDelay);
 
    protected final boolean isSingleKeyProcessing = 
        InputFeatureFactory.getInstance().isSingleKeyProcessing();
@@ -243,12 +244,12 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
              this.processCommand();
          }
 
-         this.doubleClickTimeHelper.setDelay(DOUBLE_CLICK_DELAY);
+         this.doubleClickSimpleTimeDelay.delay = DOUBLE_CLICK_DELAY;
          this.doubleClickTimeHelper.setStartTime();
       } else
       {
          // Can't be a double click/press if dragging or other
-         this.doubleClickTimeHelper.setDelay(0);
+         this.doubleClickSimpleTimeDelay.delay = 0;
       }
    }
    

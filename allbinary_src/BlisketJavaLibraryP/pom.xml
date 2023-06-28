@@ -106,7 +106,7 @@
 
         <module>../VisualTransformJavaLibraryM</module>
 
-        <module>../../your/allbinary_src/YourRuntimeEnvironmentJavaLibraryM</module>
+        <module>../../replace_these_stub_projects/allbinary_src/YourRuntimeEnvironmentJavaLibraryM</module>
         <module>../GatewayJavaLibraryM</module>
         
         <module>../WorkflowBaseJavaLibraryM</module>
