@@ -93,6 +93,14 @@ OpenGLSurfaceChangedInterface
         return this.color;
     }
     
+    public void setScale(final float scaleX, final float scaleY) {
+        
+    }
+
+    public void setMaxScale(final float maxScaleX, final float maxScaleY) {
+        
+    }
+    
     public void set(GL gl) throws Exception
     {
         

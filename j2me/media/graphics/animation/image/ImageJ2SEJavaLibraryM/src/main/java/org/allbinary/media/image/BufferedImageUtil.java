@@ -22,9 +22,7 @@ public class BufferedImageUtil {
 
    public static BufferedImage create(int width, int height)
    {
-      GraphicsConfiguration gc = ImageUtil.getDefaultConfiguration();
-      return gc.createCompatibleImage(
-         width, height, 
-         Transparency.TRANSLUCENT);
+      final GraphicsConfiguration graphicsConfiguration = ImageUtil.getDefaultConfiguration();
+      return graphicsConfiguration.createCompatibleImage(width, height, Transparency.TRANSLUCENT);
    }
 }

@@ -13,7 +13,6 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -29,6 +28,8 @@ public class ImageJ2SERotationUtil
         return instance;
     }
    
+    private final ImageJ2SEUtil imageJ2SEUtil = ImageJ2SEUtil.getInstance();
+
     private ImageJ2SERotationUtil() {
     }
 
@@ -60,12 +61,11 @@ public class ImageJ2SERotationUtil
    }
 
    private final double TWO_PIE = 2 * Math.PI;
-   private final Color TRANSPARENT_COLOR = new Color(0,0,0,0);
 
    public BufferedImage rotateImage(final Image bufferedImage, final BufferedImage newBufferedImage, final int totalAngle)
    {
        final Graphics2D g = newBufferedImage.createGraphics();
-       g.setBackground(TRANSPARENT_COLOR);
+       g.setBackground(imageJ2SEUtil.TRANSPARENT_COLOR);
        g.clearRect(0, 0, newBufferedImage.getWidth(), newBufferedImage.getHeight());
        return this.getRotatedImage(bufferedImage, newBufferedImage, g, TWO_PIE * totalAngle / 360);
    }

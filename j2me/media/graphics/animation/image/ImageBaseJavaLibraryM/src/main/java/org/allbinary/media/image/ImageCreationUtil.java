@@ -31,11 +31,18 @@ public class ImageCreationUtil
         
     }
     
-    public Image getInstance(int width, int height) throws Exception
+    public Image getInstance(final int width, final int height) throws Exception
     {
-        Image image = GameFeatureImageCacheFactory.getInstance().get(
-                    this.getClass().getName(), width, height);
-
+        final Image image = GameFeatureImageCacheFactory.getInstance().get(this.getClass().getName(), width, height);
         return image;
     }
+    
+    public Image createImage(final int width, final int height, final float maxScaleX, final float maxScaleY) 
+    throws Exception
+    {
+        //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, "createImage"));
+        final Image image = GameFeatureImageCacheFactory.getInstance().get(this.getClass().getName(), (int) (width * maxScaleX) + 1, (int) (height * maxScaleY) + 1);
+        return image;
+    }
+    
 }

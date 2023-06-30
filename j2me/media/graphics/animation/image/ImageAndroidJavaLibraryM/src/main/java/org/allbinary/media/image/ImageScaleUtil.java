@@ -91,7 +91,7 @@ public class ImageScaleUtil
         }
     }
     
-    public void scale(final Image image, final Matrix matrix, final float scaleX, final float scaleY)
+    private void scale(final Image image, final Matrix matrix, final float scaleX, final float scaleY)
     {
         matrix.setScale(scaleX, scaleY);
 

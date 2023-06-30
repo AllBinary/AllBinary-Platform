@@ -62,12 +62,10 @@ public class ImageUtil
       return gd.getDefaultConfiguration();
    }
 
-   public static BufferedImage[] createBufferedImage(
-      BufferedImage[] bufferedImageArray, int percent)
+   public static BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int percent)
       throws Exception
    {
-      BufferedImage[] scaledBufferedImageArray =
-         new BufferedImage[bufferedImageArray.length];
+      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
 
       for (int index = 0; index < bufferedImageArray.length; index++)
       {
@@ -75,33 +73,29 @@ public class ImageUtil
          int newHeight = bufferedImageArray[index].getHeight() * percent / 100;
 
          scaledBufferedImageArray[index] =
-            ImageUtil.createBufferedImage(
-            bufferedImageArray[index],
-            newWidth, newHeight);
+            ImageUtil.createBufferedImage(bufferedImageArray[index], newWidth, newHeight);
       }
 
       return scaledBufferedImageArray;
    }
 
-   public static BufferedImage createBufferedImage(
-      BufferedImage bufferedImage,
-      int newWidth, int newHeight)
+   public static BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
       throws Exception
    {
-      double width = bufferedImage.getWidth();
-      double height = bufferedImage.getHeight();
-      double d_newWidth = newWidth;
-      double d_newHeight = newHeight;
-      double widthRatio = d_newHeight / height;
-      double heightRatio = d_newHeight / height;
+      //final double width = bufferedImage.getWidth();
+      final double height = bufferedImage.getHeight();
+      //final double d_newWidth = newWidth;
+      final double d_newHeight = newHeight;
+      final double widthRatio = d_newHeight / height;
+      final double heightRatio = d_newHeight / height;
 
-      AffineTransform at = AffineTransform.getScaleInstance(
+      final AffineTransform at = AffineTransform.getScaleInstance(
          widthRatio, heightRatio);
 
-      BufferedImage newBufferedImage = new BufferedImage(
+      final BufferedImage newBufferedImage = new BufferedImage(
          newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);
 
-      Graphics2D g = newBufferedImage.createGraphics();
+      final Graphics2D g = newBufferedImage.createGraphics();
       g.drawRenderedImage(bufferedImage, at);
 
       /*

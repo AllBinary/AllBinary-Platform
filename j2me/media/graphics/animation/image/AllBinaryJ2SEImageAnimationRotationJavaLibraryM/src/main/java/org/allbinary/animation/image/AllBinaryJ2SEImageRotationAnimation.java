@@ -18,6 +18,8 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.math.AngleInfo;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
 import org.allbinary.media.image.ImageRotationUtil;
@@ -36,16 +38,23 @@ extends AllBinaryImageBaseRotationAnimation
     
     //private final float increment;
     
-    private final Image originalImage;
+    private final Image realOriginalImage;
+    private final Image[] originalImageArray = new Image[1];
     
     private final Image[] twoImages = new Image[2];
     
     private Image imageToShow;
     private int bufferedImageIndex;
     
+    private float scaleX;
+    private float scaleY;
+    private float maxScaleX;
+    private float maxScaleY;
+    
     private ModifierBaseProcessor alphaProcessor = ModifierBaseProcessor.getInstance();
     private ModifierBaseProcessor setColorProcessor = ModifierBaseProcessor.getInstance();
     private ModifierBaseProcessor changeColorProcessor = ModifierBaseProcessor.getInstance();
+    private ScaleBaseProcessor scaleProcessor = ScaleProcessor.getInstance();
     
     protected AllBinaryJ2SEImageRotationAnimation(
             final Image originalImage, final Image image,
@@ -53,7 +62,8 @@ extends AllBinaryImageBaseRotationAnimation
     {
         super(image, angleInfo, totalAngle);
 
-        this.originalImage = originalImage;
+        this.realOriginalImage = originalImage;
+        this.originalImageArray[0] = originalImage;
         
         //this.width = image.getWidth();
         //this.height = image.getHeight();
@@ -70,6 +80,7 @@ extends AllBinaryImageBaseRotationAnimation
         //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
+    @Override
     public void setBasicColor(final BasicColor basicColor) {
         
         boolean changed = false;
@@ -85,6 +96,7 @@ extends AllBinaryImageBaseRotationAnimation
         }
     }
 
+    @Override
     public void changeBasicColor(final BasicColor basicColor) {
         
         boolean changed = false;
@@ -100,6 +112,7 @@ extends AllBinaryImageBaseRotationAnimation
         }
     }
     
+    @Override
     public void setAlpha(final int alpha) {
         
         boolean changed = false;
@@ -113,6 +126,24 @@ extends AllBinaryImageBaseRotationAnimation
             this.alphaProcessor = AlphaProcessor.getInstance();
             this.updateImage();
         }
+    }
+
+    @Override
+    public void setScale(final float scaleX, final float scaleY) {
+        //LogUtil.put(LogFactory.getInstance("scaleX: " + scaleX, this, "setScale"));
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+        this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
+        this.updateImage();
+    }
+
+    @Override
+    public void setMaxScale(final float maxScaleX, final float maxScaleY) {
+        //LogUtil.put(LogFactory.getInstance("maxScaleX: " + maxScaleX, this, "setMaxScale"));
+        this.maxScaleX = maxScaleX;
+        this.maxScaleY = maxScaleY;
+        this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
+        this.updateImage();
     }
     
     public void nextRotation()
@@ -129,7 +160,7 @@ extends AllBinaryImageBaseRotationAnimation
 
     private void updateImage() {
 
-        this.imageRotationUtil.rotateImage(originalImage, this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
+        this.imageRotationUtil.rotateImage(this.originalImageArray[0], this.twoImages[this.bufferedImageIndex], this.angleInfo.getAngle() + 90);
         this.alphaProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.alpha);
         this.setColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.basicColor);
         this.changeColorProcessor.update(imageModifierUtil, null, this.twoImages[this.bufferedImageIndex], 0, this.changeBasicColor);
