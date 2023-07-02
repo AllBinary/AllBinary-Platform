@@ -45,12 +45,12 @@ public class ScaleProcessor extends ScaleBaseProcessor {
             //Set the max image size needed.
             if (maxScaleX * originalImage.getWidth() > originalImageArray[0].getWidth()
                     || maxScaleY * originalImage.getHeight() > originalImageArray[0].getHeight()) {
-                LogUtil.put(LogFactory.getInstance("scale canvas: " + maxScaleX, this, CommonStrings.getInstance().UPDATE));
+                //LogUtil.put(LogFactory.getInstance("scale canvas: " + maxScaleX, this, CommonStrings.getInstance().UPDATE));
                 originalImageArray[0] = this.imageCreationUtil.createImage(originalImage.getWidth(), originalImage.getHeight(), maxScaleX, maxScaleY);
             }
 
             //Set the new original image to the current scale
-            LogUtil.put(LogFactory.getInstance("scale: " + scaleX, this, CommonStrings.getInstance().UPDATE));
+            //LogUtil.put(LogFactory.getInstance("scale: " + scaleX, this, CommonStrings.getInstance().UPDATE));
             imageScaleUtil.scale(originalImage, originalImageArray[0], scaleX, scaleY);
 
         } catch(Exception e) {
