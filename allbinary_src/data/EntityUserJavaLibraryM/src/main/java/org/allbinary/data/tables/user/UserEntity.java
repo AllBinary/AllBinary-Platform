@@ -59,14 +59,14 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       {
          super.insert(values);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT));
          }
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e));
          }
@@ -165,14 +165,14 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       try
       {
          super.deleteWhere(key,value);
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, "deleteWhere"));
          }
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "deleteWhere", e));
          }
@@ -190,7 +190,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          {
             String role = new String(super.getField(UserData.USERNAME,userName,RoleData.ROLE));
             
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance("Command Successful",this,"getUserRole");
             }
@@ -198,7 +198,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          }
          else
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance("Command Failed Incorrect Login",this,"getUserRole");
             }
@@ -208,7 +208,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"getUserRole",e);
          }
@@ -235,7 +235,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
             isUserNameAndPasswordCorrect = result.compareTo(new SuperCrypt(new Integer(encryption).intValue()).encrypt(password));
          else
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance("Command Success but login failed for user: " +
                  userName + " because user did not exist",this,"login"));
@@ -245,7 +245,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
 
          if(isUserNameAndPasswordCorrect==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {                
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -262,7 +262,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
          }
          else
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -281,7 +281,7 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "login", e));
          }

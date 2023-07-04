@@ -52,7 +52,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
          HashMap hashMapData = this.transformInfoInterface.toHashMap();
          TransformInfoEntityBuilder.getInstance().update(hashMapData);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"update()"));
          }
@@ -61,7 +61,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
       catch(Exception e)
       {
          String error = "Failed to update storefronts table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
          }
@@ -78,7 +78,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
 
          TransformInfoEntityBuilder.getInstance().insert(values);         
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"insert()"));
          }
@@ -87,7 +87,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
       catch(Exception e)
       {
          String error = "Failed to add storefronts table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"insert()",e));
          }
@@ -103,7 +103,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
          TransformInfoEntityBuilder.getInstance().delete(
             (String) this.transformInfoInterface.getKey());
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"delete()"));
          }
@@ -112,7 +112,7 @@ public class TransformInfoRequestHelper implements ModifyTableInterface
       catch(Exception e)
       {
          String error = "Failed to delete storefronts table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"delete()",e));
          }

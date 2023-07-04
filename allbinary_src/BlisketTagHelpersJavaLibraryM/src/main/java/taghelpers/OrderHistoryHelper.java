@@ -121,7 +121,7 @@ public class OrderHistoryHelper implements TagHelperInterface
                         return "Order " + id + " has been cancelled.<br/>";
                      }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"setOrderStatus()"));
          }
@@ -130,7 +130,7 @@ public class OrderHistoryHelper implements TagHelperInterface
       catch(Exception e)
       {
          String error = "Failed to set order status";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus()",e));
          }

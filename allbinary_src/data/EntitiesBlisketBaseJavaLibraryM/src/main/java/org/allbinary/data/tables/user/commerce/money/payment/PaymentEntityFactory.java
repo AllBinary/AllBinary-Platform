@@ -46,7 +46,7 @@ public class PaymentEntityFactory
       catch(LicensingException e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(error,"PaymentEntityFactory","getInstance()",e);
          }
@@ -56,7 +56,7 @@ public class PaymentEntityFactory
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,"PaymentEntityFactory","getInstance",e));
          }

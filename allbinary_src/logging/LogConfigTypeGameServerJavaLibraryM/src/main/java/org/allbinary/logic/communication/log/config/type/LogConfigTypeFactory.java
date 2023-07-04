@@ -14,7 +14,7 @@
 package org.allbinary.logic.communication.log.config.type;
 
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 
 /**
  *

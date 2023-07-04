@@ -74,7 +74,7 @@ public class HttpFileUploadUtil
         stringBuffer.append(" Not Calculated Yet");
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.HTTP))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
         {
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), getInstance(), "log()"));
         }
@@ -99,7 +99,7 @@ public class HttpFileUploadUtil
         stringBuffer.append(fileItem.getSize());
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
         {
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), getInstance(), "log()"));
         }

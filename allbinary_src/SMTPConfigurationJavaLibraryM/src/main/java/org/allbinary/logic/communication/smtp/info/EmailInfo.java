@@ -26,7 +26,7 @@ public class EmailInfo
       BasicEmailInfo basicEmailInfo)
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailInfo"));
       }
@@ -40,7 +40,7 @@ public class EmailInfo
       String contentBase)
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailInfo"));
       }

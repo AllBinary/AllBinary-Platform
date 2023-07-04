@@ -62,7 +62,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Could Not Load Object Config", getInstance(), "getInstance()", e));
          }
@@ -104,7 +104,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          }
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-               org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+               org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, getInstance(), "getInstance()", e));
          }
@@ -145,7 +145,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          }
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-               org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+               org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, getInstance(), "getInstance(document)", e));
          }
@@ -165,7 +165,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
                !stringValidationUtil.isEmpty(transformInfoInterface.getStoreName()))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                  org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
+                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                LogUtil.put(LogFactory.getInstance("Creating GenericStoreTransformInfoObjectConfig",
                      instance, "getInstance()"));
@@ -178,7 +178,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          else
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                  org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
+                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                LogUtil.put(LogFactory.getInstance("Creating TransformInfoObjectConfig",
                      instance, "getInstance()"));
@@ -198,7 +198,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          }
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-               org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+               org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(
                 error, instance, "getInstance(name,type)", e));

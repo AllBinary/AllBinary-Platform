@@ -61,7 +61,7 @@ public class BasicItem implements ItemInterface
 
     public BasicItem(HashMap itemHashMap) throws MoneyException
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Start", this,
                 "Constructor(HashMap)"));
@@ -110,7 +110,7 @@ public class BasicItem implements ItemInterface
 
     public BasicItem() throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Start", this, "Constructor()"));
         }
@@ -467,7 +467,7 @@ public class BasicItem implements ItemInterface
 
     public HashMap toHashMap()
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Start", this, "toHashMap"));
         }
@@ -521,7 +521,7 @@ public class BasicItem implements ItemInterface
 
     public Vector toVector()
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Start", this, "toVector"));
         }

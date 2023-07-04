@@ -40,7 +40,7 @@ public class StoreWorkFlowTag extends HelperTag
    {
       super(new StoreTagWorkFlowHelperFactory());
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Tag Constructed",this,"StoreWorkFlowTag()"));
       }
@@ -64,7 +64,7 @@ public class StoreWorkFlowTag extends HelperTag
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
             LogUtil.put(LogFactory.getInstance("Start",this,"process()"));
          }
@@ -78,7 +78,7 @@ public class StoreWorkFlowTag extends HelperTag
       {
          String error = "Failed to process";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"process()",e));
          }
@@ -90,7 +90,7 @@ public class StoreWorkFlowTag extends HelperTag
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
             LogUtil.put(LogFactory.getInstance("Start",this,"doStartTag()"));
          }

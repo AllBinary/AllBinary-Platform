@@ -36,7 +36,7 @@ public class AcceptableResponseGenerator
          String acceptable = httpServletRequest.getHeader("accept");
          String result = acceptableResponseUtil.getTagName(0);
 
-         if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTP))
+         if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
             LogUtil.put(LogFactory.getInstance("Request Type: " + acceptable, instance, "get"));
          }
@@ -55,7 +55,7 @@ public class AcceptableResponseGenerator
             }
          }
          
-         if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTP))
+         if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
             LogUtil.put(LogFactory.getInstance("Response Type: " + result, instance, "get"));
          }
@@ -66,7 +66,7 @@ public class AcceptableResponseGenerator
       {
          String error = "Failed to get AcceptableResponse Type";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, instance, "get", e));
          }

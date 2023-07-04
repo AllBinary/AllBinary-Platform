@@ -105,7 +105,7 @@ public class BasicWorkFlow
       catch(Exception e)
       {
          String error = "Failed to process workflow";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(error,this,"process()",e);
          }
@@ -175,7 +175,7 @@ public class BasicWorkFlow
       catch(Exception e)
       {
          String error = "Failed to get node";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "toXmlNode()", e));
          }
@@ -192,7 +192,7 @@ public class BasicWorkFlow
       catch(Exception e)
       {
          String error = "Failed to get Doc";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"toXmlDoc()",e));
          }
@@ -210,7 +210,7 @@ public class BasicWorkFlow
       catch(Exception e)
       {
          String error = "Failed to view WorkFlow";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(error,this,"view()",e);
          }
@@ -234,7 +234,7 @@ public class BasicWorkFlow
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
          }
@@ -254,7 +254,7 @@ public class BasicWorkFlow
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

@@ -90,7 +90,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "get()", e));
          }
@@ -107,7 +107,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getTempDir()",e));
          }
@@ -124,7 +124,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getLibraryPath()",e));
          }         
@@ -141,7 +141,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getClassPath()",e));
          }
@@ -159,7 +159,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"updateLibraryPath()",e));
          }      
@@ -175,7 +175,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getUserHome()",e));
          }
@@ -192,7 +192,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getUserDir()",e));
          }
@@ -208,7 +208,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"get()",e));
          }       
@@ -252,7 +252,7 @@ public class RuntimeEnvironmentVariables
       catch(Exception e)
       {
          String error = "Failed";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.OSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setVariable()",e));
          }      

@@ -97,7 +97,7 @@ public class OrderHistoryRequestHelper
          
          OrderHistoryEntityFactory.getInstance().setStatus(id,this.status);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("Success",this,"setOrderStatus()"));
          }
@@ -106,7 +106,7 @@ public class OrderHistoryRequestHelper
       catch(Exception e)
       {
          String error = "Failed to set order status";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus()",e));
          }
@@ -128,7 +128,7 @@ public class OrderHistoryRequestHelper
          
          new OrderStatusEmail(orderHistory).process();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("Success",this,"setOrderStatus()"));
          }
@@ -137,7 +137,7 @@ public class OrderHistoryRequestHelper
       catch(Exception e)
       {
          String error = "Failed to view order table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setOrderStatus(newStatus)",e));
          }
@@ -154,7 +154,7 @@ public class OrderHistoryRequestHelper
     
          OrderHistoryEntityFactory.getInstance().setPaymentMethod(id,this.paymentMethod);
     
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("Success",this,"setPaymentMethod()");
          }
@@ -163,7 +163,7 @@ public class OrderHistoryRequestHelper
       catch(Exception e)
       {
          String error = "Failed to set Payment Method";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"setPaymentMethod()",e);
          }

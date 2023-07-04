@@ -70,7 +70,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
       {
          Boolean isValid = Boolean.TRUE;
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Start", this, "isValid()"));
          }
@@ -80,7 +80,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
             isValid = Boolean.FALSE;
          }
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("BodyValidation: " + isValid, this, "isValid()"));
          }
@@ -89,7 +89,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
          }
@@ -117,7 +117,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
          }

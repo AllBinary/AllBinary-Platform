@@ -36,7 +36,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
    {
       super(transformInfoInterface);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "NewTitleBodyValidationView()"));
       }
@@ -53,7 +53,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("View Name: " + this.getTransformInfoInterface().getName(), this, "isValid()"));
          }
@@ -70,7 +70,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
          }
@@ -90,7 +90,7 @@ public class NewTitleBodyValidationView extends TitleBodyCustomizerView implemen
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

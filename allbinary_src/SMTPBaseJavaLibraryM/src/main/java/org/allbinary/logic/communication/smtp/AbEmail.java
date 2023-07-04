@@ -29,7 +29,7 @@ public class AbEmail
       String textBody, String htmlAttachment, String contentBase) 
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
       {
          this.email = new Email(
             from, to, subject, server, textBody, htmlAttachment, contentBase, true);

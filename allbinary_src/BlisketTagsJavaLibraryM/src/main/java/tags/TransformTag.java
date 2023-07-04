@@ -36,7 +36,7 @@ public class TransformTag extends TransformInfoTag
     {
         super(new ViewHelperFactory());
         //this.helperObject = null;
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
             LogUtil.put(LogFactory.getInstance("Tag Constructed", this, "Constructor"));
         }
@@ -45,7 +45,7 @@ public class TransformTag extends TransformInfoTag
     public TransformTag(TagHelperFactoryInterface tagHelperFactoryInterface)
     {
         super(tagHelperFactoryInterface);
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
             LogUtil.put(LogFactory.getInstance("Tag Constructed", this, "Constructor(Factory)"));
         }
@@ -62,7 +62,7 @@ public class TransformTag extends TransformInfoTag
         {
             String error = "Failed to View";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
             }
@@ -74,13 +74,13 @@ public class TransformTag extends TransformInfoTag
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 LogUtil.put(LogFactory.getInstance(
                     "Creating with: \n" + this.getPropertiesHashMap().toString(), this, "doStartTag"));
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -96,7 +96,7 @@ public class TransformTag extends TransformInfoTag
 
             pageContext.getOut().print(this.view());
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 LogUtil.put(LogFactory.getInstance("Tag End", this, "doStartTag"));
             }

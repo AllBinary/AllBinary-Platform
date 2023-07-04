@@ -70,7 +70,7 @@ public class PaymentTag extends TableTag
       {
          String error = "Failed to select Payment";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"selectPayment()",e));
          }
@@ -92,7 +92,7 @@ public class PaymentTag extends TableTag
                if (this.getCommand().compareTo(PaymentData.SELECT)==0)
                {
                   String output = this.select();
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                   {
                      this.pageContext.getOut().print(output + "<br />");
                   }

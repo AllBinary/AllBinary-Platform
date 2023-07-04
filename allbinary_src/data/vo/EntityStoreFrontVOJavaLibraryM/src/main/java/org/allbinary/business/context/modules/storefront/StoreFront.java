@@ -93,7 +93,7 @@ public class StoreFront implements StoreFrontInterface
     {
         this.getFormData(new RequestParams(request).toHashMap());
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("TWB- needs update for adding and updating context configuration - currently defaults to admin context config", this, "StoreFront"));
         }
@@ -633,7 +633,7 @@ public class StoreFront implements StoreFrontInterface
             return stringBuffer.toString();
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
             }
@@ -1101,7 +1101,7 @@ public class StoreFront implements StoreFrontInterface
         } catch (Exception e)
         {
             String error = "Failed to install storefront";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "install()", e));
             }

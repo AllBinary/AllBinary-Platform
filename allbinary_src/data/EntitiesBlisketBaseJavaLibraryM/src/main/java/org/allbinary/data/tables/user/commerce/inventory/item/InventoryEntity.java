@@ -46,13 +46,13 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
         {
             super.insert(values);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
             }
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
             }
@@ -64,13 +64,13 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
         try
         {
             super.deleteWhere(BasicItemData.ID, value);
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, DELETE));
             }
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, DELETE, e));
             }
@@ -80,7 +80,7 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
     //I could create a factory to output the results that excepts a productId and xslt file
     public Vector getItems(StoreFrontInterface storeFrontInterface) throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Getting Items For: " + storeFrontInterface.getName(), this, "getItems"));
         }

@@ -55,7 +55,7 @@ public class AbFileUploadFactory
             return items;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
                 String error = "Failed to parse Uploaded Files";
                 LogUtil.put(LogFactory.getInstance(error, instance, "get()", e));
@@ -75,7 +75,7 @@ public class AbFileUploadFactory
         {
             String error = "Failed to parse Uploaded Files";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, instance, "get()", e));
             }

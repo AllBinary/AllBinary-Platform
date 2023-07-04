@@ -26,7 +26,7 @@ public class UserEmailConfiguration implements UserEmailConfigurationInterface
    
    public UserEmailConfiguration()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructor", this,"Constructor"));
       }
@@ -36,7 +36,7 @@ public class UserEmailConfiguration implements UserEmailConfigurationInterface
    
    public UserEmailConfiguration(HashMap hashMap)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructor", this, "Constructor"));
       }

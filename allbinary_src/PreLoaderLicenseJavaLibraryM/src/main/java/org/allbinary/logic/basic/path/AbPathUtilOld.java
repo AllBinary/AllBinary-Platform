@@ -54,7 +54,7 @@ public class AbPathUtilOld
 
       String extension = filePath.substring(beginIndex + 1);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("FileExtension: " + extension, instance, "getExtension()"));
       }
@@ -86,7 +86,7 @@ public class AbPathUtilOld
 
       String pathWithoutExtension = filePath.substring(0, endIndex);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("FileWithoutExtension: " + pathWithoutExtension, instance, "getWithoutExtension()"));
       }
@@ -166,7 +166,7 @@ public class AbPathUtilOld
       }
       
       /*
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
       {
          LogUtil.put(LogFactory.getInstance("Path: " + path, instance, "adjust"));
       }

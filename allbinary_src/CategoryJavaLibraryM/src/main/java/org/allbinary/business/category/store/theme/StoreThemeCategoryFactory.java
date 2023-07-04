@@ -33,7 +33,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
    
    public StoreThemeCategoryFactory(TransformInfoInterface transformInfoInterface)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
          LogUtil.put(LogFactory.getInstance("Constructing", this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)"));
       }
@@ -58,7 +58,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getRootInstance()", e));
          }
@@ -84,7 +84,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getRootInstance(String)", e));
          }
@@ -112,7 +112,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getRootInstance(node)", e));
          }
@@ -137,7 +137,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
          }
@@ -165,7 +165,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this,
                "getInstance(CategoryInterface, CategoryInterface , String, int)", e));
@@ -188,7 +188,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getInstance(Node, int)", e));
          }
@@ -214,7 +214,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this,
               "getInstance(CategoryInterface, CategoryInterface, Node, int)", e));
@@ -238,7 +238,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)", e));
          }
@@ -267,7 +267,7 @@ public class StoreThemeCategoryFactory implements CategoryFactoryInterface
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this,
                "getInstance(CategoryInterface, CategoryInterface, HashMap)", e));

@@ -52,7 +52,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
             this.workFlowInterface.getName(), 
             this.getTransformInfoInterface().getStoreName())!=null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                LogUtil.put(LogFactory.getInstance("WorkFlow already in existance.",this,"isValid()");
             }
@@ -65,7 +65,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
          }
@@ -83,7 +83,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
             this.workFlowInterface.getName(), 
             this.getTransformInfoInterface().getStoreName())!=null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Workflow already exist",this,"validationInfo()"));
             }
@@ -101,7 +101,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

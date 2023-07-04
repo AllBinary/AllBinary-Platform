@@ -38,7 +38,7 @@ public class StoreTagWorkFlowFactory
             String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -65,7 +65,7 @@ public class StoreTagWorkFlowFactory
         } catch (LicensingException e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
@@ -84,7 +84,7 @@ public class StoreTagWorkFlowFactory
         {
             String error = "Failed To Get Instance";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 

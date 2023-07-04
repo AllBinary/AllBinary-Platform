@@ -41,7 +41,7 @@ public class TransformInfoPropertiesFactory
       Attr attrNode = (Attr) attributes.getNamedItem(transformInfoData.NAME);
       String name = attrNode.getValue();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance(
              "Next View Name: " + name, instance, "toTransformInfoPropertiesHashMap()"));

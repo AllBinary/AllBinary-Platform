@@ -63,7 +63,7 @@ public class NewWorkFlowFactory
          hashMap.toString();
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, instance, "getInstance(HashMap)",e));
          }
@@ -73,7 +73,7 @@ public class NewWorkFlowFactory
       {
          String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, instance, "getInstance(HashMap)", e));
          }
@@ -98,7 +98,7 @@ public class NewWorkFlowFactory
          String error = "Failed To Get Instance Args";
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()",e));
          }
@@ -108,7 +108,7 @@ public class NewWorkFlowFactory
       {
          String error = "Failed To Get Instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()", e));
          }

@@ -157,7 +157,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to Invalidate Session";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "invalidateSession()", e));
             }
@@ -174,7 +174,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to Invalidate Session";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "invalidateSession()", e));
             }
@@ -197,7 +197,7 @@ public class FileAuthenticationTag extends TagSupport
 
                 if (timeFirst > timeCreated)
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                     {
                         StringBuffer stringBuffer = new StringBuffer();
 
@@ -215,7 +215,7 @@ public class FileAuthenticationTag extends TagSupport
                 }
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
                     LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isSessionOld()"));
                 }
@@ -225,7 +225,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to check if Session is old";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "isSessionOld()", e));
             }
@@ -247,7 +247,7 @@ public class FileAuthenticationTag extends TagSupport
             long timeFirst = calendar.getTimeInMillis() - lastAccess;
 
           //Temp log - remove when fixed
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -264,7 +264,7 @@ public class FileAuthenticationTag extends TagSupport
             /*
             if (timeFirst > timePassed)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -283,7 +283,7 @@ public class FileAuthenticationTag extends TagSupport
             */
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
                 LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isRarelyUsedSession()"));
             }
@@ -301,7 +301,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to check if Role is valid";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "isRoleValid()", e));
             }
@@ -324,7 +324,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to set valid role";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "validRole()", e));
             }
@@ -345,7 +345,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to set role invalid";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "invalidRole()", e));
             }
@@ -376,7 +376,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to validate previously authenticated Session";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "isAuthenticationSessionValid()", e));
             }
@@ -388,7 +388,7 @@ public class FileAuthenticationTag extends TagSupport
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Starting for User: " + this.userName + " Attempt: " + this.weblisketSession.getAttempts(), this, "processIfNewLogin()"));
             }
@@ -423,7 +423,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed to validate new login";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "processIfNewLogin()", e));
             }
@@ -447,7 +447,7 @@ public class FileAuthenticationTag extends TagSupport
         } catch (Exception e)
         {
             String error = "Failed check if already set to invalidate";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "isSetToInvalidate()", e));
             }
@@ -464,7 +464,7 @@ public class FileAuthenticationTag extends TagSupport
 
             this.getFormData();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 LogUtil.put(LogFactory.getInstance("Started", this, "doStartTag()"));
             }
@@ -477,7 +477,7 @@ public class FileAuthenticationTag extends TagSupport
 
                 if (command.compareTo(org.allbinary.globals.GLOBALS2.CHANGEPASSWORD) == 0)
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
                         LogUtil.put(LogFactory.getInstance("Change Password", this, "doStartTag()"));
                     }
@@ -494,7 +494,7 @@ public class FileAuthenticationTag extends TagSupport
 
                 } else if (command.compareTo(WeblisketSessionData.INVALIDATESESSION) == 0)
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
                         LogUtil.put(LogFactory.getInstance("INVALIDATESESSION", this, "doStartTag()"));
                     }
@@ -512,14 +512,14 @@ public class FileAuthenticationTag extends TagSupport
 
                     if (this.isSessionOld())
                     {
-                        //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                        //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         //{
                         // LogUtil.put(LogFactory.getInstance("Session is old", this, "doStartTag()"));
                         //}
 
                         if (this.processInvalidation())
                         {
-                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
                                 LogUtil.put(LogFactory.getInstance("Processing Invalidation", this, "doStartTag()"));
                             }
@@ -535,7 +535,7 @@ public class FileAuthenticationTag extends TagSupport
                             }
                         } else
                         {
-                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
                                 LogUtil.put(LogFactory.getInstance("Preparing session for invalidation", this, "doStartTag()"));
                             }
@@ -570,7 +570,7 @@ public class FileAuthenticationTag extends TagSupport
                         && (password == null || password.compareTo("") == 0)
                         && this.roles != null && this.isAuthenticationSessionValid())
                     {
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         {
                             LogUtil.put(LogFactory.getInstance("Authenticated session is valid", this, "doStartTag()"));
                         }
@@ -586,14 +586,14 @@ public class FileAuthenticationTag extends TagSupport
 
                     if (this.userName != null && this.password != null && this.processIfNewLogin())
                     {
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         {
                             LogUtil.put(LogFactory.getInstance("Processing new login.", this, "doStartTag()"));
                         }
 
                         if (this.isRoleValid())
                         {
-                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
                                 LogUtil.put(LogFactory.getInstance("Role is valid - Processing new login", this, "doStartTag()"));
                             }
@@ -608,7 +608,7 @@ public class FileAuthenticationTag extends TagSupport
                             }
                         } else
                         {
-                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                             {
                                 LogUtil.put(LogFactory.getInstance("Role is not valid - Processing new login", this, "doStartTag()"));
                             }
@@ -624,7 +624,7 @@ public class FileAuthenticationTag extends TagSupport
                         }
                     } else
                     {
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                         {
                             LogUtil.put(LogFactory.getInstance("Invalid Login", this, "doStartTag()"));
                         }
@@ -636,7 +636,7 @@ public class FileAuthenticationTag extends TagSupport
                         }
                     }
 
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                     {
                         StringBuffer stringBuffer = new StringBuffer();
 

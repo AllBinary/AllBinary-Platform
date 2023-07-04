@@ -68,7 +68,7 @@ public class InstallerInfo
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
             LogUtil.put(LogFactory.getInstance("Failed", instance, "write"));
          }
@@ -96,7 +96,7 @@ public class InstallerInfo
          }
          else
          {
-            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADER))
+            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
             {
                LogUtil.put(LogFactory.getInstance("Not a File - Failed Loading: " + FILEABPATH.toString(), instance, "read"));
             }
@@ -104,7 +104,7 @@ public class InstallerInfo
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
             LogUtil.put(LogFactory.getInstance("Failed", instance, "read"));
          }
@@ -134,7 +134,7 @@ public class InstallerInfo
          this.read();
          if(InstallerInfo.userName == null || InstallerInfo.password == null)
          {
-            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADER))
+            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
             {
                LogUtil.put(LogFactory.getInstance("Failed", instance, "updateIfNeeded"));
             }

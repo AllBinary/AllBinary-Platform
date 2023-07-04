@@ -27,7 +27,7 @@ public class LogUserEmailEventListenerModule
 
    public void onEmailSendRequest(EmailEvent userEmailInfoEvent) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          String message = "Logging EmailEvent - Temporary Listener for debugging.\n\n" + userEmailInfoEvent.toString();
 

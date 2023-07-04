@@ -20,7 +20,7 @@ import org.allbinary.business.init.db.UserDbInitInfo;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InitInfoEntity extends InitSql
@@ -81,7 +81,7 @@ public class InitInfoEntity extends InitSql
                 return true;
             } else
             {
-                if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
                 {
                     PreLogUtil.put(this.NOT_IN_DB, NAME, this.METHOD_GET);
                 }
@@ -89,7 +89,7 @@ public class InitInfoEntity extends InitSql
             }
         } catch (Exception e)
         {
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_GET, e);
             }
@@ -109,7 +109,7 @@ public class InitInfoEntity extends InitSql
                 return true;
             } else
             {
-                if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+                if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
                 {
                     PreLogUtil.put(this.NOT_IN_DB, this.NAME, this.METHOD_IS);
                 }
@@ -117,7 +117,7 @@ public class InitInfoEntity extends InitSql
             }
         } catch (Exception e)
         {
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_IS, e);
             }
@@ -143,7 +143,7 @@ public class InitInfoEntity extends InitSql
 
         } catch (Exception e)
         {
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 PreLogUtil.put(this.commonStrings.EXCEPTION, this.NAME, this.METHOD_ADD, e);
             }

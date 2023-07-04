@@ -56,7 +56,7 @@ public class TitleView implements DomNodeInterface
     	  this.title = NAME;
       }
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Title: " + this.getTitle(), this, "Consructor()"));
       }
@@ -64,7 +64,7 @@ public class TitleView implements DomNodeInterface
 
    public TitleView(HashMap hashMap)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "Constructor()"));
       }
@@ -98,7 +98,7 @@ public class TitleView implements DomNodeInterface
    {
       HashMap hashMap = this.toHashMap();
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("TitleView HashMap: " + hashMap.toString(), this, "toXmlNode()"));
       }

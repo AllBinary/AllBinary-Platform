@@ -43,7 +43,7 @@ import org.allbinary.logic.system.hardware.components.interfaces.VideoInterface;
 import org.allbinary.logic.system.hardware.HardwareInterface;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class Hardware implements HardwareInterface
@@ -88,7 +88,7 @@ public class Hardware implements HardwareInterface
          componentInterfaceVector.add(cpu);
       }
       
-      if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
+      if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
       {
          LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, "Constructor()"));
       }
@@ -103,7 +103,7 @@ public class Hardware implements HardwareInterface
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
          {
             LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, "Constructor()",e));
          }
@@ -151,7 +151,7 @@ public class Hardware implements HardwareInterface
          
          if(lineNumberReader != null)
          {
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
                LogUtil.put(LogFactory.getInstance("PCI File Found", this, "Constructor()"));
             }
@@ -173,7 +173,7 @@ public class Hardware implements HardwareInterface
             {
                StringBuffer componentData = new StringBuffer();
 
-               if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
+               if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
                {
                   LogUtil.put(LogFactory.getInstance("Found Hardware Device: " + componentInterfaceVector.size(), this, "Constructor()"));
                }
@@ -206,7 +206,7 @@ public class Hardware implements HardwareInterface
          }
          else
          {
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
                LogUtil.put(LogFactory.getInstance("Could not load PCI File", this, "Constructor()"));
             }

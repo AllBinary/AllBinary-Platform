@@ -20,7 +20,7 @@ import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.logic.basic.path.AbPath;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class InitInfo
@@ -86,14 +86,14 @@ public class InitInfo
       {
          InitInfoEntity initInfoEntity = new InitInfoEntity();
          
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
          {         
             PreLogUtil.put("created entity","InitInfo","set()");
          }
          
          if(!initInfoEntity.is())
          {
-            if( LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+            if( LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
             {      
                PreLogUtil.put("adding","InitInfo","set()");
             }
@@ -101,7 +101,7 @@ public class InitInfo
          }
          else
          {
-            if( LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+            if( LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
             {            
                PreLogUtil.put("update","InitInfo","set()");
             }
@@ -111,7 +111,7 @@ public class InitInfo
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
             PreLogUtil.put("error","InitInfo","set()",e);
          }
@@ -128,7 +128,7 @@ public class InitInfo
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
             PreLogUtil.put("error","InitInfo","set()",e);
          }
@@ -148,7 +148,7 @@ public class InitInfo
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
             PreLogUtil.put("error","InitInfo","set()",e);
          }
@@ -173,7 +173,7 @@ public class InitInfo
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
             PreLogUtil.put("error","InitInfo","updateIfNeeded()",e);
          }
@@ -190,7 +190,7 @@ public class InitInfo
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
             PreLogUtil.put("error","InitInfo","updateIfNeeded()",e);
          }

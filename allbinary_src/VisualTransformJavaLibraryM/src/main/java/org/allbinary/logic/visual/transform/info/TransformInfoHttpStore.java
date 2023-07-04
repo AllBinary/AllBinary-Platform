@@ -37,7 +37,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
    {
       super(propertiesHashMap, pageContext, true);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor()"));
       }
@@ -55,7 +55,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
    {
       super(databaseHashMap, propertiesHashMap, pageContext);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
           StringBuffer stringBuffer = new StringBuffer();
 
@@ -74,7 +74,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
    {
       super(propertiesHashMap, pageContext);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor()"));
       }

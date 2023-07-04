@@ -102,7 +102,7 @@ public class TransformInfo implements TransformInfoInterface
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -139,7 +139,7 @@ public class TransformInfo implements TransformInfoInterface
         if (!stringValidationUtil.isEmpty(aObject))
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance(
                     "TransformInfo override view Object for: " + this.getName(),
@@ -160,7 +160,7 @@ public class TransformInfo implements TransformInfoInterface
         if (!stringValidationUtil.isEmpty((String) hashMap.get(transformInfoData.OBJECTCONFIG)))
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance(
                     "TransformInfo override ObjectConfig for: " + this.getName(),
@@ -174,7 +174,7 @@ public class TransformInfo implements TransformInfoInterface
         if (!stringValidationUtil.isEmpty(objectConfigFileName))
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance(
                     "TransformInfo override ObjectConfig File for: " + this.getName(),
@@ -206,7 +206,7 @@ public class TransformInfo implements TransformInfoInterface
         if (!stringValidationUtil.isEmpty(aTemplate))
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance(
                     "TransformInfo override Template for: " + this.getName(),
@@ -234,7 +234,7 @@ public class TransformInfo implements TransformInfoInterface
         if (!stringValidationUtil.isEmpty(aData))
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance(
                     "TransformInfo override Data for: " + this.getName(),
@@ -253,7 +253,7 @@ public class TransformInfo implements TransformInfoInterface
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             stringBuffer = new StringBuffer();
 
@@ -277,7 +277,7 @@ public class TransformInfo implements TransformInfoInterface
                 this, "TransformInfoInterface(HashMap)"));
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
         {
             LogUtil.put(LogFactory.getInstance(this.log(), this, "override"));
         }
@@ -437,7 +437,7 @@ public class TransformInfo implements TransformInfoInterface
 
                 if (!stringValidationUtil.isEmpty(this.data))
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                     {
                         LogUtil.put(LogFactory.getInstance(
                             "Data File overriding existing data: " + this.getDataFilePath(), this, "getData()"));
@@ -447,7 +447,7 @@ public class TransformInfo implements TransformInfoInterface
                 this.data = fileData;
             } catch (Exception e)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
                     LogUtil.put(LogFactory.getInstance("Could Not Load Data from: " + this.getDataFile(), this, "getData()", e));
                 }
@@ -458,14 +458,14 @@ public class TransformInfo implements TransformInfoInterface
         {
         	if (!stringValidationUtil.isEmpty(this.data))
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
                     LogUtil.put(LogFactory.getInstance(
                         "Data: " + DomDocumentHelper.toString(DomDocumentHelper.create(data)), this, "getData()"));
                 }
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -478,7 +478,7 @@ public class TransformInfo implements TransformInfoInterface
                     stringBuffer.append(this.getDataFilePath().toFileSystemString());
 
 
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                     {
                     	LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getData()"));
                     }
@@ -487,7 +487,7 @@ public class TransformInfo implements TransformInfoInterface
             }
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance(
                     "Could Not Preview Data: " + this.data, this, "getData()", e));
@@ -506,7 +506,7 @@ public class TransformInfo implements TransformInfoInterface
         
     	if (stringValidationUtil.isEmpty(localData))
     	{
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
             	LogUtil.put(LogFactory.getInstance("No Data So Creating New Document", this, "getDataDocument()"));
             }

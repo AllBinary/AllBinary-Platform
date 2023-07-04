@@ -89,7 +89,7 @@ public class AbFileItem
         }
         catch(Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
                 LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getString", e));
             }

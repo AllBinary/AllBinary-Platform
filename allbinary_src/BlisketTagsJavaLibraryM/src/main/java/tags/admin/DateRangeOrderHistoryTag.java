@@ -90,7 +90,7 @@ public class DateRangeOrderHistoryTag extends StoreValidationTransformTag
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
             LogUtil.put(LogFactory.getInstance("Tag Start",this,"doStartTag"));
          }

@@ -105,7 +105,7 @@ public class OrderHelper
                 paymentGatewayBoolean = Boolean.TRUE;
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -119,7 +119,7 @@ public class OrderHelper
             return paymentGatewayBoolean;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -156,7 +156,7 @@ public class OrderHelper
 
             //OrderHistoryEntityFactory.getInstance().setPaymentMethod(order.getId(),this.paymentMethod);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance("Successfully Processed Order: " + result, this, "processOrder()"));
             }
@@ -179,7 +179,7 @@ public class OrderHelper
 
             final String error = stringBuffer.toString();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "process()", e));
             }
@@ -196,7 +196,7 @@ public class OrderHelper
     OrderHistory orderReview = OrderHistoryEntityFactory.getInstance().getOrder(order.getId());
     Boolean result = orderReview.authorizeDelayedCaptureCreditCard();
 
-    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
     {
     LogUtil.put(LogFactory.getInstance("Successfully Authorized Order: " + result,this,"authorizeOrder()");
     }
@@ -206,7 +206,7 @@ public class OrderHelper
     {
     String error = "Failed to Authorized Order: ";
 
-    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
     LogUtil.put(LogFactory.getInstance(error,this,"authorizeOrder()",e);
     }

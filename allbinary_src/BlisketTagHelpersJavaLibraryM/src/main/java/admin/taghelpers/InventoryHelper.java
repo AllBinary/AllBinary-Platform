@@ -39,7 +39,7 @@ public class InventoryHelper implements BasicTableInterface
         {
             String success = InventoryEntityFactory.getInstance().getInventoryEntityInstance().dropTable();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "drop()"));
             }
@@ -47,7 +47,7 @@ public class InventoryHelper implements BasicTableInterface
         } catch (Exception e)
         {
             String error = "Failed to drop inventory table";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "drop()", e));
             }
@@ -63,7 +63,7 @@ public class InventoryHelper implements BasicTableInterface
         {
             String success = InventoryEntityFactory.getInstance().getInventoryEntityInstance().createTable();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "create()"));
             }
@@ -71,7 +71,7 @@ public class InventoryHelper implements BasicTableInterface
         } catch (Exception e)
         {
             String error = "Failed to create new inventory table";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "create()", e));
             }
@@ -85,7 +85,7 @@ public class InventoryHelper implements BasicTableInterface
         {
             final String success = "Restore Successful";
             final String result = AbSqlTableUtil.getInstance().restoreTable(InventoryEntityFactory.getInstance().getInventoryEntityInstance(), this.portion);
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "restore()"));
             }
@@ -94,7 +94,7 @@ public class InventoryHelper implements BasicTableInterface
         {
             String error = "Failed to restore backup";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "restore()", e));
             }
@@ -109,7 +109,7 @@ public class InventoryHelper implements BasicTableInterface
             final String success = "Backup Successful";
             final String result = AbSqlTableUtil.getInstance().backupTable(InventoryEntityFactory.getInstance().getInventoryEntityInstance());
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "backup()"));
             }
@@ -118,7 +118,7 @@ public class InventoryHelper implements BasicTableInterface
         {
             String error = "Failed to make backup";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "backup()", e));
             }

@@ -41,7 +41,7 @@ public class UserEmailEventsConfiguration implements UserEmailEventsConfiguratio
    {
       this.emailEventHashMap = new HashMap();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructor", this," Constructor"));
       }
@@ -54,7 +54,7 @@ public class UserEmailEventsConfiguration implements UserEmailEventsConfiguratio
    
    public void addUserEmailEventConfiguration(UserEmailEventConfigurationInterface userEmailEventConfigurationInterface)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Adding: " + userEmailEventConfigurationInterface.log(), this,"addUserEmailEventConfiguration"));
       }

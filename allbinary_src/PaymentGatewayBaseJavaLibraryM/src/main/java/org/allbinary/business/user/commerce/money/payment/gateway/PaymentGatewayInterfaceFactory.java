@@ -36,7 +36,7 @@ public class PaymentGatewayInterfaceFactory
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENT))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
             LogUtil.put(LogFactory.getInstance("Getting", this, "getInstance()"));
          }
@@ -46,7 +46,7 @@ public class PaymentGatewayInterfaceFactory
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENTERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed", this, "getInstance(HttpServletRequest)", e));
          }
@@ -72,7 +72,7 @@ public class PaymentGatewayInterfaceFactory
          String gatewayName = (String) hashMap.get(PaymentGatewayData.NAME.toString());
          BasicPaymentType paymentType = BasicPaymentTypeUtil.getInstance().get(gatewayName);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENT))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
             LogUtil.put(LogFactory.getInstance("Getting PaymentGatewayInterface for PaymentType: " +
                paymentType.getName() + " with: " + hashMap, this, "getInstance()"));
@@ -86,7 +86,7 @@ public class PaymentGatewayInterfaceFactory
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENTERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed", this, "getInstance()", e));
          }

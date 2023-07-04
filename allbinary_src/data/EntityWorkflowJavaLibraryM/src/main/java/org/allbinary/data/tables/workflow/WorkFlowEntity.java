@@ -50,13 +50,13 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         {
             super.insert(values);
 
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, INSERT));
             }
         }catch(Exception e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, INSERT, e));
             }
@@ -74,13 +74,13 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 
             super.deleteWhere(keysAndValues);
 
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS, this, DELETE));
             }
         }catch(Exception e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, DELETE, e));
             }
@@ -99,14 +99,14 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
             return (WorkFlowInterface) DbWorkFlowFactory.getInstance(hashMap);
         }catch(LicensingException e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, METHOD_GET, e));
             }
             throw e;
         }catch(Exception e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, METHOD_GET, e));
             }
@@ -138,7 +138,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
             return workFlowsVector;
         }catch(Exception e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, this.METHOD_GET, e));
             }
@@ -159,7 +159,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
             super.updateWhere(wherekeysAndValues, updatedValues);
         }catch(Exception e)
         {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, METHOD_UPDATE, e));
             }

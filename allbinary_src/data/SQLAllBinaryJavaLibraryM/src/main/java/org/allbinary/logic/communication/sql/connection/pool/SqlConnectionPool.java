@@ -59,7 +59,7 @@ public class SqlConnectionPool
             SqlConnectionPool.connectionHashMap = new HashMap();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGPOOL))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
             {
                 LogUtil.put(LogFactory.getInstance(FIRST_NEW_CONNECTION_CREATED + url, instance, METHOD_GET));
             }
@@ -75,7 +75,7 @@ public class SqlConnectionPool
                 connectionVector = new Vector();
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGPOOL))
+                    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -91,7 +91,7 @@ public class SqlConnectionPool
             } else if (connectionVector.size() == 0)
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGPOOL))
+                    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                 {
                     LogUtil.put(LogFactory.getInstance(new StringBuilder().append(NEW_CONNECTION_FOR).append(url).append(CREATED).toString(), instance, METHOD_GET));
                 }
@@ -110,7 +110,7 @@ public class SqlConnectionPool
                         SqlConnectionPool.connectionHashMap.put(url, connectionVector);
 
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                            org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGPOOL))
+                            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                         {
                             stringBuffer.delete(0, stringBuffer.length());
 
@@ -131,7 +131,7 @@ public class SqlConnectionPool
 
         //Should never happen
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGPOOL))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
         {
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -176,7 +176,7 @@ public class SqlConnectionPool
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGPOOL))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
             {
 
                 StringBuffer stringBuffer = new StringBuffer();
@@ -194,7 +194,7 @@ public class SqlConnectionPool
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGPOOL))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
         {
             LogUtil.put(LogFactory.getInstance(CONNECTION_ALLREADY_CLOSED, instance, METHOD_ADD));
         }

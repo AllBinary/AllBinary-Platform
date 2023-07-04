@@ -80,7 +80,7 @@ public class PaymentProcessorInterfaceFactory
       catch(Exception e)
       {
          String error = "Error Getting PaymentProcessorInterface";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENTERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
          }

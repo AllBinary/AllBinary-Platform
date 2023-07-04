@@ -34,7 +34,7 @@ public class UserEmailConfigurationView implements DomNodeInterface
    
    public UserEmailConfigurationView(Node node) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructor", this, "Constructor"));
       }

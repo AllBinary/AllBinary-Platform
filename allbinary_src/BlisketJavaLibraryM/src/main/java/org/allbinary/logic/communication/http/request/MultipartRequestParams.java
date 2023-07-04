@@ -58,7 +58,7 @@ public class MultipartRequestParams extends RequestParams
 
          if(multipartRequestList!=null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
                LogUtil.put(LogFactory.getInstance("FileItem List Size: " + multipartRequestList.size(), this, "processMultipartRequest()"));
             }
@@ -80,7 +80,7 @@ public class MultipartRequestParams extends RequestParams
                }
             }
 
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
             {
                 LogUtil.put(LogFactory.getInstance("Special Request Data: " + specialRequest.toString(), this, "processMultipartRequest()"));
             }
@@ -91,7 +91,7 @@ public class MultipartRequestParams extends RequestParams
       }
       catch(InvalidContentTypeException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
             LogUtil.put(LogFactory.getInstance("Using Normal RequestParams", this, "processMultipartRequest()"));
          }
@@ -100,7 +100,7 @@ public class MultipartRequestParams extends RequestParams
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUESTERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUESTERROR))
          {
             LogUtil.put(LogFactory.getInstance("Should Not Occur", this, "processMultipartRequest()"));
          }

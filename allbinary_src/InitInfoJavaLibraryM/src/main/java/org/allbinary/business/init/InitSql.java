@@ -34,7 +34,7 @@ import org.allbinary.logic.basic.string.StringUtil;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.communication.sql.SqlStrings;
 import org.allbinary.logic.communication.sql.SqlTypeStrings;
@@ -111,7 +111,7 @@ public class InitSql
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {
              PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "createTable()", e);
          }
@@ -128,7 +128,7 @@ public class InitSql
             return true;
         }catch(Exception e)
         {
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "dropTables()", e);
             }
@@ -169,7 +169,7 @@ public class InitSql
 
             String sqlStatement = stringBuffer.toString();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 PreLogUtil.put(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this.INIT_SQL, this.METHOD_GET_ROW);
             }
@@ -189,14 +189,14 @@ public class InitSql
                     result.put(columnName, field);
                 }
 
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
                     PreLogUtil.put(ROW_VALUE_LABEL + result.toString(), this.INIT_SQL, this.METHOD_GET_ROW);
                 }
                 return result;
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 PreLogUtil.put(NO_RESULTS_IN_RESULT_SET, this.INIT_SQL, this.METHOD_GET_ROW);
             }
@@ -204,7 +204,7 @@ public class InitSql
             return null;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer, this.INIT_SQL, this.METHOD_GET_ROW, e);
             }
@@ -258,13 +258,13 @@ public class InitSql
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, METHOD_UPDATE_WHERE);
             }
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer, this.INIT_SQL, METHOD_UPDATE_WHERE, e);
             }
@@ -300,13 +300,13 @@ public class InitSql
             String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 PreLogUtil.put(this.SUCCESS_SQL_STATEMENT + sqlStatement, this.INIT_SQL, INSERT);
             }
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 PreLogUtil.put(this.FAILED_SQL_STATEMENT + stringBuffer.toString(), this.INIT_SQL, INSERT, e);
             }
@@ -343,7 +343,7 @@ public class InitSql
       }
       catch(SQLException e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {         
             PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "executeSQLStatement()", e);
          }
@@ -351,7 +351,7 @@ public class InitSql
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {         
             PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "executeSQLStatement()", e);
          }
@@ -396,7 +396,7 @@ public class InitSql
          }
          catch(Exception e)
          {
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {                     
                PreLogUtil.put("LoadDriver Failed: " + 
                   this.databaseConnectionInfoInterface.getJdbcDriver(), INIT_SQL, "initialize()", e);
@@ -411,7 +411,7 @@ public class InitSql
       }
       catch(Exception se)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.SQLLOGGINGERROR))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
          {                  
             PreLogUtil.put(this.commonStrings.EXCEPTION, INIT_SQL, "initialize()", se);
          }

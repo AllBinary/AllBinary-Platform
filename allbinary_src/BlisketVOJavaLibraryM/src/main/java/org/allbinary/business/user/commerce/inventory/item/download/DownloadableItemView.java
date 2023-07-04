@@ -38,7 +38,7 @@ public class DownloadableItemView implements DomNodeInterface
    
    public Node toXmlNode(Document document) throws Exception
    {
-       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
        {
           LogUtil.put(LogFactory.getInstance("Start", this, "toXmlNode"));
        }

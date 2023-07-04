@@ -43,7 +43,7 @@ public class CloudStreamUtil {
 
         if (available > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Cloud File Bytes: " + available, this, "processRequest()"));
             }
@@ -61,7 +61,7 @@ public class CloudStreamUtil {
 
         if (available > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Local File Bytes: " + available, this, "processRequest()"));
             }
@@ -73,7 +73,7 @@ public class CloudStreamUtil {
 
             if (available > 0)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
                 {
                     LogUtil.put(LogFactory.getInstance("Cloud File Bytes: " + available, this, "processRequest()"));
                 }
@@ -92,7 +92,7 @@ public class CloudStreamUtil {
 
         if (available > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Local File Bytes: " + available, this, "processRequest()"));
             }

@@ -91,7 +91,7 @@ public class AbSqlTableUtil
         {
             String fileName = tableName + EXTENSION;
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(SAVING + tableName, this, this.METHOD_GET_OUTPUT_STREAM));
             }
@@ -114,7 +114,7 @@ public class AbSqlTableUtil
 
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Create File", this, this.METHOD_GET_OUTPUT_STREAM, e));
             }
@@ -140,7 +140,7 @@ public class AbSqlTableUtil
 
             AbPath backupAbPath = new AbPath(stringBuffer.toString());
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
@@ -162,7 +162,7 @@ public class AbSqlTableUtil
             return true;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Exception", this, this.METHOD_BACKUP_FILE, e));
             }
@@ -217,7 +217,7 @@ public class AbSqlTableUtil
 
             if (!Directory.create(new AbPath(path)))
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
                     LogUtil.put(LogFactory.getInstance(ERROR_CREATING + path, this, this.METHOD_BACKUP_TABLE));
                 }
@@ -257,7 +257,7 @@ public class AbSqlTableUtil
 
                 String sqlStatementLine = stringBuffer.toString();
 
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
                     LogUtil.put(LogFactory.getInstance(APPENDING + sqlStatementLine, this, this.METHOD_BACKUP_TABLE));
                 }
@@ -270,7 +270,7 @@ public class AbSqlTableUtil
             return TABLE_LABEL + tableName + BACKUP_SUCCESS;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Backup Table Failed\nSQL Statement", this, this.METHOD_BACKUP_TABLE, e));
             }
@@ -292,7 +292,7 @@ public class AbSqlTableUtil
             {
                 if (Directory.create(new AbPath(path)))
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                     {
                         LogUtil.put(LogFactory.getInstance(this.ERROR_CREATING + path, this, this.METHOD_RESTORE_TABLE));
                     }
@@ -326,7 +326,7 @@ public class AbSqlTableUtil
             stringBuffer.append(DASH);
             stringBuffer.append(end);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, this.METHOD_RESTORE_TABLE));
             }
@@ -352,7 +352,7 @@ public class AbSqlTableUtil
 
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGINGERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Restore Table Failed\nSQL Statement", this, this.METHOD_RESTORE_TABLE, e));
             }

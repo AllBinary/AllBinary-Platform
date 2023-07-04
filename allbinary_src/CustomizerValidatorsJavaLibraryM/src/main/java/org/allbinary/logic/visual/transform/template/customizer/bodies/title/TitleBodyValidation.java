@@ -39,7 +39,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
 
    public TitleBodyValidation()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Start", this, "Constructor()"));
       }
@@ -50,7 +50,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
 
    public TitleBodyValidation(Document document) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Constructor()",this,"Constructor(document)"));
       }
@@ -74,7 +74,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
 
          if(index > 1)
          {
-            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                LogUtil.put(LogFactory.getInstance("To Many Body Nodes", this, "Constructor()"));
             }
@@ -84,7 +84,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
 
    public TitleBodyValidation(HashMap hashMap) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Start", this, "Constructor(hashmap)"));
       }
@@ -104,7 +104,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
       {
          Boolean isValid = Boolean.TRUE;
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("TitleBodyValidation", this, "isValid()"));
          }
@@ -119,7 +119,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
             isValid = Boolean.FALSE;
          }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("TitleBodyValidation: " + isValid,this,"isValid()"));
          }
@@ -128,7 +128,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()", e));
          }
@@ -156,7 +156,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
          }
@@ -176,7 +176,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
  
    public Node toXmlNode(Document document) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Title Body: " + this.body, this, "toXmlNode(document)"));
       }

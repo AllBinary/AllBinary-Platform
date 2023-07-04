@@ -95,14 +95,14 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
          values.add(categoryVector.get(1));
          super.insert(values);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,INSERT));
          }
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,INSERT,e));
          }
@@ -114,14 +114,14 @@ public class CategoryEntity extends AbSqlBean implements CategoryEntityInterface
       try
       {
          super.deleteWhere(CategoryData.getInstance().NAME,value);
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.SUCCESS,this,DELETE));
          }
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,DELETE,e));
          }

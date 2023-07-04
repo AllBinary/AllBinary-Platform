@@ -88,7 +88,7 @@ public class AbPathUtil
         }
 
         /*
-        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             PreLogUtil.put("FileExtension: " + extension, "AbPathUtil", "getExtension()");
         }
@@ -120,7 +120,7 @@ public class AbPathUtil
             pathWithoutExtension = filePath.substring(0, indexOfFileExtensionDelmiter);
         }
         /*
-        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             PreLogUtil.put("FileWithoutExtension: " + pathWithoutExtension, "AbPathUtil", "getWithoutExtension()");
         }
@@ -207,7 +207,7 @@ public class AbPathUtil
             //PreLogUtil.put("Adjusted Path: " + path, this, "adjust");
         }
         /*
-        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
         {
             PreLogUtil.put("Path: " + path, "AbPathUtil", "adjust");
         }

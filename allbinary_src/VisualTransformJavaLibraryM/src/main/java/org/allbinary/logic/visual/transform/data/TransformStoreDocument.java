@@ -40,14 +40,14 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
          if(StringValidationUtil.isEmpty(storeName))
          {
             storeName = pageContext.getRequest().getParameter(StoreFrontData.NAME);
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Using Request StoreName: " + storeName, this, "Constructor()");
             }
          }
          else
          {*/
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Using Session StoreName: " + storeName, this, "Constructor()"));
             }
@@ -63,7 +63,7 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
       catch(Exception e)
       {
          String error = "Failed to create view document";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "Constructor()", e));
          }
@@ -89,7 +89,7 @@ public class TransformStoreDocument extends TransformHttpRequestDocument
       catch(Exception e)
       {
          String error = "Failed to create view document";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "Constructor()", e));
          }

@@ -127,7 +127,7 @@ public class CategoryProperties implements CategoryPropertiesInterface
 
       pathStringBuffer.append(AbPathData.getInstance().SEPARATOR);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
          LogUtil.put(LogFactory.getInstance("path = " + pathStringBuffer.toString(), this, "getPath"));
       }

@@ -73,7 +73,7 @@ public class AbTransformer implements BasicTransformerInterface
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance("xml: \n" + xmlDocumentStr, this, "translate(String xmlDocumentStr)"));
          }
@@ -87,7 +87,7 @@ public class AbTransformer implements BasicTransformerInterface
             new StreamSource(this.getInputStream()),
             new StreamSource(new StringBufferInputStream(xmlDocumentStr)));
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance("translated xml: " + result, this, "translate(String xmlDocumentStr)"));
          }
@@ -101,7 +101,7 @@ public class AbTransformer implements BasicTransformerInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance(this.transformInfoInterface.log(), this, "translate(document)", e));
          }

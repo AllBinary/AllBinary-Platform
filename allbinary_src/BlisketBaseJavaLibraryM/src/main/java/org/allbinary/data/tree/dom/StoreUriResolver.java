@@ -56,7 +56,7 @@ public class StoreUriResolver implements URIResolver
             AbPathData.getInstance().SEPARATOR + href);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
             
             LogUtil.put(LogFactory.getInstance(

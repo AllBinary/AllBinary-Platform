@@ -30,7 +30,7 @@ public class PageView extends HttpStoreComponentView
    {
       super(transformInfoInterface);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "Constructor"));
       }
@@ -53,7 +53,7 @@ public class PageView extends HttpStoreComponentView
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e);
          }
@@ -72,7 +72,7 @@ public class PageView extends HttpStoreComponentView
       catch(Exception e)
       {
          String error = "Failed to view TopBar";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }

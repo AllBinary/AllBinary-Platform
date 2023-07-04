@@ -15,7 +15,7 @@ package org.allbinary.logic.system.os.solaris;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.system.os.NoOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystemInterface;
@@ -65,7 +65,7 @@ public class SolarisOperatingSystemFactory
         }
         catch(Exception e)
         {
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
                 String error = "Failed to get instance";
                 LogUtil.put(LogFactory.getInstance(error, this, "getOperatingSystemInstance()", e));

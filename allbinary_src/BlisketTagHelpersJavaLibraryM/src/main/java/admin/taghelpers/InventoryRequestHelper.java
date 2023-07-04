@@ -63,7 +63,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
 
             String success = "Successfully Added Product";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "insert()"));
             }
@@ -72,7 +72,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
         {
             String error = "Failed to add item to Inventory";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "insert()", e));
             }
@@ -100,7 +100,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
 
             String success = stringBuffer.toString();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "doStartTag()"));
             }
@@ -109,7 +109,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
         {
             String error = "Failed to remove item with from Inventory";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "doStartTag()", e));
             }
@@ -150,7 +150,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
             */
 
             String success = "Item Successfully Updated";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "update()"));
             }
@@ -158,7 +158,7 @@ public class InventoryRequestHelper implements ModifyTableInterface
         } catch (Exception e)
         {
             String error = "Failed To Update Item";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "update()", e));
             }

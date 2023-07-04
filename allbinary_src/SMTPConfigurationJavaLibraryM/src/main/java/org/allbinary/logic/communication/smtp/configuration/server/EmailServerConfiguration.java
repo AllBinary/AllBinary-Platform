@@ -29,7 +29,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
    
    public EmailServerConfiguration()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructing Empty", this, "EmailServerConfiguration"));
       }
@@ -39,7 +39,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
    
    public EmailServerConfiguration(HashMap hashMap)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailServerConfiguration(HashMap)"));
       }
@@ -53,7 +53,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
 
    public EmailServerConfiguration(String account, String password, String server)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Constructing", this, "EmailServerConfiguration(HashMap)"));
       }
@@ -97,7 +97,7 @@ public class EmailServerConfiguration implements EmailServerConfigurationInterfa
     
     public void log()
     {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance(this.toString(), this, "EmailServerConfiguration"));
       }

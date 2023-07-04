@@ -57,7 +57,7 @@ public class EmailEventHandlerUtil
    public static UserEmailEventHandler getEventHandler(UserEmailEventNameData userEmailEventNameData, Vector userVector)
    throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
     	  StringBuffer stringBuffer = new StringBuffer();
     	  

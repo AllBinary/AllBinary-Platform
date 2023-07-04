@@ -141,7 +141,7 @@ public class TransformInfoTag extends ModifyTag
       this.type = value;
       this.getPropertiesHashMap().put(OutputTypeData.getInstance().NAME, this.type);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("TransformInfoTag type set: " + this.type,this,"setType"));
       }

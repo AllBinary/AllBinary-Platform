@@ -32,7 +32,7 @@ public class DomSearchHelper
       {               
          Node node = nodeList.item(index);
          /*
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {         
             PreLogUtil.put("NodeName: " + node.getNodeName(),"DomHelper","searchNodeList");
          }
@@ -90,7 +90,7 @@ public class DomSearchHelper
       {               
          Node node = nodeList.item(index);
          /*         
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {         
             PreLogUtil.put("NodeName: " + node.getNodeName(),"DomHelper","searchNodeList");
          }

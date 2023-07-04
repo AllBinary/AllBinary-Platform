@@ -36,7 +36,7 @@ public class TransformInfoObjectFactory
         try
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORY))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                 LogUtil.put(LogFactory.getInstance(
                 		"Creating View: " + transformInfoInterface.getName(), 
@@ -88,7 +88,7 @@ public class TransformInfoObjectFactory
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 LogUtil.put(LogFactory.getInstance(
                     error, instance, "getInstance(HashMap, PageContext)", e));
@@ -104,7 +104,7 @@ public class TransformInfoObjectFactory
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 LogUtil.put(LogFactory.getInstance(
                     error, instance, "getInstance(HashMap, PageContext)", e));
@@ -138,7 +138,7 @@ public class TransformInfoObjectFactory
     {
     String error = "Failed To Get Instance";
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-    org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
     {
     LogUtil.put(error, propertiesHashMap.get(TransformInfoData.NAME) + "->ViewFactory",
     "getInstance(HashMap, PageContext)",e);
@@ -149,7 +149,7 @@ public class TransformInfoObjectFactory
     {
     String error = "Failed To Get Instance";
     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-    org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
     {
     LogUtil.put(error, propertiesHashMap.get(TransformInfoData.NAME) + "->TransformInfoFactory",
     "getInstance(HashMap, PageContext)",e);

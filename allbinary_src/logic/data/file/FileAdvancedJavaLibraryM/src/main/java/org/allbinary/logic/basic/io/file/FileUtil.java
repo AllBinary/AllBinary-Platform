@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.basic.io.file;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import org.allbinary.globals.URLGLOBALS;
 import java.io.InputStream;
 import java.util.Vector;
@@ -23,8 +25,6 @@ import org.allbinary.logic.basic.io.AbFileLocalInputStream;
 import org.allbinary.logic.basic.io.AbFileSystem;
 import org.allbinary.logic.basic.io.DataOutputStreamFactory;
 import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.FileWrapperUtil;
 import org.allbinary.logic.basic.io.file.directory.Directory;
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.basic.path.AbPathData;
@@ -34,8 +34,11 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.io.FileInputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 import org.allbinary.logic.basic.io.FileStreamFactory;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 
 //data/init/views/TestStore/template/type/genericTemplateObjectConfig.xml
 public class FileUtil
@@ -54,6 +57,10 @@ public class FileUtil
     {
     }
 
+    private final LogConfigTypeFactory logConfigTypeFactory = LogConfigTypeFactory.getInstance();
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final StreamUtil streamUtil = StreamUtil.getInstance();
+
     //overwrite files
     /*
     private static void copyFile(File from, File to) throws Exception
@@ -71,7 +78,7 @@ public class FileUtil
     outputStream = (ByteArrayOutputStream)
     StreamUtil.get(inputStream, outputStream);
     /*
-    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
     {
     LogUtil.put(LogFactory.getInstance(
     "Copied File from: " + from.toString() + " to: " + to.toString(),
@@ -82,7 +89,7 @@ public class FileUtil
     }
     catch(Exception e)
     {
-    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
     {
     LogUtil.put(LogFactory.getInstance("Error Copying File from: " + from.toString() + " to: " +
     to.toString(),instance,"copyFile", e);
@@ -201,7 +208,7 @@ public class FileUtil
         Directory.create(fixedPath);
 
         final String string = fixedPath.toFileSystemString();
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
         {
             LogUtil.put(LogFactory.getInstance(string, getInstance(), "fixPath"));
         }
@@ -235,7 +242,7 @@ public class FileUtil
                 return;
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -263,7 +270,7 @@ public class FileUtil
             /*
             } else
             {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -279,7 +286,7 @@ public class FileUtil
 
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -314,7 +321,7 @@ public class FileUtil
                 return;
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -343,7 +350,7 @@ public class FileUtil
             /*
             } else
             {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
             StringBuffer stringBuffer = new StringBuffer();
 
@@ -359,7 +366,7 @@ public class FileUtil
 
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -385,7 +392,7 @@ public class FileUtil
             //Overwrite existing
             if (overwriteAll)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -400,7 +407,7 @@ public class FileUtil
             } else //If new and in overwrite mode
             if (toFile.lastModified() < fromFile.lastModified() && overwriteNewer)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -417,7 +424,7 @@ public class FileUtil
             } else
             //Not copying over file
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                 {
                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -455,7 +462,7 @@ public class FileUtil
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -487,7 +494,7 @@ public class FileUtil
 
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -563,7 +570,7 @@ public class FileUtil
         stringBuffer.append(" - ");
         stringBuffer.append(end);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
         {
             LogUtil.put(LogFactory.getInstance(
                 stringBuffer.toString(), getInstance(), "copySomeFilesToDirectory()"));
@@ -616,7 +623,7 @@ public class FileUtil
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -644,7 +651,7 @@ public class FileUtil
 
             int size = fileArray.length;
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -673,7 +680,7 @@ public class FileUtil
                 }
             }
             /*
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
             LogUtil.put(LogFactory.getInstance(
             "Copied Directory fromFile: " + fromFile.toString() + " to: " + to.toString(),
@@ -682,7 +689,7 @@ public class FileUtil
              */
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -710,7 +717,7 @@ public class FileUtil
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -745,7 +752,7 @@ public class FileUtil
 
                     this.copyFile(fromLocationFile, file);
 
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
                         StringBuffer stringBuffer = new StringBuffer();
 
@@ -763,7 +770,7 @@ public class FileUtil
                     //rename the file
                     this.copyFile(fromLocationFile, toLocationFile);
 
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
                         StringBuffer stringBuffer = new StringBuffer();
 
@@ -782,7 +789,7 @@ public class FileUtil
                 //check last character
                 if (fromAbPath.toFileSystemString().charAt(fromAbPath.toFileSystemString().length() - 1) == java.io.File.separatorChar)
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
                         LogUtil.put(LogFactory.getInstance("Copying subdirectories", getInstance(), "copy"));
                     }
@@ -806,20 +813,20 @@ public class FileUtil
                         }
                     }
 
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
                         LogUtil.put(LogFactory.getInstance("Copied subdirectories", getInstance(), "copy"));
                     }
                 } else
                 {
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
                         LogUtil.put(LogFactory.getInstance("Copyinhg directory", getInstance(), "copy"));
                     }
 
                     copyDirectory(fromLocationFile, toLocationFile);
 
-                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+                    if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
                     {
                         LogUtil.put(LogFactory.getInstance("Copied directory", getInstance(), "copy"));
                     }
@@ -828,7 +835,7 @@ public class FileUtil
             return true;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILEERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILEERROR))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -856,7 +863,7 @@ public class FileUtil
             return new String(bytes, 0, size);
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.IDLOGGING))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.IDLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "SmallInsert", e));
             }
@@ -876,9 +883,9 @@ public class FileUtil
             //LogUtil.put(LogFactory.getInstance("Write Configuration: " + this.toString(), this, "write"));
             PreLogUtil.put(new StringBuilder().append(this.WRITE_LABEL).append(filePath).append(DATA_LABEL).append(string).toString(), this, this.WRITE_METHOD);
 
-            FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();
+            final FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();
 
-            OutputStream fileOutputStream = fileInputStreamFactory
+            final OutputStream fileOutputStream = fileInputStreamFactory
                     .getFileOutputStreamInstance(
                             StringUtil.getInstance().EMPTY_STRING, filePath);
 
@@ -892,6 +899,42 @@ public class FileUtil
         {
             StreamUtil.getInstance().close(dataOutputStream);
         }        
+    }
+
+    public List<String> loadFileAsList(final AbFile file, final int max, final byte[] byteArray1) {
+        
+        AbFileInputStream inputStream = null;
+        byte[] byteArray = null;
+        try {
+            inputStream = new AbFileInputStream(file);
+            final ByteArrayOutputStream outputStream2 = new ByteArrayOutputStream(max);
+            byteArray = streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
+
+            streamUtil.close(inputStream);
+        } catch (Exception e) {
+            streamUtil.close(inputStream);
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, commonStrings.ADD, e));
+        }
+
+        final ArrayList stringList = new ArrayList();
+
+        if(byteArray == null) {
+            return stringList;
+        }
+
+        final int size = byteArray.length;
+        int index = 0;
+        int startIndex;
+        while(index < size) {
+            startIndex = index;
+            while(byteArray[index] != '\n') {
+                index++;
+            }
+            stringList.add(new String(byteArray, startIndex, (index - startIndex)));
+            index++;
+        }
+        
+        return stringList;
     }
     
 }

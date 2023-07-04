@@ -44,7 +44,7 @@ public class Category
     public Category(
         CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface) throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
             LogUtil.put(LogFactory.getInstance("Constructor", this, "Category(CategoryPropertiesFactoryInterface)"));
         }
@@ -136,7 +136,7 @@ public class Category
         //remove duplicate if available
         this.removeDuplicateChild(categoryInterface);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
             LogUtil.put(LogFactory.getInstance("adding", this, "addChild"));
         }
@@ -351,7 +351,7 @@ public class Category
 
     public void log() throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
             StringBuffer stringBuffer = new StringBuffer();
 

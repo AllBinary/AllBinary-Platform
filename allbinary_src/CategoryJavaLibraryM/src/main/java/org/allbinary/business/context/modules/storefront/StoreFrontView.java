@@ -31,7 +31,7 @@ public class StoreFrontView implements DomNodeInterface
    
    public StoreFrontView(StoreFrontInterface storeFrontInterface)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Constructing: StoreFrontView for: " + storeFrontInterface.getName(), this, "getInstance()"));
       }

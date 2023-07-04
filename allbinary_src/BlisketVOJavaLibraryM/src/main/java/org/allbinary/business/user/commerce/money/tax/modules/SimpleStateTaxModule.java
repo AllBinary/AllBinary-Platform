@@ -93,7 +93,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       
       this.document = DomDocumentHelper.create(data);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
          LogUtil.put(LogFactory.getInstance("Tax Doc: " + DomDocumentHelper.toString(document), this,"getTaxRate"));
       }
@@ -158,7 +158,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
 
       this.document = DomDocumentHelper.create(data);
 
-      if(   org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+      if(   org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
          LogUtil.put(LogFactory.getInstance("Tax Doc: " + DomDocumentHelper.toString(document), this, "isValid"));
       }
@@ -172,7 +172,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       NodeList nodeList = document.getElementsByTagName(TaxData.NAME);
 
       /*
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
       {
          LogUtil.put(LogFactory.getInstance("Number Of Tax Nodes: " + nodeList.getLength(), this,"isValid()");
       }
@@ -183,7 +183,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          Node node = nodeList.item(index);
 
          /*
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
             LogUtil.put(LogFactory.getInstance("Node: " + node.getNodeName(), this,"isValid()");
          }
@@ -192,7 +192,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          NodeList taxNodeChildren = node.getChildNodes();
 
          /*
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
             LogUtil.put(LogFactory.getInstance("Number Of Tax Child Nodes: " + taxNodeChildren.getLength(), this,"isValid()");
          }
@@ -201,7 +201,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
          Node streetAddressNode =
             DomSearchHelper.getNode(StreetAddressData.NAME, taxNodeChildren);
 
-         if(    org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+         if(    org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
          {
              StringBuilder stringBuffer = new StringBuilder();
 
@@ -242,7 +242,7 @@ public class SimpleStateTaxModule implements TaxModuleInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate", this, "isValid()", e));
          }

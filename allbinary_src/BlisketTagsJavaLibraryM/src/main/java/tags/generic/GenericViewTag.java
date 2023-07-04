@@ -32,7 +32,7 @@ public class GenericViewTag extends TransformTag
 
    public GenericViewTag()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Tag Constructed",this,"GenericViewTag()"));
       }

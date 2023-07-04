@@ -17,7 +17,7 @@ import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.logic.system.os.linux.LinuxOperatingSystemFactory;
 import org.allbinary.logic.system.os.solaris.Solaris;
@@ -56,7 +56,7 @@ public class OperatingSystemFactory
                 this.hasDetected = true;
                 if(osName.indexOf(operatingSystems.LINUX) >= 0)
                 {
-                    if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
+                    if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
                         LogUtil.put(LogFactory.getInstance("Found a Linux OS", "OperatingSystemsFactory", "getInstance()"));
                     }
@@ -67,7 +67,7 @@ public class OperatingSystemFactory
                 }
                 else if(osName.indexOf(operatingSystems.WINDOWS) >= 0)
                 {
-                    if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
+                    if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
                         LogUtil.put(LogFactory.getInstance("Found a Windows OS", "OperatingSystemsFactory", "getInstance()"));
                     }
@@ -77,7 +77,7 @@ public class OperatingSystemFactory
                 }
                 else if(osName.indexOf(operatingSystems.SOLARIS) >= 0)
                 {
-                    if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
+                    if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
                         LogUtil.put(LogFactory.getInstance("Found a Solaris OS", "OperatingSystemsFactory", "getInstance()"));
                     }
@@ -100,7 +100,7 @@ public class OperatingSystemFactory
         catch(Exception e)
         {
             String error = "Failed to get instance";
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.FACTORYERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
             }

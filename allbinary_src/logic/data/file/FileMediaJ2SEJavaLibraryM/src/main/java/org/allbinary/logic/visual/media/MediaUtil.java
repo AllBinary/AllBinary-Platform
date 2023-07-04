@@ -8,7 +8,7 @@ import java.util.HashMap;
 import org.allbinary.logic.basic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.media.image.ImageUtil;
 //import com.sun.imageio.plugins.common.ImageUtil;
@@ -38,7 +38,7 @@ public class MediaUtil
             throw new Exception("Unable to find ImageReader for this file.");
         }
 
-        if (LogConfigTypes.LOGGING.contains(LogConfigType.VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
             HashMap hashMap = MediaUtil.getImageBufferPropertyHashMap(bufferedImage);
             LogUtil.put(LogFactory.getInstance(
@@ -60,7 +60,7 @@ public class MediaUtil
             throw new Exception("Unable to write.");
         }
 
-        if (LogConfigTypes.LOGGING.contains(LogConfigType.VIEW))
+        if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
         	StringBuffer stringBuffer = new StringBuffer();
 

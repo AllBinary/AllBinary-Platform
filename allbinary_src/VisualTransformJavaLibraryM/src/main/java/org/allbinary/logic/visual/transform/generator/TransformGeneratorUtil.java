@@ -37,7 +37,7 @@ public class TransformGeneratorUtil
 		   {
 	      try
 	      {
-	         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+	         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
 	         {
 	            LogUtil.put(LogFactory.getInstance("Generating View: " + transformInfoInterface.getName(), 
 	               instance, "generate()"));
@@ -70,7 +70,7 @@ public class TransformGeneratorUtil
 	      }
 	      catch(Exception e)
 	      {
-	         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+	         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
 	         {
 	            LogUtil.put(LogFactory.getInstance("Failed to generate a view",
 	                    instance, "generate()", e));

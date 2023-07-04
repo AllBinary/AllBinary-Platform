@@ -36,7 +36,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
    
    public StoreCategoryFactory(TransformInfoInterface transformInfoInterface)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
          LogUtil.put(LogFactory.getInstance("Constructing", this, "StoreCategoryFactory(TransformInfoInterface transformInfoInterface)"));
       }
@@ -59,7 +59,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
          }
@@ -86,7 +86,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
       {
          String error = "Failed to get instance";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                 org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
          }
@@ -114,7 +114,7 @@ public class StoreCategoryFactory extends CategoryAbstractFactory
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.ENTITYFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "getInstance(String, int)", e));
          }

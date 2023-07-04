@@ -40,7 +40,7 @@ public class StoreFrontViewFactory
       catch(LicensingException e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
             LogUtil.put(error,"StoreFrontFactory","getInstance()",e);
          }
@@ -51,7 +51,7 @@ public class StoreFrontViewFactory
       catch(Exception e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,"StoreFrontFactory","getInstance()",e));
          }

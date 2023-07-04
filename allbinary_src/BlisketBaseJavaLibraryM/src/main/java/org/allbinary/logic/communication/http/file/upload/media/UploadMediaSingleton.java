@@ -64,7 +64,7 @@ public class UploadMediaSingleton
             writerFileTypes[index], RESIZABLE_MEDIA);
       }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
         {
             StringBuffer stringBuffer = new StringBuffer();
 

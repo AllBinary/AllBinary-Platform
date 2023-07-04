@@ -39,7 +39,7 @@ public class AdminConfigurationRequestHelperFactory implements TagHelperFactoryI
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 String error = "Failed To Get Instance";
 

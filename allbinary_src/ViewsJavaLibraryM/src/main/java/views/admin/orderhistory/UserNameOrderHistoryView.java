@@ -93,7 +93,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
       catch(Exception e)
       {
          String error = "Failed to view OrderHistory";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"view()",e));
          }
@@ -122,7 +122,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
             node.appendChild(orderHistory.toXmlNode(document));
          }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Attempt to View a users order history",this,"view"));
          }
@@ -156,7 +156,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE,this,"toXmlNode",e));
          }
@@ -167,7 +167,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
    
    public Boolean isValid()
    {      
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Started",this,"isValid()"));
       }      

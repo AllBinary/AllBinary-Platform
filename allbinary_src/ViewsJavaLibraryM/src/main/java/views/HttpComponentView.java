@@ -42,7 +42,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
     {
         super(transformInfoInterface);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "ComponentView()"));
         }
@@ -91,7 +91,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
         } catch (Exception e)
         {
             String error = "Failed to get Doc";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "toXmlDoc()", e));
             }
@@ -134,7 +134,7 @@ public class HttpComponentView extends TransformInfoHttpComposite
         } catch (Exception e)
         {
             String error = "Failed to Component view";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
             }

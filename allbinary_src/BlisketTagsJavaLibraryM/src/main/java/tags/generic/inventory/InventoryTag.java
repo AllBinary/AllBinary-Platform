@@ -58,7 +58,7 @@ public class InventoryTag extends StoreValidationTransformTag
       {
          String error = "Failed to search Inventory by keyword";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"search()",e));
          }
@@ -69,7 +69,7 @@ public class InventoryTag extends StoreValidationTransformTag
          }
          catch(Exception e2)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             {
                LogUtil.put(LogFactory.getInstance("Exception in Exception Handling",this,"search()",e));
             }
@@ -98,7 +98,7 @@ public class InventoryTag extends StoreValidationTransformTag
       {
          String error = "Failed to View Summary";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"viewSummary()",e));
          }
@@ -110,7 +110,7 @@ public class InventoryTag extends StoreValidationTransformTag
          }
          catch(Exception e2)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             {
                LogUtil.put(LogFactory.getInstance("Exception in Exception Handling",this,"viewSummary())",e));
             }

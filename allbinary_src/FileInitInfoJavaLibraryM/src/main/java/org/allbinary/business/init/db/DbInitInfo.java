@@ -53,7 +53,7 @@ import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
 import org.allbinary.logic.system.security.crypt.WeakCrypt;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.communication.http.HttpData;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class DbInitInfo extends DbConnectionInfo
@@ -90,7 +90,7 @@ public class DbInitInfo extends DbConnectionInfo
         //this.getUserNameKey() + this.getUserName() +
         //this.getPasswordKey() + this.getPassword();
 
-        if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
         {
             PreLogUtil.put(this.httpData.URL_LABEL + url, this, GET_URL);
         }
@@ -138,8 +138,7 @@ public class DbInitInfo extends DbConnectionInfo
             }
         }catch(Exception e)
         {
-            if(LogConfigTypes.LOGGING.contains(
-                    LogConfigType.PRELOADERERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 PreLogUtil.put("Failed Write: " + FILEABPATH.toString(), this, "write", e);
             }
@@ -193,14 +192,14 @@ public class DbInitInfo extends DbConnectionInfo
             }else
             {
                 hasRead = false;
-                if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+                if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
                 {
                     PreLogUtil.put("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "load");
                 }
             }
         }catch(Exception e)
         {
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 PreLogUtil.put("Failed Loading: " + FILEABPATH.toString(), this, "load", e);
             }
@@ -223,7 +222,7 @@ public class DbInitInfo extends DbConnectionInfo
             }
         }catch(Exception e)
         {
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 PreLogUtil.put("Failed", this, "updateIfNeeded", e);
             }
@@ -234,7 +233,7 @@ public class DbInitInfo extends DbConnectionInfo
     {
         this.updateIfNeeded();
 
-        if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
         {
             PreLogUtil.put("Name: " + super.getName(), this, "getName");
         }
@@ -246,7 +245,7 @@ public class DbInitInfo extends DbConnectionInfo
     {
         this.updateIfNeeded();
 
-        if(LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADER))
+        if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADER))
         {
             PreLogUtil.put("Name: " + super.getUserName(), this, "getUserName");
         }

@@ -40,7 +40,7 @@ public class AbeLicenseClient
    {
       try
       {
-         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSING))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,CommonStrings.getInstance().GET));
          //}
@@ -84,7 +84,7 @@ public class AbeLicenseClient
             abeClientInformation.init();
          }                  
 
-         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSING))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, CommonStrings.getInstance().GET));
          //}
@@ -93,7 +93,7 @@ public class AbeLicenseClient
       }         
       catch(Exception e)
       {     
-         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LICENSINGERROR))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          //{
             //LogUtil.put(LogFactory.getInstance("Unknown License Retrieval Failure", this, CommonStrings.getInstance().GET, e));
          //}

@@ -59,7 +59,7 @@ public class CustomLoaderTag extends TagSupport
       catch(Exception e)
       {
          String error = "Failed to set WebappPath";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "setCustomLoaderWebappPath()", e));
          }
@@ -73,7 +73,7 @@ public class CustomLoaderTag extends TagSupport
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
             LogUtil.put(LogFactory.getInstance("Start", this, "doStartTag()"));
          }

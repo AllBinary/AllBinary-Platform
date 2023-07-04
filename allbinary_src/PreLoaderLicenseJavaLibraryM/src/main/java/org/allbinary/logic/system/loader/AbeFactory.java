@@ -51,7 +51,7 @@ public class AbeFactory
       }
       catch (LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
          }
@@ -59,7 +59,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
          }
@@ -99,7 +99,7 @@ public class AbeFactory
       }
       catch (LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
         	 StringBuffer stringBuffer = new StringBuffer();
         	 
@@ -114,7 +114,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
         	 StringBuffer stringBuffer = new StringBuffer();
         	 
@@ -143,7 +143,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
          }
@@ -166,7 +166,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
         	 StringBuffer stringBuffer = new StringBuffer();
         	 
@@ -206,7 +206,7 @@ public class AbeFactory
       }
       catch (LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
          }
@@ -214,7 +214,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
          }
@@ -245,7 +245,7 @@ public class AbeFactory
       }
       catch (LicensingException e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
          }
@@ -253,7 +253,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
          }
@@ -279,14 +279,14 @@ public class AbeFactory
          {
           */
          /*
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
                LogUtil.put(LogFactory.getInstance("Getting Instance", instance,"getInstance"));
             }
           */
    //    ClassLoader loader = new AbeClassLoader(AbKeys.key);
 /*
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
                if(loader==null)
                {
@@ -303,7 +303,7 @@ public class AbeFactory
    
    //      Class c = abcs.logic.system.loader.loadClass(className);
   /*
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
                if(c==null)
                {
@@ -325,7 +325,7 @@ public class AbeFactory
 /*      }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
          }
@@ -343,7 +343,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
          }
@@ -362,7 +362,7 @@ public class AbeFactory
       }
       catch (Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failure for: " + className + " " + allbinary.java.object.ObjectInfo.viewConstructor(constructor, "\n"), instance,"getInstance(className,params)", e));
          }

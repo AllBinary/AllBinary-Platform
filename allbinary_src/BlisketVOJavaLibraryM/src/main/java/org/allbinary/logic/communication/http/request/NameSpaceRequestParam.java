@@ -51,7 +51,7 @@ public class NameSpaceRequestParam
       BasicArrayList nameSpaceWithPropertiesVector = sepTokenizer.getTokens(packages, new BasicArrayList());
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance(
                  "\nSep Tokens: " + nameSpaceWithPropertiesVector.toString(), this, "NameSpaceRequestParam()"));
@@ -78,7 +78,7 @@ public class NameSpaceRequestParam
             nameSpaceAndPropertiesTokenizer.getTokens(nameSpaceWithProperties, list);
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
             LogUtil.put(LogFactory.getInstance("\nPackageName and PackageName Properties Tokens: " +
                nameSpaceAndPropertiesVector.toString(),
@@ -113,7 +113,7 @@ public class NameSpaceRequestParam
       }
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-      org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+      org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance("NameSpace: " + this.nameSpaceVector.toString(),
          this, "NameSpaceRequestParam()"));
@@ -123,7 +123,7 @@ public class NameSpaceRequestParam
    public Vector getPackages()
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-      org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+      org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance("NameSpace: " + this.nameSpaceVector.toString(),
          this, "getPackages()"));
@@ -143,7 +143,7 @@ public class NameSpaceRequestParam
       }
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-      org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+      org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance("Package Properties: " + packagePropertiesHashMap.toString(),
             this, "getPackagesProperties()"));
@@ -155,7 +155,7 @@ public class NameSpaceRequestParam
    public String getValue()
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
          LogUtil.put(LogFactory.getInstance("\nValue: " + this.value, this, "getValue()"));
       }
@@ -196,7 +196,7 @@ public class NameSpaceRequestParam
                String propertyValue = (String) propertyNameValueVector.get(index2++);
 
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                  org.allbinary.logic.communication.log.config.type.LogConfigType.HTTPREQUEST))
+                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
                   LogUtil.put(LogFactory.getInstance(
                           "\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,
@@ -228,7 +228,7 @@ public class NameSpaceRequestParam
       }
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("\nNameSpace Param: " + stringBuffer.toString(),
             this, "toString()");

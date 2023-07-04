@@ -30,7 +30,7 @@ public class TransformInfoDomNode
 
     public TransformInfoDomNode(Node node) throws Exception
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance(
                 "Constructing TransformInfo From TransformInfoDomNode: "
@@ -48,7 +48,7 @@ public class TransformInfoDomNode
 
         if (nodeList.getLength() > 1)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -88,7 +88,7 @@ public class TransformInfoDomNode
                 templateFileName, dataFileName);
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -162,7 +162,7 @@ public class TransformInfoDomNode
 
         String key = stringBuffer.toString();
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("Component Key: " + key, this, "getReplaceKey()"));
         }

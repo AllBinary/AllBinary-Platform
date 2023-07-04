@@ -19,7 +19,7 @@ import org.allbinary.logic.basic.io.file.directory.SubDirectory;
 import org.allbinary.logic.basic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class WeblisketFinder
@@ -51,7 +51,7 @@ public class WeblisketFinder
         } catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance("Failed", this, "findAll", e));
-            if (LogConfigTypes.LOGGING.contains(LogConfigType.PRELOADERERROR))
+            if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Failed", this, "findAll", e));
             }
@@ -75,7 +75,7 @@ public class WeblisketFinder
             return filePath.substring(0, end);
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PRELOADERERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Failed", this, "getInstallationPath", e));
             }

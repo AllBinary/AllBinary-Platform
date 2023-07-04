@@ -53,7 +53,7 @@ public class ThemeCustomizerView extends HttpStoreComponentView
       {
          String error = "Failed to view Theme Template";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
          }

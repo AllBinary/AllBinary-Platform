@@ -61,7 +61,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
     {
         //final String docString = DomDocumentHelper.toString(objectConfigDocument);
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
         	  StringBuffer stringBuffer = new StringBuffer();
         	  
@@ -155,7 +155,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         String templateNameOverride = StringUtil.getInstance().getInstance(
             (String) propertiesHashMap.get(TransformInfoData.getInstance().PARTIAL));
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("TemplateNameOverride: " + templateNameOverride, this, "generate()"));
         }
@@ -194,7 +194,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         Document newObjectConfigDocument = DomDocumentHelper.create(
         		replace.all(objectConfigDocumentString));
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("Final ObjectConfig: "
                 + DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()"));

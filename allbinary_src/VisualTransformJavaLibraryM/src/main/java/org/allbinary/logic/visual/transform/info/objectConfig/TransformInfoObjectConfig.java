@@ -67,7 +67,7 @@ public class TransformInfoObjectConfig
 
       this.createDocument();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
     	  StringBuffer stringBuffer = new StringBuffer();
     	  
@@ -103,7 +103,7 @@ public class TransformInfoObjectConfig
          this.setOutputTypeName(DomNodeHelper.getTextNodeValue(node));
       }
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
     	  StringBuffer stringBuffer = new StringBuffer();
     	  
@@ -144,7 +144,7 @@ public class TransformInfoObjectConfig
 
       objectConfigNode.appendChild(configNameAttr);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
     	  StringBuffer stringBuffer = new StringBuffer();
     	  
@@ -250,7 +250,7 @@ public class TransformInfoObjectConfig
 
 	          int numberOfViews = viewNodeVector.size();
 
-	          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+	          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
 	          {
 	              StringBuffer stringBuffer = new StringBuffer();
 
@@ -306,7 +306,7 @@ public class TransformInfoObjectConfig
 
    public Vector getTransformsGroup(String group) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Started: " + group, this, "getTransformsGroup()"));
       }
@@ -342,7 +342,7 @@ public class TransformInfoObjectConfig
 
          int numberOfViews = viewNodeVector.size();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Number Of Nodes: " + numberOfViews, this, "getTransformsGroup()"));
             //LogUtil.put(LogFactory.getInstance("Document: " +
@@ -359,7 +359,7 @@ public class TransformInfoObjectConfig
       else
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
         	 if(componentsNodeList == null)
         	 {
@@ -454,7 +454,7 @@ public class TransformInfoObjectConfig
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("DOM Document error", this, "toString()"));
          }

@@ -80,7 +80,7 @@ public class UserEmailEventsConfigurationView implements DomNodeInterface
          this.getUserEmailEventsConfigurationInterface().getEventConfigurationHashMap();
       Set set = emailEventHashMap.keySet();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Number Of Email Events Specified in file: " + set.size(), this, "Constructor"));
       }

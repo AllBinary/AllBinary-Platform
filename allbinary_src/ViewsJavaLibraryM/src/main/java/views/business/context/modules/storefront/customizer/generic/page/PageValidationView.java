@@ -40,7 +40,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
    {
       super(transformInfoInterface);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "PageViewValidation()"));
       }
@@ -52,7 +52,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
       {
          Boolean isValid = Boolean.TRUE;
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Start", this, "isValid()"));
          }
@@ -75,7 +75,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
          //Vector allViewsToBeModified = objectConfig.getComponents();
          Vector allViewsToBeModified = pageObjectConfigInterface.getGroupTransforms();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Views To Be Modified: " + allViewsToBeModified.size(), this, "get(transformInfoInterface)"));
          }
@@ -89,7 +89,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
             String viewNameOfViewToBeModified = 
             	transformInfoInterface.getName();
 
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
             	StringBuffer stringBuffer = new StringBuffer();
             	
@@ -109,7 +109,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                   httpTransformInfoInterface.getPropertiesHashMap(),
                   httpTransformInfoInterface.getPageContext());
 
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
             	StringBuffer stringBuffer = new StringBuffer();
             	
@@ -147,7 +147,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                document.appendChild(pageValidation.toXmlNode(document));
                String documentString = DomDocumentHelper.toString(document);
 
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                {
                    StringBuffer stringBuffer = new StringBuffer();
 
@@ -168,7 +168,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
          }
@@ -233,7 +233,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

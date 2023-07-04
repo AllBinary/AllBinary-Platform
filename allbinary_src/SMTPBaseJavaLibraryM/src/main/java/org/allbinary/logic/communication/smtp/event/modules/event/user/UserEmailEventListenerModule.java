@@ -49,7 +49,7 @@ public class UserEmailEventListenerModule
    public void onEmailSendRequest(EmailEvent emailEvent) 
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Add Email To Que For Sending: " + emailEvent.toString(), this, "onEmailSendRequest"));
       }

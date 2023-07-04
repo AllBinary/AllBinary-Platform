@@ -53,7 +53,7 @@ public class ContextUriResolver implements URIResolver
          final AbPath fileAbPath = new AbFilePath(stringBuffer.toString());
          
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-              org.allbinary.logic.communication.log.config.type.LogConfigType.XMLLOGGING))
+              org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
          {
         	 stringBuffer.delete(0, stringBuffer.length());
         	 

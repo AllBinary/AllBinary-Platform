@@ -40,7 +40,7 @@ public class BasicStoreFrontsEntity extends InitSql
       HashMap storeHashMap = super.getRow(keysAndValues);
       if(storeHashMap==null) throw new Exception("No Such Store: " + name);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
       {
          LogUtil.put(LogFactory.getInstance("StoreFront: " + storeHashMap.toString(), this, "getStore()"));
       }

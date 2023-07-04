@@ -53,7 +53,7 @@ public class CategoryView implements DomNodeInterface
 
       Vector childCategoryVector = this.categoryInterface.getChildNodes();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
          LogUtil.put(LogFactory.getInstance("Number Of Children: " + childCategoryVector.size(), this, "toXmlNode"));
       }

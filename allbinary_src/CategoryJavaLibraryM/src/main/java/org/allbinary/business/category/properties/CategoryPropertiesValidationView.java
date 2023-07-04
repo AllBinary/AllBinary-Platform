@@ -49,7 +49,7 @@ public class CategoryPropertiesValidationView extends CategoryPropertiesView
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                 org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation info error", this, "validationInfo()", e));
          }

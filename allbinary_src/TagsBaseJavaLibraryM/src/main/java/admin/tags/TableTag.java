@@ -41,7 +41,7 @@ public class TableTag extends PropertiesTag
 
     public TableTag()
     {
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
             LogUtil.put(LogFactory.getInstance("Tag Constructed", this, "TableTag()"));
         }
@@ -127,7 +127,7 @@ public class TableTag extends PropertiesTag
         {
             String error = "Failed to drop table";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "drop()", e));
             }
@@ -152,7 +152,7 @@ public class TableTag extends PropertiesTag
         {
             String error = "Failed to create table";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "create()", e));
             }
@@ -177,7 +177,7 @@ public class TableTag extends PropertiesTag
         {
             String error = "Failed to restore backup";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "restore()", e));
             }
@@ -202,7 +202,7 @@ public class TableTag extends PropertiesTag
         {
             String error = "Failed to make backup";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "backup()", e));
             }
@@ -224,7 +224,7 @@ public class TableTag extends PropertiesTag
         {
             String error = "Failed to insert";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "insert()", e));
             }
@@ -245,7 +245,7 @@ public class TableTag extends PropertiesTag
         {
             String error = "Failed to delete";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "delete()", e));
             }
@@ -272,7 +272,7 @@ public class TableTag extends PropertiesTag
     {
     String error = "Failed to view";
 
-    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
     LogUtil.put(LogFactory.getInstance(error,this,"view()",e);
     }
@@ -298,7 +298,7 @@ public class TableTag extends PropertiesTag
     {
     String error = "Failed to edit";
 
-    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
     {
     LogUtil.put(LogFactory.getInstance(error,this,"editPricing()",e);
     }
@@ -319,7 +319,7 @@ public class TableTag extends PropertiesTag
         {
             String error = "Failed to update";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "update()", e));
             }
@@ -331,7 +331,7 @@ public class TableTag extends PropertiesTag
     {
         try
         {        	
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 HttpServletRequest request =
                     (HttpServletRequest) this.pageContext.getRequest();
@@ -348,19 +348,19 @@ public class TableTag extends PropertiesTag
 
             if (this.getTagRequestHelperFactoryInterface() != null)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                 {
                     LogUtil.put(LogFactory.getInstance("TableTag RequestHelper: " + this.getTagRequestHelperFactoryInterface().getClass().getName(), this, "doStartTag()"));
                 }
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
                 {
                 LogUtil.put(LogFactory.getInstance("TableTag RequestHelper: null", this, "doStartTag()"));
                 }
             }
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
             {
                 LogUtil.put(LogFactory.getInstance("TableTag this.getCommand(): " + this.getCommand(), this, "doStartTag()"));
             }
@@ -387,7 +387,7 @@ public class TableTag extends PropertiesTag
                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.BACKUP) == 0)
                     {
                         String output = this.backup();
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
@@ -398,7 +398,7 @@ public class TableTag extends PropertiesTag
                         this.getPropertiesHashMap().put("total", this.getTotal());
 
                         String output = this.restore();
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
@@ -406,7 +406,7 @@ public class TableTag extends PropertiesTag
                     } else if (this.getCommand().compareTo(commonStrings.DROP) == 0)
                     {
                         String output = this.drop();
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
@@ -414,7 +414,7 @@ public class TableTag extends PropertiesTag
                     } else if (this.getCommand().compareTo(commonStrings.CREATE) == 0)
                     {
                         String output = this.create();
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
@@ -422,21 +422,21 @@ public class TableTag extends PropertiesTag
                     } else if (this.getCommand().compareTo(commonStrings.INSERT) == 0)
                     {
                         String output = this.insert();
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
                     } else if (this.getCommand().compareTo(commonStrings.DELETE) == 0)
                     {
                         String output = this.delete();
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
                     } else if (this.getCommand().compareTo(commonStrings.UPDATE) == 0)
                     {
                         String output = this.update();
-                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                         {
                             this.pageContext.getOut().print(output + "<br />");
                         }
@@ -446,7 +446,7 @@ public class TableTag extends PropertiesTag
                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.VIEW)==0)
                     {
                     String output = this.view();
-                    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                     {
                     this.pageContext.getOut().print(output);
                     }
@@ -455,7 +455,7 @@ public class TableTag extends PropertiesTag
                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.EDIT)==0)
                     {
                     String output = this.edit();
-                    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAGEXTRAOUTPUT))
+                    if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAGEXTRAOUTPUT))
                     {
                     this.pageContext.getOut().print(output);
                     }

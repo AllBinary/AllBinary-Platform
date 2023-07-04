@@ -86,7 +86,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to Construct CategoryRequestHelper";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"CategoryRequestHelper()",e));
          }
@@ -116,7 +116,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
                if(xmlRequest.startsWith(categoryRequest)) break;
             }
             
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance(xmlRequest, this, "getXmlData()"));
             }
@@ -126,7 +126,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
             Node requestNode = DomSearchHelper.getNode(
                categoryData.REQUEST, document.getChildNodes());
 
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance(DomDocumentHelper.toString(document), this, "getXmlData()"));
             }
@@ -147,7 +147,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
             //category factory embeded in the categoryLoader
             this.categoryInterface = this.categoryLoaderInterface.get(this.categoryInterface);
             
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                this.categoryInterface.log();
                LogUtil.put(LogFactory.getInstance("Loaded Parent Category", this, "getXmlData()"));
@@ -158,7 +158,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
 
             if(childCategoryNode!=null)
             {
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
                {
                   LogUtil.put(LogFactory.getInstance("Loading Child Category", this, "getXmlData()"));
                }
@@ -169,7 +169,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
 
                //this.categoryLoaderInterface.get(childCategoryNode);
 
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
                {
                   this.childCategoryInterface.log();
                   LogUtil.put(LogFactory.getInstance("Loaded Child Category", this, "getXmlData()"));
@@ -185,7 +185,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to getXMLData Category Command";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"getXmlData()",e));
          }
@@ -264,7 +264,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
                   
          String success = "Successfully Added the following to the Category table";
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("inserting",this,"insert()"));
          }
@@ -272,7 +272,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          this.categoryLoaderInterface.insert(
             this.categoryInterface, this.childCategoryInterface);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"insert()"));
          }
@@ -282,7 +282,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       {
          String error = "Failed to add item to Category";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"insert()",e));
          }
@@ -297,7 +297,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          String success = "Successfully Removed " + CategoryData.getInstance().NAME + "=" + 
             this.childCategoryInterface.getPath();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance("Deleting",this,"delete()"));
          }
@@ -305,7 +305,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          this.categoryLoaderInterface.delete(
             this.categoryInterface, this.childCategoryInterface);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"delete()"));
          }
@@ -319,7 +319,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
             String error = "Failed to remove category: " + 
                this.childCategoryInterface.getPath();
          
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                LogUtil.put(LogFactory.getInstance(error, this, "delete()", e));
             }
@@ -329,7 +329,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          {
             String error = "Failed to remove category and show the path of the failed category";
          
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                LogUtil.put(LogFactory.getInstance(error, this, "delete()", e2));
             }
@@ -347,7 +347,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          
          String xmlString = DomDocumentHelper.toString(document);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(xmlString,this,"viewCategory()"));
          }
@@ -356,7 +356,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       catch(Exception e)
       {
          String error = "Failed to get Category";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"viewCategory()",e));
          }
@@ -373,7 +373,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          
          //Categories categories;
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"viewCategories()"));
          }
@@ -382,7 +382,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       catch(Exception e)
       {
          String error = "Failed to view Categories table";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"viewCategories()",e));
          }
@@ -400,7 +400,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
          
          String success = "New Item Successfully added";
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"update()"));
          }
@@ -409,7 +409,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       catch(Exception e)
       {
          String error = "Failed to add Item";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance(error,this,"update()",e));
          }

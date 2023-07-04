@@ -29,7 +29,7 @@ public class CategoryPrivateTree
 
    public CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.CATEGORY))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
       {
          LogUtil.put(LogFactory.getInstance("Constructing", this, "CategoryPrivateTree(CategoryFactoryInterface categoryFactoryInterface)"));
       }
@@ -40,7 +40,7 @@ public class CategoryPrivateTree
    protected synchronized void save(CategoryInterface categoryInterface)
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("Saving Category File: " + categoryInterface.getFilePath(), this, "save()"));
       }
@@ -55,7 +55,7 @@ public class CategoryPrivateTree
 
        cryptFileWriter.write(categoryInterface.getFilePath(), document);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("end", this, "save()"));
       }
@@ -70,7 +70,7 @@ public class CategoryPrivateTree
 
          if(categoryFile.delete())
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance(
                    "Removed: " + categoryInterface.getFilePath(),
@@ -80,7 +80,7 @@ public class CategoryPrivateTree
       }
       else
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance("Not a leaf unable to remove", this, "delete(CategoryInterface)"));
          }
@@ -103,7 +103,7 @@ public class CategoryPrivateTree
 
          if(categoryFile.delete())
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                LogUtil.put(LogFactory.getInstance("Removed: " + categoryInterface.getFilePath(), 
                   this, "remove(CategoryInterface)");
@@ -227,7 +227,7 @@ public class CategoryPrivateTree
          new File(parentCategoryInterface.getFilePath());
       DomHelper.save(modifiedCategoryFile,document);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
       {
          LogUtil.put(LogFactory.getInstance("end", this, "remove()");
       }      
@@ -283,7 +283,7 @@ public class CategoryPrivateTree
 
                if(newCategory.compareTo(category) == 0)
                {
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                   {
                      LogUtil.put(LogFactory.getInstance("Already Exists" + newCategory,this,"modifyFile");
                   }
@@ -312,7 +312,7 @@ public class CategoryPrivateTree
                //add alphabetically
                if(newCategory.compareToIgnoreCase(category) < 0)
                {
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                   {
                      LogUtil.put(LogFactory.getInstance("Inserting: " + newCategory,this,"modifyFile");
                   }

@@ -46,7 +46,7 @@ public class TransactionResult implements TransactionResultInterface
       {
          String exceptionMessage = "TransactionResult Constructor Failed";
 
-         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENT))
+         //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          //{
             LogUtil.put(LogFactory.getInstance(exceptionMessage, this, "Constructor"));
          //}

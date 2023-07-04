@@ -113,7 +113,7 @@ public class PaymentTypeUtil {
    public void initDefault(String storeName)
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENT))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
       {
          LogUtil.put(LogFactory.getInstance("initDefault Payment: " + this.defaultName, this, "initDefault"));
       }
@@ -163,7 +163,7 @@ public class PaymentTypeUtil {
             String defaultPaymentGatewayNodeValue =
                DomNodeHelper.getTextNodeValue(defaultPaymentGatewayNode);
 
-            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENT))
+            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
             {
                LogUtil.put(LogFactory.getInstance("DefaultPaymentGatewayNodeValue: " + defaultPaymentGatewayNodeValue, this, "initDefault"));
             }
@@ -179,7 +179,7 @@ public class PaymentTypeUtil {
    public PaymentType getDefault(String storeName)
       throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENT))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
       {
          LogUtil.put(LogFactory.getInstance("Start", this, "getDefault"));
       }

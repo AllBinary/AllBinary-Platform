@@ -41,7 +41,7 @@ public class ProductListingFactory
       catch(LicensingException e)
       {
          String error = "Failed to get instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
             LogUtil.put(error,"ProductListingFactory","getInstance()",e);
          }
@@ -50,7 +50,7 @@ public class ProductListingFactory
       catch(Exception e)
       {
          String error = "Failed get Instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, "ProductListingFactory", "getInstance()", e));
          }

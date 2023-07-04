@@ -15,7 +15,7 @@ package org.allbinary.logic.communication.log.config.type;
 
 //import java.io.PrintWriter;
 
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
 import java.util.Vector;
 
@@ -85,7 +85,7 @@ public class LogConfigTypes
          PreLogUtil.put("Number Of Log Config Type Names: " + logConfigTypeVector.size(),"LogConfigTypes","init()");
          
          LogConfigTypes.LOGGING.addAll(logConfigTypeVector);
-         LogConfigTypes.LOGGING.add(LogConfigType.NETBEANS_MODULE);
+         LogConfigTypes.LOGGING.add(LogConfigTypeFactory.getInstance().NETBEANS_MODULE);
       }
       catch(Exception e)
       {

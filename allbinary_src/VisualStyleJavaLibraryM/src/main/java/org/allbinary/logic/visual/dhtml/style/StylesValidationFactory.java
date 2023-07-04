@@ -43,14 +43,14 @@ public class StylesValidationFactory
       NodeList nodeList = document.getElementsByTagName(StylesData.getInstance().NAME);
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Style Present: " + DomDocumentHelper.toString(document),
             instance, "getInstance()"));
       }
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Styles Present: " + nodeList.getLength(),
             instance, "getInstance()"));
@@ -65,7 +65,7 @@ public class StylesValidationFactory
                StyleData.getInstance().NAME,stylesNode.getChildNodes());
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Number Of Style Nodes Present: " +
                styleNodeList.size(), 
@@ -83,7 +83,7 @@ public class StylesValidationFactory
                   CssElementData.getInstance().NAME,styleNode.getChildNodes());
 
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-               org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+               org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                LogUtil.put(LogFactory.getInstance("Number Of Element Nodes Present: " +
                   cssElementStyleNodeList.size(), 
@@ -95,7 +95,7 @@ public class StylesValidationFactory
       }
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("No Style Present", instance, "getInstance()"));
       }

@@ -92,7 +92,7 @@ public class TaxFactory
             }
             else
             {
-               if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+               if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
                {
                   LogUtil.put(LogFactory.getInstance("Class Node Null", instance, "getInstance()"));
                }
@@ -100,7 +100,7 @@ public class TaxFactory
          }
          else
          {
-            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAX))
+            if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
             {
                LogUtil.put(LogFactory.getInstance("Tax Name Node Node Children", instance, "getInstance()"));
             }

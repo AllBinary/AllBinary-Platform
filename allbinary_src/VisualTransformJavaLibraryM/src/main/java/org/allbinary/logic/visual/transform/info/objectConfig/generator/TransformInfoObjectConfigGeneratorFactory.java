@@ -46,7 +46,7 @@ public class TransformInfoObjectConfigGeneratorFactory implements
         String type = (String) transformInfoInterface.getObjectConfigInterface().getOutputTypeName();
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("Generating Instance for type: " + type,
                 this, "getInstance()"));

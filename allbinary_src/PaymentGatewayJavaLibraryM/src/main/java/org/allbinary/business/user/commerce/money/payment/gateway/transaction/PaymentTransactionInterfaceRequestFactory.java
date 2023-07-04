@@ -95,7 +95,7 @@ public class PaymentTransactionInterfaceRequestFactory
                 orderPaymentInfo.setTenderType(TenderTypeFactory.getInstance().CREDITCARD.toString());
                 orderReview.setPaymentInfo(orderPaymentInfo);
 
-                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENT))
+                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
                 {
                     LogUtil.put(LogFactory.getInstance(
                             orderReview.getId(), instance, "getPaymentTransactionInterface()"));
@@ -110,7 +110,7 @@ public class PaymentTransactionInterfaceRequestFactory
         }catch(Exception e)
         {
             String error = "Error Getting PaymentTransactionInterface";
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENTERROR))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
                 LogUtil.put(LogFactory.getInstance(
                         error, instance, "getPaymentTransactionInterface()", e));
@@ -223,7 +223,7 @@ public class PaymentTransactionInterfaceRequestFactory
         }catch(Exception e)
         {
             String error = "Error Getting PaymentTransactionInterface";
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.PAYMENTERROR))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
                 LogUtil.put(LogFactory.getInstance(
                         error, instance, "generatePaymentTransactionInterfaceFromTestData()", e));

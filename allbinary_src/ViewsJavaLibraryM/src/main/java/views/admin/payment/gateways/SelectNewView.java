@@ -48,7 +48,7 @@ public class SelectNewView extends PaymentGatewayViewAbstract
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
              String error = "Failed edit payment gateway";
              LogUtil.put(LogFactory.getInstance(error, this, "view", e));

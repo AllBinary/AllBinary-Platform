@@ -93,7 +93,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
       }
       catch(Exception e)
       {
-	 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+	 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
 	 {
 	    LogUtil.put(LogFactory.getInstance("Failed to validate",this,"isValid()",e));
 	 }
@@ -145,7 +145,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
       }
       catch(Exception e)
       {
-	 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+	 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
 	 {
 	    LogUtil.put(LogFactory.getInstance("Failed to create validateInfo",this,"validationInfo()",e));
 	 }

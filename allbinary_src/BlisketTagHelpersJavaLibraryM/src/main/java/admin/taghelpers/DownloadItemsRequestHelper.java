@@ -57,7 +57,7 @@ public class DownloadItemsRequestHelper implements ModifyTableInterface
 
             String success = "Successfully inserted " + this.downloadableItem.getId() + " into downloaditems table";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "insert()"));
             }
@@ -66,7 +66,7 @@ public class DownloadItemsRequestHelper implements ModifyTableInterface
         {
             String error = "Failed to insert " + this.downloadableItem.getId() + " into downloaditems table";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "inserts()", e));
             }
@@ -83,7 +83,7 @@ public class DownloadItemsRequestHelper implements ModifyTableInterface
 
             String success = "Successfully deleted";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(success, this, "delete()"));
             }
@@ -92,7 +92,7 @@ public class DownloadItemsRequestHelper implements ModifyTableInterface
         {
             String error = "Failed to delete";
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "delete()", e));
             }
@@ -109,7 +109,7 @@ public class DownloadItemsRequestHelper implements ModifyTableInterface
             HashMap values = this.downloadableItem.toHashMap();
             DownloadItemsEntityFactory.getInstance().getDownloadItemsEntityInstance().update(values);
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGS))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
             {
                 LogUtil.put(LogFactory.getInstance(this.downloadableItem.getId() + CommonSeps.getInstance().SPACE + success, this, "update()"));
             }
@@ -118,7 +118,7 @@ public class DownloadItemsRequestHelper implements ModifyTableInterface
         {
             String error = "Failed to update: " + this.downloadableItem.getId();
 
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "update()", e));
             }

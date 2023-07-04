@@ -59,7 +59,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
    {
        String docString = DomDocumentHelper.toString(objectConfigDocument);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Initial ObjectConfig: " + docString, this, "generate()"));
       }
@@ -90,7 +90,7 @@ public class NoTemplateTransformInfoObjectConfig extends TransformInfoObjectConf
          DomDocumentHelper.create(
             replace.all(docString ));
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Final ObjectConfig: " +
             DomDocumentHelper.toString(newObjectConfigDocument), this, "generate()"));

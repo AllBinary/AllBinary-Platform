@@ -25,7 +25,7 @@ import org.allbinary.logic.basic.io.file.directory.SubDirectory;
 import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigType;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
@@ -55,7 +55,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       }
       catch(Exception e)
       {
-         if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
+         if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
          {
             LogUtil.put(LogFactory.getInstance("Cpu Data: " + this.toString(), this, "Constructor()", e));
          }
@@ -77,7 +77,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
             //Find file
             Vector fileVector = new SubDirectory().search(filePath, new AbFile(FilePathData.SEPARATOR));
             
-            if(LogConfigTypes.LOGGING.contains(LogConfigType.OS))
+            if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
                LogUtil.put(LogFactory.getInstance("Cpu File Vector Size: " + fileVector.size(), this, "Constructor()"));
             }

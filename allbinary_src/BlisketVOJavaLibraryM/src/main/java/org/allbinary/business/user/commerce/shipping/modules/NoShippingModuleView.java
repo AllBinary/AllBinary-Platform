@@ -66,7 +66,7 @@ public class NoShippingModuleView extends NoShippingModule implements DomNodeInt
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
             LogUtil.put(LogFactory.getInstance("Exception", this, "toXmlNode", e));
          }

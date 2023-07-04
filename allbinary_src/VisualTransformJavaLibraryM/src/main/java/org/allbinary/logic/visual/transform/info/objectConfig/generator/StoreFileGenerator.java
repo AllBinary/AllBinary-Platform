@@ -129,7 +129,7 @@ public class StoreFileGenerator
         this.file = new AbFile(this.fileAbPath);
         
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("File: " + this.fileAbPath.toString(), this, "Constructor()"));
         }
@@ -138,7 +138,7 @@ public class StoreFileGenerator
     public String process(String input) throws Exception
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("Processing", this, "process()"));
         }
@@ -158,7 +158,7 @@ public class StoreFileGenerator
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("Processed", this, "process()"));
         }

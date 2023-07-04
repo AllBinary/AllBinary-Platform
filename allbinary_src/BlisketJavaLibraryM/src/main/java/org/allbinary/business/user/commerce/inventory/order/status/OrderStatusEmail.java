@@ -68,7 +68,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
             LogUtil.put(LogFactory.getInstance("Order Email", this, "emailStoreAdmin"));
          }
@@ -105,7 +105,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Exception", this, "emailAdmin", e));
          }
@@ -118,7 +118,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGING))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
             LogUtil.put(LogFactory.getInstance("Email User", this, "notifyUser()"));
          }
@@ -143,7 +143,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.EMAILLOGGINGERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
             LogUtil.put(LogFactory.getInstance("Exception", this, "notifyUser", e));
          }

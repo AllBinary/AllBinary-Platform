@@ -93,7 +93,7 @@ public class InventorySearchUtil {
             BasicItemData.ID);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Number Of Items Found: " + column.size(), this, "search"));
         }
@@ -112,7 +112,7 @@ public class InventorySearchUtil {
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance("Number Of Items Found Including SubStores: "
                 + column.size(), this, "search"));
@@ -134,7 +134,7 @@ public class InventorySearchUtil {
         String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
             LogUtil.put(LogFactory.getInstance(
                 "No Results Xml: " + success, this, "search"));
@@ -171,7 +171,7 @@ public class InventorySearchUtil {
 
             /*
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
             {
             	stringBuffer.append(KEYWORD);
                 stringBuffer.append(keyword);
@@ -230,7 +230,7 @@ public class InventorySearchUtil {
 
                 /*
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                 {
                     LogUtil.put(LogFactory.getInstance("Initial Document Created", instance, "search"));
                 }
@@ -249,7 +249,7 @@ public class InventorySearchUtil {
 
                     /*
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                        org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                        org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                     {
                         stringBuffer.delete(0, stringBuffer.length());
 
@@ -282,7 +282,7 @@ public class InventorySearchUtil {
 
                         /*
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                         {
                             stringBuffer.delete(0, stringBuffer.length());
 
@@ -303,7 +303,7 @@ public class InventorySearchUtil {
                             {
                                 /*
                                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                                    org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                                    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                                 {
                                     stringBuffer.delete(0, stringBuffer.length());
 
@@ -377,7 +377,7 @@ public class InventorySearchUtil {
                 {
                     /*
                     if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                        org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                        org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                     {
                         stringBuffer.delete(0, stringBuffer.length());
 
@@ -427,7 +427,7 @@ public class InventorySearchUtil {
 
                         /*
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                         {
                             stringBuffer.delete(0, stringBuffer.length());
 
@@ -481,7 +481,7 @@ public class InventorySearchUtil {
 
                         /*
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                            org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGING))
+                            org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
                         {
                             stringBuffer.delete(0, stringBuffer.length());
 
@@ -524,7 +524,7 @@ public class InventorySearchUtil {
         catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.PRODUCTSEARCHLOGGINGERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, instance, "search", e));
             }

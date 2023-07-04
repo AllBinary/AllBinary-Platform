@@ -20,12 +20,12 @@ import java.util.Vector;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.basic.util.visitor.VisitorInterface;
 
-public abstract class AbstractVectorBooleanFileVisitor
+public class VectorBooleanFileVisitor
    implements VisitorInterface
 {
    private Vector filterStringVector;
    
-   public AbstractVectorBooleanFileVisitor(Vector filterStringVector)
+   public VectorBooleanFileVisitor(Vector filterStringVector)
    {
       this.setFilterStringVector(filterStringVector);
       PreLogUtil.put("Filter Vector: " + this.getFilterStringVector().toString(), this, "Constructor");
@@ -61,5 +61,7 @@ public abstract class AbstractVectorBooleanFileVisitor
       this.filterStringVector = filterStringVector;
    }
    
-   public abstract Boolean visit(AbFile file, String fileNameString);
+   public Boolean visit(AbFile file, String fileNameString) {
+       return Boolean.FALSE;
+   }
 }

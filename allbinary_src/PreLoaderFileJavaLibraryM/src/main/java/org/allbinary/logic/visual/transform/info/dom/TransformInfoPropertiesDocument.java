@@ -64,7 +64,7 @@ public class TransformInfoPropertiesDocument
          Vector transformInfoNodeVector = DomSearchHelper.getAllNodes(
             TransformInfoData.getInstance().NAME, transformInfosChildNodeList);
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Size: " + transformInfoNodeVector.size(), this, "toTransformInfoPropertiesHashMap()"));
          }
@@ -85,7 +85,7 @@ public class TransformInfoPropertiesDocument
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed", this, "toTransformInfoPropertiesHashMap()", e));
          }

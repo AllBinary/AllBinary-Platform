@@ -116,7 +116,7 @@ public class FilePathUtil
       
       //Causes recursive loop on log initialization
       /*
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.FILE))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
       {
          PreLogUtil.put("Path: " + path, "PathUtil", "adjust");
       }

@@ -16,7 +16,7 @@ package org.allbinary.logic.basic.io.file.visitor;
 import org.allbinary.logic.basic.io.file.AbFile;
 import java.util.Vector;
 
-public class IncludeFileExtensionsBooleanFileVisitor extends AbstractVectorBooleanFileVisitor
+public class IncludeFileExtensionsBooleanFileVisitor extends VectorBooleanFileVisitor
 {
    public IncludeFileExtensionsBooleanFileVisitor(Vector filterStringVector)
    {

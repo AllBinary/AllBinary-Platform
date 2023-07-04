@@ -32,7 +32,7 @@ public class HttpFilePermissions
         file = new AbFile(new AbPath(fullPath.toFileSystemString(),
             FileUploadData.getInstance().FILE));
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
             LogUtil.put(LogFactory.getInstance("Loading Privileges: " + fullPath.toFileSystemString(), this, "Constructor()"));
         }
@@ -43,7 +43,7 @@ public class HttpFilePermissions
             userRoles.add(BasicUserRoleFactory.getInstance().ADMINISTRATOR);
         }
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
             LogUtil.put(LogFactory.getInstance("User Roles: " + userRoles, this, "Constructor()"));
         }

@@ -140,7 +140,7 @@ public class DownloadFileServlet extends HttpServlet
 
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Exception", this, "processRequest()", e));
             }

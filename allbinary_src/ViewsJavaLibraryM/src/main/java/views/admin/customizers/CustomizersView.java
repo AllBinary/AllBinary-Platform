@@ -91,7 +91,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
 
             return node;
         } catch (Exception e) {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.XSLLOGGINGERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XSLLOGGINGERROR)) {
                 LogUtil.put(LogFactory.getInstance(this.commonStrings.FAILURE, this, "toXmlNode", e));
             }
             return null;
@@ -108,7 +108,7 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
             return super.view();
         } catch (Exception e) {
             final String error = "Failed to view Mini Basket";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR)) {
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR)) {
                 LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
             }
             throw e;

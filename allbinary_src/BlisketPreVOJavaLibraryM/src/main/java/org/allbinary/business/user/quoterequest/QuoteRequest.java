@@ -53,7 +53,7 @@ public class QuoteRequest
       this.setTimeFrame((String) request.getParameter(quoteRequestData.TIMEFRAME));
       this.setComments((String) request.getParameter(quoteRequestData.COMMENTS));
 
-      if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+      if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
          LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, "Constructor()"));
       }
@@ -71,7 +71,7 @@ public class QuoteRequest
       this.setTimeFrame((String) hashMap.get(quoteRequestData.TIMEFRAME));
       this.setComments((String) hashMap.get(quoteRequestData.COMMENTS));
 
-      if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+      if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
          LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, "Constructor()"));
       }
@@ -116,7 +116,7 @@ public class QuoteRequest
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to validate form",this,"isValid()",e));
          }
@@ -163,7 +163,7 @@ public class QuoteRequest
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.SQLTAGSERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed to generate validation error info",this,"validationInfo()",e));
          }

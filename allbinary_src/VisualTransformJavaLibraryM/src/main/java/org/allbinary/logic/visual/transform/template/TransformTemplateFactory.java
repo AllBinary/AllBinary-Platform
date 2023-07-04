@@ -53,7 +53,7 @@ public class TransformTemplateFactory
       catch(Exception e)
       {
          String error = "Failed To Get Instance";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, templateName + "->TemplateFactory", "getInstance(viewName, HashMap, PageContext)", e));
          }

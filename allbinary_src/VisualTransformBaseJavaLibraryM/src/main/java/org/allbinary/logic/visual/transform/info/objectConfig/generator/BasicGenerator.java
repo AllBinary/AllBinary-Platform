@@ -26,7 +26,7 @@ public class BasicGenerator
    public String process(String input)
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Processing", this, "process()"));
       }      

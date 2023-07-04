@@ -21,9 +21,20 @@ import org.allbinary.logic.basic.io.file.visitor.IncludeFileExtensionsBooleanFil
 public class DirectoryOrIncludeFileExtensionBooleanFileVisitor
     extends IncludeFileExtensionsBooleanFileVisitor
 {
-    public DirectoryOrIncludeFileExtensionBooleanFileVisitor(Vector filterStringVector)
+    private final String includesString;
+    
+    public DirectoryOrIncludeFileExtensionBooleanFileVisitor(final Vector filterStringVector)
     {
         super(filterStringVector);
+        
+        this.includesString = null;
+    }
+
+    public DirectoryOrIncludeFileExtensionBooleanFileVisitor(final Vector filterStringVector, final String includesString)
+    {
+        super(filterStringVector);
+        
+        this.includesString = includesString;
     }
     
     public Boolean visit(AbFile file)
@@ -33,6 +44,11 @@ public class DirectoryOrIncludeFileExtensionBooleanFileVisitor
             return Boolean.TRUE;
         }
         
-        return super.visit(file);
+        if(this.includesString == null || file.getAbsolutePath().indexOf(this.includesString) >= 0) {
+            return super.visit(file);
+        } else {
+            return Boolean.FALSE;
+        }
+
     }
 }

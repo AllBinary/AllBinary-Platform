@@ -55,7 +55,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
     public void set(String aParentViewName) throws Exception
     {
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("Setting: " + aParentViewName, this, "set()"));
         }
@@ -69,7 +69,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
         if (parentComponentsNodeList != null
             && parentComponentsNodeList.getLength() > 0)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Replacing", this, "set()"));
             }
@@ -86,7 +86,7 @@ public class InsertTemplateCustomizerTransformInfoObjectConfig extends NoTemplat
                 aParentViewName).toXmlNode(document));
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Setting", this, "set()"));
             }

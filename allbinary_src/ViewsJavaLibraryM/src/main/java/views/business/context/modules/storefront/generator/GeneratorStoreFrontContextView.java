@@ -33,7 +33,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
    {
       super(transformInfoInterface);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "Constructor()"));
       }
@@ -45,7 +45,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
         TransformsGeneratorUtil.generateComponentsFromObjectConfig(
            this.getTransformInfoInterface(), group);
 
-     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPEXTRAOUTPUT))
+     if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPEXTRAOUTPUT))
      {
         return result;
      }
@@ -65,7 +65,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
       {
          //String error = "Failed To View Store Template Compound Component";
          String error = "Failed To Generate StoreFront Context";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
          }

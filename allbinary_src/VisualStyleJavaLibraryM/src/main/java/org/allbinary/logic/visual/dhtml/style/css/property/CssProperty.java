@@ -55,7 +55,7 @@ public class CssProperty implements DomNodeInterface
       
       this.propertyName = DomNodeHelper.getTextNodeValue(propertyNode);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.STYLE))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
       {
          LogUtil.put(LogFactory.getInstance("Name: " + this.getName(),this,"CssProperty()"));
       }
@@ -73,7 +73,7 @@ public class CssProperty implements DomNodeInterface
    {
       this.propertyName = (String) hashMap.get(CssPropertyData.NAME);
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.STYLE))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().STYLE))
       {
          LogUtil.put(LogFactory.getInstance("Name: " + this.getName(),this,"CssProperty()");
       }
@@ -101,7 +101,7 @@ public class CssProperty implements DomNodeInterface
    {
       HashMap hashMap = this.toHashMap();
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("CssView HashMap: " + hashMap.toString(),this,"toXmlNode()"));
       }

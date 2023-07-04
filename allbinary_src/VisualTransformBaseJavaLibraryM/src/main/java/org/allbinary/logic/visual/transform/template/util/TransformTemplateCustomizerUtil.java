@@ -95,7 +95,7 @@ public class TransformTemplateCustomizerUtil
         String rootViewName = replace.all(viewName);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("RootViewName for ObjectConfig: " + rootViewName, this, "getPageNameHack"));
         }

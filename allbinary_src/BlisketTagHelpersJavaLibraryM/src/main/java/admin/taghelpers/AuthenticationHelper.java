@@ -70,7 +70,7 @@ public class AuthenticationHelper
 
         this.getFormData();
 
-        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+        if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
         {
             LogUtil.put(LogFactory.getInstance(this.outputSessionInfo(), this, "Constructor()"));
         }
@@ -96,7 +96,7 @@ public class AuthenticationHelper
         } catch (Exception e)
         {
             String error = "Failed to invalidateSession";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATIONERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "invalidateSession()", e));
             }
@@ -116,7 +116,7 @@ public class AuthenticationHelper
 
             if (timeFirst > timeCreated)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -134,7 +134,7 @@ public class AuthenticationHelper
             }
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
                 LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isSessionOld()"));
             }
@@ -157,7 +157,7 @@ public class AuthenticationHelper
             long timeFirst = calendar.getTimeInMillis() - lastAccess;
 
           //Temp log - remove when fixed
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
@@ -174,7 +174,7 @@ public class AuthenticationHelper
             /*
             if (timeFirst > inactivityAllowed)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -193,7 +193,7 @@ public class AuthenticationHelper
             */
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
             {
                 LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isRarelyUsedSession()"));
             }
@@ -217,7 +217,7 @@ public class AuthenticationHelper
         } catch (Exception e)
         {
             String error = "Failed to set valid role";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATIONERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "validRole()", e));
             }
@@ -238,7 +238,7 @@ public class AuthenticationHelper
         } catch (Exception e)
         {
             String error = "Failed to set role invalid";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATIONERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "invalidRole()", e));
             }
@@ -295,7 +295,7 @@ public class AuthenticationHelper
 
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATION))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
                 {
                     LogUtil.put(LogFactory.getInstance("Role Is Not In Session", this, "isAuthenticationSessionValid()"));
                 }
@@ -305,7 +305,7 @@ public class AuthenticationHelper
         } catch (Exception e)
         {
             String error = "Failed to validate previously authenticated Session";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATIONERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "isAuthenticatedSessionValid()", e));
             }
@@ -328,7 +328,7 @@ public class AuthenticationHelper
     {
         try
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATIONERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Starting: " + userName, this, "processIfNewLogin()"));
             }
@@ -381,7 +381,7 @@ public class AuthenticationHelper
         } catch (Exception e)
         {
             String error = "Failed to validate new login";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATIONERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "processIfNewLogin()", e));
             }
@@ -405,7 +405,7 @@ public class AuthenticationHelper
         } catch (Exception e)
         {
             String error = "Failed check if already set to invalidate";
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.AUTHENTICATIONERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATIONERROR))
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "processInvalidation()", e));
             }

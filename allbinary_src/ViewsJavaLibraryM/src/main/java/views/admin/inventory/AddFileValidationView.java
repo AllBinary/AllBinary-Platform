@@ -74,7 +74,7 @@ public class AddFileValidationView
                 || (command.compareTo(ADDPRODUCT) != 0
                 && command.compareTo(NEXTSTEP) != 0))
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -95,7 +95,7 @@ public class AddFileValidationView
 
             if (basicItemValidation.isValid() == Boolean.FALSE)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance(basicItemValidation.validationInfo(), this, "isValid()"));
                 }
@@ -120,7 +120,7 @@ public class AddFileValidationView
             AbFile categoryFile = new AbFile(fullCategory);
             if (!categoryFile.isDirectory())
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("Category Does Not Exist: " + fullCategory, this, "isValid()"));
                 }
@@ -130,7 +130,7 @@ public class AddFileValidationView
 
             if (InventoryEntityFactory.getInstance().getInventoryEntityInstance().getItem(this.itemInterface.getId()) != null)
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("Item Already Exists", this, "isValid()"));
                 }
@@ -159,7 +159,7 @@ public class AddFileValidationView
             return Boolean.TRUE;
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Exception in validation", this, "isValid()", e));
             }
@@ -211,7 +211,7 @@ public class AddFileValidationView
                 this.itemInterface.getCategory()).toString();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 LogUtil.put(LogFactory.getInstance("Category: " + fullCategory, this, "validationInfo()"));
             }
@@ -233,7 +233,7 @@ public class AddFileValidationView
             } catch (MoneyException e)
             {
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                    org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                    org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
                     LogUtil.put(LogFactory.getInstance("Existing Item With MoneyException", this, "validationInfo()"));
                 }
@@ -255,7 +255,7 @@ public class AddFileValidationView
             return stringBuffer.toString();
         } catch (Exception e)
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
                 LogUtil.put(LogFactory.getInstance("Failed to generate validation error info", this, "validationInfo()", e));
             }
@@ -291,7 +291,7 @@ public class AddFileValidationView
                 }
             } else
             {
-                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+                if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
                     StringBuffer stringBuffer = new StringBuffer();
 
@@ -309,7 +309,7 @@ public class AddFileValidationView
             this.processImageFiles();
         } else
         {
-            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+            if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
                 StringBuffer stringBuffer = new StringBuffer();
 

@@ -37,7 +37,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    
    public BasicWorkFlow(HashMap propertiesHashMap, PageContext pageContext) throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.WORKFLOW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
       {
          LogUtil.put(LogFactory.getInstance("Properties: " + propertiesHashMap.toString(), this, "BasicWorkFlow()"));
       }
@@ -66,7 +66,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    
    public Integer process() throws Exception
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.WORKFLOW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
       {
          LogUtil.put(LogFactory.getInstance("Start",this,"process()"));
       }

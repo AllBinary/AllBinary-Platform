@@ -54,7 +54,7 @@ public class DbWorkFlowFactory
       catch(LicensingException e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
         	 String error = "Failed To Get Instance Args: HashMap=" + hashMap.toString();
             LogUtil.put(LogFactory.getInstance(error, instance, "getInstance(HashMap)",e));
@@ -64,7 +64,7 @@ public class DbWorkFlowFactory
       catch(Exception e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-         org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+         org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
         	 String error = "Failed To Get Instance";
         	 

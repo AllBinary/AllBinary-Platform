@@ -91,7 +91,7 @@ public class CompoundContextTransformInfoObjectConfig
       Vector viewVector = this.getTransformDomNodes();
       Iterator iter = viewVector.iterator();
 
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance(
              "Root View Called with: " + viewVector.size(),
@@ -129,7 +129,7 @@ public class CompoundContextTransformInfoObjectConfig
          
          String templateValue = stringBuffer.toString();
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
         	 stringBuffer.delete(0, stringBuffer.length());
              
@@ -146,7 +146,7 @@ public class CompoundContextTransformInfoObjectConfig
          rootView = replace.all(rootView);
       }
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("End: Result of a compound view: " + rootView, this,"get()"));
       }
@@ -161,7 +161,7 @@ public class CompoundContextTransformInfoObjectConfig
       ByteArrayInputStream bais = 
          new ByteArrayInputStream(completeTemplateViewBytes);
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("Template: " + new String(completeTemplateViewBytes).toString(),this,"createInputStream()"));
       }

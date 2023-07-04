@@ -84,7 +84,7 @@ public class CssElementView implements DomNodeInterface
             this.description = "";
          }
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Value: " + this.value +
                     "\nTitle: " + this.title +
@@ -97,7 +97,7 @@ public class CssElementView implements DomNodeInterface
          DomSearchHelper.getAllNodes(
             CssElementData.getInstance().NAME, node.getChildNodes());
 
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
             LogUtil.put(LogFactory.getInstance("Child Css Elements: " + cssElementStyleNodeVector.size(),
                this, "CssElementView()"));
@@ -112,7 +112,7 @@ public class CssElementView implements DomNodeInterface
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEWERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
             LogUtil.put(LogFactory.getInstance("Value: " + this.value +
                     "\nTitle: " + this.title +
@@ -142,7 +142,7 @@ public class CssElementView implements DomNodeInterface
    {
       HashMap hashMap = this.toHashMap();
       
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.VIEW))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
          LogUtil.put(LogFactory.getInstance("CssView HashMap: " + hashMap.toString(),this,"toXmlNode"));
       }

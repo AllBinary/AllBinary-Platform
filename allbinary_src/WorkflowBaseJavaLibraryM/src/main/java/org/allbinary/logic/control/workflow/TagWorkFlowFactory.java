@@ -53,7 +53,7 @@ public class TagWorkFlowFactory
         } catch (LicensingException e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
@@ -72,7 +72,7 @@ public class TagWorkFlowFactory
         {
             String error = "Failed To Get Instance";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
-                org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERFACTORYERROR))
+                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 

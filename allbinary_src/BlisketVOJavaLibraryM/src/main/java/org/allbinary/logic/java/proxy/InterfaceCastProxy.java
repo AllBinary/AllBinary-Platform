@@ -56,7 +56,7 @@ public class InterfaceCastProxy implements java.lang.reflect.InvocationHandler
          interfaceNames += " ";
       }
       
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.LOADER))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
          {
             LogUtil.put(interfaceNames, "InterfaceCastProxy","newInst");
          }      

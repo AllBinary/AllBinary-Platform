@@ -91,7 +91,7 @@ public class AuthenticationRequestHelper
          String userName = request.getParameter(WeblisketSessionData.REMOVABLEUSERNAME);
          String email = request.getParameter(UserData.MAINEMAIL);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             LogUtil.put(LogFactory.getInstance("Generating New Password For: " + userName, this, "newPassword()"));
          }
@@ -101,7 +101,7 @@ public class AuthenticationRequestHelper
          UserRole role = this.weblisketSession.getRole();
          if(role == null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance("Trying role from request for: " + userName, this, "newPassword()"));
             }
@@ -121,7 +121,7 @@ public class AuthenticationRequestHelper
             if(userInterface.getSecondaryEmail() != null &&
                userInterface.getSecondaryEmail().compareTo(email) != 0)
             {
-               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+               if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
                {
                   LogUtil.put(LogFactory.getInstance("Requested Email Is Not In User Profile", this, "newPassword()"));
                }
@@ -139,7 +139,7 @@ public class AuthenticationRequestHelper
          //Send Communication with new password
          new NewPasswordEmail(userInterface, newPassword).process();
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             LogUtil.put(LogFactory.getInstance("Generated New Password For: " + userName, this, "newPassword()"));
          }
@@ -148,7 +148,7 @@ public class AuthenticationRequestHelper
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Failed", this, "newPassword()",e));
          }
@@ -166,7 +166,7 @@ public class AuthenticationRequestHelper
          String newPassword = request.getParameter(WeblisketSessionData.REMOVABLENEWPASSWORD);
          String newReenteredPassword = request.getParameter(WeblisketSessionData.REMOVABLEREENTERNEWPASSWORD);
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             LogUtil.put(LogFactory.getInstance("Changing Password For User: " + userName, this, "changePassword()"));
          }
@@ -176,7 +176,7 @@ public class AuthenticationRequestHelper
          UserRole role = this.weblisketSession.getRole();
          if(role == null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance("Trying role from request for: " + userName, this, "newPassword()"));
             }
@@ -191,7 +191,7 @@ public class AuthenticationRequestHelper
          Password password = new Password(newPassword);
          if(!password.isValid().booleanValue())
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance("New Password Is Not Valid", this, "changePassword()"));
             }
@@ -201,7 +201,7 @@ public class AuthenticationRequestHelper
          
          if(newPassword.compareTo(newReenteredPassword) != 0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance("New Password Fields Do Not Match", this, "changePassword()"));
             }
@@ -217,7 +217,7 @@ public class AuthenticationRequestHelper
          
          if(login.compareTo(GLOBALS2.LOGINSUCCESS)==0)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance("Authentication Successful", this, "changePassword()"));
             }
@@ -231,7 +231,7 @@ public class AuthenticationRequestHelper
             return Boolean.TRUE;
          }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
             LogUtil.put(LogFactory.getInstance("Authentication Failed", this, "changePassword()"));
          }
@@ -240,7 +240,7 @@ public class AuthenticationRequestHelper
       }
       catch(Exception e)
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance("Authentication Failed", this, "changePassword()",e));
          }
@@ -258,7 +258,7 @@ public class AuthenticationRequestHelper
          
          if(userInterface.getRole() == null)
          {
-            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+            if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
                LogUtil.put(LogFactory.getInstance("Role is null: " + userInterface.getRole() +
                   " Valid Roles: " + roles.toString(),
@@ -285,7 +285,7 @@ public class AuthenticationRequestHelper
                }
                else
                {
-                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+                  if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
                   {
                      LogUtil.put(LogFactory.getInstance("Role is not valid: " + userInterface.getRole() +
                      " Valid Roles: " + roles.toString(),
@@ -304,7 +304,7 @@ public class AuthenticationRequestHelper
             }
          }
          
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPER))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
         	 StringBuffer stringBuffer = new StringBuffer();
         	 
@@ -321,7 +321,7 @@ public class AuthenticationRequestHelper
       catch(Exception e)
       {
          String error = "Failed to check if Role is valid";
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.TAGHELPERERROR))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERERROR))
          {
             LogUtil.put(LogFactory.getInstance(error, this, "isRoleValid()", e));
          }

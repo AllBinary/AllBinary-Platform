@@ -31,7 +31,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
 {
    public BasicWorkFlowTag()
    {
-      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
          LogUtil.put(LogFactory.getInstance("Tag Constructed",this,"BasicWorkFlowTag()"));
       }
@@ -41,7 +41,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
    {
       try
       {
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigType.JSPTAG))
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
             LogUtil.put(LogFactory.getInstance("Start",this,"doStartTag()"));
          }
