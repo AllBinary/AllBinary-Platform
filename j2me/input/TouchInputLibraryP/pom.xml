@@ -37,10 +37,10 @@
         <module>../TouchButtonJavaLibraryM</module>
         
         <!-- Not really required here -->
-        <module>../ME/TouchScreenJ2MENoneJavaLibraryM</module>
-        <module>../ME/TouchScreenJ2MEJavaLibraryM</module>
+        <module>../platform/me/TouchScreenJ2MENoneJavaLibraryM</module>
+        <module>../platform/me/TouchScreenJ2MEJavaLibraryM</module>
         
-        <module>../ME/TouchJ2MEJavaLibraryM</module>
+        <module>../platform/me/TouchJ2MEJavaLibraryM</module>
         
     </modules>
 

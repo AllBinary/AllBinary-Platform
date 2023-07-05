@@ -29,9 +29,9 @@
     </properties>
 
     <modules>      
-        <module>../input/me/TouchJ2MENoneJavaLibraryM</module>
+        <module>../input/platform/me/TouchJ2MENoneJavaLibraryM</module>
         <!--
-        <module>../input/me/TouchJ2MEJavaLibraryM</module>
+        <module>../input/platform/me/TouchJ2MEJavaLibraryM</module>
         -->
         
         <!--
