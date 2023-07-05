@@ -258,7 +258,7 @@
             <groupId>org.apache.commons.custom</groupId>
             <artifactId>commons-fileupload-custom</artifactId>
             -->            
-            <version>1.2.1</version>
+            <version>1.5</version>
             <optional>true</optional>
         </dependency>
 
