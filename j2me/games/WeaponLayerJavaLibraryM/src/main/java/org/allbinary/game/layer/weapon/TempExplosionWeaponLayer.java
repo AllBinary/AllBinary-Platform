@@ -7,7 +7,6 @@ import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
-import org.allbinary.time.SimpleTimeDelay;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.view.ViewPosition;
 
@@ -16,8 +15,7 @@ extends SimpleWeaponLayer
 {
 	public final WeaponProperties weaponProperties = new WeaponProperties(0, 1000, (short) 0);
 
-        private final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(0);
-	private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(simpleTimeDelay);
+	private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 	
     public TempExplosionWeaponLayer(final Movement movement,
             final Animation animationInterface,
@@ -26,7 +24,7 @@ extends SimpleWeaponLayer
     {
         super(movement, animationInterface, rectangle, viewPosition);
         
-        this.simpleTimeDelay.delay = timeDelay;
+        this.timeDelayHelper.delay = timeDelay;
     }
     
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception

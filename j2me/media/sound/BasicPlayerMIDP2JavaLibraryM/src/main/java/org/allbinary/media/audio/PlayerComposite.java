@@ -26,25 +26,23 @@ import org.allbinary.time.TimeDelayHelper;
 
 import javax.microedition.media.TimeBase;
 import javax.microedition.media.MediaException;
-import org.allbinary.time.SimpleTimeDelay;
 
 public class PlayerComposite implements Controllable, Player
 {
     private Player player;
     
-    private final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(0);
-    private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(simpleTimeDelay);
+    private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
     
     public PlayerComposite(Player player)
     {
         this.player = player;
-        this.simpleTimeDelay.delay = 570;
+        this.timeElapsedHelper.delay = 570;
     }
 
     public PlayerComposite(Player player, int repeatTime)
     {
         this.player = player;
-        this.simpleTimeDelay.delay = repeatTime;
+        this.timeElapsedHelper.delay = repeatTime;
     }
 
     /*

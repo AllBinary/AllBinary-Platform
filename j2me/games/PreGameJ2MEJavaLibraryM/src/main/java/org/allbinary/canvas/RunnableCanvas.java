@@ -23,7 +23,6 @@ import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.CommandListener;
 import org.allbinary.logic.basic.string.CommonLabels;
-import org.allbinary.time.SimpleTimeDelay;
 
 public class RunnableCanvas extends MyCanvas 
     implements RunnableInterface
@@ -34,8 +33,7 @@ public class RunnableCanvas extends MyCanvas
     private boolean running;
 
     // private int wait;
-    private final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(240);
-    private final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(simpleTimeDelay);
+    private final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(240);
 
     //protected ProcessPaintable processPaintable;
     protected Processor runnableCanvasRefreshHelper;
@@ -144,14 +142,14 @@ public class RunnableCanvas extends MyCanvas
 
     protected void setWait(int wait)
     {
-        simpleTimeDelay.delay = wait;
+        loopTimeHelper.delay = wait;
         // this.wait = wait;
         this.pauseWait = wait * 3;
     }
 
     protected int getWait()
     {
-        return this.getLoopTimeHelper().getTimeDelay().getDelay();
+        return this.getLoopTimeHelper().delay;
     }
     
     public void setCurrentThread()
@@ -297,7 +295,7 @@ public class RunnableCanvas extends MyCanvas
         Thread.sleep(attemptFrameTime - elapsedTime);
         */
         
-        final int wait = this.loopTimeHelper.getTimeDelay().getDelay();
+        final int wait = this.loopTimeHelper.delay;
         
         if (elapsedTime > wait)
         {

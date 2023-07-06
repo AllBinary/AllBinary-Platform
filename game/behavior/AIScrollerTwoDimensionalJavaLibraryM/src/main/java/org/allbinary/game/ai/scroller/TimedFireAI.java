@@ -21,15 +21,13 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
-import org.allbinary.time.SimpleTimeDelay;
 import org.allbinary.time.TimeDelayHelper;
 
 public class TimedFireAI extends BasicAI
 {
 	public static final Integer TIME = SmallIntegerSingletonFactory.getInstance().getInstance(1);
 
-        protected final SimpleTimeDelay maxFireSimpleTimeDelay = new SimpleTimeDelay(0);
-        protected final TimeDelayHelper maxFireDelayTimeHelper = new TimeDelayHelper(maxFireSimpleTimeDelay);
+        protected final TimeDelayHelper maxFireDelayTimeHelper = new TimeDelayHelper(0);
 
     private final int delay;
     
@@ -51,11 +49,11 @@ public class TimedFireAI extends BasicAI
         
         if (this.maxFireDelayTimeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()) &&
                 //Fire only if owner has not fired from a different behavoir/AI
-                timeFiredInterface.getLastFireTime() + this.maxFireSimpleTimeDelay.delay < this.maxFireDelayTimeHelper.getStartTime())
+                timeFiredInterface.getLastFireTime() + this.maxFireDelayTimeHelper.delay < this.maxFireDelayTimeHelper.getStartTime())
         {
             super.processAI(Canvas.KEY_NUM1);
 
-            this.maxFireSimpleTimeDelay.delay = delay;
+            this.maxFireDelayTimeHelper.delay = delay;
         }
     }
 }

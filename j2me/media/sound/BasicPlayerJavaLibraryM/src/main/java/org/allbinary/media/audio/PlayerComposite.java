@@ -22,25 +22,23 @@ import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
-import org.allbinary.time.SimpleTimeDelay;
 import org.allbinary.time.TimeDelayHelper;
 
 public class PlayerComposite implements Controllable, Player
 {
     private Player player;
-    private final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(0);
-    private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(simpleTimeDelay);
+    private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
     
     public PlayerComposite(final Player player)
     {
         this.player = player;
-        this.simpleTimeDelay.delay = 570;
+        this.timeElapsedHelper.delay = 570;
     }
 
     public PlayerComposite(final Player player, final int repeatTime)
     {
         this.player = player;
-        this.simpleTimeDelay.delay = repeatTime;
+        this.timeElapsedHelper.delay = repeatTime;
     }
 
     /*

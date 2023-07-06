@@ -15,7 +15,6 @@ package org.allbinary.input.automation.actions.script.condition;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.time.SimpleTimeDelay;
 
 /**
  *
@@ -42,7 +41,7 @@ public class TimeIntervalActionScriptConditionJPanel
     private void set()
     {
         this.getTimeIntervalJTextField().setText(
-            Integer.toString(this.timeIntervalActionScriptConditionInterface.getTimeDelayHelper().getTimeDelay().getDelay()));
+            Integer.toString(this.timeIntervalActionScriptConditionInterface.getTimeDelayHelper().delay));
         
         this.timeIntervalActionScriptConditionInterface.log();
         
@@ -50,8 +49,7 @@ public class TimeIntervalActionScriptConditionJPanel
 
     private void update()
     {
-        final SimpleTimeDelay simpleTimeDelay = new SimpleTimeDelay(Integer.valueOf(this.getTimeIntervalJTextField().getText()));
-        this.timeIntervalActionScriptConditionInterface.getTimeDelayHelper().setTimeDelay(simpleTimeDelay);
+        this.timeIntervalActionScriptConditionInterface.getTimeDelayHelper().delay = Integer.valueOf(this.getTimeIntervalJTextField().getText());
         this.timeIntervalActionScriptConditionInterface.log();
     }
 
