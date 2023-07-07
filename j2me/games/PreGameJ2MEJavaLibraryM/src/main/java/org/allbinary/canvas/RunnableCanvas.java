@@ -40,7 +40,7 @@ public class RunnableCanvas extends MyCanvas
 
     protected final CommonLabels commonLabels = CommonLabels.getInstance();
     
-    public RunnableCanvas(CommandListener commandListener)
+    public RunnableCanvas(final CommandListener commandListener, final boolean hasParam)
     {   
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
@@ -48,12 +48,18 @@ public class RunnableCanvas extends MyCanvas
         if(commandListener != null)
         {
             this.initCommands(commandListener);
+        } else if(hasParam) {
+            LogUtil.put(LogFactory.getInstance("commandListener was null", this, "initCommands"));
         }
     }
 
+    public RunnableCanvas(final CommandListener commandListener) {
+        this(commandListener, true);
+    }
+    
     public RunnableCanvas()
     {   
-        this(null);
+        this(null, false);
     }
 
     //Empty method for overriding 
