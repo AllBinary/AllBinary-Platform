@@ -181,12 +181,12 @@ public class GameMidlet extends ProgressMidlet
     {
         this.pauseAppBackground(true);
         
-        GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
         
         gameAdState.getAdvertisements().stopAll();
     }
 
-    protected void pauseAppBackground(boolean background)
+    protected void pauseAppBackground(final boolean background)
     {
         final String METHOD_NAME = "pauseAppBackground";
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
@@ -214,7 +214,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.unPauseAppBackground(true);
         
-        GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
         
         gameAdState.getAdvertisements().startAll();
     }
@@ -227,7 +227,7 @@ public class GameMidlet extends ProgressMidlet
         
         AllBinarySensorManager.getInstance().init();
 
-        GameCanvasRunnableInterface gameCanvasRunnableInterface =
+        final GameCanvasRunnableInterface gameCanvasRunnableInterface =
             this.allbinaryGameCanvasRunnableInterface;
 
         if (gameCanvasRunnableInterface != null)
@@ -248,7 +248,7 @@ public class GameMidlet extends ProgressMidlet
     
     protected void destroyApp(boolean unconditional, boolean isProgress)
     {
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
         if (isProgress)
         {
@@ -275,7 +275,7 @@ public class GameMidlet extends ProgressMidlet
             PreLogUtil.put(AllGameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
             //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
 
-            GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
             gameAdState.getAdvertisements().stopAll();
             
@@ -304,14 +304,13 @@ public class GameMidlet extends ProgressMidlet
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
         }
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, METHOD_NAME));
-        PreLogUtil.put(CommonStrings.getInstance().END, this, METHOD_NAME);
     }
  
     protected void startApp()
     {
         try
         {
-            GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
             gameAdState.getAdvertisements().startAll();
             
@@ -320,7 +319,7 @@ public class GameMidlet extends ProgressMidlet
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, START_APP));
             //PreLogUtil.put(CommonStrings.getInstance().START, this, START_APP);
 
-            GameCanvasRunnableInterface gameCanvasRunnableInterface =
+            final GameCanvasRunnableInterface gameCanvasRunnableInterface =
                 this.allbinaryGameCanvasRunnableInterface;
 
             //If the first time/null then start demo or unpausing
@@ -355,7 +354,7 @@ public class GameMidlet extends ProgressMidlet
         }
     }
     
-    public synchronized void commandAction(Command command, Displayable displayable)
+    public synchronized void commandAction(final Command command, final Displayable displayable)
     {
         try
         {
@@ -389,7 +388,7 @@ public class GameMidlet extends ProgressMidlet
             else if (command == gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS)
             {
                 //this.closeMenuListener();
-                MenuListener menuListener = (MenuListener) displayable;
+                final MenuListener menuListener = (MenuListener) displayable;
                 menuListener.close();
 
                 this.setDisplay((Displayable)
@@ -425,10 +424,8 @@ public class GameMidlet extends ProgressMidlet
                     }
                     else
                     {
-                        LogUtil.put(LogFactory.getInstance(
-                            "Starting Game Too Often", this, MidletStrings.getInstance().COMMAND_ACTION));
+                        LogUtil.put(LogFactory.getInstance("Starting Game Too Often", this, MidletStrings.getInstance().COMMAND_ACTION));
                     }
-
                 }
                 else
                 {
@@ -442,7 +439,7 @@ public class GameMidlet extends ProgressMidlet
                     InApplicationPurchaseFactory.getInstance();
 
                 final BasicArrayList list = LockableFeatureFactory.getInstance().getList();
-                LockableFeature lockableFeature = (LockableFeature) list.get(0);
+                final LockableFeature lockableFeature = (LockableFeature) list.get(0);
 
                 if (list.size() > 0 && !inApplicationPurchaseFactory.isPurchased(lockableFeature)) {
                     inApplicationPurchaseFactory.purchase(lockableFeature);
@@ -480,7 +477,7 @@ public class GameMidlet extends ProgressMidlet
             {
                 this.pauseAppBackground(false);
 
-                MenuListener menuListener = (MenuListener) displayable;
+                final MenuListener menuListener = (MenuListener) displayable;
                 menuListener.open();
 
                 this.setDisplay(displayable);
@@ -505,7 +502,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.DEFAULT_OPTIONS)
             {
-                Displayable tempDisplayable = displayable;
+                final Displayable tempDisplayable = displayable;
                 if (tempDisplayable instanceof GameOptionsForm)
                 {
                     GameFeatureFormUtil.getInstance().setDefault(
@@ -514,7 +511,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == GameInputMappingInstructionsCanvas.DISPLAY)
             {
-                Displayable tempDisplayable = displayable;
+                final Displayable tempDisplayable = displayable;
                 if (tempDisplayable instanceof GameInputMappingCanvas)
                 {
                     GameInputMappingCanvas gameInputMappingCanvas = (GameInputMappingCanvas) tempDisplayable;
@@ -528,10 +525,10 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (HighScoreCommandsFactory.getInstance().isHighScoreCommand(command))
             {
-                Displayable tempDisplayable = displayable;
+                final Displayable tempDisplayable = displayable;
                 if (tempDisplayable instanceof HighScoresCanvas)
                 {
-                    HighScoresCanvas highScoresCanvas =
+                    final HighScoresCanvas highScoresCanvas =
                         (HighScoresCanvas) tempDisplayable;
 
                     highScoresCanvas.updateCommand(command);
@@ -545,7 +542,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == GameInputMappingInstructionsCanvas.CLOSE)
             {
-                MenuListener menuListener = (MenuListener) displayable;
+                final MenuListener menuListener = (MenuListener) displayable;
                 menuListener.close();
 
                 this.commandAction(GameInputMappingCanvas.DISPLAY, null);
@@ -553,7 +550,7 @@ public class GameMidlet extends ProgressMidlet
             else if (command == GameInputMappingCanvas.DISPLAY)
             {
                 //TWB - Called for HTML5 but not others?
-                Features features = Features.getInstance();
+                final Features features = Features.getInstance();
 
                 if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
                 {
@@ -568,7 +565,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == GameInputMappingCanvas.DEFAULT)
             {
-                Displayable tempDisplayable = displayable;
+                final Displayable tempDisplayable = displayable;
                 if (tempDisplayable instanceof GameInputMappingCanvas)
                 {
                     GameInputMappingCanvas gameInputMappingCanvas =
@@ -580,12 +577,12 @@ public class GameMidlet extends ProgressMidlet
             {
                 this.pauseAppBackground(false);
 
-                ProgressCanvas progressCanvas =
+                final ProgressCanvas progressCanvas =
                     ProgressCanvasFactory.getInstance();
 
                 progressCanvas.addPortion(50, "In Game Options");
 
-                AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
+                final AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
                 
                 InGameOptionsFormFactory.init(this,
                     new InGameFeatures(), "Options In Game",
@@ -593,7 +590,7 @@ public class GameMidlet extends ProgressMidlet
                     layerManager.getForegroundBasicColor()
                     );
                 
-                InGameOptionsForm inGameOptionsForm = 
+                final InGameOptionsForm inGameOptionsForm = 
                     InGameOptionsFormFactory.getInstance();
 
                 inGameOptionsForm.setItemStateListener(
@@ -613,9 +610,9 @@ public class GameMidlet extends ProgressMidlet
                 AllBinaryMediaManager.setMuted(true);
                 this.stopAll();
 
-                MainFeatureFactory mainFeatureFactory =
+                final MainFeatureFactory mainFeatureFactory =
                     MainFeatureFactory.getInstance();
-                Features features = Features.getInstance();
+                final Features features = Features.getInstance();
 
                 isFullScreen = features.isFeature(
                     mainFeatureFactory.FULL_SCREEN);
@@ -639,7 +636,7 @@ public class GameMidlet extends ProgressMidlet
                     gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS,
                     displayable);
 
-                StringMaker stringBuffer = new StringMaker();
+                final StringMaker stringBuffer = new StringMaker();
                 stringBuffer.append("Close isFullScreen/change: ");
                 stringBuffer.append(isFullScreen);
                 stringBuffer.append(FullScreenUtil.isScreenChange(isFullScreen));
@@ -663,7 +660,7 @@ public class GameMidlet extends ProgressMidlet
             {
                 this.pauseAppBackground(false);
 
-                KeyValuePersistance keyValuePersistance = 
+                final KeyValuePersistance keyValuePersistance = 
                     GamePersistanceSingleton.getInstance();
                 
                 keyValuePersistance.clear();
@@ -671,7 +668,7 @@ public class GameMidlet extends ProgressMidlet
 
                 if(this.getLoadGameForm() == null)
                 {
-                    AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
+                    final AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
                     
                     this.setLoadGameForm(new LoadGameForm(this, "Load Game",
                             layerManager.getBackgroundBasicColor(),
@@ -689,16 +686,16 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.LOAD_FILE)
             {
-                int index = this.getLoadGameForm().getSelectedId();
+                final int index = this.getLoadGameForm().getSelectedId();
 
                 if (index != -1)
                 {
-                    KeyValuePersistance keyValuePersistance = 
+                    final KeyValuePersistance keyValuePersistance = 
                         GamePersistanceSingleton.getInstance();
                     
                     this.setStartStateHashtable(keyValuePersistance.get(index));
 
-                    MenuListener menuListener = this.getLoadGameForm();
+                    final MenuListener menuListener = this.getLoadGameForm();
                     menuListener.close();
 
                     PreLogUtil.put(
@@ -712,11 +709,11 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.DELETE_FILE)
             {
-                int index = this.getLoadGameForm().getSelectedText();
+                final int index = this.getLoadGameForm().getSelectedText();
 
                 if (index != -1)
                 {
-                    KeyValuePersistance keyValuePersistance = 
+                    final KeyValuePersistance keyValuePersistance = 
                         GamePersistanceSingleton.getInstance();
                     
                     keyValuePersistance.delete(index);
@@ -733,7 +730,7 @@ public class GameMidlet extends ProgressMidlet
             }*/
             else if (command == gameCommandsFactory.SAVE)
             {
-                KeyValuePersistance keyValuePersistance = 
+                final KeyValuePersistance keyValuePersistance = 
                     GamePersistanceSingleton.getInstance();
                 
                 this.pauseAppBackground(false);
@@ -763,20 +760,19 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.TOGGLE_KEYBOARD)
             {
-                VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
+                final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
                     VirtualKeyboardEventHandler.getInstance();
                 
                 virtualKeyboardEventHandler.fireEvent(virtualKeyboardEventHandler.SHOW_EVENT);
             }
             else if (command.getLabel().compareTo(gameCommandsFactory.TOGGLE_FULLSCREEN.getLabel()) == 0)
             {
-                MainFeatureFactory mainFeatureFactory
+                final MainFeatureFactory mainFeatureFactory
                         = MainFeatureFactory.getInstance();
 
-                Features features = Features.getInstance();
+                final Features features = Features.getInstance();
                 
-                boolean isFullScreen
-                        = features.isFeature(mainFeatureFactory.FULL_SCREEN);
+                final boolean isFullScreen = features.isFeature(mainFeatureFactory.FULL_SCREEN);
         
                 if(isFullScreen)
                 {
@@ -809,16 +805,14 @@ public class GameMidlet extends ProgressMidlet
 
     private void updateFullScreen()
     {
-        MainFeatureFactory mainFeatureFactory
-                = MainFeatureFactory.getInstance();
+        final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
 
-        boolean isFullScreen = 
-                Features.getInstance().isFeature(mainFeatureFactory.FULL_SCREEN);
+        final boolean isFullScreen = Features.getInstance().isFeature(mainFeatureFactory.FULL_SCREEN);
         
         //fire should be called in Canvas setFullScreenMode
         //ScreenListenerHandler.getInstance().fire(isFullScreen);
         
-        Displayable displayable = this.getDisplay().getCurrent();
+        final Displayable displayable = this.getDisplay().getCurrent();
         
         if(displayable instanceof Canvas)
         {
@@ -848,7 +842,7 @@ public class GameMidlet extends ProgressMidlet
     }
      */
     
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
@@ -914,7 +908,7 @@ public class GameMidlet extends ProgressMidlet
         // sprint phone needed a null canvas
         // this.setDisplay((Displayable) new ProgressCanvas(this));
         
-        GameCanvasRunnableInterface gameCanvasRunnableInterface = 
+        final GameCanvasRunnableInterface gameCanvasRunnableInterface = 
             this.allbinaryGameCanvasRunnableInterface;
         if (gameCanvasRunnableInterface != null)
         {
@@ -950,7 +944,7 @@ public class GameMidlet extends ProgressMidlet
     }
 
     public void setGameCanvasRunnableInterface(
-        GameCanvasRunnableInterface myGameCanvasInterface)
+        final GameCanvasRunnableInterface myGameCanvasInterface)
     {
         this.allbinaryGameCanvasRunnableInterface = myGameCanvasInterface;
         
@@ -963,7 +957,7 @@ public class GameMidlet extends ProgressMidlet
 
     protected AllBinaryGameLayerManager createGameLayerManager()
     {
-        GameInfo gameInfo = new GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER,
+        final GameInfo gameInfo = new GameInfo(GameTypeFactory.getInstance().SINGLE_PLAYER,
             GameMode.SERVER, 1, 1);
 
         return new AllBinaryGameLayerManager(
@@ -979,7 +973,7 @@ public class GameMidlet extends ProgressMidlet
     
     protected CommandForm getGameOptionsForm()
     {
-        AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
+        final AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
 
         return GameOptionsFormFactory.getInstance().init(this, "Game Options",
                 layerManager.getBackgroundBasicColor(),
@@ -999,15 +993,16 @@ public class GameMidlet extends ProgressMidlet
     public Hashtable getCurrentStateHashtable() throws Exception
     {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "getCurrentStateHashtable"));
-        Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = new Hashtable();
 
         if (this.allbinaryGameCanvasRunnableInterface != null)
         {
-            Hashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
-            Enumeration enumeration = currentHashtable.keys();
+            final Hashtable currentHashtable = this.allbinaryGameCanvasRunnableInterface.getCurrentStateHashtable();
+            final Enumeration enumeration = currentHashtable.keys();
+            Object key;
             while (enumeration.hasMoreElements())
             {
-                Object key = enumeration.nextElement();
+                key = enumeration.nextElement();
                 hashtable.put(key, currentHashtable.get(key));
             }
         }
@@ -1015,7 +1010,7 @@ public class GameMidlet extends ProgressMidlet
         return hashtable;
     }
 
-    public void setLoadGameForm(LoadGameForm loadGameForm)
+    public void setLoadGameForm(final LoadGameForm loadGameForm)
     {
         this.loadGameForm = loadGameForm;
     }
@@ -1025,7 +1020,7 @@ public class GameMidlet extends ProgressMidlet
         return loadGameForm;
     }
     
-    public void setResized(boolean resized)
+    public void setResized(final boolean resized)
     {
         this.resized = resized;
     }
