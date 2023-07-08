@@ -18,6 +18,9 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class FormUtil
 {
@@ -30,23 +33,25 @@ public class FormUtil
 
     public Rectangle createFormRectangle()
     {
-        DisplayInfoSingleton displayInfo = 
-            DisplayInfoSingleton.getInstance();
+        //final CommonStrings commonStrings = CommonStrings.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        Rectangle rectangle = new Rectangle(
+        final Rectangle rectangle = new Rectangle(
         // PointFactory.getInstance(0, 30),
                 PointFactory.getInstance().getInstance(30, 10),
                 // displayInfo.getLastWidth(),
                 displayInfo.getLastWidth() - 30,
                 displayInfo.getLastHeight() - 35);
         
+        //LogUtil.put(LogFactory.getInstance("form menu rectangle: " + rectangle.toString(), this, commonStrings.PROCESS));
+
         return rectangle;
     }
 
     public Rectangle createPopupMenuRectangle()
     {
-        final DisplayInfoSingleton displayInfo = 
-            DisplayInfoSingleton.getInstance();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         final MyFont myFont = MyFont.getInstance();
         
         // Popup Menu Tab Init
@@ -58,12 +63,16 @@ public class FormUtil
             // Make a smaller button for QVGA and move it to the top
             popupMenuRectangle = new Rectangle(
                     PointFactory.getInstance().getInstance(0, 25), myFont.stringWidth(4), (myFont.DEFAULT_CHAR_HEIGHT * 4) + 2);
+            
+            //LogUtil.put(LogFactory.getInstance("popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS));
         }
         else
         {
             popupMenuRectangle = new Rectangle(
                     PointFactory.getInstance().getInstance(
                     0, displayInfo.getLastHalfHeight() - 70), myFont.stringWidth(4), (myFont.DEFAULT_CHAR_HEIGHT * 5));
+            
+            //LogUtil.put(LogFactory.getInstance("large popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS));
         }
         
         return popupMenuRectangle;

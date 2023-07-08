@@ -211,16 +211,16 @@ public class DemoCanvas extends RunnableCanvas
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDisplayChangeEvent"));
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
-            //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent");
+            //MyFont.getInstance().update();
+
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
             
-            ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
+            final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             
             if(scrollSelectionForm != null)
             {                
-                FormType formType = FormTypeFactory.getInstance().getFormType();
-                Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+                final FormType formType = FormTypeFactory.getInstance().getFormType();
+                final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
                 scrollSelectionForm.init(rectangle, formType);
             }
             
@@ -234,10 +234,9 @@ public class DemoCanvas extends RunnableCanvas
     
     protected Command[] getCustomCommands()
     {
-        GameCommandsFactory gameCommandsFactory =
-            GameCommandsFactory.getInstance();
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
 
-        Features features = Features.getInstance();
+        final Features features = Features.getInstance();
 
         if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
         {
@@ -258,7 +257,7 @@ public class DemoCanvas extends RunnableCanvas
             
             commandList.add(gameCommandsFactory.START_COMMAND);
             
-            InApplicationPurchaseFactory inApplicationPurchaseFactory =
+            final InApplicationPurchaseFactory inApplicationPurchaseFactory =
                     InApplicationPurchaseFactory.getInstance();
             
             if (inApplicationPurchaseFactory.isEnabled()) {
@@ -334,17 +333,18 @@ public class DemoCanvas extends RunnableCanvas
     {
         this.close();
         
-        CommandTextItemArrayFactory commandTextItemArrayFactory = 
+        final CommandTextItemArrayFactory commandTextItemArrayFactory = 
             DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
         
-        CustomItem[] items = commandTextItemArrayFactory.getInstance(
-            this.getCommandStack(), 
-            BasicColorFactory.getInstance().BLACK, 
-            BasicColorFactory.getInstance().WHITE);
-
-        FormType formType = FormTypeFactory.getInstance().getFormType();
+        final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
         
-        Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+        final CustomItem[] items = commandTextItemArrayFactory.getInstance(
+            this.getCommandStack(), 
+            basicColorFactory.BLACK, basicColorFactory.WHITE);
+
+        final FormType formType = FormTypeFactory.getInstance().getFormType();
+        
+        final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
 
         PreLogUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, "initMenu");
         
@@ -352,14 +352,9 @@ public class DemoCanvas extends RunnableCanvas
             CommandCurrentSelectionFormFactory.getInstance(
                     StringUtil.getInstance().EMPTY_STRING, 
                     items, rectangle, formType, 15, true,
-                    BasicColorFactory.getInstance().BLACK, 
-                    BasicColorFactory.getInstance().WHITE));
+                    basicColorFactory.BLACK, basicColorFactory.WHITE));
 
-        /*
-        this.setMenuInputProcessor(
-        new DemoCanvasBasicStartInputProcessor(
-        new BasicArrayList(), this));
-         */
+        //this.setMenuInputProcessor(new DemoCanvasBasicStartInputProcessor(new BasicArrayList(), this));
 
         if(this.getMenuForm() != ScrollSelectionFormNoneFactory.getInstance())
         {

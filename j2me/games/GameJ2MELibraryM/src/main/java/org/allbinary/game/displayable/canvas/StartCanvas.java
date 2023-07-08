@@ -23,7 +23,6 @@ import javax.microedition.lcdui.Item;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.graphics.ResizableListenerHandler;
-import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
@@ -194,9 +193,9 @@ public class StartCanvas extends RunnableCanvas
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDisplayChangeEvent"));
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
-            //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent");
+            //MyFont.getInstance().update();
+            
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
             
             ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             

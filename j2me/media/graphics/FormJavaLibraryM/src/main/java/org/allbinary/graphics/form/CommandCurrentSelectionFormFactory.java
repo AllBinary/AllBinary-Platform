@@ -23,10 +23,10 @@ import org.allbinary.graphics.color.BasicColor;
 public class CommandCurrentSelectionFormFactory
 {
     public static ScrollSelectionForm getInstance(
-            String title, CustomItem[] items, 
-            Rectangle rectangle, FormType formType, 
-            int border, boolean moveForSmallScreen,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor
+            final String title, final CustomItem[] items, 
+            final Rectangle rectangle, final FormType formType, 
+            final int border, final boolean moveForSmallScreen,
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor
             )
         throws Exception
     {

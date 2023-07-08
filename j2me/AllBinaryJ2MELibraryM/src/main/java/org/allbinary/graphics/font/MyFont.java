@@ -14,6 +14,7 @@
 package org.allbinary.graphics.font;
 
 import javax.microedition.lcdui.Font;
+import org.allbinary.logic.basic.string.StringMaker;
 
 public class MyFont
 {
@@ -26,13 +27,18 @@ public class MyFont
    
    //fonts
    private final Font defaultFont = Font.getDefaultFont();
-   public final int DEFAULT_CHAR_HEIGHT = defaultFont.getHeight();
-   private final int DEFAULT_CHAR_WIDTH = defaultFont.charWidth('C');
+   public int DEFAULT_CHAR_HEIGHT = defaultFont.getHeight();
+   private int DEFAULT_CHAR_WIDTH = defaultFont.charWidth('C');
 
    private MyFont()
    {
    }
 
+   public void update() {
+       this.DEFAULT_CHAR_HEIGHT = defaultFont.getHeight();
+       this.DEFAULT_CHAR_WIDTH = defaultFont.charWidth('C');
+   }
+   
    public int charWidth() {
        return DEFAULT_CHAR_WIDTH;
    }
@@ -62,4 +68,7 @@ public class MyFont
        return defaultFont.charsWidth(charArray, offset, length);
    }
    
+   public String toString() {
+       return new StringMaker().append(this.getClass().toString()).append(this.DEFAULT_CHAR_WIDTH).append('/').append(this.DEFAULT_CHAR_HEIGHT).toString();
+   }
 }

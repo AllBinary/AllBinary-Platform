@@ -128,7 +128,6 @@ import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
-import org.allbinary.logic.basic.string.CommonLabels;
 import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.CircularIndexUtil;
@@ -302,8 +301,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
-            //PreLogUtil.put(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent");
+            //MyFont.getInstance().update();
+
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
 
             if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
             {
@@ -358,8 +358,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (this.menuInputProcessor.processInput() != -1)
         {
-            // LogUtil.put(LogFactory.getInstance("Menu Processing While Sleeping",
-            // this, "processSleep"));
+            // LogUtil.put(LogFactory.getInstance("Menu Processing While Sleeping", this, "processSleep"));
 
             // this.processPaintable.process();
             this.runnableCanvasRefreshHelper.process();
@@ -368,11 +367,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void initPopupMenu() throws Exception
     {
+        //LogUtil.put(LogFactory.getInstance("initPopupMenu", this, commonStrings.PROCESS));
+        
         // Popup Menu Tab Init
         final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
 
         if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED))
         {
+            //LogUtil.put(LogFactory.getInstance("initPopupMenu - touch", this, commonStrings.PROCESS));
+
             this.setOpenMenuPaintable(new BasicPopupMenuPaintable(
                     popupMenuRectangle, 
                     this.gameLayerManager.getBackgroundBasicColor(), 
@@ -387,8 +390,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
+            //LogUtil.put(LogFactory.getInstance("initMenu", this, commonStrings.PROCESS));
+            
             if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
             {
+                //LogUtil.put(LogFactory.getInstance("initMenu - not bot", this, commonStrings.PROCESS));
+
                 this.closeMenu();
 
                 final FormUtil formUtil = FormUtil.getInstance();
@@ -414,26 +421,28 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                         this.gameLayerManager.getBackgroundBasicColor(), 
                         this.gameLayerManager.getForegroundBasicColor()));
 
-                /*
-                 * this.setMenuInputProcessor( new
-                 * DemoCanvasBasicStartInputProcessor( new BasicArrayList(),
-                 * this));
-                 */
+                //this.setMenuInputProcessor( new DemoCanvasBasicStartInputProcessor( new BasicArrayList(), this));
 
                 final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
                 
                 if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED))
                 {
+                    //LogUtil.put(LogFactory.getInstance("initMenu - touch", this, commonStrings.PROCESS));
                     this.mainMenuInputProcessor = new PopupCommandFormInputProcessor(
                             new BasicArrayList(), -1, this, scrollSelectionForm,
                             (PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
+                } else {
+                    //LogUtil.put(LogFactory.getInstance("initMenu - no touch", this, commonStrings.PROCESS));
                 }
 
                 this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
 
                 if (scrollSelectionForm != ScrollSelectionFormNoneFactory.getInstance())
                 {
+                    //LogUtil.put(LogFactory.getInstance("initMenu - scroll", this, commonStrings.PROCESS));
                     this.setFormPaintable(new FormPaintable(scrollSelectionForm));
+                } else {
+                    //LogUtil.put(LogFactory.getInstance("initMenu - no scroll", this, commonStrings.PROCESS));
                 }
 
                 this.closeMenu();
