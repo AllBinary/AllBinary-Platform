@@ -50,10 +50,6 @@ public class DemoGameBehavior {
     public void unPause(final AllBinaryGameCanvas allBinaryGameCanvas) {
         
     }
-    
-    public void initSpecialPaint(final AllBinaryGameCanvas allBinaryGameCanvas) {
-        allBinaryGameCanvas.setNonBotPaintable(NullPaintable.getInstance());
-    }
 
     public void updateTouch(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         

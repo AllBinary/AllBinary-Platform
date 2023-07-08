@@ -255,7 +255,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.menuBehavior = BaseMenuBehavior.getInstance();
         } else {
             this.gameBehavior = BaseGameBehavior.getInstance();
-            this.menuBehavior = InGameMenuBehavior.getInstance();
+            this.menuBehavior = this.getInGameMenuBehavior();
         }
 
         this.initSpecialPaint();
@@ -277,7 +277,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.menuBehavior = BaseMenuBehavior.getInstance();
         } else {
             this.gameBehavior = BaseGameBehavior.getInstance();
-            this.menuBehavior = InGameMenuBehavior.getInstance();
+            this.menuBehavior = this.getInGameMenuBehavior();
         }
         
         this.gameLayerManager = gameLayerManager;
@@ -293,10 +293,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             this.menuBehavior = BaseMenuBehavior.getInstance();
         } else {
             this.gameBehavior = BaseGameBehavior.getInstance();
-            this.menuBehavior = InGameMenuBehavior.getInstance();
+            this.menuBehavior = this.getInGameMenuBehavior();
         }        
 
         this.highScoresFactoryInterface = null;
+    }
+
+    public BaseMenuBehavior getInGameMenuBehavior() {
+        return InGameMenuBehavior.getInstance();
     }
 
     public void setCurrentThread()
@@ -636,7 +640,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void initSpecialPaint()
     {
-        this.gameBehavior.initSpecialPaint(this);
+        this.menuBehavior.initSpecialPaint(this);
     }
 
     private void init(AllBinaryGameLayerManager gameLayerManager,

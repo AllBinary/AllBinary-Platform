@@ -14,6 +14,7 @@
 package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
+import org.allbinary.graphics.paint.NullPaintable;
 
 /**
  *
@@ -32,6 +33,10 @@ public class BaseMenuBehavior {
 
     public void onDisplayChangeEvent(final AllBinaryGameCanvas allBinaryGameCanvas, final DisplayChangeEvent displayChangeEvent) throws Exception {
         
+    }
+    
+    public void initSpecialPaint(final AllBinaryGameCanvas allBinaryGameCanvas) {
+        allBinaryGameCanvas.setNonBotPaintable(NullPaintable.getInstance());
     }
 
     public void initMenu(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {

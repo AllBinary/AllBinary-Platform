@@ -75,10 +75,6 @@ public class BaseGameBehavior extends DemoGameBehavior {
         }
     }
 
-    public void initSpecialPaint(final AllBinaryGameCanvas allBinaryGameCanvas) {
-        allBinaryGameCanvas.setNonBotPaintable(new GameCanvasNonBotPaintable(allBinaryGameCanvas));
-    }
-
     public void updateTouch(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.updateTouch2();
     }

@@ -33,6 +33,10 @@ public class InGameMenuBehavior extends BaseMenuBehavior {
     public void onDisplayChangeEvent(final AllBinaryGameCanvas allBinaryGameCanvas, final DisplayChangeEvent displayChangeEvent) throws Exception {
         allBinaryGameCanvas.updateMenu(displayChangeEvent);
     }
+
+    public void initSpecialPaint(final AllBinaryGameCanvas allBinaryGameCanvas) {
+        allBinaryGameCanvas.setNonBotPaintable(new GameCanvasNonBotPaintable(allBinaryGameCanvas));
+    }
     
     public void initMenu(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.initMenu2();
