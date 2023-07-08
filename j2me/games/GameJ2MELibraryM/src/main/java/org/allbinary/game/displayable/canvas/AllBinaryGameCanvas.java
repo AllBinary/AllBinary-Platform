@@ -233,6 +233,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final GameKeyEventHandler gameKeyEventHandler = GameKeyEventHandler.getInstance();
     private final UpGameKeyEventHandler upGameKeyEventHandler= UpGameKeyEventHandler.getInstance();
     
+    private final DemoGameBehavior gameBehavior;
+    private final BaseMenuBehavior menuBehavior;
+
     public AllBinaryGameCanvas(
             CommandListener commandListener,
             AllBinaryGameLayerManager gameLayerManager,
@@ -247,6 +250,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.highScoresFactoryInterface = highScoresFactoryInterface;
 
+        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
+            this.gameBehavior = DemoGameBehavior.getInstance();
+            this.menuBehavior = BaseMenuBehavior.getInstance();
+        } else {
+            this.gameBehavior = BaseGameBehavior.getInstance();
+            this.menuBehavior = InGameMenuBehavior.getInstance();
+        }
+
         this.initSpecialPaint();
 
         this.initPopupMenu();
@@ -255,26 +266,36 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         
         DisplayChangeEventHandler.getInstance().addListener(this);
         
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            GameAdState gameAdState = 
-                GameAdStateFactory.getInstance().getCurrentInstance();
-
-            gameAdState.playingAdState();
-        }
     }
     
     //Null GameCanvas
     public AllBinaryGameCanvas(
             AllBinaryGameLayerManager gameLayerManager)
     {
+        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
+            this.gameBehavior = DemoGameBehavior.getInstance();
+            this.menuBehavior = BaseMenuBehavior.getInstance();
+        } else {
+            this.gameBehavior = BaseGameBehavior.getInstance();
+            this.menuBehavior = InGameMenuBehavior.getInstance();
+        }
+        
         this.gameLayerManager = gameLayerManager;
         
-        this.highScoresFactoryInterface = null;
+        this.highScoresFactoryInterface = null;        
     }
 
     public AllBinaryGameCanvas()
     {
+        
+        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
+            this.gameBehavior = DemoGameBehavior.getInstance();
+            this.menuBehavior = BaseMenuBehavior.getInstance();
+        } else {
+            this.gameBehavior = BaseGameBehavior.getInstance();
+            this.menuBehavior = InGameMenuBehavior.getInstance();
+        }        
+
         this.highScoresFactoryInterface = null;
     }
 
@@ -297,38 +318,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
 
-    public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
+    public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
     {
         try
         {
-            //MyFont.getInstance().update();
-
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
-
-            if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-            {
-                final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
-                ((BasicPopupMenuPaintable) this.getOpenMenuPaintable()).init(popupMenuRectangle);
-
-                if (this.getPopupMenuInputProcessor() != NoMenuInputProcessor.getInstance())
-                {
-                    ((PopupMenuInputProcessor) this.getPopupMenuInputProcessor()).init(popupMenuRectangle);
-                }
-
-                final FormType formType = FormTypeFactory.getInstance().getFormType();
-                final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
-                this.menuForm.init(rectangle, formType);
-
-                //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, "onDisplayChangeEvent");
-
-                // TouchButtonFactory.getInstance().toggle(this.isPaused(),
-                if(this.currentTouchInputFactory != null)
-                {
-                    TouchButtonFactory.getInstance().toggle(this.isPaused(), this.currentTouchInputFactory.getList());
-                }
-
-                // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, "onDisplayChangeEvent");
-            }
+            this.menuBehavior.onDisplayChangeEvent(this, displayChangeEvent);
         }
         catch(Exception e)
         {
@@ -336,6 +330,33 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
+    public void updateMenu(final DisplayChangeEvent displayChangeEvent) throws Exception {
+        
+        //MyFont.getInstance().update();
+
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
+       
+        final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
+        ((BasicPopupMenuPaintable) this.getOpenMenuPaintable()).init(popupMenuRectangle);
+
+        if (this.getPopupMenuInputProcessor() != NoMenuInputProcessor.getInstance()) {
+            ((PopupMenuInputProcessor) this.getPopupMenuInputProcessor()).init(popupMenuRectangle);
+        }
+
+        final FormType formType = FormTypeFactory.getInstance().getFormType();
+        final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+        this.menuForm.init(rectangle, formType);
+
+        //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, "onDisplayChangeEvent");
+        // TouchButtonFactory.getInstance().toggle(this.isPaused(),
+        if (this.currentTouchInputFactory != null) {
+            TouchButtonFactory.getInstance().toggle(this.isPaused(), this.currentTouchInputFactory.getList());
+        }
+
+        // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, "onDisplayChangeEvent");
+
+    }
+    
     /*
      * public void setRunning(boolean running) { if (!this.isRunning()) {
      * this.menuInputProcessor = NoMenuInputProcessor.getInstance(); }
@@ -390,63 +411,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance("initMenu", this, commonStrings.PROCESS));
-            
-            if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-            {
-                //LogUtil.put(LogFactory.getInstance("initMenu - not bot", this, commonStrings.PROCESS));
-
-                this.closeMenu();
-
-                final FormUtil formUtil = FormUtil.getInstance();
-                final FormType formType = FormTypeFactory.getInstance().getFormType();
-
-                final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory = 
-                    GameLimitedCommandTextItemArrayFactory.getInstance();
-
-                final CommandTextItemArrayFactory commandTextItemArrayFactory = 
-                    gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
-
-                final CustomItem[] items = commandTextItemArrayFactory.getInstance(
-                        this.getCommandStack(), this.gameLayerManager
-                                .getBackgroundBasicColor(), this
-                                .gameLayerManager.getForegroundBasicColor());
-
-                final Rectangle rectangle = formUtil.createFormRectangle();
-
-                this.setMenuForm(CommandCurrentSelectionFormFactory.getInstance(
-                        StringUtil.getInstance().EMPTY_STRING, 
-                        items,
-                        rectangle, formType, 25, false, 
-                        this.gameLayerManager.getBackgroundBasicColor(), 
-                        this.gameLayerManager.getForegroundBasicColor()));
-
-                //this.setMenuInputProcessor( new DemoCanvasBasicStartInputProcessor( new BasicArrayList(), this));
-
-                final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
-                
-                if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED))
-                {
-                    //LogUtil.put(LogFactory.getInstance("initMenu - touch", this, commonStrings.PROCESS));
-                    this.mainMenuInputProcessor = new PopupCommandFormInputProcessor(
-                            new BasicArrayList(), -1, this, scrollSelectionForm,
-                            (PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
-                } else {
-                    //LogUtil.put(LogFactory.getInstance("initMenu - no touch", this, commonStrings.PROCESS));
-                }
-
-                this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
-
-                if (scrollSelectionForm != ScrollSelectionFormNoneFactory.getInstance())
-                {
-                    //LogUtil.put(LogFactory.getInstance("initMenu - scroll", this, commonStrings.PROCESS));
-                    this.setFormPaintable(new FormPaintable(scrollSelectionForm));
-                } else {
-                    //LogUtil.put(LogFactory.getInstance("initMenu - no scroll", this, commonStrings.PROCESS));
-                }
-
-                this.closeMenu();
-            }
+            //LogUtil.put(LogFactory.getInstance("initMenu", this, commonStrings.PROCESS));            
+            this.menuBehavior.initMenu(this);
 
         }
         catch (Exception e)
@@ -455,39 +421,63 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
+    protected void initMenu2() throws Exception
+    {
+        //LogUtil.put(LogFactory.getInstance("initMenu - not bot", this, commonStrings.PROCESS));
+
+        this.closeMenu();
+
+        final FormUtil formUtil = FormUtil.getInstance();
+        final FormType formType = FormTypeFactory.getInstance().getFormType();
+
+        final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory
+                = GameLimitedCommandTextItemArrayFactory.getInstance();
+
+        final CommandTextItemArrayFactory commandTextItemArrayFactory
+                = gameLimitedCommandTextItemArrayFactory.getCommandTextItemArrayFactory();
+
+        final CustomItem[] items = commandTextItemArrayFactory.getInstance(
+                this.getCommandStack(), this.gameLayerManager
+                .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
+
+        final Rectangle rectangle = formUtil.createFormRectangle();
+
+        this.setMenuForm(CommandCurrentSelectionFormFactory.getInstance(
+                StringUtil.getInstance().EMPTY_STRING,
+                items,
+                rectangle, formType, 25, false,
+                this.gameLayerManager.getBackgroundBasicColor(),
+                this.gameLayerManager.getForegroundBasicColor()));
+
+        //this.setMenuInputProcessor( new DemoCanvasBasicStartInputProcessor( new BasicArrayList(), this));
+        final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
+
+        if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().TOUCH_ENABLED)) {
+            //LogUtil.put(LogFactory.getInstance("initMenu - touch", this, commonStrings.PROCESS));
+            this.mainMenuInputProcessor = new PopupCommandFormInputProcessor(
+                    new BasicArrayList(), -1, this, scrollSelectionForm,
+                    (PopupMenuInputProcessor) this.getPopupMenuInputProcessor());
+        } else {
+            //LogUtil.put(LogFactory.getInstance("initMenu - no touch", this, commonStrings.PROCESS));
+        }
+
+        this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
+
+        if (scrollSelectionForm != ScrollSelectionFormNoneFactory.getInstance()) {
+            //LogUtil.put(LogFactory.getInstance("initMenu - scroll", this, commonStrings.PROCESS));
+            this.setFormPaintable(new FormPaintable(scrollSelectionForm));
+        } else {
+            //LogUtil.put(LogFactory.getInstance("initMenu - no scroll", this, commonStrings.PROCESS));
+        }
+
+        this.closeMenu();
+    }
+    
     public void updateMenu()
     {
         try
         {
-            if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-            {
-                final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
-                
-                scrollSelectionForm.deleteAll();
-
-                final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory = 
-                    GameLimitedCommandTextItemArrayFactory.getInstance();
-
-                final CommandTextItemArrayFactory commandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory
-                        .getCommandTextItemArrayFactory();
-
-                final CustomItem[] items = commandTextItemArrayFactory.getInstance(
-                        this.getCommandStack(), this.gameLayerManager
-                                .getBackgroundBasicColor(), this
-                                .gameLayerManager.getForegroundBasicColor());
-
-                final int size = items.length;
-                for (int index = 0; index < size; index++)
-                {
-                    scrollSelectionForm.append(items[index]);
-                }
-
-                final FormUtil formUtil = FormUtil.getInstance();
-                final FormType formType = FormTypeFactory.getInstance().getFormType();                
-                final Rectangle rectangle = formUtil.createFormRectangle();
-                scrollSelectionForm.init(rectangle, formType);
-            }
-
+            this.menuBehavior.updateMenu(this);
         }
         catch (Exception e)
         {
@@ -496,29 +486,41 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     }
 
+    public void updateMenu2() throws Exception
+    {
+        final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
+
+        scrollSelectionForm.deleteAll();
+
+        final GameLimitedCommandTextItemArrayFactory gameLimitedCommandTextItemArrayFactory
+                = GameLimitedCommandTextItemArrayFactory.getInstance();
+
+        final CommandTextItemArrayFactory commandTextItemArrayFactory = gameLimitedCommandTextItemArrayFactory
+                .getCommandTextItemArrayFactory();
+
+        final CustomItem[] items = commandTextItemArrayFactory.getInstance(
+                this.getCommandStack(), this.gameLayerManager
+                .getBackgroundBasicColor(), this.gameLayerManager.getForegroundBasicColor());
+
+        final int size = items.length;
+        for (int index = 0; index < size; index++) {
+            scrollSelectionForm.append(items[index]);
+        }
+
+        final FormUtil formUtil = FormUtil.getInstance();
+        final FormType formType = FormTypeFactory.getInstance().getFormType();
+        final Rectangle rectangle = formUtil.createFormRectangle();
+        scrollSelectionForm.init(rectangle, formType);
+
+    }
+    
     public synchronized void pause()
     {
     	//final String METHOD_NAME = "pause";
         //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
         // PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
 
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            Features features = Features.getInstance();
-            
-            if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) 
-                    //|| features.isDefault(HTMLFeatureFactory.getInstance().HTML)
-                    )        
-            {
-                //LogUtil.put(LogFactory.getInstance("pause", this, METHOD_NAME));
-                GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(this);
-
-                final CurrentDisplayableFactory currentDisplayableFactory = 
-                    CurrentDisplayableFactory.getInstance();
-
-                currentDisplayableFactory.setRunnable(gameRunnable);
-            }
-        }
+        this.gameBehavior.pause(this);
 
         this.closeMenu();
 
@@ -541,20 +543,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         super.unPause();
         TouchButtonFactory.getInstance().toggle(this.isPaused(), null);
         
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            if (Features.getInstance().isDefault(
-                    OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
-            {
-                //LogUtil.put(LogFactory.getInstance("unPause", this, "unPause"));
-                final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+        this.gameBehavior.unPause(this);
 
-                final CurrentDisplayableFactory currentDisplayableFactory =
-                        CurrentDisplayableFactory.getInstance();
-
-                currentDisplayableFactory.setRunnable(gameRunnable);
-            }
-        }
     }
 
     public boolean isPausable()
@@ -571,20 +561,22 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     
     public void popupMenu() throws Exception
     {
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "popupMenu"));
-            
-            primaryPlayerQueue.add(SelectSound.getInstance());
-
-            this.setMenuPaintable(this.getFormPaintable());
-            this.setMenuInputProcessor(this.mainMenuInputProcessor);
-
-            this.basicMotionGesturesHandler.addListener(this.mainMenuInputProcessor);
-            this.gameKeyEventHandler.addListener(this.mainMenuInputProcessor);
-        }
+        this.menuBehavior.popupMenu(this);
     }
 
+    public void popupMenu2() throws Exception
+    {
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "popupMenu"));
+
+        primaryPlayerQueue.add(SelectSound.getInstance());
+
+        this.setMenuPaintable(this.getFormPaintable());
+        this.setMenuInputProcessor(this.mainMenuInputProcessor);
+
+        this.basicMotionGesturesHandler.addListener(this.mainMenuInputProcessor);
+        this.gameKeyEventHandler.addListener(this.mainMenuInputProcessor);
+    }
+    
     public void toggleMenu() throws Exception
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "toggleMenu"));
@@ -606,19 +598,21 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void closeMenu()
     {
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "closeMenu"));
-            
-            this.setMenuPaintable(this.getOpenMenuPaintable());
-
-            this.basicMotionGesturesHandler.removeListener(this.mainMenuInputProcessor);
-            this.gameKeyEventHandler.removeListener(this.mainMenuInputProcessor);
-
-            this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
-        }
+        this.menuBehavior.closeMenu(this);
     }
 
+    public void closeMenu2()
+    {
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "closeMenu"));
+
+        this.setMenuPaintable(this.getOpenMenuPaintable());
+
+        this.basicMotionGesturesHandler.removeListener(this.mainMenuInputProcessor);
+        this.gameKeyEventHandler.removeListener(this.mainMenuInputProcessor);
+
+        this.setMenuInputProcessor(this.getPopupMenuInputProcessor());
+    }
+    
     public void open()
     {
         this.basicMotionGesturesHandler.addListener(this.menuInputProcessor);
@@ -642,14 +636,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void initSpecialPaint()
     {
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            this.setNonBotPaintable(new GameCanvasNonBotPaintable(this));
-        }
-        else
-        {
-            this.setNonBotPaintable(NullPaintable.getInstance());
-        }
+        this.gameBehavior.initSpecialPaint(this);
     }
 
     private void init(AllBinaryGameLayerManager gameLayerManager,
@@ -829,18 +816,18 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void updateTouch() throws Exception
     {
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().AUTO_HIDE_SHOW_SCREEN_BUTTONS))
-            {
-                if (this.gameLayerManager.getGameInfo().getCurrentLevel() - getStartLevel() == 1)
-                {
-                    this.setTouchPaintable(NullPaintable.getInstance());
-                }
+        this.gameBehavior.updateTouch(this);
+    }
+
+    protected void updateTouch2() throws Exception
+    {
+        if (Features.getInstance().isFeature(TouchFeatureFactory.getInstance().AUTO_HIDE_SHOW_SCREEN_BUTTONS)) {
+            if (this.gameLayerManager.getGameInfo().getCurrentLevel() - getStartLevel() == 1) {
+                this.setTouchPaintable(NullPaintable.getInstance());
             }
         }
     }
-
+    
     protected void postInitTouch() throws Exception
     {
         this.setTouchButtonsPaintable(TouchButtonsPaintableFactory
@@ -937,16 +924,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void updateScreenButtonPaintable() throws Exception
     {
-        Features features = Features.getInstance();
+        this.gameBehavior.updateScreenButtonPaintable(this);
+    }
 
-        TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
-        
-        // Show/Hide the screen buttons
-        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT)
-        {
-            this.setTouchPaintable(NullPaintable.getInstance());
-        }
-        else if (features.isFeature(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS))
+    public void updateScreenButtonPaintable2() {
+
+        final Features features = Features.getInstance();
+        final TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
+
+        if (features.isFeature(touchFeatureFactory.AUTO_HIDE_SHOW_SCREEN_BUTTONS))
         {
             // If touch buttons are visible
             this.setTouchPaintable(this.getTouchButtonsPaintable());
@@ -971,7 +957,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             // throw new Exception("Screen Button Feature Not Set");
         }
     }
-
+    
     public AllBinaryGameLayerManager getLayerManager()
     {
         return gameLayerManager;
@@ -1036,7 +1022,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return gameState;
     }
 
-    public void setGameState(GameState gameState) throws Exception
+    public void setGameState(final GameState gameState) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Game State: ").append(gameState).toString(), this, "setGameState"));
         // PreLogUtil.put("Game State: ").append(gameState, this, "setGameState");
@@ -1047,18 +1033,16 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.updateEndGameProcessor();
         this.updateGameKeyEventProcessor();
         
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            GameAdState gameAdState = 
-                GameAdStateFactory.getInstance().getCurrentInstance();
+        this.gameBehavior.setGameState(this);
+    }
 
-            gameAdState.processAdState(
-                    this.gameState, this.gameLayerManager.getGameInfo().getGameType());
-            
-            if (this.gameState != GameState.PLAYING_GAME_STATE)
-            {
-                gameAdState.processPageAdState();
-            }
+    public void setGameState() throws Exception {
+        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+
+        gameAdState.processAdState(this.gameState, this.gameLayerManager.getGameInfo().getGameType());
+
+        if (this.gameState != GameState.PLAYING_GAME_STATE) {
+            gameAdState.processPageAdState();
         }
     }
 
@@ -1077,19 +1061,18 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void removeAllGameKeyInputListeners()
     {
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
+        this.gameBehavior.removeAllGameKeyInputListeners(this);
+    }
 
-            // System.out.println("Clearing Keys From Last Level");
-            LogUtil.put(LogFactory.getInstance("Remove PlayerInput Listeners", this, "removeAllGameKeyInputListeners"));
+    protected void removeAllGameKeyInputListeners2() {
 
-            for(int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--)
-            {
-                PlayerGameInput playerGameInput = (PlayerGameInput) 
-                        this.localPlayerGameInputList.get(index);
-                this.gameKeyEventHandler.removeListener(playerGameInput);
-                playerGameInput.removeNonAIInputGameKeyEvents();
-            }
+        // System.out.println("Clearing Keys From Last Level");
+        LogUtil.put(LogFactory.getInstance("Remove PlayerInput Listeners", this, "removeAllGameKeyInputListeners"));
+
+        for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--) {
+            PlayerGameInput playerGameInput = (PlayerGameInput) this.localPlayerGameInputList.get(index);
+            this.gameKeyEventHandler.removeListener(playerGameInput);
+            playerGameInput.removeNonAIInputGameKeyEvents();
         }
     }
 
@@ -1100,25 +1083,23 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      */
     protected void updateEndGameProcessor() throws Exception
     {
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            if (this.getGameState() == SHOW_END_RESULT_GAME_STATE
-                    || this.getGameState() == SHOW_HIGH_SCORE_GAME_STATE)
-            {
-                if (highScoresPaintable != NullPaintable.getInstance())
-                {
-                    this.selectHighScores();
-                }
-
-                this.setEndGameProcessor(this.realEndGameProcessor);
-            }
-            else
-            {
-                this.setEndGameProcessor(Processor.getInstance());
-            }
-        }
+        this.gameBehavior.updateEndGameProcessor(this);
     }
 
+    protected void updateEndGameProcessor2() throws Exception
+    {
+        if (this.getGameState() == SHOW_END_RESULT_GAME_STATE
+                || this.getGameState() == SHOW_HIGH_SCORE_GAME_STATE) {
+            if (highScoresPaintable != NullPaintable.getInstance()) {
+                this.selectHighScores();
+            }
+
+            this.setEndGameProcessor(this.realEndGameProcessor);
+        } else {
+            this.setEndGameProcessor(Processor.getInstance());
+        }
+    }
+    
     public void buildGame(boolean isPortion) throws Exception
     {
     }
@@ -1239,30 +1220,25 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.colorFillPaintable.setBasicColor(this.gameLayerManager.getBackgroundBasicColor());
 
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            //LogUtil.put(LogFactory.getInstance("Clearing Keys From Last Level", this, BUILD_GAME));
-
-            PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInputs: ").append(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
-            
-            for(int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--)
-            {
-                PlayerGameInput playerGameInput = (PlayerGameInput) 
-                        this.localPlayerGameInputList.get(index);
-                
-                PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInput: ").append(playerGameInput.toString()).toString(), this, BUILD_GAME);
-                
-                playerGameInput.removeNonAIInputGameKeyEvents();
-                GameKeyEventHandler.getInstance().addListener(
-                        playerGameInput, playerGameInput.getPlayerInputId());
-
-                // ForcedLogUtil.log("DownGameKeyEventHandler: " +
-                // DownGameKeyEventHandler.getInstance().getEventListenerInterfaceList(),
-                // this);
-            }
-        }
+        this.gameBehavior.buildGame(this);
     }
 
+    public void buildGame2() {
+        //LogUtil.put(LogFactory.getInstance("Clearing Keys From Last Level", this, BUILD_GAME));
+        PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInputs: ").append(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
+
+        for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--) {
+            PlayerGameInput playerGameInput = (PlayerGameInput) this.localPlayerGameInputList.get(index);
+
+            PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInput: ").append(playerGameInput.toString()).toString(), this, BUILD_GAME);
+
+            playerGameInput.removeNonAIInputGameKeyEvents();
+            GameKeyEventHandler.getInstance().addListener(playerGameInput, playerGameInput.getPlayerInputId());
+
+            // ForcedLogUtil.log("DownGameKeyEventHandler: " + DownGameKeyEventHandler.getInstance().getEventListenerInterfaceList(), this);
+        }
+    }
+    
     private DemoCanvas gameCanvasStartListener;
 
     public void setGameCanvasStartListener(DemoCanvas gameCanvasStartListener)
@@ -1593,57 +1569,57 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             gameAdState.init();
             gameAdState.setGameIsReady(true);
-
-            final Features features = Features.getInstance();
             
-            //Don't keep running thread if in bot/demo mode            
-            if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT)
-            {
-                LogUtil.put(LogFactory.getInstance(gameTypeFactory.BOT.toString(), this, commonStrings.RUN));
+            this.gameBehavior.run(this);
+
+            LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
+        }
+        catch (Exception e)
+        {
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+        }
+    }
+
+    public void run2() throws Exception {
+        final Features features = Features.getInstance();
+
+        if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)
+                || features.isDefault(HTMLFeatureFactory.getInstance().HTML)) {
+            if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
+                LogUtil.put(LogFactory.getInstance(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD.getName(), this, commonStrings.RUN));
             }
-            else
-                if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) ||
-                        features.isDefault(HTMLFeatureFactory.getInstance().HTML))
-                {
-                    if(features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
-                        LogUtil.put(LogFactory.getInstance(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD.getName(), this, commonStrings.RUN));
-                    }
-                    
-                    if(features.isDefault(HTMLFeatureFactory.getInstance().HTML)) {
-                        LogUtil.put(LogFactory.getInstance(HTMLFeatureFactory.getInstance().HTML.getName(), this, commonStrings.RUN));
-                    }
 
-                    final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+            if (features.isDefault(HTMLFeatureFactory.getInstance().HTML)) {
+                LogUtil.put(LogFactory.getInstance(HTMLFeatureFactory.getInstance().HTML.getName(), this, commonStrings.RUN));
+            }
 
-                    final CurrentDisplayableFactory currentDisplayableFactory = 
-                        CurrentDisplayableFactory.getInstance();
+            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
-                    currentDisplayableFactory.setRunnable(gameRunnable);
-                    OpenGLThreadUtil.getInstance().onResume();
-                }
-                else
-            if (Features.getInstance().isDefault(
-            		OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS))
-            {
-                LogUtil.put(LogFactory.getInstance(OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName(), this, commonStrings.RUN));
-                
-                final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-                        GameTickTimeDelayHelperFactory.getInstance();
+            final CurrentDisplayableFactory currentDisplayableFactory
+                    = CurrentDisplayableFactory.getInstance();
 
-                OpenGLThreadUtil.getInstance().onResume();
+            currentDisplayableFactory.setRunnable(gameRunnable);
+            OpenGLThreadUtil.getInstance().onResume();
+        } else if (Features.getInstance().isDefault(
+                OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS)) {
+            LogUtil.put(LogFactory.getInstance(OpenGLFeatureFactory.getInstance().OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName(), this, commonStrings.RUN));
 
-                while (this.isRunning())
-                {
-                	this.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelperFactory.setStartTime());
+            final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory
+                    = GameTickTimeDelayHelperFactory.getInstance();
 
-                	this.processGame();
+            OpenGLThreadUtil.getInstance().onResume();
 
-                	this.processLoopSleep();
-                }
+            while (this.isRunning()) {
+                this.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelperFactory.setStartTime());
 
-                this.end();
+                this.processGame();
 
-                /*
+                this.processLoopSleep();
+            }
+
+            this.end();
+
+            /*
                 this.runnableCanvasRefreshHelper = Processor.getInstance();
 
                 GameFrameRunnable gameFrameRunnable = new GameFrameRunnable(this);
@@ -1668,33 +1644,23 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
                     this.processLoopSleep();
                 } 
-                */
-            }
-            else
-            {
-                LogUtil.put(LogFactory.getInstance("this thread", this, commonStrings.RUN));
-                
-                final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-                    GameTickTimeDelayHelperFactory.getInstance();
-                
-                while (this.isRunning())
-                {
-                    this.getLoopTimeHelper().setStartTime(
-                            gameTickTimeDelayHelperFactory.setStartTime());
+             */
+        } else {
+            LogUtil.put(LogFactory.getInstance("this thread", this, commonStrings.RUN));
 
-                    this.processGame();
+            final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory
+                    = GameTickTimeDelayHelperFactory.getInstance();
 
-                    this.processLoopSleep();
-                }
-                
-                this.end();
+            while (this.isRunning()) {
+                this.getLoopTimeHelper().setStartTime(
+                        gameTickTimeDelayHelperFactory.setStartTime());
+
+                this.processGame();
+
+                this.processLoopSleep();
             }
 
-            LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
-        }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            this.end();
         }
     }
 
@@ -1754,7 +1720,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     // specify level info
     public HighScore createHighScore(long score)
     {
-        GameInfo gameInfo = this.gameLayerManager.getGameInfo();
+        final GameInfo gameInfo = this.gameLayerManager.getGameInfo();
 
         return new HighScore(0, "NONE", new GameInfo(gameInfo.getGameType(),
                 gameInfo.getGameMode(), 0, 0), score);
@@ -1765,36 +1731,35 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      * public boolean isLevelComplete() { return this.isLevelComplete; } public
      * void levelComplete() { this.isLevelComplete = true; }
      */
-    public void setHighScore(String name, long score, boolean autoSubmit, final boolean isLast) throws Exception
+    public void setHighScore(final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception
     {
-        if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT)
-        {
-            HighScore highScore = this.createHighScore(score);
-            // TWB - Technically this means that if it is not a best local score
-            // then it will not become a remote high score
-            //if (this.getHighScoresArray()[0].isBestScore(highScore))
-            //{
-                final HighScoreTextBox textBox = new HighScoreTextBox(
-                        this.getCustomCommandListener(), name,
-                        this.getHighScoresArray(), highScore, this
-                                .gameLayerManager.getBackgroundBasicColor(),
-                        this.gameLayerManager.getForegroundBasicColor());
+        this.gameBehavior.setHighScore(this, name, score, autoSubmit, isLast);
+    }
 
-            if (isLast) {
-                    this.getCustomCommandListener().commandAction(
-                        GameCommandsFactory.getInstance().SET_MENU_DISPLAYABLE,
-                        textBox);                
-            }
-                
-                if(autoSubmit)
-                {
-                    class SaveHighScoreRunnable implements Runnable
-                    {
-                        public void run()
-                        {
-                            try
-                            {
-                                //Let the endgame sound play first
+    public void setHighScore2(final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
+
+        final HighScore highScore = this.createHighScore(score);
+        // TWB - Technically this means that if it is not a best local score
+        // then it will not become a remote high score
+        //if (this.getHighScoresArray()[0].isBestScore(highScore))
+        //{
+        final HighScoreTextBox textBox = new HighScoreTextBox(
+                this.getCustomCommandListener(), name,
+                this.getHighScoresArray(), highScore, this.gameLayerManager.getBackgroundBasicColor(),
+                this.gameLayerManager.getForegroundBasicColor());
+
+        if (isLast) {
+            this.getCustomCommandListener().commandAction(
+                    GameCommandsFactory.getInstance().SET_MENU_DISPLAYABLE,
+                    textBox);
+        }
+
+        if (autoSubmit) {
+            class SaveHighScoreRunnable implements Runnable {
+
+                public void run() {
+                    try {
+                        //Let the endgame sound play first
 //                                Thread.sleep(100);
 //
 //                                ProgressCanvas progressCanvas = 
@@ -1802,32 +1767,26 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 //                                
 //                                progressCanvas.addPortion(6, "Saving High Score");
 
-                                if(isLast)
-                                {
-                                    textBox.submit();
-                                }
-                                else
-                                {
-                                    textBox.saveHighScore();
-                                }
-                            }
-                            catch(Exception e)
-                            {
-                                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "run", e));
-                                ProgressCanvasFactory.getInstance().end();
-                            }                        
+                        if (isLast) {
+                            textBox.submit();
+                        } else {
+                            textBox.saveHighScore();
                         }
+                    } catch (Exception e) {
+                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "run", e));
+                        ProgressCanvasFactory.getInstance().end();
                     }
-
-                    SecondaryThreadPool.getInstance().runTask(new SaveHighScoreRunnable());
                 }
-            //}
-            //else
-            //{
-                // if score is not a high score ignore it
-                //this.setHighScoreSubmitted(true);
-            //}
+            }
+
+            SecondaryThreadPool.getInstance().runTask(new SaveHighScoreRunnable());
         }
+        //}
+        //else
+        //{
+        // if score is not a high score ignore it
+        //this.setHighScoreSubmitted(true);
+        //}
     }
 
     protected TimeDelayHelper getGameStateTimeHelper()
