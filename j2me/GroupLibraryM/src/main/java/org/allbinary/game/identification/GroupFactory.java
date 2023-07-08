@@ -14,6 +14,8 @@
 package org.allbinary.game.identification;
 
 import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class GroupFactory {
@@ -31,7 +33,7 @@ public class GroupFactory {
    public Group getNextGroup()
    {
       Group group = (Group) list.objectArray[index];
-      //LogUtil.put(LogFactory.getInstance("group: " + group + " index: " + index, this, "getNextGroup"));
+      //LogUtil.put(LogFactory.getInstance(new StringMaker().append("group: ").append(group).append(" index: ").append(index).toString(), this, "getNextGroup"));
       index++;
       return group;
    }
@@ -39,14 +41,17 @@ public class GroupFactory {
    public Group getNextGroup(final String name)
    {
       final Group group = this.getNextGroup();
+      //LogUtil.put(LogFactory.getInstance(new StringMaker().append("group: ").append(group).append(" name: ").append(name).toString(), this, "getNextGroup"));
       group.setName(name);
       return group;
    }
    
    public void init(short groups, String[] nameArray)
    {
+       
       final String TEAM = "Team ";
-      
+    
+      list.clear();
       index = 0;
       short size = (short) list.size();
       while(size < groups)
