@@ -117,7 +117,7 @@ public class GameMidlet extends ProgressMidlet
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
     private final WebCommandProcessor webCommandProcessor = WebCommandProcessor.getInstance();
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
-    protected final TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(1600);
+    protected final TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(1266);
 
     private final DebugInterface debugInterface;
     
