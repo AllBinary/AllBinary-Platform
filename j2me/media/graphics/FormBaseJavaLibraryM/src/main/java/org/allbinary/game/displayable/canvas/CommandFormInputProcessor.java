@@ -53,17 +53,18 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
        InputFeatureFactory.getInstance().isSingleKeyProcessing();
 
    private ScrollSelectionForm form;
+   private boolean hasPressed = false;
 
-   public CommandFormInputProcessor(BasicArrayList gameKeyEventList,
-           int playerInputId, 
-           MyCanvas gameCanvas, ScrollSelectionForm form)
+   public CommandFormInputProcessor(final BasicArrayList gameKeyEventList,
+           final int playerInputId, 
+           final MyCanvas gameCanvas, final ScrollSelectionForm form)
    {
       super(gameKeyEventList, playerInputId, gameCanvas);
 
       this.form = form;
    }
 
-   public int processInput(int key) throws Exception
+   public int processInput(final int key) throws Exception
    {
       // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append("Canvas." +
       // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
@@ -121,11 +122,11 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       {
          //PreLogUtil.put(CommonStrings.getInstance().START, this, GameInputStrings.getInstance());
 
-         int motionInputsIndex = this.processMotionInputs();
+         final int motionInputsIndex = this.processMotionInputs();
 
-         BasicArrayList list = this.getGameKeyEventList();
+         final BasicArrayList list = this.getGameKeyEventList();
          
-         int size = list.size();
+         final int size = list.size();
          int key = 0;
 
          GameKeyEvent gameKeyEvent;
@@ -179,7 +180,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    {
        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processMotionInputs");
        
-      int lastIndex = this.motionGestureEventList.size() - 1;
+      final int lastIndex = this.motionGestureEventList.size() - 1;
 
       if (lastIndex >= 0)
       {
@@ -203,8 +204,6 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
 
       if (motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED)
-      // ||
-      // motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED)
       {
          final GPoint point = motionGestureEvent.getCurrentPoint();
          if (this.form.isInForm(point))
@@ -235,18 +234,21 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
          // LogUtil.put(LogFactory.getInstance("No Double Press Time: ").append(this.doubleClickTimeHelper.getElapsed(), this, "processMotionInput"));
 
-         if (!this.doubleClickTimeHelper.isTime())
-         {
-             LogUtil.put(LogFactory.getInstance("Double Press", this, "processMotionInput"));
-             this.processCommand();
-         }
+         if(this.hasPressed) {
+             if (!this.doubleClickTimeHelper.isTime()) {
+                 LogUtil.put(LogFactory.getInstance("Double Press", this, "processMotionInput"));
+                 this.processCommand();
+             }
 
-         this.doubleClickTimeHelper.delay = DOUBLE_CLICK_DELAY;
-         this.doubleClickTimeHelper.setStartTime();
-      } else
+             this.doubleClickTimeHelper.delay = DOUBLE_CLICK_DELAY;
+             this.doubleClickTimeHelper.setStartTime();
+         }
+         this.hasPressed = false;
+      } else if (motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED)
       {
          // Can't be a double click/press if dragging or other
          this.doubleClickTimeHelper.delay = 0;
+         this.hasPressed = true;
       }
    }
    
