@@ -37,8 +37,9 @@ public class TextAnimation  extends Animation
 
     public TextAnimation(String text)
     {
-        this.textArray = new String[1];
-        this.textArray[0] = text;
+        //this.textArray = new String[1];
+        //this.textArray[0] = text;
+        this.setText(text);
     }
     
     public void nextFrame() throws Exception
