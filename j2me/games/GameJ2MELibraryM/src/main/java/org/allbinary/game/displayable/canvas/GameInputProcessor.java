@@ -20,10 +20,12 @@ import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.InputProcessor;
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.event.DownGameKeyEventHandler;
+import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class GameInputProcessor
 extends InputProcessor
@@ -31,11 +33,15 @@ extends InputProcessor
     private final AllBinaryGameCanvas allBinaryGameCanvas;
     private final DownGameKeyEventHandler downGameKeyEventHandler =
         DownGameKeyEventHandler.getInstance();
+    private final DownKeyEventHandler downKeyEventHandler =
+        DownKeyEventHandler.getInstance();
+    private SmallIntegerSingletonFactory smallIntegerSingletonFactory = 
+                    SmallIntegerSingletonFactory.getInstance();
     
     private final InputToGameKeyMapping inputToGameKeyMapping =
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    public GameInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
+    public GameInputProcessor(final AllBinaryGameCanvas allBinaryGameCanvas)
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
 
@@ -47,19 +53,19 @@ extends InputProcessor
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
     //TWB - This is raw input from Canvas that does not include TouchButton Input
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressed(final int keyCode, final int deviceId)
     {
         try
         {
             //LogUtil.put(LogFactory.getInstance("Key Code: ").append(Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT));
             //PreLogUtil.put("Key Code: ").append(Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT);
             
-            GameKey gameKey = this.inputToGameKeyMapping.getInstance(
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstance(
                     this.allBinaryGameCanvas, keyCode);
 
             if (gameKey != NONE)
             {
-                GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(
+                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(
                             this.allBinaryGameCanvas, gameKey);
 
                 /*
@@ -78,15 +84,16 @@ extends InputProcessor
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.allBinaryGameCanvas.NO_KEY).append(keyCode).toString(), this, 
-                        this.allBinaryGameCanvas.ADD_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.allBinaryGameCanvas.NO_KEY).append(keyCode).toString(), this, this.allBinaryGameCanvas.ADD_KEY_EVENT));
+                final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstance(keyCode);
+                downKeyEventHandler.fireEvent(keyCodeAsInteger);
+                downKeyEventHandler.getInstance(deviceId).fireEvent(keyCodeAsInteger);
             }
 
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, 
-                    this.allBinaryGameCanvas.ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.allBinaryGameCanvas.ADD_KEY_EVENT, e));
         }
     }
 }

@@ -24,7 +24,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
 {
 
     public static final String PERFORMANCE_MESSAGE = "Use Custom onEvent Methods for needed optimization";
-    private BasicArrayList eventListenerInterfaceList;
+    protected BasicArrayList eventListenerInterfaceList;
 
     // private ReentrantLock reentrantLock = new ReentrantLock();
     // private Condition condition = reentrantLock.newCondition();

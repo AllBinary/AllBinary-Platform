@@ -30,20 +30,19 @@ public class GameInputProcessor
         
     }
 
-    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) 
+    public void process(final AllBinaryLayerManager allbinaryLayerManager, final GameKeyEvent gameKeyEvent) 
     throws Exception
     {
         
     }
 
-    public void processReleased(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent) 
+    public void processReleased(final AllBinaryLayerManager allbinaryLayerManager, final GameKeyEvent gameKeyEvent) 
     throws Exception
     {
         
     }
     
-    public void process(AllBinaryLayerManager allbinaryLayerManager, GameKeyEvent gameKeyEvent, 
-    		int analogValue)
+    public void process(final AllBinaryLayerManager allbinaryLayerManager, final GameKeyEvent gameKeyEvent, final int analogValue)
     //AnalogLocationInput analogLocationInput
     throws Exception
     {

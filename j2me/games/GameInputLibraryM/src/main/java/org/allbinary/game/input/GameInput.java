@@ -27,7 +27,7 @@ public class GameInput {
    private final BasicArrayList gameKeyEventList;
    private final BasicArrayList removalGameKeyEventList;
 
-   private final boolean isRemoveDuplicateKeyPresses;
+   protected final boolean isRemoveDuplicateKeyPresses;
    
    public GameInput(final BasicArrayList gameKeyEventList) {
        this(gameKeyEventList, new BasicArrayList());
