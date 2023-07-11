@@ -48,4 +48,17 @@ public class GameInputProcessor
     {
         
     }
+    
+    public void process(final AllBinaryLayerManager allbinaryLayerManager, final Integer keyAsInteger) 
+    throws Exception
+    {
+        
+    }
+
+    public void processReleased(final AllBinaryLayerManager allbinaryLayerManager, final Integer keyAsInteger) 
+    throws Exception
+    {
+        
+    }
+    
 }

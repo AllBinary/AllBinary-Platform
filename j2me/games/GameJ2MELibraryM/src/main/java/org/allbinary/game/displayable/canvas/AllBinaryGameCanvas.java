@@ -119,6 +119,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
+import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.form.item.CustomItem;
@@ -129,6 +130,7 @@ import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.CircularIndexUtil;
 
@@ -231,7 +233,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final BasicMotionGesturesHandler basicMotionGesturesHandler = 
             BasicMotionGesturesHandler.getInstance();
     private final GameKeyEventHandler gameKeyEventHandler = GameKeyEventHandler.getInstance();
-    private final UpGameKeyEventHandler upGameKeyEventHandler= UpGameKeyEventHandler.getInstance();
+    private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
     
     private final DemoGameBehavior gameBehavior;
     private final BaseMenuBehavior menuBehavior;
@@ -1075,9 +1077,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--) {
             PlayerGameInput playerGameInput = (PlayerGameInput) this.localPlayerGameInputList.get(index);
-            this.gameKeyEventHandler.removeListener(playerGameInput);
+            this.removeKeyInputListener(playerGameInput);
             playerGameInput.removeNonAIInputGameKeyEvents();
         }
+    }
+    
+    public void removeKeyInputListener(final PlayerGameInput playerGameInput) {
+        this.gameKeyEventHandler.removeListener(playerGameInput);
     }
 
     /*
@@ -1231,16 +1237,21 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //LogUtil.put(LogFactory.getInstance("Clearing Keys From Last Level", this, BUILD_GAME));
         PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInputs: ").append(this.localPlayerGameInputList.size()).toString(), this, BUILD_GAME);
 
+        PlayerGameInput playerGameInput;
         for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--) {
-            PlayerGameInput playerGameInput = (PlayerGameInput) this.localPlayerGameInputList.get(index);
+            playerGameInput = (PlayerGameInput) this.localPlayerGameInputList.get(index);
 
             PreLogUtil.put(new StringMaker().append("Enabling PlayerGameInput: ").append(playerGameInput.toString()).toString(), this, BUILD_GAME);
 
             playerGameInput.removeNonAIInputGameKeyEvents();
-            GameKeyEventHandler.getInstance().addListener(playerGameInput, playerGameInput.getPlayerInputId());
+            this.addKeyInputListener(playerGameInput);
 
             // ForcedLogUtil.log("DownGameKeyEventHandler: " + DownGameKeyEventHandler.getInstance().getEventListenerInterfaceList(), this);
         }
+    }
+
+    public void addKeyInputListener(final PlayerGameInput playerGameInput) {
+        GameKeyEventHandler.getInstance().addListener(playerGameInput, playerGameInput.getPlayerInputId());
     }
     
     private DemoCanvas gameCanvasStartListener;
@@ -1416,17 +1427,17 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
-    private void removeGameKeyEvent(int keyCode, int deviceId, boolean repeated)
+    private void removeGameKeyEvent(final int keyCode, final int deviceId, final boolean repeated)
     {
         try
         {
             //LogUtil.put(LogFactory.getInstance("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT));
 
-            GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
+            final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
             if (gameKey != NONE)
             {
-                GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
+                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
 
                 /*
                  * //This is for key input debugging only GameKeyEvent
@@ -1444,11 +1455,16 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             {
                 LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
             }
+            
+            this.handleRawKey(keyCode, deviceId, repeated);
         }
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance("Key Event Error", this, REMOVE_KEY_EVENT, e));
         }
+    }
+
+    public void handleRawKey(final int keyCode, final int deviceId, final boolean repeated) throws Exception {
     }
 
     protected int endProgress(boolean isProgress)

@@ -35,7 +35,7 @@ extends InputProcessor
         DownGameKeyEventHandler.getInstance();
     private final DownKeyEventHandler downKeyEventHandler =
         DownKeyEventHandler.getInstance();
-    private SmallIntegerSingletonFactory smallIntegerSingletonFactory = 
+    private final SmallIntegerSingletonFactory smallIntegerSingletonFactory = 
                     SmallIntegerSingletonFactory.getInstance();
     
     private final InputToGameKeyMapping inputToGameKeyMapping =
