@@ -85,10 +85,11 @@ extends InputProcessor
             else
             {
                 LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.allBinaryGameCanvas.NO_KEY).append(keyCode).toString(), this, this.allBinaryGameCanvas.ADD_KEY_EVENT));
-                final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstance(keyCode);
-                downKeyEventHandler.fireEvent(keyCodeAsInteger);
-                downKeyEventHandler.getInstance(deviceId).fireEvent(keyCodeAsInteger);
             }
+
+            final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstance(keyCode);
+            downKeyEventHandler.fireEvent(keyCodeAsInteger);
+            downKeyEventHandler.getInstance(deviceId).fireEvent(keyCodeAsInteger);
 
         }
         catch (Exception e)
