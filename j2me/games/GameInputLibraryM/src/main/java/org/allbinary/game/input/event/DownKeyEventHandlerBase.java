@@ -29,7 +29,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     protected DownKeyEventHandlerBase() {
     }
 
-    public void addListener(PlayerGameInput playerGameInput) {
+    public void addListener(final PlayerGameInput playerGameInput) {
         if (!list.contains(playerGameInput)) {
 
             list.add(playerGameInput);
@@ -48,8 +48,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), "removeAllListeners");
     }
 
-    public void removeListenerSingleThreaded(
-            EventListenerInterface eventListenerInterface) {
+    public void removeListenerSingleThreaded(final EventListenerInterface eventListenerInterface) {
         
         this.list.remove(eventListenerInterface);
         super.removeListenerSingleThreaded(eventListenerInterface);
@@ -65,7 +64,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         //ForcedLogUtil.log(this.toString(), "removeListener");
     }
 
-    public void fireEvent(Integer eventObject) throws Exception {
+    public void fireEvent(final Integer eventObject) throws Exception {
         //ForcedLogUtil.log(this.toString(), "fireEvent");
 
         for (int index = this.list.size(); --index >= 0;) {
@@ -94,10 +93,8 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     }
     
-    protected void process(Integer eventObject,
-            EventListenerInterface eventListenerInterface) throws Exception {
-        ((DownKeyEventListenerInterface) eventListenerInterface)
-                .onDownKeyEvent(eventObject);
+    protected void process(final Integer eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
+        ((DownKeyEventListenerInterface) eventListenerInterface).onDownKeyEvent(eventObject);
     }
 
     private static final String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
