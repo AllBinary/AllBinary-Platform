@@ -16,11 +16,11 @@ package org.allbinary.media.audio;
 import org.allbinary.media.audio.BaseSoundsFactory;
 import org.allbinary.media.audio.Sound;
 
-public class EarlySoundsFactoryFactory 
+public class EarlySoundsFactory 
     extends BaseSoundsFactory 
 {
-    private static final EarlySoundsFactoryFactory instance = 
-        new EarlySoundsFactoryFactory();
+    private static final EarlySoundsFactory instance = 
+        new EarlySoundsFactory();
 
     public Sound[] getSoundInterfaceArray() throws Exception {
         Sound[] soundInterfaceArray = new Sound[2];
@@ -33,7 +33,7 @@ public class EarlySoundsFactoryFactory
         return soundInterfaceArray;
     }
 
-    public static EarlySoundsFactoryFactory getInstance()
+    public static EarlySoundsFactory getInstance()
     {
         return instance;
     }

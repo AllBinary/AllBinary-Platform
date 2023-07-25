@@ -27,6 +27,7 @@ public class Replace
 {
     private final String REPLACERS_ = "Replacers: ";
     private final String ALL = "all";
+    private final String FOUND_KEY = "found key";
     
    private final HashMap hashMap;
    
@@ -82,7 +83,7 @@ public class Replace
             final int begin = replace.indexOf(key, index);
             if(begin != -1)
             {
-                System.out.println("found key");
+                System.out.println(FOUND_KEY);
                final int end = begin + key.length();
 
                //System.out.print(replace.substring(0, begin) + "+");
@@ -96,6 +97,72 @@ public class Replace
                
                replace = newStringBuffer.toString();
                totalNumberOfReplaces++;
+            }
+            else
+            {
+               break;
+            }
+         }
+      }
+      
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      //{
+         //LogUtil.put(LogFactory.getInstance("Replace Result: " + replace, this, ALL));
+      //}
+      
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      //{
+         LogUtil.put(LogFactory.getInstance("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL));
+      //}
+      
+      return replace;
+   }
+
+   public String line(String replace)
+   {
+      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      //{
+         LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, ALL));
+      //}
+
+      final StringBuffer newStringBuffer = new StringBuffer();
+
+      int totalNumberOfReplaces = 0;
+      
+      final Set keySet = hashMap.keySet();
+      final Iterator keyIter = keySet.iterator();
+      String key;
+      String value;
+      while(keyIter.hasNext())
+      {
+         key = (String) keyIter.next();
+         value = (String) hashMap.get(key);
+         
+         //replace.replace(key, value);
+
+         int index = 0;
+         while(index < replace.length())
+         {
+            newStringBuffer.delete(0, newStringBuffer.length());
+
+            final int begin = replace.indexOf(key, index);
+            if(begin != -1)
+            {
+                System.out.println(FOUND_KEY);
+               final int end = replace.indexOf('\n', begin + key.length()) + 1;
+
+               if(end >= 0) {
+                   //System.out.print(replace.substring(0, begin) + "+");
+                   //System.out.print(value + "+");
+                   //System.out.println(replace.substring(end, replace.length()));
+
+                   newStringBuffer.append(replace.substring(0, begin));
+                   index = newStringBuffer.length();
+                   newStringBuffer.append(replace.substring(end, replace.length()));
+
+                   replace = newStringBuffer.toString();
+                   totalNumberOfReplaces++;
+               }
             }
             else
             {
