@@ -105,7 +105,7 @@ import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.audio.AllBinaryMediaManager;
-import org.allbinary.media.audio.EarlySoundsFactoryFactory;
+import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.thread.SecondaryThreadPool;
@@ -319,8 +319,7 @@ public class DemoCanvas extends RunnableCanvas
     public void mediaInit() throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "mediaInit"));
-        AllBinaryMediaManager.init(
-            EarlySoundsFactoryFactory.getInstance());
+        AllBinaryMediaManager.init(EarlySoundsFactory.getInstance());
     }
 
     public void itemStateChanged(Item item)
