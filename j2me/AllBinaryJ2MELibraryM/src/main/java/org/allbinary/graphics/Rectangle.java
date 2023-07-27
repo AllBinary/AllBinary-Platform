@@ -39,15 +39,20 @@ public class Rectangle
    {
       return point;
    }
+
+   public void setPoint(final GPoint point)
+   {
+      this.point = point;
+   }
    
    public int getMaxX()
    {
-      return this.getPoint().getX() + this.width;
+      return this.point.getX() + this.width;
    }
 
    public int getMaxY()
    {
-      return this.getPoint().getY() + this.height;
+      return this.point.getY() + this.height;
    }
    
    public int getWidth()
