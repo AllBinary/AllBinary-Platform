@@ -38,26 +38,25 @@ public class ImageScaleUtil
 
     private int anchor = Anchor.TOP_LEFT;
 
-    public Image createImage(ImageCache imageCache, Image originalImage,
-            float scaleNominatorX, float scaleDenominatorX, 
-            float scaleNominatorY, float scaleDenominatorY, boolean cached) 
+    public Image createImage(final ImageCache imageCache, final Image originalImage,
+            final float scaleNominatorX, final float scaleDenominatorX, 
+            final float scaleNominatorY, final float scaleDenominatorY, final boolean cached) 
     throws Exception
     {
-        float scaleX = scaleNominatorX / scaleDenominatorX;
-        float scaleY = scaleNominatorY / scaleDenominatorY;
+        final float scaleX = scaleNominatorX / scaleDenominatorX;
+        final float scaleY = scaleNominatorY / scaleDenominatorY;
         
         return this.createImage(imageCache, originalImage, scaleX, scaleY, cached);
     }
 
-    public Image createImage(ImageCache imageCache, Image originalImage, 
-            float scaleX, float scaleY, boolean cached) 
+    public Image createImage(final ImageCache imageCache, final Image originalImage, 
+            final float scaleX, final float scaleY, final boolean cached) 
     throws Exception
     {
         return this.createImage(originalImage, scaleX, scaleY);
     }    
 
-    public Image createImage(Image originalImage, 
-            float scaleX, float scaleY) 
+    public Image createImage(final Image originalImage, final float scaleX, final float scaleY) 
     throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " scaleX: " + scaleX + " scaleY: " + scaleY, this, "createImage");
@@ -87,7 +86,8 @@ public class ImageScaleUtil
             final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
             final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
             final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
-            canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth(), image.getHeight(), 0, 0, originalPlayNImage.width(), originalPlayNImage.height());
+            canvasSurface.translate(-3, 3);
+            canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth() + 3, image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
 
             //PreLogUtil.put("Image: " + originalImage.getWidth() + " " + originalImage.getHeight(), this, "createImage");
             

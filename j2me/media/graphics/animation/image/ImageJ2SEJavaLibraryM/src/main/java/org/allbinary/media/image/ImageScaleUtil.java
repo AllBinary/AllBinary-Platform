@@ -13,10 +13,10 @@
 */
 package org.allbinary.media.image;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import javax.microedition.lcdui.Image;
 import org.allbinary.image.ImageCache;
 import org.microemu.device.j2se.J2SEImmutableImage;
@@ -44,36 +44,53 @@ public class ImageScaleUtil
             final float scaleNominatorY, final float scaleDenominatorY, final boolean cached) 
     throws Exception
     {
-        //float scaleX = scaleNominatorX / scaleDenominatorX;
-        //float scaleY = scaleNominatorY / scaleDenominatorY;
+        final int width = originalImage.getWidth();
+        final int height = originalImage.getHeight();
+
+        final float scaleX = scaleNominatorX / scaleDenominatorX;
+        final float scaleY = scaleNominatorY / scaleDenominatorY;
+
+        Image image;        
+        if(cached)
+        {
+            image = imageCache.get(this.getClass().getName(), (int) (width * scaleX), (int) (height * scaleY));
+        }
+        else
+        {
+            //TWB - Image Create
+            //image = Image.createImage(width, height);
+            image = imageCache.get("createImage", (int) (width * scaleX), (int) (height * scaleY));
+        }
         
-        //return this.createImage(imageCache, originalImage, scaleX, scaleY, cached);
-        throw new RuntimeException("Image Scaling is not supported by J2SE with this call yet");
+        this.scale(originalImage, image, scaleX, scaleY);
+        return image;
+        //throw new RuntimeException("Image Scaling is not supported by J2SE with this call yet");
     }
 
  
-    public void scale(final Image image, final Image maxSizeImage, final float scaleX, final float scaleY) {
+    public void scale(final Image originalImage, final Image newMaxSizeImage, final float scaleX, final float scaleY) {
 
+        
         BufferedImage bufferedImage;
         //java.awt.Image newBufferedImage;
-        if(image.isMutable()) {
-            final J2SEMutableImage j2seImage = (J2SEMutableImage) image;
+        if(originalImage.isMutable()) {
+            final J2SEMutableImage j2seImage = (J2SEMutableImage) originalImage;
             bufferedImage = (BufferedImage) j2seImage.getImage();
         } else {
-            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) image;
+            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) originalImage;
             //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
-            bufferedImage = (BufferedImage) j2seImage.getImage();                        
+            bufferedImage = (BufferedImage) j2seImage.getImage();
         }
 
         BufferedImage newBufferedImage;
         //java.awt.Image newBufferedImage;
-        if(maxSizeImage.isMutable()) {
-            final J2SEMutableImage j2seImage = (J2SEMutableImage) maxSizeImage;
+        if(newMaxSizeImage.isMutable()) {
+            final J2SEMutableImage j2seImage = (J2SEMutableImage) newMaxSizeImage;
             newBufferedImage = (BufferedImage) j2seImage.getImage();
         } else {
-            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) maxSizeImage;
+            final J2SEImmutableImage j2seImage = (J2SEImmutableImage) newMaxSizeImage;
             //sun.awt.image.ToolkitImage cannot be cast to class java.awt.image.BufferedImage
-            newBufferedImage = (BufferedImage) j2seImage.getImage();                        
+            newBufferedImage = (BufferedImage) j2seImage.getImage();
         }
         
         final AffineTransform at = AffineTransform.getScaleInstance(scaleX, scaleY);
