@@ -31,9 +31,9 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     }
 
     public static NullGameCanvas getInstance(
-            AllBinaryGameLayerManager gameLayerManager)
+            final AllBinaryGameLayerManager gameLayerManager)
     {
-        NullGameCanvas nullGameCanvas = new NullGameCanvas(gameLayerManager);
+        final NullGameCanvas nullGameCanvas = new NullGameCanvas(gameLayerManager);
         
         nullGameCanvas.setInitialized(true);
         nullGameCanvas.setTitle(NO_GAME);
@@ -43,7 +43,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     
     public static final String NO_GAME = "No Background Game";
     
-    protected NullGameCanvas(AllBinaryGameLayerManager gameLayerManager)
+    protected NullGameCanvas(final AllBinaryGameLayerManager gameLayerManager)
     {
         super(gameLayerManager);
 
@@ -80,7 +80,7 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         this.setPaused(false);
     }
 
-    public void initCommands(CommandListener cmdListener)
+    public void initCommands(final CommandListener cmdListener)
     {
         this.removeAllCommands();
         
@@ -90,14 +90,14 @@ public class NullGameCanvas extends AllBinaryGameCanvas
         this.setCommandListener(cmdListener);
     }
 
-    public void buildGame(boolean isProgress) throws Exception
+    public void buildGame(final boolean isProgress) throws Exception
     {
         //this.getLayerManager().cleanup();
 
         //this.getLayerManager().append(new PlayerGameInputGameLayer());
     }
 
-    public void draw(Graphics graphics)
+    public void draw(final Graphics graphics)
     {
         //this.clear(graphics);
 
@@ -109,15 +109,15 @@ public class NullGameCanvas extends AllBinaryGameCanvas
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_RUNNABLE, this, CommonStrings.getInstance().RUN));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
 
             //this.setRunning(false);
 
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END_RUNNABLE, this, CommonStrings.getInstance().RUN));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
         }
     }
 }

@@ -141,6 +141,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         IntermissionEnableListenerInterface, PopupMenuInterface,
         HighScoresCompositeInterface, DisplayChangeEventListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
 
     private final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
@@ -239,11 +241,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final BaseMenuBehavior menuBehavior;
 
     public AllBinaryGameCanvas(
-            CommandListener commandListener,
-            AllBinaryGameLayerManager gameLayerManager,
-            HighScoresFactoryInterface highScoresFactoryInterface,
-            BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
-            boolean buffered) throws Exception
+            final CommandListener commandListener,
+            final AllBinaryGameLayerManager gameLayerManager,
+            final HighScoresFactoryInterface highScoresFactoryInterface,
+            final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
+            final boolean buffered) throws Exception
     {
         super(commandListener);
         
@@ -271,8 +273,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
     
     //Null GameCanvas
-    public AllBinaryGameCanvas(
-            AllBinaryGameLayerManager gameLayerManager)
+    public AllBinaryGameCanvas(final AllBinaryGameLayerManager gameLayerManager)
     {
         if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
             this.gameBehavior = DemoGameBehavior.getInstance();
@@ -290,13 +291,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public AllBinaryGameCanvas()
     {
         
-        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
+//        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
             this.gameBehavior = DemoGameBehavior.getInstance();
             this.menuBehavior = BaseMenuBehavior.getInstance();
-        } else {
-            this.gameBehavior = BaseGameBehavior.getInstance();
-            this.menuBehavior = this.getInGameMenuBehavior();
-        }        
+//        } else {
+//            this.gameBehavior = BaseGameBehavior.getInstance();
+//            this.menuBehavior = this.getInGameMenuBehavior();
+//        }        
 
         this.highScoresFactoryInterface = null;
     }
@@ -1304,7 +1305,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void paintGameOver(Graphics graphics)
     {
-        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 
     public void draw(Graphics graphics)
@@ -1484,7 +1485,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void processPlayingGame() throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processPlayingGame"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processPlayingGame"));
         
         /*
          * if(this.hasRepeatEvents()) { this.setRepeated(true); }
@@ -1793,7 +1794,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                             textBox.saveHighScore();
                         }
                     } catch (Exception e) {
-                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "run", e));
+                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
                         ProgressCanvasFactory.getInstance().end();
                     }
                 }
