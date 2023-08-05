@@ -350,8 +350,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             ((PopupMenuInputProcessor) this.getPopupMenuInputProcessor()).init(popupMenuRectangle);
         }
 
+        final FormUtil formUtil = FormUtil.getInstance();
         final FormType formType = FormTypeFactory.getInstance().getFormType();
-        final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+        final Rectangle rectangle = formUtil.createFormRectangle();
         this.menuForm.init(rectangle, formType);
 
         //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, "onDisplayChangeEvent");

@@ -87,6 +87,7 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
+import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormType;
 import org.allbinary.graphics.form.FormTypeFactory;
@@ -213,12 +214,12 @@ public class DemoCanvas extends RunnableCanvas
         {
             //MyFont.getInstance().update();
 
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
-            
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
+
             final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             
             if(scrollSelectionForm != null)
-            {                
+            {
                 final FormType formType = FormTypeFactory.getInstance().getFormType();
                 final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
                 scrollSelectionForm.init(rectangle, formType);
@@ -226,7 +227,7 @@ public class DemoCanvas extends RunnableCanvas
             
             this.overlayPaintable.init();
         }
-        catch(Exception e)
+        catch(Exception e) 
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onDisplayChangeEvent", e));
         }
@@ -347,11 +348,15 @@ public class DemoCanvas extends RunnableCanvas
 
         PreLogUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, "initMenu");
         
-        this.setMenuForm(
-            CommandCurrentSelectionFormFactory.getInstance(
+        final ScrollSelectionForm scrollSelectionForm = CommandCurrentSelectionFormFactory.getInstance(
                     StringUtil.getInstance().EMPTY_STRING, 
                     items, rectangle, formType, 15, true,
-                    basicColorFactory.BLACK, basicColorFactory.WHITE));
+                    basicColorFactory.BLACK, basicColorFactory.WHITE);
+        this.setMenuForm(scrollSelectionForm);
+        
+        final FormType formType2 = FormTypeFactory.getInstance().getFormType();
+        final Rectangle rectangle2 = FormUtil.getInstance().createFormRectangle();
+        scrollSelectionForm.init(rectangle2, formType2);
 
         //this.setMenuInputProcessor(new DemoCanvasBasicStartInputProcessor(new BasicArrayList(), this));
 

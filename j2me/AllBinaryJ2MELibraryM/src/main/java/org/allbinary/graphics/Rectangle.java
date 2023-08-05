@@ -80,11 +80,11 @@ public class Rectangle
        StringMaker stringBuffer = new StringMaker();
        stringBuffer.append(this.getPoint().toString());
        stringBuffer.append(CommonSeps.getInstance().SPACE);
-       stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
-       stringBuffer.append(this.getHeight());
-       stringBuffer.append(CommonSeps.getInstance().SPACE);
        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
        stringBuffer.append(this.getWidth());
+       stringBuffer.append(CommonSeps.getInstance().SPACE);
+       stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+       stringBuffer.append(this.getHeight());
        stringBuffer.append(" MaxX: ");
        stringBuffer.append(this.getMaxX());
        stringBuffer.append(" MaxY: ");

@@ -50,7 +50,7 @@ public class FormUtil
 
     public Rectangle createPopupMenuRectangle()
     {
-        final CommonStrings commonStrings = CommonStrings.getInstance();
+        //final CommonStrings commonStrings = CommonStrings.getInstance();
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         final MyFont myFont = MyFont.getInstance();
         
