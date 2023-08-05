@@ -86,8 +86,9 @@ public class ImageScaleUtil
             final PlaynMutableImage htmlImage = (PlaynMutableImage) image;
             final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
             final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
-            canvasSurface.translate(-3, 3);
-            canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth() + 3, image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
+            //canvasSurface.translate(-3, 3);
+            //canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth() + 3, image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
+            canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth(), image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
 
             //PreLogUtil.put("Image: " + originalImage.getWidth() + " " + originalImage.getHeight(), this, "createImage");
             
