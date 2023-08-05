@@ -22,16 +22,16 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCompositeInterfac
 public class TileLayerPositionIntoViewPositionUtil
 {
     public static void init(
-            AllBinaryGameCanvas gameCanvasInterface,
-            TileLayerPositionIntoViewPosition viewPosition)
+            final AllBinaryGameCanvas gameCanvasInterface,
+            final TileLayerPositionIntoViewPosition viewPosition)
     {
-        GeographicMapCompositeInterface geographicMapCompositeInterface = 
+        final GeographicMapCompositeInterface geographicMapCompositeInterface = 
             (GeographicMapCompositeInterface) gameCanvasInterface.getLayerManager();
 
-        BasicGeographicMap geographicMapInterface =
+        final BasicGeographicMap geographicMapInterface =
             geographicMapCompositeInterface.getGeographicMapInterface();
         
-        AllBinaryTiledLayer tiledLayer = 
+        final AllBinaryTiledLayer tiledLayer = 
             geographicMapInterface.getAllBinaryTiledLayer();
 
         viewPosition.setTiledLayer(tiledLayer);
