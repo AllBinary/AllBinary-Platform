@@ -28,7 +28,7 @@ public class AdjustedSpriteIndexedAnimationFactory
     private int dy;
 
     public AdjustedSpriteIndexedAnimationFactory(
-        Image image, int width, int height, int dx, int dy)
+        final Image image, final int width, final int height, final int dx, final int dy)
         throws Exception
     {
         super(image, width, height);
@@ -39,12 +39,12 @@ public class AdjustedSpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
+        final Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
 
         return new AdjustedSpriteIndexedAnimation(sprite, dx, dy);
     }
 
-    public Animation getInstance(Animation animationInterface)
+    public Animation getInstance(final Animation animationInterface)
         throws Exception
     {
         return this.getInstance();

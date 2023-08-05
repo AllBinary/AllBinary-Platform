@@ -25,7 +25,7 @@ extends BaseImageAnimationFactory
    protected int dx;
    protected int dy;
 
-   public OneRowSpriteIndexedAnimationFactory(Image image, int dx, int dy)
+   public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
            throws Exception {
       this(image);
 
@@ -33,7 +33,7 @@ extends BaseImageAnimationFactory
       this.dy = dy;
    }
 
-   public OneRowSpriteIndexedAnimationFactory(int width, int height, Image image)
+   public OneRowSpriteIndexedAnimationFactory(final int width, final int height, final Image image)
            throws Exception {
 
       //90 degrees per row with 4 rows
@@ -41,7 +41,7 @@ extends BaseImageAnimationFactory
        super(image, width, height);
    }
    
-   public OneRowSpriteIndexedAnimationFactory(Image image)
+   public OneRowSpriteIndexedAnimationFactory(final Image image)
       throws Exception 
    {
 
@@ -53,7 +53,7 @@ extends BaseImageAnimationFactory
    public Animation getInstance() 
       throws Exception 
    {
-       Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
+       final Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
 
       if (dx != 0 || dy != 0) 
       {

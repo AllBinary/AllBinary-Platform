@@ -20,14 +20,14 @@ public class AdjustedOneRowSpriteIndexedAnimationFactory
         extends OneRowSpriteIndexedAnimationFactory
 {
 
-   public AdjustedOneRowSpriteIndexedAnimationFactory(Image image, int dx)
+   public AdjustedOneRowSpriteIndexedAnimationFactory(final Image image, final int dx)
            throws Exception {
       super(image, dx, 0);
 
       this.dx += -(this.width >> 2);
    }
    
-   public AdjustedOneRowSpriteIndexedAnimationFactory(Image image, int dx, int dy)
+   public AdjustedOneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
            throws Exception {
       super(image, dx, dy);
 

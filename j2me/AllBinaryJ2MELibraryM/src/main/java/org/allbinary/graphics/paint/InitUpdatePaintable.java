@@ -22,7 +22,7 @@ public class InitUpdatePaintable extends Paintable
         
     }
     
-    public void init()
+    public void init() throws Exception
     {
         
     }

@@ -35,9 +35,9 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
     protected final Animation[] unSelectedAnimationArray = new Animation[16];
 
     public CommandCurrentSelectionForm(
-            String title, CustomItem[] items,
-            Rectangle rectangle, FormType formType, int border, boolean moveForSmallScreen,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+            final String title, final CustomItem[] items,
+            final Rectangle rectangle, final FormType formType, final int border, final boolean moveForSmallScreen,
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
             throws Exception
     {
         super(title, items, rectangle, formType, border, moveForSmallScreen,
@@ -49,7 +49,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 
     private void initAnimations()
     {        
-        Animation nullAnimation = NullAnimationFactory.getFactoryInstance().getInstance();
+        final Animation nullAnimation = NullAnimationFactory.getFactoryInstance().getInstance();
 
         for(int index = selectedAnimationArray.length; --index >= 0;)
         {
@@ -62,7 +62,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
 
-    private void update(CustomItem[] items)
+    private void update(final CustomItem[] items)
     {        
         for(int index = items.length; --index >= 0;)
         {
@@ -70,7 +70,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         }
     }
     
-    private void update(int index, CustomItem item)
+    private void update(final int index, final CustomItem item)
     {
         final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
         
@@ -117,11 +117,11 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 
     public Command getSelectedCommand()
     {
-        int index = super.getSelectedIndex();
+        final int index = super.getSelectedIndex();
         return ((CommandTextItem) this.get(index)).getCommand();
     }
 
-    public int append(CustomItem item)
+    public int append(final CustomItem item)
     {
         int result = super.append(item);
 
@@ -130,7 +130,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         return result;
     }
 
-    public void delete(int itemNum)
+    public void delete(final int itemNum)
     {
         super.delete(itemNum);
     }
@@ -141,24 +141,24 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
         super.deleteAll();
     }
 
-    public void insert(int itemNum, CustomItem item)
+    public void insert(final int itemNum, final CustomItem item)
     {
         super.insert(itemNum, item);
     }
 
-    public void set(int itemNum, CustomItem item)
+    public void set(final int itemNum, final CustomItem item)
     {
         super.set(itemNum, item);
     }
     
-    public int paintItem(Graphics graphics, int index, CustomItemInterface item, int x, int y)
+    public int paintItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {
         this.selectedAnimationArray[index].paint(graphics, x, y);
         return super.paintItem(graphics, index, item, x, y);
     }
 
-    public int paintUnselectedItem(Graphics graphics, int index, CustomItemInterface item, int x, int y)
+    public int paintUnselectedItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {
         this.unSelectedAnimationArray[index].paint(graphics, x, y);

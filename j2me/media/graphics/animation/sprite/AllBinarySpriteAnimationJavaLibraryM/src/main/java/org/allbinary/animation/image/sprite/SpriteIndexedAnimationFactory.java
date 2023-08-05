@@ -25,7 +25,7 @@ public class SpriteIndexedAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface
 {
 
-    public SpriteIndexedAnimationFactory(Image image, int width, int height)
+    public SpriteIndexedAnimationFactory(final Image image, final int width, final int height)
         throws Exception
     {
         super(image, width, height);
@@ -38,7 +38,7 @@ public class SpriteIndexedAnimationFactory
         return new SpriteIndexedAnimation(sprite);
     }
 
-    public Animation getInstance(Animation animationInterface) throws Exception
+    public Animation getInstance(final Animation animationInterface) throws Exception
     {
         return this.getInstance();
     }

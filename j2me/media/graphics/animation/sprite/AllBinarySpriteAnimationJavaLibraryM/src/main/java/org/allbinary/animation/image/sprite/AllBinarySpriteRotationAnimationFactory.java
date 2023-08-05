@@ -27,7 +27,7 @@ public class AllBinarySpriteRotationAnimationFactory
    protected int dx;
    protected int dy;
 
-   public AllBinarySpriteRotationAnimationFactory(Image image, int dx, int dy)
+   public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy)
            throws Exception {
       this(image);
 
@@ -35,7 +35,7 @@ public class AllBinarySpriteRotationAnimationFactory
       this.dy = dy;
    }
 
-   public AllBinarySpriteRotationAnimationFactory(Image image)
+   public AllBinarySpriteRotationAnimationFactory(final Image image)
            throws Exception {
       //90 degrees per row with 4 rows
       //Future imp may include Control fidelity for non square frames
@@ -45,7 +45,7 @@ public class AllBinarySpriteRotationAnimationFactory
       //this.height = frameSize;
    }
 
-   public AllBinarySpriteRotationAnimationFactory(Image image, String nullish)
+   public AllBinarySpriteRotationAnimationFactory(final Image image, final String nullish)
            throws Exception {
       //90 degrees per row with 4 rows
       //Future imp may include Control fidelity for non square frames
@@ -58,7 +58,7 @@ public class AllBinarySpriteRotationAnimationFactory
    public Animation getInstance()
       throws Exception 
    {
-      Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
+      final Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
 
       if (dx != 0 || dy != 0)
       {
@@ -69,7 +69,7 @@ public class AllBinarySpriteRotationAnimationFactory
       }
    }
 
-    public Animation getInstance(Animation animationInterface) throws Exception
+    public Animation getInstance(final Animation animationInterface) throws Exception
     {
         return this.getInstance();
     }

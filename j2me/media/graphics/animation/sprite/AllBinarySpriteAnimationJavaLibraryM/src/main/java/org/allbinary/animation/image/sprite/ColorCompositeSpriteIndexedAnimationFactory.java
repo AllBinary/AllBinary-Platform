@@ -28,10 +28,10 @@ public class ColorCompositeSpriteIndexedAnimationFactory
     //private int dx;
     //private int dy;
 
-    private BasicColor[] basicColorArray;
+    private final BasicColor[] basicColorArray;
 
     public ColorCompositeSpriteIndexedAnimationFactory(
-        Image image, BasicColor[] basicColorArray, int width, int height)
+        final Image image, final BasicColor[] basicColorArray, final int width, final int height)
         throws Exception
     {
         super(image, width, height);
@@ -55,12 +55,12 @@ public class ColorCompositeSpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
+        final Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
 
         return new SpriteIndexedAnimation(sprite, this.basicColorArray);
     }
 
-    public Animation getInstance(Animation animationInterface) throws Exception
+    public Animation getInstance(final Animation animationInterface) throws Exception
     {
         return this.getInstance();
     }

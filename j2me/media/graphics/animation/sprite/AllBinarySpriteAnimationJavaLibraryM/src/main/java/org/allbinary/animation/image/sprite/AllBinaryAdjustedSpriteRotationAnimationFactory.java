@@ -20,7 +20,7 @@ public class AllBinaryAdjustedSpriteRotationAnimationFactory
         extends AllBinarySpriteRotationAnimationFactory
 {
 
-   public AllBinaryAdjustedSpriteRotationAnimationFactory(Image image, int dx, int dy)
+   public AllBinaryAdjustedSpriteRotationAnimationFactory(final Image image, final int dx, final int dy)
            throws Exception {
       super(image, dx, dy);
 
@@ -28,12 +28,12 @@ public class AllBinaryAdjustedSpriteRotationAnimationFactory
       this.dy += -this.height / 5;
    }
 
-   public AllBinaryAdjustedSpriteRotationAnimationFactory(Image image)
+   public AllBinaryAdjustedSpriteRotationAnimationFactory(final Image image)
            throws Exception {
       this(image, 0, 0);
    }
 
-   public AllBinaryAdjustedSpriteRotationAnimationFactory(Image image, String nullish)
+   public AllBinaryAdjustedSpriteRotationAnimationFactory(final Image image, final String nullish)
            throws Exception {
       super(image, nullish);
    }
