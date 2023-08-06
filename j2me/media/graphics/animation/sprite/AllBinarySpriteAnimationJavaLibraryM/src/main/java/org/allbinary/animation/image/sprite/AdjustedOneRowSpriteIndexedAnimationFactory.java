@@ -15,7 +15,7 @@ package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Image;
 
-//TWB - Adjustments should be done in the resource creation and not at the animatoin level
+//TWB - Adjustments should be done in the resource creation and not at the animation level
 public class AdjustedOneRowSpriteIndexedAnimationFactory 
         extends OneRowSpriteIndexedAnimationFactory
 {
