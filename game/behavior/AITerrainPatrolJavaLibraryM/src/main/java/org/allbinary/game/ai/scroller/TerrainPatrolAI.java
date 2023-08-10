@@ -40,10 +40,10 @@ public class TerrainPatrolAI extends PacePatrolAI
     
     private final Angle DOWN = AngleFactory.getInstance().DOWN;
     
-    private BasicTerrainInfo CLIFF = new BasicTerrainInfo(DOWN);
+    private final BasicTerrainInfo CLIFF = new BasicTerrainInfo(DOWN);
 
-    public TerrainPatrolAI(Hashtable hashtable,
-            AllBinaryLayer ownerLayerInterface, GameInput gameInput)
+    public TerrainPatrolAI(final Hashtable hashtable,
+            final AllBinaryLayer ownerLayerInterface, final GameInput gameInput)
        throws Exception
     {
         super(hashtable, ownerLayerInterface, gameInput);
@@ -64,22 +64,19 @@ public class TerrainPatrolAI extends PacePatrolAI
 
     private void changeDirectionIfCliffReached()
     {
-        BasicArrayList list = this.terrainEventListener.getList();
+        final BasicArrayList list = this.terrainEventListener.getList();
         
         // Limit pacing to a perch/shelf area
-        int size = list.size();
+        final int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            TerrainEvent terrainEvent = (TerrainEvent) list.remove(index);
-            BasicTerrainInfo basicTerrainInfo = terrainEvent
-                    .getBasicTerrainInfo();
-            Angle angle = basicTerrainInfo.getAngle();
+            final TerrainEvent terrainEvent = (TerrainEvent) list.remove(index);
+            final BasicTerrainInfo basicTerrainInfo = terrainEvent.getBasicTerrainInfo();
+            final Angle angle = basicTerrainInfo.getAngle();
 
             if (angle == DOWN)
             {
-                // LogUtil.put(LogFactory.getInstance("TerrainEvent: " +
-                // terrainEvent.getBasicTerrainInfo().getAngle().getValue(),
-                // this, "processAI"));
+                // LogUtil.put(LogFactory.getInstance("TerrainEvent: " + terrainEvent.getBasicTerrainInfo().getAngle().getValue(), this, "processAI"));
                 this.nextDirection();
 
                 if (!this.isFollowLimitedByTerrain)
