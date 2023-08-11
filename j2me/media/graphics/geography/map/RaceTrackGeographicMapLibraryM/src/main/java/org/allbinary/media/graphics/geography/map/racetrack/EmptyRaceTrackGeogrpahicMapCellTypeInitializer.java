@@ -29,12 +29,12 @@ public class EmptyRaceTrackGeogrpahicMapCellTypeInitializer
         final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
             GeographicMapCellTypeFactory.getInstance();
         
-        geographicMapCellTypeFactory.EMPTY_CELL_TYPE = 
+        raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE = 
           new RaceTrackGeographicMapCellType(
           smallIntegerSingletonFactory.getInstance(0),
           PathFindingNodeCostInfoData.MAX_NODE_COST);
 
-        geographicMapCellTypeFactory.EASY_CELL_TYPE =
+        raceTrackGeographicMapCellTypeFactory.EASY_CELL_TYPE =
           new RaceTrackGeographicMapCellType(
           smallIntegerSingletonFactory.getInstance(19),
           1);

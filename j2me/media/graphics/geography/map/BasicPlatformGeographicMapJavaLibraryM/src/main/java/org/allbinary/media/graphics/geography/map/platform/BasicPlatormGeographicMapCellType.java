@@ -15,18 +15,24 @@ package org.allbinary.media.graphics.geography.map.platform;
 
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 
-public class BasicPlatormGeographicMapCellType extends GeographicMapCellType
+public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
 {
     private final int[] types;
 
     public BasicPlatormGeographicMapCellType(int type) {
-        super(type);
+        //super(type);
+        new GeographicMapCellType(type);
         this.types = new int[1];
         this.types[0] = type;
     }
     
     public BasicPlatormGeographicMapCellType(int[] types) {
-        super(Integer.MIN_VALUE);
+        //super(Integer.MIN_VALUE);
+        
+        final int size = types.length;
+        for(int index = 0; index < size; index++) {
+            new GeographicMapCellType(types[index]);
+        }
         this.types = types;
     }
 

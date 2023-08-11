@@ -19,7 +19,7 @@ public class GeographicMapCellType
 {   
    private int type;
 
-   protected GeographicMapCellType(final int type)
+   public GeographicMapCellType(final int type)
    {
       this.type = type;
       if(type != Integer.MIN_VALUE) {

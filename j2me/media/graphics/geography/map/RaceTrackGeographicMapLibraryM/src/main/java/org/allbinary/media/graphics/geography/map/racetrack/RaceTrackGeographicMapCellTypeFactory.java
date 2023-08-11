@@ -25,6 +25,10 @@ public class RaceTrackGeographicMapCellTypeFactory
         return instance;
     }
 
+    public GeographicMapCellType EMPTY_CELL_TYPE;
+    public GeographicMapCellType EASY_CELL_TYPE;
+    //new GeographicMapCellType(SmallIntegerSingletonFactory.getInstance(0));
+    
     public final RaceTrackGeographicMapCellType BOTTOM_LEFT_TURN_ROAD_CELL_TYPE;
     public final RaceTrackGeographicMapCellType BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE;
     public final RaceTrackGeographicMapCellType TOP_LEFT_TURN_ROAD_CELL_TYPE;
@@ -67,8 +71,8 @@ public class RaceTrackGeographicMapCellTypeFactory
     {
         // if(i_TileType == ROAD_CELL_TYPE_1 ||
         // i_TileType == FINISH_LINE_ROAD_CELL_TYPE)
-        if (cellType != geographicMapCellTypeFactory.EMPTY_CELL_TYPE
-                && cellType != geographicMapCellTypeFactory.EASY_CELL_TYPE)
+        if (cellType != this.EMPTY_CELL_TYPE
+                && cellType != this.EASY_CELL_TYPE)
         {
             return true;
         }

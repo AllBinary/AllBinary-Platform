@@ -23,11 +23,7 @@ public class GeographicMapCellTypeFactory
     }
 
     private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[50];
-    
-    public GeographicMapCellType EMPTY_CELL_TYPE;
-    public GeographicMapCellType EASY_CELL_TYPE;
-    //new GeographicMapCellType(SmallIntegerSingletonFactory.getInstance(0));
-    
+        
     public GeographicMapCellType getInstance(int type)
     {
        return geographicMapCellTypeArray[type];
