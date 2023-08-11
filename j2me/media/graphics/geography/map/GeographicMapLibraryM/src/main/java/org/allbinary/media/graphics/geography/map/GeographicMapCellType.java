@@ -13,23 +13,27 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+
 public class GeographicMapCellType
 {   
-   private Integer typeInteger;
+   private int type;
 
-   protected GeographicMapCellType(Integer typeInteger)
+   protected GeographicMapCellType(final int type)
    {
-      this.typeInteger = typeInteger;
-      GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[typeInteger.intValue()] = this;
+      this.type = type;
+      if(type != Integer.MIN_VALUE) {
+          GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] = this;
+      }
    }
 
-   public Integer getType()
+   public int getType()
    {
-      return this.typeInteger;
+      return this.type;
    }
    
    public String toString()
    {
-      return this.typeInteger.toString();
+      return SmallIntegerSingletonFactory.getInstance().getInstance(this.type).toString();
    }
 }

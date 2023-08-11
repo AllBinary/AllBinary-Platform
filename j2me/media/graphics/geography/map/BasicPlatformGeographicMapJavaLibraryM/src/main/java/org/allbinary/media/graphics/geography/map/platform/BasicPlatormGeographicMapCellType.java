@@ -10,32 +10,37 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.media.graphics.geography.map.platform;
 
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
-import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 public class BasicPlatormGeographicMapCellType extends GeographicMapCellType
-{   
-   public static final BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE = 
-      new BasicPlatormGeographicMapCellType(
-      SmallIntegerSingletonFactory.getInstance().getInstance(1));
-   
-   private BasicPlatormGeographicMapCellType(Integer type)
-   {
-      super(type);
-   }
-   
-   public static void init()
-   {
-      LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, "BasicPlatormGeographicMapCellType", CommonStrings.getInstance().INIT));
-      
-      GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-          new BasicPlatormGeographicMapCellType(SmallIntegerSingletonFactory.getInstance().getInstance(0));
-   }
+{
+    private final int[] types;
+
+    public BasicPlatormGeographicMapCellType(int type) {
+        super(type);
+        this.types = new int[1];
+        this.types[0] = type;
+    }
+    
+    public BasicPlatormGeographicMapCellType(int[] types) {
+        super(Integer.MIN_VALUE);
+        this.types = types;
+    }
+
+    public boolean isType(final GeographicMapCellType type) {
+        return this.isType(type.getType());
+    }
+
+    public boolean isType(final int type) {
+        final int size = types.length;
+        for(int index = 0; index < size; index++) {
+            if(types[index] == type) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

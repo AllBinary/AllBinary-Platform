@@ -13,7 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
@@ -44,27 +43,24 @@ public class RaceTrackGeographicMapCellTypeFactory
 
     public RaceTrackGeographicMapCellTypeFactory()
     {
-        final SmallIntegerSingletonFactory smallIntegerSingletonFactory = 
-            SmallIntegerSingletonFactory.getInstance();
-
         BOTTOM_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(1), 1);
+                1, 1);
         BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(2), 1);
+                2, 1);
         TOP_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(3), 1);
+                3, 1);
         TOP_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(4), 1);
+                4, 1);
         HORIZONTAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(5), 1);
+                5, 1);
         VERTICAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(6), 1);
+                6, 1);
 
         START_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(7), 1);
+                7, 1);
 
         DEFAULT_FINISH_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
-                smallIntegerSingletonFactory.getInstance(8), 1);
+                8, 1);
     }
 
     public boolean isRoad(GeographicMapCellType cellType)

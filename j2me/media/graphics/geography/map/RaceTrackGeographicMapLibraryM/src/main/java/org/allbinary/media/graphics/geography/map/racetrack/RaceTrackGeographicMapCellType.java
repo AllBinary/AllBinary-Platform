@@ -113,7 +113,7 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
    
    private int travelCost;
 
-   protected RaceTrackGeographicMapCellType(Integer type, int travelCost)
+   protected RaceTrackGeographicMapCellType(int type, int travelCost)
    {
       super(type);
       this.travelCost = travelCost;

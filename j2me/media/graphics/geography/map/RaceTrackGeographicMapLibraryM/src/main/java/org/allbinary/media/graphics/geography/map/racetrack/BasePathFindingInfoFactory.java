@@ -51,8 +51,8 @@ public class BasePathFindingInfoFactory {
                 final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
                     RaceTrackGeographicMapCellTypeFactory.getInstance();
                 
-                this.startLineId = raceTrackGeographicMapCellTypeFactory.START_LINE_ROAD_CELL_TYPE.getType().intValue();
-                this.finishLineId = raceTrackGeographicMapCellTypeFactory.FINISH_LINE_ROAD_CELL_TYPE.getType().intValue();
+                this.startLineId = raceTrackGeographicMapCellTypeFactory.START_LINE_ROAD_CELL_TYPE.getType();
+                this.finishLineId = raceTrackGeographicMapCellTypeFactory.FINISH_LINE_ROAD_CELL_TYPE.getType();
 
                 //LogUtil.put(LogFactory.getInstance(
                   // "Race Track Map Array: ").append(PathFindingInfoFactory.this.getName() +
