@@ -22,11 +22,10 @@ implements GeographicMapCellPositionFactoryInterface
 {
 
     public GeographicMapCellPosition getInstance(
-            BasicGeographicMap geographicMapInterface,
-        int i_column, int i_row, int columns, int rows, int width, int height)
+            final BasicGeographicMap geographicMapInterface,
+        final int i_column, final int i_row, final int columns, final int rows, final int width, final int height)
         throws Exception
     {
-        return new GeographicMapCellPosition(
-                    i_column, i_row, columns, rows, width, height);
+        return new GeographicMapCellPosition(i_column, i_row, columns, rows, width, height);
     }
 }

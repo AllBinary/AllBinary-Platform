@@ -14,19 +14,20 @@
 package org.allbinary.media.graphics.geography.map.platform;
 
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
 {
     private final int[] types;
 
-    public BasicPlatormGeographicMapCellType(int type) {
+    public BasicPlatormGeographicMapCellType(final int type) {
         //super(type);
         new GeographicMapCellType(type);
         this.types = new int[1];
         this.types[0] = type;
     }
     
-    public BasicPlatormGeographicMapCellType(int[] types) {
+    public BasicPlatormGeographicMapCellType(final int[] types) {
         //super(Integer.MIN_VALUE);
         
         final int size = types.length;
@@ -36,6 +37,21 @@ public class BasicPlatormGeographicMapCellType //extends GeographicMapCellType
         this.types = types;
     }
 
+    public BasicPlatormGeographicMapCellType(final BasicArrayList types) {
+        //super(Integer.MIN_VALUE);
+        
+        final int size = types.size();
+        final int[] typeArray = new int[size];
+        int type;
+        for(int index = 0; index < size; index++) {
+            type = ((Integer) types.get(index)).intValue();
+            new GeographicMapCellType(type);
+            typeArray[index] = type;
+        }
+        
+        this.types = typeArray;
+    }
+    
     public boolean isType(final GeographicMapCellType type) {
         return this.isType(type.getType());
     }

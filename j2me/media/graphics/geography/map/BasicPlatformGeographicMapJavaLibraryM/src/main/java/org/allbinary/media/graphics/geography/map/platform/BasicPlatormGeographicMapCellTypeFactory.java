@@ -13,10 +13,13 @@
  */
 package org.allbinary.media.graphics.geography.map.platform;
 
+import java.util.Map;
+import java.util.Set;
 import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -44,12 +47,37 @@ public class BasicPlatormGeographicMapCellTypeFactory {
         BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
     }
 
-    public void init(final int[][] tileMapTypeArray) {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
+    public void init(final Map tileTypeToTileIdsMap) {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-        new GeographicMapCellType(0);
-        BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
+        //new GeographicMapCellType(0);
+        //new GeographicMapCellType(1);
+        
+        //final String OTHER = "Other";
+        final String PLATFORM = "Platform";
+        //final String JUMP_TRHU = "JumpThru";
+        //final String LADDER = "Ladder";
+        
+        final Set set = tileTypeToTileIdsMap.keySet();
+        final String[] keyArray = (String[]) set.toArray(new String[set.size()]);
+        final int size = keyArray.length;
+        BasicArrayList idsWithTypeList;
+        String key;
+        BasicPlatormGeographicMapCellType basicPlatormGeographicMapCellType;
+        for(int index = 0; index < size; index++) {
+            key = keyArray[index];
+            
+            LogUtil.put(LogFactory.getInstance(key, this, commonStrings.INIT));
+            
+            idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
+
+            basicPlatormGeographicMapCellType = new BasicPlatormGeographicMapCellType(idsWithTypeList);
+            if(key.equals(PLATFORM)) {
+                BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
+            }
+        }
     }
     
 }

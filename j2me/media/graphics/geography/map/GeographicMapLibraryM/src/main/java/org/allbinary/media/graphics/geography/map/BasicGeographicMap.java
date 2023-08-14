@@ -24,11 +24,11 @@ public class BasicGeographicMap
     private final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory;
     private final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface;
 
-    public BasicGeographicMap(Integer id, String name, int[] cellTypeIdToGeographicMapCellType,
-            AllBinaryTiledLayer tiledLayer, BasicColor foregroundBasicColor,
-            BasicColor backgroundBasicColor,
-            GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
-            GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory) throws Exception
+    public BasicGeographicMap(final Integer id, final String name, final int[] cellTypeIdToGeographicMapCellType,
+            final AllBinaryTiledLayer tiledLayer, final BasicColor foregroundBasicColor,
+            final BasicColor backgroundBasicColor,
+            final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
+            final GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory) throws Exception
     {
         super(id, name, cellTypeIdToGeographicMapCellType,
             tiledLayer, foregroundBasicColor, backgroundBasicColor);

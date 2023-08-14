@@ -13,6 +13,9 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class GeographicMapCellType
@@ -21,6 +24,7 @@ public class GeographicMapCellType
 
    public GeographicMapCellType(final int type)
    {
+       //LogUtil.put(LogFactory.getInstance(Integer.toString(type), this, CommonStrings.getInstance().CONSTRUCTOR));
       this.type = type;
       if(type != Integer.MIN_VALUE) {
           GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] = this;

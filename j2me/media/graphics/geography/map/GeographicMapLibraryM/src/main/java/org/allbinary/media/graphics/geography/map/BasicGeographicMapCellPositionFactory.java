@@ -101,8 +101,7 @@ public class BasicGeographicMapCellPositionFactory
 
     public GeographicMapCellPosition getInstance(int i_column, int i_row) throws Exception
     {
-        // GeographicMapCellPosition cellPosition =
-        // geographicMapCellPositionArray[i_column][i_row];
+        //final GeographicMapCellPosition cellPosition = geographicMapCellPositionArray[i_column][i_row];
 
         /*
          * if(cellPosition == null) { throw new Exception("Should Already Be

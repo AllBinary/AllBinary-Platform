@@ -13,6 +13,10 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+
 public class GeographicMapCellTypeFactory
 {
     private static final GeographicMapCellTypeFactory instance = new GeographicMapCellTypeFactory();
@@ -22,11 +26,17 @@ public class GeographicMapCellTypeFactory
         return instance;
     }
 
-    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[50];
+    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[600];
         
     public GeographicMapCellType getInstance(int type)
     {
-       return geographicMapCellTypeArray[type];
+//        GeographicMapCellType geographicMapCellType = geographicMapCellTypeArray[type];
+//        if(geographicMapCellType == null) {
+//            LogUtil.put(LogFactory.getInstance("missing type: " + type, this, CommonStrings.getInstance().PROCESS));
+//            throw new RuntimeException();
+//        }
+//       return geographicMapCellType;
+        return geographicMapCellTypeArray[type];
     }
 
     public GeographicMapCellType[] getGeographicMapCellTypeArray()
