@@ -37,6 +37,7 @@ public class BasicPlatormGeographicMapCellTypeFactory {
     }
 
     public BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE;
+    public BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
     public BasicPlatormGeographicMapCellType LADDER_CELL_TYPE;
 
     public void init() {
@@ -45,6 +46,7 @@ public class BasicPlatormGeographicMapCellTypeFactory {
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         new GeographicMapCellType(0);
         BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
+        JUMP_THRU_CELL_TYPE = BLOCK_CELL_TYPE;
     }
 
     public void init(final Map tileTypeToTileIdsMap) {
@@ -57,8 +59,8 @@ public class BasicPlatormGeographicMapCellTypeFactory {
         
         //final String OTHER = "Other";
         final String PLATFORM = "Platform";
-        //final String JUMP_TRHU = "JumpThru";
-        //final String LADDER = "Ladder";
+        final String JUMP_TRHU = "JumpThru";
+        final String LADDER = "Ladder";
         
         final Set set = tileTypeToTileIdsMap.keySet();
         final String[] keyArray = (String[]) set.toArray(new String[set.size()]);
@@ -77,6 +79,13 @@ public class BasicPlatormGeographicMapCellTypeFactory {
             if(key.equals(PLATFORM)) {
                 BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
+            if(key.equals(JUMP_TRHU)) {
+                JUMP_THRU_CELL_TYPE = basicPlatormGeographicMapCellType;
+            }
+            if(key.equals(LADDER)) {
+                LADDER_CELL_TYPE = basicPlatormGeographicMapCellType;
+            }
+
         }
     }
     
