@@ -79,6 +79,7 @@
         </dependency>
         -->
         
+        <!--
         <dependency>
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
@@ -89,6 +90,20 @@
             <groupId>com.google.android</groupId>
             <artifactId>android</artifactId>
             <version>4.1.1.4</version>
+            <scope>provided</scope>
+            <classifier>sources</classifier>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>6.0.0_r41</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>6.0.0_r41</version>
             <scope>provided</scope>
             <classifier>sources</classifier>
         </dependency>
