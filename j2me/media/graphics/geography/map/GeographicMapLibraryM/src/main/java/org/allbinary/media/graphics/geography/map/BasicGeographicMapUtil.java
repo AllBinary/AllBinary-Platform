@@ -86,11 +86,15 @@ public class BasicGeographicMapUtil {
     }
 
     public Layer[] createAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray) {
+        final Layer[] tiledLayerArray = new Layer[geographicMapInterfaceArray.length];
+        return this.createAllBinaryTiledLayerArray(geographicMapInterfaceArray, tiledLayerArray, 0);
+    }
+    
+    public Layer[] createAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray, final Layer[] tiledLayerArray, final int startIndex) {
 
         BasicGeographicMap geographicMapInterface;
         final int size = geographicMapInterfaceArray.length;
-        final Layer[] tiledLayerArray = new Layer[size];
-        for(int index = size; --index >= 0;) {
+        for(int index = size + startIndex; --index >= startIndex;) {
             geographicMapInterface = geographicMapInterfaceArray[index];
             tiledLayerArray[index] = geographicMapInterface.getAllBinaryTiledLayer();
         }
