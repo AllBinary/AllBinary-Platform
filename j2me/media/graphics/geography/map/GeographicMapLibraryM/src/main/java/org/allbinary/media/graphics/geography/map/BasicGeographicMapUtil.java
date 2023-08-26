@@ -25,7 +25,7 @@ public class BasicGeographicMapUtil {
     }
 
     public int getBorderingRow(
-            int direction, GeographicMapCellPosition oldGeographicMapCellPosition)
+            final int direction, final GeographicMapCellPosition oldGeographicMapCellPosition)
     throws Exception
  {
     final int LOCATION_CHANGE = 1;
@@ -45,7 +45,7 @@ public class BasicGeographicMapUtil {
  }
 
     public int getBorderingColumn(
-            int direction, GeographicMapCellPosition oldGeographicMapCellPosition)
+            final int direction, final GeographicMapCellPosition oldGeographicMapCellPosition)
     throws Exception
  {
     final int LOCATION_CHANGE = 1;
@@ -65,8 +65,8 @@ public class BasicGeographicMapUtil {
  }
     
     public boolean isSameCellPosition(
-            GeographicMapCellPosition fromGeographicMapCellPosition,
-            GeographicMapCellPosition toGeographicMapCellPosition)
+            final GeographicMapCellPosition fromGeographicMapCellPosition,
+            final GeographicMapCellPosition toGeographicMapCellPosition)
             throws Exception
     {
        int fromColumn = fromGeographicMapCellPosition.getColumn();
@@ -94,9 +94,10 @@ public class BasicGeographicMapUtil {
 
         BasicGeographicMap geographicMapInterface;
         final int size = geographicMapInterfaceArray.length;
+        int count = 0;
         for(int index = size + startIndex; --index >= startIndex;) {
             geographicMapInterface = geographicMapInterfaceArray[index];
-            tiledLayerArray[index] = geographicMapInterface.getAllBinaryTiledLayer();
+            tiledLayerArray[count++] = geographicMapInterface.getAllBinaryTiledLayer();
         }
 
         return tiledLayerArray;
