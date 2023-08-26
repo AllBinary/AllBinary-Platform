@@ -161,7 +161,7 @@ public class LayerPartialCellPositionsUtil {
 
     /*
     public static final BasicArrayList getAll(
-        GeographicMapInterface geographicMapInterface,
+        BasicGeographicMap geographicMapInterface,
         GeographicMapCellPosition topRightGeographicMapCellPosition,
         LayerInterface layerInterface,
         BasicArrayList reusableList)
