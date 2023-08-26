@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
-import org.allbinary.game.layer.AllBinaryTiledLayer;
+import org.allbinary.layer.Layer;
 
 public class BasicGeographicMapUtil {
 
@@ -85,14 +85,17 @@ public class BasicGeographicMapUtil {
        }
     }
 
-    public AllBinaryTiledLayer[] createAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray) {
+    public Layer[] createAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray) {
+
         BasicGeographicMap geographicMapInterface;
         final int size = geographicMapInterfaceArray.length;
-        final AllBinaryTiledLayer[] tiledLayerArray = new AllBinaryTiledLayer[size];
-        for (int index = 0; index < size; index++) {
+        final Layer[] tiledLayerArray = new Layer[size];
+        for(int index = size; --index >= 0;) {
             geographicMapInterface = geographicMapInterfaceArray[index];
             tiledLayerArray[index] = geographicMapInterface.getAllBinaryTiledLayer();
         }
+
         return tiledLayerArray;
+
     }
 }
