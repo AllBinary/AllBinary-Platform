@@ -42,7 +42,7 @@ public class SpriteFactory {
     
     public Sprite create(final Image image, final int frameWidth, final int frameHeight) {
         
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonSeps.FORWARD_SLASH).append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).append(commonSeps.FORWARD_SLASH).append(frameWidth).append(frameHeight).toString(), this, commonStrings.PROCESS));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(image.getWidth()).append(commonSeps.COLON).append(image.getHeight()).append(commonSeps.FORWARD_SLASH).append(frameWidth).append(frameHeight).toString(), this, commonStrings.PROCESS));
         return new Sprite(image, frameWidth, frameHeight);
     } 
 
