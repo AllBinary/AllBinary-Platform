@@ -26,9 +26,6 @@ public class EmptyRaceTrackGeogrpahicMapCellTypeInitializer
         final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
             RaceTrackGeographicMapCellTypeFactory.getInstance();
         
-        final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
-            GeographicMapCellTypeFactory.getInstance();
-        
         raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE = 
           new RaceTrackGeographicMapCellType(
           smallIntegerSingletonFactory.getInstance(0),

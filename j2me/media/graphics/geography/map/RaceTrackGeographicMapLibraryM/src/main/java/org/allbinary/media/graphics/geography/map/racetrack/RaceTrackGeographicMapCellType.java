@@ -126,7 +126,7 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
       String message = 
          "0 = Empty to Road: " + RaceTrackGeographicMapCellType.getTravelCostBetween(
          Direction.UP,
-         (RaceTrackGeographicMapCellType) RaceTrackGeographicMapCellType.EMPTY_CELL_TYPE,
+         (RaceTrackGeographicMapCellType) raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE,
          RaceTrackGeographicMapCellType.BOTTOM_LEFT_TURN_ROAD_CELL_TYPE);
       LogUtil.put(LogFactory.getInstance(message, "RaceGameGeographicMapCellType", CommonStrings.getInstance().INIT));
 
@@ -134,7 +134,7 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
          "max = Road to Empty: " + RaceTrackGeographicMapCellType.getTravelCostBetween(
          Direction.UP,
          RaceTrackGeographicMapCellType.BOTTOM_LEFT_TURN_ROAD_CELL_TYPE,
-         (RaceTrackGeographicMapCellType) RaceTrackGeographicMapCellType.EMPTY_CELL_TYPE);
+         (RaceTrackGeographicMapCellType) raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE);
       LogUtil.put(LogFactory.getInstance(message, "RaceGameGeographicMapCellType", CommonStrings.getInstance().INIT));
 
       message = 

@@ -23,10 +23,7 @@ public class CloseLoopRaceTrackGeogrpahicMapCellTypeInitializer
     {
         final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
             RaceTrackGeographicMapCellTypeFactory.getInstance();
-        
-        final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
-            GeographicMapCellTypeFactory.getInstance();
-        
+                
         raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE =
           new RaceTrackGeographicMapCellType(
           SmallIntegerSingletonFactory.getInstance().getInstance(0), 
