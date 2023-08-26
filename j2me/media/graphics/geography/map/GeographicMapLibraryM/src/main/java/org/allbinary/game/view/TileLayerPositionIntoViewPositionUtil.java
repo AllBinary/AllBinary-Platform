@@ -29,11 +29,11 @@ public class TileLayerPositionIntoViewPositionUtil
             (GeographicMapCompositeInterface) gameCanvasInterface.getLayerManager();
 
         final BasicGeographicMap geographicMapInterface =
-            geographicMapCompositeInterface.getGeographicMapInterface();
+            geographicMapCompositeInterface.getGeographicMapInterface()[0];
         
-        final AllBinaryTiledLayer tiledLayer = 
-            geographicMapInterface.getAllBinaryTiledLayer();
+        ;
 
-        viewPosition.setTiledLayer(tiledLayer);
+        final AllBinaryTiledLayer tiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        viewPosition.setTiledLayer(tiledLayer);        
     }
 }

@@ -27,11 +27,10 @@ public class GeographicMapCellPositionTracking
     {
     }
         
-    public GeographicMapCellType getCurrentOverCellType(
-            BasicGeographicMap geographicMap) 
+    public GeographicMapCellType getCurrentOverCellType(final BasicGeographicMap geographicMap) 
     throws Exception
     {
-        GeographicMapCellPosition geographicMapCellPosition = 
+        final GeographicMapCellPosition geographicMapCellPosition = 
             this.currentGeographicMapCellPosition;
 
         if (// geographicMapCellPosition != null &&
@@ -45,18 +44,18 @@ public class GeographicMapCellPositionTracking
     }
 
     public boolean updateStart(
-            AllBinaryGameCanvas gameCanvasInterface, 
-            AllBinaryLayer layer)
+            final AllBinaryGameCanvas gameCanvasInterface, 
+            final AllBinaryLayer layer)
     throws Exception
     {
         //Check to see if initialized yet - only a problem because Layer calls it
         if (gameCanvasInterface != null)
         {
-            GeographicMapCompositeInterface geographicMapCompositeInterface = 
+            final GeographicMapCompositeInterface geographicMapCompositeInterface = 
                 (GeographicMapCompositeInterface) gameCanvasInterface.getLayerManager();
 
-            BasicGeographicMap geographicMapInterface = 
-                geographicMapCompositeInterface.getGeographicMapInterface();
+            final BasicGeographicMap geographicMapInterface = 
+                geographicMapCompositeInterface.getGeographicMapInterface()[0];
 
             this.newGeographicMapCellPosition = 
                 geographicMapInterface.getCellPositionAt(

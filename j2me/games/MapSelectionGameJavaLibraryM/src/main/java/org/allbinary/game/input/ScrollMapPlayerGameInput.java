@@ -190,7 +190,7 @@ public class ScrollMapPlayerGameInput
     public void processInput(int key)
     throws Exception
     {
-        inputProcessorArray[key].process(null, null);
+        inputProcessorArray[key].process(null, (GameKeyEvent) null);
     }
     
     public void processInput(AllBinaryLayerManager layerManager)

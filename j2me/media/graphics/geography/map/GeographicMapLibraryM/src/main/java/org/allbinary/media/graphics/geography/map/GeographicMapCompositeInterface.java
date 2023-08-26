@@ -15,6 +15,6 @@ package org.allbinary.media.graphics.geography.map;
 
 public interface GeographicMapCompositeInterface
 {
-    BasicGeographicMap getGeographicMapInterface();
-    void setGeographicMapInterface(BasicGeographicMap geographicMapInterface);
+    BasicGeographicMap[] getGeographicMapInterface();
+    void setGeographicMapInterface(BasicGeographicMap[] geographicMapInterface);
 }
