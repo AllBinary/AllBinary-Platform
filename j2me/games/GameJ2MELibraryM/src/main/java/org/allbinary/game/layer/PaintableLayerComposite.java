@@ -16,22 +16,31 @@ package org.allbinary.game.layer;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.layer.Layer;
 
 public class PaintableLayerComposite extends Paintable
 {
-   private Layer[] paintableArray;
+   private final Layer[] paintableArray;
    
-   public PaintableLayerComposite(Layer[] paintableArray)
+   public PaintableLayerComposite(final Layer[] paintableArray)
    {
       this.paintableArray = paintableArray;
    }
    
-   public void paint(Graphics graphics)
+   public void paint(final Graphics graphics)
    {
       for(int index = paintableArray.length; --index >= 0;)
       {
          this.paintableArray[index].paint(graphics);
+      }
+   }
+
+   public void paintThreed(final Graphics graphics)
+   {
+      for(int index = paintableArray.length; --index >= 0;)
+      {
+         ((PaintableInterface) this.paintableArray[index]).paintThreed(graphics);
       }
    }
 }
