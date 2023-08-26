@@ -13,10 +13,17 @@
 */
 package org.allbinary.media.graphics.geography.map;
 
+import org.allbinary.game.layer.AllBinaryTiledLayer;
+
 public class BasicGeographicMapUtil {
 
     private static final BasicGeographicMapUtil instance = new BasicGeographicMapUtil();
     
+    public static BasicGeographicMapUtil getInstance()
+    {
+        return instance;
+    }
+
     public int getBorderingRow(
             int direction, GeographicMapCellPosition oldGeographicMapCellPosition)
     throws Exception
@@ -78,8 +85,14 @@ public class BasicGeographicMapUtil {
        }
     }
 
-    public static BasicGeographicMapUtil getInstance()
-    {
-        return instance;
+    public AllBinaryTiledLayer[] createAllBinaryTiledLayerArray(final BasicGeographicMap[] geographicMapInterfaceArray) {
+        BasicGeographicMap geographicMapInterface;
+        final int size = geographicMapInterfaceArray.length;
+        final AllBinaryTiledLayer[] tiledLayerArray = new AllBinaryTiledLayer[size];
+        for (int index = 0; index < size; index++) {
+            geographicMapInterface = geographicMapInterfaceArray[index];
+            tiledLayerArray[index] = geographicMapInterface.getAllBinaryTiledLayer();
+        }
+        return tiledLayerArray;
     }
 }
