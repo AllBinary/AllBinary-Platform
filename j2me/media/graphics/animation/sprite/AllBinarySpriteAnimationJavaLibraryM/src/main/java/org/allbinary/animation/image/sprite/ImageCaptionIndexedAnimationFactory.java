@@ -22,6 +22,7 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.caption.CaptionIndexedAnimation;
 import org.allbinary.animation.image.AllBinaryImageAnimation;
+import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.media.audio.Sound;
 
 public class ImageCaptionIndexedAnimationFactory 
@@ -70,7 +71,7 @@ implements AnimationInterfaceFactoryInterface
    {
       Animation animationInterface = new AllBinaryImageAnimation(this.captionImage);
 
-      Sprite sprite = new Sprite(this.spriteMovieImage, this.frameWidth, this.frameHeight);
+      final Sprite sprite = SpriteFactory.getInstance().create(this.spriteMovieImage, this.frameWidth, this.frameHeight);
 
       IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite);
       

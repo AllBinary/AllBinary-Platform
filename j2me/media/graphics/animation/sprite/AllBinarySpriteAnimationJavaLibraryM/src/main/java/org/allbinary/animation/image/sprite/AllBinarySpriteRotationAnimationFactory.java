@@ -19,6 +19,7 @@ import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
+import org.allbinary.game.layer.SpriteFactory;
 
 public class AllBinarySpriteRotationAnimationFactory
     extends BaseImageAnimationFactory
@@ -58,7 +59,7 @@ public class AllBinarySpriteRotationAnimationFactory
    public Animation getInstance()
       throws Exception 
    {
-      final Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
+      final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
 
       if (dx != 0 || dy != 0)
       {

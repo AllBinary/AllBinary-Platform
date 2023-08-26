@@ -20,6 +20,7 @@ import org.allbinary.AndroidUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
+import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.graphics.color.BasicColor;
 
 //TWB - Adjustments should be done in the resource creation and not at the animation level
@@ -92,7 +93,7 @@ public class AdjustedColorCompositeSpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        Sprite sprite = new Sprite(this.getImage(), this.width, this.height);
+        final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
 
         return new AdjustedSpriteIndexedAnimation(sprite, this.basicColorArray, this.dx, this.dy);
     }
