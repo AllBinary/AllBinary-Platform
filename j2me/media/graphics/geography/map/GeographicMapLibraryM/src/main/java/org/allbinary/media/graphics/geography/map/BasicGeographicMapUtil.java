@@ -103,4 +103,15 @@ public class BasicGeographicMapUtil {
         return tiledLayerArray;
 
     }
+
+    public void move(final BasicGeographicMap[] geographicMapInterfaceArray, final int dx, final int dy) {
+
+        BasicGeographicMap geographicMapInterface;
+        final int size = geographicMapInterfaceArray.length;
+        for(int index = size; --index >= 0;) {
+            geographicMapInterface = geographicMapInterfaceArray[index];
+            geographicMapInterface.getAllBinaryTiledLayer().move(dx, dy);
+        }
+    }
+    
 }
