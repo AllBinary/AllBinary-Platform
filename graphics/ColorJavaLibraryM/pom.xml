@@ -40,7 +40,10 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- <artifactId>AllBinaryJSECacheJavaLibrary</artifactId> -->
+        <!-- 
+        <artifactId>AllBinaryJSECacheJavaLibrary</artifactId> 
+        <artifactId>AllBinaryCacheLibrary</artifactId>
+        -->
         <dependency>
             <groupId>org.allbinary.cache</groupId>
             <artifactId>AllBinaryCacheLibrary</artifactId>
