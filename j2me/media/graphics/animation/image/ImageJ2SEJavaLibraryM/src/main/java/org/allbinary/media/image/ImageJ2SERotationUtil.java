@@ -33,6 +33,10 @@ public class ImageJ2SERotationUtil
     private ImageJ2SERotationUtil() {
     }
 
+   public BufferedImage getRotatedImage(final Image bufferedImage, final int totalAngle) {
+       return this.getRotatedImage(bufferedImage, TWO_PIE * totalAngle / 360);
+   }
+
    public BufferedImage getRotatedImage(final Image bufferedImage, final double radians)
    {
       final BufferedImage newBufferedImage = 

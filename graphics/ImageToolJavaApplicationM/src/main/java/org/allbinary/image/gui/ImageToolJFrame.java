@@ -88,6 +88,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       openImageJMenuItem = new javax.swing.JMenuItem();
       processingJMenu = new javax.swing.JMenu();
       analyzeJMenuItem = new javax.swing.JMenuItem();
+      generateRotationMenuItem = new javax.swing.JMenuItem();
       generateMirrorSpriteMenuItem = new javax.swing.JMenuItem();
       generateRotationSpriteJMenuItem = new javax.swing.JMenuItem();
       createStripImageJMenuItem = new javax.swing.JMenuItem();
@@ -241,6 +242,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       });
       processingJMenu.add(generateRotationSpriteJMenuItem);
 
+      generateRotationMenuItem.setText("Rotate Image Generator");
+      generateRotationMenuItem.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            generateRotationMenuItemActionPerformed(evt);
+         }
+      });
+      processingJMenu.add(generateRotationMenuItem);
+      
       createStripImageJMenuItem.setText("Multi Image Unifier");
       createStripImageJMenuItem.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,6 +416,28 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
 }//GEN-LAST:event_generateRotationSpriteJMenuItemActionPerformed
 
+   private void generateRotationMenuItemActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_generateRotationMenuItemActionPerformed
+   {//GEN-HEADEREND:event_generateRotationMenuItemActionPerformed
+      try
+      {
+         LogUtil.put(LogFactory.getInstance("Starting", this, "generateRotationSpriteJMenuItemActionPerformed"));
+
+         RotationImageJPanel rotationImageJPanel =
+            new RotationImageJPanel(
+            this.imageProcessorInput);
+
+         this.jPanel1.removeAll();
+         this.jPanel1.add(rotationImageJPanel);
+         this.jPanel1.updateUI();
+
+         imageProcessorInputCompositeInterface = rotationImageJPanel;
+      }
+      catch (Exception e)
+      {
+         LogUtil.put(LogFactory.getInstance("Exception", this, "generateRotationMenuItemActionPerformed", e));
+      }
+}//GEN-LAST:event_generateRotationMenuItemActionPerformed
+   
    private void scaleImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
@@ -567,6 +598,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    private javax.swing.JLabel colorRangeJLabel;
    private javax.swing.JMenuItem createStripImageJMenuItem;
    private javax.swing.JMenu fileJMenu;
+   private javax.swing.JMenuItem generateRotationMenuItem;
    private javax.swing.JMenuItem generateMirrorSpriteMenuItem;
    private javax.swing.JMenuItem generateRotationSpriteJMenuItem;
    private javax.swing.JLabel greenJLabel;
