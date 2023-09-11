@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.media.graphics.geography.map.platform;
+package org.allbinary.media.graphics.geography.map.topview;
 
 import java.util.Map;
 import java.util.Set;
@@ -25,29 +25,31 @@ import org.allbinary.util.BasicArrayList;
  *
  * @author User
  */
-public class BasicPlatormGeographicMapCellTypeFactory {
+public class BasicTopViewGeographicMapCellTypeFactory {
 
-    private static final BasicPlatormGeographicMapCellTypeFactory instance = new BasicPlatormGeographicMapCellTypeFactory();
+    private static final BasicTopViewGeographicMapCellTypeFactory instance = new BasicTopViewGeographicMapCellTypeFactory();
 
     /**
      * @return the instance
      */
-    public static BasicPlatormGeographicMapCellTypeFactory getInstance() {
+    public static BasicTopViewGeographicMapCellTypeFactory getInstance() {
         return instance;
     }
 
-    public BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE;
-    public BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
-    public BasicPlatormGeographicMapCellType LADDER_CELL_TYPE;
+    public BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE;
+    public BasicTopViewGeographicMapCellType DOOR_CELL_TYPE;
+    public BasicTopViewGeographicMapCellType STAIRS_UP_CELL_TYPE;
+    public BasicTopViewGeographicMapCellType STAIRS_DOWN_CELL_TYPE;
 
     public void init() {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
 
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         new GeographicMapCellType(0);
-        BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
-        JUMP_THRU_CELL_TYPE = BLOCK_CELL_TYPE;
-        LADDER_CELL_TYPE = BLOCK_CELL_TYPE;
+        BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(1);
+        DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
+        STAIRS_UP_CELL_TYPE = BLOCK_CELL_TYPE;
+        STAIRS_DOWN_CELL_TYPE = BLOCK_CELL_TYPE;
     }
 
     public void init(final Map tileTypeToTileIdsMap) {
@@ -59,16 +61,17 @@ public class BasicPlatormGeographicMapCellTypeFactory {
         //new GeographicMapCellType(1);
         
         //final String OTHER = "Other";
-        final String PLATFORM = "Platform";
-        final String JUMP_TRHU = "JumpThru";
-        final String LADDER = "Ladder";
+        final String WALL = "Wall";
+        final String DOOR = "Door";
+        final String STAIRS_UP = "StairsUp";
+        final String STAIRS_DOWN = "StairsDown";
         
         final Set set = tileTypeToTileIdsMap.keySet();
         final String[] keyArray = (String[]) set.toArray(new String[set.size()]);
         final int size = keyArray.length;
         BasicArrayList idsWithTypeList;
         String key;
-        BasicPlatormGeographicMapCellType basicPlatormGeographicMapCellType;
+        BasicTopViewGeographicMapCellType basicPlatormGeographicMapCellType;
         for(int index = 0; index < size; index++) {
             key = keyArray[index];
             
@@ -76,15 +79,18 @@ public class BasicPlatormGeographicMapCellTypeFactory {
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 
-            basicPlatormGeographicMapCellType = new BasicPlatormGeographicMapCellType(idsWithTypeList);
-            if(key.equals(PLATFORM)) {
+            basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList);
+            if(key.equals(WALL)) {
                 BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
-            if(key.equals(JUMP_TRHU)) {
-                JUMP_THRU_CELL_TYPE = basicPlatormGeographicMapCellType;
+            if(key.equals(DOOR)) {
+                this.DOOR_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
-            if(key.equals(LADDER)) {
-                LADDER_CELL_TYPE = basicPlatormGeographicMapCellType;
+            if(key.equals(STAIRS_UP)) {
+                this.STAIRS_UP_CELL_TYPE = basicPlatormGeographicMapCellType;
+            }
+            if(key.equals(STAIRS_DOWN)) {
+                this.STAIRS_DOWN_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
 
         }
