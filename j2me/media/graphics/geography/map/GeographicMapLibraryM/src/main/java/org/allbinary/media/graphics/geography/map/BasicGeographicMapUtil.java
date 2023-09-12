@@ -113,5 +113,15 @@ public class BasicGeographicMapUtil {
             geographicMapInterface.getAllBinaryTiledLayer().move(dx, dy);
         }
     }
+
+    public void setPosition(final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
+
+        BasicGeographicMap geographicMapInterface;
+        final int size = geographicMapInterfaceArray.length;
+        for(int index = size; --index >= 0;) {
+            geographicMapInterface = geographicMapInterfaceArray[index];
+            geographicMapInterface.getAllBinaryTiledLayer().setPosition(x, y, geographicMapInterface.getAllBinaryTiledLayer().getZ());
+        }
+    }
     
 }
