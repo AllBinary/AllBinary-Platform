@@ -81,7 +81,8 @@ public class BasicTopViewGeographicMapCellTypeFactory {
 
             basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList);
             if(key.equals(WALL)) {
-                BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
+                //LogUtil.put(LogFactory.getInstance(idsWithTypeList.toString(), this, commonStrings.INIT));
+                this.BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
             if(key.equals(DOOR)) {
                 this.DOOR_CELL_TYPE = basicPlatormGeographicMapCellType;
