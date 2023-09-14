@@ -31,9 +31,9 @@ public class SimpleGeographicMap
     private BasicColor foregroundBasicColor;
     private BasicColor backgroundBasicColor;
 
-    public SimpleGeographicMap(Integer id, String name, int[] cellTypeIdToGeographicMapCellType,
-            AllBinaryTiledLayer tiledLayer, BasicColor foregroundBasicColor,
-            BasicColor backgroundBasicColor) throws Exception
+    public SimpleGeographicMap(final Integer id, final String name, final int[] cellTypeIdToGeographicMapCellType,
+            final AllBinaryTiledLayer tiledLayer, final BasicColor foregroundBasicColor,
+            final BasicColor backgroundBasicColor) throws Exception
     {
         this.id = id;
         this.name = name;
@@ -68,19 +68,19 @@ public class SimpleGeographicMap
     private final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
         GeographicMapCellTypeFactory.getInstance();
     
-    public GeographicMapCellType getCellTypeAt(GeographicMapCellPosition cellPosition)
+    public GeographicMapCellType getCellTypeAt(final GeographicMapCellPosition cellPosition)
             throws Exception
     {
-        int i_column = cellPosition.getColumn();
-        int i_row = cellPosition.getRow();
+        final int i_column = cellPosition.getColumn();
+        final int i_row = cellPosition.getRow();
 
-        int cellTypeId = this.tiledLayer.getCell(i_column, i_row);
+        final int cellTypeId = this.tiledLayer.getCell(i_column, i_row);
 
         return this.geographicMapCellTypeFactory.getInstance(
                 this.cellTypeIdToGeographicMapCellType[cellTypeId]);
     }
 
-    public int getCellTypeFromMapCellTypeInt(int cellTypeId)
+    public int getCellTypeFromMapCellTypeInt(final int cellTypeId)
     {
         return this.cellTypeIdToGeographicMapCellType[cellTypeId];
     }
@@ -90,7 +90,7 @@ public class SimpleGeographicMap
         return foregroundBasicColor;
     }
 
-    private void setForegroundBasicColor(BasicColor foregroundBasicColor)
+    private void setForegroundBasicColor(final BasicColor foregroundBasicColor)
     {
         this.foregroundBasicColor = foregroundBasicColor;
     }
@@ -100,7 +100,7 @@ public class SimpleGeographicMap
         return backgroundBasicColor;
     }
 
-    private void setBackgroundBasicColor(BasicColor backgroundBasicColor)
+    private void setBackgroundBasicColor(final BasicColor backgroundBasicColor)
     {
         this.backgroundBasicColor = backgroundBasicColor;
     }
