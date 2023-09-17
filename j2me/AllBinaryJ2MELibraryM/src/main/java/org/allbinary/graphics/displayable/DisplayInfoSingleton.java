@@ -32,7 +32,16 @@ public class DisplayInfoSingleton
 {
 
     private static final DisplayInfoSingleton SINGLETON = new DisplayInfoSingleton();
+    
+    public static final DisplayInfoSingleton getInstance()
+    {
+        return SINGLETON;
+    }
 
+    private final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public final String ORIENTATION = "ORIENTATION";
     public final String ADJUSTING_FOR_SCALING_IN_PORTRAIT = "Adjusting for Scaling in portrait display ratio: ";
     public final String ADJUSTING_FOR_SCALING_IN_LANDSCAPE = "Adjusting for Scaling in landscape display ratio: ";
@@ -68,11 +77,6 @@ public class DisplayInfoSingleton
     
     private float displayRatio;
     private float ratio;
-    
-    public static final DisplayInfoSingleton getInstance()
-    {
-        return SINGLETON;
-    }
 
     public int[] getLastHalf()
     {
@@ -223,11 +227,11 @@ public class DisplayInfoSingleton
         {
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("reason: ").append(reason).toString(), this, FIRE_METHOD_NAME));
             LogUtil.put(LogFactory.getInstance(this.toString(), this, FIRE_METHOD_NAME));
-            //PreLogUtil.put("Display Change Event").append(this.toString(), this, CommonStrings.getInstance().UPDATE);
+            //PreLogUtil.put("Display Change Event").append(this.toString(), this, commonStrings.UPDATE);
             DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
         }catch(Exception e)
         {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, FIRE_METHOD_NAME, e);
+            PreLogUtil.put(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
         }
     }
 
@@ -243,9 +247,9 @@ public class DisplayInfoSingleton
                 .append(CommonLabels.getInstance().START_LABEL).append(reason)
                 .append(" aLastWidth: ").append(aLastWidth)
                 .append(" aLastHeight: ").append(aLastHeight)
-                .append(CommonSeps.getInstance().SPACE)
+                .append(commonSeps.SPACE)
                 .append(this.toString())
-                .toString(), this, CommonStrings.getInstance().UPDATE));
+                .toString(), this, commonStrings.UPDATE));
 
         if(aLastWidth > 0 && aLastHeight > 0)
         {
@@ -256,7 +260,7 @@ public class DisplayInfoSingleton
             {
                 LogUtil.put(LogFactory.getInstance(
                         new StringMaker().append("Updating from Orientation Change")
-                        .toString(), this, CommonStrings.getInstance().UPDATE));
+                        .toString(), this, commonStrings.UPDATE));
 
                 final OperatingSystemInterface operatingSystemInterface
                         = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -275,7 +279,7 @@ public class DisplayInfoSingleton
                         {
                             this.displayRatio = scaleLargestTo / aLastHeight;
                             this.ratio = aLastHeight / scaleLargestTo;
-                            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, CommonStrings.getInstance().UPDATE));
+                            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, commonStrings.UPDATE));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale(ratio);
@@ -286,7 +290,7 @@ public class DisplayInfoSingleton
                         {
                             this.displayRatio = scaleLargestTo / aLastWidth;
                             this.ratio = aLastWidth / scaleLargestTo;
-                            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, CommonStrings.getInstance().UPDATE));
+                            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, commonStrings.UPDATE));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale(ratio);
@@ -298,7 +302,7 @@ public class DisplayInfoSingleton
                         new StringMaker().append("Updating from Orientation Change -")
                         .append(" aLastWidth: ").append(aLastWidth)
                         .append(" aLastHeight: ").append(aLastHeight)
-                        .toString(), this, CommonStrings.getInstance().UPDATE));
+                        .toString(), this, commonStrings.UPDATE));
 
                 this.xOffset = aFullWidth - aLastWidth;
                 this.yOffset = aFullHeight - aLastHeight;
@@ -325,7 +329,7 @@ public class DisplayInfoSingleton
                 last[HEIGHT] = aLastHeight;
                 lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
-                this.fire(CommonStrings.getInstance().UPDATE);
+                this.fire(commonStrings.UPDATE);
                 return;
             }
         }
@@ -338,30 +342,30 @@ public class DisplayInfoSingleton
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(DISPLAY_INFO);
         stringBuffer.append(FULL);
-        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+        stringBuffer.append(spacialStrings.WIDTH_LABEL);
         stringBuffer.append(full[WIDTH]);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(FULL);
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
         stringBuffer.append(full[HEIGHT]);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST);
-        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+        stringBuffer.append(spacialStrings.WIDTH_LABEL);
         stringBuffer.append(last[WIDTH]);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST);
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
         stringBuffer.append(last[HEIGHT]);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST_HALF);
-        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+        stringBuffer.append(spacialStrings.WIDTH_LABEL);
         stringBuffer.append(lastHalf[WIDTH]);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST_HALF);
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
         stringBuffer.append(lastHalf[HEIGHT]);
 
         return stringBuffer.toString();
