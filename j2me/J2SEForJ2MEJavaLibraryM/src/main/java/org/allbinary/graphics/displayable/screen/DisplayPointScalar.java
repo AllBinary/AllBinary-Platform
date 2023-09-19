@@ -15,10 +15,8 @@ package org.allbinary.graphics.displayable.screen;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
+import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 
 /**
  *
@@ -38,14 +36,29 @@ public class DisplayPointScalar {
     public DisplayPointScalar() {
     }
 
+    public int processX(final int value) {
+        return value;
+    }
+
+    public int processY(final int value) {
+        return value;
+    }
+    
     public GPoint process(final GPoint point) {
+        return point;
         //final CommonStrings commonStrings = CommonStrings.getInstance();
         //LogUtil.put(LogFactory.getInstance("point: " + point, this, commonStrings.PROCESS));
         //800 by 480 is the default window.  I assume it is being scaled from that initial window.
-        final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-        final float ratio = 480f / (float) (displayInfoSingleton.getLastHeight());
+        //final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+        //final float ratio = 480f / (float) (displayInfoSingleton.getLastHeight());
         //LogUtil.put(LogFactory.getInstance("ratio: " + ratio, this, commonStrings.PROCESS));
-        return PointFactory.getInstance().getInstance((int) (point.getX() * ratio), (int) (point.getY() * ratio));
+//        return PointFactory.getInstance().getInstance(
+//                //(int) (point.getX() * ratio), 
+//                point.getX(),
+//                //(int) (point.getY() * ratio)
+//                //(int) (point.getY() * 0.28f)
+//                (int) (point.getY() * 0.56f)
+//        );
     }
 
 }

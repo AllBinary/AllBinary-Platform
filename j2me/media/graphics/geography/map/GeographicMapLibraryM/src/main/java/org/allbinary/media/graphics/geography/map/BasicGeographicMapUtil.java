@@ -14,6 +14,10 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.layer.Layer;
+import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class BasicGeographicMapUtil {
 
@@ -116,6 +120,8 @@ public class BasicGeographicMapUtil {
 
     public void setPosition(final BasicGeographicMap[] geographicMapInterfaceArray, final int x, final int y) {
 
+        //final CommonStrings commonStrings = CommonStrings.getInstance();
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).append(" y: ").append(y).toString(), this, commonStrings.PROCESS));
         BasicGeographicMap geographicMapInterface;
         final int size = geographicMapInterfaceArray.length;
         for(int index = size; --index >= 0;) {

@@ -30,6 +30,14 @@ public class DisplayPointScalar {
         return instance;
     }
     
+    public int processX(final int value) {
+        return value;
+    }
+
+    public int processY(final int value) {
+        return value;
+    }
+    
     public GPoint process(final GPoint point) {
         return point;
     }
