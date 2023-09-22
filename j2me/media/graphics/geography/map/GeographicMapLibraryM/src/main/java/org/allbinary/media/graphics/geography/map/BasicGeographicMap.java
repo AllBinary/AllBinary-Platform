@@ -52,20 +52,20 @@ public class BasicGeographicMap
     }
     */
 
-    public GeographicMapCellPosition getCellPositionAt(int x, int y) throws Exception
+    public GeographicMapCellPosition getCellPositionAt(final int x, final int y) throws Exception
     {
-        AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
-        int i_column = Math.abs(x / allBinaryTiledLayer.getCellHeight());
-        int i_row = Math.abs(y / allBinaryTiledLayer.getCellWidth());
+        final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
+        final int i_column = Math.abs(x / allBinaryTiledLayer.getCellHeight());
+        final int i_row = Math.abs(y / allBinaryTiledLayer.getCellWidth());
 
         return geographicMapCellPositionFactory.getInstance(i_column, i_row);
     }
 
-    public GeographicMapCellPosition getCellPositionAtNoThrow(int x, int y) throws Exception
+    public GeographicMapCellPosition getCellPositionAtNoThrow(final int x, final int y) throws Exception
     {
-        AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
-        int i_column = Math.abs(x / allBinaryTiledLayer.getCellHeight());
-        int i_row = Math.abs(y / allBinaryTiledLayer.getCellWidth());
+        final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
+        final int i_column = Math.abs(x / allBinaryTiledLayer.getCellHeight());
+        final int i_row = Math.abs(y / allBinaryTiledLayer.getCellWidth());
 
         if(allBinaryTiledLayer.getColumns() > i_column &&
                 allBinaryTiledLayer.getRows() > i_row)
@@ -79,23 +79,23 @@ public class BasicGeographicMap
     }
 
     // Assumes array is tied to the ratio of tile cell width and height
-    public boolean getCellPositionsAt(Layer layer,
-            GeographicMapCellPosition[][] currentCellPositionArray,
-            GeographicMapCellPosition[][] cellPositionArray) throws Exception
+    public boolean getCellPositionsAt(final Layer layer,
+            final GeographicMapCellPosition[][] currentCellPositionArray,
+            final GeographicMapCellPosition[][] cellPositionArray) throws Exception
     {
         boolean hasChanged = false;
 
-        int size = cellPositionArray.length;
-        int size2 = cellPositionArray[0].length;
+        final int size = cellPositionArray.length;
+        final int size2 = cellPositionArray[0].length;
 
-        int xPortion = layer.getX() / (size - 1);
-        int yPortion = layer.getY() / (size - 1);
+        final int xPortion = layer.getX() / (size - 1);
+        final int yPortion = layer.getY() / (size - 1);
         for (int index = 0; index < size; index++)
         {
             for (int index2 = 0; index2 < size2; index2++)
             {
-                int x = xPortion * index;
-                int y = yPortion * index;
+                final int x = xPortion * index;
+                final int y = yPortion * index;
                 cellPositionArray[index][index2] = this.getCellPositionAt(x, y);
 
                 if (currentCellPositionArray[index][index2] != cellPositionArray[index][index2])
