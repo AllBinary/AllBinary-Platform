@@ -20,12 +20,14 @@ public class OpenGLImageFactory
 {
     public Image getInstance(GL10 gl, Image image, boolean matchColor)
     {
-        return null;
+        throw new RuntimeException();
+        //return null;
     }
 
     public Image getInstance(Image image)
     {
-        return null;
+        throw new RuntimeException();
+        //return null;
     }
     
 }

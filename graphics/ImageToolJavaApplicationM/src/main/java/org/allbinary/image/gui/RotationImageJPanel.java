@@ -13,25 +13,35 @@
 */
 package org.allbinary.image.gui;
 
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
+import java.io.IOException;
 import javax.imageio.ImageIO;
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.media.image.ImageJ2SERotationUtil;
+import org.allbinary.media.image.ImageProcessedVisitor;
+import org.allbinary.media.image.ImageArrayRotationUtil;
+import org.allbinary.media.image.ImageStrings;
 
 public class RotationImageJPanel extends javax.swing.JPanel
-        implements ImageProcessorInputCompositeInterface {
+        implements ImageProcessorInputCompositeInterface, ImageProcessedVisitor {
+
+    private final ImageStrings imageStrings = ImageStrings.getInstance();
 
     private final String UP = "up";
     private final String DOWN = "down";
-
+    
     private ImageProcessorInput imageProcessorInput;
 
     private BufferedImage result;
+    private String angleAsString;
 
     public RotationImageJPanel(ImageProcessorInput imageProcessorInput) 
        throws Exception 
@@ -49,54 +59,21 @@ public class RotationImageJPanel extends javax.swing.JPanel
 
             public void run() {
                 try {
-                    BufferedImage generatedBufferedImage;
+                    Integer totalAngle;
 
-                    final ImageProcessorInput imageProcessorInput =
-                    RotationImageJPanel.this.getImageProcessorInput();
-                    final BufferedImage[] bufferedImageArray = 
-                       imageProcessorInput.getBufferedImageArray();
-                    
-                    for (int index = 0; index < bufferedImageArray.length; index++) {
-                        Integer totalAngle;
-
-                        final String angleAsString = (String) RotationImageJPanel.this.totalAngleJComboBox.getSelectedItem();
-                        if(angleAsString == UP) {
-                            totalAngle = Integer.valueOf(-90);
-                        } else if(angleAsString == DOWN) {
-                            totalAngle = Integer.valueOf(90);
-                        } else {
-                            totalAngle = Integer.valueOf(angleAsString);
-                        }
-                        
-                        LogUtil.put(LogFactory.getInstance("totalAngle: " + totalAngle, this, "run"));
-                        
-                        generatedBufferedImage = ImageJ2SERotationUtil.getInstance().getRotatedImage(
-                                bufferedImageArray[index], totalAngle.intValue());
-
-                        RotationImageJPanel.this.result = generatedBufferedImage;
-                                //ImageJ2SERotationUtil.getInstance().createSpriteImage(
-                                //);
-
-                        RotationImageJPanel.this.getParent().repaint();
-                        
-                        File file = imageProcessorInput.getFiles()[index];
-                                                
-                        if (!RotationImageJPanel.this.writeOverOriginalJCheckBox.isSelected()) {
-                            String filePath = file.getAbsolutePath();
-                            int extensionIndex = filePath.indexOf(".png");
-                            filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append("_").append(angleAsString).append(".png").toString();
-                            file = new File(filePath);
-                        }
-
-                        final boolean isWritten =
-                                ImageIO.write((RenderedImage) RotationImageJPanel.this.result, "PNG", file);
-
-                        LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, "run"));
-
+                    angleAsString = (String) RotationImageJPanel.this.totalAngleJComboBox.getSelectedItem();
+                    if (angleAsString == UP) {
+                        totalAngle = Integer.valueOf(-90);
+                    } else if (angleAsString == DOWN) {
+                        totalAngle = Integer.valueOf(90);
+                    } else {
+                        totalAngle = Integer.valueOf(angleAsString);
                     }
 
+                    ImageArrayRotationUtil.getInstance().process(RotationImageJPanel.this.getImageProcessorInput(), totalAngle, RotationImageJPanel.this);                        
+
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+                    LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
                 }
             }
         }.start();
@@ -282,4 +259,25 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
       this.imageProcessorInput = imageProcessorInput;
    }
 
+   public void visit(final BufferedImage generatedBufferedImage, final int index) throws IOException {
+       this.result = generatedBufferedImage;
+       //ImageJ2SERotationUtil.getInstance().createSpriteImage(
+       //);
+
+       this.getParent().repaint();
+
+       File file = imageProcessorInput.getFiles()[index];
+
+       if (!this.writeOverOriginalJCheckBox.isSelected()) {
+           String filePath = file.getAbsolutePath();
+           int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
+           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(angleAsString).append(imageStrings.PNG_EXTENSION).toString();
+           file = new File(filePath);
+       }
+
+       final boolean isWritten
+               = ImageIO.write((RenderedImage) RotationImageJPanel.this.result, imageStrings.PNG, file);
+
+       LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, CommonStrings.getInstance().RUN));
+   }
 }

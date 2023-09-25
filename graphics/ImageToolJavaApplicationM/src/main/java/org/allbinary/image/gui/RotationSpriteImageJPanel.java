@@ -13,18 +13,24 @@
 */
 package org.allbinary.image.gui;
 
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.ImageJ2SERotationUtil;
+import org.allbinary.media.image.ImageStrings;
 
 public class RotationSpriteImageJPanel extends javax.swing.JPanel
         implements ImageProcessorInputCompositeInterface {
+
+    private final ImageStrings imageStrings = ImageStrings.getInstance();
 
     private ImageProcessorInput imageProcessorInput;
 
@@ -73,14 +79,14 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                         }
 
                         boolean isWritten =
-                                ImageIO.write((RenderedImage) RotationSpriteImageJPanel.this.result, "PNG", file);
+                                ImageIO.write((RenderedImage) RotationSpriteImageJPanel.this.result, imageStrings.PNG, file);
 
                         LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, ""));
 
                     }
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+                    LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
                 }
             }
         }.start();
@@ -174,7 +180,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
 
       jLabel3.setText("Total Angle:");
 
-      writeOverOriginalJCheckBox.setSelected(true);
+      //writeOverOriginalJCheckBox.setSelected(true);
       writeOverOriginalJCheckBox.setText("Write Over Original");
 
       org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);

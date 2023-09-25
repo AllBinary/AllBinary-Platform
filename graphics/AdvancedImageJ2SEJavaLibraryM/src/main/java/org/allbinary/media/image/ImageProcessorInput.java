@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.image.gui;
+package org.allbinary.media.image;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -21,7 +21,7 @@ public class ImageProcessorInput {
     private BufferedImage bufferedImageArray[];
     private File[] files;
 
-    public ImageProcessorInput(File[] files, BufferedImage bufferedImageArray[]) throws Exception {
+    public ImageProcessorInput(File[] files, BufferedImage[] bufferedImageArray) throws Exception {
         super();
 
         this.bufferedImageArray = bufferedImageArray;

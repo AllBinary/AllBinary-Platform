@@ -13,11 +13,14 @@
 */
 package org.allbinary.image.gui;
 
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 
 import java.io.File;
 import org.allbinary.logic.basic.io.file.FileWrapperUtil;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -88,7 +91,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+                    LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
                 }
             }
         }.start();

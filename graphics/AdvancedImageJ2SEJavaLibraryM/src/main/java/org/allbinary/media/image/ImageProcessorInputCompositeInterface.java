@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.image.gui;
+package org.allbinary.media.image;
 
 public interface ImageProcessorInputCompositeInterface {
     ImageProcessorInput getImageProcessorInput();

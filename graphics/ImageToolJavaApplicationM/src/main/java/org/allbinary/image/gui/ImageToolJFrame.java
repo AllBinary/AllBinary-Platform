@@ -13,6 +13,8 @@
 */
 package org.allbinary.image.gui;
 
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;

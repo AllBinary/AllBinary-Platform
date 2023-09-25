@@ -13,20 +13,26 @@
 */
 package org.allbinary.image.gui;
 
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
+import org.allbinary.logic.basic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.BufferedImageUtil2;
+import org.allbinary.media.image.ImageStrings;
 import org.allbinary.media.image.MirrorImageUtil;
 
 public class MirrorSpriteImageJPanel extends javax.swing.JPanel
    implements ImageProcessorInputCompositeInterface
 {
+    private final ImageStrings imageStrings = ImageStrings.getInstance();
+
    private ImageProcessorInput imageProcessorInput;
    private BufferedImage result;
 
@@ -78,9 +84,9 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
                   {
                      String filePath = file.getAbsolutePath();
                      
-                     int extensionIndex = filePath.indexOf(".png");
+                     int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
                      
-                     filePath = filePath.substring(0, extensionIndex) + "_mirror" + ".png";
+                     filePath = filePath.substring(0, extensionIndex) + "_mirror" + imageStrings.PNG_EXTENSION;
                      
                      LogUtil.put(LogFactory.getInstance("Renamed File: " + filePath, this, ""));
                      
@@ -89,7 +95,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
 
                   boolean isWritten = ImageIO.write(
                      (RenderedImage) MirrorSpriteImageJPanel.this.result,
-                     "PNG", file);
+                     imageStrings.PNG, file);
 
                   LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, ""));
 
@@ -98,7 +104,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
             }
             catch (Exception e)
             {
-               LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+               LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
             }
          }
       }.start();
