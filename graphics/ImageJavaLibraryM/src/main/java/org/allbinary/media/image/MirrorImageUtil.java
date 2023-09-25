@@ -24,17 +24,28 @@ import org.allbinary.logic.communication.log.LogFactory;
 public class MirrorImageUtil
 {
 
+    private static final MirrorImageUtil instance = new MirrorImageUtil();
+
+    /**
+     * @return the instance
+     */
+    public static MirrorImageUtil getInstance() {
+        return instance;
+    }
+    
+    private final ImageUtil imageUtil = ImageUtil.getInstance();
+    
    private MirrorImageUtil()
    {
    }
 
-   public static BufferedImage getImage(
+   public BufferedImage getImage(
       BufferedImage bufferedImage, boolean verticle, boolean horizontal)
    {
       LogUtil.put(LogFactory.getInstance("Starting", "MirrorImageUtil", "getImage"));
 
       BufferedImage newBufferedImage = 
-         BufferedImageUtil.create(
+         this.imageUtil.create(
             bufferedImage.getWidth(null),
             bufferedImage.getHeight(null)
          );
@@ -65,7 +76,7 @@ public class MirrorImageUtil
       return newBufferedImage;
    }
 
-   public static BufferedImage[] getImages(
+   public BufferedImage[] getImages(
       BufferedImage bufferedImage, boolean verticle, boolean horizontal)
    {
       int width = bufferedImage.getWidth();
@@ -85,7 +96,7 @@ public class MirrorImageUtil
       LogUtil.put(LogFactory.getInstance("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
          " numberOfFrames: " + numberOfFrames, "MirrorImageUtil", ""));
       
-      BufferedImage bufferedImageArray[] = new BufferedImage[numberOfFrames];
+      final BufferedImage[] bufferedImageArray = new BufferedImage[numberOfFrames];
       
       int y = 0;
       for (int index = 0; index < numberOfFramesPerOrientation; index++)
@@ -98,7 +109,7 @@ public class MirrorImageUtil
       for (int index = 0; index < numberOfFramesPerOrientation; index++)
       {
          bufferedImageArray[index + numberOfFramesPerOrientation] = 
-            MirrorImageUtil.getImage(bufferedImageArray[index], verticle, horizontal);
+            this.getImage(bufferedImageArray[index], verticle, horizontal);
       }
 
       /*

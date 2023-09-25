@@ -71,7 +71,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     File[] files = imageProcessorInput.getFiles();
                     
                     BufferedImage[] generatedBufferedImageArray =
-                            ImageUtil.createBufferedImage(
+                            ImageUtil.getInstance().createBufferedImage(
                             imageProcessorInput.getBufferedImageArray(), percent);
 
                     Raster araster = generatedBufferedImageArray[0].getAlphaRaster();

@@ -23,24 +23,34 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageUnifierUtil
 {
+    private static final ImageUnifierUtil instance = new ImageUnifierUtil();
+
+    /**
+     * @return the instance
+     */
+    public static ImageUnifierUtil getInstance() {
+        return instance;
+    }
+    
+    private final ImageUtil imageUtil = ImageUtil.getInstance();
     
     private ImageUnifierUtil()
     {
     }
     
-    public static GraphicsConfiguration getDefaultConfiguration()
+    public GraphicsConfiguration getDefaultConfiguration()
     {
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         GraphicsDevice gd = ge.getDefaultScreenDevice();
         return gd.getDefaultConfiguration();
     }
     
-    public static BufferedImage getImage(
+    public BufferedImage getImage(
         BufferedImage bufferedImageArray[],
         ImageUnifierProperties imageUnifierProperties)
     {        
         BufferedImage newBufferedImage = 
-           BufferedImageUtil.create(
+           this.imageUtil.create(
             imageUnifierProperties.getWidth(),
             imageUnifierProperties.getHeight()
             );

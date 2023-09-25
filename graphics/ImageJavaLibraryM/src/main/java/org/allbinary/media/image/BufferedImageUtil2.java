@@ -6,10 +6,21 @@ import java.awt.image.BufferedImage;
 
 public class BufferedImageUtil2 {
 
-   public static BufferedImage createSpriteImage(
-      BufferedImage bufferedImageArray[])
+    private static final BufferedImageUtil2 instance = new BufferedImageUtil2();
+
+    /**
+     * @return the instance
+     */
+    public static BufferedImageUtil2 getInstance() {
+        return instance;
+    }
+    
+    private final ImageUtil imageUtil = ImageUtil.getInstance();
+    
+   public BufferedImage createSpriteImage(
+      final BufferedImage[] bufferedImageArray)
    {
-      GraphicsConfiguration gc = ImageUtil.getDefaultConfiguration();
+      //GraphicsConfiguration gc = this.imageUtil.getDefaultConfiguration();
 
       int columns = bufferedImageArray.length;
       int max = columns;
@@ -28,7 +39,7 @@ public class BufferedImageUtil2 {
          rows++;
       }
 
-      BufferedImage bufferedImage = BufferedImageUtil.create(
+      BufferedImage bufferedImage = this.imageUtil.create(
          bufferedImageArray[0].getWidth(null) * columns,
          bufferedImageArray[0].getHeight(null) * rows);
 

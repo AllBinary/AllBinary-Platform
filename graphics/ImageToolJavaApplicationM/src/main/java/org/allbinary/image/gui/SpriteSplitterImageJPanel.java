@@ -26,10 +26,10 @@ import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.ImageProcessedVisitor;
-import org.allbinary.media.image.ImageArrayRotationUtil;
 import org.allbinary.media.image.ImageStrings;
+import org.allbinary.media.image.SpriteSplitterUtil;
 
-public class RotationImageJPanel extends javax.swing.JPanel
+public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         implements ImageProcessedVisitor {
 
     private final ImageStrings imageStrings = ImageStrings.getInstance();
@@ -37,8 +37,9 @@ public class RotationImageJPanel extends javax.swing.JPanel
     private ImageProcessorInput imageProcessorInput;
 
     private BufferedImage result;
+    private String spriteType;
 
-    public RotationImageJPanel(ImageProcessorInput imageProcessorInput) 
+    public SpriteSplitterImageJPanel(final ImageProcessorInput imageProcessorInput) 
        throws Exception 
     {
         super();
@@ -54,9 +55,7 @@ public class RotationImageJPanel extends javax.swing.JPanel
 
             public void run() {
                 try {
-
-                    final String angleAsString = (String) RotationImageJPanel.this.totalAngleJComboBox.getSelectedItem();
-                    ImageArrayRotationUtil.getInstance().process(RotationImageJPanel.this.getImageProcessorInput(), angleAsString, RotationImageJPanel.this);                        
+                    SpriteSplitterUtil.getInstance().process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), spriteType, SpriteSplitterImageJPanel.this);                        
 
                 } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
@@ -104,10 +103,10 @@ public class RotationImageJPanel extends javax.swing.JPanel
       jPanel1 = new javax.swing.JPanel(){
          public void paint(Graphics graphics)
          {
-            if(RotationImageJPanel.this.result != null)
+            if(SpriteSplitterImageJPanel.this.result != null)
             {
-               graphics.drawImage(RotationImageJPanel.this.result, 0, 0,
-                  RotationImageJPanel.this.result.getWidth(null), RotationImageJPanel.this.result.getHeight(null), null);
+               graphics.drawImage(SpriteSplitterImageJPanel.this.result, 0, 0,
+                  SpriteSplitterImageJPanel.this.result.getWidth(null), SpriteSplitterImageJPanel.this.result.getHeight(null), null);
             }
          }
       }
@@ -115,7 +114,7 @@ public class RotationImageJPanel extends javax.swing.JPanel
       jPanel2 = new javax.swing.JPanel();
       jLabel1 = new javax.swing.JLabel();
       generateJButton = new javax.swing.JButton();
-      totalAngleJComboBox = new javax.swing.JComboBox();
+      spriteTypeJComboBox = new javax.swing.JComboBox();
       jLabel3 = new javax.swing.JLabel();
       writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
       jPanel3 = new javax.swing.JPanel();
@@ -139,14 +138,14 @@ public class RotationImageJPanel extends javax.swing.JPanel
          }
       });
 
-      totalAngleJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { ImageArrayRotationUtil.getInstance().UP, ImageArrayRotationUtil.getInstance().DOWN, "-90", "90" }));
-      totalAngleJComboBox.addActionListener(new java.awt.event.ActionListener() {
+      spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { SpriteSplitterUtil.getInstance().ALL, SpriteSplitterUtil.getInstance().DOWN, SpriteSplitterUtil.getInstance().ROW}));
+      spriteTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             totalAngleJComboBoxActionPerformed(evt);
          }
       });
 
-      jLabel3.setText("Total Angle:");
+      jLabel3.setText("Sprite Type:");
 
       //writeOverOriginalJCheckBox.setSelected(true);
       writeOverOriginalJCheckBox.setText("Write Over Original");
@@ -161,7 +160,7 @@ public class RotationImageJPanel extends javax.swing.JPanel
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
             .add(jLabel3)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-            .add(totalAngleJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(spriteTypeJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
             .add(writeOverOriginalJCheckBox)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -173,7 +172,7 @@ public class RotationImageJPanel extends javax.swing.JPanel
          .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
             .add(jLabel1)
             .add(generateJButton)
-            .add(totalAngleJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(spriteTypeJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .add(jLabel3)
             .add(writeOverOriginalJCheckBox))
       );
@@ -231,7 +230,7 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
    private javax.swing.JPanel jPanel1;
    private javax.swing.JPanel jPanel2;
    private javax.swing.JPanel jPanel3;
-   private javax.swing.JComboBox totalAngleJComboBox;
+   private javax.swing.JComboBox spriteTypeJComboBox;
    private javax.swing.JCheckBox writeOverOriginalJCheckBox;
    // End of variables declaration//GEN-END:variables
 
@@ -261,8 +260,8 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
            file = new File(filePath);
        }
 
-       final boolean isWritten
-               = ImageIO.write((RenderedImage) RotationImageJPanel.this.result, imageStrings.PNG, file);
+       final boolean isWritten = 
+               ImageIO.write((RenderedImage) SpriteSplitterImageJPanel.this.result, imageStrings.PNG, file);
 
        LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, CommonStrings.getInstance().RUN));
    }

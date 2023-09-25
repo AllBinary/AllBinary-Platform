@@ -21,17 +21,28 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImagesRatioUtil
 {
+    private static final ImagesRatioUtil instance = new ImagesRatioUtil();
+
+    /**
+     * @return the instance
+     */
+    public static ImagesRatioUtil getInstance() {
+        return instance;
+    }
+    
     private ImagesRatioUtil()
     {
     }
     
-    public static boolean isEqual(BufferedImage bufferedImageArray[], int totalImages)
+    private final ImageUtil imageUtil = ImageUtil.getInstance();
+    
+    public boolean isEqual(final BufferedImage[] bufferedImageArray, final int totalImages)
     {
         int end = totalImages;
         if(bufferedImageArray.length < totalImages)
             end = bufferedImageArray.length;
         
-        double ratio = ((double) bufferedImageArray[0].getWidth() / bufferedImageArray[0].getHeight());
+        final double ratio = ((double) bufferedImageArray[0].getWidth() / bufferedImageArray[0].getHeight());
         for(int index = 1; index < end; index++)
         {
             if(ratio != ((double) bufferedImageArray[index].getWidth() / bufferedImageArray[index].getHeight()))
@@ -42,7 +53,7 @@ public class ImagesRatioUtil
         return true;
     }
     
-    public static double getAverage(BufferedImage bufferedImageArray[], int totalImages)
+    public double getAverage(final BufferedImage[] bufferedImageArray, final int totalImages)
     {
         double ratio = 0;
         int end = totalImages;
@@ -56,7 +67,7 @@ public class ImagesRatioUtil
         return ((double) ratio/end);
     }
     
-    public static BufferedImage fudge(
+    public BufferedImage fudge(
         BufferedImage bufferedImage, double ratio)
         throws Exception
     {
@@ -89,15 +100,15 @@ public class ImagesRatioUtil
             "ImageRatioUtil", "fudge"));
         
         BufferedImage newBufferedImage =
-            BufferedImageUtil.create(newWidth, newHeight);
+            this.imageUtil.create(newWidth, newHeight);
         
         Graphics2D g = newBufferedImage.createGraphics();
         
         if(point.x > 0)
         {
             /*
-            int data[] = new int[bufferedImage.getHeight()];
-            byte bytes[] = new byte[data.length * 4];
+            final int[] data = new int[bufferedImage.getHeight()];
+            final byte[] bytes = new byte[data.length * 4];
          
             LogUtil.put(LogFactory.getInstance("Get the first column of the original of: " + bytes.length, 
                 "ImageRatioUtil", "fudge"));
@@ -142,8 +153,8 @@ public class ImagesRatioUtil
         if(point.y > 0)
         {
             /*
-            int data[] = new int[bufferedImage.getWidth()];
-            byte bytes[] = new byte[data.length * 4];
+            final int[] data = new int[bufferedImage.getWidth()];
+            final byte[] bytes = new byte[data.length * 4];
          
             LogUtil.put(LogFactory.getInstance("Get the first row of the original of: " + bytes.length, 
                 "ImageRatioUtil", "fudge"));
@@ -193,15 +204,15 @@ public class ImagesRatioUtil
         return newBufferedImage;
     }
     
-    public static BufferedImage[] fudge(
-        BufferedImage bufferedImageArray[], int totalImages, double ratio)
+    public BufferedImage[] fudge(
+        final BufferedImage[] bufferedImageArray, final int totalImages, final double ratio)
         throws Exception
     {
         int end = totalImages;
         if(bufferedImageArray.length < totalImages)
             end = bufferedImageArray.length;
         
-        BufferedImage fudgedBufferedImageArray[] = new BufferedImage[end];
+        final BufferedImage[] fudgedBufferedImageArray = new BufferedImage[end];
         
         for(int index = 0; index < end; index++)
         {

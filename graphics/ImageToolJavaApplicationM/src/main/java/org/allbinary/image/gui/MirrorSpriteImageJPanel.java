@@ -68,13 +68,13 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
                for (int index = 0; index < bufferedImageArray.length; index++)
                {
                   generatedBufferedImageArray =
-                     MirrorImageUtil.getImages(
+                     MirrorImageUtil.getInstance().getImages(
                      bufferedImageArray[index], 
                      MirrorSpriteImageJPanel.this.verticleJCheckBox.isSelected(),
                      MirrorSpriteImageJPanel.this.horizontalJCheckBox.isSelected());
 
                   MirrorSpriteImageJPanel.this.result =
-                     BufferedImageUtil2.createSpriteImage(
+                     BufferedImageUtil2.getInstance().createSpriteImage(
                      generatedBufferedImageArray);
 
                   MirrorSpriteImageJPanel.this.getParent().repaint();
@@ -167,7 +167,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
       verticleJCheckBox.setText("Verticle");
       verticleJCheckBox.setEnabled(false);
 
-      writeOverOriginalJCheckBox.setSelected(true);
+      //writeOverOriginalJCheckBox.setSelected(true);
       writeOverOriginalJCheckBox.setText("Write Over Original");
 
       generateJButton.setText("Generate");

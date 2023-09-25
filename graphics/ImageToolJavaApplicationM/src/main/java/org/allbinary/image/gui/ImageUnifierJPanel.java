@@ -36,13 +36,15 @@ import org.allbinary.media.image.ImagePersistanceUtil;
 public class ImageUnifierJPanel extends javax.swing.JPanel
    implements ImageProcessorInputCompositeInterface
 {
+    private final ImagesRatioUtil imagesRatioUtil = ImagesRatioUtil.getInstance();
+    
    private ImageProcessorInput imageProcessorInput;
    private ImageIconUnique[] icon;
    private ImageUnifierProperties imageUnifierProperties;
    private BufferedImage result;
    private boolean isImageFillIn = true;
 
-   public ImageUnifierJPanel(ImageProcessorInput imageProcessorInput)
+   public ImageUnifierJPanel(final ImageProcessorInput imageProcessorInput)
       throws Exception
    {
       initComponents();
@@ -54,25 +56,24 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
    {
       try
       {
-         ImageProcessorInput imageProcessorInput = this.getImageProcessorInput();
+         final ImageProcessorInput imageProcessorInput = this.getImageProcessorInput();
          
-         BufferedImage[] bufferedImageArray =
-            imageProcessorInput.getBufferedImageArray();
+         final BufferedImage[] bufferedImageArray = imageProcessorInput.getBufferedImageArray();
 
          this.icon = new ImageIconUnique[bufferedImageArray.length];
 
-         DefaultListModel defaultListModel = new DefaultListModel();
+         final DefaultListModel defaultListModel = new DefaultListModel();
 
          for (int index = 0; index < bufferedImageArray.length; index++)
          {
-            double width = bufferedImageArray[index].getWidth();
-            double height = bufferedImageArray[index].getHeight();
-            int newWidth = 52;
-            double oldRatio = width / height;
-            int newHeight = (int) (newWidth / oldRatio);
+            final double width = bufferedImageArray[index].getWidth();
+            final double height = bufferedImageArray[index].getHeight();
+            final int newWidth = 52;
+            final double oldRatio = width / height;
+            final int newHeight = (int) (newWidth / oldRatio);
 
-            BufferedImage iconBufferedImage =
-               ImageUtil.createBufferedImage(
+            final BufferedImage iconBufferedImage =
+               ImageUtil.getInstance().createBufferedImage(
                bufferedImageArray[index],
                newWidth, newHeight);
 
@@ -93,15 +94,15 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
    private void updateImage()
    {
-      BufferedImage[] bufferedImageArray =
+      final BufferedImage[] bufferedImageArray =
          this.getImageProcessorInput().getBufferedImageArray();
 
-      BufferedImage tempBufferedImageArray[] =
+      final BufferedImage[] tempBufferedImageArray =
          new BufferedImage[bufferedImageArray.length];
 
       for (int index = 0; index < bufferedImageArray.length; index++)
       {
-         ImageIconUnique indexedImageIcon = (ImageIconUnique) 
+         final ImageIconUnique indexedImageIcon = (ImageIconUnique) 
             this.imageJList.getModel().getElementAt(index);
 
          tempBufferedImageArray[index] =
@@ -112,7 +113,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
          this.imageUnifierProperties.getRows() *
          this.imageUnifierProperties.getColumns();
 
-      double averageRatio = ImagesRatioUtil.getAverage(
+      double averageRatio = imagesRatioUtil.getAverage(
          tempBufferedImageArray, totalImages);
 
       String averageRatioString = new Double(averageRatio).toString();
@@ -127,7 +128,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       //new BasicTextJDialog("Your image ratio average does not match your selected").setVisible(false);
 
       this.fudgeItJButton.setEnabled(false);
-      if (!ImagesRatioUtil.isEqual(tempBufferedImageArray, totalImages))
+      if (!imagesRatioUtil.isEqual(tempBufferedImageArray, totalImages))
       {
          //new BasicTextJDialog("Your images have different ratios").setVisible(false);
          if (isImageFillIn)
@@ -143,15 +144,15 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
    {
       try
       {
-         BufferedImage[] bufferedImageArray =
+         final BufferedImage[] bufferedImageArray =
             this.getImageProcessorInput().getBufferedImageArray();
 
-         BufferedImage tempBufferedImageArray[] =
+         final BufferedImage[] tempBufferedImageArray =
             new BufferedImage[bufferedImageArray.length];
 
          for (int index = 0; index < bufferedImageArray.length; index++)
          {
-            ImageIconUnique indexedImageIcon = (ImageIconUnique) 
+            final ImageIconUnique indexedImageIcon = (ImageIconUnique) 
                this.imageJList.getModel().getElementAt(index);
 
             tempBufferedImageArray[index] =
@@ -162,11 +163,11 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
             this.imageUnifierProperties.getRows() *
             this.imageUnifierProperties.getColumns();
 
-         double averageRatio = ImagesRatioUtil.getAverage(
+         double averageRatio = imagesRatioUtil.getAverage(
             tempBufferedImageArray, totalImages);
 
-         BufferedImage fudgedBufferedImageArray[] =
-            ImagesRatioUtil.fudge(
+         final BufferedImage[] fudgedBufferedImageArray =
+            imagesRatioUtil.fudge(
             tempBufferedImageArray,
             totalImages, averageRatio);
 
@@ -178,9 +179,9 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
    }
 
-   private void updateImage(BufferedImage tempBufferedImageArray[])
+   private void updateImage(final BufferedImage[] tempBufferedImageArray)
    {
-      this.result = ImageUnifierUtil.getImage(
+      this.result = ImageUnifierUtil.getInstance().getImage(
          tempBufferedImageArray, this.imageUnifierProperties);
 
       Icon image = new ImageIcon(this.result);

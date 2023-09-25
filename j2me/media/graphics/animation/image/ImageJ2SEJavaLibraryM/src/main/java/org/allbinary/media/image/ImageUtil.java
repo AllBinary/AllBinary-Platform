@@ -17,6 +17,7 @@ import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
+import java.awt.Transparency;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -24,12 +25,19 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class ImageUtil
 {
+    private static final ImageUtil instance = new ImageUtil();
 
-   private static String IIOIMAGE_POOL_NAME = "IIOIMAGE_POOL_NAME";
+    /**
+     * @return the instance
+     */
+    public static ImageUtil getInstance() {
+        return instance;
+    }
+    
+   private String IIOIMAGE_POOL_NAME = "IIOIMAGE_POOL_NAME";
    //public static PoolInterface poolInterface = null;
-   
 
-   static
+   private ImageUtil()
    {
       try
       {
@@ -51,18 +59,20 @@ public class ImageUtil
       }
    }
 
-   private ImageUtil()
-   {
-   }
-
-   public static GraphicsConfiguration getDefaultConfiguration()
+   public GraphicsConfiguration getDefaultConfiguration()
    {
       GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
       GraphicsDevice gd = ge.getDefaultScreenDevice();
       return gd.getDefaultConfiguration();
    }
 
-   public static BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int percent)
+   public BufferedImage create(final int width, final int height)
+   {
+      final GraphicsConfiguration graphicsConfiguration = this.getDefaultConfiguration();
+      return graphicsConfiguration.createCompatibleImage(width, height, Transparency.TRANSLUCENT);
+   }
+   
+   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int percent)
       throws Exception
    {
       final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
@@ -73,13 +83,13 @@ public class ImageUtil
          int newHeight = bufferedImageArray[index].getHeight() * percent / 100;
 
          scaledBufferedImageArray[index] =
-            ImageUtil.createBufferedImage(bufferedImageArray[index], newWidth, newHeight);
+            this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight);
       }
 
       return scaledBufferedImageArray;
    }
 
-   public static BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
+   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
       throws Exception
    {
       //final double width = bufferedImage.getWidth();
@@ -141,7 +151,7 @@ public class ImageUtil
       return newBufferedImage;
    }
 
-   public static String toString(BufferedImage bufferedImage)
+   public String toString(BufferedImage bufferedImage)
    {
       StringBuffer stringBuffer = new StringBuffer();
 

@@ -26,6 +26,8 @@ import org.allbinary.media.image.ImageJ2SERotationUtil;
  */
 public class ImageArrayRotationUtil {
 
+    private static final ImageArrayRotationUtil instance = new ImageArrayRotationUtil();
+
     /**
      * @return the instance
      */
@@ -33,21 +35,33 @@ public class ImageArrayRotationUtil {
         return instance;
     }
 
-    private static final ImageArrayRotationUtil instance = new ImageArrayRotationUtil();
+    public final String UP = "up";
+    public final String DOWN = "down";
 
-    public void process(final ImageProcessorInput imageProcessorInput, final Integer totalAngle, final ImageProcessedVisitor visitor) throws IOException {
+    public void process(final ImageProcessorInput imageProcessorInput, final String input, final ImageProcessedVisitor visitor) throws IOException {
+        
+        Integer totalAngle;
+        if (input == UP) {
+            totalAngle = Integer.valueOf(-90);
+        } else if (input == DOWN) {
+            totalAngle = Integer.valueOf(90);
+        } else {
+            totalAngle = Integer.valueOf(input);
+        }
+        
         BufferedImage generatedBufferedImage;
 
+        final String TOTAL_ANGLE = "totalAngle: ";
         final BufferedImage[] bufferedImageArray = imageProcessorInput.getBufferedImageArray();
 
         for (int index = 0; index < bufferedImageArray.length; index++) {
 
-            LogUtil.put(LogFactory.getInstance("totalAngle: " + totalAngle, this, CommonStrings.getInstance().RUN));
+            LogUtil.put(LogFactory.getInstance(TOTAL_ANGLE + totalAngle, this, CommonStrings.getInstance().RUN));
 
             generatedBufferedImage = ImageJ2SERotationUtil.getInstance().getRotatedImage(
                     bufferedImageArray[index], totalAngle.intValue());
             
-            visitor.visit(generatedBufferedImage, index);
+            visitor.visit(generatedBufferedImage, input, index);
         }
         
     }

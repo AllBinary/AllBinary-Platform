@@ -18,7 +18,7 @@ import java.io.File;
 
 public class ImageProcessorInput {
 
-    private BufferedImage bufferedImageArray[];
+    private BufferedImage[] bufferedImageArray;
     private File[] files;
 
     public ImageProcessorInput(File[] files, BufferedImage[] bufferedImageArray) throws Exception {

@@ -28,6 +28,7 @@ public class ImageJ2SERotationUtil
         return instance;
     }
    
+    private final ImageUtil imageUtil = ImageUtil.getInstance();
     private final ImageJ2SEUtil imageJ2SEUtil = ImageJ2SEUtil.getInstance();
 
     private ImageJ2SERotationUtil() {
@@ -40,9 +41,7 @@ public class ImageJ2SERotationUtil
    public BufferedImage getRotatedImage(final Image bufferedImage, final double radians)
    {
       final BufferedImage newBufferedImage = 
-         BufferedImageUtil.create(
-         bufferedImage.getWidth(null), 
-         bufferedImage.getHeight(null));
+         this.imageUtil.create(bufferedImage.getWidth(null), bufferedImage.getHeight(null));
       
       return this.getRotatedImage(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians);
    }
@@ -114,7 +113,7 @@ public class ImageJ2SERotationUtil
       }
       
       final BufferedImage bufferedImage = 
-         BufferedImageUtil.create(
+         this.imageUtil.create(
          bufferedImageArray[0].getWidth(null) * columns, 
          bufferedImageArray[0].getHeight(null) * rows);
 

@@ -21,7 +21,7 @@ public class ImageAnalysisResultsJPanel extends javax.swing.JPanel
 {
     
     public ImageAnalysisResultsJPanel(
-        ImageAnalysisResults imageAnalysisResultsArray[])
+        final ImageAnalysisResults[] imageAnalysisResultsArray)
     {
         initComponents();
         
@@ -31,9 +31,8 @@ public class ImageAnalysisResultsJPanel extends javax.swing.JPanel
         }
         */
         
-        ImageAnalysisResults imageAnalysisResults = imageAnalysisResultsArray[0];
-        this.updateImageColorRangeResults(
-            imageAnalysisResults);
+        final ImageAnalysisResults imageAnalysisResults = imageAnalysisResultsArray[0];
+        this.updateImageColorRangeResults(imageAnalysisResults);
         
         //this.setSize(640, 480);
     }
@@ -214,9 +213,9 @@ public class ImageAnalysisResultsJPanel extends javax.swing.JPanel
     
     
     private void updateImageColorRangeResults(
-        ImageAnalysisResults imageAnalysisResults)
+        final ImageAnalysisResults imageAnalysisResults)
     {
-        ImageColorRangeResults imageColorRangeResults = 
+        final ImageColorRangeResults imageColorRangeResults = 
             imageAnalysisResults.getImageColorRangeResults();
         
         this.matchingPixelsJTextField.setText(

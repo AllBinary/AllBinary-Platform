@@ -69,7 +69,7 @@ public class MirrorImageJPanel extends javax.swing.JPanel
                {
                   //generatedBufferedImageArray =
                   MirrorImageJPanel.this.result =
-                     MirrorImageUtil.getImage(
+                     MirrorImageUtil.getInstance().getImage(
                      bufferedImageArray[index],
                      MirrorImageJPanel.this.verticleJCheckBox.isSelected(),
                      MirrorImageJPanel.this.horizontalJCheckBox.isSelected());
