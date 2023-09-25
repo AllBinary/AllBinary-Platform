@@ -13,6 +13,8 @@
  */
 package org.allbinary.media.graphics.geography.map.topview;
 
+import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.basic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.util.BasicArrayList;
 
@@ -64,5 +66,16 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
             }
         }
         return false;
+    }
+    
+    public String toString() {
+        final StringMaker stringMaker = new StringMaker();
+
+        final int size = types.length;
+        for(int index = 0; index < size; index++) {
+            stringMaker.append(types[index]).append(CommonSeps.getInstance().COMMA);
+        }        
+
+        return stringMaker.toString();
     }
 }

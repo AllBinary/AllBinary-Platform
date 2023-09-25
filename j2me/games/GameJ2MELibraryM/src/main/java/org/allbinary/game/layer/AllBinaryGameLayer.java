@@ -50,7 +50,11 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     {
         super(name, layerInfo, viewPosition);
     }
-    
+        
+    public void move() {
+
+    }
+
     public BasicArrayList getGameKeyEventList()
     {
         return gameKeyEventList;
