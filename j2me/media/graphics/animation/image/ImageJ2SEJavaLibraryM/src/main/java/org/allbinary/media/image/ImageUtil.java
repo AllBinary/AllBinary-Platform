@@ -79,8 +79,8 @@ public class ImageUtil
 
       for (int index = 0; index < bufferedImageArray.length; index++)
       {
-         int newWidth = bufferedImageArray[index].getWidth() * percent / 100;
-         int newHeight = bufferedImageArray[index].getHeight() * percent / 100;
+         final int newWidth = bufferedImageArray[index].getWidth() * percent / 100;
+         final int newHeight = bufferedImageArray[index].getHeight() * percent / 100;
 
          scaledBufferedImageArray[index] =
             this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight);
@@ -153,7 +153,7 @@ public class ImageUtil
 
    public String toString(BufferedImage bufferedImage)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      final StringBuffer stringBuffer = new StringBuffer();
 
       stringBuffer.append(" BufferedImage: ");
       stringBuffer.append(" Width: ");

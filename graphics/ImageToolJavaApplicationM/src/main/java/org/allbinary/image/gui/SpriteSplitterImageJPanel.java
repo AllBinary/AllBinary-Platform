@@ -37,7 +37,6 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
     private ImageProcessorInput imageProcessorInput;
 
     private BufferedImage result;
-    private String spriteType;
 
     public SpriteSplitterImageJPanel(final ImageProcessorInput imageProcessorInput) 
        throws Exception 
@@ -55,7 +54,11 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
             public void run() {
                 try {
-                    SpriteSplitterUtil.getInstance().process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), spriteType, SpriteSplitterImageJPanel.this);                        
+                    final String spriteType = (String) spriteTypeJComboBox.getSelectedItem();
+                    final Integer totalFrames = Integer.valueOf( (String) totalFramesJComboBox.getSelectedItem());
+                    final Integer totalAnimations = Integer.valueOf( (String) totalAnimationsJComboBox.getSelectedItem());
+
+                    SpriteSplitterUtil.getInstance().process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, spriteType, SpriteSplitterImageJPanel.this);                        
 
                 } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
@@ -114,6 +117,10 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
       jPanel2 = new javax.swing.JPanel();
       jLabel1 = new javax.swing.JLabel();
       generateJButton = new javax.swing.JButton();
+      totalFramesJComboBox = new javax.swing.JComboBox();
+      jLabel4 = new javax.swing.JLabel();
+      totalAnimationsJComboBox = new javax.swing.JComboBox();
+      jLabel5 = new javax.swing.JLabel();
       spriteTypeJComboBox = new javax.swing.JComboBox();
       jLabel3 = new javax.swing.JLabel();
       writeOverOriginalJCheckBox = new javax.swing.JCheckBox();
@@ -138,14 +145,34 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
          }
       });
 
-      spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { SpriteSplitterUtil.getInstance().ALL, SpriteSplitterUtil.getInstance().DOWN, SpriteSplitterUtil.getInstance().ROW}));
+      totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3", "4", "5", "6", "7", "8", "9", "10" }));
+      totalFramesJComboBox.setSelectedIndex(1);
+      totalFramesJComboBox.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            //totalFramesJComboBoxActionPerformed(evt);
+         }
+      });
+
+      totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+      totalAnimationsJComboBox.setSelectedIndex(3);
+      totalAnimationsJComboBox.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            //totalAnimationsJComboBoxActionPerformed(evt);
+         }
+      });
+      
+      spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS
+              //, SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS
+      }));
       spriteTypeJComboBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             totalAngleJComboBoxActionPerformed(evt);
          }
       });
 
-      jLabel3.setText("Sprite Type:");
+      jLabel3.setText("Type:");
+      jLabel4.setText("F:");
+      jLabel5.setText("A:");
 
       //writeOverOriginalJCheckBox.setSelected(true);
       writeOverOriginalJCheckBox.setText("Write Over Original");
@@ -158,8 +185,13 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
             .add(8, 8, 8)
             .add(jLabel1)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-            .add(jLabel3)
+            .add(jLabel4)
+            .add(totalFramesJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+            .add(jLabel5)
+            .add(totalAnimationsJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+            .add(jLabel3)
             .add(spriteTypeJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
             .add(writeOverOriginalJCheckBox)
@@ -172,8 +204,12 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
          .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
             .add(jLabel1)
             .add(generateJButton)
-            .add(spriteTypeJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(jLabel4)
+            .add(totalFramesJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(jLabel5)
+            .add(totalAnimationsJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .add(jLabel3)
+            .add(spriteTypeJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .add(writeOverOriginalJCheckBox))
       );
 
@@ -227,9 +263,13 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
    private javax.swing.JLabel jLabel1;
    private javax.swing.JLabel jLabel2;
    private javax.swing.JLabel jLabel3;
+   private javax.swing.JLabel jLabel4;
+   private javax.swing.JLabel jLabel5;
    private javax.swing.JPanel jPanel1;
    private javax.swing.JPanel jPanel2;
    private javax.swing.JPanel jPanel3;
+   private javax.swing.JComboBox totalFramesJComboBox;
+   private javax.swing.JComboBox totalAnimationsJComboBox;
    private javax.swing.JComboBox spriteTypeJComboBox;
    private javax.swing.JCheckBox writeOverOriginalJCheckBox;
    // End of variables declaration//GEN-END:variables

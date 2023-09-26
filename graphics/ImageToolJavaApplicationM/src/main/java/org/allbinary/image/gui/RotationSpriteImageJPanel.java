@@ -61,7 +61,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                     
                     for (int index = 0; index < bufferedImageArray.length; index++) {
                         Integer totalFrames = Integer.valueOf(
-                                (String) RotationSpriteImageJPanel.this.totalFramseJComboBox.getSelectedItem());
+                                (String) RotationSpriteImageJPanel.this.totalFramesJComboBox.getSelectedItem());
                         Integer totalAngle = Integer.valueOf(
                                 (String) RotationSpriteImageJPanel.this.totalAngleJComboBox.getSelectedItem());
                         generatedBufferedImageArray = ImageJ2SERotationUtil.getInstance().getRotatedImages(
@@ -140,7 +140,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
       }
       ;
       jPanel2 = new javax.swing.JPanel();
-      totalFramseJComboBox = new javax.swing.JComboBox();
+      totalFramesJComboBox = new javax.swing.JComboBox();
       jLabel1 = new javax.swing.JLabel();
       generateJButton = new javax.swing.JButton();
       totalAngleJComboBox = new javax.swing.JComboBox();
@@ -160,7 +160,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
          .add(0, 227, Short.MAX_VALUE)
       );
 
-      totalFramseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4", "9", "18", "20", "36" }));
+      totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "4", "9", "18", "20", "36" }));
 
       jLabel1.setText("Total Frames:");
 
@@ -191,7 +191,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
             .add(8, 8, 8)
             .add(jLabel1)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-            .add(totalFramseJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(totalFramesJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
             .add(jLabel3)
             .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
@@ -206,7 +206,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
          jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
          .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
             .add(jLabel1)
-            .add(totalFramseJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+            .add(totalFramesJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .add(generateJButton)
             .add(totalAngleJComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
             .add(jLabel3)
@@ -267,7 +267,7 @@ private void totalAngleJComboBoxActionPerformed(java.awt.event.ActionEvent evt) 
    private javax.swing.JPanel jPanel2;
    private javax.swing.JPanel jPanel3;
    private javax.swing.JComboBox totalAngleJComboBox;
-   private javax.swing.JComboBox totalFramseJComboBox;
+   private javax.swing.JComboBox totalFramesJComboBox;
    private javax.swing.JCheckBox writeOverOriginalJCheckBox;
    // End of variables declaration//GEN-END:variables
 
