@@ -15,18 +15,17 @@ given that the following conditions are met:
 2.  Redistribution of the AllBinary Platform source code must include the 
     copyright notice above.
 
-3.  You must submit each of your published products using the AllBinary Platform 
-    source code as described in the PUBLISHED.txt file in the root 
-    of the repo which AllBinary may update without notice.  
-    (Note previous submissions are not required to meet the new PUBLISHED.txt 
-    requirements.) 
+3.  You must submit each release of your published products using the 
+    AllBinary Platform source code as described in the PUBLISHED.txt file 
+    in the root of the repo which AllBinary may update without notice.  
 
 4.  You will fulfill one of the 2 requirements below:
 
     You must obtain one or more advert provider identifiers with instructions 
     from AllBinary.  You must allow adverts to be displayed in your published 
     product using this license.  If the product does not have a customer 
-    facing visual then you must use the next requirement.
+    facing visual or AllBinary is not currently providing identifiers then 
+    you must use the next requirement.
 
     "Or"
 

@@ -1,2 +1,3 @@
-1. Each product submission cost 1 dollar USD and may be paid via Paypal to: travisberthelot@hotmail.com.
-2. You will submit the product via email to travisberthelot@hotmail.com including the binarys, screenshots, videos, name, and description.
+1. Each product submission cost 1 USD and must be paid via Paypal to: travisberthelot@hotmail.com.
+2. You must submit each product release via email to travisberthelot@hotmail.com
+   A product release includes the binaries, screenshots, videos, name, and description when available.
