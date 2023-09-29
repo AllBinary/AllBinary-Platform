@@ -94,9 +94,10 @@ public class ImageComparisonResult
         
         if(!isSameWidth || !isSameHeight)
         {
+            final ImageUtil imageUtil = ImageUtil.getInstance();
             LogUtil.put(LogFactory.getInstance("Images were not the same size? Most likely a resolution change.", this, "Constructor"));
-            LogUtil.put(LogFactory.getInstance("1: " + ImageUtil.toString(bufferedImage), this, "Constructor"));
-            LogUtil.put(LogFactory.getInstance("2: " + ImageUtil.toString(bufferedImage2), this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("1: " + imageUtil.toString(bufferedImage), this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("2: " + imageUtil.toString(bufferedImage2), this, "Constructor"));
         }
     }
     

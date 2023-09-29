@@ -45,10 +45,11 @@ public class MediaUtil
                 "Image Properties: " + hashMap.toString(), instance, "saveImageFile()"));
         }
 
-        AbFile imageFile = new AbFile(category + newImageFileName);
+        final AbFile imageFile = new AbFile(category + newImageFileName);
         imageFile.createNewFile();
 
-        BufferedImage newBufferedImage = ImageUtil.createBufferedImage(
+        final ImageUtil imageUtil = ImageUtil.getInstance();
+        BufferedImage newBufferedImage = imageUtil.createBufferedImage(
             bufferedImage, newWidth, newHeight);
 
         boolean isWritten = ImageIOUtil.write(

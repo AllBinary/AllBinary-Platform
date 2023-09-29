@@ -38,13 +38,14 @@ public class CapturedImageInputOutput implements ImageIOInterface {
     }
 
     public void save(BufferedImage bufferedImage, Long frame) {
-        StringBuffer filePathStringBuffer = new StringBuffer();
+        final ImageUtil imageUtil = ImageUtil.getInstance();
+        final StringBuffer filePathStringBuffer = new StringBuffer();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath = filePathStringBuffer.toString();
         LogUtil.put(LogFactory.getInstance(("Image File Path: " + filePath
-                + ImageUtil.toString(bufferedImage)),
+                + imageUtil.toString(bufferedImage)),
                 this, "save"));
         ImagePersistanceUtil.saveWithImageIO(filePath, bufferedImage);
     }

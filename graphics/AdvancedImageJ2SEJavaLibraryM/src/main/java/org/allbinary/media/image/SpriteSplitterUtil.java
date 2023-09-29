@@ -129,7 +129,7 @@ public class SpriteSplitterUtil {
                 for(int index2 = 0; index2 < rows; index2++) {
                     y = cellHeight * index2;
                     generatedBufferedImage = bufferedImage.getSubimage(0, y, bufferedImage.getWidth(), cellHeight);
-                    nameEnding = new StringMaker().append(DIRECTION_NAME[index2]).toString();
+                    nameEnding = new StringMaker().append(DIRECTION_NAME[index2]).append(CommonSeps.getInstance().UNDERSCORE).append(1).toString();
                     visitor.visit(generatedBufferedImage, nameEnding, index);
                 }
                 
