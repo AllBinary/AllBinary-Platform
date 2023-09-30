@@ -27,6 +27,7 @@ import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.util.BasicArrayList;
 
 public class DisplayInfoSingleton
 {
@@ -196,7 +197,7 @@ public class DisplayInfoSingleton
             last[HEIGHT] = aLastHeight;
             lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
-            this.fire(SET_LAST_SIZE_METHOD_NAME);
+            this.add(SET_LAST_SIZE_METHOD_NAME);
         }
     }
 
@@ -221,20 +222,29 @@ public class DisplayInfoSingleton
 
     private final String FIRE_METHOD_NAME = "fire";
 
-    public void fire(String reason)
+    private final BasicArrayList list = new BasicArrayList();
+
+    private void add(String reason)
     {
+        //PreLogUtil.put("Display Change Event").append(this.toString(), this, commonStrings.UPDATE);
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("reason: ").append(reason).toString(), this, FIRE_METHOD_NAME));
+        LogUtil.put(LogFactory.getInstance(this.toString(), this, FIRE_METHOD_NAME));
+        list.add(reason);
+    }
+
+    public void process() {
         try
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("reason: ").append(reason).toString(), this, FIRE_METHOD_NAME));
-            LogUtil.put(LogFactory.getInstance(this.toString(), this, FIRE_METHOD_NAME));
-            //PreLogUtil.put("Display Change Event").append(this.toString(), this, commonStrings.UPDATE);
-            DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
+            if(list.size() > 0) {
+                DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
+            }
+            list.clear();
         }catch(Exception e)
         {
             PreLogUtil.put(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
         }
     }
-
+    
     public void update(final Displayable displayable, final String reason)
     {
         int aLastWidth = displayable.getWidth();
@@ -329,7 +339,7 @@ public class DisplayInfoSingleton
                 last[HEIGHT] = aLastHeight;
                 lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
-                this.fire(commonStrings.UPDATE);
+                this.add(commonStrings.UPDATE);
                 return;
             }
         }

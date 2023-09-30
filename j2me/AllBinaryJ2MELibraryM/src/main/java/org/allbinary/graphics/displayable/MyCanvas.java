@@ -144,6 +144,11 @@ public class MyCanvas extends Canvas
         this.addCommand(MyCommandsFactory.getInstance().PAUSE_COMMAND);
         this.setPaused(false);
     }
+
+    protected void process() throws Exception
+    {
+        DisplayInfoSingleton.getInstance().process();
+    }
     
     //public void draw(gl)
     //{
@@ -153,7 +158,7 @@ public class MyCanvas extends Canvas
     
     //private final BaseGameStatistics baseGameStatistics = 
         //GameStatisticsFactory.getInstance();
-    
+        
     protected void paint(Graphics graphics)
     {
         //baseGameStatistics.nextRefresh();

@@ -122,6 +122,7 @@ import org.allbinary.game.GameAdState;
 import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
@@ -1529,6 +1530,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void processGame() throws Exception
     {
+        super.process();
+
         if (AllBinaryMediaManager.update())
         {
             if (!primaryPlayerQueue.process())
