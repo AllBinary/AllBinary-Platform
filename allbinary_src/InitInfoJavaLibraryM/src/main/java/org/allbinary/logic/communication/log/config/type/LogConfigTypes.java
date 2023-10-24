@@ -17,7 +17,6 @@ package org.allbinary.logic.communication.log.config.type;
 
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
-import java.util.Vector;
 
 import org.w3c.dom.Node;
    

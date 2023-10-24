@@ -106,9 +106,9 @@ public class LoggingInitInfo
       }
    }
    
-   public synchronized static void set(BasicArrayList logConfigInfoVector)
+   public synchronized static void set(BasicArrayList logConfigInfoList)
    {
-      LoggingInitInfo.logConfigInfoList = logConfigInfoVector;
+      LoggingInitInfo.logConfigInfoList = logConfigInfoList;
    }
 
    public static BasicArrayList get() throws Exception
