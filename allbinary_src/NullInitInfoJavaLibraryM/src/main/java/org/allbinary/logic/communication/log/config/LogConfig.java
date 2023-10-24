@@ -13,8 +13,6 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import java.util.Vector;
-
 import org.w3c.dom.Node;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
@@ -23,6 +21,7 @@ import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.java.bool.BooleanUtil;
 
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.util.BasicArrayList;
 
 
 public class LogConfig
@@ -138,9 +137,9 @@ public class LogConfig
     {
     }
 */
-    public Vector getTypeVector() throws Exception
+    public BasicArrayList getTypeVector() throws Exception
     {
-        Vector logKeyVector = new Vector();
+        BasicArrayList logKeyVector = new BasicArrayList();
         /*
         Document document = this.getDoc();
 

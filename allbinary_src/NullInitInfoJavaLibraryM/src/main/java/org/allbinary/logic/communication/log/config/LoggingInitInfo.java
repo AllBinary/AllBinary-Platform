@@ -13,12 +13,11 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import java.util.Iterator;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
 
 public class LoggingInitInfo
 {      
-   private static Vector logConfigInfoVector = null;
+   private static BasicArrayList logConfigInfoList = null;
    
    private static boolean hasRead = false;
    
@@ -88,7 +87,7 @@ public class LoggingInitInfo
       {
 	 LoggingInitInfo.read();
 	 hasRead = true;
-	 if(LoggingInitInfo.logConfigInfoVector == null)
+	 if(LoggingInitInfo.logConfigInfoList == null)
 	 {
 	    throw new Exception("Read Failed");
 	 }
@@ -107,15 +106,15 @@ public class LoggingInitInfo
       }
    }
    
-   public synchronized static void set(Vector logConfigInfoVector)
+   public synchronized static void set(BasicArrayList logConfigInfoVector)
    {
-      LoggingInitInfo.logConfigInfoVector = logConfigInfoVector;
+      LoggingInitInfo.logConfigInfoList = logConfigInfoVector;
    }
 
-   public static Vector get() throws Exception
+   public static BasicArrayList get() throws Exception
    {
       LoggingInitInfo.updateIfNeeded();
-      return LoggingInitInfo.logConfigInfoVector;
+      return LoggingInitInfo.logConfigInfoList;
    }
 
    /*
@@ -140,17 +139,17 @@ public class LoggingInitInfo
    }
     */
 
-   public static Vector getTypeVector() throws Exception
+   public static BasicArrayList getTypeList() throws Exception
    {
       LoggingInitInfo.updateIfNeeded();
       
-      final Vector allLogTypeVector = new Vector();
-      final Iterator iter = LoggingInitInfo.logConfigInfoVector.iterator();
+      final BasicArrayList allLogTypeVector = new BasicArrayList();
       
-      while(iter.hasNext())
+      final int size = LoggingInitInfo.logConfigInfoList.size();
+      for(int index = 0; index < size; index++)
       {
-         final LogConfig logConfigInfo = (LogConfig) iter.next();
-         final Vector logTypeVector = logConfigInfo.getTypeVector();
+         final LogConfig logConfigInfo = (LogConfig) LoggingInitInfo.logConfigInfoList.objectArray[index];
+         final BasicArrayList logTypeVector = logConfigInfo.getTypeVector();
 
          if(logConfigInfo.isEnabled())
          {
@@ -162,7 +161,7 @@ public class LoggingInitInfo
    
    public int getNumberOfLogConfigs() throws Exception
    {
-      return LoggingInitInfo.logConfigInfoVector.size();
+      return LoggingInitInfo.logConfigInfoList.size();
    }
    
    public String toString()

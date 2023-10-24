@@ -32,7 +32,7 @@ public class LogConfigTypes
 {
    public static final String JSP_ERROR_NO_FUNCTION = "in JSP Not In Function";
 
-   public static Vector LOGGING = new Vector();
+   public static BasicArrayList LOGGING = new BasicArrayList();
 
    static
    {
@@ -80,7 +80,7 @@ public class LogConfigTypes
 
          //Load the Specified configuration files
          final LoggingInitInfo loggingInitInfo = new LoggingInitInfo();
-         final Vector logConfigTypeVector = loggingInitInfo.getTypeVector();
+         final BasicArrayList logConfigTypeVector = loggingInitInfo.getTypeList();
          PreLogUtil.put("Number Of Log Configs: " + loggingInitInfo.getNumberOfLogConfigs(),"LogConfigTypes","init()");
          PreLogUtil.put("Number Of Log Config Type Names: " + logConfigTypeVector.size(),"LogConfigTypes","init()");
          
