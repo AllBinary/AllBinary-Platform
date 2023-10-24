@@ -16,8 +16,8 @@ package admin.taghelpers;
 import java.util.HashMap;
 import java.util.Vector;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.jsp.PageContext;
 
 import org.allbinary.business.installer.Portion;
 import org.allbinary.globals.URLGLOBALS;

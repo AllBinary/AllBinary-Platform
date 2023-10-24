@@ -18,8 +18,8 @@ import java.util.*;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
-import javax.servlet.jsp.PageContext;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.jsp.PageContext;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.allbinary.data.tree.category.CategoryLoaderFactory;
 import org.allbinary.data.tree.category.CategoryLoaderInterface;

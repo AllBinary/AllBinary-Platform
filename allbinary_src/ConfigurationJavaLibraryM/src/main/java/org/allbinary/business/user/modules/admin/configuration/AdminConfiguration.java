@@ -24,7 +24,7 @@ import org.allbinary.business.context.configuration.ContextConfigurationPathUtil
 import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.control.crypt.file.CryptFileWriter;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
 public class AdminConfiguration implements AdminConfigurationInterface

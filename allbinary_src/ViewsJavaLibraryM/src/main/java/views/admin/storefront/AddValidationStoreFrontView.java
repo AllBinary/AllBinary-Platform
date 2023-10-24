@@ -17,7 +17,7 @@ import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.basic.io.file.AbFile;
 import org.allbinary.logic.basic.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;

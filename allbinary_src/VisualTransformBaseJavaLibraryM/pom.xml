@@ -88,10 +88,21 @@
 
         </dependency>
 
+        <!-- java 1.8 -->
+        <!--
         <dependency>
             <groupId>javax.servlet.jsp</groupId>
             <artifactId>jsp-api</artifactId>
             <version>2.1</version>
+            <optional>true</optional>
+        </dependency>
+        -->
+        
+        <!-- java 11-20 -->
+        <dependency>
+            <groupId>jakarta.servlet.jsp</groupId>
+            <artifactId>jakarta.servlet.jsp-api</artifactId>
+            <version>3.1.0</version>
             <optional>true</optional>
         </dependency>
 

@@ -16,7 +16,7 @@ package admin.taghelpers;
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;

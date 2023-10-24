@@ -15,12 +15,12 @@ package tags.admin.customizers;
 
 import java.util.*;
 
-import javax.servlet.*;
+import jakarta.servlet.*;
 
-import javax.servlet.http.*;
+import jakarta.servlet.http.*;
 
-import javax.servlet.jsp.*;
-import javax.servlet.jsp.tagext.*;
+import jakarta.servlet.jsp.*;
+import jakarta.servlet.jsp.tagext.*;
 
 
 

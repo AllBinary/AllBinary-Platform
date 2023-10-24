@@ -17,7 +17,7 @@ import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
-import javax.servlet.ServletRequest;
+import jakarta.servlet.ServletRequest;
 
 //import org.allbinary.logic.java.proxy.InterfaceCastProxy;
 

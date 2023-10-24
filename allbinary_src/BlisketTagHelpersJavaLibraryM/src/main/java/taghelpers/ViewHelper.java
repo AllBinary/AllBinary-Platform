@@ -14,7 +14,7 @@
 package taghelpers;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.w3c.dom.Document;
 

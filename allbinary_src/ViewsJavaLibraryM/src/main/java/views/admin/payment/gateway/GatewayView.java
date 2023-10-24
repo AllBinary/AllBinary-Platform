@@ -13,7 +13,7 @@
 */
 package views.admin.payment.gateway;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;

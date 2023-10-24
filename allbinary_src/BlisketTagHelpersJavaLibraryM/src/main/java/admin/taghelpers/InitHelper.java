@@ -13,7 +13,7 @@
 */
 package admin.taghelpers;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

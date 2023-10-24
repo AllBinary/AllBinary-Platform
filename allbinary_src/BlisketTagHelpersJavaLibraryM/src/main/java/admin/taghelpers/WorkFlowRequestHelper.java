@@ -17,7 +17,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import java.util.*;
 
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

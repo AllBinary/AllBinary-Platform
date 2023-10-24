@@ -17,9 +17,9 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Vector;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.JspTagException;
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.business.init.InstallerInfo;
 import org.allbinary.business.user.role.BasicUserRole;

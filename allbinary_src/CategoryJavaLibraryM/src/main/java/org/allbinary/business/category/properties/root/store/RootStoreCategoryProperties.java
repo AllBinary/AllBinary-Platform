@@ -16,7 +16,7 @@ package org.allbinary.business.category.properties.root.store;
 import java.util.HashMap;
 import java.util.Vector;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

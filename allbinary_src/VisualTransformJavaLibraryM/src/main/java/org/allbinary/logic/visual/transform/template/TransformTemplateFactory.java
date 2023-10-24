@@ -16,7 +16,7 @@ package org.allbinary.logic.visual.transform.template;
 import org.allbinary.logic.visual.transform.template.TransformTemplateInterface;
 import java.util.HashMap;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

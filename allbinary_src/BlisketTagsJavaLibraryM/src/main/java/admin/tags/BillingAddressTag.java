@@ -15,7 +15,7 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import javax.servlet.jsp.*;
+import jakarta.servlet.jsp.*;
 
 import org.allbinary.logic.system.security.licensing.LicensingException;
 

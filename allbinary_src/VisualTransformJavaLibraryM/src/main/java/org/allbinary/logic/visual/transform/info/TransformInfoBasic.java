@@ -16,7 +16,7 @@ package org.allbinary.logic.visual.transform.info;
 import java.util.HashMap;
 import java.util.Vector;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.w3c.dom.Document;
 

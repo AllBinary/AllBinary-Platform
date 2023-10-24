@@ -17,7 +17,7 @@ import java.io.ByteArrayInputStream;
 import java.util.HashMap;
 import java.util.Vector;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.apache.commons.fileupload.FileItem;
 

@@ -16,7 +16,7 @@ package tags.admin.inventory;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 import tags.StoreValidationTransformTag;
 

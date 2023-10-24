@@ -13,7 +13,7 @@
 */
 package tags.generic.address.shipping;
 
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 import tags.StoreValidationTransformTag;
 

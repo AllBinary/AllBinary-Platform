@@ -13,9 +13,9 @@
 */
 package admin.taghelpers;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.business.user.role.BasicUserRole;
 import org.allbinary.logic.basic.string.StringUtil;
@@ -39,7 +39,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Vector;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import org.allbinary.globals.GLOBALS2;
 
 public class AuthenticationHelper

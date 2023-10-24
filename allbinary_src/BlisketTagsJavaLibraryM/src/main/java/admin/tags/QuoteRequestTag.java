@@ -26,7 +26,7 @@ import admin.taghelpers.QuoteHelperFactory;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 public class QuoteRequestTag extends TableTag
 {

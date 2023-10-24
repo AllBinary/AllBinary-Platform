@@ -17,7 +17,7 @@ import org.allbinary.logic.basic.string.CommonSeps;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 import java.util.HashMap;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import tags.HelperTag;
 import org.allbinary.logic.communication.log.LogFactory;

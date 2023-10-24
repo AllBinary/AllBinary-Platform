@@ -14,7 +14,7 @@
 package views.generic.address.billing;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

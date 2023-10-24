@@ -20,8 +20,8 @@ import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.control.search.SearchRequest;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.jsp.PageContext;
 
 public class TransformStoreDocument extends TransformHttpRequestDocument
 {

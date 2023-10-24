@@ -22,9 +22,9 @@ import admin.taghelpers.BasicTextEmailHelperFactory;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 public class BasicTextEmailTag extends TagSupport
 {

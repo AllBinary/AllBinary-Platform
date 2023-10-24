@@ -16,7 +16,7 @@ package tags.admin.payment.gateways;
 import tags.StoreValidationTransformTag;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 public class ViewUnusedTag extends StoreValidationTransformTag
 {

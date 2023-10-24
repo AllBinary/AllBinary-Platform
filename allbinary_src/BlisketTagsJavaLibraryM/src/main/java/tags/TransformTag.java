@@ -21,7 +21,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import admin.taghelpers.TagHelperFactoryInterface;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 import taghelpers.ViewHelperFactory;
 

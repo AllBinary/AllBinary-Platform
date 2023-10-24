@@ -21,7 +21,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 import java.util.HashMap;
 
 public class TransformInfoHttpContext extends TransformInfoHttp

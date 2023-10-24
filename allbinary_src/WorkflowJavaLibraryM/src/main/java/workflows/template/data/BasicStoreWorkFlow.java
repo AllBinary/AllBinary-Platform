@@ -15,7 +15,7 @@ package workflows.template.data;
 
 import java.util.HashMap;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 

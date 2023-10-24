@@ -16,9 +16,9 @@ package workflows.template.data;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.visual.transform.TransformFactory;
 

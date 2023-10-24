@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
 
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.PageContext;
 import java.util.HashMap;
 import org.allbinary.logic.basic.string.CommonStrings;
 

@@ -15,7 +15,7 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import javax.servlet.jsp.tagext.TagSupport;
+import jakarta.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -26,7 +26,7 @@ import admin.taghelpers.CustomLoaderHelperFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 public class CustomLoaderTag extends TagSupport
 {

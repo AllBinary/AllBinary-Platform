@@ -13,7 +13,7 @@
 */
 package org.allbinary.servlet;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
@@ -31,8 +31,8 @@ public class BlisketServletUtil {
 	public void init(HttpServletRequest request)
 	{
 	    AppUrlGlobals urlGlobals = new AppUrlGlobals();
-	    urlGlobals.setWebappPath(request.getRealPath(
-	    		AbPathData.getInstance().SEPARATOR));
+	    //urlGlobals.setWebappPath(request.getRealPath(AbPathData.getInstance().SEPARATOR));
+            urlGlobals.setWebappPath(request.getServletContext().getRealPath(AbPathData.getInstance().SEPARATOR));
 	    URLGLOBALS.init(urlGlobals);
 	    
 	    WebappClassLoaderInfo.setLoader(getClass().getClassLoader());

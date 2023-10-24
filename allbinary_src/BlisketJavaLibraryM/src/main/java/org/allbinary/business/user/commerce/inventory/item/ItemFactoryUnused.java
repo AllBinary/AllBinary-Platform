@@ -17,7 +17,7 @@ import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.tables.TableMappingInterface;
 import org.allbinary.logic.communication.http.request.RequestParams;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
 public class ItemFactoryUnused

@@ -24,8 +24,8 @@ import org.allbinary.logic.communication.http.request.RequestParams;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfig;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.jsp.PageContext;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.jsp.PageContext;
 import java.util.HashMap;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;

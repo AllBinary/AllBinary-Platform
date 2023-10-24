@@ -33,7 +33,7 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSessionIn
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;

@@ -25,7 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import tags.StoreValidationTransformTag;
 
 import java.lang.reflect.Method;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 public class PaymentProcessTag extends StoreValidationTransformTag
 {

@@ -18,7 +18,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 import tags.StoreValidationTransformTag;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
-import javax.servlet.jsp.JspTagException;
+import jakarta.servlet.jsp.JspTagException;
 
 public class ShippingMethodsTag extends StoreValidationTransformTag
 {

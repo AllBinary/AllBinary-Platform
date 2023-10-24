@@ -23,8 +23,8 @@ import org.allbinary.logic.communication.log.LogFactory;
  import org.w3c.dom.Document;
  import org.w3c.dom.Node;
 
- import javax.servlet.http.HttpServletRequest;
- import javax.servlet.jsp.PageContext;
+ import jakarta.servlet.http.HttpServletRequest;
+ import jakarta.servlet.jsp.PageContext;
 
 public class TransformHttpRequestDocument 
    implements TransformDocumentInterface
