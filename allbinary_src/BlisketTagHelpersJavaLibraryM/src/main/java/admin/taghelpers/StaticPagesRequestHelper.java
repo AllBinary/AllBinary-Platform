@@ -13,9 +13,9 @@
 */
 package admin.taghelpers;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.logic.basic.io.file.FileUtil;
 

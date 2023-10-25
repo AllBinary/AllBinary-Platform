@@ -16,7 +16,7 @@ package org.allbinary.business.user.commerce.money.payment.gateway;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import java.util.HashMap;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

@@ -16,14 +16,14 @@ package admin.taghelpers;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import org.allbinary.logic.system.loader.AbeFactory;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 public class HelperFactory
 {

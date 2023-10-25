@@ -16,8 +16,8 @@ package admin.tags;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import admin.taghelpers.DownloadItemsHelperFactory;
 import admin.taghelpers.DownloadItemsRequestHelperFactory;
-import jakarta.servlet.jsp.JspTagException;
-import jakarta.servlet.jsp.tagext.Tag;
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.Tag;
 
 
 public class DownloadItemsTag extends TableTag

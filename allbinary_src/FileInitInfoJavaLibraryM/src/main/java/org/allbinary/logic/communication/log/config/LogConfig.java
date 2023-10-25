@@ -37,6 +37,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypeData;
 import org.allbinary.logic.communication.log.config.type.LogConfigType;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 import org.allbinary.globals.PATH_GLOBALS;
+import org.allbinary.util.BasicArrayList;
 
 public class LogConfig
 {
@@ -164,9 +165,9 @@ public class LogConfig
         return document;
     }
 
-    public Vector getTypeVector() throws Exception
+    public BasicArrayList getTypeVector() throws Exception
     {
-        Vector logKeyVector = new Vector();
+        BasicArrayList logKeyVector = new BasicArrayList();
         Document document = this.getDoc();
 
         NodeList logConfigTypesNodeList =

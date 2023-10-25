@@ -15,8 +15,8 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.JspTagException;
 
 import tags.PropertiesTag;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;

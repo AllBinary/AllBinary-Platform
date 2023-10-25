@@ -23,7 +23,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 
 public class TransformInfoHttpStore extends TransformInfoHttp 

@@ -17,7 +17,7 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 
 import org.allbinary.business.user.role.UserRoleData;
 
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 import tags.StoreValidationTransformTag;
 

@@ -28,10 +28,10 @@ import org.allbinary.logic.communication.log.LogFactory;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Vector;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.JspTagException;
 
-import jakarta.servlet.jsp.tagext.TagSupport;
+import javax.servlet.jsp.tagext.TagSupport;
 
 public class AuthenticationTag extends TagSupport
 {

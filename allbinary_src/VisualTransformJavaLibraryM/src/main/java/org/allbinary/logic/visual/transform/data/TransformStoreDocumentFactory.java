@@ -17,7 +17,7 @@ import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.control.search.SearchRequest;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
 public class TransformStoreDocumentFactory
 {

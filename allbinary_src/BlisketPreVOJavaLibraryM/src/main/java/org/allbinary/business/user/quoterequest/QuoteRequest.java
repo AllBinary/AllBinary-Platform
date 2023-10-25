@@ -17,7 +17,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.quoterequest.QuoteRequestData;
 

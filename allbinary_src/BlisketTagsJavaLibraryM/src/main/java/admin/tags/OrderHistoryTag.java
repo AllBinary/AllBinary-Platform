@@ -15,7 +15,7 @@ package admin.tags;
 
 import java.lang.reflect.Method;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
@@ -29,7 +29,7 @@ import admin.taghelpers.OrderHistoryRequestHelperFactory;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 public class OrderHistoryTag extends TableTag
 {

@@ -26,7 +26,7 @@ import admin.taghelpers.OrderItemsRequestHelperFactory;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 public class OrderItemsTag extends TableTag
 {

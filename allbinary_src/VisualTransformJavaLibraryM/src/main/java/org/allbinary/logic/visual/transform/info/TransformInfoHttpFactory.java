@@ -19,7 +19,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import org.allbinary.logic.basic.string.StringValidationUtil;
 

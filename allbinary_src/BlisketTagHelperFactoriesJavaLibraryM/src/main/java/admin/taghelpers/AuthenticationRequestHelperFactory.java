@@ -17,10 +17,10 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.system.security.licensing.LicensingException;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 public class AuthenticationRequestHelperFactory implements TagHelperFactoryInterface
 {   

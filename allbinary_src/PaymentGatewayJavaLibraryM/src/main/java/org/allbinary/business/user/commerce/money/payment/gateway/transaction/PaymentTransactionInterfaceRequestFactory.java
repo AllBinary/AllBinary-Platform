@@ -15,8 +15,8 @@ package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
 import java.util.HashMap;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.data.generator.OrderIdGenerator;
 import org.allbinary.logic.communication.log.LogFactory;

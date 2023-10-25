@@ -16,7 +16,7 @@ package org.allbinary.data.tables.transform.info;
 import org.allbinary.data.tables.BasicTableInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import java.util.Vector;
 

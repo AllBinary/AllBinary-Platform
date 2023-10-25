@@ -19,7 +19,7 @@ import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.user.role.UserRoleData;
 
 import admin.taghelpers.UserHelperFactory;
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 public class UserTag extends TableTag
 {

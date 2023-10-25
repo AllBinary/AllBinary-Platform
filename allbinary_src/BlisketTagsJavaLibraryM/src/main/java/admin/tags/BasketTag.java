@@ -30,8 +30,8 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 
 import java.util.HashMap;
-import jakarta.servlet.jsp.JspTagException;
-import jakarta.servlet.jsp.tagext.TagSupport;
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.TagSupport;
 
 public class BasketTag extends TagSupport
 {

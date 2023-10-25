@@ -15,8 +15,8 @@ package admin.tags;
 
 import java.util.*;
 
-import jakarta.servlet.jsp.*;
-import jakarta.servlet.jsp.tagext.*;
+import javax.servlet.jsp.*;
+import javax.servlet.jsp.tagext.*;
 
 
 

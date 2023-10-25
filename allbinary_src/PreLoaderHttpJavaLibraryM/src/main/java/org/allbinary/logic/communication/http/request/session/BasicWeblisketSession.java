@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.communication.http.request.session;
 
-import jakarta.servlet.http.HttpSession;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.user.role.BasicUserRole;
 

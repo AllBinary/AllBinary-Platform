@@ -14,7 +14,7 @@
 package views.admin.storefront;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

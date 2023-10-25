@@ -17,7 +17,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Vector;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import org.allbinary.logic.basic.string.CommonSeps;
 
 import org.allbinary.logic.basic.string.StringUtil;

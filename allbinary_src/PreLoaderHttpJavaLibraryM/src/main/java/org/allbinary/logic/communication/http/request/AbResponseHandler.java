@@ -14,15 +14,15 @@
 package org.allbinary.logic.communication.http.request;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import jakarta.servlet.ServletException;
+import javax.servlet.ServletException;
 
-import jakarta.servlet.RequestDispatcher;
+import javax.servlet.RequestDispatcher;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.jsp.PageContext;
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.JspTagException;
 
 
 import org.allbinary.logic.communication.log.LogUtil;

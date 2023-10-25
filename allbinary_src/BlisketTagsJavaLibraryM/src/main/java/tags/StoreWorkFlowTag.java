@@ -23,7 +23,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 import taghelpers.StoreTagWorkFlowHelperFactory;
 

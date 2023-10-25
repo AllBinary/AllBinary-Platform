@@ -15,7 +15,7 @@ package tags;
 
 import java.lang.reflect.Method;
 
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

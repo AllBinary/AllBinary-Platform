@@ -24,7 +24,7 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;

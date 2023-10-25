@@ -21,7 +21,7 @@ import org.allbinary.logic.control.crypt.SuperCrypt;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import jakarta.servlet.ServletRequest;
+import javax.servlet.ServletRequest;
 import java.util.HashMap;
 import org.allbinary.business.entry.EntryData;
 

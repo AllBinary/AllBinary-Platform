@@ -16,7 +16,7 @@ package org.allbinary.logic.visual.transform.info;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoFactoryInterface;
 import java.util.HashMap;
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
 /**
  *

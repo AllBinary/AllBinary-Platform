@@ -13,7 +13,7 @@
 */
 package tags.generic.advertisement;
 
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 import tags.StoreValidationTransformTag;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;

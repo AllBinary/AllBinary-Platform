@@ -13,7 +13,7 @@
 */
 package tags.transform.info;
 
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 import org.allbinary.logic.basic.io.OutputTypeData;
 

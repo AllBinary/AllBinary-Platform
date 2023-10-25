@@ -17,7 +17,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import java.util.Vector;
 import java.util.Iterator;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

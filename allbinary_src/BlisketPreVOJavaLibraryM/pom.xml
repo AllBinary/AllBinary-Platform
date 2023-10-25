@@ -94,17 +94,27 @@
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
-            <optional>true</optional>
+            <scope>provided</scope>
         </dependency>
         -->
-        
+
+        <!-- java 11 and jetty 9.4 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+                
         <!-- java 11-20 -->
+        <!--
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>
             <version>6.0.0</version>
             <scope>provided</scope>
         </dependency>        
+        -->
         
     </dependencies>
 

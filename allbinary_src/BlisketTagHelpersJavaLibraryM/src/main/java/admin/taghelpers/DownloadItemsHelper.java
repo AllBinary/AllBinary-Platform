@@ -15,7 +15,7 @@ package admin.taghelpers;
 
 import java.util.HashMap;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;

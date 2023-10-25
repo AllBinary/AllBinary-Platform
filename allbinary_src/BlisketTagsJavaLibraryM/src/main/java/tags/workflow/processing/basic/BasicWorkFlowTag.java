@@ -13,7 +13,7 @@
 */
 package tags.workflow.processing.basic;
 
-import jakarta.servlet.jsp.*;
+import javax.servlet.jsp.*;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

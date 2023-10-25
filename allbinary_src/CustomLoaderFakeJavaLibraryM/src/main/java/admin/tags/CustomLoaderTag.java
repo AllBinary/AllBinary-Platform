@@ -16,7 +16,7 @@ package admin.tags;
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
 
-import jakarta.servlet.jsp.tagext.TagSupport;
+import javax.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -24,7 +24,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import org.allbinary.logic.communication.log.LogUtil;
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 import org.allbinary.globals.GLOBALS2;
 
 public class CustomLoaderTag extends TagSupport

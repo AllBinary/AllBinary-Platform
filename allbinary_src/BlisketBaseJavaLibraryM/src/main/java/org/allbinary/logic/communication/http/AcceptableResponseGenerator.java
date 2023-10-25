@@ -16,7 +16,7 @@ package org.allbinary.logic.communication.http;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 public class AcceptableResponseGenerator
 {

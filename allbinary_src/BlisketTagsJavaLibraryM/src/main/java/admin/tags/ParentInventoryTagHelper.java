@@ -13,7 +13,7 @@
 */
 package admin.tags;
 
-import jakarta.servlet.jsp.tagext.Tag;
+import javax.servlet.jsp.tagext.Tag;
 
 /**
  *

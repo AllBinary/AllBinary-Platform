@@ -15,9 +15,9 @@ package admin.tags;
 
 import java.util.HashMap;
 
-import jakarta.servlet.jsp.JspTagException;
-import jakarta.servlet.jsp.tagext.Tag;
-import jakarta.servlet.jsp.tagext.TagSupport;
+import javax.servlet.jsp.JspTagException;
+import javax.servlet.jsp.tagext.Tag;
+import javax.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.system.security.licensing.LicensingException;

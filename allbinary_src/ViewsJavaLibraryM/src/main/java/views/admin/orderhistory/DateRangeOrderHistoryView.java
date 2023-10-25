@@ -17,7 +17,7 @@ import java.util.Calendar;
 import java.util.Iterator;
 import java.util.Vector;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

@@ -29,7 +29,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
-import jakarta.servlet.jsp.JspTagException;
+import javax.servlet.jsp.JspTagException;
 
 public class PaymentTag extends TableTag
 {

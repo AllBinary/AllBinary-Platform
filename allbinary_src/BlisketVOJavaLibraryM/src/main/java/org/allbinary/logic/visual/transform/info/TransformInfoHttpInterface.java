@@ -14,7 +14,7 @@
 package org.allbinary.logic.visual.transform.info;
 
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 
 public interface TransformInfoHttpInterface extends TransformInfoInterface

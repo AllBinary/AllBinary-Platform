@@ -19,7 +19,7 @@ import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.DynamicObjectData;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 
 public class StoreTagWorkFlowFactory

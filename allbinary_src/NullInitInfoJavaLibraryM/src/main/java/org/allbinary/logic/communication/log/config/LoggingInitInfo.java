@@ -118,17 +118,17 @@ public class LoggingInitInfo
    }
 
    /*
-   public static Vector getTypeNameVector() throws Exception
+   public static BasicArrayList getTypeNameList() throws Exception
    {
       LoggingInitInfo.updateIfNeeded();
       
-      Vector allLogTypeVector = new Vector();
+      BasicArrayList allLogTypeVector = new BasicArrayList();
       Iterator iter = LoggingInitInfo.logConfigInfoVector.iterator();
       
       while(iter.hasNext())
       {
          LogConfig logConfigInfo = (LogConfig) iter.next();
-         Vector logTypeVector = logConfigInfo.getTypeVector();
+         BasicArrayList logTypeVector = logConfigInfo.getTypeVector();
          
          if(logConfigInfo.isEnabled())
          {

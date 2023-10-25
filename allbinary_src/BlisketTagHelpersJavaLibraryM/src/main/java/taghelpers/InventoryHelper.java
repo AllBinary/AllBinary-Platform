@@ -16,11 +16,11 @@ package taghelpers;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
-import jakarta.servlet.jsp.PageContext;
+import javax.servlet.jsp.PageContext;
 
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponse;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.TagHelperInterface;
