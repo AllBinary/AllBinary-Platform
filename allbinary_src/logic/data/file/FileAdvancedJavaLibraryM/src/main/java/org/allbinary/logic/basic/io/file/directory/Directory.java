@@ -115,7 +115,11 @@ public class Directory
         if (file.isDirectory())
         {
             //System.out.println("Is a Directory");
-            AbFile[] files = FileWrapperUtil.wrapFiles(file.listFiles(fileFilter));
+            final Object[] fileArray = file.listFiles(fileFilter);
+            if(fileArray == null) {
+                return fileVector;
+            }
+            final AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
 
             if (files == null)
             {
@@ -155,7 +159,11 @@ public class Directory
 
         if (file.isDirectory())
         {
-            AbFile[] files = FileWrapperUtil.wrapFiles(file.listFiles());
+            final Object[] fileArray = file.listFiles();
+            if(fileArray == null) {
+                return fileVector;
+            }
+            AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
 
             if (files == null)
             {
@@ -186,13 +194,17 @@ public class Directory
     }
 
     //Find the files matching the searchValue in the given directory
-    public Vector search(String searchValue, AbFile file, boolean isRecursiveSearch)
+    public Vector search(final String searchValue, final AbFile file, final boolean isRecursiveSearch)
     {
-        Vector fileVector = new Vector();
+        final Vector fileVector = new Vector();
 
         if (file.isDirectory())
         {
-            AbFile[] files = FileWrapperUtil.wrapFiles(file.listFiles());
+            final Object[] fileArray = file.listFiles();
+            if(fileArray == null) {
+                return fileVector;
+            }
+            final AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
 
             if (files == null)
             {
@@ -233,7 +245,11 @@ public class Directory
 
         if (file.isDirectory())
         {
-            AbFile[] files = FileWrapperUtil.wrapFiles(file.listFiles());
+            final Object[] fileArray = file.listFiles();
+            if(fileArray == null) {
+                return fileVector;
+            }
+            final AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
 
             if (files == null)
             {
