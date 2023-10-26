@@ -26,11 +26,6 @@ public class UserRoleB extends UserRole
 {
     public static Vector roleVector = new Vector();
 
-    static
-    {
-        Class clazz = UserRoleFactory.class;
-    }
-
     protected UserRoleB(
         BasicUserRole aBasicUserRole,
         UserFactoryInterface aUserFactoryInterface)
@@ -42,6 +37,7 @@ public class UserRoleB extends UserRole
 
    public static synchronized UserRole getRole(String role) throws Exception
    {
+      UserRoleFactory.getInstance();
       if(!StringValidationUtil.getInstance().isEmpty(role))
       {
          Vector roleVector = UserRoleB.getAll();
@@ -61,6 +57,7 @@ public class UserRoleB extends UserRole
 
    public static Vector getAll()
    {
+      UserRoleFactory.getInstance();
       return UserRoleB.roleVector;
    }
 

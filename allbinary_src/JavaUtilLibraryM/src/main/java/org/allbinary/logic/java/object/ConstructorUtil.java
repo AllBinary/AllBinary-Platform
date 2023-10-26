@@ -40,13 +40,16 @@ public class ConstructorUtil
    {
       if(constructor != null)
       {
-         StringBuffer stringBuffer = new StringBuffer();
+         final CommonSeps commonSeps = CommonSeps.getInstance();
+         final StringBuffer stringBuffer = new StringBuffer();
          stringBuffer.append(constructor.getName());
-         Class classes[] = constructor.getParameterTypes();
+         final Class classes[] = constructor.getParameterTypes();
          for(int index = 0; index < classes.length; index++)
          {
-            stringBuffer.append(CommonSeps.getInstance().SPACE);
+            stringBuffer.append(commonSeps.SPACE);
             stringBuffer.append(classes[index].getName());
+            stringBuffer.append(commonSeps.COLON);
+            stringBuffer.append(index);
          }
          stringBuffer.append(lineBreak);
          return stringBuffer.toString();
