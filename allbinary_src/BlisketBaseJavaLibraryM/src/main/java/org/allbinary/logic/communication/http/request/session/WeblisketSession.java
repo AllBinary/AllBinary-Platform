@@ -98,7 +98,7 @@ public class WeblisketSession implements WeblisketSessionInterface
    
    public void setAuthenticated()
    {
-      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().TRUE);
+      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().TRUE_STRING);
    }
    
    public void setRole(UserRole aRole)
@@ -249,7 +249,7 @@ public class WeblisketSession implements WeblisketSessionInterface
    
    public void setAuthenticated(boolean value)
    {
-      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().FALSE);
+      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().FALSE_STRING);
    }
 
    public void clear()

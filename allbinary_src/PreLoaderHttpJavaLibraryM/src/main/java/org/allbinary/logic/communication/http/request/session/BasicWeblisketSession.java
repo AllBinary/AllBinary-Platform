@@ -80,7 +80,7 @@ public class BasicWeblisketSession
 
    public void setAuthenticated()
    {      
-      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().TRUE);
+      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().TRUE_STRING);
    }      
 
    public void setAttempts(Integer value)
@@ -140,7 +140,7 @@ public class BasicWeblisketSession
 
    public void setAuthenticated(boolean value)
    {
-      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().FALSE);
+      session.setAttribute(WeblisketSessionData.AUTHENTICATED, BooleanFactory.getInstance().FALSE_STRING);
    }
 
    public void clear()
