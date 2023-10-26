@@ -52,6 +52,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.crypt.DatabaseEncoder;
 import org.allbinary.logic.system.security.crypt.WeakCrypt;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
+import org.allbinary.logic.basic.io.file.directory.Directory;
 import org.allbinary.logic.communication.http.HttpData;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
@@ -99,6 +100,9 @@ public class DbInitInfo extends DbConnectionInfo
 
     public synchronized void write() throws Exception
     {
+        
+        AbPath PATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE);
+        Directory.create(PATH);
         AbPath FILEABPATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, this.initFileName);
         try
         {
