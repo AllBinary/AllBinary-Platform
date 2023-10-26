@@ -18,6 +18,7 @@ import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.business.user.role.UserRoleData;
 
 import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.communication.sql.SqlStrings;
 
 import tags.StoreValidationTransformTag;
 
@@ -47,7 +48,8 @@ public class UserTag extends StoreValidationTransformTag
                   this.setObjectFile("views.admin.user.NewUserView");
                }
                else
-                  if (this.getCommand().compareTo(this.commonStrings.INSERT)==0)
+                  if (this.getCommand().compareTo(this.commonStrings.INSERT)==0 || 
+                          this.getCommand().compareTo(SqlStrings.getInstance().INSERT_INTO)==0)
                   {
                      this.setName("Add Validation User View");
                      this.setObjectFile("views.admin.user.AddValidationUserView");
@@ -65,7 +67,8 @@ public class UserTag extends StoreValidationTransformTag
                            this.setObjectFile("views.admin.user.EditValidationUserView");
                         }
                         else
-                           if (this.getCommand().compareTo(this.commonStrings.UPDATE)==0)
+                           if (this.getCommand().compareTo(this.commonStrings.UPDATE)==0 || 
+                                   this.getCommand().compareTo(SqlStrings.getInstance().UPDATE)==0)
                            {
                               this.setName("Update Validation User View");
                               this.setObjectFile("views.admin.user.UpdateValidationUserView");

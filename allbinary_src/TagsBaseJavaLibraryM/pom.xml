@@ -87,6 +87,16 @@
 
         </dependency>
 
+        <dependency>
+            <groupId>org.allbinary.data.tables</groupId>
+            <artifactId>DataTableInterfaces</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+
         <!-- java 1.8 -->
         <!--
         <dependency>

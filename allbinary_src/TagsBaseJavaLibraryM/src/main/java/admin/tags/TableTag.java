@@ -25,8 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
-import org.allbinary.logic.basic.string.CommonStrings;
 import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.communication.sql.SqlStrings;
 
 public class TableTag extends PropertiesTag
 //implements TableInterface
@@ -376,14 +376,27 @@ public class TableTag extends PropertiesTag
                     //object Holds InventoryRequestHelper because the multipart processing makes
                     //the request object work only once for getInputStream()
 
-                    if (this.getCommand().compareTo(commonStrings.INSERT) == 0
-                        || this.getCommand().compareTo(commonStrings.DELETE) == 0
-                        || this.getCommand().compareTo(commonStrings.UPDATE) == 0)
+                    if (this.getCommand().compareTo(commonStrings.INSERT) == 0 ||
+                            this.getCommand().compareTo(SqlStrings.getInstance().INSERT_INTO)==0 || 
+                            this.getCommand().compareTo(commonStrings.DELETE) == 0 || 
+                            this.getCommand().compareTo(commonStrings.UPDATE) == 0 ||
+                            this.getCommand().compareTo(SqlStrings.getInstance().UPDATE)==0)
                     {
                         this.requestObject = getTagRequestHelperFactoryInterface().getInstance(
                             this.getPropertiesHashMap(), pageContext);
                     }
 
+                    if (this.getCommand().compareTo(commonStrings.INSERT) == 0 || 
+                            this.getCommand().compareTo(SqlStrings.getInstance().INSERT_INTO)==0) {
+                        this.insert();
+                    } else if (this.getCommand().compareTo(commonStrings.DELETE) == 0) {
+                        this.delete();
+                    } else if (this.getCommand().compareTo(commonStrings.UPDATE) == 0 ||
+                            this.getCommand().compareTo(SqlStrings.getInstance().UPDATE)==0)
+                    {
+                        this.update();
+                    }
+                    
                     if (this.getCommand().compareTo(org.allbinary.globals.GLOBALS2.BACKUP) == 0)
                     {
                         String output = this.backup();
