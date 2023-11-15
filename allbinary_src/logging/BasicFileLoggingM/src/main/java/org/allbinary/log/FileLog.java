@@ -75,7 +75,10 @@ public class FileLog
       try
       {
          logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
-         backupIndex++;
+         while(logFileBak.isFile()) {
+             backupIndex++;
+             logFileBak = new File(logPath, new StringBuilder().append(backupFileName).append(CommonSeps.getInstance().PERIOD).append(backupIndex).toString());
+         }
          
          //Calendar calendar=Calendar.getInstance();
          //Date date = calendar.getTime();
@@ -94,6 +97,9 @@ public class FileLog
          tmpOut.flush();
          tmpOut.close();
          tmpIn.close();
+         
+         logFile.delete();
+
          return true;
       }
       catch (Exception e)
