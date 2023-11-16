@@ -32,8 +32,10 @@
         <!--
         -->
         
+        
         <module>../AllBinaryGraphicsUserInterfaceJavaLibraryM</module>
         
+        <module>../../allbinary_src/logging/LogConfigTypeThickClientJavaLibraryM</module>
         <module>../../allbinary_src/logging/GUILoggingM</module>
                 
         <module>../AllBinaryGraphicsJavaApplicationM</module>

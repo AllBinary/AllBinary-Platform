@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.http.file.upload;
 
 
+import java.io.File;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
@@ -98,6 +99,11 @@ public class AbFileItem
         }
     }
 
+    public void write(File file) throws Exception
+    {
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+    }
+    
     public void write(AbFile file) throws Exception
     {
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);

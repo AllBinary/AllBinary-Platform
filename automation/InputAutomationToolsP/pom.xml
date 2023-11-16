@@ -39,6 +39,7 @@
         <module>../../graphics/ColorJavaLibraryM</module>
         <module>../../graphics/ImageJavaLibraryM</module>
         <module>../../graphics/ImageComparisonJavaLibraryM</module>
+        <module>../../graphics/AdvancedImageJ2SEJavaLibraryM</module>
         
         <module>../InputAutomationModuleJavaLibraryM</module>
         
