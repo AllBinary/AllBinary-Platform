@@ -11,11 +11,11 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.event;
+package org.allbinary.game.layer.hud.event;
 
 import org.allbinary.util.BasicArrayList;
 
-//import org.allbinary.game.layer.hud.basic.notification.GameNotificationHud;
+//import org.allbinary.game.layer.hud.notification.GameNotificationHud;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;

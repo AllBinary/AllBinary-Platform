@@ -12,20 +12,7 @@
 
                <!--
                <exclude>org.allbinary:WeblisketClientInformationJavaLibrary</exclude>
-               <exclude>org.allbinary.business:BlisketModulesJavaLibrary</exclude>
                -->
-               <exclude>com.vobject.appengine:AppEngineIOJavaLibrary</exclude>
-               <!--
-                <exclude>javax.servlet:servlet-api</exclude>
-                <exclude>javax.servlet.jsp:jsp-api</exclude>
-
-                <exclude>org.apache.commons:commons-fileupload</exclude>
-               -->
-                <exclude>org.apache.commons:commons-lang</exclude>
-                <exclude>com.vobject.appengine:appengine-java-io</exclude>
-                <exclude>org.apache.commons:commons-vfs</exclude>
-                
-                <exclude>com.google.appengine:appengine-api-1.0-sdk</exclude>
 
             </excludes>
 

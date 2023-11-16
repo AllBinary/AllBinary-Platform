@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.layer.hud.basic.event;
+package org.allbinary.game.layer.hud.event;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
