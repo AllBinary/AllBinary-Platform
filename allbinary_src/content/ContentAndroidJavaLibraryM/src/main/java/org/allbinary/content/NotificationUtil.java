@@ -23,6 +23,11 @@ import android.content.Context;
 import android.content.Intent;
 import org.allbinary.android.AndroidInfoFactory;
 
+import org.allbinary.logic.string.CommonStrings;
+
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+
 public class NotificationUtil
 {
     private static final NotificationUtil SINGLETON = new NotificationUtil();
@@ -39,7 +44,7 @@ public class NotificationUtil
     
     private NotificationUtil()
     {
-        int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
+        final int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
         
         if(SDK_VERSION > 22)
         {
@@ -47,15 +52,16 @@ public class NotificationUtil
         }
         else
         {
-            notificationBuilder = new NotificationBuilderThroughAPI22();
+            notificationBuilder = null;
+            //notificationBuilder = new NotificationBuilderThroughAPI22();
         }
     }
     
-    public void notify(Command command, String resource, String message)
+    public void notify(final Command command, final String resource, final String message)
     {
-        Context context = ResourceUtil.getInstance().getContext();
+        final Context context = ResourceUtil.getInstance().getContext();
         
-        Intent intent = CommandUriAction.getInstance().getIntent(command);
+        final Intent intent = CommandUriAction.getInstance().getIntent(command);
 
         //Load a new activity Intent
         //Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -65,13 +71,21 @@ public class NotificationUtil
             intent.putExtra( "data", "test data");
        */
 
-        Integer integer = ResourceUtil.getInstance().getResourceId(resource);
+        final Integer integer = ResourceUtil.getInstance().getResourceId(resource);
 
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+        final int FLAG_IMMUTABLE = 1<<26;
+        final int SDK_VERSION = AndroidInfoFactory.getInstance().getVersion();
+        final PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, SDK_VERSION > 22 ? FLAG_IMMUTABLE : 0);
 
-        Notification notification = notificationBuilder.build(context, command, message, integer, pendingIntent);
+        if(notificationBuilder == null) {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().NOT_IMPLEMENTED));
+            return;
+        }
         
-        notificationManager.notify(command.hashCode(), notification);
+        final Notification notification = notificationBuilder.build(context, command, message, integer, pendingIntent);
+        
+        //Android 13 requires a permission for this
+        //notificationManager.notify(command.hashCode(), notification);
 
         //context.startActivity(intent);
     }
