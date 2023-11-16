@@ -14,8 +14,9 @@
 
 package org.allbinary.layer;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -75,19 +76,21 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
             stringBuilder.delete(0, stringBuilder.length());
             LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface).toString(), this, REMOVE));
         } else if(result) {
-            stringBuilder.delete(0, stringBuilder.length());
-            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE));
-            
             if (this.removeFailed) {
-                this.log(layerManager);
+                stringBuilder.delete(0, stringBuilder.length());
+                LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE));
             }
+            
+            //if (this.removeFailed) {
+                //this.log(layerManager);
+            //}
 
         } else {
             stringBuilder.delete(0, stringBuilder.length());
             //LogUtil.put(LogFactory.getInstance(stringBuilder.append(DID_NOT_REMOVE).append(layerInterface.toString()).toString(), this, REMOVE, new Exception()));
             LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(DID_NOT_REMOVE).append(layerInterface.getName()).toString(), this, REMOVE));
             
-            this.log(layerManager);
+            //this.log(layerManager);
             removeFailed = true;
         }
         
