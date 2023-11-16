@@ -31,12 +31,13 @@
     <modules>
 
         <!--
-        
+        <module>../j2me/HTMLForJ2MEJavaLibraryM</module>
         -->
         
         <module>../../AdvancedCombatGameJavaLibraryP</module>
         
         <module>../j2me/AllBinaryOnJ2MEBasePlatformJavaLibraryM</module>
+        
         <module>../j2me/AllBinaryOnJ2MEPlatformJavaLibraryM</module>
         
         <module>../j2se/AllBinaryOnJ2SEBasePlatformJavaLibraryM</module>
