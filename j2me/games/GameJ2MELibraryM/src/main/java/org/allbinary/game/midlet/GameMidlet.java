@@ -73,7 +73,7 @@ import org.allbinary.game.displayable.canvas.GameInputMappingCanvas;
 import org.allbinary.game.displayable.canvas.GameInputMappingInstructionsCanvas;
 import org.allbinary.game.displayable.canvas.MenuListener;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.game.layer.hud.basic.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.score.HighScoreCommands;
 import org.allbinary.game.score.HighScoreCommandsFactory;

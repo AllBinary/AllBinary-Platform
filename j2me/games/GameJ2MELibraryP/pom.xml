@@ -35,8 +35,6 @@
 
         -->
 
-        <module>../../games/PreGameJ2MEJavaLibraryP</module>
-
         <module>../../../allbinary_src/security/SimpleCryptLibraryM</module>
         <!--
         <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>

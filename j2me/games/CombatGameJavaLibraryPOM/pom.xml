@@ -34,8 +34,6 @@
 
         -->
 
-        <module>../GameJ2MELibraryP</module>
-
         <module>../../games/TickableJavaLibraryM</module>
 
         <module>../../games/CommonHeadsUpDisplayLibraryM</module>

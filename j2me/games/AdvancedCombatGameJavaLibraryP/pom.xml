@@ -34,8 +34,6 @@
 
         -->
 
-        <module>../CombatGameJavaLibraryPOM</module>
-
         <!-- Should be in OtherGraphicsMediaLibrary but android dependencies ar not available then 
         <module>../working/media/graphics/animation/image/ImageAndroidJavaLibraryM</module>
         -->
