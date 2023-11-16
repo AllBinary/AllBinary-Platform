@@ -18,8 +18,8 @@ import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.media.image.comparison.ImageComparisonResult;
 import org.allbinary.media.image.comparison.ImageComparisonResultsEvent;

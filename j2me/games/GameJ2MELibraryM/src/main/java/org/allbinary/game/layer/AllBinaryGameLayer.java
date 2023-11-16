@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -25,8 +25,8 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEvent;
 import org.allbinary.view.event.ViewPositionEventListenerInterface;

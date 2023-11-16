@@ -35,8 +35,8 @@ import org.allbinary.business.user.commerce.money.payment.types.TenderTypeFactor
 import org.allbinary.business.user.commerce.money.payment.types.TransactionTypeFactory;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityFactory;
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
-import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;

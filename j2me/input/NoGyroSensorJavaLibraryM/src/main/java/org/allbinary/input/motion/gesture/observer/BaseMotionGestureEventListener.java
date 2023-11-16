@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.motion.gesture.observer;
 
-import org.allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventListenerInterface;
 
 public interface BaseMotionGestureEventListener extends EventListenerInterface
 {

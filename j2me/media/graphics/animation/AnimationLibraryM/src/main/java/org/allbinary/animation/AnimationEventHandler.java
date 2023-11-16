@@ -13,7 +13,7 @@
 */
 package org.allbinary.animation;
 
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 /**
  *

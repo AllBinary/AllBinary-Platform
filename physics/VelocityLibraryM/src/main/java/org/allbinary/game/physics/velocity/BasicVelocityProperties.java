@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.physics.velocity;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.direction.Direction;
 import org.allbinary.direction.DirectionUtil;
 import org.allbinary.logic.communication.log.LogFactory;

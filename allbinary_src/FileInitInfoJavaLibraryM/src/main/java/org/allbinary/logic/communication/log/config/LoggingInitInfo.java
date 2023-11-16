@@ -22,11 +22,11 @@ import org.w3c.dom.NodeList;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.AbFileLocalInputStream;
+import org.allbinary.logic.io.AbFileLocalInputStream;
 
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFile;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.globals.PATH_GLOBALS;
 import org.allbinary.util.BasicArrayList;
 

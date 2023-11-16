@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.osgi;
 
-import org.allbinary.logic.basic.io.file.directory.SubDirectory;
+import org.allbinary.logic.io.file.directory.SubDirectory;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -28,14 +28,14 @@ import java.util.jar.Manifest;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
-import org.allbinary.logic.basic.io.file.filter.BasicFileFilterUtil;
+import org.allbinary.logic.io.file.filter.BasicFileFilterUtil;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.thread.RunnableInterface;
 
 import bundle.input.automation.InputAutomationBundleActivator;
-import org.allbinary.logic.basic.io.file.FileWrapperUtil;
+import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.time.TimeDelayHelper;
 

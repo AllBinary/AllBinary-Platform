@@ -17,9 +17,9 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameKey;
@@ -33,7 +33,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
-import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.logic.string.CommonLabels;
 
 public class InputMappingHelpPaintable extends HelpPaintable 
 {

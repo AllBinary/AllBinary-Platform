@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.user.commerce.inventory.item;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.business.user.address.StreetAddress;
 import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 import org.allbinary.business.user.commerce.money.MoneyException;

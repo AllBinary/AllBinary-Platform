@@ -15,7 +15,7 @@ package org.allbinary.graphics.form;
 
 import org.allbinary.graphics.form.item.CustomItem;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.RectangleFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 

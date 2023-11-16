@@ -18,7 +18,7 @@ package org.allbinary.data.tree.dom;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class DomNodeHelper
 {

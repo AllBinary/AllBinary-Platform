@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.opengles;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
@@ -24,7 +24,7 @@ import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameRunnable;
 import org.allbinary.game.displayable.canvas.NullDisplayable;
 import org.allbinary.game.displayable.canvas.NullGameRunnable;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.thread.NullRunnable;
 
 public class CurrentDisplayableFactory

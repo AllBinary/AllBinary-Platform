@@ -13,7 +13,7 @@
 */
 package org.allbinary.data.tree.category;
 
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryComponent;

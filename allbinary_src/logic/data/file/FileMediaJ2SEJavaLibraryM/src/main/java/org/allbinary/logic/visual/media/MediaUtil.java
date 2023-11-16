@@ -5,7 +5,7 @@ import java.awt.image.RenderedImage;
 
 import java.util.HashMap;
 
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;

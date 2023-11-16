@@ -20,11 +20,11 @@ import org.w3c.dom.Document;
 
 import org.allbinary.globals.URLGLOBALS;
 
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.FileData;
-import org.allbinary.logic.basic.path.AbPathUtil;
-import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileData;
+import org.allbinary.logic.io.path.AbPathUtil;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;

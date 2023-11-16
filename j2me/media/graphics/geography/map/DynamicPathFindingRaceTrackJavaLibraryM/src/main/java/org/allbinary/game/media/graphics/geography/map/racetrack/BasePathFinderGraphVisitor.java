@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.media.graphics.geography.map.racetrack;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 import org.jgrapht.GraphPath;
 import org.jgrapht.graph.SimpleWeightedGraph;

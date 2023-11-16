@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.java.object;
 
-import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.string.CommonSeps;
 import java.lang.reflect.Constructor;
 
 

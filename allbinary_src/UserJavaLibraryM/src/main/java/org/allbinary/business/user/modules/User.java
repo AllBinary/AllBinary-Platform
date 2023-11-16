@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.user.modules;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
@@ -38,7 +38,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class User implements UserInterface
 {

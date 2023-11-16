@@ -16,8 +16,8 @@ package org.allbinary.game.input.motion.action;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class NoCompleteMotionGestureInputEventListener implements
 CompleteMotionGestureInputEventListenerInterface

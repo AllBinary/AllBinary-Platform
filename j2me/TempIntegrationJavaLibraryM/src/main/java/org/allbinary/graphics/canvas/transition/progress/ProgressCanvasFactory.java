@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.canvas.transition.progress;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.graphics.color.BasicColorFactory;
 

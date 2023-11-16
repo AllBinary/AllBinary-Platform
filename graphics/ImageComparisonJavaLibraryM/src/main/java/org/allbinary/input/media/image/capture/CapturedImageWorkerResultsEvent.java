@@ -15,7 +15,7 @@ package org.allbinary.input.media.image.capture;
 
 import java.awt.image.BufferedImage;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class CapturedImageWorkerResultsEvent extends AllBinaryEventObject
 {

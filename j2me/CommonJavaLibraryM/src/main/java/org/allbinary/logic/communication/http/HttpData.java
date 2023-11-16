@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.communication.http;
 
-import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.string.CommonSeps;
 
 public class HttpData
 {

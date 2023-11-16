@@ -14,9 +14,9 @@
 package org.allbinary.game.displayable.canvas;
 
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -101,8 +101,8 @@ import org.allbinary.input.motion.button.TouchButtonFactory;
 import org.allbinary.input.motion.button.TouchButtonsPaintableFactory;
 import org.allbinary.input.motion.button.TouchScreenFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.PlayerQueue;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
@@ -130,7 +130,7 @@ import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.CircularIndexUtil;

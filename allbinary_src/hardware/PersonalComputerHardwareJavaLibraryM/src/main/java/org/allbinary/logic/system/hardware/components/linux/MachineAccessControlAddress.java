@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.hardware.components.linux;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.MachineAccessControlAddressInterface;
 

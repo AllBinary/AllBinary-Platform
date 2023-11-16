@@ -13,11 +13,11 @@
  */
 package org.allbinary.data;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.logic.basic.string.StringValidationUtil;
-import org.allbinary.logic.basic.string.tokens.Tokenizer;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.util.BasicArrayList;
 
 /**

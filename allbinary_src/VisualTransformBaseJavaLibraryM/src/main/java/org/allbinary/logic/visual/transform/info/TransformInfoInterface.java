@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 
 import org.allbinary.data.tables.TableMappingInterface;
 

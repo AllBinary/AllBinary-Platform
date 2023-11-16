@@ -19,8 +19,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.RandomAccessFile;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFormatUtil;
 
 public class FileLog

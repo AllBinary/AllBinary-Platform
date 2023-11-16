@@ -15,7 +15,7 @@ package org.allbinary.business.init;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
 

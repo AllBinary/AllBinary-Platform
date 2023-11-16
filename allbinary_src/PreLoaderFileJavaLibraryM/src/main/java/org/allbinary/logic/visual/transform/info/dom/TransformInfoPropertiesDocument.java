@@ -24,7 +24,7 @@ import org.w3c.dom.Document;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
 
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;

@@ -77,6 +77,7 @@ public class ByteUtil
 
         if(newByteArray.length != oldByteArray.length) {
             return false;
+        } else {
         }
 
         final int size = newByteArray.length;
@@ -88,5 +89,29 @@ public class ByteUtil
         
         return true;
     }
-   
+
+    public boolean compare(final byte[] newByteArray, final int newSize, final byte[] oldByteArray, final int[] stats) {
+
+        if(newSize != oldByteArray.length) {
+            stats[0] = -1;
+            stats[2] = newSize;
+            stats[3] = oldByteArray.length;
+            return false;
+        } else {
+            stats[0] = newSize;
+        }
+
+        stats[1] = 0;
+
+        final int size = newSize;
+        for(int index = 0; index < size; index++) {
+            if(newByteArray[index] != oldByteArray[index]) {
+                return false;
+            }
+            stats[1]++;
+        }
+        
+        return true;
+    }
+
 }

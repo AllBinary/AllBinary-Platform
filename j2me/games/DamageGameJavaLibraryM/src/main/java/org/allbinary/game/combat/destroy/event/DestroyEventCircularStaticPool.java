@@ -15,7 +15,7 @@ package org.allbinary.game.combat.destroy.event;
 
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.basic.util.event.AllBinaryEventCircularPool;
+import org.allbinary.logic.util.event.AllBinaryEventCircularPool;
 
 public class DestroyEventCircularStaticPool {
     

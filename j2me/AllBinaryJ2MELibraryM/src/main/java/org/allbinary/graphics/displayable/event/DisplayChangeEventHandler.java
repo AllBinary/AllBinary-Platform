@@ -13,9 +13,9 @@
 */
 package org.allbinary.graphics.displayable.event;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.EventListenerInterface;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class DisplayChangeEventHandler extends BasicEventHandler
 {

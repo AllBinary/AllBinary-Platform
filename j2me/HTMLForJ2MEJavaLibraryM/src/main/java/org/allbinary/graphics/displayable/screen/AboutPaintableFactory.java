@@ -17,7 +17,7 @@ package org.allbinary.graphics.displayable.screen;
 import org.allbinary.game.paint.AboutPaintable;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *

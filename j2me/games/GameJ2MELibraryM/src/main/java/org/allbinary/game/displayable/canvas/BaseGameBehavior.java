@@ -22,7 +22,7 @@ import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.paint.NullPaintable;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 /**

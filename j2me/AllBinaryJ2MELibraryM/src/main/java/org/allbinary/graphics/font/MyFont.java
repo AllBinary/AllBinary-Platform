@@ -14,7 +14,7 @@
 package org.allbinary.graphics.font;
 
 import javax.microedition.lcdui.Font;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class MyFont
 {

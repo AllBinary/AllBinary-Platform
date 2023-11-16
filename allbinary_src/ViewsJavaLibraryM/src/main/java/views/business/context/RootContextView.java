@@ -17,7 +17,7 @@ import java.util.Vector;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 import views.business.context.modules.storefront.customizer.template.objectConfig.NoTemplateTransformInfoObjectConfig;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.TransformFactory;

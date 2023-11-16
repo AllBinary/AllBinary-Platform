@@ -17,11 +17,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 import org.allbinary.business.init.LicenseInitInfoUtil;
-import org.allbinary.logic.basic.io.FileStreamFactory;
-import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.io.file.FileFactory;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.io.FileStreamFactory;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.FileFactory;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.resource.ResourceUtil;

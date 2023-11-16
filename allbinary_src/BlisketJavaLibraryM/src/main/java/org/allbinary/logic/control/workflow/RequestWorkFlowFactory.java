@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.control.workflow;
 
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;

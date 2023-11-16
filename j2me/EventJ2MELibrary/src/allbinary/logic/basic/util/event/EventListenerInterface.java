@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.logic.basic.util.event;
+package org.allbinary.logic.util.event;
 
 public interface EventListenerInterface 
 {	

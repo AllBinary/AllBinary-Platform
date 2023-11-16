@@ -21,7 +21,7 @@ import org.allbinary.game.ai.BasicAI;
 import org.allbinary.game.ai.InputProbability;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.visitor.Visitor;
 
 public class BasicRandomAIFactory implements
         ArtificialIntelligenceInterfaceFactoryInterface

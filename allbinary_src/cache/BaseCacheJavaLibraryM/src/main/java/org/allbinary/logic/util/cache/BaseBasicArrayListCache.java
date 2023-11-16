@@ -15,7 +15,7 @@ package org.allbinary.logic.util.cache;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *

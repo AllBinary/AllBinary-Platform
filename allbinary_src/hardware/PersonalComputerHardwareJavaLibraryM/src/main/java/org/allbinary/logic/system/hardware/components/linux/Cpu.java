@@ -18,10 +18,10 @@ import java.io.LineNumberReader;
 
 import java.util.HashMap;
 import java.util.Vector;
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFile;
 
-import org.allbinary.logic.basic.io.file.FilePathData;
-import org.allbinary.logic.basic.io.file.directory.SubDirectory;
+import org.allbinary.logic.io.file.FilePathData;
+import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;

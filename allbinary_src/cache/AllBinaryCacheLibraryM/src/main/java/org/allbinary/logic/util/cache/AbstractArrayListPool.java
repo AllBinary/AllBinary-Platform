@@ -15,7 +15,7 @@ package org.allbinary.logic.util.cache;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 
 public class AbstractArrayListPool implements PoolInterface {
 

@@ -20,7 +20,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class TitleNotRequiredValidation extends TitleView implements ValidationInterface
 {   

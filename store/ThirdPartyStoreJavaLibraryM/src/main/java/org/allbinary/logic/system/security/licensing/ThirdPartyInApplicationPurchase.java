@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class ThirdPartyInApplicationPurchase 
 implements ThirdPartyInApplicationPurchaseInterface {

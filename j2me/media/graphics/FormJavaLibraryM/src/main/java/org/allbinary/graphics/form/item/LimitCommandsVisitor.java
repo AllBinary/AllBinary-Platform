@@ -19,7 +19,7 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.ScreenInfo;
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.visitor.Visitor;
 
 public class LimitCommandsVisitor 
     extends Visitor

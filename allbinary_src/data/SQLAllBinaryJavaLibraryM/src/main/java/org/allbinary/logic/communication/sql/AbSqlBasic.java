@@ -23,9 +23,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlBasic
 {

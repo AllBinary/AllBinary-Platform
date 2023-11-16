@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.color;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class BasicColorFactory
 {

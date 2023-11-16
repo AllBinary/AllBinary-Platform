@@ -15,8 +15,8 @@ package org.allbinary.image.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class OpenGLESGL11ExtImageFactory extends OpenGLImageFactory

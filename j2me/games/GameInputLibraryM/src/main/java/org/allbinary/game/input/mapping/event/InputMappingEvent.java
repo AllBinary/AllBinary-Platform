@@ -14,7 +14,7 @@
 package org.allbinary.game.input.mapping.event;
 
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class InputMappingEvent extends AllBinaryEventObject
 {

@@ -21,7 +21,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
-//import org.allbinary.logic.basic.string.regex.replace.Replace;
+//import org.allbinary.logic.string.regex.replace.Replace;
 
 import org.allbinary.business.advertisement.area.AdvertisementAreaData;
 import org.allbinary.business.advertisement.area.AdvertisementAreaInterface;

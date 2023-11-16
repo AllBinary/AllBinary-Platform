@@ -13,8 +13,8 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringValidationUtil;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;

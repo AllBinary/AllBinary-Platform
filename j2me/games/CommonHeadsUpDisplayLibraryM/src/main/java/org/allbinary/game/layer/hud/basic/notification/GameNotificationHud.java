@@ -22,8 +22,8 @@ import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.game.layer.hud.basic.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.basic.event.GameNotificationListenerInterface;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class GameNotificationHud extends BasicHud
 implements GameNotificationListenerInterface

@@ -13,10 +13,10 @@
 */
 package org.allbinary.game.combat.destroy.event;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class DestroyedEvent extends AllBinaryEventObject {
 	private AllBinaryGameCanvas allBinaryGameCanvas;

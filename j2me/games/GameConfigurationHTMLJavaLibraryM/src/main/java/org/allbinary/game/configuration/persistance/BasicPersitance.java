@@ -14,7 +14,7 @@
 package org.allbinary.game.configuration.persistance;
 
 import javax.microedition.rms.RecordStore;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.util.BasicArrayList;
 

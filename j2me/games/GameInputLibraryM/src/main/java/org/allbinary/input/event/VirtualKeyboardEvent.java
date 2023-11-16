@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.event;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class VirtualKeyboardEvent extends AllBinaryEventObject
 {

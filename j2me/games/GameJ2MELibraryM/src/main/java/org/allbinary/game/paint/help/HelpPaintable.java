@@ -15,7 +15,7 @@ package org.allbinary.game.paint.help;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;

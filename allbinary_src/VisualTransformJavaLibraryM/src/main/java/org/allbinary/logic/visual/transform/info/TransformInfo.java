@@ -21,11 +21,11 @@ import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.OutputTypeData;
-import org.allbinary.logic.basic.path.AbFilePath;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.io.OutputTypeData;
+import org.allbinary.logic.io.path.AbFilePath;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
@@ -37,7 +37,7 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 import org.allbinary.business.entry.EntryData;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.data.TransformInfoDataData;
 import org.allbinary.logic.visual.transform.info.viewObject.TransformInfoObjectData;
 

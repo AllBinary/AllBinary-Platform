@@ -14,8 +14,8 @@
 package org.allbinary.logic.communication.http.file.upload;
 
 
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -24,8 +24,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemUtil;
 

@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
-import org.allbinary.logic.basic.path.AbPathUtil;
+import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.media.MediaData;

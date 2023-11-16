@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class J2MEGameKey extends Input
 {

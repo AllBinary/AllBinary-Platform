@@ -17,12 +17,12 @@ import javax.servlet.jsp.PageContext;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.allbinary.logic.basic.io.file.FileUtil;
+import org.allbinary.logic.io.file.FileUtil;
 
 import org.allbinary.globals.URLGLOBALS;
 
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;

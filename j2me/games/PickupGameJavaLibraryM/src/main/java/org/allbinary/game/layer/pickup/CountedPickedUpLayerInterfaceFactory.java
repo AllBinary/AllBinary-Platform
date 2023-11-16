@@ -17,7 +17,7 @@ import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.layer.AllBinaryLayer;
 

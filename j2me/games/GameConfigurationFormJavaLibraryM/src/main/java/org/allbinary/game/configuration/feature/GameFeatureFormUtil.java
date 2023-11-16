@@ -26,7 +26,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class GameFeatureFormUtil
 {

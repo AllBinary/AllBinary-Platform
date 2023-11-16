@@ -15,10 +15,10 @@ package views.admin.inventory;
 
 import org.allbinary.globals.URLGLOBALS;
 
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.FileUtil;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.communication.log.LogUtil;

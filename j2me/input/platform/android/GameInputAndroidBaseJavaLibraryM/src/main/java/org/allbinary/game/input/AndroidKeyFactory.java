@@ -4,8 +4,8 @@ import org.allbinary.android.ActivityFractureUtil;
 import org.allbinary.basic.string.CommonPhoneStrings;
 
 import android.view.KeyEvent;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

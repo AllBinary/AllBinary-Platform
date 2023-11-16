@@ -14,7 +14,7 @@
 package org.allbinary.globals;
 
 import org.allbinary.globals.PATH_GLOBALS;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathData;
 
 public class FREEBLISKET_PATH_GLOBALS
 {

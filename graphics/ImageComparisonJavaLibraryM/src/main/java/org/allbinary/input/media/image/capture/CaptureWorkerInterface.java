@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.media.image.capture;
 
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandlerInterface;
+import org.allbinary.logic.util.event.handler.BasicEventHandlerInterface;
 import org.allbinary.thread.RunnableInterface;
 
 public interface CaptureWorkerInterface

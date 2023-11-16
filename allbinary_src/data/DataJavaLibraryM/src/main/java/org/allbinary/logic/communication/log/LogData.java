@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathData;
 
 public class LogData
 {

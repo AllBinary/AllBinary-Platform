@@ -16,7 +16,7 @@ package org.allbinary.game.configuration.event;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameInitializedEvent extends AllBinaryEventObject
 {

@@ -13,7 +13,7 @@
 */
 package org.allbinary.globals;
 
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathData;
 
 public class PATH_GLOBALS
 {

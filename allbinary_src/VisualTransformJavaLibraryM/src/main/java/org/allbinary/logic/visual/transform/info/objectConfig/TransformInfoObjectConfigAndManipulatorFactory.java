@@ -17,8 +17,8 @@ import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

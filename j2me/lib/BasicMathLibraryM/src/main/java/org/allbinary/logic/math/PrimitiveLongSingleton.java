@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.math;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class PrimitiveLongSingleton
 {

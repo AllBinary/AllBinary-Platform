@@ -15,8 +15,8 @@ package org.allbinary.game.layer.hud.basic;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.game.graphics.hud.BasicHud;
 import org.allbinary.game.layer.hud.LapInfo;
 import org.allbinary.graphics.color.BasicColor;

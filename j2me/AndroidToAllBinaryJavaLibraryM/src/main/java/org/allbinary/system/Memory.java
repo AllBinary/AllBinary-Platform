@@ -13,7 +13,7 @@
 */
 package org.allbinary.system;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 //TWB - Google fucked up they removed the class after 2.0
 //import dalvik.system.VMRuntime;

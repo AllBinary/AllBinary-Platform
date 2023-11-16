@@ -22,7 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.communication.smtp.EmailInterface;
 
-import org.allbinary.logic.basic.util.queue.BasicQueue;
+import org.allbinary.logic.util.queue.BasicQueue;
 
 public class BasicEmailQueue extends BasicQueue
    implements EmailQueueInterface

@@ -30,7 +30,7 @@ import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGateway
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.business.user.role.UserRoleB;
 import org.allbinary.business.user.role.UserRoleData;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class WeblisketSession implements WeblisketSessionInterface

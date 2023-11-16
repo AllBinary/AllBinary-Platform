@@ -26,7 +26,7 @@ import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingle
 import org.allbinary.input.media.image.capture.CapturedImageWorkerResultsEvent;
 import org.allbinary.input.media.image.capture.ProcessingFrameIndexFactory;
 import org.allbinary.input.media.image.capture.ScreenScavangerRobot;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.number.LongUtil;

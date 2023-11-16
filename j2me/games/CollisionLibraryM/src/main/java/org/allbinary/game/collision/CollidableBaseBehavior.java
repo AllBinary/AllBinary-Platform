@@ -15,9 +15,9 @@ package org.allbinary.game.collision;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class CollidableBaseBehavior 
 implements CollidableInterface

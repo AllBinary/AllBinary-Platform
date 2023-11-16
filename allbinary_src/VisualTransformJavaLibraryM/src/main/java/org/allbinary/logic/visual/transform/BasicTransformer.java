@@ -19,11 +19,11 @@ import java.io.InputStream;
 
 import javax.xml.transform.URIResolver;
 
-import org.allbinary.logic.basic.io.AbFileInputStream;
-import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.path.AbPathUtil;
+import org.allbinary.logic.io.AbFileInputStream;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.AbKeys;

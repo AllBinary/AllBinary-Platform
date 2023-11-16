@@ -13,7 +13,7 @@
 */
 package org.allbinary.thirdparty.store;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 /**

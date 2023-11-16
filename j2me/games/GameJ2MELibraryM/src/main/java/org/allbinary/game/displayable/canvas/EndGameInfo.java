@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class EndGameInfo {
     

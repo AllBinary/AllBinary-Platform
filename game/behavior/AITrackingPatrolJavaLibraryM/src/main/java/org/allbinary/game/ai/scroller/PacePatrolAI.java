@@ -30,8 +30,8 @@ import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerInterface;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class PacePatrolAI extends BasePatrolAI
         implements TrackingEventListenerInterface

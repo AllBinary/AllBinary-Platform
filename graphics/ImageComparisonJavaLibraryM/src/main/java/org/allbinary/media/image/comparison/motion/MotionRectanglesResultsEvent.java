@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class MotionRectanglesResultsEvent
     extends AllBinaryEventObject

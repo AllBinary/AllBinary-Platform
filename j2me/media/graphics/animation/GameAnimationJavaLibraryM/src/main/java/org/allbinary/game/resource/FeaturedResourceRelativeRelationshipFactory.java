@@ -19,7 +19,7 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.relationship.RelativeLayerRelationship;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class FeaturedResourceRelativeRelationshipFactory extends FeaturedResourceFactory
 {

@@ -19,13 +19,13 @@ import javax.microedition.lcdui.ItemStateListener;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.GameConfigurationGauge;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.configuration.GameOptionsForm;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class GameFeatureItemStateListener implements ItemStateListener
 {

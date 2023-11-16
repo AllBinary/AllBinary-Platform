@@ -13,13 +13,13 @@
 */
 package org.allbinary.data.tree.category;
 
-import org.allbinary.logic.basic.io.file.directory.Directory;
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.file.directory.Directory;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.CategoryInterface;
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 
 public class CategoryModifierTree extends CategoryPrivateTree implements CategoryModifierTreeInterface
 {

@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.ai.sequence;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.ai.ArtificialIntelligenceTransitionInterface;
 import org.allbinary.game.ai.ArrayAI;

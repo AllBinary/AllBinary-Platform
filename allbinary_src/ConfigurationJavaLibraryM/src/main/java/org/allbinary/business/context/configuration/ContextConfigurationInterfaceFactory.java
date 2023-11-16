@@ -17,7 +17,7 @@ import org.allbinary.business.context.configuration.ContextConfigurationPathUtil
 import org.allbinary.business.context.configuration.ContextConfigurationData;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

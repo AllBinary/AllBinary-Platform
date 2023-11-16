@@ -19,7 +19,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
 import org.allbinary.physics.movement.Movement;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory;
 import org.allbinary.animation.IndexedAnimation;

@@ -4,7 +4,7 @@
  */
 package org.allbinary.logic.communication.sql;
 
-import org.allbinary.logic.basic.string.CommonSeps;
+import org.allbinary.logic.string.CommonSeps;
 
 /**
  *

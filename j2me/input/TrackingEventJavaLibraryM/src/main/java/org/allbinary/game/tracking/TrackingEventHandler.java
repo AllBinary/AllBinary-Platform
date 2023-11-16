@@ -13,9 +13,9 @@
 */
 package org.allbinary.game.tracking;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.EventListenerInterface;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class TrackingEventHandler extends BasicEventHandler
 {

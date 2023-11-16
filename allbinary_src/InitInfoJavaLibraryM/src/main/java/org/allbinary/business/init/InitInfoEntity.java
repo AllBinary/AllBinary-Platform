@@ -19,7 +19,7 @@ import java.util.Vector;
 import org.allbinary.business.init.db.UserDbInitInfo;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 

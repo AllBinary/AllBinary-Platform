@@ -17,7 +17,7 @@ package org.allbinary.logic.visual.transform.info.objectConfig;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

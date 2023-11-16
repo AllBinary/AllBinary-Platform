@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.basic.string.CommonPhoneStrings;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonPhoneStrings;
 
 import java.awt.event.KeyEvent;
 

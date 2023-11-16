@@ -13,10 +13,10 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.widgets.logo;
 
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.FileUtil;
-import org.allbinary.logic.basic.io.file.directory.Directory;
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.file.directory.Directory;
+import org.allbinary.logic.io.path.AbPath;
 import java.io.ByteArrayInputStream;
 import org.apache.commons.fileupload.FileItem;
 

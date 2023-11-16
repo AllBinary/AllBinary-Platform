@@ -13,14 +13,14 @@
 */
 package views.admin.inventory.download;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import java.util.HashMap;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
 
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 

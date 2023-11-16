@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 import org.allbinary.logic.java.bool.BooleanUtil;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;

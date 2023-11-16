@@ -13,8 +13,8 @@
  */
 package org.allbinary.business.init;
 
-import org.allbinary.logic.basic.io.file.directory.Directory;
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.file.directory.Directory;
+import org.allbinary.logic.io.path.AbPath;
 
 public class InitInfo2
 {

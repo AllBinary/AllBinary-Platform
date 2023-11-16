@@ -13,7 +13,7 @@
 */
 package org.allbinary.animation.vector;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;

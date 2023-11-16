@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.visitor.Visitor;
 
 public class DiveAndDirectionalTrackingAICompositeVisitorFactory
 {

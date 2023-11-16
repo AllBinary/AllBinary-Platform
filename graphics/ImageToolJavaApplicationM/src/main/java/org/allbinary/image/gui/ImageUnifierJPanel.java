@@ -29,7 +29,7 @@ import org.allbinary.media.image.ImageUnifierUtil;
 import org.allbinary.media.image.ImageUtil;
 import org.allbinary.media.image.ImagesRatioUtil;
 import java.io.File;
-import org.allbinary.logic.basic.io.file.FileWrapperUtil;
+import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.media.image.ImagePersistanceUtil;
 

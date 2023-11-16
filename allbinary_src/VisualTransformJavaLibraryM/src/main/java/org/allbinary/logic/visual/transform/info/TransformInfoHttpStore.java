@@ -15,8 +15,8 @@ package org.allbinary.logic.visual.transform.info;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;

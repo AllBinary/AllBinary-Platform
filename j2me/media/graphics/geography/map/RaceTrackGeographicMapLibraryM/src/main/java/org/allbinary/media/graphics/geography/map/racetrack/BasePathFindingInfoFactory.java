@@ -16,7 +16,7 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCelPositionFactoryInitVisitorInterface;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;

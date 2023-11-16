@@ -13,7 +13,7 @@
 */
 package org.allbinary.osgi;
 
-import org.allbinary.logic.basic.util.visitor.VisitorInterface;
+import org.allbinary.logic.util.visitor.VisitorInterface;
 
 public interface OSGIServiceVisitorInterface extends VisitorInterface
 {

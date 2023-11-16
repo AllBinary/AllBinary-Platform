@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.comparison.motion;
 
-import org.allbinary.logic.basic.util.event.BasicEventListenerInterface;
+import org.allbinary.logic.util.event.BasicEventListenerInterface;
 
 public interface MotionRectanglesResultsListener
    extends BasicEventListenerInterface

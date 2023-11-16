@@ -14,7 +14,7 @@
 package org.allbinary.input.motion.button;
 
 import org.allbinary.input.motion.button.TouchButtonInput;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.communication.log.LogFactory;

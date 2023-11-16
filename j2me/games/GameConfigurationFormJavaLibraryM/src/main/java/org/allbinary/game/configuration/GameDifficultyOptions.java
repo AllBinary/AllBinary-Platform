@@ -19,7 +19,7 @@ import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.canvas.Processor;
@@ -28,7 +28,7 @@ import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class GameDifficultyOptions extends CommandForm
 {

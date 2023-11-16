@@ -21,7 +21,7 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class TransformInfoHttpFactory
 {

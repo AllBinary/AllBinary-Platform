@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.category.hierarchy;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.business.category.CategoryData;
 import org.allbinary.business.category.CategoryInterface;
 

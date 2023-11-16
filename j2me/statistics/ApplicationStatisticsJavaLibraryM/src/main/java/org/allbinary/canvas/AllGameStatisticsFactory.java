@@ -1,6 +1,6 @@
 package org.allbinary.canvas;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class AllGameStatisticsFactory
 {

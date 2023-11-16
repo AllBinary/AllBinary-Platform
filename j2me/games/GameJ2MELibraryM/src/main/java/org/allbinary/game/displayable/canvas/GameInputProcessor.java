@@ -24,7 +24,7 @@ import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class GameInputProcessor

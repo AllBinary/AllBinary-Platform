@@ -24,7 +24,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import org.allbinary.business.init.InstallerInfo;
 import org.allbinary.business.user.role.BasicUserRole;
 import org.allbinary.business.user.role.BasicUserRoleFactory;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.http.request.session.BasicWeblisketSession;
 import org.allbinary.logic.communication.log.LogFactory;

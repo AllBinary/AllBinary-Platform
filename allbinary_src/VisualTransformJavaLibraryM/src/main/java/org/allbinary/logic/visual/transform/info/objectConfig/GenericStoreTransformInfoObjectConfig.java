@@ -14,9 +14,9 @@
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;

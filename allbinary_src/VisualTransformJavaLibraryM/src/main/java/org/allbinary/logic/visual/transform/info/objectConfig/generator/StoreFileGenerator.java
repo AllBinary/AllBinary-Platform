@@ -18,21 +18,21 @@ import java.io.InputStream;
 import java.util.HashMap;
 
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.InputOutputTypeData;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.FileUtil;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.io.InputOutputTypeData;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
 
 public class StoreFileGenerator 

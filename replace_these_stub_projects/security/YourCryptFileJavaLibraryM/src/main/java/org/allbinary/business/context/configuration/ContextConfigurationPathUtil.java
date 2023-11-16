@@ -6,9 +6,9 @@
 package org.allbinary.business.context.configuration;
 
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 
 /**

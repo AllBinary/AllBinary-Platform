@@ -15,10 +15,10 @@ package org.allbinary.logic.system.security.crypt;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.tokens.Tokenizer;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class DatabaseEncoder

@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 import org.w3c.dom.Document;
 
-import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.string.regex.replace.Replace;
 
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 

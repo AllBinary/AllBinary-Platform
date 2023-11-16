@@ -20,8 +20,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.directory.Directory;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.directory.Directory;
 
 import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.data.TransformDocumentFactory;

@@ -17,8 +17,8 @@ import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObjectFactoryInterface;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
 
 public class MotionEventFactory implements AllBinaryEventObjectFactoryInterface
 {

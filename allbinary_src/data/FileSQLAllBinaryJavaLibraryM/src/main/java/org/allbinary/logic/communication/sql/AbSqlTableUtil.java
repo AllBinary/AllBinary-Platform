@@ -18,21 +18,21 @@ import java.sql.ResultSetMetaData;
 import java.util.Calendar;
 
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.basic.io.AbFileOutputStream;
-import org.allbinary.logic.basic.io.BufferedLineReader;
-import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.FileUtil;
-import org.allbinary.logic.basic.io.file.directory.Directory;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.AbFileOutputStream;
+import org.allbinary.logic.io.BufferedLineReader;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.file.directory.Directory;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.PATH_GLOBALS;
 import java.io.OutputStream;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlTableUtil
 {

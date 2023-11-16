@@ -34,8 +34,8 @@ import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.input.AllBinarySensorManager;
 
 
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -89,8 +89,8 @@ import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.midlet.MidletStrings;

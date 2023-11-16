@@ -14,7 +14,7 @@
 package org.allbinary.game.tracking;
 
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.basic.util.event.AllBinaryEventCircularPool;
+import org.allbinary.logic.util.event.AllBinaryEventCircularPool;
 
 public class TrackingEventCircularStaticPool 
 {

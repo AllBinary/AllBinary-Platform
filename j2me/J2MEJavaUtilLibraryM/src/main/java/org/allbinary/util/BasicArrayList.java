@@ -1,18 +1,8 @@
-/*
-* AllBinary Open License Version 1
-* Copyright (c) 1996, 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-*/
 package org.allbinary.util;
 
-import org.allbinary.logic.basic.string.CommonLabels;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 
 //This is a very fast and simple resizable list.
 public class BasicArrayList

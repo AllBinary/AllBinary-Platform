@@ -7,9 +7,9 @@ package org.apache.commons.fileupload;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.AbFileNativeUtil;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFileNativeUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

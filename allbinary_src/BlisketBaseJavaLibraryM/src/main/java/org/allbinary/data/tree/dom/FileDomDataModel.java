@@ -13,7 +13,7 @@
 */
 package org.allbinary.data.tree.dom;
 
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFile;
 import java.util.HashMap;
 
 import org.w3c.dom.Document;

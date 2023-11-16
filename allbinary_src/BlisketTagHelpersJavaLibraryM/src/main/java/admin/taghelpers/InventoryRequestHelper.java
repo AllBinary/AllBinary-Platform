@@ -20,7 +20,7 @@ import javax.servlet.jsp.PageContext;
 
 import tags.HelperTag;
 import views.admin.inventory.InventoryItemView;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import admin.tags.AbTagData;

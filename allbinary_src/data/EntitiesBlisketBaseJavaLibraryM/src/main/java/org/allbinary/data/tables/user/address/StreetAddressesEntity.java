@@ -14,7 +14,7 @@
 package org.allbinary.data.tables.user.address;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;

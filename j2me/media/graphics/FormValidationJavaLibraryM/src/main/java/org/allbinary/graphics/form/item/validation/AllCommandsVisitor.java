@@ -14,7 +14,7 @@
 package org.allbinary.graphics.form.item.validation;
 
 import org.allbinary.logic.java.bool.BooleanFactory;
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.visitor.Visitor;
 
 public class AllCommandsVisitor extends Visitor
 {

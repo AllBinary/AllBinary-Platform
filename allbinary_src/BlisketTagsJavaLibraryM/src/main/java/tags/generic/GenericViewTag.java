@@ -14,7 +14,7 @@
 package tags.generic;
 
 
-import org.allbinary.logic.basic.io.InputOutputTypeData;
+import org.allbinary.logic.io.InputOutputTypeData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

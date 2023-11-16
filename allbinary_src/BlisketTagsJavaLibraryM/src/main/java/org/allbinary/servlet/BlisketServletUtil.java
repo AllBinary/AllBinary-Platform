@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 
 public class BlisketServletUtil {

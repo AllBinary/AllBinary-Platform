@@ -19,7 +19,7 @@ import java.util.Iterator;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 
 import org.allbinary.business.user.address.StreetAddress;

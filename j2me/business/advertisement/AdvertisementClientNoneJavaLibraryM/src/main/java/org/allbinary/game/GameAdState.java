@@ -22,8 +22,8 @@ import org.allbinary.game.state.GameState;
 import org.allbinary.input.event.VirtualKeyboardEvent;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class GameAdState implements VirtualKeyboardEventListenerInterface
 {

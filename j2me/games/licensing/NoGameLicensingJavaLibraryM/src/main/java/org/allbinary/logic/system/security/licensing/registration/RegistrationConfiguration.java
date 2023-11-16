@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.security.licensing.registration;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class RegistrationConfiguration
 {

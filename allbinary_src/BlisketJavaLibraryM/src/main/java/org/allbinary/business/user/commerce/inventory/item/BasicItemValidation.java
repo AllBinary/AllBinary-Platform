@@ -15,7 +15,7 @@ package org.allbinary.business.user.commerce.inventory.item;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.w3c.dom.Document;

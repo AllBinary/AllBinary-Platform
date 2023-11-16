@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.math.vector;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.math.PositionStrings;
 

@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.actions.script.condition;
 
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.analysis.ColorRangeInterface;

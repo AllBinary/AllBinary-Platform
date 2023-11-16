@@ -14,7 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 
 public class ForcedLogUtil
 {

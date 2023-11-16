@@ -13,8 +13,8 @@
 */
 package org.allbinary.business.context.modules.storefronts;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.tokens.Tokenizer;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.tokens.Tokenizer;
 import java.util.HashMap;
 
 import org.allbinary.business.user.UserData;

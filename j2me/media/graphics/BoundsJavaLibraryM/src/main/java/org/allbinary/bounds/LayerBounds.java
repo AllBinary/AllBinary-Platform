@@ -18,8 +18,8 @@ import org.allbinary.bounds.event.BoundsChangeEventListener;
 
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class LayerBounds implements BoundsChangeEventListener
 {   

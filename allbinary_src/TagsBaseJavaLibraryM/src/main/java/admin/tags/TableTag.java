@@ -25,7 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.SqlStrings;
 
 public class TableTag extends PropertiesTag

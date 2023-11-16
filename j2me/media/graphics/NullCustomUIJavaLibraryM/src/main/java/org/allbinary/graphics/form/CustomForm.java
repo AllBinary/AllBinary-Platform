@@ -4,7 +4,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.form.item.CustomItem;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.color.BasicColor;
 
 public class CustomForm extends CustomScreen

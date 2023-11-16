@@ -20,11 +20,11 @@ import javax.xml.transform.stream.StreamResult;
 
 import org.w3c.dom.Document;
 
-import org.allbinary.logic.basic.io.AbDataOutputStream;
-import org.allbinary.logic.basic.io.AbFileInputStream;
-import org.allbinary.logic.basic.io.DataOutputStreamFactory;
-import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.AbDataOutputStream;
+import org.allbinary.logic.io.AbFileInputStream;
+import org.allbinary.logic.io.DataOutputStreamFactory;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.AbFile;
 
 public class DomDocumentFileHelper
 {

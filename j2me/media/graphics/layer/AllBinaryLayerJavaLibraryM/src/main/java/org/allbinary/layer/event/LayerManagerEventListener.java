@@ -13,7 +13,7 @@
 */
 package org.allbinary.layer.event;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class LayerManagerEventListener
 implements LayerManagerEventListenerInterface

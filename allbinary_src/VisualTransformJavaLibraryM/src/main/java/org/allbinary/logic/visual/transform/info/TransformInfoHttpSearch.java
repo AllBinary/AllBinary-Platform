@@ -14,9 +14,9 @@
 package org.allbinary.logic.visual.transform.info;
 
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.control.search.SearchRequest;
 

@@ -15,12 +15,12 @@ package org.allbinary.graphics.form.item.validation;
 
 import org.allbinary.game.input.TextNotificationUtil;
 
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.visitor.Visitor;
 
 public class TextItemNumberVisitor extends Visitor
 {

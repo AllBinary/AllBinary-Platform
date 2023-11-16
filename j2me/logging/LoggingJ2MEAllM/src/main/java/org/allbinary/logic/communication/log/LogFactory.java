@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.Log;
 
 public class LogFactory

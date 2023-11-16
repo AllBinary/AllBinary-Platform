@@ -14,8 +14,8 @@
 package org.allbinary.business.category.properties.root.store.theme;
 
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.business.category.properties.root.store.RootStoreCategoryProperties;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;

@@ -15,9 +15,9 @@ package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Displayable;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -26,7 +26,7 @@ import org.allbinary.logic.system.os.OperatingSystemInterface;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
-import org.allbinary.logic.basic.string.CommonLabels;
+import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
 public class DisplayInfoSingleton

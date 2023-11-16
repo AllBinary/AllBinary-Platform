@@ -13,8 +13,8 @@
 */
 package org.allbinary.data.tree.dom.document;
 
-import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 
 public class DocumentToNode
 {

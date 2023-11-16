@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.system.security;
 
-import org.allbinary.logic.basic.io.StreamUtil;
+import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.system.security.crypt.jcehelper.AbCrypt;
 import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;
 import java.io.ByteArrayOutputStream;

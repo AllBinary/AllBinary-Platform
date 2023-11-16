@@ -13,9 +13,9 @@
 */
 package org.allbinary.canvas;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.ScaleFactorFactory;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;

@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.midlet;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class DemoGameMidletEvent extends AllBinaryEventObject
 {

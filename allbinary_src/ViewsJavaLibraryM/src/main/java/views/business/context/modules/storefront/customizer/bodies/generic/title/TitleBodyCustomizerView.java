@@ -21,7 +21,7 @@ import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.ModDomHelper;
 
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.data.tree.dom.DomNodeInterface;

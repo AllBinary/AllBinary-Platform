@@ -23,10 +23,10 @@ import org.apache.commons.fileupload.FileItem;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.FilePathData;
-import org.allbinary.logic.basic.io.file.FileUtil;
-import org.allbinary.logic.basic.io.file.zip.ZipFileUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.FilePathData;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.file.zip.ZipFileUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;

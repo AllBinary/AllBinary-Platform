@@ -22,9 +22,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.path.AbPathUtil;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryData;
@@ -34,7 +34,7 @@ import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.root.RootCategoryPropertiesInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 

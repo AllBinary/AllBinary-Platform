@@ -18,9 +18,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogBuffer;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

@@ -13,9 +13,9 @@
 */
 package org.allbinary.game.tracking;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class TrackingEvent extends AllBinaryEventObject
 {

@@ -15,14 +15,14 @@ package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class CheatGameInputProcessor extends PlayerGameInput 
 {

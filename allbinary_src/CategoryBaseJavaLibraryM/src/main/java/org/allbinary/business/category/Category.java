@@ -19,7 +19,7 @@ import java.util.Vector;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.hierarchy.CategoryHierarchy;

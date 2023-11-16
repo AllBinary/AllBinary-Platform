@@ -26,7 +26,7 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import javax.microedition.lcdui.Image;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageCompleteUtil;
 
 public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory

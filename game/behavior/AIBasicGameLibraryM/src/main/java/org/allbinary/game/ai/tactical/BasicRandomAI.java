@@ -21,7 +21,7 @@ import org.allbinary.game.input.GameInput;
 import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 
 public class BasicRandomAI extends BasicAI

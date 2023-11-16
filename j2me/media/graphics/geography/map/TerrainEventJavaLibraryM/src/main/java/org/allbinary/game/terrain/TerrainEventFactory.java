@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.terrain;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObjectFactoryInterface;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
 
 public class TerrainEventFactory implements AllBinaryEventObjectFactoryInterface
 {

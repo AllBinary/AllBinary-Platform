@@ -15,7 +15,7 @@ package tags.transform.info;
 
 import javax.servlet.jsp.JspTagException;
 
-import org.allbinary.logic.basic.io.OutputTypeData;
+import org.allbinary.logic.io.OutputTypeData;
 
 import org.allbinary.logic.communication.http.request.AbResponseHandler;
 import org.allbinary.logic.communication.log.LogFactory;

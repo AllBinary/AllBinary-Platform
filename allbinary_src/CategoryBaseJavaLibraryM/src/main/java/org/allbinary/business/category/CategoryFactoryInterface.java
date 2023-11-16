@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.category;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;

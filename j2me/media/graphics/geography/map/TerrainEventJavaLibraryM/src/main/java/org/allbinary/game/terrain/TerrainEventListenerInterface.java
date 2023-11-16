@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.terrain;
 
-import org.allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventListenerInterface;
 
 public interface TerrainEventListenerInterface 
    extends EventListenerInterface

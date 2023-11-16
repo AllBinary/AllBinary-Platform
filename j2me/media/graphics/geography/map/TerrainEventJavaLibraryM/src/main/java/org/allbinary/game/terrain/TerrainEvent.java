@@ -13,8 +13,8 @@
  */
 package org.allbinary.game.terrain;
 
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class TerrainEvent extends AllBinaryEventObject
 {

@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.w3c.dom.Document;
 

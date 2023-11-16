@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.java.bool;
 
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class BooleanUtil
 {

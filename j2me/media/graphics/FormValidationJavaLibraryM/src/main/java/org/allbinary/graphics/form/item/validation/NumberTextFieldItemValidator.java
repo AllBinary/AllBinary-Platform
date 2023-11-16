@@ -16,7 +16,7 @@ package org.allbinary.graphics.form.item.validation;
 import java.util.Vector;
 
 import org.allbinary.graphics.form.item.TextFieldItem;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.java.bool.BooleanFactory;

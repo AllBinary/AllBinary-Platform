@@ -14,7 +14,7 @@
 package views.business.context.modules.storefront.generator;
 
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 
 import org.allbinary.logic.visual.transform.info.TransformInfosData;

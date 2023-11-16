@@ -17,7 +17,7 @@ import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
 
 //This allows you to set the initialization data for weblisket
-import org.allbinary.logic.basic.io.file.FileFactory;
+import org.allbinary.logic.io.file.FileFactory;
 
 //This allows you to set the initialization data for weblisket
 import org.allbinary.globals.PATH_GLOBALS;

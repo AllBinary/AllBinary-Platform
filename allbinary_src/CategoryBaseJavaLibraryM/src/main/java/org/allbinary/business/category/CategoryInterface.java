@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.category;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.data.tables.TableMappingInterface;

@@ -14,7 +14,7 @@
 package org.allbinary.game.input.event;
 
 import org.allbinary.game.input.PlayerInputIdFactory;
-import org.allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventListenerInterface;
 
 public class UpKeyEventHandler extends UpKeyEventHandlerBase
 {

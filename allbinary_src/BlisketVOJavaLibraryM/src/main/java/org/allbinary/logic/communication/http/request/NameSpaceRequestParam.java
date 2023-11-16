@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.communication.http.request;
 
-import org.allbinary.logic.basic.string.StringUtil;
-import org.allbinary.logic.basic.string.tokens.Tokenizer;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.dhtml.html.name.HtmlNameMathData;

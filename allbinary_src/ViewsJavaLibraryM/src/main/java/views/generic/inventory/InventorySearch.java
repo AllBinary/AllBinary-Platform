@@ -18,17 +18,17 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import views.admin.inventory.listings.InventoryViewSearchInterface;
-import org.allbinary.logic.basic.io.InputOutputTypeData;
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringValidationUtil;
-import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.io.InputOutputTypeData;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.inventory.item.BasicItemData;
 import org.allbinary.data.tables.staticpages.StaticPagesEntity;
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
 

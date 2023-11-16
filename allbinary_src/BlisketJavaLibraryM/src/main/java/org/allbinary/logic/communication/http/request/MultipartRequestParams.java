@@ -22,7 +22,7 @@ import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadBase.InvalidContentTypeException;
 

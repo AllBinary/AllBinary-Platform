@@ -17,7 +17,7 @@ import org.allbinary.data.resource.ResourceUtil;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *

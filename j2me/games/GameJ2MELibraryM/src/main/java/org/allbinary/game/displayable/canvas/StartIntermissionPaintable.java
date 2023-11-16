@@ -15,13 +15,13 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class StartIntermissionPaintable extends InitUpdatePaintable
 {

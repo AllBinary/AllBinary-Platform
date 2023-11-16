@@ -20,8 +20,8 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -57,9 +57,9 @@ import org.allbinary.graphics.form.item.validation.AllCommandsVisitor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class GameCommandCanvas
     extends MyCanvas

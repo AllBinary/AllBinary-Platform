@@ -19,7 +19,7 @@ import org.w3c.dom.Node;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.page.PageData;

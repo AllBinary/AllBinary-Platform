@@ -17,7 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class GameLevelDisplayChangeEventListenersFactory
 {

@@ -25,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.allbinary.servlet.BlisketServletUtil;
 
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.basic.io.CloudStreamUtil;
-import org.allbinary.logic.basic.io.StreamUtil;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.io.CloudStreamUtil;
+import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.AuthenticationHelper;

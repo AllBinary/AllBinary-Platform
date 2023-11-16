@@ -20,7 +20,7 @@ import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.ai.tactical.BasicRandomAIFactory;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.visitor.Visitor;
 
 public class DiveAndDirectionalTrackingAIFactory 
     implements ArtificialIntelligenceInterfaceFactoryInterface

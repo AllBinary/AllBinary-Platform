@@ -13,8 +13,8 @@
 */
 package org.allbinary.business.category.properties;
 
-import org.allbinary.logic.basic.path.AbPath;
-import org.allbinary.logic.basic.path.AbPathData;
+import org.allbinary.logic.io.path.AbPath;
+import org.allbinary.logic.io.path.AbPathData;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -28,7 +28,7 @@ import org.w3c.dom.Node;
 
 import java.util.HashMap;
 import java.util.Vector;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
 /*
  *Nothing more than a parent category reference to a category on the fs.

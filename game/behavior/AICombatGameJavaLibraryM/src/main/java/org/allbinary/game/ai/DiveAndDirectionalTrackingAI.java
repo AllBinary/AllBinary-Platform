@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.direction.Direction;
@@ -35,9 +35,9 @@ import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.handler.BasicEventHandler;
-import org.allbinary.logic.basic.util.visitor.Visitor;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 

@@ -20,11 +20,11 @@ import javax.servlet.jsp.PageContext;
 
 import org.w3c.dom.Document;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 
 import org.allbinary.business.context.AbContext;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.string.CommonStrings;
 
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 

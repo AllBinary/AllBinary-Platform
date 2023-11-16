@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.media.image.capture;
 
-import org.allbinary.logic.basic.util.event.BasicEventListenerInterface;
+import org.allbinary.logic.util.event.BasicEventListenerInterface;
 
 public interface CapturedImageWorkerResultsListener
     extends BasicEventListenerInterface

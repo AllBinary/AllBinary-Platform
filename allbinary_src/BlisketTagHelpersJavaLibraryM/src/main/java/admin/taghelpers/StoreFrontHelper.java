@@ -17,8 +17,8 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;

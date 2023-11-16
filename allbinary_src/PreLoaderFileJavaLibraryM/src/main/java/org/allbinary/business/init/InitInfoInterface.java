@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.init;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 
 public interface InitInfoInterface
 {

@@ -19,8 +19,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
 
 import java.io.File;
-import org.allbinary.logic.basic.io.file.FileWrapperUtil;
-import org.allbinary.logic.basic.string.CommonStrings;
+import org.allbinary.logic.io.file.FileWrapperUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

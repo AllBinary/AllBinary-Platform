@@ -1,6 +1,6 @@
 package org.allbinary.logic.control.crypt.file;
 
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.path.AbPath;
 import org.w3c.dom.Document;
 
 public class CryptFileWriter

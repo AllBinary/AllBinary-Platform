@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.color;
 
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class ColorChangeEvent extends AllBinaryEventObject
 {

@@ -22,7 +22,7 @@ import org.allbinary.game.layer.pickup.PickupableInterface;
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;

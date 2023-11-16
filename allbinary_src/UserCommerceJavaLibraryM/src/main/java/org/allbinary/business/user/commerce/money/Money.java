@@ -13,8 +13,8 @@
 */
 package org.allbinary.business.user.commerce.money;
 
-import org.allbinary.logic.basic.path.AbPathData;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.logic.string.StringValidationUtil;
 
 public class Money
 {   

@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.input.event;
 
-import org.allbinary.logic.basic.string.StringMaker;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameKeyEvent extends AllBinaryEventObject
 {

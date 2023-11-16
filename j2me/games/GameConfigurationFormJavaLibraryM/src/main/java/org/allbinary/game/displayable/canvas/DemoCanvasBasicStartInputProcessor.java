@@ -21,7 +21,7 @@ import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.StringMaker;
 
 public class DemoCanvasBasicStartInputProcessor
     extends BasicMenuInputProcessor

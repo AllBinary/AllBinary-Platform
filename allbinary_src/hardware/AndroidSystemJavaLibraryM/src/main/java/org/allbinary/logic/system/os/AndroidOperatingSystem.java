@@ -14,8 +14,8 @@
 package org.allbinary.logic.system.os;
 
 import org.allbinary.android.AndroidInfoFactory;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *

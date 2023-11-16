@@ -21,8 +21,8 @@ import java.util.Set;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.basic.string.StringValidationUtil;
-import org.allbinary.logic.basic.string.regex.replace.Replace;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

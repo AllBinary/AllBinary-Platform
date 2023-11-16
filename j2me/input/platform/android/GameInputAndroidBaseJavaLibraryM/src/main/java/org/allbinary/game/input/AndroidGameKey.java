@@ -1,6 +1,6 @@
 package org.allbinary.game.input;
 
-import org.allbinary.logic.basic.string.StringUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class AndroidGameKey extends Input
 {

@@ -14,9 +14,9 @@
 package org.allbinary.data.tree.dom;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.basic.io.AbFileLocalInputStream;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.AbFileLocalInputStream;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.data.tree.dom.XslHelper;
 import java.io.StringBufferInputStream;
 import javax.xml.transform.stream.StreamSource;

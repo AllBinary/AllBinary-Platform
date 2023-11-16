@@ -24,9 +24,9 @@ import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
 import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.basic.io.file.FileUtil;
-import org.allbinary.logic.basic.io.file.FileWrapperUtil;
-import org.allbinary.logic.basic.path.AbPath;
+import org.allbinary.logic.io.file.FileUtil;
+import org.allbinary.logic.io.file.FileWrapperUtil;
+import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

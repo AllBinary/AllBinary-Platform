@@ -14,8 +14,8 @@
 package org.allbinary.game.combat.destroy.event;
 
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.basic.util.event.AllBinaryEventObjectFactoryInterface;
+import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.AllBinaryEventObjectFactoryInterface;
 
 public class DestroyEventFactory implements AllBinaryEventObjectFactoryInterface
 {

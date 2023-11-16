@@ -13,12 +13,12 @@
 */
 package org.allbinary.data.tree.dom;
 
-import org.allbinary.logic.basic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFile;
 import java.util.HashMap;
 import java.util.Vector;
 
-import org.allbinary.logic.basic.io.file.FileData;
-import org.allbinary.logic.basic.path.AbPathUtil;
+import org.allbinary.logic.io.file.FileData;
+import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.data.tables.TableMappingInterface;
 
 public class FileTableMapping

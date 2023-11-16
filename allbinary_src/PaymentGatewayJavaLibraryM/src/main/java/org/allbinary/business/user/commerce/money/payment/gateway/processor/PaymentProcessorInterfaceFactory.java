@@ -19,7 +19,7 @@ import org.allbinary.business.user.commerce.money.payment.gateway.transaction.Pa
 import org.allbinary.business.user.commerce.money.payment.gateway.transaction.PaymentTransactionInterfaceRequestFactory;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentType;
 import org.allbinary.business.user.commerce.money.payment.types.PaymentTypeUtil;
-import org.allbinary.logic.basic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class PaymentProcessorInterfaceFactory

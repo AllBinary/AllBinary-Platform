@@ -3,8 +3,8 @@ package org.allbinary.logic.visual.media;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import javax.imageio.ImageIO;
-import org.allbinary.logic.basic.io.file.AbFile;
-import org.allbinary.logic.basic.io.file.AbFileNativeUtil;
+import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.logic.io.file.AbFileNativeUtil;
 
 /**
  *

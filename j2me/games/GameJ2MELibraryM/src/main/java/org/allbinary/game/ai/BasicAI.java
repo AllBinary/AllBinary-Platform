@@ -13,9 +13,9 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.logic.basic.string.CommonStrings;
-import org.allbinary.logic.basic.string.CommonSeps;
-import org.allbinary.logic.basic.string.StringMaker;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.game.displayable.canvas.CanvasUtil;
 import org.allbinary.game.input.GameInput;

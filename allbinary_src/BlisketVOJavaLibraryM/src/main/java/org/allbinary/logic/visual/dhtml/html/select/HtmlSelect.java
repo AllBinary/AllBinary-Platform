@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.visual.dhtml.html.select;
 
-import org.allbinary.logic.basic.io.LineReader;
+import org.allbinary.logic.io.LineReader;
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
 
 import java.util.Iterator;

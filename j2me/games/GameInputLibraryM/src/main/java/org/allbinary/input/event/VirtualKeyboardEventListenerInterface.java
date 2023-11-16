@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.event;
 
-import org.allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventListenerInterface;
 
 public interface VirtualKeyboardEventListenerInterface 
    extends EventListenerInterface

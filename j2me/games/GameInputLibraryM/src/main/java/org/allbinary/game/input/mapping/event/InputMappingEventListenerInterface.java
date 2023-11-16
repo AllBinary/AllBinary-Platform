@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.input.mapping.event;
 
-import org.allbinary.logic.basic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventListenerInterface;
 
 public interface InputMappingEventListenerInterface 
    extends EventListenerInterface
