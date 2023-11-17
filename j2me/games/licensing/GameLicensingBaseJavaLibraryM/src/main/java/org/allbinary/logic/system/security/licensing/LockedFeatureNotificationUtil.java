@@ -13,8 +13,8 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.game.layer.hud.basic.event.GameNotificationEvent;
-import org.allbinary.game.layer.hud.basic.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.hud.event.GameNotificationEvent;
+import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.java.bool.BooleanFactory;

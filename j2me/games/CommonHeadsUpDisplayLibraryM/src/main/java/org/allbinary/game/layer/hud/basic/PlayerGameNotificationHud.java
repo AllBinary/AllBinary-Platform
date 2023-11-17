@@ -23,7 +23,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.game.layer.hud.basic.event.GameNotificationEventHandler;
+import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.game.layer.hud.basic.notification.GameNotification;
 import org.allbinary.game.layer.hud.basic.notification.GameNotificationHud;
 import org.allbinary.graphics.CustomGPoint;
