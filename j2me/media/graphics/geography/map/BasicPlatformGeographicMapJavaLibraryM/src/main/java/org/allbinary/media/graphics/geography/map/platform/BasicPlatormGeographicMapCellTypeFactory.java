@@ -13,8 +13,8 @@
  */
 package org.allbinary.media.graphics.geography.map.platform;
 
-import java.util.Map;
-import java.util.Set;
+import java.util.Enumeration;
+import java.util.Hashtable;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -50,7 +50,7 @@ public class BasicPlatormGeographicMapCellTypeFactory {
         LADDER_CELL_TYPE = BLOCK_CELL_TYPE;
     }
 
-    public void init(final Map tileTypeToTileIdsMap) {
+    public void init(final Hashtable tileTypeToTileIdsMap) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
@@ -63,14 +63,12 @@ public class BasicPlatormGeographicMapCellTypeFactory {
         final String JUMP_TRHU = "JumpThru";
         final String LADDER = "Ladder";
         
-        final Set set = tileTypeToTileIdsMap.keySet();
-        final String[] keyArray = (String[]) set.toArray(new String[set.size()]);
-        final int size = keyArray.length;
+        final Enumeration enumeration = tileTypeToTileIdsMap.keys();
         BasicArrayList idsWithTypeList;
         String key;
         BasicPlatormGeographicMapCellType basicPlatormGeographicMapCellType;
-        for(int index = 0; index < size; index++) {
-            key = keyArray[index];
+        while(enumeration.hasMoreElements()) {
+            key = (String) enumeration.nextElement();
             
             LogUtil.put(LogFactory.getInstance(key, this, commonStrings.INIT));
             
