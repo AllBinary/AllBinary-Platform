@@ -40,11 +40,11 @@
         <module>../../../../working_thirdparty/security/BouncyCastleDESJavaLibraryM</module>
         <module>../../../../working_thirdparty/communication/XmlRpc/XmlRpcJavaLibraryM</module>
         -->
+        <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
+        <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
         <module>../../../replace_these_stub_projects/security/YourCryptFileJavaLibraryM</module>
         <module>../../../replace_these_stub_projects/security/YourSecurityJavaLibraryM</module>
         <module>../../../replace_these_stub_projects/communication/YourXmlRpcJavaLibraryM</module>
-        <module>../../../allbinary_src/security/BasicSecurityJavaLibraryM</module>
-        <module>../../../allbinary_src/TokenizerJavaLibraryM</module>
 
         <module>../../DebugJavaLibraryM</module>                
         <module>../../ResourceLibraryM</module>
