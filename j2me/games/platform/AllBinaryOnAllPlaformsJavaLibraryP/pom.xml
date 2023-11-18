@@ -34,9 +34,9 @@
         <module>../j2me/HTMLForJ2MEJavaLibraryM</module>
         -->
         
-        <module>../../games/PreGameJ2MEJavaLibraryP</module>
-        <module>../GameJ2MELibraryP</module>
-        <module>../CombatGameJavaLibraryPOM</module>
+        <module>../../../games/PreGameJ2MEJavaLibraryP</module>
+        <module>../../GameJ2MELibraryP</module>
+        <module>../../CombatGameJavaLibraryPOM</module>
         <module>../../AdvancedCombatGameJavaLibraryP</module>
         
         <module>../j2me/AllBinaryOnJ2MEBasePlatformJavaLibraryM</module>
