@@ -27,14 +27,14 @@ public class AbSqlColumn extends AbSqlTable
     private final String METHOD_GET_COLUMN_WHERE = "getColumnWhere";
     private final String INVALID_RESULT = "-1";
     
-    public AbSqlColumn(DbConnectionInfo databaseConnectionInfoInterface)
+    public AbSqlColumn(final DbConnectionInfo databaseConnectionInfoInterface)
     {
         super(databaseConnectionInfoInterface);
     }
 
-    public String getLargestIntegerInColumnWhere(String columnName, String key, String value)
+    public String getLargestIntegerInColumnWhere(final String columnName, final String key, final String value)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(columnName);
@@ -46,12 +46,12 @@ public class AbSqlColumn extends AbSqlTable
         stringBuffer.append(value);
         stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-        String sqlStatement = stringBuffer.toString();
+        final String sqlStatement = stringBuffer.toString();
 
         try
         {
             int largest = 0;
-            ResultSet rset = executeSQLStatement(sqlStatement);
+            final ResultSet rset = executeSQLStatement(sqlStatement);
             while (rset.next())
             {
                 int intValue = rset.getInt(columnName);
@@ -87,22 +87,22 @@ public class AbSqlColumn extends AbSqlTable
         }
     }
 
-    public Vector getColumn(String columnName)
+    public Vector getColumn(final String columnName)
     {
-        Vector column = new Vector();
+        final Vector column = new Vector();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(sqlStrings.SELECT);
         stringBuffer.append(columnName);
         stringBuffer.append(sqlStrings.FROM);
         stringBuffer.append(this.getTableName());
 
-        String sqlStatement = stringBuffer.toString();
+        final String sqlStatement = stringBuffer.toString();
 
         try
         {
-            ResultSet rset = executeSQLStatement(sqlStatement);
+            final ResultSet rset = executeSQLStatement(sqlStatement);
             while (rset.next())
             {
                 String field = rset.getObject(columnName).toString();
@@ -146,7 +146,7 @@ public class AbSqlColumn extends AbSqlTable
         stringBuffer.append(value);
         stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-        String sqlStatement = stringBuffer.toString();
+        final String sqlStatement = stringBuffer.toString();
         Vector column = new Vector();
         ResultSet rset;
         String field;

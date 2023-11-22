@@ -25,6 +25,7 @@ import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlRow extends AbSqlColumn
 {
@@ -48,13 +49,13 @@ public class AbSqlRow extends AbSqlColumn
     
     private final String INSERT_END = "')";
     
-    public AbSqlRow(DbConnectionInfo databaseConnectionInfoInterface)
+    public AbSqlRow(final DbConnectionInfo databaseConnectionInfoInterface)
     {
         super(databaseConnectionInfoInterface);
     }
 
     //Don't allow "null"
-    private synchronized String getValue(String value)
+    private synchronized String getValue(final String value)
     {
         if (StringValidationUtil.getInstance().isEmpty(value))
         {
@@ -65,9 +66,9 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public synchronized void updateWhere(String key, String value, HashMap updatedKeyValuePairs)
+    public synchronized void updateWhere(final String key, final String value, final HashMap updatedKeyValuePairs)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.getTableName());
@@ -75,10 +76,10 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            Iterator iter = updatedKeyValuePairs.keySet().iterator();
+            final Iterator iter = updatedKeyValuePairs.keySet().iterator();
             while (iter.hasNext())
             {
-                String columnName = iter.next().toString();
+                final String columnName = iter.next().toString();
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(EQUAL_QUOTE);
@@ -108,7 +109,7 @@ public class AbSqlRow extends AbSqlColumn
             stringBuffer.append(this.getValue(value));
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
@@ -124,9 +125,9 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public synchronized void updateWhere(HashMap whereKeyValuePairs, HashMap updatedKeyValuePairs) throws Exception
+    public synchronized void updateWhere(final HashMap whereKeyValuePairs, final HashMap updatedKeyValuePairs) throws Exception
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.UPDATE);
         stringBuffer.append(this.getTableName());
@@ -134,10 +135,10 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            Iterator iter = updatedKeyValuePairs.keySet().iterator();
+            final Iterator iter = updatedKeyValuePairs.keySet().iterator();
             while (iter.hasNext())
             {
-                String columnName = iter.next().toString();
+                final String columnName = iter.next().toString();
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(this.EQUAL_QUOTE);
@@ -168,13 +169,13 @@ public class AbSqlRow extends AbSqlColumn
 
             stringBuffer.append(sqlStrings.WHERE);
 
-            Set set = whereKeyValuePairs.keySet();
-            Iterator whereIter = set.iterator();
+            final Set set = whereKeyValuePairs.keySet();
+            final Iterator whereIter = set.iterator();
 
             while (whereIter.hasNext())
             {
-                String key = (String) whereIter.next();
-                String value = (String) whereKeyValuePairs.get(key);
+                final String key = (String) whereIter.next();
+                final String value = (String) whereKeyValuePairs.get(key);
                 //if(value!=null && value.compareTo("null")!=0)
                 {
                     stringBuffer.append(key);
@@ -190,7 +191,7 @@ public class AbSqlRow extends AbSqlColumn
                 }
             }
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
@@ -207,9 +208,9 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public synchronized void deleteWhere(String key, String value)
+    public synchronized void deleteWhere(final String key, final String value)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.DELETE);
         stringBuffer.append(this.sqlStrings.FROM);
@@ -222,7 +223,7 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
@@ -238,9 +239,9 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public synchronized void deleteWhere(HashMap keysAndValues)
+    public synchronized void deleteWhere(final HashMap keysAndValues)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.DELETE);
         stringBuffer.append(this.sqlStrings.FROM);
@@ -249,8 +250,8 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            Set set = keysAndValues.keySet();
-            Iterator iter = set.iterator();
+            final Set set = keysAndValues.keySet();
+            final Iterator iter = set.iterator();
 
             while (iter.hasNext())
             {
@@ -268,7 +269,7 @@ public class AbSqlRow extends AbSqlColumn
                 }
             }
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
             this.executeSQLStatement(sqlStatement);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
@@ -284,7 +285,7 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public void insert(Vector values)
+    public void insert(final Vector values)
     {
         final StringBuffer stringBuffer = new StringBuffer();
 
@@ -325,10 +326,10 @@ public class AbSqlRow extends AbSqlColumn
             }
         }
     }
-
-    public HashMap getRow(HashMap keysAndValues)
+    
+    public HashMap getRow(final HashMap keysAndValues)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
@@ -337,13 +338,13 @@ public class AbSqlRow extends AbSqlColumn
         try
         {
             HashMap result = null;
-            Set set = keysAndValues.keySet();
-            Iterator iter = set.iterator();
+            final Set set = keysAndValues.keySet();
+            final Iterator iter = set.iterator();
 
             while (iter.hasNext())
             {
-                String key = (String) iter.next();
-                String value = new String((String) keysAndValues.get(key));
+                final String key = (String) iter.next();
+                final String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
                 stringBuffer.append(sqlStrings.EQUAL_QUOTE);
@@ -357,15 +358,15 @@ public class AbSqlRow extends AbSqlColumn
                 }
             }
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, this.METHOD_GET_ROW));
             }
 
-            ResultSet rset = this.executeSQLStatement(sqlStatement);
-            ResultSetMetaData resultSetMetaData = rset.getMetaData();
+            final ResultSet rset = this.executeSQLStatement(sqlStatement);
+            final ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
             while (rset.next())
             {
@@ -401,10 +402,14 @@ public class AbSqlRow extends AbSqlColumn
             return null;
         }
     }
-        
-    public Vector getRows(HashMap keysAndValues)
+
+    public Vector getRows(final HashMap keysAndValues) {
+        return this.getRows(keysAndValues, StringUtil.getInstance().EMPTY_STRING);
+    }
+    
+    public Vector getRows(final HashMap keysAndValues, final String more)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
@@ -412,14 +417,14 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            Vector rows = new Vector();
-            Set set = keysAndValues.keySet();
-            Iterator iter = set.iterator();
+            final Vector rows = new Vector();
+            final Set set = keysAndValues.keySet();
+            final Iterator iter = set.iterator();
 
             while (iter.hasNext())
             {
-                String key = (String) iter.next();
-                String value = new String((String) keysAndValues.get(key));
+                final String key = (String) iter.next();
+                final String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
                 stringBuffer.append(sqlStrings.EQUAL_QUOTE);
@@ -438,27 +443,29 @@ public class AbSqlRow extends AbSqlColumn
             	LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ROWS));
             }
 
-            String sqlStatement = stringBuffer.toString();
-            ResultSet rset = this.executeSQLStatement(sqlStatement);
-            ResultSetMetaData resultSetMetaData = rset.getMetaData();
+            stringBuffer.append(more);
+            final String sqlStatement = stringBuffer.toString();
+            final ResultSet rset = this.executeSQLStatement(sqlStatement);
+            final ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
             while (rset.next())
             {
-                HashMap result = new HashMap();
+                final HashMap result = new HashMap();
                 //Vector columnNames = new Vector();
-                int columnCount = resultSetMetaData.getColumnCount();
+                final int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
-                    String columnName = resultSetMetaData.getColumnName(index);
-                    String field = rset.getString(columnName);
+                    final String columnName = resultSetMetaData.getColumnName(index);
+                    final String field = rset.getString(columnName);
                     result.put(columnName, field);
                 }
 
+                final String resultAsString = result.toString();
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
                 {
-                    LogUtil.put(LogFactory.getInstance(this.GET_ROW + result.toString(), this, this.METHOD_GET_ROWS));
+                    LogUtil.put(LogFactory.getInstance(this.GET_ROW + resultAsString, this, this.METHOD_GET_ROWS));
                 }
-                LogUtil.put(LogFactory.getInstance(this.GET_ROW + result.toString(), this, this.METHOD_GET_ROWS));
+                LogUtil.put(LogFactory.getInstance(this.GET_ROW + resultAsString, this, this.METHOD_GET_ROWS));
 
                 rows.add(result);
             }
@@ -475,7 +482,7 @@ public class AbSqlRow extends AbSqlColumn
 
     public Vector getAllRows()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
@@ -487,21 +494,21 @@ public class AbSqlRow extends AbSqlColumn
                 LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + stringBuffer, this, this.METHOD_GET_ALL_ROWS));
             }
 
-            Vector rows = new Vector();
-            String sqlStatement = stringBuffer.toString();
+            final Vector rows = new Vector();
+            final String sqlStatement = stringBuffer.toString();
 
-            ResultSet rset = this.executeSQLStatement(sqlStatement);
-            ResultSetMetaData resultSetMetaData = rset.getMetaData();
+            final ResultSet rset = this.executeSQLStatement(sqlStatement);
+            final ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
             while (rset.next())
             {
-                HashMap result = new HashMap();
-                Vector columnNames = new Vector();
+                final HashMap result = new HashMap();
+                //final Vector columnNames = new Vector();
                 int columnCount = resultSetMetaData.getColumnCount();
                 for (int index = 1; index <= columnCount; index++)
                 {
-                    String columnName = resultSetMetaData.getColumnName(index);
-                    String field = rset.getString(columnName);
+                    final String columnName = resultSetMetaData.getColumnName(index);
+                    final String field = rset.getString(columnName);
                     result.put(columnName, field);
                 }
 
@@ -615,20 +622,20 @@ public class AbSqlRow extends AbSqlColumn
     }
     */
 
-    public Vector getRowsWhereBetween(HashMap whereKeyValuePairs,
-        String betweenColumn, String smallest, String largest)
+    public Vector getRowsWhereBetween(final HashMap whereKeyValuePairs,
+        final String betweenColumn, final String smallest, final String largest)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
 
         try
         {
-            Vector rows = new Vector();
+            final Vector rows = new Vector();
             stringBuffer.append(sqlStrings.WHERE);
-            Set set = whereKeyValuePairs.keySet();
-            Iterator whereIter = set.iterator();
+            final Set set = whereKeyValuePairs.keySet();
+            final Iterator whereIter = set.iterator();
             String key;
             String value;
             while (whereIter.hasNext())
@@ -653,15 +660,15 @@ public class AbSqlRow extends AbSqlColumn
             stringBuffer.append(largest);
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, METHOD_GET_ROWS_WHERE_BETWEEN));
             }
 
-            ResultSet rset = this.executeSQLStatement(sqlStatement);
-            ResultSetMetaData resultSetMetaData = rset.getMetaData();
+            final ResultSet rset = this.executeSQLStatement(sqlStatement);
+            final ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
             HashMap result;
             Vector columnNames;
@@ -698,16 +705,16 @@ public class AbSqlRow extends AbSqlColumn
         }
     }
 
-    public Vector getRowsWhereBetween(String betweenColumn, String smallest, String largest)
+    public Vector getRowsWhereBetween(final String betweenColumn, final String smallest, final String largest)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(this.sqlStrings.SELECT_ALL_FROM);
         stringBuffer.append(this.getTableName());
 
         try
         {
-            Vector rows = new Vector();
+            final Vector rows = new Vector();
             stringBuffer.append(sqlStrings.WHERE);
             stringBuffer.append(betweenColumn);
             stringBuffer.append(this.sqlStrings.MORE_THAN_QUOTE);
@@ -719,15 +726,15 @@ public class AbSqlRow extends AbSqlColumn
             stringBuffer.append(largest);
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(sqlStrings.SQL_STATEMENT_LABEL + sqlStatement, this, METHOD_GET_ROWS_WHERE_BETWEEN));
             }
 
-            ResultSet rset = this.executeSQLStatement(sqlStatement);
-            ResultSetMetaData resultSetMetaData = rset.getMetaData();
+            final ResultSet rset = this.executeSQLStatement(sqlStatement);
+            final ResultSetMetaData resultSetMetaData = rset.getMetaData();
 
             String columnName;
             String field;

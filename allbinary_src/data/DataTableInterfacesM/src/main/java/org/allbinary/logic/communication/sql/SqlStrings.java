@@ -38,6 +38,11 @@ public class SqlStrings
     public final String INSERT_INTO = "INSERT INTO ";
     public final String VALUES = " VALUES ('";
     
+    public final String ORDER_BY = "ORDER BY";
+    public final String COUNT = "COUNT(";
+    public final String ASC = "ASC";
+    public final String DESC = "DESC";
+    
     public final String PRIMARY_KEY = "PRIMARY KEY(";
     public final String END = ") )";
     

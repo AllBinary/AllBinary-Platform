@@ -26,12 +26,12 @@ public class AbSqlBean extends AbSqlRow
     private final String METHOD_GET_FIELD = "getField";
     private final String METHOD_IS_SUBSET_OF_ENTRY = "isSubsetOfEntry";
     
-    public AbSqlBean(DbConnectionInfo databaseConnectionInfoInterface)
+    public AbSqlBean(final DbConnectionInfo databaseConnectionInfoInterface)
     {
         super(databaseConnectionInfoInterface);
     }
 
-    public String getField(String key, String value, String requestedField)
+    public String getField(final String key, final String value, final String requestedField)
     {
         final StringBuffer stringBuffer = new StringBuffer();
 
@@ -45,12 +45,12 @@ public class AbSqlBean extends AbSqlRow
         stringBuffer.append(value);
         stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-        String sqlStatement = stringBuffer.toString();
+        final String sqlStatement = stringBuffer.toString();
 
         try
         {
             String field = this.stringUtil.EMPTY_STRING;
-            ResultSet rset = executeSQLStatement(sqlStatement);
+            final ResultSet rset = executeSQLStatement(sqlStatement);
             while (rset.next())
             {
 
@@ -80,7 +80,7 @@ public class AbSqlBean extends AbSqlRow
         }
     }
 
-    public String getField(HashMap keysAndValues, String requestedField)
+    public String getField(final HashMap keysAndValues, final String requestedField)
     {
         final StringBuffer stringBuffer = new StringBuffer();
 
@@ -115,9 +115,9 @@ public class AbSqlBean extends AbSqlRow
                 }
             }
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
 
-            ResultSet rset = executeSQLStatement(sqlStatement);
+            final ResultSet rset = executeSQLStatement(sqlStatement);
             while (rset.next())
             {
                 field = rset.getString(requestedField);
@@ -137,7 +137,7 @@ public class AbSqlBean extends AbSqlRow
             return null;
         } catch (Exception e)
         {
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
@@ -148,15 +148,15 @@ public class AbSqlBean extends AbSqlRow
     }
 
     //empty hashmap will cause problems
-    public String isSubsetOfEntry(String key, String value, HashMap columnsAndValues)
+    public String isSubsetOfEntry(final String key, final String value, final HashMap columnsAndValues)
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(sqlStrings.SELECT);
 
         try
         {
-            Iterator iter = columnsAndValues.keySet().iterator();
+            final Iterator iter = columnsAndValues.keySet().iterator();
             
             stringBuffer.append(this.commonSeps.SPACE);
             stringBuffer.append(key);
@@ -175,9 +175,9 @@ public class AbSqlBean extends AbSqlRow
             stringBuffer.append(value);
             stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
 
-            ResultSet rset = executeSQLStatement(sqlStatement);
+            final ResultSet rset = executeSQLStatement(sqlStatement);
 
             String columnName;
             String field;
@@ -206,7 +206,7 @@ public class AbSqlBean extends AbSqlRow
             }
         } catch (Exception e)
         {
-            String sqlStatement = stringBuffer.toString();
+            final String sqlStatement = stringBuffer.toString();
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
                 LogUtil.put(LogFactory.getInstance(this.FAILED_SQL_STATEMENT + sqlStatement, this, METHOD_IS_SUBSET_OF_ENTRY, e));
