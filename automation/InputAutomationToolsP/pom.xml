@@ -53,6 +53,8 @@
         <module>../InputAutomationJavaApplicationM</module>
         
         <module>../../game/InputAutomationGameModulesJavaLibraryM</module>
+        
+        <module>../AllBinaryCoreJavaLibraryM</module>
     </modules>
 
 </project>

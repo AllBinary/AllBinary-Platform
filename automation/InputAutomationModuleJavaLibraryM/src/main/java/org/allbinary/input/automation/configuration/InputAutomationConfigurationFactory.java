@@ -15,8 +15,11 @@ package org.allbinary.input.automation.configuration;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import java.io.File;
+import java.io.FileInputStream;
 import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.stream.StreamSource;
 import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputAutomationConfigurationFactory
@@ -30,15 +33,16 @@ public class InputAutomationConfigurationFactory
     public static void init()
     throws Exception
     {
-        File file = InputAutomationConfiguration.getFile();
+        final File file = InputAutomationConfiguration.getFile();
         if(file.isFile())
         {
             LogUtil.put(LogFactory.getInstance("Loaded Configuration", "InputAutomationConfiguration", "init"));
-            JAXBContext jaxbContext = JAXBContext.newInstance(
-                InputAutomationConfiguration.class);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            inputAutomationConfiguration =
-                (InputAutomationConfiguration) unmarshaller.unmarshal(file);
+            final JAXBContext jaxbContext = JAXBContext.newInstance(InputAutomationConfiguration.class);
+            final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            final JAXBElement<InputAutomationConfiguration> root = unmarshaller.unmarshal(new StreamSource(new FileInputStream(file)), InputAutomationConfiguration.class);
+            inputAutomationConfiguration = (InputAutomationConfiguration) 
+                    //unmarshaller.unmarshal(file);
+                    root.getValue();
         }
         else
         {
