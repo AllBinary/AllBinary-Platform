@@ -26,7 +26,7 @@ import org.allbinary.thread.RunnableInterface;
 
 public class GenericModuleFactory 
     extends AbstractInputAutomationFactory
-    implements InputAutomationModuleFactoryInterface
+    //implements InputAutomationModuleFactoryInterface
 {
     private static String NAME = "Generic" + InputAutomationModuleData.MODULE_NAME_END;
         

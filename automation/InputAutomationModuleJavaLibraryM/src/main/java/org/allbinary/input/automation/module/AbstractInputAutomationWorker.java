@@ -21,7 +21,7 @@ import org.allbinary.media.image.comparison.motion.MotionRectanglesWorker;
 import org.allbinary.thread.RunnableInterface;
 import org.allbinary.time.TimeDelayHelper;
 
-abstract public class AbstractInputAutomationWorker
+public class AbstractInputAutomationWorker
     implements RunnableInterface//, CapturedImageWorkerResultsListener
 {
     private long index;
@@ -119,7 +119,9 @@ abstract public class AbstractInputAutomationWorker
         this.getCaptureWorker().setRunning(false);
     }
     
-    public abstract void process() throws Exception;
+    public void process() throws Exception {
+        throw new RuntimeException();
+    }
     
     public void run()
     {

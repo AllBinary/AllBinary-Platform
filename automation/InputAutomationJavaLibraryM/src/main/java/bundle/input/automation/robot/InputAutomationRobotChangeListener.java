@@ -11,12 +11,14 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.bundle.input.automation.robot;
+package bundle.input.automation.robot;
 
-import org.allbinary.input.automation.robot.InputRobotInterface;
-import org.allbinary.osgi.OSGIServiceInterface;
+import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent;
 
-public interface InputAutomationRobotServiceInterface extends OSGIServiceInterface
+public interface InputAutomationRobotChangeListener
 {
-    InputRobotInterface[] getInputRobotInterfaceArray();   
+    void onAdd(
+        InputAutomationRobotChangeEvent inputAutomationRobotChangeEvent);
+    void onRemove(
+        InputAutomationRobotChangeEvent inputAutomationRobotChangeEvent);
 }

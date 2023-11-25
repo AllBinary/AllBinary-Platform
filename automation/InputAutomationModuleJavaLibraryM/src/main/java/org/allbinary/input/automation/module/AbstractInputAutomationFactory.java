@@ -20,7 +20,7 @@ import javax.swing.JPanel;
 
 import org.allbinary.logic.java.help.JavaHelpUtil;
 
-abstract public class AbstractInputAutomationFactory
+public class AbstractInputAutomationFactory extends InputAutomationModuleFactoryInterface
 {
     private String name;
     private JPanel jPanel;

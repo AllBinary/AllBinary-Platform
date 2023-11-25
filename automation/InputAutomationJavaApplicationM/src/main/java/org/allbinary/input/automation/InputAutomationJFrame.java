@@ -14,32 +14,35 @@
 package org.allbinary.input.automation;
 
 import java.awt.Desktop;
-import java.net.URL;
 import java.net.URI;
+import java.net.URL;
+
 import javax.help.HelpSet;
 import javax.help.event.HelpSetEvent;
 import javax.help.event.HelpSetListener;
 import javax.swing.ImageIcon;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.java.help.JavaHelpUtil;
+import javax.swing.JDialog;
+
+import bundle.input.automation.InputAutomationBundleActivatorListenerInterface;
+import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
+import bundle.input.automation.robot.InputAutomationRobotChangeListener;
+
 import org.allbinary.gui.dialog.BasicTextJDialog;
 import org.allbinary.gui.swing.workers.JListSwingWorker;
-import org.allbinary.input.automation.osgi.DesktopBundle;
-import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.configuration.InputAutomationConfiguration;
 import org.allbinary.input.automation.configuration.InputAutomationConfigurationFactory;
 import org.allbinary.input.automation.configuration.InputAutomationConfigurationModuleChangeEvent;
-import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurations;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryFactory;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurations;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
+import org.allbinary.input.automation.osgi.DesktopBundle;
+import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent;
-import org.allbinary.thread.RunnableInterface;
-import bundle.input.automation.InputAutomationBundleActivatorListenerInterface;
-import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
-import javax.swing.JDialog;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.java.help.JavaHelpUtil;
+import org.allbinary.thread.RunnableInterface;
 
 public class InputAutomationJFrame extends javax.swing.JFrame implements InputAutomationConfigurationModuleChangeListener, InputAutomationRobotChangeListener, HelpSetListener
 {
@@ -636,15 +639,13 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       }
    }
 
-   public void onAdd(InputAutomationConfigurationModuleChangeEvent inputAutomationConfigurationChangeEvent)
+   public void onAdd(final InputAutomationConfigurationModuleChangeEvent inputAutomationConfigurationChangeEvent)
    {
       try
       {
          LogUtil.put(LogFactory.getInstance("Start", this, "onAdd"));
 
-         InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance();
-
-         InputAutomationModuleConfigurations inputAutomationModuleConfigurations = InputAutomationModuleConfigurationsSingletonFactory.getInstance();
+         final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = InputAutomationModuleConfigurationsSingletonFactory.getInstance();
 
          inputAutomationModuleConfigurations.add(inputAutomationConfigurationChangeEvent.getInputAutomationModuleConfiguration());
 
@@ -662,9 +663,8 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       {
          LogUtil.put(LogFactory.getInstance("Start", this, "onRemove"));
 
-         InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance();
-
-         InputAutomationModuleConfigurations inputAutomationModuleConfigurations = InputAutomationModuleConfigurationsSingletonFactory.getInstance();
+         final InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance();
+         final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = new InputAutomationModuleConfigurations(inputAutomationConfiguration.getInputAutomationModuleConfigurationList());
 
          inputAutomationModuleConfigurations.remove(inputAutomationConfigurationChangeEvent.getInputAutomationModuleConfiguration());
 

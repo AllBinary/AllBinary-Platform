@@ -13,6 +13,7 @@
 */
 package org.allbinary.input.automation.module;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.Iterator;
 import java.util.Vector;
@@ -25,7 +26,7 @@ import java.awt.image.BufferedImage;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.logic.communication.log.LogFactory;
 
-abstract public class ImageComparatorConstraints
+public class ImageComparatorConstraints
     implements ImageComparatorConstraintsInterface
 {
     private Vector avoidVector;
@@ -44,6 +45,10 @@ abstract public class ImageComparatorConstraints
     public Vector getAvoidVector()
     {
         return avoidVector;
+    }
+    
+    public boolean isColorAllowed(int frame, GPoint point, Color color) {
+        throw new RuntimeException();
     }
     
     public boolean isCollisionWithAvoidRectangles(Rectangle rectangle)
@@ -113,7 +118,9 @@ abstract public class ImageComparatorConstraints
         }
     }
     
-    abstract public boolean isImageValid(BufferedImage bufferedImage) throws Exception;
+    public boolean isImageValid(BufferedImage bufferedImage) throws Exception {
+        throw new RuntimeException();
+    }
     
     public void log()
     {

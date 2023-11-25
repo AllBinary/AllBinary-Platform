@@ -23,7 +23,7 @@ import org.allbinary.thread.RunnableInterface;
 
 public class TestModuleFactory
     extends AbstractInputAutomationFactory
-    implements InputAutomationModuleFactoryInterface
+    //implements InputAutomationModuleFactoryInterface
 {
    private static String NAME = "Test New Game" + InputAutomationModuleData.MODULE_NAME_END;
 

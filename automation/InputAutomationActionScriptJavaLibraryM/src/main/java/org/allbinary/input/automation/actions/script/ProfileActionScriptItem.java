@@ -23,8 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 import org.w3c.dom.Node;
 
-abstract public class ProfileActionScriptItem
-    extends DefaultMutableTreeNode
+public class ProfileActionScriptItem extends DefaultMutableTreeNode
     implements ProfileActionScriptItemInterface, ActionListener
 {
     private JPopupMenu jPopupMenu;
@@ -81,12 +80,18 @@ abstract public class ProfileActionScriptItem
         getJPopupMenu().add(jMenuItemDelete);
     }
 
+    public void process(Long frame) throws Exception {
+        throw new RuntimeException();
+    }
+    
     public JPopupMenu getJPopupMenu()
     {
         return jPopupMenu;
     }
     
-    abstract public void showDialog();
+    public void showDialog() {
+        throw new RuntimeException();
+    }
     
     public void actionPerformed(ActionEvent actionEvent)
     {

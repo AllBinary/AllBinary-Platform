@@ -13,10 +13,12 @@
 */
 package org.allbinary.input.automation.module.configuration;
 
+import org.allbinary.input.automation.configuration.InputAutomationConfigurationFactory;
+
 public class InputAutomationModuleConfigurationsSingletonFactory
 {
     private static InputAutomationModuleConfigurations inputAutomationModuleConfigurations =
-        new InputAutomationModuleConfigurations();
+        new InputAutomationModuleConfigurations(InputAutomationConfigurationFactory.getInstance().getInputAutomationModuleConfigurationList());
     
     private InputAutomationModuleConfigurationsSingletonFactory()
     {

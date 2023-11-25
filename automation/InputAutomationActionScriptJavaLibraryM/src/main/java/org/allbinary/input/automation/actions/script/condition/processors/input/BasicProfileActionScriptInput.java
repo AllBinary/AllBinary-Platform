@@ -30,7 +30,7 @@ import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
-abstract public class BasicProfileActionScriptInput
+public class BasicProfileActionScriptInput
     extends BasicProfileActionScriptProcessor
     implements ProfileActionScriptInputInterface
 {

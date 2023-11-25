@@ -13,23 +13,20 @@
 */
 package org.allbinary.input.automation.module.osgi;
 
+import bundle.input.automation.module.InputAutomationModuleServiceInterface;
+import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
+import org.allbinary.input.automation.configuration.InputAutomationConfigurationModuleChangeEvent;
+import org.allbinary.input.automation.configuration.InputAutomationConfigurationUtil;
+import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.osgi.OSGIActivatorUtil;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceFactory;
 import org.osgi.framework.ServiceReference;
 
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.input.automation.configuration.InputAutomationConfigurationModuleChangeEvent;
-import org.allbinary.input.automation.configuration.InputAutomationConfigurationUtil;
-import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
-import org.allbinary.osgi.OSGIActivatorUtil;
-import bundle.input.automation.module.InputAutomationModuleServiceInterface;
-
-import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
-import org.allbinary.logic.communication.log.LogFactory;
-
-abstract public class InputAutomationModuleBundleActivator
+public class InputAutomationModuleBundleActivator
     implements BundleActivator
 {
     private InputAutomationModuleFactoryInterface inputAutomationModuleInterface[];
@@ -41,7 +38,9 @@ abstract public class InputAutomationModuleBundleActivator
         this.init();
     }
     
-    abstract public void init() throws Exception;
+    public void init() throws Exception {
+        throw new RuntimeException();
+    }
     
     private InputAutomationConfigurationModuleChangeListener
         getInputAutomationConfigurationModuleChangeListener(

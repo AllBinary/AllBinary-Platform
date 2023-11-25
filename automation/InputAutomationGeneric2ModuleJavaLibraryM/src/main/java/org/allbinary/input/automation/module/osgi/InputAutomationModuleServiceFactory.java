@@ -23,7 +23,7 @@ import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterfa
 import bundle.input.automation.module.InputAutomationModuleService;
 import org.allbinary.logic.communication.log.LogFactory;
 
-public abstract class InputAutomationModuleServiceFactory
+public class InputAutomationModuleServiceFactory
     implements ServiceFactory
 {
     private InputAutomationModuleFactoryInterface inputAutomationModuleInterfaceArray[];

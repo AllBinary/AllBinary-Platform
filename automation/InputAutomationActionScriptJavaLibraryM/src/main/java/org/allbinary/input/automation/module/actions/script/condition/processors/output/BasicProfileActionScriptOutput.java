@@ -18,12 +18,11 @@ import org.w3c.dom.Node;
 
 import org.allbinary.input.automation.actions.script.condition.processors.BasicProfileActionScriptProcessor;
 
-abstract public class BasicProfileActionScriptOutput
+public class BasicProfileActionScriptOutput
     extends BasicProfileActionScriptProcessor
     implements ProfileActionScriptOutputInterface
 {
-    public BasicProfileActionScriptOutput(
-        String label, Node node) 
+    public BasicProfileActionScriptOutput(String label, Node node) 
         throws Exception
     {        
         super(label, node);

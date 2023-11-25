@@ -14,9 +14,13 @@
 package org.allbinary.input.automation.configuration;
 
 import java.io.File;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
@@ -24,6 +28,7 @@ import org.allbinary.data.tree.dom.document.DomDocumentFileHelper;
 import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.io.path.AbPath;
@@ -32,13 +37,17 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 //name="inputAutomationConfiguration", 
 @XmlRootElement(namespace = "http://www.allbinary.com/InputAutomationConfiguration")
+@XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name="InputAutomationConfiguration")
 public class InputAutomationConfiguration
 {
     private final static String FILENAME = "InputAutomationConfig.xml";
     
-    //@XmlElement(name="installed")
+    @XmlElement(name="INPUT_AUTOMATION_INSTALLATION")
     private boolean installed;
+
+    @XmlElement(name="INPUT_AUTOMATION_MODULES")
+    private List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList;
 
     public InputAutomationConfiguration()
     throws Exception
@@ -169,7 +178,14 @@ public class InputAutomationConfiguration
         this.installed = installed;
         LogUtil.put(LogFactory.getInstance("Installed: " + installed, this, "setIntalled"));
     }
-    
+ 
+    /**
+     * @return the inputAutomationModuleConfigurationList
+     */
+    public List<InputAutomationModuleConfiguration> getInputAutomationModuleConfigurationList() {
+        return inputAutomationModuleConfigurationList;
+    }
+
     public void save()
     throws Exception
     {

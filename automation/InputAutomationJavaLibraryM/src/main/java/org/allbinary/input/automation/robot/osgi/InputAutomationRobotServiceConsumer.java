@@ -13,10 +13,11 @@
 */
 package org.allbinary.input.automation.robot.osgi;
 
+import bundle.input.automation.robot.InputAutomationRobotServiceInterface;
+
 import org.osgi.framework.BundleContext;
 
 import org.allbinary.osgi.service.InputAutomationServiceConsumer;
-import org.bundle.input.automation.robot.InputAutomationRobotServiceInterface;
 
 public class InputAutomationRobotServiceConsumer
     extends InputAutomationServiceConsumer

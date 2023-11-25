@@ -20,7 +20,7 @@ import javax.help.HelpSet;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
-abstract public class AbstractInputRobot
+public class AbstractInputRobot
 {
     private HelpSet helpSet;
     
@@ -59,7 +59,9 @@ abstract public class AbstractInputRobot
         this.mouseMoveToTarget(rectangle, 0, 0);
     }
     
-    abstract public void mouseMove(Integer x, Integer y);
+    public void mouseMove(Integer x, Integer y) {
+        throw new RuntimeException();
+    }
 
     private void setHelpSet(HelpSet helpSet)
     {

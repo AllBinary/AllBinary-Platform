@@ -40,7 +40,7 @@ import org.allbinary.input.automation.module.actions.script.condition.processors
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
-abstract public class BasicProfileActionScriptCondition
+public class BasicProfileActionScriptCondition
     extends ProfileActionScriptItem
     implements ProfileActionScriptConditionInterface
 {

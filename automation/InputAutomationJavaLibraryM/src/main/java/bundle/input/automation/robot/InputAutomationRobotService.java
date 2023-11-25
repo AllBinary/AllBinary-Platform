@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.bundle.input.automation.robot;
+package bundle.input.automation.robot;
 
 import org.allbinary.input.automation.robot.InputRobotInterface;
 

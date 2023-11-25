@@ -16,6 +16,7 @@ package org.allbinary.input.automation.module.configuration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.HashMap;
+import java.util.List;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -36,36 +37,35 @@ public class InputAutomationModuleConfigurations
     {
         this.setHashMap(new HashMap());
         
-        byte bytes[]= new byte[100000];
-        FileInputStream idFile = new FileInputStream(file);
-        int length = idFile.read(bytes);
-        String data = new String(bytes);
-        int endIndex = data.lastIndexOf('>');
+        final byte bytes[]= new byte[100000];
+        final FileInputStream idFile = new FileInputStream(file);
+        final int length = idFile.read(bytes);
+        final String data = new String(bytes);
+        final int endIndex = data.lastIndexOf('>');
         
-        Document document = DomDocumentHelper.create(
-            data.substring(0, endIndex + 1));
+        final Document document = DomDocumentHelper.create(data.substring(0, endIndex + 1));
         
-        NodeList nodeList = document.getElementsByTagName(NewInputAutomationModulesData.NAME);
+        final NodeList nodeList = document.getElementsByTagName(NewInputAutomationModulesData.NAME);
         if(nodeList.getLength() > 0)
         {
-            NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
+            final NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
             
             LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor"));
             
             for(int index = 0; index < nameNodeList.getLength(); index++)
             {
-                Node node = nameNodeList.item(index);
+                final Node node = nameNodeList.item(index);
                 this.add(new InputAutomationModuleConfiguration(node));
             }
         }
     }
 
-    public InputAutomationModuleConfigurations(Document document)
+    public InputAutomationModuleConfigurations(final Document document)
         throws Exception
     {
         this.setHashMap(new HashMap());
         
-        NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
+        final NodeList nameNodeList = document.getElementsByTagName(InputAutomationModuleData.NAME);
         LogUtil.put(LogFactory.getInstance("Number Of Module(s) Specified: " + nameNodeList.getLength(), this,"Contructor"));
         
         for(int index = 0; index < nameNodeList.getLength(); index++)
@@ -75,19 +75,29 @@ public class InputAutomationModuleConfigurations
         }
     }
 
+    public InputAutomationModuleConfigurations(final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList)
+    {
+        this.setHashMap(new HashMap());
+        
+        final int size = inputAutomationModuleConfigurationList.size();
+        InputAutomationModuleConfiguration inputAutomationModuleConfiguration;
+        for(int index = 0; index < size; index++) {
+            inputAutomationModuleConfiguration = inputAutomationModuleConfigurationList.get(index);
+            this.add(inputAutomationModuleConfiguration);
+        }
+    }
+    
     public InputAutomationModuleConfigurations()
     {
         this.setHashMap(new HashMap());
     }
     
-    public void add(
-        InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
+    public void add(final InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
     {
         this.getHashMap().put(inputAutomationModuleConfiguration.getClassName(), inputAutomationModuleConfiguration);
     }
 
-    public void remove(
-        InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
+    public void remove(final InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
     {
         this.getHashMap().remove(inputAutomationModuleConfiguration.getClassName());
     }

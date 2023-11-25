@@ -36,13 +36,15 @@ public class InputAutomationConfigurationFactory
         final File file = InputAutomationConfiguration.getFile();
         if(file.isFile())
         {
-            LogUtil.put(LogFactory.getInstance("Loaded Configuration", "InputAutomationConfiguration", "init"));
+            LogUtil.put(LogFactory.getInstance("LoadingConfiguration", "InputAutomationConfiguration", "init"));
             final JAXBContext jaxbContext = JAXBContext.newInstance(InputAutomationConfiguration.class);
             final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             final JAXBElement<InputAutomationConfiguration> root = unmarshaller.unmarshal(new StreamSource(new FileInputStream(file)), InputAutomationConfiguration.class);
             inputAutomationConfiguration = (InputAutomationConfiguration) 
                     //unmarshaller.unmarshal(file);
                     root.getValue();
+            
+            LogUtil.put(LogFactory.getInstance("LoadedConfiguration", "InputAutomationConfiguration", "init"));
         }
         else
         {

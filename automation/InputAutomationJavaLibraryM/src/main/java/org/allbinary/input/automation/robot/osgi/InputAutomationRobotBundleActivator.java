@@ -13,6 +13,8 @@
 */
 package org.allbinary.input.automation.robot.osgi;
 
+import bundle.input.automation.robot.InputAutomationRobotChangeListener;
+import bundle.input.automation.robot.InputAutomationRobotServiceInterface;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceFactory;
@@ -21,11 +23,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.osgi.OSGIActivatorUtil;
-import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;
-import org.bundle.input.automation.robot.InputAutomationRobotServiceInterface;
 import org.osgi.framework.ServiceReference;
 
-abstract public class InputAutomationRobotBundleActivator
+public class InputAutomationRobotBundleActivator
     implements BundleActivator
 {
     private InputRobotInterface inputRobotInterface[];
@@ -37,7 +37,9 @@ abstract public class InputAutomationRobotBundleActivator
         this.init();
     }
     
-    abstract public void init() throws Exception;
+    public void init() throws Exception {
+        throw new RuntimeException();
+    }
     
     public void registerAsService(BundleContext bundleContext)
     throws Exception

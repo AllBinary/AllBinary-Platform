@@ -13,20 +13,18 @@
 */
 package bundle.input.automation;
 
-import org.osgi.framework.BundleActivator;
-import org.osgi.framework.BundleContext;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
+import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
+import bundle.input.automation.robot.InputAutomationRobotChangeListener;
 import org.allbinary.input.automation.InputAutomationJFrame;
-import org.allbinary.input.automation.osgi.InputAutomationServiceFactory;
 import org.allbinary.input.automation.module.osgi.InputAutomationModuleServiceConsumer;
 import org.allbinary.input.automation.module.osgi.InputAutomationNewBundleRunnable;
+import org.allbinary.input.automation.osgi.InputAutomationServiceFactory;
 import org.allbinary.input.automation.robot.osgi.InputAutomationRobotServiceConsumer;
-import org.allbinary.osgi.OSGIActivatorUtil;
-import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.bundle.input.automation.robot.InputAutomationRobotChangeListener;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.osgi.OSGIActivatorUtil;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
 
 public class InputAutomationBundleActivator
     implements BundleActivator, InputAutomationBundleActivatorListenerInterface

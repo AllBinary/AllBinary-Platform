@@ -19,10 +19,22 @@ import javax.swing.JPanel;
 
 import org.allbinary.thread.RunnableInterface;
 
-public interface InputAutomationModuleFactoryInterface
+public class InputAutomationModuleFactoryInterface
 {
-    String getName();
-    JPanel getConfigurationJPanel();
-    HelpSet getHelpSet();
-    RunnableInterface getInstance() throws Exception;
+    public String getName() {
+        return null;
+    }
+
+    public JPanel getConfigurationJPanel() {
+        return null;
+    }
+    
+    public HelpSet getHelpSet() {
+        return null;
+    }
+    
+    public RunnableInterface getInstance() throws Exception {
+        return null;
+    }
+
 }

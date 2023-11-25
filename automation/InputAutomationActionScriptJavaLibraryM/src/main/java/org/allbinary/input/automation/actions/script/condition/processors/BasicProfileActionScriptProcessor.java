@@ -21,7 +21,7 @@ import org.w3c.dom.Node;
 import org.allbinary.input.automation.actions.script.ProfileActionScriptItem;
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
 
-abstract public class BasicProfileActionScriptProcessor
+public class BasicProfileActionScriptProcessor
     extends ProfileActionScriptItem
     implements ProfileActionScriptProcessorInterface
 {    

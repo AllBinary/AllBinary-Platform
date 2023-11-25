@@ -13,6 +13,10 @@
 */
 package org.allbinary.input.automation.module.configuration;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -28,20 +32,27 @@ import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 
+@XmlRootElement(name="INPUT_AUTOMATION_MODULE")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class InputAutomationModuleConfiguration
 {
     private String name;
+    @XmlElement(name="DYNAMICCOMPONENT_NAME")
     private String className;
+
     private InputAutomationModuleFactoryInterface inputAutomationModuleInterface;
     
-    public InputAutomationModuleConfiguration(
-        Node node)
+    public InputAutomationModuleConfiguration() {
+        
+    }
+
+    public InputAutomationModuleConfiguration(final Node node)
         throws Exception
     {
         this.init(node);
     }
     
-    public InputAutomationModuleConfiguration(String name, String className)
+    public InputAutomationModuleConfiguration(final String name, final String className)
     throws Exception
     {
         this.setName(name);

@@ -19,7 +19,7 @@ import java.awt.Rectangle;
 import org.allbinary.media.image.comparison.motion.MotionRectangleConstraintsInterface;
 import java.awt.image.BufferedImage;
 
-abstract public class MotionRectangleConstraints
+public class MotionRectangleConstraints
     implements MotionRectangleConstraintsInterface
 {
     private Dimension minDimension;
@@ -92,9 +92,9 @@ abstract public class MotionRectangleConstraints
         }
     }
 
-    abstract public boolean isValid(
-        Long frame, BufferedImage bufferedImage, Rectangle rectangle)
-        throws Exception;
+    public boolean isValid(Long frame, BufferedImage bufferedImage, Rectangle rectangle) throws Exception {
+        throw new RuntimeException();
+    }
     
     public void setMinDimension(Dimension minDimension)
     {

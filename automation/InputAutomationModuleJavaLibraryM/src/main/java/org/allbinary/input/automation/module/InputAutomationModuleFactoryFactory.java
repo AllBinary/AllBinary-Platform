@@ -26,8 +26,6 @@ import org.allbinary.input.automation.module.configuration.InputAutomationModule
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.help.JavaHelpSetNotifier;
-import org.allbinary.input.automation.configuration.InputAutomationConfiguration;
-import org.allbinary.input.automation.configuration.InputAutomationConfigurationFactory;
 import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfigurationsSingletonFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 
@@ -37,8 +35,7 @@ public class InputAutomationModuleFactoryFactory
     private DefaultListModelHelper defaultListModelHelper;
     private HelpSetListener helpSetListenerInterface;
     
-    public InputAutomationModuleFactoryFactory(
-        HelpSetListener helpSetListenerInterface)
+    public InputAutomationModuleFactoryFactory(final HelpSetListener helpSetListenerInterface)
     throws Exception
     {
         this.helpSetListenerInterface = helpSetListenerInterface;
@@ -46,19 +43,14 @@ public class InputAutomationModuleFactoryFactory
         
         this.hashMap = new HashMap();
         
-        InputAutomationConfiguration inputAutomationConfiguration =
-            InputAutomationConfigurationFactory.getInstance();
-        
-        InputAutomationModuleConfigurations inputAutomationModuleConfigurations =
-          InputAutomationModuleConfigurationsSingletonFactory.getInstance();
+        final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = InputAutomationModuleConfigurationsSingletonFactory.getInstance();
 
-        Collection collection =
-            inputAutomationModuleConfigurations.getHashMap().values();
-        Iterator iterator = collection.iterator();
+        final Collection collection = inputAutomationModuleConfigurations.getHashMap().values();
+        final Iterator iterator = collection.iterator();
+        InputAutomationModuleConfiguration inputAutomationModuleConfiguration;
         while(iterator.hasNext())
         {
-            InputAutomationModuleConfiguration inputAutomationModuleConfiguration =
-                (InputAutomationModuleConfiguration) iterator.next();
+            inputAutomationModuleConfiguration = (InputAutomationModuleConfiguration) iterator.next();
             
             this.add(inputAutomationModuleConfiguration);
         }
@@ -67,20 +59,19 @@ public class InputAutomationModuleFactoryFactory
         LogUtil.put(LogFactory.getInstance("Loaded " + this.hashMap.size() + " Input Automation Modules", this,"Contructor"));
     }
     
-    private void add(
-        InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
+    private void add(final InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
     {
-        InputAutomationModuleFactoryInterface inputAutomationModuleInterface =
+        final InputAutomationModuleFactoryInterface inputAutomationModuleInterface =
             inputAutomationModuleConfiguration.getInputAutomationModuleInterface();
 
         this.hashMap.put(inputAutomationModuleConfiguration.getName(),
             inputAutomationModuleInterface);
         this.defaultListModelHelper.add(inputAutomationModuleConfiguration.getName());
 
-        HelpSet helpSet = inputAutomationModuleInterface.getHelpSet();
+        final HelpSet helpSet = inputAutomationModuleInterface.getHelpSet();
         if(!JavaHelpSetNotifier.isNotified(helpSet))
         {
-            HelpSetEvent helpSetEvent = new HelpSetEvent(
+            final HelpSetEvent helpSetEvent = new HelpSetEvent(
                 this, helpSet, HelpSetEvent.HELPSET_ADDED);
             this.helpSetListenerInterface.helpSetAdded(helpSetEvent);
         }
@@ -91,7 +82,7 @@ public class InputAutomationModuleFactoryFactory
         return (ListModel) this.defaultListModelHelper.getListModel();
     }
     
-    public InputAutomationModuleFactoryInterface getInstance(String moduleName)
+    public InputAutomationModuleFactoryInterface getInstance(final String moduleName)
     {
         return (InputAutomationModuleFactoryInterface) this.hashMap.get(moduleName);
     }
