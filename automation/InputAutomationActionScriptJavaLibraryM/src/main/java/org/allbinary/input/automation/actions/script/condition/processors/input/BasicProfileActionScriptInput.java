@@ -66,9 +66,8 @@ public class BasicProfileActionScriptInput
         {
             this.setTime(0);
         }
-        
-        final Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
-        this.setInputRobotInterface((InputRobotInterface) hashtable.get(inputTypeString));
+
+        this.setInputRobotInterface(InputRobotFactory.getInstance().get(inputTypeString));
     }
     
     public BasicProfileActionScriptInput(final String label)
@@ -78,10 +77,11 @@ public class BasicProfileActionScriptInput
         
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + label, this, CommonStrings.getInstance().CONSTRUCTOR));
         
-        final Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
+        final InputRobotFactory inputRobotFactory = InputRobotFactory.getInstance();
+        final Hashtable hashtable = (Hashtable) inputRobotFactory.get();
         final Set set = hashtable.keySet();
         final Iterator iterator = set.iterator();
-        this.setInputRobotInterface((InputRobotInterface) hashtable.get(iterator.next()));
+        this.setInputRobotInterface(inputRobotFactory.get((String) iterator.next()));
         
         this.setTime(0);
     }

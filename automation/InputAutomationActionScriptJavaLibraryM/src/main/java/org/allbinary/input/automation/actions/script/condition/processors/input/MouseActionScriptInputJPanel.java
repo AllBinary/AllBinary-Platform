@@ -14,12 +14,11 @@
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
 import java.awt.event.InputEvent;
-import java.util.Hashtable;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
+
 import org.allbinary.input.automation.robot.InputRobot;
 import org.allbinary.input.automation.robot.InputRobotFactory;
-import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -60,11 +59,9 @@ public class MouseActionScriptInputJPanel
    
    private void set()
    {
-      ComboBoxModel inputTypeComboBoxModel =
-            this.inputAutomationTypeJComboBox.getModel();
+      final ComboBoxModel inputTypeComboBoxModel = this.inputAutomationTypeJComboBox.getModel();
       
-      inputTypeComboBoxModel.setSelectedItem(
-            this.mouseActionScriptInputInterface.getInputRobotInterface().getName());
+      inputTypeComboBoxModel.setSelectedItem(this.mouseActionScriptInputInterface.getInputRobotInterface().getName());
       
       if((this.mouseActionScriptInputInterface.getButtonClicks() &
             InputEvent.BUTTON1_MASK) != 0)
@@ -106,9 +103,8 @@ public class MouseActionScriptInputJPanel
       comboBoxModel.getSelectedItem();
       if(!StringValidationUtil.getInstance().isEmpty(selectedItem))
       {
-         Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
          this.mouseActionScriptInputInterface.setInputRobotInterface(
-               (InputRobotInterface) hashtable.get(selectedItem));
+               InputRobotFactory.getInstance().get(selectedItem));
       }
    }
    

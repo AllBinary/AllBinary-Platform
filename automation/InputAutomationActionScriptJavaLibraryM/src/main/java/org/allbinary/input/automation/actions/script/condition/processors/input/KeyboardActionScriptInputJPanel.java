@@ -104,9 +104,8 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
       String selectedItem = (String) comboBoxModel.getSelectedItem();
       if (!StringValidationUtil.getInstance().isEmpty(selectedItem))
       {
-         Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
          this.keyActionScriptInputInterface.setInputRobotInterface(
-               (InputRobotInterface) hashtable.get(selectedItem));
+               InputRobotFactory.getInstance().get(selectedItem));
       }
    }
    
