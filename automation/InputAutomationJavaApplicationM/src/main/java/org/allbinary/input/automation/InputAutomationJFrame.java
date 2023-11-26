@@ -26,6 +26,8 @@ import javax.swing.JDialog;
 import bundle.input.automation.InputAutomationBundleActivatorListenerInterface;
 import bundle.input.automation.module.configuration.InputAutomationConfigurationModuleChangeListener;
 import bundle.input.automation.robot.InputAutomationRobotChangeListener;
+import org.allbinary.globals.AppUrlGlobals;
+import org.allbinary.globals.URLGLOBALS;
 
 import org.allbinary.gui.dialog.BasicTextJDialog;
 import org.allbinary.gui.swing.workers.JListSwingWorker;
@@ -41,7 +43,9 @@ import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.osgi.InputAutomationRobotChangeEvent;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.java.help.JavaHelpUtil;
+import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 import org.allbinary.thread.RunnableInterface;
 
 public class InputAutomationJFrame extends javax.swing.JFrame implements InputAutomationConfigurationModuleChangeListener, InputAutomationRobotChangeListener, HelpSetListener
@@ -572,6 +576,12 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
    public static void create(final InputAutomationBundleActivatorListenerInterface inputAutomationBundleActivatorListenerInterface)
    {
+       LogConfigTypeFactory.getInstance();
+       final AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
+       appUrlGlobals.setWebappPath("G:/mnt/bc/mydev/work_automation/automation/run");
+       URLGLOBALS.init(appUrlGlobals);
+       WebappClassLoaderInfo.setLoader(appUrlGlobals.getClass().getClassLoader());
+
       java.awt.EventQueue.invokeLater(new Runnable()
       {
 

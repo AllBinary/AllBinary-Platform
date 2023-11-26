@@ -16,11 +16,14 @@ package org.allbinary.input.automation.configuration;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.List;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.stream.StreamSource;
+import org.allbinary.input.automation.module.configuration.InputAutomationModuleConfiguration;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 public class InputAutomationConfigurationFactory
 {
@@ -33,10 +36,13 @@ public class InputAutomationConfigurationFactory
     public static void init()
     throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final String INPUT_AUTOMATION_CONFIGURATION = "InputAutomationConfiguration";
+
         final File file = InputAutomationConfiguration.getFile();
         if(file.isFile())
         {
-            LogUtil.put(LogFactory.getInstance("LoadingConfiguration", "InputAutomationConfiguration", "init"));
+            LogUtil.put(LogFactory.getInstance("LoadingConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
             final JAXBContext jaxbContext = JAXBContext.newInstance(InputAutomationConfiguration.class);
             final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
             final JAXBElement<InputAutomationConfiguration> root = unmarshaller.unmarshal(new StreamSource(new FileInputStream(file)), InputAutomationConfiguration.class);
@@ -44,11 +50,23 @@ public class InputAutomationConfigurationFactory
                     //unmarshaller.unmarshal(file);
                     root.getValue();
             
-            LogUtil.put(LogFactory.getInstance("LoadedConfiguration", "InputAutomationConfiguration", "init"));
+            final List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList = 
+                    inputAutomationConfiguration.getInputAutomationModuleConfigurationList();
+            
+            LogUtil.put(LogFactory.getInstance("isInstalled: " + inputAutomationConfiguration.isInstalled(), INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
+
+            final int size = inputAutomationModuleConfigurationList.size();
+            InputAutomationModuleConfiguration inputAutomationModuleConfiguration;
+            for (int index = 0; index < size; index++) {
+                inputAutomationModuleConfiguration = inputAutomationModuleConfigurationList.get(index);
+                inputAutomationModuleConfiguration.init();
+            }
+            
+            LogUtil.put(LogFactory.getInstance("LoadedConfiguration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("New Configuration", "InputAutomationConfiguration", "init"));
+            LogUtil.put(LogFactory.getInstance("New Configuration", INPUT_AUTOMATION_CONFIGURATION, commonStrings.INIT));
             inputAutomationConfiguration = new InputAutomationConfiguration();
         }
     }

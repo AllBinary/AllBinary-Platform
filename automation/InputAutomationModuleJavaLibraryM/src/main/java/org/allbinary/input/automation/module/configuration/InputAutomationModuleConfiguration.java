@@ -17,6 +17,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -31,19 +33,21 @@ import org.allbinary.input.automation.InputAutomationData;
 import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 
-@XmlRootElement(name="INPUT_AUTOMATION_MODULE")
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(name="INPUT_AUTOMATION_MODULE")
+@XmlType(name="InputAutomationModuleConfiguration")
 public class InputAutomationModuleConfiguration
 {
-    private String name;
     @XmlElement(name="DYNAMICCOMPONENT_NAME")
     private String className;
+    
+    private String name;
 
     private InputAutomationModuleFactoryInterface inputAutomationModuleInterface;
     
-    public InputAutomationModuleConfiguration() {
-        
+    public InputAutomationModuleConfiguration() throws Exception {
     }
 
     public InputAutomationModuleConfiguration(final Node node)
@@ -65,10 +69,8 @@ public class InputAutomationModuleConfiguration
         InputAutomationModuleFactoryInterface inputAutomationModuleInterface)
         throws Exception
     {
-        this.inputAutomationModuleInterface = inputAutomationModuleInterface;
-        this.setName(this.inputAutomationModuleInterface.getName());
-        this.setClassName(
-            this.inputAutomationModuleInterface.getClass().getName());
+        this.setInputAutomationModuleInterface(inputAutomationModuleInterface);
+        this.setClassName(this.inputAutomationModuleInterface.getClass().getName());
     }
                 
     public void init(Node node)
@@ -85,16 +87,12 @@ public class InputAutomationModuleConfiguration
             {
                 this.setClassName(DomNodeHelper.getTextNodeValue(classNameNode));
                 
-                LogUtil.put(LogFactory.getInstance("ClassName : " + getClassName(), this, "init"));
-                
                                     /*
                     JarFile jarFile = new JarFile(fileName);
                     jarFile.entries();
                     JarEntry jarEntry =
                     jarEntry.getAttributes().
                                      */
-                
-                this.setName(getInputAutomationModuleInterface().getName());
                 
                 this.init();
                 
@@ -111,12 +109,18 @@ public class InputAutomationModuleConfiguration
     }
     
     public void init()
-    throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Name : " + getName(), this, "init"));
-        this.setInputAutomationModuleInterface(
-            (InputAutomationModuleFactoryInterface)
-            AbeFactory.getInstance(getClassName()));
+        try {
+            LogUtil.put(LogFactory.getInstance("Name: " + getName(), this, "init"));
+            LogUtil.put(LogFactory.getInstance("ClassName: " + className, this, "init"));
+
+            this.setInputAutomationModuleInterface(
+                    (InputAutomationModuleFactoryInterface) AbeFactory.getInstance(getClassName()));
+
+        } catch(Exception e) {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "init", e));
+            throw new RuntimeException();
+        }
     }
     
     public Node toDomNode(Document document)
@@ -137,6 +141,7 @@ public class InputAutomationModuleConfiguration
     
     public void setName(String name)
     {
+        LogUtil.put(LogFactory.getInstance("Name: " + name, this, "setName"));
         this.name = name;
     }
     
@@ -144,9 +149,10 @@ public class InputAutomationModuleConfiguration
     {
         return className;
     }
-    
-    public void setClassName(String className)
+
+    public void setClassName(final String className)
     {
+        LogUtil.put(LogFactory.getInstance("ClassName : " + className, this, "setClassName"));
         this.className = className;
     }
     
@@ -157,6 +163,8 @@ public class InputAutomationModuleConfiguration
     
     public void setInputAutomationModuleInterface(InputAutomationModuleFactoryInterface inputAutomationModuleInterface)
     {
+        LogUtil.put(LogFactory.getInstance("InputAutomationModuleFactoryInterface : " + inputAutomationModuleInterface, this, "setInputAutomationModuleInterface"));
         this.inputAutomationModuleInterface = inputAutomationModuleInterface;
+        this.setName(this.inputAutomationModuleInterface.getName());
     }
 }

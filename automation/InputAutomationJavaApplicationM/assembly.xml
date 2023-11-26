@@ -13,8 +13,12 @@
                <!--
                <exclude>org.allbinary:LoggingJ2MEAll</exclude>
                -->
+               
+               <exclude>org.osgi:YourOSGIComponentLibrary</exclude>
+               <exclude>org.allbinary.logging:LogConfigTypeFreeblisketJavaLibrary</exclude>
+
            </excludes>
-           
+
             <unpack>true</unpack>
             <scope>runtime</scope>
             <outputDirectory></outputDirectory>

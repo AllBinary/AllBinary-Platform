@@ -13,6 +13,9 @@
  */
 package org.allbinary.logic.communication.log.config.type;
 
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonStrings;
+
 /**
  *
  * @author User
@@ -154,4 +157,7 @@ public class LogConfigTypeFactory {
    public final LogConfigType STATICPAGEGENERATIONLOGGING = new LogConfigType("Static Page Generation Logging", NO_DESCRIPTION);
    public final LogConfigType STATICPAGEGENERATIONLOGGINGERROR = new LogConfigType("Static Page Generation Logging Error", NO_DESCRIPTION);
 
+   private LogConfigTypeFactory() {
+       PreLogUtil.put("FreeBlisket", this, CommonStrings.getInstance().CONSTRUCTOR);
+   }
 }

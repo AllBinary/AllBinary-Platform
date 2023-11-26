@@ -56,7 +56,7 @@ public class InputAutomationModuleFactoryFactory
         }
         
         this.defaultListModelHelper.initDefaultModelList();
-        LogUtil.put(LogFactory.getInstance("Loaded " + this.hashMap.size() + " Input Automation Modules", this,"Contructor"));
+        LogUtil.put(LogFactory.getInstance("Loaded " + this.hashMap.size() + "/" + this.defaultListModelHelper.getListModel().getSize() + " Input Automation Modules", this,"Contructor"));
     }
     
     private void add(final InputAutomationModuleConfiguration inputAutomationModuleConfiguration)
@@ -64,8 +64,7 @@ public class InputAutomationModuleFactoryFactory
         final InputAutomationModuleFactoryInterface inputAutomationModuleInterface =
             inputAutomationModuleConfiguration.getInputAutomationModuleInterface();
 
-        this.hashMap.put(inputAutomationModuleConfiguration.getName(),
-            inputAutomationModuleInterface);
+        this.hashMap.put(inputAutomationModuleConfiguration.getName(),inputAutomationModuleInterface);
         this.defaultListModelHelper.add(inputAutomationModuleConfiguration.getName());
 
         final HelpSet helpSet = inputAutomationModuleInterface.getHelpSet();

@@ -1,4 +1,4 @@
-/*
+    /*
 * AllBinary Open License Version 1
 * Copyright (c) 2011 AllBinary
 * 
@@ -36,8 +36,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 //name="inputAutomationConfiguration", 
-@XmlRootElement(namespace = "http://www.allbinary.com/InputAutomationConfiguration")
 @XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement(namespace = "http://www.allbinary.com/InputAutomationConfiguration")
 @XmlType(name="InputAutomationConfiguration")
 public class InputAutomationConfiguration
 {
@@ -46,7 +46,7 @@ public class InputAutomationConfiguration
     @XmlElement(name="INPUT_AUTOMATION_INSTALLATION")
     private boolean installed;
 
-    @XmlElement(name="INPUT_AUTOMATION_MODULES")
+    @XmlElement(name="INPUT_AUTOMATION_MODULE")
     private List<InputAutomationModuleConfiguration> inputAutomationModuleConfigurationList;
 
     public InputAutomationConfiguration()

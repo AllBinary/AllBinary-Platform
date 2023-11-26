@@ -11,11 +11,11 @@
             
            <excludes>
                <!--
-               <exclude><exclude><exclude>org.allbinary:allbinary:LoggingJ2MEAll</exclude>
-               <exclude><exclude>org.allbinary:allbinary:InputAutomationGenericModuleJavaLibrary</exclude></exclude>
-               <exclude><exclude>org.allbinary:allbinary:InputAutomationModuleJavaLibrary</exclude></exclude>
-               <exclude><exclude>org.allbinary:allbinary.media.image:ImageComparisonJavaLibrary</exclude></exclude>
+               <exclude>org.allbinary:allbinary:LoggingJ2MEAll</exclude>
+               <exclude>org.allbinary:allbinary:InputAutomationGenericModuleJavaLibrary</exclude>
+               <exclude>org.allbinary:allbinary.media.image:ImageComparisonJavaLibrary</exclude>
                -->
+               <exclude>org.allbinary:InputAutomationModuleJavaLibrary</exclude>
 
                <exclude>org.allbinary:allbinary:EventJ2MELibrary</exclude>
                <exclude>org.allbinary:graph:GraphBaseJavaLibrary</exclude>
