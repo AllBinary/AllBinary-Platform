@@ -14,6 +14,7 @@
 package org.allbinary.data.tree.dom;
 
 import java.util.Vector;
+import org.allbinary.logic.communication.log.PreLogUtil;
 
 import org.w3c.dom.NodeList;
 import org.w3c.dom.Node;
@@ -27,7 +28,7 @@ public class DomSearchHelper
    //Finds first node in the nodelist with the same tagname
    public static Node getNodeNoThrow(String nodeName, NodeList nodeList)
    {
-       //PreLogUtil.put("NodeName: " + nodeName, "DomHelper", "searchNodeList");
+      //PreLogUtil.put("NodeName: " + nodeName, "DomHelper", "searchNodeList");
       final int numberOfNodes = nodeList.getLength();         
       for(int index = 0; index < numberOfNodes; index++)
       {
