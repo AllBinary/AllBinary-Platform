@@ -22,7 +22,12 @@
             <url>https://nexus-allbinary.rhcloud.com/nexus/content/repositories/releases/</url>
         </repository>
     </distributionManagement>
-    
+
+    <properties>
+        <inputPath>..\..\..\work\automation\InputAutomationJavaApplicationResources\src\main\resources</inputPath>
+        <outputPath>.\src\main\resources\</outputPath>        
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -155,7 +160,30 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4.3</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${outputPath}</outputDirectory>
+                            <resources>          
+                                <resource>
+                                    <directory>${inputPath}</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>              
+                        </configuration>            
+                    </execution>
+                </executions>
+            </plugin>
+                        
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
