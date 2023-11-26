@@ -14,17 +14,17 @@
 package org.allbinary.input.automation.actions.script.condition.processors.input;
 
 import java.awt.event.InputEvent;
+import java.util.Hashtable;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
-
-import java.util.Hashtable;
 import org.allbinary.input.automation.robot.InputRobot;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
-import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringValidationUtil;
 
 /**
  *
@@ -37,16 +37,16 @@ public class MouseActionScriptInputJPanel
    
    /** Creates new form ColorAtActionJPanel */
    public MouseActionScriptInputJPanel(
-         MouseActionScriptInputInterface mouseActionScriptInputInterface)
+         final MouseActionScriptInputInterface mouseActionScriptInputInterface)
          throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("Start: " + mouseActionScriptInputInterface, this, CommonStrings.getInstance().CONSTRUCTOR));
       
       initComponents();
       
       this.mouseActionScriptInputInterface = mouseActionScriptInputInterface;
       
-      DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel();
+      final DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel();
       defaultComboBoxModel.addElement(TempInputRobotNames.LOW_NAME);
       defaultComboBoxModel.addElement(TempInputRobotNames.SYS_NAME);
       defaultComboBoxModel.addElement(InputRobot.NAME);
@@ -101,9 +101,8 @@ public class MouseActionScriptInputJPanel
    private void updateInputType()
    throws Exception
    {
-      ComboBoxModel comboBoxModel =
-            this.inputAutomationTypeJComboBox.getModel();
-      String selectedItem = (String)
+      final ComboBoxModel comboBoxModel = this.inputAutomationTypeJComboBox.getModel();
+      final String selectedItem = (String)
       comboBoxModel.getSelectedItem();
       if(!StringValidationUtil.getInstance().isEmpty(selectedItem))
       {

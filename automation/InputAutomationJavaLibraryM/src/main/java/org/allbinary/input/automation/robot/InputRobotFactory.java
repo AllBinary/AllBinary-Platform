@@ -33,29 +33,31 @@ import org.allbinary.logic.communication.log.LogFactory;
 
 public class InputRobotFactory
 {
-    private static InputRobotFactory inputRobotFactory = new InputRobotFactory();
+    private static final InputRobotFactory inputRobotFactory = new InputRobotFactory();
     
-    private Hashtable hashtable = new Hashtable();
+    public static InputRobotFactory getInstance() throws Exception
+    {
+        return inputRobotFactory;
+    }
+    
+    private final Hashtable hashtable = new Hashtable();
     private HelpSetListener helpSetListenerInterface;
     
     private InputRobotFactory()
     {
         try
         {
-            GraphicsEnvironment graphenv =
-                GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice [] screens = graphenv.getScreenDevices();
+            final GraphicsEnvironment graphenv = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            final GraphicsDevice [] screens = graphenv.getScreenDevices();
             
+            InputRobotInterface inputRobotInterface;
             for (int i = 0; i < screens.length; i++)
             {
-                InputRobotInterface inputRobotInterface =
-                    (InputRobotInterface) new InputRobot(screens [i]);
-                this.get().put(
-                    inputRobotInterface.getName(), inputRobotInterface);
+                inputRobotInterface = (InputRobotInterface) new InputRobot(screens [i]);
+                this.get().put(inputRobotInterface.getName(), inputRobotInterface);
             }
             
-            LogUtil.put(LogFactory.getInstance(
-                "Number Of Robots: " + this.hashtable.size(), this, "getRobots"));
+            LogUtil.put(LogFactory.getInstance("Number Of Robots: " + this.hashtable.size(), this, "getRobots"));
         }
         catch(Exception e)
         {
@@ -63,31 +65,25 @@ public class InputRobotFactory
         }
     }
     
-    public static InputRobotFactory getInstance() throws Exception
-    {
-        return inputRobotFactory;
-    }
-    
-    public void addListener(HelpSetListener helpSetListenerInterface)
+    public void addListener(final HelpSetListener helpSetListenerInterface)
     {
         this.helpSetListenerInterface = helpSetListenerInterface;
     }
     
-    public void add(InputRobotInterface inputRobotInterface)
+    public void add(final InputRobotInterface inputRobotInterface)
     throws Exception
     {
         LogUtil.put(LogFactory.getInstance("Adding InputRobotInterface: " + inputRobotInterface.getName(), this, "add"));
-        this.get().put(
-            inputRobotInterface.getName(), inputRobotInterface);
+        this.get().put(inputRobotInterface.getName(), inputRobotInterface);
         
-        HelpSet helpSet = inputRobotInterface.getHelpSet();
+        final HelpSet helpSet = inputRobotInterface.getHelpSet();
         if(this.helpSetListenerInterface != null)
         {
             if(helpSet != null)
             {
                 if(!JavaHelpSetNotifier.isNotified(helpSet))
                 {
-                    HelpSetEvent helpSetEvent = new HelpSetEvent(
+                    final HelpSetEvent helpSetEvent = new HelpSetEvent(
                         this, helpSet, HelpSetEvent.HELPSET_ADDED);
                     this.helpSetListenerInterface.helpSetAdded(helpSetEvent);
                 }
@@ -107,9 +103,9 @@ public class InputRobotFactory
     public void loadLibraries()
     throws Exception
     {
-        Set set = this.get().keySet();
+        final Set set = this.get().keySet();
         LogUtil.put(LogFactory.getInstance("Loading Libraries", "InputRobotFactory", "loadLibraries"));
-        Iterator iterator = set.iterator();
+        final Iterator iterator = set.iterator();
         while(iterator.hasNext())
         {
             InputRobotInterface inputRobotInterface =
@@ -122,24 +118,23 @@ public class InputRobotFactory
     throws Exception
     {
         LogUtil.put(LogFactory.getInstance("Loading Libraries", "InputRobotFactory", "loadLibraries"));
-        Iterator iterator = collection.iterator();
+        final Iterator iterator = collection.iterator();
         while(iterator.hasNext())
         {
             loadLibrary((InputRobotInterface) iterator.next());
         }
     }
     
-    public static void loadLibrary(InputRobotInterface inputRobotInterface)
+    public static void loadLibrary(final InputRobotInterface inputRobotInterface)
         throws Exception
     {
-        if(InterfaceUtil.isImplemented(
-            SecuredNativeLibraryInterface.class, inputRobotInterface))
+        if(InterfaceUtil.isImplemented(SecuredNativeLibraryInterface.class, inputRobotInterface))
         {
             LogUtil.put(LogFactory.getInstance("Loading Library: " + 
                 inputRobotInterface.getName(), 
                 "InputRobotFactory", "loadLibraries"));
             
-            SecuredNativeLibraryInterface securedNativeLibraryInterface =
+            final SecuredNativeLibraryInterface securedNativeLibraryInterface =
                 (SecuredNativeLibraryInterface) inputRobotInterface;
             securedNativeLibraryInterface.load();
         }
@@ -149,12 +144,12 @@ public class InputRobotFactory
         throws Exception
     {
         LogUtil.put(LogFactory.getInstance("Unloading Libraries", this, "unloadLibraries"));
-        Set set = this.get().keySet();
-        Iterator iterator = set.iterator();
+        final Set set = this.get().keySet();
+        final Iterator iterator = set.iterator();
+        InputRobotInterface inputRobotInterface;
         while(iterator.hasNext())
         {
-            InputRobotInterface inputRobotInterface =
-                this.get((String) iterator.next());
+            inputRobotInterface = this.get((String) iterator.next());
             
             if(InterfaceUtil.isImplemented(
                 SecuredNativeLibraryInterface.class, inputRobotInterface))

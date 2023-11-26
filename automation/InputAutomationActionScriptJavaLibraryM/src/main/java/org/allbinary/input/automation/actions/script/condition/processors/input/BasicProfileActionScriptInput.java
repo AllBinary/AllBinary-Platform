@@ -29,6 +29,8 @@ import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 
 public class BasicProfileActionScriptInput
     extends BasicProfileActionScriptProcessor
@@ -38,48 +40,48 @@ public class BasicProfileActionScriptInput
     private int time;
     
     public BasicProfileActionScriptInput(
-        String label, Node node) 
+        final String label, final Node node) 
         throws Exception
     {
         super(label, node);
-              
-        Node actionNode = DomSearchHelper.getNode(
+        
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + label, this, CommonStrings.getInstance().CONSTRUCTOR));
+        
+        final Node actionNode = DomSearchHelper.getNode(
             GenericProfileActionScriptInputData.TYPE,
             node.getChildNodes());
         
-        String inputTypeString = 
-            DomNodeHelper.getTextNodeValue(actionNode);
+        final String inputTypeString = DomNodeHelper.getTextNodeValue(actionNode);
         
-        Node timeNode = DomSearchHelper.getNodeNoThrow(
+        final Node timeNode = DomSearchHelper.getNodeNoThrow(
             GenericProfileActionScriptInputData.DELAY,
             node.getChildNodes());
 
         if(timeNode != null)
         {
-        String delayString = 
-            DomNodeHelper.getTextNodeValue(timeNode);
-        this.setTime(Integer.valueOf(delayString).intValue());
+            final String delayString = DomNodeHelper.getTextNodeValue(timeNode);
+            this.setTime(Integer.valueOf(delayString).intValue());
         }
         else
         {
             this.setTime(0);
         }
         
-        Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
-        this.setInputRobotInterface(
-              (InputRobotInterface) hashtable.get(inputTypeString));
+        final Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
+        this.setInputRobotInterface((InputRobotInterface) hashtable.get(inputTypeString));
     }
     
-    public BasicProfileActionScriptInput(String label)
+    public BasicProfileActionScriptInput(final String label)
         throws Exception
     {
         super(label);
         
-        Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
-        Set set = hashtable.keySet();
-        Iterator iterator = set.iterator();
-        this.setInputRobotInterface(
-              (InputRobotInterface) hashtable.get(iterator.next()));
+        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START + label, this, CommonStrings.getInstance().CONSTRUCTOR));
+        
+        final Hashtable hashtable = (Hashtable) InputRobotFactory.getInstance().get();
+        final Set set = hashtable.keySet();
+        final Iterator iterator = set.iterator();
+        this.setInputRobotInterface((InputRobotInterface) hashtable.get(iterator.next()));
         
         this.setTime(0);
     }
@@ -140,7 +142,11 @@ public class BasicProfileActionScriptInput
       
       stringBuffer.append(super.toString());
       stringBuffer.append(" Input Type: ");
-      stringBuffer.append(this.getInputRobotInterface().getName());
+      if(this.getInputRobotInterface() != null) {
+          stringBuffer.append(this.getInputRobotInterface().getName());
+      } else {
+          stringBuffer.append(StringUtil.getInstance().NULL_STRING);
+      }
       stringBuffer.append(" Time: ");
       stringBuffer.append(this.getTime());
       

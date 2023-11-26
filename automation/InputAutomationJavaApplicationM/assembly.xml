@@ -17,6 +17,12 @@
                <exclude>org.osgi:YourOSGIComponentLibrary</exclude>
                <exclude>org.allbinary.logging:LogConfigTypeFreeblisketJavaLibrary</exclude>
    
+               <exclude>org.allbinary:allbinary:InputAutomationGeneric2ModuleJavaLibrary</exclude>
+               <exclude>org.allbinary:allbinary:InputAutomationActionScriptJavaLibrary</exclude>
+               <exclude>org.allbinary:allbinary:InputAutomationJavaLibrary</exclude>
+               <exclude>org.allbinary:allbinary:InputAutomationModuleJavaLibrary</exclude>
+               <exclude>org.allbinary:allbinary:InputAutomationGenericModuleJavaLibrary</exclude>
+               
                <exclude>org.allbinary:InputAutomationGeneric2ModuleJavaLibrary</exclude>
                <exclude>org.allbinary:InputAutomationActionScriptJavaLibrary</exclude>
                <exclude>org.allbinary:InputAutomationJavaLibrary</exclude>
