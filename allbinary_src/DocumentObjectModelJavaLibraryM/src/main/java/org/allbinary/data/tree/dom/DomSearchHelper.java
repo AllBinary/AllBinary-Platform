@@ -27,16 +27,14 @@ public class DomSearchHelper
    //Finds first node in the nodelist with the same tagname
    public static Node getNodeNoThrow(String nodeName, NodeList nodeList)
    {
-      int numberOfNodes = nodeList.getLength();         
+       //PreLogUtil.put("NodeName: " + nodeName, "DomHelper", "searchNodeList");
+      final int numberOfNodes = nodeList.getLength();         
       for(int index = 0; index < numberOfNodes; index++)
-      {               
-         Node node = nodeList.item(index);
-         /*
-         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().XMLLOGGING))
-         {         
-            PreLogUtil.put("NodeName: " + node.getNodeName(),"DomHelper","searchNodeList");
-         }
-         */
+      {
+         final Node node = nodeList.item(index);
+         
+         //PreLogUtil.put("next NodeName: " + node.getNodeName(), "DomHelper", "searchNodeList");
+         
          if(node.getNodeName().compareTo(nodeName)==0)
          {
             return node;

@@ -54,6 +54,7 @@ public class InputRobotFactory
             for (int i = 0; i < screens.length; i++)
             {
                 inputRobotInterface = (InputRobotInterface) new InputRobot(screens [i]);
+                LogUtil.put(LogFactory.getInstance("Adding Robot: " + inputRobotInterface.getName(), this, "getRobots"));
                 this.get().put(inputRobotInterface.getName(), inputRobotInterface);
             }
             
@@ -169,8 +170,9 @@ public class InputRobotFactory
         return hashtable;
     }
     
-    public InputRobotInterface get(String name)
+    public InputRobotInterface get(final String name)
     {
+        LogUtil.put(LogFactory.getInstance("Getting Robot: " + name, this, "getRobots"));
         return (InputRobotInterface) this.hashtable.get(name);
     }
 }
