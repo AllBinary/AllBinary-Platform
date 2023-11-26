@@ -16,6 +16,8 @@ package org.allbinary.input.automation.module.generic.configuration.profile.acti
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileAction;
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionJPanel;
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 /**
  *
@@ -65,9 +67,14 @@ public class RemoveActionScriptItemJPanel extends java.awt.Panel
 
     private void removeJButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_removeJButtonActionPerformed
     {//GEN-HEADEREND:event_removeJButtonActionPerformed
-        GenericProfileAction genericProfileAction = 
+        final GenericProfileAction genericProfileAction = 
             this.genericProfileActionJPanel.getGenericProfileAction();
-            
+
+        if(genericProfileAction == null) {
+            LogUtil.put(LogFactory.getInstance("GenericProfileAction was null", this, "removeJButtonActionPerformed"));
+            return;
+        }
+        
         genericProfileAction.getGenericProfileActionScript().removeCondition(
             this.profileActionScriptConditionInterface);
 
