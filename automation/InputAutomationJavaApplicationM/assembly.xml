@@ -16,6 +16,7 @@
                
                <exclude>org.osgi:YourOSGIComponentLibrary</exclude>
                <exclude>org.allbinary.logging:LogConfigTypeFreeblisketJavaLibrary</exclude>
+               <exclude>org.allbinary:InputAutomationGenericModuleJavaLibrary</exclude>
 
            </excludes>
 
