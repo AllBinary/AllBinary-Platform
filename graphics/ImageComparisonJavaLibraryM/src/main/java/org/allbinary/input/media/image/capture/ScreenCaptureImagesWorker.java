@@ -50,7 +50,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
 
     public void run() {
         try {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
             setRunning(true);
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             while (isRunning()) {
@@ -66,12 +66,12 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
                                 bufferedImage);
                 fireEvent(capturedImageEvent);
                 LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(),
-                        this, "run"));
+                        this, this.commonStrings.RUN));
                 setRunning(false);
             }
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
         }
     }
 }

@@ -35,13 +35,13 @@ public class MotionRectanglesWorker
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private long index;
-    
-    private boolean running;
-    
     private final Vector imageComparisonInfoVector = new Vector();
     
     private final MotionRectangleConstraintsInterface motionRectangleConstraintsInterface;
+    
+    private long index;
+    
+    private boolean running;
     
     public MotionRectanglesWorker(final MotionRectangleConstraintsInterface motionRectangleConstraintsInterface)
     {   
@@ -74,7 +74,7 @@ public class MotionRectanglesWorker
     {
         try
         {            
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
             
             this.setRunning(true);
             
@@ -89,8 +89,7 @@ public class MotionRectanglesWorker
             final ImageComparisonResult imageComparisonInfo = (ImageComparisonResult) 
                imageComparisonResultsEvent.getImageComparisonResult();
 
-            LogUtil.put(LogFactory.getInstance(
-                imageComparisonInfo.toString(), this, "run"));
+            LogUtil.put(LogFactory.getInstance(imageComparisonInfo.toString(), this, this.commonStrings.RUN));
             
             //final BufferedImage latestBufferedImage = imageComparisonInfo.getBufferedImages()[1];
             
@@ -130,15 +129,15 @@ public class MotionRectanglesWorker
             
             this.index++;
             
-            LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
+            LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
             
             this.setRunning(false);
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
         }
     }
 }

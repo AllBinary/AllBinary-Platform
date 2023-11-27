@@ -112,7 +112,7 @@ public class AbstractInputAutomationWorker
     {
         while(isAnyDataWorkerRunning())
         {
-            LogUtil.put(LogFactory.getInstance("Waiting", this, "run"));
+            LogUtil.put(LogFactory.getInstance("Waiting", this, this.commonStrings.RUN));
             Thread.sleep(250);
         }
     }
@@ -130,7 +130,7 @@ public class AbstractInputAutomationWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
             
             this.setRunning(true);
             
@@ -154,17 +154,17 @@ public class AbstractInputAutomationWorker
                 this.index++;
 
                 LogUtil.put(LogFactory.getInstance(
-                    "Time Elapsed: " + timeHelper.getElapsed() + " Index: " + this.index, this, "run"));
+                    "Time Elapsed: " + timeHelper.getElapsed() + " Index: " + this.index, this, this.commonStrings.RUN));
             }
             
             this.stopDataWorkers();
             this.waitForDataWorkers();
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
         }
     }
     

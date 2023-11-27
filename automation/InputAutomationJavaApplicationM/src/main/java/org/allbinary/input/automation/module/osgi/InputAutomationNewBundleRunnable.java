@@ -250,7 +250,7 @@ public class InputAutomationNewBundleRunnable
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
             
             this.setRunning(true);
             
@@ -261,17 +261,17 @@ public class InputAutomationNewBundleRunnable
                 timeHelper.setStartTime();
                 
                 LogUtil.put(LogFactory.getInstance(
-                    "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
+                    "Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
                 
                 this.updateModules();
                 //Thread.sleep(10000);
                 break;
             }
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
         }
     }
 }

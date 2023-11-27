@@ -594,9 +594,11 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
          public void run()
          {
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+
             try
             {
-               LogUtil.put(LogFactory.getInstance("Running", "Main", "run"));
+               LogUtil.put(LogFactory.getInstance("Running", "Main", commonStrings.RUN));
                INPUTAUTOMATION_JFRAME = new InputAutomationJFrame();
                InputRobotFactory.getInstance().addListener(InputAutomationJFrame.getInstance());
 
@@ -609,7 +611,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
             } catch (Exception e)
             {
                String error = "Error";
-               LogUtil.put(LogFactory.getInstance(error, this, "run", e));
+               LogUtil.put(LogFactory.getInstance(error, this, commonStrings.RUN, e));
             }
          }
       });

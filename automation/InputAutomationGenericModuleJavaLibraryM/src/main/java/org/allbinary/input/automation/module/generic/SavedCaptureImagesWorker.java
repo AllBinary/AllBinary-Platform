@@ -78,7 +78,7 @@ public class SavedCaptureImagesWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
             
             this.setRunning(true);
             
@@ -99,7 +99,7 @@ public class SavedCaptureImagesWorker
                 
                 String filePath = filePathStringBuffer.toString();
                 
-                LogUtil.put(LogFactory.getInstance("Loading Image File Path: " + filePath, this, "run"));
+                LogUtil.put(LogFactory.getInstance("Loading Image File Path: " + filePath, this, this.commonStrings.RUN));
                 
                 File file = new File(filePath);
                 if(file.isFile())
@@ -120,21 +120,21 @@ public class SavedCaptureImagesWorker
                 else
                 {
                     LogUtil.put(LogFactory.getInstance(
-                        "Could Not Load File: " + filePath, this, "run"));
+                        "Could Not Load File: " + filePath, this, this.commonStrings.RUN));
                 }
                 
                 LogUtil.put(LogFactory.getInstance(
-                    "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
+                    "Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
                 
                 this.setRunning(false);
             }
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
             
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
         }
     }
 }

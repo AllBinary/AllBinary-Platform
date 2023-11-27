@@ -81,7 +81,7 @@ public class ImageComparisonWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.RUN));
             
             this.setRunning(true);
             
@@ -123,12 +123,12 @@ public class ImageComparisonWorker
                         this, imageComparisonResult));
                     
                     LogUtil.put(LogFactory.getInstance("Image Comparison Result: " +
-                        imageComparisonResult.toString() + " for frame: " + frame, this, "run"));
+                        imageComparisonResult.toString() + " for frame: " + frame, this, this.commonStrings.RUN));
                 }
                 else
                 {
                     LogUtil.put(LogFactory.getInstance(
-                        "An Image Was Not Valid: Image Worker Event Processing terminated", this, "run"));
+                        "An Image Was Not Valid: Image Worker Event Processing terminated", this, this.commonStrings.RUN));
                 }
             }
             
@@ -137,15 +137,15 @@ public class ImageComparisonWorker
             index++;
             
             LogUtil.put(LogFactory.getInstance(
-                "Frame: " + index + " Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
+                "Frame: " + index + " Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
             
             this.setRunning(false);
             
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
         }
     }
 }
