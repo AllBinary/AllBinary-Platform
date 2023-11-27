@@ -39,32 +39,25 @@ public class MotionRectanglesWorker
     
     private boolean running;
     
-    private Vector imageComparisonInfoVector;
+    private final Vector imageComparisonInfoVector = new Vector();
     
-    private MotionRectangleConstraintsInterface motionRectangleConstraintsInterface;
+    private final MotionRectangleConstraintsInterface motionRectangleConstraintsInterface;
     
-    public MotionRectanglesWorker(
-        MotionRectangleConstraintsInterface motionRectangleConstraintsInterface)
-    {
-        this.imageComparisonInfoVector = new Vector();
-        
-        this.motionRectangleConstraintsInterface =
-            motionRectangleConstraintsInterface;
+    public MotionRectanglesWorker(final MotionRectangleConstraintsInterface motionRectangleConstraintsInterface)
+    {   
+        this.motionRectangleConstraintsInterface = motionRectangleConstraintsInterface;
     }
     
-    public void onImageComparisonResultsEvent(
-        ImageComparisonResultsEvent imageComparisonResultsEvent)
+    public void onImageComparisonResultsEvent(final ImageComparisonResultsEvent imageComparisonResultsEvent)
     {
-        this.imageComparisonInfoVector.add(
-            imageComparisonResultsEvent);
+        this.imageComparisonInfoVector.add(imageComparisonResultsEvent);
         
         this.run();
     }
     
-    public void onEvent(AllBinaryEventObject allBinaryEventObject)
+    public void onEvent(final AllBinaryEventObject allBinaryEventObject)
     {
-        this.onImageComparisonResultsEvent(
-            (ImageComparisonResultsEvent) allBinaryEventObject);
+        this.onImageComparisonResultsEvent((ImageComparisonResultsEvent) allBinaryEventObject);
     }
     
     public synchronized boolean isRunning()
@@ -72,7 +65,7 @@ public class MotionRectanglesWorker
         return running;
     }
     
-    public synchronized void setRunning(boolean running)
+    public synchronized void setRunning(final boolean running)
     {
         this.running = running;
     }
@@ -85,31 +78,30 @@ public class MotionRectanglesWorker
             
             this.setRunning(true);
             
-            TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
+            final TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
             timeHelper.setStartTime();
             
-            ImageComparisonResultsEvent imageComparisonResultsEvent =
+            final ImageComparisonResultsEvent imageComparisonResultsEvent =
                 (ImageComparisonResultsEvent)
                 this.imageComparisonInfoVector.get(0);
             
-            ImageComparisonResult imageComparisonInfo = (ImageComparisonResult) 
+            final ImageComparisonResult imageComparisonInfo = (ImageComparisonResult) 
                imageComparisonResultsEvent.getImageComparisonResult();
 
             LogUtil.put(LogFactory.getInstance(
                 imageComparisonInfo.toString(), this, "run"));
             
-            BufferedImage latestBufferedImage =
-                imageComparisonInfo.getBufferedImages()[1];
+            //final BufferedImage latestBufferedImage = imageComparisonInfo.getBufferedImages()[1];
             
-            AllMotionRectangles allMotionRectangles =
+            final AllMotionRectangles allMotionRectangles =
                 new AllMotionRectangles(imageComparisonInfo);
 
             AllMotionRectanglesResultsCacheSingleton.getInstance().add(
                 new MotionRectanglesResultsFrameCacheable(
                 allMotionRectangles, imageComparisonInfo.getFrameTwo()));
             
-            ConsolidateMotionRectangles consolidatedMotionRectangles =
+            final ConsolidateMotionRectangles consolidatedMotionRectangles =
                 new ConsolidateMotionRectangles(allMotionRectangles);
 
             ConsolidatedMotionRectanglesResultsCacheSingleton.getInstance().add(
@@ -117,7 +109,7 @@ public class MotionRectanglesWorker
                 consolidatedMotionRectangles,
                 imageComparisonInfo.getFrameTwo()));
             
-            ConstrainedMotionRectangles constrainedMotionRectangles =
+            final ConstrainedMotionRectangles constrainedMotionRectangles =
                 new ConstrainedMotionRectangles(
                    this.motionRectangleConstraintsInterface,
                    consolidatedMotionRectangles);
@@ -138,8 +130,7 @@ public class MotionRectanglesWorker
             
             this.index++;
             
-            LogUtil.put(LogFactory.getInstance(
-                "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
+            LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
             
             this.setRunning(false);
             
