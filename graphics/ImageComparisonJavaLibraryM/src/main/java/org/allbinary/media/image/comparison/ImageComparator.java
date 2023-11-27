@@ -25,16 +25,16 @@ import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 public class ImageComparator
 {
 
-   private ImageComparatorConstraintsInterface imageComparatorConstraintsInterface;
+   private final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface;
 
-   public ImageComparator(ImageComparatorConstraintsInterface imageComparatorConstraintsInterface)
+   public ImageComparator(final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface)
    {
       this.imageComparatorConstraintsInterface = imageComparatorConstraintsInterface;
    }
 
-   private void process(ImageComparisonResult imageComparisonInfo, GPoint point) throws Exception
+   private void process(final ImageComparisonResult imageComparisonInfo, final GPoint point) throws Exception
    {
-      boolean isCollsionWithAvoidRectangles = this.imageComparatorConstraintsInterface.isCollisionWithAvoidRectangles(point);
+      final boolean isCollsionWithAvoidRectangles = this.imageComparatorConstraintsInterface.isCollisionWithAvoidRectangles(point);
 
       /*
       if(isCollsionWithAvoidRectangles)
@@ -47,19 +47,19 @@ public class ImageComparator
       if (!isCollsionWithAvoidRectangles)
       {
 
-         int rgb1 = imageComparisonInfo.getBufferedImages()[0].getRGB(point.getX(), point.getY());
+         final int rgb1 = imageComparisonInfo.getBufferedImages()[0].getRGB(point.getX(), point.getY());
          // & 0xFF; // assuming grayscale, so r==g==b
-         int rgb2 = imageComparisonInfo.getBufferedImages()[1].getRGB(point.getX(), point.getY());
+         final int rgb2 = imageComparisonInfo.getBufferedImages()[1].getRGB(point.getX(), point.getY());
          // & 0xFF; // assuming grayscale, so r==g==b
-         AutomaticCacheInterface automaticCacheInterface = ColorCacheFactory.getInstance();
+         final AutomaticCacheInterface automaticCacheInterface = ColorCacheFactory.getInstance();
 
-         Integer colorInteger = Integer.valueOf(rgb1);
-         ColorCacheable colorCacheable = (ColorCacheable) automaticCacheInterface.get(colorInteger);
-         Color color = colorCacheable.getColor();
+         final Integer colorInteger = Integer.valueOf(rgb1);
+         final ColorCacheable colorCacheable = (ColorCacheable) automaticCacheInterface.get(colorInteger);
+         final Color color = colorCacheable.getColor();
 
-         Integer colorInteger2 = Integer.valueOf(rgb2);
-         ColorCacheable colorCacheable2 = (ColorCacheable) automaticCacheInterface.get(colorInteger);
-         Color color2 = colorCacheable.getColor();
+         final Integer colorInteger2 = Integer.valueOf(rgb2);
+         final ColorCacheable colorCacheable2 = (ColorCacheable) automaticCacheInterface.get(colorInteger);
+         final Color color2 = colorCacheable.getColor();
 
          if (this.imageComparatorConstraintsInterface.isColorAllowed(0, point, color) || 
                this.imageComparatorConstraintsInterface.isColorAllowed(1, point, color2))
@@ -78,7 +78,7 @@ public class ImageComparator
       }
    }
 
-   public ImageComparisonResult compare(BufferedImage bufferedImage1, BufferedImage bufferedImage2, Long frameOne, Long frameTwo, int tolerance) throws Exception
+   public ImageComparisonResult compare(final BufferedImage bufferedImage1, final BufferedImage bufferedImage2, final Long frameOne, final Long frameTwo, final int tolerance) throws Exception
    {
       //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "compare"));
       if (bufferedImage1 == null || bufferedImage2 == null)
@@ -86,7 +86,7 @@ public class ImageComparator
          throw new Exception("Input images must not be null.");
       }
 
-      ImageComparisonResult imageComparisonInfo = new ImageComparisonResult(bufferedImage1, bufferedImage2, frameOne, frameTwo, tolerance);
+      final ImageComparisonResult imageComparisonInfo = new ImageComparisonResult(bufferedImage1, bufferedImage2, frameOne, frameTwo, tolerance);
 
       for (int indexY = 0; indexY < imageComparisonInfo.imageHeight; indexY++)
       {
