@@ -26,46 +26,45 @@ public class ImageComparisonResult
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    public boolean isSameHeight;
-    public boolean isSameWidth;
+    private final BufferedImage[] bufferedImages = new BufferedImage[2];
+    
+    public final boolean isSameHeight;
+    public final boolean isSameWidth;
+    
+    public final int imageHeight;
+    public final int imageWidth;
+    
+    private final Vector nonMatchingPixelVector;
+
+    private final Long frameOne;
+    private final Long frameTwo;
     
     public int pixelsThatMatch;
     public int pixelsIgnored;
     
-    public int imageHeight;
-    public int imageWidth;
-    
     private int tolerance;
     
-    private Vector nonMatchingPixelVector;
-    
-    private BufferedImage[] bufferedImages;
-    
     private float matchingPercent = -1;
-
-    private Long frameOne;
-    private Long frameTwo;
     
     public ImageComparisonResult(
-        BufferedImage bufferedImage,
-        BufferedImage bufferedImage2,
-        Long frameOne,
-        Long frameTwo,
-        int tolerance)
+        final BufferedImage bufferedImage,
+        final BufferedImage bufferedImage2,
+        final Long frameOne,
+        final Long frameTwo,
+        final int tolerance)
     {
         this.nonMatchingPixelVector = new Vector();
         
-        this.setBufferedImages(new BufferedImage[2]);
-        this.getBufferedImages()[0] = bufferedImage;
-        this.getBufferedImages()[1] = bufferedImage2;
+        this.bufferedImages[0] = bufferedImage;
+        this.bufferedImages[1] = bufferedImage2;
         
-        this.setFrameOne(frameOne);
-        this.setFrameTwo(frameTwo);
+        this.frameOne = frameOne;
+        this.frameTwo = frameTwo;
         
         this.setTolerance(0);
         
-        this.imageHeight = bufferedImage.getHeight();
-        this.imageWidth = bufferedImage.getWidth();
+        int imageHeight = bufferedImage.getHeight();   
+        int imageWidth = bufferedImage.getWidth();
         
         if(bufferedImage.getHeight() != bufferedImage2.getHeight())
         {
@@ -73,7 +72,7 @@ public class ImageComparisonResult
             
             if(imageHeight > bufferedImage2.getHeight())
             {
-                this.imageHeight = bufferedImage2.getHeight();
+                imageHeight = bufferedImage2.getHeight();
             }
         }
         else
@@ -87,7 +86,7 @@ public class ImageComparisonResult
             
             if(imageWidth > bufferedImage2.getWidth())
             {
-                this.imageWidth = bufferedImage2.getWidth();
+                imageWidth = bufferedImage2.getWidth();
             }
         }
         else
@@ -95,6 +94,9 @@ public class ImageComparisonResult
             isSameWidth = true;
         }
         
+        this.imageWidth = imageWidth;
+        this.imageHeight = imageHeight;
+
         if(!isSameWidth || !isSameHeight)
         {
             final ImageUtil imageUtil = ImageUtil.getInstance();
@@ -137,12 +139,7 @@ public class ImageComparisonResult
     {
         return bufferedImages;
     }
-    
-    private void setBufferedImages(BufferedImage[] bufferedImages)
-    {
-        this.bufferedImages = bufferedImages;
-    }
-    
+        
     public int getTolerance()
     {
         return tolerance;
@@ -158,19 +155,9 @@ public class ImageComparisonResult
         return frameOne;
     }
 
-    private void setFrameOne(Long frameOne)
-    {
-        this.frameOne = frameOne;
-    }
-
     public Long getFrameTwo()
     {
         return frameTwo;
-    }
-
-    private void setFrameTwo(Long frameTwo)
-    {
-        this.frameTwo = frameTwo;
     }
     
 }
