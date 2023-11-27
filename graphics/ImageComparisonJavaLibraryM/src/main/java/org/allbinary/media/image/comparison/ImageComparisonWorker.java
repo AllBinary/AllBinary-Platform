@@ -28,28 +28,24 @@ public class ImageComparisonWorker
     extends BasicEventHandler
     implements CapturedImageWorkerResultsListener
 {
+    private final Vector bufferedImageVector = new Vector();
+    
+    private final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface;
+    
+    private final ImageComparator imageComparator;
+    
     private boolean running;
-    
-    private Vector bufferedImageVector;
-    
-    private ImageComparatorConstraintsInterface imageComparatorConstraintsInterface;
-    
-    private ImageComparator imageComparator;
     
     private int index;
     
     public ImageComparisonWorker(
-        ImageComparatorConstraintsInterface imageComparatorConstraintsInterface)
+        final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface)
         throws Exception
-    {
-        this.bufferedImageVector = new Vector();
-        
+    {   
         this.imageComparatorConstraintsInterface =
             imageComparatorConstraintsInterface;
         
-        this.imageComparator =
-            new ImageComparator(
-            imageComparatorConstraintsInterface);
+        this.imageComparator =new ImageComparator(imageComparatorConstraintsInterface);
     }
     
     public synchronized boolean isRunning()
@@ -63,7 +59,7 @@ public class ImageComparisonWorker
     }
     
     public synchronized void onCaptureEvent(
-        CapturedImageWorkerResultsEvent capturedImageWorkerResultsEvent)
+        final CapturedImageWorkerResultsEvent capturedImageWorkerResultsEvent)
     {
         this.bufferedImageVector.add(capturedImageWorkerResultsEvent);
         
@@ -73,7 +69,7 @@ public class ImageComparisonWorker
         }
     }
     
-    public synchronized void onEvent(AllBinaryEventObject allBinaryEventObject)
+    public synchronized void onEvent(final AllBinaryEventObject allBinaryEventObject)
     {
         this.onCaptureEvent((CapturedImageWorkerResultsEvent) allBinaryEventObject);
     }
@@ -91,7 +87,7 @@ public class ImageComparisonWorker
             
             if(this.imageComparatorConstraintsInterface.isFrameAllowed(index))
             {
-                CapturedImageWorkerResultsEvent capturedImageWorkerResultsEvent[] =
+                final CapturedImageWorkerResultsEvent capturedImageWorkerResultsEvent[] =
                     new CapturedImageWorkerResultsEvent[2];
                 
                 capturedImageWorkerResultsEvent[0] =
@@ -104,16 +100,16 @@ public class ImageComparisonWorker
                     this.imageComparatorConstraintsInterface.isImageValid(
                     capturedImageWorkerResultsEvent[1].getBufferedImage()))
                 {
-                    ImageComparisonResult imageComparisonResult =
+                    final ImageComparisonResult imageComparisonResult =
                         this.imageComparator.compare(
                         capturedImageWorkerResultsEvent[0].getBufferedImage(),
                         capturedImageWorkerResultsEvent[1].getBufferedImage(), 
                         capturedImageWorkerResultsEvent[0].getFrame(),
                         capturedImageWorkerResultsEvent[1].getFrame(), 0);
                     
-                    Long frame = capturedImageWorkerResultsEvent[1].getFrame();
+                    final Long frame = capturedImageWorkerResultsEvent[1].getFrame();
                     
-                    ImageComparisonResultFrameCacheable imageComparisonResultFrameCacheable =
+                    final ImageComparisonResultFrameCacheable imageComparisonResultFrameCacheable =
                         new ImageComparisonResultFrameCacheable(
                         imageComparisonResult, frame);
                     

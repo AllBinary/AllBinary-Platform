@@ -83,6 +83,12 @@ public class InputAutomationModuleFactoryFactory
     
     public InputAutomationModuleFactoryInterface getInstance(final String moduleName)
     {
-        return (InputAutomationModuleFactoryInterface) this.hashMap.get(moduleName);
+        LogUtil.put(LogFactory.getInstance("Getting Module: " + moduleName, this, "getInstance"));
+        final InputAutomationModuleFactoryInterface inputAutomationModuleFactoryInterface = (InputAutomationModuleFactoryInterface) this.hashMap.get(moduleName);
+        if(inputAutomationModuleFactoryInterface == null) {
+            LogUtil.put(LogFactory.getInstance("Module: " + moduleName + " was null", this, "getInstance"));
+        }
+
+        return inputAutomationModuleFactoryInterface;
     }
 }

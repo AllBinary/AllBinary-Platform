@@ -508,9 +508,10 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
              this.gameRobotJTabbedPane.setEnabledAt(1, true);
 
-             LogUtil.put(LogFactory.getInstance("Setting Configuration JPanel", this, "gameAutomationRobotModuleJListValueChanged"));
+             LogUtil.put(LogFactory.getInstance("Setting Module: " + gameAutomationRobotModuleNameString + " and Configuration JPanel", this, "gameAutomationRobotModuleJListValueChanged"));
           } else
           {
+              LogUtil.put(LogFactory.getInstance("Module name was null", this, "gameAutomationRobotModuleJListValueChanged"));
              this.gameRobotJTabbedPane.setEnabledAt(1, false);
           }
        } catch (Exception e)
@@ -549,11 +550,15 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
                thread.start();
             } else
             {
+                LogUtil.put(LogFactory.getInstance("Runnnable was null", this, "startJMenuItemActionPerformed"));
+                
                this.noModuleSelectedJDialog.setVisible(true);
                this.noModuleSelectedJDialog.setLocationRelativeTo(this);
             }
          } else
          {
+             LogUtil.put(LogFactory.getInstance("InputAutomationModuleInterface was null", this, "startJMenuItemActionPerformed"));
+
             this.noModuleSelectedJDialog.setVisible(true);
             this.noModuleSelectedJDialog.setLocationRelativeTo(this);
          }

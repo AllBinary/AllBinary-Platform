@@ -24,6 +24,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import javax.help.HelpSet;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.StringMaker;
 
 public class InputRobot
    implements InputRobotInterface
@@ -32,7 +33,7 @@ public class InputRobot
    
    public final static String NAME = "Java Robot";
 
-   public InputRobot(GraphicsDevice graphicsDevice) throws Exception
+   public InputRobot(final GraphicsDevice graphicsDevice) throws Exception
    {
       this.robot = new Robot(graphicsDevice);
    }
@@ -47,15 +48,14 @@ public class InputRobot
        return null;
    }
    
-   public void mouseMoveToTarget(Rectangle rectangle, Integer x, Integer y) throws Exception
+   public void mouseMoveToTarget(final Rectangle rectangle, final Integer x, final Integer y) throws Exception
    {
-      Point point = PointHelper.getCenterPoint(rectangle);
+      final Point point = PointHelper.getCenterPoint(rectangle);
 
       this.robot.mouseMove(point.x + x, point.y + y);
 
-      LogUtil.put(LogFactory.getInstance(
-            "Moved Mouse To: x: " + point.x + " y: " + point.y + " in the middle of: " + rectangle, 
-            this, "moveMouseToTarget"));
+      final String message = new StringMaker().append("Moved Mouse To: x: ").append(point.x).append(" y: ").append(point.y).append(" in the middle of: ").append(rectangle).toString();
+      LogUtil.put(LogFactory.getInstance(message, this, "moveMouseToTarget"));
    }
 
    public void mouseMove(Point point) 
