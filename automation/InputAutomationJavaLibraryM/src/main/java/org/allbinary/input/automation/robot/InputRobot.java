@@ -21,8 +21,10 @@ import java.awt.Robot;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.PointHelper;
 import java.awt.Color;
+import java.awt.MouseInfo;
 import java.awt.image.BufferedImage;
 import javax.help.HelpSet;
+import org.allbinary.input.automation.PointFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.string.StringMaker;
 
@@ -48,6 +50,12 @@ public class InputRobot
        return null;
    }
    
+   public Point getMousePoint() {
+       final Point point = MouseInfo.getPointerInfo().getLocation();
+       return point;
+       //return PointFactory.getInstance(point.x, point.y);
+   }
+
    public void mouseMoveToTarget(final Rectangle rectangle, final Integer x, final Integer y) throws Exception
    {
       final Point point = PointHelper.getCenterPoint(rectangle);
@@ -60,11 +68,15 @@ public class InputRobot
 
    public void mouseMove(Point point) 
    {
-      this.robot.mouseMove(point.x, point.y);
+       this.mouseMove(point.x, point.y);
+   }
 
-      LogUtil.put(LogFactory.getInstance(
-            "Moved Mouse To: x: " + point.x + " y: " + point.y,
-            this, "moveMouse"));
+   public void mouseMove(final int x, final int y) 
+   {
+      this.robot.mouseMove(x, y);
+
+      final String message = new StringMaker().append("Moved Mouse To: x: ").append(x).append(" y: ").append(y).toString();
+      LogUtil.put(LogFactory.getInstance(message,this, "moveMouse"));
    }
    
    public void mouseMoveToTarget(Rectangle rectangle) throws Exception

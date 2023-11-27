@@ -32,6 +32,8 @@ public interface InputRobotInterface
    void keyPress(Integer keycode);
    void keyRelease(Integer keycode);
 
+   Point getMousePoint();
+   
    void mouseMove(Integer x, Integer y);
    void mousePress(Integer buttons);
    void mouseRelease(Integer buttons);

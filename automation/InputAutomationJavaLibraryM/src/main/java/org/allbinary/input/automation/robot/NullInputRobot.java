@@ -14,6 +14,7 @@
 package org.allbinary.input.automation.robot;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
@@ -21,6 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.input.automation.AbstractInputRobot;
 import javax.help.HelpSet;
+import org.allbinary.input.automation.PointFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 
 public class NullInputRobot extends AbstractInputRobot
@@ -42,6 +44,10 @@ public class NullInputRobot extends AbstractInputRobot
    public HelpSet getHelpSet()
    {
        return null;
+   }
+
+   public Point getMousePoint() {
+       return PointFactory.getInstance(0, 0);
    }
    
    public void keyPress(Integer keycode)
