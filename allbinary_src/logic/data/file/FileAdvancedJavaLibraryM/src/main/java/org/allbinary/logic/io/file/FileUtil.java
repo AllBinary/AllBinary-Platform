@@ -853,13 +853,18 @@ public class FileUtil
     //FileUtil.encCopy(rootCategoryAbFile, categoryAbPath,
     // CategoryData.ENCRYPTED_EXTENSION);
     
-    public String readAsString(String fileName)
+    public String readAsString(final String fileName)
+    {
+        final byte[] bytes = new byte[1000000];
+        return this.readAsString(fileName, bytes);
+    }
+
+    public String readAsString(final String fileName, final byte[] bytes)
     {
         try
         {
-            byte bytes[] = new byte[1000000];
-            FileInputStream idFile = new FileInputStream(fileName);
-            int size = idFile.read(bytes);
+            final FileInputStream idFile = new FileInputStream(fileName);
+            final int size = idFile.read(bytes);
             return new String(bytes, 0, size);
         } catch (Exception e)
         {
