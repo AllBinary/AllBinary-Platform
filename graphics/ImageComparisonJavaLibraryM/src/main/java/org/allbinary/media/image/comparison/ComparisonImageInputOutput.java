@@ -26,23 +26,24 @@ import org.allbinary.media.image.ImagePersistanceUtil;
 
 public class ComparisonImageInputOutput implements ImageIOInterface
 {
+    
     private final static String ROOT_NAME = "_Changed_";
     
     public ComparisonImageInputOutput()
     {
     }
     
-    public void save(Long frame) throws Exception
+    public void save(final Long frame) throws Exception
     {
         if(frame > 0)
         {
-            ImageComparisonResultFrameCacheable imageComparisonResultFrameCacheable =
+            final ImageComparisonResultFrameCacheable imageComparisonResultFrameCacheable =
                 (ImageComparisonResultFrameCacheable)
                 ((AutomaticCacheInterface) ImageComparisonResultCacheSingleton.getInstance()).get(frame);
             
             if(imageComparisonResultFrameCacheable != null)
             {
-                ImageComparisonResult imageComparisonResult =
+                final ImageComparisonResult imageComparisonResult =
                     imageComparisonResultFrameCacheable.getImageComparisonResult();
                 
                 this.save(imageComparisonResult,
@@ -61,34 +62,34 @@ public class ComparisonImageInputOutput implements ImageIOInterface
         }
     }
     
-    public void save(ImageComparisonResult imageComparisonResult, Long frame)
+    public void save(final ImageComparisonResult imageComparisonResult, final Long frame)
     throws Exception
     {
-        StringBuffer filePathStringBuffer = new StringBuffer();
+        final StringBuffer filePathStringBuffer = new StringBuffer();
         filePathStringBuffer.append(ImageOutputData.SAVE_PATH);
         filePathStringBuffer.append(LongUtil.fillIn(frame.toString()));
         filePathStringBuffer.append(ROOT_NAME);
         
-        StringBuffer filePathStringBuffer1 = new StringBuffer();
+        final StringBuffer filePathStringBuffer1 = new StringBuffer();
         filePathStringBuffer1.append(filePathStringBuffer.toString());
         filePathStringBuffer1.append("_1");
         filePathStringBuffer1.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath1 = filePathStringBuffer1.toString();
         
-        StringBuffer filePathStringBuffer2 = new StringBuffer();
+        final StringBuffer filePathStringBuffer2 = new StringBuffer();
         filePathStringBuffer2.append(filePathStringBuffer.toString());
         filePathStringBuffer2.append("_2");
         filePathStringBuffer2.append(MediaDataFactory.getInstance().JPG.getExtension());
         String filePath2 = filePathStringBuffer2.toString();
         
-        BufferedImageCacheable bufferedImageCacheables[] =
+        final BufferedImageCacheable[] bufferedImageCacheables =
             ChangedPixelsUtil.generateBufferedImageChacheables(
             imageComparisonResult);
         
         LogUtil.put(LogFactory.getInstance("Comparison Image File Path 1: " + filePath1, this, "save"));
         LogUtil.put(LogFactory.getInstance("Comparison Image File Path 2: " + filePath2, this, "save"));
         
-        BufferedImage bufferedImageArray[] = new BufferedImage[2];
+        final BufferedImage[] bufferedImageArray = new BufferedImage[2];
         
         bufferedImageArray[0] = bufferedImageCacheables[0].getBufferedImage();
         bufferedImageArray[1] = bufferedImageCacheables[1].getBufferedImage();

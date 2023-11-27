@@ -18,7 +18,7 @@ import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterfa
 public class InputAutomationModuleService 
     implements InputAutomationModuleServiceInterface
 {
-    private InputAutomationModuleFactoryInterface inputAutomationModuleInterfaceArray[];
+    private InputAutomationModuleFactoryInterface[] inputAutomationModuleInterfaceArray;
     
     public InputAutomationModuleService(
         InputAutomationModuleFactoryInterface inputAutomationModuleInterfaceArray[])

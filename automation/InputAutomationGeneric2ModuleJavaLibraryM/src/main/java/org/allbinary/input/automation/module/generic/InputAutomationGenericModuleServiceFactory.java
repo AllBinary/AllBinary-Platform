@@ -29,7 +29,7 @@ public class InputAutomationGenericModuleServiceFactory
     {
         try
         {
-            InputAutomationModuleFactoryInterface inputAutomationModuleInterfaceArray[] =
+            InputAutomationModuleFactoryInterface[] inputAutomationModuleInterfaceArray =
                 new InputAutomationModuleFactoryInterface[1];
             inputAutomationModuleInterfaceArray[0] = new GenericModuleFactory();
             
@@ -38,7 +38,7 @@ public class InputAutomationGenericModuleServiceFactory
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "Constructor", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.CONSTRUCTOR, e));
         }
     }
     

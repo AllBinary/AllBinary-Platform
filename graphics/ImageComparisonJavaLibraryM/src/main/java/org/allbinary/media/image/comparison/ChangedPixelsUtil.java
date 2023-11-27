@@ -54,7 +54,7 @@ public class ChangedPixelsUtil
         ImageComparisonResult imageComparisonInfo)
         throws Exception
     {
-        BufferedImageCacheable bufferedImageCacheables[];
+        BufferedImageCacheable[] bufferedImageCacheables;
         
         BufferedImage originalBufferedImage =
             imageComparisonInfo.getBufferedImages()[0];

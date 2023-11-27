@@ -21,6 +21,7 @@ import javax.swing.DefaultListModel;
 import org.allbinary.input.media.image.InputImageType;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *
@@ -29,6 +30,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class ImageActionScriptOutputJPanel
     extends javax.swing.JPanel
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private ImageActionScriptOutputInterface capturedImageActionScriptOutputInterface;
     
     /** Creates new form ColorAtActionJPanel */
@@ -36,7 +39,7 @@ public class ImageActionScriptOutputJPanel
         ImageActionScriptOutputInterface capturedImageActionScriptOutputInterface)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         
         initComponents();
         
@@ -53,7 +56,7 @@ public class ImageActionScriptOutputJPanel
             this.capturedImageActionScriptOutputInterface.getImageTypes();
         Vector vector = imageTypes.getVector();
 
-        int selectedArray[] = new int[vector.size()];
+        int[] selectedArray = new int[vector.size()];
         int index = 0;
         Iterator iterator = vector.iterator();
         while(iterator.hasNext())
@@ -80,7 +83,7 @@ public class ImageActionScriptOutputJPanel
     private void update()
     {
 
-        Object object[] = this.itemTypesJList.getSelectedValues();
+        Object[] object = this.itemTypesJList.getSelectedValues();
 
         ImageTypes imageTypes = ImageTypes.valueOf(object);
 

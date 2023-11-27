@@ -44,7 +44,7 @@ public class MouseActionScriptInput
     {
         super(NAME, node);
 
-        LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         
         this.point = new Point();
         

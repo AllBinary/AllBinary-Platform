@@ -302,7 +302,7 @@ public class GenericProfileActionsJPanel extends javax.swing.JPanel
 // TODO add your handling code here:
         try
         {
-            Object object[] = this.genericProfileActionsJList.getSelectedValues();
+            Object[] object = this.genericProfileActionsJList.getSelectedValues();
             for(int index = 0; index < object.length; index++)
             {
                 String nextSelectedValueString = (String) object[index];

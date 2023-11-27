@@ -20,9 +20,12 @@ import java.awt.image.BufferedImage;
 
 import java.util.Vector;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 public class ImageComparisonResult
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public boolean isSameHeight;
     public boolean isSameWidth;
     
@@ -36,7 +39,7 @@ public class ImageComparisonResult
     
     private Vector nonMatchingPixelVector;
     
-    private BufferedImage bufferedImages[];
+    private BufferedImage[] bufferedImages;
     
     private float matchingPercent = -1;
 
@@ -95,9 +98,9 @@ public class ImageComparisonResult
         if(!isSameWidth || !isSameHeight)
         {
             final ImageUtil imageUtil = ImageUtil.getInstance();
-            LogUtil.put(LogFactory.getInstance("Images were not the same size? Most likely a resolution change.", this, "Constructor"));
-            LogUtil.put(LogFactory.getInstance("1: " + imageUtil.toString(bufferedImage), this, "Constructor"));
-            LogUtil.put(LogFactory.getInstance("2: " + imageUtil.toString(bufferedImage2), this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("Images were not the same size? Most likely a resolution change.", this, this.commonStrings.CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance("1: " + imageUtil.toString(bufferedImage), this, this.commonStrings.CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance("2: " + imageUtil.toString(bufferedImage2), this, this.commonStrings.CONSTRUCTOR));
         }
     }
     

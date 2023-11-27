@@ -43,7 +43,7 @@ public class ImageActionScriptOutput
     {
         super(NAME, node);
 
-        LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
 
         Node actionNode = DomSearchHelper.getNode(
             ImageActionScriptOutputData.NAME,

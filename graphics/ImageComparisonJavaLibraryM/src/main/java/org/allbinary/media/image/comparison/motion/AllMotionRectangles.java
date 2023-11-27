@@ -42,12 +42,12 @@ public class AllMotionRectangles extends MotionRectangles
         {
             MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
             LogUtil.put(LogFactory.getInstance(
-                "Rectangles: " + motionRectangle.getRectangle().toString(), this, "Constructor"));
+                "Rectangles: " + motionRectangle.getRectangle().toString(), this, this.commonStrings.CONSTRUCTOR));
         }
          */
         
         //LogUtil.put(LogFactory.getInstance(
-        //  "After - Number Of Rectangles: " + this.getVector().size(), this, "Constructor"));
+        //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR));
     }
     
     private void createMotionRectangles(ImageComparisonResult imageComparisonInfo)

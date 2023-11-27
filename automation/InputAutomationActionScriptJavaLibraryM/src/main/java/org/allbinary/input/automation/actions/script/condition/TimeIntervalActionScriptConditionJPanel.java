@@ -15,6 +15,7 @@ package org.allbinary.input.automation.actions.script.condition;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *
@@ -23,13 +24,15 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class TimeIntervalActionScriptConditionJPanel
     extends javax.swing.JPanel
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private TimeIntervalActionScriptConditionInterface timeIntervalActionScriptConditionInterface;
     
     /** Creates new form ColorAtActionJPanel */
     public TimeIntervalActionScriptConditionJPanel(
         TimeIntervalActionScriptConditionInterface timeIntervalActionScriptConditionInterface)
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         
         initComponents();
         

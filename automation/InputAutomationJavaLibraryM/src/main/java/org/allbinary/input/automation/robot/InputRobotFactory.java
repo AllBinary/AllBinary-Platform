@@ -30,6 +30,7 @@ import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.logic.system.loader.SecuredNativeLibraryInterface;
 import java.util.Collection;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 public class InputRobotFactory
 {
@@ -39,6 +40,8 @@ public class InputRobotFactory
     {
         return inputRobotFactory;
     }
+    
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final Hashtable hashtable = new Hashtable();
     private HelpSetListener helpSetListenerInterface;
@@ -62,7 +65,7 @@ public class InputRobotFactory
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.CONSTRUCTOR));
         }
     }
     

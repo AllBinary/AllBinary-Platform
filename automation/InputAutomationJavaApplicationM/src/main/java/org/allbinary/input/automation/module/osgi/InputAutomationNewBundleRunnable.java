@@ -37,17 +37,20 @@ import org.allbinary.thread.RunnableInterface;
 import bundle.input.automation.InputAutomationBundleActivator;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class InputAutomationNewBundleRunnable
     implements RunnableInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private static final String FILE = "file:";
     private static final String JAR_DIR_PROP = "org.knopflerfish.gosg.jars";
     private static final String INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH = "ia/auto";
     private static final int MODULES_START_LEVEL = 8;
         
-    private InputAutomationBundleActivator inputAutomationBundleActivator;
+    private final InputAutomationBundleActivator inputAutomationBundleActivator;
     
     private boolean running;
     
@@ -90,7 +93,7 @@ public class InputAutomationNewBundleRunnable
     private void updateModules()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "updateModules"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "updateModules"));
         
         Vector vector = this.findNewModules();
         Iterator iterator = vector.iterator();
@@ -108,7 +111,7 @@ public class InputAutomationNewBundleRunnable
     private HashMap getAllJarSymbolicNameHashMap()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "getAllJarSymbolicNameHashMap"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getAllJarSymbolicNameHashMap"));
         
         HashMap hashMap = new HashMap();
         Vector jarFileVector = this.getJarModuleFileVector();
@@ -144,7 +147,7 @@ public class InputAutomationNewBundleRunnable
     
     private Vector getJarModuleFileVector()
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "getJarModuleFileVector"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getJarModuleFileVector"));
         
         String baseJarPath = System.getProperty(JAR_DIR_PROP);
         
@@ -170,14 +173,14 @@ public class InputAutomationNewBundleRunnable
     private Vector getInstalledJarSymbolicNameVector()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "getInstalledJarSymbolicNameVector"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstalledJarSymbolicNameVector"));
         
         Vector vector = new Vector();
         
         BundleContext bundleContext =
             InputAutomationBundleActivator.getBundleContext();
         
-        Bundle bundleArray[] = bundleContext.getBundles();
+        Bundle[] bundleArray = bundleContext.getBundles();
         
         if(bundleArray != null)
         {
@@ -213,7 +216,7 @@ public class InputAutomationNewBundleRunnable
     
     private Vector findNewModules() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "findNewModules"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "findNewModules"));
         
         Vector vector = new Vector();
         HashMap hashMap = this.getAllJarSymbolicNameHashMap();
@@ -247,7 +250,7 @@ public class InputAutomationNewBundleRunnable
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
             
             this.setRunning(true);
             
@@ -264,7 +267,7 @@ public class InputAutomationNewBundleRunnable
                 //Thread.sleep(10000);
                 break;
             }
-            LogUtil.put(LogFactory.getInstance("End", this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
         }
         catch (Exception e)
         {

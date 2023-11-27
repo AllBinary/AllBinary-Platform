@@ -23,6 +23,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *
@@ -31,6 +32,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class GenericProfileActionScriptJPanel
     extends javax.swing.JPanel implements JTreeInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private DefaultMutableTreeNode defaultMutableTreeNode =
         new DefaultMutableTreeNode("Root");
     
@@ -39,7 +42,7 @@ public class GenericProfileActionScriptJPanel
     /** Creates new form GenericProfileActionScriptJPanel */
     public GenericProfileActionScriptJPanel()
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         
         initComponents();
     }

@@ -45,12 +45,14 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.java.help.JavaHelpUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 import org.allbinary.thread.RunnableInterface;
 
 public class InputAutomationJFrame extends javax.swing.JFrame implements InputAutomationConfigurationModuleChangeListener, InputAutomationRobotChangeListener, HelpSetListener
 {
-
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private InputAutomationModuleFactoryFactory inputAutomationModuleFactory;
    private InputAutomationModuleFactoryInterface inputAutomationModuleInterface;
    private RunnableInterface runnableInterface;
@@ -65,22 +67,22 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
       //fileJDialog = new FileJDialog();
       //fileJDialog.addFinishedListener(this);
       URL url = this.getClass().getResource("/help/Help.hs");
-      LogUtil.put(LogFactory.getInstance("URL: " + url, this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("URL: " + url, this, this.commonStrings.CONSTRUCTOR));
       helpSet = JavaHelpUtil.getInstance().getHelpSet(url);
 
       url = this.getClass().getResource("/resources/allbinaryicon8bit.jpg");
-      ImageIcon imageIcon = new ImageIcon(url);
+      final ImageIcon imageIcon = new ImageIcon(url);
       this.setIconImage(imageIcon.getImage());
 
       this.init();
    }
 
-   public void helpSetAdded(HelpSetEvent helpSetEvent)
+   public void helpSetAdded(final HelpSetEvent helpSetEvent)
    {
       this.helpSet.add(helpSetEvent.getHelpSet());
    }
 
-   public void helpSetRemoved(HelpSetEvent helpSetEvent)
+   public void helpSetRemoved(final HelpSetEvent helpSetEvent)
    {
       this.helpSet.remove(helpSetEvent.getHelpSet());
    }
@@ -102,7 +104,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
    try
    {
-   LogUtil.put(LogFactory.getInstance("Start", this, "onFiles"));
+   LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "onFiles"));
    for(int index = 0; index < files.length; index++)
    {
    LogUtil.put(LogFactory.getInstance("Reading: " + files[index], this, "onFiles"));
@@ -253,7 +255,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
         processingJMenu.setText("Processing");
         processingJMenu.setToolTipText("Set module processing state");
-        startJMenuItem.setText("Start");
+        startJMenuItem.setText(this.commonStrings.START);
         startJMenuItem.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -632,7 +634,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "onAdd"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "onAdd"));
 
          InputRobotFactory.getInstance().add(inputAutomationRobotChangeEvent.getInputAutomationRobotInterfaceWrapper().getInputRobotInterface());
       } catch (Exception e)
@@ -645,7 +647,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "onRemove"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "onRemove"));
 
          InputRobotFactory.getInstance().add(inputAutomationRobotChangeEvent.getInputAutomationRobotInterfaceWrapper().getInputRobotInterface());
       } catch (Exception e)
@@ -658,7 +660,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "onAdd"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "onAdd"));
 
          final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = InputAutomationModuleConfigurationsSingletonFactory.getInstance();
 
@@ -676,7 +678,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "onRemove"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "onRemove"));
 
          final InputAutomationConfiguration inputAutomationConfiguration = InputAutomationConfigurationFactory.getInstance();
          final InputAutomationModuleConfigurations inputAutomationModuleConfigurations = new InputAutomationModuleConfigurations(inputAutomationConfiguration.getInputAutomationModuleConfigurationList());

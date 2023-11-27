@@ -27,11 +27,14 @@ import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class TestInputForMotionRectanglesResultsWorker
    implements MotionRectanglesResultsListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private long index;
    
    private boolean running;
@@ -79,7 +82,7 @@ public class TestInputForMotionRectanglesResultsWorker
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "run"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
          
          this.setRunning(true);
          
@@ -152,7 +155,7 @@ public class TestInputForMotionRectanglesResultsWorker
          LogUtil.put(LogFactory.getInstance(
             "Time Elapsed: " + timeHelper.getElapsed(), this, "run"));
          
-         LogUtil.put(LogFactory.getInstance("End", this, "run"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
       }
       catch (Exception e)
       {

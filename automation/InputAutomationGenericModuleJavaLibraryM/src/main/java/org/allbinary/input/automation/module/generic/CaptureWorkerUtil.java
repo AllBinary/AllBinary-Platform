@@ -19,10 +19,10 @@ import java.util.Vector;
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 public class CaptureWorkerUtil
 {
-    
     public CaptureWorkerUtil()
     {
     }
@@ -30,7 +30,8 @@ public class CaptureWorkerUtil
     public static void processProfileActionConditions(Vector vector, Long frame)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", "CaptureWorkerUtil", "processProfileActionConditions"));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, "CaptureWorkerUtil", "processProfileActionConditions"));
 
         Iterator iterator = vector.iterator();
         while(iterator.hasNext())

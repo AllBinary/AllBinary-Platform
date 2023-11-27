@@ -76,7 +76,7 @@ public class ServiceReferenceMap implements Map
     public Set keySet()
     {
         //Set set
-        String keyStringArray[] = serviceReference.getPropertyKeys();
+        String[] keyStringArray = serviceReference.getPropertyKeys();
         return null;
     }
 
@@ -106,7 +106,7 @@ public class ServiceReferenceMap implements Map
             else
                 if(value instanceof String[])
                 {
-                String stringArray[] = (String[]) value;
+                String[] stringArray = (String[]) value;
                 for(int index3 = 0; index3 < stringArray.length; index3++)
                 {
                     stringBuffer.append(stringArray[index3]);

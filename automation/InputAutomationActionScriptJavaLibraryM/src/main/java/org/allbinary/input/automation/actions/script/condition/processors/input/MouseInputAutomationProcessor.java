@@ -58,6 +58,6 @@ public class MouseInputAutomationProcessor
 
         Thread.sleep(mouseActionScriptInputInterface.getTime());
         
-        //LogUtil.put(LogFactory.getInstance("End", "MouseInputAutomationProcessor", "process"));
+        //LogUtil.put(LogFactory.getInstance(this.commonStrings.END, "MouseInputAutomationProcessor", "process"));
     }
 }

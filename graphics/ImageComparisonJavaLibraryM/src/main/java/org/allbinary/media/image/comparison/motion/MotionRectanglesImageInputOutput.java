@@ -105,7 +105,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
         LogUtil.put(LogFactory.getInstance("Motion Image File Path 2: " + filePathStringBuffer2.toString(), this, "save"));
         LogUtil.put(LogFactory.getInstance("Motion Image File Path 2: " + filePathStringBuffer3.toString(), this, "save"));
         
-        BufferedImageCacheable bufferedImageCacheables[] =
+        BufferedImageCacheable[] bufferedImageCacheables =
             new BufferedImageCacheable[NUMBER_OF_IMAGES];
         
         ImageComparisonResult imageComparisonInfo =
@@ -156,7 +156,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
             }
              */
         
-        Graphics bufferedImageGraphicsArray[];
+        Graphics[] bufferedImageGraphicsArray;
         bufferedImageGraphicsArray = new Graphics[NUMBER_OF_IMAGES];
         
         for(int index = 0; index < NUMBER_OF_IMAGES; index++)
@@ -185,7 +185,7 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
             //For test frame
             if(rectangle.x > 560 && rectangle.y > 330 && 
                rectangle.x < 600 && rectangle.y < 365)// && imageComparisonInfo.getFrameTwo() == 19)
-            LogUtil.put(LogFactory.getInstance("TreasureRectangles: " + rectangle.toString(), this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("TreasureRectangles: " + rectangle.toString(), this, this.commonStrings.CONSTRUCTOR));
              */
         }
         

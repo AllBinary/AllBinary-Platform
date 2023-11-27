@@ -28,6 +28,7 @@ import org.allbinary.input.automation.module.InputAutomationActionInterface;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.util.cache.J2SECacheInterface;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.ImageComparisonWorker;
@@ -37,6 +38,9 @@ import org.allbinary.media.image.comparison.motion.MotionRectanglesWorker;
 public class GenericInputAutomationWorker
     extends AbstractInputAutomationWorker
 {
+
+    protected final String PROCESS_DATA_WORKER_RESULTS = "processDataWorkerResults";
+
     //private final Rectangle rectangle = new Rectangle(0, 0, 1024, 768);
     //private TimeHelper timeHelper;
     private Long lastFrame = new Long(-1);
@@ -45,15 +49,15 @@ public class GenericInputAutomationWorker
     private GenericProfile genericProfile;
     
     public GenericInputAutomationWorker(
-        InputAutomationActionInterface inputAutomationActionInterface,
-        GenericProfile genericProfile,
-        MotionRectangleConstraintsInterface motionRectangleConstraintsInterface,
-        ImageComparatorConstraintsInterface imageComparatorConstraintsInterface)
+        final InputAutomationActionInterface inputAutomationActionInterface,
+        final GenericProfile genericProfile,
+        final MotionRectangleConstraintsInterface motionRectangleConstraintsInterface,
+        final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface)
         throws Exception
     {
         super(inputAutomationActionInterface);
 
-        LogUtil.put(LogFactory.getInstance("GenericInputAutomationCaptureWorker", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         
         this.setCaptureWorker(
             GenericProfileCaptureWorkerFactory.getInstance(
@@ -70,14 +74,14 @@ public class GenericInputAutomationWorker
         
         this.setGenericProfile(genericProfile);
 
-        Vector vector = this.getGenericProfile().getGenericProfileDataWorkerTypeVector();
-        Iterator iterator = vector.iterator();
+        final Vector vector = this.getGenericProfile().getGenericProfileDataWorkerTypeVector();
+        final Iterator iterator = vector.iterator();
         while(iterator.hasNext())
         {
-            GenericProfileDataWorkerType genericProfileDataWorkerType = 
+            final GenericProfileDataWorkerType genericProfileDataWorkerType = 
                 (GenericProfileDataWorkerType) iterator.next();
 
-            LogUtil.put(LogFactory.getInstance("Adding Listener: " + genericProfileDataWorkerType, this, "Contructor"));
+            LogUtil.put(LogFactory.getInstance("Adding Listener: " + genericProfileDataWorkerType, this, this.commonStrings.CONSTRUCTOR));
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.COMPARISON)
             {
                 this.getCaptureWorker().addListener(
@@ -95,37 +99,37 @@ public class GenericInputAutomationWorker
     public void processDataWorkerResults()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "processDataWorkerResults"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.PROCESS_DATA_WORKER_RESULTS));
 
         this.waitForDataWorkers();
         
         final J2SECacheInterface cacheInterface = (J2SECacheInterface)
             CapturedBufferedImagesCacheSingleton.getInstance();
         
-        Object keyArray[] = cacheInterface.keySet().toArray();
+        final Object[] keyArray = cacheInterface.keySet().toArray();
         if(keyArray.length > 0)
         {
-            LogUtil.put(LogFactory.getInstance("Image Available", this, "processDataWorkerResults"));
+            LogUtil.put(LogFactory.getInstance("Image Available", this, this.PROCESS_DATA_WORKER_RESULTS));
             setFrame((Long) keyArray[keyArray.length - 1]);
 
             if(getFrame() > lastFrame)
             {
-                LogUtil.put(LogFactory.getInstance("Processing new frame: " + getFrame(), this, "processDataWorkerResults"));
+                LogUtil.put(LogFactory.getInstance("Processing new frame: " + getFrame(), this, this.PROCESS_DATA_WORKER_RESULTS));
                 
-                HashMap hashMap = this.getGenericProfile().getGenericProfileActions().getHashMap();
-                Set set = hashMap.keySet();
-                Iterator iterator = set.iterator();
+                final HashMap hashMap = this.getGenericProfile().getGenericProfileActions().getHashMap();
+                final Set set = hashMap.keySet();
+                final Iterator iterator = set.iterator();
                 
-                LogUtil.put(LogFactory.getInstance("Processing " + set.size() + "Actions", this, "processDataWorkerResults"));
+                LogUtil.put(LogFactory.getInstance("Processing " + set.size() + "Actions", this, this.PROCESS_DATA_WORKER_RESULTS));
                 while(iterator.hasNext())
                 {
                     String actionNameString = (String) iterator.next();
-                    LogUtil.put(LogFactory.getInstance("Processing Action: " + actionNameString, this, "processDataWorkerResults"));
-                    GenericProfileAction genericProfileAction =
+                    LogUtil.put(LogFactory.getInstance("Processing Action: " + actionNameString, this, this.PROCESS_DATA_WORKER_RESULTS));
+                    final GenericProfileAction genericProfileAction =
                         (GenericProfileAction) hashMap.get(actionNameString);
-                    GenericProfileActionScript genericProfileActionScript =
+                    final GenericProfileActionScript genericProfileActionScript =
                         genericProfileAction.getGenericProfileActionScript();
-                    Vector vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
+                    final Vector vector = genericProfileActionScript.getProfileActionConditionInterfaceVector();
                     CaptureWorkerUtil.processProfileActionConditions(vector, getFrame());
                 }
                 lastFrame = getFrame();
@@ -133,13 +137,13 @@ public class GenericInputAutomationWorker
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Image Not Available", this, "processDataWorkerResults"));
+            LogUtil.put(LogFactory.getInstance("Image Not Available", this, this.PROCESS_DATA_WORKER_RESULTS));
         }
     }
 
     public void process() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "process"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.PROCESS));
         this.startDataWorkers();
         this.processDataWorkerResults();
     }
@@ -149,7 +153,7 @@ public class GenericInputAutomationWorker
         return genericProfile;
     }
     
-    public void setGenericProfile(GenericProfile genericProfile)
+    public void setGenericProfile(final GenericProfile genericProfile)
     {
         this.genericProfile = genericProfile;
     }
@@ -159,7 +163,7 @@ public class GenericInputAutomationWorker
         return frame;
     }
 
-    protected void setFrame(Long frame)
+    protected void setFrame(final Long frame)
     {
         this.frame = frame;
     }

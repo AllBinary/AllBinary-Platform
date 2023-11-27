@@ -30,8 +30,8 @@ public class ConstrainedMotionRectangles extends MotionRectangles
     
     //GenerateImageWithBoundingBoxesAroundMovingArtifacts
     public ConstrainedMotionRectangles(
-        MotionRectangleConstraintsInterface motionRectangleConstraintsInterface,
-        MotionRectangles motionRectangles)
+        final MotionRectangleConstraintsInterface motionRectangleConstraintsInterface,
+        final MotionRectangles motionRectangles)
         throws Exception
     {
         super(NAME, motionRectangles.getImageComparisonResult());
@@ -39,33 +39,31 @@ public class ConstrainedMotionRectangles extends MotionRectangles
         this.setMotionRectangleConstraintsInterface(motionRectangleConstraintsInterface);
 
         //LogUtil.put(LogFactory.getInstance(
-          //  "After - Number Of Rectangles: " + this.getVector().size(), this, "Constructor"));
+          //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR));
     }
     
-    public void applyMotionRectangleConstraints(MotionRectangles motionRectangles)
+    public void applyMotionRectangleConstraints(final MotionRectangles motionRectangles)
     throws Exception
     {
         LogUtil.put(LogFactory.getInstance("Start - Size Before: " + motionRectangles.getVector().size(),
             this, "applyMotionRectangleConstraints"));
 
-        BufferedImage bufferedImageArray[] =
+        final BufferedImage[] bufferedImageArray =
             motionRectangles.getImageComparisonResult().getBufferedImages();
 
         BufferedImage bufferedImage = bufferedImageArray[1];
         
         Vector vector = new Vector();
         
-        Iterator iterator = motionRectangles.getVector().iterator();
+        final Iterator iterator = motionRectangles.getVector().iterator();
         
         while(iterator.hasNext())
         {
-            MotionRectangle motionRectangle =
-                (MotionRectangle) iterator.next();
+            final MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
             
-            Rectangle rectangle =
-                motionRectangle.getRectangle();
+            final Rectangle rectangle = motionRectangle.getRectangle();
             
-            boolean isTooSmall =
+            final boolean isTooSmall =
                 this.getMotionRectangleConstraintsInterface().isTooSmall(
                 rectangle);
             

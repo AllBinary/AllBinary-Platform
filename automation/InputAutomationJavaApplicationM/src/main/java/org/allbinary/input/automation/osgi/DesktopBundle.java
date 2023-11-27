@@ -33,7 +33,7 @@ public class DesktopBundle
         
         if(bundleContext != null)
         {
-            Bundle bundleArray[] = bundleContext.getBundles();
+            Bundle[] bundleArray = bundleContext.getBundles();
             
             for (int index = 0; index < bundleArray.length; index++) {
                 Bundle bundle = bundleArray[index];

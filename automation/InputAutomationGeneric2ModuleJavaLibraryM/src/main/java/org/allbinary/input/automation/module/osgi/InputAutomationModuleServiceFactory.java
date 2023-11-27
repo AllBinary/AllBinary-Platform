@@ -22,11 +22,14 @@ import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterfa
 
 import bundle.input.automation.module.InputAutomationModuleService;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 public class InputAutomationModuleServiceFactory
     implements ServiceFactory
 {
-    private InputAutomationModuleFactoryInterface inputAutomationModuleInterfaceArray[];
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private InputAutomationModuleFactoryInterface[] inputAutomationModuleInterfaceArray;
     
     public InputAutomationModuleServiceFactory()
     {
@@ -35,7 +38,7 @@ public class InputAutomationModuleServiceFactory
     public Object getService(
         Bundle bundle, ServiceRegistration registration)
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "getService"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getService"));
 
         return new InputAutomationModuleService(
             this.getInputAutomationModuleInterfaceArray());

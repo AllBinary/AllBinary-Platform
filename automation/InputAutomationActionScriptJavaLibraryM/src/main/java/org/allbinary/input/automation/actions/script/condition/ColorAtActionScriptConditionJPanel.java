@@ -16,6 +16,7 @@ package org.allbinary.input.automation.actions.script.condition;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.image.analysis.ColorRangeInterface;
 
 /**
@@ -25,13 +26,15 @@ import org.allbinary.media.image.analysis.ColorRangeInterface;
 public class ColorAtActionScriptConditionJPanel
     extends javax.swing.JPanel
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private ColorAtActionScriptConditionInterface colorAtActionScriptConditionInterface;
     
     /** Creates new form ColorAtActionJPanel */
     public ColorAtActionScriptConditionJPanel(
         ColorAtActionScriptConditionInterface colorAtActionScriptConditionInterface)
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         
         initComponents();
         

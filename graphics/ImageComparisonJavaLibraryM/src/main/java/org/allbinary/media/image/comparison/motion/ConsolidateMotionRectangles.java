@@ -42,7 +42,7 @@ public class ConsolidateMotionRectangles extends MotionRectangles
         consolidateMotionRectangles();
 
         //LogUtil.put(LogFactory.getInstance(
-          //  "After - Number Of Rectangles: " + this.getVector().size(), this, "Constructor"));
+          //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR));
     }
 
     private void consolidateMotionRectangles()

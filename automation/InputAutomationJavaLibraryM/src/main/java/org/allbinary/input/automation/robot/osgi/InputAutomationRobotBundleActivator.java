@@ -22,13 +22,16 @@ import org.osgi.framework.ServiceFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.osgi.OSGIActivatorUtil;
 import org.osgi.framework.ServiceReference;
 
 public class InputAutomationRobotBundleActivator
     implements BundleActivator
 {
-    private InputRobotInterface inputRobotInterface[];
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private InputRobotInterface[] inputRobotInterface;
     private ServiceFactory serviceFactory;
     
     public InputAutomationRobotBundleActivator()
@@ -82,7 +85,7 @@ public class InputAutomationRobotBundleActivator
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "addRobots"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "addRobots"));
             
             InputAutomationRobotChangeListener
                 inputAutomationRobotChangeListener =
@@ -111,7 +114,7 @@ public class InputAutomationRobotBundleActivator
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "removeRobots"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "removeRobots"));
             InputAutomationRobotChangeListener
                 inputAutomationRobotChangeListener =
                 this.getInputAutomationRobotChangeListener(context);
@@ -138,7 +141,7 @@ public class InputAutomationRobotBundleActivator
     public void start(BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "start"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.START));
         
         //TWB - It is possible that the injectors get 
         //added twice but that will not cause failure.
@@ -150,7 +153,7 @@ public class InputAutomationRobotBundleActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Stop", this, "start"));
+        LogUtil.put(LogFactory.getInstance("Stop", this, this.commonStrings.START));
         
         this.removeRobots(context);
         //TWB - add imp for removal InputRobotFactory.getInstance().remove

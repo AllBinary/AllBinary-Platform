@@ -20,12 +20,15 @@ import javax.swing.JPopupMenu;
 import javax.swing.tree.DefaultMutableTreeNode;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 import org.w3c.dom.Node;
 
 public class ProfileActionScriptItem extends DefaultMutableTreeNode
     implements ProfileActionScriptItemInterface, ActionListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private JPopupMenu jPopupMenu;
 
     private final static String EDIT = "Edit";
@@ -51,7 +54,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
         super(label);
         this.init();
         
-        LogUtil.put(LogFactory.getInstance("Label: " + label, this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance("Label: " + label, this, this.commonStrings.CONSTRUCTOR));
     }
     
     public ProfileActionScriptItem(
@@ -60,7 +63,7 @@ public class ProfileActionScriptItem extends DefaultMutableTreeNode
         super(label);
         this.init();
         
-        LogUtil.put(LogFactory.getInstance("Label: " + label, this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance("Label: " + label, this, this.commonStrings.CONSTRUCTOR));
     }
 
     private void init()

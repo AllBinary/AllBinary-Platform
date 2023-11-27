@@ -16,6 +16,7 @@ package org.allbinary.input.automation.module;
 import org.allbinary.input.media.image.capture.CaptureWorkerInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.image.comparison.ImageComparisonWorker;
 import org.allbinary.media.image.comparison.motion.MotionRectanglesWorker;
 import org.allbinary.thread.RunnableInterface;
@@ -24,6 +25,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class AbstractInputAutomationWorker
     implements RunnableInterface//, CapturedImageWorkerResultsListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private long index;
 
     private boolean running;
@@ -127,7 +130,7 @@ public class AbstractInputAutomationWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
             
             this.setRunning(true);
             
@@ -157,7 +160,7 @@ public class AbstractInputAutomationWorker
             this.stopDataWorkers();
             this.waitForDataWorkers();
             
-            LogUtil.put(LogFactory.getInstance("End", this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
         }
         catch (Exception e)
         {

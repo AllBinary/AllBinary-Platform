@@ -22,9 +22,9 @@ import java.util.Vector;
 
 public class FrameLog
 {
-    private static byte frameBytes[] = new String("Frame: ").getBytes();
-    private static byte info[] = new String("Info: \n").getBytes();
-    private static byte actions[] = new String("Actions: \n").getBytes();
+    private static byte[] frameBytes = new String("Frame: ").getBytes();
+    private static byte[] info = new String("Info: \n").getBytes();
+    private static byte[] actions = new String("Actions: \n").getBytes();
     
     private final Long frame;
 

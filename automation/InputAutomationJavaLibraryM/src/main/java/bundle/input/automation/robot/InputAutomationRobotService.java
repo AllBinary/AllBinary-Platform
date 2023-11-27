@@ -18,7 +18,7 @@ import org.allbinary.input.automation.robot.InputRobotInterface;
 public class InputAutomationRobotService 
     implements InputAutomationRobotServiceInterface
 {
-    private InputRobotInterface inputRobotInterfaceArray[];
+    private InputRobotInterface[] inputRobotInterfaceArray;
     
     public InputAutomationRobotService(
         InputRobotInterface inputRobotInterfaceArray[])

@@ -29,19 +29,19 @@ public class InputAutomationModuleOSGIServiceVisitor
     {
     }
     
-    public Object visit(Object object)
+    public Object visit(final Object object)
     {
         return this.visit((OSGIServiceInterface) object);
     }
     
-    public Boolean visit(OSGIServiceInterface osgiServiceInterface)
+    public Boolean visit(final OSGIServiceInterface osgiServiceInterface)
     {
         try
         {
-            InputAutomationModuleService inputAutomationModuleService =
+            final InputAutomationModuleService inputAutomationModuleService =
                 (InputAutomationModuleService) osgiServiceInterface;
             
-            InputAutomationModuleFactoryInterface inputAutomationModuleInterfaceArray[] =
+            final InputAutomationModuleFactoryInterface[] inputAutomationModuleInterfaceArray =
                 inputAutomationModuleService.getInputAutomationModuleInterfaceArray();
             
             for(int index = 0; index < inputAutomationModuleInterfaceArray.length; index++)

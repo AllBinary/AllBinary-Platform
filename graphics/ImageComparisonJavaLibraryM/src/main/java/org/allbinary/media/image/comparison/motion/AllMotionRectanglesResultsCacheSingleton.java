@@ -15,6 +15,7 @@ package org.allbinary.media.image.comparison.motion;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.util.cache.CacheInterface;
 import org.allbinary.logic.util.cache.CacheInterfaceFactory;
 import org.allbinary.logic.util.cache.CachePolicy;
@@ -30,11 +31,13 @@ public class AllMotionRectanglesResultsCacheSingleton
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, "MotionRectanglesResultsCacheSingleton", "Static Block"));
             
             cacheInterface = CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX);
             
-            LogUtil.put(LogFactory.getInstance("End", "MotionRectanglesResultsCacheSingleton", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, "MotionRectanglesResultsCacheSingleton", "Static Block"));
         }
         catch(Exception e)
         {

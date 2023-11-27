@@ -30,7 +30,7 @@ public class KeyCharDefaultComboBoxModelFactory
    {
       DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel();
       
-      Integer keyArray[] = KeySingletonFactory.getArray();
+      Integer[] keyArray = KeySingletonFactory.getArray();
       
       for(int index = 0; index < keyArray.length; index++)
       {

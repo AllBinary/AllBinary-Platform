@@ -17,6 +17,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.util.cache.CacheInterfaceFactory;
 import org.allbinary.logic.util.cache.CachePolicyFactory;
@@ -32,13 +33,14 @@ public class PixelDeltaFactory
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", "PixelDeltaFactory", "Static Block"));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, "PixelDeltaFactory", "Static Block"));
             
             cacheInterface = (AutomaticCacheInterface) 
                     CacheInterfaceFactory.getInstance(CacheTypeFactory.getInstance().CACHE, 
                 CachePolicyFactory.getInstance().THIRTY_MINUTES_TEN_THOUSAND_MAX);
             
-            LogUtil.put(LogFactory.getInstance("End", "PixelDeltaFactory", "Static Block"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, "PixelDeltaFactory", "Static Block"));
         }
         catch(Exception e)
         {

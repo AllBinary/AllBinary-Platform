@@ -20,11 +20,14 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class SaveCapturedImageWorker extends BasicEventHandler
     implements CapturedImageWorkerResultsListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private boolean running;
     private Vector capturedImageWorkerResultsEventVector = new Vector();
     
@@ -51,7 +54,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
     
     public void run() {
 	try {
-	    LogUtil.put(LogFactory.getInstance("Start", this, "run"));
+	    LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
 	    setRunning(true);
 	    TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
 	    timeHelper.setStartTime();
@@ -68,7 +71,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
 	    LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(),
 				this, "run"));
 	    setRunning(false);
-	    LogUtil.put(LogFactory.getInstance("End", this, "run"));
+	    LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
 	} catch (Exception e) {
 	    LogUtil.put(LogFactory.getInstance("Exception", this, "run", e));
 	}

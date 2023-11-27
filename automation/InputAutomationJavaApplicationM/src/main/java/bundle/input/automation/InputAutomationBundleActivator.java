@@ -22,6 +22,7 @@ import org.allbinary.input.automation.osgi.InputAutomationServiceFactory;
 import org.allbinary.input.automation.robot.osgi.InputAutomationRobotServiceConsumer;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.osgi.OSGIActivatorUtil;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -29,6 +30,8 @@ import org.osgi.framework.BundleContext;
 public class InputAutomationBundleActivator
     implements BundleActivator, InputAutomationBundleActivatorListenerInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private static Thread moduleManagementThread;
     private static BundleContext bundleContext;
     //private ServiceTracker remoteTracker;
@@ -38,11 +41,11 @@ public class InputAutomationBundleActivator
         return bundleContext;
     }
     
-    public void start(BundleContext bundleContext) throws Exception
+    public void start(final BundleContext bundleContext) throws Exception
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "start"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.START));
             
             this.bundleContext = bundleContext;
         /*
@@ -80,7 +83,7 @@ public class InputAutomationBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "start", e));
+            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.START, e));
             throw e;
         }
     }
@@ -105,10 +108,10 @@ public class InputAutomationBundleActivator
         new InputAutomationModuleServiceConsumer(this.getBundleContext()).process();        
     }
     
-    public void stop(BundleContext context)
+    public void stop(final BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "stop"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "stop"));
         if(InputAutomationJFrame.getInstance() != null)
         {
             InputAutomationJFrame.destroy();

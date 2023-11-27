@@ -17,7 +17,7 @@ import java.awt.Point;
 
 public class PointFactory
 {
-    private static Point pointArray[][] = new Point[3000][3000];
+    private static Point[][] pointArray = new Point[3000][3000];
     
     private PointFactory()
     {

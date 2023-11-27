@@ -23,7 +23,7 @@ public class KeySingletonFactory
    private static Hashtable keyStringHashtable = new Hashtable();
    //private static Integer[] integerArray = new Integer[0xFF];
    
-   private static Integer keyArray[] =
+   private static Integer[] keyArray =
    {
       KeyEvent.VK_0,
       KeyEvent.VK_1,

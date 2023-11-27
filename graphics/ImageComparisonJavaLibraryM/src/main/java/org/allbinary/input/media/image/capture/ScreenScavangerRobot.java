@@ -23,14 +23,17 @@ import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 public class ScreenScavangerRobot
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public ScreenScavangerRobot() throws Exception {
     }
     
     public BufferedImage[] getScreenAsBufferedImages() throws Exception {
-	LogUtil.put(LogFactory.getInstance("Start", this, "getScreenAsBufferedImages"));
+	LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getScreenAsBufferedImages"));
 	Dimension dimScreenSize = Toolkit.getDefaultToolkit().getScreenSize();
 	Rectangle rectScreenSize = new Rectangle(dimScreenSize);
 	Hashtable robotHashtable = InputRobotFactory.getInstance().get();

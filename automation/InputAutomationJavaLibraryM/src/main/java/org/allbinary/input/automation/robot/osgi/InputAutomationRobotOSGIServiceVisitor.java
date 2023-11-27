@@ -20,32 +20,35 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
 
 public class InputAutomationRobotOSGIServiceVisitor
     implements OSGIServiceVisitorInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public InputAutomationRobotOSGIServiceVisitor()
     {
     }
     
-    public Object visit(Object object)
+    public Object visit(final Object object)
     {
         return this.visit((OSGIServiceInterface) object);
     }
     
-    public Boolean visit(OSGIServiceInterface osgiServiceInterface)
+    public Boolean visit(final OSGIServiceInterface osgiServiceInterface)
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "visit"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "visit"));
             
-            InputAutomationRobotServiceInterface
+            final InputAutomationRobotServiceInterface
                 inputAutomationRobotServiceInterface =
                 (InputAutomationRobotServiceInterface) osgiServiceInterface;
             
-            InputRobotInterface inputRobotInterfaceArray[] =
+            final InputRobotInterface[] inputRobotInterfaceArray =
                 inputAutomationRobotServiceInterface.getInputRobotInterfaceArray();
             
             for(int index = 0; index < inputRobotInterfaceArray.length; index++)

@@ -30,6 +30,7 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.number.LongUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.visual.media.MediaDataFactory;
 import org.allbinary.media.image.cache.BufferedImageFrameCacheable;
 import org.allbinary.time.TimeDelayHelper;
@@ -38,6 +39,8 @@ public class SavedCaptureImagesWorker
     extends BasicEventHandler
     implements CaptureWorkerInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private static long index;
     
     private boolean running;
@@ -75,7 +78,7 @@ public class SavedCaptureImagesWorker
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "run"));
             
             this.setRunning(true);
             
@@ -126,7 +129,7 @@ public class SavedCaptureImagesWorker
                 this.setRunning(false);
             }
             
-            LogUtil.put(LogFactory.getInstance("End", this, "run"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "run"));
             
         }
         catch (Exception e)

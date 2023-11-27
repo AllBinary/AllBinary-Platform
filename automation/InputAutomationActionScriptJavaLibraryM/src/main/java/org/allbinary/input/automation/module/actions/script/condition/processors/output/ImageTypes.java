@@ -53,9 +53,9 @@ public class ImageTypes
         }
     }
     
-    //String selectedImageTypeStringArray[] = 
+    //String[] selectedImageTypeStringArray = 
       //      (String[]) 
-    //String selectedImageTypeStringArray[]
+    //String[] selectedImageTypeStringArray
     public static ImageTypes valueOf(Object object[])
     {
         ImageTypes imageTypes = new ImageTypes();

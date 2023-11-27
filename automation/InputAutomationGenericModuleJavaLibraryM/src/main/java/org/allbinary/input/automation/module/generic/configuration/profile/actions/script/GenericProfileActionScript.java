@@ -32,11 +32,14 @@ import org.allbinary.input.automation.module.generic.configuration.profile.actio
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionJPanel;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 public class GenericProfileActionScript
     extends DefaultMutableTreeNode
     implements ProfileActionScriptNodeInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private GenericProfileActionJPanel genericProfileActionJPanel;
     
     private Vector profileActionConditionInterfaceVector;
@@ -90,7 +93,7 @@ public class GenericProfileActionScript
     public void addCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "addCondition"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "addCondition"));
         this.getProfileActionConditionInterfaceVector().add(
             profileActionScriptNodeInterface);
         this.add(profileActionScriptNodeInterface);
@@ -99,7 +102,7 @@ public class GenericProfileActionScript
     public void removeCondition(
         ProfileActionScriptNodeInterface profileActionScriptNodeInterface)
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "removeCondition"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "removeCondition"));
         this.getProfileActionConditionInterfaceVector().remove(
             profileActionScriptNodeInterface);
         this.remove(profileActionScriptNodeInterface);

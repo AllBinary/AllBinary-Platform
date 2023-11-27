@@ -26,6 +26,7 @@ import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *
@@ -33,13 +34,15 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private KeyboardActionScriptInputInterface keyActionScriptInputInterface;
    
    /** Creates new form ColorAtActionJPanel */
    public KeyboardActionScriptInputJPanel(KeyboardActionScriptInputInterface keyActionScriptInputInterface)
    throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Start", this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
       
       initComponents();
       

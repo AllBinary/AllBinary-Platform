@@ -80,7 +80,7 @@ public class ImageComparator
 
    public ImageComparisonResult compare(BufferedImage bufferedImage1, BufferedImage bufferedImage2, Long frameOne, Long frameTwo, int tolerance) throws Exception
    {
-      //LogUtil.put(LogFactory.getInstance("Start", this, "compare"));
+      //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "compare"));
       if (bufferedImage1 == null || bufferedImage2 == null)
       {
          throw new Exception("Input images must not be null.");
@@ -101,7 +101,7 @@ public class ImageComparator
          }
       }
 
-      //LogUtil.put(LogFactory.getInstance("End", this, "compare"));
+      //LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "compare"));
       return imageComparisonInfo;
    }
 }

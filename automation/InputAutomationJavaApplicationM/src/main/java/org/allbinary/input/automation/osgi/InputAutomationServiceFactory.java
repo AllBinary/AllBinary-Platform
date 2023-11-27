@@ -20,12 +20,14 @@ import org.osgi.framework.ServiceRegistration;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.InputAutomationJFrame;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 public class InputAutomationServiceFactory
     implements ServiceFactory
 {
-    private static InputAutomationServiceFactory inputAutomationServiceFactory = 
-        new InputAutomationServiceFactory();
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private static final InputAutomationServiceFactory inputAutomationServiceFactory = new InputAutomationServiceFactory();
     
     private InputAutomationServiceFactory()
     {
@@ -36,10 +38,9 @@ public class InputAutomationServiceFactory
         return inputAutomationServiceFactory;
     }
     
-    public Object getService(
-        Bundle bundle, ServiceRegistration registration)
+    public Object getService(final Bundle bundle, final ServiceRegistration registration)
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "getService"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getService"));
 
         return InputAutomationJFrame.getInstance();
         
@@ -58,10 +59,7 @@ public class InputAutomationServiceFactory
         }*/
     }
     
-    public void ungetService(
-        Bundle bundle,
-        ServiceRegistration registration,
-        Object service)
+    public void ungetService(final Bundle bundle, final ServiceRegistration registration, final Object service)
     {
     }    
 }

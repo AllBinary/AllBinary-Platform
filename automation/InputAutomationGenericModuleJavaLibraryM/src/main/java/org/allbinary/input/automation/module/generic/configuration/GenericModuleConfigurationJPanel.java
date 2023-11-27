@@ -23,6 +23,7 @@ import org.allbinary.input.automation.module.generic.configuration.profile.actio
 import org.allbinary.input.automation.module.generic.configuration.profile.actions.GenericProfileActionsJPanel;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *
@@ -32,6 +33,8 @@ public class GenericModuleConfigurationJPanel
     extends javax.swing.JPanel
     implements GenericModuleConfigurationInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private GenericProfiles genericProfiles;
     
     private GenericProfile selectedGenericProfile;
@@ -454,7 +457,7 @@ public class GenericModuleConfigurationJPanel
     private void updateProfileOptions()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "updateProfileOptions"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "updateProfileOptions"));
         
         GenericProfile genericProfile = this.getSelectedGenericProfile();
         Vector vector = genericProfile.getGenericProfileDataWorkerTypeVector();
@@ -506,7 +509,7 @@ public class GenericModuleConfigurationJPanel
                 GenericProfileDataWorkerType.SCREEN_CAPTURE);
         }
 
-        LogUtil.put(LogFactory.getInstance("End", this, "updateProfileOptions"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, "updateProfileOptions"));
     }
     
     public javax.swing.JPanel getBlankGenericProfileActionsJPanel()
@@ -560,7 +563,7 @@ public class GenericModuleConfigurationJPanel
 // TODO add your handling code here:
         try
         {
-            Object object[] = this.genericProfilesJList.getSelectedValues();
+            Object[] object = this.genericProfilesJList.getSelectedValues();
             for(int index = 0; index < object.length; index++)
             {
                 String nextSelectedValueString = (String) object[index];
