@@ -34,8 +34,8 @@ public class CapturedBufferedImagesCacheSingleton
     }
     
     static {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
 	try {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
 
 	    LogUtil.put(LogFactory.getInstance(commonStrings.START,"CapturedBufferedImagesCacheSingleton","Static Block"));
 	    cacheInterface = (AutomaticCacheInterface) 
@@ -43,9 +43,7 @@ public class CapturedBufferedImagesCacheSingleton
 						    (CachePolicyFactory.getInstance().ONE_MINUTE_FIVE_MAX));
 	    LogUtil.put(LogFactory.getInstance(commonStrings.END, "CapturedBufferedImagesCacheSingleton","Static Block"));
 	} catch (Exception e) {
-	    LogUtil.put(LogFactory.getInstance("Exception",
-				"CapturedBufferedImagesCacheSingleton",
-				"Static Block", e));
+	    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,"CapturedBufferedImagesCacheSingleton","Static Block", e));
 	}
     }
 }

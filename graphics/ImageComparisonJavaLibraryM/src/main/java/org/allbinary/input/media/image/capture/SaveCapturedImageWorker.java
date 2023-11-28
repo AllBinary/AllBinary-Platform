@@ -73,7 +73,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
 	    setRunning(false);
 	    LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
 	} catch (Exception e) {
-	    LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
+	    LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
 	}
     }
 }

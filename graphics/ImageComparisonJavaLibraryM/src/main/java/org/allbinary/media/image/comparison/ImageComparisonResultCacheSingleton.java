@@ -39,7 +39,7 @@ public class ImageComparisonResultCacheSingleton
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", "ImageComparisonCacheSingleton", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "ImageComparisonCacheSingleton", "Static Block", e));
         }
     }
     

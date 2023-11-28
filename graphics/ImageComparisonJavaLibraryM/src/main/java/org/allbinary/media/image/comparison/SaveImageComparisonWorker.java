@@ -29,34 +29,30 @@ public class SaveImageComparisonWorker
     
     private boolean running;
     
-    private Vector imageComparisonInfoVector;
+    private final Vector imageComparisonInfoVector = new Vector();
     
     public SaveImageComparisonWorker()
     {
-        this.imageComparisonInfoVector = new Vector();
     }
     
-    public void onImageComparisonResultsEvent(
-        ImageComparisonResultsEvent imageComparisonResultsEvent)
+    public void onImageComparisonResultsEvent(final ImageComparisonResultsEvent imageComparisonResultsEvent)
     {
-        this.imageComparisonInfoVector.add(
-            imageComparisonResultsEvent);
+        this.imageComparisonInfoVector.add(imageComparisonResultsEvent);
         
         this.run();
     }
     
-    public void onEvent(AllBinaryEventObject allBinaryEventObject)
+    public void onEvent(final AllBinaryEventObject allBinaryEventObject)
     {
-        this.onImageComparisonResultsEvent(
-            (ImageComparisonResultsEvent) allBinaryEventObject);
+        this.onImageComparisonResultsEvent((ImageComparisonResultsEvent) allBinaryEventObject);
     }
     
     public synchronized boolean isRunning()
     {
         return running;
     }
-    
-    public synchronized void setRunning(boolean running)
+
+    public synchronized void setRunning(final boolean running)
     {
         this.running = running;
     }
@@ -69,31 +65,29 @@ public class SaveImageComparisonWorker
             
             this.setRunning(true);
             
-            TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
+            final TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
             timeHelper.setStartTime();
             
-            ImageComparisonResultsEvent imageComparisonResultsEvent = 
-            (ImageComparisonResultsEvent) this.imageComparisonInfoVector.get(0);
+            final ImageComparisonResultsEvent imageComparisonResultsEvent = 
+                    (ImageComparisonResultsEvent) this.imageComparisonInfoVector.get(0);
             
-            ImageComparisonResult imageComparisonInfo =
+            final ImageComparisonResult imageComparisonInfo =
                 imageComparisonResultsEvent.getImageComparisonResult();
             
             LogUtil.put(LogFactory.getInstance(imageComparisonInfo.toString(), this, this.commonStrings.RUN));
 
-            new ComparisonImageInputOutput().save(
-                imageComparisonInfo, imageComparisonInfo.getFrameTwo());
+            new ComparisonImageInputOutput().save(imageComparisonInfo, imageComparisonInfo.getFrameTwo());
 
             this.imageComparisonInfoVector.remove(imageComparisonInfo);
 
-            LogUtil.put(LogFactory.getInstance(
-                "Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+            LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
             
             LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
         }
     }
 }

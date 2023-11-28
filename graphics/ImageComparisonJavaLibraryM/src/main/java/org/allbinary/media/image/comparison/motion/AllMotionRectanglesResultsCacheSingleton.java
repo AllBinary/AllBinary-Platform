@@ -29,9 +29,9 @@ public class AllMotionRectanglesResultsCacheSingleton
     
     static
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
             
             LogUtil.put(LogFactory.getInstance(commonStrings.START, "MotionRectanglesResultsCacheSingleton", "Static Block"));
             
@@ -41,7 +41,7 @@ public class AllMotionRectanglesResultsCacheSingleton
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", "MotionRectanglesResultsCacheSingleton", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "MotionRectanglesResultsCacheSingleton", "Static Block", e));
         }
     }
     

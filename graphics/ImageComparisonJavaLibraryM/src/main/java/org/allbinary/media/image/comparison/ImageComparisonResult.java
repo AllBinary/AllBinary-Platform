@@ -21,12 +21,16 @@ import java.awt.image.BufferedImage;
 import java.util.Vector;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class ImageComparisonResult
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final BufferedImage[] bufferedImages = new BufferedImage[2];
+    
+    public final String name;
     
     public final boolean isSameHeight;
     public final boolean isSameWidth;
@@ -47,12 +51,15 @@ public class ImageComparisonResult
     private float matchingPercent = -1;
     
     public ImageComparisonResult(
+        final String name,
         final BufferedImage bufferedImage,
         final BufferedImage bufferedImage2,
         final Long frameOne,
         final Long frameTwo,
         final int tolerance)
     {
+        this.name = name;
+
         this.nonMatchingPixelVector = new Vector();
         
         this.bufferedImages[0] = bufferedImage;
@@ -128,11 +135,11 @@ public class ImageComparisonResult
     
     public String toString()
     {
-        return "ImageComparisonInfo: " +
-            " Number Of Matching Pixels: " + this.pixelsThatMatch +
-            "\nNumber Of Non-Matching Pixels: " + this.getNonMatchingPixelVector().size() +
-            "\nNumber Of Pixels Ignored: " + this.pixelsIgnored +
-            "\nMatching Percentage: " + this.getMatchingPercent();
+        return new StringMaker().append("ImageComparisonInfo: ").append(
+            " Number Of Matching Pixels: ").append(this.pixelsThatMatch).append(
+            "\nNumber Of Non-Matching Pixels: ").append(this.getNonMatchingPixelVector().size()).append(
+            "\nNumber Of Pixels Ignored: ").append(this.pixelsIgnored).append(
+            "\nMatching Percentage: ").append(this.getMatchingPercent()).toString();
     }
     
     public BufferedImage[] getBufferedImages()

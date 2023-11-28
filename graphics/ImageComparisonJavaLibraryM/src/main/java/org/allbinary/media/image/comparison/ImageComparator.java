@@ -20,6 +20,7 @@ import org.allbinary.media.image.comparison.pixel.PixelDeltaFactory;
 import java.awt.Color;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 
 public class ImageComparator
@@ -78,7 +79,11 @@ public class ImageComparator
       }
    }
 
-   public ImageComparisonResult compare(final BufferedImage bufferedImage1, final BufferedImage bufferedImage2, final Long frameOne, final Long frameTwo, final int tolerance) throws Exception
+   public ImageComparisonResult compare(final BufferedImage bufferedImage1, final BufferedImage bufferedImage2, final Long frameOne, final Long frameTwo, final int tolerance) throws Exception {
+       return this.compare(bufferedImage1, bufferedImage2, frameOne, frameTwo, tolerance, StringUtil.getInstance().EMPTY_STRING);
+   }
+   
+   public ImageComparisonResult compare(final BufferedImage bufferedImage1, final BufferedImage bufferedImage2, final Long frameOne, final Long frameTwo, final int tolerance, final String name) throws Exception
    {
       //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "compare"));
       if (bufferedImage1 == null || bufferedImage2 == null)
@@ -86,7 +91,7 @@ public class ImageComparator
          throw new Exception("Input images must not be null.");
       }
 
-      final ImageComparisonResult imageComparisonInfo = new ImageComparisonResult(bufferedImage1, bufferedImage2, frameOne, frameTwo, tolerance);
+      final ImageComparisonResult imageComparisonInfo = new ImageComparisonResult(name, bufferedImage1, bufferedImage2, frameOne, frameTwo, tolerance);
 
       for (int indexY = 0; indexY < imageComparisonInfo.imageHeight; indexY++)
       {

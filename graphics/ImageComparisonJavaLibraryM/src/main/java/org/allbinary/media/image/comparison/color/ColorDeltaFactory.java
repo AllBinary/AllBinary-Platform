@@ -28,9 +28,9 @@ public class ColorDeltaFactory
     
     static
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
             
             LogUtil.put(LogFactory.getInstance(commonStrings.START, "ColorDeltaFactory", "Static Block"));
             
@@ -41,7 +41,7 @@ public class ColorDeltaFactory
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", "ColorDeltaFactory", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "ColorDeltaFactory", "Static Block", e));
         }
     }
     

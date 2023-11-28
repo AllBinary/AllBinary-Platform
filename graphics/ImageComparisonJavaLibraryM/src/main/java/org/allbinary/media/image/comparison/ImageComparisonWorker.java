@@ -23,6 +23,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.time.TimeDelayHelper;
 
 public class ImageComparisonWorker
@@ -39,7 +40,7 @@ public class ImageComparisonWorker
     
     private boolean running;
     
-    private int index;
+    private int index2;
     
     public ImageComparisonWorker(
         final ImageComparatorConstraintsInterface imageComparatorConstraintsInterface)
@@ -88,7 +89,7 @@ public class ImageComparisonWorker
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             timeHelper.setStartTime();
             
-            if(this.imageComparatorConstraintsInterface.isFrameAllowed(index))
+            if(this.imageComparatorConstraintsInterface.isFrameAllowed(index2))
             {
                 final CapturedImageWorkerResultsEvent[] capturedImageWorkerResultsEvent =
                     new CapturedImageWorkerResultsEvent[2];
@@ -122,8 +123,7 @@ public class ImageComparisonWorker
                     this.fireEvent(new ImageComparisonResultsEvent(
                         this, imageComparisonResult));
                     
-                    LogUtil.put(LogFactory.getInstance("Image Comparison Result: " +
-                        imageComparisonResult.toString() + " for frame: " + frame, this, this.commonStrings.RUN));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image Comparison Result: ").append(imageComparisonResult.toString()).append(" for frame: ").append(frame).toString(), this, this.commonStrings.RUN));
                 }
                 else
                 {
@@ -134,10 +134,10 @@ public class ImageComparisonWorker
             
             //Remove the first frame compared or not
             this.bufferedImageVector.remove(0);
-            index++;
+            index2++;
             
-            LogUtil.put(LogFactory.getInstance(
-                "Frame: " + index + " Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+            final String message = new StringMaker().append("Frame: ").append(index2).append(" Time Elapsed: ").append(timeHelper.getElapsed()).toString();
+            LogUtil.put(LogFactory.getInstance(message, this, this.commonStrings.RUN));
             
             this.setRunning(false);
             
@@ -145,7 +145,7 @@ public class ImageComparisonWorker
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
         }
     }
 }

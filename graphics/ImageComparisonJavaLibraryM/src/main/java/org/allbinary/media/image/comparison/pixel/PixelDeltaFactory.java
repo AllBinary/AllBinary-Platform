@@ -31,9 +31,9 @@ public class PixelDeltaFactory
     
     static
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(commonStrings.START, "PixelDeltaFactory", "Static Block"));
             
             cacheInterface = (AutomaticCacheInterface) 
@@ -44,7 +44,7 @@ public class PixelDeltaFactory
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", "PixelDeltaFactory", "Static Block", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "PixelDeltaFactory", "Static Block", e));
         }
     }
     
