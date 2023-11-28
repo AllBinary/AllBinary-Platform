@@ -22,7 +22,6 @@ import java.util.Vector;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
 
 public class ImageComparisonResult
 {
@@ -113,7 +112,7 @@ public class ImageComparisonResult
         }
     }
     
-    private float getMatchingPercent()
+    public float getMatchingPercent()
     {
         if(this.matchingPercent == -1)
         {
@@ -135,11 +134,11 @@ public class ImageComparisonResult
     
     public String toString()
     {
-        return new StringMaker().append("ImageComparisonInfo: ").append(
-            " Number Of Matching Pixels: ").append(this.pixelsThatMatch).append(
-            "\nNumber Of Non-Matching Pixels: ").append(this.getNonMatchingPixelVector().size()).append(
-            "\nNumber Of Pixels Ignored: ").append(this.pixelsIgnored).append(
-            "\nMatching Percentage: ").append(this.getMatchingPercent()).toString();
+        return new StringMaker().append("ImageComparisonInfo: ").append(this.name)
+                .append(" Number Of Matching Pixels: ").append(this.pixelsThatMatch)
+                .append("\nNumber Of Non-Matching Pixels: ").append(this.getNonMatchingPixelVector().size())
+                .append("\nNumber Of Pixels Ignored: ").append(this.pixelsIgnored)
+                .append("\nMatching Percentage: ").append(this.getMatchingPercent()).toString();
     }
     
     public BufferedImage[] getBufferedImages()

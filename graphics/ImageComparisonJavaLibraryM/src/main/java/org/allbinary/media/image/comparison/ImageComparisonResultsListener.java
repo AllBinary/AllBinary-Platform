@@ -19,5 +19,5 @@ public interface ImageComparisonResultsListener
    extends BasicEventListenerInterface
 {
    public void onImageComparisonResultsEvent(
-      ImageComparisonResultsEvent imageComparisonResultsEvent);
+      final ImageComparisonResultsEvent imageComparisonResultsEvent);
 }

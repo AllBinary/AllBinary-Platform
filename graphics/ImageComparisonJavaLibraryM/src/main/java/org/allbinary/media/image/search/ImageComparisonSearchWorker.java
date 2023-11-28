@@ -33,11 +33,11 @@ public class ImageComparisonSearchWorker
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
+    private final Vector imageComparisonInfoVector;
+    
     private long index;
     
     private boolean running;
-    
-    private Vector imageComparisonInfoVector;
     
     private ImageComparisonSearchConstraintsInterface imageSearchConstraintsInterface;
 
