@@ -116,7 +116,7 @@ public class ImageComparisonResult
     {
         if(this.matchingPercent == -1)
         {
-            this.matchingPercent = (float)pixelsThatMatch / (this.imageWidth * this.imageHeight);
+            this.matchingPercent = (float) pixelsThatMatch / (this.imageWidth * this.imageHeight);
         }
         
         return this.matchingPercent;
