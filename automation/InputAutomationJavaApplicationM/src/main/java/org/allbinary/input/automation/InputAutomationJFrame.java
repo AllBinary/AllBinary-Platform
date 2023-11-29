@@ -585,7 +585,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    {
        LogConfigTypeFactory.getInstance();
        final AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
-       appUrlGlobals.setWebappPath("G:/mnt/bc/mydev/work_automation/automation/run");
+       appUrlGlobals.setWebappPath("G:/mnt/bc/mydev/work_automation/automation/run/");
        URLGLOBALS.init(appUrlGlobals);
        WebappClassLoaderInfo.setLoader(appUrlGlobals.getClass().getClassLoader());
 
