@@ -861,19 +861,24 @@ public class FileUtil
 
     public String readAsString(final String fileName, final byte[] bytes)
     {
+        FileInputStream idFile = null;
         try
         {
-            final FileInputStream idFile = new FileInputStream(fileName);
+            idFile = new FileInputStream(fileName);
             final int size = idFile.read(bytes);
-            return new String(bytes, 0, size);
+            if(size > 0) {
+                return new String(bytes, 0, size);
+            }
         } catch (Exception e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.IDLOGGING))
             {
                 LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "SmallInsert", e));
             }
-            return StringUtil.getInstance().EMPTY_STRING;
+        } finally {
+            streamUtil.close(idFile);
         }
+        return StringUtil.getInstance().EMPTY_STRING;
     }
     
     private final String WRITE_LABEL = "Write file: ";
