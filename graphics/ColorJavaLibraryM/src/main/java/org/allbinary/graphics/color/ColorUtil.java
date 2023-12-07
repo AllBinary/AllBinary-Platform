@@ -42,4 +42,13 @@ public class ColorUtil {
         return true;
     }
 
+    public boolean isDark(final Color color) {
+        
+        if(color.getRed() < 0x77 && color.getRed() < 0x77 && color.getRed() < 0x77) {
+            return true;
+        }
+
+        return false;
+    }
+    
 }
