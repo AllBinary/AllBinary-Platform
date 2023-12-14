@@ -1,16 +1,3 @@
-/*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
 package org.allbinary.util;
 
 import org.allbinary.logic.string.CommonSeps;
@@ -27,26 +14,74 @@ public class ArrayUtil
 
     public final Object[] ZERO_OBJECT_ARRAY = new Object[0];
     
-    public Object[] copyOf(Object[] original, int newLength)
+    public Object[] copyOf(final Object[] original, final int newLength)
     {
         return copyOf(original, newLength, original.getClass());
     }
 
-    public Object[] copyOf(Object[] original, int newLength, Class newType)
+    public Object[] copyOf(final Object[] original, final int newLength, final Class newType)
     {
-        Object[] copy = new Object[newLength];
+        final Object[] copy = new Object[newLength];
         System.arraycopy(original, 0, copy, 0, Math.min(original.length, newLength));
         return copy;
     }
 
-    public String toString(int[][] twoDimensionalIntArray)
-    {
-        StringMaker stringBuffer = new StringMaker();
+    public byte[] copyOf(final byte[] original, final int newLength) {
+        final byte[] copy = new byte[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
 
-        CommonSeps commonSeps = CommonSeps.getInstance();
+    public short[] copyOf(short[] original, int newLength) {
+        final short[] copy = new short[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
+
+    public int[] copyOf(final int[] original, final int newLength) {
+        final int[] copy = new int[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
+
+    public long[] copyOf(final long[] original, final int newLength) {
+        final long[] copy = new long[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
+
+    public char[] copyOf(final char[] original, final int newLength) {
+        final char[] copy = new char[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
+
+    public float[] copyOf(final float[] original, final int newLength) {
+        final float[] copy = new float[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
+
+    public double[] copyOf(final double[] original, final int newLength) {
+        final double[] copy = new double[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
+
+    public boolean[] copyOf(final boolean[] original, final int newLength) {
+        final boolean[] copy = new boolean[newLength];
+        System.arraycopy(original, 0, copy, 0,Math.min(original.length, newLength));
+        return copy;
+    }
+    
+    public String toString(final int[][] twoDimensionalIntArray)
+    {
+        final StringMaker stringBuffer = new StringMaker();
+
+        final CommonSeps commonSeps = CommonSeps.getInstance();
                 
-        int endIndex = twoDimensionalIntArray.length;
-        int endIndex2 = twoDimensionalIntArray[0].length;
+        final int endIndex = twoDimensionalIntArray.length;
+        final int endIndex2 = twoDimensionalIntArray[0].length;
         for (int index = 0; index < endIndex; index++)
         {
             stringBuffer.append(commonSeps.BRACE_OPEN);
@@ -62,11 +97,11 @@ public class ArrayUtil
         return stringBuffer.toString();
     }
     
-    public String toString(Object[] objectArray)
+    public String toString(final Object[] objectArray)
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
-        CommonSeps commonSeps = CommonSeps.getInstance();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
 
         for (int index = 0; index < objectArray.length; index++)
         {
