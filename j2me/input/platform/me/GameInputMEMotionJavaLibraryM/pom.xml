@@ -42,16 +42,16 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>BasicMathLibrary</artifactId>
+            <artifactId>GameInputPersistanceLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameInputPersistanceLibrary</artifactId>
+            <artifactId>BasicMathLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
