@@ -13,13 +13,14 @@
  */
 package org.allbinary.media.graphics.geography.map.topview;
 
-import java.util.Map;
+import java.util.Hashtable;
 import java.util.Set;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.HashtableUtil;
 
 /**
  *
@@ -58,7 +59,7 @@ public class BasicTopViewGeographicMapCellTypeFactory {
         OTHER_CELL_TYPE = BLOCK_CELL_TYPE;
     }
 
-    public void init(final Map tileTypeToTileIdsMap) {
+    public void init(final Hashtable tileTypeToTileIdsMap) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
@@ -74,14 +75,15 @@ public class BasicTopViewGeographicMapCellTypeFactory {
         final String STAIRS_UP = "StairsUp";
         final String STAIRS_DOWN = "StairsDown";
         
-        final Set set = tileTypeToTileIdsMap.keySet();
-        final String[] keyArray = (String[]) set.toArray(new String[set.size()]);
+        final Object[] keyArray = HashtableUtil.getInstance().getKeysAsArray(tileTypeToTileIdsMap);
+        //final Set set = tileTypeToTileIdsMap.keySet();
+        //final String[] keyArray = (String[]) set.toArray(new String[set.size()]);
         final int size = keyArray.length;
         BasicArrayList idsWithTypeList;
         String key;
         BasicTopViewGeographicMapCellType basicPlatormGeographicMapCellType;
         for(int index = 0; index < size; index++) {
-            key = keyArray[index];
+            key = (String) keyArray[index];
             
             LogUtil.put(LogFactory.getInstance(key, this, commonStrings.INIT));
             
