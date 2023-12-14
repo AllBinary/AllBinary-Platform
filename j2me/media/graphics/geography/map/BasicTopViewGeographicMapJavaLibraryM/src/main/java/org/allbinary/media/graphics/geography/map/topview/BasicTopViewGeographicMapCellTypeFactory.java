@@ -14,7 +14,6 @@
 package org.allbinary.media.graphics.geography.map.topview;
 
 import java.util.Hashtable;
-import java.util.Set;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
