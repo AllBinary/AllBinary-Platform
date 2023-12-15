@@ -136,9 +136,15 @@ public class PreLogUtil
             //Example:     at org_allbinary_..._BasicTopViewGeographicMapCellTypeFactory_$init__Lorg_allbinary_..._BasicTopViewGeographicMapCellTypeFactory_2Ljava_util_Hashtable_2V (http://...
             var stackTraceLine = a[3];
             var startIndex = stackTraceLine.indexOf("at ");
-            //var endIndex = stackTraceLine.indexOf("(");
             var endIndex = stackTraceLine.indexOf("$");
-            return stackTraceLine.substring(startIndex + 3, endIndex - 1);
+            if(startIndex + 3 - (endIndex - 1) < 5) {
+                return stackTraceLine.substring(startIndex + 3, endIndex - 1);
+            } else {
+                var endIndex2 = stackTraceLine.indexOf("__");
+                return stackTraceLine.substring(startIndex + 3, endIndex2);
+            }
+            //var endIndex = stackTraceLine.indexOf("(");
+            //return stackTraceLine.substring(startIndex + 3, endIndex - 1);
             //var a = new Error().stack.match(/at (.*?) /);
             //return a[1];
             //object.constructor.name;
