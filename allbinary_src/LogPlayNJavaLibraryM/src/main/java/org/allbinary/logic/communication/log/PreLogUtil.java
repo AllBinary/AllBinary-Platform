@@ -52,12 +52,18 @@ public class PreLogUtil
         Object object,
         String functionName)
     {
-        String className = EMPTY;
+        String className = PreLogUtil.getClassName(object);
         
-        if(object.getClass().getName() != null)
-        {
-            className = new String(object.getClass().getName());
+        if(className == null) {
+            className = EMPTY;
         }
+
+//        String className = EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(object.getClass().getName());
+//        }
         
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage);
@@ -74,12 +80,18 @@ public class PreLogUtil
         String functionName,
         Throwable exception)
     {
-        String className = EMPTY;
+        String className = PreLogUtil.getClassName(object);
         
-        if(object.getClass().getName() != null)
-        {
-            className = new String(object.getClass().getName());
+        if(className == null) {
+            className = EMPTY;
         }
+
+//        String className = EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(object.getClass().getName());
+//        }
         
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
@@ -109,4 +121,27 @@ public class PreLogUtil
 
         PlayN.log().error(LOG_SUCCESS + message, exception);
     }
+    
+//    public static String getClassName(Object object) {
+//        String className = EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(object.getClass().getName());
+//        }
+//    }
+    
+    public static native String getClassName(Object object) /*-{
+            var a = new Error().stack.split('\n');
+            //Example:     at org_allbinary_..._BasicTopViewGeographicMapCellTypeFactory_$init__Lorg_allbinary_..._BasicTopViewGeographicMapCellTypeFactory_2Ljava_util_Hashtable_2V (http://...
+            var stackTraceLine = a[3];
+            var startIndex = stackTraceLine.indexOf("at ");
+            //var endIndex = stackTraceLine.indexOf("(");
+            var endIndex = stackTraceLine.indexOf("$");
+            return stackTraceLine.substring(startIndex + 3, endIndex - 1);
+            //var a = new Error().stack.match(/at (.*?) /);
+            //return a[1];
+            //object.constructor.name;
+    }-*/;
+    
 }
