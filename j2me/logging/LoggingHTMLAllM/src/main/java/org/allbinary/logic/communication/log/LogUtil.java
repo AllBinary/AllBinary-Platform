@@ -26,29 +26,35 @@ public class LogUtil
    {
    }
    
-    public synchronized static void put(Log log)
+    public synchronized static void put(final Log log)
     {
-        String specialMessage = log.getSpecialMessage();
-        Object object = log.getObject();
-        String functionName = log.getFunctionName();
-        Throwable exception = log.getThrowable();
+        final String specialMessage = log.getSpecialMessage();
+        final Object object = log.getObject();
+        final String functionName = log.getFunctionName();
+        final Throwable exception = log.getThrowable();
 
         put(specialMessage, object, functionName, exception);
     }
 
     private synchronized static void put(
-        String specialMessage,
-        Object object,
-        String functionName)
+        final String specialMessage,
+        final Object object,
+        final String functionName)
     {
-        String className = EMPTY;
-
-        if (object.getClass().getName() != null)
-        {
-            className = new String(object.getClass().getName());
+        String className = PreLogUtil.getClassName(object);
+        
+        if(className == null) {
+            className = EMPTY;
         }
 
-        String message = LogFormatUtil.getInstance().get(
+//        String className = EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(object.getClass().getName());
+//        }
+
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage);
 
         PlayN.log().debug(LOG_SUCCESS + message);
@@ -58,19 +64,25 @@ public class LogUtil
 
     //TWB - Public or Private?
     private synchronized static void put(
-        String specialMessage,
-        Object object,
-        String functionName,
-        Throwable exception)
+        final String specialMessage,
+        final Object object,
+        final String functionName,
+        final Throwable exception)
     {
-        String className = EMPTY;
-
-        if (object.getClass().getName() != null)
-        {
-            className = new String(object.getClass().getName());
+        String className = PreLogUtil.getClassName(object);
+        
+        if(className == null) {
+            className = EMPTY;
         }
 
-        String message = LogFormatUtil.getInstance().get(
+//        String className = EMPTY;
+//
+//        if (object.getClass().getName() != null)
+//        {
+//            className = new String(object.getClass().getName());
+//        }
+
+        final String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);
 
         if(exception != null)
@@ -82,4 +94,5 @@ public class LogUtil
             PlayN.log().debug(LOG_SUCCESS + message);
         }
     }  
+    
 }
