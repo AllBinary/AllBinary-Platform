@@ -117,10 +117,20 @@ public class ImageUtil
             
       if(newHeight < height) {
           final double translateX = (height - newHeight) / 2;
-          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x: " + translateX, this, "createBufferedImage"));
+          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x0: " + translateX, this, "createBufferedImage"));
+          affineTransform.translate(translateX, 0);
+      } else if(newHeight > height) {
+          final double translateX = (newHeight - height) / 2;
+          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x1: " + translateX, this, "createBufferedImage"));
           affineTransform.translate(translateX, 0);
       } else if(newWidth > width) {
-          affineTransform.translate(newWidth - width, 0);
+          final double translateX = (newWidth - width) / 2;
+          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translateX, this, "createBufferedImage"));
+          affineTransform.translate(translateX, 0);
+      } else if(newWidth < width) {
+          final double translateX = (width - newWidth) / 2;
+          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translateX, this, "createBufferedImage"));
+          affineTransform.translate(translateX, 0);
       }
 
       final BufferedImage newBufferedImage = new BufferedImage(

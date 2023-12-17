@@ -101,6 +101,8 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
    private void updateImage()
    {
+      try {
+
       final BufferedImage[] bufferedImageArray =
          this.getImageProcessorInput().getBufferedImageArray();
 
@@ -112,8 +114,13 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
          final ImageIconUnique indexedImageIcon = (ImageIconUnique) 
             this.imageJList.getModel().getElementAt(index);
 
-         tempBufferedImageArray[index] =
-            bufferedImageArray[indexedImageIcon.getId()];
+         final BufferedImage bufferedImage =
+               ImageUtil.getInstance().createBufferedImage(
+               bufferedImageArray[indexedImageIcon.getId()],
+               this.imageUnifierProperties.getImageUnifierCell().getWidth(), 
+               this.imageUnifierProperties.getImageUnifierCell().getHeight());
+         
+         tempBufferedImageArray[index] = bufferedImage;
       }
 
       int totalImages =
@@ -145,6 +152,13 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
 
       this.updateImage(tempBufferedImageArray);
+      
+      }
+      catch (Exception e)
+      {
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "updateImage", e));
+      }
+
    }
 
    private void updateImageWithFudgedImages()
@@ -162,8 +176,13 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
             final ImageIconUnique indexedImageIcon = (ImageIconUnique) 
                this.imageJList.getModel().getElementAt(index);
 
-            tempBufferedImageArray[index] =
-               bufferedImageArray[indexedImageIcon.getId()];
+            final BufferedImage bufferedImage =
+               ImageUtil.getInstance().createBufferedImage(
+               bufferedImageArray[indexedImageIcon.getId()],
+               this.imageUnifierProperties.getImageUnifierCell().getWidth(), 
+               this.imageUnifierProperties.getImageUnifierCell().getHeight());
+         
+            tempBufferedImageArray[index] = bufferedImage;
          }
 
          int totalImages =
