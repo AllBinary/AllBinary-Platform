@@ -30,6 +30,7 @@ import org.allbinary.media.image.ImageStrings;
 public class RotationSpriteImageJPanel extends javax.swing.JPanel
         implements ImageProcessorInputCompositeInterface {
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ImageStrings imageStrings = ImageStrings.getInstance();
 
     private ImageProcessorInput imageProcessorInput;
@@ -86,7 +87,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                     }
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
             }
         }.start();

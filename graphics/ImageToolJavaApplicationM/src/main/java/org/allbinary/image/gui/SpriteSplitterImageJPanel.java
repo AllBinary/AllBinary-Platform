@@ -32,6 +32,7 @@ import org.allbinary.media.image.SpriteSplitterUtil;
 public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         implements ImageProcessedVisitor {
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ImageStrings imageStrings = ImageStrings.getInstance();
     
     private ImageProcessorInput imageProcessorInput;
@@ -61,7 +62,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     SpriteSplitterUtil.getInstance().process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, spriteType, SpriteSplitterImageJPanel.this);                        
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
             }
         }.start();

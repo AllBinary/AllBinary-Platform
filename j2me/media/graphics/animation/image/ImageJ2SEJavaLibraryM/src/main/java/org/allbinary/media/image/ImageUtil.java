@@ -89,6 +89,20 @@ public class ImageUtil
       return scaledBufferedImageArray;
    }
 
+   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int width, final int height)
+      throws Exception
+   {
+      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
+
+      for (int index = 0; index < bufferedImageArray.length; index++)
+      {
+         scaledBufferedImageArray[index] =
+            this.createBufferedImage(bufferedImageArray[index], width, height);
+      }
+
+      return scaledBufferedImageArray;
+   }
+   
    public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
       throws Exception
    {

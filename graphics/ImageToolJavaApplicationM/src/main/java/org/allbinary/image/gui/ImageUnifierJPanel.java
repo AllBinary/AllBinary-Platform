@@ -31,11 +31,13 @@ import org.allbinary.media.image.ImagesRatioUtil;
 import java.io.File;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.image.ImagePersistanceUtil;
 
 public class ImageUnifierJPanel extends javax.swing.JPanel
    implements ImageProcessorInputCompositeInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final ImagesRatioUtil imagesRatioUtil = ImagesRatioUtil.getInstance();
     
    private ImageProcessorInput imageProcessorInput;
@@ -87,7 +89,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "init", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "init", e));
       }
 
    }
@@ -175,7 +177,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "updateImageWithFudgedImages", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "updateImageWithFudgedImages", e));
       }
    }
 
@@ -513,7 +515,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "jButton1ActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "jButton1ActionPerformed", e));
       }
     }//GEN-LAST:event_jButton1ActionPerformed
 

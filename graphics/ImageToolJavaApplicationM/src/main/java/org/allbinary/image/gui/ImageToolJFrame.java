@@ -24,6 +24,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.gui.dialog.FileJDialog;
 import org.allbinary.gui.dialog.FileJDialogListenerInterface;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 import org.allbinary.media.image.analysis.ColorRange;
 import org.allbinary.media.image.analysis.ColorRangeInterface;
@@ -33,6 +34,7 @@ import org.allbinary.media.image.analysis.ImageAnalysisResults;
 public class ImageToolJFrame extends javax.swing.JFrame
    implements FileJDialogListenerInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
    private static ImageProcessorInputCompositeInterface imageProcessorInputCompositeInterface;
    private FileJDialog fileJDialog;
@@ -306,7 +308,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
        }
        catch (Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "createStripImageJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "createStripImageJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_createStripImageJMenuItemActionPerformed
 
@@ -330,7 +332,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
        }
        catch (Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "okJButtonActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "okJButtonActionPerformed", e));
        }
     }//GEN-LAST:event_okJButtonActionPerformed
 
@@ -348,7 +350,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
        }
        catch (Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "openImageJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "openImageJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_openImageJMenuItemActionPerformed
 
@@ -383,7 +385,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "onFiles", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onFiles", e));
       }
    }
 
@@ -401,7 +403,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "analyzeJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "analyzeJMenuItemActionPerformed", e));
       }
    }//GEN-LAST:event_analyzeJMenuItemActionPerformed
 
@@ -423,7 +425,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "generateRotationSpriteJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateRotationSpriteJMenuItemActionPerformed", e));
       }
 }//GEN-LAST:event_generateRotationSpriteJMenuItemActionPerformed
            
@@ -445,7 +447,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "generateRotationMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateRotationMenuItemActionPerformed", e));
       }
 }//GEN-LAST:event_generateRotationMenuItemActionPerformed
            
@@ -467,7 +469,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "generateRotationMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateRotationMenuItemActionPerformed", e));
       }
 }//GEN-LAST:event_generateRotationMenuItemActionPerformed
    
@@ -476,9 +478,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       {
          LogUtil.put(LogFactory.getInstance("Start", this, "scaleImagesJMenuItemActionPerformed"));
 
-         ResizeImageJPanel resizeImageJPanel =
-            new ResizeImageJPanel(
-            this.imageProcessorInput);
+         final ResizeImageJPanel resizeImageJPanel = new ResizeImageJPanel(this.imageProcessorInput);
 
          this.jPanel1.removeAll();
          this.jPanel1.add(resizeImageJPanel);
@@ -488,7 +488,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "scaleImagesJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e));
       }
 }//GEN-LAST:event_scaleImagesJMenuItemActionPerformed
 
@@ -509,7 +509,7 @@ private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEv
    }
    catch (Exception e)
    {
-      LogUtil.put(LogFactory.getInstance("Exception", this, "generateMirrorSpriteJMenuItemActionPerformed", e));
+      LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateMirrorSpriteJMenuItemActionPerformed", e));
    }
 }//GEN-LAST:event_generateMirrorSpriteMenuItemActionPerformed
 
@@ -530,7 +530,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    }
    catch (Exception e)
    {
-      LogUtil.put(LogFactory.getInstance("Exception", this, "generateMirrorJMenuItemActionPerformed", e));
+      LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "generateMirrorJMenuItemActionPerformed", e));
    }
 }//GEN-LAST:event_mirrorJMenuItemActionPerformed
    

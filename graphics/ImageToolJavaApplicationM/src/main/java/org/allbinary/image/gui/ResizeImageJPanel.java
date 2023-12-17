@@ -1,52 +1,57 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
+ * AllBinary Open License Version 1
+ * Copyright (c) 2022 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
 package org.allbinary.image.gui;
 
-import org.allbinary.media.image.ImageProcessorInput;
-import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.image.BufferedImage;
 import java.awt.image.Raster;
-
 import java.io.File;
-import org.allbinary.logic.io.file.FileWrapperUtil;
-import org.allbinary.logic.string.CommonStrings;
-
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.FileWrapperUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.image.ImagePersistanceUtil;
+import org.allbinary.media.image.ImageProcessorInput;
+import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import org.allbinary.media.image.ImageUtil;
 
+/**
+ *
+ * @author User
+ */
 public class ResizeImageJPanel extends javax.swing.JPanel
         implements ImageProcessorInputCompositeInterface {
 
-   private ImageProcessorInput imageProcessorInput;
-
-   public ResizeImageJPanel(ImageProcessorInput imageProcessorInput) throws Exception {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private ImageProcessorInput imageProcessorInput;
+    
+    public ResizeImageJPanel(final ImageProcessorInput imageProcessorInput) throws Exception {
         super();
 
         initComponents();
 
         this.imageProcessorInput = imageProcessorInput;
 
-        String[] numberStringArray = new String[100];
-        for (int index = 0; index < 100; index++) {
+        String[] numberStringArray = new String[101];
+        numberStringArray[0] = Integer.toString(-1);
+        for (int index = 1; index < 100; index++) {
             numberStringArray[index] = Integer.toString(index);
         }
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(numberStringArray));
 
-        Raster araster = this.imageProcessorInput.getBufferedImageArray()[0].getAlphaRaster();
+        final Raster araster = this.imageProcessorInput.getBufferedImageArray()[0].getAlphaRaster();
         if (araster == null) {
             System.out.println("there is no Alpha channel!!!!!!!!!");
 
@@ -63,18 +68,25 @@ public class ResizeImageJPanel extends javax.swing.JPanel
             @Override
             public void run() {
                 try {
-                    Integer percent = Integer.valueOf(
-                            (String) ResizeImageJPanel.this.jComboBox1.getSelectedItem());
+                    final Integer percent = Integer.valueOf((String) ResizeImageJPanel.this.jComboBox1.getSelectedItem());
 
-                    ImageProcessorInput imageProcessorInput =
-                       ResizeImageJPanel.this.getImageProcessorInput();
-                    File[] files = imageProcessorInput.getFiles();
+                    final ImageProcessorInput imageProcessorInput = ResizeImageJPanel.this.getImageProcessorInput();
+                    final File[] files = imageProcessorInput.getFiles();
                     
-                    BufferedImage[] generatedBufferedImageArray =
-                            ImageUtil.getInstance().createBufferedImage(
-                            imageProcessorInput.getBufferedImageArray(), percent);
+                    BufferedImage[] generatedBufferedImageArray = null;
+                    if(percent.intValue() != -1) {
+                        generatedBufferedImageArray = 
+                                ImageUtil.getInstance().createBufferedImage(
+                                        imageProcessorInput.getBufferedImageArray(), percent);
+                    } else {
+                        final Integer width = Integer.valueOf((String) ResizeImageJPanel.this.jTextField1.getText());
+                        final Integer height = Integer.valueOf((String) ResizeImageJPanel.this.jTextField2.getText());
+                        generatedBufferedImageArray = 
+                                ImageUtil.getInstance().createBufferedImage(
+                                        imageProcessorInput.getBufferedImageArray(), width, height);
+                    }
 
-                    Raster araster = generatedBufferedImageArray[0].getAlphaRaster();
+                    final Raster araster = generatedBufferedImageArray[0].getAlphaRaster();
                     if (araster == null) {
                         System.out.println("No Alpha Channel In Result");
 
@@ -91,40 +103,67 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance("Exception", this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
             }
         }.start();
     }
 
-    /** This method is called from within the constructor to
-     * initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is
-     * always regenerated by the Form Editor.
+    public void update() {
+        new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    final ImageProcessorInput imageProcessorInput = ResizeImageJPanel.this.getImageProcessorInput();
+                    
+                    final int size = imageProcessorInput.getBufferedImageArray().length;
+                    final BufferedImage[] bufferedImageArray = imageProcessorInput.getBufferedImageArray();
+                    BufferedImage bufferedImage;
+                    for(int index = 0; index < size; index++) {
+                        bufferedImage = bufferedImageArray[0];
+                        ResizeImageJPanel.this.jTextField1.setText(Integer.toString(bufferedImage.getWidth()));
+                        ResizeImageJPanel.this.jTextField2.setText(Integer.toString(bufferedImage.getHeight()));
+                    }
+
+                    ResizeImageJPanel.this.getParent().repaint();
+
+                } catch (Exception e) {
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                }
+            }
+        }.start();
+    }
+
+    public ImageProcessorInput getImageProcessorInput() {
+        return imageProcessorInput;
+    }
+
+    public void setImageProcessorInput(ImageProcessorInput imageProcessorInput) {
+        this.imageProcessorInput = imageProcessorInput;
+    }
+    
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
      */
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-
-        org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 400, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(0, 227, Short.MAX_VALUE)
-        );
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
 
         jLabel1.setText("Percent:");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setText("Process");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -133,85 +172,79 @@ public class ResizeImageJPanel extends javax.swing.JPanel
             }
         });
 
-        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .add(8, 8, 8)
-                .add(jLabel1)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jButton1)
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                .add(jLabel1)
-                .add(jComboBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(jButton1))
-        );
+        jLabel2.setText("Width:");
 
-        jLabel2.setText("Results:");
+        jLabel3.setText("Height:");
 
-        org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel3Layout.createSequentialGroup()
-                .add(jLabel2)
-                .addContainerGap(341, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jLabel2)
-        );
+        jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(this);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .add(layout.createSequentialGroup()
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .add(jPanel3, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(0, 250, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(175, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         this.process();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.update();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
-
-   public ImageProcessorInput getImageProcessorInput()
-   {
-      return imageProcessorInput;
-   }
-
-   public void setImageProcessorInput(ImageProcessorInput imageProcessorInput)
-   {
-      this.imageProcessorInput = imageProcessorInput;
-   }
-
 }
