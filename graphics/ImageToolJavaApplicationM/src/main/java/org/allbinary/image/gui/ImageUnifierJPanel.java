@@ -31,13 +31,18 @@ import org.allbinary.media.image.ImagesRatioUtil;
 import java.io.File;
 import org.allbinary.logic.io.file.FileWrapperUtil;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.image.ImagePersistanceUtil;
+import org.allbinary.media.image.ImageStrings;
 
 public class ImageUnifierJPanel extends javax.swing.JPanel
    implements ImageProcessorInputCompositeInterface
 {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final ImageStrings imageStrings = ImageStrings.getInstance();
     private final ImagesRatioUtil imagesRatioUtil = ImagesRatioUtil.getInstance();
     
    private ImageProcessorInput imageProcessorInput;
@@ -509,9 +514,19 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 // TODO add your handling code here:
       try
       {
-          File file = new File(this.imageUnifierProperties.getColumns() + "_By_" +
-          this.imageUnifierProperties.getRows() + "_Unified.png");
-          ImagePersistanceUtil.saveWithBatik(FileWrapperUtil.wrapFile(file), this.result);
+          final File[] fileArray = this.imageProcessorInput.getFiles();
+          
+          final File file = fileArray[0];
+          String filePath = file.getAbsolutePath();
+
+          final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
+
+          filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(this.imageUnifierProperties.getColumns()).append("_By_").append(this.imageUnifierProperties.getRows()).append("_Unified").append(imageStrings.PNG_EXTENSION).toString();
+
+          LogUtil.put(LogFactory.getInstance("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING));
+          
+          final File outputFile = new File(filePath);
+          ImagePersistanceUtil.saveWithBatik(FileWrapperUtil.wrapFile(outputFile), this.result);
       }
       catch (Exception e)
       {

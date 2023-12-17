@@ -24,6 +24,9 @@ import org.allbinary.logic.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.image.ImageJ2SERotationUtil;
 import org.allbinary.media.image.ImageStrings;
 
@@ -76,7 +79,13 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
 
                         File file = imageProcessorInput.getFiles()[index];
                         if (!RotationSpriteImageJPanel.this.writeOverOriginalJCheckBox.isSelected()) {
-                            file = new File("sprite.png");
+                            
+                            String filePath = file.getAbsolutePath();
+                            final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
+                            filePath = new StringMaker().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append("sprite").append(imageStrings.PNG_EXTENSION).toString();
+                            LogUtil.put(LogFactory.getInstance("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING));
+                            
+                            file = new File(filePath);
                         }
 
                         boolean isWritten =
