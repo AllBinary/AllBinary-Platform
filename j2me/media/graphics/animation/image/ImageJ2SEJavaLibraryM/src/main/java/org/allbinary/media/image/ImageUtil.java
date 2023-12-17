@@ -114,19 +114,14 @@ public class ImageUtil
       final double heightRatio = d_newHeight / height;
 
       final AffineTransform affineTransform = AffineTransform.getScaleInstance(widthRatio, heightRatio);
-      
-      if(newWidth < width) {
-          throw new RuntimeException();
-      }
-      
+            
       if(newHeight < height) {
           final double translateX = (height - newHeight) / 2;
           LogUtil.put(LogFactory.getInstance("Translating to keep image centered x: " + translateX, this, "createBufferedImage"));
           affineTransform.translate(translateX, 0);
-      } else if(newWidth != width) {
+      } else if(newWidth > width) {
           affineTransform.translate(newWidth - width, 0);
       }
-      
 
       final BufferedImage newBufferedImage = new BufferedImage(
          newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);
