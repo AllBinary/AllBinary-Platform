@@ -106,21 +106,33 @@ public class ImageUtil
    public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
       throws Exception
    {
-      //final double width = bufferedImage.getWidth();
+      final double width = bufferedImage.getWidth();
       final double height = bufferedImage.getHeight();
       //final double d_newWidth = newWidth;
       final double d_newHeight = newHeight;
       final double widthRatio = d_newHeight / height;
       final double heightRatio = d_newHeight / height;
 
-      final AffineTransform at = AffineTransform.getScaleInstance(
-         widthRatio, heightRatio);
+      final AffineTransform affineTransform = AffineTransform.getScaleInstance(widthRatio, heightRatio);
+      
+      if(newWidth < width) {
+          throw new RuntimeException();
+      }
+      
+      if(newHeight < height) {
+          final double translateX = (height - newHeight) / 2;
+          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x: " + translateX, this, "createBufferedImage"));
+          affineTransform.translate(translateX, 0);
+      } else if(newWidth != width) {
+          affineTransform.translate(newWidth - width, 0);
+      }
+      
 
       final BufferedImage newBufferedImage = new BufferedImage(
          newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);
 
-      final Graphics2D g = newBufferedImage.createGraphics();
-      g.drawRenderedImage(bufferedImage, at);
+      final Graphics2D graphics = newBufferedImage.createGraphics();
+      graphics.drawRenderedImage(bufferedImage, affineTransform);
 
       /*
       Graphics2D g = (Graphics2D) newBufferedImage.getGraphics();

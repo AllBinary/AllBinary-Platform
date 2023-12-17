@@ -46,7 +46,7 @@ public class ImageUnifierUtil
     }
     
     public BufferedImage getImage(
-        BufferedImage bufferedImageArray[],
+        BufferedImage[] bufferedImageArray,
         ImageUnifierProperties imageUnifierProperties)
     {        
         BufferedImage newBufferedImage = 
