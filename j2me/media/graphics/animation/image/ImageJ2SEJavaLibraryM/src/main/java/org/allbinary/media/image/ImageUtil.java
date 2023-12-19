@@ -22,6 +22,8 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 
 public class ImageUtil
 {
@@ -33,7 +35,9 @@ public class ImageUtil
     public static ImageUtil getInstance() {
         return instance;
     }
-    
+
+   private final CommonSeps commonSeps = CommonSeps.getInstance();
+   
    private String IIOIMAGE_POOL_NAME = "IIOIMAGE_POOL_NAME";
    //public static PoolInterface poolInterface = null;
 
@@ -72,7 +76,7 @@ public class ImageUtil
       return graphicsConfiguration.createCompatibleImage(width, height, Transparency.TRANSLUCENT);
    }
    
-   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int percent)
+   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int percent, final boolean scale)
       throws Exception
    {
       final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
@@ -83,13 +87,13 @@ public class ImageUtil
          final int newHeight = bufferedImageArray[index].getHeight() * percent / 100;
 
          scaledBufferedImageArray[index] =
-            this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight);
+            this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight, scale);
       }
 
       return scaledBufferedImageArray;
    }
 
-   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int width, final int height)
+   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int width, final int height, final boolean scale)
       throws Exception
    {
       final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
@@ -97,41 +101,53 @@ public class ImageUtil
       for (int index = 0; index < bufferedImageArray.length; index++)
       {
          scaledBufferedImageArray[index] =
-            this.createBufferedImage(bufferedImageArray[index], width, height);
+            this.createBufferedImage(bufferedImageArray[index], width, height, scale);
       }
 
       return scaledBufferedImageArray;
    }
    
-   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
+   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale)
       throws Exception
    {
       final double width = bufferedImage.getWidth();
       final double height = bufferedImage.getHeight();
-      //final double d_newWidth = newWidth;
+      final double d_newWidth = newWidth;
       final double d_newHeight = newHeight;
-      final double widthRatio = d_newHeight / height;
+      final double widthRatio = d_newWidth / width;
       final double heightRatio = d_newHeight / height;
 
-      final AffineTransform affineTransform = AffineTransform.getScaleInstance(widthRatio, heightRatio);
-            
-      if(newHeight < height) {
-          final double translateX = (height - newHeight) / 2;
-          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x0: " + translateX, this, "createBufferedImage"));
-          affineTransform.translate(translateX, 0);
-      } else if(newHeight > height) {
-          final double translateX = (newHeight - height) / 2;
-          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x1: " + translateX, this, "createBufferedImage"));
-          affineTransform.translate(translateX, 0);
-      } else if(newWidth > width) {
-          final double translateX = (newWidth - width) / 2;
-          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translateX, this, "createBufferedImage"));
-          affineTransform.translate(translateX, 0);
-      } else if(newWidth < width) {
-          final double translateX = (width - newWidth) / 2;
-          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translateX, this, "createBufferedImage"));
-          affineTransform.translate(translateX, 0);
+      double ratio = 1.0;
+      if(scale) {
+          ratio = widthRatio > heightRatio ? widthRatio : heightRatio;
       }
+      
+      final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratio, ratio);
+
+      LogUtil.put(LogFactory.getInstance(new StringMaker().append(width).append(this.commonSeps.FORWARD_SLASH).append(height)
+              .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
+              .append(widthRatio).append(this.commonSeps.FORWARD_SLASH).append(heightRatio).toString(), this, "createBufferedImage"));
+
+//      if(newHeight < height) {
+//          final double translate = (height - newHeight) / 2;
+//          LogUtil.put(LogFactory.getInstance("Translating to keep image centered y0: " + translateX, this, "createBufferedImage"));
+//          affineTransform.translate(0, translate);
+//      if(newHeight > height && widthRatio <= 1) {
+//          final double translate = (newHeight - height) / 2;
+//          LogUtil.put(LogFactory.getInstance("Translating to keep image centered y1: " + translate, this, "createBufferedImage"));
+//          affineTransform.translate(0, -translate);
+//      }
+
+      if(newWidth > width && heightRatio <= 1) {
+          final double translate = (newWidth - width) / 2;
+          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translate, this, "createBufferedImage"));
+          affineTransform.translate(translate, 0);
+      }
+//      else if(newWidth < width) {
+//          final double translateX = (width - newWidth) / 2;
+//          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translateX, this, "createBufferedImage"));
+//          affineTransform.translate(translateX, 0);
+//      }
 
       final BufferedImage newBufferedImage = new BufferedImage(
          newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);

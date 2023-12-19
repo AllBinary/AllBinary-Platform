@@ -68,6 +68,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
             @Override
             public void run() {
                 try {
+                    final ImageUtil imageUtil = ImageUtil.getInstance();
                     final Integer percent = Integer.valueOf((String) ResizeImageJPanel.this.jComboBox1.getSelectedItem());
 
                     final ImageProcessorInput imageProcessorInput = ResizeImageJPanel.this.getImageProcessorInput();
@@ -76,14 +77,14 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     BufferedImage[] generatedBufferedImageArray = null;
                     if(percent.intValue() != -1) {
                         generatedBufferedImageArray = 
-                                ImageUtil.getInstance().createBufferedImage(
-                                        imageProcessorInput.getBufferedImageArray(), percent);
+                                imageUtil.createBufferedImage(
+                                        imageProcessorInput.getBufferedImageArray(), percent, true);
                     } else {
                         final Integer width = Integer.valueOf((String) ResizeImageJPanel.this.jTextField1.getText());
                         final Integer height = Integer.valueOf((String) ResizeImageJPanel.this.jTextField2.getText());
                         generatedBufferedImageArray = 
-                                ImageUtil.getInstance().createBufferedImage(
-                                        imageProcessorInput.getBufferedImageArray(), width, height);
+                                imageUtil.createBufferedImage(
+                                        imageProcessorInput.getBufferedImageArray(), width, height, true);
                     }
 
                     final Raster araster = generatedBufferedImageArray[0].getAlphaRaster();

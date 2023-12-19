@@ -82,7 +82,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
             final BufferedImage iconBufferedImage =
                ImageUtil.getInstance().createBufferedImage(
                bufferedImageArray[index],
-               newWidth, newHeight);
+               newWidth, newHeight, false);
 
             this.icon[index] = new ImageIconUnique(iconBufferedImage, index);
             defaultListModel.addElement(this.icon[index]);
@@ -118,7 +118,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
                ImageUtil.getInstance().createBufferedImage(
                bufferedImageArray[indexedImageIcon.getId()],
                this.imageUnifierProperties.getImageUnifierCell().getWidth(), 
-               this.imageUnifierProperties.getImageUnifierCell().getHeight());
+               this.imageUnifierProperties.getImageUnifierCell().getHeight(), false);
          
          tempBufferedImageArray[index] = bufferedImage;
       }
@@ -180,7 +180,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
                ImageUtil.getInstance().createBufferedImage(
                bufferedImageArray[indexedImageIcon.getId()],
                this.imageUnifierProperties.getImageUnifierCell().getWidth(), 
-               this.imageUnifierProperties.getImageUnifierCell().getHeight());
+               this.imageUnifierProperties.getImageUnifierCell().getHeight(), false);
          
             tempBufferedImageArray[index] = bufferedImage;
          }

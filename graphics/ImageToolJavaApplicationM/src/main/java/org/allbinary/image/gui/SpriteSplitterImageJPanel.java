@@ -172,8 +172,8 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
       });
 
       jLabel3.setText("Type:");
-      jLabel4.setText("F:");
-      jLabel5.setText("A:");
+      jLabel4.setText("Frame Total:");
+      jLabel5.setText("Animation Total:");
 
       //writeOverOriginalJCheckBox.setSelected(true);
       writeOverOriginalJCheckBox.setText("Write Over Original");
