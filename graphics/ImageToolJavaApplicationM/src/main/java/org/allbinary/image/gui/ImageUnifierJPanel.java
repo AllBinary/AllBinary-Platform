@@ -82,7 +82,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
             final BufferedImage iconBufferedImage =
                ImageUtil.getInstance().createBufferedImage(
                bufferedImageArray[index],
-               newWidth, newHeight, false);
+               newWidth, newHeight, true);
 
             this.icon[index] = new ImageIconUnique(iconBufferedImage, index);
             defaultListModel.addElement(this.icon[index]);

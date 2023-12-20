@@ -23,6 +23,7 @@ import java.awt.image.BufferedImage;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class ImageUtil
@@ -36,16 +37,19 @@ public class ImageUtil
         return instance;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
    private final CommonSeps commonSeps = CommonSeps.getInstance();
    
    private String IIOIMAGE_POOL_NAME = "IIOIMAGE_POOL_NAME";
    //public static PoolInterface poolInterface = null;
 
+   private final String CREATE_BUFFERED_IMAGE = "createBufferedImage";
+
    private ImageUtil()
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", "ImageUtil", "Static Block"));
+         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
          /*
          poolInterface =
@@ -55,11 +59,10 @@ public class ImageUtil
          CachePolicy.MAX_TIME_THOUSAND_MAX);
           */
 
-         LogUtil.put(LogFactory.getInstance("End", "ImageUtil", "Static Block"));
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", "ImageUtil", "Static Block", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
       }
    }
 
@@ -126,28 +129,34 @@ public class ImageUtil
 
       LogUtil.put(LogFactory.getInstance(new StringMaker().append(width).append(this.commonSeps.FORWARD_SLASH).append(height)
               .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
-              .append(widthRatio).append(this.commonSeps.FORWARD_SLASH).append(heightRatio).toString(), this, "createBufferedImage"));
+              .append(widthRatio).append(this.commonSeps.FORWARD_SLASH).append(heightRatio).toString(), this, CREATE_BUFFERED_IMAGE));
 
-//      if(newHeight < height) {
-//          final double translate = (height - newHeight) / 2;
-//          LogUtil.put(LogFactory.getInstance("Translating to keep image centered y0: " + translateX, this, "createBufferedImage"));
-//          affineTransform.translate(0, translate);
-//      if(newHeight > height && widthRatio <= 1) {
-//          final double translate = (newHeight - height) / 2;
-//          LogUtil.put(LogFactory.getInstance("Translating to keep image centered y1: " + translate, this, "createBufferedImage"));
-//          affineTransform.translate(0, -translate);
-//      }
+      if(!scale) {
+          if (newWidth < width) {
+              final double translate = -(width - newWidth);
+              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE));
+              affineTransform.translate(translate, 0);
+          }
+          if (newHeight < height) {
+              //final double translate = -(height - newHeight) / 2;
+              final double translate = -(height - newHeight);
+              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE));
+              affineTransform.translate(0, translate);
+          }
 
-      if(newWidth > width && heightRatio <= 1) {
-          final double translate = (newWidth - width) / 2;
-          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translate, this, "createBufferedImage"));
-          affineTransform.translate(translate, 0);
+          //if(newHeight > height && widthRatio <= 1) {
+          if (newHeight > height) {
+              final double translate = (newHeight - height) / 2;
+              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE));
+              affineTransform.translate(0, translate);
+          }
+          //if(newWidth > width && heightRatio <= 1) {
+          if (newWidth > width) {
+              final double translate = (newWidth - width) / 2;
+              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE));
+              affineTransform.translate(translate, 0);
+          }
       }
-//      else if(newWidth < width) {
-//          final double translateX = (width - newWidth) / 2;
-//          LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translateX, this, "createBufferedImage"));
-//          affineTransform.translate(translateX, 0);
-//      }
 
       final BufferedImage newBufferedImage = new BufferedImage(
          newWidth, newHeight, BufferedImage.TYPE_INT_ARGB_PRE);
@@ -171,7 +180,7 @@ public class ImageUtil
       {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-      LogUtil.put("Draw Did Not Finish Yet.  Must Wait.... :-< Retry: " + numberOfRetries, "ImageUtil", "createBufferedImage");
+      LogUtil.put("Draw Did Not Finish Yet.  Must Wait.... :-< Retry: " + numberOfRetries, "ImageUtil", CREATE_BUFFERED_IMAGE);
       }
       
       Thread.currentThread().sleep(1000);
@@ -191,7 +200,7 @@ public class ImageUtil
       {
       //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       //{
-      LogUtil.put("Draw Was Complete", "ImageUtil", "createBufferedImage");
+      LogUtil.put("Draw Was Complete", "ImageUtil", CREATE_BUFFERED_IMAGE);
       //}
       }
        */
