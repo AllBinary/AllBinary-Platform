@@ -27,7 +27,7 @@ public class Replace
 {
     private final String REPLACERS_ = "Replacers: ";
     private final String ALL = "all";
-    private final String FOUND_KEY = "found key";
+    private final String FOUND_KEY = "found key total: ";
     
    private final HashMap hashMap;
    
@@ -75,6 +75,7 @@ public class Replace
          
          //replace.replace(key, value);
 
+         long foundTotal = 0;
          int index = 0;
          while(index < replace.length())
          {
@@ -83,7 +84,11 @@ public class Replace
             final int begin = replace.indexOf(key, index);
             if(begin != -1)
             {
-                System.out.println(FOUND_KEY);
+                foundTotal++;
+                if(foundTotal % 100 == 0) {
+                    System.out.println(FOUND_KEY + foundTotal);
+                }
+               
                final int end = begin + key.length();
 
                //System.out.print(replace.substring(0, begin) + "+");
