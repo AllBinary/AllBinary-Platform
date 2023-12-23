@@ -55,26 +55,28 @@ public class ResourceUtil {
         return inputStream;
     }
 
+    private final String RESOURCE_FOUND = "Resource Found: ";
+    private final String METHOD_NAME = "getResourceAsStream";
+    
     private InputStream getResourceAsStream(final String resource, final int startIndex)
             //, Object emulatorObject)
             throws Exception {
         final StringMaker stringMaker = new StringMaker();
 
-        int index = resource.indexOf(CommonSeps.getInstance().COLON);
+        final int index = resource.indexOf(CommonSeps.getInstance().COLON);
         final String resourcePath = resource.substring(index + startIndex);
 
-        final String METHOD_NAME = "getResourceAsStream";
-
-        stringMaker.delete(0, stringMaker.length());
-        LogUtil.put(LogFactory.getInstance(stringMaker.append("Getting Resource: ").append(resourcePath).toString(), this, METHOD_NAME));
-        stringMaker.delete(0, stringMaker.length());
-        LogUtil.put(LogFactory.getInstance(stringMaker.append("Start Index: ").append(startIndex).toString(), this, METHOD_NAME));
+        //stringMaker.delete(0, stringMaker.length());
+        //LogUtil.put(LogFactory.getInstance(stringMaker.append("Getting Resource: ").append(resourcePath).toString(), this, METHOD_NAME));
+        //stringMaker.delete(0, stringMaker.length());
+        //LogUtil.put(LogFactory.getInstance(stringMaker.append("Start Index: ").append(startIndex).toString(), this, METHOD_NAME));
 
         //Try getting resource with normal resource access
         InputStream inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
         if (inputStream != null) {
-            LogUtil.put(LogFactory.getInstance("Resource Found", this, METHOD_NAME));
+            stringMaker.delete(0, stringMaker.length());
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND).append(resourcePath).toString(), this, METHOD_NAME));
             return inputStream;
         }
 
