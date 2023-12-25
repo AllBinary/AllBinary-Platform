@@ -48,4 +48,9 @@ public class RotationAnimationFactory implements
         return new NullRotationAnimation(
                 AngleInfo.getInstance(this.angleIncrement), this.totalAngle);
     }
+      
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

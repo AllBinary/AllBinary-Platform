@@ -38,4 +38,8 @@ public class VectorAnimationInterfaceFactory
 		return basicColor;
 	}
 
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+        
 }

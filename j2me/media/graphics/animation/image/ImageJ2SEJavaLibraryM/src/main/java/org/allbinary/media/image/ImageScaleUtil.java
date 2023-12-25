@@ -69,8 +69,7 @@ public class ImageScaleUtil
 
  
     public void scale(final Image originalImage, final Image newMaxSizeImage, final float scaleX, final float scaleY) {
-
-        
+    
         BufferedImage bufferedImage;
         //java.awt.Image newBufferedImage;
         if(originalImage.isMutable()) {

@@ -39,4 +39,9 @@ public class NullSpecialAnimationFactory implements
    {
        return SpecialAnimation.getInstance();
    }
+   
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+   
 }

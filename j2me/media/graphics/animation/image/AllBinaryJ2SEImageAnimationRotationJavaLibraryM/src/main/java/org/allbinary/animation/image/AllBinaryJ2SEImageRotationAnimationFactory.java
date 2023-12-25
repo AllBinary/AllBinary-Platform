@@ -73,4 +73,9 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     {
         return image;
     }
+    
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

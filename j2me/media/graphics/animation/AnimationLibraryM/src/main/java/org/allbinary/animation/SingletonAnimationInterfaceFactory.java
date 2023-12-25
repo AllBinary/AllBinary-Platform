@@ -33,4 +33,9 @@ public class SingletonAnimationInterfaceFactory
     {
         return this.animationInterface;
     }
+    
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

@@ -38,4 +38,9 @@ public class NullIndexedAnimationFactory implements
    {
        return NULL_ANIMATION;
    }
+   
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+
 }

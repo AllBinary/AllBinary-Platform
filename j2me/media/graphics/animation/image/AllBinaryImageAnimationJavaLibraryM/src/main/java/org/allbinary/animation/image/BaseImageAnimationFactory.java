@@ -87,4 +87,9 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     {
         return sequenceArray;
     }
+    
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+
 }

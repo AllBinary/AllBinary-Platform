@@ -43,4 +43,8 @@ public class BaseAnimationInterfaceFactoryInterfaceComposite
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
 
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

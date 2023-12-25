@@ -41,4 +41,9 @@ public class CompoundIndexedAnimationInterfaceFactory
 
         return new CompoundIndexedAnimation(animationInterfaceArray);
     }
+    
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

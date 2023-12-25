@@ -35,4 +35,9 @@ implements AnimationInterfaceFactoryInterface
     {
         return new LineAnimation(this.basicColor);
     }
+    
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

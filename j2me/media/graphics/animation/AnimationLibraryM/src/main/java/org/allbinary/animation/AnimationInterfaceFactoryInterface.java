@@ -14,6 +14,7 @@
 package org.allbinary.animation;
 
 public interface AnimationInterfaceFactoryInterface extends 
-    BasicAnimationInterfaceFactoryInterface{
+    BasicAnimationInterfaceFactoryInterface {
     Animation getInstance()throws Exception;
+    void setInitialSize(final int width, final int height);
 }

@@ -41,4 +41,10 @@ public class CompoundRotationAnimationInterfaceFactory
 
         return new CompoundRotationAnimation(animationInterfaceArray);
     }
+    
+       
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

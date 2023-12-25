@@ -38,4 +38,9 @@ ProceduralAnimationInterfaceFactoryInterface
    {
        return NULL_ANIMATION;
    }
+       
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+   
 }

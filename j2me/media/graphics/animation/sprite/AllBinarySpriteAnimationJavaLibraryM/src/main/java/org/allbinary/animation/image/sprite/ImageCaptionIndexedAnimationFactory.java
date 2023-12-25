@@ -85,4 +85,9 @@ implements AnimationInterfaceFactoryInterface
       return  new CaptionIndexedAnimation(
               animationInterface, movieIndexedAnimationInterface, player, this.captionDx, this.captionDy, dx, dy, time);
    }
+   
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+   
 }

@@ -39,4 +39,9 @@ public class SimultaneousCompoundIndexedAnimationInterfaceFactory
 
         return new SimultaneousCompoundIndexedAnimation(animationInterfaceArray);
     }
+    
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }

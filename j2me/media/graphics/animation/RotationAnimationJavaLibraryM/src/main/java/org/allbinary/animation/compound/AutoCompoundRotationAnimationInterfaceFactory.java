@@ -41,4 +41,10 @@ public class AutoCompoundRotationAnimationInterfaceFactory
 
         return new AutoCompoundRotationAnimation(animationInterfaceArray);
     }
+    
+       
+   public void setInitialSize(final int width, final int height) {
+       
+   }
+    
 }
