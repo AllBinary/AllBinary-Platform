@@ -37,8 +37,8 @@ public class SpriteFactory {
         return instance;
     }
 
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
-    private final CommonSeps commonSeps = CommonSeps.getInstance();
+    //private final CommonStrings commonStrings = CommonStrings.getInstance();
+    //private final CommonSeps commonSeps = CommonSeps.getInstance();
     
     public Sprite create(final Image image, final int frameWidth, final int frameHeight) {
         

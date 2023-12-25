@@ -108,7 +108,7 @@ public class DisplayInfoSingleton
     /**
      * @param scaleLargestTo the scaleLargestTo to set
      */
-    public void setScaleLargestTo(int scaleLargestTo)
+    public void setScaleLargestTo(final int scaleLargestTo)
     {
         this.scaleLargestTo = scaleLargestTo;
     }
@@ -224,7 +224,7 @@ public class DisplayInfoSingleton
 
     private final BasicArrayList list = new BasicArrayList();
 
-    private void add(String reason)
+    private void add(final String reason)
     {
         //PreLogUtil.put("Display Change Event").append(this.toString(), this, commonStrings.UPDATE);
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("reason: ").append(reason).toString(), this, FIRE_METHOD_NAME));
