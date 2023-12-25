@@ -101,4 +101,9 @@ public class PooledAllBinaryImageArrayRotationAnimationFactory implements
         //return (AnimationInterface) AllBinaryImageArrayRotationAnimationPool
           //      .getInstance().remove(allBinaryImageRotationAnimationInfo);
     }
+    
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+    
 }

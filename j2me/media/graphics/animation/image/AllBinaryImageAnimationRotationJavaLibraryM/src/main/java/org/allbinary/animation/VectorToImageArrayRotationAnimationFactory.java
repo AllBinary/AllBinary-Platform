@@ -85,4 +85,9 @@ public class VectorToImageArrayRotationAnimationFactory implements
     {
         this.image = image;
     }
+    
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+    
 }

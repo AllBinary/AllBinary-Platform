@@ -40,4 +40,9 @@ public class HealthBarAnimationInterfaceFactory
     {
         return null;
     }
+    
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+    
 }

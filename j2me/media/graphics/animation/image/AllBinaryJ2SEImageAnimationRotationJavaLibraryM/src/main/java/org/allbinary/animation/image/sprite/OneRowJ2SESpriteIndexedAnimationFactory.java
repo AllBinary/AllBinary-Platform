@@ -67,20 +67,22 @@ extends BaseImageAnimationFactory
    public Animation getInstance() 
       throws Exception 
    {
+       final CommonStrings commonStrings = CommonStrings.getInstance();
+       LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
        Sprite sprite;
        final Image image = this.getImage();
        if(scaleWidth != 0 && scaleHeight != 0) {
            final float scaleX = scaleWidth / this.width;
            final float scaleY = scaleHeight / this.height;
-           final CommonStrings commonStrings = CommonStrings.getInstance();
-           LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+           LogUtil.put(LogFactory.getInstance(new StringMaker().append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
            Image scaledImage;
            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
                scaledImage = image;
                sprite = SpriteFactory.getInstance().create(image, this.width, this.height);
            } else {
+               //LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
                scaledImage = imageScaleUtil.createImage(imageCache, image, scaleX, 1, scaleY, 1, true);
-               //LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append(this.height * scaleY).toString(), this, commonStrings.PROCESS));
+               LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append(this.height * scaleY).toString(), this, commonStrings.PROCESS));
                sprite = SpriteFactory.getInstance().create(scaledImage, (int) (this.width * scaleX), (int) (this.height * scaleY));
            }
            

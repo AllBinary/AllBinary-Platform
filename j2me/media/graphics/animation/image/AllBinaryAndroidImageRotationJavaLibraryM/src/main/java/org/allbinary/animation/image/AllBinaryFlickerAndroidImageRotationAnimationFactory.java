@@ -67,4 +67,9 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
     {
         return image;
     }
+    
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+    
 }

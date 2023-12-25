@@ -124,6 +124,7 @@ public class DemoCanvas extends RunnableCanvas
         StatePaintableFactory.getInstance();
     private SpecialAnimation specialAnimationInterface = SpecialAnimation.getInstance();
     private Animation paintedSpecialAnimationInterface = SpecialAnimation.getInstance();
+    private final FullScreenUtil fullScreenUtil = FullScreenUtil.getInstance();
     private AllBinaryGameCanvas gameCanvas = NullGameCanvas.getInstance();
     
     private final HighScoresHelper highScoresHelper = new HighScoresHelper();
@@ -924,7 +925,7 @@ public class DemoCanvas extends RunnableCanvas
                 progressCanvas.addPortion(50, "Demo Thread Running");
             }
 
-            FullScreenUtil.init(this, this.getCustomCommandListener());
+            fullScreenUtil.init(this, this.getCustomCommandListener());
 
             this.initMenu();
             this.initPostPaint();

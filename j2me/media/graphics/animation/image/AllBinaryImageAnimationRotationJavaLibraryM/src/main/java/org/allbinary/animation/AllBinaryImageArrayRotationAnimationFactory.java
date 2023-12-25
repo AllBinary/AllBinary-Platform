@@ -98,4 +98,9 @@ public class AllBinaryImageArrayRotationAnimationFactory
     {
         return angleIncrement;
     }
+    
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+    
 }

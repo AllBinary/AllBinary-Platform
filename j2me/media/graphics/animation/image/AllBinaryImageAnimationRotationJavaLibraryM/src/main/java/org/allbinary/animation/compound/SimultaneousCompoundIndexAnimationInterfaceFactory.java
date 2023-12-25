@@ -50,4 +50,9 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
 	public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
 		return basicAnimationInterfaceFactoryInterfaceArray;
 	}
+        
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+        
 }

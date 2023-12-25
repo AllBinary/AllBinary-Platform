@@ -109,6 +109,12 @@ public class ImageUtil
 
       return scaledBufferedImageArray;
    }
+
+   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight)
+      throws Exception
+   {
+       return this.createBufferedImage(bufferedImage, newWidth, newHeight, true);
+   }
    
    public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale)
       throws Exception

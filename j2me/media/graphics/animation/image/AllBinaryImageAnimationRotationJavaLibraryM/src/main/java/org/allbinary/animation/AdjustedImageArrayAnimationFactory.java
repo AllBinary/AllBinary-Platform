@@ -36,4 +36,8 @@ implements AnimationInterfaceFactoryInterface
         return new AdjustedImageArrayAnimation(this.imageArray, dx, dy);
     }
 
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+    
 }
