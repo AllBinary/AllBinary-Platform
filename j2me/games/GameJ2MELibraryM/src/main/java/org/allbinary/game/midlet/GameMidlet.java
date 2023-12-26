@@ -108,6 +108,8 @@ import org.allbinary.util.BasicArrayList;
 public class GameMidlet extends ProgressMidlet
     implements CommandListener //, GameMidletEventListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private final String DISPLAYABLE = " Displayable: ";
     private final String COMMAND_NAME = "command Name/Label: ";
     private final String NO_COMMAND = "No Command";
@@ -118,6 +120,7 @@ public class GameMidlet extends ProgressMidlet
     private final WebCommandProcessor webCommandProcessor = WebCommandProcessor.getInstance();
     private final GameMidletStateFactory gameMidletStateFactory = GameMidletStateFactory.getInstance();
     protected final TimeDelayHelper gameStartTimeHelper = new TimeDelayHelper(1266);
+    private final FullScreenUtil fullScreenUtil = FullScreenUtil.getInstance();
 
     private final DebugInterface debugInterface;
     
@@ -134,13 +137,12 @@ public class GameMidlet extends ProgressMidlet
 
     public GameMidlet()
     {
-        //LogUtil.put(LogFactory.getInstance(
-          //      "GameMidlet::GameMidlet", this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance("GameMidlet::GameMidlet", this, commonStrings.CONSTRUCTOR));
 
         //For BB can be used for J2ME as well
         SmallIntegerSingletonFactory.getInstance().init(0x291, 6);
         //This can be used for J2ME but not BB
-        //SmallIntegerSingletonFactory.init(0x101, 6);
+        //SmallIntegerSingletonFactory.getInstance().init(0x101, 6);
 
         ProgressCanvasFactory.getInstance().init(this);
 
@@ -639,7 +641,7 @@ public class GameMidlet extends ProgressMidlet
                 final StringMaker stringBuffer = new StringMaker();
                 stringBuffer.append("Close isFullScreen/change: ");
                 stringBuffer.append(isFullScreen);
-                stringBuffer.append(FullScreenUtil.isScreenChange(isFullScreen));
+                stringBuffer.append(fullScreenUtil.isScreenChange(isFullScreen));
                 stringBuffer.append(" isResized: ");
                 stringBuffer.append(this.isResized());
 
@@ -647,7 +649,7 @@ public class GameMidlet extends ProgressMidlet
 
                 //Restart canvas if screen change
                 if(this.isResized() ||
-                   FullScreenUtil.isScreenChange(isFullScreen))
+                   fullScreenUtil.isScreenChange(isFullScreen))
                 {
                     //PreLogUtil.put("Resized/Changed", this, MidletStrings.getInstance().COMMAND_ACTION);
 
