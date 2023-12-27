@@ -29,12 +29,12 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
 
    private final Image image;
-   protected int width;
-   protected int height;
+   protected final int width;
+   protected final int height;
 
    private final int[] sequenceArray;
 
-   public BaseImageAnimationFactory(Image image, int width, int height)
+   public BaseImageAnimationFactory(final Image image, final int width, final int height)
            throws Exception {
       this.image = image;
 
@@ -43,21 +43,21 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
       this.sequenceArray = PrimitiveIntUtil.getArrayInstance();
 
-      StringMaker stringBuffer = new StringMaker();
-      
-      stringBuffer.append("Image: ");
-      stringBuffer.append(image.getHeight());
-      stringBuffer.append(CommonSeps.getInstance().SPACE);
-      stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
-      stringBuffer.append(width);
-      stringBuffer.append(CommonSeps.getInstance().SPACE);
-      stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
-      stringBuffer.append(height);
-      
-      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+//      final StringMaker stringBuffer = new StringMaker();
+//      
+//      stringBuffer.append("Image: ");
+//      stringBuffer.append(image.getHeight());
+//      stringBuffer.append(CommonSeps.getInstance().SPACE);
+//      stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+//      stringBuffer.append(width);
+//      stringBuffer.append(CommonSeps.getInstance().SPACE);
+//      stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+//      stringBuffer.append(height);
+//      
+//      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
    }
 
-   public BaseImageAnimationFactory(Image image, int[] sequenceArray, int width, int height)
+   public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height)
            throws Exception {
       this.image = image;
 
