@@ -162,7 +162,7 @@ public class ImageCache
 
             try
             {
-                LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
+                //LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
                 image = this.createImage(key, inputStream);
             }
             catch(Exception e)

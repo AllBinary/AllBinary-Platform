@@ -56,6 +56,8 @@ public class ResourceUtil {
     }
 
     private final String RESOURCE_FOUND = "Resource Found: ";
+    private final String RESOURCE_FOUND_WITH = "Resource Found with: ";
+    private final String RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER = "Resource Found with ContextClassLoader: ";
     private final String METHOD_NAME = "getResourceAsStream";
     
     private InputStream getResourceAsStream(final String resource, final int startIndex)
@@ -85,7 +87,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append("Resource Found with: ").append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH).append(resourcePath).append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME));
 
             return inputStream;
         }
@@ -94,7 +96,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append("Resource Found with ContextClassLoader: ").append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER).append(resourcePath).append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME));
             return inputStream;
         }
 
