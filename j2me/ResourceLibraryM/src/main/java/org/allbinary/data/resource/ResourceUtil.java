@@ -59,13 +59,14 @@ public class ResourceUtil {
     private final String RESOURCE_FOUND_WITH = "Resource Found with: ";
     private final String RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER = "Resource Found with ContextClassLoader: ";
     private final String METHOD_NAME = "getResourceAsStream";
-    
+
     private InputStream getResourceAsStream(final String resource, final int startIndex)
             //, Object emulatorObject)
             throws Exception {
         final StringMaker stringMaker = new StringMaker();
 
-        final int index = resource.indexOf(CommonSeps.getInstance().COLON);
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final int index = resource.indexOf(commonSeps.COLON);
         final String resourcePath = resource.substring(index + startIndex);
 
         //stringMaker.delete(0, stringMaker.length());
@@ -87,7 +88,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH).append(resourcePath).append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH).append(resourcePath).append(commonSeps.COMMA).append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME));
 
             return inputStream;
         }
@@ -96,7 +97,7 @@ public class ResourceUtil {
 
         if (inputStream != null) {
             stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER).append(resourcePath).append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER).append(resourcePath).append(commonSeps.COMMA).append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME));
             return inputStream;
         }
 
