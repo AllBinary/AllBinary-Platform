@@ -94,7 +94,7 @@ OpenGLSurfaceChangedInterface
     }
     
     public void setScale(final float scaleX, final float scaleY) {
-        throw new RuntimeException();
+        //throw new RuntimeException();
     }
 
     public void setMaxScale(final float maxScaleX, final float maxScaleY) {
