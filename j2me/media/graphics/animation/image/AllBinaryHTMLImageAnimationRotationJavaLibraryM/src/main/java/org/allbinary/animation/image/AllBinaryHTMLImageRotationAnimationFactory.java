@@ -65,4 +65,9 @@ public class AllBinaryHTMLImageRotationAnimationFactory
     {
         return angleIncrement;
     }
+    
+    public void setInitialSize(final int width, final int height) {
+        
+    }
+
 }
