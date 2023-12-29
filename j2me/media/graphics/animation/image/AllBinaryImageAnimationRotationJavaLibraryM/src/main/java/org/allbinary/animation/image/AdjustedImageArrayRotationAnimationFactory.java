@@ -19,25 +19,25 @@ import org.allbinary.animation.Animation;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
-public class AllBinaryAdjustedImageArrayRotationAnimationFactory 
-    extends AllBinaryImageArrayRotationAnimationFactory
+public class AdjustedImageArrayRotationAnimationFactory 
+    extends ImageArrayRotationAnimationFactory
 {
     private int dx;
     private int dy;
 
-    public AllBinaryAdjustedImageArrayRotationAnimationFactory(Image image, int dx, int dy) 
+    public AdjustedImageArrayRotationAnimationFactory(Image image, int dx, int dy) 
     throws Exception
     {
         this(image, image.getWidth(), image.getHeight(), dx, dy);
     }
 
-    public AllBinaryAdjustedImageArrayRotationAnimationFactory(Image image, int dx, int dy, int angleIncrement) 
+    public AdjustedImageArrayRotationAnimationFactory(Image image, int dx, int dy, int angleIncrement) 
     throws Exception
     {
         this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement);
     }
     
-    public AllBinaryAdjustedImageArrayRotationAnimationFactory(Image image,
+    public AdjustedImageArrayRotationAnimationFactory(Image image,
             int width, int height, int dx, int dy, int angleIncrement) throws Exception
     {
 
@@ -47,7 +47,7 @@ public class AllBinaryAdjustedImageArrayRotationAnimationFactory
         this.dy = dy;
     }
     
-    public AllBinaryAdjustedImageArrayRotationAnimationFactory(Image image,
+    public AdjustedImageArrayRotationAnimationFactory(Image image,
             int width, int height, int dx, int dy) throws Exception
     {
 
@@ -62,7 +62,7 @@ public class AllBinaryAdjustedImageArrayRotationAnimationFactory
         // return new AllBinarySpriteRotationAnimation(new MESprite(image,
         // width, height), dx, dy);
 
-        return new AllBinaryAdjustedImageArrayRotationAnimation(
+        return new AdjustedImageArrayRotationAnimation(
                 this.getImageArray(), 
                 AngleInfo.getInstance((short) this.getAngleIncrement()), 
                 AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);

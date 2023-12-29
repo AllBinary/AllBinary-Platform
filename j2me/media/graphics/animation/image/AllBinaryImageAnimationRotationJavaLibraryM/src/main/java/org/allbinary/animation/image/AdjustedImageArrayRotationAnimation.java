@@ -20,42 +20,42 @@ import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
 //TWB - Adjustments should be done in the resource creation and not at the animatoin level
-public class AllBinaryAdjustedImageArrayRotationAnimation extends
-        AllBinaryImageArrayRotationAnimation
+public class AdjustedImageArrayRotationAnimation extends
+        ImageArrayRotationAnimation
 {
     private int dx;
     private int dy;
 
-    protected AllBinaryAdjustedImageArrayRotationAnimation(Object object)
+    protected AdjustedImageArrayRotationAnimation(Object object)
             throws Exception
     {
         super(object);
 
-        AllBinaryImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (AllBinaryImageArrayRotationAnimationInfo) object;
+        ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
         this.init(allBinaryImageRotationAnimationInfo.getDx(),
                 allBinaryImageRotationAnimationInfo.getDy());
     }
 
-    public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray)
+    public AdjustedImageArrayRotationAnimation(Image[] imageArray)
             throws Exception
     {
         this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, 0, 0);
     }
 
-    public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray,
+    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
             int dx, int dy) throws Exception
     {
         this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
     }
 
-    public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray,
+    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
             AngleInfo angleInfo, int dx, int dy) throws Exception
     {
         this(imageArray, angleInfo, AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
     }
 
-    public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray,
+    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
             AngleInfo angleInfo, int totalAngle, int dx, int dy)
             throws Exception
     {
@@ -67,7 +67,7 @@ public class AllBinaryAdjustedImageArrayRotationAnimation extends
         this.init(dx, dy);
     }
 
-    public AllBinaryAdjustedImageArrayRotationAnimation(Image[] imageArray,
+    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
             AngleInfo angleInfo, int totalAngle) throws Exception
     {
         super(imageArray, angleInfo, totalAngle);

@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.math.AngleInfo;
 
-public class AllBinaryImageArrayRotationAnimationInfo {
+public class ImageArrayRotationAnimationInfo {
 
 	private Image[] imageArray;
 	private int angleIncrement;
@@ -25,7 +25,7 @@ public class AllBinaryImageArrayRotationAnimationInfo {
 	private int dx; 
 	private int dy;
 	
-	public AllBinaryImageArrayRotationAnimationInfo(
+	public ImageArrayRotationAnimationInfo(
 			Image[] imageArray, int angleIncrement, int totalAngle, int dx, int dy)
 	{
 		this.imageArray = imageArray;

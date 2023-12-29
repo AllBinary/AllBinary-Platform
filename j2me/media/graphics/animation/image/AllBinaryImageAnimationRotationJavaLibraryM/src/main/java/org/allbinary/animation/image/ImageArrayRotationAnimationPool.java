@@ -18,21 +18,21 @@ import org.allbinary.logic.util.cache.CacheableInterface;
 import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
 import org.allbinary.logic.util.cache.PoolInterface;
 
-public class AllBinaryImageArrayRotationAnimationPool 
+public class ImageArrayRotationAnimationPool 
    extends BasicArrayListResetablePool
 {
 	private static PoolInterface IMAGE_ROTATION_ANIMATION_POOL = 
-		new AllBinaryImageArrayRotationAnimationPool(
-				new AllBinaryImageArrayRotationAnimationCacheableInterfaceFactory());
+		new ImageArrayRotationAnimationPool(
+				new ImageArrayRotationAnimationCacheableInterfaceFactory());
 	
-	public AllBinaryImageArrayRotationAnimationPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
+	public ImageArrayRotationAnimationPool(CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
 	{
 		super(cacheableInterfaceFactoryInterface);
 	}
 	
 	public static PoolInterface getInstance()
 	{
-		return AllBinaryImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL;
+		return ImageArrayRotationAnimationPool.IMAGE_ROTATION_ANIMATION_POOL;
 	}
 	
 	public CacheableInterface remove(Object key) throws Exception
@@ -41,10 +41,10 @@ public class AllBinaryImageArrayRotationAnimationPool
 		//	this.cacheableInterfaceFactoryInterface.getInstance(key);
 		CacheableInterface cacheableInterface = super.remove(key);
 
-		AllBinaryImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = 
-			(AllBinaryImageArrayRotationAnimationInfo) key;
+		ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = 
+			(ImageArrayRotationAnimationInfo) key;
 		
-		((AllBinaryImageArrayRotationAnimationCacheable) cacheableInterface).setImageArray(
+		((ImageArrayRotationAnimationCacheable) cacheableInterface).setImageArray(
 				allBinaryImageRotationAnimationInfo.getImageArray());
 		//, 
 				//allBinaryImageRotationAnimationInfo.getDx(), 

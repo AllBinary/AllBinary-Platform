@@ -24,7 +24,7 @@ import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
-public class AllBinaryImageArrayRotationAnimationFactory 
+public class ImageArrayRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
     private Image image;
@@ -35,7 +35,7 @@ public class AllBinaryImageArrayRotationAnimationFactory
 
     private int angleIncrement;
 
-    public AllBinaryImageArrayRotationAnimationFactory(Image image, int width, int height)
+    public ImageArrayRotationAnimationFactory(Image image, int width, int height)
             throws Exception
     {
         this.image = image;
@@ -47,7 +47,7 @@ public class AllBinaryImageArrayRotationAnimationFactory
         this.init();
     }
 
-    public AllBinaryImageArrayRotationAnimationFactory(Image image, int width, int height,
+    public ImageArrayRotationAnimationFactory(Image image, int width, int height,
             int angleIncrement) throws Exception
     {
         this.image = image;
@@ -70,7 +70,7 @@ public class AllBinaryImageArrayRotationAnimationFactory
         // return new AllBinarySpriteRotationAnimation(new MESprite(image,
         // width, height), dx, dy);
 
-        return new AllBinaryImageArrayRotationAnimation(this.getImageArray(),
+        return new ImageArrayRotationAnimation(this.getImageArray(),
                 AngleInfo.getInstance((short) this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE);
 
     }

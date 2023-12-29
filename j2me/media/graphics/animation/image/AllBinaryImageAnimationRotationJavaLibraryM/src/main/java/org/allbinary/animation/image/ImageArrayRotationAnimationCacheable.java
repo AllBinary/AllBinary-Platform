@@ -15,13 +15,13 @@ package org.allbinary.animation.image;
 
 import org.allbinary.logic.util.cache.CacheableInterface;
 
-public class AllBinaryImageArrayRotationAnimationCacheable 
-   extends AllBinaryAdjustedImageArrayRotationAnimation 
+public class ImageArrayRotationAnimationCacheable 
+   extends AdjustedImageArrayRotationAnimation 
 		implements CacheableInterface {
 
 	//private Object key;
 	
-	public AllBinaryImageArrayRotationAnimationCacheable(Object object) 
+	public ImageArrayRotationAnimationCacheable(Object object) 
 	throws Exception 
 	{
 		super(object);

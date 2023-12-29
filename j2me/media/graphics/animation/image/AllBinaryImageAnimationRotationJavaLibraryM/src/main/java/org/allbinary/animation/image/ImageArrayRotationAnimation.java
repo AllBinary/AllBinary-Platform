@@ -15,34 +15,33 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.animation.image.AllBinaryImageArrayBaseRotationAnimation;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
-public class AllBinaryImageArrayRotationAnimation extends
-        AllBinaryImageArrayBaseRotationAnimation
+public class ImageArrayRotationAnimation extends
+        ImageArrayBaseRotationAnimation
 {
     // , 10, AngleIncrementInfo.TOTAL_ANGLE
     // , angleIncrement, AngleIncrementInfo.TOTAL_ANGLE
 
     private int expectedTotalFrames;
 
-    protected AllBinaryImageArrayRotationAnimation(Object object)
+    protected ImageArrayRotationAnimation(Object object)
             throws Exception
     {
-        super(((AllBinaryImageArrayRotationAnimationInfo) object).getImageArray(),
-                ((AllBinaryImageArrayRotationAnimationInfo) object).getAngleInfo());
+        super(((ImageArrayRotationAnimationInfo) object).getImageArray(),
+                ((ImageArrayRotationAnimationInfo) object).getAngleInfo());
 
         // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR,
         // this, "AllBinaryImageRotationAnimation"));
-        AllBinaryImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (AllBinaryImageArrayRotationAnimationInfo) object;
+        ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
         this.init(allBinaryImageRotationAnimationInfo.getImageArray(),
                 allBinaryImageRotationAnimationInfo.getAngleInfo(),
                 allBinaryImageRotationAnimationInfo.getTotalAngle());
     }
 
-    public AllBinaryImageArrayRotationAnimation(Image[] imageArray,
+    public ImageArrayRotationAnimation(Image[] imageArray,
             AngleInfo angleInfo, int totalAngle) throws Exception
     {
         super(imageArray, angleInfo);
@@ -53,13 +52,13 @@ public class AllBinaryImageArrayRotationAnimation extends
         this.init(imageArray, angleInfo, totalAngle);
     }
     
-    public AllBinaryImageArrayRotationAnimation(Image[] imageArray)
+    public ImageArrayRotationAnimation(Image[] imageArray)
             throws Exception
     {
         this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE);
     }
 
-    public AllBinaryImageArrayRotationAnimation(Image[] imageArray,
+    public ImageArrayRotationAnimation(Image[] imageArray,
             AngleInfo angleInfo) throws Exception
     {
         this(imageArray, angleInfo, AngleFactory.getInstance().TOTAL_ANGLE);

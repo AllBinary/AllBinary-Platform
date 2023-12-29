@@ -22,16 +22,16 @@ import org.allbinary.math.AngleFactory;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
 //TWB - Adjustments should be done in the resource creation and not at the animatoin level
-public class PooledAllBinaryImageArrayRotationAnimationFactory implements
+public class PooledImageArrayRotationAnimationFactory implements
         AnimationInterfaceFactoryInterface
 {
 
     // private int width;
     // private int height;
 
-    private AllBinaryImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo;
+    private ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo;
 
-    public PooledAllBinaryImageArrayRotationAnimationFactory(Image image)
+    public PooledImageArrayRotationAnimationFactory(Image image)
             throws Exception
     {
         // this(image, image.getWidth(), image.getHeight());
@@ -46,19 +46,19 @@ public class PooledAllBinaryImageArrayRotationAnimationFactory implements
      * this.init(image, width, height, -(width >> 2), -(height >> 2)); }
      */
 
-    public PooledAllBinaryImageArrayRotationAnimationFactory(Image image,
+    public PooledImageArrayRotationAnimationFactory(Image image,
             int dx, int dy) throws Exception
     {
         this.init(image, image.getWidth(), image.getHeight(), dx, dy);
     }
 
-    public PooledAllBinaryImageArrayRotationAnimationFactory(Image image,
+    public PooledImageArrayRotationAnimationFactory(Image image,
             int width, int height, int dx, int dy) throws Exception
     {
         this.init(image, width, height, dx, dy);
     }
 
-    public PooledAllBinaryImageArrayRotationAnimationFactory(Image image,
+    public PooledImageArrayRotationAnimationFactory(Image image,
             int width, int height, int dx, int dy, short angleIncrement) throws Exception
     {
         this.init(image, width, height, dx, dy, angleIncrement);
@@ -86,7 +86,7 @@ public class PooledAllBinaryImageArrayRotationAnimationFactory implements
         final Image[] imageArray = ImageToRotationImageArrayUtil.getInstance().generate(image,
                 angleIncrement, totalAngle);
 
-        allBinaryImageRotationAnimationInfo = new AllBinaryImageArrayRotationAnimationInfo(
+        allBinaryImageRotationAnimationInfo = new ImageArrayRotationAnimationInfo(
                 imageArray, angleIncrement, totalAngle, dx, dy);
     }
 
@@ -98,7 +98,7 @@ public class PooledAllBinaryImageArrayRotationAnimationFactory implements
         // return new AllBinaryImageRotationAnimation(this.imageArray,
         // AngleInfo.getInstance(angleIncrement), totalAngle, dx, dy);
 
-        return new AllBinaryAdjustedImageArrayRotationAnimation(
+        return new AdjustedImageArrayRotationAnimation(
                 allBinaryImageRotationAnimationInfo);
         //return (AnimationInterface) AllBinaryImageArrayRotationAnimationPool
           //      .getInstance().remove(allBinaryImageRotationAnimationInfo);

@@ -59,7 +59,7 @@ public class VectorToImageArrayRotationAnimationFactory implements
         // return new AllBinarySpriteRotationAnimation(new MESprite(image,
         // width, height), dx, dy);
 
-        return new AllBinaryAdjustedImageArrayRotationAnimation(
+        return new AdjustedImageArrayRotationAnimation(
                 this.getImageArray(), AngleInfo.getInstance((short) this.angleIncrement), 
                 AngleFactory.getInstance().TOTAL_ANGLE);
     }

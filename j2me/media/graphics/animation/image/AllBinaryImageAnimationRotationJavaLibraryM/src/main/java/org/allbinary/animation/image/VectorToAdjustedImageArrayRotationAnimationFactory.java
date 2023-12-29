@@ -41,7 +41,7 @@ VectorToImageArrayRotationAnimationFactory
 		//return new AllBinarySpriteRotationAnimation(new MESprite(image,
 		//width, height), dx, dy);
 		
-		return new AllBinaryAdjustedImageArrayRotationAnimation(
+		return new AdjustedImageArrayRotationAnimation(
 				this.getImageArray(), AngleInfo.getInstance((short) this.getAngleIncrement()), 
 				AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
 	}
