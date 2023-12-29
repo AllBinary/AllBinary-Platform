@@ -11,8 +11,9 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.animation;
+package org.allbinary.animation.image;
 
+import org.allbinary.animation.Animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;

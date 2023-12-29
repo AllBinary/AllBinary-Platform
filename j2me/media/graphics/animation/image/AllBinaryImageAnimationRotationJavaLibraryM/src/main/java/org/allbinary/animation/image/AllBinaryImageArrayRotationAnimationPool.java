@@ -11,7 +11,7 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.animation;
+package org.allbinary.animation.image;
 
 import org.allbinary.logic.util.cache.BasicArrayListResetablePool;
 import org.allbinary.logic.util.cache.CacheableInterface;

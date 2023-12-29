@@ -11,9 +11,11 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.animation;
+package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.math.AngleFactory;
