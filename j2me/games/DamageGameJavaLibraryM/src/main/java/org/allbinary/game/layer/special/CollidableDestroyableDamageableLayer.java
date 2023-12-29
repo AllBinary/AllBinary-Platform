@@ -55,6 +55,8 @@ implements DestroyableInterface, DamageableInterface,
 PickupCompositeInterface, SpecialGameInputInterface,
 OpenGLSurfaceChangedInterface
 {
+    protected CommonStrings commonStrings = CommonStrings.getInstance();
+
     private Group[] groupInterface;
     private boolean readyForExplosion;
 
@@ -98,30 +100,30 @@ OpenGLSurfaceChangedInterface
     //Should be overridden
     public void paint(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, "paint"));
         super.paint(graphics);
     }
 
     public void damage(final int damage, final int damageType) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public int getDamage(final int damageType) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public boolean isDestroyed() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     /*
     private void setDestroyed(boolean destroyed) 
     throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
     */
     
@@ -286,7 +288,7 @@ OpenGLSurfaceChangedInterface
     public void set(final GL gl) throws Exception
     {
         //OpenGLSurfaceChangedInterface
-    	throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+    	throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
     
     //private static final String PARTS_LABEL = "Parts: ";
@@ -335,7 +337,7 @@ OpenGLSurfaceChangedInterface
         stringBuffer.append(readyForExplosion);
 
         stringBuffer.append(commonSeps.NEW_LINE);
-        stringBuffer.append(CommonStrings.getInstance().INIT);
+        stringBuffer.append(commonStrings.INIT);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.X_LABEL);
         stringBuffer.append(initX);
