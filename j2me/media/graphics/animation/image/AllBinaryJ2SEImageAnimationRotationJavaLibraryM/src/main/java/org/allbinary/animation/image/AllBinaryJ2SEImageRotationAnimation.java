@@ -20,6 +20,7 @@ import org.allbinary.math.AngleInfo;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
 import org.allbinary.media.image.ImageRotationUtil;
@@ -130,7 +131,7 @@ extends ImageBaseRotationAnimation
 
     @Override
     public void setScale(final float scaleX, final float scaleY) {
-        //LogUtil.put(LogFactory.getInstance("scaleX: " + scaleX, this, "setScale"));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("scaleX: ").append(scaleX).append("scaleY: ").append(scaleY).toString(), this, "setScale"));
         this.scaleX = scaleX;
         this.scaleY = scaleY;
         this.scaleProcessor.update(this.realOriginalImage, this.originalImageArray, this.twoImages, this.bufferedImageIndex, this.scaleX, this.scaleY, this.maxScaleX, this.maxScaleY);
