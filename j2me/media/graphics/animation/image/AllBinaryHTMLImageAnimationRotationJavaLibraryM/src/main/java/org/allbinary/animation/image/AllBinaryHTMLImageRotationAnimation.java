@@ -27,7 +27,7 @@ import playn.core.CanvasImage;
 import playn.core.CanvasSurface;
 
 public class AllBinaryHTMLImageRotationAnimation 
-extends AllBinaryImageBaseRotationAnimation
+extends ImageBaseRotationAnimation
 {
     //private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
     private final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();

@@ -24,7 +24,7 @@ import org.allbinary.graphics.Anchor;
  * @author user
  */
 public class BottomToTopImageAnimation
-    extends AllBinaryImageSegmentAnimation
+    extends ImageSegmentAnimation
 {
     private int startHeight;
     private int currentHeight;

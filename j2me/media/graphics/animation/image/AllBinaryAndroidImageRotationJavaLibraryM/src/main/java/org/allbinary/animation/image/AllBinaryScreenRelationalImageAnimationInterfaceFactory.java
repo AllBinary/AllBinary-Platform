@@ -49,6 +49,6 @@ extends BaseImageAnimationFactory
     
     public Animation getInstance() throws Exception
     {    	
-        return new AllBinaryImageAnimation(lastImage);
+        return new ImageAnimation(lastImage);
     }    
 }

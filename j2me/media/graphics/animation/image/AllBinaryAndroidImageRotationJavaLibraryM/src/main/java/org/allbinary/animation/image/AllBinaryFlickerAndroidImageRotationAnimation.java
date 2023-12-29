@@ -25,7 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.AndroidImageUtil;
 
 public class AllBinaryFlickerAndroidImageRotationAnimation 
-extends AllBinaryImageBaseRotationAnimation
+extends ImageBaseRotationAnimation
 {
     private final AndroidImageUtil androidImageUtil = AndroidImageUtil.getInstance();
     

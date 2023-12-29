@@ -16,10 +16,10 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.animation.image.AllBinaryImageArrayAnimation;
+import org.allbinary.animation.image.ImageArrayAnimation;
 
 public class AdjustedImageArrayAnimation 
-extends AllBinaryImageArrayAnimation
+extends ImageArrayAnimation
 {
     private int dx;
     private int dy;

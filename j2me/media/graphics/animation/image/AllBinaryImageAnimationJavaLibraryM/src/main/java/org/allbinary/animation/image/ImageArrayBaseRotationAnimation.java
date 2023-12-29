@@ -26,7 +26,7 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageModifierUtil;
 
-public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
+public class ImageArrayBaseRotationAnimation extends RotationAnimation
 {
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
@@ -37,7 +37,7 @@ public class AllBinaryImageArrayBaseRotationAnimation extends RotationAnimation
     
     private int totalFrames;
 
-    public AllBinaryImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo) throws Exception
+    public ImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo) throws Exception
     {
         super(angleInfo);
 

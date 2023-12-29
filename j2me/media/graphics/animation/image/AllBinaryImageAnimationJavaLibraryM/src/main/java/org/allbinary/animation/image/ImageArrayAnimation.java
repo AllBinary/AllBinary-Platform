@@ -22,34 +22,22 @@ import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
-public class AllBinaryTweenedImageAnimation extends IndexedAnimation
+public class ImageArrayAnimation extends IndexedAnimation
 {
-    private final Image image;
+    private Image[] imageArray;
 
-    private final int dx;
-    private final int dy;
-    
+    // private int totalAngle;
     private int totalFrames;
 
     protected CircularIndexUtil circularIndexUtil;
     
-    public AllBinaryTweenedImageAnimation(
-            Image image, int dx, int dy, int totalFrames) 
-        throws Exception
+    public ImageArrayAnimation(Image[] imageArray) throws Exception
     {
         super();
 
-        this.image = image;
-        
-        this.dx = dx;
-        this.dy = dy;
-        
-        this.totalFrames = totalFrames;
-        
-        this.circularIndexUtil = CircularIndexUtil.getInstance(this.totalFrames);
-        
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
+        // LogUtil.put(LogFactory.getInstance(, this, ));
+
+        this.setImageArray(imageArray);
     }
 
     public int getAnimationSize() throws Exception
@@ -92,15 +80,34 @@ public class AllBinaryTweenedImageAnimation extends IndexedAnimation
         return PrimitiveIntUtil.getArrayInstance();
     }
 
+    public Image getImage(int index)
+    {
+        return imageArray[index];
+    }
+
+    public Image[] getImageArray()
+    {
+        return imageArray;
+    }
+
+    protected void setImageArray(Image[] imageArray)
+    {
+        this.imageArray = imageArray;
+        this.totalFrames = imageArray.length;
+        this.circularIndexUtil = CircularIndexUtil.getInstance(this.totalFrames);
+    }
+
     private int anchor = Anchor.TOP_LEFT;
     
     public void paint(Graphics graphics, int x, int y)
     {
-        int frame = this.getFrame();
-        int currentX = dx * frame; 
-        int currentY = dy * frame;
+        graphics.drawImage(this.imageArray[this.circularIndexUtil.getIndex()], x, y, anchor);
 
-        graphics.drawImage(this.image, x + currentX, y + currentY, anchor);
+        /*
+         * for(int index = 0; index < NUMBER_OF_FRAMES; index++) {
+         * graphics.drawImage(this.getImage(index), 0, index
+         * this.getImage(index).getHeight(), Anchor.TOP_LEFT); }
+         */
     }
-        
+
 }

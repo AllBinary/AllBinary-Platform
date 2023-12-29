@@ -25,7 +25,7 @@ import org.allbinary.media.image.ImageModifierUtil;
 import org.allbinary.media.image.ImageRotationUtil;
 
 public class AllBinaryJ2SEImageRotationAnimation 
-extends AllBinaryImageBaseRotationAnimation
+extends ImageBaseRotationAnimation
 {
     private final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();

@@ -19,25 +19,25 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.SingletonAnimationInterfaceFactory;
 import org.allbinary.image.AnimationFrameToImageUtil;
 
-public class AllBinaryImageAnimationSingletonInterfaceFactory
+public class ImageAnimationSingletonInterfaceFactory
 extends SingletonAnimationInterfaceFactory
 {
-    private AllBinaryImageAnimationSingletonInterfaceFactory(Animation animationInterface)
+    private ImageAnimationSingletonInterfaceFactory(Animation animationInterface)
     {
         super(animationInterface);
     }
 
-    public AllBinaryImageAnimationSingletonInterfaceFactory(Image image)
+    public ImageAnimationSingletonInterfaceFactory(Image image)
         throws Exception
     {
-        super(new AllBinaryImageAnimation(image));
+        super(new ImageAnimation(image));
     }
 
-    public AllBinaryImageAnimationSingletonInterfaceFactory(
+    public ImageAnimationSingletonInterfaceFactory(
             Animation animationInterface, int width, int height)
         throws Exception
     {
-        this(new AllBinaryImageAnimation(
+        this(new ImageAnimation(
                 AnimationFrameToImageUtil.getInstance().getInstance(
                         width, height, animationInterface)));
     }    

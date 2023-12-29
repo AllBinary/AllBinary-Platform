@@ -21,13 +21,13 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
 
-public class AllBinaryImageBaseRotationAnimation extends RotationAnimation
+public class ImageBaseRotationAnimation extends RotationAnimation
 {
     private final Image image;
 
     //private static final int currentFrame = 0;
     //private static final int totalFrames = 1;
-    public AllBinaryImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle)
+    public ImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle)
         throws Exception
     {
         super(angleInfo, totalAngle);

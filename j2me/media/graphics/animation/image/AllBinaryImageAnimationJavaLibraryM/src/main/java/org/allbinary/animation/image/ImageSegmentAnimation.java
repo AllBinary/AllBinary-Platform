@@ -24,8 +24,8 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
  *
  * @author user
  */
-public class AllBinaryImageSegmentAnimation 
-    extends AllBinaryImageAnimation
+public class ImageSegmentAnimation 
+    extends ImageAnimation
     //implements IndexedAnimationInterface
 {
     private int startX;
@@ -42,13 +42,13 @@ public class AllBinaryImageSegmentAnimation
 
     private int[] sequenceArray;
 
-    protected AllBinaryImageSegmentAnimation(Image image)
+    protected ImageSegmentAnimation(Image image)
         throws Exception
     {
         this(image, PrimitiveIntUtil.getArrayInstance());
     }
 
-    protected AllBinaryImageSegmentAnimation(Image image, int[] sequenceArray)
+    protected ImageSegmentAnimation(Image image, int[] sequenceArray)
         throws Exception
     {
         super(image);

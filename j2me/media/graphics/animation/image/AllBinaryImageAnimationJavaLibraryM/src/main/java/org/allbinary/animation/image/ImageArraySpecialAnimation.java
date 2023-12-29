@@ -21,13 +21,13 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
-public class AllBinaryImageArraySpecialAnimation 
-extends AllBinaryImageArrayAnimation 
+public class ImageArraySpecialAnimation 
+extends ImageArrayAnimation 
 implements SpecialAnimationInterface
 {
     private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(270);
 
-    public AllBinaryImageArraySpecialAnimation(Image[] imageArray)
+    public ImageArraySpecialAnimation(Image[] imageArray)
             throws Exception
     {
         super(imageArray);

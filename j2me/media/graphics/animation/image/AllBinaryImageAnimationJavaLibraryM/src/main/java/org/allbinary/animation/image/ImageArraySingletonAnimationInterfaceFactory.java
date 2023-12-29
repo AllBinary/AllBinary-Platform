@@ -20,23 +20,23 @@ import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.SingletonAnimationInterfaceFactory;
 import org.allbinary.image.IndexedAnimationToImageArrayUtil;
 
-public class AllBinaryImageArraySingletonAnimationInterfaceFactory
+public class ImageArraySingletonAnimationInterfaceFactory
 extends SingletonAnimationInterfaceFactory
 {
-    public AllBinaryImageArraySingletonAnimationInterfaceFactory(Animation animationInterface)
+    public ImageArraySingletonAnimationInterfaceFactory(Animation animationInterface)
     {
         super(animationInterface);
     }
     
-    public AllBinaryImageArraySingletonAnimationInterfaceFactory(IndexedAnimation animationInterface, int width, int height)
+    public ImageArraySingletonAnimationInterfaceFactory(IndexedAnimation animationInterface, int width, int height)
     throws Exception
     {
-        this(new AllBinaryImageArrayAnimation(IndexedAnimationToImageArrayUtil.getInstance(width, height, animationInterface)));
+        this(new ImageArrayAnimation(IndexedAnimationToImageArrayUtil.getInstance(width, height, animationInterface)));
     }    
 
-    public AllBinaryImageArraySingletonAnimationInterfaceFactory(Image[] imageArray)
+    public ImageArraySingletonAnimationInterfaceFactory(Image[] imageArray)
     throws Exception
     {
-        this(new AllBinaryImageArrayAnimation(imageArray));
+        this(new ImageArrayAnimation(imageArray));
     }    
 }

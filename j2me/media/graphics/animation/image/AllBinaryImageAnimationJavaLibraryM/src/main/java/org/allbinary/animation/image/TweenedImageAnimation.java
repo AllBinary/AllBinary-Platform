@@ -16,20 +16,40 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.util.CircularIndexUtil;
+
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
-public class AllBinaryImageAnimation extends IndexedAnimation
+public class TweenedImageAnimation extends IndexedAnimation
 {
     private final Image image;
 
-    //private static final int currentFrame = 0;
-    //private static final int totalFrames = 1;
-    public AllBinaryImageAnimation(Image image)
+    private final int dx;
+    private final int dy;
+    
+    private int totalFrames;
+
+    protected CircularIndexUtil circularIndexUtil;
+    
+    public TweenedImageAnimation(
+            Image image, int dx, int dy, int totalFrames) 
         throws Exception
     {
+        super();
+
         this.image = image;
+        
+        this.dx = dx;
+        this.dy = dy;
+        
+        this.totalFrames = totalFrames;
+        
+        this.circularIndexUtil = CircularIndexUtil.getInstance(this.totalFrames);
+        
+        // LogUtil.put(LogFactory.getInstance("Constructing", this,
+        // "AllBinaryImageRotationAnimation"));
     }
 
     public int getAnimationSize() throws Exception
@@ -39,30 +59,32 @@ public class AllBinaryImageAnimation extends IndexedAnimation
     
     public void nextFrame()
     {
+        this.circularIndexUtil.next();
     }
 
     public void previousFrame()
     {
+        this.circularIndexUtil.previous();
     }
 
     public void setFrame(int index)
     {
+        this.circularIndexUtil.setIndex(index);
     }
 
     public int getFrame()
     {
-        //return this.currentFrame;
-        return 0;
+        return this.circularIndexUtil.getIndex();
     }
 
     public int getSize()
     {
-        //return this.totalFrames;
-        return 1;
+        return this.totalFrames;
     }
 
     public void setSequence(int[] sequence)
     {
+
     }
 
     public int[] getSequence()
@@ -74,20 +96,11 @@ public class AllBinaryImageAnimation extends IndexedAnimation
     
     public void paint(Graphics graphics, int x, int y)
     {
-        graphics.drawImage(this.image, x, y, anchor);
-    }
-    
-    /**
-     * @return the image
-     */
-    protected Image getImage()
-    {
-        return image;
-    }
+        int frame = this.getFrame();
+        int currentX = dx * frame; 
+        int currentY = dy * frame;
 
-    /*
-    public void paint(Graphics graphics) {
-    graphics.drawImage(this.image, 0, 0, Anchor.TOP_LEFT);
+        graphics.drawImage(this.image, x + currentX, y + currentY, anchor);
     }
-     */
+        
 }

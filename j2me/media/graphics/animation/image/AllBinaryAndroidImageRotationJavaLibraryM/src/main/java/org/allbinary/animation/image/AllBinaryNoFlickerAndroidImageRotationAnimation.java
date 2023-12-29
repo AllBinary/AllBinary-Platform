@@ -27,7 +27,7 @@ import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
 
 public class AllBinaryNoFlickerAndroidImageRotationAnimation 
-extends AllBinaryImageBaseRotationAnimation
+extends ImageBaseRotationAnimation
 {
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     private final AndroidImageUtil androidImageUtil = AndroidImageUtil.getInstance();
