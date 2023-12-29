@@ -13,8 +13,6 @@
  */
 package org.allbinary.graphics;
 
-import java.awt.Dimension;
-import java.awt.Toolkit;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -40,11 +38,6 @@ public class DisplayUtil {
     public int height = 960;
     
     private DisplayUtil() {
-
-        final Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-
-        this.width = dimension.width;
-        this.height = dimension.height;
 
     }
 
