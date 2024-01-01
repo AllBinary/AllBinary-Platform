@@ -31,6 +31,15 @@ import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateD
 public class BasicUriResolver implements URIResolver
 {
 
+    private final String IMPORT_URL = "/{import url}";
+    private final String ATTEMPT = "attempt to use xsl:import: href=";
+    private final String BASE = "\nBase= ";
+    private final String NEW_PATH = "\nNew path= ";
+    private final String NOTE = "\nNote: ";
+    private final String URL_GLOBAL = " is a urlglobal";
+    private final String REQUIRED_EXTENSION = "\nRequired Extension: ";
+    private final String RESOLVE = "resolve";
+    
     private String extension;
 
     //private TransformInfoInterface parentTransformInfoInterface;
@@ -63,19 +72,19 @@ public class BasicUriResolver implements URIResolver
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
-                stringBuffer.append("attempt to use xsl:import: href=");
+                stringBuffer.append(ATTEMPT);
                 stringBuffer.append(href);
-                stringBuffer.append("\nBase= ");
+                stringBuffer.append(BASE);
                 stringBuffer.append(base);
-                stringBuffer.append("\nNew path= ");
+                stringBuffer.append(NEW_PATH);
                 stringBuffer.append(abPath.toString());
-                stringBuffer.append("\nNote: ");
+                stringBuffer.append(NOTE);
                 stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-                stringBuffer.append(" is a urlglobal");
-                stringBuffer.append("\nRequired Extension: ");
+                stringBuffer.append(URL_GLOBAL);
+                stringBuffer.append(REQUIRED_EXTENSION);
                 stringBuffer.append(extension);
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "resolve"));
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, RESOLVE));
             }
 
             return new StreamSource(new CryptFileReader(
@@ -98,7 +107,7 @@ public class BasicUriResolver implements URIResolver
 
             stringBuffer.append(URLGLOBALS.getMainPath());
             stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
-            stringBuffer.append("/{import url}");
+            stringBuffer.append(IMPORT_URL);
 
             return stringBuffer.toString();
         } catch (Exception e)
