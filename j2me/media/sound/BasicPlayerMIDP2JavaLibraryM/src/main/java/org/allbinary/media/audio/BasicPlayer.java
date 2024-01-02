@@ -21,7 +21,7 @@ import javax.microedition.media.TimeBase;
 
 import org.allbinary.util.BasicArrayList;
 
-public class BasicPlayer implements Player, TimeBaseInterface
+public class BasicPlayer implements Player, TimeBaseInterface, Controllable2
 {
    public static String CONTROL_TYPE = "ToneControl";
    
@@ -154,4 +154,9 @@ public class BasicPlayer implements Player, TimeBaseInterface
    {
       this.setState(Player.PREFETCHED);
    }
+   
+   public void setVolume(final int leftVolume, final int rightVolume) {
+       
+   }
+   
 }

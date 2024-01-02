@@ -175,7 +175,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     }
 
     public void setVolume(final int leftVolume, final int rightVolume) {
-        this.mediaPlayer.setVolume(leftVolume, rightVolume);
+        this.mediaPlayer.setVolume(((float) leftVolume) / 100.0f, ((float) rightVolume) / 100.0f);
     }
     
     public long getDuration()

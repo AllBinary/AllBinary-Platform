@@ -127,7 +127,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     }
 
     public void setVolume(final int leftVolume, final int rightVolume) {
-        this.setVolume(leftVolume);
+        this.setVolume(((float) leftVolume) / 100.0f);
     }
 
     private float getVolume() {

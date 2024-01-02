@@ -20,7 +20,7 @@ import javax.microedition.media.PlayerListener;
 
 import org.allbinary.util.BasicArrayList;
 
-public class BasicPlayer implements Player
+public class BasicPlayer implements Player, Controllable2
 {
    public static String CONTROL_TYPE = "ToneControl";
    
