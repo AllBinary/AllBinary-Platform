@@ -174,6 +174,10 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
     }
 
+    public void setVolume(final int leftVolume, final int rightVolume) {
+        this.mediaPlayer.setVolume(leftVolume, rightVolume);
+    }
+    
     public long getDuration()
     {
         return mediaPlayer.getDuration();
