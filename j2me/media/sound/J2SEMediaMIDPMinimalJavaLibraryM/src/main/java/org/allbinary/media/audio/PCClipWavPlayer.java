@@ -24,6 +24,7 @@ import javax.microedition.media.PlayerListener;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 
@@ -123,6 +124,23 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     public Control[] getControls()
     {
         return null;
+    }
+
+    public void setVolume(final int leftVolume, final int rightVolume) {
+        this.setVolume(leftVolume);
+    }
+
+    private float getVolume() {
+        final FloatControl masterGainFloatControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        return (float) Math.pow(10f, masterGainFloatControl.getValue() / 20f);
+    }
+
+    private void setVolume(final float volume) {
+        if (volume < 0f || volume > 1f) {
+            throw new IllegalArgumentException("Volume: " + volume);
+        }
+        final FloatControl masterGainFloatControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        masterGainFloatControl.setValue(20f * (float) Math.log10(volume));
     }
 
     public void update(LineEvent event)
