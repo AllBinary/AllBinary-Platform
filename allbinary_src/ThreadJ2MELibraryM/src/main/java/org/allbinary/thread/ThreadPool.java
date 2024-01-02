@@ -22,6 +22,11 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class ThreadPool
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
+    protected final String START_TASK = "Started Task: ";
+    protected final String COMPLETE_TASK = "Completed Task: ";
+    
     private boolean isAlive;
     private BasicArrayList taskQueue;
     //private int threadID;
@@ -175,7 +180,7 @@ public class ThreadPool
 
                 } catch (InterruptedException ex)
                 {
-                    LogUtil.put(LogFactory.getInstance(INTERRUPT_EXCEPTION, this, CommonStrings.getInstance().RUN));
+                    LogUtil.put(LogFactory.getInstance(INTERRUPT_EXCEPTION, this, commonStrings.RUN));
                     break;
                 }
 
@@ -186,7 +191,7 @@ public class ThreadPool
                 /*
                 else
                 {
-                PreLogUtil.put("Running: ").append(task, this, CommonStrings.getInstance().RUN);
+                PreLogUtil.put("Running: ").append(task, this, commonStrings.RUN);
                 }
                  */
 
@@ -197,7 +202,7 @@ public class ThreadPool
                     runningTask = false;
                 } catch (Exception e)
                 {
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(task).toString(), this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(task).toString(), this, commonStrings.RUN, e));
                 }
             }
 
