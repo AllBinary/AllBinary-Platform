@@ -155,4 +155,8 @@ public class BasicPlayer implements Player
    {
       this.setState(Player.PREFETCHED);
    }
+   
+   public void setVolume(final int leftVolume, final int rightVolume) {
+       
+   }
 }
