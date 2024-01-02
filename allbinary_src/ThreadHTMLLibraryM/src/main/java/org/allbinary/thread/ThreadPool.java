@@ -13,10 +13,16 @@
 */
 package org.allbinary.thread;
 
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class ThreadPool
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
+    protected final String START_TASK = "Started Task: ";
+    protected final String COMPLETE_TASK = "Completed Task: ";
+    
     private boolean isAlive;
     private BasicArrayList taskQueue = new BasicArrayList();
     //private int threadID;
