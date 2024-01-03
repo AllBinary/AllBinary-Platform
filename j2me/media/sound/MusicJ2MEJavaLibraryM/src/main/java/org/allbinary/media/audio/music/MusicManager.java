@@ -8,7 +8,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.audio.Sound;
-import org.allbinary.thread.SoundThreadPool;
+import org.allbinary.thread.MusicThreadPool;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -51,24 +51,22 @@ public class MusicManager {
 
                 if (currentSongSound != null) {
                     
-                    //For players that block.
-//                    SoundThreadPool.getInstance().runTask(
-//                            new Runnable() {
-//                        public void run() {
-//                            try {
+                    MusicThreadPool.getInstance().runTask(new Runnable() {
+                        public void run() {
+                            try {
                                 currentSongSound.getPlayer().stop();
-//                                //currentSongSound.getPlayer().close();
-//                            } catch (Exception e) {
-//                                String resource = StringUtil.getInstance().EMPTY_STRING;
-//                                if (currentSongSound != null) {
-//                                    resource = currentSongSound.getResource();
-//                                }
-//
-//                                PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
-//                            }
-//                        }
-//                    }
-//                    );
+                                //currentSongSound.getPlayer().close();
+                            } catch (Exception e) {
+                                String resource = StringUtil.getInstance().EMPTY_STRING;
+                                if (currentSongSound != null) {
+                                    resource = currentSongSound.getResource();
+                                }
+
+                                PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+                            }
+                        }
+                    }
+                    );
 
                 }
 
@@ -85,9 +83,8 @@ public class MusicManager {
 
                 this.timeDelayHelper.delay = (int) duration;
 
-                //For players that block.
-                //MusicThreadPool.getInstance().runTask(currentSongSound);
-                this.currentSongSound.getPlayer().start();
+                MusicThreadPool.getInstance().runTask(currentSongSound);
+                //this.currentSongSound.getPlayer().start();
             }
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;
@@ -102,10 +99,27 @@ public class MusicManager {
     public void stop()
             throws Exception {
         try {
+            final Sound currentSongSound = this.currentSongSound;
             if (currentSongSound != null) {
-                currentSongSound.getPlayer().stop();
-                currentSongSound.getPlayer().close();
-                currentSongSound = null;
+
+                MusicThreadPool.getInstance().runTask(new Runnable() {
+                    public void run() {
+                        try {
+                            currentSongSound.getPlayer().stop();
+                            currentSongSound.getPlayer().close();
+                            //MusicManager.this.currentSongSound = null;
+                        } catch (Exception e) {
+                            String resource = StringUtil.getInstance().EMPTY_STRING;
+                            if (currentSongSound != null) {
+                                resource = currentSongSound.getResource();
+                            }
+
+                            PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+                        }
+                    }
+                }
+                );
+
             }
             this.timeDelayHelper.setStartTime(0);
         } catch (Exception e) {
