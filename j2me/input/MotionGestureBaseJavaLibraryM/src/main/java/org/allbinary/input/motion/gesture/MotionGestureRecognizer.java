@@ -87,6 +87,7 @@ public class MotionGestureRecognizer
         //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
         
         motionGesturesHandler.fireEvent(event);
+        movedMotionGesturesHandler.fireEvent(event);
 
         return true;
     }
@@ -157,8 +158,8 @@ public class MotionGestureRecognizer
 
         final MotionGestureConfiguration conf = MotionGestureConfigurationFactory.getInstance();
 
-        MotionGestureInput newMotionGesture = 
-            TouchMotionGestureFactory.getInstance().NO_MOTION;
+        final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+        MotionGestureInput newMotionGesture = touchMotionGestureFactory.NO_MOTION;
 
         int diagonalToleranceHigher = 12;
         int diagonalToleranceLower = 12;
@@ -174,11 +175,11 @@ public class MotionGestureRecognizer
 
             if (line.getDeltaY() > 0)
             {
-                newMotionGesture = TouchMotionGestureFactory.getInstance().UP;
+                newMotionGesture = touchMotionGestureFactory.UP;
             }
             else
             {
-                newMotionGesture = TouchMotionGestureFactory.getInstance().DOWN;
+                newMotionGesture = touchMotionGestureFactory.DOWN;
             }
 
         }
@@ -193,11 +194,11 @@ public class MotionGestureRecognizer
 
                 if (line.getDeltaX() > 0)
                 {
-                    newMotionGesture = TouchMotionGestureFactory.getInstance().LEFT;
+                    newMotionGesture = touchMotionGestureFactory.LEFT;
                 }
                 else
                 {
-                    newMotionGesture = TouchMotionGestureFactory.getInstance().RIGHT;
+                    newMotionGesture = touchMotionGestureFactory.RIGHT;
                 }
 
             }
@@ -212,15 +213,13 @@ public class MotionGestureRecognizer
                     {
                         //LogUtil.put(LogFactory.getInstance("Diagonal Up Left", this, "processDraggedMotionEvent"));
                         
-                        newMotionGesture = TouchMotionGestureFactory
-                                .getInstance().DIAGONAL_UP_LEFT;
+                        newMotionGesture = touchMotionGestureFactory.DIAGONAL_UP_LEFT;
                     }
                     else
                     {
                         //LogUtil.put(LogFactory.getInstance("Diagonal Down Right", this, "processDraggedMotionEvent"));
                         
-                        newMotionGesture = TouchMotionGestureFactory
-                                .getInstance().DIAGONAL_DOWN_RIGHT;
+                        newMotionGesture = touchMotionGestureFactory.DIAGONAL_DOWN_RIGHT;
                     }
                 }
                 else
@@ -229,15 +228,13 @@ public class MotionGestureRecognizer
                     {
                         //LogUtil.put(LogFactory.getInstance("Diagonal Down Left", this, "processDraggedMotionEvent"));
                         
-                        newMotionGesture = TouchMotionGestureFactory
-                                .getInstance().DIAGONAL_DOWN_LEFT;
+                        newMotionGesture = touchMotionGestureFactory.DIAGONAL_DOWN_LEFT;
                     }
                     else
                     {
                         //LogUtil.put(LogFactory.getInstance("Diagonal Up Right", this, "processDraggedMotionEvent"));
                         
-                        newMotionGesture = TouchMotionGestureFactory
-                                .getInstance().DIAGONAL_UP_RIGHT;
+                        newMotionGesture = touchMotionGestureFactory.DIAGONAL_UP_RIGHT;
                     }
                 }
 
