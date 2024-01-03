@@ -27,9 +27,14 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.thread.MusicThreadPool;
 
 public class PCClipWavPlayer extends BasicPlayer implements LineListener
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private AudioInputStream audioInputStream;
     private Clip clip;
 
@@ -53,19 +58,24 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 
     public void close()
     {
-        try
-        {
-            this.clip.drain();
-            this.clip.flush();
-            this.clip.close();
+        MusicThreadPool.getInstance().runTask(new Runnable() {
+            public void run() {
+                try {
+                    close2();
+                } catch (Exception e) {
+                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                }
+            }
         }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance(
-                "Exception", this, "close", e));
-        }
+        );
     }
 
+    private void close2() throws Exception {
+        this.clip.drain();
+        this.clip.flush();
+        this.clip.close();
+    }
+    
     public String getContentType()
     {
         return null;
@@ -73,18 +83,23 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 
     public synchronized void start() throws MediaException
     {
-        try
-        {
-            this.clip.setFramePosition(0);
-            this.clip.loop(this.getLoopCount());
-            this.clip.start();
-            super.start();
+        MusicThreadPool.getInstance().runTask(new Runnable() {
+            public void run() {
+                try {
+                    start2();
+                } catch (Exception e) {
+                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                }
+            }
         }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance(
-                "Exception", this, "start", e));
-        }
+        );
+    }
+
+    private void start2() throws Exception {
+        this.clip.setFramePosition(0);
+        this.clip.loop(this.getLoopCount());
+        this.clip.start();
+        super.start();
     }
 
     private final Clip create()
@@ -100,20 +115,24 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 
     public synchronized void stop() throws MediaException
     {
-        try
-        {
-            clip.drain();
-            clip.stop();
-
-            ////clip.close();
-
-            super.stop();
+        MusicThreadPool.getInstance().runTask(new Runnable() {
+            public void run() {
+                try {
+                    stop2();
+                } catch (Exception e) {
+                    PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e);
+                }
+            }
         }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance(
-                "Exception", this, "stop", e));
-        }
+        );
+    }
+
+    private void stop2() throws Exception {
+        clip.drain();
+        clip.stop();
+
+        ////clip.close();
+        super.stop();
     }
 
     public Control getControl(String controlType)

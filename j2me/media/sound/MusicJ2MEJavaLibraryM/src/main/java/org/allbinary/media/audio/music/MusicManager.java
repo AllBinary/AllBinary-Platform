@@ -39,6 +39,7 @@ public class MusicManager {
     private final String SONG = " for: ";
     private final String NEXT_SONG = "Next Song: ";
     private final String STOPPING = "Stopping Current Song: ";
+    private final String ENDING = "Ending Current Song: ";
 
     private final BasicArrayList songList;
 
@@ -47,6 +48,7 @@ public class MusicManager {
 
     private boolean reset;
     private boolean noDuration;
+    private boolean stopped = true;
     
     public MusicManager(BasicArrayList songList) {
         this.songList = songList;
@@ -57,6 +59,7 @@ public class MusicManager {
         PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound).toString(), this, commonStrings.PROCESS);
         this.nextSongSound = nextSongSound;
         this.reset();
+        this.stopped = false;
     }
     
     public void reset() {
@@ -65,6 +68,10 @@ public class MusicManager {
 
     public void process() {
         try {
+            if(stopped) {
+               return; 
+            }
+
             if(this.songList.size() == 0) {
                 return;
             }
@@ -72,28 +79,9 @@ public class MusicManager {
             if ((this.timeDelayHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()) && !this.noDuration) || this.reset) {
                 this.reset = false;
                 this.noDuration = false;
-                final Sound currentSongSound = this.currentSongSound;
-                if (currentSongSound != null) {
-                    PreLogUtil.put(new StringMaker().append(STOPPING).append(currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
-                    MusicThreadPool.getInstance().runTask(new Runnable() {
-                        public void run() {
-                            try {
-                                currentSongSound.getPlayer().stop();
-                                //currentSongSound.getPlayer().close();
-                            } catch (Exception e) {
-                                String resource = StringUtil.getInstance().EMPTY_STRING;
-                                if (currentSongSound != null) {
-                                    resource = currentSongSound.getResource();
-                                }
 
-                                PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
-                            }
-                        }
-                    }
-                    );
-
-                }
-
+                final Sound endingCurrentSongSound = this.currentSongSound;
+                
                 final Sound nextSongSound = this.nextSongSound;
                 this.nextSongSound = null;
                 if (nextSongSound == null) {
@@ -102,10 +90,10 @@ public class MusicManager {
                     this.currentSongSound = nextSongSound;
                 }
 
+                final Sound startingCurrentSongSound = this.currentSongSound;
+
                 //this.currentSongSound.init();
                 final long duration = this.currentSongSound.getPlayer().getDuration();
-
-                PreLogUtil.put(new StringMaker().append(PLAY).append(this.currentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
 
                 this.timeDelayHelper.delay = (int) duration;
 
@@ -117,9 +105,32 @@ public class MusicManager {
                     this.currentSongSound.getPlayer().addPlayerListener(playerListener);
                     this.noDuration = true;
                 }
-                                
-                MusicThreadPool.getInstance().runTask(currentSongSound);
-                //this.currentSongSound.getPlayer().start();
+
+                if (endingCurrentSongSound != null) {
+//                    MusicThreadPool.getInstance().runTask(new Runnable() {
+//                        public void run() {
+//                            try {
+                                PreLogUtil.put(new StringMaker().append(STOPPING).append(endingCurrentSongSound.getResource()).append(PLAY).append(startingCurrentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
+                                endingCurrentSongSound.getPlayer().stop();
+//                                //currentSongSound.getPlayer().close();
+                                startingCurrentSongSound.getPlayer().start();
+//                            } catch (Exception e) {
+//                                String resource = StringUtil.getInstance().EMPTY_STRING;
+//                                if (endingCurrentSongSound != null) {
+//                                    resource = endingCurrentSongSound.getResource();
+//                                }
+//
+//                                PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+//                            }
+//                        }
+//                    }
+//                    );
+
+                } else {
+                    PreLogUtil.put(new StringMaker().append(PLAY).append(this.currentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
+                    //MusicThreadPool.getInstance().runTask(this.currentSongSound);
+                    this.currentSongSound.getPlayer().start();
+                }
             }
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;
@@ -136,27 +147,31 @@ public class MusicManager {
         try {
             final Sound currentSongSound = this.currentSongSound;
             if (currentSongSound != null) {
-
-                MusicThreadPool.getInstance().runTask(new Runnable() {
-                    public void run() {
-                        try {
+                stopped = true;
+//                MusicThreadPool.getInstance().runTask(new Runnable() {
+//                    public void run() {
+//                        try {
+                            PreLogUtil.put(new StringMaker().append(ENDING).append(currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
                             currentSongSound.getPlayer().stop();
-                            currentSongSound.getPlayer().close();
-                            //MusicManager.this.currentSongSound = null;
-                        } catch (Exception e) {
-                            String resource = StringUtil.getInstance().EMPTY_STRING;
-                            if (currentSongSound != null) {
-                                resource = currentSongSound.getResource();
-                            }
-
-                            PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
-                        }
-                    }
-                }
-                );
+//                            //currentSongSound.getPlayer().close();
+//                            //MusicManager.this.currentSongSound = null;
+//                        } catch (Exception e) {
+//                            String resource = StringUtil.getInstance().EMPTY_STRING;
+//                            if (currentSongSound != null) {
+//                                resource = currentSongSound.getResource();
+//                            }
+//
+//                            PreLogUtil.put(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.PROCESS, e);
+//                        }
+//                    }
+//                }
+//                );
 
             }
             this.timeDelayHelper.setStartTime(0);
+            
+            PreLogUtil.put(commonStrings.END + currentSongSound, this, commonStrings.END);
+
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;
             if (currentSongSound != null) {
