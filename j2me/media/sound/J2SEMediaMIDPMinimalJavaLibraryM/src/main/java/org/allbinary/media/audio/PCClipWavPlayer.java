@@ -105,7 +105,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     private final Clip create()
         throws Exception
     {
-        Clip clip = AudioSystem.getClip();
+        final Clip clip = AudioSystem.getClip();
 
         clip.addLineListener(this);
         clip.open(this.audioInputStream);
@@ -128,8 +128,9 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
     }
 
     private void stop2() throws Exception {
-        clip.drain();
+        //clip.drain();
         clip.stop();
+        //clip.flush();
 
         ////clip.close();
         super.stop();
