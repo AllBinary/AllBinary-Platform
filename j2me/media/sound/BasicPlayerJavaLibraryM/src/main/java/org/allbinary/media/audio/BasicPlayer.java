@@ -29,11 +29,10 @@ public class BasicPlayer implements Player, Controllable2
    private int loopCount;
    //private TimeBase timeBase;
 
-   protected BasicArrayList listenersList;
+   protected final BasicArrayList listenersList = new BasicArrayList();
 
    public BasicPlayer()
    {
-      this.setListenersBasicArrayList(new BasicArrayList());
       this.setLoopCount(0);
       this.setState(Player.UNREALIZED);
    }
@@ -59,22 +58,14 @@ public class BasicPlayer implements Player, Controllable2
    
    public synchronized void addPlayerListener(PlayerListener playerListener)
    {
-      this.getListenersBasicArrayList().add(playerListener);
+      if(!this.listenersList.contains(playerListener)) {
+          this.listenersList.add(playerListener);
+      }
    }
 
    public void removePlayerListener(PlayerListener playerListener)
    {
-       BasicArrayList list = this.getListenersBasicArrayList();
-      int size = list.size();
-      for(int index = 0; index < size; index++)
-      {
-         PlayerListener listener = (PlayerListener) list.objectArray[index];
-         if( listener == playerListener )
-         {
-            this.getListenersBasicArrayList().remove(listener);
-            break;
-         }
-      }
+       this.listenersList.remove(playerListener);
    }
 
    public int getState()
@@ -134,16 +125,6 @@ public class BasicPlayer implements Player, Controllable2
    public synchronized long setMediaTime(long now) throws MediaException
    {
       return 0;
-   }
-
-   protected BasicArrayList getListenersBasicArrayList()
-   {
-      return listenersList;
-   }
-
-   protected synchronized void setListenersBasicArrayList(BasicArrayList listenersVector)
-   {
-      this.listenersList = listenersVector;
    }
    
    public synchronized void start() throws MediaException
