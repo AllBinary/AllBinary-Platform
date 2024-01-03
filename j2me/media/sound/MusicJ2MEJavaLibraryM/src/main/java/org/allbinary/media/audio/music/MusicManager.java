@@ -1,5 +1,7 @@
 package org.allbinary.media.audio.music;
 
+import javax.microedition.media.Player;
+import javax.microedition.media.PlayerListener;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
@@ -19,6 +21,20 @@ public class MusicManager {
 
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
+    //Handle HTML5 duration with media not playing
+    private final PlayerListener playerListener = new PlayerListener() {
+
+        public void playerUpdate(final Player player, final String event, final Object eventData) {
+
+            PreLogUtil.put(event, this, commonStrings.PROCESS);
+            if (event == PlayerListener.END_OF_MEDIA
+                    || event == PlayerListener.STOPPED
+                    || event == PlayerListener.CLOSED) {
+                reset();
+            }
+        }
+    };
+    
     private final BasicArrayList songList;
 
     private Sound currentSongSound;
@@ -26,12 +42,15 @@ public class MusicManager {
 
     public MusicManager(BasicArrayList songList) {
         this.songList = songList;
+                
     }
 
     private final String PLAY = "Play ";
     private final String SONG = " for: ";
+    private final String NEXT_SONG = "Next Song: ";
 
     public void nextSong(final Sound nextSongSound) {
+        PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound).toString(), this, commonStrings.PROCESS);
         this.nextSongSound = nextSongSound;
         this.reset();
     }
@@ -46,7 +65,8 @@ public class MusicManager {
                 return;
             }
 
-            if (this.timeDelayHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime())) {
+            if (this.timeDelayHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()) && 
+                    ((this.currentSongSound != null && this.currentSongSound.getDuration() >= 0) || this.timeDelayHelper.delay == 0)) {
                 final Sound currentSongSound = this.currentSongSound;
 
                 if (currentSongSound != null) {
@@ -79,10 +99,22 @@ public class MusicManager {
 
                 //this.currentSongSound.init();
                 final long duration = this.currentSongSound.getPlayer().getDuration();
+
                 PreLogUtil.put(new StringMaker().append(PLAY).append(this.currentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
 
-                this.timeDelayHelper.delay = (int) duration;
-
+                if(duration > 0) {
+                    this.timeDelayHelper.delay = (int) duration;
+                } else {
+                    
+                    //Handle HTML5 duration with media not playing
+                    final String NO_DURATION_FOR = "No Duration for: ";
+                    //PreLogUtil.put(new StringMaker().append("nextSongSound duration: ").append(nextSongSound.getDuration()).toString(), this, commonStrings.PROCESS);
+                    PreLogUtil.put(new StringMaker().append(NO_DURATION_FOR).append(this.currentSongSound).toString(), this, commonStrings.PROCESS);
+                    this.currentSongSound.getPlayer().addPlayerListener(playerListener);
+                    
+                    this.timeDelayHelper.delay = 1;
+                }
+                                
                 MusicThreadPool.getInstance().runTask(currentSongSound);
                 //this.currentSongSound.getPlayer().start();
             }

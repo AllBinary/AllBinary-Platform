@@ -154,10 +154,10 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         {
             //this.close();
 
-            int size = this.getListenersBasicArrayList().size();
+            final int size = this.listenersList.size();
             for (int index = 0; index < size; index++)
             {
-                PlayerListener listener = (PlayerListener) this.getListenersBasicArrayList().get(size);
+                PlayerListener listener = (PlayerListener) this.listenersList.get(size);
                 listener.playerUpdate(this, PlayerListener.END_OF_MEDIA, null);
             }
 
