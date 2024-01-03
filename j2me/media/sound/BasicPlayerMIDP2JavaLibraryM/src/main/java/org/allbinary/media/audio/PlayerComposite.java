@@ -29,7 +29,7 @@ import javax.microedition.media.MediaException;
 
 public class PlayerComposite implements Controllable, Player
 {
-    private Player player;
+    private final Player player;
     
     private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
     
@@ -70,7 +70,7 @@ public class PlayerComposite implements Controllable, Player
     public void close()
     {
         this.player.close();
-        this.player = null;
+        //this.player = null;
     }
 
     public void deallocate()

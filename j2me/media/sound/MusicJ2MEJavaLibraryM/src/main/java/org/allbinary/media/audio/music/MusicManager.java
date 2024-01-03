@@ -35,19 +35,23 @@ public class MusicManager {
         }
     };
     
+    private final String PLAY = "Play ";
+    private final String SONG = " for: ";
+    private final String NEXT_SONG = "Next Song: ";
+    private final String STOPPING = "Stopping Current Song: ";
+
     private final BasicArrayList songList;
 
     private Sound currentSongSound;
     private Sound nextSongSound;
 
+    private boolean reset;
+    private boolean noDuration;
+    
     public MusicManager(BasicArrayList songList) {
         this.songList = songList;
                 
     }
-
-    private final String PLAY = "Play ";
-    private final String SONG = " for: ";
-    private final String NEXT_SONG = "Next Song: ";
 
     public void nextSong(final Sound nextSongSound) {
         PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound).toString(), this, commonStrings.PROCESS);
@@ -56,7 +60,7 @@ public class MusicManager {
     }
     
     public void reset() {
-        this.timeDelayHelper.delay = 0;
+        this.reset = true;
     }
 
     public void process() {
@@ -65,12 +69,12 @@ public class MusicManager {
                 return;
             }
 
-            if (this.timeDelayHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()) && 
-                    ((this.currentSongSound != null && this.currentSongSound.getDuration() >= 0) || this.timeDelayHelper.delay == 0)) {
+            if ((this.timeDelayHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()) && !this.noDuration) || this.reset) {
+                this.reset = false;
+                this.noDuration = false;
                 final Sound currentSongSound = this.currentSongSound;
-
                 if (currentSongSound != null) {
-                    
+                    PreLogUtil.put(new StringMaker().append(STOPPING).append(currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
                     MusicThreadPool.getInstance().runTask(new Runnable() {
                         public void run() {
                             try {
@@ -90,11 +94,12 @@ public class MusicManager {
 
                 }
 
-                if (this.nextSongSound == null) {
+                final Sound nextSongSound = this.nextSongSound;
+                this.nextSongSound = null;
+                if (nextSongSound == null) {
                     this.currentSongSound = (Sound) BasicArrayListUtil.getInstance().getRandom(this.songList);
                 } else {
-                    this.currentSongSound = this.nextSongSound;
-                    this.nextSongSound = null;
+                    this.currentSongSound = nextSongSound;
                 }
 
                 //this.currentSongSound.init();
@@ -102,17 +107,15 @@ public class MusicManager {
 
                 PreLogUtil.put(new StringMaker().append(PLAY).append(this.currentSongSound.getResource()).append(SONG).append(duration).toString(), this, commonStrings.PROCESS);
 
-                if(duration > 0) {
-                    this.timeDelayHelper.delay = (int) duration;
-                } else {
-                    
+                this.timeDelayHelper.delay = (int) duration;
+
+                if(duration <= 0) {
                     //Handle HTML5 duration with media not playing
                     final String NO_DURATION_FOR = "No Duration for: ";
                     //PreLogUtil.put(new StringMaker().append("nextSongSound duration: ").append(nextSongSound.getDuration()).toString(), this, commonStrings.PROCESS);
                     PreLogUtil.put(new StringMaker().append(NO_DURATION_FOR).append(this.currentSongSound).toString(), this, commonStrings.PROCESS);
                     this.currentSongSound.getPlayer().addPlayerListener(playerListener);
-                    
-                    this.timeDelayHelper.delay = 1;
+                    this.noDuration = true;
                 }
                                 
                 MusicThreadPool.getInstance().runTask(currentSongSound);

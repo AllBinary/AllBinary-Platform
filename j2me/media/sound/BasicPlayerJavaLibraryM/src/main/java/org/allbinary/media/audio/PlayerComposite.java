@@ -26,7 +26,7 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class PlayerComposite implements Controllable, Player
 {
-    private Player player;
+    private final Player player;
     private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
     
     public PlayerComposite(final Player player)
@@ -66,7 +66,7 @@ public class PlayerComposite implements Controllable, Player
     public void close()
     {
         this.player.close();
-        this.player = null;
+        //this.player = null;
     }
 
     public void deallocate()
