@@ -27,6 +27,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
+import org.allbinary.media.audio.Sound;
 
 public class MyCanvas extends Canvas 
     implements DisplayableInterface, MyCommandInterface
@@ -211,5 +212,9 @@ public class MyCanvas extends Canvas
         //PreLogUtil.put(CommonStrings.getInstance().START, this, "pointerReleased");
 
         touchME.pointerReleased(x, y);
+    }
+    
+    public void nextSong(final Sound nextSongSound) {
+        
     }
 }

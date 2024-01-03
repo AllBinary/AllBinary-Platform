@@ -9,8 +9,7 @@ import android.media.MediaPlayer;
 import android.os.IBinder;
 import org.allbinary.android.AndroidStrings;
 
-public class BaseMusicService
-        extends Service
+public class BaseMusicService extends Service
 {
 
     private MediaPlayer player;

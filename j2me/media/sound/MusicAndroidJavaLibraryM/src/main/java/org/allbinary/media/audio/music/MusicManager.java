@@ -22,6 +22,7 @@ public class MusicManager
     private final BasicArrayList songList;
 
     private Sound currentSongSound;
+    private Sound nextSongSound;
 
     //MusicService.class
     private final Intent currentIntent;
@@ -33,8 +34,21 @@ public class MusicManager
         this.songList = songList;
     }
 
+    public void nextSong(final Sound nextSongSound) {
+        this.nextSongSound = nextSongSound;
+        this.reset();
+    }
+    
+    public void reset() {
+        this.timeDelayHelper.delay = 0;
+    }
+    
     public void process()
     {
+        if (this.songList.size() == 0) {
+            return;
+        }
+        
         if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
         {
             this.startNewSong();
@@ -45,9 +59,9 @@ public class MusicManager
     {
         for (int index = this.songList.size(); --index >= 0;)
         {
-            Sound sound = (Sound) this.songList.get(index);
+            final Sound sound = (Sound) this.songList.get(index);
 
-            long duration = sound.getPlayer().getDuration();
+            final long duration = sound.getPlayer().getDuration();
 
             PreLogUtil.put(new StringBuilder().append(PLAY).append(sound.getResource()).append(FOR).append(duration).toString(), this, CommonStrings.getInstance().PROCESS);
         }
@@ -61,11 +75,15 @@ public class MusicManager
 
             ResourceUtil.getInstance().getContext().stopService(this.currentIntent);
 
-            this.currentSongSound = (Sound) BasicArrayListUtil.getInstance().getRandom(this.songList);
+            if(this.nextSongSound == null) {
+                this.currentSongSound = (Sound) BasicArrayListUtil.getInstance().getRandom(this.songList);
+            } else {
+                this.currentSongSound = this.nextSongSound;
+                this.nextSongSound = null;
+            }
 
             long duration = this.currentSongSound.getDuration();
 					//18000;
-            //this.currentSongSound.getPlayer().getDuration();
 
             PreLogUtil.put(new StringBuilder().append(PLAY).append(this.currentSongSound.getResource()).append(FOR).append(duration).toString(), this, CommonStrings.getInstance().PROCESS);
 

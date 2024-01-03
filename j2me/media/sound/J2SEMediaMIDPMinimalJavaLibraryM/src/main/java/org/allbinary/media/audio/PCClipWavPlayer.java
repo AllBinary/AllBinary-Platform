@@ -143,6 +143,10 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         masterGainFloatControl.setValue(20f * (float) Math.log10(volume));
     }
 
+    public long getDuration() {
+        return this.clip.getMicrosecondLength() / 1000;
+    }
+
     public void update(LineEvent event)
     {
         //LogUtil.put(LogFactory.getInstance("LineEvent: " + event.getType(),  this, "update"));
