@@ -123,7 +123,7 @@ import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
+//import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
@@ -1633,15 +1633,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory
                     = GameTickTimeDelayHelperFactory.getInstance();
 
-            final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = 
-                    GameTickDisplayInfoSingleton.getInstance();
+//            final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = 
+//                    GameTickDisplayInfoSingleton.getInstance();
             
             OpenGLThreadUtil.getInstance().onResume();
             
             while (this.isRunning()) {
                 this.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelperFactory.setStartTime());
 
-                gameTickDisplayInfoSingleton.update();
+//                gameTickDisplayInfoSingleton.update();
 
                 this.processGame();
 
@@ -1682,14 +1682,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory
                     = GameTickTimeDelayHelperFactory.getInstance();
 
-            final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = 
-                    GameTickDisplayInfoSingleton.getInstance();
+//            final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = 
+//                    GameTickDisplayInfoSingleton.getInstance();
 
             while (this.isRunning()) {
                 this.getLoopTimeHelper().setStartTime(
                         gameTickTimeDelayHelperFactory.setStartTime());
 
-                gameTickDisplayInfoSingleton.update();
+//                gameTickDisplayInfoSingleton.update();
 
                 this.processGame();
 
