@@ -30,6 +30,8 @@ public class DisplayUtil {
     
     public int width = 640;
     public int height = 480;
+    public int width2 = 640;
+    public int height2 = 480;
     
     private DisplayUtil() {
 

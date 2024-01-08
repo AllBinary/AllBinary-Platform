@@ -33,13 +33,23 @@ public class DisplayUtil {
     
     public int width;
     public int height;
+    public int width2;
+    public int height2;
     
     private DisplayUtil() {
 
         final Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-
-        this.width = dimension.width;
-        this.height = dimension.height;
+//
+//        this.width = dimension.width;
+//        this.height = dimension.height;
+        this.width = 640;
+        this.height = 480;
+//        this.width = 1280;
+//        this.height = 960;
+//        this.width2 = this.width;
+//        this.height2 = this.height;
+        this.width2 = dimension.width;
+        this.height2 = dimension.height;
 
     }
 
