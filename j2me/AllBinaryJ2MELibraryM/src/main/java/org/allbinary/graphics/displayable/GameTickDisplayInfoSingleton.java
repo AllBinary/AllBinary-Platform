@@ -32,9 +32,30 @@ public class GameTickDisplayInfoSingleton {
     
     public int lastWidth = displayInfoSingleton.getLastWidth();
     public int lastHeight = displayInfoSingleton.getLastHeight();
+    public int lastHalfWidth = displayInfoSingleton.getLastHalfWidth();
+    public int lastHalfHeight = displayInfoSingleton.getLastHalfHeight();
     
     public void update() {
         this.lastWidth = displayInfoSingleton.getLastWidth();
         this.lastHeight = displayInfoSingleton.getLastHeight();
+        this.lastHalfWidth = displayInfoSingleton.getLastHalfWidth();
+        this.lastHalfHeight = displayInfoSingleton.getLastHalfHeight();        
     }
+    
+    public int getLastWidth() {
+        return this.lastWidth;
+    }
+
+    public int getLastHeight() {
+        return this.lastHeight;
+    }
+    
+    public int getLastHalfWidth() {
+        return this.lastHalfWidth;
+    }
+
+    public int getLastHalfHeight() {
+        return this.lastHalfHeight;
+    }
+
 }
