@@ -47,6 +47,8 @@
         <module>./j2me/media/graphics/animation/image/AllBinaryJ2SEImageAnimationRotationJavaLibraryM</module>
         <module>./j2me/games/Resources/sounds/release/GameSoundsJ2SEOggResourcesJavaLibraryM</module>
         
+        <module>./j2me/media/graphics/geography/map/BasicTopViewGeographicMapJavaLibraryM</module>
+
         <!--
         <module>AllBinaryPersistenceLibraryP</module>
         -->
