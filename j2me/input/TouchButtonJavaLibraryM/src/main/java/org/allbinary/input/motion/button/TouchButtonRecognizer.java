@@ -26,6 +26,8 @@ import org.allbinary.math.RectangleCollisionUtil;
 
 public class TouchButtonRecognizer
 {
+    private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+    
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
     private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     
@@ -205,7 +207,7 @@ public class TouchButtonRecognizer
                 rectangle = touchButton.getRectangle();
                 point = rectangle.getPoint();
 
-                if (RectangleCollisionUtil.isInside(
+                if (rectangleCollisionUtil.isInside(
                         point.getX(), point.getY(),
                         rectangle.getMaxX(), 
                         rectangle.getMaxY(), 
@@ -266,7 +268,7 @@ public class TouchButtonRecognizer
             rectangle = touchButton.getRectangle();
             point = rectangle.getPoint();
 
-            if (RectangleCollisionUtil.isInside(
+            if (rectangleCollisionUtil.isInside(
                     point.getX(), point.getY(),
                     rectangle.getMaxX(), 
                     rectangle.getMaxY(), 

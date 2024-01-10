@@ -33,6 +33,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class PopupMenuInputProcessor extends BasicMenuInputProcessor
 {
+    private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+    
     private final int CLICK_DELAY = 120;
     private final TimeDelayHelper clickTimeHelper = new TimeDelayHelper(CLICK_DELAY);
 
@@ -160,7 +162,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             //PreLogUtil.put("Rect: ").append(rectangle.toString()).append(" ").append(point.toString(), this, "processMotionInput");
             
             GPoint rectPoint = rectangle.getPoint();
-            if (RectangleCollisionUtil.isInside(
+            if (rectangleCollisionUtil.isInside(
                 rectPoint.getX(),
                 rectPoint.getY(),
                 //fudge the edge of the button since touch screen calibration may suck

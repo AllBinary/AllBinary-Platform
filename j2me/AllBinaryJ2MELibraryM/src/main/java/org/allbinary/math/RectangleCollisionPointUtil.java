@@ -20,6 +20,7 @@ import org.allbinary.graphics.GPoint;
 
 public class RectangleCollisionPointUtil
 {
+    
     //private static final RectangleCollisionPointUtil instance = new RectangleCollisionPointUtil();
 
     private RectangleCollisionPointUtil()
@@ -28,13 +29,15 @@ public class RectangleCollisionPointUtil
 
     public static boolean allPointsInside(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list)
     {
+        final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+        
         GPoint point;
 
         for (int index = list.size(); --index >= 0;)
         {
             point = (GPoint) list.objectArray[index];
 
-            if (!RectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX(), point.getY()))
+            if (!rectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX(), point.getY()))
             {
                 return false;
             }
@@ -45,13 +48,15 @@ public class RectangleCollisionPointUtil
 
     public static boolean allPointsInside(int rectX1, int rectY1, int rectX2, int rectY2, BasicArrayList list, int xCellSize, int yCellSize)
     {
+        final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+        
         GPoint point;
 
         for (int index = list.size(); --index >= 0;)
         {
             point = (GPoint) list.objectArray[index];
 
-            if (!RectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX() * xCellSize, point.getY() * yCellSize))
+            if (!rectangleCollisionUtil.isInside(rectX1, rectY1, rectX2, rectY2, point.getX() * xCellSize, point.getY() * yCellSize))
             {
                 return false;
             }

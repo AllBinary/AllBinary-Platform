@@ -32,6 +32,8 @@ import org.allbinary.math.RectangleCollisionUtil;
 
 public class ScrollSelectionForm extends PaintableForm
 {
+    private final RectangleCollisionUtil rectangleCollisionUtil = RectangleCollisionUtil.getInstance();
+    
     protected final int border;
     protected final int halfBorder;
     private BasicColor buttonBasicColor;
@@ -166,7 +168,7 @@ public class ScrollSelectionForm extends PaintableForm
 
             //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.getRectangle().getMaxY(),
             
-            if (RectangleCollisionUtil.isInside(
+            if (rectangleCollisionUtil.isInside(
                 diffX, dy - this.halfBorder, diffX + width + this.border, dy + height + this.halfBorder + 1,
                     point.getX(), point.getY()))
             {
@@ -281,7 +283,7 @@ public class ScrollSelectionForm extends PaintableForm
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, "isInForm"));
 
         //- halfBorder
-        if (RectangleCollisionUtil.isInside(
+        if (rectangleCollisionUtil.isInside(
             x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,
             point.getX(), point.getY()))
         {
