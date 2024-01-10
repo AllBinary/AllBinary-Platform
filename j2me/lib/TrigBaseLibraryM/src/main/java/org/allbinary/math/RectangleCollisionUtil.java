@@ -15,13 +15,21 @@ package org.allbinary.math;
 
 public class RectangleCollisionUtil
 {
+    private static final RectangleCollisionUtil instance = new RectangleCollisionUtil();
 
+    /**
+     * @return the instance
+     */
+    public static RectangleCollisionUtil getInstance() {
+        return instance;
+    }
+    
     private RectangleCollisionUtil()
     {
     }
 
-    public static boolean isCollision(int rectX1, int rectY1, int rectX2, int rectY2,
-            int rect2X1, int rect2Y1, int rect2X2, int rect2Y2)
+    public boolean isCollision(final int rectX1, final int rectY1, final int rectX2, final int rectY2,
+            final int rect2X1, final int rect2Y1, final int rect2X2, final int rect2Y2)
     {
         if (rect2X1 >= rectX2
                 || rect2Y1 >= rectY2
@@ -108,8 +116,7 @@ public class RectangleCollisionUtil
          */
     }
 
-    public static boolean isInside(int rectX1, int rectY1, int rectX2, int rectY2,
-            int x, int y)
+    public boolean isInside(final int rectX1, final int rectY1, final int rectX2, final int rectY2, final int x, final int y)
     {
         if (x >= rectX2 || y >= rectY2 || x <= rectX1 || y <= rectY1)
         {
