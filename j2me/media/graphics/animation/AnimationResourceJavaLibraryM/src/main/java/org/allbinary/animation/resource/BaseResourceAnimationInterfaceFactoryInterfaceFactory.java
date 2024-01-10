@@ -33,6 +33,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     private final Hashtable hashtable;
     private final Hashtable rectangleHashtable;
+    private final Hashtable rectangleArrayHashtable;
 
     private final String name;
 
@@ -42,13 +43,15 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     {
         this.hashtable = new Hashtable();
         this.rectangleHashtable = new Hashtable();
+        this.rectangleArrayHashtable = new Hashtable();
         this.name = name;
     }
 
-    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final Hashtable hashtable, final Hashtable rectangleHashtable)
+    public BaseResourceAnimationInterfaceFactoryInterfaceFactory(final String name, final Hashtable hashtable, final Hashtable rectangleHashtable, final Hashtable rectangleArrayHashtable)
     {
         this.hashtable = hashtable;
         this.rectangleHashtable = rectangleHashtable;
+        this.rectangleArrayHashtable = rectangleArrayHashtable;
         this.name = name;
     }
     
@@ -100,6 +103,16 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         rectangleHashtable.put(resource, rectangle);
     }
 
+    public Rectangle[][] getRectangleArrayOfArrays(final String resource) throws Exception
+    {
+        return (Rectangle[][]) rectangleArrayHashtable.get(resource);
+    }
+
+    public void addRectangleArrayOfArrays(final String resource, final Rectangle[][] rectangleArray) throws Exception
+    {
+        rectangleArrayHashtable.put(resource, rectangleArray);
+    }
+    
     public boolean isFeature()
     {
         return false;
