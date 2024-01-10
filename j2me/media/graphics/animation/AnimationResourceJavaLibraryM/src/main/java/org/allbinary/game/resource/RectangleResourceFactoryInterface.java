@@ -18,5 +18,7 @@ import org.allbinary.graphics.Rectangle;
 
 public interface RectangleResourceFactoryInterface
 {
-    Rectangle getRectangle(String resource) throws Exception;
+    Rectangle getRectangle(final String resource) throws Exception;
+    
+    Rectangle[][] getRectangleArrayOfArrays(final String resource) throws Exception;
 }

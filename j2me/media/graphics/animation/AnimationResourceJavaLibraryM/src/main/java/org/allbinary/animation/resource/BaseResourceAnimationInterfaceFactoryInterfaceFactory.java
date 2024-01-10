@@ -108,9 +108,9 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         return (Rectangle[][]) rectangleArrayHashtable.get(resource);
     }
 
-    public void addRectangleArrayOfArrays(final String resource, final Rectangle[][] rectangleArray) throws Exception
+    public void addRectangleArrayOfArrays(final String resource, final Rectangle[][] rectangleArrayOfArrays) throws Exception
     {
-        rectangleArrayHashtable.put(resource, rectangleArray);
+        rectangleArrayHashtable.put(resource, rectangleArrayOfArrays);
     }
     
     public boolean isFeature()
