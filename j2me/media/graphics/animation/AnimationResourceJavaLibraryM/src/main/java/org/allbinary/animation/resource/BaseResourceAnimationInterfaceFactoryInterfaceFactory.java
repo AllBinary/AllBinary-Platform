@@ -33,7 +33,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     private final Hashtable hashtable;
     private final Hashtable rectangleHashtable;
-    private final Hashtable rectangleArrayHashtable;
+    private final Hashtable rectangleArrayOfArraysHashtable;
 
     private final String name;
 
@@ -43,7 +43,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     {
         this.hashtable = new Hashtable();
         this.rectangleHashtable = new Hashtable();
-        this.rectangleArrayHashtable = new Hashtable();
+        this.rectangleArrayOfArraysHashtable = new Hashtable();
         this.name = name;
     }
 
@@ -51,7 +51,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     {
         this.hashtable = hashtable;
         this.rectangleHashtable = rectangleHashtable;
-        this.rectangleArrayHashtable = rectangleArrayHashtable;
+        this.rectangleArrayOfArraysHashtable = rectangleArrayHashtable;
         this.name = name;
     }
     
@@ -105,12 +105,12 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
 
     public Rectangle[][] getRectangleArrayOfArrays(final String resource) throws Exception
     {
-        return (Rectangle[][]) rectangleArrayHashtable.get(resource);
+        return (Rectangle[][]) rectangleArrayOfArraysHashtable.get(resource);
     }
 
     public void addRectangleArrayOfArrays(final String resource, final Rectangle[][] rectangleArrayOfArrays) throws Exception
     {
-        rectangleArrayHashtable.put(resource, rectangleArrayOfArrays);
+        rectangleArrayOfArraysHashtable.put(resource, rectangleArrayOfArrays);
     }
     
     public boolean isFeature()
@@ -145,6 +145,11 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     public Hashtable getRectangleHashtable()
     {
         return rectangleHashtable;
+    }
+
+    public Hashtable getRectangleArrayOfArraysHashtable()
+    {
+        return this.rectangleArrayOfArraysHashtable;
     }
     
     protected void setInitialized(boolean initialized)
