@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.collision;
 
+import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.game.layer.CollidableCompositeLayer;
 
 import org.allbinary.logic.string.CommonStrings;
@@ -94,6 +96,10 @@ implements CollidableInterface
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 
+    public void paint(final Graphics graphics) {
+    
+    }
+    
     public CollisionType getCollisionTypeWith(AllBinaryLayer layerInterface)
     {
         return CollisionTypeFactory.getInstance().NONE;
