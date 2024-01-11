@@ -47,12 +47,15 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 
             this.clip = this.create();
 
+            if(this.clip == null) {
+                throw new RuntimeException();
+            }
+
             //this.setTimeBase(new PCTimeBase());
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                "Exception", this, "Constructor", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
         }
     }
 
