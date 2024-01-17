@@ -14,6 +14,7 @@
 package org.allbinary.game.rand;
 
 import java.util.Random;
+import org.allbinary.logic.string.StringMaker;
 
 //Do not use in client code for money related things.
 public class MyRandomFactory
@@ -111,7 +112,7 @@ public class MyRandomFactory
         }
         randomFactory.shuffle(intArray, intArray2);
         
-        final StringBuilder stringBuilder = new StringBuilder();
+        final StringMaker stringBuilder = new StringMaker();
         for(int index = 0; index < size; index++) {
             stringBuilder.append(intArray[index]).append(',');
         }
