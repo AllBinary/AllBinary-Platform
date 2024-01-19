@@ -146,7 +146,12 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
          }
       });
 
-      totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "3", "4", "5", "6", "7", "8", "9", "10" }));
+      final int size = 18;
+      final String[] animationStringArray2 = new String[size - 3];
+      for(int index = 3; index < size; index++) {
+          animationStringArray2[index - 3] = Integer.toString(index);
+      }
+      totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));
       totalFramesJComboBox.setSelectedIndex(1);
       totalFramesJComboBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +159,11 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
          }
       });
 
-      totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+      final String[] animationStringArray = new String[size];
+      for(int index = 0; index < size; index++) {
+          animationStringArray[index] = Integer.toString(index);
+      }
+      totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray));
       totalAnimationsJComboBox.setSelectedIndex(3);
       totalAnimationsJComboBox.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
