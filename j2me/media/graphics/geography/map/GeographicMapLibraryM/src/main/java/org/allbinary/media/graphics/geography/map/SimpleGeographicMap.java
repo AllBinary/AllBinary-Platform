@@ -74,7 +74,11 @@ public class SimpleGeographicMap
         final int i_column = cellPosition.getColumn();
         final int i_row = cellPosition.getRow();
 
-        final int cellTypeId = this.tiledLayer.getCell(i_column, i_row);
+        int cellTypeId = this.tiledLayer.getCell(i_column, i_row);
+
+        if(cellTypeId < 0) {
+            cellTypeId = this.tiledLayer.getAnimatedTile(cellTypeId);
+        }
 
         return this.geographicMapCellTypeFactory.getInstance(
                 this.cellTypeIdToGeographicMapCellType[cellTypeId]);
