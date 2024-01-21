@@ -30,13 +30,13 @@ public class AllBinaryTiledLayerFactory implements AllBinaryTiledLayerFactoryInt
 {
     //@Override
     public AllBinaryTiledLayer getInstance(
-            RaceTrackInfo raceTrackInfo,
-            RaceTrackData raceTrackData)
+            final RaceTrackInfo raceTrackInfo,
+            final RaceTrackData raceTrackData)
             throws Exception
     {
         AllBinaryTiledLayer allbinaryTiledLayer;
         
-            TiledLayer tiledLayer = new TiledLayerFactory().getInstance(raceTrackData);
+            final TiledLayer tiledLayer = new TiledLayerFactory().getInstance(raceTrackData);
 
             allbinaryTiledLayer = new AllBinaryJ2METiledLayer(
                     raceTrackData.getId(), tiledLayer, raceTrackData.getMapArray(), BasicColorFactory.getInstance().RED.intValue());
@@ -53,9 +53,9 @@ public class AllBinaryTiledLayerFactory implements AllBinaryTiledLayerFactoryInt
     {
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
-        TiledLayer tiledLayer = new TiledLayerFactory().getMiniInstance(raceTrackData);
+        final TiledLayer tiledLayer = new TiledLayerFactory().getMiniInstance(raceTrackData);
 
-        AllBinaryTiledLayer allbinaryTiledLayer = new AllBinaryJ2METiledLayer(
+        final AllBinaryTiledLayer allbinaryTiledLayer = new AllBinaryJ2METiledLayer(
                 smallIntegerSingletonFactory.getInstance(raceTrackData.getId().intValue() + 100 + 1),
                 tiledLayer, raceTrackData.getMapArray(),
                 BasicColorFactory.getInstance().RED.intValue());
