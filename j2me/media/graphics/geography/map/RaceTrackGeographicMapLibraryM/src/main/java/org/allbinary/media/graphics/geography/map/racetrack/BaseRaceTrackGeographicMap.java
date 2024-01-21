@@ -22,6 +22,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
    RaceTrackGeographicMapInterface
@@ -35,12 +36,13 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
     private BasicGeographicMap miniGeographicMap;
 
     public BaseRaceTrackGeographicMap(
-       RaceTrackInfo raceTrackInfo,
-       RaceTrackData raceTrackData,
-       AllBinaryTiledLayer tiledLayer,
-       BasicGeographicMap miniGeographicMap,
-       GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
-       GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory)
+       final RaceTrackInfo raceTrackInfo,
+       final RaceTrackData raceTrackData,
+       final AllBinaryTiledLayer tiledLayer,
+       final BasicGeographicMap miniGeographicMap,
+       final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
+       final GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory,
+       final GeographicMapCellTypeFactory geographicMapCellTypeFactory)
        throws Exception
     {
         super(raceTrackInfo.getId(),
@@ -50,7 +52,8 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
            raceTrackInfo.getForegroundBasicColor(),
            raceTrackInfo.getBackgroundBasicColor(),
            geographicMapCellPositionFactoryInterface,
-           geographicMapCellPositionBaseFactory);
+           geographicMapCellPositionBaseFactory,
+           geographicMapCellTypeFactory);
 
         this.setRaceTrackInfo(raceTrackInfo);
 

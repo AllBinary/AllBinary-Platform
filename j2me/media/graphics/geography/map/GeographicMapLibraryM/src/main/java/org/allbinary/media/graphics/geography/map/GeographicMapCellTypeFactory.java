@@ -26,7 +26,7 @@ public class GeographicMapCellTypeFactory
         return instance;
     }
 
-    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[600];
+    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[300];
         
     public GeographicMapCellType getInstance(int type)
     {

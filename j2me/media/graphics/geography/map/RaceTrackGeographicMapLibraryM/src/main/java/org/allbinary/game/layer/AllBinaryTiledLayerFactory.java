@@ -13,9 +13,8 @@
 */
 package org.allbinary.game.layer;
 
-import org.allbinary.game.layer.AllBinaryTiledLayer;
-import org.allbinary.game.layer.AllBinaryJ2METiledLayer;
 import javax.microedition.lcdui.game.TiledLayer;
+import org.allbinary.graphics.color.BasicColorFactory;
 
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.AllBinaryTiledLayerFactoryInterface;
@@ -40,7 +39,7 @@ public class AllBinaryTiledLayerFactory implements AllBinaryTiledLayerFactoryInt
             TiledLayer tiledLayer = new TiledLayerFactory().getInstance(raceTrackData);
 
             allbinaryTiledLayer = new AllBinaryJ2METiledLayer(
-                    raceTrackData.getId(), tiledLayer, raceTrackData.getMapArray());
+                    raceTrackData.getId(), tiledLayer, raceTrackData.getMapArray(), BasicColorFactory.getInstance().RED.intValue());
 
             allbinaryTiledLayer.setCells(raceTrackData.getMapArray());            
         
@@ -58,7 +57,8 @@ public class AllBinaryTiledLayerFactory implements AllBinaryTiledLayerFactoryInt
 
         AllBinaryTiledLayer allbinaryTiledLayer = new AllBinaryJ2METiledLayer(
                 smallIntegerSingletonFactory.getInstance(raceTrackData.getId().intValue() + 100 + 1),
-                tiledLayer, raceTrackData.getMapArray());
+                tiledLayer, raceTrackData.getMapArray(),
+                BasicColorFactory.getInstance().RED.intValue());
 
         allbinaryTiledLayer.setCells(raceTrackData.getMapArray());
 

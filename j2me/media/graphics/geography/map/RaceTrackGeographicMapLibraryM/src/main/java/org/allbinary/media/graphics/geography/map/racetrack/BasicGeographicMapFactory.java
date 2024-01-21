@@ -18,6 +18,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 /**
  *
@@ -26,10 +27,11 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFacto
 public class BasicGeographicMapFactory 
 {
     public BasicGeographicMap getInstance(
-            RaceTrackInfo raceTrackInfo,
-            RaceTrackData raceTrackData,
-            AllBinaryTiledLayerFactoryInterface tiledLayerFactoryInterface,
-            GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface)
+            final RaceTrackInfo raceTrackInfo,
+            final RaceTrackData raceTrackData,
+            final AllBinaryTiledLayerFactoryInterface tiledLayerFactoryInterface,
+            final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
+            final GeographicMapCellTypeFactory geographicMapCellTypeFactory)
             throws Exception
     {
         return new BasicGeographicMap(
@@ -40,6 +42,7 @@ public class BasicGeographicMapFactory
                 BasicColorFactory.getInstance().CLEAR_COLOR, 
                 BasicColorFactory.getInstance().CLEAR_COLOR,
                 geographicMapCellPositionFactoryInterface,
-                new GeographicMapCellPositionBaseFactory());
+                new GeographicMapCellPositionBaseFactory(),
+                geographicMapCellTypeFactory);
     }
 }

@@ -20,7 +20,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class GeographicMapCellType
 {   
-   private int type;
+   private final int type;
 
    public GeographicMapCellType(final int type)
    {

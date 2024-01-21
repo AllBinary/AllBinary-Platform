@@ -15,22 +15,25 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
 public class RaceTrackGeographicMap extends BaseRaceTrackGeographicMap
 {
    public RaceTrackGeographicMap(
-      RaceTrackInfo raceTrackInfo,
-      RaceTrackData raceTrackData,
-      AllBinaryTiledLayerFactoryInterface tiledLayerFactoryInterface,
-      GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
-      GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory)
+      final RaceTrackInfo raceTrackInfo,
+      final RaceTrackData raceTrackData,
+      final AllBinaryTiledLayerFactoryInterface tiledLayerFactoryInterface,
+      final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
+      final GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory,
+      final GeographicMapCellTypeFactory geographicMapCellTypeFactory)
       throws Exception
    {
       super(raceTrackInfo, raceTrackData, 
               tiledLayerFactoryInterface.getInstance(raceTrackInfo, raceTrackData),
               new BasicGeographicMapFactory().getInstance(
-                 raceTrackInfo, raceTrackData, tiledLayerFactoryInterface, geographicMapCellPositionFactoryInterface),
+                 raceTrackInfo, raceTrackData, tiledLayerFactoryInterface, geographicMapCellPositionFactoryInterface, geographicMapCellTypeFactory),
               geographicMapCellPositionFactoryInterface,
-              geographicMapCellPositionBaseFactory);
+              geographicMapCellPositionBaseFactory,
+              geographicMapCellTypeFactory);
    }   
 }

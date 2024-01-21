@@ -23,12 +23,14 @@ public class BasicGeographicMap
 {
     private final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory;
     private final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface;
+    private final GeographicMapCellTypeFactory geographicMapCellTypeFactory;
 
     public BasicGeographicMap(final Integer id, final String name, final int[] cellTypeIdToGeographicMapCellType,
             final AllBinaryTiledLayer tiledLayer, final BasicColor foregroundBasicColor,
             final BasicColor backgroundBasicColor,
             final GeographicMapCellPositionFactoryInterface geographicMapCellPositionFactoryInterface,
-            final GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory) throws Exception
+            final GeographicMapCellPositionBaseFactory geographicMapCellPositionBaseFactory,
+            final GeographicMapCellTypeFactory geographicMapCellTypeFactory) throws Exception
     {
         super(id, name, cellTypeIdToGeographicMapCellType,
             tiledLayer, foregroundBasicColor, backgroundBasicColor);
@@ -37,6 +39,8 @@ public class BasicGeographicMap
         
         this.geographicMapCellPositionFactory =
                 geographicMapCellPositionBaseFactory.getInstance(this);
+        
+        this.geographicMapCellTypeFactory = geographicMapCellTypeFactory;
     }
 
     //Use getPoint in GeographicMapCellPosition
@@ -125,5 +129,9 @@ public class BasicGeographicMap
     public GeographicMapCellPositionFactoryInterface getGeographicMapCellPositionFactoryInterface()
     {
         return geographicMapCellPositionFactoryInterface;
+    }
+    
+    public GeographicMapCellTypeFactory getGeographicMapCellTypeFactory() {
+        return this.geographicMapCellTypeFactory;
     }
 }
