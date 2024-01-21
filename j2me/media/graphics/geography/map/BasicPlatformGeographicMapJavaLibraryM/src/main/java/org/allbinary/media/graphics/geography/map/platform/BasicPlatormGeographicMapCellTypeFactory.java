@@ -19,44 +19,29 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.util.BasicArrayList;
 
 /**
  *
  * @author User
  */
-public class BasicPlatormGeographicMapCellTypeFactory {
+public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory {
 
-    private static final BasicPlatormGeographicMapCellTypeFactory instance = new BasicPlatormGeographicMapCellTypeFactory();
+    public final BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE;
+    public final BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
+    public final BasicPlatormGeographicMapCellType LADDER_CELL_TYPE;
 
-    /**
-     * @return the instance
-     */
-    public static BasicPlatormGeographicMapCellTypeFactory getInstance() {
-        return instance;
-    }
-
-    public BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE;
-    public BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
-    public BasicPlatormGeographicMapCellType LADDER_CELL_TYPE;
-
-    public void init() {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
-
-        //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-        new GeographicMapCellType(0);
-        BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
-        JUMP_THRU_CELL_TYPE = BLOCK_CELL_TYPE;
-        LADDER_CELL_TYPE = BLOCK_CELL_TYPE;
-    }
-
-    public void init(final Hashtable tileTypeToTileIdsMap) {
+    public BasicPlatormGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-        //new GeographicMapCellType(0);
+        new GeographicMapCellType(0);
         //new GeographicMapCellType(1);
+        BasicPlatormGeographicMapCellType BLOCK_CELL_TYPE = new BasicPlatormGeographicMapCellType(1);
+        BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE = BLOCK_CELL_TYPE;
+        BasicPlatormGeographicMapCellType LADDER_CELL_TYPE = BLOCK_CELL_TYPE;
         
         //final String OTHER = "Other";
         final String PLATFORM = "Platform";
@@ -86,6 +71,10 @@ public class BasicPlatormGeographicMapCellTypeFactory {
             }
 
         }
+        
+        this.BLOCK_CELL_TYPE = BLOCK_CELL_TYPE;
+        this.JUMP_THRU_CELL_TYPE = JUMP_THRU_CELL_TYPE;
+        this.LADDER_CELL_TYPE = LADDER_CELL_TYPE;
     }
     
 }
