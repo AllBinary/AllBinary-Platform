@@ -31,19 +31,18 @@ public class CellPositionsUtil
     }
     
     public final BasicArrayList getAll(
-            BasicGeographicMap geographicMapInterface,
-        GeographicMapCellPosition topRightGeographicMapCellPosition,
-        int columns, int rows,
-        BasicArrayList reusableList)
+            final BasicGeographicMap geographicMapInterface,
+            final GeographicMapCellPosition topRightGeographicMapCellPosition,
+            final int columns, final int rows, final BasicArrayList reusableList)
         throws Exception
     {
         reusableList.clear();
 
-        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+        final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             geographicMapInterface.getGeographicMapCellPositionFactory();
 
-        int lastColumn = topRightGeographicMapCellPosition.getColumn() + columns;
-        int lastRow = topRightGeographicMapCellPosition.getRow() + rows;
+        final int lastColumn = topRightGeographicMapCellPosition.getColumn() + columns;
+        final int lastRow = topRightGeographicMapCellPosition.getRow() + rows;
 
         /*
         LogUtil.put(LogFactory.getInstance(
@@ -87,26 +86,26 @@ public class CellPositionsUtil
         new BasicArrayList(8);
 
     public final BasicArrayList getAllSurrounding(
-            BasicGeographicMap geographicMapInterface,
-        BasicArrayList occupyList,
-        BasicArrayList reusableList)
+            final BasicGeographicMap geographicMapInterface,
+            final BasicArrayList occupyList,
+            final BasicArrayList reusableList)
         throws Exception
     {
         reusableList.clear();
 
         for (int index = occupyList.size() - 1; index >= 0; index--)
         {
-            GeographicMapCellPosition layerGeographicMapCellPosition =
+            final GeographicMapCellPosition layerGeographicMapCellPosition =
                 (GeographicMapCellPosition) occupyList.get(index);
 
-            BasicArrayList surroundingGeographicMapCellPositionList = getAllSurrounding(
+            final BasicArrayList surroundingGeographicMapCellPositionList = getAllSurrounding(
                 geographicMapInterface, 
                 layerGeographicMapCellPosition,
                 reusableSingleThreadedSurroundingList);
 
             for (int index2 = surroundingGeographicMapCellPositionList.size() - 1; index2 >= 0; index2--)
             {
-                GeographicMapCellPosition geographicMapCellPosition =
+                final GeographicMapCellPosition geographicMapCellPosition =
                     (GeographicMapCellPosition) surroundingGeographicMapCellPositionList.get(index2);
 
                 //Add if not already in list or not occupied
@@ -153,14 +152,14 @@ public class CellPositionsUtil
     //new int[4][2];
 
     public final BasicArrayList getAllSurrounding(
-            BasicGeographicMap geographicMapInterface,
-        GeographicMapCellPosition layerGeographicMapCellPosition,
-        BasicArrayList reusableSurroundingList)
+            final BasicGeographicMap geographicMapInterface,
+            final GeographicMapCellPosition layerGeographicMapCellPosition,
+            final BasicArrayList reusableSurroundingList)
         throws Exception
     {
         reusableSurroundingList.clear();
 
-        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+        final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             geographicMapInterface.getGeographicMapCellPositionFactory();
 
         AllBinaryTiledLayer tiledLayer =
@@ -176,7 +175,7 @@ public class CellPositionsUtil
 
             if (tiledLayer.isOnTileLayer(column, row))
             {
-                GeographicMapCellPosition geographicMapCellPosition =
+                final GeographicMapCellPosition geographicMapCellPosition =
                     geographicMapCellPositionFactory.getInstance(
                     column, row);
 
