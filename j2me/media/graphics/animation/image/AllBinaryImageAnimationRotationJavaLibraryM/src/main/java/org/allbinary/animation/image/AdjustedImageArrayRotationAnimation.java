@@ -19,7 +19,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
-//TWB - Adjustments should be done in the resource creation and not at the animatoin level
+//TWB - Adjustments should be done in the resource creation and not at the animation level
 public class AdjustedImageArrayRotationAnimation extends
         ImageArrayRotationAnimation
 {

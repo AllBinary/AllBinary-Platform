@@ -21,7 +21,7 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
-//TWB - Adjustments should be done in the resource creation and not at the animatoin level
+//TWB - Adjustments should be done in the resource creation and not at the animation level
 public class PooledImageArrayRotationAnimationFactory implements
         AnimationInterfaceFactoryInterface
 {
