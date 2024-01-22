@@ -42,6 +42,7 @@ public class RaceTrackDropCellPositionGenerator
     private final TimeDelayHelper timeDelayHelper;
     private final int STRAIGHTAWAY = 4;
     protected BaseRaceTrackGeographicMap raceTrackGeographicMap;
+    protected RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory;
 
     protected RaceTrackDropCellPositionGenerator()
     {
@@ -56,12 +57,9 @@ public class RaceTrackDropCellPositionGenerator
 
     //isStraightAwayRoad
     public boolean isDropAllowedAt(
-            GeographicMapCellPosition geographicMapCellPosition)
+            final GeographicMapCellPosition geographicMapCellPosition)
             throws Exception
-        {
-            final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-                RaceTrackGeographicMapCellTypeFactory.getInstance();        
-            
+        {            
             RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
                 (RaceTrackGeographicMapCellType)
                 raceTrackGeographicMap.getCellTypeAt(
@@ -78,14 +76,17 @@ public class RaceTrackDropCellPositionGenerator
     /* (non-Javadoc)
      * @see allbinary.media.graphics.geography.map.racetrack.drop.DropCellPositionGeneratorInterface#update(allbinary.game.layer.AllBinaryGameLayerManager, allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap)
      */
-    public void update(AllBinaryGameLayerManager allBinaryGameLayerManager,
-            BasicGeographicMap geographicMapInterface) throws Exception
+    public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,
+            final BasicGeographicMap geographicMapInterface) throws Exception
     {
         //PreLogUtil.put(CommonStrings.getInstance().START, this, CommonStrings.getInstance().UPDATE);
         
         this.init();
 
         this.raceTrackGeographicMap = (BaseRaceTrackGeographicMap) geographicMapInterface;
+        this.raceTrackGeographicMapCellTypeFactory = 
+                (RaceTrackGeographicMapCellTypeFactory) this.raceTrackGeographicMap.getGeographicMapCellTypeFactory();
+
 
         //AllBinaryTiledLayer tiledLayer =
         //raceTrackGeographicMap.getAllBinaryTiledLayer();

@@ -99,7 +99,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
          */
         
         final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-            RaceTrackGeographicMapCellTypeFactory.getInstance();
+                (RaceTrackGeographicMapCellTypeFactory) this.raceTrackGeographicMap.getGeographicMapCellTypeFactory();
 
         GeographicMapCellPosition geographicMapCellPosition;
         RaceTrackGeographicMapCellType raceTrackGeographicMapCellType;
@@ -213,9 +213,6 @@ public class RaceTrackAdjacentDropCellPositionGenerator
                 //PreLogUtil.put("Already Has A Drop", this, METHOD_NAME);
                 return;
             }
-
-            final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-                RaceTrackGeographicMapCellTypeFactory.getInstance();
             
             GeographicMapCellType geographicMapCellType;
             

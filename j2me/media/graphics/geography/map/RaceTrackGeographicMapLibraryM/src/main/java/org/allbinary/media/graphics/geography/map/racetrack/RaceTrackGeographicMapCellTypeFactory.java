@@ -16,7 +16,7 @@ package org.allbinary.media.graphics.geography.map.racetrack;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 
-public class RaceTrackGeographicMapCellTypeFactory
+public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellTypeFactory
 {
     private static final RaceTrackGeographicMapCellTypeFactory instance = new RaceTrackGeographicMapCellTypeFactory();
 
@@ -41,9 +41,6 @@ public class RaceTrackGeographicMapCellTypeFactory
     public final RaceTrackGeographicMapCellType DEFAULT_FINISH_LINE_ROAD_CELL_TYPE;
 
     public RaceTrackGeographicMapCellType FINISH_LINE_ROAD_CELL_TYPE;
-
-    private final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
-        GeographicMapCellTypeFactory.getInstance();
 
     public RaceTrackGeographicMapCellTypeFactory()
     {

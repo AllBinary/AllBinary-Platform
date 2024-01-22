@@ -49,7 +49,7 @@ public class BasePathFindingInfoFactory {
             public RaceTrackGeographicMapCellPositionFactoryInitVisitor()
             {
                 final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-                    RaceTrackGeographicMapCellTypeFactory.getInstance();
+                    (RaceTrackGeographicMapCellTypeFactory) geographicMapInterface.getGeographicMapCellTypeFactory();
                 
                 this.startLineId = raceTrackGeographicMapCellTypeFactory.START_LINE_ROAD_CELL_TYPE.getType();
                 this.finishLineId = raceTrackGeographicMapCellTypeFactory.FINISH_LINE_ROAD_CELL_TYPE.getType();
@@ -59,11 +59,10 @@ public class BasePathFindingInfoFactory {
                    //" columns: ").append(this.i_Map2DArray.length).append(" rows: ").append(this.i_Map2DArray[0].length, this, CommonStrings.getInstance().CONSTRUCTOR));
             }
 
-            public void visit(AllBinaryTiledLayer tiledLayer,
-               GeographicMapCellPosition cellPosition) throws Exception
+            public void visit(final AllBinaryTiledLayer tiledLayer, final GeographicMapCellPosition cellPosition) throws Exception
             {
-                int row = cellPosition.getRow();
-                int column = cellPosition.getColumn();
+                final int row = cellPosition.getRow();
+                final int column = cellPosition.getColumn();
 
                 try
                 {
@@ -71,10 +70,9 @@ public class BasePathFindingInfoFactory {
                 //AllBinaryTiledLayer2 allBinaryTiledLayer = RaceTrackGeographicMap.this.getAllBinaryTiledLayer();
                 //this.cellTypeIdToGeographicMapCellType[allBinaryTiledLayer.getCell(col, row)];
 
-                int cellTypeId = mapArray[row][column];
+                final int cellTypeId = mapArray[row][column];
 
-                int geographicCellType =
-                    geographicMapInterface.getCellTypeFromMapCellTypeInt(cellTypeId);
+                final int geographicCellType = geographicMapInterface.getCellTypeFromMapCellTypeInt(cellTypeId);
 
                 if (geographicCellType == startLineId)
                 {
@@ -105,7 +103,7 @@ public class BasePathFindingInfoFactory {
                 }
 
                 final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-                    RaceTrackGeographicMapCellTypeFactory.getInstance();
+                    (RaceTrackGeographicMapCellTypeFactory) geographicMapInterface.getGeographicMapCellTypeFactory();
                 
                 final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
                     GeographicMapCellTypeFactory.getInstance();
@@ -139,9 +137,8 @@ public class BasePathFindingInfoFactory {
            new RaceTrackGeographicMapCellPositionFactoryInitVisitor());
     }
     
-    private void addStartPathFindingNode(
-        PathFindingInfo pathFindingInfo,
-       GeographicMapCellPosition startGeographicMapCellPosition)
+    private void addStartPathFindingNode(final PathFindingInfo pathFindingInfo,
+            final GeographicMapCellPosition startGeographicMapCellPosition)
        throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "addStartPathFindingNode"));
@@ -160,9 +157,8 @@ public class BasePathFindingInfoFactory {
         // End Setup Start Node
     }
 
-    private void addEndPathFindingNode(
-        PathFindingInfo pathFindingInfo,
-       GeographicMapCellPosition endGeographicMapCellPosition)
+    private void addEndPathFindingNode(final PathFindingInfo pathFindingInfo,
+            final GeographicMapCellPosition endGeographicMapCellPosition)
        throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "addEndPathFindingNode"));
