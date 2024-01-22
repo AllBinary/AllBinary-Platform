@@ -14,24 +14,29 @@
 package org.allbinary.media.graphics.geography.map.racetrack;
 
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoData;
 
-public class RaceTrackGeogrpahicMapCellTypeInitializer
+public class NormalRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeographicMapCellTypeFactory
 {
-    public static void init()
-    {
-        final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-            RaceTrackGeographicMapCellTypeFactory.getInstance();
-        
-        raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE = 
+
+    private static final NormalRaceTrackGeographicMapCellTypeFactory instance = new NormalRaceTrackGeographicMapCellTypeFactory();
+
+    /**
+     * @return the instance
+     */
+    public static NormalRaceTrackGeographicMapCellTypeFactory getInstance() {
+        return instance;
+    }
+    
+    private NormalRaceTrackGeographicMapCellTypeFactory()
+    {        
+        this.EMPTY_CELL_TYPE = 
           new RaceTrackGeographicMapCellType(
           SmallIntegerSingletonFactory.getInstance().getInstance(0), 
           PathFindingNodeCostInfoData.MAX_NODE_COST);
 
-        raceTrackGeographicMapCellTypeFactory.EASY_CELL_TYPE = raceTrackGeographicMapCellTypeFactory.EMPTY_CELL_TYPE;
+        this.EASY_CELL_TYPE = this.EMPTY_CELL_TYPE;
 
-        raceTrackGeographicMapCellTypeFactory.FINISH_LINE_ROAD_CELL_TYPE = 
-            raceTrackGeographicMapCellTypeFactory.DEFAULT_FINISH_LINE_ROAD_CELL_TYPE;
+        this.FINISH_LINE_ROAD_CELL_TYPE = this.DEFAULT_FINISH_LINE_ROAD_CELL_TYPE;
     }
 }
