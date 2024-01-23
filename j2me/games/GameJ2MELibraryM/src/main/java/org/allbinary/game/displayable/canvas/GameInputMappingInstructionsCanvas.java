@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -63,7 +62,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
             allBinaryGameLayerManager.getForegroundBasicColor());
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.colorFillPaintable = 
             ColorFillPaintableFactory.getInstance(
@@ -85,7 +84,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     
     public void paint(Graphics graphics)
     {
-    	PreLogUtil.put(CommonStrings.getInstance().START, this, "paint");
+    	PreLogUtil.put(commonStrings.START, this, "paint");
     	
         final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
         

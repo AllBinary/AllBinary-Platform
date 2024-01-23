@@ -122,7 +122,7 @@ public class GameCommandCanvas
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, 
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, 
                     DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
             
             FormType formType = FormTypeFactory.getInstance().getFormType();
@@ -138,7 +138,7 @@ public class GameCommandCanvas
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onResize", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onResize", e));
         }
     }
     
@@ -203,7 +203,7 @@ public class GameCommandCanvas
 
     public void open()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "open"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "open"));
 
         BasicMotionGesturesHandler.getInstance().addListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().addListener(this.getMenuInputProcessor());
@@ -212,7 +212,7 @@ public class GameCommandCanvas
     
     public void close() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "close"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "close"));
 
         BasicMotionGesturesHandler.getInstance().removeListener(this.getMenuInputProcessor());
         GameKeyEventHandler.getInstance().removeListener(this.getMenuInputProcessor());
@@ -241,13 +241,13 @@ public class GameCommandCanvas
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyPressed"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyPressed"));
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
     public void keyReleased(int keyCode, int deviceId)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyReleased"));
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
     

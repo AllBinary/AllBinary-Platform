@@ -140,7 +140,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         IntermissionEnableListenerInterface, PopupMenuInterface,
         HighScoresCompositeInterface, DisplayChangeEventListener
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
     protected final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();

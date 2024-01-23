@@ -49,7 +49,7 @@ public class DemoGameStartupRunnable implements RunnableInterface
         {
             this.setRunning(true);
             // LogUtil.put(LogFactory.getInstance("Start Runnable",
-            // this, CommonStrings.getInstance().RUN));
+            // this, commonStrings.RUN));
 
             this.demoCanvas.stopGameDemo();
 
@@ -59,12 +59,13 @@ public class DemoGameStartupRunnable implements RunnableInterface
 
             this.setRunning(false);
             // LogUtil.put(LogFactory.getInstance("End Runnable", this,
-            // CommonStrings.getInstance().RUN));
+            // commonStrings.RUN));
         }
         catch (Exception e)
         {
             this.setRunning(false);
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
         }
     }
 }

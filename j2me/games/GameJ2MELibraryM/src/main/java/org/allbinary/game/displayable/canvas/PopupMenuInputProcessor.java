@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameInputStrings;
@@ -58,7 +57,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     
     public int processInput(int key) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
 
         //4,8,KEY_STAR
         if (key == Canvas.KEY_STAR)
@@ -115,7 +114,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, GameInputStrings.getInstance().PROCESS_INPUT, e));
             return -1;
         }
     }
@@ -142,7 +141,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     protected void processMotionInput(MotionGestureEvent motionGestureEvent)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processMotionInput"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processMotionInput"));
 
         if(motionGestureEvent == null)
         {

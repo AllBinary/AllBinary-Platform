@@ -48,9 +48,8 @@ public class GameFrameRunnable extends GameRunnable
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION,
-                    this, CommonStrings.getInstance().RUN, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this, commonStrings.RUN, e));
         }
     }
 }

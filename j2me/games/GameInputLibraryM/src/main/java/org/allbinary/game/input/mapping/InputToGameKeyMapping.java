@@ -45,7 +45,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     public InputToGameKeyMapping()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.clear();
     }
@@ -66,7 +66,7 @@ public class InputToGameKeyMapping extends InputMapping
     
     public void add(InputToGameKeyMapping inputToGameKeyMapping)
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "InputToGameKeyMapping::add(InputToGameKeyMapping)");
+        //PreLogUtil.put(commonStrings.START, this, "InputToGameKeyMapping::add(InputToGameKeyMapping)");
         
         for(int index = inputToGameKeyMapping.getMaxMappable() - 1; index >= 0; index--)
         {
@@ -82,7 +82,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     private void addAll(Input input, BasicArrayList list)
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + input + " == " + list, this, "InputToGameKeyMapping::addAll");
+        //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + list, this, "InputToGameKeyMapping::addAll");
         
         for (int index = list.size() - 1; index >= 0; index--)
         {
@@ -95,8 +95,8 @@ public class InputToGameKeyMapping extends InputMapping
     
     public void add(Input input, Input mappedToInput)
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add"));
+        //PreLogUtil.put(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add");
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputToGameKeyMapping::add"));
         super.add(input, mappedToInput);
         this.set(input, mappedToInput);
     }
@@ -183,7 +183,7 @@ public class InputToGameKeyMapping extends InputMapping
         }
         //Still could have a negative key that is out of range
 
-        //PreLogUtil.put(gameKey.toString() + CommonSeps.getInstance().COLON_SEP + key, this, CommonStrings.getInstance().INIT);
+        //PreLogUtil.put(gameKey.toString() + CommonSeps.getInstance().COLON_SEP + key, this, commonStrings.INIT);
     }
 
     private int getSmallestCanvasGameKeyCode(Canvas canvas) throws Exception
@@ -235,11 +235,11 @@ public class InputToGameKeyMapping extends InputMapping
                 this.init(canvas, mappedGameKeys[index]);
             }
 
-            //PreLogUtil.put("Smallest GameKey: " + smallestKey, this, CommonStrings.getInstance().INIT);
+            //PreLogUtil.put("Smallest GameKey: " + smallestKey, this, commonStrings.INIT);
         } catch (Throwable t)
         {
             //catch everything here little dangerous but I don't ever want to fail just because of failed mapping for j2me game keys
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, t));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, t));
         }
     }
 

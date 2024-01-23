@@ -23,6 +23,8 @@ import org.allbinary.logic.string.StringMaker;
 
 public class DemoRunnable implements Runnable
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final DemoGameMidlet demoGameMidlet;
 
     private final DemoGameMidletEvent startDemoGameMidletEvent;
@@ -42,7 +44,7 @@ public class DemoRunnable implements Runnable
         {
             LogUtil.put(LogFactory.getInstance(
                     new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("GameCanvasRunnableInterface").toString(),
-                    this, CommonStrings.getInstance().RUN));
+                    this, commonStrings.RUN));
 
             this.demoGameMidlet.commandAction(
                     MyCommandsFactory.getInstance().SET_DISPLAYABLE,
@@ -67,11 +69,11 @@ public class DemoRunnable implements Runnable
             
             this.demoGameMidlet.postDemoSetup();
 
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END_RUNNABLE, this, CommonStrings.getInstance().RUN));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
         }
 
     }

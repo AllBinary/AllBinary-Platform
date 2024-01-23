@@ -46,7 +46,7 @@ public class HighScoreTextBox extends CustomTextBox
     private final HighScore highScore;
 
     private final Paintable pleaseWait = 
-        new SimpleTextPaintable(CommonStrings.getInstance().PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
+        new SimpleTextPaintable(commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
     
     private Paintable paintable = NullPaintable.getInstance();
 
@@ -107,7 +107,7 @@ public class HighScoreTextBox extends CustomTextBox
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "open", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
         }
 
         this.paintable = NullPaintable.getInstance();
@@ -125,7 +125,7 @@ public class HighScoreTextBox extends CustomTextBox
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "open", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
         }
 
         this.paintable = this.pleaseWait;
@@ -148,7 +148,7 @@ public class HighScoreTextBox extends CustomTextBox
 
     public void saveHighScore()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "saveHighScore"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "saveHighScore"));
         
         this.update();
 

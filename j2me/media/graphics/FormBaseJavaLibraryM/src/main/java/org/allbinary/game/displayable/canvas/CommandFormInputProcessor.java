@@ -66,7 +66,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
    public int processInput(final int key) throws Exception
    {
-      // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append("Canvas." +
+      // LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append("Canvas." +
       // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
 
       if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN)
@@ -120,7 +120,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    {
       try
       {
-         //PreLogUtil.put(CommonStrings.getInstance().START, this, GameInputStrings.getInstance());
+         //PreLogUtil.put(commonStrings.START, this, GameInputStrings.getInstance());
 
          final int motionInputsIndex = this.processMotionInputs();
 
@@ -142,8 +142,8 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
              * this.addForRemoval(gameKeyEvent); }
              */
 
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId()));
-            // LogUtil.put(LogFactory.getInstance("CommonStrings.getInstance().START_LABEL).append("Canvas." +
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processInput - GameKeyEvent source: ").append(gameKeyEvent.getSourceId()));
+            // LogUtil.put(LogFactory.getInstance("commonStrings.START_LABEL).append("Canvas." +
             // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
             if(gameKeyEvent.getSourceId() != MOTION_GESTURE_SOURCE_ID)
             {
@@ -169,7 +169,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
          }
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(e.getMessage()).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT));
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(e.getMessage()).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT));
          
          return -1;
       }
@@ -178,7 +178,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    // AllBinaryLayerManager layerManager
    public int processMotionInputs() throws Exception
    {
-       //PreLogUtil.put(CommonStrings.getInstance().START, this, "processMotionInputs");
+       //PreLogUtil.put(commonStrings.START, this, "processMotionInputs");
        
       final int lastIndex = this.motionGestureEventList.size() - 1;
 
@@ -198,8 +198,8 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
-       //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(motionGestureEvent, this, "processMotionInput"));
-       //PreLogUtil.put(CommonStrings.getInstance().START, this, "processMotionInput");
+       //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(motionGestureEvent, this, "processMotionInput"));
+       //PreLogUtil.put(commonStrings.START, this, "processMotionInput");
        
       final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
 

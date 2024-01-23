@@ -39,7 +39,7 @@ public class GameCanvasPauseRunnable extends GameRunnable
         }
         catch (Exception e)
         {
-            CommonStrings commonStrings = CommonStrings.getInstance();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
         }        
         //allBinaryGameCanvas.processLoopSleep();

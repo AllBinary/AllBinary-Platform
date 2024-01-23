@@ -28,7 +28,7 @@ public class HighScoreCommandsBaseFactory {
     {
         if(J2MEUtil.isJ2ME())
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START).append("J2ME", this, CommonStrings.getInstance().CONSTRUCTOR));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START).append("J2ME", this, commonStrings.CONSTRUCTOR));
             
             //TWB - Hackish but it is better than a whole new library
             this.HIGH_SCORE_COMMANDS = new Command[] 
@@ -38,7 +38,7 @@ public class HighScoreCommandsBaseFactory {
         }
         else
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START).append("not J2ME", this, CommonStrings.getInstance().CONSTRUCTOR));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START).append("not J2ME", this, commonStrings.CONSTRUCTOR));
 
             this.HIGH_SCORE_COMMANDS = HIGH_SCORE_COMMANDS;
         }

@@ -45,7 +45,7 @@ extends InputProcessor
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL
+            // LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL
             //).append(keyCode, this, "keyPressed"));
             PreLogUtil.put(
                     new StringMaker()

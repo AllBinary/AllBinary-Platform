@@ -26,6 +26,8 @@ import org.allbinary.logic.string.CommonLabels;
 
 public class InputMapping
 {    
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
    //TWB - Use MapList someday
     private final Hashtable hashtable = new Hashtable();
     private final BasicArrayList mappedList = new BasicArrayList();
@@ -95,12 +97,12 @@ public class InputMapping
     public void add(InputToGameKeyMapping inputToGameKeyMapping)
     throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
     
     public void add(Input input, Input mappedToInput)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + input + " == " + mappedToInput, this, "InputMapping::add"));
         BasicArrayList list = this.getMappedInput(input);
         if(!list.contains(mappedToInput))
         {
@@ -130,12 +132,12 @@ public class InputMapping
     //TWB - Hack Method for Plaform Independence - Maybe a better place for this
     public boolean isDelete(Input input) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public boolean isSystemInput(Input input) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public Hashtable getHashtable()

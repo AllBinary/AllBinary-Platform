@@ -165,8 +165,8 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    {
        try
        {
-           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDisplayChangeEvent"));
-           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
+           //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onDisplayChangeEvent"));
+           //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
            
            DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
@@ -178,7 +178,8 @@ public class BasicHud_1 //implements DisplayChangeEventListener
        }
        catch(Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onDisplayChangeEvent", e));
+           final CommonStrings commonStrings = CommonStrings.getInstance();
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e));
        }
    }
    

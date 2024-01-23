@@ -18,7 +18,6 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -36,14 +35,14 @@ extends CommandFormInputProcessor
     {
         super(gameKeyEventList, playerInputId, gameCanvas, form);
 
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
         
         //this.popupMenuInputProcessor = popupMenuInputProcessor;
     }
 
     public int processInput(int key) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(" Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
         //this.popupMenuInputProcessor.processInput(key);
         return super.processInput(key);
     }

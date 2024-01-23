@@ -77,7 +77,7 @@ public class BaseGameInitialization implements GameInitializationInterface
                 (level == resourceLoadingLevelFactory.LOAD_ALL.getLevel() ||
                 level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel()))
         {
-            //PreLogUtil.put("Early Game Init", this, CommonStrings.getInstance().INIT);
+            //PreLogUtil.put("Early Game Init", this, commonStrings.INIT);
             
             int localPortion = 40;
             if(level == resourceLoadingLevelFactory.LOAD_EARLY.getLevel())
@@ -111,7 +111,7 @@ public class BaseGameInitialization implements GameInitializationInterface
             GameFeatureImageCacheFactory.init();
             progressCanvas.addPortion(localPortion, "Image Cache");
 
-            //PreLogUtil.put("Early Resources", this, CommonStrings.getInstance().INIT);
+            //PreLogUtil.put("Early Resources", this, commonStrings.INIT);
             this.resourceInitializationArray[EARLY_RESOURCES].init();
         }
     }

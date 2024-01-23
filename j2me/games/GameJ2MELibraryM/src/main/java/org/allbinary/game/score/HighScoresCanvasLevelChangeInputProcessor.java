@@ -56,7 +56,7 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
             Object object = list.objectArray[index];
             int key = GameKeyEventUtil.getKey(object);
 
-            //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(key, this, CommonStrings.getInstance().UPDATE);
+            //PreLogUtil.put(commonStrings.START_LABEL).append(key, this, commonStrings.UPDATE);
 
             // if(gameKey == GameKey.UP || gameKey == GameKey.RIGHT)
             if (key == Canvas.RIGHT)

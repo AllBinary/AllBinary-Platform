@@ -19,7 +19,6 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventListenerInterface;
 import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
@@ -46,7 +45,7 @@ public class PlayerGameInput extends GameInput
    /*
    public synchronized void add(GameKeyEvent gameKeyEvent)
    {
-       LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(gameKeyEvent.getSource()).append(" ").append(((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, CommonStrings.getInstance().ADD));
+       LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(gameKeyEvent.getSource()).append(" ").append(((GameKeyEventSourceInterface)gameKeyEvent.getSource()).getId(), this, commonStrings.ADD));
        super.add(gameKeyEvent);
    }
    */

@@ -19,7 +19,6 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -70,7 +69,7 @@ implements InputMappingInterface
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         if(helpPaintable == null)
         {
@@ -140,7 +139,7 @@ implements InputMappingInterface
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyPressed"));        
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyPressed"));        
         this.addGameKeyEvent(keyCode, false);
 
         super.keyPressed(keyCode);
@@ -176,7 +175,7 @@ implements InputMappingInterface
         stringBuffer.append(" Input: ");
         stringBuffer.append(input);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().PROCESS));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.PROCESS));
         
         if (this.selectedGameKey != NONE)
         {
@@ -246,8 +245,8 @@ implements InputMappingInterface
     {
         final String METHOD_NAME = "addNewMapping";
             
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping"));
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append("Dissallow if ").append(input).append(" is in { ").append(AndroidKeyFactory.getInstance().MENU).append(" }", this, "addNewMapping"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
 
         boolean isInputAlreadyMapped = inputMapping.getInputMapping().isMapped(input);
 

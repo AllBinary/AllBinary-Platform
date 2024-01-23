@@ -24,6 +24,8 @@ import org.allbinary.game.input.event.GameKeyEvent;
 
 public class GameInput {
 
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
    private final BasicArrayList gameKeyEventList;
    private final BasicArrayList removalGameKeyEventList;
 
@@ -46,14 +48,14 @@ public class GameInput {
       //TODO TWB - fix all null and duplicate issue for better performance
       if(this.isRemoveDuplicateKeyPresses && this.gameKeyEventList.contains(gameKeyEvent))
       {
-          //LogUtil.put(LogFactory.getInstance("Danger Danger Danger: Duplicate GameKeyEvent", this, CommonStrings.getInstance().ADD));
+          //LogUtil.put(LogFactory.getInstance("Danger Danger Danger: Duplicate GameKeyEvent", this, commonStrings.ADD));
           return;
       }
        
       if (gameKeyEvent != null) {
           this.gameKeyEventList.add(gameKeyEvent);
       } else {
-          LogUtil.put(LogFactory.getInstance("Danger Passed Null GameKeyEvent", this, CommonStrings.getInstance().ADD));
+          LogUtil.put(LogFactory.getInstance("Danger Passed Null GameKeyEvent", this, commonStrings.ADD));
       }
    }
 

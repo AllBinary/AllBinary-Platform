@@ -54,7 +54,7 @@ public class CustomTextBox extends GameCommandCanvas
 
         this.textFieldItem.setString(text);
 
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
         this.setTitle(label);
     }
     
@@ -82,7 +82,7 @@ public class CustomTextBox extends GameCommandCanvas
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(keyCode, this, "keyPressed"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(keyCode, this, "keyPressed"));
         PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(keyCode).toString(), this, "keyPressed");
         
         PlatformKeyFactory platformKeyFactory =
@@ -108,7 +108,7 @@ public class CustomTextBox extends GameCommandCanvas
 
     public void keyReleased(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyReleased"));
     }
         
     public void paint(Graphics graphics)

@@ -34,6 +34,8 @@ import org.allbinary.view.event.ViewPositionEventListenerInterface;
 public class AllBinaryGameLayer extends AllBinaryLayer 
    implements ViewPositionEventListenerInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final BasicArrayList gameKeyEventList = new BasicArrayList();
 
     public AllBinaryGameLayer(final Rectangle layerInfo)
@@ -62,12 +64,12 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
     public void processInput(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void processTick(final AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void onEvent(final AllBinaryEventObject eventObject)
@@ -85,7 +87,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     public void onChangeEvent(final ViewPositionEvent layerManagerEvent)
        throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onChangeEvent"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onChangeEvent"));
         if (GameLayerUtil.isOnScreen(this))
         {
             this.setVisible(true);
@@ -104,7 +106,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     //Should be overridden
     public void paint(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, "paint"));
 
         final ViewPosition viewPosition = this.getViewPosition();
         final int viewX = viewPosition.getX();

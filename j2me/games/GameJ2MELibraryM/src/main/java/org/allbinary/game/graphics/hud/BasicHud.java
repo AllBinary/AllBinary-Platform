@@ -169,8 +169,8 @@ public class BasicHud //implements DisplayChangeEventListener
    {
        try
        {
-           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
-           //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
+           //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
+           //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
            
            DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
@@ -182,7 +182,8 @@ public class BasicHud //implements DisplayChangeEventListener
        }
        catch(Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT, e));
+           final CommonStrings commonStrings = CommonStrings.getInstance();
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT, e));
        }
    }
    

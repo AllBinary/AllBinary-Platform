@@ -52,14 +52,14 @@ public class DemoGameMidlet extends GameMidlet
     public GameCanvasRunnableInterface createDemoGameCanvasRunnableInterface()
             throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     protected GameCanvasRunnableInterface createGameCanvasRunnableInterface(
             AllBinaryGameLayerManager allBinaryGameLayerManager)
             throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
     
     protected GameCanvasRunnableInterface createGameCanvasRunnableInterface()
@@ -85,7 +85,7 @@ public class DemoGameMidlet extends GameMidlet
     
     public synchronized void setDemo() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "setDemo"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setDemo"));
 
         ////TWB - Loading Feature Change - Can remove remark after testing
         ProgressCanvasFactory.getInstance().start();
@@ -97,7 +97,7 @@ public class DemoGameMidlet extends GameMidlet
     public synchronized void createGame() throws Exception
     {
         final String CREATE_GAME = "createGame";
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CREATE_GAME));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, CREATE_GAME));
 
         ////TWB - Loading Feature Change - Can remove remark after testing
         ProgressCanvasFactory.getInstance().start();
@@ -107,7 +107,7 @@ public class DemoGameMidlet extends GameMidlet
 
         PrimaryThreadPool.getInstance().runTask(new CreateGameRunnable(this, hashtable));
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, CREATE_GAME));
+        LogUtil.put(LogFactory.getInstance(commonStrings.END, this, CREATE_GAME));
     }
 
     public boolean isReady()

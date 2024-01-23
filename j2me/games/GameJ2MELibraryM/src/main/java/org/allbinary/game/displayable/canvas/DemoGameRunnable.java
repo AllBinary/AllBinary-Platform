@@ -34,7 +34,7 @@ public class DemoGameRunnable extends GameRunnable
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().RUN));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.RUN));
 
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
@@ -45,9 +45,8 @@ public class DemoGameRunnable extends GameRunnable
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION,
-                    this, CommonStrings.getInstance().RUN, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,this, commonStrings.RUN, e));
         }
     }
     
