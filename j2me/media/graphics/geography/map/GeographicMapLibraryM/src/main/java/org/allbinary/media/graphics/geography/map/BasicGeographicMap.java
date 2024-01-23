@@ -91,16 +91,14 @@ public class BasicGeographicMap
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
         final int i_columnMin = Math.abs(x / allBinaryTiledLayer.getCellHeight());
         final int i_rowMin = Math.abs(y / allBinaryTiledLayer.getCellWidth());
-        final int i_columnMax = Math.abs(x2 / allBinaryTiledLayer.getCellHeight());
-        final int i_rowMax = Math.abs(y2 / allBinaryTiledLayer.getCellWidth());
+        final int i_columnMax = Math.abs(x2 / allBinaryTiledLayer.getCellHeight()) + 1;
+        final int i_rowMax = Math.abs(y2 / allBinaryTiledLayer.getCellWidth()) + 1;
         
         for (int columnIndex = i_columnMin; columnIndex < i_columnMax; columnIndex++) {
             for (int rowIndex = i_rowMin; rowIndex < i_rowMax; rowIndex++) {
                 if (allBinaryTiledLayer.getColumns() > columnIndex
                         && allBinaryTiledLayer.getRows() > rowIndex) {
-                    geographicMapCellPositionList.add(
-                            geographicMapCellPositionFactory.getInstance(columnIndex, rowIndex)
-                    );
+                    geographicMapCellPositionList.add(geographicMapCellPositionFactory.getInstance(columnIndex, rowIndex));
                 }
             }
         }
