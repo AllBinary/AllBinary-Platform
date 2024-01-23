@@ -31,7 +31,6 @@ import org.allbinary.util.BasicArrayList;
 
 
 import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -84,6 +83,7 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
@@ -118,7 +118,12 @@ public class DemoCanvas extends RunnableCanvas
         implements GameCanvasRunnableInterface,
         MenuListener, HighScoresCompositeInterface, 
         DisplayChangeEventListener
-{    
+{
+    protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+    protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+    protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
+    protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+    
     private StatePaintable basicGameDemoPaintable =
         //new StateNotifyPaintable(this);
         StatePaintableFactory.getInstance();
@@ -135,7 +140,7 @@ public class DemoCanvas extends RunnableCanvas
     private Thread canvasThread;
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(6000);
     
-    private BasicColor basicColor = BasicColorFactory.getInstance().RED;
+    private BasicColor basicColor = basicColorFactory.RED;
 
     private final HighScoresFactoryInterface highScoresFactoryInterface;
     //Menu
@@ -181,7 +186,7 @@ public class DemoCanvas extends RunnableCanvas
 
         this.overlayPaintable = overlayPaintable;
 
-        //PreLogUtil.put("New Demo Canvas", this, CommonStrings.getInstance().CONSTRUCTOR);
+        //PreLogUtil.put("New Demo Canvas", this, commonStrings.CONSTRUCTOR);
 
         this.highScoresFactoryInterface = highScoresFactoryInterface;
 
@@ -215,7 +220,7 @@ public class DemoCanvas extends RunnableCanvas
         {
             //MyFont.getInstance().update();
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
 
             final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             
@@ -230,17 +235,17 @@ public class DemoCanvas extends RunnableCanvas
         }
         catch(Exception e) 
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onDisplayChangeEvent", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e));
         }
     }
     
     protected Command[] getCustomCommands()
     {
-        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
-
         final Features features = Features.getInstance();
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+        final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
 
-        if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+        if (features.isDefault(htmlFeatureFactory.HTML))
         {
             //TWB - Removed Options that are not HTML5 capable yet
             final Command[] commandArray =
@@ -320,13 +325,13 @@ public class DemoCanvas extends RunnableCanvas
 
     public void mediaInit() throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "mediaInit"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "mediaInit"));
         AllBinaryMediaManager.init(EarlySoundsFactory.getInstance());
     }
 
     public void itemStateChanged(Item item)
     {
-        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
     
     protected void initMenu()
@@ -337,8 +342,6 @@ public class DemoCanvas extends RunnableCanvas
         final CommandTextItemArrayFactory commandTextItemArrayFactory = 
             DemoLimitedCommandTextItemArrayFactory.getInstance().getCommandTextItemArrayFactory();
         
-        final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
-        
         final CustomItem[] items = commandTextItemArrayFactory.getInstance(
             this.getCommandStack(), 
             basicColorFactory.BLACK, basicColorFactory.WHITE);
@@ -347,7 +350,7 @@ public class DemoCanvas extends RunnableCanvas
         
         final Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
 
-        PreLogUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(DisplayInfoSingleton.getInstance().toString()).toString(), this, "initMenu");
+        PreLogUtil.put(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).toString(), this, "initMenu");
         
         final ScrollSelectionForm scrollSelectionForm = CommandCurrentSelectionFormFactory.getInstance(
                     StringUtil.getInstance().EMPTY_STRING, 
@@ -407,13 +410,13 @@ public class DemoCanvas extends RunnableCanvas
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyPressed"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyPressed"));
         this.addGameKeyEvent(keyCode, false);
     }
 
     public void keyReleased(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "keyReleased"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyReleased"));
         this.removeGameKeyEvent(keyCode, false);
     }
     private boolean isSingleKeyRepeatableProcessing =
@@ -541,7 +544,7 @@ public class DemoCanvas extends RunnableCanvas
     
     public boolean isGameOver()
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(" since not a game").toString(), this, "isGameOver"));
         return false;
     }
 
@@ -652,11 +655,11 @@ public class DemoCanvas extends RunnableCanvas
 
             if (!this.demoGameRunnable.isRunning() && gameCanvas.isInitialized())
             {
-                //PreLogUtil.put("Reset", this, CommonStrings.getInstance().RUN);
+                //PreLogUtil.put("Reset", this, commonStrings.RUN);
                 this.getSpecialAnimationInterface().reset();
             }
             
-            //PreLogUtil.put("isComplete: ").append(this.getSpecialAnimationInterface().isComplete(), this, CommonStrings.getInstance().RUN);
+            //PreLogUtil.put("isComplete: ").append(this.getSpecialAnimationInterface().isComplete(), this, commonStrings.RUN);
         }
         else if (this.state == 1)
         {
@@ -668,30 +671,30 @@ public class DemoCanvas extends RunnableCanvas
             this.highScoresPaintable = this.getRealHighScoresPaintable();
         }
         
-        GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
         gameAdState.processPageAdState();
     }
 
     protected int getNextRandom() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     protected AllBinaryGameLayerManager createGameLayerManager(int randomValue)
         throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     protected GameCanvasRunnableInterface createRunnable(int randomLevel)
         throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     protected void create() throws Exception
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "create");
+        //PreLogUtil.put(commonStrings.START, this, "create");
 
         this.highScoresPaintable = NullPaintable.getInstance();
 
@@ -720,15 +723,15 @@ public class DemoCanvas extends RunnableCanvas
 
     protected void start() throws Exception
     {
-        PreLogUtil.put("Game Thread in DemoCanvas", this, CommonStrings.getInstance().START);
+        PreLogUtil.put("Game Thread in DemoCanvas", this, commonStrings.START);
 
         this.canvasThread = ThreadFactoryUtil.getInstance().getInstance(this.gameCanvas);
         this.gameCanvas.setThread(canvasThread);
 
         //PreLogUtil.put("Game Thread Priority: ").append(
-        //      canvasThread.getPriority(), this, CommonStrings.getInstance());
+        //      canvasThread.getPriority(), this, commonStrings);
         //LogUtil.put(LogFactory.getInstance(
-        //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, CommonStrings.getInstance()));
+        //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, commonStrings));
 
         this.canvasThread.start();
 
@@ -737,7 +740,7 @@ public class DemoCanvas extends RunnableCanvas
             this.setWait(this.getTempWait());
         }
 
-        //PreLogUtil.put(CommonStrings.getInstance().END, this, CommonStrings.getInstance());
+        //PreLogUtil.put(commonStrings.END, this, commonStrings);
     }
 
     public void preDemoProcess()
@@ -777,13 +780,13 @@ public class DemoCanvas extends RunnableCanvas
             if (this.gameCanvas != NullGameCanvas.getInstance()
                 && this.gameCanvas.isGameOver())
             {
-                //PreLogUtil.put("Restarting Game Demo", this, CommonStrings.getInstance().PROCESS);
+                //PreLogUtil.put("Restarting Game Demo", this, commonStrings.PROCESS);
 
                 this.stopGameDemo();
 
                 int randomLevel = this.getNextRandom();
                 
-                //PreLogUtil.put("Restarting Game Demo at Level: ").append(randomLevel, this, CommonStrings.getInstance().PROCESS);
+                //PreLogUtil.put("Restarting Game Demo at Level: ").append(randomLevel, this, commonStrings.PROCESS);
                 
                 GameInfo gameInfo =
                     this.gameCanvas.getLayerManager().getGameInfo();
@@ -799,8 +802,8 @@ public class DemoCanvas extends RunnableCanvas
             {
                 if (!demoGameRunnable.isRunning())
                 {
-                    //LogUtil.put(LogFactory.getInstance("Starting Game Demo", this, CommonStrings.getInstance().PROCESS));
-                    //PreLogUtil.put("Starting Game Demo", this, CommonStrings.getInstance().PROCESS);
+                    //LogUtil.put(LogFactory.getInstance("Starting Game Demo", this, commonStrings.PROCESS));
+                    //PreLogUtil.put("Starting Game Demo", this, commonStrings.PROCESS);
 
                     this.startDemoGame();
                     
@@ -838,13 +841,14 @@ public class DemoCanvas extends RunnableCanvas
     {
         final String METHOD_NAME = "showGamePaintable";
         
-        PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
+        final Features features = Features.getInstance();
+        final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
         
-        Features features = Features.getInstance();
+        PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
         
         if (this.gameCanvas != NullGameCanvas.getInstance() && 
                 (this.gameCanvas.isRunning() || 
-                features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+                features.isDefault(htmlFeatureFactory.HTML))
                 && !(this.gameCanvas instanceof NullGameCanvas)
                 )
         {
@@ -867,13 +871,13 @@ public class DemoCanvas extends RunnableCanvas
     
     protected void processGame() throws Exception
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processGame");
+        //PreLogUtil.put(commonStrings.START, this, "processGame");
         
         this.gameRunnable.run();
 
         //if(runningTimeDelayHelper.isTime())
         //{
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().RUNNING, this, CommonStrings.getInstance().RUN));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.RUNNING, this, commonStrings.RUN));
         //}
 
         //Viewer Game is initialized and and
@@ -901,11 +905,14 @@ public class DemoCanvas extends RunnableCanvas
     
     public void run()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_RUNNABLE, this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
 
         try
         {
-            ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            final Features features = Features.getInstance();
+            final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
+            final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
 
             progressCanvas.addPortion(50, "Demo Thread");
 
@@ -914,8 +921,6 @@ public class DemoCanvas extends RunnableCanvas
 
             //this.process();
 
-            Features features = Features.getInstance();
-            
             if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))
             {
                 progressCanvas.end();
@@ -933,9 +938,9 @@ public class DemoCanvas extends RunnableCanvas
 
             //final TimeDelayHelper runningTimeDelayHelper = new TimeDelayHelper(12000);
             
-            if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD))
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD))
             {
-                //PreLogUtil.put(CommonStrings.getInstance().START, this, "OPENGL_AS_GAME_THREAD");
+                //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD");
                 
                 //Process as 2 threads until initialized - allows progress to update
                 while (gameCanvas == NullGameCanvas.getInstance() || !gameCanvas.isInitialized())
@@ -956,10 +961,10 @@ public class DemoCanvas extends RunnableCanvas
                 OpenGLThreadUtil.getInstance().onResume();
             }
 
-            if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) ||
-                    features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) ||
+                    features.isDefault(htmlFeatureFactory.HTML))
             {
-                //PreLogUtil.put(CommonStrings.getInstance().START, this, "OPENGL_AS_GAME_THREAD 2");
+                //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD 2");
 
                 final DemoGameRunnable demoGameRunnable = new DemoGameRunnable(this);
                 
@@ -970,7 +975,7 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                //PreLogUtil.put(CommonStrings.getInstance().START, this, "Starting Run Loop");
+                //PreLogUtil.put(commonStrings.START, this, "Starting Run Loop");
                 
                 while (this.isRunning())
                 {
@@ -986,10 +991,10 @@ public class DemoCanvas extends RunnableCanvas
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
         }
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END_RUNNABLE, this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
     }
 
     public void setRunning(boolean running) 
@@ -998,11 +1003,13 @@ public class DemoCanvas extends RunnableCanvas
 
         try
         {
-            Features features = Features.getInstance();
+            final Features features = Features.getInstance();
+            final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
+            final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
             
             //If game thread is not actually running
-            if ((features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL) ||
-                    features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+            if ((features.isDefault(openGLFeatureFactory.OPENGL) ||
+                    features.isDefault(htmlFeatureFactory.HTML))
                     && !running)
             {
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
@@ -1011,7 +1018,7 @@ public class DemoCanvas extends RunnableCanvas
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, SET_RUNNING, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, SET_RUNNING, e));
         }        
     }
     
@@ -1021,10 +1028,10 @@ public class DemoCanvas extends RunnableCanvas
 
     public void end() throws Exception
     {
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-        Features features = Features.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        final Features features = Features.getInstance();
         
-        AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
+        final AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
         allGameStatisticsFactory.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
         baseGameStatistics.init();
         
@@ -1033,7 +1040,7 @@ public class DemoCanvas extends RunnableCanvas
             progressCanvas.start();
         }
 
-        LogUtil.put(LogFactory.getInstance("Demo End", this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance("Demo End", this, commonStrings.RUN));
 
         this.close();
         DisplayChangeEventHandler.getInstance().removeListener(this);

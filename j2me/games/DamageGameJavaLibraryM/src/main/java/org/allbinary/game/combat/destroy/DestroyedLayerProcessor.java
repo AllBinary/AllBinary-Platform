@@ -43,7 +43,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
         return DESTROYED_LAYER_PROCESSOR;
     }
 
-    //private final String LAYER_LABEL = "layerInterface: ";
+    private final String LAYER_LABEL = "layerInterface: ";
     
     public void process(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
@@ -66,22 +66,26 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
             // no physics here - just destroy them
             layerInterface = (AllBinaryLayer) list.objectArray[index];
 
-            //stringBuilder.delete(0, stringBuilder.length());
-            //LogUtil.put(LogFactory.getInstance(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, CommonStrings.getInstance().PROCESS));
+            if(layerInterface != null) {
+                //stringBuilder.delete(0, stringBuilder.length());
+                //LogUtil.put(LogFactory.getInstance(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, CommonStrings.getInstance().PROCESS));
 
-            //stringBuilder.delete(0, stringBuilder.length());
-            //LogUtil.put(LogFactory.getInstance(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, CommonStrings.getInstance().PROCESS));
+                //stringBuilder.delete(0, stringBuilder.length());
+                //LogUtil.put(LogFactory.getInstance(stringBuilder.append("Processing: ").append(allBinaryLayerManager.getSize()).toString(), this, CommonStrings.getInstance().PROCESS));
+                allBinaryLayerManager.remove(layerInterface);
 
-            allBinaryLayerManager.remove(layerInterface);
+                //stringBuilder.delete(0, stringBuilder.length());
+                //LogUtil.put(LogFactory.getInstance(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, CommonStrings.getInstance().PROCESS));
+                destroyedEvent = destroyEventCircularStaticPool.getInstance(layerInterface);
 
-            //stringBuilder.delete(0, stringBuilder.length());
-            //LogUtil.put(LogFactory.getInstance(stringBuilder.append("After: ").append(allBinaryLayerManager.getSize()).toString(), this, CommonStrings.getInstance().PROCESS));
-
-            destroyedEvent = 
-                destroyEventCircularStaticPool.getInstance(layerInterface);
-
-            // Notify Listeners of Destroyed Layer
-            destroyedEventHandler.fireEvent(destroyedEvent);
+                // Notify Listeners of Destroyed Layer
+                destroyedEventHandler.fireEvent(destroyedEvent);
+            } else {
+                final StringBuilder stringBuilder = new StringBuilder();
+                //stringBuilder.delete(0, stringBuilder.length());
+                LogUtil.put(LogFactory.getInstance(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, CommonStrings.getInstance().PROCESS, new Exception()));
+            }
+            
         }
         list.clear();
     }

@@ -263,8 +263,7 @@ extends LayerManagerEventListener
         // return;
         // }
 
-        final Group[] groupInterfaceArray = 
-                ((GroupInterfaceCompositeInterface) layerInterface).getGroupInterface();
+        final Group[] groupInterfaceArray = ((GroupInterfaceCompositeInterface) layerInterface).getGroupInterface();
 
         final int size = groupInterfaceArray.length;
         int id;

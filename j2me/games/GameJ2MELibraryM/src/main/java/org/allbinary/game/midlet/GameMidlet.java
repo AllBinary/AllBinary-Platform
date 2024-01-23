@@ -109,12 +109,18 @@ public class GameMidlet extends ProgressMidlet
     implements CommandListener //, GameMidletEventListener
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+    protected final Features features = Features.getInstance();
+    protected final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
+    protected final MidletStrings midletStrings = MidletStrings.getInstance();
+    protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
+    protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
 
     private final String DISPLAYABLE = " Displayable: ";
     private final String COMMAND_NAME = "command Name/Label: ";
     private final String NO_COMMAND = "No Command";
     private final String NO_DISPLAYABLE = "No Displayable";
-    private final String COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(MidletStrings.getInstance().COMMAND_ACTION).toString();
+    private final String COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(midletStrings.COMMAND_ACTION).toString();
 
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
     private final WebCommandProcessor webCommandProcessor = WebCommandProcessor.getInstance();
@@ -162,17 +168,17 @@ public class GameMidlet extends ProgressMidlet
 
     protected void setDemo() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     protected void createGame() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     protected void mediaShutdown() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void stopAll()
@@ -183,7 +189,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.pauseAppBackground(true);
         
-        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
         
         gameAdState.getAdvertisements().stopAll();
     }
@@ -191,8 +197,8 @@ public class GameMidlet extends ProgressMidlet
     protected void pauseAppBackground(final boolean background)
     {
         final String METHOD_NAME = "pauseAppBackground";
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
+        //PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
         
         if (allbinaryGameCanvasRunnableInterface != null)
         {
@@ -216,7 +222,7 @@ public class GameMidlet extends ProgressMidlet
     {
         this.unPauseAppBackground(true);
         
-        final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+        final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
         
         gameAdState.getAdvertisements().startAll();
     }
@@ -224,8 +230,8 @@ public class GameMidlet extends ProgressMidlet
     protected void unPauseAppBackground(boolean background)
     {
         final String METHOD_NAME = "unPauseAppBackground";
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, METHOD_NAME);
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
+        //PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
         
         AllBinarySensorManager.getInstance().init();
 
@@ -256,7 +262,7 @@ public class GameMidlet extends ProgressMidlet
         {
             progressCanvas.start();
 
-            this.commandAction(MyCommandsFactory.getInstance().SET_DISPLAYABLE, progressCanvas);
+            this.commandAction(myCommandsFactory.SET_DISPLAYABLE, progressCanvas);
 
             // progressCanvas.waitUntilDisplayed();
         }
@@ -275,9 +281,9 @@ public class GameMidlet extends ProgressMidlet
         try
         {
             PreLogUtil.put(AllGameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
 
-            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
             
             gameAdState.getAdvertisements().stopAll();
             
@@ -298,28 +304,28 @@ public class GameMidlet extends ProgressMidlet
 
             super.destroyApp(true);
 
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, METHOD_NAME));
-            PreLogUtil.put(CommonStrings.getInstance().END, this, METHOD_NAME);
+            //LogUtil.put(LogFactory.getInstance(commonStrings.END, this, METHOD_NAME));
+            PreLogUtil.put(commonStrings.END, this, METHOD_NAME);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
         }
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, METHOD_NAME));
+        LogUtil.put(LogFactory.getInstance(commonStrings.END, this, METHOD_NAME));
     }
  
     protected void startApp()
     {
         try
         {
-            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();
             
             gameAdState.getAdvertisements().startAll();
             
             final String START_APP = "startApp";
             
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, START_APP));
-            //PreLogUtil.put(CommonStrings.getInstance().START, this, START_APP);
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, START_APP));
+            //PreLogUtil.put(commonStrings.START, this, START_APP);
 
             final GameCanvasRunnableInterface gameCanvasRunnableInterface =
                 this.allbinaryGameCanvasRunnableInterface;
@@ -349,7 +355,7 @@ public class GameMidlet extends ProgressMidlet
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "startApp", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "startApp", e));
             destroyApp(false);
             //TWB - Only remove from context when multiple midlets share the same emulator
             notifyDestroyed();
@@ -426,7 +432,7 @@ public class GameMidlet extends ProgressMidlet
                     }
                     else
                     {
-                        LogUtil.put(LogFactory.getInstance("Starting Game Too Often", this, MidletStrings.getInstance().COMMAND_ACTION));
+                        LogUtil.put(LogFactory.getInstance("Starting Game Too Often", this, midletStrings.COMMAND_ACTION));
                     }
                 }
                 else
@@ -461,15 +467,15 @@ public class GameMidlet extends ProgressMidlet
                     this.setDemo();
                 }
             }
-            else if (command == MyCommandsFactory.getInstance().RESUME_COMMAND)
+            else if (command == myCommandsFactory.RESUME_COMMAND)
             {
                 this.unPauseAppBackground(false);
             }
-            else if (command == MyCommandsFactory.getInstance().PAUSE_COMMAND)
+            else if (command == myCommandsFactory.PAUSE_COMMAND)
             {
                 this.pauseAppBackground(false);
             }
-            else if (command == MyCommandsFactory.getInstance().SET_DISPLAYABLE)
+            else if (command == myCommandsFactory.SET_DISPLAYABLE)
             {
                 this.pauseAppBackground(false);
 
@@ -552,9 +558,8 @@ public class GameMidlet extends ProgressMidlet
             else if (command == GameInputMappingCanvas.DISPLAY)
             {
                 //TWB - Called for HTML5 but not others?
-                final Features features = Features.getInstance();
 
-                if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+                if (features.isDefault(htmlFeatureFactory.HTML))
                 {
                     this.pauseAppBackground(false);
                 }
@@ -614,12 +619,11 @@ public class GameMidlet extends ProgressMidlet
 
                 final MainFeatureFactory mainFeatureFactory =
                     MainFeatureFactory.getInstance();
-                final Features features = Features.getInstance();
 
                 isFullScreen = features.isFeature(
                     mainFeatureFactory.FULL_SCREEN);
                 
-                //PreLogUtil.put("Open isFullScreen: ").append(isFullScreen, this, MidletStrings.getInstance().COMMAND_ACTION);
+                //PreLogUtil.put("Open isFullScreen: ").append(isFullScreen, this, midletStrings.COMMAND_ACTION);
 
                 ResizableListenerHandler.getInstance().fireEvent(true);
 
@@ -631,7 +635,7 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.CLOSE_OPTIONS)
             {
-                //PreLogUtil.put("Close", this, MidletStrings.getInstance().COMMAND_ACTION);
+                //PreLogUtil.put("Close", this, midletStrings.COMMAND_ACTION);
                 ResizableListenerHandler.getInstance().fireEvent(false);
 
                 this.commandAction(
@@ -651,7 +655,7 @@ public class GameMidlet extends ProgressMidlet
                 if(this.isResized() ||
                    fullScreenUtil.isScreenChange(isFullScreen))
                 {
-                    //PreLogUtil.put("Resized/Changed", this, MidletStrings.getInstance().COMMAND_ACTION);
+                    //PreLogUtil.put("Resized/Changed", this, midletStrings.COMMAND_ACTION);
 
                     this.updateFullScreen();
                 }
@@ -772,8 +776,6 @@ public class GameMidlet extends ProgressMidlet
                 final MainFeatureFactory mainFeatureFactory
                         = MainFeatureFactory.getInstance();
 
-                final Features features = Features.getInstance();
-                
                 final boolean isFullScreen = features.isFeature(mainFeatureFactory.FULL_SCREEN);
         
                 if(isFullScreen)
@@ -797,7 +799,7 @@ public class GameMidlet extends ProgressMidlet
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, midletStrings.COMMAND_ACTION, e));
             if (command != GameCommandsFactory.getInstance().EXIT_COMMAND)
             {
                 this.exit(false);
@@ -809,7 +811,7 @@ public class GameMidlet extends ProgressMidlet
     {
         final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
 
-        final boolean isFullScreen = Features.getInstance().isFeature(mainFeatureFactory.FULL_SCREEN);
+        final boolean isFullScreen = features.isFeature(mainFeatureFactory.FULL_SCREEN);
         
         //fire should be called in Canvas setFullScreenMode
         //ScreenListenerHandler.getInstance().fire(isFullScreen);
@@ -873,17 +875,17 @@ public class GameMidlet extends ProgressMidlet
     protected HelpPaintable getHelpPaintable()
         throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     protected HighScoresCanvas createHighScoresCanvas() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void startGameCanvasRunnableInterface() throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "startGameCanvasRunnableInterface"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "startGameCanvasRunnableInterface"));
         
         thread = thread = ThreadFactoryUtil.getInstance().getInstance(
                 this.allbinaryGameCanvasRunnableInterface);
@@ -900,7 +902,7 @@ public class GameMidlet extends ProgressMidlet
 
     protected void stopGameCanvasRunnableInterface() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "stopGameCanvasRunnableInterface"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "stopGameCanvasRunnableInterface"));
 
         GameNotificationEventHandler.getInstance().removeAllListeners();
         ColorChangeEventHandler.getInstance().removeAllListeners();
@@ -927,7 +929,7 @@ public class GameMidlet extends ProgressMidlet
         // Wait for the thread to end then continue
         ThreadUtil.getInstance().join(this.thread);
         
-        if(Features.getInstance().isFeature(MainFeatureFactory.getInstance().LOAD_ALL))
+        if(features.isFeature(MainFeatureFactory.getInstance().LOAD_ALL))
         {
             ProgressCanvasFactory.getInstance().addPortion(50, "Stopped Game Runnable");
         }
@@ -937,7 +939,7 @@ public class GameMidlet extends ProgressMidlet
         }
         
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "stopGameCanvasRunnableInterface"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "stopGameCanvasRunnableInterface"));
     }
 
     public GameCanvasRunnableInterface getGameCanvasRunnableInterface()
@@ -963,8 +965,8 @@ public class GameMidlet extends ProgressMidlet
             GameMode.SERVER, 1, 1);
 
         return new AllBinaryGameLayerManager(
-                BasicColorFactory.getInstance().BLACK,
-                BasicColorFactory.getInstance().WHITE, 
+                basicColorFactory.BLACK,
+                basicColorFactory.WHITE, 
                 gameInfo);
     }
 
@@ -986,7 +988,7 @@ public class GameMidlet extends ProgressMidlet
 
     public void save() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "save"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "save"));
 
         Hashtable hashtable = this.getCurrentStateHashtable();
         GamePersistanceSingleton.getInstance().save(hashtable);
@@ -994,7 +996,7 @@ public class GameMidlet extends ProgressMidlet
 
     public Hashtable getCurrentStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "getCurrentStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "getCurrentStateHashtable"));
         final Hashtable hashtable = new Hashtable();
 
         if (this.allbinaryGameCanvasRunnableInterface != null)
