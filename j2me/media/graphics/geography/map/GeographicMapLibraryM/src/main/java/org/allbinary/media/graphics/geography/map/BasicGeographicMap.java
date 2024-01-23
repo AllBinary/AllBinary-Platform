@@ -16,6 +16,7 @@ package org.allbinary.media.graphics.geography.map;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.layer.Layer;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicGeographicMap
     extends SimpleGeographicMap
@@ -82,6 +83,31 @@ public class BasicGeographicMap
         }
     }
 
+    public BasicArrayList getCellPositionAtNoThrow(final int x, final int y, final int x2, final int y2, 
+            final BasicArrayList geographicMapCellPositionList) throws Exception
+    {
+        geographicMapCellPositionList.clear();
+        
+        final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
+        final int i_columnMin = Math.abs(x / allBinaryTiledLayer.getCellHeight());
+        final int i_rowMin = Math.abs(y / allBinaryTiledLayer.getCellWidth());
+        final int i_columnMax = Math.abs(x2 / allBinaryTiledLayer.getCellHeight());
+        final int i_rowMax = Math.abs(y2 / allBinaryTiledLayer.getCellWidth());
+        
+        for (int columnIndex = i_columnMin; columnIndex < i_columnMax; columnIndex++) {
+            for (int rowIndex = i_rowMin; rowIndex < i_rowMax; rowIndex++) {
+                if (allBinaryTiledLayer.getColumns() > columnIndex
+                        && allBinaryTiledLayer.getRows() > rowIndex) {
+                    geographicMapCellPositionList.add(
+                            geographicMapCellPositionFactory.getInstance(columnIndex, rowIndex)
+                    );
+                }
+            }
+        }
+
+        return geographicMapCellPositionList;
+    }
+    
     // Assumes array is tied to the ratio of tile cell width and height
     public boolean getCellPositionsAt(final Layer layer,
             final GeographicMapCellPosition[][] currentCellPositionArray,
