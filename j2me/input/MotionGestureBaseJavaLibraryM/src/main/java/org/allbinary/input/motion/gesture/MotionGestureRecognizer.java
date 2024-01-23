@@ -87,7 +87,6 @@ public class MotionGestureRecognizer
         //LogUtil.put(LogFactory.getInstance("Firing Event: " + event, this, "processReleasedMotionEvent"));
         
         motionGesturesHandler.fireEvent(event);
-        movedMotionGesturesHandler.fireEvent(event);
 
         return true;
     }
