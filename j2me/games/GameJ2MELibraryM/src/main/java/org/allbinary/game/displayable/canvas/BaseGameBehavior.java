@@ -17,8 +17,6 @@ import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.TouchFeatureFactory;
-import org.allbinary.game.input.PlayerGameInput;
-import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.paint.NullPaintable;
