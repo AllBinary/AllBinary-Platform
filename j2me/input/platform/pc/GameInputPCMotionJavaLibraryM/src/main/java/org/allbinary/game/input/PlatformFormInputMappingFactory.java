@@ -37,6 +37,7 @@ public class PlatformFormInputMappingFactory
                 final InputToGameKeyMapping inputToGameKeyMapping = new InputToGameKeyMapping();
 
                 final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+                final BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
                 
         inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.DPAD_UP);
         inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.DPAD_DOWN);
@@ -47,10 +48,10 @@ public class PlatformFormInputMappingFactory
 
                 //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, androidKeyFactory.DPAD_CENTER);
 
-                inputToGameKeyMapping.add(gameKeyFactory.UP, BasicTouchInputFactory.getInstance().UP);
-                inputToGameKeyMapping.add(gameKeyFactory.LEFT, BasicTouchInputFactory.getInstance().LEFT);
-                inputToGameKeyMapping.add(gameKeyFactory.RIGHT, BasicTouchInputFactory.getInstance().RIGHT);
-                inputToGameKeyMapping.add(gameKeyFactory.DOWN, BasicTouchInputFactory.getInstance().DOWN);
+                inputToGameKeyMapping.add(gameKeyFactory.UP, basicTouchInputFactory.UP);
+                inputToGameKeyMapping.add(gameKeyFactory.LEFT, basicTouchInputFactory.LEFT);
+                inputToGameKeyMapping.add(gameKeyFactory.RIGHT, basicTouchInputFactory.RIGHT);
+                inputToGameKeyMapping.add(gameKeyFactory.DOWN, basicTouchInputFactory.DOWN);
                 
                 SINGLETON = inputToGameKeyMapping;
             }

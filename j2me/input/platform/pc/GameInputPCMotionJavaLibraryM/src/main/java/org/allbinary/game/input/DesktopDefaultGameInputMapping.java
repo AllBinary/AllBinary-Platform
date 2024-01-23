@@ -30,6 +30,8 @@ public class DesktopDefaultGameInputMapping extends PersistentInputMapping
 
         final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
+        final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+        final BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
         
         inputToGameKeyMapping.add(gameKeyFactory.FIRE, pcKeyFactory.ENTER);
         
@@ -99,13 +101,13 @@ public class DesktopDefaultGameInputMapping extends PersistentInputMapping
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, pcKeyFactory.x);
 
         //
-        inputToGameKeyMapping.add(gameKeyFactory.UP, TouchMotionGestureFactory.getInstance().UP);
-        inputToGameKeyMapping.add(gameKeyFactory.DOWN, TouchMotionGestureFactory.getInstance().DOWN);
-        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, TouchMotionGestureFactory.getInstance().TOUCH);
-        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_LEFT);
-        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT);
-        inputToGameKeyMapping.add(gameKeyFactory.LEFT, TouchMotionGestureFactory.getInstance().LEFT);
-        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, TouchMotionGestureFactory.getInstance().RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, touchMotionGestureFactory.UP);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, touchMotionGestureFactory.DOWN);
+        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, touchMotionGestureFactory.TOUCH);
+        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, touchMotionGestureFactory.DIAGONAL_DOWN_LEFT);
+        //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM5, touchMotionGestureFactory.DIAGONAL_DOWN_RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, touchMotionGestureFactory.LEFT);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, touchMotionGestureFactory.RIGHT);
 
         //
 
@@ -116,19 +118,19 @@ public class DesktopDefaultGameInputMapping extends PersistentInputMapping
 
         //
 
-        inputToGameKeyMapping.add(gameKeyFactory.UP, BasicTouchInputFactory.getInstance().UP);
-        inputToGameKeyMapping.add(gameKeyFactory.LEFT, BasicTouchInputFactory.getInstance().LEFT);
-        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, BasicTouchInputFactory.getInstance().RIGHT);
-        inputToGameKeyMapping.add(gameKeyFactory.DOWN, BasicTouchInputFactory.getInstance().DOWN);
+        inputToGameKeyMapping.add(gameKeyFactory.UP, basicTouchInputFactory.UP);
+        inputToGameKeyMapping.add(gameKeyFactory.LEFT, basicTouchInputFactory.LEFT);
+        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, basicTouchInputFactory.RIGHT);
+        inputToGameKeyMapping.add(gameKeyFactory.DOWN, basicTouchInputFactory.DOWN);
 
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_FIVE);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_FOUR);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_THREE);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_TWO);
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_ONE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM0, basicTouchInputFactory.SPECIAL_BUTTON_FIVE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM7, basicTouchInputFactory.SPECIAL_BUTTON_FOUR);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM9, basicTouchInputFactory.SPECIAL_BUTTON_THREE);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, basicTouchInputFactory.SPECIAL_BUTTON_TWO);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, basicTouchInputFactory.SPECIAL_BUTTON_ONE);
 
         //
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM2, BasicTouchInputFactory.getInstance().SPECIAL_BUTTON_SIX);
+        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM2, basicTouchInputFactory.SPECIAL_BUTTON_SIX);
 
         inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM3, pcKeyFactory.THREE);
 

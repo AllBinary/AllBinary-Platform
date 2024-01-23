@@ -43,51 +43,54 @@ public class CompleteMotionGestureInputToGameMotionGestureInput
         {
             PreLogUtil.put("Compound Motion Gestures", instance, CommonStrings.getInstance().INIT);
 
-            MotionGestureConfiguration motionGestureConfiguration = 
+            final MotionGestureConfiguration motionGestureConfiguration = 
                 MotionGestureConfigurationFactory.getInstance();
+            
+            final TouchMotionGestureFactory touchMotionGestureFactory = 
+                    TouchMotionGestureFactory.getInstance();
 
             BasicArrayList list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_LEFT);
+            list.add(touchMotionGestureFactory.DIAGONAL_DOWN_LEFT);
             motionGestureConfiguration.addMotionGestureAction(list,
                     DiagonalDownLeftTouchInputToGameKeyEventAction.getInstance());
 
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().DIAGONAL_DOWN_RIGHT);
+            list.add(touchMotionGestureFactory.DIAGONAL_DOWN_RIGHT);
             motionGestureConfiguration.addMotionGestureAction(list,
                     DiagonalDownRightTouchInputToGameKeyEventAction.getInstance());
 
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().DIAGONAL_UP_LEFT);
+            list.add(touchMotionGestureFactory.DIAGONAL_UP_LEFT);
             motionGestureConfiguration.addMotionGestureAction(list,
                     DiagonalUpLeftTouchInputToGameKeyEventAction.getInstance());
 
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().DIAGONAL_UP_RIGHT);
+            list.add(touchMotionGestureFactory.DIAGONAL_UP_RIGHT);
             motionGestureConfiguration.addMotionGestureAction(list,
                     DiagonalUpRightTouchInputToGameKeyEventAction.getInstance());
             
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().LEFT);
+            list.add(touchMotionGestureFactory.LEFT);
             motionGestureConfiguration.addMotionGestureAction(list,
                     LeftTouchInputToGameKeyEventAction.getInstance());
 
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().RIGHT);
+            list.add(touchMotionGestureFactory.RIGHT);
             motionGestureConfiguration.addMotionGestureAction(list,
                     RightTouchInputToGameKeyEventAction.getInstance());
 
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().DOWN);
+            list.add(touchMotionGestureFactory.DOWN);
             motionGestureConfiguration.addMotionGestureAction(list,
                     DownTouchInputToGameKeyEventAction.getInstance());
 
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().UP);
+            list.add(touchMotionGestureFactory.UP);
             motionGestureConfiguration.addMotionGestureAction(list,
                     UpTouchInputToGameKeyEventAction.getInstance());
 
             list = new BasicArrayList();
-            list.add(TouchMotionGestureFactory.getInstance().RELEASED);
+            list.add(touchMotionGestureFactory.RELEASED);
             motionGestureConfiguration.addMotionGestureAction(list,
                     ReleaseTouchInputToGameKeyEventAction.getInstance());
             
