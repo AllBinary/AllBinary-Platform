@@ -31,13 +31,13 @@ import javax.microedition.midlet.MIDlet;
 import javax.microedition.midlet.MIDletStateChangeException;
 import org.allbinary.logic.string.CommonLabels;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.system.Memory;
 
@@ -45,13 +45,15 @@ import org.allbinary.system.Memory;
 public class AllBinaryMidlet extends MIDlet 
 implements CommandListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private Hashtable hashtable = new Hashtable();
     private boolean destroyed;
 
     public AllBinaryMidlet()
     {
         LogUtil.put(LogFactory.getInstance(
-                CommonStrings.getInstance().CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet"));
+                commonStrings.CONSTRUCTOR, this, "AllBinaryMidlet::AllBinaryMidlet"));
     }
 
     protected void setDisplay(final Displayable newDisplay)
@@ -115,7 +117,7 @@ implements CommandListener
         {
             final String METHOD_NAME = "AllBinaryMidlet::destroyApp";
             
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
             
             PreLogUtil.put(Memory.getInfo(), this, METHOD_NAME);
             
@@ -123,7 +125,7 @@ implements CommandListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "AllBinaryMidlet::destroyApp", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "AllBinaryMidlet::destroyApp", e));
         }
     }
     
@@ -141,7 +143,7 @@ implements CommandListener
 
     public Hashtable getCurrentStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "getStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "getStateHashtable"));
         return new Hashtable();
     }
 

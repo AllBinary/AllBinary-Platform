@@ -15,6 +15,7 @@ package org.allbinary.graphics;
 
 import org.allbinary.graphics.GPoint;
 import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class Rectangle 
@@ -77,7 +78,7 @@ public class Rectangle
    
    public String toString()
    {
-       StringMaker stringBuffer = new StringMaker();
+       final StringMaker stringBuffer = new StringMaker();
        stringBuffer.append(this.getPoint().toString());
        stringBuffer.append(CommonSeps.getInstance().SPACE);
        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);

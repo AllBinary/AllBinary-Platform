@@ -47,21 +47,22 @@ public class CellPositionFactory
       this.columns = columns;
       this.rows = rows;
 
-      StringMaker stringBuffer = new StringMaker();
+      final CommonStrings commonStrings = CommonStrings.getInstance();
+      final StringMaker stringBuffer = new StringMaker();
       
       stringBuffer.append("Init: columns: ");
       stringBuffer.append(columns);
       stringBuffer.append(" rows: ");
       stringBuffer.append(rows);
       
-      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
       
       for (int column = 0; column < columns; column++)
       {
-         // LogUtil.put(LogFactory.getInstance("Initializing Column: ").append(col, this, CommonStrings.getInstance().INIT));
+         // LogUtil.put(LogFactory.getInstance("Initializing Column: ").append(col, this, commonStrings.INIT));
          for (int row = 0; row < rows; row++)
          {
-            // LogUtil.put(LogFactory.getInstance("Initializing Row: ").append(row, this, CommonStrings.getInstance().INIT));
+            // LogUtil.put(LogFactory.getInstance("Initializing Row: ").append(row, this, commonStrings.INIT));
             //CellPosition cellPosition =
                this.createInstance(column, row);
          }
@@ -76,7 +77,8 @@ public class CellPositionFactory
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(new StringMaker().append("columns: ").append(this.getColumns()).append(" rows: ").append(this.getRows()).append(" col: ").append(i_column).append(" row: ").append(i_row).toString(), this, CommonStrings.getInstance().GET_INSTANCE, e));
+          final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append("columns: ").append(this.getColumns()).append(" rows: ").append(this.getRows()).append(" col: ").append(i_column).append(" row: ").append(i_row).toString(), this, commonStrings.GET_INSTANCE, e));
          return null;
       }
    }

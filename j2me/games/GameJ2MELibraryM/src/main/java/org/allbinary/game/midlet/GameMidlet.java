@@ -108,7 +108,6 @@ import org.allbinary.util.BasicArrayList;
 public class GameMidlet extends ProgressMidlet
     implements CommandListener //, GameMidletEventListener
 {
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final Features features = Features.getInstance();
     protected final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
