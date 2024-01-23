@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.GameInfo;
@@ -47,7 +46,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     private Paintable paintable;
 
     private final SimpleTextPaintable waitPaintable = new SimpleTextPaintable(
-            CommonStrings.getInstance().PLEASE_WAIT_FOR_SERVER, 
+            commonStrings.PLEASE_WAIT_FOR_SERVER, 
             BasicColorFactory.getInstance().WHITE);
 
     private final HighScoresPaintable highScoresPaintable;
@@ -90,7 +89,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.highScoresPaintable = paintable;
 
@@ -166,7 +165,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
         }
     }
 
@@ -189,9 +188,9 @@ public class HighScoresCanvas extends GameCommandCanvas
             throws Exception
     {
 //        if(highScoresArray != null) {
-//            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START).append(highScoresArray.length, this, "setHighScoresArray"));
+//            LogUtil.put(LogFactory.getInstance(commonStrings.START).append(highScoresArray.length, this, "setHighScoresArray"));
 //        } else {
-//            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "setHighScoresArray"));
+//            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
 //        }
         
         this.highScoresArray = highScoresArray;
@@ -207,7 +206,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     public void updateCommand(Command command) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().START).append(command).toString(), this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(command).toString(), this, commonStrings.UPDATE));
 
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
@@ -219,7 +218,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         {
             int index = highScoreCommandsFactory.getIndex(command);
             
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START).append(index, this, CommonStrings.getInstance().UPDATE));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START).append(index, this, commonStrings.UPDATE));
             
             int nextIndex = index + 1;
 

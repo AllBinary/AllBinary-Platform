@@ -131,7 +131,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void pause()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "MyCanvas::pause"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "MyCanvas::pause"));
         this.removePauseCommand();
         this.addCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.setPaused(true);
@@ -139,7 +139,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void unPause()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "MyCanvas::unPause"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "MyCanvas::unPause"));
 
         this.removeCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.addCommand(MyCommandsFactory.getInstance().PAUSE_COMMAND);
@@ -192,24 +192,24 @@ public class MyCanvas extends Canvas
     
     protected void pointerDragged(int x, int y)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "pointerDragged"));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "pointerDragged");
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "pointerDragged"));
+        //PreLogUtil.put(commonStrings.START, this, "pointerDragged");
 
         touchME.pointerDragged(x, y);
     }
 
     protected void pointerPressed(int x, int y)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "pointerPressed"));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "pointerPressed");
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "pointerPressed"));
+        //PreLogUtil.put(commonStrings.START, this, "pointerPressed");
 
         touchME.pointerPressed(x, y);
     }
 
     protected void pointerReleased(int x, int y)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "pointerReleased"));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "pointerReleased");
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "pointerReleased"));
+        //PreLogUtil.put(commonStrings.START, this, "pointerReleased");
 
         touchME.pointerReleased(x, y);
     }
