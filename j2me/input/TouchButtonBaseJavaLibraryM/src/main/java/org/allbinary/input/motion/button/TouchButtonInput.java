@@ -37,7 +37,7 @@ public final class TouchButtonInput extends Input
 
         this.inputFactory.add(this.getId(), this);
         
-        //LogUtil.put(LogFactory.getInstance("Created", this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance("Created", this, commonStrings.CONSTRUCTOR));
     }
 
     public void update(InputToGameKeyMapping inputToGameKeyMapping)
@@ -49,7 +49,8 @@ public final class TouchButtonInput extends Input
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
         }
     }
 

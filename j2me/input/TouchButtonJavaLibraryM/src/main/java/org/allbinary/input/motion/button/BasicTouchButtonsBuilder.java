@@ -24,11 +24,13 @@ import org.allbinary.animation.FeaturedAnimationInterfaceFactoryInterfaceFactory
 public class BasicTouchButtonsBuilder
     extends BaseTouchInput
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public BasicArrayList getList()
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
             
             final BasicArrayList list = new BasicArrayList();
             
@@ -88,7 +90,7 @@ TouchButtonStrafeRightResource.RESOURCE).getInstance();
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_LIST, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e));
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }

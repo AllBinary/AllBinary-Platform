@@ -30,12 +30,14 @@ public class BasicTouchButtonsBuilder
     {
         return SINGLETON;
     }
+    
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
     public BasicArrayList getList()
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().GET_LIST));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.GET_LIST));
             
             final BasicArrayList list = new BasicArrayList();
             
@@ -43,7 +45,7 @@ public class BasicTouchButtonsBuilder
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_LIST, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_LIST, e));
             return BasicArrayListUtil.getInstance().getImmutableInstance();
         }
     }

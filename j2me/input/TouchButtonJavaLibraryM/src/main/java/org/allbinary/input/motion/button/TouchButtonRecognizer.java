@@ -118,12 +118,12 @@ public class TouchButtonRecognizer
     {
         if(TouchScreenFactory.getInstance().isMultiTouch())
         {
-            //PreLogUtil.put("Multitouch Release Helper", this, CommonStrings.getInstance().CONSTRUCTOR);
+            //PreLogUtil.put("Multitouch Release Helper", this, commonStrings.CONSTRUCTOR);
             this.releaseHelper = new MultitouchReleaseHelper(this);
         }
         else
         {
-            //PreLogUtil.put("Singletouch Release Helper", this, CommonStrings.getInstance().CONSTRUCTOR);
+            //PreLogUtil.put("Singletouch Release Helper", this, commonStrings.CONSTRUCTOR);
             this.releaseHelper = new ReleaseHelper(this);
         }
         
@@ -133,7 +133,7 @@ public class TouchButtonRecognizer
          * touchButton = (TouchButton) list.get(index);
          * 
          * LogUtil.put(LogFactory.getInstance(touchButton.toString(), this,
-         * CommonStrings.getInstance().CONSTRUCTOR)); }
+         * commonStrings.CONSTRUCTOR)); }
          */
     }
 
@@ -234,7 +234,7 @@ public class TouchButtonRecognizer
     public synchronized boolean pressTouchButtonInput(int x, int y, int deviceId)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("Current: " + x + CommonStrings.getInstance().SPACE + y, this, "processTouchButtonInput"));
+        //LogUtil.put(LogFactory.getInstance("Current: " + x + commonStrings.SPACE + y, this, "processTouchButtonInput"));
         
         /*
         StringMaker stringBuffer = new StringMaker();

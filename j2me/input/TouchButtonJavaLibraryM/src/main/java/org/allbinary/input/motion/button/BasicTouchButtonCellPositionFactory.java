@@ -21,6 +21,8 @@ import org.allbinary.graphics.CellPositionFactory;
 
 public class BasicTouchButtonCellPositionFactory
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public final CellPosition TOP_RIGHT;
     public final CellPosition TOP_LEFT;
 
@@ -53,7 +55,7 @@ public class BasicTouchButtonCellPositionFactory
 
     public BasicTouchButtonCellPositionFactory()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
         
         final TouchButtonLocationHelper touchButtonLocationHelper = new TouchButtonLocationHelper();
 
