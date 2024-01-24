@@ -30,7 +30,7 @@ public class HighScoresHelper
 
     public void setHighScoresArray(HighScores[] highScores)
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + highScores.length, this, "setHighScoresArray");
+        //PreLogUtil.put(commonStrings.START_LABEL + highScores.length, this, "setHighScoresArray");
         
         this.highScoresArray = highScores;
 
@@ -43,7 +43,7 @@ public class HighScoresHelper
     {        
         HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
 
-        //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + highScores.toString(), this, "getSelectHighScores");
+        //PreLogUtil.put(commonStrings.START_LABEL + highScores.toString(), this, "getSelectHighScores");
         
         //just in case infinite loop
         int index = 0;

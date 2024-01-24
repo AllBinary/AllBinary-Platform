@@ -26,6 +26,8 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class PlayerComposite implements Controllable, Player
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final Player player;
     private final TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(0);
     
@@ -110,7 +112,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "prefetch", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "prefetch", e));
         }
     }
 
@@ -122,7 +124,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "realize", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "realize", e));
         }
     }
 
@@ -140,12 +142,12 @@ public class PlayerComposite implements Controllable, Player
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance()));
+            // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings));
             return this.player.setMediaTime(now);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "setMediaTime", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "setMediaTime", e));
             return -1;
         }
     }
@@ -165,7 +167,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().START_METHOD_NAME, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e));
         }
     }
 
@@ -177,7 +179,7 @@ public class PlayerComposite implements Controllable, Player
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "stop", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "stop", e));
         }
     }
 

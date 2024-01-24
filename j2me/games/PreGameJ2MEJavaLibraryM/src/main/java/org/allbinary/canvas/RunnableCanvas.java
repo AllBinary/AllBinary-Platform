@@ -65,7 +65,7 @@ public class RunnableCanvas extends MyCanvas
     //Empty method for overriding 
     public void initCommands(CommandListener cmdListener)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "initCommands"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, "initCommands"));
     }
 
     public boolean isMainCanvas()

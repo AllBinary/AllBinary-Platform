@@ -180,7 +180,8 @@ public class GameConfigurationCentral
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "load", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "load", e));
         }
 
         // Load Scale Value
@@ -203,7 +204,7 @@ public class GameConfigurationCentral
         CommonSeps commonStrings = CommonSeps.getInstance();
 
         // stringBuffer.append(this.INPUT_WAIT.getName());
-        // stringBuffer.append(CommonStrings.getInstance().EQUALS);
+        // stringBuffer.append(commonStrings.EQUALS);
         // stringBuffer.append(this.INPUT_WAIT.getValue());
 
         stringBuffer.append(commonStrings.COMMA_SEP);

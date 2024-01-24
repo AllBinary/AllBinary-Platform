@@ -119,7 +119,8 @@ public class HighScoreNamePersistanceSingleton
         } catch (Exception e)
         {
             this.save(this.name);
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, LOAD));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, LOAD));
         }
         return this.name;
     }
@@ -147,7 +148,8 @@ public class HighScoreNamePersistanceSingleton
             
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "save", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "save", e));
         }
     }
 }

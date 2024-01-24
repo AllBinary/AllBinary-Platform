@@ -51,15 +51,15 @@ public class ScoreComparator
       }
       catch (EOFException e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "matches", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "matches", e));
       }
       catch (IOException e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "matches", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "matches", e));
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "matches", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "matches", e));
       }
       return (this.searchName.equals(name));
    }
@@ -86,7 +86,8 @@ public class ScoreComparator
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "compare", e));
+          final CommonStrings commonStrings = CommonStrings.getInstance();
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "compare", e));
       }
 
       if(this.isHighestBest)

@@ -30,6 +30,8 @@ public class Features
 {
     private static final Features SINGLETON = new Features();
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final BasicArrayList list;
     private final BasicArrayList defaultList;
 
@@ -50,7 +52,7 @@ public class Features
     public void addDefault(Feature gameFeature) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(
-          //      CommonStrings.getInstance().START_LABEL).append(gameFeature.toString(), 
+          //      commonStrings.START_LABEL).append(gameFeature.toString(), 
             //    "GameFeature", "addDefault"));
 
         this.add(gameFeature);
@@ -70,7 +72,7 @@ public class Features
 //                ForcedLogUtil.log("here it is: ").append(this.getClass().getClassLoader().getClass().getName()).append(this.getClass().getClassLoader().hashCode() , this);
 //            }
             LogUtil.put(LogFactory.getInstance(
-                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, CommonStrings.getInstance().ADD));
+                    new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, commonStrings.ADD));
 
             list.add(gameFeature);
 
@@ -93,7 +95,7 @@ public class Features
     {
         if (list.contains(gameFeature))
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().REMOVE));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.REMOVE));
             list.remove(gameFeature);
             GameFeatureEventHandler.getInstance().fireEvent(
                     new GameFeatureEvent(gameFeature, gameFeature.toString()));
@@ -150,7 +152,7 @@ public class Features
         }
         catch (Exception e)
         {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e);
+            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
         }
     }
 

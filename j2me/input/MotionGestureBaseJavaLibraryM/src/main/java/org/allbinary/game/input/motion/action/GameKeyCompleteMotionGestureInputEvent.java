@@ -45,7 +45,7 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         GameKeyCompleteMotionGestureInputEventFactory.getInstance().add(this);
         
         this.update();
-        //LogUtil.put(LogFactory.getInstance(name + " mapped to gameKey: " + this.getGameKey(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(name + " mapped to gameKey: " + this.getGameKey(), this, commonStrings.CONSTRUCTOR));
     }
 
     public int getSourceId()
@@ -64,7 +64,8 @@ public class GameKeyCompleteMotionGestureInputEvent extends
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
         }
     }
 

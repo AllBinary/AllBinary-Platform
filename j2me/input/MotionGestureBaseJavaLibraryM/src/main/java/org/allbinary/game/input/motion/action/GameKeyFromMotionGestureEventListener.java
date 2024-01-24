@@ -48,8 +48,8 @@ extends CompleteMotionGestureInputEventListener
             GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = 
                 (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
 
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent"));
-            //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent"));
+            //PreLogUtil.put(commonStrings.START_LABEL + gameKeyCompleteMotionGestureInputEvent.getGameKey(), this, "onCompleteMotionGestureInputEvent");
             
             GameKeyEvent gameKeyEvent = gameKeyCompleteMotionGestureInputEvent.getGameKeyEvent();
 
@@ -83,7 +83,8 @@ extends CompleteMotionGestureInputEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onCompleteMotionGestureInputEvent", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e));
         }
     }
 }

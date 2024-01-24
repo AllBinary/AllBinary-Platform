@@ -61,7 +61,8 @@ public class MotionGestureRecognizer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
         }
         
         this.motionGesturesHandler = motionGesturesHandler;
@@ -71,8 +72,8 @@ public class MotionGestureRecognizer
     public boolean processPressedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + current.toString(), this, "processPressedMotionEvent"));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processPressedMotionEvent");
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + current.toString(), this, "processPressedMotionEvent"));
+        //PreLogUtil.put(commonStrings.START, this, "processPressedMotionEvent");
 
         intermediate = origin;
         previous = origin;
@@ -94,7 +95,7 @@ public class MotionGestureRecognizer
     public boolean processReleasedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
 
         /*
          * if(this.touchButtonRecognizer.processTouchButtonInput(UpGameKeyEventHandler
@@ -120,7 +121,7 @@ public class MotionGestureRecognizer
     // public Line processDraggedMotionEvent(GPoint current, int buttonMask)
             throws Exception
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "processDraggedMotionEvent");
+        //PreLogUtil.put(commonStrings.START, this, "processDraggedMotionEvent");
         
         /*
          * if (buttonMask !=
@@ -260,7 +261,7 @@ public class MotionGestureRecognizer
     public boolean processMovedMotionEvent(final GPoint current, final int deviceId, final int button)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + current.toString(), this, "processReleasedMotionEvent"));
 
         final MotionGestureEvent event =
             this.motionEventCircularPool.getInstance(

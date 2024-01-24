@@ -42,7 +42,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     private final CustomGaugeItem gauge;
 
-    private final String TEXT = CommonStrings.getInstance().LOADING;
+    private final String TEXT = commonStrings.LOADING;
     private String text = TEXT;
 
     private boolean background = true;
@@ -99,10 +99,10 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void start()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().START_METHOD_NAME));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.START_METHOD_NAME));
         this.setBackground(true);
         this.gauge.setHeight(30);
-        this.gauge.setLabel(CommonStrings.getInstance().PLEASE_WAIT);
+        this.gauge.setLabel(commonStrings.PLEASE_WAIT);
         this.setText(TEXT);
         this.setValue(0);
         //this.setDisplayed(false);
@@ -112,7 +112,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void startBackground(boolean background)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "startBackground"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "startBackground"));
         this.setBackground(background);
         this.gauge.setHeight(MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2);
         this.gauge.setLabel(backgroundLabel);
@@ -122,7 +122,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     public void end()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().END_METHOD_NAME));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
         this.gauge.setValue(this.getMaxValue());
         //getCommandListener()
         this.allbinaryMidlet.commandAction(
@@ -146,7 +146,7 @@ public class ProgressCanvas extends RunnableCanvas
     {
         this.setText(new StringMaker().append(text).append(SmallIntegerSingletonFactory.getInstance().getInstance(index)).toString());
         
-        //CommonStrings.getInstance().START_LABEL).append(
+        //commonStrings.START_LABEL).append(
         //LogUtil.put(LogFactory.getInstance(this.text, this, ADD_PORTION));
         PreLogUtil.put(this.text, this, ADD_PORTION);
 
@@ -160,7 +160,7 @@ public class ProgressCanvas extends RunnableCanvas
     {
         this.setText(text);
         
-        //CommonStrings.getInstance().START_LABEL).append(
+        //commonStrings.START_LABEL).append(
         //LogUtil.put(LogFactory.getInstance(text, this, ADD_PORTION));
         PreLogUtil.put(this.text, this, ADD_PORTION);
 
@@ -178,7 +178,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void paint(Graphics graphics)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "paint"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "paint"));
      
         this.gauge.paint(graphics, 0, 0);
     }
@@ -207,7 +207,7 @@ public class ProgressCanvas extends RunnableCanvas
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this,
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
                     "waitUntilDisplayed", e));
         }
     }

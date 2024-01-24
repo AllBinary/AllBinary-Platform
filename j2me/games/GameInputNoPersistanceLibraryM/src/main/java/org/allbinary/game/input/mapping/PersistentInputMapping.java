@@ -28,6 +28,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public static final String DEFAULT_SAVE_NAME = "_Default_Input_Mapping";
     public static final String SAVE_NAME = "_Saved_Input_Configuration";
 
@@ -95,7 +97,7 @@ public class PersistentInputMapping
     public void init() 
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
         //Write out the default mappings and reload if something went wrong
         //This could happen if file is not deleted between versions and something changed
         try
@@ -104,8 +106,8 @@ public class PersistentInputMapping
         }
         catch(Exception e)
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e));
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e);
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
+            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
             inputPersistance.deleteAll();
             this.setDefault();
             //this.setDefault((InputToGameKeyMapping) this);
@@ -141,7 +143,7 @@ public class PersistentInputMapping
         stringBuffer.append(" to: ");
         stringBuffer.append(totalMappedTo);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
     }
 
     public void setInputMappingEventListenerInterface(

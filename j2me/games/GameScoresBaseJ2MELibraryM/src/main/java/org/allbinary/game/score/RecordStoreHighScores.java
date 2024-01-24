@@ -37,6 +37,8 @@ public class RecordStoreHighScores extends HighScores
 {
     private static final Hashtable hashTable = new Hashtable();
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final String RECORD_ID = "_HighScores";
     private final int MAXHIGHSCORES = 100;
 
@@ -74,12 +76,12 @@ public class RecordStoreHighScores extends HighScores
         try
         {
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore: ").append(newHighScore.getScore()).toString(),
-                    this, CommonStrings.getInstance().ADD));
+                    this, commonStrings.ADD));
 
             // remove score replacing
             if (this.isTooManyHighScores())
             {
-                LogUtil.put(LogFactory.getInstance("Removing Lowest Score", this, CommonStrings.getInstance().ADD));
+                LogUtil.put(LogFactory.getInstance("Removing Lowest Score", this, commonStrings.ADD));
 
                 this.removeLowestHighScore();
             }
@@ -96,17 +98,17 @@ public class RecordStoreHighScores extends HighScores
         }
         catch (RecordStoreException e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
             // throw e;
         }
         catch (IOException e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
             // throw e;
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
             // throw e;
         }
     }
@@ -153,12 +155,12 @@ public class RecordStoreHighScores extends HighScores
         }
         catch (RecordStoreException e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
             // throw e;
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
             // throw e;
         }
     }
@@ -233,15 +235,15 @@ public class RecordStoreHighScores extends HighScores
         }
         catch (RecordStoreException e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().UNKNOWN, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, "load", e));
         }
         catch (IOException e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().UNKNOWN, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, "load", e));
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().UNKNOWN, this, "load", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, "load", e));
         }
     }
 
@@ -298,7 +300,7 @@ public class RecordStoreHighScores extends HighScores
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
             throw e;
         }
     }

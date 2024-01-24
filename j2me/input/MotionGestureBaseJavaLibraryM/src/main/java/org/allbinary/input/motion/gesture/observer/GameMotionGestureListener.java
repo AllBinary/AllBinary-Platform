@@ -27,6 +27,8 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameMotionGestureListener implements MotionGestureEventListener
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private BasicArrayList motionGestureCollection = new BasicArrayList();
     private BasicArrayList touchGestureCollection = new BasicArrayList();
     private CompleteMotionGestureListenerInterface signed;
@@ -34,13 +36,13 @@ public class GameMotionGestureListener implements MotionGestureEventListener
     public GameMotionGestureListener(
             CompleteMotionGestureListenerInterface signed)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
         this.signed = signed;
     }
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 
     public void onUpMotionGestureEvent(MotionGestureEvent ev)
@@ -103,7 +105,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         {
            StringMaker stringBuffer = new StringMaker();
 
-           stringBuffer.append(CommonStrings.getInstance().EXCEPTION_LABEL);
+           stringBuffer.append(commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(ev.getMotionGesture());
 
            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "release", e));
@@ -135,7 +137,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         {
            StringMaker stringBuffer = new StringMaker();
 
-           stringBuffer.append(CommonStrings.getInstance().EXCEPTION_LABEL);
+           stringBuffer.append(commonStrings.EXCEPTION_LABEL);
            stringBuffer.append(ev.getMotionGesture());
 
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "onMotionGestureEvent", e));

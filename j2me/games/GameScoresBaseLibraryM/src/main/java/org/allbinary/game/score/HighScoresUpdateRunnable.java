@@ -24,6 +24,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class HighScoresUpdateRunnable
         implements Runnable
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final HighScoresCompositeInterface highScoresCompositeInterface;
 
    public HighScoresUpdateRunnable(HighScoresCompositeInterface highScoresCompositeInterface)
@@ -35,14 +37,14 @@ public class HighScoresUpdateRunnable
    {
       try
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_RUNNABLE, this, CommonStrings.getInstance().RUN));
+         LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
 
          this.highScoresCompositeInterface.setHighScores();
 
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END_RUNNABLE, this, CommonStrings.getInstance().RUN));
+         LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
       }
    }
 }
