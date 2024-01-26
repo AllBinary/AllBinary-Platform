@@ -27,7 +27,9 @@ implements ColorCompositeInterface
    private int width;
    private int height;
    
-   public CircleFilledAnimation(int width, int height, BasicColor basicColor) {
+   public CircleFilledAnimation(final int width, final int height, final BasicColor basicColor) {
+       super();
+
       this.width = width;
       this.height = height;
       this.setBasicColor(basicColor);

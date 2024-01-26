@@ -17,7 +17,7 @@ public class NullIndexedAnimationFactory implements
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
    private static NullIndexedAnimationFactory NULL_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
-   private final Animation NULL_ANIMATION = new NullIndexedAnimation();
+   private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance());
    
    private NullIndexedAnimationFactory()
    {

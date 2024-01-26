@@ -28,12 +28,14 @@ public class SimultaneousCompoundIndexedAnimation
 {
     private IndexedAnimation[] animationInterfaceArray;
 
-    public SimultaneousCompoundIndexedAnimation(IndexedAnimation[] animationInterfaceArray)
+    public SimultaneousCompoundIndexedAnimation(final IndexedAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
-    public void setFrame(int frameIndex)
+    public void setFrame(final int frameIndex)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -59,7 +61,7 @@ public class SimultaneousCompoundIndexedAnimation
         }
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
     }
 
@@ -76,7 +78,7 @@ public class SimultaneousCompoundIndexedAnimation
         }
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         int size = this.animationInterfaceArray.length;
         for(int index = 0; index < size; index++)
@@ -85,7 +87,7 @@ public class SimultaneousCompoundIndexedAnimation
         }
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         int size = this.animationInterfaceArray.length;
         for(int index = 0; index < size; index++)
@@ -105,7 +107,7 @@ public class SimultaneousCompoundIndexedAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(IndexedAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(final IndexedAnimation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }

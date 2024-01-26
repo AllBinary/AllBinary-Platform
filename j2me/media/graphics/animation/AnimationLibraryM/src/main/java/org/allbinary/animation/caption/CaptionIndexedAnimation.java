@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.media.Player;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationEventHandler;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -49,11 +50,14 @@ public class CaptionIndexedAnimation extends IndexedAnimation
 
     private Player player;
 
-    public CaptionIndexedAnimation(Animation animationInterface,
-            IndexedAnimation movieIndexedAnimationInterface,
-            Player player, int captionDx, int captionDy, int dx, int dy,
-            int time) throws Exception
+    public CaptionIndexedAnimation(final Animation animationInterface,
+            final IndexedAnimation movieIndexedAnimationInterface,
+            final Player player, final int captionDx, final int captionDy, 
+            final int dx, final int dy, final int time,
+            final AnimationBehavior animationBehavior) throws Exception
     {
+        super(animationBehavior);
+        
         this.animationInterface = animationInterface;
         this.movieIndexedAnimationInterface = movieIndexedAnimationInterface;
 

@@ -23,22 +23,25 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class IndexedAnimation extends Animation 
     implements IndexedAnimationInterface
 {
-    public long frameDelayTime;
-    public int loopTotal;
-    public int loopIndex;
+    protected AnimationBehavior animationBehavior;
     
-    protected IndexedAnimation()
+    private IndexedAnimation()
     {
 
     }
 
+    protected IndexedAnimation(final AnimationBehavior gnimationBehavior)
+    {
+        this.animationBehavior = animationBehavior;
+    }
+    
     public void reset()
     {
-        this.loopIndex = 0;
+        this.animationBehavior.reset();
         this.setFrame(0);
     }
     
-    public void setFrame(int index)
+    public void setFrame(final int index)
     {
 
     }
@@ -76,7 +79,7 @@ public class IndexedAnimation extends Animation
         }
     }
     
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
 
     }

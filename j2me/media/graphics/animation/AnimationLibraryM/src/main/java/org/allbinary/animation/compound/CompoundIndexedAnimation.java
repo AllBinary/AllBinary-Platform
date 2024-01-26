@@ -15,6 +15,7 @@ package org.allbinary.animation.compound;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.util.CircularIndexUtil;
 
@@ -32,13 +33,15 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     private CircularIndexUtil circularIndexUtil;
     private IndexedAnimation[] animationInterfaceArray;
 
-    public CompoundIndexedAnimation(IndexedAnimation[] animationInterfaceArray)
+    public CompoundIndexedAnimation(final IndexedAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+
         this.animationInterfaceArray = animationInterfaceArray;
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);
     }
     
-    public void setFrame(int index)
+    public void setFrame(final int index)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(index);
     }
@@ -73,12 +76,12 @@ public class CompoundIndexedAnimation extends IndexedAnimation
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].nextFrame();
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paint(graphics, x, y);
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreed(graphics, x, y, z);
     }
@@ -106,7 +109,7 @@ public class CompoundIndexedAnimation extends IndexedAnimation
         this.setFrame(frame);
     }
 
-    public void setAnimation(int index)
+    public void setAnimation(final int index)
     {
         int frame = this.getFrame();
         this.circularIndexUtil.setIndex(index);
@@ -124,12 +127,12 @@ public class CompoundIndexedAnimation extends IndexedAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(IndexedAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(final IndexedAnimation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
-    public void set(GL gl) throws Exception
+    public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {

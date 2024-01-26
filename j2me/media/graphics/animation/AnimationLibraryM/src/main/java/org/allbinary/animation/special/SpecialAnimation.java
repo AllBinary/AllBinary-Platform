@@ -13,20 +13,26 @@
 */
 package org.allbinary.animation.special;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
+import org.allbinary.animation.IndexedAnimationBehavior;
 
 public class SpecialAnimation extends IndexedAnimation implements SpecialAnimationInterface
 {
-    private static final SpecialAnimation NULL_ANIMATION = new SpecialAnimation();
+    private static final SpecialAnimation NULL_ANIMATION = new SpecialAnimation(new IndexedAnimationBehavior(1, 250));
 
     public static SpecialAnimation getInstance()
     {
         return NULL_ANIMATION;
     }
     
+    public SpecialAnimation(final AnimationBehavior animationBehavior) {
+        super(animationBehavior);
+    }
+    
     public void nextFrame()
     {
-        this.loopIndex++;
+        ((IndexedAnimationBehavior) this.animationBehavior).loopIndex++;
     }
     
     public void setLastFrame()

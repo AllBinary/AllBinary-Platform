@@ -17,11 +17,19 @@ public class SimultaneousCompoundIndexedAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface
 {
     private AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
+    private final AnimationBehavior animationBehavior;
 
     public SimultaneousCompoundIndexedAnimationInterfaceFactory(
-            AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
+            final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
+    {
+        this(basicAnimationInterfaceFactoryInterfaceArray, AnimationBehavior.getInstance());
+    }
+    
+    public SimultaneousCompoundIndexedAnimationInterfaceFactory(
+            final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, final AnimationBehavior animationBehavior)
     {
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        this.animationBehavior = animationBehavior;
     }
 
     public Animation getInstance() throws Exception
@@ -37,7 +45,7 @@ public class SimultaneousCompoundIndexedAnimationInterfaceFactory
                 this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
         }
 
-        return new SimultaneousCompoundIndexedAnimation(animationInterfaceArray);
+        return new SimultaneousCompoundIndexedAnimation(animationInterfaceArray, this.animationBehavior);
     }
     
    public void setInitialSize(final int width, final int height) {

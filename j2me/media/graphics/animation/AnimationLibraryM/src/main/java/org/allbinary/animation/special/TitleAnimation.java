@@ -14,11 +14,12 @@
 package org.allbinary.animation.special;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.IndexedAnimation;
+import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
@@ -44,19 +45,21 @@ public class TitleAnimation extends SpecialAnimation
     public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
             final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray)
     {
-        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, 0, Integer.MIN_VALUE, 250, 1);
+        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, 0, Integer.MIN_VALUE, new IndexedAnimationBehavior(1, 250));
     }
 
     public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
             final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width)
     {
-        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, 250, 1);
+        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
     }
     
-    public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
+    private TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
             final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width,
-            final int frameDelayTime, final int loopCountTotal)
+            final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.lastFrameStartTime = System.currentTimeMillis();
 
         this.animationInterfaceArray = animationInterfaceArray;
@@ -71,28 +74,26 @@ public class TitleAnimation extends SpecialAnimation
 
         this.width = width;
 
-        this.frameDelayTime = frameDelayTime;
-
-        this.loopTotal = loopCountTotal;
-        
         this.reset();
     }
 
     public void nextFrame()
     {
-        long currentTime = System.currentTimeMillis();
-        long totalTimeElapsed = currentTime - lastFrameStartTime;
+        final long currentTime = System.currentTimeMillis();
+        final long totalTimeElapsed = currentTime - lastFrameStartTime;
+
+        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.animationBehavior;
 
             // If Frame is up long enough
-            if (totalTimeElapsed > this.frameDelayTime)
+            if (totalTimeElapsed > indexedAnimationBehavior.frameDelayTime)
             {
                 this.previousFrame();
-                lastFrameStartTime = currentTime;
+                this.lastFrameStartTime = currentTime;
             }
             
             if(this.animationInterfaceArray[0].getFrame() == 0)
             {
-                loopIndex++;
+                indexedAnimationBehavior.loopIndex++;
             }
 
         /*
@@ -105,7 +106,10 @@ public class TitleAnimation extends SpecialAnimation
 
     public boolean isComplete()
     {
-        if(loopTotal == -1 || loopIndex < loopTotal || this.getFrame() != 0)
+        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.animationBehavior;
+        if(indexedAnimationBehavior.loopTotal == -1 || 
+            indexedAnimationBehavior.loopIndex < indexedAnimationBehavior.loopTotal || 
+            this.getFrame() != 0)
         {
             return false;
         }
@@ -152,7 +156,7 @@ public class TitleAnimation extends SpecialAnimation
     {
         // this.setFrame(0);
         this.setLastFrame();
-        this.loopIndex = 0;
+        ((IndexedAnimationBehavior) this.animationBehavior).reset();
     }
 
     //this is called from nextFrame. Logical? probably not.

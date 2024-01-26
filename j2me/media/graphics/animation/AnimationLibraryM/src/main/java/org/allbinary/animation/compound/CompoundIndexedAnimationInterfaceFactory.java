@@ -14,6 +14,7 @@
 package org.allbinary.animation.compound;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 
@@ -21,13 +22,20 @@ public class CompoundIndexedAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface
 {
     private AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
+    private final AnimationBehavior animationBehavior;
 
-    public CompoundIndexedAnimationInterfaceFactory(
-        AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
+    public CompoundIndexedAnimationInterfaceFactory(final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
     {
-        this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        this(basicAnimationInterfaceFactoryInterfaceArray, AnimationBehavior.getInstance());
     }
 
+    public CompoundIndexedAnimationInterfaceFactory(final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
+        final AnimationBehavior animationBehavior)
+    {
+        this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        this.animationBehavior = animationBehavior;
+    }
+    
     public Animation getInstance() throws Exception
     {
         int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
@@ -39,7 +47,7 @@ public class CompoundIndexedAnimationInterfaceFactory
             animationInterfaceArray[index] = (IndexedAnimation) this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
         }
 
-        return new CompoundIndexedAnimation(animationInterfaceArray);
+        return new CompoundIndexedAnimation(animationInterfaceArray, this.animationBehavior);
     }
     
    public void setInitialSize(final int width, final int height) {
