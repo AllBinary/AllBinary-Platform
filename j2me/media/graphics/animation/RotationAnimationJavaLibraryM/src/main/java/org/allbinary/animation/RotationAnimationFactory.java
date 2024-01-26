@@ -40,13 +40,13 @@ public class RotationAnimationFactory implements
     public Animation getInstance() throws Exception
     {
         return new NullRotationAnimation(
-                AngleInfo.getInstance(this.angleIncrement), this.totalAngle);
+                AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
 
     public Animation getInstance(Animation animationInterface) throws Exception
     {
         return new NullRotationAnimation(
-                AngleInfo.getInstance(this.angleIncrement), this.totalAngle);
+                AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());
     }
       
    public void setInitialSize(final int width, final int height) {

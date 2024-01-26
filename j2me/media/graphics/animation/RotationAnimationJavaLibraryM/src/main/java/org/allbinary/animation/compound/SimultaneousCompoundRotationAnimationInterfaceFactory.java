@@ -10,50 +10,48 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation.compound;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimation;
 
 public class SimultaneousCompoundRotationAnimationInterfaceFactory
-    implements AnimationInterfaceFactoryInterface
-{
+    implements AnimationInterfaceFactoryInterface {
+
     private final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
+    protected final AnimationBehavior animationBehavior;
 
     public SimultaneousCompoundRotationAnimationInterfaceFactory(
-        AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
+        final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
+        final AnimationBehavior animationBehavior) {
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        this.animationBehavior = animationBehavior;
     }
 
-    public Animation getInstance() throws Exception
-    {
+    public Animation getInstance() throws Exception {
         int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
         RotationAnimation[] animationInterfaceArray = new RotationAnimation[size];
 
-        for (int index = 0; index < size; index++)
-        {
-            animationInterfaceArray[index] = (RotationAnimation) 
-               this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
+        for (int index = 0; index < size; index++) {
+            animationInterfaceArray[index] = (RotationAnimation) this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
         }
 
         return this.getInstance(animationInterfaceArray);
     }
 
-    protected Animation getInstance(RotationAnimation[] animationInterfaceArray)
-    {
-    	return new SimultaneousCompoundRotationAnimation(animationInterfaceArray);
+    protected Animation getInstance(final RotationAnimation[] animationInterfaceArray) {
+        return new SimultaneousCompoundRotationAnimation(animationInterfaceArray, animationBehavior);
     }
-    
-	public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
-		return basicAnimationInterfaceFactoryInterfaceArray;
-	}
-        
-       
-   public void setInitialSize(final int width, final int height) {
-       
-   }
-        
+
+    public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
+        return basicAnimationInterfaceFactoryInterfaceArray;
+    }
+
+    public void setInitialSize(final int width, final int height) {
+
+    }
+
 }

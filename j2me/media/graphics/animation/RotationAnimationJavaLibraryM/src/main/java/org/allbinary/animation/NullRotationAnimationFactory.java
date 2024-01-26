@@ -18,7 +18,7 @@ implements AnimationInterfaceFactoryInterface,
 ProceduralAnimationInterfaceFactoryInterface
 {
    private static NullRotationAnimationFactory NULL_ANIMATION_FACTORY = new NullRotationAnimationFactory();
-   private static final Animation NULL_ANIMATION = new NullRotationAnimation();
+   private static final Animation NULL_ANIMATION = new NullRotationAnimation(AnimationBehavior.getInstance());
    
    private NullRotationAnimationFactory()
    {

@@ -31,8 +31,10 @@ public class RotationAnimation
     protected final AngleInfo angleInfo;
     protected CircularIndexUtil circularIndexUtil;
 
-    protected RotationAnimation(AngleInfo angleInfo)
+    protected RotationAnimation(final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.angleInfo = angleInfo;
         
         //Is 360 okay?
@@ -40,15 +42,19 @@ public class RotationAnimation
                 360 / angleInfo.getAngleIncrementInfo().getAngleIncrement());
     }
     
-    protected RotationAnimation(AngleInfo angleInfo, short totalAngle)
+    protected RotationAnimation(final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.angleInfo = angleInfo;
         this.circularIndexUtil = CircularIndexUtil.getInstance(
                 totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement());
     }
 
-    protected RotationAnimation()
+    protected RotationAnimation(final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.angleInfo = AngleInfo.getInstance((short) (AngleFactory.getInstance().TOTAL_ANGLE >> 2)); //
         //AngleFactory.getInstance().TOTAL_ANGLE / angleInfo.getAngleIncrementInfo().getAngleIncrement() == 4
         this.circularIndexUtil = CircularIndexUtil.getInstance(4);

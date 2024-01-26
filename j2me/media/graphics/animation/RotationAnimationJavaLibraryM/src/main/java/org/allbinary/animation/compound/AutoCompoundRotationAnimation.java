@@ -15,6 +15,7 @@ package org.allbinary.animation.compound;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.util.CircularIndexUtil;
 
@@ -36,13 +37,15 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
     private CircularIndexUtil circularIndexUtil;
     private RotationAnimation[] animationInterfaceArray;
 
-    public AutoCompoundRotationAnimation(RotationAnimation[] animationInterfaceArray)
+    public AutoCompoundRotationAnimation(final RotationAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.animationInterfaceArray = animationInterfaceArray;
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.animationInterfaceArray.length);
     }
     
-    public void setFrame(int index)
+    public void setFrame(final int index)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(index);
     }
@@ -94,12 +97,12 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         return PrimitiveIntUtil.getArrayInstance();
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paint(graphics, x, y);
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].paintThreed(graphics, x, y, z);
     }
@@ -127,29 +130,29 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
         this.setFrame(frame);
     }
 
-    public void setAnimation(int index)
+    public void setAnimation(final int index)
     {
-        int frame = this.getFrame();
+        final int frame = this.getFrame();
         this.circularIndexUtil.setIndex(index);
         this.setFrame(frame);
     }
 
-    public void setFrame(Direction direction)
+    public void setFrame(final Direction direction)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(direction);
     }
 
-    public void setFrame(Angle angle)
+    public void setFrame(final Angle angle)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].setFrame(angle);
     }
 
-    public void adjustFrame(Angle newAngle)
+    public void adjustFrame(final Angle newAngle)
     {
         this.adjustFrame(newAngle.getValue());
     }
 
-    public void adjustFrame(short angle)
+    public void adjustFrame(final short angle)
     {
         this.animationInterfaceArray[this.circularIndexUtil.getIndex()].adjustFrame(angle);
     }
@@ -170,12 +173,12 @@ public class AutoCompoundRotationAnimation extends RotationAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(RotationAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(final RotationAnimation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
-    public void set(GL gl) throws Exception
+    public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {

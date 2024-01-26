@@ -15,6 +15,7 @@ package org.allbinary.animation.compound;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.direction.Direction;
@@ -32,12 +33,14 @@ extends RotationAnimation
 {
     private RotationAnimation[] animationInterfaceArray;
 
-    public SimultaneousCompoundRotationAnimation(RotationAnimation[] animationInterfaceArray)
+    public SimultaneousCompoundRotationAnimation(final RotationAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
-    public void setFrame(int frameIndex)
+    public void setFrame(final int frameIndex)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -93,7 +96,7 @@ extends RotationAnimation
         }
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
     }
 
@@ -102,7 +105,7 @@ extends RotationAnimation
         return PrimitiveIntUtil.getArrayInstance();
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {        
@@ -110,7 +113,7 @@ extends RotationAnimation
         }
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -118,7 +121,7 @@ extends RotationAnimation
         }
     }
 
-    public void setFrame(Direction direction)
+    public void setFrame(final Direction direction)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -126,7 +129,7 @@ extends RotationAnimation
         }
     }
 
-    public void setFrame(Angle angle)
+    public void setFrame(final Angle angle)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -134,12 +137,12 @@ extends RotationAnimation
         }
     }
 
-    public void adjustFrame(Angle newAngle)
+    public void adjustFrame(final Angle newAngle)
     {
         this.adjustFrame(newAngle.getValue());
     }
 
-    public void adjustFrame(short angle)
+    public void adjustFrame(final short angle)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -163,12 +166,12 @@ extends RotationAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(RotationAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(final RotationAnimation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
-    public void set(GL gl) throws Exception
+    public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
