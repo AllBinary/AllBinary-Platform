@@ -50,12 +50,12 @@ public class DirectionUtil
         // directionArray2Direction.UP_RIGHT, angleFactory.RIGHT);
     }
 
-    public synchronized Angle getAngle(Direction direction)
+    public Angle getAngle(Direction direction)
     {
         return directionArray2[direction.getValue()];
     }
 
-    public synchronized Angle getFrameAngle(Direction direction)
+    public Angle getFrameAngle(Direction direction)
     {
         return directionArray[direction.getValue()];
     }

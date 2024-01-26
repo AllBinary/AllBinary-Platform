@@ -24,7 +24,6 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class TitleAnimation extends SpecialAnimation 
 {
-    private final int loopCountTotal;
     
     protected final BasicColor[] basicColorArray;
     protected final int[] dxArray;
@@ -34,32 +33,29 @@ public class TitleAnimation extends SpecialAnimation
 
     protected final IndexedAnimation[] animationInterfaceArray;
     
-    private final int timePerFrame;
-
     protected final int size;
     protected final int y;
 
-    private int loopCount;
     private long lastFrameStartTime;
 
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
     
-    public TitleAnimation(IndexedAnimation[] animationInterfaceArray,
-            BasicColor[] basicColorArray, int[] dxArray, int[] dyArray)
+    public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
+            final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray)
     {
         this(animationInterfaceArray, basicColorArray, dxArray, dyArray, 0, Integer.MIN_VALUE, 250, 1);
     }
 
-    public TitleAnimation(IndexedAnimation[] animationInterfaceArray,
-            BasicColor[] basicColorArray, int[] dxArray, int[] dyArray, int y, int width)
+    public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
+            final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width)
     {
         this(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, 250, 1);
     }
     
-    public TitleAnimation(IndexedAnimation[] animationInterfaceArray,
-            BasicColor[] basicColorArray, int[] dxArray, int[] dyArray, int y, int width,
-            int timePerFrame, int loopCountTotal)
+    public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
+            final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width,
+            final int frameDelayTime, final int loopCountTotal)
     {
         this.lastFrameStartTime = System.currentTimeMillis();
 
@@ -75,9 +71,9 @@ public class TitleAnimation extends SpecialAnimation
 
         this.width = width;
 
-        this.timePerFrame = timePerFrame;
+        this.frameDelayTime = frameDelayTime;
 
-        this.loopCountTotal = loopCountTotal;
+        this.loopTotal = loopCountTotal;
         
         this.reset();
     }
@@ -88,7 +84,7 @@ public class TitleAnimation extends SpecialAnimation
         long totalTimeElapsed = currentTime - lastFrameStartTime;
 
             // If Frame is up long enough
-            if (totalTimeElapsed > timePerFrame)
+            if (totalTimeElapsed > this.frameDelayTime)
             {
                 this.previousFrame();
                 lastFrameStartTime = currentTime;
@@ -96,7 +92,7 @@ public class TitleAnimation extends SpecialAnimation
             
             if(this.animationInterfaceArray[0].getFrame() == 0)
             {
-                loopCount++;
+                loopIndex++;
             }
 
         /*
@@ -109,7 +105,7 @@ public class TitleAnimation extends SpecialAnimation
 
     public boolean isComplete()
     {
-        if(loopCountTotal == -1 || loopCount < loopCountTotal || this.getFrame() != 0)
+        if(loopTotal == -1 || loopIndex < loopTotal || this.getFrame() != 0)
         {
             return false;
         }
@@ -119,7 +115,7 @@ public class TitleAnimation extends SpecialAnimation
         }
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
 
     }
@@ -139,7 +135,7 @@ public class TitleAnimation extends SpecialAnimation
         return this.animationInterfaceArray[0].getFrame();
     }
 
-    public void setFrame(int frame)
+    public void setFrame(final int frame)
     {
         for (int index = 0; index < size; index++)
         {
@@ -151,22 +147,12 @@ public class TitleAnimation extends SpecialAnimation
     {
         this.setFrame(this.getSize() - 1);
     }
-    
-    public void setLoopCount(int loopCount)
-    {
-        this.loopCount = loopCount;
-    }
-
-    public int getLoopCount()
-    {
-        return loopCount;
-    }
-    
+        
     public void reset()
     {
         // this.setFrame(0);
         this.setLastFrame();
-        loopCount = 0;
+        this.loopIndex = 0;
     }
 
     //this is called from nextFrame. Logical? probably not.
@@ -179,15 +165,15 @@ public class TitleAnimation extends SpecialAnimation
         }
     }
 
-    public void paint(Graphics graphics, int frame, int x, int y)
+    public void paint(final Graphics graphics, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
         this.paint(graphics, x, y);
     }
 
-    protected  final BasicColor CLEAR_COLOR = BasicColorFactory.getInstance().CLEAR_COLOR;
+    protected final BasicColor CLEAR_COLOR = BasicColorFactory.getInstance().CLEAR_COLOR;
     
-    public void paint(Graphics graphics, int ax, int ay)
+    public void paint(final Graphics graphics, final int ax, final int ay)
     {
         int x = 0;
         
@@ -217,7 +203,7 @@ public class TitleAnimation extends SpecialAnimation
     /*
     private final ViewPosition viewPosition = new CenterViewPositionFactory().getInstance();
     
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         int dx = 0;
         

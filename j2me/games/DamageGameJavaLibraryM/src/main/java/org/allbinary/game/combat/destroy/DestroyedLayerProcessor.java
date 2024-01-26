@@ -24,6 +24,7 @@ import org.allbinary.layer.BasicLayerProcessor;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class DestroyedLayerProcessor extends BasicLayerProcessor
 {
@@ -82,7 +83,7 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
                 destroyedEventHandler.fireEvent(destroyedEvent);
             } else {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
-                final StringBuilder stringBuilder = new StringBuilder();
+                final StringMaker stringBuilder = new StringMaker();
                 //stringBuilder.delete(0, stringBuilder.length());
                 LogUtil.put(LogFactory.getInstance(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS, new Exception()));
             }

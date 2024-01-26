@@ -18,10 +18,5 @@ import org.allbinary.animation.IndexedAnimationInterface;
 public interface SpecialAnimationInterface extends IndexedAnimationInterface
 {
     void setLastFrame();
-
-    void reset();
-
     boolean isComplete();
-
-    int getLoopCount();
 }

@@ -23,27 +23,10 @@ public class SpecialAnimation extends IndexedAnimation implements SpecialAnimati
     {
         return NULL_ANIMATION;
     }
-
-    private int loopCount = 0;
-    
-    public void reset()
-    {
-        this.loopCount = 0;
-    }
-    
-    public void setLoopCount(int loopCount)
-    {
-        this.loopCount = loopCount;
-    }
-
-    public int getLoopCount()
-    {
-        return loopCount;
-    }
     
     public void nextFrame()
     {
-        loopCount++;
+        this.loopIndex++;
     }
     
     public void setLastFrame()

@@ -15,6 +15,7 @@ package org.allbinary.animation;
 
 public interface IndexedAnimationInterface extends SequentialAnimationInterface
 {
-   void setFrame(int index);
-   int getFrame();
+    void reset();
+    void setFrame(int index);
+    int getFrame();
 }
