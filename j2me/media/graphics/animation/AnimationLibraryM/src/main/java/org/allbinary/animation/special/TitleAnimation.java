@@ -14,8 +14,8 @@
 package org.allbinary.animation.special;
 
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.animation.AnimationBehavior;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
