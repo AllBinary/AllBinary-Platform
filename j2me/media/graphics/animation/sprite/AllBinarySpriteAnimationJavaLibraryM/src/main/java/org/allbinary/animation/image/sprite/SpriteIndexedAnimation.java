@@ -15,6 +15,7 @@ package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.game.Sprite;
+
 import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.IndexedAnimation;
@@ -46,7 +47,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         this.setSprite(sprite);
         this.basicColorArray = basicColorArray;
 
-        if(this.getSize() != this.basicColorArray.length)
+        if(this.basicColorArray.length != 0 && this.getSize() != this.basicColorArray.length)
         {
             throw new Exception(new StringMaker().append(CommonLabels.getInstance().TOTAL_LABEL).append(this.getSize()).append("!=").append(this.basicColorArray.length).toString());
         }
