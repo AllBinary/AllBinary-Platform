@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
@@ -31,12 +31,12 @@ public class AllBinarySpriteRotationAnimationFactory
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy)
         throws Exception {
-        this(image, dx, dy, AnimationBehavior.getInstance());
+        this(image, dx, dy, AnimationBehaviorFactory.getInstance());
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        this(image, animationBehavior);
+        this(image, animationBehaviorFactory);
 
         this.dx = dx;
         this.dy = dy;
@@ -44,14 +44,14 @@ public class AllBinarySpriteRotationAnimationFactory
 
     public AllBinarySpriteRotationAnimationFactory(final Image image)
         throws Exception {
-        this(image, AnimationBehavior.getInstance());
+        this(image, AnimationBehaviorFactory.getInstance());
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final AnimationBehavior animationBehavior)
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
-        super(image, (image.getHeight() >> 2), (image.getHeight() >> 2), animationBehavior);
+        super(image, (image.getHeight() >> 2), (image.getHeight() >> 2), animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
         //this.width = frameSize;
         //this.height = frameSize;
@@ -59,14 +59,14 @@ public class AllBinarySpriteRotationAnimationFactory
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final String nullish)
         throws Exception {
-        this(image, nullish, AnimationBehavior.getInstance());
+        this(image, nullish, AnimationBehaviorFactory.getInstance());
     }
     
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final String nullish, final AnimationBehavior animationBehavior)
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final String nullish, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
-        super(image, (image.getHeight()), (image.getHeight()), animationBehavior);
+        super(image, (image.getHeight()), (image.getHeight()), animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
         //this.width = frameSize;
         //this.height = frameSize;
@@ -77,9 +77,9 @@ public class AllBinarySpriteRotationAnimationFactory
         final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
 
         if (dx != 0 || dy != 0) {
-            return new AllBinaryAdjustedSpriteRotationAnimation(sprite, dx, dy, this.animationBehavior);
+            return new AllBinaryAdjustedSpriteRotationAnimation(sprite, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new AllBinarySpriteRotationAnimation(sprite, this.animationBehavior);
+            return new AllBinarySpriteRotationAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 

@@ -18,7 +18,7 @@ import javax.microedition.lcdui.game.Sprite;
 import javax.microedition.media.Player;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.caption.CaptionIndexedAnimation;
@@ -45,7 +45,7 @@ implements AnimationInterfaceFactoryInterface
    
    private Sound soundInterface;
    
-   private final AnimationBehavior animationBehavior;
+   private final AnimationBehaviorFactory animationBehaviorFactory;
 
    public ImageCaptionIndexedAnimationFactory(
       final Image captionImage, final Image spriteMovieImage, 
@@ -53,7 +53,7 @@ implements AnimationInterfaceFactoryInterface
       final int frameWidth, final int frameHeight, 
       final int captionDx, final int captionDy, final int dx, final int dy, final int time)
    {
-       this(captionImage, spriteMovieImage, soundInterface, frameWidth, frameHeight, captionDx, captionDy, dx, dy, time, AnimationBehavior.getInstance());
+       this(captionImage, spriteMovieImage, soundInterface, frameWidth, frameHeight, captionDx, captionDy, dx, dy, time, AnimationBehaviorFactory.getInstance());
    }
    
    public ImageCaptionIndexedAnimationFactory(
@@ -61,7 +61,7 @@ implements AnimationInterfaceFactoryInterface
       final Sound soundInterface,
       final int frameWidth, final int frameHeight, 
       final int captionDx, final int captionDy, final int dx, final int dy, final int time,
-      final AnimationBehavior animationBehavior)
+      final AnimationBehaviorFactory animationBehaviorFactory)
    {
       this.captionImage = captionImage;
       this.spriteMovieImage = spriteMovieImage;
@@ -79,17 +79,17 @@ implements AnimationInterfaceFactoryInterface
       
       this.soundInterface = soundInterface;
       
-      this.animationBehavior = animationBehavior;
+      this.animationBehaviorFactory = animationBehaviorFactory;
 
    }
 
    public Animation getInstance() throws Exception
    {
-      final Animation animationInterface = new ImageAnimation(this.captionImage, this.animationBehavior);
+      final Animation animationInterface = new ImageAnimation(this.captionImage, this.animationBehaviorFactory.getOrCreateInstance());
 
       final Sprite sprite = SpriteFactory.getInstance().create(this.spriteMovieImage, this.frameWidth, this.frameHeight);
 
-      final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.animationBehavior);
+      final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
       
       Player player = this.soundInterface.getPlayer();
       
@@ -99,7 +99,7 @@ implements AnimationInterfaceFactoryInterface
       }
       
       return new CaptionIndexedAnimation(animationInterface, movieIndexedAnimationInterface, 
-          player, this.captionDx, this.captionDy, dx, dy, time, this.animationBehavior);
+          player, this.captionDx, this.captionDy, dx, dy, time, this.animationBehaviorFactory.getOrCreateInstance());
    }
    
    public void setInitialSize(final int width, final int height) {

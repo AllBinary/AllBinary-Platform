@@ -18,7 +18,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.graphics.displayable.ScreenRelationalUtil;
 import org.allbinary.media.image.ImageScaleUtil;
 
@@ -30,14 +30,14 @@ extends BaseImageAnimationFactory
     public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image)
         throws Exception
     {
-        this(image, AnimationBehavior.getInstance());
+        this(image, AnimationBehaviorFactory.getInstance());
     }
     
-    public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image, final AnimationBehavior animationBehavior)
+    public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception
     {
     	//int width, int height
-        super(image, 0, 0, animationBehavior);
+        super(image, 0, 0, animationBehaviorFactory);
         
     	//Image image = this.getImage();
 
@@ -57,6 +57,6 @@ extends BaseImageAnimationFactory
     
     public Animation getInstance() throws Exception
     {    	
-        return new ImageAnimation(lastImage, this.animationBehavior);
+        return new ImageAnimation(lastImage, this.animationBehaviorFactory.getOrCreateInstance());
     }    
 }

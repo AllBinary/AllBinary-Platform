@@ -14,7 +14,7 @@
 package org.allbinary.animation.compound;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 
@@ -22,14 +22,14 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface {
 
     private final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
-    private final AnimationBehavior animationBehavior;
+    private final AnimationBehaviorFactory animationBehaviorFactory;
 
     public SimultaneousCompoundIndexAnimationInterfaceFactory(
         final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
-        final AnimationBehavior animationBehavior) {
+        final AnimationBehaviorFactory animationBehaviorFactory) {
         
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
-        this.animationBehavior = animationBehavior;
+        this.animationBehaviorFactory = animationBehaviorFactory;
 
     }
 
@@ -45,7 +45,7 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
     }
 
     protected Animation getInstance(final IndexedAnimation[] animationInterfaceArray) {
-        return new SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehavior);
+        return new SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
     public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {

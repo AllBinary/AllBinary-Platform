@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 
 /**
  *
@@ -27,15 +28,15 @@ public class TopToBottomImageAnimationFactory
 
     public TopToBottomImageAnimationFactory(final Image image, final int[] sequenceArray)
         throws Exception {
-        this(image, sequenceArray, AnimationBehavior.getInstance());
+        this(image, sequenceArray, AnimationBehaviorFactory.getInstance());
     }
 
-    public TopToBottomImageAnimationFactory(final Image image, final int[] sequenceArray, final AnimationBehavior animationBehavior) //, int width, int height)
+    public TopToBottomImageAnimationFactory(final Image image, final int[] sequenceArray, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
         throws Exception {
-        super(image, sequenceArray, image.getWidth(), image.getHeight(), animationBehavior); //, width, height);
+        super(image, sequenceArray, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
     }
 
     public Animation getInstance() throws Exception {
-        return new TopToBottomImageAnimation(this.getImage(), this.getSequenceArray(), this.animationBehavior);
+        return new TopToBottomImageAnimation(this.getImage(), this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());
     }
 }

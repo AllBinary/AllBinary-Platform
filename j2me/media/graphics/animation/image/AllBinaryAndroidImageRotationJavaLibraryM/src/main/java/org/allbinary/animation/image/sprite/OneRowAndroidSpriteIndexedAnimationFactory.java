@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.image.ImageCache;
@@ -39,16 +39,16 @@ extends BaseImageAnimationFactory
    public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
        throws Exception {
 
-      this(image, AnimationBehavior.getInstance());
+      this(image, AnimationBehaviorFactory.getInstance());
 
       this.dx = dx;
       this.dy = dy;
    }
    
-   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
+   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
        throws Exception {
 
-      this(image, animationBehavior);
+      this(image, animationBehaviorFactory);
 
       this.dx = dx;
       this.dy = dy;
@@ -57,29 +57,29 @@ extends BaseImageAnimationFactory
    public OneRowAndroidSpriteIndexedAnimationFactory(final int width, final int height, final Image image)
            throws Exception {
 
-       super(image, width, height, AnimationBehavior.getInstance());
+       super(image, width, height, AnimationBehaviorFactory.getInstance());
    }
    
-   public OneRowAndroidSpriteIndexedAnimationFactory(final int width, final int height, final Image image, final AnimationBehavior animationBehavior)
+   public OneRowAndroidSpriteIndexedAnimationFactory(final int width, final int height, final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
            throws Exception {
 
       //90 degrees per row with 4 rows
       //Future imp may include Control fidelity for non square frames
-       super(image, width, height, animationBehavior);
+       super(image, width, height, animationBehaviorFactory);
    }
    
    public OneRowAndroidSpriteIndexedAnimationFactory(final Image image)
        throws Exception {
        
-       this(image, AnimationBehavior.getInstance());
+       this(image, AnimationBehaviorFactory.getInstance());
 
    }
    
-   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final AnimationBehavior animationBehavior)
+   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
            throws Exception {
       //90 degrees per row with 4 rows
       //Future imp may include Control fidelity for non square frames
-      super(image, image.getHeight(), image.getHeight(), animationBehavior);
+      super(image, image.getHeight(), image.getHeight(), animationBehaviorFactory);
    }
 
    public Animation getInstance() 
@@ -116,9 +116,9 @@ extends BaseImageAnimationFactory
 
       if (dx != 0 || dy != 0) 
       {
-         return new AdjustedSpriteIndexedAnimation(sprite, dx, dy, this.animationBehavior);
+         return new AdjustedSpriteIndexedAnimation(sprite, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
       } else {
-         return new SpriteIndexedAnimation(sprite, this.animationBehavior);
+         return new SpriteIndexedAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
       }
    }
    

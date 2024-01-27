@@ -18,6 +18,7 @@ import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
@@ -31,20 +32,20 @@ public class SpriteIndexedAnimationFactory
     public SpriteIndexedAnimationFactory(final Image image, final int width, final int height)
         throws Exception
     {
-        this(image, width, height, AnimationBehavior.getInstance());
+        this(image, width, height, AnimationBehaviorFactory.getInstance());
     }
 
-    public SpriteIndexedAnimationFactory(final Image image, final int width, final int height, final AnimationBehavior animationBehavior)
+    public SpriteIndexedAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception
     {
-        super(image, width, height, animationBehavior);
+        super(image, width, height, animationBehaviorFactory);
     }
 
     public Animation getInstance() throws Exception
     {
         final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
 
-        return new SpriteIndexedAnimation(sprite, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehavior);
+        return new SpriteIndexedAnimation(sprite, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
     public Animation getInstance(final Animation animationInterface) throws Exception

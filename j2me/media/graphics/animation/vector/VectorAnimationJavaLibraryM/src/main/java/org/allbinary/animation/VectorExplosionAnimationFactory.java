@@ -19,15 +19,15 @@ public class VectorExplosionAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface{
 
 	private BasicColor basicColor;
-        protected final AnimationBehavior animationBehavior;
+        protected final AnimationBehaviorFactory animationBehaviorFactory;
         
         public VectorExplosionAnimationFactory(final BasicColor basicColor) {
-            this(basicColor, AnimationBehavior.getInstance());
+            this(basicColor, AnimationBehaviorFactory.getInstance());
         }
 	
-	public VectorExplosionAnimationFactory(final BasicColor basicColor, final AnimationBehavior animationBehavior) {
+	public VectorExplosionAnimationFactory(final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
             
-            this.animationBehavior = animationBehavior;
+            this.animationBehaviorFactory = animationBehaviorFactory;
             this.setBasicColor(basicColor);
 	}
 
@@ -44,7 +44,7 @@ public class VectorExplosionAnimationFactory
 		final int[][][] points = vectorExplosionGenerator.getInstance(
 		        framePoints, 6, vectorExplosionGenerator.ROTATION);
 		
-		return new VectorRotationAnimation(points, this.getBasicColor(), this.animationBehavior);
+		return new VectorRotationAnimation(points, this.getBasicColor(), this.animationBehaviorFactory.getOrCreateInstance());
 	}
 
 	private void setBasicColor(BasicColor basicColor) {

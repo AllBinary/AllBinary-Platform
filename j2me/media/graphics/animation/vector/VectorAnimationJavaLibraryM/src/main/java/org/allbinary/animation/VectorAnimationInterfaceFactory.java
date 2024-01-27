@@ -20,20 +20,20 @@ public class VectorAnimationInterfaceFactory
 {
 	private int currentPoints[][][];
 	private BasicColor basicColor;
-        protected final AnimationBehavior animationBehavior;
+        protected final AnimationBehaviorFactory animationBehaviorFactory;
 
         public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor) {
-            this(currentPoints, basicColor, AnimationBehavior.getInstance());
+            this(currentPoints, basicColor, AnimationBehaviorFactory.getInstance());
         }
         
-	public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior) {
+	public VectorAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) {
 		this.currentPoints = currentPoints;
 		this.setBasicColor(basicColor);
-                this.animationBehavior = animationBehavior;
+                this.animationBehaviorFactory = animationBehaviorFactory;
 	}
 
 	public Animation getInstance() throws Exception {
-		return new VectorAnimation(this.currentPoints, this.getBasicColor(), this.animationBehavior);
+		return new VectorAnimation(this.currentPoints, this.getBasicColor(), this.animationBehaviorFactory.getOrCreateInstance());
 	}
 
 	protected void setBasicColor(BasicColor basicColor) {

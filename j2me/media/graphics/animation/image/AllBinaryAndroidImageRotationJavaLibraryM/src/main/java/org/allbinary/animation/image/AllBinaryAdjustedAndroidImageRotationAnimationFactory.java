@@ -16,7 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -31,51 +31,51 @@ public class AllBinaryAdjustedAndroidImageRotationAnimationFactory
     public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image) 
     throws Exception
     {
-        this(image, AnimationBehavior.getInstance());
+        this(image, AnimationBehaviorFactory.getInstance());
     }
     
-    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final AnimationBehavior animationBehavior) 
+    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), animationBehavior);
+        this(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), animationBehaviorFactory);
     }
     
     public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehavior.getInstance());
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
     }
 
-    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior) 
+    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehavior);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
     }
         
     public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehavior.getInstance());
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
     }
         
-    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final AnimationBehavior animationBehavior) 
+    public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehavior);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
     }
     
     public AllBinaryAdjustedAndroidImageRotationAnimationFactory(Image image,
-            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehavior animationBehavior) throws Exception
+            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
 
-        super(image, width, height, angleIncrement, animationBehavior);
+        super(image, width, height, angleIncrement, animationBehaviorFactory);
 
         this.dx = dx;
         this.dy = dy;
     }
     
     public AllBinaryAdjustedAndroidImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final AnimationBehavior animationBehavior) 
+            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
         throws Exception {
 
         super(image, width, height);
@@ -91,7 +91,7 @@ public class AllBinaryAdjustedAndroidImageRotationAnimationFactory
         return new AllBinaryAdjustedAndroidImageRotationAnimation(
                 this.getImage(), image, 
                 AngleInfo.getInstance(this.getAngleIncrement()), 
-                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehavior);
+                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehaviorFactory.getOrCreateInstance());
     }
 
 }

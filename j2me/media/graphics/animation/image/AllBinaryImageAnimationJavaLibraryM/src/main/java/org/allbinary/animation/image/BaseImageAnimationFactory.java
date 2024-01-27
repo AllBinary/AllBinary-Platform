@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.SpacialStrings;
@@ -32,23 +33,23 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     private final Image image;
     protected final int width;
     protected final int height;
-    protected final AnimationBehavior animationBehavior;
+    protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     private final int[] sequenceArray;
 
-    public BaseImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehavior animationBehavior)
+    public BaseImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
-        this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehavior);
+        this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehaviorFactory);
     }
 
-    public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehavior animationBehavior)
+    public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
         this.image = image;
 
         this.width = width;
         this.height = height;
         
-        this.animationBehavior = animationBehavior;
+        this.animationBehaviorFactory = animationBehaviorFactory;
 
         this.sequenceArray = sequenceArray;
 

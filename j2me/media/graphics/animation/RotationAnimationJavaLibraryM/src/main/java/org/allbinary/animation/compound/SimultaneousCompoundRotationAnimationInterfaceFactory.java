@@ -14,7 +14,7 @@
 package org.allbinary.animation.compound;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimation;
 
@@ -22,13 +22,13 @@ public class SimultaneousCompoundRotationAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface {
 
     private final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
-    protected final AnimationBehavior animationBehavior;
+    protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     public SimultaneousCompoundRotationAnimationInterfaceFactory(
         final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
-        final AnimationBehavior animationBehavior) {
+        final AnimationBehaviorFactory animationBehaviorFactory) {
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
-        this.animationBehavior = animationBehavior;
+        this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
     public Animation getInstance() throws Exception {
@@ -43,7 +43,7 @@ public class SimultaneousCompoundRotationAnimationInterfaceFactory
     }
 
     protected Animation getInstance(final RotationAnimation[] animationInterfaceArray) {
-        return new SimultaneousCompoundRotationAnimation(animationInterfaceArray, animationBehavior);
+        return new SimultaneousCompoundRotationAnimation(animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
     public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {

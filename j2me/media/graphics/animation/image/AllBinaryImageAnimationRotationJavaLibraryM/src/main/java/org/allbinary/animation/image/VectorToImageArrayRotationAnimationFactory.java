@@ -15,7 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.VectorAnimation;
 
@@ -35,22 +35,22 @@ public class VectorToImageArrayRotationAnimationFactory implements
 
     private int angleIncrement;
 
-    private final AnimationBehavior animationBehavior;
+    private final AnimationBehaviorFactory animationBehaviorFactory;
     
     public VectorToImageArrayRotationAnimationFactory(
         final VectorInfo vectorInfo, final BasicColor basicColor) throws Exception
     {
-        this(vectorInfo, basicColor, AnimationBehavior.getInstance());
+        this(vectorInfo, basicColor, AnimationBehaviorFactory.getInstance());
     }
     
     public VectorToImageArrayRotationAnimationFactory(
-        final VectorInfo vectorInfo, final BasicColor basicColor, final AnimationBehavior animationBehavior) throws Exception
+        final VectorInfo vectorInfo, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
-        this.animationBehavior = animationBehavior;
+        this.animationBehaviorFactory = animationBehaviorFactory;
 
         this.setImage(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
                 vectorInfo.getWidth(), vectorInfo.getHeight(), 
-                new VectorAnimation(vectorInfo.getPoints(), basicColor, animationBehavior)));
+                new VectorAnimation(vectorInfo.getPoints(), basicColor, this.animationBehaviorFactory.getOrCreateInstance())));
 
         this.init();
     }
@@ -72,7 +72,7 @@ public class VectorToImageArrayRotationAnimationFactory implements
 
         return new AdjustedImageArrayRotationAnimation(
                 this.getImageArray(), AngleInfo.getInstance((short) this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehavior);
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
     protected Image getImage()

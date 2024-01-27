@@ -15,7 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -29,40 +29,40 @@ public class AdjustedImageArrayRotationAnimationFactory
     public AdjustedImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehavior.getInstance());
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
     }
     
-    public AdjustedImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior) 
+    public AdjustedImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehavior);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
     }
 
     public AdjustedImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehavior.getInstance());
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
     }
     
-    public AdjustedImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement, final AnimationBehavior animationBehavior) 
+    public AdjustedImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehavior);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
     }
 
     public AdjustedImageArrayRotationAnimationFactory(final Image image,
             final int width, final int height, final int dx, final int dy, final int angleIncrement) throws Exception
     {
 
-        this(image, width, height, dx, dy, angleIncrement, AnimationBehavior.getInstance());
+        this(image, width, height, dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
     }
     
     public AdjustedImageArrayRotationAnimationFactory(final Image image,
             final int width, final int height, final int dx, final int dy, final int angleIncrement, 
-            final AnimationBehavior animationBehavior) throws Exception
+            final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
 
-        super(image, width, height, angleIncrement, animationBehavior);
+        super(image, width, height, angleIncrement, animationBehaviorFactory);
 
         this.dx = dx;
         this.dy = dy;
@@ -71,14 +71,14 @@ public class AdjustedImageArrayRotationAnimationFactory
     public AdjustedImageArrayRotationAnimationFactory(final Image image,
             final int width, final int height, final int dx, final int dy) throws Exception
     {
-        this(image, width, height, dx, dy, AnimationBehavior.getInstance());
+        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
     }
     
     public AdjustedImageArrayRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
+            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
 
-        super(image, width, height, animationBehavior);
+        super(image, width, height, animationBehaviorFactory);
 
         this.dx = dx;
         this.dy = dy;
@@ -92,7 +92,7 @@ public class AdjustedImageArrayRotationAnimationFactory
         return new AdjustedImageArrayRotationAnimation(
                 this.getImageArray(), 
                 AngleInfo.getInstance((short) this.getAngleIncrement()), 
-                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehavior);
+                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
 }

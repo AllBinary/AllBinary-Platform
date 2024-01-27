@@ -14,7 +14,7 @@
 package org.allbinary.animation.image;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -25,21 +25,21 @@ public class VectorToAdjustedImageArrayRotationAnimationFactory extends
 
     private int dx;
     private int dy;
-    private final AnimationBehavior animationBehavior;
+    private final AnimationBehaviorFactory animationBehaviorFactory;
 
     public VectorToAdjustedImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
         final BasicColor basicColor, final int dx, final int dy)
         throws Exception {
-        this(vectorInfo, basicColor, dx, dy, AnimationBehavior.getInstance());
+        this(vectorInfo, basicColor, dx, dy, AnimationBehaviorFactory.getInstance());
     }
     
     public VectorToAdjustedImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
-        final BasicColor basicColor, final int dx, final int dy, final AnimationBehavior animationBehavior)
+        final BasicColor basicColor, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
 
         super(vectorInfo, basicColor);
 
-        this.animationBehavior = animationBehavior;
+        this.animationBehaviorFactory = animationBehaviorFactory;
         this.dx = dx;
         this.dy = dy;
 
@@ -51,7 +51,7 @@ public class VectorToAdjustedImageArrayRotationAnimationFactory extends
 
         return new AdjustedImageArrayRotationAnimation(
             this.getImageArray(), AngleInfo.getInstance((short) this.getAngleIncrement()),
-            AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehavior);
+            AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
 }
