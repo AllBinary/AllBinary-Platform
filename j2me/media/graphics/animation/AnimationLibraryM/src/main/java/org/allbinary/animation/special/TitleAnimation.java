@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
-import org.allbinary.animation.IndexedAnimationBehavior;
+import org.allbinary.animation.SpecialAnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -45,13 +45,13 @@ public class TitleAnimation extends SpecialAnimation
     public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
             final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray)
     {
-        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, 0, Integer.MIN_VALUE, new IndexedAnimationBehavior(1, 250));
+        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, 0, Integer.MIN_VALUE, new SpecialAnimationBehavior(1, 250));
     }
 
     public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
             final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width)
     {
-        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
+        this(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new SpecialAnimationBehavior(1, 250));
     }
     
     public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
@@ -82,7 +82,7 @@ public class TitleAnimation extends SpecialAnimation
         final long currentTime = System.currentTimeMillis();
         final long totalTimeElapsed = currentTime - lastFrameStartTime;
 
-        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.animationBehavior;
+        final SpecialAnimationBehavior indexedAnimationBehavior = (SpecialAnimationBehavior) this.animationBehavior;
 
             // If Frame is up long enough
             if (totalTimeElapsed > indexedAnimationBehavior.frameDelayTime)
@@ -106,7 +106,7 @@ public class TitleAnimation extends SpecialAnimation
 
     public boolean isComplete()
     {
-        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.animationBehavior;
+        final SpecialAnimationBehavior indexedAnimationBehavior = (SpecialAnimationBehavior) this.animationBehavior;
         if(indexedAnimationBehavior.loopTotal == -1 || 
             indexedAnimationBehavior.loopIndex < indexedAnimationBehavior.loopTotal || 
             this.getFrame() != 0)
@@ -156,7 +156,7 @@ public class TitleAnimation extends SpecialAnimation
     {
         // this.setFrame(0);
         this.setLastFrame();
-        ((IndexedAnimationBehavior) this.animationBehavior).reset();
+        ((SpecialAnimationBehavior) this.animationBehavior).reset();
     }
 
     //this is called from nextFrame. Logical? probably not.

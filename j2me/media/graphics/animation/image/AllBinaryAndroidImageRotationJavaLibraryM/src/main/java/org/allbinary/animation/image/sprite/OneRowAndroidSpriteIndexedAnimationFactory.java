@@ -35,11 +35,20 @@ extends BaseImageAnimationFactory
    
    public int scaleWidth;
    public int scaleHeight;
-   
+
    public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
        throws Exception {
 
       this(image, AnimationBehavior.getInstance());
+
+      this.dx = dx;
+      this.dy = dy;
+   }
+   
+   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
+       throws Exception {
+
+      this(image, animationBehavior);
 
       this.dx = dx;
       this.dy = dy;

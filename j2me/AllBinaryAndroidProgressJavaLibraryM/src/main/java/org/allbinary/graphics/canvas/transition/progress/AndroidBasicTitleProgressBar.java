@@ -39,6 +39,7 @@ import org.allbinary.media.image.ImageScaleUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import android.app.Activity;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.image.ImageAnimation;
 import org.allbinary.data.resource.ResourceUtil;
 
@@ -162,7 +163,7 @@ implements DisplayChangeEventListener
                 }
                 else
                 {
-                    this.animation = new ImageAnimation(currentImage);
+                    this.animation = new ImageAnimation(currentImage, AnimationBehavior.getInstance());
                 }
             }
         }

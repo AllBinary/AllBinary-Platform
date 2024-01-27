@@ -17,14 +17,16 @@ package org.allbinary.animation;
  *
  * @author User
  */
-public class IndexedAnimationBehavior extends AnimationBehavior {
+public class SpecialAnimationBehavior extends IndexedAnimationBehavior {
     
-    public long frameDelayTime;
-    public int loopTotal;
+    public int loopIndex;
     
-    public IndexedAnimationBehavior(final int loopTotal, final long frameDelayTime) {
-        this.loopTotal = loopTotal;
-        this.frameDelayTime = frameDelayTime;
+    public SpecialAnimationBehavior(final int loopTotal, final long frameDelayTime) {
+        super(loopTotal, frameDelayTime);
+    }
+
+    public void reset() {
+        this.loopIndex = 0;
     }
     
 }
