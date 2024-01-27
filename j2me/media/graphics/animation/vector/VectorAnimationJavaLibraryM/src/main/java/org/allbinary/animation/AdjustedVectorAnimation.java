@@ -26,21 +26,21 @@ public class AdjustedVectorAnimation extends VectorAnimation
    private int dx;
    private int dy;
    
-   public AdjustedVectorAnimation(int currentPoints[][][], BasicColor basicColor, int dx, int dy) {
-      super(currentPoints, basicColor);
+   public AdjustedVectorAnimation(final int currentPoints[][][], final BasicColor basicColor, final int dx, final int dy, final AnimationBehavior animationBehavior) {
+      super(currentPoints, basicColor, animationBehavior);
 
       this.dx = dx;
       this.dy = dy;
 	}
 
-	public AdjustedVectorAnimation(int currentPoints[][], BasicColor basicColor, int dx, int dy) {
-      super(currentPoints, basicColor);
+	public AdjustedVectorAnimation(final int currentPoints[][], final BasicColor basicColor, final int dx, final int dy, final AnimationBehavior animationBehavior) {
+      super(currentPoints, basicColor, animationBehavior);
       
       this.dx = dx;
       this.dy = dy;
 	}
    
-	public void paint(Graphics graphics, int x, int y) {
+	public void paint(final Graphics graphics, final int x, final int y) {
 	
       super.paint(graphics, x + this.dx, y + this.dy);
 	}

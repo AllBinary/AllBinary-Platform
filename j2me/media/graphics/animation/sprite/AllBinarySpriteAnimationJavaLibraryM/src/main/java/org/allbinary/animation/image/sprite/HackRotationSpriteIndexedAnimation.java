@@ -15,6 +15,7 @@ package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.game.Sprite;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -24,9 +25,9 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 {
     protected Sprite sprite;
 
-    public HackRotationSpriteIndexedAnimation(Sprite sprite, AngleInfo angleInfo)
+    public HackRotationSpriteIndexedAnimation(final Sprite sprite, final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo);
+        super(angleInfo, animationBehavior);
         
         this.setSprite(sprite);
     }
@@ -48,19 +49,19 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
         this.sprite = sprite;
     }
 
-    public void paint(Graphics g, int frame, int x, int y)
+    public void paint(final Graphics g, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
         this.paint(g, x, y);
     }
 
-    public void paint(Graphics g, int x, int y)
+    public void paint(final Graphics g, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
         this.paint(g);
     }
 
-    protected void paint(Graphics g)
+    protected void paint(final Graphics g)
     {
         this.sprite.paint(g);
     }
@@ -81,7 +82,7 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
         return this.sprite.getRawFrameCount();
     }
 
-    public void setFrame(int frame)
+    public void setFrame(final int frame)
     {
         this.sprite.setFrame(frame);
     }
@@ -91,7 +92,7 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
         return this.sprite.getFrame();
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
 
     }

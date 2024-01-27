@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
@@ -35,7 +36,14 @@ public class ColorCompositeSpriteIndexedAnimationFactory
         final Image image, final BasicColor[] basicColorArray, final int width, final int height)
         throws Exception
     {
-        super(image, width, height);
+        this(image, basicColorArray, width, height, AnimationBehavior.getInstance());
+    }
+    
+    public ColorCompositeSpriteIndexedAnimationFactory(
+        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final AnimationBehavior animationBehavior)
+        throws Exception
+    {
+        super(image, width, height, animationBehavior);
 
         this.basicColorArray = basicColorArray;
         //        this.dx = - (this.width >> 2);
@@ -58,7 +66,7 @@ public class ColorCompositeSpriteIndexedAnimationFactory
     {
         final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
 
-        return new SpriteIndexedAnimation(sprite, this.basicColorArray);
+        return new SpriteIndexedAnimation(sprite, this.basicColorArray, this.animationBehavior);
     }
 
     public Animation getInstance(final Animation animationInterface) throws Exception

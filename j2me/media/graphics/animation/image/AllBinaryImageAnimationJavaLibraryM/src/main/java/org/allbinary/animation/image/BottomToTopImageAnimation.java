@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.Anchor;
 
 /**
@@ -28,11 +29,11 @@ public class BottomToTopImageAnimation
 {
     private int startHeight;
     private int currentHeight;
-
-    public BottomToTopImageAnimation(Image image)
+    
+    public BottomToTopImageAnimation(final Image image, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(image);
+        super(image, animationBehavior);
 
         this.setFrame(this.getSize() - 1);
     }

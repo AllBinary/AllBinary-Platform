@@ -38,15 +38,19 @@ public class VectorAnimation extends IndexedAnimation
     protected final BasicColorSetUtil basicColorUtil = 
         BasicColorSetUtil.getInstance();
     
-    public VectorAnimation(int currentPoints[][][], BasicColor basicColor)
+    public VectorAnimation(final int currentPoints[][][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.setPoints(currentPoints);
 
         this.setBasicColor(basicColor);
     }
 
-    public VectorAnimation(int currentPoints[][], BasicColor basicColor)
+    public VectorAnimation(final int currentPoints[][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.setPoints(new int[1][currentPoints.length][2]);
 
         int size = currentPoints.length;
@@ -69,7 +73,7 @@ public class VectorAnimation extends IndexedAnimation
         return this.basicColor;
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColor(final BasicColor basicColor)
     {
         this.basicColor = basicColor;
         //this.color = this.basicColor.intValue();
@@ -80,7 +84,7 @@ public class VectorAnimation extends IndexedAnimation
         return this.currentPoints.length;
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
 
     }
@@ -100,7 +104,7 @@ public class VectorAnimation extends IndexedAnimation
         this.circularIndexUtil.previous();
     }
 
-    protected void paintVectors(Graphics graphics, int x, int y)
+    protected void paintVectors(final Graphics graphics, final int x, final int y)
     {
         try
         {
@@ -114,8 +118,8 @@ public class VectorAnimation extends IndexedAnimation
             int[] nextPoint;
             int[] point;
             
-            int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
-            int size = currentPointsFrame.length;
+            final int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
+            final int size = currentPointsFrame.length;
 
             for (int index = size - 2; --index >= 0;)
             {

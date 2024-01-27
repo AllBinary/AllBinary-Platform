@@ -15,13 +15,12 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.util.CircularIndexUtil;
 
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.Anchor;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageModifierUtil;
@@ -37,9 +36,10 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation
     
     private int totalFrames;
 
-    public ImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo) throws Exception
-    {
-        super(angleInfo);
+    public ImageArrayBaseRotationAnimation(final Image[] originalImageArray, final AngleInfo angleInfo, final AnimationBehavior animationBehavior) 
+        throws Exception {
+        
+        super(angleInfo, animationBehavior);
 
         //LogUtil.put(LogFactory.getInstance("Constructing", this, "AllBinaryImageRotationAnimation"));
 

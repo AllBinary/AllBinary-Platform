@@ -23,14 +23,14 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class IndexedAnimation extends Animation 
     implements IndexedAnimationInterface
 {
-    protected AnimationBehavior animationBehavior;
+    public AnimationBehavior animationBehavior;
     
     private IndexedAnimation()
     {
 
     }
 
-    protected IndexedAnimation(final AnimationBehavior gnimationBehavior)
+    protected IndexedAnimation(final AnimationBehavior animationBehavior)
     {
         this.animationBehavior = animationBehavior;
     }

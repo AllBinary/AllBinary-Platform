@@ -15,6 +15,7 @@ package org.allbinary.animation.compound;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.logic.math.PrimitiveIntUtil;
@@ -29,12 +30,14 @@ extends IndexedAnimation
 {
     private IndexedAnimation[] animationInterfaceArray;
 
-    public SimultaneousCompoundIndexAnimation(IndexedAnimation[] animationInterfaceArray)
+    public SimultaneousCompoundIndexAnimation(final IndexedAnimation[] animationInterfaceArray, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
+        
         this.animationInterfaceArray = animationInterfaceArray;
     }
     
-    public void setFrame(int frameIndex)
+    public void setFrame(final int frameIndex)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -66,15 +69,15 @@ extends IndexedAnimation
     }
 
     public void nextFrame()
-    throws Exception
-    {
+        throws Exception {
+
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
             this.animationInterfaceArray[index].nextFrame();
         }
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
     }
 
@@ -83,7 +86,7 @@ extends IndexedAnimation
         return PrimitiveIntUtil.getArrayInstance();
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {        
@@ -91,7 +94,7 @@ extends IndexedAnimation
         }
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -99,7 +102,7 @@ extends IndexedAnimation
         }
     }
 
-    public void set(GL gl) throws Exception
+    public void set(final GL gl) throws Exception
     {
         for(int index = this.animationInterfaceArray.length; --index >= 0;)
         {
@@ -118,7 +121,7 @@ extends IndexedAnimation
     /**
      * @param animationInterfaceArray the animationInterfaceArray to set
      */
-    public void setAnimationInterfaceArray(IndexedAnimation[] animationInterfaceArray)
+    public void setAnimationInterfaceArray(final IndexedAnimation[] animationInterfaceArray)
     {
         this.animationInterfaceArray = animationInterfaceArray;
     }

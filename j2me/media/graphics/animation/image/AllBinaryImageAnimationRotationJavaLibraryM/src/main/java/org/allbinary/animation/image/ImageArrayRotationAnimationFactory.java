@@ -15,11 +15,10 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
@@ -35,7 +34,9 @@ public class ImageArrayRotationAnimationFactory
 
     private int angleIncrement;
 
-    public ImageArrayRotationAnimationFactory(Image image, int width, int height)
+    protected final AnimationBehavior animationBehavior;
+    
+    public ImageArrayRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehavior animationBehavior)
             throws Exception
     {
         this.image = image;
@@ -44,18 +45,22 @@ public class ImageArrayRotationAnimationFactory
 
         this.angleIncrement = AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
 
+        this.animationBehavior = animationBehavior;
+        
         this.init();
     }
 
-    public ImageArrayRotationAnimationFactory(Image image, int width, int height,
-            int angleIncrement) throws Exception
-    {
+    public ImageArrayRotationAnimationFactory(final Image image, final int width, final int height, final int angleIncrement, final AnimationBehavior animationBehavior) 
+        throws Exception {
+        
         this.image = image;
         // this.width = width;
         // this.height = height;
 
         this.angleIncrement = angleIncrement;
 
+        this.animationBehavior = animationBehavior;
+        
         this.init();
     }
     
@@ -67,15 +72,14 @@ public class ImageArrayRotationAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        // return new AllBinarySpriteRotationAnimation(new MESprite(image,
-        // width, height), dx, dy);
+        //return new AllBinarySpriteRotationAnimation(new MESprite(image, width, height), dx, dy);
 
         return new ImageArrayRotationAnimation(this.getImageArray(),
-                AngleInfo.getInstance((short) this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE);
+                AngleInfo.getInstance((short) this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, animationBehavior);
 
     }
 
-    protected void setImageArray(Image[] imageArray)
+    protected void setImageArray(final Image[] imageArray)
     {
         this.imageArray = imageArray;
         

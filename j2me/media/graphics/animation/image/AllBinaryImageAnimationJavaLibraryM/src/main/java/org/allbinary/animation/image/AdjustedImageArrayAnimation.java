@@ -16,7 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.animation.image.ImageArrayAnimation;
+import org.allbinary.animation.AnimationBehavior;
 
 public class AdjustedImageArrayAnimation 
 extends ImageArrayAnimation
@@ -24,10 +24,10 @@ extends ImageArrayAnimation
     private int dx;
     private int dy;
 
-    public AdjustedImageArrayAnimation(Image[] imageArray, int dx, int dy)
+    public AdjustedImageArrayAnimation(final Image[] imageArray, final int dx, final int dy, final AnimationBehavior animationBehavior)
     		throws Exception
     {
-        super(imageArray);
+        super(imageArray, animationBehavior);
 
         // LogUtil.put(LogFactory.getInstance(, this,));
 
@@ -35,13 +35,13 @@ extends ImageArrayAnimation
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)
     }
 
-    public void init(int dx, int dy) throws Exception
+    public void init(final int dx, final int dy) throws Exception
     {
         this.setDx(dx);
         this.setDy(dy);
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);
     }

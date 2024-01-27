@@ -35,17 +35,17 @@ public class VectorBaseRotationAnimation
 
     protected final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
     
-    public VectorBaseRotationAnimation(AngleInfo angleInfo, int currentPoints[][][], BasicColor basicColor)
+    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int currentPoints[][][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo);
+        super(angleInfo, animationBehavior);
         
         this.setPoints(currentPoints);
         this.setBasicColor(basicColor);
     }
 
-    public VectorBaseRotationAnimation(AngleInfo angleInfo, int currentPoints[][], BasicColor basicColor)
+    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int currentPoints[][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
-        super(angleInfo);
+        super(angleInfo, animationBehavior);
         
         this.setPoints(new int[1][currentPoints.length][2]);
 
@@ -69,7 +69,7 @@ public class VectorBaseRotationAnimation
         return this.basicColor;
     }
 
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColor(final BasicColor basicColor)
     {
         this.basicColor = basicColor;
         //this.color = this.basicColor.intValue();
@@ -100,7 +100,7 @@ public class VectorBaseRotationAnimation
         return this.currentPoints.length;
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
 
     }
@@ -110,7 +110,7 @@ public class VectorBaseRotationAnimation
         return PrimitiveIntUtil.getArrayInstance();
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         this.basicColorUtil.setBasicColor(graphics, basicColor);
 
@@ -126,8 +126,8 @@ public class VectorBaseRotationAnimation
             int[] nextPoint;
             int[] point;
             
-            int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
-            int size = currentPointsFrame.length;
+            final int[][] currentPointsFrame = this.currentPoints[this.circularIndexUtil.getIndex()];
+            final int size = currentPointsFrame.length;
 
             for (int index = size - 3; index >= 0; index--)
             {
@@ -146,8 +146,7 @@ public class VectorBaseRotationAnimation
                     // this,
                     // "paint"));
 
-                    graphics.drawLine(point[0] + x, point[1] + y,
-                            nextPointX + x, nextPointY + y);
+                    graphics.drawLine(point[0] + x, point[1] + y, nextPointX + x, nextPointY + y);
                 }
                 else
                 {
@@ -161,14 +160,15 @@ public class VectorBaseRotationAnimation
         }
     }
     
-    public int[][] getPoints(int frame)
+    public int[][] getPoints(final int frame)
     {
         return currentPoints[frame];
     }
 
-    public void setPoints(int[][][] currentPoints)
+    public void setPoints(final int[][][] currentPoints)
     {
         this.currentPoints = currentPoints;
         this.circularIndexUtil = CircularIndexUtil.getInstance(this.currentPoints.length);
     }
+    
 }

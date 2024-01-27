@@ -17,14 +17,12 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageScaleUtil;
 
 public class OneRowJ2SESpriteIndexedAnimationFactory 
@@ -38,30 +36,30 @@ extends BaseImageAnimationFactory
    
    public int scaleWidth;
    public int scaleHeight;
-   
-   public OneRowJ2SESpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
+      
+   public OneRowJ2SESpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
            throws Exception {
-      this(image);
+      this(image, animationBehavior);
 
       this.dx = dx;
       this.dy = dy;
    }
 
-   public OneRowJ2SESpriteIndexedAnimationFactory(final int width, final int height, final Image image)
+   public OneRowJ2SESpriteIndexedAnimationFactory(final int width, final int height, final Image image, final AnimationBehavior animationBehavior)
            throws Exception {
 
       //90 degrees per row with 4 rows
       //Future imp may include Control fidelity for non square frames
-       super(image, width, height);
+       super(image, width, height, animationBehavior);
    }
    
-   public OneRowJ2SESpriteIndexedAnimationFactory(final Image image)
+   public OneRowJ2SESpriteIndexedAnimationFactory(final Image image, final AnimationBehavior animationBehavior)
       throws Exception 
    {
 
       //90 degrees per row with 4 rows
       //Future imp may include Control fidelity for non square frames
-      super(image, image.getHeight(), image.getHeight());
+      super(image, image.getHeight(), image.getHeight(), animationBehavior);
    }
 
    public Animation getInstance() 
@@ -98,9 +96,9 @@ extends BaseImageAnimationFactory
 
       if (dx != 0 || dy != 0) 
       {
-         return new AdjustedSpriteIndexedAnimation(sprite, dx, dy);
+         return new AdjustedSpriteIndexedAnimation(sprite, dx, dy, this.animationBehavior);
       } else {
-         return new SpriteIndexedAnimation(sprite);
+         return new SpriteIndexedAnimation(sprite, this.animationBehavior);
       }
    }
    

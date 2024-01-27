@@ -18,10 +18,8 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.util.CircularIndexUtil;
 
 import org.allbinary.math.AngleInfo;
-import android.graphics.Color;
 import android.graphics.Matrix;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.media.image.AndroidImageUtil;
 
 public class AllBinaryFlickerAndroidImageRotationAnimation 
@@ -41,13 +39,14 @@ extends ImageBaseRotationAnimation
     
     private final Image originalImage;
     
-    private short rotation;
+    //private short rotation;
     
     protected AllBinaryFlickerAndroidImageRotationAnimation(
             final Image originalImage, final Image image,
-            final AngleInfo angleInfo, final short totalAngle) throws Exception
+            final AngleInfo angleInfo, final short totalAngle, 
+            final AnimationBehavior animationBehavior) throws Exception
     {
-        super(image, angleInfo, totalAngle);
+        super(image, angleInfo, totalAngle, animationBehavior);
 
         this.originalImage = originalImage;
 

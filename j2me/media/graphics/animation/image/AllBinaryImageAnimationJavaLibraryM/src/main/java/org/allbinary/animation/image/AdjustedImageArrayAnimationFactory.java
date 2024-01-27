@@ -15,27 +15,37 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 public class AdjustedImageArrayAnimationFactory 
 implements AnimationInterfaceFactoryInterface
 {
-	private final Image[] imageArray;
+    private final Image[] imageArray;
 
     private int dx;
     private int dy;
+    private final AnimationBehavior animationBehavior;
 
     public AdjustedImageArrayAnimationFactory(Image[] imageArray, int dx, int dy) 
-    throws Exception
-    {
+        throws Exception {
+
+        this(imageArray, dx, dy, AnimationBehavior.getInstance());
+
+    }
+    
+    public AdjustedImageArrayAnimationFactory(Image[] imageArray, int dx, int dy, final AnimationBehavior animationBehavior) 
+        throws Exception {
+
     	this.imageArray = imageArray;
     	this.dx = dx;
     	this.dy = dy;
+        this.animationBehavior = animationBehavior;
     }
 
     public Animation getInstance() throws Exception
     {
-        return new AdjustedImageArrayAnimation(this.imageArray, dx, dy);
+        return new AdjustedImageArrayAnimation(this.imageArray, dx, dy, this.animationBehavior);
     }
 
     public void setInitialSize(final int width, final int height) {

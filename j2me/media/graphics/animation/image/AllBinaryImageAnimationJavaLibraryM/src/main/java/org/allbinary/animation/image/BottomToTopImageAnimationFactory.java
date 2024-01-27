@@ -16,6 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 
 /**
  *
@@ -24,14 +25,18 @@ import org.allbinary.animation.Animation;
 public class BottomToTopImageAnimationFactory
     extends BaseImageAnimationFactory
 {
-   public BottomToTopImageAnimationFactory(
-       Image image)//, int width, int height)
+   public BottomToTopImageAnimationFactory(final Image image)
            throws Exception {
-       super(image, image.getWidth(), image.getHeight());//, width, height);
+       this(image, AnimationBehavior.getInstance());
    }
 
+   public BottomToTopImageAnimationFactory(final Image image, final AnimationBehavior animationBehavior) //, int width, int height)
+           throws Exception {
+       super(image, image.getWidth(), image.getHeight(), animationBehavior);//, width, height);
+   }
+   
    public Animation getInstance() throws Exception
    {
-       return new BottomToTopImageAnimation(this.getImage());
+       return new BottomToTopImageAnimation(this.getImage(), this.animationBehavior);
    }
 }

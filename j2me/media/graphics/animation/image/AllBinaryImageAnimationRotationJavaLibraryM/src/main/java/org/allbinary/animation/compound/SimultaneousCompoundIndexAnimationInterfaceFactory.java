@@ -10,49 +10,50 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation.compound;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 
 public class SimultaneousCompoundIndexAnimationInterfaceFactory
-    implements AnimationInterfaceFactoryInterface
-{
+    implements AnimationInterfaceFactoryInterface {
+
     private final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
+    private final AnimationBehavior animationBehavior;
 
     public SimultaneousCompoundIndexAnimationInterfaceFactory(
-        AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
-    {
+        final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
+        final AnimationBehavior animationBehavior) {
+        
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
+        this.animationBehavior = animationBehavior;
+
     }
 
-    public Animation getInstance() throws Exception
-    {
-        int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
-        IndexedAnimation[] animationInterfaceArray = new IndexedAnimation[size];
+    public Animation getInstance() throws Exception {
+        final int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
+        final IndexedAnimation[] animationInterfaceArray = new IndexedAnimation[size];
 
-        for (int index = 0; index < size; index++)
-        {
-            animationInterfaceArray[index] = (IndexedAnimation) 
-               this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
+        for (int index = 0; index < size; index++) {
+            animationInterfaceArray[index] = (IndexedAnimation) this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
         }
 
         return this.getInstance(animationInterfaceArray);
     }
 
-    protected Animation getInstance(IndexedAnimation[] animationInterfaceArray)
-    {
-    	return new SimultaneousCompoundIndexAnimation(animationInterfaceArray);
+    protected Animation getInstance(final IndexedAnimation[] animationInterfaceArray) {
+        return new SimultaneousCompoundIndexAnimation(animationInterfaceArray, this.animationBehavior);
     }
-    
-	public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
-		return basicAnimationInterfaceFactoryInterfaceArray;
-	}
-        
+
+    public AnimationInterfaceFactoryInterface[] getBasicAnimationInterfaceFactoryInterfaceArray() {
+        return basicAnimationInterfaceFactoryInterfaceArray;
+    }
+
     public void setInitialSize(final int width, final int height) {
-        
+
     }
-        
+
 }

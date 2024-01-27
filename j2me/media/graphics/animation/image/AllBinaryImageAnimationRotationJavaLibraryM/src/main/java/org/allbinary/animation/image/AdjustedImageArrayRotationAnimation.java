@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -26,10 +27,10 @@ public class AdjustedImageArrayRotationAnimation extends
     private int dx;
     private int dy;
 
-    protected AdjustedImageArrayRotationAnimation(Object object)
+    protected AdjustedImageArrayRotationAnimation(final Object object, final AnimationBehavior animationBehavior)
             throws Exception
     {
-        super(object);
+        super(object, animationBehavior);
 
         ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
@@ -37,29 +38,30 @@ public class AdjustedImageArrayRotationAnimation extends
                 allBinaryImageRotationAnimationInfo.getDy());
     }
 
-    public AdjustedImageArrayRotationAnimation(Image[] imageArray)
+    public AdjustedImageArrayRotationAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior)
             throws Exception
     {
-        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, 0, 0);
+        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, 0, 0, animationBehavior);
     }
 
-    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
-            int dx, int dy) throws Exception
+    public AdjustedImageArrayRotationAnimation(final Image[] imageArray,
+            final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
     {
-        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
+        this(imageArray, AngleInfo.getInstance((short) 10), AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehavior);
     }
 
-    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
-            AngleInfo angleInfo, int dx, int dy) throws Exception
+    public AdjustedImageArrayRotationAnimation(final Image[] imageArray,
+            final AngleInfo angleInfo, final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
     {
-        this(imageArray, angleInfo, AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
+        this(imageArray, angleInfo, AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehavior);
     }
 
-    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
-            AngleInfo angleInfo, int totalAngle, int dx, int dy)
+    public AdjustedImageArrayRotationAnimation(final Image[] imageArray,
+            final AngleInfo angleInfo, final int totalAngle, final int dx, final int dy,
+            final AnimationBehavior animationBehavior)
             throws Exception
     {
-        super(imageArray, angleInfo, totalAngle);
+        super(imageArray, angleInfo, totalAngle, animationBehavior);
 
         // LogUtil.put(LogFactory.getInstance("Constructing", this,
         // "AllBinaryImageRotationAnimation"));
@@ -67,29 +69,28 @@ public class AdjustedImageArrayRotationAnimation extends
         this.init(dx, dy);
     }
 
-    public AdjustedImageArrayRotationAnimation(Image[] imageArray,
-            AngleInfo angleInfo, int totalAngle) throws Exception
+    public AdjustedImageArrayRotationAnimation(final Image[] imageArray,
+            final AngleInfo angleInfo, final int totalAngle, final AnimationBehavior animationBehavior) throws Exception
     {
-        super(imageArray, angleInfo, totalAngle);
+        super(imageArray, angleInfo, totalAngle, animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance("Constructing", this,
-        // "AllBinaryImageRotationAnimation"));
+        // LogUtil.put(LogFactory.getInstance("Constructing", this, "AllBinaryImageRotationAnimation"));
 
         this.init(-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2));
     }
 
-    public void init(int dx, int dy) throws Exception
+    public void init(final int dx, final int dy) throws Exception
     {
         this.setDx(dx);
         this.setDy(dy);
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);
     }
 
-    public void setDx(int dx)
+    public void setDx(final int dx)
     {
         this.dx = dx;
     }
@@ -99,7 +100,7 @@ public class AdjustedImageArrayRotationAnimation extends
         return dx;
     }
 
-    public void setDy(int dy)
+    public void setDy(final int dy)
     {
         this.dy = dy;
     }

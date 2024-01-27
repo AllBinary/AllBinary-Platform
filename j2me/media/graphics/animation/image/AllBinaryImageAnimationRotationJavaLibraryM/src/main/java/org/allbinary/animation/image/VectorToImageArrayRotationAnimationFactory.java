@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.VectorAnimation;
 
@@ -34,12 +35,22 @@ public class VectorToImageArrayRotationAnimationFactory implements
 
     private int angleIncrement;
 
-    public VectorToImageArrayRotationAnimationFactory(VectorInfo vectorInfo,
-            BasicColor basicColor) throws Exception
+    private final AnimationBehavior animationBehavior;
+    
+    public VectorToImageArrayRotationAnimationFactory(
+        final VectorInfo vectorInfo, final BasicColor basicColor) throws Exception
     {
+        this(vectorInfo, basicColor, AnimationBehavior.getInstance());
+    }
+    
+    public VectorToImageArrayRotationAnimationFactory(
+        final VectorInfo vectorInfo, final BasicColor basicColor, final AnimationBehavior animationBehavior) throws Exception
+    {
+        this.animationBehavior = animationBehavior;
+
         this.setImage(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
                 vectorInfo.getWidth(), vectorInfo.getHeight(), 
-                new VectorAnimation(vectorInfo.getPoints(), basicColor)));
+                new VectorAnimation(vectorInfo.getPoints(), basicColor, animationBehavior)));
 
         this.init();
     }
@@ -61,7 +72,7 @@ public class VectorToImageArrayRotationAnimationFactory implements
 
         return new AdjustedImageArrayRotationAnimation(
                 this.getImageArray(), AngleInfo.getInstance((short) this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE);
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehavior);
     }
 
     protected Image getImage()

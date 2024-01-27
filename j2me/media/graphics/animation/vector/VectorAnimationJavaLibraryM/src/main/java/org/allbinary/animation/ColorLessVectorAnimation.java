@@ -19,14 +19,14 @@ import org.allbinary.graphics.color.BasicColorFactory;
 
 public class ColorLessVectorAnimation extends VectorAnimation
 {
-    public ColorLessVectorAnimation(int currentPoints[][][])
+    public ColorLessVectorAnimation(final int currentPoints[][][], final AnimationBehavior animationBehavior)
     {
-        super(currentPoints, BasicColorFactory.getInstance().WHITE);
+        super(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior);
     }
 
-    public ColorLessVectorAnimation(int currentPoints[][])
+    public ColorLessVectorAnimation(final int currentPoints[][], final AnimationBehavior animationBehavior)
     {
-        super(currentPoints, BasicColorFactory.getInstance().WHITE);
+        super(currentPoints, BasicColorFactory.getInstance().WHITE, animationBehavior);
     }
 
     public void paint(Graphics graphics, int x, int y)

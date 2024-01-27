@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -29,30 +30,62 @@ public class AllBinaryAdjustedHTMLImageRotationAnimationFactory
     public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehavior);
     }
 
     public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehavior.getInstance());
     }
-    
-    public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy, final short angleIncrement) throws Exception
+
+    public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final AnimationBehavior animationBehavior) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehavior);
+    }
+
+    public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, 
+        final short angleIncrement) throws Exception
     {
 
-        super(image, width, height, angleIncrement);
+        super(image, width, height, angleIncrement, AnimationBehavior.getInstance());
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, 
+        final short angleIncrement, final AnimationBehavior animationBehavior) throws Exception
+    {
+
+        super(image, width, height, angleIncrement, animationBehavior);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy) throws Exception
+    {
+
+        super(image, width, height, AnimationBehavior.getInstance());
 
         this.dx = dx;
         this.dy = dy;
     }
     
     public AllBinaryAdjustedHTMLImageRotationAnimationFactory(final Image image,
-            final int width, final int height, final int dx, final int dy) throws Exception
+            final int width, final int height, final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
     {
 
-        super(image, width, height);
+        super(image, width, height, animationBehavior);
 
         this.dx = dx;
         this.dy = dy;
@@ -66,7 +99,7 @@ public class AllBinaryAdjustedHTMLImageRotationAnimationFactory
         return new AllBinaryAdjustedHTMLImageRotationAnimation(
                 this.image, image,
                 AngleInfo.getInstance(this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy);
+                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy, this.animationBehavior);
     }
 
 }

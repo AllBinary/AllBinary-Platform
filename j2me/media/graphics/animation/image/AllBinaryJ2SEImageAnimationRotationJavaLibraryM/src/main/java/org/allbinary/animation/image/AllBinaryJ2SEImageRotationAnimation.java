@@ -15,12 +15,10 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.math.AngleInfo;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
 import org.allbinary.media.image.ImageRotationUtil;
@@ -59,9 +57,10 @@ extends ImageBaseRotationAnimation
     
     protected AllBinaryJ2SEImageRotationAnimation(
             final Image originalImage, final Image image,
-            final AngleInfo angleInfo, final short totalAngle) throws Exception
+            final AngleInfo angleInfo, final short totalAngle,
+            final AnimationBehavior animationBehavior) throws Exception
     {
-        super(image, angleInfo, totalAngle);
+        super(image, angleInfo, totalAngle, animationBehavior);
 
         this.realOriginalImage = originalImage;
         this.originalImageArray[0] = originalImage;
@@ -191,7 +190,7 @@ extends ImageBaseRotationAnimation
         }
     }
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.imageToShow, x, y, anchor);
     }

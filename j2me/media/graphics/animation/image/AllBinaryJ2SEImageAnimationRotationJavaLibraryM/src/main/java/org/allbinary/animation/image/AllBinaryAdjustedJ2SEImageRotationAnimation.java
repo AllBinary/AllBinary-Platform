@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.math.AngleInfo;
 
 public class AllBinaryAdjustedJ2SEImageRotationAnimation 
@@ -23,10 +24,11 @@ extends AllBinaryJ2SEImageRotationAnimation
     private int dx;
     private int dy;
 
-    public AllBinaryAdjustedJ2SEImageRotationAnimation(final Image originalImage, final Image image, final AngleInfo angleInfo, final short totalAngle, final int dx, final int dy)
+    public AllBinaryAdjustedJ2SEImageRotationAnimation(final Image originalImage, final Image image, final AngleInfo angleInfo, final short totalAngle, 
+        final int dx, final int dy, final AnimationBehavior animationBehavior)
     		throws Exception
     {
-        super(originalImage, image, angleInfo, totalAngle);
+        super(originalImage, image, angleInfo, totalAngle, animationBehavior);
 
         // LogUtil.put(LogFactory.getInstance(, this,));
 
@@ -34,13 +36,13 @@ extends AllBinaryJ2SEImageRotationAnimation
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)
     }
 
-    public void init(int dx, int dy) throws Exception
+    public void init(final int dx, final int dy) throws Exception
     {
         this.setDx(dx);
         this.setDy(dy);
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);
     }

@@ -15,6 +15,7 @@ package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.game.Sprite;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.color.BasicColor;
@@ -30,16 +31,18 @@ public class SpriteIndexedAnimation extends IndexedAnimation
 {
     private Sprite sprite;
     private final BasicColor[] basicColorArray;
-
-    public SpriteIndexedAnimation(Sprite sprite)
-    {
-        this.setSprite(sprite);
-        basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
-    }
-
-    public SpriteIndexedAnimation(Sprite sprite, BasicColor[] basicColorArray)
+    
+    public SpriteIndexedAnimation(final Sprite sprite, final AnimationBehavior animationBehavior)
         throws Exception
     {
+        this(sprite, BasicColorUtil.getInstance().ZERO_ARRAY, animationBehavior);
+    }
+    
+    public SpriteIndexedAnimation(final Sprite sprite, final BasicColor[] basicColorArray, final AnimationBehavior animationBehavior)
+        throws Exception
+    {
+        super(animationBehavior);
+        
         this.setSprite(sprite);
         this.basicColorArray = basicColorArray;
 

@@ -16,6 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.SingletonAnimationInterfaceFactory;
 import org.allbinary.image.AnimationFrameToImageUtil;
 
@@ -30,7 +31,7 @@ extends SingletonAnimationInterfaceFactory
     public ImageAnimationSingletonInterfaceFactory(Image image)
         throws Exception
     {
-        super(new ImageAnimation(image));
+        super(new ImageAnimation(image, AnimationBehavior.getInstance()));
     }
 
     public ImageAnimationSingletonInterfaceFactory(
@@ -39,6 +40,6 @@ extends SingletonAnimationInterfaceFactory
     {
         this(new ImageAnimation(
                 AnimationFrameToImageUtil.getInstance().getInstance(
-                        width, height, animationInterface)));
+                        width, height, animationInterface), AnimationBehavior.getInstance()));
     }    
 }

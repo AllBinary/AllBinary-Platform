@@ -16,6 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.graphics.Anchor;
 
@@ -27,11 +28,11 @@ public class TopToBottomImageAnimation
     extends ImageSegmentAnimation
 {
     private int currentHeight;
-
-    public TopToBottomImageAnimation(Image image, int[] sequenceArray)
+    
+    public TopToBottomImageAnimation(final Image image, final int[] sequenceArray, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(image, sequenceArray);
+        super(image, sequenceArray, animationBehavior);
 
         this.currentHeight = 0;
 
@@ -83,7 +84,7 @@ public class TopToBottomImageAnimation
 
     private int anchor = Anchor.TOP_LEFT;
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         //Image src, int x_src, int y_src, int width, int height, int transform,
         //  int x_dst, int y_dst, int anchor

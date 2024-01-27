@@ -13,16 +13,17 @@
 */
 package org.allbinary.animation.image;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.logic.util.cache.CacheableInterface;
 import org.allbinary.logic.util.cache.CacheableInterfaceFactoryInterface;
 
 public class ImageArrayRotationAnimationCacheableInterfaceFactory 
 implements CacheableInterfaceFactoryInterface
 {
-    public CacheableInterface getInstance(Object key)
+    public CacheableInterface getInstance(final Object key)
     throws Exception
     {
     	//LogUtil.put(LogFactory.getInstance("Creating new Instance", this, CommonStrings.getInstance().GET_INSTANCE));
-        return new ImageArrayRotationAnimationCacheable(key);
+        return new ImageArrayRotationAnimationCacheable(key, AnimationBehavior.getInstance());
     }	
 }

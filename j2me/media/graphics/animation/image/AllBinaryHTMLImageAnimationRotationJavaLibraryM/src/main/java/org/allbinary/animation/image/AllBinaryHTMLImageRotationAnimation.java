@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.math.AngleInfo;
 import org.allbinary.graphics.color.BasicColor;
@@ -53,9 +54,10 @@ extends ImageBaseRotationAnimation
 
     protected AllBinaryHTMLImageRotationAnimation(
             final Image originalImage, final Image image,
-            final AngleInfo angleInfo, final short totalAngle) throws Exception
+            final AngleInfo angleInfo, final short totalAngle,
+            final AnimationBehavior animationBehavior) throws Exception
     {
-        super(image, angleInfo, totalAngle);
+        super(image, angleInfo, totalAngle, animationBehavior);
 
         this.originalImage = originalImage;
         

@@ -14,6 +14,7 @@
 package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.game.Sprite;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.direction.Direction;
 import org.allbinary.logic.string.CommonStrings;
@@ -27,11 +28,12 @@ import org.allbinary.math.FrameUtil;
 
 public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation
 {
-    public AllBinarySpriteRotationAnimation(final Sprite sprite)
+    public AllBinarySpriteRotationAnimation(final Sprite sprite, final AnimationBehavior animationBehavior)
     {
         super(sprite,
                 AngleInfo.getInstance(
-                (short) (AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount())));
+                (short) (AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount())),
+                animationBehavior);
 
         //(sprite.getWidth() / sprite.getHeight()) % 
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("sprite.getRawFrameCount(): ").append(sprite.getRawFrameCount()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
@@ -40,7 +42,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
     }
 
     /*
-    public AllBinarySpriteRotationAnimation(MESprite sprite, int x, int y)
+    public AllBinarySpriteRotationAnimation(MESprite sprite, int x, int y, final AnimationBehavior animationBehavior)
     {
     super(sprite, x, y);
 

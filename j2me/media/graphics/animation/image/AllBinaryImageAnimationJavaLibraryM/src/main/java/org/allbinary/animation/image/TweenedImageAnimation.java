@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.util.CircularIndexUtil;
 
@@ -32,12 +33,11 @@ public class TweenedImageAnimation extends IndexedAnimation
     private int totalFrames;
 
     protected CircularIndexUtil circularIndexUtil;
-    
-    public TweenedImageAnimation(
-            Image image, int dx, int dy, int totalFrames) 
+            
+    public TweenedImageAnimation(final Image image, final int dx, final int dy, final int totalFrames, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super();
+        super(animationBehavior);
 
         this.image = image;
         

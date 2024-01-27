@@ -23,29 +23,29 @@ import org.allbinary.math.FrameUtil;
 public class VectorRotationAnimation 
     extends VectorBaseRotationAnimation 
 {   
-   public VectorRotationAnimation(int currentPoints[][][], BasicColor basicColor)
+   public VectorRotationAnimation(final int currentPoints[][][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
            throws Exception
    {
        //int angleIncrement
-       super(AngleInfo.getInstance((short) (AngleFactory.getInstance().TOTAL_ANGLE / currentPoints.length)), currentPoints, basicColor);
+       super(AngleInfo.getInstance((short) (AngleFactory.getInstance().TOTAL_ANGLE / currentPoints.length)), currentPoints, basicColor, animationBehavior);
 
       this.angleInfo.adjustAngle(this.getFrame());
       
       //LogUtil.put(LogFactory.getInstance(this.getAngleInfo().toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
    }
    
-   public void setFrame(Direction direction)
+   public void setFrame(final Direction direction)
    {
       Angle angle = directionUtil.getFrameAngle(direction);
       this.adjustFrame(angle);
    }
 
-   public void setFrame(Angle angle)
+   public void setFrame(final Angle angle)
    {
       this.adjustFrame(angle);
    }
   
-   public void setFrame(int index)
+   public void setFrame(final int index)
    {
       super.setFrame(index);
       this.angleInfo.adjustAngle(this.getFrame());
@@ -53,12 +53,12 @@ public class VectorRotationAnimation
 
    private final FrameUtil frameUtil = FrameUtil.getInstance();
 
-   public void adjustFrame(short newAngle)
+   public void adjustFrame(final short newAngle)
    {
       this.setFrame(frameUtil.getFrameForAngle(newAngle, this.angleInfo.getAngleIncrementInfo().getAngleIncrement()));
    }
 
-   public void adjustFrame(Angle newAngle)
+   public void adjustFrame(final Angle newAngle)
    {
       this.adjustFrame(newAngle.getValue());
    }

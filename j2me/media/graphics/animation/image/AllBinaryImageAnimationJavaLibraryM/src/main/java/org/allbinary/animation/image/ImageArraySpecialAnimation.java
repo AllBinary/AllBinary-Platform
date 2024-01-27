@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.special.SpecialAnimationInterface;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -25,12 +26,12 @@ public class ImageArraySpecialAnimation
 extends ImageArrayAnimation 
 implements SpecialAnimationInterface
 {
-    private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(270);
+    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(270);
 
-    public ImageArraySpecialAnimation(Image[] imageArray)
+    public ImageArraySpecialAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior)
             throws Exception
     {
-        super(imageArray);
+        super(imageArray, animationBehavior);
 
         this.reset();
     }
@@ -84,7 +85,7 @@ implements SpecialAnimationInterface
         }
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, int x, int y)
     {
         x = DisplayInfoSingleton.getInstance().getLastHalfWidth() - (this.getImage(this.circularIndexUtil.getIndex()).getWidth() >> 1);
         y = 5;

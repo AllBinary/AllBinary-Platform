@@ -17,14 +17,11 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageScaleUtil;
 
 public class OneRowAndroidSpriteIndexedAnimationFactory 
@@ -40,8 +37,9 @@ extends BaseImageAnimationFactory
    public int scaleHeight;
    
    public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
-           throws Exception {
-      this(image);
+       throws Exception {
+
+      this(image, AnimationBehavior.getInstance());
 
       this.dx = dx;
       this.dy = dy;
@@ -50,24 +48,28 @@ extends BaseImageAnimationFactory
    public OneRowAndroidSpriteIndexedAnimationFactory(final int width, final int height, final Image image)
            throws Exception {
 
-      //90 degrees per row with 4 rows
-      //Future imp may include Control fidelity for non square frames
-       super(image, width, height);
+       super(image, width, height, AnimationBehavior.getInstance());
    }
    
-   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image)
-      throws Exception 
-   {
+   public OneRowAndroidSpriteIndexedAnimationFactory(final int width, final int height, final Image image, final AnimationBehavior animationBehavior)
+           throws Exception {
 
       //90 degrees per row with 4 rows
       //Future imp may include Control fidelity for non square frames
-      super(image, image.getHeight(), image.getHeight());
+       super(image, width, height, animationBehavior);
+   }
+   
+   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final AnimationBehavior animationBehavior)
+           throws Exception {
+      //90 degrees per row with 4 rows
+      //Future imp may include Control fidelity for non square frames
+      super(image, image.getHeight(), image.getHeight(), animationBehavior);
    }
 
    public Animation getInstance() 
       throws Exception 
    {
-       final CommonStrings commonStrings = CommonStrings.getInstance();
+       //final CommonStrings commonStrings = CommonStrings.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
 //       LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
        Sprite sprite;
@@ -98,9 +100,9 @@ extends BaseImageAnimationFactory
 
       if (dx != 0 || dy != 0) 
       {
-         return new AdjustedSpriteIndexedAnimation(sprite, dx, dy);
+         return new AdjustedSpriteIndexedAnimation(sprite, dx, dy, this.animationBehavior);
       } else {
-         return new SpriteIndexedAnimation(sprite);
+         return new SpriteIndexedAnimation(sprite, this.animationBehavior);
       }
    }
    

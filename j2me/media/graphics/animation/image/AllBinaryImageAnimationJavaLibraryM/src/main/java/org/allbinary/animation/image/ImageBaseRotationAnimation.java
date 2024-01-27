@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.Anchor;
@@ -27,10 +28,10 @@ public class ImageBaseRotationAnimation extends RotationAnimation
 
     //private static final int currentFrame = 0;
     //private static final int totalFrames = 1;
-    public ImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle)
+    public ImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(angleInfo, totalAngle);
+        super(angleInfo, totalAngle, animationBehavior);
         
         this.image = image;
     }

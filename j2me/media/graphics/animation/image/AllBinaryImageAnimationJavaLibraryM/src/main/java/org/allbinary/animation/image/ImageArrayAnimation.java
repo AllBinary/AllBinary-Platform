@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.util.CircularIndexUtil;
 
@@ -31,9 +32,9 @@ public class ImageArrayAnimation extends IndexedAnimation
 
     protected CircularIndexUtil circularIndexUtil;
     
-    public ImageArrayAnimation(Image[] imageArray) throws Exception
+    public ImageArrayAnimation(final Image[] imageArray, final AnimationBehavior animationBehavior) throws Exception
     {
-        super();
+        super(animationBehavior);
 
         // LogUtil.put(LogFactory.getInstance(, this, ));
 

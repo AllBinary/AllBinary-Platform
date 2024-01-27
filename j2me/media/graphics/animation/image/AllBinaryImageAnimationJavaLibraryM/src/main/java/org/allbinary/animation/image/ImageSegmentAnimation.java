@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.util.CircularIndexUtil;
 
@@ -26,7 +27,6 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
  */
 public class ImageSegmentAnimation 
     extends ImageAnimation
-    //implements IndexedAnimationInterface
 {
     private int startX;
     private int startY;
@@ -41,17 +41,17 @@ public class ImageSegmentAnimation
     //private int diff;
 
     private int[] sequenceArray;
-
-    protected ImageSegmentAnimation(Image image)
+    
+    protected ImageSegmentAnimation(final Image image, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        this(image, PrimitiveIntUtil.getArrayInstance());
+        this(image, PrimitiveIntUtil.getArrayInstance(), animationBehavior);
     }
-
-    protected ImageSegmentAnimation(Image image, int[] sequenceArray)
+    
+    protected ImageSegmentAnimation(final Image image, final int[] sequenceArray, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(image);
+        super(image, animationBehavior);
 
         this.startX = 0;
         this.startY = 0;

@@ -20,14 +20,20 @@ public class VectorRotationAnimationInterfaceFactory implements
 
 	private int currentPoints[][][];
 	private BasicColor basicColor;
+        protected final AnimationBehavior animationBehavior;
 
-	public VectorRotationAnimationInterfaceFactory(int[][][] currentPoints, BasicColor basicColor) {
+        public VectorRotationAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor) {
+            this(currentPoints, basicColor, AnimationBehavior.getInstance());
+        }
+        
+	public VectorRotationAnimationInterfaceFactory(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior) {
 		this.currentPoints = currentPoints;
 		this.setBasicColor(basicColor);
+                this.animationBehavior = animationBehavior;
 	}
 
 	public Animation getInstance() throws Exception {
-		return new VectorRotationAnimation(this.currentPoints, this.getBasicColor());
+		return new VectorRotationAnimation(this.currentPoints, this.getBasicColor(), this.animationBehavior);
 	}
 
 	protected void setBasicColor(BasicColor basicColor) {

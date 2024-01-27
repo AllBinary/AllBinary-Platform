@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -26,33 +27,60 @@ public class AllBinaryAdjustedJ2SEImageRotationAnimationFactory
     private final int dx;
     private final int dy;
 
-    public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy) 
+    public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehavior);
     }
 
     public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement) 
     throws Exception
     {
-        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement);
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehavior.getInstance());
     }
-    
+
+    public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final AnimationBehavior animationBehavior) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehavior);
+    }
+
     public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image,
             final int width, final int height, final int dx, final int dy, final short angleIncrement) throws Exception
     {
 
-        super(image, width, height, angleIncrement);
+        this(image, width, height, dx, dy, angleIncrement, AnimationBehavior.getInstance());
+        
+    }
+    
+    public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehavior animationBehavior) throws Exception
+    {
+
+        super(image, width, height, angleIncrement, animationBehavior);
 
         this.dx = dx;
         this.dy = dy;
     }
-    
+
     public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image,
             final int width, final int height, final int dx, final int dy) throws Exception
     {
 
-        super(image, width, height);
+        this(image, width, height, dx, dy, AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryAdjustedJ2SEImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
+    {
+
+        super(image, width, height, animationBehavior);
 
         this.dx = dx;
         this.dy = dy;
@@ -66,7 +94,7 @@ public class AllBinaryAdjustedJ2SEImageRotationAnimationFactory
         return new AllBinaryAdjustedJ2SEImageRotationAnimation(
                 this.image, image,
                 AngleInfo.getInstance(this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy);
+                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy, this.animationBehavior);
     }
 
 }

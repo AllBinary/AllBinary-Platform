@@ -16,6 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.SingletonAnimationInterfaceFactory;
 import org.allbinary.image.IndexedAnimationToImageArrayUtil;
@@ -23,20 +24,20 @@ import org.allbinary.image.IndexedAnimationToImageArrayUtil;
 public class ImageArraySingletonAnimationInterfaceFactory
 extends SingletonAnimationInterfaceFactory
 {
-    public ImageArraySingletonAnimationInterfaceFactory(Animation animationInterface)
+    public ImageArraySingletonAnimationInterfaceFactory(final Animation animationInterface)
     {
         super(animationInterface);
     }
     
-    public ImageArraySingletonAnimationInterfaceFactory(IndexedAnimation animationInterface, int width, int height)
+    public ImageArraySingletonAnimationInterfaceFactory(final IndexedAnimation animationInterface, final int width, final int height)
     throws Exception
     {
-        this(new ImageArrayAnimation(IndexedAnimationToImageArrayUtil.getInstance(width, height, animationInterface)));
+        this(new ImageArrayAnimation(IndexedAnimationToImageArrayUtil.getInstance(width, height, animationInterface), AnimationBehavior.getInstance()));
     }    
 
     public ImageArraySingletonAnimationInterfaceFactory(Image[] imageArray)
     throws Exception
     {
-        this(new ImageArrayAnimation(imageArray));
+        this(new ImageArrayAnimation(imageArray, AnimationBehavior.getInstance()));
     }    
 }

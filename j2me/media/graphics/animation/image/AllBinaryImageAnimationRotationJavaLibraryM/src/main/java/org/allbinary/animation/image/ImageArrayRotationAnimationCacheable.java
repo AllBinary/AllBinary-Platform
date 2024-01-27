@@ -13,6 +13,7 @@
 */
 package org.allbinary.animation.image;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class ImageArrayRotationAnimationCacheable 
@@ -21,10 +22,10 @@ public class ImageArrayRotationAnimationCacheable
 
 	//private Object key;
 	
-	public ImageArrayRotationAnimationCacheable(Object object) 
+	public ImageArrayRotationAnimationCacheable(final Object object, final AnimationBehavior animationBehavior) 
 	throws Exception 
 	{
-		super(object);
+		super(object, animationBehavior);
 		//this.key = key;
 	}
 	

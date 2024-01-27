@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
@@ -24,14 +25,14 @@ public class ImageAnimation extends IndexedAnimation
 {
     private final Image image;
 
-    //private static final int currentFrame = 0;
-    //private static final int totalFrames = 1;
-    public ImageAnimation(Image image)
+    public ImageAnimation(final Image image, final AnimationBehavior animationBehavior)
         throws Exception
     {
+        super(animationBehavior);
+
         this.image = image;
     }
-
+    
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
@@ -51,13 +52,11 @@ public class ImageAnimation extends IndexedAnimation
 
     public int getFrame()
     {
-        //return this.currentFrame;
         return 0;
     }
 
     public int getSize()
     {
-        //return this.totalFrames;
         return 1;
     }
 
@@ -85,9 +84,8 @@ public class ImageAnimation extends IndexedAnimation
         return image;
     }
 
-    /*
-    public void paint(Graphics graphics) {
-    graphics.drawImage(this.image, 0, 0, Anchor.TOP_LEFT);
-    }
-     */
+//    public void paint(Graphics graphics) {
+//        graphics.drawImage(this.image, 0, 0, Anchor.TOP_LEFT);
+//    }
+    
 }

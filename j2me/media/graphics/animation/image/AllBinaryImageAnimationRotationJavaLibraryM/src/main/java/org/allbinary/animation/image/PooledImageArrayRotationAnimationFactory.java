@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
@@ -30,41 +31,49 @@ public class PooledImageArrayRotationAnimationFactory implements
     // private int height;
 
     private ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo;
-
-    public PooledImageArrayRotationAnimationFactory(Image image)
+    private final AnimationBehavior animationBehavior;
+    
+    public PooledImageArrayRotationAnimationFactory(final Image image, final AnimationBehavior animationBehavior)
             throws Exception
     {
+        this.animationBehavior = animationBehavior;
+
         // this(image, image.getWidth(), image.getHeight());
         this.init(image, image.getWidth(), image.getHeight(),
                 -(image.getWidth() >> 2), -(image.getHeight() >> 2));
     }
 
-    /*
-     * public PooledAllBinaryImageArrayRotationAnimationFactory(MEImage image,
-     * int width, int height) throws Exception {
-     * 
-     * this.init(image, width, height, -(width >> 2), -(height >> 2)); }
-     */
+    
+//    public PooledAllBinaryImageArrayRotationAnimationFactory(MEImage image, int width, int height) throws Exception {
+//
+//        this.init(image, width, height, -(width >> 2), -(height >> 2));
+//    }
 
-    public PooledImageArrayRotationAnimationFactory(Image image,
-            int dx, int dy) throws Exception
+    public PooledImageArrayRotationAnimationFactory(final Image image,
+            final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
     {
+        this.animationBehavior = animationBehavior;
+        
         this.init(image, image.getWidth(), image.getHeight(), dx, dy);
     }
 
-    public PooledImageArrayRotationAnimationFactory(Image image,
-            int width, int height, int dx, int dy) throws Exception
+    public PooledImageArrayRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final AnimationBehavior animationBehavior) throws Exception
     {
+        this.animationBehavior = animationBehavior;
+        
         this.init(image, width, height, dx, dy);
     }
 
-    public PooledImageArrayRotationAnimationFactory(Image image,
-            int width, int height, int dx, int dy, short angleIncrement) throws Exception
+    public PooledImageArrayRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehavior animationBehavior) throws Exception
     {
+        this.animationBehavior = animationBehavior;
+        
         this.init(image, width, height, dx, dy, angleIncrement);
     }
     
-    private void init(Image image, int width, int height, int dx, int dy)
+    private void init(final Image image, final int width, final int height, final int dx, final int dy)
             throws Exception
     {
         final int totalAngle = AngleFactory.getInstance().TOTAL_ANGLE;
@@ -74,7 +83,7 @@ public class PooledImageArrayRotationAnimationFactory implements
         this.init(image, width, height, dx, dy, angleIncrement);
     }
     
-    private void init(Image image, int width, int height, int dx, int dy, short angleIncrement)
+    private void init(final Image image, final int width, final int height, final int dx, final int dy, final short angleIncrement)
             throws Exception
     {
 
@@ -92,14 +101,12 @@ public class PooledImageArrayRotationAnimationFactory implements
 
     public Animation getInstance() throws Exception
     {
-        // return new AllBinarySpriteRotationAnimation(new MESprite(image,
-        // width, height), dx, dy);
+        // return new AllBinarySpriteRotationAnimation(new MESprite(image, width, height), dx, dy);
 
         // return new AllBinaryImageRotationAnimation(this.imageArray,
         // AngleInfo.getInstance(angleIncrement), totalAngle, dx, dy);
 
-        return new AdjustedImageArrayRotationAnimation(
-                allBinaryImageRotationAnimationInfo);
+        return new AdjustedImageArrayRotationAnimation(allBinaryImageRotationAnimationInfo, this.animationBehavior);
         //return (AnimationInterface) AllBinaryImageArrayRotationAnimationPool
           //      .getInstance().remove(allBinaryImageRotationAnimationInfo);
     }

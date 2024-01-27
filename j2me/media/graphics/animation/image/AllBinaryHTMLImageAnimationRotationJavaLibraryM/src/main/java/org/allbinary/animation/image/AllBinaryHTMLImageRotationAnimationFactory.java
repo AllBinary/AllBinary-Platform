@@ -16,6 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.media.image.ImageCopyUtil;
@@ -29,25 +30,44 @@ public class AllBinaryHTMLImageRotationAnimationFactory
     protected Image image;
 
     protected final short angleIncrement;
+    protected final AnimationBehavior animationBehavior;
 
     public AllBinaryHTMLImageRotationAnimationFactory(final Image image)
             throws Exception
     {
-        this(image, image.getWidth(), image.getHeight());
+        this(image, image.getWidth(), image.getHeight(), AnimationBehavior.getInstance());
     }
-    
+
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final AnimationBehavior animationBehavior)
+            throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), animationBehavior);
+    }
+
     public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height)
             throws Exception
     {
-        this.image = image;
-        this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        this(image, width, height, AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehavior animationBehavior)
+            throws Exception
+    {
+        this(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehavior);
     }
 
     public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement) throws Exception
     {
+        this(image, width, height, angleIncrement, AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height,
+            final short angleIncrement, final AnimationBehavior animationBehavior) throws Exception
+    {
         this.image = image;
         this.angleIncrement = angleIncrement;
+        this.animationBehavior = animationBehavior;
     }
     
     public Animation getInstance() throws Exception
@@ -58,7 +78,7 @@ public class AllBinaryHTMLImageRotationAnimationFactory
         return new AllBinaryHTMLImageRotationAnimation(
                 this.image, image,
                 AngleInfo.getInstance(this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE);
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehavior);
     }
 
     protected short getAngleIncrement()

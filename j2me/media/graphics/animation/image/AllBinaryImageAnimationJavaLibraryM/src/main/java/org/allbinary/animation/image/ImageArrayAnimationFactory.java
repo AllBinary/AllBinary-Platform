@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 public class ImageArrayAnimationFactory 
@@ -30,7 +31,7 @@ implements AnimationInterfaceFactoryInterface
 
     public Animation getInstance() throws Exception
     {
-        return new ImageArrayAnimation(this.imageArray);
+        return new ImageArrayAnimation(this.imageArray, AnimationBehavior.getInstance());
     }
 
     public void setInitialSize(final int width, final int height) {

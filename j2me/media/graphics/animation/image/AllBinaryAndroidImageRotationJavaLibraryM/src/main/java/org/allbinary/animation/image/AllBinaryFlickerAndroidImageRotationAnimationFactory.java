@@ -16,6 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.media.image.ImageCopyUtil;
@@ -28,19 +29,34 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
     private Image image;
 
     private final short angleIncrement;
+    protected final AnimationBehavior animationBehavior;
 
     public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height)
             throws Exception
     {
-        this.setImage(image);
-        this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
+        this(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehavior animationBehavior)
+            throws Exception
+    {
+        this(image, width, height, (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity()), animationBehavior);
     }
 
     public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement) throws Exception
     {
+        this(image, width, height, angleIncrement, AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryFlickerAndroidImageRotationAnimationFactory(final Image image, final int width, final int height,
+            final short angleIncrement, final AnimationBehavior animationBehavior) throws Exception
+    {
         this.setImage(image);
         this.angleIncrement = angleIncrement;
+        
+        this.animationBehavior = animationBehavior;
+
     }
     
     public Animation getInstance() throws Exception
@@ -50,7 +66,7 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
         return new AllBinaryFlickerAndroidImageRotationAnimation(
                 this.getImage(), image,
                 AngleInfo.getInstance(this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE);
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehavior);
     }
 
     protected short getAngleIncrement()

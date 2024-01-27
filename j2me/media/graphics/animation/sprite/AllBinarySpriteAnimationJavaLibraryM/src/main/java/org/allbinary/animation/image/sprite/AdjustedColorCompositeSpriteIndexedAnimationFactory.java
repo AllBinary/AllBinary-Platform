@@ -18,6 +18,7 @@ import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.AndroidUtil;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
@@ -30,14 +31,21 @@ public class AdjustedColorCompositeSpriteIndexedAnimationFactory
 {
     private int dx;
     private int dy;
-    
+
     private BasicColor[] basicColorArray;
 
     public AdjustedColorCompositeSpriteIndexedAnimationFactory(
-            Image image, BasicColor[] basicColorArray, int width, int height, int dx, int dy)
+            final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy)
+            throws Exception
+    {
+        this(image, basicColorArray, width, height, dx, dy, AnimationBehavior.getInstance());
+    }
+
+    public AdjustedColorCompositeSpriteIndexedAnimationFactory(
+            final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy, final AnimationBehavior animationBehavior)
             throws Exception
         {
-            super(image, width, height);
+            super(image, width, height, animationBehavior);
 
             this.basicColorArray = basicColorArray;
             ////this.dx = - (this.width >> 2);
@@ -54,15 +62,22 @@ public class AdjustedColorCompositeSpriteIndexedAnimationFactory
         }
 
     public AdjustedColorCompositeSpriteIndexedAnimationFactory(
-            Image image, BasicColor[] basicColorArray, int width, int height)
+            final Image image, final BasicColor[] basicColorArray, final int width, final int height)
+            throws Exception
+    {
+            this(image, basicColorArray, width, height, AnimationBehavior.getInstance());
+    }
+    
+    public AdjustedColorCompositeSpriteIndexedAnimationFactory(
+            final Image image, final BasicColor[] basicColorArray, final int width, final int height, final AnimationBehavior animationBehavior)
             throws Exception
         {
-            super(image, width, height);
+            super(image, width, height, animationBehavior);
 
             this.basicColorArray = basicColorArray;
             ////this.dx = - (this.width >> 2);
             ////this.dy = - (this.height >> 2);
-            
+
             ////this.dx = - this.width / 12;
             ////this.dy = - this.height / 12;
             //this.dx = - this.width / 20;
@@ -71,7 +86,7 @@ public class AdjustedColorCompositeSpriteIndexedAnimationFactory
             //J2ME
             this.dx = - (this.width >> 2);
             this.dy = - (this.height >> 2);
-            
+
             if(AndroidUtil.isAndroid())
             {
                 this.dx+= 3;
@@ -95,7 +110,7 @@ public class AdjustedColorCompositeSpriteIndexedAnimationFactory
     {
         final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
 
-        return new AdjustedSpriteIndexedAnimation(sprite, this.basicColorArray, this.dx, this.dy);
+        return new AdjustedSpriteIndexedAnimation(sprite, this.basicColorArray, this.dx, this.dy, animationBehavior);
     }
 
     public Animation getInstance(Animation animationInterface) throws Exception

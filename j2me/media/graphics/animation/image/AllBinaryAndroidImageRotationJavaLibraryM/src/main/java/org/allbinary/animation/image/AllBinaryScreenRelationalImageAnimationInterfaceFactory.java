@@ -18,25 +18,32 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.displayable.ScreenRelationalUtil;
 import org.allbinary.media.image.ImageScaleUtil;
 
 public class AllBinaryScreenRelationalImageAnimationInterfaceFactory
 extends BaseImageAnimationFactory
 {
-	private Image lastImage;
-	
+    private Image lastImage;
+
     public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image)
         throws Exception
     {
+        this(image, AnimationBehavior.getInstance());
+    }
+    
+    public AllBinaryScreenRelationalImageAnimationInterfaceFactory(final Image image, final AnimationBehavior animationBehavior)
+        throws Exception
+    {
     	//int width, int height
-        super(image, 0, 0);
+        super(image, 0, 0, animationBehavior);
         
     	//Image image = this.getImage();
 
     	if(lastImage != null)
     	{
-    		lastImage.getBitmap().recycle();
+            lastImage.getBitmap().recycle();
     	}
 
     	float scale = ScreenRelationalUtil.getInstance().getScale(image);
@@ -45,10 +52,11 @@ extends BaseImageAnimationFactory
         		//Image.createImage(displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
         		ImageScaleUtil.getInstance().createImage(GameFeatureImageCacheFactory.getInstance(), 
     			this.getImage(), scale, scale, false);
+
     }
     
     public Animation getInstance() throws Exception
     {    	
-        return new ImageAnimation(lastImage);
+        return new ImageAnimation(lastImage, this.animationBehavior);
     }    
 }

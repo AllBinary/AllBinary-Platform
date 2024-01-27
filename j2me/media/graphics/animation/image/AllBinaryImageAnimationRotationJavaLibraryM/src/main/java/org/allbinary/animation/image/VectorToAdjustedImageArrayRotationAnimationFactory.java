@@ -10,40 +10,48 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation.image;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.vector.VectorInfo;
 
-public class VectorToAdjustedImageArrayRotationAnimationFactory extends 
-VectorToImageArrayRotationAnimationFactory
-{
-	private int dx;
-	private int dy;
+public class VectorToAdjustedImageArrayRotationAnimationFactory extends
+    VectorToImageArrayRotationAnimationFactory {
 
-	public VectorToAdjustedImageArrayRotationAnimationFactory(
-			VectorInfo vectorInfo, BasicColor basicColor, int dx, int dy) 
-	    throws Exception {
+    private int dx;
+    private int dy;
+    private final AnimationBehavior animationBehavior;
 
-		super(vectorInfo, basicColor);
-		
-		this.dx = dx;
-		this.dy = dy;
+    public VectorToAdjustedImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
+        final BasicColor basicColor, final int dx, final int dy)
+        throws Exception {
+        this(vectorInfo, basicColor, dx, dy, AnimationBehavior.getInstance());
+    }
+    
+    public VectorToAdjustedImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
+        final BasicColor basicColor, final int dx, final int dy, final AnimationBehavior animationBehavior)
+        throws Exception {
 
-		this.init();
-	}
-	
-	public Animation getInstance() throws Exception {
-		//return new AllBinarySpriteRotationAnimation(new MESprite(image,
-		//width, height), dx, dy);
-		
-		return new AdjustedImageArrayRotationAnimation(
-				this.getImageArray(), AngleInfo.getInstance((short) this.getAngleIncrement()), 
-				AngleFactory.getInstance().TOTAL_ANGLE, dx, dy);
-	}
-	
+        super(vectorInfo, basicColor);
+
+        this.animationBehavior = animationBehavior;
+        this.dx = dx;
+        this.dy = dy;
+
+        this.init();
+    }
+
+    public Animation getInstance() throws Exception {
+        //return new AllBinarySpriteRotationAnimation(new MESprite(image, width, height), dx, dy);
+
+        return new AdjustedImageArrayRotationAnimation(
+            this.getImageArray(), AngleInfo.getInstance((short) this.getAngleIncrement()),
+            AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehavior);
+    }
+
 }

@@ -15,40 +15,39 @@ package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.game.Sprite;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorUtil;
 
 public class AdjustedSpriteIndexedAnimation
 extends SpriteIndexedAnimation
 {
     private int dx;
     private int dy;
-    
-    public AdjustedSpriteIndexedAnimation(
-            Sprite sprite, int dx, int dy)
-    {
-        super(sprite);
-        this.dx = dx;
-        this.dy = dy;
-    }    
 
-    public AdjustedSpriteIndexedAnimation(
-            Sprite sprite, BasicColor[] basicColorArray, int dx, int dy)
-            throws Exception
+    public AdjustedSpriteIndexedAnimation(final Sprite sprite, final int dx, final int dy, final AnimationBehavior animationBehavior)
+        throws Exception
     {
-        super(sprite, basicColorArray);
+        this(sprite, BasicColorUtil.getInstance().ZERO_ARRAY, dx, dy, animationBehavior);
+    }    
+        
+    public AdjustedSpriteIndexedAnimation(final Sprite sprite, final BasicColor[] basicColorArray, final int dx, final int dy, final AnimationBehavior animationBehavior)
+        throws Exception
+    {
+        super(sprite, basicColorArray, animationBehavior);
         this.dx = dx;
         this.dy = dy;
         //this.getSprite().setPosition(this.dx, this.dy);
     }
 
-    public void paint(Graphics g, int x, int y)
+    public void paint(final Graphics g, final int x, final int y)
     {
         this.getSprite().setPosition(x + this.dx, y + this.dy);
         super.paint(g);
     }
 
-    public void paint(Graphics g)
+    public void paint(final Graphics g)
     {
         this.getSprite().setPosition(this.dx, this.dy);
         super.paint(g);

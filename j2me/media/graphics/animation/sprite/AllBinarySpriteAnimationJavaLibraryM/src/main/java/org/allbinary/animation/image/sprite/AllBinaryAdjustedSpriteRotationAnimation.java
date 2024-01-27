@@ -15,22 +15,23 @@ package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.game.Sprite;
+import org.allbinary.animation.AnimationBehavior;
 
 public class AllBinaryAdjustedSpriteRotationAnimation
 extends AllBinarySpriteRotationAnimation
 {
     private int dx;
     private int dy;
-    
+
     public AllBinaryAdjustedSpriteRotationAnimation(
-            Sprite sprite, int dx, int dy)
+            final Sprite sprite, final int dx, final int dy, final AnimationBehavior animationBehavior)
     {
-        super(sprite);
+        super(sprite, animationBehavior);
         this.dx = dx;
         this.dy = dy;
     }    
 
-    public void paint(Graphics g, int x, int y)
+    public void paint(final Graphics g, final int x, final int y)
     {
         this.sprite.setPosition(x + this.dx, y + this.dy);
         this.paint(g);

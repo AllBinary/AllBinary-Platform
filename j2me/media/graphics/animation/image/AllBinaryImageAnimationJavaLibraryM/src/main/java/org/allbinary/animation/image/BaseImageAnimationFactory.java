@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
@@ -21,6 +21,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.SpacialStrings;
@@ -28,68 +29,63 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
 
-   private final Image image;
-   protected final int width;
-   protected final int height;
+    private final Image image;
+    protected final int width;
+    protected final int height;
+    protected final AnimationBehavior animationBehavior;
 
-   private final int[] sequenceArray;
+    private final int[] sequenceArray;
 
-   public BaseImageAnimationFactory(final Image image, final int width, final int height)
-           throws Exception {
-      this.image = image;
+    public BaseImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehavior animationBehavior)
+            throws Exception {
+        this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehavior);
+    }
 
-      this.width = width;
-      this.height = height;
+    public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehavior animationBehavior)
+            throws Exception {
+        this.image = image;
 
-      this.sequenceArray = PrimitiveIntUtil.getArrayInstance();
+        this.width = width;
+        this.height = height;
+        
+        this.animationBehavior = animationBehavior;
 
-      final StringMaker stringBuffer = new StringMaker();
-      
-      stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
-      stringBuffer.append(image.getHeight());
-      stringBuffer.append(CommonSeps.getInstance().SPACE);
-      stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
-      stringBuffer.append(width);
-      stringBuffer.append(CommonSeps.getInstance().SPACE);
-      stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
-      stringBuffer.append(height);
-      
-      LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
-   }
+        this.sequenceArray = sequenceArray;
 
-   public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height)
-           throws Exception {
-      this.image = image;
+        final StringMaker stringBuffer = new StringMaker();
 
-      this.width = width;
-      this.height = height;
-      
-      this.sequenceArray = sequenceArray;
-   }
+        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(image.getHeight());
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+        stringBuffer.append(width);
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(height);
 
-   public Animation getInstance() throws Exception
-   {
-       return NullAnimationFactory.getFactoryInstance().getInstance();
-   }
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+    }
+
+    public Animation getInstance() throws Exception {
+        return NullAnimationFactory.getFactoryInstance().getInstance();
+    }
 
     /**
      * @return the image
      */
-    public Image getImage()
-    {
+    public Image getImage() {
         return image;
     }
 
     /**
      * @return the sequenceArray
      */
-    public int[] getSequenceArray()
-    {
+    public int[] getSequenceArray() {
         return sequenceArray;
     }
-    
-   public void setInitialSize(final int width, final int height) {
-       
-   }
+
+    public void setInitialSize(final int width, final int height) {
+
+    }
 
 }
