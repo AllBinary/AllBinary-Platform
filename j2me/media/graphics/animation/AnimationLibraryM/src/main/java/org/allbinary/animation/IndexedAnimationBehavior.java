@@ -22,9 +22,16 @@ public class IndexedAnimationBehavior extends AnimationBehavior {
     public long frameDelayTime;
     public int loopTotal;
     
+    public long elapsedTime;
+    public int loopIndex;
+    
     public IndexedAnimationBehavior(final int loopTotal, final long frameDelayTime) {
         this.loopTotal = loopTotal;
         this.frameDelayTime = frameDelayTime;
+    }
+    
+    public void reset() {
+        this.loopIndex = 0;
     }
     
 }

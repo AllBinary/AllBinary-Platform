@@ -39,7 +39,7 @@ import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactor
 import org.allbinary.logic.system.security.licensing.LockableFeature;
 import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.SpecialAnimationBehavior;
+import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.animation.special.SpecialAnimation;
 import org.allbinary.canvas.AllGameStatisticsFactory;
 import org.allbinary.canvas.BaseGameStatistics;
@@ -755,7 +755,7 @@ public class StartCanvas extends RunnableCanvas
         if (this.state == 0)
         {
             //Don't allow the time of the animation to count towards the state time.
-            if (((SpecialAnimationBehavior) this.getSpecialAnimationInterface().animationBehavior).loopIndex < 1)
+            if (((IndexedAnimationBehavior) this.getSpecialAnimationInterface().animationBehavior).loopIndex < 1)
             {
                 timeDelayHelper.setStartTime();
             }
