@@ -54,7 +54,7 @@ public class TitleAnimation extends SpecialAnimation
         this(animationInterfaceArray, basicColorArray, dxArray, dyArray, y, width, new IndexedAnimationBehavior(1, 250));
     }
     
-    private TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
+    public TitleAnimation(final IndexedAnimation[] animationInterfaceArray,
             final BasicColor[] basicColorArray, final int[] dxArray, final int[] dyArray, final int y, final int width,
             final AnimationBehavior animationBehavior)
     {
