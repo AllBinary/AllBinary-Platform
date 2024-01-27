@@ -59,6 +59,13 @@ extends BaseImageAnimationFactory
        super(image, width, height, animationBehavior);
    }
    
+   public OneRowAndroidSpriteIndexedAnimationFactory(final Image image)
+       throws Exception {
+       
+       this(image, AnimationBehavior.getInstance());
+
+   }
+   
    public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final AnimationBehavior animationBehavior)
            throws Exception {
       //90 degrees per row with 4 rows
