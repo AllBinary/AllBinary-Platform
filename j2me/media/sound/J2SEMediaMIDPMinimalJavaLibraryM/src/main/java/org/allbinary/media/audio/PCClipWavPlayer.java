@@ -113,6 +113,8 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         clip.addLineListener(this);
         clip.open(this.audioInputStream);
 
+        //PreLogUtil.put(clip.getFormat().toString(), this, commonStrings.PROCESS);
+        
         return clip;
     }
 
