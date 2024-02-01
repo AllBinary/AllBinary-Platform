@@ -24,7 +24,7 @@ import org.allbinary.graphics.color.BasicColorSetUtil;
 public class Animation implements AnimationInterface,
 //implements 
 OpenGLSurfaceChangedInterface
-{
+{    
     protected final BasicColorSetUtil basicColorUtil = 
         BasicColorSetUtil.getInstance();
 
@@ -49,6 +49,8 @@ OpenGLSurfaceChangedInterface
 
     public void paint(Graphics graphics, int x, int y)
     {
+        this.basicColorUtil.setBasicColor(
+            graphics, this.getBasicColor(), this.getColor());
     }
 
     public void paintThreed(Graphics graphics, int x, int y, int z)
