@@ -15,23 +15,14 @@ package org.allbinary.game.health;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.game.graphics.hud.BasicHudFactory;
-import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.layer.AllBinaryLayer;
 
-public class HealthBarAnimation
-extends Animation
+public class HealthBarAnimation extends Animation
 {
     private final BasicColorFactory basicColorFactory = 
             BasicColorFactory.getInstance();
-
-    protected final BasicColorSetUtil basicColorUtil = 
-            BasicColorSetUtil.getInstance();
-
-    protected BasicColor basicColor;
-    protected int color;
-
+    
     protected int x2;
 
     protected int thickness;
@@ -47,8 +38,7 @@ extends Animation
 
         this.location = location;
 
-        BasicHudFactory basicHudFactory = 
-                BasicHudFactory.getInstance();
+        final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
 
         if (this.location != basicHudFactory.TOPLEFT
                 && this.location != basicHudFactory.BOTTOMLEFT)
@@ -99,8 +89,7 @@ extends Animation
 
     protected int getY()
     {
-        BasicHudFactory basicHudFactory = 
-            BasicHudFactory.getInstance();
+        final BasicHudFactory basicHudFactory = BasicHudFactory.getInstance();
         
         if (this.location == basicHudFactory.TOPLEFT)
         {
