@@ -31,7 +31,7 @@ public class HealthBarAnimation extends Animation
 
     protected AllBinaryLayer allbinaryLayer;
 
-    public HealthBarAnimation(AllBinaryLayer layerInterface, int location)
+    public HealthBarAnimation(final AllBinaryLayer layerInterface, final int location)
     throws Exception
     {
         this.allbinaryLayer = layerInterface;
@@ -60,7 +60,7 @@ public class HealthBarAnimation extends Animation
         }
     }
 
-    public void onHealthChange(int newX2)
+    public void onHealthChange(final int newX2)
     {
         x2 = newX2;
         

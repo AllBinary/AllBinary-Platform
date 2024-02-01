@@ -26,7 +26,7 @@ implements ColorCompositeInterface
    private int width;
    private int height;
    
-   public RectangleFilledAnimation(int width, int height, BasicColor basicColor) {
+   public RectangleFilledAnimation(final int width, final int height, final BasicColor basicColor) {
       this.width = width;
       this.height = height;
       this.setBasicColor(basicColor);
@@ -35,7 +35,7 @@ implements ColorCompositeInterface
    public void nextFrame() {
    }
 
-   public void paint(Graphics graphics, int x, int y) {
+   public void paint(final Graphics graphics, final int x, final int y) {
        this.basicColorUtil.setBasicColor(
                graphics, this.getBasicColor(), this.getColor());
 
@@ -45,7 +45,7 @@ implements ColorCompositeInterface
     /**
      * @param width the width to set
      */
-    public void setWidth(int width)
+    public void setWidth(final int width)
     {
         this.width = width;
     }
@@ -53,7 +53,7 @@ implements ColorCompositeInterface
     /**
      * @param height the height to set
      */
-    public void setHeight(int height)
+    public void setHeight(final int height)
     {
         this.height = height;
     }

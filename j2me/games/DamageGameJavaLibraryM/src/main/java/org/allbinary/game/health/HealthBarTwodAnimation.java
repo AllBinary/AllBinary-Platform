@@ -17,18 +17,17 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.layer.AllBinaryLayer;
 
-public class HealthBarTwodAnimation
-extends HealthBarAnimation
+public class HealthBarTwodAnimation extends HealthBarAnimation
 {
-    public HealthBarTwodAnimation(AllBinaryLayer layerInterface, int location)
+    public HealthBarTwodAnimation(final AllBinaryLayer layerInterface, final int location)
     throws Exception
     {
         super(layerInterface, location);
     }
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
-        int ax = this.allbinaryLayer.getViewPosition().getX();
+        final int ax = this.allbinaryLayer.getViewPosition().getX();
         //int y = this.getY() - 1;
 
         this.basicColorUtil.setBasicColor(
