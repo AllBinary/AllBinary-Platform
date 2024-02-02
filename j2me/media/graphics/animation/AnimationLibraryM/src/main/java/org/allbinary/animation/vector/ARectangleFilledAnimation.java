@@ -41,6 +41,7 @@ public class ARectangleFilledAnimation
     public void nextFrame() {
     }
 
+    @Override
     public void paint(final Graphics graphics, final int unusedX, final int unusedY) {
 
         graphics.fillRect(x, y, width, height);
