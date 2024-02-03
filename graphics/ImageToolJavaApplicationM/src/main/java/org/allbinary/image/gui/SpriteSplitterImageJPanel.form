@@ -16,13 +16,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Component id="jPanel2" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -36,9 +40,8 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="generateJButton" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -55,8 +58,8 @@
                   <Component id="widthReductionTextField" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="heightReductionTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="generateJButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="writeOverOriginalJCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="generateJButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -138,15 +141,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="totalFramesJComboBox" min="-2" max="-2" attributes="0"/>
+                  <Component id="totalFramesJComboBox" min="-2" pref="48" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="totalAnimationsJComboBox" min="-2" max="-2" attributes="0"/>
+                  <Component id="totalAnimationsJComboBox" min="-2" pref="39" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="spriteTypeJComboBox" min="-2" max="-2" attributes="0"/>
+                  <Component id="spriteTypeJComboBox" min="-2" pref="172" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -183,14 +186,14 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalFramesJComboBoxActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      final int size = 18;       final String[] animationStringArray2 = new String[size - 3];       for(int index = 3; index &lt; size; index++) {           animationStringArray2[index - 3] = Integer.toString(index);       }       totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      final int size = 18;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index &lt; size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));"/>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="totalFramesJComboBox.setSelectedIndex(1);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Animation Total:"/>
+            <Property name="text" type="java.lang.String" value="Animation Total :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="totalAnimationsJComboBox">
@@ -203,7 +206,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalAnimationsJComboBoxActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      final String[] animationStringArray = new String[size];       for(int index = 0; index &lt; size; index++) {           animationStringArray[index] = Integer.toString(index);       }       totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray)); "/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      final String[] animationStringArray = new String[size - 1];       for(int index = 1; index &lt; size; index++) {           animationStringArray[index - 1] = Integer.toString(index);       }       totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray)); "/>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="totalAnimationsJComboBox.setSelectedIndex(3);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -223,7 +226,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spriteTypeJComboBoxActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS                   }));  //, SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>

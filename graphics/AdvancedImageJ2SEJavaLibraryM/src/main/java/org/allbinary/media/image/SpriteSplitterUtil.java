@@ -41,6 +41,7 @@ public class SpriteSplitterUtil {
 
     public final String DIRECTIONAL_ANIMATIONS = "Directional DLRU";
     public final String HORIZONTAL_ANIMATIONS = "Horizontal Animations";
+    public final String HORIZONTAL_SPRITE = "Horizontal A=R=Y F=C=X";
     //public final String VERTICLE_ANIMATIONS = "Verticle Animations";
     
     private final String[] ROW_NAME = {
@@ -73,7 +74,55 @@ public class SpriteSplitterUtil {
             bufferedImage = bufferedImageArray[index];
             LogUtil.put(LogFactory.getInstance(spriteType, this, CommonStrings.getInstance().RUN));
 
-            if(spriteType == HORIZONTAL_ANIMATIONS) {
+            if(spriteType == HORIZONTAL_SPRITE) {
+
+                final int cellHeight = bufferedImage.getHeight() / totalAnimations;
+                final int cellWidth = bufferedImage.getWidth() / totalFrames;
+                
+                final int columns = totalFrames;
+                final int rows = totalAnimations;
+                
+                generatedBufferedImageArray = new BufferedImage[rows][columns];
+                
+                String nameEnding = null;
+                int x = 0;
+                int y = 0;
+                for(int index2 = 0; index2 < rows; index2++) {
+                    y = cellHeight * index2;
+                    for(int index3 = 0; index3 < columns; index3++) {
+                        x = cellWidth * index3;
+                        generatedBufferedImageArray[index2][index3] = bufferedImage.getSubimage(
+                            x + widthReduction, y + heightReduction, 
+                            cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
+                        nameEnding = new StringMaker().append(index2).append(commonSeps.UNDERSCORE).append(index3).toString();
+                        visitor.visit(generatedBufferedImageArray[index2][index3], nameEnding, index);
+                    }
+                }
+
+                final ImageUnifierProperties imageUnifierProperties = new ImageUnifierProperties();
+                
+                imageUnifierProperties.setRows(Integer.valueOf(1));
+                imageUnifierProperties.setColumns(Integer.valueOf(columns));
+                
+                final ImageUnifierCell imageUnifierCell = new ImageUnifierCell(
+                    Integer.valueOf(cellWidth - (2 * widthReduction)),Integer.valueOf(cellHeight - (2 * heightReduction)));
+                imageUnifierProperties.setImageUnifierCell(imageUnifierCell);
+                
+                for(int index2 = 0; index2 < rows; index2++) {
+                    y = cellHeight * index2;
+                    final BufferedImage[] tempBufferedImageArray = new BufferedImage[columns];
+                    for(int index3 = 0; index3 < columns; index3++) {
+                        //Join columns
+                        tempBufferedImageArray[index3] = generatedBufferedImageArray[index2][index3];
+                        //generatedBufferedImage = bufferedImage.getSubimage(0, y, bufferedImage.getWidth(), cellHeight);
+                        nameEnding = new StringMaker().append(index2).append(commonSeps.UNDERSCORE).append(1).append(_ROW).toString();
+                    }
+                    
+                    final BufferedImage generatedBufferedImage = ImageUnifierUtil.getInstance().getImage(tempBufferedImageArray, imageUnifierProperties);
+                    visitor.visit(generatedBufferedImage, nameEnding, index);
+                }
+
+            } else if(spriteType == HORIZONTAL_ANIMATIONS) {
                 
 //                final int cellHeight = bufferedImage.getHeight() / totalAnimations;
 //                final int cellWidth = bufferedImage.getWidth() / totalFrames;
@@ -81,21 +130,46 @@ public class SpriteSplitterUtil {
 //                final int columns = totalAnimations;
 //                final int rows = totalFrames;
 //                
+//                generatedBufferedImageArray = new BufferedImage[rows][columns];
+//                
 //                String nameEnding = null;
+//                int x = 0;
+//                int y = 0;
 //                for(int index2 = 0; index2 < rows; index2++) {
+//                    y = cellHeight * index2;
 //                    for(int index3 = 0; index3 < columns; index3++) {
-//                        generatedBufferedImage = this.imageUtil.create(cellWidth, cellHeight);
+//                        x = cellWidth * index3;
+//                        generatedBufferedImageArray[index2][index3] = bufferedImage.getSubimage(
+//                            x + widthReduction, y + heightReduction, 
+//                            cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
 //                        nameEnding = new StringMaker().append(ROW_NAME[index2]).append(commonSeps.UNDERSCORE).append(index3).toString();
-//                        visitor.visit(generatedBufferedImage, nameEnding, index);
+//                        visitor.visit(generatedBufferedImageArray[index2][index3], nameEnding, index);
 //                    }
 //                }
+//
+//                final ImageUnifierProperties imageUnifierProperties = new ImageUnifierProperties();
+//                
+//                imageUnifierProperties.setRows(Integer.valueOf(1));
+//                imageUnifierProperties.setColumns(Integer.valueOf(columns));
+//                
+//                final ImageUnifierCell imageUnifierCell = new ImageUnifierCell(
+//                    Integer.valueOf(cellWidth - (2 * widthReduction)),Integer.valueOf(cellHeight - (2 * heightReduction)));
+//                imageUnifierProperties.setImageUnifierCell(imageUnifierCell);
 //                
 //                for(int index2 = 0; index2 < rows; index2++) {
-//                    generatedBufferedImage = this.imageUtil.create(bufferedImage.getWidth(), cellHeight);
-//                    nameEnding = new StringMaker().append(ROW_NAME[index2]).toString();
+//                    y = cellHeight * index2;
+//                    final BufferedImage[] tempBufferedImageArray = new BufferedImage[columns];
+//                    for(int index3 = 0; index3 < columns; index3++) {
+//                        //Join columns
+//                        tempBufferedImageArray[index3] = generatedBufferedImageArray[index2][index3];
+//                        //generatedBufferedImage = bufferedImage.getSubimage(0, y, bufferedImage.getWidth(), cellHeight);
+//                        nameEnding = new StringMaker().append(DIRECTION_NAME[index2]).append(commonSeps.UNDERSCORE).append(1).append(_ROW).toString();
+//                    }
+//                    
+//                    final BufferedImage generatedBufferedImage = ImageUnifierUtil.getInstance().getImage(tempBufferedImageArray, imageUnifierProperties);
 //                    visitor.visit(generatedBufferedImage, nameEnding, index);
 //                }
-                
+                                
 //            } else if(spriteType == VERTICLE_ANIMATIONS) {
                 
 //                final int cellHeight = bufferedImage.getHeight() / totalAnimations;
