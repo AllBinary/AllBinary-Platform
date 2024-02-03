@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.ImageProcessedVisitor;
 import org.allbinary.media.image.ImageProcessorInput;
 import org.allbinary.media.image.ImageStrings;
@@ -36,6 +37,8 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
     implements ImageProcessedVisitor {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final CommonSeps commonSeps = CommonSeps.getInstance();
+    
     private final ImageStrings imageStrings = ImageStrings.getInstance();
     
     private ImageProcessorInput imageProcessorInput;
@@ -58,11 +61,14 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
             public void run() {
                 try {
+                    final SpriteSplitterUtil spriteSplitterUtil = SpriteSplitterUtil.getInstance();
+
                     final String spriteType = (String) spriteTypeJComboBox.getSelectedItem();
                     final Integer totalFrames = Integer.valueOf( (String) totalFramesJComboBox.getSelectedItem());
                     final Integer totalAnimations = Integer.valueOf( (String) totalAnimationsJComboBox.getSelectedItem());
 
-                    SpriteSplitterUtil.getInstance().process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, spriteType, SpriteSplitterImageJPanel.this);                        
+                    final int widthReduction = Integer.valueOf(widthReductionTextField.getText());
+                    spriteSplitterUtil.process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, widthReduction, spriteType, SpriteSplitterImageJPanel.this);
 
                 } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
@@ -296,15 +302,15 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
        if (!this.writeOverOriginalJCheckBox.isSelected()) {
            String filePath = file.getAbsolutePath();
-           int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
-           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(CommonSeps.getInstance().UNDERSCORE).append(name).append(imageStrings.PNG_EXTENSION).toString();
+           final int extensionIndex = filePath.indexOf(imageStrings.PNG_EXTENSION);
+           filePath = new StringBuilder().append(filePath.substring(0, extensionIndex)).append(commonSeps.UNDERSCORE).append(name).append(imageStrings.PNG_EXTENSION).toString();
            file = new File(filePath);
        }
 
        final boolean isWritten = 
                ImageIO.write((RenderedImage) SpriteSplitterImageJPanel.this.result, imageStrings.PNG, file);
 
-       LogUtil.put(LogFactory.getInstance("File: " + file + " Wrote: " + isWritten, this, CommonStrings.getInstance().RUN));
+       LogUtil.put(LogFactory.getInstance(new StringMaker().append("File: ").append(file).append(" Wrote: ").append(isWritten).toString(), this, CommonStrings.getInstance().RUN));
    }
    
 }

@@ -185,11 +185,11 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
             tempBufferedImageArray[index] = bufferedImage;
          }
 
-         int totalImages =
+         final int totalImages =
             this.imageUnifierProperties.getRows() *
             this.imageUnifierProperties.getColumns();
 
-         double averageRatio = imagesRatioUtil.getAverage(
+         final double averageRatio = imagesRatioUtil.getAverage(
             tempBufferedImageArray, totalImages);
 
          final BufferedImage[] fudgedBufferedImageArray =
@@ -210,8 +210,8 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       this.result = ImageUnifierUtil.getInstance().getImage(
          tempBufferedImageArray, this.imageUnifierProperties);
 
-      Icon image = new ImageIcon(this.result);
-      JLabel label = new JLabel(image);
+      final Icon image = new ImageIcon(this.result);
+      final JLabel label = new JLabel(image);
       this.jScrollPane2.getViewport().add(label);
 
       this.updateUI();
@@ -228,12 +228,12 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
 
          imageUnifierProperties.setRows(new Integer(this.rowsJTextField.getText()));
          imageUnifierProperties.setColumns(new Integer(this.columnsJTextField.getText()));
-         ImageUnifierCell imageUnifierCell = new ImageUnifierCell(
+         final ImageUnifierCell imageUnifierCell = new ImageUnifierCell(
             new Integer(this.cellWidthJTextField.getText()),
             new Integer(this.cellHeightJTextField.getText()));
          imageUnifierProperties.setImageUnifierCell(imageUnifierCell);
 
-         double cellRatio = ((double) imageUnifierCell.getWidth() / imageUnifierCell.getHeight());
+         final double cellRatio = ((double) imageUnifierCell.getWidth() / imageUnifierCell.getHeight());
 
          String cellRatioString = new Double(cellRatio).toString();
          if (cellRatioString.length() > 4)
