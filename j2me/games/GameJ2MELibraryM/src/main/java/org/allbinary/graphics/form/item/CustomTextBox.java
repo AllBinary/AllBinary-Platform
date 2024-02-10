@@ -11,9 +11,10 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.score.displayable;
+package org.allbinary.graphics.form.item;
 
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.form.item.TextFieldItem;
@@ -38,18 +39,27 @@ public class CustomTextBox extends GameCommandCanvas
 
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
-    
-    public CustomTextBox(CommandListener cmdListener, String label, String text, int maxSize, int constraints,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+
+    public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
+        final int maxSize, final int constraints,
+        final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
+        throws Exception 
+    {
+        this(cmdListener, label, text, maxSize, constraints, Font.getDefaultFont(), backgroundBasicColor, foregroundBasicColor);
+    }
+
+    public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
+        final int maxSize, final int constraints,
+        final Font font, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
     {
         super(cmdListener, backgroundBasicColor, foregroundBasicColor);
 
         final StringUtil stringUtil = StringUtil.getInstance();
-        
+
         this.textFieldItem = new TextFieldItem(this, new TextItemVisitor(), 
                 stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, maxSize, 0, 
-                stringUtil.EMPTY_STRING,  
+                stringUtil.EMPTY_STRING,  font,
                 backgroundBasicColor, foregroundBasicColor);
 
         this.textFieldItem.setString(text);
@@ -65,39 +75,36 @@ public class CustomTextBox extends GameCommandCanvas
 
     private final InputFactory inputFactory = InputFactory.getInstance();
 
-    public void keyPressed(int keyCode)
+    public void keyPressed(final int keyCode)
     {
         this.keyPressed(keyCode, 0);
     }
     
-    public void keyReleased(int keyCode)
+    public void keyReleased(final int keyCode)
     {
         this.keyReleased(keyCode, 0);
     }
 
-    public void keyRepeated(int keyCode)
+    public void keyRepeated(final int keyCode)
     {
         this.keyRepeated(keyCode, 0);
     }
     
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressed(final int keyCode, final int deviceId)
     {
         //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(keyCode, this, "keyPressed"));
         PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(keyCode).toString(), this, "keyPressed");
         
-        PlatformKeyFactory platformKeyFactory =
-            PlatformKeyFactory.getInstance();
+        final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
         
-        Input input = inputFactory.getInstance(keyCode);
+        final Input input = inputFactory.getInstance(keyCode);
         
         if (platformKeyFactory.isSubmission(input))
         {
             this.submit();
             //PreLogUtil.put("Should Delete", this, "keyPressed");
             //this.deleteAtText();
-        }
-        else
-        {
+        } else {
             this.textFieldItem.keyPressed(keyCode);
             //if(!)
             //{
@@ -106,30 +113,35 @@ public class CustomTextBox extends GameCommandCanvas
         }
     }
 
-    public void keyReleased(int keyCode, int deviceId)
+    public void keyReleased(final int keyCode, final int deviceId)
     {
         // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyReleased"));
     }
-        
-    public void paint(Graphics graphics)
+
+    public void paint(final Graphics graphics)
+    {
+        this.paint(graphics, 0, 0);
+    }
+    
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.setColor(this.backgroundColor);
-        //graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
-        graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
+        //graphics.fillRect(x, y, graphics.getClipWidth(), graphics.getClipHeight());
+        graphics.fillRect(x, y, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
 
         //g.translate(0, viewPortY);
         graphics.setColor(this.foregroundColor);
 
         if(!J2MEUtil.isJ2ME())
         {
-            graphics.drawString(this.getTitle(), 1, 1, 0);
+            graphics.drawString(this.getTitle(), x + 1, y + 1, 0);
         }
         
         //graphics.drawRect(1, 14, getWidth() - 3, viewPortHeight);
         //g.setClip(3, 3, getWidth() - 6, viewPortHeight - 6);
         //g.translate(3, 3);
         //g.translate(0, -viewPortY);
-        textFieldItem.paint(graphics, 1, 14);
+        textFieldItem.paint(graphics, x + 1, y + 14);
 
         super.paint(graphics);
     }
@@ -137,5 +149,6 @@ public class CustomTextBox extends GameCommandCanvas
     public TextFieldItem getTextFieldItem()
     {
         return textFieldItem;
-    }    
+    }
+
 }

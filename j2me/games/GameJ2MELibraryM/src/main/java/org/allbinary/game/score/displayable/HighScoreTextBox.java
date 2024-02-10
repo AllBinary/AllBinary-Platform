@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.score.displayable;
 
+import org.allbinary.graphics.form.item.CustomTextBox;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
@@ -50,9 +51,9 @@ public class HighScoreTextBox extends CustomTextBox
     
     private Paintable paintable = NullPaintable.getInstance();
 
-    public HighScoreTextBox(CommandListener cmdListener, String name,
-            HighScores[] highScoresArray, HighScore highScore,
-            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor) throws Exception
+    public HighScoreTextBox(final CommandListener cmdListener, final String name,
+            final HighScores[] highScoresArray, final HighScore highScore,
+            final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
     {
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, 
                 backgrounBasicColor, foregroundBasicColor);
@@ -63,7 +64,7 @@ public class HighScoreTextBox extends CustomTextBox
         this.highScoresArray = highScoresArray;
         this.highScore = highScore;
 
-        OperatingSystemInterface operatingSystemInterface
+        final OperatingSystemInterface operatingSystemInterface
                 = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
         if (operatingSystemInterface.isOverScan()) {
@@ -83,7 +84,7 @@ public class HighScoreTextBox extends CustomTextBox
     {
         this.removeAllCommands();
 
-        OperatingSystemInterface operatingSystemInterface
+        final OperatingSystemInterface operatingSystemInterface
                 = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
         if (!operatingSystemInterface.isOverScan()) {
@@ -99,7 +100,7 @@ public class HighScoreTextBox extends CustomTextBox
     {
         try
         {
-            VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
+            final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
                 VirtualKeyboardEventHandler.getInstance();
 
             virtualKeyboardEventHandler.fireEvent(
@@ -118,7 +119,7 @@ public class HighScoreTextBox extends CustomTextBox
     {
         try
         {
-            VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
+            final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
                 VirtualKeyboardEventHandler.getInstance();
             
             virtualKeyboardEventHandler.fireEvent(virtualKeyboardEventHandler.HIDE_EVENT);
