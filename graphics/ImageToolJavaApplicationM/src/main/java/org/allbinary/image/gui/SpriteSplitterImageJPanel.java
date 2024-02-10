@@ -333,7 +333,11 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
       this.imageProcessorInput = imageProcessorInput;
    }
 
+   @Override
    public void visit(final BufferedImage generatedBufferedImage, final String name, final int index) throws IOException {
+       
+       LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().VISIT, this, CommonStrings.getInstance().VISIT));
+       
        this.result = generatedBufferedImage;
        //ImageJ2SERotationUtil.getInstance().createSpriteImage(
        //);

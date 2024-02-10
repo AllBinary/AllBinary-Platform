@@ -84,6 +84,8 @@ public class SpriteSplitterUtil {
                 
                 generatedBufferedImageArray = new BufferedImage[rows][columns];
                 
+                LogUtil.put(LogFactory.getInstance("Processing Individual Cells", this, CommonStrings.getInstance().RUN));
+
                 String nameEnding = null;
                 int x = 0;
                 int y = 0;
@@ -99,6 +101,8 @@ public class SpriteSplitterUtil {
                     }
                 }
 
+                LogUtil.put(LogFactory.getInstance("Processing Rows from Cells", this, CommonStrings.getInstance().RUN));
+                
                 final ImageUnifierProperties imageUnifierProperties = new ImageUnifierProperties();
                 
                 imageUnifierProperties.setRows(Integer.valueOf(1));
