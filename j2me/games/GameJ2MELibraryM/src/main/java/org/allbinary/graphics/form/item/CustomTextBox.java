@@ -137,13 +137,13 @@ public class CustomTextBox extends GameCommandCanvas
         //g.translate(3, 3);
         //g.translate(0, -viewPortY);
         this.paint(graphics, 1, 14);
+        
+        super.paint(graphics);
     }
     
     public void paint(final Graphics graphics, final int x, final int y)
     {   
         textFieldItem.paint(graphics, x, y);
-
-        super.paint(graphics);
     }
 
     public TextFieldItem getTextFieldItem()
