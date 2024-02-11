@@ -140,9 +140,7 @@ public class CustomTextBox extends GameCommandCanvas
     }
     
     public void paint(final Graphics graphics, final int x, final int y)
-    {
-        graphics.setColor(this.foregroundColor);
-        
+    {   
         textFieldItem.paint(graphics, x, y);
 
         super.paint(graphics);
