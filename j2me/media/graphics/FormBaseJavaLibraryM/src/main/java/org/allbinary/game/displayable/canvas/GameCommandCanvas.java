@@ -164,30 +164,8 @@ public class GameCommandCanvas
     }
 
     protected void initMenu() throws Exception
-    {
-        final CustomItem[] items = new CommandTextItemArrayFactory(
-                new AllCommandsVisitor()).getInstance(
-                this.getCommandStack(), 
-                this.backgroundBasicColor, this.foregroundBasicColor
-                );
-
-        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-
-        final Rectangle rectangle = new Rectangle(
-            PointFactory.getInstance().getInstance(30, 30 + displayInfo.getLastHalfHeight()),
-            displayInfo.getLastWidth() - 30,
-            displayInfo.getLastHalfHeight() - 30);
-        
-        final ScrollSelectionForm form =
-            CommandCurrentSelectionFormFactory.getInstance(
-            //"Menu",
-            StringUtil.getInstance().EMPTY_STRING,
-            items,
-            rectangle,
-            FormTypeFactory.getInstance().VERTICAL_CENTER_FORM,
-            15, false,
-            this.backgroundBasicColor, this.foregroundBasicColor
-            );
+    {        
+        final ScrollSelectionForm form = this.createForm();
 
         this.setMenuForm(form);
         
@@ -201,6 +179,32 @@ public class GameCommandCanvas
         }
     }
 
+    public ScrollSelectionForm createForm() throws Exception {
+        
+        final CustomItem[] items = new CommandTextItemArrayFactory(
+                new AllCommandsVisitor()).getInstance(
+                this.getCommandStack(), 
+                this.backgroundBasicColor, this.foregroundBasicColor
+                );
+
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+
+        final Rectangle rectangle = new Rectangle(
+            PointFactory.getInstance().getInstance(30, 30 + displayInfo.getLastHalfHeight()),
+            displayInfo.getLastWidth() - 30,
+            displayInfo.getLastHalfHeight() - 30);
+        
+            return CommandCurrentSelectionFormFactory.getInstance(
+            //"Menu",
+            StringUtil.getInstance().EMPTY_STRING,
+            items,
+            rectangle,
+            FormTypeFactory.getInstance().VERTICAL_CENTER_FORM,
+            15, false,
+            this.backgroundBasicColor, this.foregroundBasicColor
+            );
+    }
+    
     public void open()
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "open"));

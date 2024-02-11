@@ -18,7 +18,6 @@ import javax.microedition.lcdui.Command;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -34,6 +33,7 @@ import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.PrimaryThreadPool;
@@ -66,17 +66,15 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
 
    public int processInput(final int key) throws Exception
    {
-      // LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append("Canvas." +
-      // CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
+      //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append("Canvas.").append(CanvasUtil.getKeyName(key)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT));
 
       if (key == Canvas.LEFT || key == Canvas.RIGHT || key == Canvas.UP || key == Canvas.DOWN)
       {
-          //PreLogUtil.put("Key: ").append(key, this, GameInputStrings.getInstance());
+         //PreLogUtil.put(new StringMaker().append("Key: ").append(key).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT);
 
          //ForcedLogUtil.log();
 
-         PrimaryPlayerQueueFactory.getInstance().add(
-                 SelectSound.getInstance());
+         PrimaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
 
          this.form.processInput(key);
 
@@ -120,7 +118,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    {
       try
       {
-         //PreLogUtil.put(commonStrings.START, this, GameInputStrings.getInstance());
+         //PreLogUtil.put(commonStrings.START, this, GameInputStrings.getInstance().PROCESS_INPUT);
 
          final int motionInputsIndex = this.processMotionInputs();
 
@@ -198,7 +196,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
-       //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(motionGestureEvent, this, "processMotionInput"));
+       //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, "processMotionInput"));
        //PreLogUtil.put(commonStrings.START, this, "processMotionInput");
        
       final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
