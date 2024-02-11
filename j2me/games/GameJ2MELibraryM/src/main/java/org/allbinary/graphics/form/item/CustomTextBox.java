@@ -120,28 +120,30 @@ public class CustomTextBox extends GameCommandCanvas
 
     public void paint(final Graphics graphics)
     {
-        this.paint(graphics, 0, 0);
-    }
-    
-    public void paint(final Graphics graphics, final int x, final int y)
-    {
         graphics.setColor(this.backgroundColor);
-        //graphics.fillRect(x, y, graphics.getClipWidth(), graphics.getClipHeight());
-        graphics.fillRect(x, y, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
-
+        //graphics.fillRect(0, 0, graphics.getClipWidth(), graphics.getClipHeight());
+        graphics.fillRect(0, 0, this.displayInfoSingleton.getLastWidth(), this.displayInfoSingleton.getLastHeight());
+     
         //g.translate(0, viewPortY);
         graphics.setColor(this.foregroundColor);
 
         if(!J2MEUtil.isJ2ME())
         {
-            graphics.drawString(this.getTitle(), x + 1, y + 1, 0);
+            graphics.drawString(this.getTitle(), 1, 1, 0);
         }
         
         //graphics.drawRect(1, 14, getWidth() - 3, viewPortHeight);
         //g.setClip(3, 3, getWidth() - 6, viewPortHeight - 6);
         //g.translate(3, 3);
         //g.translate(0, -viewPortY);
-        textFieldItem.paint(graphics, x + 1, y + 14);
+        this.paint(graphics, 1, 14);
+    }
+    
+    public void paint(final Graphics graphics, final int x, final int y)
+    {
+        graphics.setColor(this.foregroundColor);
+        
+        textFieldItem.paint(graphics, x, y);
 
         super.paint(graphics);
     }

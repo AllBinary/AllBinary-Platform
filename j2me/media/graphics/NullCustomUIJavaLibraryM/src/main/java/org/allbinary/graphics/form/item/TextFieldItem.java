@@ -34,4 +34,8 @@ public class TextFieldItem extends TextItem
 
     public void setString(String string) {
     }
+    
+    public void setFocus(boolean state)
+    {
+    }
 }
