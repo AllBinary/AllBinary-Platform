@@ -17,14 +17,15 @@ import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
 public class InputToGameKeyMapping extends InputMapping
@@ -40,7 +41,7 @@ public class InputToGameKeyMapping extends InputMapping
         //gameKeyFactory.GAME_A, gameKeyFactory.GAME_B, gameKeyFactory.GAME_C, gameKeyFactory.GAME_D
     };
 
-    protected GameKey[] negativePlatformToGameKeyMapping = new GameKey[0];
+    protected GameKey[] negativePlatformToGameKeyMapping = new GameKey[4];
     private final GameKey[] platformToGameKeyMapping = new GameKey[InputFactory.getInstance().MAX];
 
     public InputToGameKeyMapping()
@@ -173,13 +174,14 @@ public class InputToGameKeyMapping extends InputMapping
         {
             negativePlatformToGameKeyMapping[-key] = gameKey;
         }
-        else
-            if(key > 0)
+        else if(key > 0)
         {
             if(platformToGameKeyMapping[key] == gameKeyFactory.NONE)
             {
                 platformToGameKeyMapping[key] = gameKey;
             }
+        } else {
+            PreLogUtil.put(gameKey.toString() + CommonSeps.getInstance().COLON_SEP + key, this, commonStrings.INIT, new Exception());
         }
         //Still could have a negative key that is out of range
 
