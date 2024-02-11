@@ -17,7 +17,6 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.form.item.TextFieldItem;
 
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -39,7 +38,7 @@ public class CustomTextBox extends GameCommandCanvas
 
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
-
+    
     public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
         final int maxSize, final int constraints,
         final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
@@ -56,16 +55,20 @@ public class CustomTextBox extends GameCommandCanvas
         super(cmdListener, backgroundBasicColor, foregroundBasicColor);
 
         final StringUtil stringUtil = StringUtil.getInstance();
-
-        this.textFieldItem = new TextFieldItem(this, new TextItemVisitor(), 
-                stringUtil.EMPTY_STRING, stringUtil.EMPTY_STRING, maxSize, 0, 
+        
+        final TextFieldItem textFieldItem = new TextFieldItem(
+            this, new TextItemVisitor(), stringUtil.EMPTY_STRING, 
+            stringUtil.EMPTY_STRING, maxSize, 0, 
                 stringUtil.EMPTY_STRING,  font,
                 backgroundBasicColor, foregroundBasicColor);
 
-        this.textFieldItem.setString(text);
+        textFieldItem.setString(text);
+        
+        this.textFieldItem = textFieldItem;
 
         //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
         this.setTitle(label);
+        
     }
     
     public void submit()
@@ -145,7 +148,7 @@ public class CustomTextBox extends GameCommandCanvas
     {   
         textFieldItem.paint(graphics, x, y);
     }
-
+    
     public TextFieldItem getTextFieldItem()
     {
         return textFieldItem;
