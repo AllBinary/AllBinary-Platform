@@ -14,6 +14,7 @@
 package org.allbinary.game.input;
 
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 public class InputFactory
 {
@@ -34,6 +35,16 @@ public class InputFactory
     public final int MAX = SmallIntegerSingletonFactory.getInstance().MIN;
     //protected final Input[] negativeInputIntegerArray = new Input[6];
     protected final Input[] inputIntegerArray = new Input[this.MAX];
+
+    public final Input NO_INPUT = new Input(0, CommonStrings.getInstance().UNKNOWN);
+    
+    private InputFactory() {
+        
+        final int size = inputIntegerArray.length;
+        for(int index = 0; index < size; index++) {
+            inputIntegerArray[index] = NO_INPUT;
+        }
+    }
 
     public void add(int id, Input input)
     {

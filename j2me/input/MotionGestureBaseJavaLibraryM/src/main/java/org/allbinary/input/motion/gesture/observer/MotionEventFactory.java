@@ -37,10 +37,15 @@ public class MotionEventFactory implements AllBinaryEventObjectFactoryInterface
     
     public AllBinaryEventObject getInstance()
     {   
-        Input input = InputFactory.getInstance().getInstance(index++);
+        final InputFactory inputFactory = InputFactory.getInstance();
+        final Input input = inputFactory.getInstance(index++);
         //LogUtil.put(LogFactory.getInstance("Input: " + input, this, CommonStrings.getInstance().GET_INSTANCE));
         
-        return new MotionGestureEvent(this.source, this.id, (MotionGestureInput) input );
+        if(input == inputFactory.NO_INPUT) {
+            return new MotionGestureEvent(this.source, this.id, (MotionGestureInput) null);
+        } else {
+            return new MotionGestureEvent(this.source, this.id, (MotionGestureInput) input);
+        }
     }
     
 }

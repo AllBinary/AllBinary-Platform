@@ -41,7 +41,7 @@ public class InputToGameKeyMapping extends InputMapping
         //gameKeyFactory.GAME_A, gameKeyFactory.GAME_B, gameKeyFactory.GAME_C, gameKeyFactory.GAME_D
     };
 
-    protected GameKey[] negativePlatformToGameKeyMapping = new GameKey[4];
+    protected GameKey[] negativePlatformToGameKeyMapping = new GameKey[0]; //6
     private final GameKey[] platformToGameKeyMapping = new GameKey[InputFactory.getInstance().MAX];
 
     public InputToGameKeyMapping()
