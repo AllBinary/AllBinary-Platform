@@ -96,7 +96,7 @@ public class CustomTextBox extends GameCommandCanvas
     public void keyPressed(final int keyCode, final int deviceId)
     {
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(keyCode).toString(), this, "keyPressed"));
-        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START).append(keyCode).toString(), this, "keyPressed");
+        PreLogUtil.put(new StringMaker().append(commonStrings.START).append(keyCode).toString(), this, "keyPressed");
         
         final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
         
