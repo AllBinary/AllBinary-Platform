@@ -98,10 +98,10 @@ public class PCKeyFactory
     public final PCGameKey DPAD_DOWN = new PCGameKey(KeyEvent.VK_DOWN, "DOWN");
     public final PCGameKey DPAD_LEFT = new PCGameKey(KeyEvent.VK_LEFT, "LEFT");
     public final PCGameKey DPAD_RIGHT = new PCGameKey(KeyEvent.VK_RIGHT, "RIGHT");
-    //public final PCGameKey DPAD_UP = new PCGameKey(1, "UP");
-    //public final PCGameKey DPAD_DOWN = new PCGameKey(2, "DOWN");
-    //public final PCGameKey DPAD_LEFT = new PCGameKey(3, "LEFT");
-    //public final PCGameKey DPAD_RIGHT = new PCGameKey(4, "RIGHT");
+    public final PCGameKey DPAD_UP2 = new PCGameKey(1, "UP");
+    public final PCGameKey DPAD_DOWN2 = new PCGameKey(2, "DOWN");
+    public final PCGameKey DPAD_LEFT2 = new PCGameKey(3, "LEFT");
+    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(4, "RIGHT");
     //public final PCGameKey DPAD_CENTER = new PCGameKey(KeyEvent.VK_CENTER,
     //      "CENTER");
     public final PCGameKey COMMA = new PCGameKey(KeyEvent.VK_COMMA, "COMMA");
@@ -115,6 +115,8 @@ public class PCKeyFactory
     public final PCGameKey PERIOD = new PCGameKey(KeyEvent.VK_PERIOD,
         CommonSeps.getInstance().PERIOD);
     public final PCGameKey ESCAPE = new PCGameKey(KeyEvent.VK_ESCAPE, "Esc");
+    
+    public final PCGameKey BACK_SPACE = new PCGameKey(KeyEvent.VK_BACK_SPACE, "Backspace");
 
     //KeyEvent.VK_BACK_SPACE = ?
     //public PCGameKey BACK_SPACE = new PCGameKey(,
@@ -140,12 +142,15 @@ public class PCKeyFactory
 
     public boolean isBackSpace(Input input)
     {
+        if (input == BACK_SPACE) {
+            return true;
+        }
         return false;
     }
 
     public boolean isUp(Input input)
     {
-        if (input == DPAD_UP)
+        if (input == DPAD_UP || input == DPAD_UP2)
         {
             return true;
         }
@@ -154,7 +159,7 @@ public class PCKeyFactory
 
     public boolean isDown(Input input)
     {
-        if (input == DPAD_DOWN)
+        if (input == DPAD_DOWN || input == DPAD_DOWN2)
         {
             return true;
         }
@@ -164,7 +169,7 @@ public class PCKeyFactory
 
     public boolean isLeft(Input input)
     {
-        if (input == DPAD_LEFT)
+        if (input == DPAD_LEFT || input == DPAD_LEFT2)
         {
             return true;
         }
@@ -173,7 +178,7 @@ public class PCKeyFactory
 
     public boolean isRight(Input input)
     {
-        if (input == DPAD_RIGHT)
+        if (input == DPAD_RIGHT || input == DPAD_RIGHT2)
         {
             return true;
         }
