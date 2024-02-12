@@ -15,6 +15,7 @@ package org.allbinary.animation.text;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.graphics.font.FontDebugFactory;
 
 /**
@@ -25,13 +26,15 @@ public class CustomTextAnimation extends TextAnimation
 {
     private final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     
-    private final Font font;
+    private final int fontSize;
+    private Font font;
     
-    public CustomTextAnimation(final String text, final Font font)
+    public CustomTextAnimation(final String text, final int fontSize)
     {
         super(text);
         
-        this.font = font;
+        this.fontSize = fontSize;
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
     }
     
     public void paint(final Graphics graphics, final int x, final int y)
@@ -45,6 +48,14 @@ public class CustomTextAnimation extends TextAnimation
         fontDebugFactory.setFont(existingFont, graphics);
     }
   
+    public void setScale(final float scaleX, final float scaleY) {
+        if(scaleX != scaleY) {
+            throw new RuntimeException();
+        }
+
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (fontSize * scaleX));
+    }
+    
     public int getHeight() {
         return this.font.getHeight();
     }
