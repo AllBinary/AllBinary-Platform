@@ -19,7 +19,6 @@ import javax.microedition.lcdui.Graphics;
 
 
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.input.Input;
@@ -28,6 +27,7 @@ import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 
@@ -95,8 +95,8 @@ public class CustomTextBox extends GameCommandCanvas
     
     public void keyPressed(final int keyCode, final int deviceId)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(keyCode, this, "keyPressed"));
-        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(keyCode).toString(), this, "keyPressed");
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(keyCode).toString(), this, "keyPressed"));
+        PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START).append(keyCode).toString(), this, "keyPressed");
         
         final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
         
