@@ -33,6 +33,10 @@ implements CollidableInterface
         this.ownerLayer = ownerLayer;
         this.collidable = collidable;
     }
+    
+    public void update() {
+        
+    }
 
     public String getName()
     {
