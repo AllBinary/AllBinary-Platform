@@ -60,6 +60,8 @@ OpenGLSurfaceChangedInterface
     private Group[] groupInterface;
     private boolean readyForExplosion;
 
+    private int initWidth;
+    private int initHeight;
     private int initX;
     private int initY;
     private int initZ;
@@ -73,6 +75,9 @@ OpenGLSurfaceChangedInterface
     {
         super(layerInfo, viewPosition);
 
+        this.initWidth = layerInfo.getWidth();
+        this.initHeight = layerInfo.getHeight();
+        
         this.groupInterface = groupInterface;
     }
 
@@ -82,6 +87,9 @@ OpenGLSurfaceChangedInterface
     {
         super(name, layerInfo, viewPosition);
 
+        this.initWidth = layerInfo.getWidth();
+        this.initHeight = layerInfo.getHeight();
+        
         this.groupInterface = groupInterface;
     }
     
@@ -145,6 +153,16 @@ OpenGLSurfaceChangedInterface
     protected final void setReadyForExplosion(final boolean isReadyForExplosion)
     {
         this.readyForExplosion = isReadyForExplosion;
+    }
+
+    public int getInitWidth()
+    {
+        return this.initWidth;
+    }
+
+    public int getInitHeight()
+    {
+        return this.initHeight;
     }
     
     public int getInitX()
