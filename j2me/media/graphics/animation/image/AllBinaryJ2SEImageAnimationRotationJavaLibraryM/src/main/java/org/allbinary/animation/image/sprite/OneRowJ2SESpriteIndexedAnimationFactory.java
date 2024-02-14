@@ -65,7 +65,7 @@ extends BaseImageAnimationFactory
    public Animation getInstance() 
       throws Exception 
    {
-       final CommonStrings commonStrings = CommonStrings.getInstance();
+//       final CommonStrings commonStrings = CommonStrings.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
 //       LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
        Sprite sprite;
