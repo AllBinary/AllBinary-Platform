@@ -85,9 +85,10 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         }
 
         //final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
-        
+        final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
+
         return new AllBinaryNoFlickerAndroidImageRotationAnimation(
-                this.image, scaledImage,
+                scaledImage, copyOfScaledImage,
                 AngleInfo.getInstance(this.angleIncrement), 
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
     }

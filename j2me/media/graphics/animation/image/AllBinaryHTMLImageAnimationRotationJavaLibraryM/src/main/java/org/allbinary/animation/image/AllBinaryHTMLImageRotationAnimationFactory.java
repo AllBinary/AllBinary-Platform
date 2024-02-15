@@ -108,9 +108,10 @@ public class AllBinaryHTMLImageRotationAnimationFactory
         
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
         //final Image image = ImageCreationUtil.getInstance().getInstance(this.image.getWidth(), this.image.getHeight());
+        final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
         
         return new AllBinaryHTMLImageRotationAnimation(
-                this.image, scaledImage,
+                scaledImage, copyOfScaledImage,
                 AngleInfo.getInstance(this.angleIncrement), 
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
     }
