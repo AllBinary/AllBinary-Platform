@@ -19,18 +19,31 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;
+import org.allbinary.game.layer.SpriteFactory;
+import org.allbinary.image.ImageCache;
+import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.media.image.ImageScaleUtil;
 
 public class AllBinaryJ2SEImageRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
+    private final ImageCache imageCache = ImageCacheFactory.getInstance();
+    private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
+    
     protected Image image;
 
     protected final short angleIncrement;
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
+    public int width;
+    public int height;
+    
+    public int scaleWidth;
+    public int scaleHeight;
+    
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
     {
@@ -40,46 +53,64 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
     {
-        this.setImage(image);
+        this.image = image;
         this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
         this.animationBehaviorFactory = animationBehaviorFactory;
+        
+        this.width = width;
+        this.height = height;
     }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
-        this.setImage(image);
+        this.image = image;
         this.angleIncrement = angleIncrement;
         this.animationBehaviorFactory = animationBehaviorFactory;
+        
+        this.width = width;
+        this.height = height;
     }
     
-    public Animation getInstance() throws Exception
-    {
-        final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
+    public Animation getInstance() throws Exception {
         
+        Image scaledImage;
+
+        if (scaleWidth != 0 && scaleHeight != 0) {
+            final float scaleX = ((float) scaleWidth) / ((float) this.width);
+            final float scaleY = ((float) scaleHeight) / ((float) this.height);
+//           stringMaker.delete(0, stringMaker.length());
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append("width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));
+//           stringMaker.delete(0, stringMaker.length());
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
+                scaledImage = ImageCopyUtil.getInstance().createImage(this.image);
+            } else {
+//               stringMaker.delete(0, stringMaker.length());
+//               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+                scaledImage = imageScaleUtil.createImage(imageCache, this.image, scaleX, 1, scaleY, 1, true);
+//               stringMaker.delete(0, stringMaker.length());
+//               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append(this.height * scaleY).toString(), this, commonStrings.PROCESS));
+            }
+
+        } else {
+            scaledImage = ImageCopyUtil.getInstance().createImage(this.image);
+        }
+
         return new AllBinaryJ2SEImageRotationAnimation(
-                this.getImage(), image,
-                AngleInfo.getInstance(this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+            this.image, scaledImage,
+            AngleInfo.getInstance(this.angleIncrement),
+            AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
     protected short getAngleIncrement()
     {
         return angleIncrement;
     }
-
-    protected void setImage(Image image)
-    {
-        this.image = image;
-    }
-
-    protected Image getImage()
-    {
-        return image;
-    }
     
-   public void setInitialSize(final int width, final int height) {
-       
-   }
+    public void setInitialSize(final int width, final int height) {
+        this.scaleWidth = width;
+        this.scaleHeight = height;
+    }
     
 }
