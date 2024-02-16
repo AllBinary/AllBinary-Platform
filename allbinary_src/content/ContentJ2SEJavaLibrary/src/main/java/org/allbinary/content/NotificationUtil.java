@@ -16,11 +16,6 @@ package org.allbinary.content;
 import javax.microedition.lcdui.Command;
 
 import org.allbinary.data.resource.ResourceUtil;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
 
 public class NotificationUtil
 {

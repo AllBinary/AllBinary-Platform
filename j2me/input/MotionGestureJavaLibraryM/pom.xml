@@ -74,12 +74,6 @@
             <!-- AllBinary Platform Version End -->
 
             <optional>true</optional>
-            <exclusions>
-                <exclusion>
-                    <artifactId>TouchJ2MEJavaLibrary</artifactId>
-                    <groupId>org.allbinary</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>

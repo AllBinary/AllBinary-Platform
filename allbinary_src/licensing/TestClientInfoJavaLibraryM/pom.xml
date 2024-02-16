@@ -82,7 +82,6 @@
                 </configuration>
             </plugin>
 
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -95,49 +94,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!--
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <forceCreation>true</forceCreation>
-                    <archive>
-                        <manifestEntries>
-                            <Implementation-Version>${pom.version}</Implementation-Version>
-                        </manifestEntries>
-                    </archive>
-
-                    <assembly>
-                        <inclusions>
-                            <inclusion>
-                                <groupId>org.allbinary</groupId>
-                                <artifactId>J2MEExceptionModule</artifactId>
-                                <version>1.0.0-SNAPSHOT</version>
-                                <library>true</library>
-                            </inclusion>
-                            <inclusion>
-                                <groupId>org.allbinary</groupId>
-                                <artifactId>LogModule</artifactId>
-                                <version>1.0.0-SNAPSHOT</version>
-                                <library>true</library>
-                            </inclusion>
-                        </inclusions>
-
-                    <exclusions>
-                        <exclusion>
-                            <groupId>org.microemu</groupId><artifactId>microemu-midp</artifactId>
-                        </exclusion>
-                        <exclusion>
-                            <groupId>org.microemu</groupId><artifactId>microemu-jsr-135</artifactId>
-                        </exclusion>
-                    </exclusions>
-
-                    </assembly>
-
-                </configuration>
-            </plugin>
--->
 
         </plugins>
 

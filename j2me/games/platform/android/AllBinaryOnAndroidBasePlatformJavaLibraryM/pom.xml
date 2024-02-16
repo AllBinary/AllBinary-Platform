@@ -69,13 +69,6 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-            <exclusions>
-                <exclusion>
-                    <!-- Note: J2MEMidletAsViewJavaLibrary has it for Android -->
-                    <artifactId>ApplicationStatisticsJ2MELibrary</artifactId>
-                    <groupId>org.allbinary</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>

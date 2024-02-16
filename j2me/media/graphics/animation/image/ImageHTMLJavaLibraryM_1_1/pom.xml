@@ -67,13 +67,6 @@
             <!-- AllBinary Platform Version Start -->
             <version>1.1-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
-            <exclusions>
-                <exclusion>
-                    <artifactId>J2MEColorJavaLibrary</artifactId>
-                    <groupId>org.allbinary</groupId>
-                </exclusion>
-            </exclusions>
             <optional>true</optional>
         </dependency>
 
