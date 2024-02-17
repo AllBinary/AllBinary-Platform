@@ -324,7 +324,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
@@ -748,9 +748,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         GameInitializationUtil.getInstance().initGame(this,
                 gameInitializationInterfaceFactoryInterface);
 
-        GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+        final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
 
-        ChangedGameFeatureListener changedGameFeatureListener = 
+        final ChangedGameFeatureListener changedGameFeatureListener = 
             ChangedGameFeatureListener.getInstance();
 
         if (changedGameFeatureListener.isChanged(gameFeatureFactory.SOUND))
@@ -764,7 +764,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             changedGameFeatureListener.remove(gameFeatureFactory.SOUND);
         }
 
-        SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
+        final SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
 
         if (changedGameFeatureListener.isChanged(sensorFeatureFactory.ORIENTATION_SENSORS)
                 || changedGameFeatureListener.isChanged(sensorFeatureFactory.NO_ORIENTATION)
@@ -781,7 +781,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     sensorFeatureFactory.SIMULATED_ORIENTATION_SENSORS);
         }
 
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
             ResourceLoadingLevelFactory.getInstance();
         
         this.loadResources(resourceLoadingLevelFactory.LOAD_GAME);        
@@ -802,9 +802,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void initTouch() throws Exception
     {
-        GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;
+        final GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;
 
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
             ResourceLoadingLevelFactory.getInstance();
 
         gameInitializedEvent.setResourceLoadingLevel(resourceLoadingLevelFactory.LOAD_TOUCH);
@@ -819,7 +819,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     public void updateCurrentTouchInputFactory(
-            BaseTouchInput nextTouchInput) throws Exception
+            final BaseTouchInput nextTouchInput) throws Exception
     {
         if (nextTouchInput != this.currentTouchInputFactory)
         {
@@ -905,13 +905,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         try
         {
-            String itemLabel = item.getLabel();
+            final String itemLabel = item.getLabel();
 
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Item: ").append(itemLabel).toString(), this, "itemStateChanged"));
 
             if (item instanceof ChoiceGroup)
             {
-                GameFeatureUtil gameFeatureUtil = GameFeatureUtil.getInstance();
+                final GameFeatureUtil gameFeatureUtil = GameFeatureUtil.getInstance();
 
                 if (gameFeatureUtil.isExclusive(itemLabel))
                 {
@@ -1125,7 +1125,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
     
-    public void buildGame(boolean isPortion) throws Exception
+    public void buildGame(final boolean isPortion) throws Exception
     {
     }
 
@@ -1141,18 +1141,18 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         GameLevelDisplayChangeEventListenersFactory.getInstance().clear();
     }
 
-    public void loadResources(ResourceLoadingLevel resourceLoadingLevel) throws Exception
+    public void loadResources(final ResourceLoadingLevel resourceLoadingLevel) throws Exception
     {
-        GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;
+        final GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;
 
         gameInitializedEvent.setResourceLoadingLevel(resourceLoadingLevel);
 
         GameInitializedEventHandler.getInstance().fireEvent(gameInitializedEvent);
     }
 
-    public void loadResources(int level) throws Exception
+    public void loadResources(final int level) throws Exception
     {
-        GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;
+        final GameInitializedEvent gameInitializedEvent = GameInitializationUtil.getInstance().EVENT;
 
         gameInitializedEvent.setLevel(level);
 
@@ -1163,7 +1163,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
     }
 
-    public void buildGame(int portion) throws Exception
+    public void buildGame(final int portion) throws Exception
     {
         screenCapture.endRecording();
         screenCapture.startRecording();
@@ -1282,9 +1282,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         if (hashtable != null && hashtable.size() > 0)
         {
-            Integer levelInteger = Integer.valueOf((String) hashtable
+            final Integer levelInteger = Integer.valueOf((String) hashtable
                     .get(GameInfo.LEVEL_NAME));
-            GameInfo gameInfo = this.gameLayerManager.getGameInfo();
+            final GameInfo gameInfo = this.gameLayerManager.getGameInfo();
             gameInfo.setCurrentLevel(levelInteger.intValue());
         }
     }
@@ -1295,7 +1295,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return this.hashtable;
     }
 
-    public void setLoadStateHashtable(Hashtable hashtable)
+    public void setLoadStateHashtable(final Hashtable hashtable)
     {
         LogUtil.put(LogFactory.getInstance(
                 new StringMaker().append(commonLabels.START_LABEL).append(hashtable).toString(), this,
@@ -1305,9 +1305,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Hashtable getCurrentStateHashtable()
     {
-        Hashtable hashtable = new Hashtable();
+        final Hashtable hashtable = new Hashtable();
 
-        int level = this.gameLayerManager.getGameInfo().getCurrentLevel();
+        final int level = this.gameLayerManager.getGameInfo().getCurrentLevel();
 
         hashtable.put(GameInfo.LEVEL_NAME.toString(), Integer.toString(level));
 
@@ -1912,25 +1912,25 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      * @param endGameInfo
      *            the endGameInfo to set
      */
-    public void setEndGameInfo(EndGameInfo endGameInfo)
+    public void setEndGameInfo(final EndGameInfo endGameInfo)
     {
         this.endGameInfo = endGameInfo;
     }
 
     public void setHighScores() throws Exception
     {
-        HighScores[] highScoresArray = this.highScoresFactoryInterface
+        final HighScores[] highScoresArray = this.highScoresFactoryInterface
                 .createHighScores(this.gameLayerManager.getGameInfo());
 
         this.setHighScoresArray(highScoresArray);
     }
 
-    private HighScores[] getHighScoresArray()
+    public HighScores[] getHighScoresArray()
     {
         return highScoresArray;
     }
 
-    protected void setHighScoresArray(HighScores[] highScores)
+    protected void setHighScoresArray(final HighScores[] highScores)
     {
         this.highScoresArray = highScores;
 
@@ -1956,7 +1956,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.getRealHighScoresPaintable().setHighScores(highScores);
     }
 
-    public void setHighScoresPaintable(Paintable highScoresPaintable)
+    public void setHighScoresPaintable(final Paintable highScoresPaintable)
     {
         this.highScoresPaintable = highScoresPaintable;
     }
@@ -1971,7 +1971,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return realHighScoresPaintable;
     }
 
-    private void setSelectedHighScores(HighScores selectedHighScores)
+    private void setSelectedHighScores(final HighScores selectedHighScores)
     {
         this.selectedHighScores = selectedHighScores;
     }
@@ -1983,25 +1983,24 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected void clearPlayerGameInputList()
     {
+        PlayerGameInput playerGameInput;
         for (int index = this.localPlayerGameInputList.size() - 1; index >= 0; index--)
         {
-            PlayerGameInput playerGameInput = (PlayerGameInput) 
-                    this.localPlayerGameInputList.get(index);
+             playerGameInput = (PlayerGameInput) this.localPlayerGameInputList.get(index);
             this.gameKeyEventHandler.removeListener(playerGameInput);
         }
         
         this.localPlayerGameInputList.clear();
     }
     
-    protected void addPlayerGameInput(PlayerGameInput playerGameInput)
+    protected void addPlayerGameInput(final PlayerGameInput playerGameInput)
     {
         //PreLogUtil.put("Setting Player Input: ").append(playerGameInput, this, "setPlayerGameInput");
 
         this.localPlayerGameInputList.add(playerGameInput);
     }
 
-    protected void setMenuInputProcessor(
-            BasicMenuInputProcessor menuInputProcessor)
+    protected void setMenuInputProcessor(final BasicMenuInputProcessor menuInputProcessor)
     {
         this.menuInputProcessor = menuInputProcessor;
     }
@@ -2023,7 +2022,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      * @param menuForm
      *            the menuForm to set
      */
-    public void setMenuForm(ScrollSelectionForm menuForm)
+    public void setMenuForm(final ScrollSelectionForm menuForm)
     {
         this.menuForm = menuForm;
     }
@@ -2040,7 +2039,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      * @param startLevel
      *            the startLevel to set
      */
-    public void setStartLevel(int startLevel)
+    public void setStartLevel(final int startLevel)
     {
         this.startLevel = startLevel;
     }
@@ -2050,7 +2049,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return basicColorUtil;
     }
 
-    protected void setTouchButtonsPaintable(Paintable touchButtonsPaintable)
+    protected void setTouchButtonsPaintable(final Paintable touchButtonsPaintable)
     {
         this.touchButtonsPaintable = touchButtonsPaintable;
     }
@@ -2061,7 +2060,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
   //TWB - multiplayer needed it to be public
-    public void setGameInputProcessor(Processor gameInputProcessor)
+    public void setGameInputProcessor(final Processor gameInputProcessor)
     {
         this.gameInputProcessor = gameInputProcessor;
     }
@@ -2071,7 +2070,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return gameInputProcessor;
     }
 
-    protected void setEndGameProcessor(Processor endGameProcessor)
+    protected void setEndGameProcessor(final Processor endGameProcessor)
     {
         this.endGameProcessor = endGameProcessor;
     }
@@ -2081,7 +2080,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return endGameProcessor;
     }
 
-    protected void setEndGameStatePaintable(Paintable endGameStatePaintable)
+    protected void setEndGameStatePaintable(final Paintable endGameStatePaintable)
     {
         this.endGameStatePaintable = endGameStatePaintable;
     }
@@ -2091,7 +2090,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return endGameStatePaintable;
     }
 
-    protected void setNonBotPaintable(Paintable nonBotPaintable)
+    protected void setNonBotPaintable(final Paintable nonBotPaintable)
     {
         this.nonBotPaintable = nonBotPaintable;
     }
@@ -2101,8 +2100,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return nonBotPaintable;
     }
 
-    protected void setStartIntermissionPaintable(
-            InitUpdatePaintable startIntermissionPaintable)
+    protected void setStartIntermissionPaintable(final InitUpdatePaintable startIntermissionPaintable)
     {
         this.startIntermissionPaintable = startIntermissionPaintable;
     }
@@ -2113,7 +2111,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
   //TWB - multiplayer needed it to be public
-    public void setMainStateProcessor(Processor mainStateProcessor)
+    public void setMainStateProcessor(final Processor mainStateProcessor)
     {
         this.mainStateProcessor = mainStateProcessor;
     }
@@ -2123,7 +2121,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return mainStateProcessor;
     }
 
-    protected void setProcessGameProcessor(Processor processGameProcessor)
+    protected void setProcessGameProcessor(final Processor processGameProcessor)
     {
         this.processGameProcessor = processGameProcessor;
     }
@@ -2134,7 +2132,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return processGameProcessor;
     }
 
-    protected void setOpenMenuPaintable(Paintable openMenuPaintable)
+    protected void setOpenMenuPaintable(final Paintable openMenuPaintable)
     {
         this.openMenuPaintable = openMenuPaintable;
     }
@@ -2145,7 +2143,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
     protected void setPopupMenuInputProcessor(
-            BasicMenuInputProcessor popupMenuInputProcessor)
+            final BasicMenuInputProcessor popupMenuInputProcessor)
     {
         this.popupMenuInputProcessor = popupMenuInputProcessor;
     }
@@ -2173,7 +2171,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
 
   //TWB - multiplayer needed it to be public
-    public void setInputProcessor(InputProcessor inputProcessor)
+    public void setInputProcessor(final InputProcessor inputProcessor)
     {
         // LogUtil.put(LogFactory.getInstance("New: " +
         // inputProcessor.toString(), this, "setInputProcessor"));
@@ -2185,7 +2183,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return inputProcessor;
     }
 
-    protected void setMenuPaintable(Paintable menuPaintable)
+    protected void setMenuPaintable(final Paintable menuPaintable)
     {
         this.menuPaintable = menuPaintable;
     }
@@ -2195,7 +2193,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return menuPaintable;
     }
 
-    private void setFormPaintable(Paintable formPaintable)
+    private void setFormPaintable(final Paintable formPaintable)
     {
         this.formPaintable = formPaintable;
     }
@@ -2206,7 +2204,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     }
     
   //TWB - multiplayer needed it to be public
-    public void setGameSpecificPaintable(Paintable gameSpecificPaintable)
+    public void setGameSpecificPaintable(final Paintable gameSpecificPaintable)
     {
         this.gameSpecificPaintable = gameSpecificPaintable;
     }

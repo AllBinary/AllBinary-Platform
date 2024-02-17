@@ -13,7 +13,10 @@
 */
 package org.allbinary.input.event;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
@@ -26,6 +29,8 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
    private VirtualKeyboardEventHandler()
    {
    }
+
+   private final CommonStrings commonStrings = CommonStrings.getInstance();
 
    public final VirtualKeyboardEvent SHOW_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().TRUE);
    public final VirtualKeyboardEvent HIDE_EVENT = new VirtualKeyboardEvent(BooleanFactory.getInstance().FALSE);
@@ -42,4 +47,31 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
               eventListenerInterface).onVirtualKeyboardEvent(
                       (VirtualKeyboardEvent) eventObject);
    }
+   
+    public void open()
+    {
+        try
+        {
+            this.fireEvent(this.SHOW_EVENT);
+        }
+        catch (Exception e)
+        {
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
+        }
+
+    }
+
+    public void close() throws Exception
+    {
+        try
+        {
+            this.fireEvent(this.HIDE_EVENT);
+        }
+        catch (Exception e)
+        {
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
+        }
+
+    }
+   
 }

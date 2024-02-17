@@ -34,7 +34,6 @@ import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.input.AllBinarySensorManager;
 
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -77,7 +76,6 @@ import org.allbinary.game.layer.hud.event.GameNotificationEventHandler;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.score.HighScoreCommands;
 import org.allbinary.game.score.HighScoreCommandsFactory;
-import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.game.state.GameState;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -100,6 +98,7 @@ import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.TextNotificationUtil;
+import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
@@ -747,7 +746,7 @@ public class GameMidlet extends ProgressMidlet
 
                 this.unPauseAppBackground(false);
             }
-            else if (command == HighScoreTextBox.SUBMIT_TEXTBOX_COMMAND)
+            else if (command == HighScoreUtil.SUBMIT_TEXTBOX_COMMAND)
             {
                 LogUtil.put(LogFactory.getInstance("Submitted Score", this, COMMAND_ACTION));
 

@@ -14,7 +14,6 @@
 package org.allbinary.game.score.displayable;
 
 import org.allbinary.graphics.form.item.CustomTextBox;
-import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.TextField;
@@ -27,7 +26,6 @@ import org.allbinary.logic.system.os.OperatingSystemInterface;
 import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.score.HighScore;
-import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -35,16 +33,14 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
-import org.allbinary.logic.string.StringMaker;
 
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox
 {
-    public static final Command SUBMIT_TEXTBOX_COMMAND = 
-        new Command("Submit", Command.SCREEN, 1);
-
-    private final HighScores[] highScoresArray;
-    private final HighScore highScore;
+    private final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
+                VirtualKeyboardEventHandler.getInstance();
+    
+    private final HighScoreUtil highScoreUtil;
 
     private final Paintable pleaseWait = 
         new SimpleTextPaintable(commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
@@ -58,11 +54,9 @@ public class HighScoreTextBox extends CustomTextBox
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, 
                 backgrounBasicColor, foregroundBasicColor);
 
-        // LogUtil.put(LogFactory.getInstance("Score: ").append(score, this,
-        // "compare"));
-
-        this.highScoresArray = highScoresArray;
-        this.highScore = highScore;
+        highScoreUtil = new HighScoreUtil(cmdListener, name, highScoresArray, highScore);
+        
+        //LogUtil.put(LogFactory.getInstance("Score: ").append(score, this, "compare"));
 
         final OperatingSystemInterface operatingSystemInterface
                 = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -91,25 +85,14 @@ public class HighScoreTextBox extends CustomTextBox
             this.addCommand(GameCommandsFactory.getInstance().TOGGLE_KEYBOARD);
         }
 
-        this.addCommand(SUBMIT_TEXTBOX_COMMAND);
+        this.addCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
 
         this.setCommandListener(cmdListener);
     }
 
     public void open()
     {
-        try
-        {
-            final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
-                VirtualKeyboardEventHandler.getInstance();
-
-            virtualKeyboardEventHandler.fireEvent(
-                    virtualKeyboardEventHandler.SHOW_EVENT);
-        }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
-        }
+        this.virtualKeyboardEventHandler.open();
 
         this.paintable = NullPaintable.getInstance();
         super.open();
@@ -117,24 +100,15 @@ public class HighScoreTextBox extends CustomTextBox
 
     public void close() throws Exception
     {
-        try
-        {
-            final VirtualKeyboardEventHandler virtualKeyboardEventHandler = 
-                VirtualKeyboardEventHandler.getInstance();
-            
-            virtualKeyboardEventHandler.fireEvent(virtualKeyboardEventHandler.HIDE_EVENT);
-        }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
-        }
+        this.virtualKeyboardEventHandler.close();
 
         this.paintable = this.pleaseWait;
         this.repaint();
 
         super.close();
-        this.removeCommand(HighScoreTextBox.SUBMIT_TEXTBOX_COMMAND);
-        this.saveHighScore();
+        this.removeCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
+        this.update();
+        this.highScoreUtil.saveHighScore();
 
         this.paintable = NullPaintable.getInstance();
         this.repaint();
@@ -142,22 +116,8 @@ public class HighScoreTextBox extends CustomTextBox
 
     private void update()
     {
-        String name = this.getTextFieldItem().getString();
-        HighScoreNamePersistanceSingleton.getInstance().save(name);
-        this.highScore.setName(name);
-    }
-
-    public void saveHighScore()
-    {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "saveHighScore"));
-        
-        this.update();
-
-        for (int index = 0; index < this.highScoresArray.length; index++)
-        {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore to board: ").append(highScoresArray[index]).toString(), this, "saveHighScore"));
-            highScoresArray[index].add(this.highScore);
-        }
+        final String name = this.getTextFieldItem().getString();
+        this.highScoreUtil.update(name);
     }
 
     public void paint(Graphics graphics)
@@ -166,12 +126,13 @@ public class HighScoreTextBox extends CustomTextBox
         this.paintable.paint(graphics);
     }
     
+    public void saveHighScore()
+    {
+        this.highScoreUtil.saveHighScore();
+    }
+    
     public void submit()
     {
-        CommandListener commandListener = 
-            this.getCustomCommandListener();
-        
-        commandListener.commandAction(
-                SUBMIT_TEXTBOX_COMMAND, this);
+        this.highScoreUtil.submit(this);
     }
 }

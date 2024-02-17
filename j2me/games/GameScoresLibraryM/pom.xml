@@ -6,8 +6,8 @@
     <artifactId>GameScoresLibrary</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
     <name>GameScoresLibrary</name>
     <url>http://www.allbinary.com/</url>
