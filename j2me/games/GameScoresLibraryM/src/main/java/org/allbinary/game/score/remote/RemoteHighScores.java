@@ -10,9 +10,10 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.game.score.remote;
 
+import java.util.Enumeration;
 import java.util.Hashtable;
 import java.util.Vector;
 
@@ -25,91 +26,90 @@ import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.RemoteErrorHighScoresSingletonFactory;
 
-public class RemoteHighScores extends HighScores
-{
+public class RemoteHighScores extends HighScores {
 
-   private static final Hashtable hashTable = new Hashtable();
-   private final SoftwareInformation softwareInformation;
-   private Boolean ascending;
-   
-   public final String ASCENDING = "ASCENDING";
+    private static final Hashtable hashTable = new Hashtable();
+    private final SoftwareInformation softwareInformation;
+    private Boolean ascending;
 
-   private RemoteHighScores(
-           SoftwareInformation softwareInformation, GameInfo gameInfo,
-           String heading, String columnTwoHeading, Boolean ascending)
-           throws Exception
-   {
-      super(gameInfo.toString(), heading, columnTwoHeading);
+    public final String ASCENDING = "ASCENDING";
 
-      this.softwareInformation = softwareInformation;
+    private RemoteHighScores(
+        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
+        final String heading, final String columnTwoHeading, final Boolean ascending)
+        throws Exception {
+        super(gameInfo.toString(), heading, columnTwoHeading);
 
-      this.setAscending(ascending);
+        this.softwareInformation = softwareInformation;
 
-      RemoteHighScoresProcessorFactory.getInstance().process(this, gameInfo);
-   }
+        this.setAscending(ascending);
 
-   public static synchronized HighScores getInstance(
-           SoftwareInformation softwareInformation, GameInfo gameInfo,
-           String heading, String columnTwoHeading, Boolean isAscending)
-   {
-      try
-      {
-         HighScores highScores = (HighScores) hashTable.get(gameInfo);
+        RemoteHighScoresProcessorFactory.getInstance().process(this, gameInfo);
+    }
 
-         if (highScores == null)
-         {
-            highScores = new RemoteHighScores(
+    public static synchronized HighScores getInstance(
+        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
+        final String heading, final String columnTwoHeading, final Boolean isAscending) {
+        try {
+            HighScores highScores = (HighScores) hashTable.get(gameInfo);
+
+            if (highScores == null) {
+                highScores = new RemoteHighScores(
                     softwareInformation, gameInfo,
                     heading, columnTwoHeading, isAscending);
 
-            hashTable.put(gameInfo, highScores);
-         }
+                hashTable.put(gameInfo, highScores);
+            }
 
-         return highScores;
-      } catch (Exception e)
-      {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), CommonStrings.getInstance().GET_INSTANCE, e));
-         return RemoteErrorHighScoresSingletonFactory.getInstance();
-      }
-   }
+            return highScores;
+        } catch (Exception e) {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), CommonStrings.getInstance().GET_INSTANCE, e));
+            return RemoteErrorHighScoresSingletonFactory.getInstance();
+        }
+    }
 
-   public void add(HighScore newHighScore)
-   {
-      RemoteHighScoresSubmissionProcessorFactory.getInstance().process(this, newHighScore);
-   }
+    public void add(final HighScore newHighScore) {
+        RemoteHighScoresSubmissionProcessorFactory.getInstance().process(this, newHighScore);
+    }
 
-   //This is called when the data comes back in the response
-   public void update(Hashtable hashtable)
-   {
-      this.getList().clear();
-      Vector vector = (Vector) hashtable.get(RemoteHighScoresData.getInstance().HIGH_SCORES);
-      for (int index = 0; index < vector.size(); index++)
-      {
-         Vector highScoreVector = (Vector) vector.elementAt(index);
-         String displayName = (String) highScoreVector.elementAt(0);
-         String score = (String) highScoreVector.elementAt(1);
+    //This is called when the data comes back in the response
+    public void update(final Hashtable hashtable) {
+        this.getList().clear();
+        final Vector vector = (Vector) hashtable.get(RemoteHighScoresData.getInstance().HIGH_SCORES);
+        if (vector != null) {
+            for (int index = 0; index < vector.size(); index++) {
+                final Vector highScoreVector = (Vector) vector.elementAt(index);
+                final String displayName = (String) highScoreVector.elementAt(0);
+                final String score = (String) highScoreVector.elementAt(1);
 
-         long longScore = Long.parseLong(score);
-         //Long.valueOf(score).longValue()
+                final long longScore = Long.parseLong(score);
+                //Long.valueOf(score).longValue()
 
-         HighScore highScore = new HighScore(-1, displayName, null, longScore);
+                final HighScore highScore = new HighScore(-1, displayName, null, longScore);
 
-         this.getList().add(highScore);
-      }
-   }
+                this.getList().add(highScore);
+            }
+        } else {
+            
+            final Enumeration enumeration = hashtable.elements();
+            Object nextElement;
+            while(enumeration.hasMoreElements()) {
+                nextElement = enumeration.nextElement();
+                LogUtil.put(LogFactory.getInstance("NextElement: " + nextElement, this, CommonStrings.getInstance().PROCESS));
+            }
 
-   private void setAscending(Boolean ascending)
-   {
-      this.ascending = ascending;
-   }
+        }
+    }
 
-   public Boolean getAscending()
-   {
-      return ascending;
-   }
+    private void setAscending(final Boolean ascending) {
+        this.ascending = ascending;
+    }
 
-   public SoftwareInformation getSoftwareInformation()
-   {
-      return softwareInformation;
-   }
+    public Boolean getAscending() {
+        return ascending;
+    }
+
+    public SoftwareInformation getSoftwareInformation() {
+        return softwareInformation;
+    }
 }
