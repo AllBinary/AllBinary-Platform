@@ -13,6 +13,9 @@
 */
 package org.allbinary.logic.communication.log.config.type;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class LogConfigType
@@ -24,6 +27,8 @@ public class LogConfigType
       
    public LogConfigType(String name, String description)
    {
+       //LogUtil.put(LogFactory.getInstance(name, this, CommonStrings.getInstance().CONSTRUCTOR));
+       
       this.name = name;
       this.description = description;
       availableLogConfigTypes.add(this);
