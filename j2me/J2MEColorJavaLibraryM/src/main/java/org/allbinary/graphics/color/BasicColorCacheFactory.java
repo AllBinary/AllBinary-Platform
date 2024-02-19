@@ -24,20 +24,19 @@ public class BasicColorCacheFactory
         return instance;
     }
 
-    private Hashtable hashtable = new Hashtable();
+    private final Hashtable hashtable = new Hashtable();
 
     private BasicColorCacheFactory()
     {
     }
 
-    public void add(BasicColor basicDefaultColor)
+    public void add(final BasicColor basicDefaultColor)
     {
         // hashtable.put(Integer.valueOf(value), this);
-        hashtable.put(new Integer(basicDefaultColor.intValue()),
-                basicDefaultColor);
+        hashtable.put(new Integer(basicDefaultColor.intValue()),basicDefaultColor);
     }
 
-    public synchronized BasicColor getInstance(Integer integer)
+    public synchronized BasicColor getInstance(final Integer integer)
     {
         BasicColor basicColor = (BasicColor) hashtable.get(integer);
 
