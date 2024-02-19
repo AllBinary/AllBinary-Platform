@@ -53,7 +53,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        basicColorUtil.setBasicColor(graphics, this.basicColor, this.color);
+        basicSetColorUtil.setBasicColor(graphics, this.basicColor, this.color);
 
         int beginWidth;
         for(int index = this.stringArray.length - 1; index >= 0; index--)

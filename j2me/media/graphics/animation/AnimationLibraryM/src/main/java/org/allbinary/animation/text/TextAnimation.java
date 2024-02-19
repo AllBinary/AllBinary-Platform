@@ -48,7 +48,7 @@ public class TextAnimation  extends Animation
 
     public void paint(Graphics graphics, int x, int y)
     {
-        this.basicColorUtil.setBasicColor(
+        this.basicSetColorUtil.setBasicColor(
                 graphics, this.getBasicColor(), this.getColor());
 
         final int height = this.getHeight();

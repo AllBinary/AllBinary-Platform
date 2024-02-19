@@ -156,7 +156,7 @@ public class VectorAnimation extends IndexedAnimation
 
     public void paint(Graphics graphics, int x, int y)
     {
-        this.basicColorUtil.setBasicColor(graphics, basicColor);
+        this.basicSetColorUtil.setBasicColor(graphics, basicColor);
 
         this.paintVectors(graphics, x, y);
     }

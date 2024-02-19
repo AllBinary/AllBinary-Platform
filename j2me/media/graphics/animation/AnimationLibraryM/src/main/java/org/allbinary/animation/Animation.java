@@ -25,7 +25,7 @@ public class Animation implements AnimationInterface,
 //implements 
 OpenGLSurfaceChangedInterface
 {    
-    protected final BasicColorSetUtil basicColorUtil = 
+    protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
 
     protected BasicColor basicColor;
@@ -49,7 +49,7 @@ OpenGLSurfaceChangedInterface
 
     public void paint(Graphics graphics, int x, int y)
     {
-        this.basicColorUtil.setBasicColor(
+        this.basicSetColorUtil.setBasicColor(
             graphics, this.getBasicColor(), this.getColor());
     }
 

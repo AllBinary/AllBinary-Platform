@@ -44,7 +44,7 @@ public class TouchButtonsPaintable extends Paintable
 
         //PreLogUtil.put("List " + CommonStrings.getInstance().TOTAL_LABEL + list.size(), this, "paint");
 
-        this.basicColorUtil.setBasicColor(
+        this.basicSetColorUtil.setBasicColor(
                 graphics, this.foregroundBasicColor, this.foregroundColor);
 
         TouchButton touchButton;

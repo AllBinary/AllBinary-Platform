@@ -86,7 +86,7 @@ public class LineAnimation
     {
         final int[][] currentLine = this.line;
         
-        this.basicColorUtil.setBasicColor(
+        this.basicSetColorUtil.setBasicColor(
                 graphics, this.getBasicColor(), this.getColor());
         graphics.drawLine(
             currentLine[0][0], currentLine[0][1],

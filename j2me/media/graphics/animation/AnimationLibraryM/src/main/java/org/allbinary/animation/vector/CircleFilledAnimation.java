@@ -41,7 +41,7 @@ implements ColorCompositeInterface
    private final int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
 
    public void paint(Graphics graphics, int x, int y) {
-       this.basicColorUtil.setBasicColor(
+       this.basicSetColorUtil.setBasicColor(
                graphics, this.getBasicColor(), this.getColor());
       //graphics.fillArc(x, y, width, height, 0, TOTAL_ANGLE);
       graphics.fillRect(x, y, width, height);

@@ -30,7 +30,7 @@ public class HealthBarTwodAnimation extends HealthBarAnimation
         final int ax = this.allbinaryLayer.getViewPosition().getX();
         //int y = this.getY() - 1;
 
-        this.basicColorUtil.setBasicColor(
+        this.basicSetColorUtil.setBasicColor(
                 graphics, this.basicColor, this.color);
 
         graphics.fillRect(ax, this.getY() - 1, x2, this.thickness);

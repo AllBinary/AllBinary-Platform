@@ -112,7 +112,7 @@ public class VectorBaseRotationAnimation
 
     public void paint(final Graphics graphics, final int x, final int y)
     {
-        this.basicColorUtil.setBasicColor(graphics, basicColor);
+        this.basicSetColorUtil.setBasicColor(graphics, basicColor);
 
         try
         {

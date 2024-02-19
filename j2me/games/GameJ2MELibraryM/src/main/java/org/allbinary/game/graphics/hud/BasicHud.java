@@ -274,7 +274,7 @@ public class BasicHud //implements DisplayChangeEventListener
            char[] charArray2, int offset2, int len2, 
            int xOffset, int xOffset2)
    {
-       this.basicColorUtil.setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
        
        int y = getY();
        
@@ -296,7 +296,7 @@ public class BasicHud //implements DisplayChangeEventListener
            char[] charArray2, int offset2, int len2, 
            int xOffset)
    {
-       this.basicColorUtil.setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
 
        int y = getY();
        

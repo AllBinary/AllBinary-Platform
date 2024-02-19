@@ -89,9 +89,9 @@ public class ImageCopyUtil
             //LogUtil.put(LogFactory.getInstance("deltas width: " + halfWidthDelta + " height: " + halfHeightDelta, this, CommonStrings.getInstance().CONSTRUCTOR));
             final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
-            //this.basicColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().YELLOW);
+            //this.basicSetColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().YELLOW);
             //graphics.drawRect(halfWidthDelta, halfHeightDelta, originalImage.getWidth(), originalImage.getHeight());
-            //this.basicColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().WHITE);
+            //this.basicSetColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().WHITE);
             //graphics.drawRect(0, 0, newWidth, newHeight);
             
             return image;
