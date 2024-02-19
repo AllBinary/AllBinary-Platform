@@ -26,7 +26,7 @@ public class TouchButtonsPaintable extends Paintable
     protected final BasicColor foregroundBasicColor;
     protected final int foregroundColor;
     
-    protected final BasicColorSetUtil basicColorUtil = 
+    protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
     
     private final TouchButtonFactory touchButtonFactory = 

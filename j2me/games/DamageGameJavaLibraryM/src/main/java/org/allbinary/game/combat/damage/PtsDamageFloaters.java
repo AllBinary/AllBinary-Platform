@@ -29,7 +29,7 @@ import org.allbinary.view.ViewPosition;
 
 public class PtsDamageFloaters extends DamageFloaters
 {    
-    protected final BasicColorSetUtil basicColorUtil = 
+    protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
     
     private AllBinaryLayer layerInterface;

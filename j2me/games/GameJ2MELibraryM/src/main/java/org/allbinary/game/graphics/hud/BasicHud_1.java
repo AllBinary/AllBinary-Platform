@@ -45,7 +45,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    private int x;
    private int y;
 
-   private final BasicColorSetUtil basicColorUtil = 
+   private final BasicColorSetUtil basicSetColorUtil = 
        BasicColorSetUtil.getInstance();
    
    private BasicColor basicColor;
@@ -230,7 +230,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
 
    public void paint(Graphics graphics, String string, String string2, int offset)
    {
-       this.getBasicColorUtil().setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
 
       graphics.drawString(string,
               x, //getHudGraphicsPosition().getPoint().getX().intValue(),
@@ -301,7 +301,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    
    public void paint(Graphics graphics, char[] charArray, int offset, int len)
    {
-       this.getBasicColorUtil().setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
 
        int y = getY();
        
@@ -316,7 +316,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
    
    public void paint(Graphics graphics, String string)
    {
-       this.getBasicColorUtil().setBasicColor(graphics, getBasicColor());
+       this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
 
        int y = getY() + offsetY;
        
@@ -373,11 +373,6 @@ public class BasicHud_1 //implements DisplayChangeEventListener
     protected int getY()
     {
         return y;
-    }
-
-    protected BasicColorSetUtil getBasicColorUtil()
-    {
-        return basicColorUtil;
     }
    
 }

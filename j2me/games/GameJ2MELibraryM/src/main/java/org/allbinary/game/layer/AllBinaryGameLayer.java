@@ -98,7 +98,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
         }
     }
     
-    protected final BasicColorSetUtil basicColorUtil = 
+    protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
     
     private final BasicColor RED = BasicColorFactory.getInstance().RED;

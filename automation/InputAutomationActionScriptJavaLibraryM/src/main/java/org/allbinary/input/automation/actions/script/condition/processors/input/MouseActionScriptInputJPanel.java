@@ -22,6 +22,7 @@ import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringValidationUtil;
 

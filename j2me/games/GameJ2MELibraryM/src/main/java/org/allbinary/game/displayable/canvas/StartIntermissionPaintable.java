@@ -28,7 +28,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     protected AllBinaryGameCanvas gameCanvas;
     protected String[] stringArray;
     
-    protected final BasicColorSetUtil basicColorUtil = 
+    protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
     
     private BasicColor basicColor;

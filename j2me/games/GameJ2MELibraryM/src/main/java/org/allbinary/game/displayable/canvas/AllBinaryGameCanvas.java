@@ -141,14 +141,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         HighScoresCompositeInterface, DisplayChangeEventListener
 {
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
+    protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
     protected final TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
     protected final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
     protected final TouchButtonFactory touchButtonFactory = TouchButtonFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
 
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
-
-    private final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
 
     private final SensorGameUpdateProcessor sensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
     private EndGameInfo endGameInfo = new EndGameInfo();
@@ -1325,7 +1324,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         this.colorFillPaintable.paint(graphics);
 
-        this.getBasicColorUtil().setBasicColor(graphics,
+        this.basicSetColorUtil.setBasicColor(graphics,
                 this.gameLayerManager.getForegroundBasicColor());
 
         this.gameSpecificPaintable.paint(graphics);
@@ -2042,11 +2041,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void setStartLevel(final int startLevel)
     {
         this.startLevel = startLevel;
-    }
-
-    protected BasicColorSetUtil getBasicColorUtil()
-    {
-        return basicColorUtil;
     }
 
     protected void setTouchButtonsPaintable(final Paintable touchButtonsPaintable)

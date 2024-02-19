@@ -40,7 +40,7 @@ public class BasicPopupMenuPaintable extends Paintable
 
     private static final String NAME = "MENU";
 
-    protected final BasicColorSetUtil basicColorUtil = 
+    protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
 
     private final int BORDER;
