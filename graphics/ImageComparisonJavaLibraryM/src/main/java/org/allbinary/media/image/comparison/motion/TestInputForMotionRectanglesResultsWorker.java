@@ -27,6 +27,7 @@ import org.allbinary.input.automation.robot.InputRobotFactory;
 import org.allbinary.input.automation.robot.TempInputRobotNames;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
