@@ -39,7 +39,7 @@ public class MouseActionScriptInputJPanel
          final MouseActionScriptInputInterface mouseActionScriptInputInterface)
          throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Start: " + mouseActionScriptInputInterface, this, CommonStrings.getInstance().CONSTRUCTOR));
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + mouseActionScriptInputInterface, this, CommonStrings.getInstance().CONSTRUCTOR));
       
       initComponents();
       

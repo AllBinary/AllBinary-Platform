@@ -75,7 +75,7 @@ public class MotionGestureEvent extends AllBinaryEventObject {
         this.currentPoint = currentPoint;
     }
 
-    private static final String CURRENT = " Current: ";
+    private static final String CURRENT = CommonLabels.getInstance().CURRENT;
     private static final String PREVIOUS = " Previous: ";
     private static final String HASHCODE = " hashcode: ";
 

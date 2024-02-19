@@ -68,7 +68,7 @@ public class SaveCapturedImageWorker extends BasicEventHandler
 						    .getFrame());
 	    capturedImageWorkerResultsEventVector
 		.remove(capturedImageWorkerResultsEvent);
-	    LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(),
+	    LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(),
 				this, this.commonStrings.RUN));
 	    setRunning(false);
 	    LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));

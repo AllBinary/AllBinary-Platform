@@ -109,7 +109,7 @@ public class ImageComparisonSearchWorker
             this.index++;
             
             LogUtil.put(LogFactory.getInstance(
-                "Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+                CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
             
             this.setRunning(false);
             

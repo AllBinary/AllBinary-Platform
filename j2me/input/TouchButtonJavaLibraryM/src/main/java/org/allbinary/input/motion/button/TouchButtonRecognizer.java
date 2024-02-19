@@ -234,7 +234,7 @@ public class TouchButtonRecognizer
     public synchronized boolean pressTouchButtonInput(int x, int y, int deviceId)
         throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("Current: " + x + commonStrings.SPACE + y, this, "processTouchButtonInput"));
+        //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().CURRENT + x + commonStrings.SPACE + y, this, "processTouchButtonInput"));
         
         /*
         StringMaker stringBuffer = new StringMaker();

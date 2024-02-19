@@ -65,7 +65,7 @@ public class ScreenCaptureImagesWorker extends BasicEventHandler
                         = new CapturedImageWorkerResultsEvent(this, frame,
                                 bufferedImage);
                 fireEvent(capturedImageEvent);
-                LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(),
+                LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(),
                         this, this.commonStrings.RUN));
                 setRunning(false);
             }

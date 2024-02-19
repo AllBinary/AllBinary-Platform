@@ -153,7 +153,7 @@ public class TestInputForMotionRectanglesResultsWorker
          this.getMotionRectanglesVector().remove(motionRectangles);
 
          LogUtil.put(LogFactory.getInstance(
-            "Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+            CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
          
          LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
       }

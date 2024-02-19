@@ -175,7 +175,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    public void setKeyArray(Integer[] keyArray)
    {
       if(keyArray != null)
-      LogUtil.put(LogFactory.getInstance("Start: " + keyArray.length, "KeyboardActionScriptInput", "setKeyArray"));
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + keyArray.length, "KeyboardActionScriptInput", "setKeyArray"));
       
       this.keyArray = keyArray;
    }
@@ -193,7 +193,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public void setText(String text)
    {
-      LogUtil.put(LogFactory.getInstance("Start: " + text, "KeyboardActionScriptInput", "setText"));
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + text, "KeyboardActionScriptInput", "setText"));
       Integer[] integerArray =
             KeyboardActionScriptInput.integerArrayValue(text);
       this.setKeyArray(integerArray);
@@ -225,7 +225,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    private static Integer[] integerArrayValue(String text)
    {
-      LogUtil.put(LogFactory.getInstance("Start: " + text, "KeyboardActionScriptInput", "integerArrayValue"));
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + text, "KeyboardActionScriptInput", "integerArrayValue"));
       
       Vector vector = new Vector();
       int index = 0;

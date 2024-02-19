@@ -81,7 +81,7 @@ public class SaveImageComparisonWorker
 
             this.imageComparisonInfoVector.remove(imageComparisonInfo);
 
-            LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
             
             LogUtil.put(LogFactory.getInstance(this.commonStrings.END, this, this.commonStrings.RUN));
         }

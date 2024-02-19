@@ -36,4 +36,8 @@ public class CommonLabels {
     public final String COMMAND_LABEL = "Command: ";
     public final String NAME_LABEL = "Name: ";
     
+    public final String START = START_LABEL;
+    public final String ELAPSED = " Elapsed: ";
+    public final String CURRENT = " Current: ";
+    
 }

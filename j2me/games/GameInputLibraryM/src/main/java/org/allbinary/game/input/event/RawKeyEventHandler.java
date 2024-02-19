@@ -61,7 +61,7 @@ public class RawKeyEventHandler {
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance("Start: " + eventListenerInterface, this, "addListener"));
+            //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + eventListenerInterface, this, "addListener"));
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -70,7 +70,7 @@ public class RawKeyEventHandler {
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
-            //LogUtil.put(LogFactory.getInstance("Start: " + eventListenerInterface, this, "addListener"));
+            //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + eventListenerInterface, this, "addListener"));
             this.eventListenerInterfaceList.add(eventListenerInterface);
         }
     }
@@ -78,7 +78,7 @@ public class RawKeyEventHandler {
     public void removeListenerSingleThreaded(final RawKeyEventListener eventListenerInterface)
      {
             //LogUtil.put(LogFactory.getInstance(
-              //      "Start: " + eventListenerInterface, this, "addListener"));
+              //      CommonLabels.getInstance().START + eventListenerInterface, this, "addListener"));
 
         this.eventListenerInterfaceList.remove(eventListenerInterface);
     }

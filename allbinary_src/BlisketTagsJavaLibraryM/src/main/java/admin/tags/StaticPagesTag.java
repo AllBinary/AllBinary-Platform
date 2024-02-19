@@ -116,7 +116,7 @@ public class StaticPagesTag extends TableTag
          {
             if(this.getCommand()!=null)
             {
-               //LogUtil.put(LogFactory.getInstance("Start: " + this.getCommand(), this, "doStartTag"));
+               //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + this.getCommand(), this, "doStartTag"));
 
                if (this.getCommand().compareTo(SearchData.GENERATESTATICPAGES)==0)
                {

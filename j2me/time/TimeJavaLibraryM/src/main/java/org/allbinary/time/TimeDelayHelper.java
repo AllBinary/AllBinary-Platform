@@ -13,6 +13,7 @@
 */
 package org.allbinary.time;
 
+import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 
@@ -150,7 +151,8 @@ public class TimeDelayHelper
 
         if(elapsed > 0)
         {
-            return new StringMaker().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
+            final CommonLabels commonLabels = CommonLabels.getInstance();
+            return new StringMaker().append(commonLabels.START).append(this.startTime).append(commonLabels.CURRENT).append(currentTime).append(commonLabels.ELAPSED).append(Long.toString(elapsed)).toString();
         }
         else
         {
@@ -165,7 +167,8 @@ public class TimeDelayHelper
 
         if(elapsed > 0)
         {
-            return new StringMaker().append("Start: ").append(this.startTime).append(" Current: ").append(currentTime).append(" Elapsed: ").append(Long.toString(elapsed)).toString();
+            final CommonLabels commonLabels = CommonLabels.getInstance();
+            return new StringMaker().append(commonLabels.START).append(this.startTime).append(commonLabels.CURRENT).append(currentTime).append(commonLabels.ELAPSED).append(Long.toString(elapsed)).toString();
         }
         else
         {

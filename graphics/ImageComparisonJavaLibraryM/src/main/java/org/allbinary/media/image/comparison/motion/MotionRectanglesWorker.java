@@ -129,7 +129,7 @@ public class MotionRectanglesWorker
             
             this.index++;
             
-            LogUtil.put(LogFactory.getInstance("Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
             
             this.setRunning(false);
             

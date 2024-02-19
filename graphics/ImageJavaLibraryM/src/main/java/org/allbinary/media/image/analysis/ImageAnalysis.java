@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonStrings;
 
 public class ImageAnalysis
 {
@@ -31,7 +33,7 @@ public class ImageAnalysis
 
    public static ImageAnalysisResults[] process(BufferedImage[] bufferedImageArray, ColorRangeInterface colorRangeInterface) throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Start: " + colorRangeInterface.toString(), "ImageAnalysis", "process"));
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + colorRangeInterface.toString(), "ImageAnalysis", CommonStrings.getInstance().PROCESS));
 
       ImageAnalysisResults[] imageAnalysisResultsArray = new ImageAnalysisResults[bufferedImageArray.length];
 

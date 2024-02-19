@@ -154,7 +154,7 @@ public class AbstractInputAutomationWorker
                 this.index++;
 
                 LogUtil.put(LogFactory.getInstance(
-                    "Time Elapsed: " + timeHelper.getElapsed() + " Index: " + this.index, this, this.commonStrings.RUN));
+                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed() + " Index: " + this.index, this, this.commonStrings.RUN));
             }
             
             this.stopDataWorkers();

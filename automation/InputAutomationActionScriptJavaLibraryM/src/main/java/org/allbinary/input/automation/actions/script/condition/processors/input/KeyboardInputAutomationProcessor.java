@@ -27,7 +27,7 @@ public class KeyboardInputAutomationProcessor
    public static void process(KeyboardActionScriptInputInterface keyActionScriptInputInterface)
    throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Start: " + keyActionScriptInputInterface.toString(), 
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + keyActionScriptInputInterface.toString(), 
             "KeyInputAutomationProcessor", "process"));
       
       InputRobotInterface inputRobotInterface = 

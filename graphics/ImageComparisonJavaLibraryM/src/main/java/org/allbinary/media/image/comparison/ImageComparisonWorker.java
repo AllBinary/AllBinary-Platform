@@ -136,7 +136,7 @@ public class ImageComparisonWorker
             this.bufferedImageVector.remove(0);
             index2++;
             
-            final String message = new StringMaker().append("Frame: ").append(index2).append(" Time Elapsed: ").append(timeHelper.getElapsed()).toString();
+            final String message = new StringMaker().append("Frame: ").append(index2).append(CommonLabels.getInstance().ELAPSED).append(timeHelper.getElapsed()).toString();
             LogUtil.put(LogFactory.getInstance(message, this, this.commonStrings.RUN));
             
             this.setRunning(false);

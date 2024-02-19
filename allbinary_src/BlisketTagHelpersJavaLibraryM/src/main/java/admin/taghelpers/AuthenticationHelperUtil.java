@@ -39,7 +39,7 @@ public class AuthenticationHelperUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            LogUtil.put(LogFactory.getInstance("Start: " + filePath, this, "isAuthorized()"));
+            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + filePath, this, "isAuthorized()"));
         }
 
         int endIndex = HttpRequestUtil.getInstance().getLastSeparatorIndex(filePath);

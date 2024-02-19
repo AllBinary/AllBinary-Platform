@@ -199,7 +199,7 @@ public class InputAutomationNewBundleRunnable
     private boolean isInstalled(String symbolicName)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start: " + symbolicName, this, "isInstalled"));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + symbolicName, this, "isInstalled"));
         
         Vector vector = this.getInstalledJarSymbolicNameVector();
         Iterator iterator = vector.iterator();
@@ -238,7 +238,7 @@ public class InputAutomationNewBundleRunnable
     
     private Bundle install(URL url) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start: " + url, this, "install"));
+        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + url, this, "install"));
         
         BundleContext bundleContext =
             InputAutomationBundleActivator.getBundleContext();
@@ -261,7 +261,7 @@ public class InputAutomationNewBundleRunnable
                 timeHelper.setStartTime();
                 
                 LogUtil.put(LogFactory.getInstance(
-                    "Time Elapsed: " + timeHelper.getElapsed(), this, this.commonStrings.RUN));
+                    CommonLabels.getInstance().ELAPSED + timeHelper.getElapsed(), this, this.commonStrings.RUN));
                 
                 this.updateModules();
                 //Thread.sleep(10000);
