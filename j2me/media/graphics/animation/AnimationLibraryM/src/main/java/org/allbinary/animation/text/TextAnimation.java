@@ -15,28 +15,27 @@ package org.allbinary.animation.text;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.font.MyFont;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
-public class TextAnimation  extends Animation
+public class TextAnimation extends IndexedAnimation
 {
     protected String[] textArray = {StringUtil.getInstance().EMPTY_STRING};
     
     private int anchor = Anchor.TOP_LEFT;
     
-    public TextAnimation()
+    public TextAnimation(final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
     }
 
-    public TextAnimation(String text)
+    public TextAnimation(final String text, final AnimationBehavior animationBehavior)
     {
+        super(animationBehavior);
         //this.textArray = new String[1];
         //this.textArray[0] = text;
         this.setText(text);

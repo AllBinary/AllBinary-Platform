@@ -16,6 +16,7 @@ package org.allbinary.animation.caption;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.text.TextAnimation;
 import org.allbinary.graphics.color.BasicColor;
@@ -25,7 +26,7 @@ import org.allbinary.time.TimeDelayHelper;
 public class CaptionAnimationHelper
 {
     private final TimeDelayHelper timeHelper = new TimeDelayHelper(620);
-    private final TextAnimation textAnimation = new TextAnimation();
+    private final TextAnimation textAnimation = new TextAnimation(AnimationBehavior.getInstance());
     private final Animation captionAnimation;
     
     private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance();

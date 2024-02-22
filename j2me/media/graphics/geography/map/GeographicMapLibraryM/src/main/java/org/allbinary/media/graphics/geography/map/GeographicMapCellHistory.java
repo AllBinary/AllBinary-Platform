@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.text.TextAnimation;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.GPoint;
@@ -37,7 +38,7 @@ public class GeographicMapCellHistory
 
    private int totalVisited;
 
-   private final Animation animation = new TextAnimation(MISSED_INFO);
+   private final Animation animation = new TextAnimation(MISSED_INFO, AnimationBehavior.getInstance());
    
    public GeographicMapCellHistory()
    {

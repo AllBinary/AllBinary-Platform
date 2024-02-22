@@ -14,6 +14,8 @@
 package org.allbinary.animation.text;
 
 import org.allbinary.animation.Animation;
+import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 /**
@@ -23,19 +25,27 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 public class CustomTextAnimationFactory 
     implements AnimationInterfaceFactoryInterface {
  
+    private final AnimationBehaviorFactory animationBehaviorFactory;
+    
     private String text;
-    private int fontSize;
 
-    public CustomTextAnimationFactory(final String text, final int fontSize) {
+    //private int scaleWidth;
+    private int scaleHeight;
+    
+    public CustomTextAnimationFactory(final String text, final int fontSize, final AnimationBehaviorFactory animationBehaviorFactory) {
         
+        this.scaleHeight = fontSize;
+        this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
     public Animation getInstance()throws Exception {
-        return new CustomTextAnimation(text, fontSize);
+        return new CustomTextAnimation(text, this.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
     }
     
+    @Override
     public void setInitialSize(final int width, final int height) {
-        
+        //this.scaleWidth = width;
+        this.scaleHeight = height;
     }
 
 }

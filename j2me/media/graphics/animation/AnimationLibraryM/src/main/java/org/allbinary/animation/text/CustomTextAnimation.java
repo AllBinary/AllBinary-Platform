@@ -15,6 +15,7 @@ package org.allbinary.animation.text;
 
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.graphics.font.FontDebugFactory;
 
@@ -29,9 +30,9 @@ public class CustomTextAnimation extends TextAnimation
     private final int fontSize;
     private Font font;
     
-    public CustomTextAnimation(final String text, final int fontSize)
+    public CustomTextAnimation(final String text, final int fontSize, final AnimationBehavior animationBehavior)
     {
-        super(text);
+        super(text, animationBehavior);
         
         this.fontSize = fontSize;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);

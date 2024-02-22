@@ -21,7 +21,6 @@ import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.collision.CollidableBaseBehavior;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollidableNeverCollideBehaviorFactory;
-import org.allbinary.game.layer.AllBinaryGameLayer;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.view.ViewPosition;
 
