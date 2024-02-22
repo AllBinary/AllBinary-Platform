@@ -31,6 +31,12 @@ public class CustomTextAnimationFactory
 
     //private int scaleWidth;
     private int scaleHeight;
+
+    public CustomTextAnimationFactory(final String text, final int fontSize) {
+        
+        this(text, fontSize, AnimationBehaviorFactory.getInstance());
+        
+    }
     
     public CustomTextAnimationFactory(final String text, final int fontSize, final AnimationBehaviorFactory animationBehaviorFactory) {
         
@@ -42,7 +48,7 @@ public class CustomTextAnimationFactory
         return new CustomTextAnimation(text, this.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
     }
     
-    @Override
+    //@Override
     public void setInitialSize(final int width, final int height) {
         //this.scaleWidth = width;
         this.scaleHeight = height;
