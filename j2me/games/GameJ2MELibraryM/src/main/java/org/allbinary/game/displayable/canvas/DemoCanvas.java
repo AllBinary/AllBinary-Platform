@@ -75,6 +75,7 @@ import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresCompositeInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelper;
+import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
 import org.allbinary.game.score.HighScoresUpdateRunnable;
 import org.allbinary.game.state.GameState;
@@ -133,7 +134,7 @@ public class DemoCanvas extends RunnableCanvas
     private final FullScreenUtil fullScreenUtil = FullScreenUtil.getInstance();
     private AllBinaryGameCanvas gameCanvas = NullGameCanvas.getInstance();
     
-    private final HighScoresHelper highScoresHelper = new HighScoresHelper();
+    private final HighScoresHelperBase highScoresHelper = new HighScoresHelper();
 
     private final HighScoresPaintable realHighScoresPaintable = new HighScoresPaintable();
     private Paintable highScoresPaintable = NullPaintable.getInstance();
@@ -629,7 +630,7 @@ public class DemoCanvas extends RunnableCanvas
             else
             {
                 this.getRealHighScoresPaintable().setHighScores(
-                        this.highScoresHelper.getSelectHighScores());
+                        this.highScoresHelper.getNextHighScores());
             }
         }
 

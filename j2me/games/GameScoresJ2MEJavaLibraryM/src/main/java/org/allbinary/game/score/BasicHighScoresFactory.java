@@ -10,14 +10,14 @@ implements HighScoresFactoryInterface
 {
     private SoftwareInformation softwareInformation;
 
-    public BasicHighScoresFactory(SoftwareInformation softwareInformation)
+    public BasicHighScoresFactory(final SoftwareInformation softwareInformation)
     {
         this.softwareInformation = softwareInformation;
     }
 
     private final HighScores[] highScoresArray = new HighScores[1];
 
-    public HighScores[] createHighScores(GameInfo gameInfo)
+    public HighScores[] createHighScores(final GameInfo gameInfo)
     {
         System.gc();
 
@@ -34,5 +34,9 @@ implements HighScoresFactoryInterface
             
             return super.createHighScores(gameInfo);
         }
+    }
+    
+    public HighScoresHelperBase createHighScoresHelper() {
+        return new HighScoresHelper2();
     }
 }

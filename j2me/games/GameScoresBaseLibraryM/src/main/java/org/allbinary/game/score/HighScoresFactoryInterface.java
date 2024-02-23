@@ -18,4 +18,5 @@ import org.allbinary.game.GameInfo;
 public interface HighScoresFactoryInterface
 {
     HighScores[] createHighScores(GameInfo gameInfo);
+    HighScoresHelperBase createHighScoresHelper();
 }

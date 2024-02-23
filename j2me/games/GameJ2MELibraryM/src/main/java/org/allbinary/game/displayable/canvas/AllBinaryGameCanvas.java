@@ -13,8 +13,14 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import java.util.Hashtable;
+
+import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Item;
+
 import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -111,16 +117,12 @@ import org.allbinary.thread.SecondaryThreadPool;
 import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
-import java.util.Hashtable;
-import javax.microedition.lcdui.ChoiceGroup;
-import javax.microedition.lcdui.CommandListener;
-import javax.microedition.lcdui.Graphics;
-import javax.microedition.lcdui.Item;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
-import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+import org.allbinary.game.score.HighScoresHelperBase;
+import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
@@ -131,7 +133,6 @@ import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
-import org.allbinary.util.CircularIndexUtil;
 
 public class AllBinaryGameCanvas 
 extends RunnableCanvas 
@@ -168,12 +169,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final TimeDelayHelper gameStateTimeHelper = new TimeDelayHelper(0);
 
     // high score vars
+    private final HighScoresHelperBase highScoresHelper;
     private boolean highScoreSubmitted;
-    private final CircularIndexUtil circularIndexUtil = CircularIndexUtil.getInstance(0, 0);
-    private HighScores selectedHighScores;
-    private HighScores[] highScoresArray;
     private final HighScoresPaintable realHighScoresPaintable = new HighScoresPaintable();
     private Paintable highScoresPaintable = NullPaintable.getInstance();
+    
     // TODO TWB hack around key event handling performance
     private BasicArrayList localPlayerGameInputList = new BasicArrayList();
             //NoPlayerGameInput.getInstance();
@@ -251,6 +251,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         super(commandListener);
         
+        this.highScoresHelper = highScoresFactoryInterface.createHighScoresHelper();
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
         this.init(gameLayerManager, buffered);
 
@@ -277,6 +278,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     //Null GameCanvas
     public AllBinaryGameCanvas(final AllBinaryGameLayerManager gameLayerManager)
     {
+        this.highScoresHelper = NoHighScoresFactory.getInstance().createHighScoresHelper();
+        
         if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
             this.gameBehavior = DemoGameBehavior.getInstance();
             this.menuBehavior = BaseMenuBehavior.getInstance();
@@ -292,7 +295,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public AllBinaryGameCanvas()
     {
-        
+        this.highScoresHelper = NoHighScoresFactory.getInstance().createHighScoresHelper();
+
 //        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
             this.gameBehavior = DemoGameBehavior.getInstance();
             this.menuBehavior = BaseMenuBehavior.getInstance();
@@ -1794,7 +1798,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //{
         final HighScoreTextBox textBox = new HighScoreTextBox(
                 this.getCustomCommandListener(), name,
-                this.getHighScoresArray(), highScore, this.gameLayerManager.getBackgroundBasicColor(),
+                this.highScoresHelper.getHighScoresArray(), highScore, this.gameLayerManager.getBackgroundBasicColor(),
                 this.gameLayerManager.getForegroundBasicColor());
 
         if (isLast) {
@@ -1921,40 +1925,15 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final HighScores[] highScoresArray = this.highScoresFactoryInterface
                 .createHighScores(this.gameLayerManager.getGameInfo());
 
-        this.setHighScoresArray(highScoresArray);
-    }
-
-    public HighScores[] getHighScoresArray()
-    {
-        return highScoresArray;
-    }
-
-    protected void setHighScoresArray(final HighScores[] highScores)
-    {
-        this.highScoresArray = highScores;
-
-        this.circularIndexUtil.setSize(this.highScoresArray.length);
-
-        this.selectHighScores();
+        this.highScoresHelper.setHighScoresArray(highScoresArray);
     }
 
     public void selectHighScores()
     {
-        this.circularIndexUtil.next();
-
-        HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
-
-        int index = 0;
-        while (highScores.getTotal() < 1 && index < this.highScoresArray.length)
-        {
-            highScores = this.highScoresArray[this.circularIndexUtil.next()];
-            index++;
-        }
-
-        this.setSelectedHighScores(highScores);
-        this.getRealHighScoresPaintable().setHighScores(highScores);
+        this.highScoresHelper.selectHighScores();
+        this.getRealHighScoresPaintable().setHighScores(this.highScoresHelper.getSelectedHighScores());
     }
-
+    
     public void setHighScoresPaintable(final Paintable highScoresPaintable)
     {
         this.highScoresPaintable = highScoresPaintable;
@@ -1968,16 +1947,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected HighScoresPaintable getRealHighScoresPaintable()
     {
         return realHighScoresPaintable;
-    }
-
-    private void setSelectedHighScores(final HighScores selectedHighScores)
-    {
-        this.selectedHighScores = selectedHighScores;
-    }
-
-    protected HighScores getSelectedHighScores()
-    {
-        return selectedHighScores;
     }
 
     protected void clearPlayerGameInputList()

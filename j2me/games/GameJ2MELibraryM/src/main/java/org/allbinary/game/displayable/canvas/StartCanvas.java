@@ -611,7 +611,7 @@ public class StartCanvas extends RunnableCanvas
             else
             {
                 this.getRealHighScoresPaintable().setHighScores(
-                        this.highScoresHelper.getSelectHighScores());
+                        this.highScoresHelper.getNextHighScores());
             }
         }
 

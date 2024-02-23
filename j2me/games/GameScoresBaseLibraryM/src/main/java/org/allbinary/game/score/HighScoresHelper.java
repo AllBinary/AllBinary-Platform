@@ -15,18 +15,13 @@ package org.allbinary.game.score;
 
 import org.allbinary.util.CircularIndexUtil;
 
-public class HighScoresHelper
+public class HighScoresHelper extends HighScoresHelperBase
 {
     private HighScores[] highScoresArray = 
         NoHighScoresFactory.getInstance().createHighScores(null);
 
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.getInstance(0, 0);
-
-    protected HighScores[] getHighScoresArray()
-    {
-        return highScoresArray;
-    }
 
     public void setHighScoresArray(HighScores[] highScores)
     {
@@ -39,7 +34,7 @@ public class HighScoresHelper
 
     int lastIndex = -1;
     
-    public HighScores getSelectHighScores()
+    public HighScores getNextHighScores()
     {        
         HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
 

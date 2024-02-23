@@ -17,6 +17,7 @@ import org.allbinary.game.GameInfo;
 
 public class NoHighScoresFactory implements HighScoresFactoryInterface
 {
+
     private static final NoHighScoresFactory instance = new NoHighScoresFactory();
     
     public static NoHighScoresFactory getInstance()
@@ -25,15 +26,20 @@ public class NoHighScoresFactory implements HighScoresFactoryInterface
     }
     
     private final HighScores[] NO_HIGH_SCORES = new HighScores[0];
+    private final HighScoresHelperBase highScoresHelperBase = new HighScoresHelperBase();
 
     protected NoHighScoresFactory()
     {
         
     }
     
-    public HighScores[] createHighScores(
-            GameInfo gameInfo)
+    public HighScores[] createHighScores(final GameInfo gameInfo)
     {
         return NO_HIGH_SCORES;
     }
+    
+    public HighScoresHelperBase createHighScoresHelper() {
+        return highScoresHelperBase;
+    }
+
 }
