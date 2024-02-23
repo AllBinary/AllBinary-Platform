@@ -13,6 +13,7 @@
  */
 package org.allbinary.animation.text;
 
+import javax.microedition.lcdui.Font;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -45,7 +46,7 @@ public class CustomTextAnimationFactory
     public CustomTextAnimationFactory(final String text, final int fontSize, final AnimationBehaviorFactory animationBehaviorFactory) {
         
         this.text = text;
-        this.scaleHeight = fontSize;
+        this.scaleHeight = (int) fontSize - (fontSize / 4);
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
@@ -57,7 +58,18 @@ public class CustomTextAnimationFactory
     public void setInitialSize(final int width, final int height) {
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(height).toString(), this, CommonStrings.getInstance().PROCESS));
         //this.scaleWidth = width;
-        //this.scaleHeight = height;
+        final int fontSize = height;
+        this.scaleHeight = (int) fontSize - (fontSize / 4);
+    }
+
+    public int getWidth() {
+        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
+        return font.stringWidth(this.text);
+    }
+
+    public int getHeight() {
+        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
+        return font.getHeight();
     }
 
 }

@@ -62,11 +62,12 @@ public class CustomTextAnimation extends TextAnimation
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (fontSize * scaleX));
     }
     
+    public int getWidth() {
+        return this.font.stringWidth(this.textArray[0]);
+    }
+
     public int getHeight() {
         return this.font.getHeight();
     }
 
-    public int getWidth() {
-        return this.font.stringWidth(this.textArray[0]);
-    }
 }
