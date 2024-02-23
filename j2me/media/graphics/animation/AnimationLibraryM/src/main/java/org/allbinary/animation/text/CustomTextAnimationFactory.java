@@ -40,6 +40,7 @@ public class CustomTextAnimationFactory
     
     public CustomTextAnimationFactory(final String text, final int fontSize, final AnimationBehaviorFactory animationBehaviorFactory) {
         
+        this.text = text;
         this.scaleHeight = fontSize;
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
