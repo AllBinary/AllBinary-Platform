@@ -17,6 +17,10 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *
@@ -51,8 +55,9 @@ public class CustomTextAnimationFactory
     
     //@Override
     public void setInitialSize(final int width, final int height) {
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(height).toString(), this, CommonStrings.getInstance().PROCESS));
         //this.scaleWidth = width;
-        this.scaleHeight = height;
+        //this.scaleHeight = height;
     }
 
 }

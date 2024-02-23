@@ -18,6 +18,10 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.graphics.font.FontDebugFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *
@@ -35,6 +39,7 @@ public class CustomTextAnimation extends TextAnimation
         super(text, animationBehavior);
         
         this.fontSize = fontSize;
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("font: ").append(fontSize).toString(), this, CommonStrings.getInstance().PROCESS));
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
     }
     
