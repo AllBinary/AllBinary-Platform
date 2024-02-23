@@ -169,7 +169,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final TimeDelayHelper gameStateTimeHelper = new TimeDelayHelper(0);
 
     // high score vars
-    public final HighScoresHelperBase highScoresHelper;
+    protected final HighScoresHelperBase highScoresHelper;
     private boolean highScoreSubmitted;
     private final HighScoresPaintable realHighScoresPaintable = new HighScoresPaintable();
     private Paintable highScoresPaintable = NullPaintable.getInstance();
