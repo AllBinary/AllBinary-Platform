@@ -34,6 +34,7 @@ public class CustomTextAnimationFactory
     
     private String text;
 
+    private float scale;
     //private int scaleWidth;
     private int scaleHeight;
 
@@ -60,6 +61,21 @@ public class CustomTextAnimationFactory
         //this.scaleWidth = width;
         final int fontSize = height;
         this.scaleHeight = (int) fontSize - (fontSize / 4);
+    }
+
+
+    /**
+     * @return the scale
+     */
+    public float getScale() {
+        return scale;
+    }
+
+    /**
+     * @param scale the scale to set
+     */
+    public void setScale(float scale) {
+        this.scale = scale;
     }
 
     public int getWidth() {
