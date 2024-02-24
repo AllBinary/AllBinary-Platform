@@ -34,7 +34,7 @@ public class CustomTextAnimationFactory
     
     private String text;
 
-    private float scale;
+    private int initScaleHeight;
     //private int scaleWidth;
     private int scaleHeight;
 
@@ -47,7 +47,7 @@ public class CustomTextAnimationFactory
     public CustomTextAnimationFactory(final String text, final int fontSize, final AnimationBehaviorFactory animationBehaviorFactory) {
         
         this.text = text;
-        this.scaleHeight = (int) fontSize - (fontSize / 4);
+        this.initScaleHeight = this.scaleHeight = (int) fontSize - (fontSize / 4);
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
@@ -63,28 +63,13 @@ public class CustomTextAnimationFactory
         this.scaleHeight = (int) fontSize - (fontSize / 4);
     }
 
-
-    /**
-     * @return the scale
-     */
-    public float getScale() {
-        return scale;
-    }
-
-    /**
-     * @param scale the scale to set
-     */
-    public void setScale(float scale) {
-        this.scale = scale;
-    }
-
     public int getWidth() {
-        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
+        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
         return font.stringWidth(this.text);
     }
 
     public int getHeight() {
-        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
+        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
         return font.getHeight();
     }
 
