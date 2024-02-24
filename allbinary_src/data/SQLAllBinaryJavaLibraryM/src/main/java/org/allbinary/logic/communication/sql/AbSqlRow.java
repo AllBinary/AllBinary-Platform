@@ -465,7 +465,7 @@ public class AbSqlRow extends AbSqlColumn
                 {
                     LogUtil.put(LogFactory.getInstance(this.GET_ROW + resultAsString, this, this.METHOD_GET_ROWS));
                 }
-                LogUtil.put(LogFactory.getInstance(this.GET_ROW + resultAsString, this, this.METHOD_GET_ROWS));
+                //LogUtil.put(LogFactory.getInstance(this.GET_ROW + resultAsString, this, this.METHOD_GET_ROWS));
 
                 rows.add(result);
             }

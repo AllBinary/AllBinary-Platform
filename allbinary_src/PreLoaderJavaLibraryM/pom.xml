@@ -50,18 +50,10 @@
 
             <optional>true</optional>
         </dependency>
-
-<!--
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>InitInfoJavaLibrary</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
-        </dependency>
--->
-
+        
         <dependency>
             <groupId>org.allbinary.logging</groupId>
-            <artifactId>BasicLogConfigTypeJavaLibrary</artifactId>
+            <artifactId>LogConfigTypeThickClientJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

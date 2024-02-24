@@ -36,29 +36,29 @@ public class Replace
       hashMap = new HashMap();
       this.hashMap.put(key, value);
       
-      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      //{
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      {
          LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
          //LogUtil.put(LogFactory.getInstance("Replacers: key=" + key + " value=" + value, this, CommonStrings.getInstance().CONSTRUCTOR));
-      //}
+      }
    }
    
    public Replace(HashMap hashMap)
    {      
       this.hashMap = hashMap;
       
-      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE_INFO))
-      //{
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE_INFO))
+      {
          LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
-      //}
+      }
    }
    
    public String all(String replace)
    {
-      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      //{
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      {
          LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, ALL));
-      //}
+      }
 
       final StringBuffer newStringBuffer = new StringBuffer();
 
@@ -115,20 +115,20 @@ public class Replace
          //LogUtil.put(LogFactory.getInstance("Replace Result: " + replace, this, ALL));
       //}
       
-      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      //{
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      {
          LogUtil.put(LogFactory.getInstance("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL));
-      //}
+      }
       
       return replace;
    }
 
    public String line(String replace)
    {
-      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      //{
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      {
          LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, ALL));
-      //}
+      }
 
       final StringBuffer newStringBuffer = new StringBuffer();
 
@@ -181,10 +181,10 @@ public class Replace
          //LogUtil.put(LogFactory.getInstance("Replace Result: " + replace, this, ALL));
       //}
       
-      //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
-      //{
+      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
+      {
          LogUtil.put(LogFactory.getInstance("Total Number Of Replaces: " + totalNumberOfReplaces, this, ALL));
-      //}
+      }
       
       return replace;
    }

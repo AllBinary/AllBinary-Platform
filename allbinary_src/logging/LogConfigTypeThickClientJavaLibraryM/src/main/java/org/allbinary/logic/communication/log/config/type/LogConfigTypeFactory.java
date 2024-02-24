@@ -35,4 +35,8 @@ public class LogConfigTypeFactory {
 
    public final LogConfigType IDLOGGING = new LogConfigType("ID Logging",NO_DESCRIPTION);
    
+   public final LogConfigType REPLACE = new LogConfigType("Replace", NO_DESCRIPTION);
+   public final LogConfigType REPLACE_INFO = new LogConfigType("Replace Info", NO_DESCRIPTION);
+   public final LogConfigType REPLACEERROR = new LogConfigType("Replace Error", NO_DESCRIPTION);   
+   
 }
