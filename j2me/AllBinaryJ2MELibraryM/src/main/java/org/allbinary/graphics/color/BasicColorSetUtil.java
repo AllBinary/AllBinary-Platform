@@ -13,8 +13,9 @@
 */
 package org.allbinary.graphics.color;
 
-import org.allbinary.graphics.color.BasicColor;
 import javax.microedition.lcdui.Graphics;
+
+import org.allbinary.graphics.color.BasicColor;
 
 public class BasicColorSetUtil
 {

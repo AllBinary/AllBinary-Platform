@@ -14,14 +14,12 @@
 package org.allbinary.animation.text;
 
 import javax.microedition.lcdui.Font;
+
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.color.BasicColorFactory;
 
 /**
  *
@@ -32,6 +30,7 @@ public class CustomTextAnimationFactory
  
     private final AnimationBehaviorFactory animationBehaviorFactory;
     
+    public BasicColor basicColor = BasicColorFactory.getInstance().BLACK;
     private String text;
 
     private int initScaleHeight;
@@ -52,7 +51,9 @@ public class CustomTextAnimationFactory
     }
 
     public Animation getInstance()throws Exception {
-        return new CustomTextAnimation(text, this.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+        final CustomTextAnimation customTextAnimation = new CustomTextAnimation(text, this.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+        customTextAnimation.setBasicColor(basicColor);
+        return customTextAnimation;
     }
     
     //@Override
