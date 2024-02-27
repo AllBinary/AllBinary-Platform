@@ -36,7 +36,8 @@ public class RemoteHighScores extends HighScores {
 
     private RemoteHighScores(
         final SoftwareInformation softwareInformation, final GameInfo gameInfo,
-        final String heading, final String columnTwoHeading, final Boolean ascending)
+        final String heading, final String columnTwoHeading, final Boolean ascending, 
+        final boolean preload)
         throws Exception {
         super(gameInfo.toString(), heading, columnTwoHeading);
 
@@ -44,19 +45,27 @@ public class RemoteHighScores extends HighScores {
 
         this.setAscending(ascending);
 
-        RemoteHighScoresProcessorFactory.getInstance().process(this, gameInfo);
+        if(preload)  {
+            RemoteHighScoresProcessorFactory.getInstance().process(this, gameInfo);
+        }
     }
 
     public static synchronized HighScores getInstance(
         final SoftwareInformation softwareInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending) {
+        return RemoteHighScores.getInstance(softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
+    }
+    
+    public static synchronized HighScores getInstance(
+        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
+        final String heading, final String columnTwoHeading, final Boolean isAscending, final boolean preload) {
         try {
             HighScores highScores = (HighScores) hashTable.get(gameInfo);
 
             if (highScores == null) {
                 highScores = new RemoteHighScores(
                     softwareInformation, gameInfo,
-                    heading, columnTwoHeading, isAscending);
+                    heading, columnTwoHeading, isAscending, preload);
 
                 hashTable.put(gameInfo, highScores);
             }

@@ -43,7 +43,12 @@ implements HighScoresFactoryInterface
     private static final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
     private static final String WORLD_TOP_SCORES = "World Top Scores";
     
-    public HighScores[] createHighScores(GameInfo gameInfo)
+    public HighScores[] createHighScores(GameInfo gameInfo) 
+    {
+        return this.createHighScores(gameInfo, true);
+    }
+    
+    public HighScores[] createHighScores(GameInfo gameInfo, final boolean preload)
     {
         System.gc();
 
@@ -54,7 +59,7 @@ implements HighScoresFactoryInterface
             highScoresArray[0] = RecordStoreHighScores.getInstance(
                     TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
 
-            GameType gameType = gameInfo.getGameType();
+            final GameType gameType = gameInfo.getGameType();
             
             final GameTypeFactory gameTypeFactory = GameTypeFactory.getInstance();
             
@@ -72,7 +77,7 @@ implements HighScoresFactoryInterface
                     //RemoteErrorHighScoresSingletonFactory.getInstance();
                     RemoteHighScores.getInstance(
                     this.softwareInformation, gameInfo,
-                    WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE);
+                    WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "createHighScores"));
             
