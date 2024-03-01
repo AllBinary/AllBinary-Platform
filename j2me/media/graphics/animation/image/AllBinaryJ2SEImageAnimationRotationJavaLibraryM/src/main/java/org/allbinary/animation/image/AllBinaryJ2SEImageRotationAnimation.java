@@ -15,10 +15,10 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
-import org.allbinary.animation.AnimationBehavior;
 
-import org.allbinary.math.AngleInfo;
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
 import org.allbinary.media.image.ImageRotationUtil;

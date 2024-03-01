@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
