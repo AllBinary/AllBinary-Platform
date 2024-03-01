@@ -26,7 +26,6 @@ public class NoHighScoresFactory extends HighScoresBase
     }
     
     private final HighScores[] NO_HIGH_SCORES = new HighScores[0];
-    private final HighScoresHelperBase highScoresHelperBase = new HighScoresHelperBase();
 
     private NoHighScoresFactory()
     {
@@ -39,7 +38,7 @@ public class NoHighScoresFactory extends HighScoresBase
     }
     
     public HighScoresHelperBase createHighScoresHelper() {
-        return highScoresHelperBase;
+        return new HighScoresHelperBase();
     }
 
 }
