@@ -24,8 +24,7 @@ import org.allbinary.game.GameTypeFactory;
 import org.allbinary.game.score.remote.RemoteHighScores;
 import org.allbinary.logic.java.bool.BooleanFactory;
 
-public class BasicHighScoresFactory extends NoHighScoresFactory 
-implements HighScoresFactoryInterface
+public class BasicHighScoresFactory extends HighScoresBase
 {
     private SoftwareInformation softwareInformation;
 
@@ -90,4 +89,9 @@ implements HighScoresFactoryInterface
             return super.createHighScores(gameInfo);
         }
     }
+    
+    public HighScoresHelperBase createHighScoresHelper() {
+        return new HighScoresHelper();
+    }
+    
 }

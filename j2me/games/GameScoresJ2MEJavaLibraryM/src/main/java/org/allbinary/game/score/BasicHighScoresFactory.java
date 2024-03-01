@@ -5,8 +5,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.game.GameInfo;
 
-public class BasicHighScoresFactory extends NoHighScoresFactory 
-implements HighScoresFactoryInterface
+public class BasicHighScoresFactory extends HighScoresBase
 {
     private SoftwareInformation softwareInformation;
 
@@ -39,4 +38,5 @@ implements HighScoresFactoryInterface
     public HighScoresHelperBase createHighScoresHelper() {
         return new HighScoresHelper2();
     }
+
 }
