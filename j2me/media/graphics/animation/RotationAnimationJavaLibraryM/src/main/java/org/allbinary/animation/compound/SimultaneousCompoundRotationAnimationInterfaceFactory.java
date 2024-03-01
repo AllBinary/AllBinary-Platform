@@ -27,12 +27,14 @@ public class SimultaneousCompoundRotationAnimationInterfaceFactory
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
 
+    //@Override
     protected Animation[] createArray(final int size) {
         return new RotationAnimation[size];
     }
     
-    protected Animation getInstance(final RotationAnimation[] animationInterfaceArray) {
-        return new SimultaneousCompoundRotationAnimation(animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
+    //@Override
+    protected Animation getInstance(final Animation[] animationInterfaceArray) {
+        return new SimultaneousCompoundRotationAnimation((RotationAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
 }

@@ -28,10 +28,12 @@ public class CompoundRotationAnimationInterfaceFactory
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
 
+    //@Override
     protected Animation[] createArray(final int size) {
         return new RotationAnimation[size];
     }
     
+    //@Override
     protected Animation getInstance(final Animation[] animationInterfaceArray) {
         return new CompoundRotationAnimation((RotationAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }

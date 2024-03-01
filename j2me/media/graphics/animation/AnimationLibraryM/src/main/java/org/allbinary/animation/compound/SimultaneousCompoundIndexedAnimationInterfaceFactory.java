@@ -33,10 +33,12 @@ public class SimultaneousCompoundIndexedAnimationInterfaceFactory
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
 
+    //@Override
     protected Animation[] createArray(final int size) {
         return new IndexedAnimation[size];
     }
     
+    //@Override
     protected Animation getInstance(final Animation[] animationInterfaceArray) {
         return new SimultaneousCompoundIndexedAnimation((IndexedAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
