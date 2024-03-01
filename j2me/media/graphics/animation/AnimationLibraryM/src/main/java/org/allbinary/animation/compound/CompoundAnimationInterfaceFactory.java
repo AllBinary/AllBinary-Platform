@@ -20,7 +20,7 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 public class CompoundAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface {
 
-    private AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
+    protected AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     public CompoundAnimationInterfaceFactory(
