@@ -15,31 +15,21 @@ package org.allbinary.game.score;
 
 import org.allbinary.game.GameInfo;
 
-public class NoHighScoresFactory extends HighScoresBase
+public class HighScoresBase implements HighScoresFactoryInterface
 {
 
-    private static final NoHighScoresFactory instance = new NoHighScoresFactory();
-    
-    public static NoHighScoresFactory getInstance()
-    {
-        return instance;
-    }
-    
-    private final HighScores[] NO_HIGH_SCORES = new HighScores[0];
-    private final HighScoresHelperBase highScoresHelperBase = new HighScoresHelperBase();
-
-    private NoHighScoresFactory()
+    protected HighScoresBase()
     {
         
     }
     
     public HighScores[] createHighScores(final GameInfo gameInfo)
     {
-        return NO_HIGH_SCORES;
+        throw new RuntimeException();
     }
     
     public HighScoresHelperBase createHighScoresHelper() {
-        return highScoresHelperBase;
+        throw new RuntimeException();
     }
 
 }
