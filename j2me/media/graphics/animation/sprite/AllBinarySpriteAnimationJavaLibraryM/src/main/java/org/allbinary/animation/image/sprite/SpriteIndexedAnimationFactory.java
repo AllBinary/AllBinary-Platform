@@ -10,46 +10,131 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
+import org.allbinary.AndroidUtil;
 
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
+import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorUtil;
 
 public class SpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory
-    implements ProceduralAnimationInterfaceFactoryInterface
-{
+    implements ProceduralAnimationInterfaceFactoryInterface {
 
-    public SpriteIndexedAnimationFactory(final Image image, final int width, final int height)
+    private int dx;
+    private int dy;
+
+    private BasicColor[] basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
+
+    public SpriteIndexedAnimationFactory(
+        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy)
+        throws Exception {
+        
+        this(image, basicColorArray, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
+
+    }
+
+    public SpriteIndexedAnimationFactory(
+        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+        
+        super(image, width, height, animationBehaviorFactory);
+
+        this.basicColorArray = basicColorArray;
+        ////this.dx = - (this.width >> 2);
+        ////this.dy = - (this.height >> 2);
+
+        ////this.dx = - this.width / 12;
+        ////this.dy = - this.height / 12;
+        //this.dx = - this.width / 20;
+        //this.dy = - this.height / 10;
+        //J2ME
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public SpriteIndexedAnimationFactory(
+        final Image image, final BasicColor[] basicColorArray, final int width, final int height)
+        throws Exception {
+        
+        this(image, basicColorArray, width, height, AnimationBehaviorFactory.getInstance());
+
+    }
+
+    public SpriteIndexedAnimationFactory(
+        final Image image, final BasicColor[] basicColorArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+        
+        this(image, width, height, animationBehaviorFactory);
+
+        this.basicColorArray = basicColorArray;
+        ////this.dx = - (this.width >> 2);
+        ////this.dy = - (this.height >> 2);
+
+        ////this.dx = - this.width / 12;
+        ////this.dy = - this.height / 12;
+        //this.dx = - this.width / 20;
+        //this.dy = - this.height / 10;
+        //J2ME
+        this.dx = -(this.width >> 2);
+        this.dy = -(this.height >> 2);
+
+        if (AndroidUtil.isAndroid()) {
+            this.dx += 3;
+        }
+    }
+
+    public SpriteIndexedAnimationFactory(
+        final Image image, final int width, final int height, final int dx, final int dy)
         throws Exception
     {
+        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public SpriteIndexedAnimationFactory(
+        final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception
+    {
+        this(image, width, height, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
+    public SpriteIndexedAnimationFactory(final Image image, final int width, final int height)
+        throws Exception {
+        
         this(image, width, height, AnimationBehaviorFactory.getInstance());
+        
     }
 
     public SpriteIndexedAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
-        throws Exception
-    {
+        throws Exception {
+        
         super(image, width, height, animationBehaviorFactory);
+        
     }
 
-    public Animation getInstance() throws Exception
-    {
+    public Animation getInstance() throws Exception {
+        
         final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
 
-        return new SpriteIndexedAnimation(sprite, BasicColorUtil.getInstance().ZERO_ARRAY, this.animationBehaviorFactory.getOrCreateInstance());
+        if (dx != 0 || dy != 0) {
+            return new AdjustedSpriteIndexedAnimation(sprite, this.basicColorArray, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            return new SpriteIndexedAnimation(sprite, this.basicColorArray, this.animationBehaviorFactory.getOrCreateInstance());
+        }
     }
 
-    public Animation getInstance(final Animation animationInterface) throws Exception
-    {
+    public Animation getInstance(final Animation animationInterface) throws Exception {
         return this.getInstance();
     }
 }

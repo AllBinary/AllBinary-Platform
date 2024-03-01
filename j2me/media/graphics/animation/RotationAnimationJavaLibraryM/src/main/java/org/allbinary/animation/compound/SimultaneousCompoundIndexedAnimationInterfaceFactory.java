@@ -18,11 +18,15 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.RotationAnimation;
-import org.allbinary.animation.SimultaneousCompoundIndexedAnimation;
 
 public class SimultaneousCompoundIndexedAnimationInterfaceFactory
     extends CompoundAnimationInterfaceFactory {
 
+    public SimultaneousCompoundIndexedAnimationInterfaceFactory(
+        final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray) {
+        this(basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory.getInstance());
+    }
+    
     public SimultaneousCompoundIndexedAnimationInterfaceFactory(
         final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
         final AnimationBehaviorFactory animationBehaviorFactory) {

@@ -27,6 +27,9 @@ import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 public class ImageArrayRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
+    private int dx;
+    private int dy;
+    
     private Image image;
     // private int width;
     // private int height;
@@ -36,7 +39,65 @@ public class ImageArrayRotationAnimationFactory
     private int angleIncrement;
 
     protected final AnimationBehaviorFactory animationBehaviorFactory;
+
+    public ImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
+    }
     
+    public ImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
+    }
+
+    public ImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public ImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy, final int angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    }
+
+    public ImageArrayRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final int angleIncrement) throws Exception
+    {
+
+        this(image, width, height, dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public ImageArrayRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final int angleIncrement, 
+            final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+
+        this(image, width, height, angleIncrement, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public ImageArrayRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy) throws Exception
+    {
+        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public ImageArrayRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+
+        this(image, width, height, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
     public ImageArrayRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
     {
@@ -73,11 +134,16 @@ public class ImageArrayRotationAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        //return new AllBinarySpriteRotationAnimation(new MESprite(image, width, height), dx, dy);
+        if (dx != 0 || dy != 0) {
+            return new AdjustedImageArrayRotationAnimation(
+                this.getImageArray(),
+                AngleInfo.getInstance((short) this.getAngleIncrement()),
+                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
 
-        return new ImageArrayRotationAnimation(this.getImageArray(),
+        } else {
+            return new ImageArrayRotationAnimation(this.getImageArray(),
                 AngleInfo.getInstance((short) this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
-
+        }
     }
 
     protected void setImageArray(final Image[] imageArray)

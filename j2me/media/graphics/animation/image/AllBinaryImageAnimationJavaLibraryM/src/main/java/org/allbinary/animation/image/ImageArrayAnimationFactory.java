@@ -17,22 +17,55 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 public class ImageArrayAnimationFactory 
 implements AnimationInterfaceFactoryInterface
 {
+    private int dx;
+    private int dy;
+    
     private final Image[] imageArray;
 
-    public ImageArrayAnimationFactory(final Image[] imageArray) 
+    private final AnimationBehaviorFactory animationBehaviorFactory;
+
+    public ImageArrayAnimationFactory(final Image[] imageArray, final int dx, final int dy) 
+        throws Exception {
+
+        this(imageArray, dx, dy, AnimationBehaviorFactory.getInstance());
+
+    }
+    
+    public ImageArrayAnimationFactory(final Image[] imageArray, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
+        throws Exception {
+        
+        this(imageArray, animationBehaviorFactory);
+        
+    	this.dx = dx;
+    	this.dy = dy;
+    }
+
+    public ImageArrayAnimationFactory(final Image[] imageArray)
+    throws Exception
+    {
+    	this(imageArray, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public ImageArrayAnimationFactory(final Image[] imageArray, final AnimationBehaviorFactory animationBehaviorFactory)
     throws Exception
     {
     	this.imageArray = imageArray;
+        this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
     public Animation getInstance() throws Exception
     {
-        return new ImageArrayAnimation(this.imageArray, AnimationBehavior.getInstance());
+        if (dx != 0 || dy != 0) {
+            return new AdjustedImageArrayAnimation(this.imageArray, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            return new ImageArrayAnimation(this.imageArray, AnimationBehavior.getInstance());
+        }
     }
 
     public void setInitialSize(final int width, final int height) {

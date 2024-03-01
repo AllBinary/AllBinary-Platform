@@ -36,6 +36,9 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     private final ImageCache imageCache = ImageCacheFactory.getInstance();
     private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
     
+    private int dx;
+    private int dy;
+
     protected Image image;
 
     protected final short angleIncrement;
@@ -46,6 +49,65 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     
     public int scaleWidth;
     public int scaleHeight;
+
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
+    }
+
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+    }
+
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    }
+
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final short angleIncrement) throws Exception
+    {
+
+        this(image, width, height, dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+        
+    }
+    
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+
+        this(image, width, height, angleIncrement, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy) throws Exception
+    {
+
+        this(image, width, height, dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+
+        this(image, width, height, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
     
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
@@ -105,10 +167,19 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
-        return new AllBinaryJ2SEImageRotationAnimation(
-            scaledImage, copyOfScaledImage,
-            AngleInfo.getInstance(this.angleIncrement),
-            AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+        if (dx != 0 || dy != 0) {
+            return new AllBinaryAdjustedJ2SEImageRotationAnimation(
+                scaledImage, copyOfScaledImage,
+                AngleInfo.getInstance(this.angleIncrement),
+                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+
+        } else {
+            return new AllBinaryJ2SEImageRotationAnimation(
+                scaledImage, copyOfScaledImage,
+                AngleInfo.getInstance(this.angleIncrement),
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+        }
+        
     }
 
     protected short getAngleIncrement()

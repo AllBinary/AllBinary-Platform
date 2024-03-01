@@ -14,6 +14,7 @@
 package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -27,16 +28,35 @@ import org.allbinary.math.AngleInfo;
 import org.allbinary.vector.VectorInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
-public class VectorToImageArrayRotationAnimationFactory implements
-        AnimationInterfaceFactoryInterface
+public class VectorToImageArrayRotationAnimationFactory 
+    implements AnimationInterfaceFactoryInterface
 {
+    private int dx;
+    private int dy;
+    
     private Image image;
     private Image[] imageArray;
 
     private int angleIncrement;
 
     private final AnimationBehaviorFactory animationBehaviorFactory;
+
+    public VectorToImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
+        final BasicColor basicColor, final int dx, final int dy)
+        throws Exception {
+        this(vectorInfo, basicColor, dx, dy, AnimationBehaviorFactory.getInstance());
+    }
     
+    public VectorToImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
+        final BasicColor basicColor, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+
+        this(vectorInfo, basicColor, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
     public VectorToImageArrayRotationAnimationFactory(
         final VectorInfo vectorInfo, final BasicColor basicColor) throws Exception
     {
@@ -67,12 +87,16 @@ public class VectorToImageArrayRotationAnimationFactory implements
 
     public Animation getInstance() throws Exception
     {
-        // return new AllBinarySpriteRotationAnimation(new MESprite(image,
-        // width, height), dx, dy);
-
-        return new AdjustedImageArrayRotationAnimation(
-                this.getImageArray(), AngleInfo.getInstance((short) this.angleIncrement), 
+        if (dx != 0 || dy != 0) {
+            return new AdjustedImageArrayRotationAnimation(
+                this.getImageArray(), AngleInfo.getInstance((short) this.getAngleIncrement()),
+                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            //This still offsets.
+            return new AdjustedImageArrayRotationAnimation(
+                this.getImageArray(), AngleInfo.getInstance((short) this.angleIncrement),
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+        }
     }
 
     protected Image getImage()

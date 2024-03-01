@@ -26,16 +26,35 @@ public class AllBinarySpriteRotationAnimationFactory
     extends BaseImageAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface {
 
-    protected int dx;
-    protected int dy;
+    private int dx;
+    private int dy;
+
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
+        throws Exception {
+        
+        this(image, dx, dy);
+
+        this.dx += -this.width / 5;
+        this.dy += -this.height / 5;
+    }
+
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final Object unused2)
+        throws Exception {
+        
+        this(image, 0, 0, unused);
+        
+    }
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy)
         throws Exception {
+        
         this(image, dx, dy, AnimationBehaviorFactory.getInstance());
+        
     }
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
+        
         this(image, animationBehaviorFactory);
 
         this.dx = dx;
@@ -44,7 +63,9 @@ public class AllBinarySpriteRotationAnimationFactory
 
     public AllBinarySpriteRotationAnimationFactory(final Image image)
         throws Exception {
+        
         this(image, AnimationBehaviorFactory.getInstance());
+        
     }
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
@@ -57,12 +78,14 @@ public class AllBinarySpriteRotationAnimationFactory
         //this.height = frameSize;
     }
 
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final String nullish)
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused)
         throws Exception {
-        this(image, nullish, AnimationBehaviorFactory.getInstance());
+        
+        this(image, unused, AnimationBehaviorFactory.getInstance());
+        
     }
-    
-    public AllBinarySpriteRotationAnimationFactory(final Image image, final String nullish, final AnimationBehaviorFactory animationBehaviorFactory)
+
+    public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames

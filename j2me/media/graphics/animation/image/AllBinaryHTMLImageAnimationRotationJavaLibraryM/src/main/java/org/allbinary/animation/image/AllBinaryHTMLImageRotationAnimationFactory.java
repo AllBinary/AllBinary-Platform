@@ -35,6 +35,9 @@ public class AllBinaryHTMLImageRotationAnimationFactory
 { 
     private final ImageCache imageCache = ImageCacheFactory.getInstance();
     private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
+
+    private int dx;
+    private int dy;
     
     protected Image image;
 
@@ -46,6 +49,70 @@ public class AllBinaryHTMLImageRotationAnimationFactory
 
     public int scaleWidth;
     public int scaleHeight;
+
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
+    }
+
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final short angleIncrement) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+    }
+
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    }
+
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, 
+        final short angleIncrement) throws Exception
+    {
+
+        this(image, width, height, angleIncrement, AnimationBehaviorFactory.getInstance());
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, 
+        final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+
+        this(image, width, height, angleIncrement, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy) throws Exception
+    {
+
+        this(image, width, height, AnimationBehaviorFactory.getInstance());
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
+    public AllBinaryHTMLImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+
+        this(image, width, height, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
 
     public AllBinaryHTMLImageRotationAnimationFactory(final Image image)
             throws Exception
@@ -118,11 +185,20 @@ public class AllBinaryHTMLImageRotationAnimationFactory
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
         //final Image image = ImageCreationUtil.getInstance().getInstance(this.image.getWidth(), this.image.getHeight());
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
-        
-        return new AllBinaryHTMLImageRotationAnimation(
+
+
+        if (dx != 0 || dy != 0) {
+            return new AllBinaryAdjustedHTMLImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
-                AngleInfo.getInstance(this.angleIncrement), 
+                AngleInfo.getInstance(this.angleIncrement),
+                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            return new AllBinaryHTMLImageRotationAnimation(
+                scaledImage, copyOfScaledImage,
+                AngleInfo.getInstance(this.angleIncrement),
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+        }
+        
     }
 
     protected short getAngleIncrement()

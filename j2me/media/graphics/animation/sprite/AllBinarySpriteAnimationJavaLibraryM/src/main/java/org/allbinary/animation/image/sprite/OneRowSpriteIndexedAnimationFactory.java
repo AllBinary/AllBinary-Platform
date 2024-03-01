@@ -27,6 +27,23 @@ public class OneRowSpriteIndexedAnimationFactory
     protected int dx;
     protected int dy;
 
+   public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx)
+           throws Exception {
+
+      this(image, dx, 0);
+
+      this.dx += -(this.width >> 2);
+   }
+   
+   public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
+           throws Exception {
+
+      this(image, dx, dy);
+
+      this.dx += -(this.width >> 2);
+      this.dy += -(this.height >> 2);
+   }
+    
     public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
         throws Exception {
         this(image, dx, dy, AnimationBehaviorFactory.getInstance());

@@ -31,6 +31,9 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 {
     private final ImageCache imageCache = ImageCacheFactory.getInstance();
     private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
+
+    private int dx;
+    private int dy;
     
     protected Image image;
 
@@ -42,6 +45,62 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
     public int scaleWidth;
     public int scaleHeight;
+
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final Object unused) 
+    throws Exception
+    {
+        this(image, unused, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), -(image.getWidth() >> 2), -(image.getHeight() >> 2), animationBehaviorFactory);
+    }
+    
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory);
+    }
+        
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused, final short angleIncrement) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, AnimationBehaviorFactory.getInstance());
+    }
+        
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int dx, final int dy, final short angleIncrement, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory) 
+    throws Exception
+    {
+        this(image, image.getWidth(), image.getHeight(), dx, dy, angleIncrement, animationBehaviorFactory);
+    }
+    
+    public AllBinaryAndroidImageRotationAnimationFactory(Image image,
+            final int width, final int height, final int dx, final int dy, final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
+    {
+
+        this(image, width, height, angleIncrement, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
+    public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
+            final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
+        throws Exception {
+
+        this(image, width, height, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
 
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
@@ -95,15 +154,20 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         //final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
-        return new AllBinaryNoFlickerAndroidImageRotationAnimation(
+        if (dx != 0 || dy != 0) {
+            return new AllBinaryAdjustedAndroidImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
-                AngleInfo.getInstance(this.angleIncrement), 
-                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
-    }
+                AngleInfo.getInstance(this.angleIncrement),
+                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehaviorFactory.getOrCreateInstance());
 
-    protected short getAngleIncrement()
-    {
-        return angleIncrement;
+        } else {
+            return new AllBinaryNoFlickerAndroidImageRotationAnimation(
+                scaledImage, copyOfScaledImage,
+                AngleInfo.getInstance(this.angleIncrement),
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
+
+        }
+        
     }
     
     public void setInitialSize(final int width, final int height) {
