@@ -16,24 +16,30 @@ package org.allbinary.animation.compound;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
-import org.allbinary.animation.RotationAnimation;
+import org.allbinary.animation.IndexedAnimation;
+import org.allbinary.animation.SimultaneousCompoundIndexedAnimation;
 
-public class AutoCompoundRotationAnimationInterfaceFactory
+public class SimultaneousCompoundIndexedAnimationInterfaceFactory
     extends CompoundAnimationInterfaceFactory {
 
-    public AutoCompoundRotationAnimationInterfaceFactory(
-        final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
-        final AnimationBehaviorFactory animationBehaviorFactory)
+    public SimultaneousCompoundIndexedAnimationInterfaceFactory(
+            final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray)
+    {
+        this(basicAnimationInterfaceFactoryInterfaceArray, AnimationBehaviorFactory.getInstance());
+    }
+    
+    public SimultaneousCompoundIndexedAnimationInterfaceFactory(
+            final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray, final AnimationBehaviorFactory animationBehaviorFactory)
     {
         super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
 
     protected Animation[] createArray(final int size) {
-        return new RotationAnimation[size];
+        return new IndexedAnimation[size];
     }
     
     protected Animation getInstance(final Animation[] animationInterfaceArray) {
-        return new AutoCompoundRotationAnimation((RotationAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
+        return new SimultaneousCompoundIndexedAnimation((IndexedAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
     }
-        
+    
 }

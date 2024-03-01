@@ -19,36 +19,21 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.RotationAnimation;
 
 public class CompoundRotationAnimationInterfaceFactory
-    implements AnimationInterfaceFactoryInterface
-{
-    private AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
-    private final AnimationBehaviorFactory animationBehaviorFactory;
+    extends CompoundAnimationInterfaceFactory {
 
     public CompoundRotationAnimationInterfaceFactory(
         final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray,
         final AnimationBehaviorFactory animationBehaviorFactory)
     {
-        this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
-        this.animationBehaviorFactory = animationBehaviorFactory;
+        super(basicAnimationInterfaceFactoryInterfaceArray, animationBehaviorFactory);
     }
 
-    public Animation getInstance() throws Exception
-    {
-        final int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
-        final RotationAnimation[] animationInterfaceArray = new RotationAnimation[size];
-
-        for (int index = 0; index < size; index++)
-        {
-            animationInterfaceArray[index] = (RotationAnimation) 
-               this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
-        }
-
-        return new CompoundRotationAnimation(animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
+    protected Animation[] createArray(final int size) {
+        return new RotationAnimation[size];
     }
     
-       
-   public void setInitialSize(final int width, final int height) {
-       
-   }
+    protected Animation getInstance(final Animation[] animationInterfaceArray) {
+        return new CompoundRotationAnimation((RotationAnimation[]) animationInterfaceArray, this.animationBehaviorFactory.getOrCreateInstance());
+    }
     
 }
