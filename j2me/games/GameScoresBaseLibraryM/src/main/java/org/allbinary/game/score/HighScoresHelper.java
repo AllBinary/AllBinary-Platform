@@ -17,13 +17,10 @@ import org.allbinary.util.CircularIndexUtil;
 
 public class HighScoresHelper extends HighScoresHelperBase
 {
-    private HighScores[] highScoresArray = 
-        NoHighScoresFactory.getInstance().createHighScores(null);
-
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.getInstance(0, 0);
 
-    public void setHighScoresArray(HighScores[] highScores)
+    public void setHighScoresArray(final HighScores[] highScores)
     {
         //PreLogUtil.put(commonStrings.START_LABEL + highScores.length, this, "setHighScoresArray");
         

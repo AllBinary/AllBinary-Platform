@@ -19,6 +19,9 @@ package org.allbinary.game.score;
  */
 public class HighScoresHelperBase {
     
+    protected HighScores[] highScoresArray = 
+        NoHighScoresFactory.getInstance().createHighScores(null);
+    
     public void setHighScoresArray(HighScores[] highScores)
     {
     }
@@ -43,7 +46,7 @@ public class HighScoresHelperBase {
     
     public HighScores[] getHighScoresArray()
     {
-        return null;
+        return this.highScoresArray;
     }
 
     public void selectHighScores() {

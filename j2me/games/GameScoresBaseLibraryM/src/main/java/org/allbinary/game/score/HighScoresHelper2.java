@@ -19,9 +19,6 @@ public class HighScoresHelper2 extends HighScoresHelperBase
 {
     private final CircularIndexUtil circularIndexUtil = 
         CircularIndexUtil.getInstance(0, 0);
-
-    private HighScores[] highScoresArray = 
-        NoHighScoresFactory.getInstance().createHighScores(null);
     
     private HighScores selectedHighScores;
     
@@ -33,11 +30,6 @@ public class HighScoresHelper2 extends HighScoresHelperBase
     public HighScores getSelectedHighScores()
     {
         return selectedHighScores;
-    }
-    
-    public HighScores[] getHighScoresArray()
-    {
-        return highScoresArray;
     }
 
     public void setHighScoresArray(final HighScores[] highScores)
