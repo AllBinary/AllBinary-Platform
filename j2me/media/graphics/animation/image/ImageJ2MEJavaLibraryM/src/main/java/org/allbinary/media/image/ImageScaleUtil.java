@@ -14,6 +14,7 @@
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.graphics.Anchor;
 import org.allbinary.image.ImageCache;
 
@@ -41,7 +42,8 @@ public class ImageScaleUtil
         //float scaleY = scaleNominatorY / scaleDenominatorY;
         
         //return this.createImage(imageCache, originalImage, scaleX, scaleY, cached);
-        throw new RuntimeException("Image Scaling is not supported by J2ME");
+        return originalImage;
+        //throw new RuntimeException("Image Scaling is not supported by J2ME");
     }
     
 //    public Image createImage(final ImageCache imageCache, final Image originalImage, 

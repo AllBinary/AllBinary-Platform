@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
+import org.allbinary.media.image.ImageCopyUtil;
 
 /**
  *
@@ -37,6 +38,9 @@ public class LeftToRightImageAnimationFactory
     }
 
     public Animation getInstance() throws Exception {
-        return new LeftToRightImageAnimation(this.getImage(), this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());
+        
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
+        
+        return new LeftToRightImageAnimation(scaledImage, this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());
     }
 }

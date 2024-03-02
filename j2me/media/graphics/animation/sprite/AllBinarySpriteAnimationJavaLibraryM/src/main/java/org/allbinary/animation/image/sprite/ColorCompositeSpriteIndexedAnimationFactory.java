@@ -22,14 +22,14 @@ import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
 
 public class ColorCompositeSpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface
 {
-    //private int dx;
-    //private int dy;
-
+    private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    
     private final BasicColor[] basicColorArray;
 
     public ColorCompositeSpriteIndexedAnimationFactory(
@@ -64,7 +64,7 @@ public class ColorCompositeSpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
 
         return new SpriteIndexedAnimation(sprite, this.basicColorArray, this.animationBehaviorFactory.getOrCreateInstance());
     }

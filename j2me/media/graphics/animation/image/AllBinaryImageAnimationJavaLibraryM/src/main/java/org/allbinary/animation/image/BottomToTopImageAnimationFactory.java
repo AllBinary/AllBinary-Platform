@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
+import org.allbinary.media.image.ImageCopyUtil;
 
 /**
  *
@@ -37,6 +38,9 @@ public class BottomToTopImageAnimationFactory
    
    public Animation getInstance() throws Exception
    {
-       return new BottomToTopImageAnimation(this.getImage(), this.animationBehaviorFactory.getOrCreateInstance());
+       final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
+       //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
+       
+       return new BottomToTopImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
    }
 }

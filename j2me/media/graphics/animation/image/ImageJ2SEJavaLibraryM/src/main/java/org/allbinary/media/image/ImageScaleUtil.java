@@ -17,7 +17,9 @@ import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
+
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.image.ImageCache;
 import org.microemu.device.j2se.J2SEImmutableImage;
 import org.microemu.device.j2se.J2SEMutableImage;

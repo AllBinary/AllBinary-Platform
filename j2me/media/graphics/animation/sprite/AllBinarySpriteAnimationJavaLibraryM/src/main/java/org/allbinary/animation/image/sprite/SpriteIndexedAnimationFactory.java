@@ -15,20 +15,22 @@ package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
-import org.allbinary.AndroidUtil;
 
+import org.allbinary.AndroidUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
-import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorUtil;
+import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
 
 public class SpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface {
 
+    private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    
     private int dx;
     private int dy;
 
@@ -125,7 +127,7 @@ public class SpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception {
         
-        final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
 
         if (dx != 0 || dy != 0) {
             return new AdjustedSpriteIndexedAnimation(sprite, this.basicColorArray, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());

@@ -20,6 +20,7 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
+import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
@@ -27,6 +28,8 @@ import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 public class ImageArrayRotationAnimationFactory 
     implements AnimationInterfaceFactoryInterface
 {
+    protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
+
     private int dx;
     private int dy;
     
@@ -38,6 +41,9 @@ public class ImageArrayRotationAnimationFactory
 
     private int angleIncrement;
 
+    public int scaleWidth;
+    public int scaleHeight;
+    
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     public ImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy) 
@@ -134,14 +140,20 @@ public class ImageArrayRotationAnimationFactory
 
     public Animation getInstance() throws Exception
     {
+        final Image[] scaledImageArray = new Image[this.imageArray.length];
+        final int size = scaledImageArray.length;
+        for(int index = 0; index < size; index++) {
+            scaledImageArray[index] = animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), scaleWidth, scaleHeight);
+        }
+        
         if (dx != 0 || dy != 0) {
             return new AdjustedImageArrayRotationAnimation(
-                this.getImageArray(),
+                scaledImageArray,
                 AngleInfo.getInstance((short) this.getAngleIncrement()),
                 AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
 
         } else {
-            return new ImageArrayRotationAnimation(this.getImageArray(),
+            return new ImageArrayRotationAnimation(scaledImageArray,
                 AngleInfo.getInstance((short) this.angleIncrement), AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
@@ -162,18 +174,14 @@ public class ImageArrayRotationAnimationFactory
 //        }
     }
 
-    protected Image[] getImageArray()
-    {
-        return imageArray;
-    }
-
     protected int getAngleIncrement()
     {
         return angleIncrement;
     }
     
     public void setInitialSize(final int width, final int height) {
-        
+        this.scaleWidth = width;
+        this.scaleHeight = height;
     }
     
 }

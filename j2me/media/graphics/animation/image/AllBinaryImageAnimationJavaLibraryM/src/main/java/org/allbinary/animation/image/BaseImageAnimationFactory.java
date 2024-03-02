@@ -21,15 +21,17 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
-import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.SpacialStrings;
+import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
 
+    protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
+    
     private final Image image;
     protected final int width;
     protected final int height;
@@ -37,6 +39,9 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     private final int[] sequenceArray;
 
+    public int scaleWidth;
+    public int scaleHeight;
+    
     public BaseImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
         this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehaviorFactory);
@@ -86,7 +91,8 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     }
 
     public void setInitialSize(final int width, final int height) {
-
+        this.scaleWidth = width;
+        this.scaleHeight = height;
     }
 
 }

@@ -21,11 +21,14 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.game.layer.SpriteFactory;
+import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
 
 public class AllBinarySpriteRotationAnimationFactory
     extends BaseImageAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface {
 
+    private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
+    
     private int dx;
     private int dy;
 
@@ -97,7 +100,8 @@ public class AllBinarySpriteRotationAnimationFactory
 
     public Animation getInstance()
         throws Exception {
-        final Sprite sprite = SpriteFactory.getInstance().create(this.getImage(), this.width, this.height);
+        
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
 
         if (dx != 0 || dy != 0) {
             return new AllBinaryAdjustedSpriteRotationAnimation(sprite, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());

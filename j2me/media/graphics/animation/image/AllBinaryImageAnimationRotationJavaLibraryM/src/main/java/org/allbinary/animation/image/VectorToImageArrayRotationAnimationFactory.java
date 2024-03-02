@@ -68,9 +68,9 @@ public class VectorToImageArrayRotationAnimationFactory
     {
         this.animationBehaviorFactory = animationBehaviorFactory;
 
-        this.setImage(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
+        this.image = AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
                 vectorInfo.getWidth(), vectorInfo.getHeight(), 
-                new VectorAnimation(vectorInfo.getPoints(), basicColor, this.animationBehaviorFactory.getOrCreateInstance())));
+                new VectorAnimation(vectorInfo.getPoints(), basicColor, this.animationBehaviorFactory.getOrCreateInstance()));
 
         this.init();
     }
@@ -81,47 +81,27 @@ public class VectorToImageArrayRotationAnimationFactory
         
         this.angleIncrement = angleFactory.TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
 
-        this.setImageArray(ImageToRotationImageArrayUtil.getInstance().generate(
-                this.getImage(), this.getAngleIncrement(), angleFactory.TOTAL_ANGLE));
+        this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(
+                this.image, this.getAngleIncrement(), angleFactory.TOTAL_ANGLE);
     }
 
     public Animation getInstance() throws Exception
     {
         if (dx != 0 || dy != 0) {
             return new AdjustedImageArrayRotationAnimation(
-                this.getImageArray(), AngleInfo.getInstance((short) this.getAngleIncrement()),
+                this.imageArray, AngleInfo.getInstance((short) this.getAngleIncrement()),
                 AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             //This still offsets.
             return new AdjustedImageArrayRotationAnimation(
-                this.getImageArray(), AngleInfo.getInstance((short) this.angleIncrement),
+                this.imageArray, AngleInfo.getInstance((short) this.angleIncrement),
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
         }
-    }
-
-    protected Image getImage()
-    {
-        return image;
     }
 
     protected int getAngleIncrement()
     {
         return angleIncrement;
-    }
-
-    protected void setImageArray(Image[] imageArray)
-    {
-        this.imageArray = imageArray;
-    }
-
-    protected Image[] getImageArray()
-    {
-        return imageArray;
-    }
-
-    protected void setImage(Image image)
-    {
-        this.image = image;
     }
     
     public void setInitialSize(final int width, final int height) {
