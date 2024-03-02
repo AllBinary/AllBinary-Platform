@@ -82,10 +82,10 @@ public class DestroyedLayerProcessor extends BasicLayerProcessor
                 // Notify Listeners of Destroyed Layer
                 destroyedEventHandler.fireEvent(destroyedEvent);
             } else {
-                final CommonStrings commonStrings = CommonStrings.getInstance();
-                final StringMaker stringBuilder = new StringMaker();
+                //final CommonStrings commonStrings = CommonStrings.getInstance();
+                //final StringMaker stringBuilder = new StringMaker();
                 //stringBuilder.delete(0, stringBuilder.length());
-                LogUtil.put(LogFactory.getInstance(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS, new Exception()));
+                //LogUtil.put(LogFactory.getInstance(stringBuilder.append(LAYER_LABEL).append(layerInterface).toString(), this, commonStrings.PROCESS, new Exception()));
             }
             
         }
