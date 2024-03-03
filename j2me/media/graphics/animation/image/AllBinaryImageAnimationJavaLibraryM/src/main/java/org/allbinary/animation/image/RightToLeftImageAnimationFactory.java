@@ -25,6 +25,16 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 public class RightToLeftImageAnimationFactory
     extends BaseImageAnimationFactory {
 
+    public RightToLeftImageAnimationFactory(final Image image, final int dx, final int dy)
+        throws Exception {
+        this(image, dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+
+    public RightToLeftImageAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
+        throws Exception {
+        super(image, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory); //, width, height);        
+    }
+
     public RightToLeftImageAnimationFactory(final Image image)
         throws Exception {
         this(image, AnimationBehaviorFactory.getInstance());
@@ -34,7 +44,7 @@ public class RightToLeftImageAnimationFactory
         throws Exception {
         super(image, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
     }
-
+    
     public Animation getInstance() throws Exception {
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
 

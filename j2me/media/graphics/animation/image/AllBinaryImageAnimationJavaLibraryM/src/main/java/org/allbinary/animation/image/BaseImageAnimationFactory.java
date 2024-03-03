@@ -44,6 +44,22 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     public int scaleWidth;
     public int scaleHeight;
+
+    public BaseImageAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+            throws Exception {
+        this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehaviorFactory);
+        
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
+    public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
+        throws Exception {
+        this(image, sequenceArray, width, height, animationBehaviorFactory);
+        
+        this.dx = dx;
+        this.dy = dy;
+    }
     
     public BaseImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {

@@ -25,6 +25,16 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 public class LeftToRightImageAnimationFactory
         extends BaseImageAnimationFactory {
 
+    public LeftToRightImageAnimationFactory(final Image image, final int dx, final int dy, final int[] sequenceArray)
+        throws Exception {
+        this(image, sequenceArray, dx, dy, AnimationBehaviorFactory.getInstance());
+    }
+
+    public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) //, int width, int height)
+        throws Exception {
+        super(image, sequenceArray, image.getWidth(), image.getHeight(), dx, dy, animationBehaviorFactory); //, width, height);
+    }
+
     public LeftToRightImageAnimationFactory(final Image image, final int[] sequenceArray)
         throws Exception {
         this(image, sequenceArray, AnimationBehaviorFactory.getInstance());
