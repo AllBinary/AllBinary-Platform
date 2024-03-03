@@ -17,34 +17,17 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
-import org.allbinary.animation.AnimationInterfaceFactoryInterface;
-
 import org.allbinary.game.configuration.GameConfigurationCentral;
-import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
 public class ImageArrayRotationAnimationFactory 
-    implements AnimationInterfaceFactoryInterface
-{
-    protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
-
-    private int dx;
-    private int dy;
-    
-    private Image image;
-    // private int width;
-    // private int height;
+    extends BaseImageAnimationFactory {
 
     private Image[] imageArray;
 
     private int angleIncrement;
-
-    public int scaleWidth;
-    public int scaleHeight;
-    
-    protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     public ImageArrayRotationAnimationFactory(final Image image, final int dx, final int dy) 
     throws Exception
@@ -107,13 +90,9 @@ public class ImageArrayRotationAnimationFactory
     public ImageArrayRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
     {
-        this.image = image;
-        // this.width = width;
-        // this.height = height;
+        super(image, width, height, animationBehaviorFactory);
 
         this.angleIncrement = AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
-
-        this.animationBehaviorFactory = animationBehaviorFactory;
         
         this.init();
     }
@@ -121,13 +100,9 @@ public class ImageArrayRotationAnimationFactory
     public ImageArrayRotationAnimationFactory(final Image image, final int width, final int height, final int angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) 
         throws Exception {
         
-        this.image = image;
-        // this.width = width;
-        // this.height = height;
+        super(image, width, height, animationBehaviorFactory);
 
         this.angleIncrement = angleIncrement;
-
-        this.animationBehaviorFactory = animationBehaviorFactory;
         
         this.init();
     }
@@ -135,18 +110,22 @@ public class ImageArrayRotationAnimationFactory
     private void init() throws Exception
     {
         this.setImageArray(ImageToRotationImageArrayUtil.getInstance().generate(
-                this.image, this.getAngleIncrement(), AngleFactory.getInstance().TOTAL_ANGLE));
+                this.getImage(), this.getAngleIncrement(), AngleFactory.getInstance().TOTAL_ANGLE));
     }
 
     public Animation getInstance() throws Exception
     {
         final Image[] scaledImageArray = new Image[this.imageArray.length];
         final int size = scaledImageArray.length;
+        final Image image = this.getImage();
         for(int index = 0; index < size; index++) {
             scaledImageArray[index] = animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), scaleWidth, scaleHeight);
         }
         
         if (dx != 0 || dy != 0) {
+            
+            animationFactoryImageScaleUtil.processAdjust(this);
+            
             return new AdjustedImageArrayRotationAnimation(
                 scaledImageArray,
                 AngleInfo.getInstance((short) this.getAngleIncrement()),

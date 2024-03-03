@@ -49,6 +49,8 @@ public class RightToLeftImageAnimationFactory
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
 
         if (dx != 0 || dy != 0) {
+            animationFactoryImageScaleUtil.processAdjust(this);
+            
             return new AdjustedRightToLeftImageAnimation(scaledImage, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new RightToLeftImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());

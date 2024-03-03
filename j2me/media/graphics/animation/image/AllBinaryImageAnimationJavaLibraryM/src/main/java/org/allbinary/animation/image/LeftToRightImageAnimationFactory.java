@@ -50,6 +50,9 @@ public class LeftToRightImageAnimationFactory
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
         
         if (dx != 0 || dy != 0) {
+            
+            animationFactoryImageScaleUtil.processAdjust(this);
+            
             return new AdjustedLeftToRightImageAnimation(scaledImage, this.getSequenceArray(), this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new LeftToRightImageAnimation(scaledImage, this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());

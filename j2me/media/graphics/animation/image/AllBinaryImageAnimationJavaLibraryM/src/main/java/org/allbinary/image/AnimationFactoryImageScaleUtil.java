@@ -14,6 +14,7 @@
 package org.allbinary.image;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.animation.image.BaseImageAnimationFactory;
 
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageScaleUtil;
@@ -64,5 +65,20 @@ public class AnimationFactoryImageScaleUtil {
         }
         
         return scaledImage;
+    }
+
+    public void processAdjust(final BaseImageAnimationFactory baseImageAnimationFactory) throws Exception {
+        
+        if (baseImageAnimationFactory.scaleWidth != 0 && baseImageAnimationFactory.scaleHeight != 0) {
+            final float scaleX = ((float) baseImageAnimationFactory.scaleWidth) / ((float) baseImageAnimationFactory.width);
+            final float scaleY = ((float) baseImageAnimationFactory.scaleHeight) / ((float) baseImageAnimationFactory.height);
+            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
+            } else {
+                baseImageAnimationFactory.dx = (int) (baseImageAnimationFactory.dx * scaleX);
+                baseImageAnimationFactory.dy = (int) (baseImageAnimationFactory.dy * scaleY);
+            }
+
+        } else {
+        }
     }
 }

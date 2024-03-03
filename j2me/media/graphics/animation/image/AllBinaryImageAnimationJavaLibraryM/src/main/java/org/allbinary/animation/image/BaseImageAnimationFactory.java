@@ -31,19 +31,18 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
 
     protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
-    
-    protected int dx;
-    protected int dy;
-    
+        
     private final Image image;
-    protected final int width;
-    protected final int height;
+    public final int width;
+    public final int height;
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     private final int[] sequenceArray;
 
     public int scaleWidth;
     public int scaleHeight;
+    public int dx;
+    public int dy;
 
     public BaseImageAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {

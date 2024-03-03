@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
-import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.media.image.ImageCopyUtil;
@@ -110,6 +109,9 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
         if (dx != 0 || dy != 0) {
+            
+            animationFactoryImageScaleUtil.processAdjust(this);
+            
             return new AllBinaryAdjustedAndroidImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
                 AngleInfo.getInstance(this.angleIncrement),
