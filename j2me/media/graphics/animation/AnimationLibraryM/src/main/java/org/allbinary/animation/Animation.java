@@ -107,4 +107,19 @@ OpenGLSurfaceChangedInterface
     {
         
     }
+    
+    public void setDx(final int dx) {
+    }
+
+    public int getDx() {
+        return 0;
+    }    
+    
+    public void setDy(final int dy) {
+    }
+
+    public int getDy() {
+        return 0;
+    }    
+    
 }

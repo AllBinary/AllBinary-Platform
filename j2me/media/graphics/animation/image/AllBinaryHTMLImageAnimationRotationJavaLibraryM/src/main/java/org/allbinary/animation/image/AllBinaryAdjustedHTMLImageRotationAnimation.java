@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.math.AngleInfo;
 
@@ -36,34 +37,33 @@ extends AllBinaryHTMLImageRotationAnimation
         //-(imageArray[0].getWidth() >> 2), -(imageArray[0].getHeight() >> 2)
     }
 
-    public void init(int dx, int dy) throws Exception
+    public void init(final int dx, final int dy) throws Exception
     {
-        this.setDx(dx);
-        this.setDy(dy);
+        this.dx = dx;
+        this.dy = dy;
     }
 
+    public void setDx(final int dx)
+    {
+        this.dx = dx;
+    }
+
+    public int getDx() {
+        return this.dx;
+    }    
+
+    public void setDy(final int dy)
+    {
+        this.dy = dy;
+    }
+
+    public int getDy() {
+        return this.dy;
+    }    
+    
     public void paint(Graphics graphics, int x, int y)
     {
         super.paint(graphics, x + this.dx, y + this.dy);
     }
 
-    public void setDx(int dx)
-    {
-        this.dx = dx;
-    }
-
-    public int getDx()
-    {
-        return dx;
-    }
-
-    public void setDy(int dy)
-    {
-        this.dy = dy;
-    }
-
-    public int getDy()
-    {
-        return dy;
-    }
 }

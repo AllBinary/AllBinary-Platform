@@ -28,7 +28,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation
 
     //private static final int currentFrame = 0;
     //private static final int totalFrames = 1;
-    public ImageBaseRotationAnimation(Image image, AngleInfo angleInfo, short totalAngle, final AnimationBehavior animationBehavior)
+    public ImageBaseRotationAnimation(final Image image, final AngleInfo angleInfo, final short totalAngle, final AnimationBehavior animationBehavior)
         throws Exception
     {
         super(angleInfo, totalAngle, animationBehavior);
@@ -52,7 +52,7 @@ public class ImageBaseRotationAnimation extends RotationAnimation
 
     protected int anchor = Anchor.TOP_LEFT;
     
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.image, x, y, anchor);
     }
