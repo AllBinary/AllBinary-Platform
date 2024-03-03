@@ -32,6 +32,9 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
     
+    protected int dx;
+    protected int dy;
+    
     private final Image image;
     protected final int width;
     protected final int height;

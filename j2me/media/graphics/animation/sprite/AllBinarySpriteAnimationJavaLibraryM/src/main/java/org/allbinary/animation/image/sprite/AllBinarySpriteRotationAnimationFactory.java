@@ -20,7 +20,6 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
-import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
 
 public class AllBinarySpriteRotationAnimationFactory
@@ -28,9 +27,6 @@ public class AllBinarySpriteRotationAnimationFactory
     implements ProceduralAnimationInterfaceFactoryInterface {
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
-    
-    private int dx;
-    private int dy;
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
         throws Exception {

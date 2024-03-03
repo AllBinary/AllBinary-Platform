@@ -31,9 +31,6 @@ public class SpriteIndexedAnimationFactory
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
     
-    private int dx;
-    private int dy;
-
     private BasicColor[] basicColorArray = BasicColorUtil.getInstance().ZERO_ARRAY;
 
     public SpriteIndexedAnimationFactory(

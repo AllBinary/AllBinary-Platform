@@ -19,22 +19,12 @@ import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
-import org.allbinary.game.layer.SpriteFactory;
-import org.allbinary.image.ImageCache;
-import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
-import org.allbinary.media.image.ImageScaleUtil;
 
 public class OneRowHTMLSpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory {
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
-
-    protected int dx;
-    protected int dy;
-
-    public int scaleWidth;
-    public int scaleHeight;
 
     public OneRowHTMLSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
         throws Exception {

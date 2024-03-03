@@ -25,23 +25,11 @@ import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
 
 public class AllBinaryJ2SEImageRotationAnimationFactory 
-    implements AnimationInterfaceFactoryInterface
+    extends BaseImageAnimationFactory
 {
     private final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
     
-    private int dx;
-    private int dy;
-
-    protected Image image;
-
     protected final short angleIncrement;
-    protected final AnimationBehaviorFactory animationBehaviorFactory;
-
-    public int width;
-    public int height;
-    
-    public int scaleWidth;
-    public int scaleHeight;
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)
     throws Exception
@@ -117,28 +105,22 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception
     {
-        this.image = image;
+        super(image, width, height, animationBehaviorFactory);
+
         this.angleIncrement = (short) (AngleFactory.getInstance().TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity());
-        this.animationBehaviorFactory = animationBehaviorFactory;
-        
-        this.width = width;
-        this.height = height;
     }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int width, final int height,
             final short angleIncrement, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
-        this.image = image;
+        super(image, width, height, animationBehaviorFactory);
+
         this.angleIncrement = angleIncrement;
-        this.animationBehaviorFactory = animationBehaviorFactory;
-        
-        this.width = width;
-        this.height = height;
     }
     
     public Animation getInstance() throws Exception {
         
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(image, width, height, scaleWidth, scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 

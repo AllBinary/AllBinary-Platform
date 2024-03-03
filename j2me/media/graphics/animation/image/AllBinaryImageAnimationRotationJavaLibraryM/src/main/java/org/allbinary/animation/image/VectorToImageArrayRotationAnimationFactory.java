@@ -29,17 +29,11 @@ import org.allbinary.vector.VectorInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
 public class VectorToImageArrayRotationAnimationFactory 
-    implements AnimationInterfaceFactoryInterface
+    extends BaseImageAnimationFactory
 {
-    private int dx;
-    private int dy;
-    
-    private Image image;
     private Image[] imageArray;
 
     private int angleIncrement;
-
-    private final AnimationBehaviorFactory animationBehaviorFactory;
 
     public VectorToImageArrayRotationAnimationFactory(final VectorInfo vectorInfo, 
         final BasicColor basicColor, final int dx, final int dy)
@@ -66,23 +60,22 @@ public class VectorToImageArrayRotationAnimationFactory
     public VectorToImageArrayRotationAnimationFactory(
         final VectorInfo vectorInfo, final BasicColor basicColor, final AnimationBehaviorFactory animationBehaviorFactory) throws Exception
     {
-        this.animationBehaviorFactory = animationBehaviorFactory;
-
-        this.image = AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
+        super(AnimationFrameToImageUtil.getInstance().getInstanceTranslate(
                 vectorInfo.getWidth(), vectorInfo.getHeight(), 
-                new VectorAnimation(vectorInfo.getPoints(), basicColor, this.animationBehaviorFactory.getOrCreateInstance()));
+                new VectorAnimation(vectorInfo.getPoints(), basicColor, animationBehaviorFactory.getOrCreateInstance())),
+            0, 0, animationBehaviorFactory);
 
         this.init();
     }
 
     protected void init() throws Exception
     {
-        AngleFactory angleFactory = AngleFactory.getInstance();
+        final AngleFactory angleFactory = AngleFactory.getInstance();
         
         this.angleIncrement = angleFactory.TOTAL_ANGLE / GameConfigurationCentral.getInstance().getGameControlFidelity();
 
         this.imageArray = ImageToRotationImageArrayUtil.getInstance().generate(
-                this.image, this.getAngleIncrement(), angleFactory.TOTAL_ANGLE);
+                this.getImage(), this.getAngleIncrement(), angleFactory.TOTAL_ANGLE);
     }
 
     public Animation getInstance() throws Exception
