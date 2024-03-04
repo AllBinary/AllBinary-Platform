@@ -43,7 +43,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     private TimeDelayHelper timeHelper = new TimeDelayHelper(250);
     private boolean released = true;
     
-    public TouchButtonsPaintableComposite(InputMappingInterface inputMappingInterface, BasicColor basicColor)
+    public TouchButtonsPaintableComposite(final InputMappingInterface inputMappingInterface, final BasicColor basicColor)
     {
         this.inputMappingInterface = inputMappingInterface;
         
@@ -54,7 +54,7 @@ implements CompleteMotionGestureInputEventListenerInterface
                 basicColor);
     }
     
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
@@ -64,22 +64,24 @@ implements CompleteMotionGestureInputEventListenerInterface
     private final String FAST_REPEAT = "Ignoring: MotionGestureInput Repeated To Quickly";
     private final String IGNORE = "Ignoring: Until Released";
     public void onCompleteMotionGestureInputEvent(
-            CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
+            final CompleteMotionGestureInputEvent completeMotionGestureInputEvent)
     {
         try
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onCompleteMotionGestureInputEvent"));
-                        
-            GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = 
+         
+            final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+
+            final GameKeyCompleteMotionGestureInputEvent gameKeyCompleteMotionGestureInputEvent = 
                 (GameKeyCompleteMotionGestureInputEvent) completeMotionGestureInputEvent;
             
-            GameKey gameKey = gameKeyCompleteMotionGestureInputEvent.getGameKey();
+            final GameKey gameKey = gameKeyCompleteMotionGestureInputEvent.getGameKey();
          
-            MotionGestureInput motionGestureInput = 
+            final MotionGestureInput motionGestureInput = 
                 completeMotionGestureInputEvent.getMotionGestureInput();
 
             //Ignore Release only motionGesture
-            if(motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED)
+            if(motionGestureInput == touchMotionGestureFactory.RELEASED)
             {
                 LogUtil.put(LogFactory.getInstance(RELEASE, this, METHOD_NAME));
                 released = true;

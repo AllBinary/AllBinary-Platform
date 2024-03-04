@@ -40,22 +40,22 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     private Rectangle rectangle;
 
     public PopupMenuInputProcessor(
-        BasicArrayList gameKeyEventList,
-        int playerInputId, 
-        MyCanvas gameCanvas,
-        Rectangle rectangle)
+        final BasicArrayList gameKeyEventList,
+        final int playerInputId, 
+        final MyCanvas gameCanvas,
+        final Rectangle rectangle)
     {
         super(gameKeyEventList, playerInputId, gameCanvas);
 
         this.rectangle = rectangle;
     }
 
-    public void init(Rectangle rectangle)
+    public void init(final Rectangle rectangle)
     {
         this.rectangle = rectangle;        
     }
     
-    public int processInput(int key) throws Exception
+    public int processInput(final int key) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append("Canvas.").append(CanvasUtil.getKeyName(key), this, GameInputStrings.getInstance()));
 
@@ -77,11 +77,11 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     {
         try
         {
-            int motionInputsIndex = this.processMotionInputs();
+            final int motionInputsIndex = this.processMotionInputs();
 
-            BasicArrayList list = this.getGameKeyEventList();
+            final BasicArrayList list = this.getGameKeyEventList();
 
-            int size = list.size();
+            final int size = list.size();
             int key = 0;
 
             GameKeyEvent gameKeyEvent;
@@ -123,11 +123,11 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
     public int processMotionInputs()
         throws Exception
     {
-        int lastIndex = this.motionGestureEventList.size() - 1;
+        final int lastIndex = this.motionGestureEventList.size() - 1;
 
         if (lastIndex >= 0)
         {
-            MotionGestureEvent motionGestureEvent =
+            final MotionGestureEvent motionGestureEvent =
                 (MotionGestureEvent) this.motionGestureEventList.objectArray[lastIndex];
 
             this.processMotionInput(motionGestureEvent);
@@ -138,7 +138,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         return lastIndex;
     }
 
-    protected void processMotionInput(MotionGestureEvent motionGestureEvent)
+    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
         throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "processMotionInput"));
@@ -149,12 +149,12 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
             return;
         }
         
-        MotionGestureInput motionGestureInput =
-            motionGestureEvent.getMotionGesture();
+        final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+        final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
 
-        if (motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED)
+        if (motionGestureInput == touchMotionGestureFactory.RELEASED)
         //||
-        //motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED)
+        //motionGestureInput == touchMotionGestureFactory.PRESSED)
         {
             GPoint point = motionGestureEvent.getCurrentPoint();
             

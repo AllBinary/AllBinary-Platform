@@ -96,7 +96,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    private final String PROCESS_COMMAND = "processCommand";
    private int processCommand()
    {
-      CommandCurrentSelectionForm commandCurrentSelectionForm = (CommandCurrentSelectionForm) this.form;
+      final CommandCurrentSelectionForm commandCurrentSelectionForm = (CommandCurrentSelectionForm) this.form;
 
       final Command command = commandCurrentSelectionForm.getSelectedCommand();
 
@@ -199,9 +199,10 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, "processMotionInput"));
        //PreLogUtil.put(commonStrings.START, this, "processMotionInput");
        
+       final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
       final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
 
-      if (motionGestureInput == TouchMotionGestureFactory.getInstance().RELEASED)
+      if (motionGestureInput == touchMotionGestureFactory.RELEASED)
       {
          final GPoint point = motionGestureEvent.getCurrentPoint();
          if (this.form.isInForm(point))
@@ -242,7 +243,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
              this.doubleClickTimeHelper.setStartTime();
          }
          this.hasPressed = false;
-      } else if (motionGestureInput == TouchMotionGestureFactory.getInstance().PRESSED)
+      } else if (motionGestureInput == touchMotionGestureFactory.PRESSED)
       {
          // Can't be a double click/press if dragging or other
          this.doubleClickTimeHelper.delay = 0;
