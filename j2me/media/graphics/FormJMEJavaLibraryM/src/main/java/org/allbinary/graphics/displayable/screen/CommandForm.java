@@ -16,17 +16,18 @@
  */
 package org.allbinary.graphics.displayable.screen;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.game.displayable.canvas.MenuListener;
 import java.util.Stack;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.Form;
+import javax.microedition.lcdui.CommandListener;
+
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.displayable.canvas.MenuListener;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
-import javax.microedition.lcdui.CommandListener;
 
 public class CommandForm extends Form
         implements MyCommandInterface, MenuListener
