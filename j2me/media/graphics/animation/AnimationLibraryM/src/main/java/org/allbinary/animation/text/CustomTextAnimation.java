@@ -25,11 +25,11 @@ import org.allbinary.graphics.font.FontDebugFactory;
  */
 public class CustomTextAnimation extends TextAnimation
 {
-    private final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
+    protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     
-    private final int fontSize;
+    protected final int fontSize;
     
-    private Font font;
+    protected Font font;
     
     public CustomTextAnimation(final String text, final int fontSize, final AnimationBehavior animationBehavior)
     {

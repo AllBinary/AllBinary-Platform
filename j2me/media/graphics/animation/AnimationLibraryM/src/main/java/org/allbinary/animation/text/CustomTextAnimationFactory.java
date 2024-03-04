@@ -37,6 +37,25 @@ public class CustomTextAnimationFactory
     //private int scaleWidth;
     private int scaleHeight;
 
+    private int dx;
+    private int dy;
+
+    public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy) {
+        
+        this(text, fontSize, AnimationBehaviorFactory.getInstance());
+        
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
+    public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) {
+        
+        this(text, fontSize, animationBehaviorFactory);
+        
+        this.dx = dx;
+        this.dy = dy;
+    }
+        
     public CustomTextAnimationFactory(final String text, final int fontSize) {
         
         this(text, fontSize, AnimationBehaviorFactory.getInstance());
@@ -51,7 +70,14 @@ public class CustomTextAnimationFactory
     }
 
     public Animation getInstance()throws Exception {
-        final CustomTextAnimation customTextAnimation = new CustomTextAnimation(text, this.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+        
+        CustomTextAnimation customTextAnimation;
+        if (dx != 0 || dy != 0) {
+            customTextAnimation = new AdjustCustomTextAnimation(text, this.scaleHeight, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+        } else {
+            customTextAnimation = new CustomTextAnimation(text, this.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+        }
+
         customTextAnimation.setBasicColor(basicColor);
         return customTextAnimation;
     }
