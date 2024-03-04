@@ -65,6 +65,10 @@ public class ImageBaseRotationAnimation extends RotationAnimation
         return image;
     }
 
+    public int getWidth() {
+        return this.image.getWidth();
+    }
+
     /*
     public void paint(Graphics graphics) {
     graphics.drawImage(this.image, 0, 0, Anchor.TOP_LEFT);
