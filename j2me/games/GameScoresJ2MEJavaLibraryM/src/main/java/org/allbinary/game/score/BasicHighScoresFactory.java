@@ -7,7 +7,7 @@ import org.allbinary.game.GameInfo;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
-    private SoftwareInformation softwareInformation;
+    private final SoftwareInformation softwareInformation;
 
     public BasicHighScoresFactory(final SoftwareInformation softwareInformation)
     {
@@ -16,7 +16,11 @@ public class BasicHighScoresFactory extends HighScoresBase
 
     private final HighScores[] highScoresArray = new HighScores[1];
 
-    public HighScores[] createHighScores(final GameInfo gameInfo)
+    public HighScores[] createHighScores(GameInfo gameInfo) {
+        return this.createHighScores(gameInfo, true);
+    }
+    
+    public HighScores[] createHighScores(GameInfo gameInfo, final boolean preload)
     {
         System.gc();
 

@@ -26,9 +26,9 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
-    private SoftwareInformation softwareInformation;
+    private final SoftwareInformation softwareInformation;
 
-    public BasicHighScoresFactory(SoftwareInformation softwareInformation)
+    public BasicHighScoresFactory(final SoftwareInformation softwareInformation)
     {
         this.softwareInformation = softwareInformation;
     }
@@ -42,7 +42,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     private static final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
     private static final String WORLD_TOP_SCORES = "World Top Scores";
     
-    public HighScores[] createHighScores(GameInfo gameInfo) 
+    public HighScores[] createHighScores(final GameInfo gameInfo) 
     {
         return this.createHighScores(gameInfo, true);
     }
