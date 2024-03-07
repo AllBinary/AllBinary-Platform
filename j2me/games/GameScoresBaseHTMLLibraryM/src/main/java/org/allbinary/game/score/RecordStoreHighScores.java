@@ -36,11 +36,11 @@ public class RecordStoreHighScores extends HighScores
     private final String RECORD_ID = "_HighScores";
     private final int MAXHIGHSCORES = 100;
 
-    private RecordComparator recordComparatorInterface;
+    private final RecordComparator recordComparatorInterface;
 
     private RecordStoreHighScores(
-            String name, String heading, String columnTwoHeading, 
-            RecordComparator recordComparatorInterface) // throws
+            final String name, final String heading, final String columnTwoHeading, 
+            final RecordComparator recordComparatorInterface) // throws
     // Exception
     {
         super(name, heading, columnTwoHeading);
@@ -50,8 +50,8 @@ public class RecordStoreHighScores extends HighScores
     }
 
     public static synchronized HighScores getInstance(
-            String highScoreName, String heading, String columnTwoHeading,
-            RecordComparator recordComparatorInterface)
+            final String highScoreName, final String heading, final String columnTwoHeading,
+            final RecordComparator recordComparatorInterface)
     {
         HighScores highScores = (HighScores) hashTable.get(highScoreName);
 
@@ -65,7 +65,7 @@ public class RecordStoreHighScores extends HighScores
         return highScores;
     }
 
-    public synchronized void add(HighScore newHighScore) // throws Exception
+    public synchronized void add(final HighScore newHighScore) // throws Exception
     {
         try
         {
@@ -82,7 +82,7 @@ public class RecordStoreHighScores extends HighScores
 
             final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
 
-            byte[] highScoreBytes = newHighScore.getBytes();
+            final byte[] highScoreBytes = newHighScore.getBytes();
 
             recordStore.addRecord(highScoreBytes, 0, highScoreBytes.length);
 
@@ -113,36 +113,36 @@ public class RecordStoreHighScores extends HighScores
         {
             final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
 
-            RecordEnumeration recordEnum = recordStore.enumerateRecords(null,
+            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,
                     null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this,
             // true);
 
-            HighScore bestHighScore = new HighScore(-1, "none", null, 0);
+            final HighScore worstHighScore = new HighScore(-1, "none", null, ((ScoreComparator) this.recordComparatorInterface).getBestScore());
 
             while (recordEnum.hasNextElement())
             {
-                int id = recordEnum.nextRecordId();
+                final int id = recordEnum.nextRecordId();
 
                 //ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
                   //      recordStore.getRecord(id));
                 //DataInputStream inputStream = new DataInputStream(
                   //      byteArrayInputStream);
 
-                //String name = inputStream.readUTF();
-                //long nextScore = inputStream.readLong();
-                //HighScore nextCurrentHighScore = new HighScore(id, name, null,
+                //final String name = inputStream.readUTF();
+                //final long nextScore = inputStream.readLong();
+                //final HighScore nextCurrentHighScore = new HighScore(id, name, null,
                   //      nextScore);
 
-                //if (this.recordComparatorInterface.compare(nextCurrentHighScore.getBytes(), bestHighScore.getBytes()) == RecordComparator.PRECEDES)
+                //if (this.recordComparatorInterface.compare(nextCurrentHighScore.getBytes(), bestHighScore.getBytes()) == RecordComparator.FOLLOWS)
                 //{
                   //  bestHighScore = nextCurrentHighScore;
                 //}
             }
 
-            if (bestHighScore.getId() != -1)
+            if (worstHighScore.getId() != -1)
             {
-                recordStore.deleteRecord(bestHighScore.getId());
+                recordStore.deleteRecord(worstHighScore.getId());
             }
 
             recordStore.closeRecordStore();            
@@ -194,7 +194,7 @@ public class RecordStoreHighScores extends HighScores
                     int lastIndex = size;
                     for (int index = 0; index < size; index++)
                     {
-                        HighScore highScore = (HighScore) list.objectArray[index];
+                        final HighScore highScore = (HighScore) list.objectArray[index];
 
                         // Found a spot then insert at that point
                         //if (this.recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.PRECEDES)
@@ -204,11 +204,11 @@ public class RecordStoreHighScores extends HighScores
                         //}
                     }
 
-                    //LogUtil.put(LogFactory.getInstance("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName(), this, "load"));
+                    //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, "load"));
 
                     //list.add(lastIndex, newHighScore);
 
-                    //LogUtil.put(LogFactory.getInstance("Loaded HighScores Ordered: ").append(this.toString(), this, "load"));
+                    //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, "load"));
                 }
                 catch (Exception e)
                 {
@@ -263,7 +263,7 @@ public class RecordStoreHighScores extends HighScores
         }
     }
 
-    public synchronized boolean isBestScore(HighScore newHighScore)
+    public synchronized boolean isBestScore(final HighScore newHighScore)
     throws Exception
     {
         try
@@ -280,11 +280,11 @@ public class RecordStoreHighScores extends HighScores
             {
 
                 // Enumeration enumeration = this.highScoresHashTable.keys();
-                BasicArrayList list = this.getList();
-                int size = list.size();
+                final BasicArrayList list = this.getList();
+                final int size = list.size();
                 for (int index = 0; index < size; index++)
                 {
-                    HighScore highScore = (HighScore) list.objectArray[index];
+                    final HighScore highScore = (HighScore) list.objectArray[index];
 
                     if (recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.FOLLOWS)
                     // if(newHighScore.getScore() > highScore.getScore())
@@ -307,13 +307,13 @@ public class RecordStoreHighScores extends HighScores
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
-        BasicArrayList list = this.getList();
-        int size = list.size();
+        final BasicArrayList list = this.getList();
+        final int size = list.size();
         for (int index = 0; index < size; index++)
         {
-            HighScore highScore = (HighScore) list.objectArray[index];
+            final HighScore highScore = (HighScore) list.objectArray[index];
             stringBuffer.append(highScore.getScoreString());
             stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);
         }

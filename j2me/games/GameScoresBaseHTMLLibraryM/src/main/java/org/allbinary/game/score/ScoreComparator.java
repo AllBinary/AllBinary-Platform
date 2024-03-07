@@ -23,14 +23,19 @@ public class ScoreComparator
       implements //RecordFilter,
       RecordComparator
 {
-   private boolean isHighestBest;
+
+   private final boolean isHighestBest;
    
    //private String searchName;
    
-   public ScoreComparator(boolean isHighestBest)
+   public ScoreComparator(final boolean isHighestBest)
    {
       this.isHighestBest = isHighestBest;
    }
+
+    public long getBestScore() {
+        return this.isHighestBest ? Long.MAX_VALUE : 0;
+    }
    
 /*
    public boolean matches(byte[] candidate)
@@ -67,7 +72,7 @@ public class ScoreComparator
    
    //Since MIPD RecordEnumerations Impls are bad I just do the ordering myself
    //Although this imp of RecordComparator works
-   public int compare(byte[] recordOne, byte[] recordTwo)
+   public int compare(final byte[] recordOne, final byte[] recordTwo)
    {
       //ByteArrayInputStream byteArrayInputStreamOne = new ByteArrayInputStream(recordOne);
       //DataInputStream inputStreamOne = new DataInputStream(byteArrayInputStreamOne);
@@ -92,34 +97,39 @@ public class ScoreComparator
 
       if(this.isHighestBest)
       {
+          //LogUtil.put(LogFactory.getInstance(scoreOne + " Precedes " + scoreTwo, this, "compare"));
          return this.getHighTooLow(scoreOne, scoreTwo);
       }
       else
       {
+          //LogUtil.put(LogFactory.getInstance(scoreOne + " == " + scoreTwo, this, "compare"));
          return this.getLowTooHigh(scoreOne, scoreTwo);
       }
    }
    
    //high too low
-   public int getHighTooLow(long scoreOne, long scoreTwo)
+   public int getHighTooLow(final long scoreOne, final long scoreTwo)
    {
       if (scoreOne > scoreTwo)
       {
-         return RecordComparator.PRECEDES;
+          //LogUtil.put(LogFactory.getInstance(scoreOne + " Follows " + scoreTwo, this, "compare"));
+          return RecordComparator.PRECEDES;
       }
       else
          if (scoreOne < scoreTwo)
          {
-         return RecordComparator.FOLLOWS;
+             //LogUtil.put(LogFactory.getInstance(scoreOne + " Precedes " + scoreTwo, this, "compare"));
+             return RecordComparator.FOLLOWS;
          }
          else
          {
-         return RecordComparator.EQUIVALENT;
+             //LogUtil.put(LogFactory.getInstance(scoreOne + " == " + scoreTwo, this, "compare"));
+             return RecordComparator.EQUIVALENT;
          }
    }
    
    //low too high
-   public int getLowTooHigh(long scoreOne, long scoreTwo)
+   public int getLowTooHigh(final long scoreOne, final long scoreTwo)
    {
       if (scoreOne < scoreTwo)
       {

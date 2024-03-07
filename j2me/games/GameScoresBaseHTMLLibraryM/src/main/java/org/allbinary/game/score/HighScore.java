@@ -14,6 +14,9 @@
 package org.allbinary.game.score;
 
 import org.allbinary.game.GameInfo;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 public class HighScore
 {
@@ -27,10 +30,12 @@ public class HighScore
     public HighScore(int id, String name, GameInfo gameInfo, long score)
     {
         this.id = id;
-        this.setName(name);
+        this.name = name;
         this.gameInfo = gameInfo;
         this.score = score;
-        this.scoreString = Long.toString(this.getScore());
+        this.scoreString = Long.toString(this.score);
+        
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
     public int getId()
@@ -67,4 +72,9 @@ public class HighScore
     {
         this.name = name;
     }
+    
+    public String toString() {
+        return new StringBuilder().append(name).append(':').append(this.score).append('/').append(this.scoreString).toString();
+    }
+    
 }

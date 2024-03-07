@@ -50,7 +50,7 @@ public class HighScoreUtil
 
     public void saveHighScore()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "saveHighScore"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START + this.highScore, this, "saveHighScore"));
         
         for (int index = 0; index < this.highScoresArray.length; index++)
         {
