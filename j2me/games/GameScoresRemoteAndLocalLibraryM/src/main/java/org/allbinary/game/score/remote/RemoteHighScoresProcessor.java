@@ -36,7 +36,7 @@ public class RemoteHighScoresProcessor
    }
 
    //String customerUserName,
-   public synchronized void process(RemoteHighScores remoteHighScores, GameInfo gameInfo)
+   public synchronized void process(final RemoteHighScores remoteHighScores, final GameInfo gameInfo)
            throws Exception
    {
       LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Retrieval", this, CommonStrings.getInstance().PROCESS));
@@ -44,10 +44,10 @@ public class RemoteHighScoresProcessor
       final GameInfoData gameInfoData = GameInfoData.getInstance();
 
       // System.out.println(message);
-      AbeClientInformationInterface abeClientInformation =
+      final AbeClientInformationInterface abeClientInformation =
               AbeClientInformationInterfaceFactory.getInstance();
 
-      Hashtable hashtable = abeClientInformation.toHashtable();
+      final Hashtable hashtable = abeClientInformation.toHashtable();
 
       //HashtableUtil.putAll(gameInfo.toHashtable(), hashtable);
       hashtable.putAll(gameInfo.toHashtable());
@@ -62,7 +62,7 @@ public class RemoteHighScoresProcessor
               remoteHighScores.ASCENDING,
               remoteHighScores.getAscending().toString());
 
-      DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+      final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
       hashtable.put(
               displayInfoSingleton.ORIENTATION,

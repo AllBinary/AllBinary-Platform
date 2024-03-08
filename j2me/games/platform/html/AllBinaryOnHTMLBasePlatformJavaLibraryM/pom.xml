@@ -70,6 +70,9 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameConfigurationHTMLJavaLibrary</artifactId>
+            <!--
+            <artifactId>GameConfigurationJ2MEJavaLibrary</artifactId>
+            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -78,6 +81,9 @@
         <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>GameInputNoPersistanceLibrary</artifactId>
+            <!--
+            <artifactId>GameInputPersistanceLibrary</artifactId>
+            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -85,7 +91,11 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameScoresBaseJ2MELibrary</artifactId>
+            <!--
+            <artifactId>GameScoresBaseJ2MELibrary</artifactId>
             <artifactId>GameScoresBaseHTMLLibrary</artifactId>
+            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

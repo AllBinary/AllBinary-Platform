@@ -64,8 +64,8 @@
         <module>../../games/GameScoresBaseHTMLLibraryM</module>
         <module>../../games/GameScoresBaseJ2MELibraryM</module>
         -->
-        <module>../../games/GameScoresJ2MEJavaLibraryM</module>
-        <module>../../games/GameScoresLibraryM</module>
+        <module>../../games/GameScoresLocalJavaLibraryM</module>
+        <module>../../games/GameScoresRemoteAndLocalLibraryM</module>
 
         <module>../../../store/ThirdPartyStoreJavaLibraryM</module>
         <module>../../../store/NoThirdPartyStoreJavaLibraryM</module>

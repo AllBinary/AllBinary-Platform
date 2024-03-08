@@ -25,13 +25,16 @@ import javax.microedition.rms.RecordStore;
 import javax.microedition.rms.RecordStoreException;
 import javax.microedition.rms.RecordStoreNotFoundException;
 
-import org.allbinary.util.BasicArrayList;
-
+import org.allbinary.game.GameInfo;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
+import org.allbinary.util.BasicArrayList;
 
 public class RecordStoreHighScores extends HighScores
 {
@@ -42,29 +45,36 @@ public class RecordStoreHighScores extends HighScores
     private final String RECORD_ID = "_HighScores";
     private final int MAXHIGHSCORES = 100;
 
+    private final GameInfo gameInfo;
+    private final SoftwareInformation softwareInformation;
+    
     private final RecordComparator recordComparatorInterface;
 
-    private RecordStoreHighScores(
-            final String name, final String heading, final String columnTwoHeading, 
-            final RecordComparator recordComparatorInterface) // throws
+    private RecordStoreHighScores(final SoftwareInformation softwareInformation, final GameInfo gameInfo, 
+        final String name, final String heading, final String columnTwoHeading, 
+        final RecordComparator recordComparatorInterface) // throws
     // Exception
     {
         super(name, heading, columnTwoHeading);
 
+        this.softwareInformation = softwareInformation;
+        this.gameInfo = gameInfo;
         this.recordComparatorInterface = recordComparatorInterface;
+        
         this.load();
     }
 
     public static synchronized HighScores getInstance(
-            final String highScoreName, final String heading, final String columnTwoHeading,
-            final RecordComparator recordComparatorInterface)
+        final SoftwareInformation softwareInformation, final GameInfo gameInfo, 
+        final String highScoreName, final String heading, final String columnTwoHeading,
+        final RecordComparator recordComparatorInterface)
     {
         HighScores highScores = (HighScores) hashTable.get(highScoreName);
 
         if (highScores == null)
         {
-            highScores = new RecordStoreHighScores(
-                    highScoreName, heading, columnTwoHeading, recordComparatorInterface);
+            highScores = new RecordStoreHighScores(softwareInformation, gameInfo, 
+                highScoreName, heading, columnTwoHeading, recordComparatorInterface);
             hashTable.put(highScores.getName(), highScores);
         }
 
@@ -86,7 +96,10 @@ public class RecordStoreHighScores extends HighScores
                 this.removeLowestHighScore();
             }
 
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
+            final AbeClientInformationInterface abeClientInformation = 
+                AbeClientInformationInterfaceFactory.getInstance();
+            
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(abeClientInformation.getSpecialName()).append(RECORD_ID).toString(), true);
 
             final byte[] highScoreBytes = newHighScore.getBytes();
 

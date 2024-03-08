@@ -8,7 +8,7 @@ import org.allbinary.game.GameInfo;
 public class BasicHighScoresFactory extends HighScoresBase
 {
     private final SoftwareInformation softwareInformation;
-
+    
     public BasicHighScoresFactory(final SoftwareInformation softwareInformation)
     {
         this.softwareInformation = softwareInformation;
@@ -16,19 +16,24 @@ public class BasicHighScoresFactory extends HighScoresBase
 
     private final HighScores[] highScoresArray = new HighScores[1];
 
-    public HighScores[] createHighScores(GameInfo gameInfo) {
+    private final String TOP = "Top";
+    
+    private final String SCORES = "Scores";
+    private final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
+
+    public HighScores[] createHighScores(final GameInfo gameInfo) {
         return this.createHighScores(gameInfo, true);
     }
     
-    public HighScores[] createHighScores(GameInfo gameInfo, final boolean preload)
+    public HighScores[] createHighScores(final GameInfo gameInfo, final boolean preload)
     {
         System.gc();
 
         try
         {
-            highScoresArray[0] = RecordStoreHighScores.getInstance("Top",
-                    "Personal Top Scores", "Scores", new ScoreComparator(true));
-
+            highScoresArray[0] = RecordStoreHighScores.getInstance(softwareInformation, gameInfo,
+                    TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
+            
             return highScoresArray;
         }
         catch (Exception e)

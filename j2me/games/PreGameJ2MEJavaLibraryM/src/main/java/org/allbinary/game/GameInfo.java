@@ -33,8 +33,8 @@ public class GameInfo
    private int highestLevel;
    private int currentLevel;
    
-   public GameInfo(GameType gameType, GameMode gameMode, 
-           int highestLevel, int currentLevel)
+   public GameInfo(final GameType gameType, final GameMode gameMode, 
+           final int highestLevel, final int currentLevel)
    {
        this.gameType = gameType;
        this.gameMode = gameMode;
@@ -73,7 +73,7 @@ public class GameInfo
       return highestLevel;
    }
 
-   public void setHighestLevel(int highestLevel)
+   public void setHighestLevel(final int highestLevel)
    {
        this.highestLevel = highestLevel;
    }
@@ -86,7 +86,7 @@ public class GameInfo
    private final String NEW_LEVEL = "New Level: ";
    private final String SET_CURRENT_LEVEL = "setCurrentLevel";
 
-   public void setCurrentLevel(int currentLevel)
+   public void setCurrentLevel(final int currentLevel)
    {
       this.currentLevel = currentLevel;
       LogUtil.put(LogFactory.getInstance(new StringMaker().append(NEW_LEVEL).append(this.getCurrentLevel()).toString(), this, SET_CURRENT_LEVEL));
@@ -125,7 +125,7 @@ public class GameInfo
    
    public Hashtable toHashtable()
    {
-       Hashtable hashtable = new Hashtable();
+       final Hashtable hashtable = new Hashtable();
 
        hashtable.put(this.gameInfoData.GAME_TYPE, this.getGameType().toString());
        hashtable.put(this.gameInfoData.GAME_MODE, this.gameMode.toString());
@@ -138,9 +138,9 @@ public class GameInfo
    
    public String toString()
    {
-       StringMaker stringBuffer = new StringMaker();
+       final StringMaker stringBuffer = new StringMaker();
 
-       CommonSeps commonSeps = CommonSeps.getInstance();
+       final CommonSeps commonSeps = CommonSeps.getInstance();
        
        stringBuffer.append(this.gameInfoData.GAME_TYPE);
        stringBuffer.append(commonSeps.EQUALS);

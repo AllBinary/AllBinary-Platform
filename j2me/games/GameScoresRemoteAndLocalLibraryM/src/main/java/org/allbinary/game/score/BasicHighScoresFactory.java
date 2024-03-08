@@ -34,13 +34,12 @@ public class BasicHighScoresFactory extends HighScoresBase
     }
 
     private final HighScores[] highScoresArray = new HighScores[2];
-
     
-    private static final String TOP = "Top";
+    private final String TOP = "Top";
     
-    private static final String SCORES = "Scores";
-    private static final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
-    private static final String WORLD_TOP_SCORES = "World Top Scores";
+    private final String SCORES = "Scores";
+    private final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
+    private final String WORLD_TOP_SCORES = "World Top Scores";
     
     public HighScores[] createHighScores(final GameInfo gameInfo) 
     {
@@ -55,7 +54,7 @@ public class BasicHighScoresFactory extends HighScoresBase
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "createHighScores"));
             
-            highScoresArray[0] = RecordStoreHighScores.getInstance(
+            highScoresArray[0] = RecordStoreHighScores.getInstance(softwareInformation, gameInfo,
                     TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
 
             final GameType gameType = gameInfo.getGameType();
