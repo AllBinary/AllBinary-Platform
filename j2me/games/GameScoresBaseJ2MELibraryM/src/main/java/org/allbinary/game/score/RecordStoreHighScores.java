@@ -95,6 +95,8 @@ public class RecordStoreHighScores extends HighScores
             recordStore.closeRecordStore();
 
             this.load();
+            
+            
         }
         catch (RecordStoreException e)
         {
@@ -310,6 +312,8 @@ public class RecordStoreHighScores extends HighScores
     {
         final StringMaker stringBuffer = new StringMaker();
 
+        stringBuffer.append(super.toString());
+        
         final BasicArrayList list = this.getList();
         final int size = list.size();
         for (int index = 0; index < size; index++)

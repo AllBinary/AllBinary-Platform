@@ -52,10 +52,14 @@ public class HighScoreUtil
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START + this.highScore, this, "saveHighScore"));
         
+        HighScores highScores;
+        String highScoresAsString;
         for (int index = 0; index < this.highScoresArray.length; index++)
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore to board: ").append(highScoresArray[index]).toString(), this, "saveHighScore"));
-            highScoresArray[index].add(this.highScore);
+            highScores = highScoresArray[index];
+            highScores.add(this.highScore);
+            highScoresAsString = highScores.toString();
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore"));
         }
     }
     
