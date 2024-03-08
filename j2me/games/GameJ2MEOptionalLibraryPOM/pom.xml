@@ -33,7 +33,8 @@
         <module>../../games/GameScoresBaseHTMLLibraryM</module>
         <module>../../games/GameScoresJ2MEJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
-        <module>../../games/GameScoresLibraryM</module>
+        <module>../../games/GameScoresLocalLibraryM</module>
+        <module>../../games/GameScoresRemoteAndLocalLibraryM</module>
 -->
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
 
