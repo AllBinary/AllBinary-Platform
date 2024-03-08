@@ -163,7 +163,7 @@ public class RecordStoreHighScores extends HighScores
 
             if (bestHighScore.getId() != -1)
             {
-                LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Removing Lowest HighScore: ").append(bestHighScore.getScore()).toString(), this, "load"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Removing Lowest HighScore: ").append(bestHighScore.getScore()).toString(), this, "load"));
                 recordStore.deleteRecord(bestHighScore.getId());
             }
 
@@ -226,10 +226,10 @@ public class RecordStoreHighScores extends HighScores
                             }
                         }
 
-                        //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, "load"));
+                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, "load"));
                         list.add(lastIndex, newHighScore);
 
-                        //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, "load"));
+                        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, "load"));
                     } catch (EOFException e) {
                         LogUtil.put(LogFactory.getInstance("EOF", this, "load", e));
                         throw e;

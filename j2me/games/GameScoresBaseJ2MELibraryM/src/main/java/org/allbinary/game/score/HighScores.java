@@ -85,7 +85,7 @@ public class HighScores implements HighScoresInterface
     
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("HighScores: ");
         //stringBuffer.append(this.name);

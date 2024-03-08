@@ -50,7 +50,7 @@ public class HighScoreUtil
 
     public void saveHighScore()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START + this.highScore, this, "saveHighScore"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(this.highScore).toString(), this, "saveHighScore"));
         
         HighScores highScores;
         String highScoresAsString;

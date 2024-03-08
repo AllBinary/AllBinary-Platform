@@ -18,9 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 
 import org.allbinary.game.GameInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 public class HighScore
 {
@@ -82,7 +80,7 @@ public class HighScore
     }
     
     public String toString() {
-        return new StringBuilder().append(name).append(':').append(this.score).append('/').append(this.scoreString).toString();
+        return new StringMaker().append(name).append(':').append(this.score).append('/').append(this.scoreString).toString();
     }
 
 }
