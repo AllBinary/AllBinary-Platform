@@ -121,30 +121,30 @@ public class RecordStoreHighScores extends HighScores
         {
             final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
 
-            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,
-                    null, true);
-            // recordStore.enumerateRecords(null, (RecordComparator) this,
-            // true);
+            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
+            // recordStore.enumerateRecords(null, (RecordComparator) this, true);
 
             HighScore bestHighScore = new HighScore(-1, "none", null, ((ScoreComparator) this.recordComparatorInterface).getBestScore());
 
+            byte[] recordAsBytes;
+            ByteArrayInputStream byteArrayInputStream;
+            DataInputStream inputStream;
             while (recordEnum.hasNextElement())
             {
                 final int id = recordEnum.nextRecordId();
 
-                final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
-                        recordStore.getRecord(id));
-                final DataInputStream inputStream = new DataInputStream(
-                        byteArrayInputStream);
+                recordAsBytes = recordStore.getRecord(id);
+                if(recordAsBytes != null) {
+                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
+                    inputStream = new DataInputStream(byteArrayInputStream);
 
-                final String name = inputStream.readUTF();
-                final long nextScore = inputStream.readLong();
-                final HighScore nextCurrentHighScore = new HighScore(id, name, null,
-                        nextScore);
+                    final String name = inputStream.readUTF();
+                    final long nextScore = inputStream.readLong();
+                    final HighScore nextCurrentHighScore = new HighScore(id, name, null, nextScore);
 
-                if (this.recordComparatorInterface.compare(nextCurrentHighScore.getBytes(), bestHighScore.getBytes()) == RecordComparator.FOLLOWS)
-                {
-                    bestHighScore = nextCurrentHighScore;
+                    if (this.recordComparatorInterface.compare(nextCurrentHighScore.getBytes(), bestHighScore.getBytes()) == RecordComparator.FOLLOWS) {
+                        bestHighScore = nextCurrentHighScore;
+                    }
                 }
             }
 
@@ -178,51 +178,49 @@ public class RecordStoreHighScores extends HighScores
 
             this.setList(new BasicArrayList());
 
-            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,
-                    null, true);
-            // recordStore.enumerateRecords(null, (RecordComparator) this,
-            // true);
+            final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
+            // recordStore.enumerateRecords(null, (RecordComparator) this, true);
 
+            byte[] recordAsBytes;
+            ByteArrayInputStream byteArrayInputStream;
+            DataInputStream inputStream;
             while (recordEnum.hasNextElement())
             {
                 final int id = recordEnum.nextRecordId();
-                final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
-                        recordStore.getRecord(id));
-                final DataInputStream inputStream = new DataInputStream(
-                        byteArrayInputStream);
-                try
-                {
-                    final String name = inputStream.readUTF();
-                    final long score = inputStream.readLong();
-                    final HighScore newHighScore = new HighScore(id, name, null, score);
 
-                    // Forced Sorting for bad RecordEnumeration Implementations
-                    // Sadly this issue is common on many devices
-                    final BasicArrayList list = this.getList();
-                    int size = list.size();
-                    int lastIndex = size;
-                    for (int index = 0; index < size; index++)
-                    {
-                        final HighScore highScore = (HighScore) list.objectArray[index];
+                recordAsBytes = recordStore.getRecord(id);
+                if(recordAsBytes != null) {
+                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
+                    inputStream = new DataInputStream(byteArrayInputStream);
+                
+                    try {
+                        final String name = inputStream.readUTF();
+                        final long score = inputStream.readLong();
+                        final HighScore newHighScore = new HighScore(id, name, null, score);
 
-                        // Found a spot then insert at that point
-                        if (this.recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.PRECEDES)
-                        {
-                            lastIndex = index;
-                            break;
+                        // Forced Sorting for bad RecordEnumeration Implementations
+                        // Sadly this issue is common on many devices
+                        final BasicArrayList list = this.getList();
+                        int size = list.size();
+                        int lastIndex = size;
+                        for (int index = 0; index < size; index++) {
+                            final HighScore highScore = (HighScore) list.objectArray[index];
+
+                            // Found a spot then insert at that point
+                            if (this.recordComparatorInterface.compare(newHighScore.getBytes(), highScore.getBytes()) == RecordComparator.PRECEDES) {
+                                lastIndex = index;
+                                break;
+                            }
                         }
+
+                        //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, "load"));
+                        list.add(lastIndex, newHighScore);
+
+                        //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, "load"));
+                    } catch (EOFException e) {
+                        LogUtil.put(LogFactory.getInstance("EOF", this, "load", e));
+                        throw e;
                     }
-
-                    //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loading HighScore: ").append(newHighScore.getScore()).append(" for: ").append(this.getName()).toString(), this, "load"));
-
-                    list.add(lastIndex, newHighScore);
-
-                    //LogUtil.put(LogFactory.getInstance(new StringBuilder().append("Loaded HighScores Ordered: ").append(this.toString()).toString(), this, "load"));
-                }
-                catch (EOFException e)
-                {
-                    LogUtil.put(LogFactory.getInstance("EOF", this, "load", e));
-                    throw e;
                 }
             }
 

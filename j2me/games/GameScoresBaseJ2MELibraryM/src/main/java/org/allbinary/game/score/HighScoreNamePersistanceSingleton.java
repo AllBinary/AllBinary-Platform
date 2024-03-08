@@ -96,15 +96,18 @@ public class HighScoreNamePersistanceSingleton
 
                 final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
                 
+                byte[] recordAsBytes;
+                ByteArrayInputStream byteArrayInputStream;
+                DataInputStream inputStream;
                 while (recordEnum.hasNextElement())
                 {
-                    int id = recordEnum.nextRecordId();
+                    final int id = recordEnum.nextRecordId();
 
                     LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, LOAD));
 
-                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(
-                            recordStore.getRecord(id));
-                    DataInputStream inputStream = new DataInputStream(byteArrayInputStream);
+                    recordAsBytes = recordStore.getRecord(id);
+                    byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
+                    inputStream = new DataInputStream(byteArrayInputStream);
 
                     while (inputStream.available() > 0)
                     {

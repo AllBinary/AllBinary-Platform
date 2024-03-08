@@ -53,8 +53,6 @@ public class KeyValuePersistance extends BasicPersitance
         final String LOADING_ID = "Loading id: ";
         final String METHOD_NAME = "loadAll";
         
-        ByteArrayInputStream byteArrayInputStream;
-        DataInputStream inputStream;
         Hashtable hashtable;
         
         String name;
@@ -62,27 +60,31 @@ public class KeyValuePersistance extends BasicPersitance
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
+        byte[] recordAsBytes;
+        ByteArrayInputStream byteArrayInputStream;
+        DataInputStream inputStream;        
         while (recordEnum.hasNextElement())
         {
-            int id = recordEnum.nextRecordId();
+            final int id = recordEnum.nextRecordId();
 
             LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, METHOD_NAME));
             
-            byteArrayInputStream = 
-                new ByteArrayInputStream(recordStore.getRecord(id));
-            inputStream = new DataInputStream(byteArrayInputStream);
-            hashtable = new Hashtable();
+            recordAsBytes = recordStore.getRecord(id);
+            if(recordAsBytes != null) {
+                byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
+                inputStream = new DataInputStream(byteArrayInputStream);
+                hashtable = new Hashtable();
 
-            for (int index = 0; index < size; index++)
-            {
-                name = inputStream.readUTF();
-                inputStream.readUTF();
-                value = inputStream.readUTF();
-                hashtable.put(name, value);
+                for (int index = 0; index < size; index++) {
+                    name = inputStream.readUTF();
+                    inputStream.readUTF();
+                    value = inputStream.readUTF();
+                    hashtable.put(name, value);
+                }
+
+                this.getList().add(hashtable);
+                this.getIds().add(smallIntegerSingletonFactory.getInstance(id));
             }
-
-            this.getList().add(hashtable);
-            this.getIds().add(smallIntegerSingletonFactory.getInstance(id));
         }
 
         recordStore.closeRecordStore();

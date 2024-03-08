@@ -63,10 +63,6 @@ public class InputPersistance extends BasicPersitance
         Input gameActionInput;
         Input input;
 
-        ByteArrayInputStream byteArrayInputStream;
-
-        DataInputStream inputStream;
-
         Hashtable hashtable;
         
         GameKeyMappingFactory gameKeyFactory = GameKeyMappingFactory.getInstance();            
@@ -74,68 +70,66 @@ public class InputPersistance extends BasicPersitance
         
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
+        byte[] recordAsBytes;
+        ByteArrayInputStream byteArrayInputStream;
+        DataInputStream inputStream;
         while (recordEnum.hasNextElement())
         {
-            int id = recordEnum.nextRecordId();
+            final int id = recordEnum.nextRecordId();
 
             LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, METHOD_NAME));
 
-            byteArrayInputStream = 
-                new ByteArrayInputStream(recordStore.getRecord(id));
+            recordAsBytes = recordStore.getRecord(id);
+            if(recordAsBytes != null) {
+                byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
+                inputStream = new DataInputStream(byteArrayInputStream);
 
-            inputStream = new DataInputStream(byteArrayInputStream);
+                hashtable = new Hashtable();
 
-            hashtable = new Hashtable();
-            
-            final InputFactory inputFactory = InputFactory.getInstance();
-            
-            while (inputStream.available() > 0)
-            {
-                gameActionInputId = Integer.parseInt(inputStream.readUTF());
-                inputStream.readUTF();
-                inputId = Integer.parseInt(inputStream.readUTF());
-                gameActionInput = gameKeyFactory.getInstance((int) gameActionInputId);
-                input = inputFactory.getInstance((int) inputId);
+                final InputFactory inputFactory = InputFactory.getInstance();
 
-                if (input == null || gameActionInput == null)
-                {
-                    stringBuffer.delete(0, stringBuffer.length());
+                while (inputStream.available() > 0) {
+                    gameActionInputId = Integer.parseInt(inputStream.readUTF());
+                    inputStream.readUTF();
+                    inputId = Integer.parseInt(inputStream.readUTF());
+                    gameActionInput = gameKeyFactory.getInstance((int) gameActionInputId);
+                    input = inputFactory.getInstance((int) inputId);
 
-                    if (input == null)
-                    {
-                        stringBuffer.append(ERROR_LOADING_ID);
-                        stringBuffer.append(inputId);
-                        stringBuffer.append(GAME_ACTION_INPUT);
-                        stringBuffer.append(gameActionInputId);
-                        
-                        //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "loadAll"));
-                        PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
-                    }
-                    if (gameActionInput == null)
-                    {
+                    if (input == null || gameActionInput == null) {
                         stringBuffer.delete(0, stringBuffer.length());
-                        
-                        stringBuffer.append(ERROR_LOADING);
-                        stringBuffer.append(gameActionInputId);
-                        stringBuffer.append(ID);
-                        stringBuffer.append(inputId);
-                        
-                        //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "loadAll"));
-                        PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
-                    }
-                }
-                else
-                {
-                    //LogUtil.put(LogFactory.getInstance("Load Mapping from: "
-                      //     ).append(input.toString()).append(" to: "
+
+                        if (input == null) {
+                            stringBuffer.append(ERROR_LOADING_ID);
+                            stringBuffer.append(inputId);
+                            stringBuffer.append(GAME_ACTION_INPUT);
+                            stringBuffer.append(gameActionInputId);
+
+                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "loadAll"));
+                            PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+                        }
+                        if (gameActionInput == null) {
+                            stringBuffer.delete(0, stringBuffer.length());
+
+                            stringBuffer.append(ERROR_LOADING);
+                            stringBuffer.append(gameActionInputId);
+                            stringBuffer.append(ID);
+                            stringBuffer.append(inputId);
+
+                            //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "loadAll"));
+                            PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
+                        }
+                    } else {
+                        //LogUtil.put(LogFactory.getInstance("Load Mapping from: "
+                        //     ).append(input.toString()).append(" to: "
                         //   ).append(gameActionInput.toString(), this, "loadAll"));
+                    }
+
+                    hashtable.put(input, gameActionInput);
                 }
 
-                hashtable.put(input, gameActionInput);
+                this.getList().add(hashtable);
+                this.getIds().add(smallIntegerSingletonFactory.getInstance(id));
             }
-
-            this.getList().add(hashtable);
-            this.getIds().add(smallIntegerSingletonFactory.getInstance(id));
         }
 
         recordStore.closeRecordStore();
@@ -151,8 +145,7 @@ public class InputPersistance extends BasicPersitance
             RecordStore.openRecordStore(this.getRecordStoreName(), true);
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        DataOutputStream outputStream = new DataOutputStream(
-                byteArrayOutputStream);
+        DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
 
         Input gameActionInput;
         BasicArrayList list;
