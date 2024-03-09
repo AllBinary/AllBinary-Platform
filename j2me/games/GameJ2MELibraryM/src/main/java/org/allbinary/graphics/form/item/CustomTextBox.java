@@ -78,6 +78,9 @@ public class CustomTextBox extends GameCommandCanvas
 
     private final InputFactory inputFactory = InputFactory.getInstance();
 
+    public void onEvent(final int keyCode, final int deviceId, final boolean repeated) {
+    }
+    
     public void keyPressed(final int keyCode)
     {
         this.keyPressed(keyCode, 0);
