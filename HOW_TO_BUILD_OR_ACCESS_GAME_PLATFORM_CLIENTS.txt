@@ -1,22 +1,37 @@
 1.  Download, Install, and Configure Maven
 
-    a.  Download at: http://maven.apache.org/download.cgi
+    a.  Download at: https://maven.apache.org/download.cgi
 
     b.  Install by extracting the Maven binary archive to the desired location.
 
     c.  Add the Maven path with the bin folder to the PATH environment variable.
 
-    d.  Add the following to the Maven Settings.xml:
+
+Option 1: Use Nexus
+
+Add the following nexus repos to the Maven Settings.xml:
+
+Nexus is not currently available so just use option 2.
+
+Now you have should have access to the AllBinary Game Plaform Client libraries from the nexus.  
+You may rely on the nexus builds of the AllBinary Game Plaform Client libraries if you want.
 
 
-Now you have should have access to the AllBinary Game Plaform Client libraries from the nexus.
+Option 2: Build locally
 
-You may rely on the nexus builds of the AllBinary Game Plaform Client libraries if you want.  However, if you want to build locally then follow the remaining steps:
+1.  Download, Install and Configure Git
 
-2.  Download, Install and Configure Git
-
-    a.  Download: http://maven.apache.org/download.cgi
+    a.  Download: https://git-scm.com/downloads
 
     b.  Install by extracting the Maven binary archive to the desired location.
 
     c.  Add the Maven path with the bin folder the the PATH environment variable.
+
+2.  Use git to clone: https://github.com/AllBinary/AllBinary-Platform
+
+    a.  Enter project directory of your choice.
+    b.  git clone https://github.com/AllBinary/AllBinary-Platform
+
+3.  Enter the root directory of the cloned project.
+
+4.  At the prompt type: mvn clean install
