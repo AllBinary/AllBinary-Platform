@@ -324,7 +324,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>GameScoresBaseLibrary</artifactId>
+            <artifactId>GameScoresBaseJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
