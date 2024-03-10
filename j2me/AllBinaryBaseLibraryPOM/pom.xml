@@ -41,7 +41,7 @@
         <module>../ExceptionHTMLJavaLibraryM</module>
         <module>../J2MEExceptionLibraryM</module>
         <module>../../allbinary_src/J2SEExceptionLibraryM</module>
-        <module>../J2MEJavaUtilLibraryM</module>
+        <module>../J2MEUtilJavaLibraryM</module>
         <module>../J2MEColorJavaLibraryM</module>
         <module>../EventJ2MELibraryM</module>
 

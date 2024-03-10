@@ -62,7 +62,7 @@
 
         <module>../../games/GameInputLibraryM</module>
 
-        <module>../../games/GameScoresBaseLibraryM</module>
+        <module>../../games/GameScoresBaseJavaLibraryM</module>
         <module>../../games/GameScoresBaseJ2MELibraryM</module>
 
         <module>../../statistics/ApplicationStatisticsHTMLLibraryM</module>

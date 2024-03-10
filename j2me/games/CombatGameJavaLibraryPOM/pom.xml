@@ -65,7 +65,7 @@
         <module>../../games/GameScoresBaseJ2MELibraryM</module>
         -->
         <module>../../games/GameScoresLocalJavaLibraryM</module>
-        <module>../../games/GameScoresRemoteAndLocalLibraryM</module>
+        <module>../../games/GameScoresRemoteAndLocalJavaLibraryM</module>
 
         <module>../../../store/ThirdPartyStoreJavaLibraryM</module>
         <module>../../../store/NoThirdPartyStoreJavaLibraryM</module>
