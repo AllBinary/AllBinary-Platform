@@ -94,9 +94,9 @@ public class CustomTextAnimationFactory
     public void setInitialSize(final int width, final int height) {
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(height).toString(), this, CommonStrings.getInstance().PROCESS));
         //this.scaleWidth = width;
-        final int fontSize = height;
-        this.scaleHeight = (int) fontSize - (fontSize / 4);
-        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
+        //final int fontSize = height;
+        //this.scaleHeight = (int) fontSize - (fontSize / 4);
+        //this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
     }
 
