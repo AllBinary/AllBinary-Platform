@@ -20,6 +20,10 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *
@@ -40,6 +44,8 @@ public class CustomTextAnimationFactory
     private int dx;
     private int dy;
 
+    private Font font;
+    
     public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy) {
         
         this(text, fontSize, AnimationBehaviorFactory.getInstance());
@@ -67,6 +73,8 @@ public class CustomTextAnimationFactory
         this.text = text;
         this.initScaleHeight = this.scaleHeight = (int) fontSize - (fontSize / 4);
         this.animationBehaviorFactory = animationBehaviorFactory;
+        
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
     }
 
     public Animation getInstance()throws Exception {
@@ -88,15 +96,17 @@ public class CustomTextAnimationFactory
         //this.scaleWidth = width;
         final int fontSize = height;
         this.scaleHeight = (int) fontSize - (fontSize / 4);
+        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
     }
 
     public int getWidth() {
-        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("getWidth - font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
         return font.stringWidth(this.text);
     }
 
     public int getHeight() {
-        final Font font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
+        
         return font.getHeight();
     }
 

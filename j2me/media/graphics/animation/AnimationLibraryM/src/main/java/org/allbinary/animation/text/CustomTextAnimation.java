@@ -40,8 +40,8 @@ public class CustomTextAnimation extends TextAnimation
         super(text, animationBehavior);
         
         this.fontSize = fontSize;
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("font: ").append(fontSize).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
         
         //this.hack();
     }
@@ -79,10 +79,22 @@ public class CustomTextAnimation extends TextAnimation
             throw new RuntimeException();
         }
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, CommonStrings.getInstance().PROCESS));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, CommonStrings.getInstance().PROCESS));
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (fontSize * scaleX));
+//        if(this.getText().length > 0) {
+//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setScale font: ").append(font.getSize()).append(" text: ").append(this.getText()[0]).toString(), this, CommonStrings.getInstance().PROCESS));
+//        }
     }
     
+    public void setText(final String text)
+    {
+        super.setText(text);
+
+//        if(font != null) {
+//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setText - font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+//        }
+    }
+
     public int getWidth() {
         return this.font.stringWidth(this.textArray[0]);
     }
