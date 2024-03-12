@@ -18,7 +18,7 @@ import org.allbinary.game.GameAdState;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 /**
  *

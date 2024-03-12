@@ -132,7 +132,7 @@ import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 
 public class AllBinaryGameCanvas 

@@ -15,14 +15,12 @@ package org.allbinary.game.midlet;
 
 import java.util.Hashtable;
 
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.thread.PrimaryThreadPool;
 
 public class DemoGameMidlet extends GameMidlet

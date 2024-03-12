@@ -107,7 +107,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;

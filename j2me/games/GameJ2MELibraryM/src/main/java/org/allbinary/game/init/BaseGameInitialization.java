@@ -31,7 +31,7 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureInput;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class BaseGameInitialization implements GameInitializationInterface
 {

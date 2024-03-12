@@ -31,7 +31,7 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox

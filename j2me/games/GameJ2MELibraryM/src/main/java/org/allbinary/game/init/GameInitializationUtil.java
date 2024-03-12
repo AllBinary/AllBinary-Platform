@@ -21,7 +21,7 @@ import org.allbinary.game.configuration.event.GameInitializedEventHandler;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.graphics.displayable.MyCanvas;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class GameInitializationUtil
 {

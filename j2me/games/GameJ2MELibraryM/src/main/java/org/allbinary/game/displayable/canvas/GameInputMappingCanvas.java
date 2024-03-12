@@ -37,7 +37,7 @@ import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.paint.help.InputMappingHelpPaintable;
 import org.allbinary.graphics.paint.ProcessPaintable;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class GameInputMappingCanvas extends GameCommandCanvas
 implements InputMappingInterface

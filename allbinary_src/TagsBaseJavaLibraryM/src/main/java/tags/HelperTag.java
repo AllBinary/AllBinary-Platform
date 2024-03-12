@@ -13,12 +13,11 @@
 */
 package tags;
 
+import admin.taghelpers.TagHelperFactoryInterface;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import admin.taghelpers.TagHelperFactoryInterface;
 import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class HelperTag extends PropertiesTag
 {    
