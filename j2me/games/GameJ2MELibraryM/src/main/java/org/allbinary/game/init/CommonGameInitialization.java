@@ -48,7 +48,7 @@ extends BaseGameInitialization
 
             this.setGameInitialized(true);
 
-            ProgressCanvas progressCanvas = 
+            final ProgressCanvas progressCanvas = 
                 ProgressCanvasFactory.getInstance();
 
             SmallIntegerSingletonFactory.getInstance().init();

@@ -1,7 +1,7 @@
 package org.allbinary.business.advertisement;
 
 import org.allbinary.game.GameAdState;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class GameAdStateFactory
 {
@@ -23,10 +23,10 @@ public class GameAdStateFactory
         return this.gameAdState;
     }
     
-    public GameAdState getInstance(final AbeClientInformationInterface abeClientInformation)
+    public GameAdState getInstance(final SoftwareInformation softwareInformation)
     throws Exception
     {
-        //if(abeClientInformation == TestSoftwareInfo.getInstance())
+        //if(softwareInformation == TestSoftwareInfo.getInstance())
         //{
             this.gameAdState = gameAdStateArray[0];
             
