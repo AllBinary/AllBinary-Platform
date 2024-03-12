@@ -1788,9 +1788,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
      * public boolean isLevelComplete() { return this.isLevelComplete; } public
      * void levelComplete() { this.isLevelComplete = true; }
      */
-    public void setHighScore(final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception
+    public void setHighScore(final AbeClientInformationInterface abeClientInformation, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception
     {
-        this.gameBehavior.setHighScore(this, name, score, autoSubmit, isLast);
+        this.gameBehavior.setHighScore(abeClientInformation, this, name, score, autoSubmit, isLast);
     }
 
     public void setHighScore2(final AbeClientInformationInterface abeClientInformation, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {

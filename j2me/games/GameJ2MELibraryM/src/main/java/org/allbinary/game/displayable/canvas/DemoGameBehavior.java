@@ -22,6 +22,7 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.thread.SecondaryThreadPool;
 
 /**
@@ -81,7 +82,7 @@ public class DemoGameBehavior {
         LogUtil.put(LogFactory.getInstance(GameTypeFactory.getInstance().BOT.toString(), this, CommonStrings.getInstance().RUN));
     }
     
-    public void setHighScore(final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
+    public void setHighScore(final AbeClientInformationInterface abeClientInformation, final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
 
     }
     

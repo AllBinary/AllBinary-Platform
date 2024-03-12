@@ -35,12 +35,14 @@ public class BaseGameBehavior extends DemoGameBehavior {
         return instance;
     }
 
+    //@Override
     public void init() throws Exception {
         final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
 
         gameAdState.playingAdState();
     }
 
+    //@Override
     public void pause(final AllBinaryGameCanvas allBinaryGameCanvas) {
         
         final Features features = Features.getInstance();
@@ -59,6 +61,7 @@ public class BaseGameBehavior extends DemoGameBehavior {
 
     }
 
+    //@Override
     public void unPause(final AllBinaryGameCanvas allBinaryGameCanvas) {
 
         if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
@@ -70,35 +73,43 @@ public class BaseGameBehavior extends DemoGameBehavior {
         }
     }
 
+    //@Override
     public void updateTouch(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.updateTouch2();
     }
     
     // Show/Hide the screen buttons
+    //@Override
     public void updateScreenButtonPaintable(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.updateScreenButtonPaintable2();
     }
     
+    //@Override
     public void setGameState(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.setGameState();
     }
 
+    //@Override
     public void removeAllGameKeyInputListeners(final AllBinaryGameCanvas allBinaryGameCanvas) {
         allBinaryGameCanvas.removeAllGameKeyInputListeners2();
     }
     
+    //@Override
     public void updateEndGameProcessor(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.updateEndGameProcessor2();
     }
     
+    //@Override
     public void buildGame(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.buildGame2();
     }
     
+    //@Override
     public void run(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
         allBinaryGameCanvas.run2();
     }
-    
+
+    //@Override
     public void setHighScore(final AbeClientInformationInterface abeClientInformation, final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
         allBinaryGameCanvas.setHighScore2(abeClientInformation, name, score, autoSubmit, isLast);
     }
