@@ -39,12 +39,12 @@ public class CustomTextAnimationFactory
 
     private int initScaleHeight;
     //private int scaleWidth;
-    private int scaleHeight;
+    protected int scaleHeight;
 
     private int dx;
     private int dy;
 
-    private Font font;
+    protected Font font;
     
     public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy) {
         
