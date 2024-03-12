@@ -35,11 +35,11 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
     protected static BasicLayerProcessor[] basicLayerProcessor = new BasicLayerProcessor[0];
 
     public CombatGameCanvas(
-            CommandListener cmdListener,
-            AllBinaryGameLayerManager gameLayerManager,
-            HighScoresFactoryInterface highScoresFactoryInterface,
-            BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
-            boolean buffered) throws Exception
+            final CommandListener cmdListener,
+            final AllBinaryGameLayerManager gameLayerManager,
+            final HighScoresFactoryInterface highScoresFactoryInterface,
+            final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
+            final boolean buffered) throws Exception
     {
         super(cmdListener, gameLayerManager,
                 highScoresFactoryInterface,
@@ -55,7 +55,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         // this.getLayerProcessorVector().add(new TrackingLayerProcessor());
     }
 
-    @Override
+    //@Override
     protected void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.CombatGameCanvas_init();
@@ -63,7 +63,7 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         super.init(abeClientInformation);
     }
     
-    protected void initConfigurable(int portion)
+    protected void initConfigurable(final int portion)
     {
         DestroyedLayerProcessor.init();
 
