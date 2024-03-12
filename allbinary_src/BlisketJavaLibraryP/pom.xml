@@ -40,7 +40,9 @@
         <!--
         <module>../data/DataJavaLibraryM</module>
         -->
-        
+
+        <module>../licensing/TestServiceClientInfoJavaLibraryM</module>        
+
         <module>../data/DataTableInterfacesM</module>
         
         <module>../QueueJavaLibraryM</module>
