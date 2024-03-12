@@ -28,7 +28,7 @@ import org.allbinary.game.layer.identification.GroupLayerManagerListener;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.layer.BasicLayerProcessor;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class CombatGameCanvas extends AllBinaryGameCanvas
 {
