@@ -129,7 +129,7 @@ public class GameMidlet extends ProgressMidlet
 
     private final DebugInterface debugInterface;
     
-    private final AbeClientInformationInterface abeClientInformation;
+    protected final AbeClientInformationInterface abeClientInformation;
     
     private GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface;
     private Thread thread;

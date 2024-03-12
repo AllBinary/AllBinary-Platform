@@ -145,6 +145,8 @@ public class DemoCanvas extends RunnableCanvas
     
     private BasicColor basicColor = basicColorFactory.RED;
 
+    protected final AbeClientInformationInterface abeClientInformation;
+    
     private final HighScoresFactoryInterface highScoresFactoryInterface;
     //Menu
     private BasicMenuInputProcessor menuInputProcessor =
@@ -176,7 +178,9 @@ public class DemoCanvas extends RunnableCanvas
         throws Exception
     {
         super(commandListener);
-        
+    
+        this.abeClientInformation = abeClientInformation;
+
         //Give time for initialization of demogame by default
         this.setWait(LOAD_WAIT);
         

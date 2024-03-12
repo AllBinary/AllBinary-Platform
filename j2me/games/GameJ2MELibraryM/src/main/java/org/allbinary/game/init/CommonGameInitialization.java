@@ -29,7 +29,7 @@ import org.allbinary.math.AngleFactory;
 public class CommonGameInitialization 
 extends BaseGameInitialization
 {
-    protected CommonGameInitialization(ResourceInitialization[] resourceInitializationArray,
+    protected CommonGameInitialization(final ResourceInitialization[] resourceInitializationArray,
             int portion)
     {
         super(resourceInitializationArray, portion);
@@ -39,7 +39,7 @@ extends BaseGameInitialization
     {
         super.init(abeClientInformation, commandListener, level);
 
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
             ResourceLoadingLevelFactory.getInstance();
 
         if (!this.isGameInitialized() && level == resourceLoadingLevelFactory.LOAD_ALL.getLevel())
