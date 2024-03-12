@@ -32,8 +32,6 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.SoftwareInformation;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
 import org.allbinary.util.BasicArrayList;
 
 public class RecordStoreHighScores extends HighScores
@@ -96,10 +94,7 @@ public class RecordStoreHighScores extends HighScores
                 this.removeLowestHighScore();
             }
 
-            final AbeClientInformationInterface abeClientInformation = 
-                AbeClientInformationInterfaceFactory.getInstance();
-            
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(abeClientInformation.getSpecialName()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(this.softwareInformation.toString()).append(RECORD_ID).toString(), true);
 
             final byte[] highScoreBytes = newHighScore.getBytes();
 
@@ -132,10 +127,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final AbeClientInformationInterface abeClientInformation = 
-                AbeClientInformationInterfaceFactory.getInstance();
-            
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(abeClientInformation.getSpecialName()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(this.softwareInformation.toString()).append(RECORD_ID).toString(), true);
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this, true);
@@ -190,10 +182,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final AbeClientInformationInterface abeClientInformation = 
-                AbeClientInformationInterfaceFactory.getInstance();
-            
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(abeClientInformation.getSpecialName()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(this.softwareInformation.toString()).append(RECORD_ID).toString(), true);
 
             this.setList(new BasicArrayList());
 
