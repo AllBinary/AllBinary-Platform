@@ -1472,8 +1472,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             {
                 LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
             }
+
+            //This is for key released events if needed
+            //this.handleRawKey(keyCode, deviceId, repeated);
             
-            this.handleRawKey(keyCode, deviceId, repeated);
         }
         catch (Exception e)
         {
