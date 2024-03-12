@@ -132,7 +132,10 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
+            final AbeClientInformationInterface abeClientInformation = 
+                AbeClientInformationInterfaceFactory.getInstance();
+            
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(abeClientInformation.getSpecialName()).append(RECORD_ID).toString(), true);
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this, true);
@@ -187,7 +190,10 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(RECORD_ID).toString(), true);
+            final AbeClientInformationInterface abeClientInformation = 
+                AbeClientInformationInterfaceFactory.getInstance();
+            
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(abeClientInformation.getSpecialName()).append(RECORD_ID).toString(), true);
 
             this.setList(new BasicArrayList());
 
