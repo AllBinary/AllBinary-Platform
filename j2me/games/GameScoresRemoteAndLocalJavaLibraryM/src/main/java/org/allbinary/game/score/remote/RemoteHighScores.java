@@ -25,46 +25,53 @@ import org.allbinary.game.GameInfo;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.RemoteErrorHighScoresSingletonFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class RemoteHighScores extends HighScores {
 
     private static final Hashtable hashTable = new Hashtable();
     private final AbeClientInformationInterface abeClientInformation;
+    private final SoftwareInformation softwareInformation;
+    
     private Boolean ascending;
 
     public final String ASCENDING = "ASCENDING";
 
     private RemoteHighScores(
-        final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
+        final AbeClientInformationInterface abeClientInformation, 
+        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean ascending, 
         final boolean preload)
         throws Exception {
         super(gameInfo.toString(), heading, columnTwoHeading);
 
         this.abeClientInformation = abeClientInformation;
+        this.softwareInformation = softwareInformation;
 
         this.setAscending(ascending);
 
         if(preload)  {
-            RemoteHighScoresProcessorFactory.getInstance().process(this, gameInfo);
+            RemoteHighScoresProcessorFactory.getInstance().process(this, this.abeClientInformation, gameInfo);
         }
     }
 
     public static synchronized HighScores getInstance(
-        final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
+        final AbeClientInformationInterface abeClientInformation, 
+        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending) {
-        return RemoteHighScores.getInstance(abeClientInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
+        return RemoteHighScores.getInstance(abeClientInformation, softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
     }
     
     public static synchronized HighScores getInstance(
-        final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
+        final AbeClientInformationInterface abeClientInformation, 
+        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending, final boolean preload) {
         try {
             HighScores highScores = (HighScores) hashTable.get(gameInfo);
 
             if (highScores == null) {
                 highScores = new RemoteHighScores(
-                    abeClientInformation, gameInfo,
+                    abeClientInformation, softwareInformation, gameInfo,
                     heading, columnTwoHeading, isAscending, preload);
 
                 hashTable.put(gameInfo, highScores);
@@ -78,7 +85,7 @@ public class RemoteHighScores extends HighScores {
     }
 
     public void add(final HighScore newHighScore) {
-        RemoteHighScoresSubmissionProcessorFactory.getInstance().process(this, newHighScore);
+        RemoteHighScoresSubmissionProcessorFactory.getInstance().process(this, this.abeClientInformation, newHighScore);
     }
 
     //This is called when the data comes back in the response
@@ -119,6 +126,6 @@ public class RemoteHighScores extends HighScores {
     }
 
     public SoftwareInformation getSoftwareInformation() {
-        return abeClientInformation;
+        return softwareInformation;
     }
 }

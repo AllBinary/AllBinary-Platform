@@ -16,21 +16,24 @@ package org.allbinary.game.score;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.game.BasicHighScoresGameInfoFactory;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.GameType;
 import org.allbinary.game.GameTypeFactory;
 import org.allbinary.game.score.remote.RemoteHighScores;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
     private final AbeClientInformationInterface abeClientInformation;
+    private final SoftwareInformation softwareInformation;
 
-    public BasicHighScoresFactory(final AbeClientInformationInterface abeClientInformation)
+    public BasicHighScoresFactory(final AbeClientInformationInterface abeClientInformation, final SoftwareInformation softwareInformation)
     {
         this.abeClientInformation = abeClientInformation;
+        this.softwareInformation = softwareInformation;
     }
 
     private final HighScores[] highScoresArray = new HighScores[2];
@@ -73,9 +76,9 @@ public class BasicHighScoresFactory extends HighScoresBase
             
             highScoresArray[1] = 
                     //RemoteErrorHighScoresSingletonFactory.getInstance();
-                    RemoteHighScores.getInstance(
-                    this.abeClientInformation, gameInfo,
-                    WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
+                    RemoteHighScores.getInstance(this.abeClientInformation, 
+                        this.softwareInformation, gameInfo,
+                        WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "createHighScores"));
             

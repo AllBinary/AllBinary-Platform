@@ -13,8 +13,7 @@
 */
 package org.allbinary.game.midlet;
 
-import org.allbinary.game.midlet.DemoGameMidlet;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicenseServerInitFileUtil;
 import org.allbinary.thread.RunnableInterface;
 

@@ -20,10 +20,9 @@ import java.io.DataOutputStream;
 
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
+    
 import org.allbinary.game.GameInfo;
-
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;

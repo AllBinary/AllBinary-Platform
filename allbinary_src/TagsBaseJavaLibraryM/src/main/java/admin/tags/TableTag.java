@@ -27,15 +27,10 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.SqlStrings;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class TableTag extends PropertiesTag
 //implements TableInterface
-{   
-    private final AbeClientInformationInterface abeClientInformation = 
-        ServiceClientInformationInterfaceFactory.getInstance();
-        
+{        
     private String enabled;
     private TagHelperFactoryInterface tagHelperFactoryInterface;
     private TagHelperFactoryInterface tagRequestHelperFactoryInterface;

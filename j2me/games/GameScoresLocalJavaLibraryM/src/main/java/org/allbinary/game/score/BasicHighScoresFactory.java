@@ -2,14 +2,16 @@ package org.allbinary.game.score;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.game.GameInfo;
+import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
     private final AbeClientInformationInterface abeClientInformation;
     
-    public BasicHighScoresFactory(final AbeClientInformationInterface abeClientInformation)
+    public BasicHighScoresFactory(final AbeClientInformationInterface abeClientInformation, 
+        final SoftwareInformation softwareInformation)
     {
         this.abeClientInformation = abeClientInformation;
     }
@@ -36,8 +38,7 @@ public class BasicHighScoresFactory extends HighScoresBase
             
             return highScoresArray;
         }
-        catch (Exception e)
-        {
+        catch (Exception e)        {
             LogUtil.put(LogFactory.getInstance("Exception", this, "createHighScores", e));
             
             return super.createHighScores(gameInfo);

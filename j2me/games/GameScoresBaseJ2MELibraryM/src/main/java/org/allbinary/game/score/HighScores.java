@@ -17,7 +17,6 @@ import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class HighScores implements HighScoresInterface
