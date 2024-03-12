@@ -22,6 +22,7 @@ import org.allbinary.business.DynamicObjectData;
 
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class NewWorkFlowFactory
 {
@@ -34,26 +35,27 @@ public class NewWorkFlowFactory
    //Assumes store name in session - for store admin
    //Used for creating and/or updating a workflow
    //hashMap is for Tag properties that may override request data
-   public static WorkFlowInterface getInstance(HashMap hashMap, PageContext pageContext) throws Exception, LicensingException
+   public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, 
+       final HashMap hashMap, final PageContext pageContext) throws Exception, LicensingException
    {
       try
       {
-         String className = (String) hashMap.get(DynamicObjectData.NAME);
-         String workFlowName = (String) hashMap.get(WorkFlowData.getInstance().NAME);
+         final String className = (String) hashMap.get(DynamicObjectData.NAME);
+         //final String workFlowName = (String) hashMap.get(WorkFlowData.getInstance().NAME);
          
-         Object params[] = new Object[2];
-         Class classes[] = new Class[2];
+         final Object params[] = new Object[2];
+         final Class classes[] = new Class[2];
          
          //Add param types
          classes[0] = hashMap.getClass();
-         classes[1] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
+         classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
          //pageContext.getClass();
          
          //Add arguments
          params[0] = (Object) hashMap;
          params[1] = (Object) pageContext;
          
-         Object object = AbeFactory.getInstance(className, classes, params);
+         final Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
          
          return (WorkFlowInterface) new WorkFlowWrapper(object);
       }
@@ -82,13 +84,13 @@ public class NewWorkFlowFactory
    }
  
    //For creating a new empty workflow
-   public static WorkFlowInterface getInstance(String className) throws Exception, LicensingException
+   public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final String className) throws Exception, LicensingException
    {
       try
       {
-         if(className!=null && className.compareTo("")!=0)
+         if(className != null && className.compareTo("")!=0)
          {
-            Object object = AbeFactory.getInstance(className, null, null);
+            final Object object = AbeFactory.getInstance(abeClientInformation, className, null, null);
             return (WorkFlowInterface) new WorkFlowWrapper(object);
          }
          else throw new Exception("No WorkFlow ClassName");

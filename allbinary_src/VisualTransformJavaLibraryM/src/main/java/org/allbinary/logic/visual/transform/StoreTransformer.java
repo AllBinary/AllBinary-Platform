@@ -18,12 +18,13 @@ import org.allbinary.data.tree.dom.StoreUriResolver;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 import javax.xml.transform.URIResolver;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class StoreTransformer extends BasicTransformer
 {
-   public StoreTransformer(TransformInfoInterface transformInfoInterface) throws Exception
+   public StoreTransformer(final AbeClientInformationInterface abeClientInformation, final TransformInfoInterface transformInfoInterface) throws Exception
    {
-      super(transformInfoInterface);
+      super(abeClientInformation, transformInfoInterface);
       this.setURIResolver(
          (URIResolver) new StoreUriResolver(this.getTransformInfoInterface(), 
          (BasicUriResolver) this.getURIResolver()));

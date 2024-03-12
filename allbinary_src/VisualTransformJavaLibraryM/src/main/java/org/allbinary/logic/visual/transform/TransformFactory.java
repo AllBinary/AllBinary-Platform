@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tables.transform.info.TransformInfoEntity;
 import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
@@ -38,7 +39,7 @@ public class TransformFactory
    //create child instance from objectConfig data stored in 
    //another views info and do not use request info
    public static TransformInterface getInstance(
-      String viewName, TransformInfoInterface ownerTransformInfoInterface) 
+       final AbeClientInformationInterface abeClientInformation, final String viewName, final TransformInfoInterface ownerTransformInfoInterface) 
       throws Exception
    {
       try
@@ -69,8 +70,7 @@ public class TransformFactory
 
          transformInfoInterface.setChild();
 
-         Object object = 
-            TransformInfoObjectFactory.getInstance(transformInfoInterface);
+         final Object object = TransformInfoObjectFactory.getInstance(abeClientInformation, transformInfoInterface);
 
          /*
          if(!(object instanceof TransformInterface))
@@ -103,14 +103,15 @@ public class TransformFactory
 
    //create a root/parent instance from db and/or request
    public static TransformInterface getInstance(
-      HashMap propertiesHashMap, PageContext pageContext) 
+       final AbeClientInformationInterface abeClientInformation,
+      final HashMap propertiesHashMap, final PageContext pageContext)
       throws Exception
    {
       try
       {
-    	  TransformInfoData transformInfoData = TransformInfoData.getInstance();
+    	  final TransformInfoData transformInfoData = TransformInfoData.getInstance();
     	  
-         if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
+         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
               org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
          {
             LogUtil.put(LogFactory.getInstance("Creating Transform: " +
@@ -118,7 +119,7 @@ public class TransformFactory
                instance, "getInstance(HashMap, PageContext)"));
          }
 
-         TransformInfoEntity transformInfoEntity =
+         final TransformInfoEntity transformInfoEntity =
         	 TransformInfoEntityBuilder.getInstance();
 
          TransformInfoInterface transformInfoInterface =
@@ -136,7 +137,7 @@ public class TransformFactory
                TransformInfoHttpFactory.getInstance(propertiesHashMap, pageContext);
          }
 
-         Object object = TransformInfoObjectFactory.getInstance(transformInfoInterface);
+         final Object object = TransformInfoObjectFactory.getInstance(abeClientInformation, transformInfoInterface);
 
          /*
          if(!(object instanceof TransformInterface)) 
@@ -173,7 +174,8 @@ public class TransformFactory
 
    //create a root instance from a root TransformInfoInterface
    public static TransformInterface getInstance(
-      TransformInfoInterface transformInfoInterface)
+       final AbeClientInformationInterface abeClientInformation,
+      final TransformInfoInterface transformInfoInterface)
       throws Exception
    {
       try
@@ -186,8 +188,8 @@ public class TransformFactory
                instance, "getInstance(TransformInfoInterface)"));
          }
 
-         Object object = TransformInfoObjectFactory.getInstance(
-            transformInfoInterface);
+         final Object object = TransformInfoObjectFactory.getInstance(
+             abeClientInformation, transformInfoInterface);
 
          /*
          if(!(object instanceof TransformInterface)) 

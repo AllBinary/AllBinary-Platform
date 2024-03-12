@@ -32,7 +32,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class InputPersistance extends BasicPersitance
 {

@@ -40,10 +40,15 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSessionDa
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSessionInterface;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class AuthenticationRequestHelper
     implements TagHelperInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private WeblisketSession weblisketSession;
    
    private HttpServletRequest request;
@@ -137,7 +142,7 @@ public class AuthenticationRequestHelper
          UserEntityFactory.getInstance().update(userName, newPasswordHashMap);
          
          //Send Communication with new password
-         new NewPasswordEmail(userInterface, newPassword).process();
+         new NewPasswordEmail(this.abeClientInformation, userInterface, newPassword).process();
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
          {
@@ -226,7 +231,7 @@ public class AuthenticationRequestHelper
             UserEntityFactory.getInstance().update(userName, newPasswordHashMap);
             
             //Send Communication with new password
-            new NewPasswordEmail(userInterface, newPassword).process();
+            new NewPasswordEmail(this.abeClientInformation, userInterface, newPassword).process();
             
             return Boolean.TRUE;
          }

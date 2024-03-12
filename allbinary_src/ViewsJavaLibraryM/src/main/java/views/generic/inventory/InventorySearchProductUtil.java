@@ -24,6 +24,7 @@ import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.StoreTransformer;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
@@ -46,7 +47,7 @@ public class InventorySearchProductUtil {
 
     private final String ITEM_NOT_FOUND = "Item Not Found.";
     
-    public String getProduct(SearchRequest searchRequest, String product) throws Exception
+    public String getProduct(final AbeClientInformationInterface abeClientInformation, SearchRequest searchRequest, String product) throws Exception
     {
         try
         {
@@ -66,7 +67,7 @@ public class InventorySearchProductUtil {
 
                 String success = DomDocumentHelper.toString(viewDocumentInterface.getDoc());
 
-                String outputStr = new StoreTransformer(
+                String outputStr = new StoreTransformer(abeClientInformation,
                     (TransformInfoInterface) new TransformInfoHttpSearch(
                     searchRequest)).translate(success);
 

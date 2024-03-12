@@ -19,6 +19,7 @@ import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class CustomLoaderHelperFactory implements TagHelperFactoryInterface
 {
@@ -30,10 +31,12 @@ public class CustomLoaderHelperFactory implements TagHelperFactoryInterface
    }
 
    public Object getInstance(
-       final AbeClientInformationInterface abeClientInformation,
        final HashMap hashMap, final PageContext pageContext) 
       throws LicensingException
    {
+       final AbeClientInformationInterface abeClientInformation = 
+           ServiceClientInformationInterfaceFactory.getInstance();
+       
       return HelperFactory.getInstance(abeClientInformation, FACTORYNAME, CLASSNAME, hashMap, pageContext);
    }  
 

@@ -21,6 +21,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.DynamicObjectData;
 
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class DbWorkFlowFactory
 {
@@ -31,15 +32,15 @@ public class DbWorkFlowFactory
    }
    
    //Created from DB data
-   public static WorkFlowInterface getInstance(HashMap hashMap) throws Exception, LicensingException
+   public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final HashMap hashMap) throws Exception, LicensingException
    {
       try
       {
-         String className = (String) hashMap.get(DynamicObjectData.NAME);
-         String workFlowName = (String) hashMap.get(WorkFlowData.getInstance().NAME);
+         final String className = (String) hashMap.get(DynamicObjectData.NAME);
+         //final String workFlowName = (String) hashMap.get(WorkFlowData.getInstance().NAME);
          
-         Object params[] = new Object[1];
-         Class classes[] = new Class[1];
+         final Object params[] = new Object[1];
+         final Class classes[] = new Class[1];
          
          //Add param types
          classes[0] = hashMap.getClass();
@@ -48,7 +49,7 @@ public class DbWorkFlowFactory
          //Add arguments
          params[0] = (Object) hashMap;
 
-         Object object = AbeFactory.getInstance(className, classes, params);
+         final Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
          return (WorkFlowInterface) new WorkFlowWrapper(object);
       }
       catch(LicensingException e)

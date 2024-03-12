@@ -21,6 +21,7 @@ import org.allbinary.business.DynamicObjectData;
 
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class StoreTagWorkFlowFactory
 {
@@ -31,7 +32,7 @@ public class StoreTagWorkFlowFactory
     {
     }
 
-    public static StoreWorkFlowInterface getInstance(HashMap propertiesHashMap, PageContext pageContext) throws Exception, LicensingException
+    public static StoreWorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final HashMap propertiesHashMap, final PageContext pageContext) throws Exception, LicensingException
     {
         try
         {
@@ -55,13 +56,13 @@ public class StoreTagWorkFlowFactory
 
             //Add param types
             classes[0] = propertiesHashMap.getClass();
-            classes[1] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
+            classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
 
             //Add arguments
             params[0] = (Object) propertiesHashMap;
             params[1] = (Object) pageContext;
 
-            return (StoreWorkFlowInterface) AbeFactory.getInstance(workFlowClassName, classes, params);
+            return (StoreWorkFlowInterface) AbeFactory.getInstance(abeClientInformation, workFlowClassName, classes, params);
         } catch (LicensingException e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(

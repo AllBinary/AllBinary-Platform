@@ -21,7 +21,7 @@ import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.TrackballMotionGestureFactory;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class PCGameInputMapping extends PersistentInputMapping
 {

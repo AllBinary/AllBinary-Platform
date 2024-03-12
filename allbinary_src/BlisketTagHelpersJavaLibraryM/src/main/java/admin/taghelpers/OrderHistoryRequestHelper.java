@@ -32,10 +32,15 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntityF
 
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class OrderHistoryRequestHelper
     implements TagHelperInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private HttpServletRequest request;
    
    private String id;
@@ -123,10 +128,10 @@ public class OrderHistoryRequestHelper
          
          OrderHistoryEntityFactory.getInstance().setStatus(id,newStatus);
          
-         OrderHistory orderHistory = 
+         final OrderHistory orderHistory = 
             OrderHistoryEntityFactory.getInstance().getOrder(id);
          
-         new OrderStatusEmail(orderHistory).process();
+         new OrderStatusEmail(this.abeClientInformation, orderHistory).process();
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {

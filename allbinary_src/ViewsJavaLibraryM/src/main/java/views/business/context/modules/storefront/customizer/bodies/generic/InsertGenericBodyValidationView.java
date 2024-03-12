@@ -117,7 +117,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
    {
       try
       {
-         return StoreCustomizerComponentUtil.generate(this.getTransformInfoInterface());
+         return StoreCustomizerComponentUtil.generate(this.abeClientInformation, this.getTransformInfoInterface());
       }
       catch(Exception e)
       {

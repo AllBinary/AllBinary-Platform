@@ -47,6 +47,8 @@ import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.globals.GLOBALS2;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class ProductListing implements ProductListingInterface
 {
@@ -158,12 +160,15 @@ public class ProductListing implements ProductListingInterface
         //InventoryViewSearchInterface inventoryViewSearchInterface =
         //  InventoryViewFactory.getInstance(this.searchRequest);
 
-        InventorySearchUtil inventorySearchUtil =
+        final AbeClientInformationInterface abeClientInformation = 
+            ServiceClientInformationInterfaceFactory.getInstance();
+
+        final InventorySearchUtil inventorySearchUtil =
             InventorySearchUtil.getInstance();
 
         //creates a listing from the created search data ^
-        String[] productListingPages =
-            inventorySearchUtil.search(searchRequest, vector);
+        String[] productListingPages = inventorySearchUtil.search(
+            abeClientInformation, searchRequest, vector);
 
         for (int index = 0; index < productListingPages.length; index++)
         {

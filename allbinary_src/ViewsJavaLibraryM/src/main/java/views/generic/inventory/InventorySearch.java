@@ -31,6 +31,8 @@ import org.allbinary.data.tables.staticpages.StaticPagesEntity;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 /*
  *This class updates the static page db table and generates/updates the html
@@ -116,17 +118,23 @@ public class InventorySearch implements InventoryViewSearchInterface
     //Node contentTypeNode = document.createElement(this.searchRequest.getContentType());
     public String[] search() throws Exception
     {
-        InventorySearchUtil inventorySearchUtil =
+        final AbeClientInformationInterface abeClientInformation = 
+            ServiceClientInformationInterfaceFactory.getInstance();
+
+        final InventorySearchUtil inventorySearchUtil =
             InventorySearchUtil.getInstance();
 
-        Vector vector = inventorySearchUtil.getBasicItemIdColumn(searchRequest);
+        final Vector vector = inventorySearchUtil.getBasicItemIdColumn(searchRequest);
 
-        return inventorySearchUtil.search(searchRequest, vector);
+        return inventorySearchUtil.search(abeClientInformation, searchRequest, vector);
     }
 
     public String getProduct(String product) throws Exception
     {
-        return InventorySearchProductUtil.getInstance().getProduct(searchRequest, product);
+        final AbeClientInformationInterface abeClientInformation = 
+            ServiceClientInformationInterfaceFactory.getInstance();
+
+        return InventorySearchProductUtil.getInstance().getProduct(abeClientInformation, searchRequest, product);
     }
 
     /*

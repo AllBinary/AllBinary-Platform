@@ -21,6 +21,7 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 
 import java.util.Iterator;
 import java.util.Vector;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class TransformsGeneratorUtil
 {
@@ -31,7 +32,8 @@ public class TransformsGeneratorUtil
     }
 
     public static String generateComponentsFromObjectConfig(
-        TransformInfoInterface transformInfoInterface, String group)
+        final AbeClientInformationInterface abeClientInformation, 
+        final TransformInfoInterface transformInfoInterface, String group)
         throws Exception
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -44,7 +46,7 @@ public class TransformsGeneratorUtil
             transformInfoInterface.getObjectConfigInterface();
 
         String result = TransformsGeneratorUtil.generateComponentsFromObjectConfig(
-            transformInfoObjectConfigInterface, transformInfoInterface, group);
+            abeClientInformation, transformInfoObjectConfigInterface, transformInfoInterface, group);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
@@ -57,8 +59,9 @@ public class TransformsGeneratorUtil
     //Transforms the Template TransformInfoInterface using each component/TransformInfoInterface from the TransformInfoObjectConfigInterface
     //I.E. the Template replaces it's body component tag with the template form each TransformInfoInterface from the TransformInfoObjectConfigInterface
     public static String generateComponentsFromObjectConfig(
-        TransformInfoObjectConfigInterface transformInfoObjectConfigInterface,
-        TransformInfoInterface transformInfoInterface, String group)
+        final AbeClientInformationInterface abeClientInformation,
+        final TransformInfoObjectConfigInterface transformInfoObjectConfigInterface,
+        final TransformInfoInterface transformInfoInterface, String group)
         throws Exception
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -94,7 +97,7 @@ public class TransformsGeneratorUtil
             TransformInfoDomNode transformInfoObjectConfigComponent =
                 (TransformInfoDomNode) iter.next();
 
-            TransformGeneratorUtil.generate(transformInfoObjectConfigComponent, transformInfoInterface);
+            TransformGeneratorUtil.generate(abeClientInformation, transformInfoObjectConfigComponent, transformInfoInterface);
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

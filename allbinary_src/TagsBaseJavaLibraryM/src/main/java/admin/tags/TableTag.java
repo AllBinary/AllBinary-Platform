@@ -121,7 +121,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                abeClientInformation, this.getPropertiesHashMap(), pageContext);
+                this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("drop", null);
@@ -146,7 +146,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                abeClientInformation, this.getPropertiesHashMap(), pageContext);
+                this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("create", null);
@@ -171,7 +171,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                abeClientInformation, this.getPropertiesHashMap(), pageContext);
+                this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("restore", null);
@@ -196,7 +196,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                abeClientInformation, this.getPropertiesHashMap(), pageContext);
+                this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("backup", null);
@@ -388,7 +388,7 @@ public class TableTag extends PropertiesTag
                             this.getCommand().compareTo(SqlStrings.getInstance().UPDATE)==0)
                     {
                         this.requestObject = getTagRequestHelperFactoryInterface().getInstance(
-                            abeClientInformation, this.getPropertiesHashMap(), pageContext);
+                            this.getPropertiesHashMap(), pageContext);
                     }
 
                     if (this.getCommand().compareTo(commonStrings.INSERT) == 0 || 

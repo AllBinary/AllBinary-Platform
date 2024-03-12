@@ -18,12 +18,13 @@ import org.allbinary.data.tree.dom.ContextUriResolver;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 import javax.xml.transform.URIResolver;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class ContextTransformer extends BasicTransformer
 {
-   public ContextTransformer(TransformInfoInterface transformInfoInterface) throws Exception
+   public ContextTransformer(final AbeClientInformationInterface abeClientInformation, final TransformInfoInterface transformInfoInterface) throws Exception
    {
-      super(transformInfoInterface);
+      super(abeClientInformation, transformInfoInterface);
       this.setURIResolver(
          (URIResolver) new ContextUriResolver(
             (BasicUriResolver) this.getURIResolver()));

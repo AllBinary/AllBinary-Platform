@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
@@ -46,8 +47,9 @@ public class TransformInfoObjectConfigAndManipulatorFactory
    }
 
    public TransformInfoObjectConfigInterface getInstance(
-         TransformInfoInterface transformInfoInterface,
-         AbPath objectConfigFileAbPath)
+       final AbeClientInformationInterface abeClientInformation,
+       final TransformInfoInterface transformInfoInterface,
+       final AbPath objectConfigFileAbPath)
          throws Exception
    {
       try
@@ -58,7 +60,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
                objectConfigFileAbPath);
 
          return this.getInstance(
-            transformInfoInterface, DomDocumentHelper.create(data));
+             abeClientInformation, transformInfoInterface, DomDocumentHelper.create(data));
       }
       catch(Exception e)
       {
@@ -71,6 +73,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
    }
 
    public TransformInfoObjectConfigInterface getInstance(
+       final AbeClientInformationInterface abeClientInformation,
          TransformInfoInterface transformInfoInterface)
          throws Exception
    {
@@ -86,7 +89,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
                !stringValidationUtil.isEmpty(transformInfoInterface.getStoreName()))
          {
             return (TransformInfoObjectConfigInterface)
-            new GenericStoreTransformInfoObjectConfig(transformInfoInterface);
+            new GenericStoreTransformInfoObjectConfig(abeClientInformation, transformInfoInterface);
          }
          else
          {
@@ -113,7 +116,8 @@ public class TransformInfoObjectConfigAndManipulatorFactory
    }
    
    public TransformInfoObjectConfigInterface getInstance(
-         TransformInfoInterface transformInfoInterface, Document document)
+       final AbeClientInformationInterface abeClientInformation, 
+       final TransformInfoInterface transformInfoInterface, final Document document)
          throws Exception
    {
       try
@@ -126,7 +130,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
          {            
             return (TransformInfoObjectConfigInterface)
             new GenericStoreTransformInfoObjectConfig(
-                  transformInfoInterface, document);
+                abeClientInformation, transformInfoInterface, document);
          }
          else
          {

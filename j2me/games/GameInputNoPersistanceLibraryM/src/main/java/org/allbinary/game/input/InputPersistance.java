@@ -23,8 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 

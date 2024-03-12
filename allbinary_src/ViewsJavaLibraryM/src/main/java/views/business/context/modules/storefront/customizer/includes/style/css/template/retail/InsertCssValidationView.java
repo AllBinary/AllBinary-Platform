@@ -121,7 +121,7 @@ public class InsertCssValidationView extends CssCustomizerView implements Valida
    {
       try
       {
-         return StoreCustomizerComponentUtil.generate(this.getTransformInfoInterface());
+         return StoreCustomizerComponentUtil.generate(this.abeClientInformation, this.getTransformInfoInterface());
       }
       catch(Exception e)
       {

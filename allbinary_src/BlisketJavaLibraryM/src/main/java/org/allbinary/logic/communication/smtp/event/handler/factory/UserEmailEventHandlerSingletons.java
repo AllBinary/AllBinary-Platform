@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.smtp.event.modules.log.LogUserEmailEven
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class UserEmailEventHandlerSingletons
 {
@@ -36,6 +37,7 @@ public class UserEmailEventHandlerSingletons
    }
 
    public static UserEmailEventHandler getInstance(
+       final AbeClientInformationInterface abeClientInformation,
       UserEmailEventNameData userEmailEventNameData, 
       UserInterface userInterface)
       throws Exception
@@ -70,9 +72,9 @@ public class UserEmailEventHandlerSingletons
          //Create New Handler and add listeners
          UserEmailEventHandler newUserEmailEventHandler = new UserEmailEventHandler();
 
-         Vector vector = 
-            EmailEventHandlerUtil.getUserEmailEventListenerVector(
-               userEmailEventNameData, userInterface);
+         Vector vector = EmailEventHandlerUtil.getUserEmailEventListenerVector(
+                abeClientInformation,userEmailEventNameData, userInterface);
+
          newUserEmailEventHandler.addListener(vector);
          newUserEmailEventHandler.addListener(new LogUserEmailEventListenerModule());
          

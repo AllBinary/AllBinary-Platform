@@ -40,10 +40,15 @@ import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 
 public class QuoteHelper implements BasicTableInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
    private final WeblisketSession weblisketSession;
@@ -94,7 +99,7 @@ public class QuoteHelper implements BasicTableInterface
       //Send response to customer
       UserEmailEventHandler userEmailEventHandler =
          UserEmailEventHandlerSingletons.getInstance(
-         UserEmailEventNameData.QUOTEREQUEST, user);
+             this.abeClientInformation, UserEmailEventNameData.QUOTEREQUEST, user);
 
       userEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.QUOTEREQUEST, emailInfo);
    }
@@ -129,11 +134,11 @@ public class QuoteHelper implements BasicTableInterface
       //send request to store admins if subscribed to handler name for review and response
       UserEmailEventHandler storeAdminUserEmailEventHandler =
          AdminUserEmailEventHandlerSingletons.getInstance(
-         UserEmailEventNameData.QUOTEREQUEST);
+         this.abeClientInformation, UserEmailEventNameData.QUOTEREQUEST);
       
       UserEmailEventHandler adminUserEmailEventHandler =
          StoreAdminUserEmailEventHandlerSingletons.getInstance(
-         UserEmailEventNameData.QUOTEREQUEST, this.storeFrontInterface);
+         UserEmailEventNameData.QUOTEREQUEST, this.abeClientInformation, this.storeFrontInterface);
       
       storeAdminUserEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.QUOTEREQUEST, emailInfo);
       adminUserEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.QUOTEREQUEST, emailInfo);

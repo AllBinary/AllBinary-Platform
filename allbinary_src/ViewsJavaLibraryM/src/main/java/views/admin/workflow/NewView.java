@@ -27,17 +27,22 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 import org.allbinary.logic.control.workflow.NewWorkFlowFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class NewView extends WorkFlowView implements ValidationComponentInterface
 {
-   public NewView(TransformInfoInterface transformInfoInterface) throws Exception
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
+   public NewView(final TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
       
       TransformInfoHttpInterface httpTransformInfoInterface = 
          (TransformInfoHttpInterface) this.getTransformInfoInterface();
 
-      this.workFlowInterface = NewWorkFlowFactory.getInstance(
+      this.workFlowInterface = NewWorkFlowFactory.getInstance(abeClientInformation,
          (String) httpTransformInfoInterface.getPropertiesHashMap().get(
             DynamicObjectData.NAME));
    }

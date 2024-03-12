@@ -54,7 +54,7 @@ public class HttpStoreComponentView extends HttpComponentView
          String success = DomDocumentHelper.toString(this.getDoc());
          
          String result = new StoreTransformer(
-            this.getTransformInfoInterface()).translate(success);
+            this.abeClientInformation, this.getTransformInfoInterface()).translate(success);
          
          return result;
       }

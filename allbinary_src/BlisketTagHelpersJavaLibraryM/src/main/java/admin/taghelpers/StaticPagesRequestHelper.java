@@ -55,10 +55,15 @@ import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 import org.allbinary.logic.communication.http.AcceptableResponseGenerator;
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class StaticPagesRequestHelper extends AbContext
     implements TagHelperInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private HttpServletRequest request;
    
    private String storeName;
@@ -111,11 +116,11 @@ public class StaticPagesRequestHelper extends AbContext
          //Send response to Admin(s)
          UserEmailEventHandler adminUserEmailEventHandler =
             AdminUserEmailEventHandlerSingletons.getInstance(
-               UserEmailEventNameData.STOREGENERATINGSTATICPAGES);
+               this.abeClientInformation, UserEmailEventNameData.STOREGENERATINGSTATICPAGES);
 
          UserEmailEventHandler storeAdminUserEmailEventHandler =
             StoreAdminUserEmailEventHandlerSingletons.getInstance(
-               UserEmailEventNameData.STOREGENERATINGSTATICPAGES, storeFrontInterface);
+               UserEmailEventNameData.STOREGENERATINGSTATICPAGES, this.abeClientInformation, storeFrontInterface);
 
          storeAdminUserEmailEventHandler.receiveEmailInfo(
              UserEmailEventNameData.STOREGENERATINGSTATICPAGES, storeAdminEmailInfo);

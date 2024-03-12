@@ -51,9 +51,8 @@ public class RootContextView extends HttpStoreComponentView
 
          String viewName = this.getName();
 
-         TransformInterface componentInterface = 
-            TransformFactory.getInstance(
-               viewName,this.getTransformInfoInterface());
+         TransformInterface componentInterface = TransformFactory.getInstance(
+                this.abeClientInformation, viewName, this.getTransformInfoInterface());
 
          return componentInterface.view();
       }

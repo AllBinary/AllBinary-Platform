@@ -28,10 +28,15 @@ import org.allbinary.logic.communication.smtp.event.handler.factory.AdminUserEma
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class BasicTextEmailHelper
     implements TagHelperInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private HashMap hashMap;
    private PageContext pageContext;
    
@@ -54,7 +59,7 @@ public class BasicTextEmailHelper
       //Send response to Admin(s)
       UserEmailEventHandler adminUserEmailEventHandler =
          AdminUserEmailEventHandlerSingletons.getInstance(
-         UserEmailEventNameData.INSTALLER);
+             this.abeClientInformation, UserEmailEventNameData.INSTALLER);
 
       adminUserEmailEventHandler.receiveEmailInfo(
          UserEmailEventNameData.INSTALLER, adminEmailInfo);

@@ -27,15 +27,20 @@ import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class ViewHelper implements TransformInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private TransformInterface componentInterface;
    
    public ViewHelper(HashMap hashMap, PageContext pageContext) throws Exception
    {
       this.componentInterface = 
-         TransformFactory.getInstance(hashMap, pageContext);
+         TransformFactory.getInstance(this.abeClientInformation, hashMap, pageContext);
    }
    
    public int NO_TYPE = 0;

@@ -115,7 +115,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     }
 
                     TransformInterface componentInterface =
-                        TransformFactory.getInstance(
+                        TransformFactory.getInstance(this.abeClientInformation,
                         transformInfoName, this.getTransformInfoInterface());
 
                     InsertTemplateCustomizerTransformInfoObjectConfig templateViewObjectConfig =

@@ -40,6 +40,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchData;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.StoreTransformer;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.data.TransformStoreDocumentFactory;
@@ -143,7 +144,7 @@ public class InventorySearchUtil {
         return success;
     }
 
-    public String[] search(SearchRequest searchRequest, Vector column)
+    public String[] search(final AbeClientInformationInterface abeClientInformation, SearchRequest searchRequest, Vector column)
     {
         try
         {
@@ -494,8 +495,8 @@ public class InventorySearchUtil {
                         }
                         */
 
-                        productListingPages[index] =
-                            new StoreTransformer(
+                        productListingPages[index] = new StoreTransformer(
+                                abeClientInformation,
                             (TransformInfoInterface) new TransformInfoHttpSearch(
                             searchRequest)).translate(success);
                     }
@@ -510,7 +511,7 @@ public class InventorySearchUtil {
                         this.getNoResults(viewDocumentInterface, inventoryNode);
 
                     productListingPages[0] = new StoreTransformer(
-                        new TransformInfoHttpSearch(searchRequest)).translate(result);
+                        abeClientInformation, new TransformInfoHttpSearch(searchRequest)).translate(result);
                 }
 
                 return productListingPages;

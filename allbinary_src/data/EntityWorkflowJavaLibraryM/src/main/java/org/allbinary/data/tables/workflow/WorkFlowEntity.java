@@ -18,7 +18,6 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
@@ -29,9 +28,13 @@ import org.allbinary.logic.control.workflow.DbWorkFlowFactory;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.control.workflow.WorkFlowData;
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
 
     protected final String tableName = "workflows";
 
@@ -44,7 +47,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         this.setTableName(tableName);
     }
 
-    public void insert(Vector values)
+    public void insert(final Vector values)
     {
         try
         {
@@ -63,11 +66,11 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         }
     }
 
-    public void delete(String name, String storeName)
+    public void delete(final String name, final String storeName)
     {
         try
         {
-            HashMap keysAndValues = new HashMap();
+            final HashMap keysAndValues = new HashMap();
 
             keysAndValues.put(WorkFlowData.getInstance().NAME, name);
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
@@ -87,16 +90,16 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
         }
     }
 
-    public WorkFlowInterface get(String name, String storeName) throws Exception, LicensingException
+    public WorkFlowInterface get(final String name, final String storeName) throws Exception, LicensingException
     {
         try
         {
-            HashMap keysAndValues = new HashMap();
+            final HashMap keysAndValues = new HashMap();
             keysAndValues.put(WorkFlowData.getInstance().NAME, name);
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
-            HashMap hashMap = super.getRow(keysAndValues);
+            final HashMap hashMap = super.getRow(keysAndValues);
 
-            return (WorkFlowInterface) DbWorkFlowFactory.getInstance(hashMap);
+            return (WorkFlowInterface) DbWorkFlowFactory.getInstance(abeClientInformation, hashMap);
         }catch(LicensingException e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
@@ -131,7 +134,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
                 HashMap workFlowHashMap = (HashMap) iter.next();
                 if(workFlowHashMap != null)
                 {
-                    workFlowsVector.add(DbWorkFlowFactory.getInstance(workFlowHashMap));
+                    workFlowsVector.add(DbWorkFlowFactory.getInstance(abeClientInformation, workFlowHashMap));
                 }
             }
 

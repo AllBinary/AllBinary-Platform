@@ -19,6 +19,8 @@ import org.w3c.dom.Node;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 import org.allbinary.logic.visual.transform.BasicTransformer;
 
@@ -28,7 +30,10 @@ import org.allbinary.logic.visual.transform.data.TransformDocumentFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class BasicComponentView implements TransformInterface
-{	
+{
+    protected final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private TransformDocumentInterface transformDocumentInterface;
    private TransformInfoInterface transformInfoInterface;
 
@@ -98,7 +103,7 @@ public class BasicComponentView implements TransformInterface
          String success = DomDocumentHelper.toString(this.getDoc());
 
          String result = new BasicTransformer(
-            this.getTransformInfoInterface()).translate(success);
+             this.abeClientInformation,this.getTransformInfoInterface()).translate(success);
 
          return result;
       }

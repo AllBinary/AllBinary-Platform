@@ -22,6 +22,7 @@ import org.allbinary.business.DynamicObjectData;
 
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class TagWorkFlowFactory
 {
@@ -32,32 +33,33 @@ public class TagWorkFlowFactory
     {
     }
 
-    public static WorkFlowInterface getInstance(HashMap propertiesHashMap, PageContext pageContext) throws Exception, LicensingException
+    public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, 
+        final HashMap propertiesHashMap, final PageContext pageContext) throws Exception, LicensingException
     {
         try
         {
-            String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
+            final String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
-            Object params[] = new Object[2];
-            Class classes[] = new Class[2];
+            final Object params[] = new Object[2];
+            final Class classes[] = new Class[2];
 
             //Add param types
             classes[0] = propertiesHashMap.getClass();
-            classes[1] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
+            classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
 
             //Add arguments
             params[0] = (Object) propertiesHashMap;
             params[1] = (Object) pageContext;
 
-            return (WorkFlowInterface) AbeFactory.getInstance(workFlowClassName, classes, params);
+            return (WorkFlowInterface) AbeFactory.getInstance(abeClientInformation, workFlowClassName, classes, params);
         } catch (LicensingException e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
+                final String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
-                StringBuffer stringBuffer = new StringBuffer();
+                final StringBuffer stringBuffer = new StringBuffer();
 
                 stringBuffer.append("Failed To Get Instance: ");
                 stringBuffer.append(workFlowClassName);
@@ -70,13 +72,13 @@ public class TagWorkFlowFactory
             throw e;
         } catch (Exception e)
         {
-            String error = "Failed To Get Instance";
+            //final String error = "Failed To Get Instance";
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
-                String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
+                final String workFlowClassName = (String) propertiesHashMap.get(DynamicObjectData.NAME);
 
-                StringBuffer stringBuffer = new StringBuffer();
+                final StringBuffer stringBuffer = new StringBuffer();
 
                 stringBuffer.append("Failed To Get Instance: ");
                 stringBuffer.append(workFlowClassName);

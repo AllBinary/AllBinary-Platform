@@ -19,6 +19,8 @@ import org.w3c.dom.Node;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 import org.allbinary.logic.visual.transform.TransformInfoCustomUriTransformer;
 import org.allbinary.logic.visual.transform.TransformInterface;
@@ -31,6 +33,9 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 public class CustomUriTransformView
    implements TransformInterface
 {
+    protected final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private TransformInfoInterface transformInfoInterface;
    private TransformDocumentInterface transformDocumentInterface;
 
@@ -104,7 +109,7 @@ public class CustomUriTransformView
          String success = DomDocumentHelper.toString(this.getDoc());
 
          String result = new TransformInfoCustomUriTransformer(
-            this.getTransformInfoInterface()).translate(success);
+             this.abeClientInformation,this.getTransformInfoInterface()).translate(success);
 
          return result;
       }

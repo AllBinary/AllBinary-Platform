@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandle
 
 import java.util.HashMap;
 import java.util.Vector;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class StoreAdminUserEmailEventHandlerSingletons
 {
@@ -37,6 +38,7 @@ public class StoreAdminUserEmailEventHandlerSingletons
    
    public static UserEmailEventHandler getInstance(
       UserEmailEventNameData userEmailEventNameData,
+       final AbeClientInformationInterface abeClientInformation,
       StoreFrontInterface storeFrontInterface)
       throws Exception
    {
@@ -73,7 +75,7 @@ public class StoreAdminUserEmailEventHandlerSingletons
          //Create New Handler and add listeners
          UserEmailEventHandler newUserEmailEventHandler =
             EmailEventHandlerUtil.getEventHandler(
-               userEmailEventNameData, userVector);
+               abeClientInformation, userEmailEventNameData, userVector);
          
          StoreAdminUserEmailEventHandlerSingletons.userEmailEventHandlerHashMap.put(
             userEmailEventNameData, newUserEmailEventHandler);

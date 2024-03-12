@@ -52,7 +52,7 @@ public class HttpContextView extends HttpComponentView
          this.toXmlDoc();
          String success = DomDocumentHelper.toString(this.getDoc());
 
-         String result = new ContextTransformer(
+         String result = new ContextTransformer(this.abeClientInformation,
             this.getTransformInfoInterface()).translate(success);
 
          return result;

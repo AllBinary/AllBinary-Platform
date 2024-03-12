@@ -69,7 +69,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
       this.storeFrontInterface = 
          StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName());
       
-      this.shippingMethods = new ShippingMethods(storeFrontInterface);
+      this.shippingMethods = new ShippingMethods(this.abeClientInformation, storeFrontInterface);
    }
       
    public Node toXmlNode(Document document) throws Exception
@@ -111,7 +111,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
                Money shippingCost = shipping.getCost(order);
                Money subTotal = basket.getSubTotal();
                Float taxRate = 
-                  TaxFactory.getInstance(storeFrontInterface
+                  TaxFactory.getInstance(this.abeClientInformation, storeFrontInterface
                      ).getTaxRate(streetAddress, storeFrontInterface);
 
                Money tax = new Money();

@@ -20,7 +20,6 @@ import java.util.Vector;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
-import org.allbinary.business.installer.Portion;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -28,6 +27,8 @@ import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.Encoder;
 import org.allbinary.business.entry.EntryData;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoFactoryInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -39,6 +40,9 @@ extends AbSqlBean
 implements TransformInfoEntityInterface
 {
     protected final String tableName = "transforminfo";
+    
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();    
 
     private final TransformInfoFactoryInterface transformInfoFactoryInterface;
     private final TransformInfoObjectConfigAndManipulatorFactoryInterface transformInfoObjectConfigAndManipulatorFactoryInterface;
@@ -148,7 +152,7 @@ implements TransformInfoEntityInterface
 
             objectConfigVector.add(
                 this.transformInfoObjectConfigAndManipulatorFactoryInterface.getInstance(
-                (TransformInfoInterface) this,
+                    abeClientInformation, (TransformInfoInterface) this,
                 DomDocumentHelper.create(objectConfigString)));
           //TWB - End Encoder for GAE for XML using JIQL
         }

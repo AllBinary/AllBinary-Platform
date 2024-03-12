@@ -22,11 +22,16 @@ import admin.taghelpers.TagHelperInterface;
 import org.allbinary.logic.control.workflow.StoreTagWorkFlowFactory;
 import org.allbinary.logic.control.workflow.StoreWorkFlowInterface;
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class StoreTagWorkFlowHelper
     implements TagHelperInterface
     //implements StoreWorkFlowInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private StoreWorkFlowInterface storeWorkFlowInterface;
    
    public StoreTagWorkFlowHelper(HashMap hashMap, PageContext pageContext) throws Exception
@@ -60,7 +65,7 @@ public class StoreTagWorkFlowHelper
          LogUtil.put(LogFactory.getInstance("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()"));
       }
       
-      this.storeWorkFlowInterface = StoreTagWorkFlowFactory.getInstance(hashMap, pageContext);
+      this.storeWorkFlowInterface = StoreTagWorkFlowFactory.getInstance(this.abeClientInformation, hashMap, pageContext);
            
    }
       

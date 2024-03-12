@@ -23,14 +23,18 @@ import org.allbinary.logic.communication.smtp.event.handler.factory.UserEmailEve
 import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class NewPasswordEmail
 {
+    private final AbeClientInformationInterface abeClientInformation;
+    
    private UserInterface userInterface;
    private String newPassword;
    
-   public NewPasswordEmail(UserInterface userInterface, String newPassword)
+   public NewPasswordEmail(final AbeClientInformationInterface abeClientInformation, final UserInterface userInterface, String newPassword)
    {
+       this.abeClientInformation = abeClientInformation;
       this.userInterface = userInterface;
       this.newPassword = newPassword;
    }
@@ -70,7 +74,7 @@ public class NewPasswordEmail
          //Send response to Admin(s)
          UserEmailEventHandler adminUserEmailEventHandler =
             AdminUserEmailEventHandlerSingletons.getInstance(
-               UserEmailEventNameData.NEWPASSWORD);
+                abeClientInformation, UserEmailEventNameData.NEWPASSWORD);
 
          /*
          UserEmailEventHandler storeAdminUserEmailEventHandler =
@@ -118,7 +122,7 @@ public class NewPasswordEmail
 
          UserEmailEventHandler userEmailEventHandler =
             UserEmailEventHandlerSingletons.getInstance(
-               UserEmailEventNameData.NEWPASSWORD, this.userInterface);
+               abeClientInformation, UserEmailEventNameData.NEWPASSWORD, this.userInterface);
 
          userEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.NEWPASSWORD, emailInfo);
       }

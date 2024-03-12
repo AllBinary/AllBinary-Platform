@@ -26,6 +26,7 @@ import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.document.DocumentToNode;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.TransformFactory;
 import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.info.RootTransformInfoData;
@@ -39,26 +40,29 @@ public class CompoundContextTransformInfoObjectConfig
     extends GenericStoreTransformInfoObjectConfig
 {
    public CompoundContextTransformInfoObjectConfig(
+       final AbeClientInformationInterface abeClientInformation,
        TransformInfoInterface transformInfoInterface)
        throws Exception
    {
-      super(transformInfoInterface);
+      super(abeClientInformation,  transformInfoInterface);
       //this.setDocument(this.generate(this.getDocument()));
    }
 
    public CompoundContextTransformInfoObjectConfig(
+       final AbeClientInformationInterface abeClientInformation,
        TransformInfoInterface transformInfoInterface, Document document)
        throws Exception
    {
-      super(transformInfoInterface, document);
+      super(abeClientInformation, transformInfoInterface, document);
       this.setDocument(this.generate(this.toXmlDoc()));
    }
 
    public CompoundContextTransformInfoObjectConfig(
+       final AbeClientInformationInterface abeClientInformation,
        TransformInfoInterface transformInfoInterface, String name, String type)
        throws Exception
    {
-      super(transformInfoInterface, name, type);
+      super(abeClientInformation, transformInfoInterface, name, type);
       this.setDocument(this.generate(this.toXmlDoc()));
    }
 
@@ -86,7 +90,7 @@ public class CompoundContextTransformInfoObjectConfig
       
       //get parent template 
       TransformInterface rootComponentInterface = TransformFactory.getInstance(
-    		  stringBuffer.toString(), this.getTransformInfoInterface());
+          abeClientInformation, stringBuffer.toString(), this.getTransformInfoInterface());
 
       Vector viewVector = this.getTransformDomNodes();
       Iterator iter = viewVector.iterator();
@@ -111,10 +115,8 @@ public class CompoundContextTransformInfoObjectConfig
          
          String templateKey = objectConfigTransformInfoDomNode.getReplaceKey();
 
-         TransformInterface componentInterface =
-            TransformFactory.getInstance(
-                 objectConfigTransformInfoDomNode.getTransformInfoInterface().getName(), 
-                 this.getTransformInfoInterface());
+         TransformInterface componentInterface = TransformFactory.getInstance(
+                abeClientInformation, objectConfigTransformInfoDomNode.getTransformInfoInterface().getName(), this.getTransformInfoInterface());
 
          String replacementViewString = componentInterface.view();
          

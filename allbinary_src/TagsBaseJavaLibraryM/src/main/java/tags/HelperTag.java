@@ -21,14 +21,12 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class HelperTag extends PropertiesTag
-{
-    private final AbeClientInformationInterface abeClientInformation = 
-        ServiceClientInformationInterfaceFactory.getInstance();
-    
-   private TagHelperFactoryInterface tagHelperFactoryInterface;
+{    
+   private final TagHelperFactoryInterface tagHelperFactoryInterface;
+
    private Object object;
    
-   public HelperTag(TagHelperFactoryInterface tagHelperFactoryInterface)
+   public HelperTag(final TagHelperFactoryInterface tagHelperFactoryInterface)
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
@@ -51,7 +49,7 @@ public class HelperTag extends PropertiesTag
          
          
          this.object = tagHelperFactoryInterface.getInstance(
-             abeClientInformation, this.getPropertiesHashMap(), this.pageContext);
+             this.getPropertiesHashMap(), this.pageContext);
       }
    }
    

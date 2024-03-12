@@ -23,7 +23,6 @@ import org.allbinary.business.installer.Portion;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFront;
-import org.allbinary.business.context.modules.storefront.StoreFrontData;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
@@ -35,9 +34,14 @@ import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class StoreFrontsRequestHelper implements ModifyTableInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
     private final PageContext pageContext;
     private final HttpServletRequest request;
     //private StoreFrontInterface storeFrontInterface;
@@ -136,12 +140,11 @@ public class StoreFrontsRequestHelper implements ModifyTableInterface
         //Send response to Admin(s)
         UserEmailEventHandler adminUserEmailEventHandler =
             AdminUserEmailEventHandlerSingletons.getInstance(
-            UserEmailEventNameData.STORECREATED);
+            this.abeClientInformation, UserEmailEventNameData.STORECREATED);
 
         UserEmailEventHandler storeAdminUserEmailEventHandler =
             StoreAdminUserEmailEventHandlerSingletons.getInstance(
-            UserEmailEventNameData.STORECREATED,
-            this.modifyingStoreFrontInterface);
+                UserEmailEventNameData.STORECREATED, this.abeClientInformation, this.modifyingStoreFrontInterface);
 
         storeAdminUserEmailEventHandler.receiveEmailInfo(
             UserEmailEventNameData.STORECREATED, storeAdminEmailInfo);

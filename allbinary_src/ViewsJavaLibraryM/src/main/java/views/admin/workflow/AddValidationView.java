@@ -32,15 +32,20 @@ import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.control.workflow.NewWorkFlowFactory;
 
 import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 
 public class AddValidationView extends WorkFlowView implements ValidationComponentInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    public AddValidationView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
             
-      this.workFlowInterface = NewWorkFlowFactory.getInstance(this.getPropertiesHashMap(), this.getPageContext());
+      this.workFlowInterface = NewWorkFlowFactory.getInstance(abeClientInformation, this.getPropertiesHashMap(), this.getPageContext());
    }
    
    public Boolean isValid()

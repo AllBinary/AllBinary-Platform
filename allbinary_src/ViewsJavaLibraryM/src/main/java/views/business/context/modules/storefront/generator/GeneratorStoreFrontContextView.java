@@ -43,6 +43,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
    {
      String result = 
         TransformsGeneratorUtil.generateComponentsFromObjectConfig(
+            this.abeClientInformation,
            this.getTransformInfoInterface(), group);
 
      if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPEXTRAOUTPUT))

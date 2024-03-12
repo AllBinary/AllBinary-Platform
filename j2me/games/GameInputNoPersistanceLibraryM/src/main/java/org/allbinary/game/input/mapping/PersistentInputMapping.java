@@ -21,11 +21,11 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputPersistance;
 import org.allbinary.game.input.mapping.event.InputMappingEvent;
 import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping

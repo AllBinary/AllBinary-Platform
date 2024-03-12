@@ -13,30 +13,26 @@
 */
 package views.compound;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.io.InputStream;
-
-
 
 import javax.xml.transform.URIResolver;
 
 import org.allbinary.data.tree.dom.BasicUriResolver;
 import org.allbinary.data.tree.dom.StoreUriResolver;
-
-
 import org.allbinary.logic.communication.log.LogUtil;
-
-
-
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
-
 import org.allbinary.logic.visual.transform.AbTransformer;
 
 import views.compound.objectConfig.CompoundContextTransformInfoObjectConfig;
 
 public class CompoundTransform extends AbTransformer
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    public CompoundTransform(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
@@ -48,6 +44,7 @@ public class CompoundTransform extends AbTransformer
 
       CompoundContextTransformInfoObjectConfig objectConfig =
          new CompoundContextTransformInfoObjectConfig(
+             this.abeClientInformation,
             this.getTransformInfoInterface(), 
             this.getTransformInfoInterface().getObjectConfigInterface().toXmlDoc());
 

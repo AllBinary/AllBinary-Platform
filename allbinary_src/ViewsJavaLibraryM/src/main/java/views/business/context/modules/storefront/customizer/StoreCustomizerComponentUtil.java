@@ -19,6 +19,7 @@ import java.util.Vector;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.generator.TransformGeneratorUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfo;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
@@ -32,7 +33,7 @@ public class StoreCustomizerComponentUtil
     }
 
     //generateModifiedViews
-    public static String generate(TransformInfoInterface transformInfoInterface)
+    public static String generate(final AbeClientInformationInterface abeClientInformation, TransformInfoInterface transformInfoInterface)
         throws Exception
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -63,12 +64,13 @@ public class StoreCustomizerComponentUtil
                     instance, "generateModifiedViews()"));
             }
 
-            generate(transformInfoInterface, allViewsToBeModified);
+            generate(abeClientInformation, transformInfoInterface, allViewsToBeModified);
         }
         return StringUtil.getInstance().EMPTY_STRING;
     }
 
     private static final void generate(
+        final AbeClientInformationInterface abeClientInformation,
         TransformInfoInterface transformInfoInterface, Vector allViewsToBeModified)
         throws Exception
     {
@@ -90,8 +92,7 @@ public class StoreCustomizerComponentUtil
             }
 
             //generate views with the new data
-            TransformGeneratorUtil.generate(
-                nextTransformInfoInterface, specifiedTransformInfoInterface);
+            TransformGeneratorUtil.generate(abeClientInformation, nextTransformInfoInterface, specifiedTransformInfoInterface);
         }
     }
     /*

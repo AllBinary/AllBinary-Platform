@@ -24,10 +24,11 @@ import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmail
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.modules.log.LogUserEmailEventListenerModule;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class EmailEventHandlerUtil
 {
-	private static final EmailEventHandlerUtil instance = new EmailEventHandlerUtil();
+    private static final EmailEventHandlerUtil instance = new EmailEventHandlerUtil();
 	
    private EmailEventHandlerUtil()
    {
@@ -54,12 +55,13 @@ public class EmailEventHandlerUtil
    }
     **/
    
-   public static UserEmailEventHandler getEventHandler(UserEmailEventNameData userEmailEventNameData, Vector userVector)
+   public static UserEmailEventHandler getEventHandler(
+       final AbeClientInformationInterface abeClientInformation, final UserEmailEventNameData userEmailEventNameData, final Vector userVector)
    throws Exception
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-    	  StringBuffer stringBuffer = new StringBuffer();
+    	  final StringBuffer stringBuffer = new StringBuffer();
     	  
     	  stringBuffer.append("Returning UserEmailEventHandler for ");
     	  stringBuffer.append(userVector.size());
@@ -68,19 +70,18 @@ public class EmailEventHandlerUtil
     	  LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "getEventHandler"));
       }
       
-      UserEmailEventHandler userEmailEventHandler = new UserEmailEventHandler();
+      final UserEmailEventHandler userEmailEventHandler = new UserEmailEventHandler();
       
       userEmailEventHandler.addListener(new LogUserEmailEventListenerModule());
 
       int size = userVector.size();
       for(int index = 0; index < size; index++)
       {
-         UserInterface userInterface = 
-        	 (UserInterface) userVector.get(index);
+         final UserInterface userInterface = (UserInterface) userVector.get(index);
 
-         Vector vector = 
+         final Vector vector = 
             EmailEventHandlerUtil.getUserEmailEventListenerVector(
-               userEmailEventNameData, userInterface);
+               abeClientInformation, userEmailEventNameData, userInterface);
          
          userEmailEventHandler.addListener(vector);
       }
@@ -89,24 +90,25 @@ public class EmailEventHandlerUtil
    }
 
    public static Vector getUserEmailEventListenerVector(
-      UserEmailEventNameData userEmailEventNameData, UserInterface userInterface)
+       final AbeClientInformationInterface abeClientInformation,
+      final UserEmailEventNameData userEmailEventNameData, final UserInterface userInterface)
       throws Exception
    {
          //Currently uses a single user configuration
-         UserConfigurationInterface userConfigurationInterface = 
+         final UserConfigurationInterface userConfigurationInterface = 
             userInterface.getUserConfigurationInterface();
          
-         UserEmailConfigurationInterface userEmailConfigurationInterface = 
+         final UserEmailConfigurationInterface userEmailConfigurationInterface = 
             userConfigurationInterface.getUserEmailConfigurationInterface();
          
-         UserEmailEventsConfigurationInterface userEmailEventsConfigurationInterface =
+         final UserEmailEventsConfigurationInterface userEmailEventsConfigurationInterface =
             userEmailConfigurationInterface.getUserEmailEventsConfigurationInterface();
 
-         UserEmailEventListenerInterface userEmailEventListenerInterface = 
+         final UserEmailEventListenerInterface userEmailEventListenerInterface = 
             userEmailEventsConfigurationInterface.getEventListener(
-               userEmailEventNameData, userInterface);
+               abeClientInformation, userEmailEventNameData, userInterface);
 
-         Vector vector = new Vector();
+         final Vector vector = new Vector();
          //Add event listener
          vector.add(userEmailEventListenerInterface);
          return vector;

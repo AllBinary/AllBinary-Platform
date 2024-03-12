@@ -38,11 +38,15 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 import org.allbinary.logic.visual.transform.info.template.TransformInfoTemplateData;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.info.data.TransformInfoDataData;
 import org.allbinary.logic.visual.transform.info.viewObject.TransformInfoObjectData;
 
 public class TransformInfo implements TransformInfoInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
 
     private boolean isChild = false;
     private String name;
@@ -352,14 +356,14 @@ public class TransformInfo implements TransformInfoInterface
         this.objectConfigFileName = value;
         this.setObjectConfigInterface(
             TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(
-            this, this.getObjectConfigFilePath()));
+                abeClientInformation,this, this.getObjectConfigFilePath()));
     }
 
     protected void setObjectConfig(String value) throws Exception
     {
         Document document = DomDocumentHelper.create(value);
         this.setObjectConfigInterface(
-            TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(this, document));
+            TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(abeClientInformation, this, document));
     }
 
     public void setDataFile(String value)

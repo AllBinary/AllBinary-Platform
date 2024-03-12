@@ -13,28 +13,28 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import java.util.*;
-
-
+import java.util.HashMap;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.logic.communication.log.LogUtil;
-
-
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.control.workflow.WorkFlowData;
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
 import org.allbinary.logic.control.workflow.NewWorkFlowFactory;
-
 import org.allbinary.data.tables.workflow.WorkFlowEntityFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class WorkFlowRequestHelper implements ModifyTableInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private WorkFlowInterface workFlowInterface;
    
    public WorkFlowRequestHelper(HashMap hashMap, PageContext pageContext) throws Exception
    {
-      this.workFlowInterface = NewWorkFlowFactory.getInstance(hashMap, pageContext);
+      this.workFlowInterface = NewWorkFlowFactory.getInstance(this.abeClientInformation, hashMap, pageContext);
    }
    
    public String delete() throws Exception

@@ -29,9 +29,12 @@ import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class OrderStatusEmail
 {
+    private final AbeClientInformationInterface abeClientInformation;
+    
    private OrderHistory orderHistory;
    private StoreFrontInterface storeFrontInterface;
    private UserInterface user;
@@ -46,8 +49,9 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       OrderHistoryData.SHIPPED
  **/
    
-   public OrderStatusEmail(OrderHistory orderHistory) throws Exception
+   public OrderStatusEmail(final AbeClientInformationInterface abeClientInformation, final OrderHistory orderHistory) throws Exception
    {
+       this.abeClientInformation = abeClientInformation;
       this.orderHistory = orderHistory;
 
       String storeName = orderHistory.getStoreName();
@@ -93,12 +97,11 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
          //Send response to Admin(s)
          UserEmailEventHandler adminUserEmailEventHandler =
             AdminUserEmailEventHandlerSingletons.getInstance(
-               userEmailEventNameData);
+               this.abeClientInformation, userEmailEventNameData);
 
          UserEmailEventHandler storeAdminUserEmailEventHandler =
             StoreAdminUserEmailEventHandlerSingletons.getInstance(
-               userEmailEventNameData,
-               this.storeFrontInterface);
+               userEmailEventNameData, this.abeClientInformation, this.storeFrontInterface);
 
          storeAdminUserEmailEventHandler.receiveEmailInfo(userEmailEventNameData, storeAdminEmailInfo);
          adminUserEmailEventHandler.receiveEmailInfo(userEmailEventNameData, adminEmailInfo);
@@ -137,7 +140,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
 
          UserEmailEventHandler userEmailEventHandler =
             UserEmailEventHandlerSingletons.getInstance(
-               userEmailEventNameData, this.user);
+               this.abeClientInformation, userEmailEventNameData, this.user);
 
          userEmailEventHandler.receiveEmailInfo(userEmailEventNameData, emailInfo);
       }

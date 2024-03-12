@@ -72,7 +72,7 @@ public class GenericBodyCustomizerView extends HttpStoreComponentView
          String success = DomDocumentHelper.toString(this.getDoc());
 
          String result =
-            new StoreTransformer(this.getTransformInfoInterface()).translate(success);
+            new StoreTransformer(this.abeClientInformation, this.getTransformInfoInterface()).translate(success);
          return StringEscapeUtils.unescapeHtml(result);
       }
       catch(Exception e)

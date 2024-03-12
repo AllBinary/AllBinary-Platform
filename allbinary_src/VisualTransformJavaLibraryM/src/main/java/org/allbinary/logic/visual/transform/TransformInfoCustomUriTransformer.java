@@ -20,17 +20,18 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 
 import javax.xml.transform.URIResolver;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class TransformInfoCustomUriTransformer extends BasicTransformer
 {
    public TransformInfoCustomUriTransformer( 
-      TransformInfoInterface transformInfoInterface) throws Exception
+      final AbeClientInformationInterface abeClientInformation, final TransformInfoInterface transformInfoInterface) throws Exception
    {
-      super(transformInfoInterface);
+      super(abeClientInformation, transformInfoInterface);
 
-      TransformInfoObjectConfigInterface transformInfoObjectConfigInterface =
+      final TransformInfoObjectConfigInterface transformInfoObjectConfigInterface =
          (TransformInfoObjectConfigInterface)
-         TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(transformInfoInterface);
+         TransformInfoObjectConfigAndManipulatorFactory.getInstance().getInstance(abeClientInformation, transformInfoInterface);
       
       this.setURIResolver(
          (URIResolver) new CustomUriResolver(

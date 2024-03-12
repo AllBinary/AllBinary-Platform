@@ -49,7 +49,7 @@ public class UpdateTaxValidationView extends ShippingAddressView implements Vali
       StoreFrontInterface storeFrontInterface = 
          StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName());
       
-      if(TaxFactory.getInstance(storeFrontInterface).isValid(this.streetAddress, storeFrontInterface) == Boolean.FALSE)
+      if(TaxFactory.getInstance(this.abeClientInformation, storeFrontInterface).isValid(this.streetAddress, storeFrontInterface) == Boolean.FALSE)
       {
          return Boolean.FALSE;
       }

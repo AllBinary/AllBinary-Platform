@@ -28,36 +28,45 @@ import org.allbinary.logic.visual.transform.template.util.TransformTemplateCusto
 import org.w3c.dom.Document;
 
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.RootTransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 
 public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectConfig
 {
+    protected final AbeClientInformationInterface abeClientInformation;
 
-    public GenericStoreTransformInfoObjectConfig(TransformInfoInterface transformInfoInterface) throws Exception
+    public GenericStoreTransformInfoObjectConfig(final AbeClientInformationInterface abeClientInformation, final TransformInfoInterface transformInfoInterface) throws Exception
     {
         super(transformInfoInterface);
         
+        this.abeClientInformation = abeClientInformation;
+
         //this.setDocument(this.generate(this.getDocument()));
     }
 
-    public GenericStoreTransformInfoObjectConfig(TransformInfoInterface transformInfoInterface, Document document) throws Exception
+    public GenericStoreTransformInfoObjectConfig(final AbeClientInformationInterface abeClientInformation, final TransformInfoInterface transformInfoInterface, final Document document) throws Exception
     {
         super(transformInfoInterface, document);
-                
+
+        this.abeClientInformation = abeClientInformation;
+
         this.setDocument(this.generate(this.toXmlDoc()));
     }
 
-    public GenericStoreTransformInfoObjectConfig(TransformInfoInterface transformInfoInterface, String name, String type) throws Exception
+    public GenericStoreTransformInfoObjectConfig(final AbeClientInformationInterface abeClientInformation, final TransformInfoInterface transformInfoInterface, final String name, final String type) throws Exception
     {
         super(transformInfoInterface, name, type);
+        
+        this.abeClientInformation = abeClientInformation;
+        
         this.setDocument(this.generate(this.toXmlDoc()));
     }
 
     //TWB - Hack when adding GAE support
     //"<?xml version="1.0" encoding="UTF-8" standalone="no"?><OBJECTCONFIG_NAME/>"
     //private final int HACK = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx".length();
-    protected Document generate(Document objectConfigDocument) throws Exception
+    protected Document generate(final Document objectConfigDocument) throws Exception
     {
         //final String docString = DomDocumentHelper.toString(objectConfigDocument);
 
@@ -93,30 +102,29 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         //TWB - GAE update - Should TransformInfo have store and should I create TransformInfoHttpStore instead?
         //TransformInfoHttpStore transformInfoHttpStoreInterface =
         //(TransformInfoHttpStore)
-        TransformInfoHttp transformInfoHttpStoreInterface =
+        final TransformInfoHttp transformInfoHttpStoreInterface =
             (TransformInfoHttp) this.getTransformInfoInterface();
 
-        String objectConfigDocumentString = DomDocumentHelper.toString(objectConfigDocument);
+        final String objectConfigDocumentString = DomDocumentHelper.toString(objectConfigDocument);
 
-        HashMap replaceHashMap = this.createReplaceHashMap(
-            transformInfoHttpStoreInterface,
-            objectConfigDocumentString);
+        final HashMap replaceHashMap = this.createReplaceHashMap(
+            transformInfoHttpStoreInterface, objectConfigDocumentString);
 
         return this.generate(objectConfigDocumentString, replaceHashMap);
     }
 
     private HashMap createReplaceHashMap(
-        TransformInfoHttp transformInfoHttpStoreInterface, 
-        String objectConfigDocumentString) throws Exception
+        
+        final TransformInfoHttp transformInfoHttpStoreInterface, 
+        final String objectConfigDocumentString) throws Exception
     {
         String storeName = transformInfoHttpStoreInterface.getStoreName();
         //String viewName = this.getTransformInfoInterface().getName();
                 
-        HashMap hashMap = this.createHashMap(
-            transformInfoHttpStoreInterface,
-            objectConfigDocumentString);
+        final HashMap hashMap = this.createHashMap(
+            transformInfoHttpStoreInterface, objectConfigDocumentString);
         
-        TransformInfoObjectConfigData transformInfoObjectConfigData = 
+        final TransformInfoObjectConfigData transformInfoObjectConfigData = 
         	TransformInfoObjectConfigData.getInstance();
         
         hashMap.put(transformInfoObjectConfigData.VARKEY + StoreFrontData.getInstance().NAME, storeName);
@@ -126,7 +134,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         //for customizer form object config - major hack should be in seperate class
         //created by objectconfigfactory or better yet use multiple objectconfig files
 
-        String pageName =
+        final String pageName =
             TransformTemplateCustomizerUtil.getInstance().getPageNameHack(
             		this.getTransformInfoInterface().getName(), storeName);
 
@@ -138,8 +146,9 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
     //Only add to hash map if needed
     //could cause infinite loop is templateNameKey is in root objectconfig
     private HashMap createHashMap(
-        TransformInfoHttp transformInfoHttpStoreInterface,
-        String objectConfigDocumentString)
+        
+        final TransformInfoHttp transformInfoHttpStoreInterface,
+        final String objectConfigDocumentString)
         throws Exception
     {
         HashMap hashMap = new HashMap();
@@ -172,10 +181,10 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         if (objectConfigDocumentString.indexOf(templateNameKey) != -1)
         {
             TransformTemplateInterface templateInterface =
-                TransformTemplateFactory.getInstance(
-                templateNameStringBuffer.toString(),
-                transformInfoHttpStoreInterface.getPropertiesHashMap(),
-                transformInfoHttpStoreInterface.getPageContext());
+                TransformTemplateFactory.getInstance(abeClientInformation,
+                    templateNameStringBuffer.toString(),
+                    transformInfoHttpStoreInterface.getPropertiesHashMap(),
+                    transformInfoHttpStoreInterface.getPageContext());
 
             String selectedTemplate = templateInterface.getName();
             hashMap.put(templateNameKey, selectedTemplate);

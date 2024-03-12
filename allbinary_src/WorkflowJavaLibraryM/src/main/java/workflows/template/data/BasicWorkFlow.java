@@ -28,9 +28,14 @@ import org.allbinary.logic.control.workflow.WorkFlowInterface;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.workflow.WorkFlowData;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class BasicWorkFlow implements WorkFlowInterface
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private ValidationComponentInterface validationDomNodeInterface;
    private HashMap propertiesHashMap;
    private PageContext pageContext;
@@ -46,7 +51,7 @@ public class BasicWorkFlow implements WorkFlowInterface
       this.pageContext = pageContext;
       
       this.validationDomNodeInterface = (ValidationComponentInterface)
-         TransformFactory.getInstance(propertiesHashMap, pageContext);
+         TransformFactory.getInstance(abeClientInformation, propertiesHashMap, pageContext);
    }
 
    public String getName() throws Exception

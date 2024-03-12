@@ -17,6 +17,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.loader.AbeFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.visual.transform.TransformInterface;
 
@@ -30,7 +31,8 @@ public class TransformInfoObjectFactory
     }
 
     public static TransformInterface getInstance(
-        TransformInfoInterface transformInfoInterface)
+        final AbeClientInformationInterface abeClientInformation,
+        final TransformInfoInterface transformInfoInterface)
         throws Exception
     {
         try
@@ -56,8 +58,8 @@ public class TransformInfoObjectFactory
             //Add arguments
             params[0] = (Object) transformInfoInterface;
 
-            TransformInterface object = (TransformInterface) AbeFactory.getInstance(
-                transformInfoInterface.getObjectFile(), classes, params);
+            final TransformInterface object = (TransformInterface) AbeFactory.getInstance(
+                abeClientInformation, transformInfoInterface.getObjectFile(), classes, params);
 
             if (object == null)
             {

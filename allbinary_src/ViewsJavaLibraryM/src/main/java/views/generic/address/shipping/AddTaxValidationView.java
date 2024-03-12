@@ -54,7 +54,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
 	    StoreFrontFactory.getInstance(
 	       this.getTransformInfoInterface().getStoreName());
 	 
-	 TaxModuleInterface taxInterface = TaxFactory.getInstance(storeFrontInterface);
+	 TaxModuleInterface taxInterface = TaxFactory.getInstance(this.abeClientInformation, storeFrontInterface);
 	 
 	 if(taxInterface == null)
 	 {
@@ -110,7 +110,7 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
 	 StoreFrontInterface storeFrontInterface =
 	    StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName());
 	 
-	 TaxModuleInterface taxInterface = TaxFactory.getInstance(storeFrontInterface);
+	 TaxModuleInterface taxInterface = TaxFactory.getInstance(this.abeClientInformation, storeFrontInterface);
 	 
 	 if(taxInterface == null)
 	 {
