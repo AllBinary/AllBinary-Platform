@@ -24,6 +24,7 @@ import org.allbinary.logic.java.object.ConstructorUtil;
 import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.system.security.AbKeys;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
         
 public class AbeFactory
@@ -36,7 +37,7 @@ public class AbeFactory
    {
    }
    
-   public synchronized static Object getInstance(String className) 
+   public synchronized static Object getInstance(final AbeClientInformationInterface abeClientInformation, final String className) 
       throws LicensingException
    {
       try
@@ -47,7 +48,7 @@ public class AbeFactory
          String key = abKeysInterface.getKey(className);
          */
           
-         return AbeFactory.getClass(className).newInstance();
+         return AbeFactory.getClass(abeClientInformation, className).newInstance();
       }
       catch (LicensingException e)
       {
@@ -68,7 +69,7 @@ public class AbeFactory
    }
    
    public synchronized static Object getInstance(
-      String className, Class classes[], Object params[]) 
+      final AbeClientInformationInterface abeClientInformation, String className, Class classes[], Object params[]) 
       throws LicensingException
    {
       Constructor constructor = null;
@@ -85,7 +86,7 @@ public class AbeFactory
 
          if(useCustomLoader)
          {
-            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getKey(className));
+            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getKey(abeClientInformation, className));
             Class myClass = loader.loadClass(className);
             constructor = myClass.getConstructor(classes);
             return constructor.newInstance(params);
@@ -223,7 +224,7 @@ public class AbeFactory
    }
      */
    
-   public synchronized static Class getClass(String className) 
+   public synchronized static Class getClass(final AbeClientInformationInterface abeClientInformation, final String className) 
       throws LicensingException
    {
       try
@@ -233,7 +234,7 @@ public class AbeFactory
          
          if(useCustomLoader)
          {
-            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getKey(className));
+            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getKey(abeClientInformation, className));
             Class c = loader.loadClass(className);
             return c;
          }

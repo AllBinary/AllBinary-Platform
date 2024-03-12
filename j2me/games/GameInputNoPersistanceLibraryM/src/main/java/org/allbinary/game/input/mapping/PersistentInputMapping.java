@@ -13,17 +13,19 @@
 */
 package org.allbinary.game.input.mapping;
 
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
+import java.util.Enumeration;
+import java.util.Hashtable;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputPersistance;
 import org.allbinary.game.input.mapping.event.InputMappingEvent;
 import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface;
-import java.util.Enumeration;
-import java.util.Hashtable;
 import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping
@@ -64,28 +66,28 @@ public class PersistentInputMapping
         return null;
     }
         
-    public void setDefault()
+    public void setDefault(final AbeClientInformationInterface abeClientInformation)
     //InputToGameKeyMapping inputToGameKeyMapping
     throws Exception
     {
         this.getInputMapping().removeAll();
         this.getInputMapping().add(this.getDefault());
         //this.save(inputToGameKeyMapping);
-        this.save();
+        this.save(abeClientInformation);
     }
 
-    public void update() throws Exception
+    public void update(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        this.inputPersistance.deleteAll();
-        this.save();
+        this.inputPersistance.deleteAll(abeClientInformation);
+        this.save(abeClientInformation);
     }
     
     private InputMappingEvent inputMappingEvent = new InputMappingEvent(this); 
-    public void save()
+    public void save(final AbeClientInformationInterface abeClientInformation)
     //InputToGameKeyMapping inputToGameKeyMapping
     throws Exception
     {
-        inputPersistance.save(this.getInputMapping().getHashtable());
+        inputPersistance.save(abeClientInformation, this.getInputMapping().getHashtable());
         //inputMappingEvent.setInputToGameKeyMapping(inputToGameKeyMapping);
         inputMappingEvent.setInputToGameKeyMapping(this.getInputMapping());
         if(this.getInputMappingEventListenerInterface() != null)
@@ -94,7 +96,7 @@ public class PersistentInputMapping
         }
     }
     
-    public void init() 
+    public void init(final AbeClientInformationInterface abeClientInformation) 
     throws Exception
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
@@ -102,16 +104,16 @@ public class PersistentInputMapping
         //This could happen if file is not deleted between versions and something changed
         try
         {
-            inputPersistance.loadAll();
+            inputPersistance.loadAll(abeClientInformation);
         }
         catch(Exception e)
         {
             //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
             PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-            inputPersistance.deleteAll();
-            this.setDefault();
+            inputPersistance.deleteAll(abeClientInformation);
+            this.setDefault(abeClientInformation);
             //this.setDefault((InputToGameKeyMapping) this);
-            inputPersistance.loadAll();
+            inputPersistance.loadAll(abeClientInformation);
         }
 
         BasicArrayList list = inputPersistance.getList();

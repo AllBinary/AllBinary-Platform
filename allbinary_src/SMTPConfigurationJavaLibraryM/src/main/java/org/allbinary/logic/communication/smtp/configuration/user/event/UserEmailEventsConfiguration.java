@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterf
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class UserEmailEventsConfiguration implements UserEmailEventsConfigurationInterface
 {
@@ -66,15 +67,16 @@ public class UserEmailEventsConfiguration implements UserEmailEventsConfiguratio
 
    //Retrieve the eventlistener associated with a named event
    public UserEmailEventListenerInterface getEventListener(
-      UserEmailEventNameData userEmailEventNameData, 
-      UserInterface userInterface)
-      throws Exception
+       final AbeClientInformationInterface abeClientInformation,
+       final UserEmailEventNameData userEmailEventNameData, 
+       final UserInterface userInterface)
+       throws Exception
    {
-      UserEmailEventConfigurationInterface userEmailEventConfigurationInterface = 
+      final UserEmailEventConfigurationInterface userEmailEventConfigurationInterface = 
          (UserEmailEventConfigurationInterface) 
             this.emailEventHashMap.get(userEmailEventNameData.toString());
 
-      return UserEmailEventListenerFactory.getInstance(
+      return UserEmailEventListenerFactory.getInstance(abeClientInformation,
          userEmailEventConfigurationInterface, userInterface);
    }
 }

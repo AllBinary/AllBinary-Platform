@@ -16,9 +16,15 @@ package tags;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.TagHelperFactoryInterface;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class HelperTag extends PropertiesTag
 {
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+    
    private TagHelperFactoryInterface tagHelperFactoryInterface;
    private Object object;
    
@@ -26,7 +32,7 @@ public class HelperTag extends PropertiesTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-    	  LogUtil.put(LogFactory.getInstance("Constructor", this, "HelperTag(TagHelperFactoryInterface)"));
+    	  LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "HelperTag(TagHelperFactoryInterface)"));
       }
 
       this.tagHelperFactoryInterface = tagHelperFactoryInterface;
@@ -45,7 +51,7 @@ public class HelperTag extends PropertiesTag
          
          
          this.object = tagHelperFactoryInterface.getInstance(
-         this.getPropertiesHashMap(), this.pageContext);
+             abeClientInformation, this.getPropertiesHashMap(), this.pageContext);
       }
    }
    

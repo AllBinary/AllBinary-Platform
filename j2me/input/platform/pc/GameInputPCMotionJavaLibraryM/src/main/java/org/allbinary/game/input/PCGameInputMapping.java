@@ -21,10 +21,11 @@ import org.allbinary.game.input.mapping.PersistentInputMapping;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.TrackballMotionGestureFactory;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class PCGameInputMapping extends PersistentInputMapping
 {
-    public void init()
+    public void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
         LogUtil.put(LogFactory.getInstance("Start", this, "init"));
@@ -35,12 +36,12 @@ public class PCGameInputMapping extends PersistentInputMapping
         //OrientationMotionGestureFactory.getInstance();
         BasicTouchInputFactory.getInstance();
 
-        super.init();
+        super.init(abeClientInformation);
 
         if(this.getTotalMapped() == 0 || this.isDefaultNew())
         {
             this.getInputMapping().add(this.getDefault());
-            this.save();
+            this.save(abeClientInformation);
         }
     }
 

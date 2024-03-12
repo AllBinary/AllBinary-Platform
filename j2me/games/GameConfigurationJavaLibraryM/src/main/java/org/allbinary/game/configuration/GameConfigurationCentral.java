@@ -25,6 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.persistance.GameConfigurationPersistanceSingleton;
 import org.allbinary.game.configuration.persistance.KeyValuePersistance;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class GameConfigurationCentral
 {
@@ -154,7 +155,7 @@ public class GameConfigurationCentral
                 smallIntegerSingletonFactory.getInstance(50));
     }
     
-    public void load()
+    public void load(final AbeClientInformationInterface abeClientInformation)
     {
         try
         {
@@ -164,7 +165,7 @@ public class GameConfigurationCentral
                 GameConfigurationPersistanceSingleton.getInstance();
 
             keyValuePersistance.clear();
-            keyValuePersistance.loadAll();
+            keyValuePersistance.loadAll(abeClientInformation);
 
             BasicArrayList list = keyValuePersistance.getIds();
 

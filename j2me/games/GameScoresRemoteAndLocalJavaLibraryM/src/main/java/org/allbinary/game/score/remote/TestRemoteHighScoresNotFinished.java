@@ -29,7 +29,7 @@ public class TestRemoteHighScoresNotFinished {
         //Globals.init(this.getClass().getClassLoader(), PATH);
 
         //new RemoteHighScores(
-           //SoftwareInformation softwareInformation, GameInfo gameInfo,
+           //SoftwareInformation abeClientInformation, GameInfo gameInfo,
            //String heading, String columnTwoHeading, Boolean ascending)
     }
     

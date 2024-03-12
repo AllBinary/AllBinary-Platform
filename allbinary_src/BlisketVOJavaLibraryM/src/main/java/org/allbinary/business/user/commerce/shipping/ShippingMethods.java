@@ -20,6 +20,7 @@ import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
 
 import java.util.Iterator;
 import java.util.Vector;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 
 public class ShippingMethods implements ShippingMethodsInterface
@@ -28,12 +29,12 @@ public class ShippingMethods implements ShippingMethodsInterface
 
    private ShippingInterface defaultShippingMethodInterface;
       
-   public ShippingMethods(StoreFrontInterface storeFrontInterface) throws Exception
+   public ShippingMethods(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
    {
       this.defaultShippingMethodInterface = 
-         new ShippingMethodsFactory(storeFrontInterface).getDefaultInstance();
+         new ShippingMethodsFactory(abeClientInformation, storeFrontInterface).getDefaultInstance();
       this.shippingVector =
-         new ShippingMethodsFactory(storeFrontInterface).getInstance();
+         new ShippingMethodsFactory(abeClientInformation, storeFrontInterface).getInstance();
    }
    
    public Vector get()

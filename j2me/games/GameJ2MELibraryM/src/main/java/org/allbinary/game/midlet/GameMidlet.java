@@ -102,6 +102,7 @@ import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
+import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.util.BasicArrayList;
 
 public class GameMidlet extends ProgressMidlet
@@ -128,6 +129,8 @@ public class GameMidlet extends ProgressMidlet
 
     private final DebugInterface debugInterface;
     
+    private final AbeClientInformationInterface abeClientInformation;
+    
     private GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface;
     private Thread thread;
 
@@ -139,10 +142,12 @@ public class GameMidlet extends ProgressMidlet
     
     //private GameOptionsForm gameOptionsForm;
 
-    public GameMidlet()
+    public GameMidlet(final AbeClientInformationInterface abeClientInformation)
     {
         //LogUtil.put(LogFactory.getInstance("GameMidlet::GameMidlet", this, commonStrings.CONSTRUCTOR));
 
+        this.abeClientInformation = abeClientInformation;
+        
         //For BB can be used for J2ME as well
         SmallIntegerSingletonFactory.getInstance().init(0x291, 6);
         //This can be used for J2ME but not BB
@@ -668,7 +673,7 @@ public class GameMidlet extends ProgressMidlet
                     GamePersistanceSingleton.getInstance();
                 
                 keyValuePersistance.clear();
-                keyValuePersistance.loadAll();
+                keyValuePersistance.loadAll(abeClientInformation);
 
                 if(this.getLoadGameForm() == null)
                 {
@@ -720,9 +725,9 @@ public class GameMidlet extends ProgressMidlet
                     final KeyValuePersistance keyValuePersistance = 
                         GamePersistanceSingleton.getInstance();
                     
-                    keyValuePersistance.delete(index);
+                    keyValuePersistance.delete(abeClientInformation, index);
                     keyValuePersistance.clear();
-                    keyValuePersistance.loadAll(1);
+                    keyValuePersistance.loadAll(abeClientInformation, 1);
                     this.getLoadGameForm().update();
                 }
             }
@@ -739,8 +744,7 @@ public class GameMidlet extends ProgressMidlet
                 
                 this.pauseAppBackground(false);
                 //String name = ((SaveGameForm) this.getSaveGameForm()).getText();
-                keyValuePersistance.save(
-                    this.getCurrentStateHashtable());
+                keyValuePersistance.save(abeClientInformation, this.getCurrentStateHashtable());
 
                 //this.setDisplay((Displayable) allbinaryGameCanvasRunnableInterface);
 
@@ -860,7 +864,7 @@ public class GameMidlet extends ProgressMidlet
     {
         //Paintable[] paintableArray = {this.getHelpPaintable()}; 
         //return new BasicPaintablesCanvas(this, this.createGameLayerManager(), paintableArray);
-        return new GameInputMappingCanvas(this, this.createGameLayerManager(), this.getHelpPaintable());
+        return new GameInputMappingCanvas(abeClientInformation, this, this.createGameLayerManager(), this.getHelpPaintable());
     }
 
     //You can override this with your own Canvas
@@ -988,8 +992,8 @@ public class GameMidlet extends ProgressMidlet
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "save"));
 
-        Hashtable hashtable = this.getCurrentStateHashtable();
-        GamePersistanceSingleton.getInstance().save(hashtable);
+        final Hashtable hashtable = this.getCurrentStateHashtable();
+        GamePersistanceSingleton.getInstance().save(abeClientInformation, hashtable);
     }
 
     public Hashtable getCurrentStateHashtable() throws Exception

@@ -18,9 +18,7 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.TextField;
 
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.game.GameInfo;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.os.OperatingSystemInterface;
 import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
@@ -33,6 +31,7 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class HighScoreTextBox extends CustomTextBox
 // BasicTextBox
@@ -47,14 +46,15 @@ public class HighScoreTextBox extends CustomTextBox
     
     private Paintable paintable = NullPaintable.getInstance();
 
-    public HighScoreTextBox(final CommandListener cmdListener, final String name,
-            final HighScores[] highScoresArray, final HighScore highScore,
-            final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
+    public HighScoreTextBox(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
+        final CommandListener cmdListener, final String name,
+        final HighScores[] highScoresArray, final HighScore highScore,
+        final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
     {
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, 
                 backgrounBasicColor, foregroundBasicColor);
 
-        highScoreUtil = new HighScoreUtil(cmdListener, name, highScoresArray, highScore);
+        highScoreUtil = new HighScoreUtil(abeClientInformation, gameInfo, cmdListener, name, highScoresArray, highScore);
         
         //LogUtil.put(LogFactory.getInstance("Score: ").append(score, this, "compare"));
 

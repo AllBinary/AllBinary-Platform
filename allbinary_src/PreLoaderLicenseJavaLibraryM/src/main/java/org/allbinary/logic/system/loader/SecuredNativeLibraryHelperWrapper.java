@@ -14,6 +14,7 @@
 package org.allbinary.logic.system.loader;
 
 import org.allbinary.logic.system.security.AbKeys;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class SecuredNativeLibraryHelperWrapper extends NativeLibraryHelperWrapper
@@ -21,17 +22,17 @@ public class SecuredNativeLibraryHelperWrapper extends NativeLibraryHelperWrappe
     private SecuredNativeLibraryInterface securedNativeLibraryInterface;
     
     public SecuredNativeLibraryHelperWrapper(
-        SecuredNativeLibraryInterface securedNativeLibraryInterface)
+        final SecuredNativeLibraryInterface securedNativeLibraryInterface)
     {
         super(securedNativeLibraryInterface.getLibraryName());
         this.securedNativeLibraryInterface = securedNativeLibraryInterface;
     }
     
-    public boolean unlock()
+    public boolean unlock(final AbeClientInformationInterface abeClientInformation)
     throws LicensingException
     {
         return securedNativeLibraryInterface.unlock(
-            AbKeys.getKey(securedNativeLibraryInterface.getName()));
+            AbKeys.getKey(abeClientInformation, securedNativeLibraryInterface.getName()));
     }
     
 }

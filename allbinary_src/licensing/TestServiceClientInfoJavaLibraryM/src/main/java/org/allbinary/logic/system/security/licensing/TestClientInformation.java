@@ -10,16 +10,14 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.AbeClientInformation;
 
-public class AbeClientInformationInterfaceFactory {
+public class TestClientInformation extends AbeClientInformation {
 
-	public static AbeClientInformationInterface getInstance()
-	throws Exception
-	{
-		return new TestClientInformation();
-	}
+    public TestClientInformation() {
+        super("Test App Name", "0.0.1", "Test App Name 0.0.1", "TA");
+    }
 }

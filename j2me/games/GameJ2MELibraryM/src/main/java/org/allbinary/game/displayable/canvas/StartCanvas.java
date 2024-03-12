@@ -92,6 +92,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.thread.SecondaryThreadPool;
@@ -148,12 +149,14 @@ public class StartCanvas extends RunnableCanvas
     
     private GameRunnable gameRunnable = NullGameRunnable.getInstance();
     
-    public StartCanvas(CommandListener commandListener,
-        HighScoresFactoryInterface highScoresFactoryInterface,
-        Paintable paintable,
-        InitUpdatePaintable overlayPaintable,
-        BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
-        boolean isContinue)
+    public StartCanvas(
+        final AbeClientInformationInterface abeClientInformation,
+        final CommandListener commandListener,
+        final HighScoresFactoryInterface highScoresFactoryInterface,
+        final Paintable paintable,
+        final InitUpdatePaintable overlayPaintable,
+        final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
+        final boolean isContinue)
         throws Exception
     {
         super(commandListener);
@@ -165,6 +168,7 @@ public class StartCanvas extends RunnableCanvas
             gameInitializationInterfaceFactoryInterface;
 
         GameInitializationUtil.getInstance().initDemo(
+            abeClientInformation,
             this, gameInitializationInterfaceFactoryInterface);
 
         ResizableListenerHandler.getInstance().fireEvent(false);

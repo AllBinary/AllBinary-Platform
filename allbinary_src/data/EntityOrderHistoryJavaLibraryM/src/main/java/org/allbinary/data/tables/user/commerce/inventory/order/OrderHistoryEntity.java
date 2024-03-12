@@ -49,9 +49,10 @@ import org.allbinary.data.tables.TableDataFactory;
 import org.allbinary.data.tables.user.address.billing.BillingAddressesEntity;
 import org.allbinary.data.tables.user.address.shipping.ShippingAddressesEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
-import org.allbinary.data.generator.UniqueIdGenerator;
 import org.allbinary.logic.communication.sql.AbSqlBean;
 import org.allbinary.logic.control.crypt.SuperCrypt;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityInterface
 {
@@ -65,27 +66,27 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
     public void insert(String userName, Order order)
     {
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         try
         {
-            PaymentInterface paymentInterface = new PaymentEntity().getDefault(userName);
-            StreetAddress billingAddress = new BillingAddressesEntity(userName).getDefault();
-            StreetAddress shippingAddress = new ShippingAddressesEntity(userName).getDefault();
+            final PaymentInterface paymentInterface = new PaymentEntity().getDefault(userName);
+            final StreetAddress billingAddress = new BillingAddressesEntity(userName).getDefault();
+            final StreetAddress shippingAddress = new ShippingAddressesEntity(userName).getDefault();
 
-            StoreFrontInterface storeFrontInterface =
-                StoreFrontFactory.getInstance(order.getStoreName());
+            final AbeClientInformationInterface abeClientInformation = ServiceClientInformationInterfaceFactory.getInstance();
+            final StoreFrontInterface storeFrontInterface = StoreFrontFactory.getInstance(order.getStoreName());
 
-            ShippingInterface shippingInterface = new ShippingMethods(storeFrontInterface).getShippingInterface(order.getShippingMethod());
+            final ShippingInterface shippingInterface = new ShippingMethods(abeClientInformation, storeFrontInterface).getShippingInterface(order.getShippingMethod());
 
-            Money shippingCost = shippingInterface.getCost(order);
+            final Money shippingCost = shippingInterface.getCost(order);
 
-            BasketInterface basketInterface = order.getBasket();
+            final BasketInterface basketInterface = order.getBasket();
 
-            Money subTotal = basketInterface.getSubTotal();
+            final Money subTotal = basketInterface.getSubTotal();
 
-            Float taxRate = TaxFactory.getInstance(storeFrontInterface).getTaxRate(shippingAddress, storeFrontInterface);
-            Money tax = new Money();
-            Money total = new Money();
+            final Float taxRate = TaxFactory.getInstance(abeClientInformation, storeFrontInterface).getTaxRate(shippingAddress, storeFrontInterface);
+            final Money tax = new Money();
+            final Money total = new Money();
 
             total.add(shippingCost.toString());
             total.add(subTotal.toString());

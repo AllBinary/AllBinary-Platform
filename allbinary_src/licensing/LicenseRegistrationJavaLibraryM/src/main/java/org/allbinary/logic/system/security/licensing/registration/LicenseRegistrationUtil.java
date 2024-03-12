@@ -18,7 +18,6 @@ import java.util.Hashtable;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
 import org.allbinary.canvas.SpecialMessageUtil;
 import org.allbinary.logic.string.CommonLabels;
 
@@ -28,7 +27,7 @@ public class LicenseRegistrationUtil
     {
     }
 
-    public synchronized static void process(String registrationId)
+    public synchronized static void process(final AbeClientInformationInterface abeClientInformation, final String registrationId)
     {
         try
         {
@@ -37,11 +36,7 @@ public class LicenseRegistrationUtil
             RegistrationConfiguration.getInstance().setRegistrationCode(registrationId);
             RegistrationConfiguration.getInstance().write();
 
-            // System.out.println(message);
-            AbeClientInformationInterface abeClientInformation = 
-                AbeClientInformationInterfaceFactory.getInstance();
-
-            Hashtable hashtable = abeClientInformation.toHashtable();
+            final Hashtable hashtable = abeClientInformation.toHashtable();
 
             hashtable.put(RegistrationConfiguration.getInstance().NAME, registrationId);
             hashtable.put("message", SpecialMessageUtil.getInstance().get());

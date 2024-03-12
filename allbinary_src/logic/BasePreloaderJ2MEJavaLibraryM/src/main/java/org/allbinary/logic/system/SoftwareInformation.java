@@ -18,18 +18,15 @@ import org.allbinary.logic.string.StringMaker;
 
 public class SoftwareInformation
 {
-    private String name;
-    private String version;
+    private final String name;
+    private final String shortName;
+    private final String version;
     
-    public SoftwareInformation(String name, String version)
-    {
-        this.setName(name);
-        this.setVersion(version);
-    }
-    
-    private void setName(String name)
+    public SoftwareInformation(final String name, final String version, final String shortName)
     {
         this.name = name;
+        this.version = version;
+        this.shortName = shortName;
     }
     
     public String getName()
@@ -37,16 +34,15 @@ public class SoftwareInformation
         return name;
     }
 
-    private void setVersion(String version)
-    {
-        this.version = version;
-    }
-
     public String getVersion()
     {
         return version;
     }
 
+    public String toShortString() {
+        return this.shortName;
+    }
+    
     public String toString()
     {
         final String NAME = "Name: ";

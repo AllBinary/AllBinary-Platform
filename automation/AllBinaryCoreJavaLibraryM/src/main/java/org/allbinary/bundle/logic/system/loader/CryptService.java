@@ -27,6 +27,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.gui.dialog.BasicTextJDialog;
 import org.allbinary.gui.dialog.ExitCloseListener;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class CryptService
 {
@@ -39,11 +40,11 @@ public class CryptService
       LogUtil.put(LogFactory.getInstance("Set Globals: " + URLGLOBALS.getWebappPath(), this, "Constructor"));
    }
 
-   public InputStream getDecryptedInputStream(String name, InputStream inputStream)
+   public InputStream getDecryptedInputStream(final AbeClientInformationInterface abeClientInformation, final String name, final InputStream inputStream)
    {
       try
       {
-         final String key = AbKeys.getKey(name);
+         final String key = AbKeys.getKey(abeClientInformation, name);
 
          final byte[] decrypted = this.abCryptUtil.decrypt(inputStream, key);
 
@@ -59,15 +60,15 @@ public class CryptService
          return new ByteArrayInputStream(decrypted);
       } catch (LicensingException e)
       {
-         this.showLicenseDialog(e);
+         this.showLicenseDialog(abeClientInformation, e);
       } catch (Exception e)
       {
-         this.showLicenseDialog(e);
+         this.showLicenseDialog(abeClientInformation, e);
       }
       return null;
    }
 
-   private void showLicenseDialog(Exception e)
+   private void showLicenseDialog(final AbeClientInformationInterface abeClientInformation, final Exception e)
    {
       try
       {
@@ -79,7 +80,7 @@ public class CryptService
 
          try
          {
-            final AbeLicenseInterface abeLicenseInterface = AbeLicenseInterfaceFactory.getInstance().getLicenseInstance();
+            final AbeLicenseInterface abeLicenseInterface = AbeLicenseInterfaceFactory.getInstance().getLicenseInstance(abeClientInformation);
 
             if (abeLicenseInterface != AbeNoLicense.getInstance())
             {

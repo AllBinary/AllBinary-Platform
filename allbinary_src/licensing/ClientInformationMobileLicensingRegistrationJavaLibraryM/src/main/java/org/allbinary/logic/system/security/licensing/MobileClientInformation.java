@@ -29,14 +29,15 @@ public class MobileClientInformation
     protected static final String DESC = "Mobile";
     protected static final String ANDROID_DESC = "Android" + DESC;
 
-    public MobileClientInformation(String name, String version, String specialName)
+    public MobileClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
         super(name, version, 
                 new StringMaker().append(specialName).
                 append(CommonSeps.getInstance().SPACE).
-                append(PartnerIdentifierFileUtil.getInstance().get()).toString());
+                append(PartnerIdentifierFileUtil.getInstance().get()).toString(),
+                shortName);
 
-        String number = this.getSpecialName().substring(this.getSpecialName().length() - 1);
+        final String number = this.getSpecialName().substring(this.getSpecialName().length() - 1);
 
         if(Integer.getInteger(number) == null)
         //if(this.getSpecialName().endsWith("nhs"))
@@ -57,9 +58,9 @@ public class MobileClientInformation
     
     public Hashtable toHashtable()
     {
-        Hashtable hashtable = super.toHashtable();
+        final Hashtable hashtable = super.toHashtable();
         
-        RegistrationConfiguration registrationConfiguration = RegistrationConfiguration.getInstance();
+        final RegistrationConfiguration registrationConfiguration = RegistrationConfiguration.getInstance();
         
         hashtable.put(registrationConfiguration.NAME, registrationConfiguration.getRegistrationCode());
         

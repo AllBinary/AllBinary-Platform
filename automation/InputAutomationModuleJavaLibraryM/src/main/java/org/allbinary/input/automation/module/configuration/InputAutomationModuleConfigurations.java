@@ -27,12 +27,13 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.NewInputAutomationModulesData;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class InputAutomationModuleConfigurations
 {
     private HashMap hashMap;
         
-    public InputAutomationModuleConfigurations(File file)
+    public InputAutomationModuleConfigurations(final AbeClientInformationInterface abeClientInformation, final File file)
         throws Exception
     {
         this.setHashMap(new HashMap());
@@ -55,12 +56,12 @@ public class InputAutomationModuleConfigurations
             for(int index = 0; index < nameNodeList.getLength(); index++)
             {
                 final Node node = nameNodeList.item(index);
-                this.add(new InputAutomationModuleConfiguration(node));
+                this.add(new InputAutomationModuleConfiguration(abeClientInformation, node));
             }
         }
     }
 
-    public InputAutomationModuleConfigurations(final Document document)
+    public InputAutomationModuleConfigurations(final AbeClientInformationInterface abeClientInformation, final Document document)
         throws Exception
     {
         this.setHashMap(new HashMap());
@@ -71,7 +72,7 @@ public class InputAutomationModuleConfigurations
         for(int index = 0; index < nameNodeList.getLength(); index++)
         {
             Node node = nameNodeList.item(index);
-            this.add(new InputAutomationModuleConfiguration(node));
+            this.add(new InputAutomationModuleConfiguration(abeClientInformation, node));
         }
     }
 

@@ -26,9 +26,9 @@ implements LongArrayIdentifierInterface
     private final long[] longArrayIdentifier;
 
     public StoreAppClientInformation(
-        String name, String version, String specialName, long[] longArrayIdentifier)
+        final String name, final String version, final String specialName, final String shortName, long[] longArrayIdentifier)
     {
-        super(name, version, specialName);
+        super(name, version, specialName, shortName);
 
         this.longArrayIdentifier = longArrayIdentifier;
     }

@@ -40,12 +40,12 @@ public class AbeLicenseInterfaceFactory
         return SINGLETON;
     }
 
-    public AbeLicenseInterface getLicenseInstance()
+    public AbeLicenseInterface getLicenseInstance(final AbeClientInformationInterface abeClientInformation)
     throws LicensingException
     {
         if(isTimeToGetKey())
         {
-            return get();
+            return get(abeClientInformation);
         }
         else
         {
@@ -53,7 +53,7 @@ public class AbeLicenseInterfaceFactory
         }
     }
     
-    private AbeLicenseInterface get()
+    private AbeLicenseInterface get(final AbeClientInformationInterface abeClientInformation)
     throws LicensingException
     {
         try
@@ -65,7 +65,7 @@ public class AbeLicenseInterfaceFactory
             
             abeLicenseInterface = AbeNoLicense.getInstance();
             AbeLicenseClient licenseClient = new AbeLicenseClient();
-            abeLicenseInterface = licenseClient.get();
+            abeLicenseInterface = licenseClient.get(abeClientInformation);
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{

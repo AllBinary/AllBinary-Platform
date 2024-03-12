@@ -19,21 +19,22 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class J2MEGameInputMapping extends PersistentInputMapping
 {
-    public void init() throws Exception
+    public void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
 
         J2MEKeyFactory.getInstance().init();
 
-        super.init();
+        super.init(abeClientInformation);
 
         if(this.getTotalMapped() == 0 || this.isDefaultNew())
         {
             this.getInputMapping().add(this.getDefault());
-            this.save();
+            this.save(abeClientInformation);
         }
     }
 

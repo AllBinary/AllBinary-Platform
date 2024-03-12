@@ -14,8 +14,9 @@
 package org.allbinary.game.score.remote;
 
 import org.allbinary.game.score.HighScore;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public interface RemoteHighScoresSubmissionProcessorInterface
 {
-    void process(RemoteHighScores remoteHighScores, HighScore highScore);
+    void process(RemoteHighScores remoteHighScores, final AbeClientInformationInterface abeClientInformation, HighScore highScore);
 }

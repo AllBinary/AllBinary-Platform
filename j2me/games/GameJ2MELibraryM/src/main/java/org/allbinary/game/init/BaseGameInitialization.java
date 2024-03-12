@@ -31,6 +31,7 @@ import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.input.motion.CompleteMotionGestureInputToGameMotionGestureInput;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class BaseGameInitialization implements GameInitializationInterface
 {
@@ -45,7 +46,7 @@ public class BaseGameInitialization implements GameInitializationInterface
     protected final int EARLY_CHANGABLE_RESOURCES = 2;
     protected final int GAME_CHANGABLE_RESOURCES = 3;
     
-    public BaseGameInitialization(ResourceInitialization[] resourceInitializationArray, int portion)
+    public BaseGameInitialization(final ResourceInitialization[] resourceInitializationArray, final int portion)
     {
         this.resourceInitializationArray = resourceInitializationArray;
         this.portion = portion;
@@ -54,23 +55,23 @@ public class BaseGameInitialization implements GameInitializationInterface
     public void initKey(int portion) throws Exception
     {
     }
-
-    protected void initKeyMapping(int portion) throws Exception
+    
+    protected void initKeyMapping(final AbeClientInformationInterface abeClientInformation, int portion) throws Exception
     {
         if (ChangedGameFeatureListener.getInstance().isChanged(
                 InputFeatureFactory.getInstance().INPUT_MAPPING))
         {
-            PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().init();
+            PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().init(abeClientInformation);
             ProgressCanvasFactory.getInstance().addPortion(50, "Game Keys");
             ChangedGameFeatureListener.getInstance().remove(
                     InputFeatureFactory.getInstance().INPUT_MAPPING);
         }
     }
 
-    public void init(CommandListener commandListener, int level) 
+    public void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) 
         throws Exception
-    {
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
+    {        
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
             ResourceLoadingLevelFactory.getInstance();
         
         if (!this.isInitialized() && 
@@ -89,7 +90,7 @@ public class BaseGameInitialization implements GameInitializationInterface
 
             this.initKey(getPortion());
 
-            this.initKeyMapping(getPortion());
+            this.initKeyMapping(abeClientInformation, getPortion());
 
             GameKeyEventFactory.getInstance().init();
 

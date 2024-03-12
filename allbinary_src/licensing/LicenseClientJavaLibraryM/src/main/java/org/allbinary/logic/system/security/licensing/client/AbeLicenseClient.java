@@ -24,7 +24,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterface;
 
 public class AbeLicenseClient
@@ -36,7 +35,7 @@ public class AbeLicenseClient
       
    }
     
-   public synchronized AbeLicenseInterface get() throws Exception
+   public synchronized AbeLicenseInterface get(final AbeClientInformationInterface abeClientInformation) throws Exception
    {
       try
       {
@@ -45,18 +44,16 @@ public class AbeLicenseClient
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,CommonStrings.getInstance().GET));
          //}
 
-         AbeClientInformationInterface abeClientInformation = 
-        	 AbeClientInformationInterfaceFactory.getInstance();
-         XmlRpcAbeClient xmlRpcAbeLicenseClient =
+         final XmlRpcAbeClient xmlRpcAbeLicenseClient =
              new XmlRpcAbeLicenseRetrievalClient(abeClientInformation);
          
-         AbeLicenseInterface abeLicenseInterface = (AbeLicenseInterface) xmlRpcAbeLicenseClient.get(null);
+         final AbeLicenseInterface abeLicenseInterface = (AbeLicenseInterface) xmlRpcAbeLicenseClient.get(null);
          
          //Save license id and server list to file
          //
          
-         String licenseId = abeLicenseInterface.getLicenseId();
-         BasicArrayList servers = abeLicenseInterface.getServers();
+         final String licenseId = abeLicenseInterface.getLicenseId();
+         final BasicArrayList servers = abeLicenseInterface.getServers();
          
          boolean isNewLicenseId = false;
          boolean isBetterServerList = false;
@@ -76,7 +73,7 @@ public class AbeLicenseClient
          
          if(isBetterServerList || isNewLicenseId)
          {
-            LicenseInitInfo initInfo = 
+            final LicenseInitInfo initInfo = 
                 LicenseInitInfoUtil.getInstance().read();
             initInfo.setLicenseId(licenseId);
             initInfo.setServerList(servers);

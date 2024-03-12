@@ -27,6 +27,7 @@ import admin.taghelpers.CustomLoaderHelperFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class CustomLoaderTag extends TagSupport
 {
@@ -53,9 +54,8 @@ public class CustomLoaderTag extends TagSupport
    {
       try
       {
-         Object object = 
-            new CustomLoaderHelperFactory().getInstance(
-               this.propertiesHashMap, pageContext);
+         Object object = new CustomLoaderHelperFactory().getInstance(
+             ServiceClientInformationInterfaceFactory.getInstance(),this.propertiesHashMap, pageContext);
             
          Class helperClass = object.getClass();
          

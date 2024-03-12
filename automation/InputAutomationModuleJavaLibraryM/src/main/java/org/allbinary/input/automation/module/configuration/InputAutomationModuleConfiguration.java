@@ -34,6 +34,7 @@ import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="INPUT_AUTOMATION_MODULE")
@@ -50,19 +51,19 @@ public class InputAutomationModuleConfiguration
     public InputAutomationModuleConfiguration() throws Exception {
     }
 
-    public InputAutomationModuleConfiguration(final Node node)
+    public InputAutomationModuleConfiguration(final AbeClientInformationInterface abeClientInformation, final Node node)
         throws Exception
     {
-        this.init(node);
+        this.init(abeClientInformation, node);
     }
     
-    public InputAutomationModuleConfiguration(final String name, final String className)
+    public InputAutomationModuleConfiguration(final AbeClientInformationInterface abeClientInformation, final String name, final String className)
     throws Exception
     {
         this.setName(name);
         this.setClassName(className);
         
-        this.init();
+        this.init(abeClientInformation);
     }
 
     public InputAutomationModuleConfiguration(
@@ -73,7 +74,7 @@ public class InputAutomationModuleConfiguration
         this.setClassName(this.inputAutomationModuleInterface.getClass().getName());
     }
                 
-    public void init(Node node)
+    public void init(final AbeClientInformationInterface abeClientInformation, final Node node)
     throws Exception
     {
         NodeList nodeList = node.getChildNodes();
@@ -94,7 +95,7 @@ public class InputAutomationModuleConfiguration
                     jarEntry.getAttributes().
                                      */
                 
-                this.init();
+                this.init(abeClientInformation);
                 
             }
             else
@@ -108,14 +109,14 @@ public class InputAutomationModuleConfiguration
         }
     }
     
-    public void init()
+    public void init(final AbeClientInformationInterface abeClientInformation)
     {
         try {
             LogUtil.put(LogFactory.getInstance("Name: " + getName(), this, "init"));
             LogUtil.put(LogFactory.getInstance("ClassName: " + className, this, "init"));
 
             this.setInputAutomationModuleInterface(
-                    (InputAutomationModuleFactoryInterface) AbeFactory.getInstance(getClassName()));
+                    (InputAutomationModuleFactoryInterface) AbeFactory.getInstance(abeClientInformation, getClassName()));
 
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "init", e));

@@ -32,6 +32,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class InputPersistance extends BasicPersitance
 {
@@ -40,7 +41,7 @@ public class InputPersistance extends BasicPersitance
         super(name);
     }
 
-    public void loadAll() throws Exception
+    public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         RecordStore recordStore = RecordStore.openRecordStore(
                 this.getRecordStoreName(), true);
@@ -135,7 +136,7 @@ public class InputPersistance extends BasicPersitance
         recordStore.closeRecordStore();
     }
 
-    public void save(Hashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
         //PreLogUtil.put("Saving: ").append(hashtable, this, "save");
         //LogUtil.put(LogFactory

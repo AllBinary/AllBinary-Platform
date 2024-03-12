@@ -27,10 +27,15 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.SqlStrings;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 
 public class TableTag extends PropertiesTag
 //implements TableInterface
 {   
+    private final AbeClientInformationInterface abeClientInformation = 
+        ServiceClientInformationInterfaceFactory.getInstance();
+        
     private String enabled;
     private TagHelperFactoryInterface tagHelperFactoryInterface;
     private TagHelperFactoryInterface tagRequestHelperFactoryInterface;
@@ -116,7 +121,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                this.getPropertiesHashMap(), pageContext);
+                abeClientInformation, this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("drop", null);
@@ -141,7 +146,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                this.getPropertiesHashMap(), pageContext);
+                abeClientInformation, this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("create", null);
@@ -166,7 +171,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                this.getPropertiesHashMap(), pageContext);
+                abeClientInformation, this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("restore", null);
@@ -191,7 +196,7 @@ public class TableTag extends PropertiesTag
         try
         {
             final Object object = getTagHelperFactoryInterface().getInstance(
-                this.getPropertiesHashMap(), pageContext);
+                abeClientInformation, this.getPropertiesHashMap(), pageContext);
 
             Class addressHelperClass = object.getClass();
             Method method = addressHelperClass.getMethod("backup", null);
@@ -383,7 +388,7 @@ public class TableTag extends PropertiesTag
                             this.getCommand().compareTo(SqlStrings.getInstance().UPDATE)==0)
                     {
                         this.requestObject = getTagRequestHelperFactoryInterface().getInstance(
-                            this.getPropertiesHashMap(), pageContext);
+                            abeClientInformation, this.getPropertiesHashMap(), pageContext);
                     }
 
                     if (this.getCommand().compareTo(commonStrings.INSERT) == 0 || 

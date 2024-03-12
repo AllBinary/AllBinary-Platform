@@ -14,12 +14,14 @@
 package org.allbinary.game.configuration.persistance;
 
 import javax.microedition.rms.RecordStore;
+
 import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class BasicPersitance
 {
@@ -28,25 +30,25 @@ public class BasicPersitance
     private BasicArrayList list = new BasicArrayList();
     private BasicArrayList nameBasicArrayList = new BasicArrayList();
     
-    protected BasicPersitance(String recordId)
+    protected BasicPersitance(final String recordId)
     {
         this.recordStoreName = recordId;
     }
 
     //Load all needs to be called already
-    public void deleteAll() throws Exception
+    public void deleteAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         int size = nameBasicArrayList.size();
         for(int index = 0; index < size; index++)
         {
             Integer integer = (Integer) this.nameBasicArrayList.objectArray[index];
-            this.delete(integer.intValue());
+            this.delete(abeClientInformation, integer.intValue());
         }
         
         this.clear();
     }
     
-    public void delete(int deleteId) throws Exception
+    public void delete(final AbeClientInformationInterface abeClientInformation, final int deleteId) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
         

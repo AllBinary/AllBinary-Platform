@@ -37,6 +37,7 @@ import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.paint.help.HelpPaintable;
 import org.allbinary.game.paint.help.InputMappingHelpPaintable;
 import org.allbinary.graphics.paint.ProcessPaintable;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class GameInputMappingCanvas extends GameCommandCanvas
 implements InputMappingInterface
@@ -58,12 +59,15 @@ implements InputMappingInterface
 
     private final GameKey NONE = GameKeyFactory.getInstance().NONE;
     
+    private final AbeClientInformationInterface abeClientInformation;
+    
     private GameKey selectedGameKey = NONE;
     private Input selectedInput = NONE;
     
-    public GameInputMappingCanvas(CommandListener commandListener,
-            AllBinaryGameLayerManager allBinaryGameLayerManager,
-            HelpPaintable helpPaintable) throws Exception
+    public GameInputMappingCanvas(final AbeClientInformationInterface abeClientInformation,
+        final CommandListener commandListener,
+        final AllBinaryGameLayerManager allBinaryGameLayerManager,
+        final HelpPaintable helpPaintable) throws Exception
     {
         super(commandListener,
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
@@ -75,6 +79,8 @@ implements InputMappingInterface
         {
         	throw new Exception("Help Paintable Exception");
         }
+    
+        this.abeClientInformation = abeClientInformation;
         
         this.helpPaintable = (InputMappingHelpPaintable) helpPaintable;
         
@@ -166,9 +172,9 @@ implements InputMappingInterface
         }
     }
     
-    public void process(GameKey gameKey, Input input) throws Exception
+    public void process(final GameKey gameKey, final Input input) throws Exception
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Start Passed GameKey: ");
         stringBuffer.append(gameKey);
@@ -197,7 +203,7 @@ implements InputMappingInterface
         this.repaint();
     }
 
-    private void gameActionCrud(GameKey gameKey, Input input) throws Exception
+    private void gameActionCrud(final GameKey gameKey, final Input input) throws Exception
     {
         StringMaker stringBuffer = new StringMaker();
         
@@ -241,7 +247,7 @@ implements InputMappingInterface
         }
     }
 
-    private void addNewMapping(GameKey gameKey, Input input) throws Exception
+    private void addNewMapping(final GameKey gameKey, final Input input) throws Exception
     {
         final String METHOD_NAME = "addNewMapping";
             
@@ -304,7 +310,7 @@ implements InputMappingInterface
     
     public void setDefault() throws Exception
     {
-        inputMapping.setDefault();
+        inputMapping.setDefault(abeClientInformation);
                 //(InputToGameKeyMapping) PlatformInputMappingFactory.getInstance());
         this.helpPaintable.update(NONE, NONE);
         this.repaint();
@@ -312,7 +318,7 @@ implements InputMappingInterface
     
     public void update() throws Exception
     {
-        inputMapping.update();
+        inputMapping.update(abeClientInformation);
                 //(InputToGameKeyMapping) PlatformInputMappingFactory.getInstance());
         this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
         this.repaint();

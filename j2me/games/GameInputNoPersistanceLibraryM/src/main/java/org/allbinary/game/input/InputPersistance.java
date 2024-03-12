@@ -13,15 +13,18 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.game.configuration.persistance.BasicPersitance;
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import java.util.Hashtable;
+
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
+
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
@@ -32,7 +35,7 @@ public class InputPersistance extends BasicPersitance
         super(name);
     }
 
-    public void loadAll() throws Exception
+    public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         RecordStore recordStore = RecordStore.openRecordStore(
                 this.getRecordStoreName(), true);
@@ -135,7 +138,7 @@ public class InputPersistance extends BasicPersitance
         recordStore.closeRecordStore();
     }
 
-    public void save(Hashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
         //PreLogUtil.put("Saving: ").append(hashtable, this, "save");
         //LogUtil.put(LogFactory

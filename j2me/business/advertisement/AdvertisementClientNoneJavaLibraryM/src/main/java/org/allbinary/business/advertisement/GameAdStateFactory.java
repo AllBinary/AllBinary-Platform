@@ -1,7 +1,7 @@
 package org.allbinary.business.advertisement;
 
 import org.allbinary.game.GameAdState;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class GameAdStateFactory
 {
@@ -23,10 +23,10 @@ public class GameAdStateFactory
         return this.gameAdState;
     }
     
-    public GameAdState getInstance(SoftwareInformation softwareInformation)
+    public GameAdState getInstance(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
-        //if(softwareInformation == TestSoftwareInfo.getInstance())
+        //if(abeClientInformation == TestSoftwareInfo.getInstance())
         //{
             this.gameAdState = gameAdStateArray[0];
             
@@ -34,7 +34,7 @@ public class GameAdStateFactory
         //}
         //else
         //{
-          //  throw new Exception("No Such Ad Configuration: " + softwareInformation);
+          //  throw new Exception("No Such Ad Configuration: " + abeClientInformation);
         //}
     }
     

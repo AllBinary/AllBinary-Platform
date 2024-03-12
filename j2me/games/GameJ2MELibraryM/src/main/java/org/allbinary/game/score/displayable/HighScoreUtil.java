@@ -15,6 +15,7 @@ package org.allbinary.game.score.displayable;
 
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
+import org.allbinary.game.GameInfo;
 
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -24,6 +25,7 @@ import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class HighScoreUtil
 {
@@ -35,16 +37,21 @@ public class HighScoreUtil
     private final HighScores[] highScoresArray;
     private final HighScore highScore;
 
-    public HighScoreUtil(final CommandListener cmdListener, final String name,
+    private final AbeClientInformationInterface abeClientInformation;
+    private final GameInfo gameInfo;
+    
+    public HighScoreUtil(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final CommandListener cmdListener, final String name,
             final HighScores[] highScoresArray, final HighScore highScore) throws Exception
     {
         this.highScoresArray = highScoresArray;
         this.highScore = highScore;
+        this.abeClientInformation = abeClientInformation;
+        this.gameInfo = gameInfo;
     }
 
     public void update(final String name)
     {
-        HighScoreNamePersistanceSingleton.getInstance().save(name);
+        HighScoreNamePersistanceSingleton.getInstance().save(abeClientInformation, gameInfo, name);
         this.highScore.setName(name);
     }
 

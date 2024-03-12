@@ -18,18 +18,19 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.InitDbHelperFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 //Warning you must have sql root access
 public class DynamicInitDb extends InitDb
 {
    
-   public DynamicInitDb() throws LicensingException
+   public DynamicInitDb(final AbeClientInformationInterface abeClientInformation) throws LicensingException
    {
-      this.setHelper(InitDbHelperFactory.getInstance());
+      this.setHelper(InitDbHelperFactory.getInstance(abeClientInformation));
    }
    
-   public DynamicInitDb(DatabaseConnectionInfoInterface databaseConnectionInfoInterface) throws LicensingException
+   public DynamicInitDb(final AbeClientInformationInterface abeClientInformation, DatabaseConnectionInfoInterface databaseConnectionInfoInterface) throws LicensingException
    {
-      this.setHelper(InitDbHelperFactory.getInstance(databaseConnectionInfoInterface));
+      this.setHelper(InitDbHelperFactory.getInstance(abeClientInformation, databaseConnectionInfoInterface));
    }
 }

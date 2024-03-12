@@ -14,6 +14,7 @@
 package org.allbinary.business.init.db;
 
 import org.allbinary.logic.system.loader.AbeFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class InitDbHelperFactory
@@ -26,7 +27,7 @@ public class InitDbHelperFactory
    }
 
    public static Object getInstance(
-      DatabaseConnectionInfoInterface databaseConnectionInfoInterface) 
+      final AbeClientInformationInterface abeClientInformation, DatabaseConnectionInfoInterface databaseConnectionInfoInterface) 
       throws LicensingException
    {
          Object params[] = new Object[1];
@@ -39,15 +40,15 @@ public class InitDbHelperFactory
          params[0] = (Object) databaseConnectionInfoInterface;
                            
          //Object object = AbeFactory.getNoLicenseInstance(CLASSNAME, classes, params);
-         Object object = AbeFactory.getInstance(CLASSNAME, classes, params);
+         Object object = AbeFactory.getInstance(abeClientInformation, CLASSNAME, classes, params);
          return object;
    }  
 
-   public static Object getInstance() 
+   public static Object getInstance(final AbeClientInformationInterface abeClientInformation) 
       throws LicensingException
    {
          //Object object = AbeFactory.getNoLicenseInstance(CLASSNAME, null, null);
-         Object object = AbeFactory.getInstance(CLASSNAME, null, null);
+         Object object = AbeFactory.getInstance(abeClientInformation, CLASSNAME, null, null);
          return object;
    }  
 }

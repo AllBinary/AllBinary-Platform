@@ -16,6 +16,7 @@ package org.allbinary.logic.system.security;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterfaceFactory;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
@@ -26,7 +27,7 @@ public class AbKeys
    {
    }
 
-   public synchronized static String getKey(String keyName) throws LicensingException
+   public synchronized static String getKey(final AbeClientInformationInterface abeClientInformation, final String keyName) throws LicensingException
    {
       try
       {
@@ -44,7 +45,7 @@ public class AbKeys
              return "Temp For Input Library";
          }
          
-         return AbeLicenseInterfaceFactory.getInstance().getLicenseInstance().getKey(keyName);
+         return AbeLicenseInterfaceFactory.getInstance().getLicenseInstance(abeClientInformation).getKey(keyName);
       }
       catch (LicensingException e)
       {

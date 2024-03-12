@@ -27,9 +27,9 @@ import org.allbinary.logic.system.os.OperatingSystemFactory;
 public class AbeClientInformation extends ClientInformation
 {
     private final String NONE = "No License Id";
-    public AbeClientInformation(String name, String version, String specialName)
+    public AbeClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
-        super(name, version, specialName);
+        super(name, version, specialName, shortName);
     }
 
     public void init()

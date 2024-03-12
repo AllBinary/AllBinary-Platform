@@ -15,8 +15,8 @@ package org.allbinary.logic.system.security.licensing;
 
 public class InputAutomationClientInformation extends AbeClientInformation
 {
-    public InputAutomationClientInformation() throws Exception
+    public InputAutomationClientInformation()
     {
-        super("InputAutomationTool", "0.0.1", "InputAutomationTool 0.0.1");
+        super("InputAutomationTool", "0.0.1", "InputAutomationTool 0.0.1", "IA");
     }
 }

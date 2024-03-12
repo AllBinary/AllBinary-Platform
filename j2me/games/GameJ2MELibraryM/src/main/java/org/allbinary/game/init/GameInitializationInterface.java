@@ -15,7 +15,9 @@ package org.allbinary.game.init;
 
 import javax.microedition.lcdui.CommandListener;
 
+import org.allbinary.logic.system.SoftwareInformation;
+
 public interface GameInitializationInterface
 {
-    void init(CommandListener commandListener, int level) throws Exception;
+    void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) throws Exception;
 }

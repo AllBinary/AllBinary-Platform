@@ -24,6 +24,7 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 
 import org.allbinary.logic.system.loader.AbeFactory;
 import javax.servlet.http.HttpServletRequest;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class HelperFactory
 {
@@ -32,8 +33,9 @@ public class HelperFactory
    }
 
    public static Object getInstance(
-      String factoryName, String className,
-      HashMap hashMap, HttpServletRequest httpServletRequest)
+       final AbeClientInformationInterface abeClientInformation,
+       final String factoryName, final String className,
+       final HashMap hashMap, final HttpServletRequest httpServletRequest)
       throws LicensingException
    {
       try
@@ -43,14 +45,14 @@ public class HelperFactory
 
          //Add param types
          classes[0] = hashMap.getClass();
-         classes[1] = AbeFactory.getClass("javax.servlet.http.HttpServletRequest");
+         classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.http.HttpServletRequest");
          //pageContext.getClass();
 
          //Add arguments
          params[0] = (Object) hashMap;
          params[1] = (Object) httpServletRequest;
 
-         Object object = AbeFactory.getInstance(className, classes, params);
+         Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
          return object;
       }
       catch(LicensingException e)
@@ -80,8 +82,9 @@ public class HelperFactory
    }
 
    public static Object getInstance(
-      String factoryName, String className, 
-      HashMap hashMap, PageContext pageContext) 
+       final AbeClientInformationInterface abeClientInformation,
+       final String factoryName, final String className, 
+       final HashMap hashMap, final PageContext pageContext) 
       throws LicensingException
    {
       try
@@ -91,14 +94,14 @@ public class HelperFactory
                   
          //Add param types
          classes[0] = hashMap.getClass();
-         classes[1] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
+         classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
          //pageContext.getClass();         
          
          //Add arguments
          params[0] = (Object) hashMap;
          params[1] = (Object) pageContext;
                            
-         Object object = AbeFactory.getInstance(className, classes, params);
+         Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
          return object;
       }
       catch(LicensingException e)
@@ -129,8 +132,9 @@ public class HelperFactory
    }     
 
    public static Object getInstance(
-      String factoryName, String className, 
-      HashMap hashMap, HashMap specialhashMap, PageContext pageContext) 
+       final AbeClientInformationInterface abeClientInformation,
+       final String factoryName, final String className, 
+       final HashMap hashMap, final HashMap specialhashMap, final PageContext pageContext) 
       throws LicensingException
    {
       try
@@ -141,15 +145,15 @@ public class HelperFactory
          //Add param types
          classes[0] = hashMap.getClass();
          classes[1] = specialhashMap.getClass();
-         classes[2] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
+         classes[2] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
          //pageContext.getClass();         
          
          //Add arguments
          params[0] = (Object) hashMap;
          params[1] = (Object) specialhashMap;
          params[2] = (Object) pageContext;
-                           
-         Object object = AbeFactory.getInstance(className, classes, params);
+
+         Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
          return object;
       }
       catch(LicensingException e)
@@ -178,13 +182,13 @@ public class HelperFactory
       }
    }     
 
-   public static Object getInstance(
-      String factoryName, String className)
+   public static Object getInstance(final AbeClientInformationInterface abeClientInformation, 
+       final String factoryName, final String className)
       throws LicensingException
    {
       try
       {
-         Object object = AbeFactory.getInstance(className);
+         Object object = AbeFactory.getInstance(abeClientInformation, className);
          return object;
       }
       catch(LicensingException e)

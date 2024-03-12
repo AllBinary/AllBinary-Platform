@@ -21,6 +21,7 @@ import org.allbinary.game.configuration.event.GameInitializedEventHandler;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.graphics.displayable.MyCanvas;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class GameInitializationUtil
 {
@@ -29,11 +30,12 @@ public class GameInitializationUtil
     public final GameInitializedEvent EVENT = new GameInitializedEvent(this);
     
     public final void initDemo(
-            MyCanvas canvas,
-            BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
+        final AbeClientInformationInterface abeClientInformation,
+        final MyCanvas canvas,
+        final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
     throws Exception
     {
-        MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
+        final MainFeatureFactory mainFeatureFactory = MainFeatureFactory.getInstance();
         
         if (ChangedGameFeatureListener.getInstance().isChanged(mainFeatureFactory.STATIC))
         {
@@ -45,7 +47,7 @@ public class GameInitializationUtil
             //When debugging is on go ahead and load all resources
             if(features.isFeature(mainFeatureFactory.LOAD_ALL))
             {
-                this.initGame(canvas, gameInitializationInterfaceFactoryInterface);
+                this.initGame(abeClientInformation, canvas, gameInitializationInterfaceFactoryInterface);
             }
             else
                 if(features.isFeature(mainFeatureFactory.LOAD_ONDEMAND))
@@ -54,6 +56,7 @@ public class GameInitializationUtil
                         ResourceLoadingLevelFactory.getInstance();
 
                     gameInitializationInterface.init(
+                        abeClientInformation,
                         canvas.getCustomCommandListener(),
                         resourceLoadingLevelFactory.LOAD_EARLY.getLevel());
                     
@@ -69,8 +72,9 @@ public class GameInitializationUtil
     }
 
     public final void initGame(
-            MyCanvas canvas,
-            BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
+        final AbeClientInformationInterface abeClientInformation,
+        final MyCanvas canvas,
+        final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface)
     throws Exception
     {
         if (ChangedGameFeatureListener.getInstance().isChanged(MainFeatureFactory.getInstance().STATIC))
@@ -82,6 +86,7 @@ public class GameInitializationUtil
                 ResourceLoadingLevelFactory.getInstance();
             
             gameInitializationInterface.init(
+                    abeClientInformation,
                     canvas.getCustomCommandListener(),
                     resourceLoadingLevelFactory.LOAD_ALL.getLevel());
                 

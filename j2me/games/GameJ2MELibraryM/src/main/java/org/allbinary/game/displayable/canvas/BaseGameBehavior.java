@@ -16,12 +16,9 @@ package org.allbinary.game.displayable.canvas;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.configuration.feature.TouchFeatureFactory;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-import org.allbinary.graphics.paint.NullPaintable;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.system.SoftwareInformation;
 
 /**
  *
@@ -102,8 +99,8 @@ public class BaseGameBehavior extends DemoGameBehavior {
         allBinaryGameCanvas.run2();
     }
     
-    public void setHighScore(final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
-        allBinaryGameCanvas.setHighScore2(name, score, autoSubmit, isLast);
+    public void setHighScore(final AbeClientInformationInterface abeClientInformation, final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
+        allBinaryGameCanvas.setHighScore2(abeClientInformation, name, score, autoSubmit, isLast);
     }
     
 }

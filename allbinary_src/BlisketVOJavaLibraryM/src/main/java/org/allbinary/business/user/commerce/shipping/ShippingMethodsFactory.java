@@ -33,6 +33,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import java.util.Vector;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 
 public class ShippingMethodsFactory
@@ -45,7 +46,7 @@ public class ShippingMethodsFactory
 
    static
    {
-	   StringBuffer stringBuffer = new StringBuffer();
+	   final StringBuffer stringBuffer = new StringBuffer();
 	   
 	   final String sep = AbPathData.getInstance().SEPARATOR;
 	   
@@ -64,9 +65,9 @@ public class ShippingMethodsFactory
    
    private Vector shippingVector;
    
-   public ShippingMethodsFactory(StoreFrontInterface storeFrontInterface) throws Exception
+   public ShippingMethodsFactory(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
    {
-	   StringBuffer stringBuffer = new StringBuffer();
+	   final StringBuffer stringBuffer = new StringBuffer();
 	   
 	   final String sep = AbPathData.getInstance().SEPARATOR;
 	   
@@ -76,9 +77,9 @@ public class ShippingMethodsFactory
 	   stringBuffer.append(sep);
 	   stringBuffer.append(this.SHIPPINGMETHODSFILEPATHSTRING);
        
-      AbPath abPath = (AbPath) new AbPath(stringBuffer.toString(), this.SHIPPINGMETHODSFILENAME);
+      final AbPath abPath = (AbPath) new AbPath(stringBuffer.toString(), this.SHIPPINGMETHODSFILENAME);
 
-      String data = new CryptFileReader(
+      final String data = new CryptFileReader(
          TransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION,
          TransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(abPath);
       
@@ -86,28 +87,28 @@ public class ShippingMethodsFactory
       
       this.shippingVector = new Vector();
 
-      NodeList nodeList = document.getElementsByTagName(ShippingMethodsData.NAME);
+      final NodeList nodeList = document.getElementsByTagName(ShippingMethodsData.NAME);
 
       for(int index = 0; index < nodeList.getLength(); index++)
       {
-         Node node = nodeList.item(index);
-         NodeList shippingMethodNodeChildren = node.getChildNodes();
+         final Node node = nodeList.item(index);
+         final NodeList shippingMethodNodeChildren = node.getChildNodes();
 
-         Node shippingMethodNameNode =
+         final Node shippingMethodNameNode =
             DomSearchHelper.getNode(ShippingMethodData.NAME, shippingMethodNodeChildren);
 
-         Node classNameNode =
+         final Node classNameNode =
             DomSearchHelper.getNode(DynamicObjectData.NAME, shippingMethodNameNode.getChildNodes());
-         String shippingMethodClassName = 
+         final String shippingMethodClassName = 
             DomNodeHelper.getTextNodeValue(classNameNode);
 
-         ShippingInterface shippingMethodInterface = (ShippingInterface)
-            AbeFactory.getInstance(shippingMethodClassName);
+         final ShippingInterface shippingMethodInterface = (ShippingInterface)
+            AbeFactory.getInstance(abeClientInformation, shippingMethodClassName);
          shippingVector.add(shippingMethodInterface);
 
-         Node defaultShippingMethodNameNode =
+         final Node defaultShippingMethodNameNode =
             DomSearchHelper.getNode(ShippingMethodData.DEFAULT, shippingMethodNameNode.getChildNodes());
-         String defaultShippingMethodNameNodeValue = 
+         final String defaultShippingMethodNameNodeValue = 
             DomNodeHelper.getTextNodeValue(defaultShippingMethodNameNode);
                  
          if(defaultShippingMethodNameNodeValue!=null &&

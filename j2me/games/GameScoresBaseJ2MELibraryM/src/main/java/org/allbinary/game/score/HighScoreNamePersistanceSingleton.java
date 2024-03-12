@@ -20,6 +20,7 @@ import java.io.DataOutputStream;
 
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
+import org.allbinary.game.GameInfo;
 
 import org.allbinary.util.BasicArrayList;
 
@@ -30,6 +31,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class HighScoreNamePersistanceSingleton
 {
@@ -51,23 +53,23 @@ public class HighScoreNamePersistanceSingleton
         this.name = StringUtil.getInstance().EMPTY_STRING;
     }
 
-    public void deleteAll() throws Exception
+    public void deleteAll(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo) throws Exception
     {
         int size = nameBasicArrayList.size();
         for (int index = 0; index < size; index++)
         {
-            Integer integer = (Integer) this.nameBasicArrayList.objectArray[index];
-            this.delete(integer.intValue());
+            final Integer integer = (Integer) this.nameBasicArrayList.objectArray[index];
+            this.delete(abeClientInformation, gameInfo, integer.intValue());
         }
 
         this.clear();
     }
 
-    public void delete(int deleteId) throws Exception
+    public void delete(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final int deleteId) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
 
-        RecordStore recordStore = RecordStore.openRecordStore(RECORD_ID, true);
+        final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toString()).append(RECORD_ID).toString(), true);
 
         recordStore.deleteRecord(deleteId);
 
@@ -79,7 +81,7 @@ public class HighScoreNamePersistanceSingleton
         return this.nameBasicArrayList;
     }
 
-    public String load()
+    public String load(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
     {
         final String LOAD = "load";
         
@@ -90,7 +92,7 @@ public class HighScoreNamePersistanceSingleton
             {
                 final String LOADING_ID = "Loading id: ";
                 
-                RecordStore recordStore = RecordStore.openRecordStore(RECORD_ID, true);
+                final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toString()).append(RECORD_ID).toString(), true);
                 
                 RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
@@ -121,20 +123,20 @@ public class HighScoreNamePersistanceSingleton
             }
         } catch (Exception e)
         {
-            this.save(this.name);
+            this.save(abeClientInformation, gameInfo, this.name);
             final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, LOAD));
         }
         return this.name;
     }
 
-    public void save(String name)
+    public void save(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final String name)
     {
         try
         {
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(name).toString(), this, "save"));
 
-            RecordStore recordStore = RecordStore.openRecordStore(RECORD_ID, true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toString()).append(RECORD_ID).toString(), true);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);

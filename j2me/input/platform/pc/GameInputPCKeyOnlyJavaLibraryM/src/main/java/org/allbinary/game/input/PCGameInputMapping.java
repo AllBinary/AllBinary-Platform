@@ -18,23 +18,24 @@ package org.allbinary.game.input;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.mapping.PersistentInputMapping;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class PCGameInputMapping 
 extends PersistentInputMapping
 {
-    public void init()
+    public void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
         LogUtil.put(LogFactory.getInstance("Start", this, "init"));
 
         PCKeyFactory.getInstance();
 
-        super.init();
+        super.init(abeClientInformation);
 
         if(this.getTotalMapped() == 0 || this.isDefaultNew())
         {
             this.getInputMapping().add(this.getDefault());
-            this.save();
+            this.save(abeClientInformation);
         }
     }
 

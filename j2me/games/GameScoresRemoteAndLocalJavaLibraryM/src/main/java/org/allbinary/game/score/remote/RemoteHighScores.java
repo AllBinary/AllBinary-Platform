@@ -29,19 +29,19 @@ import org.allbinary.game.score.RemoteErrorHighScoresSingletonFactory;
 public class RemoteHighScores extends HighScores {
 
     private static final Hashtable hashTable = new Hashtable();
-    private final SoftwareInformation softwareInformation;
+    private final AbeClientInformationInterface abeClientInformation;
     private Boolean ascending;
 
     public final String ASCENDING = "ASCENDING";
 
     private RemoteHighScores(
-        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
+        final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean ascending, 
         final boolean preload)
         throws Exception {
         super(gameInfo.toString(), heading, columnTwoHeading);
 
-        this.softwareInformation = softwareInformation;
+        this.abeClientInformation = abeClientInformation;
 
         this.setAscending(ascending);
 
@@ -51,20 +51,20 @@ public class RemoteHighScores extends HighScores {
     }
 
     public static synchronized HighScores getInstance(
-        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
+        final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending) {
-        return RemoteHighScores.getInstance(softwareInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
+        return RemoteHighScores.getInstance(abeClientInformation, gameInfo, heading, columnTwoHeading, isAscending, true);
     }
     
     public static synchronized HighScores getInstance(
-        final SoftwareInformation softwareInformation, final GameInfo gameInfo,
+        final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo,
         final String heading, final String columnTwoHeading, final Boolean isAscending, final boolean preload) {
         try {
             HighScores highScores = (HighScores) hashTable.get(gameInfo);
 
             if (highScores == null) {
                 highScores = new RemoteHighScores(
-                    softwareInformation, gameInfo,
+                    abeClientInformation, gameInfo,
                     heading, columnTwoHeading, isAscending, preload);
 
                 hashTable.put(gameInfo, highScores);
@@ -119,6 +119,6 @@ public class RemoteHighScores extends HighScores {
     }
 
     public SoftwareInformation getSoftwareInformation() {
-        return softwareInformation;
+        return abeClientInformation;
     }
 }

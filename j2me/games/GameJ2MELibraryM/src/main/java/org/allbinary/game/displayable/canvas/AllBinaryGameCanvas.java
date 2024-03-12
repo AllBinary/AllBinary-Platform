@@ -132,6 +132,7 @@ import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.util.BasicArrayList;
 
 public class AllBinaryGameCanvas 
@@ -241,7 +242,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     
     private final DemoGameBehavior gameBehavior;
     private final BaseMenuBehavior menuBehavior;
-
+    
     public AllBinaryGameCanvas(
             final CommandListener commandListener,
             final AllBinaryGameLayerManager gameLayerManager,
@@ -290,11 +291,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         
         this.gameLayerManager = gameLayerManager;
         
-        this.highScoresFactoryInterface = null;        
+        this.highScoresFactoryInterface = null;
     }
 
     public AllBinaryGameCanvas()
     {
+       
         this.highScoresHelper = NoHighScoresFactory.getInstance().createHighScoresHelper();
 
 //        if (this.gameLayerManager.getGameInfo().getGameType() == gameTypeFactory.BOT) {
@@ -744,11 +746,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 
-    protected synchronized void initConfigurable() throws Exception
+    protected synchronized void initConfigurable(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         ProgressCanvasFactory.getInstance().addPortion(50, "Setting Configurables");
 
-        GameInitializationUtil.getInstance().initGame(this,
+        GameInitializationUtil.getInstance().initGame(abeClientInformation, this,
                 gameInitializationInterfaceFactoryInterface);
 
         final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
@@ -790,9 +792,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.loadResources(resourceLoadingLevelFactory.LOAD_GAME);        
     }
 
-    protected void init() throws Exception
+    protected void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        this.initConfigurable();
+        this.initConfigurable(abeClientInformation);
         
         this.processorInit();
 
@@ -1791,7 +1793,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.gameBehavior.setHighScore(this, name, score, autoSubmit, isLast);
     }
 
-    public void setHighScore2(final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
+    public void setHighScore2(final AbeClientInformationInterface abeClientInformation, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {
 
         final HighScore highScore = this.createHighScore(score);
         // TWB - Technically this means that if it is not a best local score
@@ -1799,6 +1801,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //if (this.getHighScoresArray()[0].isBestScore(highScore))
         //{
         final HighScoreTextBox textBox = new HighScoreTextBox(
+                abeClientInformation,
+                this.gameLayerManager.getGameInfo(),
                 this.getCustomCommandListener(), name,
                 this.highScoresHelper.getHighScoresArray(), highScore, this.gameLayerManager.getBackgroundBasicColor(),
                 this.gameLayerManager.getForegroundBasicColor());

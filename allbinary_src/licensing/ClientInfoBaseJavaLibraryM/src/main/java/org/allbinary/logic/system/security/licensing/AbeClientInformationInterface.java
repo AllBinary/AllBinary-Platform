@@ -46,4 +46,6 @@ public interface AbeClientInformationInterface
     boolean isLargerOrDifferentServerList(BasicArrayList vector);
 
     boolean isHardSale();
+    
+    String toShortString();
 }

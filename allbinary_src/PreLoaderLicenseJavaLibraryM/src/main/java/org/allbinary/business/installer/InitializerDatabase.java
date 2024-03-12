@@ -24,6 +24,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class InitializerDatabase
 {
@@ -42,19 +43,19 @@ public class InitializerDatabase
     private static final int MINPASSWORD = 0;
     private DynamicInitDb initDb;
 
-    public InitializerDatabase(Map map)
+    public InitializerDatabase(final AbeClientInformationInterface abeClientInformation, final Map map)
     {
         //    this.request = request;
         //this.getFormData(request.getParameterMap());
-        HashMap hashMap = new HashMap();
-        Set keys = map.keySet();
-        Iterator keyIter = keys.iterator();
+        final HashMap hashMap = new HashMap();
+        final Set keys = map.keySet();
+        final Iterator keyIter = keys.iterator();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
         while (keyIter.hasNext())
         {
-            String key = (String) keyIter.next();
-            String values[] = (String[]) map.get(key);
+            final String key = (String) keyIter.next();
+            final String values[] = (String[]) map.get(key);
             hashMap.put(new String(key), new String(values[0]));
          
             stringBuffer.delete(0, stringBuffer.length());
@@ -65,15 +66,15 @@ public class InitializerDatabase
             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getFormData()"));
         }
-        this.getFormData(hashMap);
+        this.getFormData(abeClientInformation, hashMap);
     }
 
-    public InitializerDatabase(HashMap initHashMap)
+    public InitializerDatabase(final AbeClientInformationInterface abeClientInformation, final HashMap initHashMap)
     {
-        this.getFormData(initHashMap);
+        this.getFormData(abeClientInformation, initHashMap);
     }
 
-    public void getFormData(HashMap hashMap)
+    public void getFormData(final AbeClientInformationInterface abeClientInformation, final HashMap hashMap)
     {
         try
         {
@@ -99,7 +100,7 @@ public class InitializerDatabase
             dbConnectionInfo.setServer(getAdminServer());
             dbConnectionInfo.setPort(getAdminPort());
 
-            this.initDb = new DynamicInitDb((DatabaseConnectionInfoInterface) dbConnectionInfo);
+            this.initDb = new DynamicInitDb(abeClientInformation, (DatabaseConnectionInfoInterface) dbConnectionInfo);
 
         } catch (Exception e)
         {

@@ -47,6 +47,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.java.help.JavaHelpUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
+import org.allbinary.logic.system.security.licensing.InputAutomationClientInformationFactory;
 import org.allbinary.thread.RunnableInterface;
 
 public class InputAutomationJFrame extends javax.swing.JFrame implements InputAutomationConfigurationModuleChangeListener, InputAutomationRobotChangeListener, HelpSetListener
@@ -89,7 +90,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
    private void init() throws Exception
    {
-      InputAutomationConfigurationFactory.init();
+      InputAutomationConfigurationFactory.init(InputAutomationClientInformationFactory.getInstance());
 
       this.inputAutomationModuleFactory = new InputAutomationModuleFactoryFactory(this);
 

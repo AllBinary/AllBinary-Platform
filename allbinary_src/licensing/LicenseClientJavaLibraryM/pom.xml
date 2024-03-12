@@ -107,16 +107,6 @@
             <!-- AllBinary Platform Version End -->
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>TestClientInfoJavaLibrary</artifactId>
-            <!-- WeblisketClientInformationJavaLibrary -->
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
 
         <dependency>
             <groupId>org.allbinary</groupId>
@@ -126,6 +116,14 @@
             <!-- AllBinary Platform Version End -->
 
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ClientInfoBaseJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
         </dependency>
 
         <dependency>

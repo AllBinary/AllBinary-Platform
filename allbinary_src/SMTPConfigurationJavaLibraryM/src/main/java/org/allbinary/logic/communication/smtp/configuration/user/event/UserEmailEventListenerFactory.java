@@ -16,6 +16,7 @@ package org.allbinary.logic.communication.smtp.configuration.user.event;
 import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class UserEmailEventListenerFactory
 {
@@ -24,8 +25,9 @@ public class UserEmailEventListenerFactory
    }
       
    public static UserEmailEventListenerInterface getInstance(
-      UserEmailEventConfigurationInterface userEmailEventConfigurationInterface, 
-      UserInterface userInterface) 
+       final AbeClientInformationInterface abeClientInformation,
+       final UserEmailEventConfigurationInterface userEmailEventConfigurationInterface, 
+       final UserInterface userInterface) 
       throws Exception
    {
       Object params[] = new Object[1];
@@ -35,7 +37,7 @@ public class UserEmailEventListenerFactory
        
       params[0] = (Object) userInterface;
       
-      return (UserEmailEventListenerInterface) AbeFactory.getInstance(
-         userEmailEventConfigurationInterface.getEventListenerClassPath(), classes, params);
+      return (UserEmailEventListenerInterface) AbeFactory.getInstance(abeClientInformation, 
+          userEmailEventConfigurationInterface.getEventListenerClassPath(), classes, params);
    }
 }

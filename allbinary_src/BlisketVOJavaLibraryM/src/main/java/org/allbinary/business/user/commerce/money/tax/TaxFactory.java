@@ -34,11 +34,12 @@ import org.allbinary.business.user.commerce.money.tax.modules.SimpleStateTaxModu
 import org.allbinary.business.user.commerce.money.tax.modules.TaxModuleInterface;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
 
 public class TaxFactory
 {
-	private static final TaxFactory instance = new TaxFactory();
+    private static final TaxFactory instance = new TaxFactory();
 	
    private final static String TAXATIONFILENAME = "taxationMethod.xml";
    
@@ -48,9 +49,9 @@ public class TaxFactory
    
    //StreetAddress streetAddress, StoreFrontInterface storeFrontInterface
    //streetAddress, storeFrontInterface
-   public static TaxModuleInterface getInstance(StoreFrontInterface storeFrontInterface) throws Exception
+   public static TaxModuleInterface getInstance(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
    {
-	   StringBuffer stringBuffer = new StringBuffer();
+	   final StringBuffer stringBuffer = new StringBuffer();
 	   
 	   stringBuffer.append(URLGLOBALS.getMainPath());
 	   stringBuffer.append(FREEBLISKET_PATH_GLOBALS.getInstance().XSLPATH);
@@ -61,34 +62,32 @@ public class TaxFactory
 	   stringBuffer.append("taxes");
 	   stringBuffer.append(AbPathData.getInstance().SEPARATOR);
 	 
-      AbPath abPath = new AbPath(stringBuffer.toString(), TAXATIONFILENAME);
+      final AbPath abPath = new AbPath(stringBuffer.toString(), TAXATIONFILENAME);
       
-      String data = new CryptFileReader(
+      final String data = new CryptFileReader(
       TransformInfoObjectConfigData.getInstance().UNCRYPTED_EXTENSION,
       TransformInfoObjectConfigData.getInstance().ENCRYPTED_EXTENSION).get(abPath);
       
-      Document document = DomDocumentHelper.create(data);
+      final Document document = DomDocumentHelper.create(data);
       
-      NodeList taxNameNodeList = document.getElementsByTagName(TaxData.NAME);
+      final NodeList taxNameNodeList = document.getElementsByTagName(TaxData.NAME);
       
       for(int index = 0; index < taxNameNodeList.getLength(); index++)
       {
          //document.getChildNodes()
          //DomSearchHelper.getNode(TaxData.NAME, );
          //.getElementsByTagName(TaxData.NAME);
-         Node node = taxNameNodeList.item(index);
-         NodeList nodeList = node.getChildNodes();
+         final Node node = taxNameNodeList.item(index);
+         final NodeList nodeList = node.getChildNodes();
          
          if(nodeList!=null)
          {
-            Node classNameNode =
-               DomSearchHelper.getNode(DynamicObjectData.NAME, nodeList);
+            final Node classNameNode = DomSearchHelper.getNode(DynamicObjectData.NAME, nodeList);
             
             if(classNameNode!=null)
             {
-               String className =
-                  DomNodeHelper.getTextNodeValue(classNameNode);
-               return (TaxModuleInterface) AbeFactory.getInstance(className);
+               final String className = DomNodeHelper.getTextNodeValue(classNameNode);
+               return (TaxModuleInterface) AbeFactory.getInstance(abeClientInformation, className);
             }
             else
             {

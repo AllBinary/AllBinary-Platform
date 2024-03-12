@@ -107,6 +107,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
@@ -165,16 +166,17 @@ public class DemoCanvas extends RunnableCanvas
     
     private GameRunnable gameRunnable = NullGameRunnable.getInstance();
     
-    public DemoCanvas(CommandListener commandListener,
-        HighScoresFactoryInterface highScoresFactoryInterface,
-        Paintable paintable,
-        InitUpdatePaintable overlayPaintable,
-        BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
-        boolean isContinue)
+    public DemoCanvas(final AbeClientInformationInterface abeClientInformation,
+        final CommandListener commandListener,
+        final HighScoresFactoryInterface highScoresFactoryInterface,
+        final Paintable paintable,
+        final InitUpdatePaintable overlayPaintable,
+        final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
+        final boolean isContinue)
         throws Exception
     {
         super(commandListener);
-
+        
         //Give time for initialization of demogame by default
         this.setWait(LOAD_WAIT);
         
@@ -182,6 +184,7 @@ public class DemoCanvas extends RunnableCanvas
             gameInitializationInterfaceFactoryInterface;
 
         GameInitializationUtil.getInstance().initDemo(
+            abeClientInformation,
             this, gameInitializationInterfaceFactoryInterface);
 
         ResizableListenerHandler.getInstance().fireEvent(false);

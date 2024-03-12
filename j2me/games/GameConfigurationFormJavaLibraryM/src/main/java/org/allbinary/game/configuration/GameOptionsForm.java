@@ -42,6 +42,7 @@ import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class GameOptionsForm extends CommandForm
     //CommandForm
@@ -86,10 +87,10 @@ public class GameOptionsForm extends CommandForm
         repaintProcessor.process();
     }
 
-    public void close() throws Exception
+    public void close(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         super.close();
-        this.save();
+        this.save(abeClientInformation);
     }
 
     private void addTextFieldsIfSimulated()
@@ -168,7 +169,7 @@ public class GameOptionsForm extends CommandForm
         this.setCommandListener(cmdListener);
     }
 
-    public void save() throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         for (int index = 0; index < this.size(); index++)
         {
@@ -196,16 +197,16 @@ public class GameOptionsForm extends CommandForm
             GameConfigurationPersistanceSingleton.getInstance();
         
         keyValuePersistance.clear();
-        keyValuePersistance.loadAll();
+        keyValuePersistance.loadAll(abeClientInformation);
 
         BasicArrayList list = keyValuePersistance.getIds();
 
-        keyValuePersistance.save(hashtable);
+        keyValuePersistance.save(abeClientInformation, hashtable);
 
         for (int index = 0; index < list.size(); index++)
         {
             Integer integer = (Integer) list.objectArray[index];
-            keyValuePersistance.delete(integer.intValue());
+            keyValuePersistance.delete(abeClientInformation, integer.intValue());
         }
 
         // Keep Loaded Value until next static initialization

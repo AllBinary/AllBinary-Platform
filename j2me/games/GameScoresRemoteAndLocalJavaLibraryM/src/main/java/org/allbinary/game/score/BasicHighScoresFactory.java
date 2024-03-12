@@ -26,11 +26,11 @@ import org.allbinary.logic.java.bool.BooleanFactory;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
-    private final SoftwareInformation softwareInformation;
+    private final AbeClientInformationInterface abeClientInformation;
 
-    public BasicHighScoresFactory(final SoftwareInformation softwareInformation)
+    public BasicHighScoresFactory(final AbeClientInformationInterface abeClientInformation)
     {
-        this.softwareInformation = softwareInformation;
+        this.abeClientInformation = abeClientInformation;
     }
 
     private final HighScores[] highScoresArray = new HighScores[2];
@@ -54,7 +54,7 @@ public class BasicHighScoresFactory extends HighScoresBase
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "createHighScores"));
             
-            highScoresArray[0] = RecordStoreHighScores.getInstance(softwareInformation, gameInfo,
+            highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
                     TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
 
             final GameType gameType = gameInfo.getGameType();
@@ -74,7 +74,7 @@ public class BasicHighScoresFactory extends HighScoresBase
             highScoresArray[1] = 
                     //RemoteErrorHighScoresSingletonFactory.getInstance();
                     RemoteHighScores.getInstance(
-                    this.softwareInformation, gameInfo,
+                    this.abeClientInformation, gameInfo,
                     WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "createHighScores"));

@@ -47,10 +47,6 @@
         <module>../../../allbinary_src/licensing/FileLicenseInitInfoJavaLibraryM</module>
         <module>../../../allbinary_src/licensing/ClientInfoLicensingJavaLibraryM</module>
 
-        <!--
-        -->
-        <module>../../../allbinary_src/licensing/TestClientInfoJavaLibraryM</module>
-
         <module>../../games/licensing/PartnerJ2MEJavaLibraryM</module>
         <module>../../games/licensing/PartnerHTMLJavaLibraryM</module>
         <module>../../games/licensing/PartnerAndroidJavaLibraryM</module>

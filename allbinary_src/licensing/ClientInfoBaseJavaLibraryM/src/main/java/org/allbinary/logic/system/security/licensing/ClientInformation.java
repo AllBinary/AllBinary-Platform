@@ -14,6 +14,8 @@
 package org.allbinary.logic.system.security.licensing;
 
 import java.util.Hashtable;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.util.BasicArrayList;
 
@@ -26,6 +28,7 @@ public class ClientInformation implements AbeClientInformationInterface
 {
     private OperatingSystemInterface operatingSystemInterface;
     private final String name;
+    private final String shortName;
     private final String version;
     private final String specialName;
     
@@ -33,11 +36,12 @@ public class ClientInformation implements AbeClientInformationInterface
     private String licenseId;
     private BasicArrayList licenseServers;
 
-    public ClientInformation(String name, String version, String specialName)
+    public ClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
         this.name = name;
         this.version = version;
         this.specialName = specialName;
+        this.shortName = new StringMaker().append(shortName).append(CommonSeps.getInstance().UNDERSCORE).append(version).toString();
 
         this.init();
     }
@@ -247,4 +251,9 @@ public class ClientInformation implements AbeClientInformationInterface
     {
         this.licenseServers = licenseServers;
     }
+
+    public String toShortString() {
+        return this.shortName;
+    }
+
 }

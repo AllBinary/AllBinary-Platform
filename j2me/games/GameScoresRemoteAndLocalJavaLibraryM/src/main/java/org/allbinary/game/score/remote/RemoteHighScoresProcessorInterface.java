@@ -14,9 +14,10 @@
 package org.allbinary.game.score.remote;
 
 import org.allbinary.game.GameInfo;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public interface RemoteHighScoresProcessorInterface
 {
-    void process(RemoteHighScores remoteHighScores, GameInfo gameInfo)
+    void process(final RemoteHighScores remoteHighScores, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
             throws Exception;
 }

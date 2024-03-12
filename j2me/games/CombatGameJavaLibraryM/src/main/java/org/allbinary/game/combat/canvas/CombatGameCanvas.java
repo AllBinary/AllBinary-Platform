@@ -28,6 +28,7 @@ import org.allbinary.game.layer.identification.GroupLayerManagerListener;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.layer.BasicLayerProcessor;
+import org.allbinary.logic.system.SoftwareInformation;
 
 public class CombatGameCanvas extends AllBinaryGameCanvas
 {
@@ -54,11 +55,12 @@ public class CombatGameCanvas extends AllBinaryGameCanvas
         // this.getLayerProcessorVector().add(new TrackingLayerProcessor());
     }
 
-    protected void init() throws Exception
+    @Override
+    protected void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
         this.CombatGameCanvas_init();
         
-        super.init();
+        super.init(abeClientInformation);
     }
     
     protected void initConfigurable(int portion)

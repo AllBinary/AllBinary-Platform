@@ -17,11 +17,13 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public interface TagHelperFactoryInterface
 {
    public Object getInstance(
-      HashMap hashMap, PageContext pageContext) 
+      final AbeClientInformationInterface abeClientInformation,
+      final HashMap hashMap, final PageContext pageContext) 
       throws Exception, LicensingException;
 }

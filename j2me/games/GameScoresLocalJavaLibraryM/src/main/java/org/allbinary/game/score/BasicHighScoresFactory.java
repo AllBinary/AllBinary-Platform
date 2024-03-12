@@ -7,11 +7,11 @@ import org.allbinary.game.GameInfo;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
-    private final SoftwareInformation softwareInformation;
+    private final AbeClientInformationInterface abeClientInformation;
     
-    public BasicHighScoresFactory(final SoftwareInformation softwareInformation)
+    public BasicHighScoresFactory(final AbeClientInformationInterface abeClientInformation)
     {
-        this.softwareInformation = softwareInformation;
+        this.abeClientInformation = abeClientInformation;
     }
 
     private final HighScores[] highScoresArray = new HighScores[1];
@@ -31,7 +31,7 @@ public class BasicHighScoresFactory extends HighScoresBase
 
         try
         {
-            highScoresArray[0] = RecordStoreHighScores.getInstance(softwareInformation, gameInfo,
+            highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
                     TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
             
             return highScoresArray;

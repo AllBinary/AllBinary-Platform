@@ -31,7 +31,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.SoftwareInformation;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 
 public class RecordStoreHighScores extends HighScores
@@ -44,18 +44,18 @@ public class RecordStoreHighScores extends HighScores
     private final int MAXHIGHSCORES = 100;
 
     private final GameInfo gameInfo;
-    private final SoftwareInformation softwareInformation;
+    private final AbeClientInformationInterface abeClientInformation;
     
     private final RecordComparator recordComparatorInterface;
 
-    private RecordStoreHighScores(final SoftwareInformation softwareInformation, final GameInfo gameInfo, 
+    private RecordStoreHighScores(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
         final String name, final String heading, final String columnTwoHeading, 
         final RecordComparator recordComparatorInterface) // throws
     // Exception
     {
         super(name, heading, columnTwoHeading);
 
-        this.softwareInformation = softwareInformation;
+        this.abeClientInformation = abeClientInformation;
         this.gameInfo = gameInfo;
         this.recordComparatorInterface = recordComparatorInterface;
         
@@ -63,7 +63,7 @@ public class RecordStoreHighScores extends HighScores
     }
 
     public static synchronized HighScores getInstance(
-        final SoftwareInformation softwareInformation, final GameInfo gameInfo, 
+        final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
         final String highScoreName, final String heading, final String columnTwoHeading,
         final RecordComparator recordComparatorInterface)
     {
@@ -71,7 +71,7 @@ public class RecordStoreHighScores extends HighScores
 
         if (highScores == null)
         {
-            highScores = new RecordStoreHighScores(softwareInformation, gameInfo, 
+            highScores = new RecordStoreHighScores(abeClientInformation, gameInfo, 
                 highScoreName, heading, columnTwoHeading, recordComparatorInterface);
             hashTable.put(highScores.getName(), highScores);
         }
@@ -94,7 +94,7 @@ public class RecordStoreHighScores extends HighScores
                 this.removeLowestHighScore();
             }
 
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(this.softwareInformation.toString()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString(), true);
 
             final byte[] highScoreBytes = newHighScore.getBytes();
 
@@ -127,7 +127,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(this.softwareInformation.toString()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString(), true);
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this, true);
@@ -182,7 +182,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.getName()).append(this.softwareInformation.toString()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString(), true);
 
             this.setList(new BasicArrayList());
 

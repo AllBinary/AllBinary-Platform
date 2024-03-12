@@ -18,6 +18,7 @@ import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterf
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 
 import java.util.HashMap;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public interface UserEmailEventsConfigurationInterface
 {
@@ -26,6 +27,8 @@ public interface UserEmailEventsConfigurationInterface
    public void addUserEmailEventConfiguration(UserEmailEventConfigurationInterface userEmailEventConfigurationInterface);
    
    public UserEmailEventListenerInterface getEventListener(
-      UserEmailEventNameData userEmailEventNameData, 
-      UserInterface userInterface) throws Exception;   
+       final AbeClientInformationInterface abeClientInformation,
+       final UserEmailEventNameData userEmailEventNameData, 
+       final UserInterface userInterface) throws Exception;
+
 }

@@ -17,6 +17,7 @@ import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
 
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 
 public class CustomLoaderHelperFactory implements TagHelperFactoryInterface
@@ -29,15 +30,16 @@ public class CustomLoaderHelperFactory implements TagHelperFactoryInterface
    }
 
    public Object getInstance(
-      HashMap hashMap, PageContext pageContext) 
+       final AbeClientInformationInterface abeClientInformation,
+       final HashMap hashMap, final PageContext pageContext) 
       throws LicensingException
    {
-      return HelperFactory.getInstance(FACTORYNAME, CLASSNAME, hashMap, pageContext);
+      return HelperFactory.getInstance(abeClientInformation, FACTORYNAME, CLASSNAME, hashMap, pageContext);
    }  
 
-   public Object getInstance() 
+   public Object getInstance(final AbeClientInformationInterface abeClientInformation) 
       throws LicensingException
    {
-      return HelperFactory.getInstance(FACTORYNAME, CLASSNAME);
+      return HelperFactory.getInstance(abeClientInformation, FACTORYNAME, CLASSNAME);
    }
 }

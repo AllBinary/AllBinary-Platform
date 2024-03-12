@@ -29,25 +29,26 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class KeyValuePersistance extends BasicPersitance
 {    
-    protected KeyValuePersistance(String recordId)
+    protected KeyValuePersistance(final String recordId)
     {
         super(recordId);
     }
         
-    public void loadAll() throws Exception
+    public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        this.loadAll(1);
+        this.loadAll(abeClientInformation, 1);
     }
     
-    public void loadAll(int size) throws Exception
+    public void loadAll(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
     {
-        RecordStore recordStore = RecordStore.openRecordStore(
+        final RecordStore recordStore = RecordStore.openRecordStore(
                 this.getRecordStoreName(), true);
 
-        RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null,
+        final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null,
                 true);
 
         final String LOADING_ID = "Loading id: ";
@@ -90,7 +91,7 @@ public class KeyValuePersistance extends BasicPersitance
         recordStore.closeRecordStore();
     }
     
-    public void save(final Hashtable hashtable) throws Exception
+    public void save(final AbeClientInformationInterface abeClientInformation, final Hashtable hashtable) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(hashtable).toString(), this, "save"));
         

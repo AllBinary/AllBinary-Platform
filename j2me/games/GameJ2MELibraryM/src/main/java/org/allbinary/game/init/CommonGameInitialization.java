@@ -23,6 +23,7 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.math.AngleFactory;
 
 public class CommonGameInitialization 
@@ -34,9 +35,9 @@ extends BaseGameInitialization
         super(resourceInitializationArray, portion);
     }
 
-    public void init(CommandListener commandListener, int level) throws Exception
+    public void init(final AbeClientInformationInterface abeClientInformation, final CommandListener commandListener, final int level) throws Exception
     {
-        super.init(commandListener, level);
+        super.init(abeClientInformation, commandListener, level);
 
         ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
             ResourceLoadingLevelFactory.getInstance();

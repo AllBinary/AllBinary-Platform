@@ -20,7 +20,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.GameInfoData;
 import org.allbinary.game.configuration.GameConfigurationCentral;
@@ -36,7 +35,7 @@ public class RemoteHighScoresProcessor
    }
 
    //String customerUserName,
-   public synchronized void process(final RemoteHighScores remoteHighScores, final GameInfo gameInfo)
+   public synchronized void process(final RemoteHighScores remoteHighScores, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
            throws Exception
    {
       LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Retrieval", this, CommonStrings.getInstance().PROCESS));
@@ -44,9 +43,6 @@ public class RemoteHighScoresProcessor
       final GameInfoData gameInfoData = GameInfoData.getInstance();
 
       // System.out.println(message);
-      final AbeClientInformationInterface abeClientInformation =
-              AbeClientInformationInterfaceFactory.getInstance();
-
       final Hashtable hashtable = abeClientInformation.toHashtable();
 
       //HashtableUtil.putAll(gameInfo.toHashtable(), hashtable);
