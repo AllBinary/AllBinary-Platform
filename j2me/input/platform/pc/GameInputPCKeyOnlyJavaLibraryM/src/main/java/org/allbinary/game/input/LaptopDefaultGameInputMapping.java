@@ -21,7 +21,7 @@ extends PersistentInputMapping
 {
     public LaptopDefaultGameInputMapping()
     {
-        super(PersistentInputMapping.DEFAULT_SAVE_NAME);
+        super(PersistentInputMapping.DEFAULT_RECORD_ID);
 
         final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         

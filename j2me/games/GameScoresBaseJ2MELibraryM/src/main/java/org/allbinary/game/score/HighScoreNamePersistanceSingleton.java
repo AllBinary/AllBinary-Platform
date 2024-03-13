@@ -41,7 +41,8 @@ public class HighScoreNamePersistanceSingleton
         return SINGLETON;
     }
 
-    private final String RECORD_ID = "_Saved_Name";
+    //_Saved_Name
+    private final String RECORD_ID = "_SN";
     private String name = StringUtil.getInstance().EMPTY_STRING;
     private BasicArrayList nameBasicArrayList = new BasicArrayList();
 

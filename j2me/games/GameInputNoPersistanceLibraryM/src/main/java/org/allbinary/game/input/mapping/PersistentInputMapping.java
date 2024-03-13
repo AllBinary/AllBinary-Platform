@@ -32,8 +32,10 @@ public class PersistentInputMapping
 {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    public static final String DEFAULT_SAVE_NAME = "_Default_Input_Mapping";
-    public static final String SAVE_NAME = "_Saved_Input_Configuration";
+    //_Default_Input_Mapping
+    public static final String DEFAULT_RECORD_ID = "_DIM";
+    //_Saved_Input_Configuration
+    public static final String RECORD_ID = "_SIC";
 
     private final InputToGameKeyMapping inputMapping = new InputToGameKeyMapping();
     
@@ -43,7 +45,7 @@ public class PersistentInputMapping
 
     protected PersistentInputMapping()
     {
-        inputPersistance = new InputPersistance(SAVE_NAME);
+        inputPersistance = new InputPersistance(PersistentInputMapping.RECORD_ID);
     }
 
     protected PersistentInputMapping(String name)

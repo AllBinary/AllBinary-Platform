@@ -93,7 +93,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     }
     
     public HighScoresHelperBase createHighScoresHelper() {
-        return new HighScoresHelper();
+        return new HighScoresHelper2();
     }
     
 }

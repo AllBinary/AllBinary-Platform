@@ -24,7 +24,7 @@ public class DesktopDefaultGameInputMapping extends PersistentInputMapping
 {
     public DesktopDefaultGameInputMapping()
     {
-        super(PersistentInputMapping.DEFAULT_SAVE_NAME);
+        super(PersistentInputMapping.DEFAULT_RECORD_ID);
 
         final PCKeyFactory pcKeyFactory = PCKeyFactory.getInstance();
 

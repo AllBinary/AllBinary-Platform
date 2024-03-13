@@ -40,7 +40,8 @@ public class RecordStoreHighScores extends HighScores
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final String RECORD_ID = "_HighScores";
+    //_HighScores
+    private final String RECORD_ID = "_HS";
     private final int MAXHIGHSCORES = 100;
 
     private final GameInfo gameInfo;

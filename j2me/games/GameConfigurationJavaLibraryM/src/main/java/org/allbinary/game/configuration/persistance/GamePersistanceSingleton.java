@@ -23,8 +23,11 @@ public class GamePersistanceSingleton extends KeyValuePersistance
         return GAME_PERSISTANCE;
     }
     
+    //_Saved_Game
+    private static final String RECORD_ID = "_SG";
+    
     private GamePersistanceSingleton()
     {
-        super("_Saved_Game");
+        super(GamePersistanceSingleton.RECORD_ID);
     }
 }

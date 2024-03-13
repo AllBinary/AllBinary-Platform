@@ -23,7 +23,7 @@ public class MotionJ2MEDefaultGameInputMapping
 {
     public MotionJ2MEDefaultGameInputMapping()
     {
-        super(PersistentInputMapping.DEFAULT_SAVE_NAME);
+        super(PersistentInputMapping.DEFAULT_RECORD_ID);
 
         final InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
         final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();

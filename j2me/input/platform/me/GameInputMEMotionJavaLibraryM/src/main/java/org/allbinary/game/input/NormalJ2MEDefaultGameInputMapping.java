@@ -20,7 +20,7 @@ public class NormalJ2MEDefaultGameInputMapping extends PersistentInputMapping
 {
     public NormalJ2MEDefaultGameInputMapping()
     {
-        super(PersistentInputMapping.DEFAULT_SAVE_NAME);
+        super(PersistentInputMapping.DEFAULT_RECORD_ID);
 
         InputToGameKeyMapping inputToGameKeyMapping = this.getInputMapping();
 

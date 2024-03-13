@@ -24,8 +24,11 @@ public class GameConfigurationPersistanceSingleton extends KeyValuePersistance
         return GAME_PERSISTANCE;
     }
 
+    //_Saved_Game_Configuration
+    private static final String RECORD_ID = "_SGC";
+    
     private GameConfigurationPersistanceSingleton()
     {
-        super("_Saved_Game_Configuration");
+        super(GameConfigurationPersistanceSingleton.RECORD_ID);
     }
 }
