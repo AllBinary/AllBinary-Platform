@@ -60,7 +60,9 @@ extends InputProcessor
             final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
             
             downGameKeyEventHandler.fireEvent(gameKeyEvent);
-            downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+            if(deviceId >= 0) {
+                downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+            }
         }
         catch (Exception e)
         {
