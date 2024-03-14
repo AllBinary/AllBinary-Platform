@@ -33,24 +33,34 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         this.eventListenerInterfaceList = new BasicArrayList();
     }
 
-    public synchronized void removeAllListeners()
+    public void removeAllListeners()
     {
         this.eventListenerInterfaceList = new BasicArrayList();
     }
 
-    public synchronized void addListeners(BasicArrayList vector)
+    public void addListeners(final BasicArrayList vector)
     {
-        int size = vector.size();
+        final int size = vector.size();
+        EventListenerInterface eventListenerInterface;
         for (int index = 0; index < size; index++)
         {
-            EventListenerInterface eventListenerInterface =
-                (EventListenerInterface) vector.get(index);
+            eventListenerInterface = (EventListenerInterface) vector.get(index);
             this.addListener(eventListenerInterface);
         }
     }
 
-    public void addListenerSingleThreaded(
-            EventListenerInterface eventListenerInterface)
+    public void removeListeners(final BasicArrayList vector)
+    {
+        final int size = vector.size();
+        EventListenerInterface eventListenerInterface;
+        for (int index = 0; index < size; index++)
+        {
+            eventListenerInterface = (EventListenerInterface) vector.get(index);
+            this.removeListener(eventListenerInterface);
+        }
+    }
+    
+    public void addListenerSingleThreaded(final EventListenerInterface eventListenerInterface)
     {
         if (!this.eventListenerInterfaceList.contains(eventListenerInterface))
         {
@@ -59,8 +69,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         }
     }
 
-    public synchronized void addListener(
-        EventListenerInterface eventListenerInterface)
+    public void addListener(final EventListenerInterface eventListenerInterface)
     {
 
         /*
@@ -84,8 +93,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          */
     }
 
-    public void removeListenerSingleThreaded(
-            EventListenerInterface eventListenerInterface)
+    public void removeListenerSingleThreaded(final EventListenerInterface eventListenerInterface)
      {
 
             //LogUtil.put(LogFactory.getInstance(
@@ -94,8 +102,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          this.eventListenerInterfaceList.remove(eventListenerInterface);
     }
     
-    public synchronized void removeListener(
-        EventListenerInterface eventListenerInterface)
+    public void removeListener(final EventListenerInterface eventListenerInterface)
     {
         /*
          * reentrantLock.lock(); try {
@@ -118,7 +125,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          */
     }
 
-    public synchronized void fireEvent(AllBinaryEventObject eventObject)
+    public void fireEvent(AllBinaryEventObject eventObject)
         throws Exception
     {
         /*
