@@ -13,17 +13,28 @@
 */
 package org.allbinary.midlet;
 
-import org.allbinary.midlet.ExitRunnable;
-import org.allbinary.midlet.AllBinaryMidlet;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.canvas.Processor;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 import org.allbinary.thread.ThreadPool;
 
 public class ProgressMidlet extends AllBinaryMidlet
 {
+    public final AbeClientInformationInterface abeClientInformation;
+    
+    public ProgressMidlet(final ClientInformationFactory clientInformationFactory)
+    {
+        this.preInit();
+        this.abeClientInformation = clientInformationFactory.getInstance();
+    }   
+
+    public void preInit() {
+    }
+    
     protected void exit(boolean isProgress)
     {
 

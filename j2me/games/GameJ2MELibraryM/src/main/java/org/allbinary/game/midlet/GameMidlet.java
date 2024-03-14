@@ -102,7 +102,7 @@ import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.util.BasicArrayList;
 
 public class GameMidlet extends ProgressMidlet
@@ -129,8 +129,6 @@ public class GameMidlet extends ProgressMidlet
 
     private final DebugInterface debugInterface;
     
-    protected final AbeClientInformationInterface abeClientInformation;
-    
     private GameCanvasRunnableInterface allbinaryGameCanvasRunnableInterface;
     private Thread thread;
 
@@ -142,11 +140,10 @@ public class GameMidlet extends ProgressMidlet
     
     //private GameOptionsForm gameOptionsForm;
 
-    public GameMidlet(final AbeClientInformationInterface abeClientInformation)
+    public GameMidlet(final ClientInformationFactory clientInformationFactory)
     {
+        super(clientInformationFactory);
         //LogUtil.put(LogFactory.getInstance("GameMidlet::GameMidlet", this, commonStrings.CONSTRUCTOR));
-
-        this.abeClientInformation = abeClientInformation;
         
         //For BB can be used for J2ME as well
         SmallIntegerSingletonFactory.getInstance().init(0x291, 6);
@@ -164,7 +161,7 @@ public class GameMidlet extends ProgressMidlet
         
         this.init();        
     }
-
+    
     protected void init()
     {
     }

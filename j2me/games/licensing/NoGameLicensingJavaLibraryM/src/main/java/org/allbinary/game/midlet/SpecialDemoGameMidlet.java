@@ -13,24 +13,25 @@
 */
 package org.allbinary.game.midlet;
 
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.logic.system.security.licensing.LicenseServerInitFileUtil;
 import org.allbinary.thread.RunnableInterface;
 
 public class SpecialDemoGameMidlet
 extends DemoGameMidlet
 {    
-    public SpecialDemoGameMidlet(final AbeClientInformationInterface abeClientInformation, final LicenseLoadingType licenseLoadingType)
+    public SpecialDemoGameMidlet(final ClientInformationFactory clientInformationFactory, final LicenseLoadingType licenseLoadingType)
     {
-        super(abeClientInformation);
-
-        new LicenseServerInitFileUtil().init();
+        super(clientInformationFactory);
     }
 
-    public SpecialDemoGameMidlet(final AbeClientInformationInterface abeClientInformation, final LicenseLoadingType licenseLoadingType, final DemoSetup demoSetup, final RunnableInterface licenseCheckRunnable)
+    public SpecialDemoGameMidlet(final ClientInformationFactory clientInformationFactory, final LicenseLoadingType licenseLoadingType, final DemoSetup demoSetup, final RunnableInterface licenseCheckRunnable)
     {
-        super(abeClientInformation);
-        
+        super(clientInformationFactory);
+    }
+
+    @Override
+    public void preInit() {
         new LicenseServerInitFileUtil().init();
     }
 }

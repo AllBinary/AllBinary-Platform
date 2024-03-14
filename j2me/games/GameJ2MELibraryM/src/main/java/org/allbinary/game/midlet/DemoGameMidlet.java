@@ -20,14 +20,14 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
 
 public class DemoGameMidlet extends GameMidlet
 {
-    public DemoGameMidlet(final AbeClientInformationInterface abeClientInformation)
+    public DemoGameMidlet(final ClientInformationFactory clientInformationFactory)
     {
-        super(abeClientInformation);
+        super(clientInformationFactory);
     }
     
     protected boolean isContinue() throws Exception
