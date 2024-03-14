@@ -41,12 +41,10 @@ extends InputProcessor
     
     private final InputFactory inputFactory = InputFactory.getInstance();
     
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressed(final int keyCode, final int deviceId)
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL
-            //).append(keyCode, this, "keyPressed"));
             PreLogUtil.put(
                     new StringMaker()
                             .append(inputFactory.KEY_CODE_LABEL)
@@ -57,9 +55,9 @@ extends InputProcessor
                             .toString()
                     , this, "keyPressed");
 
-            Input input = inputFactory.getInstance(keyCode);
+            final Input input = inputFactory.getInstance(keyCode);
 
-            GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
+            final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
             
             downGameKeyEventHandler.fireEvent(gameKeyEvent);
             downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
