@@ -19,7 +19,7 @@ package org.allbinary.logic.system.security.licensing;
  */
 public class ClientInformationFactory {
     
-    public ClientInformation getInstance() {
+    public ClientInformation getFactoryInstance() {
         throw new RuntimeException();
     }
     
