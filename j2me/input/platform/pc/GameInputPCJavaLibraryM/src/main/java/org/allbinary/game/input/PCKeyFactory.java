@@ -98,10 +98,18 @@ public class PCKeyFactory
     public final PCGameKey DPAD_DOWN = new PCGameKey(KeyEvent.VK_DOWN, "DOWN");
     public final PCGameKey DPAD_LEFT = new PCGameKey(KeyEvent.VK_LEFT, "LEFT");
     public final PCGameKey DPAD_RIGHT = new PCGameKey(KeyEvent.VK_RIGHT, "RIGHT");
-    public final PCGameKey DPAD_UP2 = new PCGameKey(1, "UP");
-    public final PCGameKey DPAD_DOWN2 = new PCGameKey(2, "DOWN");
-    public final PCGameKey DPAD_LEFT2 = new PCGameKey(3, "LEFT");
-    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(4, "RIGHT");
+    public final PCGameKey DPAD_UP2 = DPAD_UP;
+    public final PCGameKey DPAD_DOWN2 = DPAD_DOWN;
+    public final PCGameKey DPAD_LEFT2 = DPAD_LEFT;
+    public final PCGameKey DPAD_RIGHT2 = DPAD_RIGHT;
+//    public final PCGameKey DPAD_UP2 = new PCGameKey(1, "UP");
+//    public final PCGameKey DPAD_DOWN2 = new PCGameKey(2, "DOWN");
+//    public final PCGameKey DPAD_LEFT2 = new PCGameKey(3, "LEFT");
+//    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(4, "RIGHT");
+//    public final PCGameKey DPAD_UP2 = new PCGameKey(-1, "UP");
+//    public final PCGameKey DPAD_DOWN2 = new PCGameKey(-2, "DOWN");
+//    public final PCGameKey DPAD_LEFT2 = new PCGameKey(-3, "LEFT");
+//    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(-4, "RIGHT");
     //public final PCGameKey DPAD_CENTER = new PCGameKey(KeyEvent.VK_CENTER,
     //      "CENTER");
     public final PCGameKey COMMA = new PCGameKey(KeyEvent.VK_COMMA, "COMMA");
