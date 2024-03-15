@@ -1436,10 +1436,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
     
-    public final String NO_KEY = "Key Code Not Mapped For Game: ";
-    public final String ADD_KEY_EVENT = "addGameKeyEvent";
-    private final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
-
     // private void addGameKeyEvent(int keyCode, boolean repeated)
     // {
     // }
@@ -1474,7 +1470,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT));
             }
 
             //This is for key released events if needed
@@ -1483,7 +1479,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, REMOVE_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e));
         }
     }
 
