@@ -59,6 +59,7 @@ import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.game.init.BasicBuildGameInitializerFactory;
 import org.allbinary.game.init.GameInitializationUtil;
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.PlatformInputMappingFactory;
@@ -126,6 +127,7 @@ public class DemoCanvas extends RunnableCanvas
     protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+    protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private StatePaintable basicGameDemoPaintable =
         //new StateNotifyPaintable(this);
@@ -441,9 +443,6 @@ public class DemoCanvas extends RunnableCanvas
             this.addGameKeyEvent(keyCode, true);
         }
     }
-    private final String NO_KEY = "Key Code Not Mapped For Game: ";
-    private final String ADD_KEY_EVENT = "addGameKeyEvent";
-    private final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
 
     private final GameKey NONE = GameKeyFactory.getInstance().NONE;
     
@@ -474,12 +473,12 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, ADD_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
             }
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
     }
 
@@ -514,12 +513,12 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT));
             }
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, REMOVE_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e));
         }
     }
 

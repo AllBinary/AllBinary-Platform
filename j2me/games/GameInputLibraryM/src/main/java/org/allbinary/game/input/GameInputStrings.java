@@ -32,4 +32,8 @@ public class GameInputStrings
     public final String ON_DOWN_GAME_KEY = "onDownGameKeyEvent";
     public final String ON_UP_GAME_KEY = "onUpGameKeyEvent";
 
+    public final String NO_KEY = "Key Code Not Mapped For Game: ";
+    public final String ADD_KEY_EVENT = "addGameKeyEvent";
+    public final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
+    
 }

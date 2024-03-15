@@ -87,10 +87,6 @@ public class GameCommandCanvas
         Features.getInstance().isFeature(
         InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
 
-    private final String NO_KEY = "Key Code Not Mapped For Game: ";
-    private final String ADD_KEY_EVENT = "addGameKeyEvent";
-    private final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
-
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
 
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
@@ -297,12 +293,12 @@ public class GameCommandCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, ADD_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
             }
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
     }
 
@@ -338,12 +334,12 @@ public class GameCommandCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(NO_KEY).append(keyCode).toString(), this, REMOVE_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT));
             }
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, REMOVE_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e));
         }
     }
 
