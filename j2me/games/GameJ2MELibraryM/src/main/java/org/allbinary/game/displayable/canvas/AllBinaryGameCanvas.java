@@ -57,16 +57,11 @@ import org.allbinary.game.configuration.feature.TouchFeatureFactory;
 import org.allbinary.game.displayable.GameLevelDisplayChangeEventListenersFactory;
 import org.allbinary.game.init.BasicBuildGameInitializerFactory;
 import org.allbinary.game.init.GameInitializationUtil;
-import org.allbinary.game.input.GameKey;
-import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.InputProcessor;
 import org.allbinary.game.input.NoPlayerGameInput;
 import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.PlayerGameInput;
-import org.allbinary.game.input.event.GameKeyEvent;
-import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.event.GameKeyEventHandler;
-import org.allbinary.game.input.event.UpGameKeyEventHandler;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
@@ -240,7 +235,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final BasicMotionGesturesHandler basicMotionGesturesHandler = 
             BasicMotionGesturesHandler.getInstance();
     private final GameKeyEventHandler gameKeyEventHandler = GameKeyEventHandler.getInstance();
-    private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
     
     private final DemoGameBehavior gameBehavior;
     private final BaseMenuBehavior menuBehavior;
@@ -1430,59 +1424,16 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
-    public void keyReleased(int keyCode, int deviceId)
+    public void keyReleased(final int keyCode, final int deviceId)
     {
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_RELEASED));
-        this.removeGameKeyEvent(keyCode, deviceId, false);
+        this.inputProcessor.keyReleased(this, keyCode, deviceId);
     }
     
     // private void addGameKeyEvent(int keyCode, boolean repeated)
     // {
     // }
-
-    private final GameKey NONE = GameKeyFactory.getInstance().NONE;
     
-    private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
-    
-    private void removeGameKeyEvent(final int keyCode, final int deviceId, final boolean repeated)
-    {
-        try
-        {
-            //LogUtil.put(LogFactory.getInstance("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT));
-
-            final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
-
-            if (gameKey != NONE)
-            {
-                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this, gameKey);
-
-                /*
-                 * //This is for key input debugging only GameKeyEvent
-                 * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
-                 */
-                //LogUtil.put(LogFactory.getInstance(gameKeyEvent.toString(), this, REMOVE_KEY_EVENT));
-
-                // TODO TWB - Remove or improve key input event handling
-                upGameKeyEventHandler.fireEvent(gameKeyEvent);
-                upGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
-                // UpGameKeyEventHandler.getInstance().fireEvent(gameKey);
-                // getPlayerGameInput().onUpGameKeyEvent(gameKeyEvent);
-            }
-            else
-            {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT));
-            }
-
-            //This is for key released events if needed
-            //this.handleRawKey(keyCode, deviceId, repeated);
-            
-        }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.REMOVE_KEY_EVENT, e));
-        }
-    }
-
     public void handleRawKey(final int keyCode, final int deviceId, final boolean repeated) throws Exception {
     }
 

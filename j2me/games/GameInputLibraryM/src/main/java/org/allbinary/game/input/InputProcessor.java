@@ -13,12 +13,20 @@
 */
 package org.allbinary.game.input;
 
+import javax.microedition.lcdui.Canvas;
+
 public class InputProcessor
 {
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
-    public void keyPressed(int keyCode, int deviceId)
+    public void keyPressed(final int keyCode, final int deviceId)
     {
         
     }
+
+    public void keyReleased(final Canvas canvas, final int keyCode, final int deviceId)
+    {
+        
+    }
+
 }

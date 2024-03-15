@@ -13,7 +13,9 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.GameInputStrings;
+import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -22,9 +24,11 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.InputProcessor;
+import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.game.input.event.DownGameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
+import org.allbinary.logic.string.CommonStrings;
 
 public class FormInputProcessor
 extends InputProcessor
@@ -37,13 +41,14 @@ extends InputProcessor
     
     private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     
+    private final InputFactory inputFactory = InputFactory.getInstance();
+    private final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
+    
     public FormInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
-    
-    private final InputFactory inputFactory = InputFactory.getInstance();
-    
+        
     public void keyPressed(final int keyCode, final int deviceId)
     {
         try
@@ -61,13 +66,33 @@ extends InputProcessor
             final Input input = inputFactory.getInstance(keyCode);
 
             final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance(this.allBinaryGameCanvas, input);
-            
             downGameKeyEventHandler.fireEvent(gameKeyEvent);
             downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, GameInputStrings.getInstance().ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, GameInputStrings.getInstance().ADD_KEY_EVENT, e));
         }
     }
+    
+    //Handle the enter case without mapping.
+    public void keyReleased(final Canvas canvas, final int keyCode, final int deviceId) {
+        try
+        {
+
+            final Input input = this.inputFactory.getInstance(keyCode);
+            if (platformKeyFactory.isEnter(input)) {
+                final GameKeyEvent gameKeyEvent = gameKeyEventFactory.getInstance((GameKeyEventSourceInterface) canvas, input);
+                downGameKeyEventHandler.fireEvent(gameKeyEvent);
+                downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
+            }
+
+        }
+        catch (Exception e)
+        {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, GameInputStrings.getInstance().ADD_KEY_EVENT, e));
+        }
+        
+    }
+    
 }
