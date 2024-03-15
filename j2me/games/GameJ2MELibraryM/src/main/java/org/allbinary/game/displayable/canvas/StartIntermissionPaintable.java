@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.logic.string.StringUtil;
@@ -20,29 +21,42 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.graphics.font.FontDebugFactory;
+import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
 import org.allbinary.logic.string.StringMaker;
 
 public class StartIntermissionPaintable extends InitUpdatePaintable
 {
-    protected AllBinaryGameCanvas gameCanvas;
-    protected String[] stringArray;
-    
+    protected final FontDebugFactory fontDebugFactory = FontDebugFactory.getInstance();
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
+    
+    protected AllBinaryGameCanvas gameCanvas;
+    protected String[] stringArray;
     
     private BasicColor basicColor;
     private int color;
 
     private final int[] lineArray;
     
-    public StartIntermissionPaintable(AllBinaryGameCanvas gameCanvas, String[] stringArray, int[] lineArray, BasicColor basicColor)
+    protected final int fontSize;
+    protected Font font;
+    
+    public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final int[] lineArray, final BasicColor basicColor) {
+        this(gameCanvas, stringArray,  lineArray, basicColor, Font.getDefaultFont());
+    }
+    
+    public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final int[] lineArray, final BasicColor basicColor, final Font font)
     {
         this.gameCanvas = gameCanvas;
         this.stringArray = stringArray;
         this.setBasicColor(basicColor);
         this.color = basicColor.intValue();
         this.lineArray = lineArray;
+        
+        this.fontSize = font.getSize();
+        this.font = font;
     }
      
     private int anchor = Anchor.TOP_LEFT;
@@ -50,6 +64,10 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     public void paint(Graphics graphics)
     {
         //LogUtil.put(LogFactory.getInstance("Intermission Processing: ", this, "draw"));
+        
+        final Font existingFont = graphics.getFont();
+        
+        fontDebugFactory.setFont(this.font, graphics);
         
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
@@ -64,6 +82,8 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
                     displayInfo.getLastHalfWidth() - beginWidth, 
                     displayInfo.getLastHalfHeight() - lineArray[index], anchor);
         }
+        
+        fontDebugFactory.setFont(existingFont, graphics);
     }
 
     private final String BEGIN_LEVEL = "Begin Level ";
