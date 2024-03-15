@@ -67,7 +67,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.allBinaryGameCanvas.ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, GameInputStrings.getInstance().ADD_KEY_EVENT, e));
         }
     }
 }

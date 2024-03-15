@@ -15,6 +15,8 @@ package org.allbinary.game.input;
 
 public class InputProcessor
 {
+    protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    
     public void keyPressed(int keyCode, int deviceId)
     {
         

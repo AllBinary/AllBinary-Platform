@@ -84,7 +84,7 @@ extends InputProcessor
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.allBinaryGameCanvas.NO_KEY).append(keyCode).toString(), this, this.allBinaryGameCanvas.ADD_KEY_EVENT));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
             }
 
             final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstance(keyCode);
@@ -94,7 +94,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.allBinaryGameCanvas.ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
     }
 }
