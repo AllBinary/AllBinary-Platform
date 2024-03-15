@@ -20,7 +20,6 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -28,6 +27,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.PlatformInputMappingFactory;
