@@ -35,10 +35,13 @@ import org.allbinary.graphics.j2me.workarea.canvas.IntegerDimension;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
 import org.allbinary.math.PositionStrings;
 import java.awt.Color;
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class LinesGraphicItem implements GraphicItemInterface
 {
+    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    
    private DefaultMutableTreeNode treeNode;
    private Vector pointTreeNodeVector;
 
@@ -433,7 +436,7 @@ public class LinesGraphicItem implements GraphicItemInterface
           }
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "keyPressed", e));
+         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
       }
    }
 

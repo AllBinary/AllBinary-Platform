@@ -43,7 +43,7 @@ public class ImmediateCommandFormInputProcessor
         try
         {
             //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onPressGameKeyEvent: " + gameKeyEvent.getSourceId()));
-            //PreLogUtil.put(commonStrings.START, this, "onPressGameKeyEvent");
+            //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_PRESS_GAME_KEY);
 
             super.onPressGameKeyEvent(gameKeyEvent);
 
@@ -55,7 +55,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onPressGameKeyEvent", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.ON_PRESS_GAME_KEY, e));
         }
     }
     
@@ -64,7 +64,7 @@ public class ImmediateCommandFormInputProcessor
         try
         {
             //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onDownGameKeyEvent: " + gameKeyEvent.getSourceId()));
-            //PreLogUtil.put(commonStrings.START, this, "onDownGameKeyEvent");
+            //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_DOWN_GAME_KEY);
 
             super.onDownGameKeyEvent(gameKeyEvent);
 
@@ -76,7 +76,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDownGameKeyEvent", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.ON_DOWN_GAME_KEY, e));
         }
     }
 
@@ -85,7 +85,7 @@ public class ImmediateCommandFormInputProcessor
         try
         {
             //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onUpGameKeyEvent: " + gameKeyEvent.getSourceId()));
-            //PreLogUtil.put(commonStrings.START, this, "onUpGameKeyEvent");
+            //PreLogUtil.put(commonStrings.START, this, gameInputStrings.ON_UP_GAME_KEY);
             
             super.onUpGameKeyEvent(gameKeyEvent);
 
@@ -97,7 +97,7 @@ public class ImmediateCommandFormInputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onUpGameKeyEvent", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.ON_UP_GAME_KEY, e));
         }
     }
 

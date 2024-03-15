@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -29,6 +30,8 @@ public class FormInputProcessor
 extends InputProcessor
 {
     private final AllBinaryGameCanvas allBinaryGameCanvas;
+    
+    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
@@ -53,7 +56,7 @@ extends InputProcessor
                             .append(inputFactory.DEVICE_ID_LABEL)
                             .append(deviceId)
                             .toString()
-                    , this, "keyPressed");
+                    , this, gameInputStrings.KEY_PRESSED);
 
             final Input input = inputFactory.getInstance(keyCode);
 

@@ -119,6 +119,7 @@ import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.game.score.HighScoresHelperBase;
@@ -148,7 +149,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
     protected final TouchButtonFactory touchButtonFactory = TouchButtonFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
-
+    protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
 
     private final SensorGameUpdateProcessor sensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
@@ -1407,7 +1409,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void keyPressed(int keyCode, int deviceId)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, "keyPressed"));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED));
         // ForcedLogUtil.log(commonStrings.START_LABEL +
         // this.inputProcessor.toString()).append(commonStrings.SPACE +
         // keyCode, this);
@@ -1420,7 +1422,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         // LogUtil.put(LogFactory.getInstance("Key Repeated: " +
         // Integer.toHexString(keyCode),
-        // this, "keyRepeated"));
+        // this, gameInputStrings.KEY_REPEATED));
         if (this.isSingleKeyRepeatableProcessing)
         {
             // this.addGameKeyEvent(keyCode, true);
@@ -1430,7 +1432,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void keyReleased(int keyCode, int deviceId)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, "keyReleased"));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.commonLabels.START_LABEL).append(this.inputProcessor.toString()).append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_RELEASED));
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
     

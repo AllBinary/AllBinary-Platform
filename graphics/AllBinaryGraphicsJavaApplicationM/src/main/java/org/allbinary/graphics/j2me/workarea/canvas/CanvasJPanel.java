@@ -13,14 +13,21 @@
 */
 package org.allbinary.graphics.j2me.workarea.canvas;
 
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Vector;
+
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
+
 import org.w3c.dom.Node;
+
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.graphics.j2me.GraphicsException;
 import org.allbinary.graphics.j2me.workarea.WorkAreaJTreeJPanel;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemFactory;
@@ -35,6 +42,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.vector.VectorCenterGenerator;
 import org.allbinary.animation.VectorExplosionGenerator;
 import org.allbinary.animation.VectorMirrorGenerator;
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -45,9 +53,6 @@ import org.allbinary.graphics.j2me.workarea.tools.ToolFactory;
 import org.allbinary.graphics.pipeline.RandomRotationFactory;
 import org.allbinary.log.LOGGING;
 import org.allbinary.math.PositionStrings;
-import java.awt.Color;
-import java.util.Iterator;
-import java.util.Vector;
 import org.allbinary.util.BasicArrayList;
 
 public class CanvasJPanel extends javax.swing.JPanel
@@ -57,6 +62,9 @@ public class CanvasJPanel extends javax.swing.JPanel
         MyGraphicItemEventListener
 {
     private static int frame = 0;
+    
+    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+
     private GraphicItemInterface selectedTool = null;
     private HashMap graphicItemHashMap;
     
@@ -676,7 +684,7 @@ public class CanvasJPanel extends javax.swing.JPanel
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "keyPressed", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
         }
 
         if (this.getSelectedTool() != null && this.getSelectedTool().isActive())

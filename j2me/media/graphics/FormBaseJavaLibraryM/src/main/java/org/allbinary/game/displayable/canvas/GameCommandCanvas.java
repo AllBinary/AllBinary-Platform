@@ -65,6 +65,8 @@ public class GameCommandCanvas
     extends MyCanvas
     implements MenuListener, DisplayChangeEventListener
 {
+    protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    
     private static final int id = 0;
     
     protected final BasicColor foregroundBasicColor;
@@ -245,19 +247,19 @@ public class GameCommandCanvas
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyPressed"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_PRESSED));
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
     public void keyReleased(int keyCode, int deviceId)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyReleased"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_RELEASED));
         this.removeGameKeyEvent(keyCode, deviceId, false);
     }
     
     public void keyRepeated(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance("Key Repeated: ").append(Integer.toHexString(keyCode), this, "keyRepeated"));
+        // LogUtil.put(LogFactory.getInstance("Key Repeated: ").append(Integer.toHexString(keyCode), this, gameInputStrings.KEY_REPEATED));
         if (this.isSingleKeyRepeatableProcessing)
         {
             this.addGameKeyEvent(keyCode, deviceId, true);

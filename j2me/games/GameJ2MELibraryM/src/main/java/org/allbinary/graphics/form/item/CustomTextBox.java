@@ -17,10 +17,10 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
-
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.J2MEUtil;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
+import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
@@ -34,11 +34,12 @@ import org.allbinary.logic.string.StringMaker;
 
 public class CustomTextBox extends GameCommandCanvas
 {
-    private final TextFieldItem textFieldItem;
-    //private final int viewPortHeight = MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
-
+    private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
+    
+    private final TextFieldItem textFieldItem;
+    //private final int viewPortHeight = MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
     
     public CustomTextBox(final CommandListener cmdListener, final String label, final String text, 
         final int maxSize, final int constraints,
@@ -101,7 +102,7 @@ public class CustomTextBox extends GameCommandCanvas
     
     public void keyPressed(final int keyCode, final int deviceId)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(keyCode).toString(), this, "keyPressed"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED));
         
         final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
         
@@ -110,7 +111,7 @@ public class CustomTextBox extends GameCommandCanvas
         if (platformKeyFactory.isSubmission(input))
         {
             this.submit();
-            //PreLogUtil.put("Should Delete", this, "keyPressed");
+            //PreLogUtil.put("Should Delete", this, gameInputStrings.KEY_PRESSED);
             //this.deleteAtText();
         } else {
             this.textFieldItem.keyPressed(keyCode);
@@ -123,7 +124,7 @@ public class CustomTextBox extends GameCommandCanvas
 
     public void keyReleased(final int keyCode, final int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyReleased"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_RELEASED));
     }
 
     public void paint(final Graphics graphics)

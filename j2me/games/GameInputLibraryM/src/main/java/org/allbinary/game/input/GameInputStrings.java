@@ -23,4 +23,13 @@ public class GameInputStrings
     }
     
     public final String PROCESS_INPUT = "processInput";
+    
+    public final String KEY_PRESSED = "keyPressed";
+    public final String KEY_RELEASED = "keyReleased";
+    public final String KEY_REPEATED = "keyRepeated";
+    
+    public final String ON_PRESS_GAME_KEY = "onPressGameKeyEvent";
+    public final String ON_DOWN_GAME_KEY = "onDownGameKeyEvent";
+    public final String ON_UP_GAME_KEY = "onUpGameKeyEvent";
+
 }

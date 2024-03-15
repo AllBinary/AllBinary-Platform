@@ -29,6 +29,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
 {
+    protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
+    
     private final int playerInputId;
     
     public PlayerGameInput(final BasicArrayList gameKeyEventList, final int playerInputId) {
@@ -52,31 +54,31 @@ public class PlayerGameInput extends GameInput
 
    public synchronized void onPressGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
-       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, "onPressGameKeyEvent");
+       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_PRESS_GAME_KEY);
        super.add(gameKeyEvent);
        this.addForRemoval(gameKeyEvent);
    }
    
    public synchronized void onDownGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
-       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, "onDownGameKeyEvent");
+       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
        super.add(gameKeyEvent);
    }
 
    public synchronized void onDownKeyEvent(final Integer gameKeyEvent)
    {
-       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, "onDownGameKeyEvent");
+       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
    }
    
    public synchronized void onUpGameKeyEvent(final GameKeyEvent gameKeyEvent)
    {
-       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, "onUpGameKeyEvent");
+       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_UP_GAME_KEY);
        this.addForRemoval(gameKeyEvent);
    }
 
    public synchronized void onUpKeyEvent(final Integer gameKeyEvent)
    {
-       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, "onUpGameKeyEvent");
+       //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_UP_GAME_KEY);
    }
    
    public void onEvent(final AllBinaryEventObject eventObject)

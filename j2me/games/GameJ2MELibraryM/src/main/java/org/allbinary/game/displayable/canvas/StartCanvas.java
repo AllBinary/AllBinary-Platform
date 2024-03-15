@@ -399,13 +399,13 @@ public class StartCanvas extends RunnableCanvas
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyPressed"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_PRESSED));
         this.addGameKeyEvent(keyCode, false);
     }
 
     public void keyReleased(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyReleased"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_RELEASED));
         this.removeGameKeyEvent(keyCode, false);
     }
     private boolean isSingleKeyRepeatableProcessing =
@@ -415,7 +415,7 @@ public class StartCanvas extends RunnableCanvas
     {
         // LogUtil.put(LogFactory.getInstance("Key Repeated: " +
         // Integer.toHexString(keyCode),
-        // this, "keyRepeated"));
+        // this, gameInputStrings.KEY_REPEATED));
         if (this.isSingleKeyRepeatableProcessing)
         {
             this.addGameKeyEvent(keyCode, true);

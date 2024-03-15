@@ -145,7 +145,7 @@ implements InputMappingInterface
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "keyPressed"));        
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_PRESSED));        
         this.addGameKeyEvent(keyCode, false);
 
         super.keyPressed(keyCode);
