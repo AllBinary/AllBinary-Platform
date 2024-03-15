@@ -52,9 +52,9 @@ public class BasicPopupMenuPaintable extends Paintable
 
     private Animation animationInterface;
 
-    public BasicPopupMenuPaintable(Rectangle rectangle, 
-            BasicColor backgroundBasicColor, 
-            BasicColor foregroundBasicColor)
+    public BasicPopupMenuPaintable(final Rectangle rectangle, 
+            final BasicColor backgroundBasicColor, 
+            final BasicColor foregroundBasicColor)
             throws Exception
     {
         this.foregroundBasicColor = foregroundBasicColor;
@@ -74,7 +74,7 @@ public class BasicPopupMenuPaintable extends Paintable
         this.rectangle = rectangle;
         
         if(AndroidUtil.isAndroid()) {
-            this.BORDER = 4;
+            this.BORDER = MyFont.getInstance().charWidth();
         } else {
             this.BORDER = MyFont.getInstance().charWidth() * 2;
         }
@@ -98,7 +98,7 @@ public class BasicPopupMenuPaintable extends Paintable
         this.init(rectangle);
     }
 
-    public void init(Rectangle rectangle) throws Exception
+    public void init(final Rectangle rectangle) throws Exception
     {
         this.rectangle = rectangle;
         
@@ -110,8 +110,8 @@ public class BasicPopupMenuPaintable extends Paintable
         
         this.offset = (heightOffset >> 1);
 
-       int width = this.rectangle.getWidth();
-       int height = this.rectangle.getHeight();
+       final int width = this.rectangle.getWidth();
+       final int height = this.rectangle.getHeight();
 
         if(J2MEUtil.isJ2ME())
         {
@@ -122,7 +122,7 @@ public class BasicPopupMenuPaintable extends Paintable
         }
         else
         {
-           RectangleFilledAnimation rectangleFilledAnimation =
+           final RectangleFilledAnimation rectangleFilledAnimation =
                    (RectangleFilledAnimation) this.animationInterface;
            rectangleFilledAnimation.setWidth(width);
            rectangleFilledAnimation.setHeight(height);
@@ -131,13 +131,13 @@ public class BasicPopupMenuPaintable extends Paintable
     
    private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
     
-   public void paint(Graphics graphics)
+   public void paint(final Graphics graphics)
    {
-       GPoint point = this.rectangle.getPoint();
-       int x = point.getX();
-       int y = point.getY();
+       final GPoint point = this.rectangle.getPoint();
+       final int x = point.getX();
+       final int y = point.getY();
 
-       int width = this.rectangle.getWidth();
+       final int width = this.rectangle.getWidth();
        int height = this.rectangle.getHeight();
 
        this.animationInterface.paint(graphics, x, y);

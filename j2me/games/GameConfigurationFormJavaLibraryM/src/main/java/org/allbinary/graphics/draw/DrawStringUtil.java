@@ -15,6 +15,7 @@ package org.allbinary.graphics.draw;
 
 import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.AndroidUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.graphics.Anchor;
