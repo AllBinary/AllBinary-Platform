@@ -27,13 +27,11 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.InputProcessor;
-import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.event.UpGameKeyEventHandler;
-import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.logic.string.CommonStrings;
 
 public class FormInputProcessor
@@ -48,10 +46,7 @@ extends InputProcessor
     //private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     private final DownKeyEventHandler downKeyEventHandler = DownKeyEventHandler.getInstance();
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
- 
-    private final InputToGameKeyMapping inputToGameKeyMapping =
-        PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
-    
+     
     private final InputFactory inputFactory = InputFactory.getInstance();
     private final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
     
