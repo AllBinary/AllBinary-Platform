@@ -31,6 +31,8 @@ public class GameNotificationEventHandler extends BasicEventHandler
    {
    }
 
+   public boolean enabled = true;
+
    /*
    public void addListener(GameNotificationHud gameNotificationHud)
    {
@@ -108,6 +110,9 @@ public class GameNotificationEventHandler extends BasicEventHandler
            EventListenerInterface eventListenerInterface)
    throws Exception
    {
+       if(!enabled) {
+           return;
+       }
 
       ((GameNotificationListenerInterface) eventListenerInterface).onGameNotificationEvent(
               (GameNotificationEvent) eventObject);
