@@ -14,15 +14,15 @@
 package org.allbinary.data.resource;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+
 import java.io.InputStream;
 import java.util.Hashtable;
 
 import org.allbinary.util.HashtableUtil;
-
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
-import android.content.Context;
-import android.content.res.Resources;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
