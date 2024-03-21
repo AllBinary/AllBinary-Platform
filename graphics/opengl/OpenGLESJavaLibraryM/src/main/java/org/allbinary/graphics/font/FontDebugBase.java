@@ -4,7 +4,6 @@
  */
 package org.allbinary.graphics.font;
 
-import android.util.DisplayMetrics;
 import javax.microedition.lcdui.Font;
 
 /**
@@ -23,11 +22,7 @@ public class FontDebugBase {
     }
     
     public final String SET_FONT = "setFont";
-    
-    public void debugMetrics(final Font currentFont, final float convertedTextSize, final DisplayMetrics displayMetrics, final StringBuilder stringBuffer) {
         
-    }
-    
     public void debugDpi(final int densityDpi, final StringBuilder stringBuffer) {
         
     }
