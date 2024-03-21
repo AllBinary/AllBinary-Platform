@@ -19,16 +19,27 @@ import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.platform.graphics.PlatformBitmapBase;
+import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
+import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
+    protected final PlatformTextureBaseFactory textureFactory;
+    
+    public final PlatformBitmapBase min3dBitmap;
+    
     protected int textureID;
     //protected boolean matchColor;
     
-    public OpenGLESImage(Image image)
+    public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
+        final PlatformTextureBaseFactory textureFactory)
     {
         super(image);
+        
+        this.min3dBitmap = bitmapFactory.createBitmap(image);
+        this.textureFactory = textureFactory;
     }
 
     /*

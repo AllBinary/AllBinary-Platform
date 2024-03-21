@@ -2,14 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>OpenGLESJavaLibrary</artifactId>
+    <artifactId>OpenGLESBaseJavaLibrary</artifactId>
     <!-- gl.gl OpenGLES Calls -->
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
 
-    <name>OpenGLESJavaLibrary</name>
+    <name>OpenGLESBaseJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -86,34 +86,7 @@
             <!-- AllBinary Platform Version End -->
             <optional>true</optional>
         </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>LoggingJ2MEAll</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESAndroidImageJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESBaseJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-                
+        
         <dependency>
             <groupId>org.microemu</groupId>
             <artifactId>microemu-midp</artifactId>

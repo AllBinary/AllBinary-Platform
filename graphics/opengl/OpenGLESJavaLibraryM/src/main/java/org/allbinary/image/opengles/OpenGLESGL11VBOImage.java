@@ -22,10 +22,10 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
-import org.allbinary.graphics.opengles.TextureFactory;
-
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.opengles.GLUtil;
+import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
+import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLESGL11VBOImage extends OpenGLESImage
 {
@@ -35,9 +35,10 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         ByteBuffer.allocateDirect(4 * 4 * 2).order(
             ByteOrder.nativeOrder()).asFloatBuffer();
     
-    public OpenGLESGL11VBOImage(Image image)
+    public OpenGLESGL11VBOImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
+        final PlatformTextureBaseFactory textureFactory)
     {
-        super(image);
+        super(image, bitmapFactory, textureFactory);
         
         this.init();
         
@@ -85,7 +86,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
                   //      GL10.GL_REPLACE);
             //}
             
-            TextureFactory.getInstance().load(GL10.GL_TEXTURE_2D, 0, this, 0);
+            this.textureFactory.load(GL10.GL_TEXTURE_2D, 0, this, 0);
             
             gl10.glDisable(GL10.GL_TEXTURE_2D);
 

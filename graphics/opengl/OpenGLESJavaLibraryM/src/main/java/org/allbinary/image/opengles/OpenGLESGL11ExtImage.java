@@ -20,13 +20,14 @@ import javax.microedition.khronos.opengles.GL11Ext;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
-import org.allbinary.graphics.opengles.TextureFactory;
 
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
+import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
+import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 //Many devices don't support this even though it is supposed to
 public class OpenGLESGL11ExtImage extends OpenGLESImage
@@ -35,9 +36,10 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     private int a;
     private final int[] rectangle;
 
-    public OpenGLESGL11ExtImage(Image image)
+    public OpenGLESGL11ExtImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
+        final PlatformTextureBaseFactory textureFactory)
     {
-        super(image);
+        super(image, bitmapFactory, textureFactory);
 
         this.onDisplayChangeEvent(null);
         rectangle = new int[]
@@ -94,7 +96,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
                   //      GL10.GL_REPLACE);
             //}
 
-            TextureFactory.getInstance().load(GL10.GL_TEXTURE_2D, 0, this, 0);
+            this.textureFactory.load(GL10.GL_TEXTURE_2D, 0, this, 0);
             
             gl11.glTexParameteriv(GL10.GL_TEXTURE_2D, GL11Ext.GL_TEXTURE_CROP_RECT_OES, rectangle, 0);
 

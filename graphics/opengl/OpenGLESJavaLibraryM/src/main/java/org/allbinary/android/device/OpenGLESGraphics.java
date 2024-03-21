@@ -3,8 +3,8 @@ package org.allbinary.android.device;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Font;
-import org.allbinary.graphics.font.FontDebugBase;
 
+import org.allbinary.graphics.font.FontDebugBase;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
 
 public class OpenGLESGraphics 

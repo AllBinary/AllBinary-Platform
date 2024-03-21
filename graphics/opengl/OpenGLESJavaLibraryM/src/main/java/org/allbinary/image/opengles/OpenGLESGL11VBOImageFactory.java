@@ -14,16 +14,17 @@
 package org.allbinary.image.opengles;
 
 import javax.microedition.lcdui.Image;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
+
+import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
+import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLESGL11VBOImageFactory extends OpenGLImageFactory
 {
-    public Image getInstance(Image image)
+    public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
+        final PlatformTextureBaseFactory textureFactory)
     {
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, CommonStrings.getInstance().GET_INSTANCE);
-        return new OpenGLESGL10Image(image);
+        return new OpenGLESGL10Image(image, bitmapFactory, textureFactory);
     }
     
 }
