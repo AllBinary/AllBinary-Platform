@@ -14,8 +14,8 @@
 package org.allbinary.game.physics;
 
 import org.allbinary.game.physics.friction.FrictionData;
+import org.allbinary.game.physics.velocity.DragVelocityBehavior;
 import org.allbinary.game.physics.velocity.VelocityProperties;
-import org.allbinary.game.physics.velocity.VelocityUtil;
 
 public class FrictionProperties
 {
@@ -25,6 +25,6 @@ public class FrictionProperties
 
    public void friction(VelocityProperties velocityProperties, int nominator)
    {
-      VelocityUtil.reduce(velocityProperties, nominator, FrictionData.getFrictionDenominator());
+      DragVelocityBehavior.instance.reduce(velocityProperties, nominator, FrictionData.getFrictionDenominator());
    }
 }
