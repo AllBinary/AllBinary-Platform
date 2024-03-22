@@ -19,15 +19,17 @@ import org.allbinary.logic.math.BasicDecimal;
  *
  * @author user
  */
-public class VelocityUtil {
+public class DragVelocityBehavior extends VelocityBehaviorBase {
 
-   public  static void reduce(BasicVelocityProperties velocityProperties, int nominator, int denominator)
+    public static final DragVelocityBehavior instance = new DragVelocityBehavior();
+    
+   public void reduce(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator)
    {
       //LogUtil.put(LogFactory.getInstance("VelocityX: " + this.getVelocityXBasicDecimal().getUnscaled(), this, "friction"));
       //LogUtil.put(LogFactory.getInstance("VelocityY: " + this.getVelocityYBasicDecimal().getUnscaled(), this, "friction"));
       if(velocityProperties.getVelocityXBasicDecimal().getUnscaled() != 0)
       {
-         BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
+         final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
          //this.setVelocityXBasicDecimal(basicDecimal);
@@ -36,7 +38,7 @@ public class VelocityUtil {
 
       if (velocityProperties.getVelocityYBasicDecimal().getUnscaled() != 0)
       {
-         BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimal();
+         final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimal();
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
          //this.setVelocityYBasicDecimal(basicDecimal);
@@ -44,9 +46,9 @@ public class VelocityUtil {
       }
    }   
 
-   public static void reduceX(BasicVelocityProperties velocityProperties, int nominator, int denominator)
+   public void reduceX(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator)
    {
-      BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
+      final BasicDecimal basicDecimal = velocityProperties.getVelocityXBasicDecimal();
       if(basicDecimal.getUnscaled() != 0)
       {
          basicDecimal.multiply(nominator);
@@ -54,11 +56,11 @@ public class VelocityUtil {
       }
    }
    
-   public  static void reduceY(BasicVelocityProperties velocityProperties, int nominator, int denominator)
+   public void reduceY(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator)
    {
       if (velocityProperties.getVelocityYBasicDecimal().getUnscaled() != 0)
       {
-         BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimal();
+         final BasicDecimal basicDecimal = velocityProperties.getVelocityYBasicDecimal();
          basicDecimal.multiply(nominator);
          basicDecimal.divide(denominator);
       }
