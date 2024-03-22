@@ -8,7 +8,7 @@ package javax.microedition.khronos.opengles;
  *
  * @author user
  */
-public class GL
+public class GL 
 {
     
 }

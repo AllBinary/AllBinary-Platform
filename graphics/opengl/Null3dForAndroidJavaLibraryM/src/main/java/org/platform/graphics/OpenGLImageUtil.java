@@ -28,8 +28,7 @@ public class OpenGLImageUtil {
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
     public void paint(final OpenGLBitmap alphaBitmap, final OpenGLBitmap originalBitmap, final int index) {
-        imageModifierUtil.setAlpha(null, null, 0, index);
-        androidImageUtil.paint(alphaBitmap.bitmap, originalBitmap.bitmap, imageModifierUtil.paint);
+       throw new RuntimeException();
     }
     
     public OpenGLBitmap createImage(final String name) throws IOException {
