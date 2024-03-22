@@ -27,6 +27,7 @@ public class OpenGLESGL10ImageFactory extends OpenGLImageFactory
     }
     */
 
+    @Override
     public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {

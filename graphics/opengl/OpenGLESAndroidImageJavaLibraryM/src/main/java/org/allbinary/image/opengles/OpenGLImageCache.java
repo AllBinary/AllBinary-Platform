@@ -17,6 +17,7 @@ import java.io.InputStream;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+import org.allbinary.graphics.OpenGLBitmapFactory;
 
 import org.allbinary.util.BasicArrayList;
 
@@ -26,6 +27,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.string.CommonLabels;
+import org.platform.opengl.OpenGLTextureFactory;
 
 public class OpenGLImageCache extends ImageCache
 {
@@ -70,9 +72,12 @@ public class OpenGLImageCache extends ImageCache
         width = textureSize;
         height = textureSize;
         
-        Image image = imageFactory.getInstance(
+        final Image image = imageFactory.getInstance(
                 ImageCacheFactory.getInstance().get(
-                        caller, width, height));
+                        caller, width, height),
+            OpenGLBitmapFactory.getInstance(),
+            OpenGLTextureFactory.getInstance()
+            );
         list.add(image);
         return image; 
     }
@@ -88,7 +93,10 @@ public class OpenGLImageCache extends ImageCache
         //...
         //Use fake images
         //return new OpenGLESImage(cachedImage);
-        Image image = imageFactory.getInstance(cachedImage);
+        final Image image = imageFactory.getInstance(cachedImage,
+            OpenGLBitmapFactory.getInstance(),
+            OpenGLTextureFactory.getInstance()
+            );
 
         list.add(image);
 

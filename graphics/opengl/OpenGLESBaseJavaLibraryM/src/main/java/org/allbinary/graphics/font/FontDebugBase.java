@@ -23,6 +23,10 @@ public class FontDebugBase {
     
     public final String SET_FONT = "setFont";
         
+    public void debugMetrics(final Font currentFont, final float convertedTextSize, final Object displayMetrics, final StringBuilder stringBuffer) {
+        
+    }
+    
     public void debugDpi(final int densityDpi, final StringBuilder stringBuffer) {
         
     }

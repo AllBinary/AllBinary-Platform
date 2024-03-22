@@ -27,6 +27,7 @@ public class OpenGLESGL11ExtImageFactory extends OpenGLImageFactory
     }
     */
 
+    @Override
     public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {

@@ -15,16 +15,19 @@ package org.allbinary.image.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
+import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLImageFactory
 {
-    public Image getInstance(GL10 gl, Image image, boolean matchColor)
-    {
-        throw new RuntimeException();
-        //return null;
-    }
+//    public Image getInstance(GL10 gl, Image image, boolean matchColor)
+//    {
+//        throw new RuntimeException();
+//        //return null;
+//    }
 
-    public Image getInstance(Image image)
+    public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
+        final PlatformTextureBaseFactory textureFactory)
     {
         throw new RuntimeException();
         //return null;

@@ -28,7 +28,7 @@ implements OpenGLSurfaceChangedInterface
 {
     protected final PlatformTextureBaseFactory textureFactory;
     
-    public final PlatformBitmapBase min3dBitmap;
+    public final PlatformBitmapBase openGLBitmap;
     
     protected int textureID;
     //protected boolean matchColor;
@@ -38,7 +38,7 @@ implements OpenGLSurfaceChangedInterface
     {
         super(image);
         
-        this.min3dBitmap = bitmapFactory.createBitmap(image);
+        this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
     }
 

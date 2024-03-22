@@ -3,17 +3,17 @@ package org.allbinary.image;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.graphics.OpenGLBitmapFactory;
 import org.allbinary.android.device.OpenGLESGraphics;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLImageFactory;
 import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
-
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.logic.communication.log.PreLogUtil;
+import org.platform.opengl.OpenGLTextureFactory;
 
 public class PreResourceImageUtil
 {
@@ -37,7 +37,9 @@ public class PreResourceImageUtil
             final OpenGLImageFactory imageFactory = 
                     OpenGLImageSpecificFactory.getInstance().getImageFactory();
 
-            return imageFactory.getInstance(image);
+            return imageFactory.getInstance(image,
+                OpenGLBitmapFactory.getInstance(),
+                OpenGLTextureFactory.getInstance());
         }
         else
         {
