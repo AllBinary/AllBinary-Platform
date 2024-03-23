@@ -15,6 +15,10 @@ package org.allbinary.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageScaleUtil;
@@ -43,11 +47,12 @@ public class AnimationFactoryImageScaleUtil {
 
 //        final CommonStrings commonStrings = CommonStrings.getInstance();
 //        final StringMaker stringMaker = new StringMaker();
+//        stringMaker.delete(0, stringMaker.length());
+//        LogUtil.put(LogFactory.getInstance(stringMaker.append("before scale width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));
+
         if (scaleWidth != 0 && scaleHeight != 0) {
             final float scaleX = ((float) scaleWidth) / ((float) width);
             final float scaleY = ((float) scaleHeight) / ((float) height);
-//            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append("width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));
 //            stringMaker.delete(0, stringMaker.length());
 //            LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
             if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
@@ -57,11 +62,13 @@ public class AnimationFactoryImageScaleUtil {
 //                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
                 scaledImage = this.imageScaleUtil.createImage(this.imageCache, image, scaleX, 1, scaleY, 1, true);
 //                stringMaker.delete(0, stringMaker.length());
-//                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append(this.height * scaleY).toString(), this, commonStrings.PROCESS));
+//                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append((height * scaleY)).toString(), this, commonStrings.PROCESS));
             }
 
         } else {
-            scaledImage = this.imageCopyUtil.createImage(image);
+           scaledImage = this.imageCopyUtil.createImage(image);
+//           stringMaker.delete(0, stringMaker.length());
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append("unscaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height: ").append(height).toString(), this, commonStrings.PROCESS));
         }
         
         return scaledImage;
