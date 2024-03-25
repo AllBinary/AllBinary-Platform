@@ -37,7 +37,7 @@ public class MathUtil
         return total;
     }
     
-    public int sqrt(int value)
+    public int sqrt(final int value)
     {
         if (value <= 1) 
         {

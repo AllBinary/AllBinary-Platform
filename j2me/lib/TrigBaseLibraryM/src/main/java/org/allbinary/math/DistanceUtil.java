@@ -17,10 +17,21 @@ import org.allbinary.logic.math.MathUtil;
 
 public class DistanceUtil
 {
-    public static int getDistance(int x1, int y1, int x2, int y2)
+    private static final DistanceUtil instance = new DistanceUtil();
+
+    /**
+     * @return the instance
+     */
+    public static DistanceUtil getInstance() {
+        return instance;
+    }
+    
+    private final MathUtil mathUtil = MathUtil.getInstance();
+    
+    public int getDistance(final int x1, final int y1, final int x2, final int y2)
     {
-        int dx = x1 - x2;
-        int dy = y1 - y2;
-        return (int) MathUtil.getInstance().sqrt((dx * dx) + (dy * dy));
+        final int dx = x1 - x2;
+        final int dy = y1 - y2;
+        return (int) mathUtil.sqrt((dx * dx) + (dy * dy));
     }
 }

@@ -19,21 +19,32 @@ import org.allbinary.logic.math.MathUtil;
 
 public class LayerDistanceUtil
 {
-    public static int getDistance(AllBinaryLayer layerInterface, AllBinaryLayer layerInterface2)
+    private static final LayerDistanceUtil instance = new LayerDistanceUtil();
+
+    /**
+     * @return the instance
+     */
+    public static LayerDistanceUtil getInstance() {
+        return instance;
+    }
+    
+    private final MathUtil mathUtil = MathUtil.getInstance();
+
+    public int getDistance(final AllBinaryLayer layerInterface, final AllBinaryLayer layerInterface2)
     {
-        int dx = (layerInterface.getX() + layerInterface.getHalfWidth()) -
+        final int dx = (layerInterface.getX() + layerInterface.getHalfWidth()) -
             (layerInterface2.getX() + layerInterface2.getHalfWidth());
-        int dy = (layerInterface.getY() + layerInterface.getHalfHeight()) -
+        final int dy = (layerInterface.getY() + layerInterface.getHalfHeight()) -
             (layerInterface2.getY() + layerInterface2.getHalfHeight());
 
-        return (int) MathUtil.getInstance().sqrt((dx * dx) + (dy * dy));
+        return (int) mathUtil.sqrt((dx * dx) + (dy * dy));
     }
 
-    public static int getDistance(AllBinaryLayer layerInterface, GPoint point)
+    public int getDistance(final AllBinaryLayer layerInterface, final GPoint point)
     {
-        int dx = layerInterface.getX() - point.getX();
-        int dy = layerInterface.getY() - point.getY();
+        final int dx = layerInterface.getX() - point.getX();
+        final int dy = layerInterface.getY() - point.getY();
 
-        return (int) MathUtil.getInstance().sqrt((dx * dx) + (dy * dy));
+        return (int) mathUtil.sqrt((dx * dx) + (dy * dy));
     }
 }
