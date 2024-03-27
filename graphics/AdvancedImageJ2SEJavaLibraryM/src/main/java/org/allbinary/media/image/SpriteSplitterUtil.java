@@ -39,6 +39,11 @@ public class SpriteSplitterUtil {
     private final CommonSeps commonSeps = CommonSeps.getInstance();
     //private final ImageUtil imageUtil = ImageUtil.getInstance();
 
+    public final String[] ANIMATIONS_LABELS = {
+        "Row Total:", "Column Total:",
+        "Column Total:", "Row Total:",
+        "Column Total:", "Row Total:"
+    };
     public final String DIRECTIONAL_ANIMATIONS = "Directional DLRU";
     public final String HORIZONTAL_ANIMATIONS = "Horizontal Animations";
     public final String HORIZONTAL_SPRITE = "Horizontal A=R=Y F=C=X";

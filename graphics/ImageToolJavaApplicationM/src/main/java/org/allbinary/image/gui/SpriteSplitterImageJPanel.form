@@ -173,7 +173,7 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Frame Total:"/>
+            <Property name="text" type="java.lang.String" value="Row Total:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="totalFramesJComboBox">
@@ -193,7 +193,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Animation Total :"/>
+            <Property name="text" type="java.lang.String" value="Column Total :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="totalAnimationsJComboBox">

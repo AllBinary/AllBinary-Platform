@@ -174,7 +174,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
         jLabel4.setText("Results:");
 
-        jLabel1.setText("Frame Total:");
+        jLabel1.setText("Row Total:");
 
         totalFramesJComboBox.setSelectedIndex(1);
         totalFramesJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -183,7 +183,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
             }
         });
 
-        jLabel2.setText("Animation Total :");
+        jLabel2.setText("Column Total :");
 
         totalAnimationsJComboBox.setSelectedIndex(3);
         totalAnimationsJComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -237,7 +237,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 415, Short.MAX_VALUE)
                 .addGap(78, 78, 78))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -290,6 +290,9 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
     private void spriteTypeJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spriteTypeJComboBoxActionPerformed
         // TODO add your handling code here:
+        final SpriteSplitterUtil spriteSplitterUtil = SpriteSplitterUtil.getInstance();
+        this.jLabel1.setText(spriteSplitterUtil.ANIMATIONS_LABELS[this.spriteTypeJComboBox.getSelectedIndex()]);
+        this.jLabel2.setText(spriteSplitterUtil.ANIMATIONS_LABELS[this.spriteTypeJComboBox.getSelectedIndex() + 1]);
     }//GEN-LAST:event_spriteTypeJComboBoxActionPerformed
 
     private void totalAnimationsJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalAnimationsJComboBoxActionPerformed
