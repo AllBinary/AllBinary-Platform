@@ -119,7 +119,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     
     public Animation getInstance() throws Exception {
         
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
