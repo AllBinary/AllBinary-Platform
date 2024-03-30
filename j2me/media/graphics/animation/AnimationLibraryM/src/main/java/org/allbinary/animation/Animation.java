@@ -32,7 +32,7 @@ OpenGLSurfaceChangedInterface
     protected int color;
     protected BasicColor changeBasicColor;
     protected int changeColor;
-    protected int alpha;
+    public int alpha;
 
     protected Animation()
     {
