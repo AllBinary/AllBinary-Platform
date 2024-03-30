@@ -15,10 +15,7 @@ package org.allbinary.image;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.media.ScaleProperties;
 
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageScaleUtil;
@@ -76,9 +73,10 @@ public class AnimationFactoryImageScaleUtil {
 
     public void processAdjust(final BaseImageAnimationFactory baseImageAnimationFactory) throws Exception {
         
-        if (baseImageAnimationFactory.scaleWidth != 0 && baseImageAnimationFactory.scaleHeight != 0) {
-            final float scaleX = ((float) baseImageAnimationFactory.scaleWidth) / ((float) baseImageAnimationFactory.width);
-            final float scaleY = ((float) baseImageAnimationFactory.scaleHeight) / ((float) baseImageAnimationFactory.height);
+        final ScaleProperties scaleProperties = baseImageAnimationFactory.scaleProperties;
+        if (scaleProperties.scaleWidth != 0 && scaleProperties.scaleHeight != 0) {
+            final float scaleX = ((float) scaleProperties.scaleWidth) / ((float) baseImageAnimationFactory.width);
+            final float scaleY = ((float) scaleProperties.scaleHeight) / ((float) baseImageAnimationFactory.height);
             if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
             } else {
                 baseImageAnimationFactory.dx = (int) (baseImageAnimationFactory.dx * scaleX);

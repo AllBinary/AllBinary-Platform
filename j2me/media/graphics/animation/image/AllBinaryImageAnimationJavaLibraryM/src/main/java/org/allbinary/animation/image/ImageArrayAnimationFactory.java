@@ -19,6 +19,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.media.ScaleProperties;
 
 public class ImageArrayAnimationFactory 
 implements AnimationInterfaceFactoryInterface
