@@ -13,6 +13,8 @@
  */
 package org.allbinary.game.physics.velocity;
 
+import org.allbinary.logic.math.BasicDecimal;
+
 /**
  *
  * @author User
@@ -22,5 +24,11 @@ public class VelocityBehaviorBase {
     public void reduce(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator) {
         
     }
-        
+ 
+    public void reduceX(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator) {
+    }
+
+    public void reduceY(final BasicVelocityProperties velocityProperties, final int nominator, final int denominator) {
+    }
+
 }
