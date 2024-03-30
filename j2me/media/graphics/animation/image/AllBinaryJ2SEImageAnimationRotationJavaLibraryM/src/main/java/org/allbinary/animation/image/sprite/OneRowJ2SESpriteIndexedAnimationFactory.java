@@ -26,6 +26,14 @@ public class OneRowJ2SESpriteIndexedAnimationFactory
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
 
+    public OneRowJ2SESpriteIndexedAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+        this(image, height, width, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
     public OneRowJ2SESpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
         this(image, animationBehaviorFactory);
