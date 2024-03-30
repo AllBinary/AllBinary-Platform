@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation;
 
+import org.allbinary.media.ScaleProperties;
+
 public class NullRotationAnimationFactory 
 implements AnimationInterfaceFactoryInterface,
 ProceduralAnimationInterfaceFactoryInterface

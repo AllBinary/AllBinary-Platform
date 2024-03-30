@@ -16,6 +16,7 @@ package org.allbinary.animation;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.media.ScaleProperties;
 
 public class RotationAnimationFactory implements
         AnimationInterfaceFactoryInterface,

@@ -14,6 +14,7 @@
 package org.allbinary.animation;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.media.ScaleProperties;
 
 public class VectorAnimationInterfaceFactory 
    implements AnimationInterfaceFactoryInterface
