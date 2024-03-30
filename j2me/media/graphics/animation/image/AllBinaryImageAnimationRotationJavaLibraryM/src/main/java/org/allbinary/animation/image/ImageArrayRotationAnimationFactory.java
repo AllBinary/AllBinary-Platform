@@ -119,7 +119,7 @@ public class ImageArrayRotationAnimationFactory
         final int size = scaledImageArray.length;
         final Image image = this.getImage();
         for(int index = 0; index < size; index++) {
-            scaledImageArray[index] = animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), scaleWidth, scaleHeight);
+            scaledImageArray[index] = animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         }
         
         if (dx != 0 || dy != 0) {

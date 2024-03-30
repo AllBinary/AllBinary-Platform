@@ -21,6 +21,7 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.math.AngleFactory;
+import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 
 //TWB - Adjustments should be done in the resource creation and not at the animation level

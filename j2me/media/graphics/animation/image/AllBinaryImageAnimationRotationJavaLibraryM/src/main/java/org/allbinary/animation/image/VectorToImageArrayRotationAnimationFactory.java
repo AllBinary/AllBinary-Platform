@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
-import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.VectorAnimation;
 
 import org.allbinary.game.configuration.GameConfigurationCentral;
@@ -25,6 +24,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.AnimationFrameToImageUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
+import org.allbinary.media.ScaleProperties;
 import org.allbinary.vector.VectorInfo;
 import org.allbinary.media.image.ImageToRotationImageArrayUtil;
 

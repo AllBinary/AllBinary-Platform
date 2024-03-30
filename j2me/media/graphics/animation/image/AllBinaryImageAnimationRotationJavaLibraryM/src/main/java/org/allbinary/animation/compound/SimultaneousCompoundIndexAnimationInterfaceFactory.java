@@ -17,6 +17,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.IndexedAnimation;
+import org.allbinary.media.ScaleProperties;
 
 public class SimultaneousCompoundIndexAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface {
