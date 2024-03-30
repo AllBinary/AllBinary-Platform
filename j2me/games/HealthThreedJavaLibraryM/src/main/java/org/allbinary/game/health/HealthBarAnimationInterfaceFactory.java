@@ -17,6 +17,7 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.ProceduralAnimationInterfaceFactoryInterface;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.media.ScaleProperties;
 
 public class HealthBarAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
