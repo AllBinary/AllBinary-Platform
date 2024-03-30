@@ -86,9 +86,4 @@ public class OneRowHTMLSpriteIndexedAnimationFactory
         }
     }
 
-    public void setInitialSize(final int width, final int height) {
-        this.scaleWidth = width;
-        this.scaleHeight = height;
-    }
-
 }
