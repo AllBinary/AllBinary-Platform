@@ -30,6 +30,14 @@ public class OneRowAndroidSpriteIndexedAnimationFactory
 
     private final AnimationFactorySpriteScaleUtil animationFactorySpriteScaleUtil = AnimationFactorySpriteScaleUtil.getInstance();
 
+    public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
+        throws Exception {
+        super(image, width, height, animationBehaviorFactory);
+
+        this.dx = dx;
+        this.dy = dy;
+    }
+    
     public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
         throws Exception {
 
