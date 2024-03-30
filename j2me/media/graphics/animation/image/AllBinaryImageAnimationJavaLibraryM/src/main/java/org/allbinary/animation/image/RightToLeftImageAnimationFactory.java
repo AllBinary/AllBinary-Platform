@@ -46,7 +46,7 @@ public class RightToLeftImageAnimationFactory
     }
     
     public Animation getInstance() throws Exception {
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         if (dx != 0 || dy != 0) {
             animationFactoryImageScaleUtil.processAdjust(this);
