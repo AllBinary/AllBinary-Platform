@@ -97,16 +97,18 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     }
 
     public String toString() {
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(super.toString());
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
         stringBuffer.append(image.getHeight());
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(spacialStrings.WIDTH_LABEL);
         stringBuffer.append(width);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(commonSeps.SPACE);
+        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
         stringBuffer.append(height);
 
         return stringBuffer.toString();
