@@ -63,7 +63,7 @@ public class ColorCompositeSpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         return new SpriteIndexedAnimation(sprite, this.basicColorArray, this.animationBehaviorFactory.getOrCreateInstance());
     }

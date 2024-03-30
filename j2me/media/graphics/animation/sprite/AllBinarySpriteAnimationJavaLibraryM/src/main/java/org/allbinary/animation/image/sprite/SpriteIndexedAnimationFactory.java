@@ -124,7 +124,7 @@ public class SpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception {
         
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         if (dx != 0 || dy != 0) {
             return new AdjustedSpriteIndexedAnimation(sprite, this.basicColorArray, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());

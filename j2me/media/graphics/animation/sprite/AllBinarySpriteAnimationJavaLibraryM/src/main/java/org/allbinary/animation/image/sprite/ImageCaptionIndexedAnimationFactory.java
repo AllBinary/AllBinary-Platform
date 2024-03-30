@@ -25,6 +25,7 @@ import org.allbinary.animation.caption.CaptionIndexedAnimation;
 import org.allbinary.animation.image.ImageAnimation;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
+import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.audio.Sound;
 
 public class ImageCaptionIndexedAnimationFactory
@@ -49,8 +50,7 @@ public class ImageCaptionIndexedAnimationFactory
 
     private Sound soundInterface;
 
-    public int scaleWidth;
-    public int scaleHeight;
+    public ScaleProperties scaleProperties = ScaleProperties.instance;
     
     private final AnimationBehaviorFactory animationBehaviorFactory;
 
@@ -89,10 +89,10 @@ public class ImageCaptionIndexedAnimationFactory
     }
 
     public Animation getInstance() throws Exception {
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), scaleWidth, scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final Animation animationInterface = new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
 
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, scaleWidth, scaleHeight);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
 
@@ -107,8 +107,9 @@ public class ImageCaptionIndexedAnimationFactory
     }
 
     public void setInitialScale(final ScaleProperties scaleProperties) {
-        this.scaleWidth = width;
-        this.scaleHeight = height;
+        
+        this.scaleProperties = scaleProperties;
+        
     }
 
 }

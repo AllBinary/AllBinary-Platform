@@ -40,7 +40,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     public int dx;
     public int dy;
 
-    public ScaleProperties scaleProperties;
+    public ScaleProperties scaleProperties = ScaleProperties.instance;
 
     public BaseImageAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {

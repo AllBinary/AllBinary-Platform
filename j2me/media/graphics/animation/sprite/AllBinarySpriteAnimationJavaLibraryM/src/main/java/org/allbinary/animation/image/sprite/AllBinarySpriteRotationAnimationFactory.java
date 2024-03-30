@@ -95,7 +95,7 @@ public class AllBinarySpriteRotationAnimationFactory
     public Animation getInstance()
         throws Exception {
         
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, scaleWidth, scaleHeight);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         if (dx != 0 || dy != 0) {
             return new AllBinaryAdjustedSpriteRotationAnimation(sprite, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
