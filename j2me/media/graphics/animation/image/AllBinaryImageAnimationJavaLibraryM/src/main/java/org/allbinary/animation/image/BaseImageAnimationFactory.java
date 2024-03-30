@@ -76,18 +76,6 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
         this.sequenceArray = sequenceArray;
 
-        final StringMaker stringBuffer = new StringMaker();
-
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
-        stringBuffer.append(image.getHeight());
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
-        stringBuffer.append(width);
-        stringBuffer.append(CommonSeps.getInstance().SPACE);
-        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
-        stringBuffer.append(height);
-
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
     public Animation getInstance() throws Exception {
@@ -106,6 +94,22 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
      */
     public int[] getSequenceArray() {
         return sequenceArray;
+    }
+
+    public String toString() {
+        final StringMaker stringBuffer = new StringMaker();
+
+        stringBuffer.append(super.toString());
+        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(image.getHeight());
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+        stringBuffer.append(width);
+        stringBuffer.append(CommonSeps.getInstance().SPACE);
+        stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+        stringBuffer.append(height);
+
+        return stringBuffer.toString();
     }
 
     public void setInitialSize(final int width, final int height) {
