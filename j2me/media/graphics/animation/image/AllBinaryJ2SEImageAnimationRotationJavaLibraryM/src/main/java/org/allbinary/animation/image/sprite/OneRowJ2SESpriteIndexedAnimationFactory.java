@@ -28,7 +28,7 @@ public class OneRowJ2SESpriteIndexedAnimationFactory
 
     public OneRowJ2SESpriteIndexedAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        this(image, width, height, animationBehaviorFactory);
+        super(image, width, height, animationBehaviorFactory);
 
         this.dx = dx;
         this.dy = dy;
