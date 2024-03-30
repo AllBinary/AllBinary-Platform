@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation;
 
+import org.allbinary.media.ScaleProperties;
+
 public class NullIndexedAnimationFactory implements 
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
@@ -39,7 +41,7 @@ public class NullIndexedAnimationFactory implements
        return NULL_ANIMATION;
    }
    
-   public void setInitialSize(final int width, final int height) {
+   public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }
 

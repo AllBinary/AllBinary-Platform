@@ -16,6 +16,7 @@ package org.allbinary.animation.vector;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.media.ScaleProperties;
 
 /**
  *
@@ -36,7 +37,7 @@ implements AnimationInterfaceFactoryInterface
         return new LineAnimation(this.basicColor);
     }
     
-   public void setInitialSize(final int width, final int height) {
+   public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }
     

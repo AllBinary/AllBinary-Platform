@@ -14,6 +14,7 @@
 package org.allbinary.animation;
 
 import org.allbinary.animation.special.SpecialAnimation;
+import org.allbinary.media.ScaleProperties;
 
 public class NullSpecialAnimationFactory implements 
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
@@ -40,7 +41,7 @@ public class NullSpecialAnimationFactory implements
        return SpecialAnimation.getInstance();
    }
    
-   public void setInitialSize(final int width, final int height) {
+   public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }
    

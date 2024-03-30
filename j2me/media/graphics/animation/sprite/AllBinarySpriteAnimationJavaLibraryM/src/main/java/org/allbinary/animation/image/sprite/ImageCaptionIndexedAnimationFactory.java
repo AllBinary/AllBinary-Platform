@@ -106,7 +106,7 @@ public class ImageCaptionIndexedAnimationFactory
             player, this.captionDx, this.captionDy, dx, dy, time, this.animationBehaviorFactory.getOrCreateInstance());
     }
 
-    public void setInitialSize(final int width, final int height) {
+    public void setInitialScale(final ScaleProperties scaleProperties) {
         this.scaleWidth = width;
         this.scaleHeight = height;
     }

@@ -16,6 +16,7 @@ package org.allbinary.animation.compound;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.media.ScaleProperties;
 
 public class CompoundAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface {
@@ -53,11 +54,11 @@ public class CompoundAnimationInterfaceFactory
         return basicAnimationInterfaceFactoryInterfaceArray;
     }
     
-    public void setInitialSize(final int width, final int height) {
+    public void setInitialScale(final ScaleProperties scaleProperties) {
         final int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
 
         for (int index = 0; index < size; index++) {
-            this.basicAnimationInterfaceFactoryInterfaceArray[index].setInitialSize(width, height);
+            this.basicAnimationInterfaceFactoryInterfaceArray[index].setInitialScale(scaleProperties);
         }
     }
 

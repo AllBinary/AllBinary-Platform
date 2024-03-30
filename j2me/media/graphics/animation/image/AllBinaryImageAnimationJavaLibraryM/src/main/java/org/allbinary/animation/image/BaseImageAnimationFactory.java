@@ -16,10 +16,7 @@ package org.allbinary.animation.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
@@ -27,6 +24,7 @@ import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.media.ScaleProperties;
 
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
 
@@ -39,10 +37,10 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     private final int[] sequenceArray;
 
-    public int scaleWidth;
-    public int scaleHeight;
     public int dx;
     public int dy;
+
+    public ScaleProperties scaleProperties;
 
     public BaseImageAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
@@ -114,9 +112,10 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         return stringBuffer.toString();
     }
 
-    public void setInitialSize(final int width, final int height) {
-        this.scaleWidth = width;
-        this.scaleHeight = height;
+    public void setInitialScale(final ScaleProperties scaleProperties) {
+        
+        this.scaleProperties = scaleProperties;
+        
     }
 
 }

@@ -97,7 +97,7 @@ public class VectorToImageArrayRotationAnimationFactory
         return angleIncrement;
     }
     
-    public void setInitialSize(final int width, final int height) {
+    public void setInitialScale(final ScaleProperties scaleProperties) {
         
     }
     

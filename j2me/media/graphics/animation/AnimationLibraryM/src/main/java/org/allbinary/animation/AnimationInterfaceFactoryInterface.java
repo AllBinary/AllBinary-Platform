@@ -13,8 +13,10 @@
 */
 package org.allbinary.animation;
 
+import org.allbinary.media.ScaleProperties;
+
 public interface AnimationInterfaceFactoryInterface extends 
     BasicAnimationInterfaceFactoryInterface {
     Animation getInstance()throws Exception;
-    void setInitialSize(final int width, final int height);
+    void setInitialScale(final ScaleProperties scaleProperties);
 }

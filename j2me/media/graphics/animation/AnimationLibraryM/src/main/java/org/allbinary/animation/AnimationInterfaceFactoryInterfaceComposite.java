@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation;
 
+import org.allbinary.media.ScaleProperties;
+
 public class AnimationInterfaceFactoryInterfaceComposite
     implements AnimationInterfaceFactoryInterface
 {
@@ -36,7 +38,7 @@ public class AnimationInterfaceFactoryInterfaceComposite
         return animationInterfaceFactoryInterfaceArray;
     }
 
-   public void setInitialSize(final int width, final int height) {
+   public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }
     

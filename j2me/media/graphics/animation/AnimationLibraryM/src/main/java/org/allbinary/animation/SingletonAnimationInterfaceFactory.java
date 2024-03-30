@@ -13,6 +13,8 @@
 */
 package org.allbinary.animation;
 
+import org.allbinary.media.ScaleProperties;
+
 public class SingletonAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
@@ -34,7 +36,7 @@ public class SingletonAnimationInterfaceFactory
         return this.animationInterface;
     }
     
-   public void setInitialSize(final int width, final int height) {
+   public void setInitialScale(final ScaleProperties scaleProperties) {
        
    }
     
