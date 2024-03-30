@@ -19,11 +19,7 @@ import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.image.BaseImageAnimationFactory;
-import org.allbinary.game.layer.SpriteFactory;
-import org.allbinary.image.ImageCache;
-import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.sprite.AnimationFactorySpriteScaleUtil;
-import org.allbinary.media.image.ImageScaleUtil;
 
 public class OneRowAndroidSpriteIndexedAnimationFactory
     extends BaseImageAnimationFactory {
@@ -65,7 +61,6 @@ public class OneRowAndroidSpriteIndexedAnimationFactory
     public OneRowAndroidSpriteIndexedAnimationFactory(final int width, final int height, final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
 
-        //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
         super(image, width, height, animationBehaviorFactory);
     }
@@ -79,7 +74,6 @@ public class OneRowAndroidSpriteIndexedAnimationFactory
 
     public OneRowAndroidSpriteIndexedAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
         super(image, image.getHeight(), image.getHeight(), animationBehaviorFactory);
     }
@@ -94,11 +88,6 @@ public class OneRowAndroidSpriteIndexedAnimationFactory
         } else {
             return new SpriteIndexedAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
         }
-    }
-
-    public void setInitialSize(final int width, final int height) {
-        this.scaleWidth = width;
-        this.scaleHeight = height;
     }
 
 }

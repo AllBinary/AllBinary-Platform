@@ -45,7 +45,6 @@ public class OneRowJ2SESpriteIndexedAnimationFactory
     public OneRowJ2SESpriteIndexedAnimationFactory(final int width, final int height, final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
 
-        //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
         super(image, width, height, animationBehaviorFactory);
     }
@@ -53,7 +52,6 @@ public class OneRowJ2SESpriteIndexedAnimationFactory
     public OneRowJ2SESpriteIndexedAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
 
-        //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
         super(image, image.getHeight(), image.getHeight(), animationBehaviorFactory);
     }

@@ -69,7 +69,6 @@ public class AllBinarySpriteRotationAnimationFactory
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
         super(image, (image.getHeight() >> 2), (image.getHeight() >> 2), animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
@@ -86,7 +85,6 @@ public class AllBinarySpriteRotationAnimationFactory
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
-        //90 degrees per row with 4 rows
         //Future imp may include Control fidelity for non square frames
         super(image, (image.getHeight()), (image.getHeight()), animationBehaviorFactory);
         //int frameSize = (image.getHeight() >> 2);
