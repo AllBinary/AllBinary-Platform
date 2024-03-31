@@ -70,12 +70,17 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                 try {
                     final ImageUtil imageUtil = ImageUtil.getInstance();
                     final Integer percent = Integer.valueOf((String) ResizeImageJPanel.this.jComboBox1.getSelectedItem());
+                    final Float percentAsFloat = Float.parseFloat(ResizeImageJPanel.this.floatPercentJTextField.getText());
 
                     final ImageProcessorInput imageProcessorInput = ResizeImageJPanel.this.getImageProcessorInput();
                     final File[] files = imageProcessorInput.getFiles();
                     
                     BufferedImage[] generatedBufferedImageArray = null;
-                    if(percent.intValue() != -1) {
+                    if(percentAsFloat.intValue() != -1) {
+                        generatedBufferedImageArray = 
+                                imageUtil.createBufferedImage(
+                                        imageProcessorInput.getBufferedImageArray(), percentAsFloat, true);
+                    } else if(percent.intValue() != -1) {
                         generatedBufferedImageArray = 
                                 imageUtil.createBufferedImage(
                                         imageProcessorInput.getBufferedImageArray(), percent, true);
@@ -161,6 +166,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        floatPercentJTextField = new javax.swing.JTextField();
 
         jLabel1.setText("Percent:");
 
@@ -184,6 +190,8 @@ public class ResizeImageJPanel extends javax.swing.JPanel
             }
         });
 
+        floatPercentJTextField.setText("-1.000000");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,6 +207,8 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField1)
                     .addComponent(jTextField2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(floatPercentJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton2)
@@ -212,7 +222,8 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(floatPercentJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,6 +250,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField floatPercentJTextField;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;

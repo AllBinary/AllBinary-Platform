@@ -86,8 +86,8 @@ public class ImageUtil
 
       for (int index = 0; index < bufferedImageArray.length; index++)
       {
-         final int newWidth = bufferedImageArray[index].getWidth() * percent / 100;
-         final int newHeight = bufferedImageArray[index].getHeight() * percent / 100;
+         final int newWidth = (int) (bufferedImageArray[index].getWidth() * percent / 100);
+         final int newHeight = (int) (bufferedImageArray[index].getHeight() * percent / 100);
 
          scaledBufferedImageArray[index] =
             this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight, scale);
@@ -96,6 +96,23 @@ public class ImageUtil
       return scaledBufferedImageArray;
    }
 
+   public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final float percent, final boolean scale)
+      throws Exception
+   {
+      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
+
+      for (int index = 0; index < bufferedImageArray.length; index++)
+      {
+         final int newWidth = (int) (bufferedImageArray[index].getWidth() * percent);
+         final int newHeight = (int) (bufferedImageArray[index].getHeight() * percent);
+
+         scaledBufferedImageArray[index] =
+            this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight, scale);
+      }
+
+      return scaledBufferedImageArray;
+   }
+   
    public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int width, final int height, final boolean scale)
       throws Exception
    {
