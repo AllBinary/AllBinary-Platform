@@ -35,13 +35,13 @@ public class CustomTextAnimationFactory
     private String text;
 
     private int initScaleHeight;
-    //private int scaleWidth;
-    protected int scaleHeight;
 
     private int dx;
     private int dy;
 
     protected Font font;
+    
+    public ScaleProperties scaleProperties;
     
     public CustomTextAnimationFactory(final String text, final int fontSize, final int dx, final int dy) {
         
@@ -67,8 +67,9 @@ public class CustomTextAnimationFactory
     
     public CustomTextAnimationFactory(final String text, final int fontSize, final AnimationBehaviorFactory animationBehaviorFactory) {
         
+        this.scaleProperties = new ScaleProperties();
         this.text = text;
-        this.initScaleHeight = this.scaleHeight = (int) fontSize - (fontSize / 4);
+        this.initScaleHeight = this.scaleProperties.scaleHeight = (int) fontSize - (fontSize / 4);
         this.animationBehaviorFactory = animationBehaviorFactory;
         
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
@@ -78,9 +79,9 @@ public class CustomTextAnimationFactory
         
         CustomTextAnimation customTextAnimation;
         if (dx != 0 || dy != 0) {
-            customTextAnimation = new AdjustCustomTextAnimation(text, this.scaleHeight, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+            customTextAnimation = new AdjustCustomTextAnimation(text, this.scaleProperties.scaleHeight, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            customTextAnimation = new CustomTextAnimation(text, this.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
+            customTextAnimation = new CustomTextAnimation(text, this.scaleProperties.scaleHeight, this.animationBehaviorFactory.getOrCreateInstance());
         }
 
         customTextAnimation.setBasicColor(basicColor);

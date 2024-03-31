@@ -115,7 +115,8 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
         this.scaleProperties = scaleProperties;
-        
+        this.scaleProperties.scaleWidth = (int) (this.width * this.scaleProperties.scaleX);
+        this.scaleProperties.scaleHeight = (int) (this.height * this.scaleProperties.scaleY);
     }
 
 }
