@@ -23,7 +23,10 @@ import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.ScaleProperties;
 
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
@@ -115,8 +118,14 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     public void setInitialScale(final ScaleProperties scaleProperties) {
         
         this.scaleProperties = scaleProperties;
-        this.scaleProperties.scaleWidth = (int) (this.width * this.scaleProperties.scaleX);
-        this.scaleProperties.scaleHeight = (int) (this.height * this.scaleProperties.scaleY);
+        
+        //Temp hack
+        if(this.scaleProperties.shouldScale) {
+            this.scaleProperties.scaleWidth = (int) (this.width * this.scaleProperties.scaleX);
+            this.scaleProperties.scaleHeight = (int) (this.height * this.scaleProperties.scaleY);
+            LogUtil.put(LogFactory.getInstance(scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
+        }
+        
     }
 
 }

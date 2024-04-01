@@ -13,6 +13,8 @@
  */
 package org.allbinary.media;
 
+import org.allbinary.logic.string.StringMaker;
+
 /**
  *
  * @author User
@@ -22,5 +24,17 @@ public class ScaleProperties {
     public static final ScaleProperties instance = new ScaleProperties();
     
     public int scaleWidth;
-    public int scaleHeight;    
+    public int scaleHeight;
+    
+    public boolean shouldScale;
+    
+    public String toString() {
+        return new StringMaker().append(": ").append(this.shouldScale)
+            //.append("scaleX: ").append(this.scaleX)
+            //.append("scaleY: ").append(this.scaleY)
+            .append("scaleWidth: ").append(this.scaleWidth)
+            .append("scaleHeight: ").append(this.scaleHeight)
+            .toString();
+    }
+    
 }
