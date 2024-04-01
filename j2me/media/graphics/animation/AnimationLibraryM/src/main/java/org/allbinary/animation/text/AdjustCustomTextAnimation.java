@@ -13,7 +13,6 @@
  */
 package org.allbinary.animation.text;
 
-import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.AnimationBehavior;
@@ -51,14 +50,8 @@ public class AdjustCustomTextAnimation extends CustomTextAnimation {
     }
     
     public void paint(final Graphics graphics, final int x, final int y)
-    {
-        final Font existingFont = graphics.getFont();
-        
-        fontDebugFactory.setFont(this.font, graphics);
-        
+    {        
         super.paint(graphics, x + this.dx, y + this.dy);
-        
-        fontDebugFactory.setFont(existingFont, graphics);
     }
     
 }
