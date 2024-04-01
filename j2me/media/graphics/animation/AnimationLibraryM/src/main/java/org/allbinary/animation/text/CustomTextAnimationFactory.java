@@ -90,6 +90,7 @@ public class CustomTextAnimationFactory
     
     //@Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
+        this.scaleProperties = scaleProperties;
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(height).toString(), this, CommonStrings.getInstance().PROCESS));
         //this.scaleWidth = width;
         //final int fontSize = height;
