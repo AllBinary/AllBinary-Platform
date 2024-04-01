@@ -20,6 +20,10 @@ import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 
 /**
@@ -90,13 +94,10 @@ public class CustomTextAnimationFactory
     
     //@Override
     public void setInitialScale(final ScaleProperties scaleProperties) {
-        this.scaleProperties = scaleProperties;
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(height).toString(), this, CommonStrings.getInstance().PROCESS));
-        //this.scaleWidth = width;
-        //final int fontSize = height;
-        //this.scaleHeight = (int) fontSize - (fontSize / 4);
-        //this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleHeight);
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+//        this.scaleProperties = scaleProperties;
+//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - Font size: ").append(this.scaleProperties.scaleHeight).toString(), this, CommonStrings.getInstance().PROCESS));
+//        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleProperties.scaleHeight);
+//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - Font size: ").append(font.getSize()).append(" width: ").append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
     }
 
     public int getWidth() {
