@@ -37,6 +37,7 @@ public class AdjustCustomTextAnimation extends CustomTextAnimation {
         return dx;
     }
 
+    //@Override
     public void setDx(int dx) {
         this.dx = dx;
     }
@@ -45,6 +46,7 @@ public class AdjustCustomTextAnimation extends CustomTextAnimation {
         return dy;
     }
 
+    //@Override
     public void setDy(int dy) {
         this.dy = dy;
     }
