@@ -35,13 +35,14 @@ public class ImageCache
 {
     private final Hashtable hashtable = new Hashtable();
 
-    private final int[] widths = new int[50];
-    private final int[] heights = new int[50];
+    private final int SIZE = 50;
+    private final int[] widths = new int[SIZE];
+    private final int[] heights = new int[SIZE];
     
     private final BasicArrayList[] listOfList = 
-        new BasicArrayList[50];
+        new BasicArrayList[SIZE];
     private final BasicArrayList[] availableListOfList = 
-        new BasicArrayList[50];
+        new BasicArrayList[SIZE];
 
     private int volume = 0;
     private int nextIndex = 0;
@@ -130,17 +131,18 @@ public class ImageCache
 
             image = this.createImage(caller, width, height);
 
-            if(foundIndex == -1)
-            {
-                foundIndex = nextIndex;
-                
-                widths[nextIndex] = width;
-                heights[nextIndex] = height;
+            if(nextIndex > widths.length - 1) {
+                if (foundIndex == -1) {
+                    foundIndex = nextIndex;
 
-                nextIndex++;
+                    widths[nextIndex] = width;
+                    heights[nextIndex] = height;
+
+                    nextIndex++;
+                }
+
+                listOfList[foundIndex].add(image);
             }
-
-            listOfList[foundIndex].add(image);
             
         }
 
