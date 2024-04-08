@@ -143,12 +143,14 @@ public class ImageUtil
       final double widthRatio = d_newWidth / width;
       final double heightRatio = d_newHeight / height;
 
-      double ratio = 1.0;
+      double ratioX = 1.0;
+      double ratioY = 1.0;
       if(scale) {
-          ratio = widthRatio > heightRatio ? widthRatio : heightRatio;
+          ratioX = widthRatio;
+          ratioY = heightRatio;
       }
       
-      final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratio, ratio);
+      final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratioX, ratioY);
 
       LogUtil.put(LogFactory.getInstance(new StringMaker().append(width).append(this.commonSeps.FORWARD_SLASH).append(height)
               .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
