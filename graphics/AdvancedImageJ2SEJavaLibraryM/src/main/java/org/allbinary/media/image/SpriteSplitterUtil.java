@@ -66,8 +66,8 @@ public class SpriteSplitterUtil {
     private final String _ROW = "_row";
     
     public void process(final ImageProcessorInput imageProcessorInput, final int totalFrames, final int totalAnimations, 
-        final int widthReduction, final int heightReduction, final String spriteType, final ImageProcessedVisitor visitor) 
-        throws IOException {
+        final int widthReduction, final int heightReduction, final int increaseWidth, final int increaseHeight, final String spriteType, final ImageProcessedVisitor visitor) 
+        throws Exception {
         
         BufferedImage bufferedImage;
         BufferedImage[][] generatedBufferedImageArray;
@@ -101,6 +101,8 @@ public class SpriteSplitterUtil {
                         generatedBufferedImageArray[index2][index3] = bufferedImage.getSubimage(
                             x + widthReduction, y + heightReduction, 
                             cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
+                        generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImage(
+                            generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
                         nameEnding = new StringMaker().append(index2).append(commonSeps.UNDERSCORE).append(index3).toString();
                         visitor.visit(generatedBufferedImageArray[index2][index3], nameEnding, index);
                     }
@@ -203,6 +205,8 @@ public class SpriteSplitterUtil {
                 
                 generatedBufferedImageArray = new BufferedImage[rows][columns];
 
+                LogUtil.put(LogFactory.getInstance("Processing Individual Cells for each Direction", this, CommonStrings.getInstance().RUN));
+                
                 String nameEnding = null;
                 int x = 0;
                 int y = 0;
@@ -213,6 +217,8 @@ public class SpriteSplitterUtil {
                         generatedBufferedImageArray[index2][index3] = bufferedImage.getSubimage(
                             x + widthReduction, y + heightReduction, 
                             cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
+                        generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImage(
+                            generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
                         nameEnding = new StringMaker().append(DIRECTION_NAME[index2]).append(commonSeps.UNDERSCORE).append(index3).toString();
                         visitor.visit(generatedBufferedImageArray[index2][index3], nameEnding, index);
                     }
@@ -224,8 +230,10 @@ public class SpriteSplitterUtil {
                 imageUnifierProperties.setColumns(Integer.valueOf(columns));
                 
                 final ImageUnifierCell imageUnifierCell = new ImageUnifierCell(
-                    Integer.valueOf(cellWidth - (2 * widthReduction)),Integer.valueOf(cellHeight - (2 * heightReduction)));
+                    Integer.valueOf(cellWidth - (2 * widthReduction)) + increaseWidth,Integer.valueOf(cellHeight - (2 * heightReduction) + increaseHeight));
                 imageUnifierProperties.setImageUnifierCell(imageUnifierCell);
+                
+                LogUtil.put(LogFactory.getInstance("Processing Rows from Cells for each Direction", this, CommonStrings.getInstance().RUN));
                 
                 for(int index2 = 0; index2 < rows; index2++) {
                     y = cellHeight * index2;

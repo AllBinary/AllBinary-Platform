@@ -70,7 +70,9 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
                     final int widthReduction = Integer.valueOf(widthReductionTextField.getText());
                     final int heightReduction = Integer.valueOf(heightReductionTextField.getText());
-                    spriteSplitterUtil.process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, widthReduction, heightReduction, spriteType, SpriteSplitterImageJPanel.this);
+                    final int increaseWidth = Integer.valueOf(increaseWidthTextField.getText());
+                    final int increaseHeight = Integer.valueOf(increaseHeightTextField.getText());
+                    spriteSplitterUtil.process(SpriteSplitterImageJPanel.this.getImageProcessorInput(), totalFrames, totalAnimations, widthReduction, heightReduction, increaseWidth, increaseHeight, spriteType, SpriteSplitterImageJPanel.this);
 
                 } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
@@ -120,10 +122,10 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         widthReductionTextField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel() {             public void paint(Graphics graphics) {                 if (SpriteSplitterImageJPanel.this.result != null) {                     graphics.drawImage(SpriteSplitterImageJPanel.this.result, 0, 0, SpriteSplitterImageJPanel.this.result.getWidth(null), SpriteSplitterImageJPanel.this.result.getHeight(null), null);                 }             }         };
+        jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         heightReductionTextField = new javax.swing.JTextField();
         generateJButton = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         totalFramesJComboBox = new javax.swing.JComboBox<>();
@@ -134,6 +136,10 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         jLabel3 = new javax.swing.JLabel();
         spriteTypeJComboBox = new javax.swing.JComboBox<>();
         spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { org.allbinary.media.image.SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, org.allbinary.media.image.SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS
+        jLabel7 = new javax.swing.JLabel();
+        increaseWidthTextField = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        increaseHeightTextField = new javax.swing.JTextField();
 
         writeOverOriginalJCheckBox.setText("Write Over Original");
         writeOverOriginalJCheckBox.addActionListener(new java.awt.event.ActionListener() {
@@ -151,15 +157,21 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
 
         jLabel5.setText("Less Width:");
 
+        jLabel4.setText("Results:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 206, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(0, 184, Short.MAX_VALUE))
         );
 
         jLabel6.setText("Less Height:");
@@ -172,8 +184,6 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                 generateJButtonActionPerformed(evt);
             }
         });
-
-        jLabel4.setText("Results:");
 
         jLabel1.setText("Row Total:");
 
@@ -233,6 +243,19 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     .addComponent(spriteTypeJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
+        jLabel7.setText("More Width:");
+
+        increaseWidthTextField.setText("0");
+        increaseWidthTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                increaseWidthTextFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("More Height:");
+
+        increaseHeightTextField.setText("0");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,7 +269,10 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(writeOverOriginalJCheckBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(generateJButton))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -256,10 +282,14 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(heightReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(writeOverOriginalJCheckBox)
+                                .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(generateJButton)))
-                        .addGap(0, 39, Short.MAX_VALUE)))
+                                .addComponent(increaseWidthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(increaseHeightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -272,10 +302,15 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
                     .addComponent(widthReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6)
                     .addComponent(heightReductionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(increaseWidthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8)
+                        .addComponent(increaseHeightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(writeOverOriginalJCheckBox)
                     .addComponent(generateJButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -308,16 +343,24 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         // TODO add your handling code here:
     }//GEN-LAST:event_widthReductionTextFieldActionPerformed
 
+    private void increaseWidthTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_increaseWidthTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_increaseWidthTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton generateJButton;
     private javax.swing.JTextField heightReductionTextField;
+    private javax.swing.JTextField increaseHeightTextField;
+    private javax.swing.JTextField increaseWidthTextField;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> spriteTypeJComboBox;

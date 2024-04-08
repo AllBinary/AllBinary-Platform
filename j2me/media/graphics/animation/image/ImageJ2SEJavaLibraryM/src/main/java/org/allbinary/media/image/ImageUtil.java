@@ -133,7 +133,11 @@ public class ImageUtil
        return this.createBufferedImage(bufferedImage, newWidth, newHeight, true);
    }
    
-   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale)
+   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale) throws Exception {
+       return this.createBufferedImage(bufferedImage, newWidth, newHeight, scale, false);
+   }
+   
+   public BufferedImage createBufferedImage(final BufferedImage bufferedImage, final int newWidth, int newHeight, final boolean scale, final boolean allowTranslate)
       throws Exception
    {
       final double width = bufferedImage.getWidth();
@@ -151,36 +155,41 @@ public class ImageUtil
       }
       
       final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratioX, ratioY);
-
+      
       LogUtil.put(LogFactory.getInstance(new StringMaker().append(width).append(this.commonSeps.FORWARD_SLASH).append(height)
               .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
               .append(widthRatio).append(this.commonSeps.FORWARD_SLASH).append(heightRatio).toString(), this, CREATE_BUFFERED_IMAGE));
 
-      if(!scale) {
-          if (newWidth < width) {
-              final double translate = -(width - newWidth);
-              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE));
-              affineTransform.translate(translate, 0);
-          }
-          if (newHeight < height) {
-              //final double translate = -(height - newHeight) / 2;
-              final double translate = -(height - newHeight);
-              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE));
-              affineTransform.translate(0, translate);
-          }
-
-          //if(newHeight > height && widthRatio <= 1) {
-          if (newHeight > height) {
-              final double translate = (newHeight - height) / 2;
-              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE));
-              affineTransform.translate(0, translate);
-          }
-          //if(newWidth > width && heightRatio <= 1) {
-          if (newWidth > width) {
-              final double translate = (newWidth - width) / 2;
-              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE));
-              affineTransform.translate(translate, 0);
-          }
+      if(!scale && allowTranslate) {
+          final double dx = (newWidth - width) / 2;
+          final double dy = (newHeight - height) / 2;
+          LogUtil.put(LogFactory.getInstance(new StringMaker().append("Translate dx: ").append(dx).append(" dy: ").append(dy).toString(), this, CREATE_BUFFERED_IMAGE));
+          affineTransform.translate(dx, dy);
+          
+//          if (newWidth < width) {
+//              final double translate = -(width - newWidth);
+//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x3: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              affineTransform.translate(translate, 0);
+//          }
+//          if (newHeight < height) {
+//              //final double translate = -(height - newHeight) / 2;
+//              final double translate = -(height - newHeight);
+//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y0: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              affineTransform.translate(0, translate);
+//          }
+//
+//          //if(newHeight > height && widthRatio <= 1) {
+//          if (newHeight > height) {
+//              final double translate = (newHeight - height) / 2;
+//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered y1: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              affineTransform.translate(0, translate);
+//          }
+//          //if(newWidth > width && heightRatio <= 1) {
+//          if (newWidth > width) {
+//              final double translate = (newWidth - width) / 2;
+//              LogUtil.put(LogFactory.getInstance("Translating to keep image centered x2: " + translate, this, CREATE_BUFFERED_IMAGE));
+//              affineTransform.translate(translate, 0);
+//          }
       }
 
       final BufferedImage newBufferedImage = new BufferedImage(
