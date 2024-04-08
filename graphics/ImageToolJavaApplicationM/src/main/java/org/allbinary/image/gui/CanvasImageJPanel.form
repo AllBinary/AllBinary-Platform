@@ -62,6 +62,7 @@
   <SubComponents>
     <Component class="javax.swing.JCheckBox" name="writeOverOriginalJCheckBox">
       <Properties>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="text" type="java.lang.String" value="Write Over Original"/>
       </Properties>
       <Events>
