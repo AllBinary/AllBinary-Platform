@@ -191,6 +191,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
         });
 
         floatPercentJTextField.setText("-1.000000");
+        floatPercentJTextField.setMinimumSize(new java.awt.Dimension(120, 22));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
