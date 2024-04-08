@@ -99,6 +99,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
       createStripImageJMenuItem = new javax.swing.JMenuItem();
       mirrorJMenuItem = new javax.swing.JMenuItem();
       scaleImagesJMenuItem = new javax.swing.JMenuItem();
+      canvasImagesJMenuItem = new javax.swing.JMenuItem();
 
       analysisActionJDialog.setMinimumSize(new java.awt.Dimension(350, 250));
 
@@ -287,6 +288,14 @@ public class ImageToolJFrame extends javax.swing.JFrame
       });
       processingJMenu.add(scaleImagesJMenuItem);
 
+      canvasImagesJMenuItem.setText("Canvas Image(s)");
+      canvasImagesJMenuItem.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            canvasImagesJMenuItemActionPerformed(evt);
+         }
+      });
+      processingJMenu.add(canvasImagesJMenuItem);
+      
       mainJMenuBar.add(processingJMenu);
 
       setJMenuBar(mainJMenuBar);
@@ -492,6 +501,25 @@ public class ImageToolJFrame extends javax.swing.JFrame
       }
 }//GEN-LAST:event_scaleImagesJMenuItemActionPerformed
 
+private void canvasImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
+      try
+      {
+         LogUtil.put(LogFactory.getInstance("Start", this, "canvasImagesJMenuItemActionPerformed"));
+
+         final CanvasImageJPanel resizeImageJPanel = new CanvasImageJPanel(this.imageProcessorInput);
+
+         this.jPanel1.removeAll();
+         this.jPanel1.add(resizeImageJPanel);
+         this.jPanel1.updateUI();
+
+         imageProcessorInputCompositeInterface = resizeImageJPanel;
+      }
+      catch (Exception e)
+      {
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "scaleImagesJMenuItemActionPerformed", e));
+      }
+}
+   
 private void generateMirrorSpriteMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateMirrorSpriteMenuItemActionPerformed
    try
    {
@@ -652,6 +680,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    private javax.swing.JMenu processingJMenu;
    private javax.swing.JLabel redJLabel;
    private javax.swing.JMenuItem scaleImagesJMenuItem;
+   private javax.swing.JMenuItem canvasImagesJMenuItem;
    private javax.swing.JLabel titleJLabel;
    // End of variables declaration//GEN-END:variables
     

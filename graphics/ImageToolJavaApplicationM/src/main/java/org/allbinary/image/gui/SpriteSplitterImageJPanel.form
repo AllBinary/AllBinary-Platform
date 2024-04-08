@@ -226,7 +226,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="spriteTypeJComboBoxActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      spriteTypeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { org.allbinary.media.image.SpriteSplitterUtil.getInstance().DIRECTIONAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_ANIMATIONS, org.allbinary.media.image.SpriteSplitterUtil.getInstance().HORIZONTAL_SPRITE                   }));  //, org.allbinary.media.image.SpriteSplitterUtil.getInstance().VERTICLE_ANIMATIONS"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
