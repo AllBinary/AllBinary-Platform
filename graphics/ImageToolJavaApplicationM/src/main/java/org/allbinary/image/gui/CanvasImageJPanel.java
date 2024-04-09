@@ -68,13 +68,13 @@ public class CanvasImageJPanel extends javax.swing.JPanel
 
                     final int leftReduction = Integer.valueOf(widthReductionTextField1.getText());
                     final int topReduction = Integer.valueOf(heightReductionTextField1.getText());
+                    final int widthReduction = Integer.valueOf(widthReductionTextField.getText());
+                    final int heightReduction = Integer.valueOf(heightReductionTextField.getText());
                     
-                    if(leftReduction > 0) {
-                        final int widthReduction = Integer.valueOf(widthReductionTextField.getText());
-                        final int heightReduction = Integer.valueOf(heightReductionTextField.getText());
-                        canvasTrimUtil.process(CanvasImageJPanel.this.getImageProcessorInput(), leftReduction, topReduction, widthReduction, heightReduction, CanvasImageJPanel.this);
+                    if(leftReduction <= 0 || topReduction <= 0 || widthReduction <= 0 || heightReduction <= 0) {
+                        canvasTrimUtil.process(CanvasImageJPanel.this.getImageProcessorInput(), -leftReduction, -topReduction, -widthReduction, -heightReduction, CanvasImageJPanel.this);
                     } else {
-                        canvasExpandUtil.process(CanvasImageJPanel.this.getImageProcessorInput(), -leftReduction, -topReduction, CanvasImageJPanel.this);
+                        canvasExpandUtil.process(CanvasImageJPanel.this.getImageProcessorInput(), leftReduction, topReduction, CanvasImageJPanel.this);
                     }
 
                 } catch (Exception e) {
