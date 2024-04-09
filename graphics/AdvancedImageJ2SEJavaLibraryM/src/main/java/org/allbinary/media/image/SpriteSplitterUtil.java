@@ -101,8 +101,10 @@ public class SpriteSplitterUtil {
                         generatedBufferedImageArray[index2][index3] = bufferedImage.getSubimage(
                             x + widthReduction, y + heightReduction, 
                             cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
+                        if(increaseWidth != 0 || increaseHeight != 0) {
                         generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImage(
                             generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
+                        }
                         nameEnding = new StringMaker().append(index2).append(commonSeps.UNDERSCORE).append(index3).toString();
                         visitor.visit(generatedBufferedImageArray[index2][index3], nameEnding, index);
                     }
@@ -217,8 +219,10 @@ public class SpriteSplitterUtil {
                         generatedBufferedImageArray[index2][index3] = bufferedImage.getSubimage(
                             x + widthReduction, y + heightReduction, 
                             cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
+                        if(increaseWidth != 0 || increaseHeight != 0) {
                         generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImage(
                             generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
+                        }
                         nameEnding = new StringMaker().append(DIRECTION_NAME[index2]).append(commonSeps.UNDERSCORE).append(index3).toString();
                         visitor.visit(generatedBufferedImageArray[index2][index3], nameEnding, index);
                     }
