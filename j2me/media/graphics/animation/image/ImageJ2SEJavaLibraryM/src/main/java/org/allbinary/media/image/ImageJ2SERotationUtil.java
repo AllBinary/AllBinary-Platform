@@ -46,7 +46,7 @@ public class ImageJ2SERotationUtil
       return this.getRotatedImage(bufferedImage, newBufferedImage, newBufferedImage.createGraphics(), radians);
    }
    
-   public BufferedImage getRotatedImage(final Image bufferedImage, final BufferedImage newBufferedImage, final Graphics2D g, final double radians)
+   private BufferedImage getRotatedImage(final Image bufferedImage, final BufferedImage newBufferedImage, final Graphics2D g, final double radians)
    {
       //g.translate((neww-w)/2, (newh-h)/2);
 
