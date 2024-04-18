@@ -66,10 +66,10 @@ public class ImageUtil
       }
    }
 
-   public GraphicsConfiguration getDefaultConfiguration()
+   private GraphicsConfiguration getDefaultConfiguration()
    {
-      GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-      GraphicsDevice gd = ge.getDefaultScreenDevice();
+      final GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+      final GraphicsDevice gd = ge.getDefaultScreenDevice();
       return gd.getDefaultConfiguration();
    }
 
@@ -82,15 +82,18 @@ public class ImageUtil
    public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int percent, final boolean scale)
       throws Exception
    {
-      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
+       final int size = bufferedImageArray.length;
+      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[size];
 
-      for (int index = 0; index < bufferedImageArray.length; index++)
+      BufferedImage bufferedImage;
+      for (int index = 0; index < size; index++)
       {
-         final int newWidth = (int) (bufferedImageArray[index].getWidth() * percent / 100);
-         final int newHeight = (int) (bufferedImageArray[index].getHeight() * percent / 100);
+          bufferedImage = bufferedImageArray[index];
+         final int newWidth = (int) (bufferedImage.getWidth() * percent / 100);
+         final int newHeight = (int) (bufferedImage.getHeight() * percent / 100);
 
          scaledBufferedImageArray[index] =
-            this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight, scale);
+            this.createBufferedImage(bufferedImage, newWidth, newHeight, scale);
       }
 
       return scaledBufferedImageArray;
@@ -99,15 +102,18 @@ public class ImageUtil
    public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final float percent, final boolean scale)
       throws Exception
    {
-      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
+       final int size = bufferedImageArray.length;
+      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[size];
 
-      for (int index = 0; index < bufferedImageArray.length; index++)
+      BufferedImage bufferedImage;
+      for (int index = 0; index < size; index++)
       {
-         final int newWidth = (int) (bufferedImageArray[index].getWidth() * percent);
-         final int newHeight = (int) (bufferedImageArray[index].getHeight() * percent);
+          bufferedImage = bufferedImageArray[index];
+         final int newWidth = (int) (bufferedImage.getWidth() * percent);
+         final int newHeight = (int) (bufferedImage.getHeight() * percent);
 
          scaledBufferedImageArray[index] =
-            this.createBufferedImage(bufferedImageArray[index], newWidth, newHeight, scale);
+            this.createBufferedImage(bufferedImage, newWidth, newHeight, scale);
       }
 
       return scaledBufferedImageArray;
@@ -116,9 +122,10 @@ public class ImageUtil
    public BufferedImage[] createBufferedImage(final BufferedImage[] bufferedImageArray, final int width, final int height, final boolean scale)
       throws Exception
    {
-      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[bufferedImageArray.length];
+       final int size = bufferedImageArray.length;
+      final BufferedImage[] scaledBufferedImageArray = new BufferedImage[size];
 
-      for (int index = 0; index < bufferedImageArray.length; index++)
+      for (int index = 0; index < size; index++)
       {
          scaledBufferedImageArray[index] =
             this.createBufferedImage(bufferedImageArray[index], width, height, scale);

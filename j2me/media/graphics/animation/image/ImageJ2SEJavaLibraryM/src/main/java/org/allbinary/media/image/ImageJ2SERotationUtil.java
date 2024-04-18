@@ -85,9 +85,10 @@ public class ImageJ2SERotationUtil
       
       final double arc = (TWO_PIE) * totalAngle / 360;
       
-      for(int index = 0; index < bufferedImageArray.length; index++)
+      final int size = bufferedImageArray.length;
+      for(int index = 0; index < size; index++)
       {
-         final double radians = (arc / bufferedImageArray.length) * index;
+         final double radians = (arc / size) * index;
          bufferedImageArray[index] =
             this.getRotatedImage(bufferedImage, radians);
       }
@@ -99,23 +100,25 @@ public class ImageJ2SERotationUtil
       int columns = 9;
       int rows = 0;
 
-      if(bufferedImageArray.length < columns)
+      final int size = bufferedImageArray.length;
+      if(size < columns)
       {
-          columns = bufferedImageArray.length;
+          columns = size;
       }
       
-      rows = (bufferedImageArray.length/columns);
+      rows = (size / columns);
       
       //Extra row for incomplete but needed row
-      if(bufferedImageArray.length % columns != 0)
+      if(size % columns != 0)
       {
           rows++;
       }
       
+      final BufferedImage firstBufferedImage = bufferedImageArray[0];
       final BufferedImage bufferedImage = 
          this.imageUtil.create(
-         bufferedImageArray[0].getWidth(null) * columns, 
-         bufferedImageArray[0].getHeight(null) * rows);
+         firstBufferedImage.getWidth(null) * columns, 
+         firstBufferedImage.getHeight(null) * rows);
 
       final Graphics2D g = bufferedImage.createGraphics();
       //g.translate((neww-w)/2, (newh-h)/2);
@@ -123,7 +126,8 @@ public class ImageJ2SERotationUtil
       int columnIndex = 0;
       int rowIndex = 0;
 
-      for(int index = 0; index < bufferedImageArray.length; index++)
+      BufferedImage nextBufferedImage;
+      for(int index = 0; index < size; index++)
       {
          if(index/9 != 0 && index % 9 == 0)
          {
@@ -131,11 +135,12 @@ public class ImageJ2SERotationUtil
             columnIndex = 0;
          }
 
-         g.drawImage(bufferedImageArray[index], 
-            bufferedImageArray[index].getWidth(null) * columnIndex, 
-            bufferedImageArray[index].getHeight(null) * rowIndex, 
-            bufferedImageArray[index].getWidth(null), 
-            bufferedImageArray[index].getHeight(null), null);
+         nextBufferedImage = bufferedImageArray[index];
+         g.drawImage(nextBufferedImage, 
+            nextBufferedImage.getWidth(null) * columnIndex, 
+            nextBufferedImage.getHeight(null) * rowIndex, 
+            nextBufferedImage.getWidth(null), 
+            nextBufferedImage.getHeight(null), null);
          //g.drawRenderedImage(image, null);
 
          columnIndex++;
