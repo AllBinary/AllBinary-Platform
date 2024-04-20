@@ -881,6 +881,18 @@ public class FileUtil
         return StringUtil.getInstance().EMPTY_STRING;
     }
     
+   public boolean shouldSkip(final AbFile file, final String[] skipFiles) {
+       final int size = skipFiles.length;
+       String skipFile;
+       for(int index = 0; index < size; index++) {
+           skipFile = skipFiles[index];
+           if (file.getPath().compareTo(skipFile) == 0) {
+               return true;
+           }
+       }
+       return false;
+   }               
+    
     private final String WRITE_LABEL = "Write file: ";
     private final String DATA_LABEL = " data: ";
     private final String WRITE_METHOD = "write";

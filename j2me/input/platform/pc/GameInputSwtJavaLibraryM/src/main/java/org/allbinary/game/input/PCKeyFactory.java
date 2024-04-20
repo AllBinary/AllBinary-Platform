@@ -15,8 +15,7 @@ package org.allbinary.game.input;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.string.CommonPhoneStrings;
-
-import java.awt.event.KeyEvent;
+import org.eclipse.swt.SWT;
 
 public class PCKeyFactory
 {
@@ -27,34 +26,36 @@ public class PCKeyFactory
         return SINGLETON;
     }
 
-    public final PCGameKey UNKNOWN = new PCGameKey(KeyEvent.VK_UNDEFINED, "UNKNOWN");
-    public final PCGameKey ENTER = new PCGameKey(5, "Enter");
-    public final PCGameKey A = new PCGameKey(KeyEvent.VK_A, "A");
-    public final PCGameKey B = new PCGameKey(KeyEvent.VK_B, "B");
-    public final PCGameKey C = new PCGameKey(KeyEvent.VK_C, "C");
-    public final PCGameKey D = new PCGameKey(KeyEvent.VK_D, "D");
-    public final PCGameKey E = new PCGameKey(KeyEvent.VK_E, "E");
-    public final PCGameKey F = new PCGameKey(KeyEvent.VK_F, "F");
-    public final PCGameKey G = new PCGameKey(KeyEvent.VK_G, "G");
-    public final PCGameKey H = new PCGameKey(KeyEvent.VK_H, "H");
-    public final PCGameKey I = new PCGameKey(KeyEvent.VK_I, "I");
-    public final PCGameKey J = new PCGameKey(KeyEvent.VK_J, "J");
-    public final PCGameKey K = new PCGameKey(KeyEvent.VK_K, "K");
-    public final PCGameKey L = new PCGameKey(KeyEvent.VK_L, "L");
-    public final PCGameKey M = new PCGameKey(KeyEvent.VK_M, "M");
-    public final PCGameKey N = new PCGameKey(KeyEvent.VK_N, "N");
-    public final PCGameKey O = new PCGameKey(KeyEvent.VK_O, "O");
-    public final PCGameKey P = new PCGameKey(KeyEvent.VK_P, "P");
-    public final PCGameKey Q = new PCGameKey(KeyEvent.VK_Q, "Q");
-    public final PCGameKey R = new PCGameKey(KeyEvent.VK_R, "R");
-    public final PCGameKey S = new PCGameKey(KeyEvent.VK_S, "S");
-    public final PCGameKey T = new PCGameKey(KeyEvent.VK_T, "T");
-    public final PCGameKey U = new PCGameKey(KeyEvent.VK_U, "U");
-    public final PCGameKey V = new PCGameKey(KeyEvent.VK_V, "V");
-    public final PCGameKey W = new PCGameKey(KeyEvent.VK_W, "W");
-    public final PCGameKey X = new PCGameKey(KeyEvent.VK_X, "X");
-    public final PCGameKey Y = new PCGameKey(KeyEvent.VK_Y, "Y");
-    public final PCGameKey Z = new PCGameKey(KeyEvent.VK_Z, "Z");
+    public final PCGameKey UNKNOWN = new PCGameKey(254, "UNKNOWN");
+    public final PCGameKey ENTER = new PCGameKey(13, "Enter");
+
+    public final PCGameKey A = new PCGameKey(65, "A");
+    public final PCGameKey B = new PCGameKey(66, "B");
+    public final PCGameKey C = new PCGameKey(67, "C");
+    public final PCGameKey D = new PCGameKey(68, "D");
+    public final PCGameKey E = new PCGameKey(69, "E");
+    public final PCGameKey F = new PCGameKey(70, "F");
+    public final PCGameKey G = new PCGameKey(71, "G");
+    public final PCGameKey H = new PCGameKey(72, "H");
+    public final PCGameKey I = new PCGameKey(73, "I");
+    public final PCGameKey J = new PCGameKey(74, "J");
+    public final PCGameKey K = new PCGameKey(75, "K");
+    public final PCGameKey L = new PCGameKey(76, "L");
+    public final PCGameKey M = new PCGameKey(77, "M");
+    public final PCGameKey N = new PCGameKey(78, "N");
+    public final PCGameKey O = new PCGameKey(79, "O");
+    public final PCGameKey P = new PCGameKey(80, "P");
+    public final PCGameKey Q = new PCGameKey(81, "Q");
+    public final PCGameKey R = new PCGameKey(82, "R");
+    public final PCGameKey S = new PCGameKey(83, "S");
+    public final PCGameKey T = new PCGameKey(84, "T");
+    public final PCGameKey U = new PCGameKey(85, "U");
+    public final PCGameKey V = new PCGameKey(86, "V");
+    public final PCGameKey W = new PCGameKey(87, "W");
+    public final PCGameKey X = new PCGameKey(88, "X");
+    public final PCGameKey Y = new PCGameKey(89, "Y");
+    public final PCGameKey Z = new PCGameKey(90, "Z");
+
     public final PCGameKey a = new PCGameKey(97, "a");
     public final PCGameKey b = new PCGameKey(98, "b");
     public final PCGameKey c = new PCGameKey(99, "c");
@@ -82,50 +83,51 @@ public class PCKeyFactory
     public final PCGameKey y = new PCGameKey(121, "y");
     public final PCGameKey z = new PCGameKey(122, "z");
     
-    public final PCGameKey ZERO = new PCGameKey(KeyEvent.VK_0, CommonPhoneStrings.getInstance().ZERO);
-    public final PCGameKey ONE = new PCGameKey(KeyEvent.VK_1, CommonPhoneStrings.getInstance().ONE);
-    public final PCGameKey TWO = new PCGameKey(KeyEvent.VK_2, CommonPhoneStrings.getInstance().TWO);
-    public final PCGameKey THREE = new PCGameKey(KeyEvent.VK_3,
+    public final PCGameKey ZERO = new PCGameKey(48, CommonPhoneStrings.getInstance().ZERO);
+    public final PCGameKey ONE = new PCGameKey(49, CommonPhoneStrings.getInstance().ONE);
+    public final PCGameKey TWO = new PCGameKey(50, CommonPhoneStrings.getInstance().TWO);
+    public final PCGameKey THREE = new PCGameKey(51,
         CommonPhoneStrings.getInstance().THREE);
-    public final PCGameKey FOUR = new PCGameKey(KeyEvent.VK_4, CommonPhoneStrings.getInstance().FOUR);
-    public final PCGameKey FIVE = new PCGameKey(KeyEvent.VK_5, CommonPhoneStrings.getInstance().FIVE);
-    public final PCGameKey SIX = new PCGameKey(KeyEvent.VK_6, CommonPhoneStrings.getInstance().SIX);
-    public final PCGameKey SEVEN = new PCGameKey(KeyEvent.VK_7,
+    public final PCGameKey FOUR = new PCGameKey(52, CommonPhoneStrings.getInstance().FOUR);
+    public final PCGameKey FIVE = new PCGameKey(53, CommonPhoneStrings.getInstance().FIVE);
+    public final PCGameKey SIX = new PCGameKey(54, CommonPhoneStrings.getInstance().SIX);
+    public final PCGameKey SEVEN = new PCGameKey(55,
         CommonPhoneStrings.getInstance().SEVEN);
-    public final PCGameKey EIGHT = new PCGameKey(KeyEvent.VK_8,
+    public final PCGameKey EIGHT = new PCGameKey(56,
         CommonPhoneStrings.getInstance().EIGHT);
-    public final PCGameKey NINE = new PCGameKey(KeyEvent.VK_9, CommonPhoneStrings.getInstance().NINE);
-    public final PCGameKey DPAD_UP = new PCGameKey(KeyEvent.VK_UP, "UP");
-    public final PCGameKey DPAD_DOWN = new PCGameKey(KeyEvent.VK_DOWN, "DOWN");
-    public final PCGameKey DPAD_LEFT = new PCGameKey(KeyEvent.VK_LEFT, "LEFT");
-    public final PCGameKey DPAD_RIGHT = new PCGameKey(KeyEvent.VK_RIGHT, "RIGHT");
+    public final PCGameKey NINE = new PCGameKey(57, CommonPhoneStrings.getInstance().NINE);
+
+    public final PCGameKey DPAD_UP = new PCGameKey(38, "UP");
+    public final PCGameKey DPAD_DOWN = new PCGameKey(40, "DOWN");
+    public final PCGameKey DPAD_LEFT = new PCGameKey(37, "LEFT");
+    public final PCGameKey DPAD_RIGHT = new PCGameKey(39, "RIGHT");
     public final PCGameKey DPAD_UP2 = DPAD_UP;
     public final PCGameKey DPAD_DOWN2 = DPAD_DOWN;
     public final PCGameKey DPAD_LEFT2 = DPAD_LEFT;
     public final PCGameKey DPAD_RIGHT2 = DPAD_RIGHT;
-//    public final PCGameKey DPAD_UP2 = new PCGameKey(1, "UP");
-//    public final PCGameKey DPAD_DOWN2 = new PCGameKey(2, "DOWN");
-//    public final PCGameKey DPAD_LEFT2 = new PCGameKey(3, "LEFT");
-//    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(4, "RIGHT");
+//    public final PCGameKey DPAD_UP2 = new PCGameKey(SWT.ARROW_UP, "UP");
+//    public final PCGameKey DPAD_DOWN2 = new PCGameKey(SWT.ARROW_DOWN, "DOWN");
+//    public final PCGameKey DPAD_LEFT2 = new PCGameKey(SWT.ARROW_LEFT, "LEFT");
+//    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(SWT.ARROW_RIGHT, "RIGHT");
 //    public final PCGameKey DPAD_UP2 = new PCGameKey(-1, "UP");
 //    public final PCGameKey DPAD_DOWN2 = new PCGameKey(-2, "DOWN");
 //    public final PCGameKey DPAD_LEFT2 = new PCGameKey(-3, "LEFT");
 //    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(-4, "RIGHT");
     //public final PCGameKey DPAD_CENTER = new PCGameKey(KeyEvent.VK_CENTER,
     //      "CENTER");
-    public final PCGameKey COMMA = new PCGameKey(KeyEvent.VK_COMMA, "COMMA");
-    public final PCGameKey SPACE = new PCGameKey(KeyEvent.VK_SPACE, "SPACE");
-    public final PCGameKey DEL = new PCGameKey(KeyEvent.VK_DELETE, "DEL");
+    public final PCGameKey COMMA = new PCGameKey(188, "COMMA");
+    public final PCGameKey SPACE = new PCGameKey(32, "SPACE");
+    public final PCGameKey DEL = new PCGameKey(46, "DEL");
     //public final PCGameKey POUND = new PCGameKey(KeyEvent.VK_NUMBER_SIGN,
     //      CommonPhoneStrings.getInstance().POUND);
     public final PCGameKey STAR = new PCGameKey(42,
         CommonPhoneStrings.getInstance().STAR);
     public final PCGameKey QUESTION = new PCGameKey(47, "?");
-    public final PCGameKey PERIOD = new PCGameKey(KeyEvent.VK_PERIOD,
+    public final PCGameKey PERIOD = new PCGameKey(190,
         CommonSeps.getInstance().PERIOD);
-    public final PCGameKey ESCAPE = new PCGameKey(KeyEvent.VK_ESCAPE, "Esc");
+    public final PCGameKey ESCAPE = new PCGameKey(27, "Esc");
     
-    public final PCGameKey BACK_SPACE = new PCGameKey(KeyEvent.VK_BACK_SPACE, "Backspace");
+    public final PCGameKey BACK_SPACE = new PCGameKey(8, "Backspace");
 
     //KeyEvent.VK_BACK_SPACE = ?
     //public PCGameKey BACK_SPACE = new PCGameKey(,
