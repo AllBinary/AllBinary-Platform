@@ -51,9 +51,9 @@ public class Tokenizer {
                 int end = string.indexOf(endSep, index + sep.length());
                 if (end != -1) {
                     tokenList.add(string.substring(index + sep.length(), end - (endSep.length() - 1)));
-                    index = end + sep.length();
+                    index = end + endSep.length();
                 } else {
-                    break;
+                    //break;
                 }
             } else {
                 //The end of the string was found
