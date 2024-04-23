@@ -37,14 +37,15 @@ public class ExceptionUtil
 
     public String getStackTrace(Throwable e)
     {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(byteArrayOutputStream);
+        if(e != null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            PrintStream printStream = new PrintStream(byteArrayOutputStream);
 
-        e.printStackTrace(printStream);
+            e.printStackTrace(printStream);
 
-        if (byteArrayOutputStream.toString() != null)
-        {
-            return new String(byteArrayOutputStream.toString());
+            if (byteArrayOutputStream.toString() != null) {
+                return new String(byteArrayOutputStream.toString());
+            }
         }
         return NONE;
     }
