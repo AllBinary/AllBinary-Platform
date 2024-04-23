@@ -22,7 +22,10 @@ import org.allbinary.logic.string.StringMaker;
 public class ScaleProperties {
     
     public static final ScaleProperties instance = new ScaleProperties();
-    
+
+    public int scaleX = 1;
+    public int scaleY = 1;
+
     public int scaleWidth;
     public int scaleHeight;
     
@@ -30,8 +33,8 @@ public class ScaleProperties {
     
     public String toString() {
         return new StringMaker().append(": ").append(this.shouldScale)
-            //.append("scaleX: ").append(this.scaleX)
-            //.append("scaleY: ").append(this.scaleY)
+            .append("scaleX: ").append(this.scaleX)
+            .append("scaleY: ").append(this.scaleY)
             .append("scaleWidth: ").append(this.scaleWidth)
             .append("scaleHeight: ").append(this.scaleHeight)
             .toString();
