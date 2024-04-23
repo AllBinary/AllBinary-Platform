@@ -40,7 +40,7 @@ public class LinuxOperatingSystemFactory
         try
         {
             final OperatingSystems operatingSystems = OperatingSystems.getInstance();
-            final String osName = SystemProperties.getName();
+            final String osName = SystemProperties.getInstance().getName();
             OperatingSystemInterface operatingSystemInterface;
             
             if(osName.compareTo(operatingSystems.LINUX)==0)

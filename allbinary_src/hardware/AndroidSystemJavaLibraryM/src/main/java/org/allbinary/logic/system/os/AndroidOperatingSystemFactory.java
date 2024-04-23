@@ -40,7 +40,8 @@ public class AndroidOperatingSystemFactory {
         try
         {
             OperatingSystemInterface operatingSystemInterface;
-            String osName = SystemProperties.getName();
+            final SystemProperties systemProperties = SystemProperties.getInstance();
+            String osName = systemProperties.getName();
 
             if(osName.compareTo(OperatingSystems.getInstance().ANDROID)==0)
             {

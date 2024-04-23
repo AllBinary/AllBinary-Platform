@@ -15,58 +15,68 @@ package org.allbinary.logic.system.os;
 
 public class SystemProperties
 {
+
+    private static final SystemProperties instance = new SystemProperties();
+
+    /**
+     * @return the instance
+     */
+    public static SystemProperties getInstance() {
+        return instance;
+    }
+    
      private SystemProperties()
      {         
      }
 
      /*
-     public static String getJavaVersion()
+     public String getJavaVersion()
      {
         return System.getProperty("java.version");
      }
      
-     public static String getFileSep()
+     public String getFileSep()
      {
         return System.getProperty("file.separator");        
      }
      
-     public static String getLineSep()
+     public String getLineSep()
      {
          return System.getProperty("line.separator");
      }
      
-     public static String getPathSep()
+     public String getPathSep()
      {
          return System.getProperty("path.separator");
      }
      
-     public static String getClassVersion()
+     public String getClassVersion()
      {
          return System.getProperty("java.class.version");
      }
      
-     public static String getVendor()
+     public String getVendor()
      {         
          return System.getProperty("java.vendor");
      }
      
-     public static String getVendorUrl()
+     public String getVendorUrl()
      {
          return System.getProperty("java.vendor.url");
      }
      */
      
-     public static String getName()
+     public String getName()
      {
          return System.getProperty("os.name");
      }
      
-     public static String getArch()
+     public String getArch()
      {
          return System.getProperty("os.arch");
      }
      
-     public static String getVersion()
+     public String getVersion()
      {
          return System.getProperty("os.version");
      }

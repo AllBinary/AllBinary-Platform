@@ -38,7 +38,8 @@ public class OperatingSystemFactory
     {
         try
         {
-            String osName = SystemProperties.getName();
+            final SystemProperties systemProperties = SystemProperties.getInstance();
+            String osName = systemProperties.getName();
             //String osArch = SystemProperties.getArch();
             //String osVersion = SystemProperties.getVersion();
             

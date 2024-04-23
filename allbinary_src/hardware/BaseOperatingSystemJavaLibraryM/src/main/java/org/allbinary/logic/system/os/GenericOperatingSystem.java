@@ -28,36 +28,38 @@ public class GenericOperatingSystem implements OperatingSystemInterface
 
    public GenericOperatingSystem()
    {
+       final SystemProperties systemProperties = SystemProperties.getInstance();
+
        final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
        
        final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
        
-       if(stringValidationUtil.isEmpty(SystemProperties.getName()))
+       if(stringValidationUtil.isEmpty(systemProperties.getName()))
        {
            this.osName = EMPTY_STRING;
        }
        else
        {
-           this.osName = SystemProperties.getName();
+           this.osName = systemProperties.getName();
        }
 
-       if(stringValidationUtil.isEmpty(SystemProperties.getArch()))
+       if(stringValidationUtil.isEmpty(systemProperties.getArch()))
        {
            this.osArch = EMPTY_STRING;
        }
        else
        {
-           this.osArch = SystemProperties.getArch();
+           this.osArch = systemProperties.getArch();
        }
 
 
-       if(stringValidationUtil.isEmpty(SystemProperties.getVersion()))
+       if(stringValidationUtil.isEmpty(systemProperties.getVersion()))
        {
            this.osVersion = EMPTY_STRING;
        }
        else
        {
-           this.osVersion = SystemProperties.getVersion();
+           this.osVersion = systemProperties.getVersion();
        }
 
       this.characterSet = new CharacterSet();
