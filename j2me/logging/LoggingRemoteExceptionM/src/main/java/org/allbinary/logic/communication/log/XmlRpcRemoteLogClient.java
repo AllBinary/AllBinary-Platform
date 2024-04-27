@@ -49,7 +49,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             
             int index = serverUrl.lastIndexOf("/");
             
-            serverUrl = serverUrl.substring(0, index + 1) + "logserv.php";
+            serverUrl = serverUrl.substring(0, index + 1) + "logservssl.php";
             //System.out.println("Renamed Server: " + serverUrl);
 
             this.setClient(new XmlRpcClient(serverUrl));
@@ -70,7 +70,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            Object result = getClient().execute(this.getRemoteMethod(), param, noCrypt, null);
+            Object result = getClient().execute(this.getRemoteMethod(), param, noCrypt);
 
             /*
              * this could return without trying all servers if(result==null) {

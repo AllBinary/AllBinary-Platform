@@ -32,7 +32,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
 {
-    private final String PAGE = "licenseregistrationserver.php";
+    private final String PAGE = "licenseregistrationserverssl.php";
     
     public XmlRpcRemoteLicenseRegistrationClient(AbeClientInformationInterface clientInfo)
     {
