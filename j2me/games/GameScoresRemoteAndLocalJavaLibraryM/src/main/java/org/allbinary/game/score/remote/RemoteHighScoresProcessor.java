@@ -25,6 +25,7 @@ import org.allbinary.game.GameInfoData;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
 
 public class RemoteHighScoresProcessor 
    implements RemoteHighScoresProcessorInterface
@@ -34,6 +35,8 @@ public class RemoteHighScoresProcessor
    {
    }
 
+   private final NoCrypt noCrypt = new NoCrypt();
+   
    //String customerUserName,
    public synchronized void process(final RemoteHighScores remoteHighScores, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
            throws Exception
@@ -71,7 +74,7 @@ public class RemoteHighScoresProcessor
       if(XmlRpcAbeClient.isOnline)
       {
           Hashtable resultHashtable = (Hashtable) new XmlRpcRemoteHighScoresClient(abeClientInformation,
-                  "highscoresservice.php", "HighScoresService.process").get(hashtable);
+                  "highscoresservicessl.php", "HighScoresService.process").get(hashtable, noCrypt);
 
           remoteHighScores.update(resultHashtable);
       }

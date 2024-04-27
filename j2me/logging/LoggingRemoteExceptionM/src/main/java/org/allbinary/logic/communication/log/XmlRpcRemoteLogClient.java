@@ -16,23 +16,24 @@ package org.allbinary.logic.communication.log;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
-import org.allbinary.logic.string.StringUtil;
 
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
 
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
-import org.allbinary.logic.system.security.crypt.jcehelper.BasicCrypt;
+import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 {
-    public XmlRpcRemoteLogClient(AbeClientInformationInterface clientInfo)
+    private final NoCrypt noCrypt = new NoCrypt();
+    
+    public XmlRpcRemoteLogClient(final AbeClientInformationInterface clientInfo)
     {
-        super(clientInfo, "LogServ.logUtil");
+        super(clientInfo, "SSLLogServ.logUtil");
     }
 
-    public Object get(Object object) throws Exception
+    public Object get(final Object object) throws Exception
     {
         try
         {
@@ -69,7 +70,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            Object result = getClient().execute(this.getRemoteMethod(), param, new BasicCrypt("gampipoi"));
+            Object result = getClient().execute(this.getRemoteMethod(), param, noCrypt, null);
 
             /*
              * this could return without trying all servers if(result==null) {

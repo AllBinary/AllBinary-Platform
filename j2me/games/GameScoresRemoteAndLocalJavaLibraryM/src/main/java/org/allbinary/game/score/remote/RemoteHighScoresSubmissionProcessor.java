@@ -24,6 +24,7 @@ import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import java.util.Hashtable;
 import org.allbinary.game.GameInfoData;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
 
 public class RemoteHighScoresSubmissionProcessor
         implements RemoteHighScoresSubmissionProcessorInterface
@@ -31,6 +32,8 @@ public class RemoteHighScoresSubmissionProcessor
     public RemoteHighScoresSubmissionProcessor()
     {
     }
+
+    private final NoCrypt noCrypt = new NoCrypt();
 
     //String customerUserName, 
     public synchronized void process(final RemoteHighScores remoteHighScores, final AbeClientInformationInterface abeClientInformation, final HighScore highScore)
@@ -75,8 +78,8 @@ public class RemoteHighScoresSubmissionProcessor
             if (XmlRpcAbeClient.isOnline)
             {
                 final Hashtable resultHashtable = (Hashtable) new XmlRpcRemoteHighScoresClient(
-                        abeClientInformation, "highscoresubmissionservice.php",
-                        "HighScoreSubmissionService.process").get(hashtable);
+                        abeClientInformation, "highscoresubmissionservicessl.php",
+                        "HighScoreSubmissionService.process").get(hashtable, noCrypt);
 
                 remoteHighScores.update(resultHashtable);
             }
