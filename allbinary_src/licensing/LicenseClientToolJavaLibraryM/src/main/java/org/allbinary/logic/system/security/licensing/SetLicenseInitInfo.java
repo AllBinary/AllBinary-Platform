@@ -71,7 +71,7 @@ public class SetLicenseInitInfo
 
             LicenseInitInfo licenseInitInfo = this.getLicenseInitInfo();
 
-            System.out.println("License Serv Example: http://www.dartstatistics.com/LicServ/server.php");
+            System.out.println("License Serv Example: http://www.dartstatistics.com/LicServ/serverssl.php");
 
             licenseInitInfo.clearServers();
 
