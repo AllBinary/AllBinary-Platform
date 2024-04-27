@@ -16,6 +16,7 @@ package org.allbinary.logic.system.security.licensing.registration;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
+import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.string.CommonLabels;
 
 import org.apache.xmlrpc.XmlRpcClient;
@@ -27,7 +28,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.exception.ExceptionUtil;
-import org.allbinary.logic.system.security.crypt.jcehelper.BasicCrypt;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
@@ -42,7 +42,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
         this.setServer(0);
     }
 
-    public Object get(Object object) throws Exception
+    public Object get(final Object object, final CryptInterface cryptInterface) throws Exception
     {
         try
         {
@@ -90,7 +90,7 @@ public class XmlRpcRemoteLicenseRegistrationClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            Object result = getClient().execute(this.getRemoteMethod(), param, new BasicCrypt(PASS));
+            Object result = getClient().execute(this.getRemoteMethod(), param, cryptInterface);
 
             /*
              * this could return without trying all servers if(result==null) {
