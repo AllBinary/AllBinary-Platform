@@ -16,6 +16,7 @@ package org.allbinary.game.score.remote;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
+import org.allbinary.init.crypt.jcehelper.CryptInterface;
 
 import org.apache.xmlrpc.XmlRpcClient;
 import org.apache.xmlrpc.XmlRpcException;
@@ -43,7 +44,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
         this.setServer(0);
     }
 
-    public Object get(Object object) throws Exception
+    public Object get(final Object object, final CryptInterface cryptInterface) throws Exception
     {
         try
         {            
@@ -88,7 +89,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             param.addElement(hashtable);
 
             // KeySpecFactory.DES,
-            Object result = getClient().execute(this.getRemoteMethod(), param, new BasicCrypt(PASS));
+            Object result = getClient().execute(this.getRemoteMethod(), param, cryptInterface);
 
             /*
              * this could return without trying all servers if(result==null) {

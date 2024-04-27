@@ -33,8 +33,6 @@ public class XmlRpcAbeClient
     private int maxServers;
     private boolean isDone;
 
-    protected final String PASS = "gampipoi";
-
     private final String START_SERVER = "Start With Server #";
     protected final String TRYING = "Trying Server #";
     protected final String SEP = ": ";

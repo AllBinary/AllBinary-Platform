@@ -37,7 +37,7 @@ public class XmlRpcClient implements XmlRpcHandler
         return null;
     }
 
-    public Object execute(String method, Vector params, CryptInterface abCrypt)
+    public Object execute(String method, Vector params, CryptInterface cryptInterface)
             throws XmlRpcException, IOException
     {
         return null;

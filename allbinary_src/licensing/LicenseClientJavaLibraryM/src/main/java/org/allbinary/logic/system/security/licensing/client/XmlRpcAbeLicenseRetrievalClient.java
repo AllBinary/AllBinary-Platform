@@ -16,6 +16,7 @@ package org.allbinary.logic.system.security.licensing.client;
 import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Vector;
+import org.allbinary.init.crypt.jcehelper.CryptInterface;
 import org.allbinary.logic.string.CommonLabels;
 
 import org.apache.xmlrpc.XmlRpcClient;
@@ -27,7 +28,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.exception.ExceptionUtil;
-import org.allbinary.logic.system.security.crypt.jcehelper.BasicCrypt;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.AbeClientLicense;
 import org.allbinary.logic.system.security.licensing.AbeLicenseInterface;
@@ -39,16 +39,16 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
         super(clientInfo, "LicServ.getLicense");
     }
     
-    public Object get(Object object) throws Exception
+    public Object get(final Object object, final CryptInterface cryptInterface) throws Exception
     {
         try
         {
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             
-            String server = getClientInfo().getLicenseServer(this.getServer());
+            final String server = getClientInfo().getLicenseServer(this.getServer());
             
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(TRYING);
             stringBuffer.append(this.getServer());
@@ -58,12 +58,12 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, CommonStrings.getInstance().GET));
             // }
 
-            Vector param = new Vector();
+            final Vector param = new Vector();
 
             this.setClient(new XmlRpcClient(server));
             this.getClient().setBasicAuthentication(null, null);
 
-            Hashtable hashtable = this.getClientInfo().toHashtable();
+            final Hashtable hashtable = this.getClientInfo().toHashtable();
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             LogUtil.put(LogFactory.getInstance(CLIENT_INFO + hashtable.toString(), this, CommonStrings.getInstance().GET));
@@ -77,7 +77,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             param.add(hashtable);
             // KeySpecFactory.DES,
-            Object result = getClient().execute(this.getRemoteMethod(), param, new BasicCrypt(PASS));
+            final Object result = getClient().execute(this.getRemoteMethod(), param, cryptInterface);
 
             /*
              * this could return without trying all servers if(result==null) {
@@ -91,7 +91,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             LogUtil.put(LogFactory.getInstance(RESULT + result.toString(), this, CommonStrings.getInstance().GET));
             // }
 
-            Hashtable resultHashtable = (Hashtable) result;
+            final Hashtable resultHashtable = (Hashtable) result;
 
             if (!AbeClientLicense.hasRequiredKeys(resultHashtable))
             {
@@ -103,7 +103,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
                 return this.tryAnother(object);
             }
 
-            AbeLicenseInterface abeLicenseInterface = new AbeClientLicense(resultHashtable);
+            final AbeLicenseInterface abeLicenseInterface = new AbeClientLicense(resultHashtable);
 
             // throw new LicensingException("Keys Failed To Validate");
 
