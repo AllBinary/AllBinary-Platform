@@ -21,7 +21,7 @@ import org.apache.xmlrpc.XmlRpcException;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfaceFactory;
+
 import org.allbinary.canvas.SpecialMessageUtil;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -30,6 +30,8 @@ public class LogUtil
     private static boolean isFirstException = true;
     private static TimeDelayHelper timeDelayHelper = new TimeDelayHelper(200000);
 
+    public static AbeClientInformationInterface abeClientInformation;
+    
     private LogUtil()
     {
     }
@@ -76,8 +78,8 @@ public class LogUtil
                     //android.util.Log.i("allbinary","Eeeek");
                     
                     //System.out.println("message: " + message);
-                    AbeClientInformationInterface abeClientInformation =
-                        AbeClientInformationInterfaceFactory.getInstance();
+                    if(abeClientInformation == null) throw new RuntimeException();
+
                     Hashtable hashtable = abeClientInformation.toHashtable();
 
                     stringBuffer.delete(0, stringBuffer.length());
