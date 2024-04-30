@@ -47,6 +47,11 @@ public class HighScoresHelper2 extends HighScoresHelperBase
     {
         this.circularIndexUtil.next();
 
+        if(this.highScoresArray.length == 0) {
+            this.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
+            return;
+        }
+
         HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
 
         int index = 0;
