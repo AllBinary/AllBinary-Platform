@@ -35,19 +35,22 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
 {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
-    private AudioInputStream audioInputStream;
-    private Clip clip;
+    private final AudioInputStream audioInputStream;
+    private final Clip clip;
 
     public PCClipWavPlayer(InputStream inputStream)
     {
+        AudioInputStream audioInputStream = null;
+        Clip clip = null;
         try
         {
-            this.audioInputStream =
+            audioInputStream =
                 AudioSystem.getAudioInputStream(inputStream);
 
-            this.clip = this.create();
+            clip = this.create();
 
-            if(this.clip == null) {
+            if(clip == null) {
+                LogUtil.put(LogFactory.getInstance("Clip was null", this, commonStrings.CONSTRUCTOR, new Exception()));
                 throw new RuntimeException();
             }
 
@@ -57,6 +60,9 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
         }
+        
+        this.audioInputStream = audioInputStream;
+        this.clip = clip;
     }
 
     public void close()
