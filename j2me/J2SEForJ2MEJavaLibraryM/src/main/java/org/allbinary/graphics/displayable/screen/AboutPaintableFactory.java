@@ -58,7 +58,8 @@ public class AboutPaintableFactory {
         */
 
         final String INFO[] = {
-                "Built with AllBinary Platform",
+                "Built with the",
+                "AllBinary Platform",
                 StringUtil.getInstance().EMPTY_STRING,
                 //StringUtil.getInstance()
                 //"More info at: http://"
