@@ -25,6 +25,9 @@ import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactor
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScores;
+import org.allbinary.game.score.HighScoresFactoryInterface;
+import org.allbinary.game.score.HighScoresHelperBase;
+import org.allbinary.game.score.HighScoresResultsListener;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.NullPaintable;
@@ -44,17 +47,20 @@ public class HighScoreTextBox extends CustomTextBox
     private final Paintable pleaseWait = 
         new SimpleTextPaintable(commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
     
+    private final HighScoresResultsListener highScoresResultsListener;
+    
     private Paintable paintable = NullPaintable.getInstance();
 
-    public HighScoreTextBox(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
-        final CommandListener cmdListener, final String name,
-        final HighScores[] highScoresArray, final HighScore highScore,
+    public HighScoreTextBox(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBase highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
+        final CommandListener cmdListener, final String name, final HighScore highScore,
         final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
     {
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, 
                 backgrounBasicColor, foregroundBasicColor);
 
-        highScoreUtil = new HighScoreUtil(abeClientInformation, gameInfo, cmdListener, name, highScoresArray, highScore);
+        this.highScoresResultsListener = highScoresHelper;
+
+        highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
         
         //LogUtil.put(LogFactory.getInstance("Score: ").append(score, this, "compare"));
 

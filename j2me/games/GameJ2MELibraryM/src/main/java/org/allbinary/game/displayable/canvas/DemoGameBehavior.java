@@ -14,16 +14,11 @@
 package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.game.GameTypeFactory;
-import org.allbinary.game.commands.GameCommandsFactory;
-import org.allbinary.game.score.HighScore;
-import org.allbinary.game.score.displayable.HighScoreTextBox;
-import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.thread.SecondaryThreadPool;
 
 /**
  *

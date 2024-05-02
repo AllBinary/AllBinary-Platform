@@ -13,6 +13,11 @@
  */
 package org.allbinary.game.score;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+
 /**
  *
  * @author User
@@ -24,7 +29,14 @@ public class HighScoresHelperBase implements HighScoresResultsListener {
     
     public void setHighScoresArray(final HighScores[] highScoresArray)
     {
-        //PreLogUtil.put(commonStrings.START_LABEL + highScoresArray.length, this, "setHighScoresArray");
+        if (highScoresArray != null) {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray"));
+        } else {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
+        }
+
         this.highScoresArray = highScoresArray;
     }
     

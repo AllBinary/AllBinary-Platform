@@ -77,6 +77,7 @@ import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelper;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
+import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.state.GameState;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -111,7 +112,6 @@ import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
-import org.allbinary.thread.SecondaryThreadPool;
 import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
@@ -633,8 +633,12 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                this.getRealHighScoresPaintable().setHighScores(
-                        this.highScoresHelper.getNextHighScores());
+                final HighScores highScores = this.highScoresHelper.getNextHighScores();
+                if(highScores == NullHighScoresSingletonFactory.getInstance()) {
+                    newState = 0;
+                } else {
+                    this.getRealHighScoresPaintable().setHighScores(highScores);
+                }
             }
         }
 

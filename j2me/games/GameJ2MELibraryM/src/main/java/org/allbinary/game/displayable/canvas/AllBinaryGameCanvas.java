@@ -115,6 +115,7 @@ import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.NoHighScoresFactory;
+import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
@@ -1031,8 +1032,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             throws Exception
     {
         this.highScoreSubmitted = highScoreSubmitted;
+        if(highScoreSubmitted) {
+            this.highScoresHelper.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
+        }
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("isHighScoreSubmitted: ").append(this.isHighScoreSubmitted()).toString(), this, "setHighScoreSubmitted"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("isHighScoreSubmitted: ").append(highScoreSubmitted).toString(), this, "setHighScoreSubmitted"));
     }
 
     public GameState getGameState()
@@ -1112,10 +1116,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         if (this.getGameState() == SHOW_END_RESULT_GAME_STATE
                 || this.getGameState() == SHOW_HIGH_SCORE_GAME_STATE) {
-            if (highScoresPaintable != NullPaintable.getInstance()) {
-                this.selectHighScores();
-            }
-
             this.setEndGameProcessor(this.realEndGameProcessor);
         } else {
             this.setEndGameProcessor(Processor.getInstance());
@@ -1741,10 +1741,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //if (this.getHighScoresArray()[0].isBestScore(highScore))
         //{
         final HighScoreTextBox textBox = new HighScoreTextBox(
+                this.highScoresFactoryInterface,
+                highScoresHelper,
                 abeClientInformation,
                 this.gameLayerManager.getGameInfo(),
-                this.getCustomCommandListener(), name,
-                this.highScoresHelper.getHighScoresArray(), highScore, this.gameLayerManager.getBackgroundBasicColor(),
+                this.getCustomCommandListener(), name, highScore, 
+                this.gameLayerManager.getBackgroundBasicColor(),
                 this.gameLayerManager.getForegroundBasicColor());
 
         if (isLast) {
@@ -1865,12 +1867,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void setEndGameInfo(final EndGameInfo endGameInfo)
     {
         this.endGameInfo = endGameInfo;
-    }
-
-    public void selectHighScores()
-    {
-        this.highScoresHelper.selectHighScores();
-        this.getRealHighScoresPaintable().setHighScores(this.highScoresHelper.getSelectedHighScores());
     }
     
     public void setHighScoresPaintable(final Paintable highScoresPaintable)

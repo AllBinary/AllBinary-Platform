@@ -14,6 +14,8 @@
 package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.canvas.Processor;
+import org.allbinary.game.score.HighScores;
+import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.paint.NullPaintable;
 
 public class EndGameProcessor extends Processor
@@ -32,16 +34,18 @@ public class EndGameProcessor extends Processor
         // Only Show End of game for people
         if (this.gameCanvas.isHighScoreSubmitted())
         {
-            // LogUtil.put(LogFactory.getInstance("Score Submitted: Time In State: "
-            // +
-            // this.getGameStateTimeHelper().getElapsed(), this,
-            // "showEndOfGame"));
+            // LogUtil.put(LogFactory.getInstance("Score Submitted: Time In State: " + this.getGameStateTimeHelper().getElapsed(), this, "showEndOfGame"));
             if (this.gameCanvas.getGameStateTimeHelper().isElapsed(WAIT))
             {
                 if (this.gameCanvas.getGameState() == AllBinaryGameCanvas.SHOW_END_RESULT_GAME_STATE)
                 {
-                    this.gameCanvas.setGameState(AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE);
-                    this.gameCanvas.setHighScoresPaintable(this.gameCanvas.getRealHighScoresPaintable());
+                    final HighScores highScores = this.gameCanvas.highScoresHelper.getSelectedHighScores();
+                    if(highScores != NullHighScoresSingletonFactory.getInstance()) {
+                        this.gameCanvas.highScoresHelper.selectHighScores();
+                        this.gameCanvas.getRealHighScoresPaintable().setHighScores(highScores);
+                        this.gameCanvas.setGameState(AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE);
+                        this.gameCanvas.setHighScoresPaintable(this.gameCanvas.getRealHighScoresPaintable());
+                    }
                 }
                 else if (this.gameCanvas.getGameState() == AllBinaryGameCanvas.SHOW_HIGH_SCORE_GAME_STATE)
                 {

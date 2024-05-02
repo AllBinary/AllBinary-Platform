@@ -65,9 +65,11 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.midlet.DemoGameMidlet;
 import org.allbinary.game.score.HighScoreCommands;
+import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelper;
 import org.allbinary.game.score.HighScoresPaintable;
+import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.state.GameState;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -609,8 +611,12 @@ public class StartCanvas extends RunnableCanvas
             }
             else
             {
-                this.getRealHighScoresPaintable().setHighScores(
-                        this.highScoresHelper.getNextHighScores());
+                final HighScores highScores = this.highScoresHelper.getNextHighScores();
+                if(highScores == NullHighScoresSingletonFactory.getInstance()) {
+                    newState = 0;
+                } else {
+                    this.getRealHighScoresPaintable().setHighScores(highScores);
+                }
             }
         }
 

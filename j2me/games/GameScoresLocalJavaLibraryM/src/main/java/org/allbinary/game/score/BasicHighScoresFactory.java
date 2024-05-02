@@ -25,6 +25,8 @@ public class BasicHighScoresFactory extends HighScoresBase
     private final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
 
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener) {
+        
+        LogUtil.put(LogFactory.getInstance("Getting Local HighScores", this, "fetchHighScores"));
         this.createHighScores(gameInfo, highScoresResultsListener, true);
     }
     

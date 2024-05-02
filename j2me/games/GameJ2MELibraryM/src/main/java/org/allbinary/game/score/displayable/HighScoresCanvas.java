@@ -172,11 +172,11 @@ public class HighScoresCanvas extends GameCommandCanvas
     public void setHighScoresArray(final HighScores[] highScoresArray)
     {
         try {
-//          if(highScoresArray != null) {
-//              LogUtil.put(LogFactory.getInstance(commonStrings.START).append(highScoresArray.length, this, "setHighScoresArray"));
-//          } else {
-//              LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
-//          }
+            if (highScoresArray != null) {
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(highScoresArray.length).toString(), this, "setHighScoresArray"));
+            } else {
+                LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
+            }
 
             this.highScoresHelper.setHighScoresArray(highScoresArray);
 

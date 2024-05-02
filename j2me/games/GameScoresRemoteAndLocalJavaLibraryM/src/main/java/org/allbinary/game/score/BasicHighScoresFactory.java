@@ -47,6 +47,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
+        LogUtil.put(LogFactory.getInstance("Getting Remote/Local HighScores", this, "fetchHighScores"));
         this.createHighScores(gameInfo, highScoresResultsListener, true);
     }
     

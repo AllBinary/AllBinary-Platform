@@ -14,6 +14,8 @@
 package org.allbinary.game.score;
 
 import org.allbinary.game.GameInfo;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class NoHighScoresFactory extends HighScoresBase
 {
@@ -34,6 +36,7 @@ public class NoHighScoresFactory extends HighScoresBase
     
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {   
+        LogUtil.put(LogFactory.getInstance("Getting No HighScores", this, "fetchHighScores"));
         highScoresResultsListener.setHighScoresArray(NO_HIGH_SCORES);
     }
     

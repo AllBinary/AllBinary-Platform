@@ -57,6 +57,7 @@ import org.allbinary.graphics.form.item.validation.AllCommandsVisitor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
@@ -243,7 +244,7 @@ public class GameCommandCanvas
     
     public void keyPressed(int keyCode, int deviceId)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_PRESSED));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED));
         this.addGameKeyEvent(keyCode, 0, false);
     }
 
