@@ -58,9 +58,7 @@ public class AboutPaintableFactory {
         */
 
         final String INFO[] = {
-                "This game was developed",
-                "using the AllBinary",
-                "Game Development Kit.",
+                "Built with AllBinary Platform",
                 StringUtil.getInstance().EMPTY_STRING,
                 //StringUtil.getInstance()
                 //"More info at: http://"
