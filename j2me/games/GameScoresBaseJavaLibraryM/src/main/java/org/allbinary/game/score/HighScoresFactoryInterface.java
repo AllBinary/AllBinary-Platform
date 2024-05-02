@@ -17,6 +17,6 @@ import org.allbinary.game.GameInfo;
 
 public interface HighScoresFactoryInterface
 {
-    HighScores[] createHighScores(GameInfo gameInfo);
+    void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener);
     HighScoresHelperBase createHighScoresHelper();
 }

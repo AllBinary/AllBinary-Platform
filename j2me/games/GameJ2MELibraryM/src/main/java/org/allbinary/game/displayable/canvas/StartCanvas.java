@@ -65,11 +65,9 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.midlet.DemoGameMidlet;
 import org.allbinary.game.score.HighScoreCommands;
-import org.allbinary.game.score.HighScoresCompositeInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelper;
 import org.allbinary.game.score.HighScoresPaintable;
-import org.allbinary.game.score.HighScoresUpdateRunnable;
 import org.allbinary.game.state.GameState;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -96,12 +94,11 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
-import org.allbinary.thread.SecondaryThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 
 public class StartCanvas extends RunnableCanvas 
         implements GameCanvasRunnableInterface,
-        MenuListener, HighScoresCompositeInterface, 
+        MenuListener,
         DisplayChangeEventListener
 {    
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
@@ -693,18 +690,10 @@ public class StartCanvas extends RunnableCanvas
         //this.getRealHighScoresPaintable().setBasicColor(this.basicColor);
         
         //this.gameCanvas.setGameCanvasStartListener(this);
-        
-        SecondaryThreadPool.getInstance().runTask(new HighScoresUpdateRunnable(this));
-    }
+     
+        //final GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
+        //this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
 
-    public void setHighScores() throws Exception
-    {
-       //GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
-
-       //HighScores[] highScoresArray =
-               //this.getHighScoresFactoryInterface().createHighScores(gameInfo);
-
-       //this.highScoresHelper.setHighScoresArray(highScoresArray);
     }
 
     protected void start() throws Exception

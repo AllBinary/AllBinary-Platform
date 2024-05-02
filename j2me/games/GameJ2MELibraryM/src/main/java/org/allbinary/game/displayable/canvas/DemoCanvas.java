@@ -73,12 +73,10 @@ import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.midlet.DemoGameMidlet;
 import org.allbinary.game.score.HighScoreCommands;
 import org.allbinary.game.score.HighScores;
-import org.allbinary.game.score.HighScoresCompositeInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelper;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
-import org.allbinary.game.score.HighScoresUpdateRunnable;
 import org.allbinary.game.state.GameState;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -120,7 +118,7 @@ import org.allbinary.time.TimeDelayHelper;
 
 public class DemoCanvas extends RunnableCanvas 
         implements GameCanvasRunnableInterface,
-        MenuListener, HighScoresCompositeInterface, 
+        MenuListener, 
         DisplayChangeEventListener
 {
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
@@ -715,18 +713,9 @@ public class DemoCanvas extends RunnableCanvas
         this.getRealHighScoresPaintable().setBasicColor(this.basicColor);
         
         this.gameCanvas.setGameCanvasStartListener(this);
-        
-        SecondaryThreadPool.getInstance().runTask(new HighScoresUpdateRunnable(this));
-    }
-
-    public void setHighScores() throws Exception
-    {
-       GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
-
-       HighScores[] highScoresArray =
-               this.getHighScoresFactoryInterface().createHighScores(gameInfo);
-
-       this.highScoresHelper.setHighScoresArray(highScoresArray);
+       
+        final GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
+        this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
     }
 
     protected void start() throws Exception

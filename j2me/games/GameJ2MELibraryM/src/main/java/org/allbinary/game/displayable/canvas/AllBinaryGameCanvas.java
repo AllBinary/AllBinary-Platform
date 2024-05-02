@@ -59,19 +59,14 @@ import org.allbinary.game.init.BasicBuildGameInitializerFactory;
 import org.allbinary.game.init.GameInitializationUtil;
 import org.allbinary.game.input.InputProcessor;
 import org.allbinary.game.input.NoPlayerGameInput;
-import org.allbinary.game.input.PlatformInputMappingFactory;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEventHandler;
-import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
 import org.allbinary.game.paint.ColorFillPaintableFactory;
 import org.allbinary.game.score.HighScore;
-import org.allbinary.game.score.HighScores;
-import org.allbinary.game.score.HighScoresCompositeInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresPaintable;
-import org.allbinary.game.score.HighScoresUpdateRunnable;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.state.GameState;
 import org.allbinary.game.state.GameStateFactory;
@@ -117,6 +112,7 @@ import org.allbinary.game.GameAdState;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
+import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
@@ -136,7 +132,7 @@ extends RunnableCanvas
 implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         MenuListener, IntermissionCompositeInterface,
         IntermissionEnableListenerInterface, PopupMenuInterface,
-        HighScoresCompositeInterface, DisplayChangeEventListener
+        DisplayChangeEventListener
 {
     protected final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
@@ -1180,8 +1176,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         progressCanvas.addPortion(portion, "High Scores");
 
-        SecondaryThreadPool.getInstance().runTask(
-                new HighScoresUpdateRunnable(this));
+        this.highScoresFactoryInterface.fetchHighScores(this.gameLayerManager.getGameInfo(), this.highScoresHelper);
 
         this.setHighScoresPaintable(NullPaintable.getInstance());
 
@@ -1759,6 +1754,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
 
         if (autoSubmit) {
+
             class SaveHighScoreRunnable implements Runnable {
 
                 public void run() {
@@ -1869,14 +1865,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void setEndGameInfo(final EndGameInfo endGameInfo)
     {
         this.endGameInfo = endGameInfo;
-    }
-
-    public void setHighScores() throws Exception
-    {
-        final HighScores[] highScoresArray = this.highScoresFactoryInterface
-                .createHighScores(this.gameLayerManager.getGameInfo());
-
-        this.highScoresHelper.setHighScoresArray(highScoresArray);
     }
 
     public void selectHighScores()

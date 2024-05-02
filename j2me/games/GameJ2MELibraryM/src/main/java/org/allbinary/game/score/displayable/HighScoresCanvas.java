@@ -30,18 +30,17 @@ import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresCanvasInputProcessor;
 import org.allbinary.game.score.HighScoresCanvasInputProcessorFactoryInterface;
 import org.allbinary.game.score.HighScoresCanvasNoInputProcessorFactory;
-import org.allbinary.game.score.HighScoresCompositeInterface;
 import org.allbinary.game.score.HighScoresFactoryInterface;
+import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
-import org.allbinary.game.score.HighScoresUpdateRunnable;
+import org.allbinary.game.score.HighScoresResultsListener;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.thread.SecondaryThreadPool;
 
 public class HighScoresCanvas extends GameCommandCanvas
-        implements HighScoresCompositeInterface
+        implements HighScoresResultsListener
 {
     private Paintable paintable;
 
@@ -54,7 +53,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     protected ColorFillBasePaintable colorFillPaintable;
 
-    private HighScores[] highScoresArray;
+    private final HighScoresHelperBase highScoresHelper = new HighScoresHelperBase();
 
     private final GameInfo gameInfo;
 
@@ -62,9 +61,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     private Command currentCommand = HighScoreCommandsFactory.getInstance().HIGH_SCORE_COMMANDS[0];
 
-    private final HighScoresUpdateRunnable highScoresUpdateRunnable;
-
-    public HighScoresCanvas(CommandListener commandListener,
+    public HighScoresCanvas(final CommandListener commandListener,
             final AllBinaryGameLayerManager allBinaryGameLayerManager,
             final HighScoresPaintable paintable,
             final HighScoresFactoryInterface highScoresFactoryInterface)
@@ -97,8 +94,6 @@ public class HighScoresCanvas extends GameCommandCanvas
 
         this.highScoresCanvasInputProcessor = highScoresCanvasInputProcessorFactoryInterface
                 .getInstance(this);
-
-        this.highScoresUpdateRunnable = new HighScoresUpdateRunnable(this);
 
         this.gameInfo = gameInfo;
 
@@ -161,7 +156,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         {
             this.setPaintable(this.waitPaintable);
             
-            SecondaryThreadPool.getInstance().runTask(this.highScoresUpdateRunnable);
+            this.highScoresFactoryInterface.fetchHighScores(this.getGameInfo(), this);
         }
         catch (Exception e)
         {
@@ -169,39 +164,28 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
     }
 
-    public void setHighScores() throws Exception
-    {
-       final HighScores[] highScoresArray =
-               this.highScoresFactoryInterface.createHighScores(
-               this.getGameInfo()
-               );
-
-       this.setHighScoresArray(highScoresArray);
-    }
-
     private HighScoresPaintable getHighScoresPaintable()
     {
         return highScoresPaintable;
     }
 
-    private void setHighScoresArray(HighScores[] highScoresArray)
-            throws Exception
+    public void setHighScoresArray(final HighScores[] highScoresArray)
     {
-//        if(highScoresArray != null) {
-//            LogUtil.put(LogFactory.getInstance(commonStrings.START).append(highScoresArray.length, this, "setHighScoresArray"));
-//        } else {
-//            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
-//        }
-        
-        this.highScoresArray = highScoresArray;
+        try {
+//          if(highScoresArray != null) {
+//              LogUtil.put(LogFactory.getInstance(commonStrings.START).append(highScoresArray.length, this, "setHighScoresArray"));
+//          } else {
+//              LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setHighScoresArray"));
+//          }
 
-        this.updateCommand(this.currentCommand);
-        this.setPaintable(this.getHighScoresPaintable());
-    }
+            this.highScoresHelper.setHighScoresArray(highScoresArray);
 
-    private HighScores[] getHighScoresArray()
-    {
-        return highScoresArray;
+            this.updateCommand(this.currentCommand);
+            this.setPaintable(this.getHighScoresPaintable());
+            
+        } catch(Exception e) {
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
+        }
     }
 
     public void updateCommand(Command command) throws Exception
@@ -228,7 +212,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             }
             
             this.getHighScoresPaintable().setHighScores(
-                    this.getHighScoresArray()[index]);
+                    this.highScoresHelper.getHighScoresArray()[index]);
 
             if(index != nextIndex)
             {

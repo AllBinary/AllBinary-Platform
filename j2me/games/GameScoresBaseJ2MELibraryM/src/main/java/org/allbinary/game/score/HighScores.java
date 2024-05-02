@@ -57,7 +57,7 @@ public class HighScores implements HighScoresInterface
         return this.getList().size();
     }
     
-    public void add(HighScore newHighScore)
+    public void addHighScore(HighScore newHighScore)
     {
         this.orderedHighScoresList.add(newHighScore);
     }

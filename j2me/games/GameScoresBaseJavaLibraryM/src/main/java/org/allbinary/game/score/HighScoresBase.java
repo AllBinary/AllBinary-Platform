@@ -23,7 +23,7 @@ public class HighScoresBase implements HighScoresFactoryInterface
         
     }
     
-    public HighScores[] createHighScores(final GameInfo gameInfo)
+    public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
         throw new RuntimeException();
     }

@@ -17,7 +17,7 @@ package org.allbinary.game.score;
  *
  * @author User
  */
-public class HighScoresHelperBase {
+public class HighScoresHelperBase implements HighScoresResultsListener {
     
     protected HighScores[] highScoresArray = 
         NoHighScoresFactory.getInstance().NO_HIGH_SCORES;

@@ -18,7 +18,7 @@ import org.allbinary.util.BasicArrayList;
 public interface HighScoresInterface
 {
     BasicArrayList getList();
-    void add(HighScore newHighScore);
+    void addHighScore(HighScore newHighScore);
     int getTotal();
     boolean isBestScore(HighScore newHighScore) throws Exception;
 }

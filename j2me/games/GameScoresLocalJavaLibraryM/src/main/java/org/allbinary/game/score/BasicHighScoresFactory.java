@@ -1,10 +1,11 @@
 package org.allbinary.game.score;
 
+import org.allbinary.game.GameInfo;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.game.GameInfo;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.thread.SecondaryThreadPool;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
@@ -23,25 +24,23 @@ public class BasicHighScoresFactory extends HighScoresBase
     private final String SCORES = "Scores";
     private final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
 
-    public HighScores[] createHighScores(final GameInfo gameInfo) {
-        return this.createHighScores(gameInfo, true);
+    public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener) {
+        this.createHighScores(gameInfo, highScoresResultsListener, true);
     }
     
-    public HighScores[] createHighScores(final GameInfo gameInfo, final boolean preload)
+    public void createHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
         System.gc();
 
-        try
-        {
+        try {
             highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
-                    TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
-            
-            return highScoresArray;
-        }
-        catch (Exception e)        {
+                TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
+
+            highScoresResultsListener.setHighScoresArray(highScoresArray);
+        } catch (Exception e) {
             LogUtil.put(LogFactory.getInstance("Exception", this, "createHighScores", e));
-            
-            return super.createHighScores(gameInfo);
+
+            //super.createHighScores(gameInfo);
         }
     }
     

@@ -84,7 +84,7 @@ public class RemoteHighScores extends HighScores {
         }
     }
 
-    public void add(final HighScore newHighScore) {
+    public void addHighScore(final HighScore newHighScore) {
         RemoteHighScoresSubmissionProcessorFactory.getInstance().process(this, this.abeClientInformation, newHighScore);
     }
 

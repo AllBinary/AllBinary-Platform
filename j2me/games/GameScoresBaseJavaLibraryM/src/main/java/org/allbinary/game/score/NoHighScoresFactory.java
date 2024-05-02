@@ -25,16 +25,16 @@ public class NoHighScoresFactory extends HighScoresBase
         return instance;
     }
     
-    private final HighScores[] NO_HIGH_SCORES = new HighScores[0];
+    public final HighScores[] NO_HIGH_SCORES = new HighScores[0];
 
     private NoHighScoresFactory()
     {
         
     }
     
-    public HighScores[] createHighScores(final GameInfo gameInfo)
-    {
-        return NO_HIGH_SCORES;
+    public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
+    {   
+        highScoresResultsListener.setHighScoresArray(NO_HIGH_SCORES);
     }
     
     public HighScoresHelperBase createHighScoresHelper() {

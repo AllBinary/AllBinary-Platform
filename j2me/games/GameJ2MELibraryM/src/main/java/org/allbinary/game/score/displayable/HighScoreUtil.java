@@ -65,7 +65,7 @@ public class HighScoreUtil
         for (int index = 0; index < this.highScoresArray.length; index++)
         {
             highScores = highScoresArray[index];
-            highScores.add(this.highScore);
+            highScores.addHighScore(this.highScore);
             highScoresAsString = highScores.toString();
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore"));
         }
