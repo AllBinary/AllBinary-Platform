@@ -22,9 +22,7 @@ public class HighScoresHelper extends HighScoresHelperBase
 
     public void setHighScoresArray(final HighScores[] highScores)
     {
-        //PreLogUtil.put(commonStrings.START_LABEL + highScores.length, this, "setHighScoresArray");
-        
-        this.highScoresArray = highScores;
+        super.setHighScoresArray(highScores);
 
         this.circularIndexUtil.setSize(this.highScoresArray.length);
     }

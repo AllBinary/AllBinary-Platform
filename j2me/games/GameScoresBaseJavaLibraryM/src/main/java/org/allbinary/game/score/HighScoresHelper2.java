@@ -34,9 +34,7 @@ public class HighScoresHelper2 extends HighScoresHelperBase
 
     public void setHighScoresArray(final HighScores[] highScores)
     {
-        //PreLogUtil.put(commonStrings.START_LABEL + highScores.length, this, "setHighScoresArray");
-
-        this.highScoresArray = highScores;
+        super.setHighScoresArray(highScores);
 
         this.circularIndexUtil.setSize(this.highScoresArray.length);
 
@@ -45,13 +43,14 @@ public class HighScoresHelper2 extends HighScoresHelperBase
 
     public void selectHighScores()
     {
-        this.circularIndexUtil.next();
 
         if(this.highScoresArray.length == 0) {
             this.setSelectedHighScores(NullHighScoresSingletonFactory.getInstance());
             return;
         }
 
+        this.circularIndexUtil.next();
+        
         HighScores highScores = this.highScoresArray[this.circularIndexUtil.getIndex()];
 
         int index = 0;

@@ -20,10 +20,12 @@ package org.allbinary.game.score;
 public class HighScoresHelperBase {
     
     protected HighScores[] highScoresArray = 
-        NoHighScoresFactory.getInstance().createHighScores(null);
+        NoHighScoresFactory.getInstance().NO_HIGH_SCORES;
     
-    public void setHighScoresArray(HighScores[] highScores)
+    public void setHighScoresArray(final HighScores[] highScoresArray)
     {
+        //PreLogUtil.put(commonStrings.START_LABEL + highScoresArray.length, this, "setHighScoresArray");
+        this.highScoresArray = highScoresArray;
     }
     
     public HighScores getNextHighScores()
