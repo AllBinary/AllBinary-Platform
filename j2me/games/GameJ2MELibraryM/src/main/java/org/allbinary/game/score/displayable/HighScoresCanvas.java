@@ -157,8 +157,8 @@ public class HighScoresCanvas extends GameCommandCanvas
 
         //TWB - This is a temp hack until I can find out why Threads are blocking the UI for Native builds.
         if(AvianUtil.isAvian()) {
-            if (paintIndex < 3) {
-                if (paintIndex == 2) {
+            if (paintIndex < 10) {
+                if (paintIndex == 9) {
                     this.executeUpdate();
                 }
                 paintIndex++;
