@@ -5,7 +5,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.thread.SecondaryThreadPool;
 
 public class BasicHighScoresFactory extends HighScoresBase
 {
@@ -32,7 +31,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     
     public void createHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
     {
-        System.gc();
+        //System.gc();
 
         try {
             highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
