@@ -19,6 +19,7 @@ import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
+import org.allbinary.AvianUtil;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
@@ -112,7 +113,6 @@ import org.allbinary.game.GameAdState;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
@@ -1176,7 +1176,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         progressCanvas.addPortion(portion, "High Scores");
 
-        this.highScoresFactoryInterface.fetchHighScores(this.gameLayerManager.getGameInfo(), this.highScoresHelper);
+        if(!AvianUtil.isAvian()) {
+            //For now Native build skips this since it causes loading delay.
+            this.highScoresFactoryInterface.fetchHighScores(this.gameLayerManager.getGameInfo(), this.highScoresHelper);
+        }
 
         this.setHighScoresPaintable(NullPaintable.getInstance());
 

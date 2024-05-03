@@ -16,6 +16,7 @@ package org.allbinary.game.score.displayable;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.AvianUtil;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -110,7 +111,9 @@ public class HighScoresCanvas extends GameCommandCanvas
             ColorFillPaintableFactory.getInstance(
                 allBinaryGameLayerManager.getBackgroundBasicColor(), false);
 
-        this.executeUpdate();
+        if(!AvianUtil.isAvian()) {        
+            this.executeUpdate();
+        }
     }
 
     public void initCommands(CommandListener cmdListener)
@@ -136,6 +139,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.highScoresCanvasInputProcessor.close();
     } 
     
+    private int paintIndex = 0;
     public void paint(Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);
@@ -148,6 +152,17 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
 
         super.paint(graphics);
+
+        //TWB - This is a temp hack until I can find out why Threads are blocking the UI for Native builds.
+        if(AvianUtil.isAvian()) {
+            if (paintIndex < 10) {
+                if (paintIndex == 9) {
+                    this.executeUpdate();
+                }
+                paintIndex++;
+            }
+        }
+        
     }
 
     public void executeUpdate()

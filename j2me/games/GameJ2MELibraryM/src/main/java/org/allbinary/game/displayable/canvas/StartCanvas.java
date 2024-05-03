@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
+import org.allbinary.AvianUtil;
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
@@ -698,8 +699,11 @@ public class StartCanvas extends RunnableCanvas
         //this.gameCanvas.setGameCanvasStartListener(this);
      
         //final GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
-        //this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
-
+        
+        //if(!AvianUtil.isAvian()) {
+            //For now Native build skips this since it causes loading delay.                
+            //this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
+        //}
     }
 
     protected void start() throws Exception
