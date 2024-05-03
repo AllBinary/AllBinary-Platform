@@ -23,7 +23,7 @@ import org.allbinary.math.FrameUtil;
 public class VectorRotationAnimation 
     extends VectorBaseRotationAnimation 
 {   
-   public VectorRotationAnimation(final int currentPoints[][][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
+   public VectorRotationAnimation(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
            throws Exception
    {
        //int angleIncrement

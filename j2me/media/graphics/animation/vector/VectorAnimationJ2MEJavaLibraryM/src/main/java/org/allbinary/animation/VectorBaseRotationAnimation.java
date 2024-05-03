@@ -29,13 +29,13 @@ public class VectorBaseRotationAnimation
     extends RotationAnimation
     implements VectorAnimationInterface
 {
-    private int currentPoints[][][];
+    private int[][][] currentPoints;
 
     private BasicColor basicColor;
 
     protected final BasicColorSetUtil basicColorUtil = BasicColorSetUtil.getInstance();
     
-    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int currentPoints[][][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
         super(angleInfo, animationBehavior);
         
@@ -43,7 +43,7 @@ public class VectorBaseRotationAnimation
         this.setBasicColor(basicColor);
     }
 
-    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int currentPoints[][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    public VectorBaseRotationAnimation(final AngleInfo angleInfo, final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
         super(angleInfo, animationBehavior);
         

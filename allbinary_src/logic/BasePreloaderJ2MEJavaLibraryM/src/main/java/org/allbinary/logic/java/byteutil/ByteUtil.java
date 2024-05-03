@@ -25,9 +25,9 @@ public class ByteUtil
    {
    }
 
-   public byte[] xor(final byte array[], final byte mask)
+   public byte[] xor(final byte[] array, final byte mask)
    {
-      final byte bytes[] = new byte[array.length];
+      final byte[] bytes = new byte[array.length];
       
       final int size = array.length;
       int index = 0;
@@ -43,7 +43,7 @@ public class ByteUtil
       return bytes;
    }
    
-   public byte[] not(final byte array[])
+   public byte[] not(final byte[] array)
    {
       final byte bytes[] = new byte[array.length];
       
@@ -58,7 +58,7 @@ public class ByteUtil
       //return this.xor(array, Byte.MAX_VALUE);
    }
    
-   public byte[] xorByte(final byte array[], final byte index)
+   public byte[] xorByte(final byte[] array, final byte index)
    {
       byte mask = 0;
       if(index==0) mask = 1;

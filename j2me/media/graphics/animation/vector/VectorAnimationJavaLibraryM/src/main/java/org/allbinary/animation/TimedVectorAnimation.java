@@ -25,12 +25,12 @@ public class TimedVectorAnimation extends VectorAnimation
 {
    private TimeDelayHelper timeElapsedHelper = new TimeDelayHelper(200);
    
-    public TimedVectorAnimation(final int currentPoints[][][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    public TimedVectorAnimation(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
        super(currentPoints, basicColor, animationBehavior);
     }
 
-    public TimedVectorAnimation(final int currentPoints[][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    public TimedVectorAnimation(final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
        super(currentPoints, basicColor, animationBehavior);
     }

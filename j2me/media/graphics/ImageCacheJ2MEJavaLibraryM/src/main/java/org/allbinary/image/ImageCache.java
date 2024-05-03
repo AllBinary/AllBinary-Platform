@@ -122,7 +122,7 @@ public class ImageCache
             volume += width * height;
             if (volume > 32000)
             {
-                //LogUtil.put(LogFactory.getInstance("Image for: ").append(caller, this, CommonStrings.getInstance().GET));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image for: ").append(caller).toString(), this, CommonStrings.getInstance().GET));
                 System.gc();
                 //System.gc();
                 volume = 0;
@@ -130,6 +130,7 @@ public class ImageCache
             }
 
             image = this.createImage(caller, width, height);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image: ").append(image).toString(), this, CommonStrings.getInstance().GET));
 
             if(nextIndex > widths.length - 1) {
                 if (foundIndex == -1) {

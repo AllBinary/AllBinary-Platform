@@ -27,7 +27,7 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class VectorAnimation extends IndexedAnimation
     implements VectorAnimationInterface
 {
-    private int currentPoints[][][];
+    private int[][][] currentPoints;
 
     private BasicColor basicColor;
 
@@ -38,7 +38,7 @@ public class VectorAnimation extends IndexedAnimation
     protected final BasicColorSetUtil basicColorUtil = 
         BasicColorSetUtil.getInstance();
     
-    public VectorAnimation(final int currentPoints[][][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    public VectorAnimation(final int[][][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
         
@@ -47,7 +47,7 @@ public class VectorAnimation extends IndexedAnimation
         this.setBasicColor(basicColor);
     }
 
-    public VectorAnimation(final int currentPoints[][], final BasicColor basicColor, final AnimationBehavior animationBehavior)
+    public VectorAnimation(final int[][] currentPoints, final BasicColor basicColor, final AnimationBehavior animationBehavior)
     {
         super(animationBehavior);
         
