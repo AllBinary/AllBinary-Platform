@@ -48,7 +48,7 @@ public class UploadMediaSingleton
 
       final String RESIZABLE_MEDIA = MediaTypeData.getInstance().RESIZABLE_MEDIA;
       
-      String readerFileTypes[] = mediaIOUtil.getReaderFormatNames();
+      String[] readerFileTypes = mediaIOUtil.getReaderFormatNames();
       //StringBuffer readerFileTypesBuffer = new StringBuffer();
       for(int index = 0; index < readerFileTypes.length; index++)
       {
@@ -56,7 +56,7 @@ public class UploadMediaSingleton
             readerFileTypes[index], RESIZABLE_MEDIA);
       }
 
-      String writerFileTypes[] = mediaIOUtil.getWriterFormatNames();
+      String[] writerFileTypes = mediaIOUtil.getWriterFormatNames();
       //StringBuffer writerFileTypesBuffer = new StringBuffer();
       for(int index = 0; index < writerFileTypes.length; index++)
       {

@@ -66,10 +66,10 @@ public class OrderHistoryTag extends TableTag
          else
          {
             Class helperClass = object.getClass();
-            Class methodParams[] =
+            Class[] methodParams =
             {this.status.getClass()};
             Method method = helperClass.getMethod("setOrderStatus",methodParams);
-            Object methodArgs[] =
+            Object[] methodArgs =
             {this.status};
             String result = (String) method.invoke(object,methodArgs);
             return result;

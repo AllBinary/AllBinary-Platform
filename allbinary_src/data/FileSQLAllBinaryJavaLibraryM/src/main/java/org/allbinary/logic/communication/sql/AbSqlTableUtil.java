@@ -73,7 +73,7 @@ public class AbSqlTableUtil
     private final String DASH = " - ";
     private final String PORTION_RESTORED = " Portion Restored";
 
-    private final char specialCharArray[] =
+    private final char[] specialCharArray =
         {
             '\n', '\f', '\r'
         };

@@ -79,7 +79,7 @@ public class RequestParams
             while(keyIter.hasNext())
             {
                 String key = (String) keyIter.next();
-                String values[] = (String[]) map.get(key);
+                String[] values = (String[]) map.get(key);
 
                 stringBuffer.delete(0, stringBuffer.length());
 
@@ -131,7 +131,7 @@ public class RequestParams
             //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "toHashMap()"));
 
             //At some point they made them all String[] but you never know if they will go back or what
-            String values[] = (String[]) map.get(key);
+            String[] values = (String[]) map.get(key);
             hashMap.put(new String(key), new String(values[0]));
 
             /*
@@ -142,7 +142,7 @@ public class RequestParams
              else
              if(value instanceof String[])
              {
-             String values[] = (String[]) map.get(key);
+             String[] values = (String[]) map.get(key);
              hashMap.put(new String(key), new String(values[0]));
              }
              */

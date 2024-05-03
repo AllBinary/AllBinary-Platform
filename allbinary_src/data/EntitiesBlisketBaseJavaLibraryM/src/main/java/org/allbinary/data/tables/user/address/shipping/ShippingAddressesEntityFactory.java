@@ -40,9 +40,9 @@ public class ShippingAddressesEntityFactory
       try
       {
       /*
-      Object params[] = new Object[1];
+      Object[] params = new Object[1];
        
-      Class classes[] = new Class[1];
+      Class[] classes = new Class[1];
       classes[0] = userName.getClass();
        
       params[0] = (Object) userName;

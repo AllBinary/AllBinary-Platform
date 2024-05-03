@@ -70,7 +70,7 @@ public class DatabaseEncoder
             byteVector.add(new Byte(byteOfData));
          }
 
-         byte decode[] = new byte[byteVector.size()];
+         byte[] decode = new byte[byteVector.size()];
          int decodeIndex = 0;
 
          for(int index = 0; index < size; index++)

@@ -54,7 +54,7 @@ public class CryptService
          new ByteArrayInputStream(decrypted);
          DataInputStream dataInputStream =
          new DataInputStream(byteArrayInputStream);
-         byte bytes[] = new byte[decrypted.length];
+         byte[] bytes = new byte[decrypted.length];
          dataInputStream.readFully(bytes);
           */
          return new ByteArrayInputStream(decrypted);

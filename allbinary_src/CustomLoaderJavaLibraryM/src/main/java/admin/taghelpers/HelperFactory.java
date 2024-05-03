@@ -40,8 +40,8 @@ public class HelperFactory
    {
       try
       {
-         Object params[] = new Object[2];
-         Class classes[] = new Class[2];
+         Object[] params = new Object[2];
+         Class[] classes = new Class[2];
 
          //Add param types
          classes[0] = hashMap.getClass();
@@ -89,8 +89,8 @@ public class HelperFactory
    {
       try
       {
-         Object params[] = new Object[2];
-         Class classes[] = new Class[2];
+         Object[] params = new Object[2];
+         Class[] classes = new Class[2];
                   
          //Add param types
          classes[0] = hashMap.getClass();
@@ -139,8 +139,8 @@ public class HelperFactory
    {
       try
       {
-         Object params[] = new Object[3];
-         Class classes[] = new Class[3];
+         Object[] params = new Object[3];
+         Class[] classes = new Class[3];
                   
          //Add param types
          classes[0] = hashMap.getClass();

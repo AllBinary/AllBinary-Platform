@@ -242,7 +242,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       while(keyIter.hasNext())
       {
          String key = (String) keyIter.next();
-         String values[] = (String[]) map.get(key);
+         String[] values = (String[]) map.get(key);
     
          HashMap hashMap = new HashMap();
          hashMap.put("";,new String(values[0]));

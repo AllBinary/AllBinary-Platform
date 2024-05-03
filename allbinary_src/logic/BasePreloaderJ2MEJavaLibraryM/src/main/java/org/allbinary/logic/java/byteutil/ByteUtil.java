@@ -45,7 +45,7 @@ public class ByteUtil
    
    public byte[] not(final byte[] array)
    {
-      final byte bytes[] = new byte[array.length];
+      final byte[] bytes = new byte[array.length];
       
       final int size = array.length;
       int index = 0;

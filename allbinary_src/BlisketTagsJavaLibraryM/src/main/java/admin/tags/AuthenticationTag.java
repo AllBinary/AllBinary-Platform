@@ -187,14 +187,14 @@ public class AuthenticationTag extends TagSupport
 
             Class addressHelperClass = object.getClass();
 
-            Class methodParams[] =
+            Class[] methodParams =
             {
                 this.userName.getClass(),
                 this.password.getClass(),
                 this.roles.getClass()
             };
             Method method = addressHelperClass.getMethod("isRoleValid", methodParams);
-            Object methodArgs[] =
+            Object[] methodArgs =
             {
                 this.userName, this.password, this.roles
             };
@@ -276,12 +276,12 @@ public class AuthenticationTag extends TagSupport
 
             Class addressHelperClass = object.getClass();
 
-            Class methodParams[] =
+            Class[] methodParams =
             {
                 this.roles.getClass()
             };
             Method method = addressHelperClass.getMethod("isAuthenticationSessionValid", methodParams);
-            Object methodArgs[] =
+            Object[] methodArgs =
             {
                 this.roles
             };
@@ -311,14 +311,14 @@ public class AuthenticationTag extends TagSupport
 
             Class helperClass = object.getClass();
 
-            Class methodParams[] =
+            Class[] methodParams =
             {
                 this.userName.getClass(), this.password.getClass()
             };
 
             Method method = helperClass.getMethod("processIfNewLogin", methodParams);
 
-            Object methodArgs[] =
+            Object[] methodArgs =
             {
                 this.userName, this.password
             };

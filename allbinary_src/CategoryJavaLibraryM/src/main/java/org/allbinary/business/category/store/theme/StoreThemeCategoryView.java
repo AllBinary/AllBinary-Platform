@@ -24,19 +24,19 @@ import java.util.Arrays;
 public class StoreThemeCategoryView extends CategoryView
    implements DomNodeInterface
 {
-   public StoreThemeCategoryView(StoreThemeCategoryInterface categoryInterface)
+   public StoreThemeCategoryView(final StoreThemeCategoryInterface categoryInterface)
    {
       super((StoreThemeCategoryInterface) categoryInterface);
    }
 
-   public Node toXmlNode(Document document) throws Exception
+   public Node toXmlNode(final Document document) throws Exception
    {
-      Node node = super.toXmlNode(document);
+      final Node node = super.toXmlNode(document);
 
-      StoreThemeCategoryInterface storeThemeCategoryInterface = 
+      final StoreThemeCategoryInterface storeThemeCategoryInterface = 
          (StoreThemeCategoryInterface) this.getCategoryInterface();
 
-      ThemeValidation themeValidationArray[] = (ThemeValidation[]) 
+      final ThemeValidation[] themeValidationArray = (ThemeValidation[]) 
          storeThemeCategoryInterface.getThemes().toArray();
       Arrays.sort(themeValidationArray, new ThemeComparator());
 

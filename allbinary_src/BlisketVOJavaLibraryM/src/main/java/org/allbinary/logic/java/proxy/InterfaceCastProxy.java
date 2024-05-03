@@ -48,7 +48,7 @@ public class InterfaceCastProxy implements java.lang.reflect.InvocationHandler
    }      
 
    /*
-       Class interfaceArray[] = object.getClass().getInterfaces();
+       Class[] interfaceArray = object.getClass().getInterfaces();
       String interfaceNames = "Interface Names: ";
       for(int index =0; index< interfaceArray.length; index++)
       {         

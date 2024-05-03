@@ -23,10 +23,10 @@ public class ConstructorUtil
    {
    }
 
-   public static String viewAll(Class myClass, String lineBreak)
+   public static String viewAll(final Class myClass, final String lineBreak)
    {
-      StringBuffer stringBuffer = new StringBuffer();
-      Constructor constructor[] = myClass.getConstructors();
+      final StringBuffer stringBuffer = new StringBuffer();
+      final Constructor[] constructor = myClass.getConstructors();
       stringBuffer.append("Constructors: ");
       stringBuffer.append(lineBreak);
       for(int index = 0; index < constructor.length; index++)
@@ -36,14 +36,14 @@ public class ConstructorUtil
       return stringBuffer.toString();
    }
    
-   public static String view(Constructor constructor, String lineBreak)
+   public static String view(final Constructor constructor, final String lineBreak)
    {
       if(constructor != null)
       {
          final CommonSeps commonSeps = CommonSeps.getInstance();
          final StringBuffer stringBuffer = new StringBuffer();
          stringBuffer.append(constructor.getName());
-         final Class classes[] = constructor.getParameterTypes();
+         final Class[] classes = constructor.getParameterTypes();
          for(int index = 0; index < classes.length; index++)
          {
             stringBuffer.append(commonSeps.SPACE);

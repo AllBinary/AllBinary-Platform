@@ -527,7 +527,7 @@ public class NameSpaceRequestParams extends RequestParams
          else
             if(this.getMap().get(key) instanceof String[])
             {
-               String values[] = (String[]) this.getMap().get(key);
+               String[] values = (String[]) this.getMap().get(key);
                
                if(key.indexOf(NameSpaceRequestParamData.NAME) < 0)
                {

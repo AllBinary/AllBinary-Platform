@@ -93,10 +93,10 @@ public class MediaUtil
     }
 
     private static HashMap getImageBufferPropertyHashMap(
-        BufferedImage bufferedImage)
+        final BufferedImage bufferedImage)
     {
-        HashMap hashMap = new HashMap();
-        String propertyStringArray[] = bufferedImage.getPropertyNames();
+        final HashMap hashMap = new HashMap();
+        final String[] propertyStringArray = bufferedImage.getPropertyNames();
         if (propertyStringArray != null)
         {
             for (int index = 0; index < propertyStringArray.length; index++)

@@ -75,9 +75,9 @@ public class AbBasicCrypt implements CryptInterface
       {         
          cipher.init(Cipher.ENCRYPT_MODE, secretKey);
          
-         byte ivArray[] = secretKey.getEncoded();
-         byte encrypted[] = cipher.doFinal(array);
-         byte result[] = new byte[ivArray.length + encrypted.length];
+         byte[] ivArray = secretKey.getEncoded();
+         byte[] encrypted = cipher.doFinal(array);
+         byte[] result = new byte[ivArray.length + encrypted.length];
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPT))
          //{
@@ -112,7 +112,7 @@ public class AbBasicCrypt implements CryptInterface
       {
          cipher.init(Cipher.DECRYPT_MODE, secretKey);         
 
-         byte ivArray[] = new byte[8];
+         byte[] ivArray = new byte[8];
          
          for(int index = 0; index < 8; index++)
          {
@@ -124,13 +124,13 @@ public class AbBasicCrypt implements CryptInterface
             PreLogUtil.put("ivArray Length: " + ivArray.length,this,"encrypt");
          //}
 
-         byte result[] = new byte[array.length - ivArray.length];
+         byte[] result = new byte[array.length - ivArray.length];
          for(int index = ivArray.length; index < array.length; index++)
          {
             result[index - ivArray.length] = array[index];
          }
 
-         byte decrypted[] = cipher.doFinal(result);
+         byte[] decrypted = cipher.doFinal(result);
          return result;         
       }
       catch(Exception e)

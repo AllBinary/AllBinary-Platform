@@ -71,9 +71,9 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
                 }
             }
 
-            final Object objectArray[] = (Object[]) unsortedCustomizerViewVector.toArray();
+            final Object[] objectArray = (Object[]) unsortedCustomizerViewVector.toArray();
 
-            //String customizerViews[] = (String[]) objectArray;
+            //String[] customizerViews = (String[]) objectArray;
             Arrays.sort(objectArray, new StringComparator());
             for (int index = 0; index < objectArray.length; index++) {
                 final String viewName = (String) objectArray[index];

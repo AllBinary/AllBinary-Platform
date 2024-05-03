@@ -84,7 +84,7 @@ public class Initializer
         while (keyIter.hasNext())
         {
             String key = (String) keyIter.next();
-            String values[] = (String[]) map.get(key);
+            String[] values = (String[]) map.get(key);
             hashMap.put(new String(key), new String(values[0]));
          
             stringBuffer.delete(0, stringBuffer.length());

@@ -36,7 +36,7 @@ public class AboutPaintableFactory {
 
     private AboutPaintableFactory() {
         /*
-        final String INTENTS[] = {
+        final String[] INTENTS = {
                 StringUtil.getInstance().EMPTY_STRING,
                 StringUtil.getInstance().EMPTY_STRING,
                 StringUtil.getInstance().EMPTY_STRING,
@@ -46,7 +46,7 @@ public class AboutPaintableFactory {
                 StringUtil.getInstance().EMPTY_STRING,
                 };
         
-        final String LINKS[] = {
+        final String[] LINKS = {
                 StringUtil.getInstance().EMPTY_STRING,
                 StringUtil.getInstance().EMPTY_STRING,
                 StringUtil.getInstance().EMPTY_STRING,
@@ -57,7 +57,7 @@ public class AboutPaintableFactory {
                 };        
         */
 
-        final String INFO[] = {
+        final String[] INFO = {
                 "Built with the",
                 "AllBinary Platform",
                 StringUtil.getInstance().EMPTY_STRING,

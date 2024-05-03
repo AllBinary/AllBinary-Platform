@@ -27,7 +27,7 @@ public class HtmlForm
    private final String ACTION = "ACTION=\"";
    private final String GET = "GET\"";
    private final String POST = "POST\"";
-   private final String METHODS[] = {GET,POST};   
+   private final String[] METHODS = {GET,POST};   
    private final String METHOD = "METHOD=\"";
    //private final String ENCTYPE
    

@@ -25,8 +25,8 @@ public class ValidatorFactory
    {
       try
       {
-         Object params[] = new Object[3];
-         Class classes[] = new Class[3];
+         Object[] params = new Object[3];
+         Class[] classes = new Class[3];
          
          //Add param types
          classes[0] = AbeFactory.getClass("org.allbinary.logic.visual.transform.info.ValidationInterface");

@@ -91,7 +91,7 @@ public class FileJDialog extends javax.swing.JDialog
        
        LogUtil.put(LogFactory.getInstance("Starting Action Command: " + evt.getActionCommand(), this, "ActionPerformed"));
        
-       File files[] = this.getJFileChooser1().getSelectedFiles();
+       File[] files = this.getJFileChooser1().getSelectedFiles();
        
        if(evt.getActionCommand() == this.getJFileChooser1().CANCEL_SELECTION)
        {

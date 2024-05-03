@@ -196,8 +196,8 @@ public class InventorySearchUtil {
 
                 final int MAXPAGES = 100;
                 String[] productListingPages = new String[MAXPAGES];
-                Document documents[] = new Document[MAXPAGES];
-                Node inventoryNodes[] = new Node[MAXPAGES];
+                Document[] documents = new Document[MAXPAGES];
+                Node[] inventoryNodes = new Node[MAXPAGES];
 
                 ListIterator iter = column.listIterator();
 

@@ -19,11 +19,11 @@ public class InterfaceUtil
    {
    }
 
-   public static String viewAll(Class myClass, String lineBreak)
+   public static String viewAll(final Class myClass, final String lineBreak)
    {
-      StringBuffer stringBuffer = new StringBuffer();
+      final StringBuffer stringBuffer = new StringBuffer();
 
-      Class interfaces[] = myClass.getInterfaces();
+      final Class[] interfaces = myClass.getInterfaces();
 
       stringBuffer.append(lineBreak);
       stringBuffer.append("Interfaces: ");
@@ -39,7 +39,7 @@ public class InterfaceUtil
       return stringBuffer.toString();
    }
 
-   public static Class getClass(String interfaceName, Class interfaces[])
+   public static Class getClass(final String interfaceName, final Class interfaces[])
    {
       if(interfaceName != null && interfaces!=null && interfaces.length>0)
       {

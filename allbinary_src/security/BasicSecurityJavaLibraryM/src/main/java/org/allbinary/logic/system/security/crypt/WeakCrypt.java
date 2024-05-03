@@ -21,7 +21,7 @@ import org.allbinary.logic.system.security.crypt.jcehelper.KeySpecFactory;
 public class WeakCrypt
 {
     //private int key;
-    private static String keys[] =
+    private static String[] keys =
     {
         "qwres6qewrupoi1132790jfahleavi89398",
         "143uk32lngf8675gt1tv9214uvt924ut9u9",

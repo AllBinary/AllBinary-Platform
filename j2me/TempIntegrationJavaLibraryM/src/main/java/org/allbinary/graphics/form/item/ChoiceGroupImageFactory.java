@@ -24,7 +24,7 @@ public class ChoiceGroupImageFactory
         return instance;
     }
 
-    private byte multiOff[] = {
+    private byte[] multiOff = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 10,
         0, 0, 0, 11, 2, 3, 0, 0, 0, 59,
@@ -38,7 +38,7 @@ public class ChoiceGroupImageFactory
         68, -82, 66, 96, -126 
     };
 
-    private byte multiOn[] = {
+    private byte[] multiOn = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 10,
         0, 0, 0, 11, 2, 3, 0, 0, 0, 59,
@@ -55,7 +55,7 @@ public class ChoiceGroupImageFactory
         -82, 66, 96, -126 
     };
 
-    private byte radioOff[] = {
+    private byte[] radioOff = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 11,
         0, 0, 0, 11, 2, 3, 0, 0, 0, -44,
@@ -70,7 +70,7 @@ public class ChoiceGroupImageFactory
         0, 0, 73, 69, 78, 68, -82, 66, 96, -126 
     };
 
-    private byte radioOn[] = {
+    private byte[] radioOn = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 11,
         0, 0, 0, 11, 2, 3, 0, 0, 0, -44,

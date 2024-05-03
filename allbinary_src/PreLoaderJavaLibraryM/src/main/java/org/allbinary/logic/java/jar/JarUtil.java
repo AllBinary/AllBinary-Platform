@@ -58,7 +58,7 @@ public class JarUtil
 
                      if (offset >= cache.length)
                      {
-                        byte newcache[] = new byte[cache.length + 1024];
+                        byte[] newcache = new byte[cache.length + 1024];
 
                         System.arraycopy(cache, 0, newcache, 0, cache.length);
                         cache = newcache;

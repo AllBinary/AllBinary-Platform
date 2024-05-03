@@ -55,7 +55,7 @@ public class InitializerDatabase
         while (keyIter.hasNext())
         {
             final String key = (String) keyIter.next();
-            final String values[] = (String[]) map.get(key);
+            final String[] values = (String[]) map.get(key);
             hashMap.put(new String(key), new String(values[0]));
          
             stringBuffer.delete(0, stringBuffer.length());

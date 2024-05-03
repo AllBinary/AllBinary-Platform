@@ -216,7 +216,7 @@ public class Email
          
          hashMap.put(EmailData.SERVER, (String) properties.get(SMTP_HOST));
          
-         Address addresses[] = msg.getFrom();
+         Address[] addresses = msg.getFrom();
          if(addresses != null)
          {
             for(int index = 0; index < addresses.length; index++)

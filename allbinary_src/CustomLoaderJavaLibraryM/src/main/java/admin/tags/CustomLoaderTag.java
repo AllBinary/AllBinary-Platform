@@ -58,9 +58,9 @@ public class CustomLoaderTag extends TagSupport
             
          Class helperClass = object.getClass();
          
-         Class methodParams[] =
+         Class[] methodParams =
          {this.webappPath.getClass()};
-         Object methodArgs[] =
+         Object[] methodArgs =
          {this.webappPath};
          
          Method setMethod = helperClass.getMethod("setWebappPath",methodParams);

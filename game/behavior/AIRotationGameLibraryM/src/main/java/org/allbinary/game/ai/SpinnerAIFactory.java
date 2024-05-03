@@ -27,7 +27,7 @@ public class SpinnerAIFactory
     public ArtificialIntelligenceInterface getInstance(
           Hashtable hashtable, AllBinaryLayer ownerLayerInterface, GameInput gameInput)
     {
-        int direction[] = {Canvas.LEFT};
+        int[] direction = {Canvas.LEFT};
         return new SpinnerAI(direction, ownerLayerInterface, gameInput);
     }
 }

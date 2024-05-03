@@ -647,7 +647,7 @@ public class FileUtil
             }
 
             //copy all files and subdirectories
-            AbFile fileArray[] = FileWrapperUtil.wrapFiles(fromFile.listFiles());
+            AbFile[] fileArray = FileWrapperUtil.wrapFiles(fromFile.listFiles());
 
             int size = fileArray.length;
 
@@ -794,7 +794,7 @@ public class FileUtil
                         LogUtil.put(LogFactory.getInstance("Copying subdirectories", getInstance(), "copy"));
                     }
 
-                    AbFile fileArray[] = FileWrapperUtil.wrapFiles(fromLocationFile.listFiles());
+                    AbFile[] fileArray = FileWrapperUtil.wrapFiles(fromLocationFile.listFiles());
                     for (int index = 0; index < fileArray.length; index++)
                     {
                         AbFile file = fileArray[index];

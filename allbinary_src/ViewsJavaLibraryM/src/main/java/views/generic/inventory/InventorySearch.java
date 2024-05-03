@@ -101,7 +101,7 @@ public class InventorySearch implements InventoryViewSearchInterface
     {
         try
         {
-            String str[] = search();
+            String[] str = search();
             return str[this.searchRequest.getParams().getStartPageInt().intValue()];
         }
         catch (Exception e)
