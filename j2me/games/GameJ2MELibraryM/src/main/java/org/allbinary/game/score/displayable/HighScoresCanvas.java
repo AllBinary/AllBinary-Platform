@@ -146,9 +146,9 @@ public class HighScoresCanvas extends GameCommandCanvas
     {
         this.colorFillPaintable.paint(graphics);
 
-        this.getPaintable().paint(graphics);
+        this.paintable.paint(graphics);
 
-        if(this.waitPaintable != this.getPaintable())
+        if(this.waitPaintable != this.paintable)
         {
             this.highScoresCanvasInputProcessor.paint(graphics);
         }
@@ -157,11 +157,12 @@ public class HighScoresCanvas extends GameCommandCanvas
 
         //TWB - This is a temp hack until I can find out why Threads are blocking the UI for Native builds.
         if(AvianUtil.isAvian()) {
-            if (paintIndex < 10) {
-                if (paintIndex == 9) {
+            if (paintIndex < 3) {
+                if (paintIndex == 2) {
                     this.executeUpdate();
                 }
                 paintIndex++;
+                this.repaint();
             }
         }
         
@@ -259,8 +260,4 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.repaint();
     }
 
-    private Paintable getPaintable()
-    {
-        return paintable;
-    }
 }
