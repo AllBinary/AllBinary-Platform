@@ -113,6 +113,8 @@ public class HighScoresCanvas extends GameCommandCanvas
 
         if(!AvianUtil.isAvian()) {        
             this.executeUpdate();
+        } else {
+            this.setPaintable(this.waitPaintable);
         }
     }
 
