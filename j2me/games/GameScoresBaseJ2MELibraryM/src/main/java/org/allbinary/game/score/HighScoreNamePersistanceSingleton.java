@@ -30,6 +30,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class HighScoreNamePersistanceSingleton
@@ -69,7 +70,7 @@ public class HighScoreNamePersistanceSingleton
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
 
-        final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toString()).append(RECORD_ID).toString(), true);
+        final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(RECORD_ID).toString(), true);
 
         recordStore.deleteRecord(deleteId);
 
