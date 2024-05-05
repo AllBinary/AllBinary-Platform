@@ -28,6 +28,11 @@ public class HighScoresBase implements HighScoresFactoryInterface
         throw new RuntimeException();
     }
     
+    public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener, final boolean preload)
+    {
+        throw new RuntimeException();
+    }
+    
     public HighScoresHelperBase createHighScoresHelper() {
         throw new RuntimeException();
     }
