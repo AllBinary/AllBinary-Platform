@@ -104,14 +104,6 @@
         </dependency>
         
         <dependency>
-            <groupId>org.allbinary.media.image</groupId>
-            <artifactId>ImageBaseJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-        
-        <dependency>
             <groupId>org.allbinary</groupId>
             <artifactId>AndroidToAllBinaryJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->

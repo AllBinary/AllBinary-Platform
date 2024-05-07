@@ -54,8 +54,6 @@
         <module>../../../../../work/j2me/media/graphics/animation/sprite/AllBinaryQuarterSpriteAnimation2JavaLibraryM</module>
         -->
 
-        <module>../../graphics/animation/image/ImageBaseJavaLibraryM</module>
-
         <module>../../graphics/animation/image/ImageJ2MEJavaLibraryM</module>
         <!--
         <module>../../graphics/animation/image/ImageHTMLJavaLibraryM</module>
