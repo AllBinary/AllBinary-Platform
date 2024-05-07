@@ -13,6 +13,7 @@
 */
 package org.allbinary.animation;
 
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.media.ScaleProperties;
 
 public class NullRotationAnimationFactory 
@@ -20,7 +21,10 @@ implements AnimationInterfaceFactoryInterface,
 ProceduralAnimationInterfaceFactoryInterface
 {
    private static NullRotationAnimationFactory NULL_ANIMATION_FACTORY = new NullRotationAnimationFactory();
-   private static final Animation NULL_ANIMATION = new NullRotationAnimation(AnimationBehavior.getInstance());
+   private static final Animation NULL_ANIMATION = new NullRotationAnimation(AnimationBehavior.getInstance()) {
+       public void paint(Graphics graphics, int x, int y) {
+       }
+   };
    
    private NullRotationAnimationFactory()
    {

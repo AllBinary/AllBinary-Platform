@@ -13,13 +13,17 @@
 */
 package org.allbinary.animation;
 
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.media.ScaleProperties;
 
 public class NullIndexedAnimationFactory implements 
     AnimationInterfaceFactoryInterface, ProceduralAnimationInterfaceFactoryInterface
 {
    private static NullIndexedAnimationFactory NULL_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
-   private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance());
+   private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance()) {
+       public void paint(Graphics graphics, int x, int y) {
+       }
+   };
    
    private NullIndexedAnimationFactory()
    {
