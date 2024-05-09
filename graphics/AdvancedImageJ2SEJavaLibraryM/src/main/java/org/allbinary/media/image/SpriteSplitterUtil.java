@@ -89,7 +89,10 @@ public class SpriteSplitterUtil {
                 
                 generatedBufferedImageArray = new BufferedImage[rows][columns];
                 
-                LogUtil.put(LogFactory.getInstance("Processing Individual Cells", this, CommonStrings.getInstance().RUN));
+                LogUtil.put(LogFactory.getInstance("Processing Individual Cells columns: " + columns + " rows: " + rows, this, CommonStrings.getInstance().RUN));
+                LogUtil.put(LogFactory.getInstance("Processing Individual Cells cellHeight: " + cellHeight + " cellWidth: " + cellWidth, this, CommonStrings.getInstance().RUN));
+
+                final ImageUtil imageUtil = ImageUtil.getInstance();
 
                 String nameEnding = null;
                 int x = 0;
@@ -102,7 +105,7 @@ public class SpriteSplitterUtil {
                             x + widthReduction, y + heightReduction, 
                             cellWidth - (widthReduction * 2), cellHeight - (heightReduction * 2));
                         if(increaseWidth != 0 || increaseHeight != 0) {
-                        generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImage(
+                        generatedBufferedImageArray[index2][index3] = imageUtil.createBufferedImage(
                             generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
                         }
                         nameEnding = new StringMaker().append(index2).append(commonSeps.UNDERSCORE).append(index3).toString();

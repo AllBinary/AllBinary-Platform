@@ -211,7 +211,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalFramesJComboBoxActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      final int size = 18;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index &lt; size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="      final int size = 70;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index &lt; size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));"/>
             <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="totalFramesJComboBox.setSelectedIndex(1);"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>

@@ -129,7 +129,7 @@ public class SpriteSplitterImageJPanel extends javax.swing.JPanel
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         totalFramesJComboBox = new javax.swing.JComboBox<>();
-        final int size = 18;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));
+        final int size = 70;       final String[] animationStringArray2 = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray2[index - 1] = Integer.toString(index);       }       totalFramesJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray2));
         jLabel2 = new javax.swing.JLabel();
         totalAnimationsJComboBox = new javax.swing.JComboBox<>();
         final String[] animationStringArray = new String[size - 1];       for(int index = 1; index < size; index++) {           animationStringArray[index - 1] = Integer.toString(index);       }       totalAnimationsJComboBox.setModel(new javax.swing.DefaultComboBoxModel(animationStringArray));
