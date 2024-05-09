@@ -49,6 +49,10 @@ public class BasicColor
 
     }
 
+    public BasicColor(final int alphaValue, final int value) {
+        this(alphaValue, value, StringUtil.getInstance().EMPTY_STRING);
+    }
+    
     BasicColor(final int value, final String name)
     {
         this(BasicColorUtil.getInstance().ALPHA, value, name);
