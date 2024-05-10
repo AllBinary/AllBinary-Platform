@@ -118,13 +118,17 @@ extends LayerManagerEventListener
     private boolean isIdInList(final int id, final BasicArrayList excludeGroupList)
     {
         final int size = excludeGroupList.size();
+        Group[] groupInterfaceArray;
         Group groupInterface;
         for (int index = size - 1; index >= 0; index--)
         {
-            groupInterface = (Group) excludeGroupList.objectArray[index];
-            if(groupInterface.getGroupId() == id)
-            {
-                return true;
+            groupInterfaceArray = (Group[]) excludeGroupList.objectArray[index];
+            final int size2 = groupInterfaceArray.length;
+            for(int index2 = 0; index2 < size2; index2++) {
+                groupInterface = groupInterfaceArray[index2];
+                if (groupInterface.getGroupId() == id) {
+                    return true;
+                }
             }
         }
         return false;
