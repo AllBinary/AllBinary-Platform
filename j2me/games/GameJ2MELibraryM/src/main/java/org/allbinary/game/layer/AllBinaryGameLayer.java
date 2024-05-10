@@ -23,6 +23,8 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
+import org.allbinary.graphics.paint.NullPaintable;
+import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -35,7 +37,20 @@ public class AllBinaryGameLayer extends AllBinaryLayer
    implements ViewPositionEventListenerInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
+    protected final BasicColor RED = BasicColorFactory.getInstance().RED;
+
+    protected final BasicColorSetUtil basicSetColorUtil = BasicColorSetUtil.getInstance();
     
+    private final Paintable paintable = SWTUtil.isSWT ? new Paintable() {
+        
+        private final BasicColor BLACK = BasicColorFactory.getInstance().BLACK;
+        
+        public void paint(Graphics graphics) {
+            basicSetColorUtil.setBasicColor(graphics, BLACK);
+        }
+    } : NullPaintable.getInstance();
+
     private final BasicArrayList gameKeyEventList = new BasicArrayList();
 
     public AllBinaryGameLayer(final Rectangle layerInfo)
@@ -97,14 +112,14 @@ public class AllBinaryGameLayer extends AllBinaryLayer
             this.setVisible(false);
         }
     }
-    
-    protected final BasicColorSetUtil basicSetColorUtil = 
-        BasicColorSetUtil.getInstance();
-    
-    private final BasicColor RED = BasicColorFactory.getInstance().RED;
+
+    public void paintFirst(final Graphics graphics)
+    {
+        this.paintable.paint(graphics);
+    }
     
     //Should be overridden
-    public void paint(final Graphics graphics)
+    public void paintDebug(final Graphics graphics)
     {
         //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, "paint"));
 
