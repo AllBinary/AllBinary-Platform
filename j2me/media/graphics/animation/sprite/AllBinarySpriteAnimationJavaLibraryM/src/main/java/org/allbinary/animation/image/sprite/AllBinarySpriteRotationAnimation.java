@@ -36,7 +36,7 @@ public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedA
                 animationBehavior);
 
         //(sprite.getWidth() / sprite.getHeight()) % 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("sprite.getRawFrameCount(): ").append(sprite.getRawFrameCount()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("sprite.getRawFrameCount(): ").append(sprite.getRawFrameCount()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
 
         this.angleInfo.adjustAngle(this.sprite.getFrame());
     }
