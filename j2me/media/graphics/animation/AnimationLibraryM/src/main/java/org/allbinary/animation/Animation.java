@@ -47,13 +47,13 @@ OpenGLSurfaceChangedInterface
     {
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         this.basicSetColorUtil.setBasicColor(
             graphics, this.getBasicColor(), this.getColor());
     }
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
     }
     

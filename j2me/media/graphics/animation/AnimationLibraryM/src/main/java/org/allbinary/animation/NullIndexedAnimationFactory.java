@@ -21,7 +21,7 @@ public class NullIndexedAnimationFactory implements
 {
    private static NullIndexedAnimationFactory NULL_ANIMATION_FACTORY = new NullIndexedAnimationFactory();
    private final Animation NULL_ANIMATION = new NullIndexedAnimation(AnimationBehavior.getInstance()) {
-       public void paint(Graphics graphics, int x, int y) {
+       public void paint(final Graphics graphics, final int x, final int y) {
        }
    };
    

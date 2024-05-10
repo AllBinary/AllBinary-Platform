@@ -13,6 +13,7 @@
 */
 package org.allbinary.animation;
 
+import javax.microedition.lcdui.Graphics;
 import org.allbinary.media.ScaleProperties;
 
 public class NullAnimationFactory implements 
@@ -20,7 +21,10 @@ public class NullAnimationFactory implements
 {
    private static NullAnimationFactory NULL_ANIMATION_FACTORY = new NullAnimationFactory();
    
-   private final Animation NULL_ANIMATION = new Animation();
+   private final Animation NULL_ANIMATION = new Animation() {
+       public void paint(final Graphics graphics, final int x, final int y) {
+       }
+   };
    
    //public final Animation[] EMPTY_ARRAY = new Animation[0];
    
