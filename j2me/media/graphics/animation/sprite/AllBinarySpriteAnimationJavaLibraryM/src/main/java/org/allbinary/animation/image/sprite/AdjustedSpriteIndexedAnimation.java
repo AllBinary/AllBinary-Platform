@@ -43,13 +43,13 @@ extends SpriteIndexedAnimation
 
     public void paint(final Graphics g, final int x, final int y)
     {
-        this.getSprite().setPosition(x + this.dx, y + this.dy);
+        this.sprite.setPosition(x + this.dx, y + this.dy);
         super.paint(g);
     }
 
     public void paint(final Graphics g)
     {
-        this.getSprite().setPosition(this.dx, this.dy);
+        this.sprite.setPosition(this.dx, this.dy);
         super.paint(g);
     }
 }

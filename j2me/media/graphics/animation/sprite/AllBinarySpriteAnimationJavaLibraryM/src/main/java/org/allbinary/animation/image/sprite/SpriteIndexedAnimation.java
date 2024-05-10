@@ -30,7 +30,7 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class SpriteIndexedAnimation extends IndexedAnimation
     implements ColorCompositeInterface
 {
-    private Sprite sprite;
+    protected Sprite sprite;
     private final BasicColor[] basicColorArray;
     
     public SpriteIndexedAnimation(final Sprite sprite, final AnimationBehavior animationBehavior)
