@@ -36,17 +36,27 @@ extends SpriteIndexedAnimation
         throws Exception
     {
         super(sprite, basicColorArray, animationBehavior);
+        
         this.dx = dx;
         this.dy = dy;
-        //this.getSprite().setPosition(this.dx, this.dy);
     }
 
+    //@Override
+    public void paint(final Graphics graphics, final int frame, final int x, final int y)
+    {
+        this.setFrame(frame);
+        this.sprite.setPosition(x + this.dx, y + this.dy);
+        super.paint(graphics);
+    }
+    
+    //@Override
     public void paint(final Graphics g, final int x, final int y)
     {
         this.sprite.setPosition(x + this.dx, y + this.dy);
         super.paint(g);
     }
 
+    //@Override
     public void paint(final Graphics g)
     {
         this.sprite.setPosition(this.dx, this.dy);

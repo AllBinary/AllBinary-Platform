@@ -58,7 +58,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         return this.getSize();
     }
     
-    public void setBasicColor(BasicColor basicColor)
+    public void setBasicColor(final BasicColor basicColor)
         //throws Exception
     {
         for(int index = 0; index < this.basicColorArray.length; index++)
@@ -97,24 +97,25 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         return sprite;
     }
 
-    public void setSprite(Sprite sprite)
+    public void setSprite(final Sprite sprite)
     {
         this.sprite = sprite;
     }
 
-    public void paint(Graphics graphics, int frame, int x, int y)
+    public void paint(final Graphics graphics, final int frame, final int x, final int y)
     {
         this.setFrame(frame);
-        this.paint(graphics, x, y);
+        this.sprite.setPosition(x, y);
+        sprite.paint(graphics);
     }
 
-    public void paint(Graphics graphics, int x, int y)
+    public void paint(final Graphics graphics, final int x, final int y)
     {
         this.sprite.setPosition(x, y);
-        this.paint(graphics);
+        sprite.paint(graphics);
     }
 
-    protected void paint(Graphics graphics)
+    protected void paint(final Graphics graphics)
     {
         sprite.paint(graphics);
     }
@@ -135,7 +136,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         return this.sprite.getRawFrameCount();
     }
 
-    public void setFrame(int frame)
+    public void setFrame(final int frame)
     {
         this.sprite.setFrame(frame);
     }
@@ -163,7 +164,7 @@ public class SpriteIndexedAnimation extends IndexedAnimation
         return this.getSize();
     }
 
-    public void setSequence(int[] sequence)
+    public void setSequence(final int[] sequence)
     {
 
     }

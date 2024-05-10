@@ -19,6 +19,10 @@ import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageScaleUtil;
@@ -57,6 +61,8 @@ public class AnimationFactorySpriteScaleUtil {
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
            Image scaledImage;
            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
+//               stringMaker.delete(0, stringMaker.length());
+//               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));
                scaledImage = image;
                sprite = SpriteFactory.getInstance().create(image, width, height);
            } else {
@@ -64,11 +70,13 @@ public class AnimationFactorySpriteScaleUtil {
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
                scaledImage = imageScaleUtil.createImage(imageCache, image, scaleX, 1, scaleY, 1, true);
 //               stringMaker.delete(0, stringMaker.length());
-//               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append(this.height * scaleY).toString(), this, commonStrings.PROCESS));
+//               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS));
                sprite = SpriteFactory.getInstance().create(scaledImage, (int) (width * scaleX), (int) (height * scaleY));
            }
            
        } else {
+//           stringMaker.delete(0, stringMaker.length());
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale2 width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));           
            sprite = SpriteFactory.getInstance().create(image, width, height);
        }
         
