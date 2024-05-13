@@ -80,6 +80,10 @@ public class RecordStoreHighScores extends HighScores
         return highScores;
     }
 
+    private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
+        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString();
+    }
+    
     public synchronized void add(final HighScore newHighScore) // throws Exception
     {
         try
@@ -95,7 +99,7 @@ public class RecordStoreHighScores extends HighScores
                 this.removeLowestHighScore();
             }
 
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
             final byte[] highScoreBytes = newHighScore.getBytes();
 
@@ -128,7 +132,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this, true);
@@ -183,7 +187,7 @@ public class RecordStoreHighScores extends HighScores
     {
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(this.abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
             this.setList(new BasicArrayList());
 
