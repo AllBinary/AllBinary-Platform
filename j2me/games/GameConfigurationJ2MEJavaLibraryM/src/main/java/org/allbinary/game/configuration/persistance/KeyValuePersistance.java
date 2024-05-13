@@ -45,8 +45,7 @@ public class KeyValuePersistance extends BasicPersitance
     
     public void loadAll(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
     {
-        final RecordStore recordStore = RecordStore.openRecordStore(
-                this.getRecordStoreName(), true);
+        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null,
                 true);
@@ -95,8 +94,7 @@ public class KeyValuePersistance extends BasicPersitance
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(hashtable).toString(), this, "save"));
         
-        final RecordStore recordStore = RecordStore.openRecordStore(
-                this.getRecordStoreName(), true);
+        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         final DataOutputStream outputStream = new DataOutputStream(

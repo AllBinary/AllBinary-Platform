@@ -43,11 +43,9 @@ public class InputPersistance extends BasicPersitance
 
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        RecordStore recordStore = RecordStore.openRecordStore(
-                this.getRecordStoreName(), true);
+        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-        RecordEnumeration recordEnum = 
-            recordStore.enumerateRecords(null, null, true);
+        final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
         final String ERROR_LOADING = "Error Loading gameActionInput: ";
         final String LOADING_ID = "Loading id: ";
@@ -142,8 +140,7 @@ public class InputPersistance extends BasicPersitance
         //LogUtil.put(LogFactory
           //      .getInstance("Saving: ").append(hashtable, this, "save"));
 
-        RecordStore recordStore = 
-            RecordStore.openRecordStore(this.getRecordStoreName(), true);
+        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);

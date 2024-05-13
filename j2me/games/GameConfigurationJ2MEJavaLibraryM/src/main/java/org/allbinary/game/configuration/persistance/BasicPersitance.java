@@ -21,20 +21,21 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class BasicPersitance
 {
-    private final String recordStoreName;
+    private final String recordId;
     
     private BasicArrayList list = new BasicArrayList();
     private BasicArrayList nameBasicArrayList = new BasicArrayList();
     
     protected BasicPersitance(final String recordId)
     {
-        this.recordStoreName = recordId;
+        this.recordId = recordId;
     }
-
+    
     //Load all needs to be called already
     public void deleteAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
@@ -52,16 +53,15 @@ public class BasicPersitance
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
         
-        RecordStore recordStore = RecordStore.openRecordStore(this.getRecordStoreName(), true);
+        RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         recordStore.deleteRecord(deleteId);
 
         recordStore.closeRecordStore();
     }
     
-    public String getRecordStoreName()
-    {
-        return recordStoreName;
+    public String getRecordId(final AbeClientInformationInterface abeClientInformation) {
+        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.recordId).toString();
     }
     
     public BasicArrayList getList()

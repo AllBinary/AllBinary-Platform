@@ -30,13 +30,13 @@ import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     //_Default_Input_Mapping
     public static final String DEFAULT_RECORD_ID = "_DIM";
     //_Saved_Input_Configuration
     public static final String RECORD_ID = "_SIC";
 
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
-    
     private final InputToGameKeyMapping inputMapping = new InputToGameKeyMapping();
     
     private InputMappingEventListenerInterface inputMappingEventListenerInterface;
