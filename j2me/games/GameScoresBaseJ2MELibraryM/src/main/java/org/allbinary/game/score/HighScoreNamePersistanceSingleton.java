@@ -66,11 +66,15 @@ public class HighScoreNamePersistanceSingleton
         this.clear();
     }
 
+    private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
+        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(RECORD_ID).toString();
+    }
+    
     public void delete(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final int deleteId) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
 
-        final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(RECORD_ID).toString(), true);
+        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         recordStore.deleteRecord(deleteId);
 
@@ -93,7 +97,7 @@ public class HighScoreNamePersistanceSingleton
             {
                 final String LOADING_ID = "Loading id: ";
                 
-                final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toString()).append(RECORD_ID).toString(), true);
+                final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
                 
                 RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
@@ -137,7 +141,7 @@ public class HighScoreNamePersistanceSingleton
         {
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(name).toString(), this, "save"));
 
-            final RecordStore recordStore = RecordStore.openRecordStore(new StringMaker().append(abeClientInformation.toString()).append(RECORD_ID).toString(), true);
+            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
