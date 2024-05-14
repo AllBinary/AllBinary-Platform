@@ -22,16 +22,17 @@ import org.allbinary.logic.system.security.licensing.LockedUtil;
 import org.allbinary.canvas.Processor;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.PreGameSelectorPaintable;
-import org.allbinary.game.input.GameInputProcessorComposite;
-import org.allbinary.game.input.GameInputProcessorInterface;
-import org.allbinary.game.input.PlayerGameInput;
-import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.media.graphics.geography.map.racetrack.MultiLevelRaceTrackGeographicMapInterfaceFactoryInterface;
+import org.allbinary.thread.ABRunnable;
+import org.allbinary.thread.SecondaryThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 
 public class MapSelectionGameInputProcessor extends Processor 
@@ -45,6 +46,35 @@ public class MapSelectionGameInputProcessor extends Processor
     private final PlayerGameInput playerGameInput;
 
     private final int lockedIndex;
+    
+    private final ABRunnable abRunnable = new ABRunnable() {
+        public void run() {
+            try {
+                this.setRunning(true);
+
+                SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
+
+                // this.gameCanvas.getStartIntermissionInterface().setEnabled(false);
+                // this.gameCanvas.getEndLevelIntermissionInterface().setEnabled(true);
+                // this.gameCanvas.setGameState(Intermission.WAIT_LEVEL_INTERMISSION_GAME_STATE);
+                final int track = preGameSelectorPaintable.getPreGameSelectionForm().getSelectedIndex() + 1;
+
+                final int wave = raceTrackGeographicMapInterfaceFactoryInterface.getFirstWaveWithTrack(track);
+                gameCanvas.getLayerManager().getGameInfo().setCurrentLevel(wave);
+
+                gameCanvas.buildGame(false);
+
+                GameKeyEventHandler.getInstance().removeListener(getPlayerGameInput());
+                
+                this.setRunning(false);
+
+            } catch (Exception e) {
+                this.setRunning(false);
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            }
+        }
+    };
     
     public MapSelectionGameInputProcessor(
             AllBinaryGameCanvas gameCanvas,
@@ -96,22 +126,9 @@ public class MapSelectionGameInputProcessor extends Processor
                 {
                     //PreLogUtil.put("selectedIndex: " + selectedIndex + " LockedUtil.getInstance().isLockedFeature(): " + LockedUtil.getInstance().isLockedFeature(), this, "onInput");
 
-                    SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
-
-                    // this.gameCanvas.getStartIntermissionInterface().setEnabled(false);
-                    // this.gameCanvas.getEndLevelIntermissionInterface().setEnabled(true);
-                    // this.gameCanvas.setGameState(Intermission.WAIT_LEVEL_INTERMISSION_GAME_STATE);
-
-                    int track = this.preGameSelectorPaintable.getPreGameSelectionForm().getSelectedIndex() + 1;
-
-                    int wave = this.raceTrackGeographicMapInterfaceFactoryInterface
-                            .getFirstWaveWithTrack(track);
-                    this.gameCanvas.getLayerManager().getGameInfo().setCurrentLevel(wave);
-
-                    this.gameCanvas.buildGame(false);
-
-                    GameKeyEventHandler.getInstance().removeListener(
-                            this.getPlayerGameInput());
+                    if (!abRunnable.isRunning()) {
+                        SecondaryThreadPool.getInstance().runTask(abRunnable);
+                    }
                     
                     break;
                 }

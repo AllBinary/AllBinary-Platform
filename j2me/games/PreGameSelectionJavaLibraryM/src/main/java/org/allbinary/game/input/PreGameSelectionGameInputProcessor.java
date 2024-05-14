@@ -30,8 +30,13 @@ import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.state.GameState;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
+import org.allbinary.thread.ABRunnable;
+import org.allbinary.thread.SecondaryThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 
 public class PreGameSelectionGameInputProcessor extends Processor implements
@@ -46,6 +51,27 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
     private final PlayerGameInput playerGameInput;
 
     private final int lockedIndex;
+
+    private final ABRunnable abRunnable = new ABRunnable() {
+        public void run() {
+            try {
+                this.setRunning(true);
+
+                SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
+
+                gameCanvas.setGameState(nextGameState);
+
+                GameKeyEventHandler.getInstance().removeListener(getPlayerGameInput());
+
+                this.setRunning(false);
+
+            } catch (Exception e) {
+                this.setRunning(false);
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+            }
+        }
+    };
     
     public PreGameSelectionGameInputProcessor(
             AllBinaryGameCanvas gameCanvas,
@@ -99,12 +125,10 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
                 {
                     //PreLogUtil.put("selectedIndex: " + selectedIndex + " LockedUtil.getInstance().isLockedFeature(): " + LockedUtil.getInstance().isLockedFeature(), this, "onInput");
 
-                    SecondaryPlayerQueueFactory.getInstance().add(SelectSound.getInstance());
-
-                    this.gameCanvas.setGameState(this.nextGameState);
-
-                    GameKeyEventHandler.getInstance().removeListener(this.getPlayerGameInput());
-
+                    if (!abRunnable.isRunning()) {
+                        SecondaryThreadPool.getInstance().runTask(abRunnable);
+                    }
+                    
                     break;
                 }
                 else
