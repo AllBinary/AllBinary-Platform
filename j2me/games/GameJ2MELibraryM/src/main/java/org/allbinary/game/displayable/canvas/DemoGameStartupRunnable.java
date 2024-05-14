@@ -16,33 +16,17 @@ package org.allbinary.game.displayable.canvas;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.thread.RunnableInterface;
+import org.allbinary.thread.ABRunnable;
 
-public class DemoGameStartupRunnable implements RunnableInterface
+public class DemoGameStartupRunnable extends ABRunnable
 {
     private final DemoCanvas demoCanvas;
-    
-    private boolean running;
 
     public DemoGameStartupRunnable(DemoCanvas demoCanvas)
     {
         this.demoCanvas = demoCanvas;
     }
     
-    public void setThread(Thread thread)
-    {
-    }
-
-    public synchronized boolean isRunning()
-    {
-        return running;
-    }
-
-    public synchronized void setRunning(boolean running)
-    {
-        this.running = running;
-    }
-
     public void run()
     {
         try
