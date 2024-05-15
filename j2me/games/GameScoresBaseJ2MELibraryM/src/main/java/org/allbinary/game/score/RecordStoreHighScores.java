@@ -58,6 +58,8 @@ public class RecordStoreHighScores extends HighScores
     {
         super(name, heading, columnTwoHeading);
 
+        //LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
+        
         this.abeClientInformation = abeClientInformation;
         this.gameInfo = gameInfo;
         this.recordComparatorInterface = recordComparatorInterface;
@@ -86,12 +88,12 @@ public class RecordStoreHighScores extends HighScores
         return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString());
     }
     
-    public synchronized void add(final HighScore newHighScore) // throws Exception
+    //@Override
+    public synchronized void addHighScore(final HighScore newHighScore) // throws Exception
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore: ").append(newHighScore.getScore()).toString(),
-                    this, commonStrings.ADD));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore: ").append(newHighScore.getScore()).toString(),this, commonStrings.ADD));
 
             // remove score replacing
             if (this.isTooManyHighScores())
@@ -105,10 +107,14 @@ public class RecordStoreHighScores extends HighScores
 
             final byte[] highScoreBytes = newHighScore.getBytes();
 
-            recordStore.addRecord(highScoreBytes, 0, highScoreBytes.length);
+            final int recordId = recordStore.addRecord(highScoreBytes, 0, highScoreBytes.length);
+            
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("New recordId: ").append(recordId).toString(),this, commonStrings.ADD));
 
             recordStore.closeRecordStore();
 
+            //LogUtil.put(LogFactory.getInstance("closeRecordStore",this, commonStrings.ADD));
+            
             this.load();
             
             
@@ -190,11 +196,13 @@ public class RecordStoreHighScores extends HighScores
         try
         {
             final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            //LogUtil.put(LogFactory.getInstance(recordStore.getName(), this, "load"));
 
             this.setList(new BasicArrayList());
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this, true);
+            //LogUtil.put(LogFactory.getInstance("first hasNextElement: " + recordEnum.hasNextElement(), this, "load"));
 
             byte[] recordAsBytes;
             ByteArrayInputStream byteArrayInputStream;
@@ -202,8 +210,12 @@ public class RecordStoreHighScores extends HighScores
             while (recordEnum.hasNextElement())
             {
                 final int id = recordEnum.nextRecordId();
+                //LogUtil.put(LogFactory.getInstance("id: " + id, this, "load"));
 
                 recordAsBytes = recordStore.getRecord(id);
+                
+                //LogUtil.put(LogFactory.getInstance("recordAsBytes: " + recordAsBytes, this, "load"));
+                
                 if(recordAsBytes != null) {
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                     inputStream = new DataInputStream(byteArrayInputStream);
@@ -288,8 +300,7 @@ public class RecordStoreHighScores extends HighScores
 
             if (!this.isTooManyHighScores())
             {
-                LogUtil.put(LogFactory.getInstance("Slot Available for a High Score", this,
-                        "isBestScore"));
+                LogUtil.put(LogFactory.getInstance("Slot Available for a High Score", this,"isBestScore"));
                 return true;
             }
             else

@@ -93,7 +93,7 @@ public class HighScoreUtil implements HighScoresResultsListener
             highScores = highScoresArray[index];
             highScores.addHighScore(this.highScore);
             highScoresAsString = highScores.toString();
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Added/Adding Score: ").append(highScoresAsString).toString(), this, "saveHighScore"));
         }
         
         this.highScoresHelper.setHighScoresArray(highScoresArray);
