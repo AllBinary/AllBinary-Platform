@@ -23,9 +23,12 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.persistance.PlatformRecordIdUtil;
 
 public class BasicPersitance
 {
+    private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
+    
     private final String recordId;
     
     private BasicArrayList list = new BasicArrayList();
@@ -61,7 +64,7 @@ public class BasicPersitance
     }
     
     public String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.recordId).toString();
+        return platformRecordIdUtil.getRecordId(abeClientInformation, recordId);
     }
     
     public BasicArrayList getList()

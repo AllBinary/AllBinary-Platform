@@ -32,6 +32,7 @@ import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.persistance.PlatformRecordIdUtil;
 
 public class HighScoreNamePersistanceSingleton
 {
@@ -42,6 +43,8 @@ public class HighScoreNamePersistanceSingleton
         return SINGLETON;
     }
 
+    private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
+    
     //_Saved_Name
     private final String RECORD_ID = "_SN";
     private String name = StringUtil.getInstance().EMPTY_STRING;
@@ -65,9 +68,9 @@ public class HighScoreNamePersistanceSingleton
 
         this.clear();
     }
-
+    
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(RECORD_ID).toString();
+        return platformRecordIdUtil.getRecordId(abeClientInformation, RECORD_ID);
     }
     
     public void delete(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final int deleteId) throws Exception

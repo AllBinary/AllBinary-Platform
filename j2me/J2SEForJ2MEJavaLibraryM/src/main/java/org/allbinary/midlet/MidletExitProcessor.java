@@ -30,5 +30,6 @@ public class MidletExitProcessor extends Processor
     {
         //Emulator could have an exit but currently it is only the special Android version
         //this.midlet.exit();
+        System.exit(0);
     }
 }

@@ -32,6 +32,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.persistance.PlatformRecordIdUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class RecordStoreHighScores extends HighScores
@@ -39,6 +40,7 @@ public class RecordStoreHighScores extends HighScores
     private static final Hashtable hashTable = new Hashtable();
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
     
     //_HighScores
     private final String RECORD_ID = "_HS";
@@ -81,7 +83,7 @@ public class RecordStoreHighScores extends HighScores
     }
 
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString();
+        return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(this.getName()).append(CommonSeps.getInstance().UNDERSCORE).append(RECORD_ID).toString());
     }
     
     public synchronized void add(final HighScore newHighScore) // throws Exception
