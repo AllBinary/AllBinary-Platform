@@ -35,7 +35,7 @@ public class PlatformRecordIdUtil {
     private final String PLATFORM_SHORT_NAME = "JME";
     
     public String getRecordId(final AbeClientInformationInterface abeClientInformation, final String baseRecordId) {
-        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(PLATFORM_SHORT_NAME).append(CommonSeps.getInstance().UNDERSCORE).append(baseRecordId).toString();
+        return new StringMaker().append(abeClientInformation.toShortString()).append(CommonSeps.getInstance().UNDERSCORE).append(PLATFORM_SHORT_NAME).append(baseRecordId).toString();
     }
     
 }

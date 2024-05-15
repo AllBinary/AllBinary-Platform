@@ -83,7 +83,7 @@ public class RecordStoreHighScores extends HighScores
     }
 
     private String getRecordId(final AbeClientInformationInterface abeClientInformation) {
-        return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(this.getName()).append(CommonSeps.getInstance().UNDERSCORE).append(RECORD_ID).toString());
+        return platformRecordIdUtil.getRecordId(abeClientInformation, new StringMaker().append(CommonSeps.getInstance().UNDERSCORE).append(this.getName()).append(RECORD_ID).toString());
     }
     
     public synchronized void add(final HighScore newHighScore) // throws Exception
