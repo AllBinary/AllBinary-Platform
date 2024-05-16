@@ -35,6 +35,7 @@ import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
 import org.allbinary.game.score.HighScoresResultsListener;
+import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
@@ -218,19 +219,24 @@ public class HighScoresCanvas extends GameCommandCanvas
         
         if (highScoreCommandsFactory.isHighScoreCommand(command))
         {
-            int index = highScoreCommandsFactory.getIndex(command);
+            final int index = highScoreCommandsFactory.getIndex(command);
             
             //LogUtil.put(LogFactory.getInstance(commonStrings.START).append(index, this, commonStrings.UPDATE));
             
             int nextIndex = index + 1;
 
-            if(nextIndex >= highScoreCommandsFactory.HIGH_SCORE_COMMANDS.length)
+            final HighScores[] highScoresArray = this.highScoresHelper.getHighScoresArray();
+            
+            if(nextIndex >= highScoresArray.length)
             {
                 nextIndex = 0;
             }
             
-            this.getHighScoresPaintable().setHighScores(
-                    this.highScoresHelper.getHighScoresArray()[index]);
+            if(highScoresArray.length > 0) {
+                this.getHighScoresPaintable().setHighScores(highScoresArray[index]);
+            } else {
+                this.getHighScoresPaintable().setHighScores(NullHighScoresSingletonFactory.getInstance());
+            }
 
             if(index != nextIndex)
             {
