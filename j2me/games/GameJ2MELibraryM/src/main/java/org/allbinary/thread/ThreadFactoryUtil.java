@@ -21,6 +21,8 @@ import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.RunnableCanvasSingleThreadStartRunnable;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;
 
 public class ThreadFactoryUtil
@@ -63,6 +65,8 @@ public class ThreadFactoryUtil
             }
         }
 
-        return new Thread(runnable);
+        final Thread thread = new Thread(runnable);
+        LogUtil.put(LogFactory.getInstance(thread.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        return thread;
     }
 }

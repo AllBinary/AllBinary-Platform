@@ -157,6 +157,7 @@ public class ThreadPool
         public PooledThread()
         {
             //super(ThreadPool.this, "PooledThread-").append((threadID++));
+            LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
         }
 
         private final String INTERRUPT_EXCEPTION = "Exit InterruptedException";
