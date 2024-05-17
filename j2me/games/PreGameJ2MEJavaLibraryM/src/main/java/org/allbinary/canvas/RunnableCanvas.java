@@ -232,7 +232,7 @@ public class RunnableCanvas extends MyCanvas
     //private final String GAME_SLEEP = "game sleep";
     public void processSleep() throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.PROCESS, this, PAUSE_SLEEP));
+        //LogUtil.put(LogFactory.getInstance(PAUSE_SLEEP + this.pauseWait, this, commonStrings.PROCESS));
         Thread.sleep(pauseWait);
     }
 
@@ -243,7 +243,7 @@ public class RunnableCanvas extends MyCanvas
     
     public void processGameSleep(long sleep) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.PROCESS, this, GAME_SLEEP + sleep));
+        //LogUtil.put(LogFactory.getInstance(GAME_SLEEP + sleep, this, commonStrings.PROCESS));
         Thread.sleep(sleep);
     }
     
