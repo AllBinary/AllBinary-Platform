@@ -175,6 +175,7 @@ public class ThreadPool
                 try
                 {
                     task = getTask();
+                    //LogUtil.put(LogFactory.getInstance(task + " with Thread: " + this.toString(), this, commonStrings.RUN));
                     runningTask = true;
 
                     startTask(task);
