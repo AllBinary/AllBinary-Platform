@@ -126,7 +126,7 @@ public class XmlRpcRemoteHighScoresClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("IOException Trying Other Servers");
-            LogUtil.put(LogFactory.getInstance(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, CommonStrings.getInstance().GET, e));
             // }
 
             if(!e.getMessage().startsWith(HOST_NOT_RESOLVED))

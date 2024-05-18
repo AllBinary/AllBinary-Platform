@@ -700,8 +700,9 @@ public class StartCanvas extends RunnableCanvas
      
         //final GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
         
+        //This is not curently used
         //if(!AvianUtil.isAvian()) {
-            //For now Native build skips this since it causes loading delay.                
+            //While Avian builds no longer block on getting high scores they error out still
             //this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
         //}
     }

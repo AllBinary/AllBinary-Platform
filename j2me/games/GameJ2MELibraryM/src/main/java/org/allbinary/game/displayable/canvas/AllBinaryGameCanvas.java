@@ -1177,7 +1177,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         progressCanvas.addPortion(portion, "High Scores");
 
         if(!AvianUtil.isAvian()) {
-            //For now Native build skips this since it causes loading delay.
+            //While Avian builds no longer block on getting high scores they error out still
             this.highScoresFactoryInterface.fetchHighScores(this.gameLayerManager.getGameInfo(), this.highScoresHelper);
         }
 
