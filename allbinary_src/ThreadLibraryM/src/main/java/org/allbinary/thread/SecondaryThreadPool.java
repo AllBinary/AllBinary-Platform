@@ -35,7 +35,7 @@ public class SecondaryThreadPool extends ThreadPool
 
     public synchronized void runTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(task).toString(), this, "runTask"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(task).append(System.currentTimeMillis()).toString(), this, "runTask"));
 
         super.runTask(task);
     }
@@ -45,12 +45,12 @@ public class SecondaryThreadPool extends ThreadPool
 
     protected void startTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(START_TASK).append(task).toString(), this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, CommonStrings.getInstance().RUN));
     }
 
     protected void completedTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPLETE_TASK).append(task).toString(), this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, CommonStrings.getInstance().RUN));
     }
 
 }
