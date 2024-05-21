@@ -16,7 +16,6 @@ package org.allbinary.game.score.displayable;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.AvianUtil;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -40,6 +39,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.thread.SecondaryThreadPool;
 
 public class HighScoresCanvas extends GameCommandCanvas
         implements HighScoresResultsListener
@@ -112,11 +112,22 @@ public class HighScoresCanvas extends GameCommandCanvas
             ColorFillPaintableFactory.getInstance(
                 allBinaryGameLayerManager.getBackgroundBasicColor(), false);
 
-        if(!AvianUtil.isAvian()) {        
-            this.executeUpdate();
-        } else {
-            this.setPaintable(this.waitPaintable);
-        }
+        this.setPaintable(this.waitPaintable);
+        
+        SecondaryThreadPool.getInstance().runTask(new Runnable() {
+            public void run() {
+                
+                while(!hasPainted) {
+                }
+                hasPainted = false;
+                LogUtil.put(LogFactory.getInstance("request repaint to be sure: " + System.currentTimeMillis(), this, commonStrings.RUN));
+                repaint();
+                while(!hasPainted) {
+                }
+                LogUtil.put(LogFactory.getInstance("Now that the canvas has completed repaint go ahead and fetch the scores: " + System.currentTimeMillis(), this, commonStrings.RUN));
+                executeUpdate();
+            }
+        });
     }
 
     public void initCommands(CommandListener cmdListener)
@@ -142,7 +153,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.highScoresCanvasInputProcessor.close();
     } 
     
-    private int paintIndex = 0;
+    boolean hasPainted = false;
     public void paint(Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);
@@ -155,18 +166,8 @@ public class HighScoresCanvas extends GameCommandCanvas
         }
 
         super.paint(graphics);
-
-        //TWB - This is a temp hack until I can find out why Threads are blocking the UI for Native builds.
-        if(AvianUtil.isAvian()) {
-            if (paintIndex < 10) {
-                if (paintIndex == 9) {
-                    this.executeUpdate();
-                }
-                paintIndex++;
-                this.repaint();
-            }
-        }
         
+        hasPainted = true;
     }
 
     public void executeUpdate()

@@ -19,7 +19,6 @@ import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
-import org.allbinary.AvianUtil;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
@@ -1176,10 +1175,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         progressCanvas.addPortion(portion, "High Scores");
 
-        if(!AvianUtil.isAvian()) {
-            //While Avian builds no longer block on getting high scores they error out still
-            this.highScoresFactoryInterface.fetchHighScores(this.gameLayerManager.getGameInfo(), this.highScoresHelper);
-        }
+        this.highScoresFactoryInterface.fetchHighScores(this.gameLayerManager.getGameInfo(), this.highScoresHelper);
 
         this.setHighScoresPaintable(NullPaintable.getInstance());
 

@@ -19,7 +19,6 @@ import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
-import org.allbinary.AvianUtil;
 
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
@@ -701,10 +700,7 @@ public class StartCanvas extends RunnableCanvas
         //final GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
         
         //This is not curently used
-        //if(!AvianUtil.isAvian()) {
-            //While Avian builds no longer block on getting high scores they error out still
-            //this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
-        //}
+        //this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
     }
 
     protected void start() throws Exception
