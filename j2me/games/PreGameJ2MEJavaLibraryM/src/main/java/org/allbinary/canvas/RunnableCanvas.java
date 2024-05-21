@@ -233,6 +233,7 @@ public class RunnableCanvas extends MyCanvas
     public void processSleep() throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(PAUSE_SLEEP + this.pauseWait, this, commonStrings.PROCESS));
+        //LogUtil.put(LogFactory.getInstance(PAUSE_SLEEP + System.currentTimeMillis(), this, commonStrings.PROCESS));
         Thread.sleep(pauseWait);
     }
 
