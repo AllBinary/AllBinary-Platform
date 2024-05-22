@@ -256,13 +256,15 @@ public class RunnableCanvas extends MyCanvas
         
         //this.processPaintable.process();
         
-        if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
-            LogUtil.put(LogFactory.getInstance(START_PAUSE + System.currentTimeMillis(), this, commonStrings.RUN));
+        if(this.isPaused() && this.isRunning() && this.isSingleThread()) {
+            final StringMaker stringMaker = new StringMaker();
+            LogUtil.put(LogFactory.getInstance(stringMaker.append(START_PAUSE).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
             while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
                 this.processSleep();
 
                 if (!this.isPausable()) {
-                    LogUtil.put(LogFactory.getInstance(END_PAUSE + System.currentTimeMillis(), this, commonStrings.RUN));
+                    stringMaker.delete(0, stringMaker.length());
+                    LogUtil.put(LogFactory.getInstance(stringMaker.append(END_PAUSE).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
                     return;
                 }
             }

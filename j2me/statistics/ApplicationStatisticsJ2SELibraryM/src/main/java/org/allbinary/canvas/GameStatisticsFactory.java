@@ -25,6 +25,6 @@ public class GameStatisticsFactory extends BaseGameStatistics
     
     public String toString()
     {
-        return super.toString() + this.stringBuffer.toString();
+        return new StringMaker().append(super.toString()).append(this.stringBuffer.toString()).toString();
     }
 }

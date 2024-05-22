@@ -120,11 +120,13 @@ public class HighScoresCanvas extends GameCommandCanvas
                 while(!hasPainted) {
                 }
                 hasPainted = false;
-                LogUtil.put(LogFactory.getInstance("request repaint to be sure: " + System.currentTimeMillis(), this, commonStrings.RUN));
+                final StringMaker stringMaker = new StringMaker();
+                LogUtil.put(LogFactory.getInstance(stringMaker.append("request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
                 repaint();
                 while(!hasPainted) {
                 }
-                LogUtil.put(LogFactory.getInstance("Now that the canvas has completed repaint go ahead and fetch the scores: " + System.currentTimeMillis(), this, commonStrings.RUN));
+                stringMaker.delete(0, stringMaker.length());
+                LogUtil.put(LogFactory.getInstance(stringMaker.append("Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
                 executeUpdate();
             }
         });
