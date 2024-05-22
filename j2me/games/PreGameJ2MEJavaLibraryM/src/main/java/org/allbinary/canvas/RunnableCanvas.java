@@ -256,7 +256,7 @@ public class RunnableCanvas extends MyCanvas
         
         //this.processPaintable.process();
         
-        if(this.isPaused() && this.isRunning() && this.isSingleThread()) {
+        if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
             final StringMaker stringMaker = new StringMaker();
             LogUtil.put(LogFactory.getInstance(stringMaker.append(START_PAUSE).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
             while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
