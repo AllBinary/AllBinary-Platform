@@ -69,7 +69,7 @@ public class BasicHighScoresFactory extends HighScoresBase
                     final GameTypeFactory gameTypeFactory = GameTypeFactory.getInstance();
 
                     GameInfo gameInfo2 = gameInfo;
-                    if (gameType == gameTypeFactory.SINGLE_PLAYER) {
+                    if (gameType == gameTypeFactory.SINGLE_PLAYER || gameType == gameTypeFactory.BOT) {
                         gameInfo2 = BasicHighScoresGameInfoFactory.getInstance().SINGLE_PLAYER_SERVER;
                     } else if (gameType == gameTypeFactory.MULTI_PLAYER) {
                         gameInfo2 = BasicHighScoresGameInfoFactory.getInstance().MULTI_PLAYER_SERVER;

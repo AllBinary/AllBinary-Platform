@@ -125,7 +125,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                 repaint();
                 while(!hasPainted) {
                 }
-                stringMaker.delete(0, stringMaker.length());
+                stringMaker.delete(0,  stringMaker.length());
                 LogUtil.put(LogFactory.getInstance(stringMaker.append("Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
                 executeUpdate();
             }
@@ -176,8 +176,6 @@ public class HighScoresCanvas extends GameCommandCanvas
     {
         try
         {
-            this.setPaintable(this.waitPaintable);
-            
             this.highScoresFactoryInterface.fetchHighScores(this.getGameInfo(), this);
         }
         catch (Exception e)
