@@ -64,7 +64,7 @@
         <module>../../android/AllBinaryAndroidLibraryP</module>
         <!-- Not used in Platform Libraries -->
         <!--
-        <module>../../AllBinaryAndroidProgressJavaLibraryM</module>
+        <module>../../ProgressAndroidJavaLibraryM</module>
         <module>../../media/graphics/animation/image/AllBinaryAndroidImageRotationJavaLibraryM</module>
         -->
 
