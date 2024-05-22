@@ -13,19 +13,20 @@
 */
 package org.allbinary.media.audio;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.audio.AudioContentTypeDataFactory;
 import java.io.InputStream;
 
 import javax.microedition.media.Manager;
+import javax.microedition.media.MediaException;
 import javax.microedition.media.Player;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.audio.AudioContentTypeDataFactory;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import javax.microedition.media.MediaException;
+
 
 public class AllBinaryMediaManager
 {
