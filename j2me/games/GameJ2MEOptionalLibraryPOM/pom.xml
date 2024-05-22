@@ -44,7 +44,7 @@
 
         <module>../../input/JSEGyroSensorJavaLibraryM</module>
 <!--        
-        <module>../../TempIntegrationJavaLibraryM</module>
+        <module>../../ProgressJ2MEJavaLibraryM</module>
 -->
         <module>../../input/ME/GameInputMEJavaLibraryM</module>
         <module>../../input/ME/GameInputMEKeyOnlyJavaLibraryM</module>
