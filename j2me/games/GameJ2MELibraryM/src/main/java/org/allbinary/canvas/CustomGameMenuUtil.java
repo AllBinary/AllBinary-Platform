@@ -21,14 +21,13 @@ import org.allbinary.graphics.displayable.MyCanvas;
 
 public class CustomGameMenuUtil
 {
-    public static void add(MyCanvas canvas)
+    public static void add(final MyCanvas canvas)
     {
-        GameCommandsFactory gameCommandsFactory = 
-            GameCommandsFactory.getInstance();
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
 
-        if (!AppletUtil.isAppletLoader(canvas) && 
-                !Features.getInstance().isDefault(HTMLFeatureFactory.getInstance().HTML))
-        {
+        if (AppletUtil.isAppletLoader(canvas)) {
+        } else if(Features.getInstance().isDefault(HTMLFeatureFactory.getInstance().HTML)) {
+        } else {
             canvas.addCommand(gameCommandsFactory.EXIT_COMMAND);
         }
     }
