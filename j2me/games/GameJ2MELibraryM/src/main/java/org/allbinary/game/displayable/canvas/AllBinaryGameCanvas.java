@@ -27,7 +27,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.Processor;
@@ -110,6 +109,7 @@ import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.game.input.GameInputStrings;
+import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.game.resource.ResourceLoadingLevel;
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.game.score.HighScoresHelperBase;
@@ -879,13 +879,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.addCommand(gameCommandsFactory.QUIT_COMMAND);
 
-        boolean isOverScan = 
-                OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan();
+        final boolean isOverScan = OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan();
         
         final Features features = Features.getInstance();
 
-        if(!features.isDefault(htmlFeatureFactory.HTML) && !isOverScan)
-        {
+        if(features.isDefault(htmlFeatureFactory.HTML)) {
+        } else if(SWTUtil.isSWT) {
+        } else if(!isOverScan) {
+
             if (TouchScreenFactory.getInstance().isTouch() && new InGameFeatures().isAny())
             {
                 // System.out.println("InGameOptions");
@@ -895,6 +896,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             // this.addCommand(GameCommands.DISPLAY_SAVE_FORM);
             this.addCommand(gameCommandsFactory.SAVE);
             this.addCommand(gameCommandsFactory.DISPLAY_LOAD_FORM);
+
         }
     }
 

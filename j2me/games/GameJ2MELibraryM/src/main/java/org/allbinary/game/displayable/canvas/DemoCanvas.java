@@ -70,6 +70,7 @@ import org.allbinary.game.input.event.GameKeyEventHandler;
 import org.allbinary.game.input.event.UpGameKeyEventHandler;
 import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.game.midlet.DemoGameMidlet;
 import org.allbinary.game.score.HighScoreCommands;
 import org.allbinary.game.score.HighScores;
@@ -289,7 +290,9 @@ public class DemoCanvas extends RunnableCanvas
             //Has nothing to do with overscan/ouya just hiding issues with the UI
             try
             {
-                if (!OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan()) {
+                final boolean isOverScan = OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan();
+                if(SWTUtil.isSWT) {
+                } else if (!isOverScan) {
                     commandList.add(gameCommandsFactory.DISPLAY_OPTIONS);
                     commandList.add(gameCommandsFactory.DISPLAY_LOAD_FORM);
                     commandList.add(GameInputMappingCanvas.DISPLAY);
