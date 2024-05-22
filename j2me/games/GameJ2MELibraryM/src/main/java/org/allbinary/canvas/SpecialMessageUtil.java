@@ -17,6 +17,7 @@ import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 
 import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.system.Memory;
 
 public class SpecialMessageUtil
@@ -42,7 +43,7 @@ public class SpecialMessageUtil
     
     public String get()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(Memory.getInfo());
         stringBuffer.append(CommonSeps.getInstance().SPACE);
         stringBuffer.append(GameStatisticsFactory.getInstance().toString());

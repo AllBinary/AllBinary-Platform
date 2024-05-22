@@ -2,11 +2,11 @@ package org.allbinary.canvas;
 
 import org.allbinary.logic.string.StringMaker;
 
-public class AllGameStatisticsFactory
+public class GameStatisticsFactory extends BaseGameStatistics
 {
-    private static final AllGameStatisticsFactory instance = new AllGameStatisticsFactory();
+    private static final GameStatisticsFactory instance = new GameStatisticsFactory();
 
-    public static AllGameStatisticsFactory getInstance()
+    public static GameStatisticsFactory getInstance()
     {
         return instance;
     }
@@ -25,6 +25,6 @@ public class AllGameStatisticsFactory
     
     public String toString()
     {
-        return this.stringBuffer.toString();
+        return super.toString() + this.stringBuffer.toString();
     }
 }

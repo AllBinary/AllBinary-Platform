@@ -13,7 +13,10 @@
 */
 package org.allbinary.canvas;
 
+import org.allbinary.AppletUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.graphics.displayable.MyCanvas;
 
 public class CustomGameMenuUtil
@@ -22,10 +25,11 @@ public class CustomGameMenuUtil
     {
         GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();
- 
-        //if (!AppletUtil.isAppletLoader(canvas))
-        //{
+
+        if (!AppletUtil.isAppletLoader(canvas) && 
+                !Features.getInstance().isDefault(HTMLFeatureFactory.getInstance().HTML))
+        {
             canvas.addCommand(gameCommandsFactory.EXIT_COMMAND);
-        //}        
+        }
     }
 }

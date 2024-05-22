@@ -27,7 +27,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.canvas.AllGameStatisticsFactory;
+import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.Processor;
@@ -1690,7 +1690,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         screenCapture.endRecording();
         
-        AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
+        GameStatisticsFactory allGameStatisticsFactory = GameStatisticsFactory.getInstance();
         allGameStatisticsFactory.add(new StringMaker().append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
         baseGameStatistics.init();
         

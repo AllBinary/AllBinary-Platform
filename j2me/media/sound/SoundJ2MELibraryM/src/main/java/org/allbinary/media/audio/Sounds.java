@@ -41,17 +41,19 @@ public class Sounds
 
         final String SOUND = " Sound: ";
         
-        ProgressCanvas progressCanvas = 
-            ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
         soundsFactoryInterface.init();
 
-        Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
+        final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 
         final String INIT_SOUND = "Initializing Sound: ";
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
+        Integer indexInteger;
+        String indexString;
+        final StringMaker stringBuffer = new StringMaker();
         for (int i = 0; i < soundInterfaceArray.length; i++)
         {
 
@@ -59,11 +61,10 @@ public class Sounds
 
             if (soundInterface != null)
             {
-                Integer indexInteger = smallIntegerSingletonFactory.getInstance(i);
-                String indexString = indexInteger.toString();
+                indexInteger = smallIntegerSingletonFactory.getInstance(i);
+                indexString = indexInteger.toString();
                 
-                StringMaker stringBuffer = new StringMaker();
-                
+                stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
                 stringBuffer.append(indexString);
                 stringBuffer.append(SOUND);
@@ -86,17 +87,16 @@ public class Sounds
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "stopAll"));
 
-        Sound[] soundInterfaceArray = 
-            soundsFactoryInterface.getSoundInterfaceArray();
+        final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 
-        ProgressCanvas progressCanvas =
-            ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
+        Player player;
         for (int index = 0; index < soundInterfaceArray.length; index++)
         {
             if (soundInterfaceArray[index] != null)
             {
-                Player player = soundInterfaceArray[index].getPlayer();
+                player = soundInterfaceArray[index].getPlayer();
 
                 if (player != null)
                 {
@@ -113,16 +113,16 @@ public class Sounds
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "closeAll"));
 
-        Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
+        final Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 
-        ProgressCanvas progressCanvas =
-            ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
+        Player player;
         for (int index = 0; index < soundInterfaceArray.length; index++)
         {
             if (soundInterfaceArray[index] != null)
             {
-                Player player = soundInterfaceArray[index].getPlayer();
+                player = soundInterfaceArray[index].getPlayer();
                 if(player != null)
                 {
                     player.close();

@@ -42,7 +42,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
 import org.allbinary.logic.system.security.licensing.LockableFeature;
 import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
-import org.allbinary.canvas.AllGameStatisticsFactory;
+import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.FullScreenUtil;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.DebugInterface;
@@ -280,7 +280,7 @@ public class GameMidlet extends ProgressMidlet
         final String METHOD_NAME = "GameMidlet::destroyApp";
         try
         {
-            PreLogUtil.put(AllGameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
+            PreLogUtil.put(GameStatisticsFactory.getInstance().toString(), this, METHOD_NAME);
             //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
 
             final GameAdState gameAdState = gameAdStateFactory.getCurrentInstance();

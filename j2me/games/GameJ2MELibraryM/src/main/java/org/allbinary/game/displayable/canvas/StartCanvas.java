@@ -41,7 +41,7 @@ import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.animation.special.SpecialAnimation;
-import org.allbinary.canvas.AllGameStatisticsFactory;
+import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.CustomGameMenuUtil;
 import org.allbinary.canvas.FullScreenUtil;
@@ -1010,7 +1010,7 @@ public class StartCanvas extends RunnableCanvas
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
-        final AllGameStatisticsFactory allGameStatisticsFactory = AllGameStatisticsFactory.getInstance();
+        final GameStatisticsFactory allGameStatisticsFactory = GameStatisticsFactory.getInstance();
         allGameStatisticsFactory.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
         baseGameStatistics.init();
         
