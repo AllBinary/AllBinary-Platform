@@ -170,6 +170,7 @@
 
         <module>../GameNotificationJavaLibraryM</module>
 
+        <module>../NoSWTJavaLibraryM</module>
         <module>../GameJ2MELibraryM</module>
         
         <!--
