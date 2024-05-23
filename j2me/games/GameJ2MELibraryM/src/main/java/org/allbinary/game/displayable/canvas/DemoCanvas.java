@@ -43,7 +43,6 @@ import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.animation.special.SpecialAnimation;
-import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.CustomGameMenuUtil;
 import org.allbinary.canvas.FullScreenUtil;
@@ -90,6 +89,7 @@ import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
+import org.allbinary.graphics.displayable.screen.FullScreenPaintableFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormType;
@@ -127,7 +127,9 @@ public class DemoCanvas extends RunnableCanvas
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
-    
+
+    protected Paintable fullscreenPaintable = FullScreenPaintableFactory.getInstance().paintable;
+
     private StatePaintable basicGameDemoPaintable =
         //new StateNotifyPaintable(this);
         StatePaintableFactory.getInstance();
@@ -601,6 +603,8 @@ public class DemoCanvas extends RunnableCanvas
         this.getBasicGameDemoPaintable().paint(graphics);
 
         this.overlayPaintable.paint(graphics);
+        
+        this.fullscreenPaintable.paint(graphics);
     }
 
     public void paintThreed(Graphics graphics)
