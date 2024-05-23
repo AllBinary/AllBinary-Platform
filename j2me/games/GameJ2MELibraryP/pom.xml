@@ -86,6 +86,7 @@
         <module>../../input/platform/pc/GameInputPCJavaLibraryM</module>
         <module>../../input/platform/pc/GameInputPCKeyOnlyJavaLibraryM</module>
         <module>../../input/platform/pc/GameInputPCMotionJavaLibraryM</module>
+        <module>../../input/platform/pc/GameInputSwtJavaLibraryM</module>
 
         <module>../../input/AllBinaryGyroSensorJavaLibraryM</module>
         <module>../../input/MotionGestureJavaLibraryM</module>
@@ -171,6 +172,7 @@
         <module>../GameNotificationJavaLibraryM</module>
 
         <module>../NoSWTJavaLibraryM</module>
+        <module>../SWTJavaLibraryM</module>
         <module>../GameJ2MELibraryM</module>
         
         <!--

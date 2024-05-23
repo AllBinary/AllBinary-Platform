@@ -46,12 +46,9 @@
 <!--        
         <module>../../ProgressJ2MEJavaLibraryM</module>
 -->
-        <module>../../input/ME/GameInputMEJavaLibraryM</module>
-        <module>../../input/ME/GameInputMEKeyOnlyJavaLibraryM</module>
-
-        <module>../../input/PC/GameInputPCJavaLibraryM</module>
-        <module>../../input/PC/GameInputPCKeyOnlyJavaLibraryM</module>
-        <module>../../input/PC/GameInputPCMotionJavaLibraryM</module>
+<!--        
+        //At some point the GameInput libraries were here
+-->
         
         <!--
         ../../
