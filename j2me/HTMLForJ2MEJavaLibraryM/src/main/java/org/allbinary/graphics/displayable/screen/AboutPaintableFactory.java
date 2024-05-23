@@ -72,7 +72,7 @@ public class AboutPaintableFactory {
             "Developed By:", "Travis Berthelot",
         };
                 
-        this.paintableArray = AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();        
+        this.paintableArray = AboutPaintable.getInstance(INFO, DEVELOPERS).getPaintableArrayInstance();
     }
     
     public Paintable[] paintableArray = new Paintable[] { NullPaintable.getInstance() };
