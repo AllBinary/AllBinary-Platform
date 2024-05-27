@@ -727,6 +727,8 @@ public class DemoCanvas extends RunnableCanvas
        
         final GameInfo gameInfo = this.gameCanvas.getLayerManager().getGameInfo();
         
+        //new TlsSocket().test();
+        //new TlsSocket().test_tls_client_with_jni();
         this.getHighScoresFactoryInterface().fetchHighScores(gameInfo, this.highScoresHelper);
 
     }
