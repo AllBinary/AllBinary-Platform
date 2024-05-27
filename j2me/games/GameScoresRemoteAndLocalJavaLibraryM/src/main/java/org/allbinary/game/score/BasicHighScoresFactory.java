@@ -45,9 +45,11 @@ public class BasicHighScoresFactory extends HighScoresBase
     private final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
     private final String WORLD_TOP_SCORES = "World Top Scores";
     
+    private final String FETCH = "fetchHighScores";
+    
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener)
     {
-        LogUtil.put(LogFactory.getInstance("Getting Remote/Local HighScores", this, "fetchHighScores"));
+        LogUtil.put(LogFactory.getInstance("Getting Remote/Local HighScores", this, FETCH));
         this.fetchHighScores(gameInfo, highScoresResultsListener, true);
     }
     
@@ -59,7 +61,7 @@ public class BasicHighScoresFactory extends HighScoresBase
             public void run() {
                 
                 try {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "createHighScores"));
+                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, FETCH));
 
                     highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
                         TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
@@ -81,11 +83,12 @@ public class BasicHighScoresFactory extends HighScoresBase
                             softwareInformation, gameInfo2,
                             WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "createHighScores"));
+                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, FETCH));
 
+                    LastFetchHighScoresFactory.getInstance().highScoresArray = highScoresArray;
                     highScoresResultsListener.setHighScoresArray(highScoresArray);
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "createHighScores", e));
+                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, FETCH, e));
 
                     //return super.createHighScores(gameInfo);
                 }

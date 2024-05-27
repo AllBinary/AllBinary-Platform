@@ -25,7 +25,7 @@ import org.allbinary.logic.string.StringMaker;
 public class HighScoresHelperBase implements HighScoresResultsListener {
     
     protected HighScores[] highScoresArray = 
-        NoHighScoresFactory.getInstance().NO_HIGH_SCORES;
+        LastFetchHighScoresFactory.getInstance().highScoresArray;
     
     public void setHighScoresArray(final HighScores[] highScoresArray)
     {

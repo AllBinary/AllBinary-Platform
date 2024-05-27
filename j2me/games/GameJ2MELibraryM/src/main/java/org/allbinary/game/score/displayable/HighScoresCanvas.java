@@ -34,6 +34,7 @@ import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresPaintable;
 import org.allbinary.game.score.HighScoresResultsListener;
+import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.Paintable;
@@ -94,8 +95,8 @@ public class HighScoresCanvas extends GameCommandCanvas
 
         this.highScoresFactoryInterface = highScoresFactoryInterface;
 
-        this.highScoresCanvasInputProcessor = highScoresCanvasInputProcessorFactoryInterface
-                .getInstance(this);
+        this.highScoresCanvasInputProcessor = 
+            highScoresCanvasInputProcessorFactoryInterface.getInstance(this);
 
         this.gameInfo = gameInfo;
 
@@ -103,8 +104,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         // new DemoGameMidletEvent(this, DemoGameMidletStateFactory
         // .getInstance().START_INPUT_MAPPING));
 
-        this.waitPaintable.setBasicColor(allBinaryGameLayerManager
-                .getForegroundBasicColor());
+        this.waitPaintable.setBasicColor(allBinaryGameLayerManager.getForegroundBasicColor());
 
         this.getHighScoresPaintable().setBasicColor(
                 allBinaryGameLayerManager.getForegroundBasicColor());
@@ -112,7 +112,13 @@ public class HighScoresCanvas extends GameCommandCanvas
             ColorFillPaintableFactory.getInstance(
                 allBinaryGameLayerManager.getBackgroundBasicColor(), false);
 
-        this.setPaintable(this.waitPaintable);
+        if(this.highScoresHelper.getHighScoresArray() == NoHighScoresFactory.getInstance().NO_HIGH_SCORES) {
+            this.setPaintable(this.waitPaintable);
+        } else {
+            LogUtil.put(LogFactory.getInstance("Show HighScores that are already loaded", this, commonStrings.CONSTRUCTOR));
+            this.updateCommand(this.currentCommand);
+            this.setPaintable(this.getHighScoresPaintable());
+        }
         
         SecondaryThreadPool.getInstance().runTask(new Runnable() {
             public void run() {
@@ -121,12 +127,12 @@ public class HighScoresCanvas extends GameCommandCanvas
                 }
                 hasPainted = false;
                 final StringMaker stringMaker = new StringMaker();
-                LogUtil.put(LogFactory.getInstance(stringMaker.append("request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+                LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
                 repaint();
                 while(!hasPainted) {
                 }
                 stringMaker.delete(0,  stringMaker.length());
-                LogUtil.put(LogFactory.getInstance(stringMaker.append("Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+                LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
                 executeUpdate();
             }
         });
