@@ -13,22 +13,32 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import org.allbinary.game.GameInfo;
+import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.string.StringUtil;
 
 public class EndGameInfo {
     
-    private final String NORMAL_GAME_OVER = "End of Demo.";
-    private final String NORMAL_GAME_OVER_WIN = "Demo Game Over.";
+    //private final String NORMAL_GAME_OVER = "Game Over";
+    protected final String NORMAL_GAME_OVER_WIN = "You Won";
+
+    private final String TEASER_DEMO_GAME_END_LAST_LEVEL = "End of Demo.";
+    private final String TEASER_DEMO_GAME_END = "Demo Game Over.";
 
     //Initial value is the UNKNOWN state. That is if it is a license served 
     //game then it has not obtained info from the server yet.
     private String gameOverStr = StringUtil.getInstance().EMPTY_STRING;
     private String winStr = this.gameOverStr;
 
-    public void update()
+    public final void update(final GameInfo gameInfo, final MyCanvas myCanvas)
     {
-        this.setGameOverStr(this.NORMAL_GAME_OVER);
-        this.setWinStr(this.NORMAL_GAME_OVER_WIN);
+        if (gameInfo.isLastLevel()) {
+            this.setWinStr(TEASER_DEMO_GAME_END_LAST_LEVEL);
+            this.setGameOverStr(TEASER_DEMO_GAME_END_LAST_LEVEL);
+        } else {
+            this.setWinStr(NORMAL_GAME_OVER_WIN);
+            this.setGameOverStr(TEASER_DEMO_GAME_END);
+        }
     }
 
     /**

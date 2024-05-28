@@ -145,7 +145,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
 
     private final SensorGameUpdateProcessor sensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
-    private EndGameInfo endGameInfo = new EndGameInfo();
+    private final EndGameInfo endGameInfo = new EndGameInfo();
     private final IntermissionInterface startIntermissionInterface = new Intermission();
     private final IntermissionInterface endLevelIntermissionInterface = new Intermission();
     private static final int id = 0;
@@ -1183,7 +1183,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         progressCanvas.addPortion(portion, "Finishing.");
 
-        this.getEndGameInfo().update();
+        this.getEndGameInfo().update(this.getLayerManager().getGameInfo(), this);
 
         this.isSingleKeyRepeatableProcessing = 
             features.isFeature(InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
@@ -1856,18 +1856,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     /**
      * @return the endGameInfo
      */
-    protected EndGameInfo getEndGameInfo()
+    public EndGameInfo getEndGameInfo()
     {
         return endGameInfo;
-    }
-
-    /**
-     * @param endGameInfo
-     *            the endGameInfo to set
-     */
-    public void setEndGameInfo(final EndGameInfo endGameInfo)
-    {
-        this.endGameInfo = endGameInfo;
     }
     
     public void setHighScoresPaintable(final Paintable highScoresPaintable)

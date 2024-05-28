@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import org.allbinary.game.GameInfo;
+import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.string.StringUtil;
 
 public class EndGameInfo {
@@ -25,7 +27,11 @@ public class EndGameInfo {
     private String gameOverStr = StringUtil.getInstance().EMPTY_STRING;
     private String winStr = this.gameOverStr;
 
-    public void update()
+    public EndGameInfo() {
+        
+    }
+        
+    public void update(final GameInfo gameInfo, final MyCanvas myCanvas)
     {
         this.setGameOverStr(this.NORMAL_GAME_OVER);
         this.setWinStr(this.NORMAL_GAME_OVER_WIN);
