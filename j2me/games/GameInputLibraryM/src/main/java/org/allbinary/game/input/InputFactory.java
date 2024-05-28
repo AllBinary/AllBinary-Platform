@@ -13,6 +13,8 @@
 */
 package org.allbinary.game.input;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.CommonStrings;
 
@@ -56,6 +58,11 @@ public class InputFactory
         if(id < 0)
         {
             id = -id;
+        }
+
+        if(id > inputIntegerArray.length) {
+            LogUtil.put(LogFactory.getInstance("id: " + id, this, CommonStrings.getInstance().GET_INSTANCE, new Exception()));
+            return NO_INPUT;
         }
 
         return inputIntegerArray[id];
