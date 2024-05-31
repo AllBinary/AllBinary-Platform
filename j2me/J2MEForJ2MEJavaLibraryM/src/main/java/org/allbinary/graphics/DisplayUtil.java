@@ -37,4 +37,8 @@ public class DisplayUtil {
 
     }
 
+    public boolean isResizable() {
+        return false;
+    }
+    
 }
