@@ -15,13 +15,13 @@ package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.GameFeatureFactory;
 
 import org.allbinary.graphics.Anchor;
-import org.allbinary.graphics.color.BasicColorFactory;
-import org.allbinary.graphics.color.BasicColorSetUtil;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 public class ImageCopyUtil
 {
@@ -40,11 +40,19 @@ public class ImageCopyUtil
     }
     
     private int anchor = Anchor.TOP_LEFT;
+    private final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+    private final Features features = Features.getInstance();
+    private final String NO_COPY = "J2ME does not need to copy images after initial loading";
     
     // String resource,
     public Image createImage(final Image originalImage)
             throws Exception
     {
+        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            LogUtil.put(LogFactory.getInstance(NO_COPY, this, CommonStrings.getInstance().CONSTRUCTOR, new Exception()));
+            return originalImage;
+        }
+        
         final Image image = imageCreationUtil.getInstance(
                 originalImage.getWidth() , originalImage.getHeight());
 
@@ -63,6 +71,11 @@ public class ImageCopyUtil
     public Image createImage(final Image originalImage, final float canvasScale, final boolean resize)
             throws Exception
     {
+        if(!features.isFeature(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION)) {
+            LogUtil.put(LogFactory.getInstance(NO_COPY, this, CommonStrings.getInstance().CONSTRUCTOR, new Exception()));
+            return originalImage;
+        }
+        
         //LogUtil.put(LogFactory.getInstance("width: " + originalImage.getWidth() + " height: " + originalImage.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
         
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
