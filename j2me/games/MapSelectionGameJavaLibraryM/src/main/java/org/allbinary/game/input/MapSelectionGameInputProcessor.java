@@ -127,7 +127,10 @@ public class MapSelectionGameInputProcessor extends Processor
                     //PreLogUtil.put("selectedIndex: " + selectedIndex + " LockedUtil.getInstance().isLockedFeature(): " + LockedUtil.getInstance().isLockedFeature(), this, "onInput");
 
                     if (!abRunnable.isRunning()) {
-                        SecondaryThreadPool.getInstance().runTask(abRunnable);
+                        abRunnable.setRunning(true);
+                        //SecondaryThreadPool.getInstance().runTask(abRunnable);
+                        Thread thread = new Thread(abRunnable);
+                        thread.start();
                     }
                     
                     break;
@@ -135,7 +138,7 @@ public class MapSelectionGameInputProcessor extends Processor
                 else
                 {
                     LockedFeatureNotificationUtil.getInstance().fire();
-                }                
+                }
             }
 
             list.clear();
