@@ -54,9 +54,11 @@ public class ImageJ2MEScaleUtil {
                 dx = (index2 * widthRatioFactor) >> 3;
                 
                 scaledData[scaledIndex--] = originalData[(sourceWidth * dy) + dx];
+                     //& 0xFF00FF;
             }
         }
 
+        //final Image scaledImage = Image.createRGBImage(originalData, sourceWidth, sourceHeight, true);
         final Image scaledImage = Image.createRGBImage(scaledData, width, height, true);
 
         /*
