@@ -49,7 +49,7 @@ public class Features
     }
 
     //For default or reload required features
-    public void addDefault(Feature gameFeature) throws Exception
+    public void addDefault(final Feature gameFeature) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(
           //      commonStrings.START_LABEL).append(gameFeature.toString(), 
@@ -63,7 +63,7 @@ public class Features
         }
     }
 
-    public void add(Feature gameFeature) throws Exception
+    public void add(final Feature gameFeature) throws Exception
     {
         if (!list.contains(gameFeature))
         {
@@ -82,7 +82,7 @@ public class Features
     }
 
   //For default or reload required features
-    public void removeDefault(Feature gameFeature) throws Exception
+    public void removeDefault(final Feature gameFeature) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
                 new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameFeature.toString()).toString(), this, "removeDefault"));
@@ -91,7 +91,7 @@ public class Features
         defaultList.remove(gameFeature);
     }
 
-    public void remove(Feature gameFeature) throws Exception
+    public void remove(final Feature gameFeature) throws Exception
     {
         if (list.contains(gameFeature))
         {
@@ -106,11 +106,10 @@ public class Features
     {
         try
         {            
-            GameFeatureFactory gameFeatureFactory = 
-                GameFeatureFactory.getInstance();
-            InputFeatureFactory inputFeatureFactory = InputFeatureFactory.getInstance();
-            SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
-            TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
+            final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
+            final InputFeatureFactory inputFeatureFactory = InputFeatureFactory.getInstance();
+            final SensorFeatureFactory sensorFeatureFactory = SensorFeatureFactory.getInstance();
+            final TouchFeatureFactory touchFeatureFactory = TouchFeatureFactory.getInstance();
             
             this.addDefault(gameFeatureFactory.ARTIFICIAL_INTELLEGENCE_PROCESSOR);
             this.addDefault(gameFeatureFactory.COLLIDABLE_INTERFACE_LAYER_PROCESSOR);
@@ -121,8 +120,9 @@ public class Features
             this.addDefault(inputFeatureFactory.REMOVE_DUPLICATE_KEY_PRESSES);
 
             this.addDefault(gameFeatureFactory.SCREEN_SHAKE);
+            this.addDefault(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION);
             
-            OperatingSystemInterface operatingSystemInterface
+            final OperatingSystemInterface operatingSystemInterface
                     = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
             if (operatingSystemInterface.isOverScan()) {

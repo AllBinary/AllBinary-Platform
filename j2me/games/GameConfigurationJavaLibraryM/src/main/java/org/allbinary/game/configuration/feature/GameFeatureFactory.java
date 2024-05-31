@@ -30,9 +30,8 @@ public class GameFeatureFactory
     public final GameFeature SOUND = new GameFeature("Sound");
     public final GameFeature MUSIC = new GameFeature("Music");
 
-    // public final GameFeature TRANSISTION_ANIMATIONS = new
-    // GameFeature("Transition Animations");
     public final Feature SCREEN_SHAKE = new Feature("Screen Shake");
+    public final Feature POST_IMAGE_LOADING_MODIFICATION = new Feature("Post Image Loading Modification (Scaling, Rotation, or Other)");
     
     public final GameFeature HEALTH_BARS = new GameFeature("Health Bars");
     public final GameFeature DAMAGE_FLOATERS = new GameFeature("Damage Floaters");
