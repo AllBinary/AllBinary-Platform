@@ -145,7 +145,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
 
     private final SensorGameUpdateProcessor sensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
-    private final EndGameInfo endGameInfo = new EndGameInfo();
+    protected EndGameInfo endGameInfo = new EndGameInfo();
     private final IntermissionInterface startIntermissionInterface = new Intermission();
     private final IntermissionInterface endLevelIntermissionInterface = new Intermission();
     private static final int id = 0;
