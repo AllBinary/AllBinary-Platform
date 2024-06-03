@@ -24,6 +24,7 @@ public class ThreadPool
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
+    protected final String ADD_TASK = "addTask";
     protected final String START_TASK = "Started Task: ";
     protected final String COMPLETE_TASK = "Completed Task: ";
     

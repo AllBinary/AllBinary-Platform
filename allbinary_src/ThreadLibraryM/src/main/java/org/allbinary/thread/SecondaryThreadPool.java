@@ -35,7 +35,7 @@ public class SecondaryThreadPool extends ThreadPool
 
     public synchronized void runTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(task).append(System.currentTimeMillis()).toString(), this, "runTask"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, ADD_TASK));
 
         super.runTask(task);
     }
