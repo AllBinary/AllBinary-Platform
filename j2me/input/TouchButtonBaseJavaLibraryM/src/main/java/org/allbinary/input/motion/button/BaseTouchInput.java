@@ -13,6 +13,7 @@
 */
 package org.allbinary.input.motion.button;
 
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
@@ -21,14 +22,15 @@ import org.allbinary.util.BasicArrayListUtil;
  * @author user
  */
 public class BaseTouchInput 
-{    
+{
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
+    
     protected BaseTouchInput()
     {
         
     }
-    
-    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
-    
+        
     /**
      * @return the list
      */

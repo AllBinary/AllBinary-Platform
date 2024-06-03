@@ -23,7 +23,6 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class NoButtonsBuilder 
 extends BaseTouchInput
 {
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public BasicArrayList getList()
     {

@@ -118,6 +118,10 @@ public class ThreadPool
 
     public boolean isBusy()
     {
+        if (!this.isAlive) {
+            return false;
+        }
+        
         if (this.taskQueue.size() > 0)
         {
             return true;

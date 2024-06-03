@@ -47,8 +47,7 @@ public class KeyValuePersistance extends BasicPersitance
     {
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-        final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null,
-                true);
+        final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
         final String LOADING_ID = "Loading id: ";
         final String METHOD_NAME = "loadAll";
