@@ -51,12 +51,12 @@ public class PrimaryThreadPool extends ThreadPool
 
     protected void startTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(START_TASK).append(task).toString(), this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(START_TASK).append(task).toString(), this, this.commonStrings.RUN));
     }
 
     protected void completedTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPLETE_TASK).append(task).toString(), this, CommonStrings.getInstance().RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPLETE_TASK).append(task).toString(), this, this.commonStrings.RUN));
     }
 
 }
