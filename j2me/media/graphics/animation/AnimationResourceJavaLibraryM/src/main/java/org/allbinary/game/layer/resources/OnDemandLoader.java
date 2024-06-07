@@ -21,6 +21,8 @@ import org.allbinary.game.configuration.feature.MainFeatureFactory;
 import org.allbinary.game.layer.GameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory;
 import org.allbinary.game.layer.LayerPlacementInterfaceBasicArrayListFactoryInterface;
 import org.allbinary.image.ImageCache;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 public class OnDemandLoader
 {
@@ -38,10 +40,10 @@ public class OnDemandLoader
         this.resourceAnimationInterfaceFactoryInterfaceFactory = resourceAnimationInterfaceFactoryInterfaceFactory;
     }
 
-    public void init(ImageCache imageCache, int level, String loadingString)
+    public void init(final ImageCache imageCache, final int level, final String loadingString)
     throws Exception
     {
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory = 
             ResourceLoadingLevelFactory.getInstance();
         
         if (Features.getInstance().isFeature(
@@ -56,7 +58,7 @@ public class OnDemandLoader
         }
         else if (level != resourceLoadingLevelFactory.LOAD_ALL.getLevel())
         {
-            LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface = 
+            final LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface = 
                 this.gameLayerPlacementInterfaceBasicArrayListFactoryInterfaceFactory.getInstance(level);
             
             this.initLevel(
@@ -65,7 +67,7 @@ public class OnDemandLoader
         }
     }
 
-    private void initAll(ImageCache imageCache, final String loadingString)
+    private void initAll(final ImageCache imageCache, final String loadingString)
             throws Exception
     {
         int index = 0;
@@ -87,8 +89,8 @@ public class OnDemandLoader
     }
 
     private void initLevel(
-            LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface,
-            ImageCache imageCache, final int level, final String loadingString)
+            final LayerPlacementInterfaceBasicArrayListFactoryInterface layerPlacementInterfaceBasicArrayListFactoryInterface,
+            final ImageCache imageCache, final int level, final String loadingString)
             throws Exception
     {
         // PreLogUtil.put(CommonStrings.getInstance().START_LABEL + level, this, "initLevel");
@@ -96,7 +98,8 @@ public class OnDemandLoader
         final int portion = 120;
         int index = 0;
 
-        int[] onDemandArray = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
+        final int[] onDemandArray = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
+        PreLogUtil.put(CommonStrings.getInstance().START + onDemandArray.length, this, "initLevel");
 
         OnDemandResources onDemandResources;
         

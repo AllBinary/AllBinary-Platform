@@ -19,11 +19,11 @@ public class ScreenRelationalUtil
 
     public float getScale(int aWidth, int aHeight)
     {
-        DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
-        int[] last = displayInfoSingleton.getLast();
-        float width = last[displayInfoSingleton.WIDTH];
-        float height = last[displayInfoSingleton.HEIGHT];
+        final int[] last = displayInfoSingleton.getLast();
+        final float width = last[displayInfoSingleton.WIDTH];
+        final float height = last[displayInfoSingleton.HEIGHT];
 
         float largestSize = width;
 

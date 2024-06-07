@@ -18,7 +18,7 @@ import org.allbinary.animation.image.BaseImageAnimationFactory;
 import org.allbinary.media.ScaleProperties;
 
 import org.allbinary.media.image.ImageCopyUtil;
-import org.allbinary.media.image.ImageScaleUtil;
+import org.allbinary.media.image.ImageJ2MEScaleUtil;
 
 /**
  *
@@ -35,8 +35,9 @@ public class AnimationFactoryImageScaleUtil {
         return instance;
     }
     
-    private final ImageCache imageCache = ImageCacheFactory.getInstance();
-    private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
+    //private final ImageCache imageCache = ImageCacheFactory.getInstance();
+    //private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
+    private final ImageJ2MEScaleUtil imageScaleUtil = ImageJ2MEScaleUtil.getInstance();
     private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
     
     public Image createImage(final Image image, final int width, final int height, final int scaleWidth, final int scaleHeight) throws Exception {
@@ -57,7 +58,8 @@ public class AnimationFactoryImageScaleUtil {
             } else {
 //                stringMaker.delete(0, stringMaker.length());
 //                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
-                scaledImage = this.imageScaleUtil.createImage(this.imageCache, image, scaleX, 1, scaleY, 1, true);
+                //scaledImage = this.imageScaleUtil.createImage(this.imageCache, image, scaleX, 1, scaleY, 1, true);
+                scaledImage = this.imageScaleUtil.scale(image, (int) (scaleX * width), (int) (scaleY * height));
 //                stringMaker.delete(0, stringMaker.length());
 //                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height * scaleY: ").append((height * scaleY)).toString(), this, commonStrings.PROCESS));
             }

@@ -18,7 +18,6 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.game.configuration.GameConfigurationCentral;
-import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -26,8 +25,6 @@ import org.allbinary.math.AngleInfo;
 public class AllBinaryJ2SEImageRotationAnimationFactory 
     extends BaseImageAnimationFactory
 {
-    private final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
-    
     protected final short angleIncrement;
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image, final int dx, final int dy)

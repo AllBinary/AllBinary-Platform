@@ -41,5 +41,5 @@ extends SingletonAnimationInterfaceFactory
         this(new ImageAnimation(
                 AnimationFrameToImageUtil.getInstance().getInstance(
                         width, height, animationInterface), AnimationBehavior.getInstance()));
-    }    
+    }
 }
