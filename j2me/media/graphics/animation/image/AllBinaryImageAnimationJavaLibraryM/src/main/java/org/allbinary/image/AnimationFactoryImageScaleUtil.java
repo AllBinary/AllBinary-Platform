@@ -38,7 +38,7 @@ public class AnimationFactoryImageScaleUtil {
     //private final ImageCache imageCache = ImageCacheFactory.getInstance();
     //private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
     private final ImageJ2MEScaleUtil imageScaleUtil = ImageJ2MEScaleUtil.getInstance();
-    private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
+    //private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
     
     public Image createImage(final Image image, final int width, final int height, final int scaleWidth, final int scaleHeight) throws Exception {
         Image scaledImage;
@@ -54,7 +54,8 @@ public class AnimationFactoryImageScaleUtil {
 //            stringMaker.delete(0, stringMaker.length());
 //            LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
             if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
-                scaledImage = this.imageCopyUtil.createImage(image);
+                //scaledImage = this.imageCopyUtil.createImage(image);
+                scaledImage = image;
             } else {
 //                stringMaker.delete(0, stringMaker.length());
 //                LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
@@ -65,7 +66,8 @@ public class AnimationFactoryImageScaleUtil {
             }
 
         } else {
-           scaledImage = this.imageCopyUtil.createImage(image);
+           //scaledImage = this.imageCopyUtil.createImage(image);
+           scaledImage = image;
 //           stringMaker.delete(0, stringMaker.length());
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append("unscaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" this.height: ").append(height).toString(), this, commonStrings.PROCESS));
         }
