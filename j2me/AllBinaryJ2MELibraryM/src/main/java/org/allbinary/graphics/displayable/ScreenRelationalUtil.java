@@ -17,7 +17,11 @@ public class ScreenRelationalUtil
         return this.getScale(image.getWidth(), image.getHeight());
     }
 
-    public float getScale(int aWidth, int aHeight)
+    public float getScale(int aWidth, int aHeight) {
+        return this.getScale(aWidth, aHeight, 20);
+    }
+        
+    public float getScale(int aWidth, int aHeight, int add)
     {
         final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
@@ -32,7 +36,7 @@ public class ScreenRelationalUtil
             largestSize = height;
         }
 
-        float scale = (largestSize + 20) / aWidth;
+        float scale = (largestSize) / aWidth;
 
         /*
          float scaleX = width/aWidth;
@@ -51,5 +55,10 @@ public class ScreenRelationalUtil
     public int getScaledHeight(int aWidth, int aHeight)
     {
         return (int) (this.getScale(aWidth, aHeight) * aHeight);
+    }
+
+    public int getScaledHeight(int aWidth, int aHeight, int add)
+    {
+        return (int) (this.getScale(aWidth, aHeight, 0) * aHeight);
     }
 }
