@@ -17,6 +17,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 public class InputFactory
 {
@@ -61,7 +62,7 @@ public class InputFactory
         }
 
         if(id > inputIntegerArray.length) {
-            LogUtil.put(LogFactory.getInstance("id: " + id, this, CommonStrings.getInstance().GET_INSTANCE, new Exception()));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("id: ").append(id).toString(), this, CommonStrings.getInstance().GET_INSTANCE, new Exception()));
             return NO_INPUT;
         }
 

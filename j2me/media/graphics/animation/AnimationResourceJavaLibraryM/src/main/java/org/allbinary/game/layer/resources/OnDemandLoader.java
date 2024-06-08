@@ -23,6 +23,7 @@ import org.allbinary.game.layer.LayerPlacementInterfaceBasicArrayListFactoryInte
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 public class OnDemandLoader
 {
@@ -99,7 +100,7 @@ public class OnDemandLoader
         int index = 0;
 
         final int[] onDemandArray = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
-        PreLogUtil.put(CommonStrings.getInstance().START + onDemandArray.length, this, "initLevel");
+        PreLogUtil.put(new StringMaker().append(CommonStrings.getInstance().START).append(onDemandArray.length).toString(), this, "initLevel");
 
         OnDemandResources onDemandResources;
         
