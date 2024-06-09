@@ -12,16 +12,16 @@ public class ScreenRelationalUtil
         return instance;
     }
 
-    public float getScale(Image image)
+    public float getScale(final Image image)
     {
         return this.getScale(image.getWidth(), image.getHeight());
     }
 
-    public float getScale(int aWidth, int aHeight) {
+    public float getScale(final int aWidth, final int aHeight) {
         return this.getScale(aWidth, aHeight, 20);
     }
         
-    public float getScale(int aWidth, int aHeight, int add)
+    public float getScale(final int aWidth, final int aHeight, final int add)
     {
         final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
@@ -52,13 +52,13 @@ public class ScreenRelationalUtil
         return scale;
     }
 
-    public int getScaledHeight(int aWidth, int aHeight)
+    public int getScaledHeight(final int aWidth, final int aHeight)
     {
         return (int) (this.getScale(aWidth, aHeight) * aHeight);
     }
 
-    public int getScaledHeight(int aWidth, int aHeight, int add)
+    public int getScaledHeight(final int aWidth, final int aHeight, final int add)
     {
-        return (int) (this.getScale(aWidth, aHeight, 0) * aHeight);
+        return (int) (this.getScale(aWidth, aHeight, add) * aHeight);
     }
 }
