@@ -58,6 +58,6 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
    public void paint(Graphics graphics)
    {
        //LogUtil.put(LogFactory.getInstance("Should Not Be Called Except For Testing Input", this, "paint"));
-	   super.paint(graphics);
+	   //super.paint(graphics);
    }
 }
