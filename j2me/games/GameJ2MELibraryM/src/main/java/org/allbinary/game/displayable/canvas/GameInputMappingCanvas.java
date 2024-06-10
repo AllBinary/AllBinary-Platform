@@ -148,7 +148,7 @@ implements InputMappingInterface
         // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameInputStrings.KEY_PRESSED));        
         this.addGameKeyEvent(keyCode, false);
 
-        super.keyPressed(keyCode);
+        super.keyPressed(keyCode, 0);
     }
 
     private final InputFactory inputFactory = InputFactory.getInstance();
@@ -237,7 +237,7 @@ implements InputMappingInterface
         }
         else
         // If deleting a current mapping
-        if (this.inputMapping.getInputMapping().isDelete(input))
+        if (this.inputMapping.isDelete(input))
         {
             this.deleteCurrentMapping();
         }
@@ -256,7 +256,7 @@ implements InputMappingInterface
 
         boolean isInputAlreadyMapped = inputMapping.getInputMapping().isMapped(input);
 
-        if (!isInputAlreadyMapped && !this.inputMapping.getInputMapping().isSystemInput(input))
+        if (!isInputAlreadyMapped && !this.inputMapping.isSystemInput(input))
         {
             StringMaker stringBuffer = new StringMaker();
 

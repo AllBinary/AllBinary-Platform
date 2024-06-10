@@ -129,17 +129,6 @@ public class InputMapping
         return list;
     }
 
-    //TWB - Hack Method for Plaform Independence - Maybe a better place for this
-    public boolean isDelete(Input input) throws Exception
-    {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
-    }
-
-    public boolean isSystemInput(Input input) throws Exception
-    {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
-    }
-
     public Hashtable getHashtable()
     {
         return hashtable;
