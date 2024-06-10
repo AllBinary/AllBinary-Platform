@@ -26,10 +26,10 @@ public class ImageJ2MEScaleUtil {
         
     }
     
-    public Image[] scale(Image[] images, int width, int height)
+    public Image[] scale(final Image[] images, final int width, final int height)
             throws Exception
     {
-        Image[] scaledImages = new Image[images.length];
+        final Image[] scaledImages = new Image[images.length];
 
         for(int index = images.length; --index >= 0;)
         {
@@ -39,25 +39,24 @@ public class ImageJ2MEScaleUtil {
         return scaledImages;
     }
 
-    public Image scale(Image image, int width, int height)
+    public Image scale(final Image image, final int width, final int height)
             throws Exception
     {
-        /*
-        int sourceWidth = image.getWidth();
-        int sourceHeight = image.getHeight();
-        int[] originalData = new int[image.getWidth() * image.getHeight()];
+        final int sourceWidth = image.getWidth();
+        final int sourceHeight = image.getHeight();
+        final int[] originalData = new int[image.getWidth() * image.getHeight()];
 
         image.getRGB(originalData, 0, image.getWidth(), 0,0, image.getWidth(), image.getHeight());
 
-        int[] scaledData = new int[width * height];
+        final int[] scaledData = new int[width * height];
+        
+        final int heightRatioFactor = (8 * sourceHeight) / height;
+        final int widthRatioFactor = (8 * sourceWidth) / width;
+
+        int scaledIndex = scaledData.length - 1;
 
         int dx;
         int dy;
-        
-        int heightRatioFactor = (8 * sourceHeight) / height;
-        int widthRatioFactor = (8 * sourceWidth) / width;
-
-        int scaledIndex = scaledData.length - 1;
         
         for(int index = height; --index >= 0;)
         {
@@ -68,12 +67,12 @@ public class ImageJ2MEScaleUtil {
                 dx = (index2 * widthRatioFactor) >> 3;
                 
                 scaledData[scaledIndex--] = originalData[(sourceWidth * dy) + dx];
+                     //& 0xFF00FF;
             }
         }
-        */
 
-        //Image scaledImage = Image.createImage(width, height);
-        //scaledImage.getGraphics().drawRegion(image, 0, 0, width, height, 0, 0, 0, 0);
+        //final Image scaledImage = Image.createRGBImage(originalData, sourceWidth, sourceHeight, true);
+        final Image scaledImage = Image.createRGBImage(scaledData, width, height, true);
 
         /*
         Image scaledImage = GameFeatureImageCacheFactory.getInstance().get(this, width, height);
@@ -93,6 +92,6 @@ public class ImageJ2MEScaleUtil {
         }
         */
 
-        return image;
+        return scaledImage;
     }
 }

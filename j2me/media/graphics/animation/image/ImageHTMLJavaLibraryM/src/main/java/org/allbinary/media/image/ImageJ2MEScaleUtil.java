@@ -13,6 +13,19 @@ import javax.microedition.lcdui.Image;
  */
 public class ImageJ2MEScaleUtil {
 
+    private static final ImageJ2MEScaleUtil instance = new ImageJ2MEScaleUtil();
+
+    /**
+     * @return the instance
+     */
+    public static ImageJ2MEScaleUtil getInstance() {
+        return instance;
+    }
+    
+    private ImageJ2MEScaleUtil() {
+        
+    }
+
     public Image[] scale(Image[] images, int width, int height)
             throws Exception
     {
