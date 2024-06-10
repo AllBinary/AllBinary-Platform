@@ -82,7 +82,7 @@ public class DrawStringUtil
         }
         catch(Exception e)
         {
-            PreLogUtil.put(new StringMaker().append("Exception: stringLength: ").append(string.length()).append(" offset: ").append(offset).append(" currentLength: ").append(length).toString(), graphics, "drawCenterString");
+            PreLogUtil.put(new StringMaker().append("Exception: stringLength: ").append(string.length()).append(" offset: ").append(offset).append(" currentLength: ").append(length).toString(), this, "drawCenterString");
         }
     }
     
