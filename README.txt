@@ -2,7 +2,7 @@
 
 About
 
-AllBinary Game Development Kit (HTML5 Examples: https://html5.allbinary.com), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation, and everything else AllBinary. It represents >10 years of development and > 1 million SLOC. The main goal of the AllBinary Platform is to help people escape the tyrants of earth.
+AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation, and everything else AllBinary. It represents >10 years of development and > 1 million SLOC. The main goal of the AllBinary Platform is to help people escape the tyrants of earth. 
 
 What is the AllBinary Platform?
 
