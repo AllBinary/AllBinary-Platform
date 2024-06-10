@@ -271,6 +271,7 @@ public class StartCanvas extends RunnableCanvas
             {
                 final boolean isOverScan = OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan();
                 if(SWTUtil.isSWT) {
+                    commandList.add(GameInputMappingCanvas.DISPLAY);
                 } else if (!isOverScan) {
                     commandList.add(gameCommandsFactory.DISPLAY_OPTIONS);
                     commandList.add(gameCommandsFactory.DISPLAY_LOAD_FORM);
