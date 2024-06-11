@@ -28,6 +28,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.CommonSeps;
@@ -119,6 +120,7 @@ public class HighScoreNamePersistanceSingleton
                     byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                     inputStream = new DataInputStream(byteArrayInputStream);
 
+                    //PreLogUtil.put("inputStream.available(): " + inputStream.available(), this, LOAD);
                     while (inputStream.available() > 0)
                     {
                         this.name = inputStream.readUTF();

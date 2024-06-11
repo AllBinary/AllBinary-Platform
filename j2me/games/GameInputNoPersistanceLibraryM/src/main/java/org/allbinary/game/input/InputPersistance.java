@@ -24,6 +24,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
@@ -44,8 +45,10 @@ public class InputPersistance extends BasicPersitance
         final String ERROR_LOADING = "Error Loading gameActionInput: ";
         final String LOADING_ID = "Loading id: ";
 
-        final String METHOD_NAME = "loadAll";
+        final String METHOD_NAME = "Not loadAll";
 
+        //PreLogUtil.put(METHOD_NAME, this, METHOD_NAME);
+        
         final String ERROR_LOADING_ID = "Error Loading id: ";
         final String ID = " id: ";
 
@@ -138,10 +141,9 @@ public class InputPersistance extends BasicPersitance
 
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
-        //PreLogUtil.put("Saving: ").append(hashtable, this, "save");
-        //LogUtil.put(LogFactory
-          //      .getInstance("Saving: ").append(hashtable, this, "save"));
-
+        PreLogUtil.put(new StringMaker().append("Not Saving: ").append(hashtable).toString(), this, "save");
+        //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, "save"));
+        
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         //ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

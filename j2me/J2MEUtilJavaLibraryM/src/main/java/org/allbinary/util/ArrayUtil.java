@@ -111,4 +111,20 @@ public class ArrayUtil
 
         return stringBuffer.toString();
     }
+    
+    public String toString(final byte[] byteArray)
+    {
+        final StringMaker stringBuffer = new StringMaker();
+
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+
+        for (int index = 0; index < byteArray.length; index++)
+        {
+                stringBuffer.append(byteArray[index]);
+                stringBuffer.append(commonSeps.COMMA_SEP);
+        }
+
+        return stringBuffer.toString();
+    }
+    
 }

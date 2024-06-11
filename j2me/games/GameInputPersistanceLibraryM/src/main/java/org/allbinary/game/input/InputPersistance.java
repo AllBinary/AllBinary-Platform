@@ -43,6 +43,7 @@ public class InputPersistance extends BasicPersitance
 
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
+        
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
@@ -51,6 +52,8 @@ public class InputPersistance extends BasicPersitance
         final String LOADING_ID = "Loading id: ";
 
         final String METHOD_NAME = "loadAll";
+        
+        //PreLogUtil.put(METHOD_NAME, this, METHOD_NAME);
 
         final String ERROR_LOADING_ID = "Error Loading id: ";
         final String ID = " id: ";
@@ -80,17 +83,26 @@ public class InputPersistance extends BasicPersitance
 
             recordAsBytes = recordStore.getRecord(id);
             if(recordAsBytes != null) {
+                
+                //PreLogUtil.put("bytes in: " + ArrayUtil.getInstance().toString(recordAsBytes), this, METHOD_NAME);
+
                 byteArrayInputStream = new ByteArrayInputStream(recordAsBytes);
                 inputStream = new DataInputStream(byteArrayInputStream);
-
+                
                 hashtable = new Hashtable();
 
                 final InputFactory inputFactory = InputFactory.getInstance();
 
+                //PreLogUtil.put("inputStream.available(): " + inputStream.available(), this, METHOD_NAME);
+                
                 while (inputStream.available() > 0) {
-                    gameActionInputId = Integer.parseInt(inputStream.readUTF());
+                    final String gameActionInputIdAsString = inputStream.readUTF();
+                    //PreLogUtil.put("gameActionInputIdAsString: " + gameActionInputIdAsString, this, METHOD_NAME);
+                    gameActionInputId = Integer.parseInt(gameActionInputIdAsString);
+                    //PreLogUtil.put("gameActionInputId: " + gameActionInputId, this, METHOD_NAME);
                     inputStream.readUTF();
                     inputId = Integer.parseInt(inputStream.readUTF());
+                    //PreLogUtil.put("inputId: " + inputId, this, METHOD_NAME);
                     gameActionInput = gameKeyFactory.getInstance((int) gameActionInputId);
                     input = inputFactory.getInstance((int) inputId);
 
@@ -126,8 +138,11 @@ public class InputPersistance extends BasicPersitance
                     hashtable.put(input, gameActionInput);
                 }
 
+                //LogUtil.put(LogFactory.getInstance("Add mapping for id", this, METHOD_NAME));
                 this.getList().add(hashtable);
                 this.getIds().add(smallIntegerSingletonFactory.getInstance(id));
+            } else {
+                //LogUtil.put(LogFactory.getInstance("No bytes for id", this, METHOD_NAME));
             }
         }
 
@@ -136,9 +151,8 @@ public class InputPersistance extends BasicPersitance
 
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
-        //PreLogUtil.put("Saving: ").append(hashtable, this, "save");
-        //LogUtil.put(LogFactory
-          //      .getInstance("Saving: ").append(hashtable, this, "save"));
+        PreLogUtil.put(new StringMaker().append("Saving: ").append(hashtable).toString(), this, "save");
+        //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, "save"));
 
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -165,19 +179,25 @@ public class InputPersistance extends BasicPersitance
 
             for (int index2 = 0; index2 < list.size(); index2++)
             {
-                outputStream.writeUTF(smallIntegerSingletonFactory.getInstance(gameActionInput.getId()).toString());
+                //final StringMaker stringBuffer = new StringMaker();
+                
+                final String gameActionInputIdAsString = smallIntegerSingletonFactory.getInstance(gameActionInput.getId()).toString();
+                //stringBuffer.append(gameActionInputIdAsString);
+                outputStream.writeUTF(gameActionInputIdAsString);
+                //stringBuffer.append(commonSeps.EQUALS);
                 outputStream.writeUTF(commonSeps.EQUALS);
                 input = (Input) list.objectArray[index2];
-                outputStream.writeUTF(smallIntegerSingletonFactory.getInstance(input.getId()).toString());
-
-                //StringMaker stringBuffer = new StringMaker();
+                final String inputIdAsString = smallIntegerSingletonFactory.getInstance(input.getId()).toString();
+                //stringBuffer.append(inputIdAsString);
+                outputStream.writeUTF(inputIdAsString);
+                
+                //final String string = stringBuffer.toString();
+                //PreLogUtil.put(string, this, "save");
                 
                 //stringBuffer.append("Save Mapping from: ");
                 //stringBuffer.append(input.toString());
                 //stringBuffer.append(" to: ");
                 //stringBuffer.append(gameActionInput.toString());
-
-                //PreLogUtil.put(stringBuffer.toString(), this, "save");
                 
                 //LogUtil.put(LogFactory.getInstance("Save Mapping from: "
                 //     ).append(input.toString()).append(" to: "
@@ -185,10 +205,12 @@ public class InputPersistance extends BasicPersitance
             }
         }
 
-        savedGameBytes = byteArrayOutputStream.toString().getBytes();
+        savedGameBytes = byteArrayOutputStream.toByteArray();
+        //PreLogUtil.put("bytes out: " + ArrayUtil.getInstance().toString(savedGameBytes), this, "save");
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
         recordStore.closeRecordStore();
     }
+        
 }

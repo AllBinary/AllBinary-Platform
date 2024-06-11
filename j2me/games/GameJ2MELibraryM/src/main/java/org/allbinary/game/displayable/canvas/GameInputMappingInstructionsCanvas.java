@@ -45,6 +45,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
         "(Example: Press 'f' to add it to the selected action)",
         "Note: If the input is already mapped to another action then it will not be added. You",
         "will need to deleted from the other action before adding it to another.",
+        "Warning: Not all keys map for a given platform and show as Unknown.",
         StringUtil.getInstance().EMPTY_STRING, 
         "Remove Input Mapping:",
         "1. Select the desired action by generating a currently defined input for a given action.",

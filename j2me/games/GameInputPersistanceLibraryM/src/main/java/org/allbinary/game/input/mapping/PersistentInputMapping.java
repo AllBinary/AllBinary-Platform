@@ -118,19 +118,23 @@ public class PersistentInputMapping
             inputPersistance.loadAll(abeClientInformation);
         }
 
-        BasicArrayList list = inputPersistance.getList();
+        final BasicArrayList list = inputPersistance.getList();
 
+        final int size = list.size();
+        //LogUtil.put(LogFactory.getInstance("size: " + size, this, commonStrings.INIT));
+        
         int totalMappedTo = 0;
         //TWB - Use selected profile/id for future imp
-        for(int index = 0; index < list.size(); index++)
+        for(int index = 0; index < size; index++)
         {
-            Hashtable hashtable = (Hashtable) list.objectArray[index];
-            Enumeration enumeration = hashtable.keys();
-
+            final Hashtable hashtable = (Hashtable) list.objectArray[index];
+            //LogUtil.put(LogFactory.getInstance("hashtable.keySet().size(): " + hashtable.keySet().size(), this, commonStrings.INIT));
+            final Enumeration enumeration = hashtable.keys();
+            
             while(enumeration.hasMoreElements())
             {
-                Input mappedToInput = (Input) enumeration.nextElement();
-                Input gameActionInput = (Input) hashtable.get(mappedToInput);
+                final Input mappedToInput = (Input) enumeration.nextElement();
+                final Input gameActionInput = (Input) hashtable.get(mappedToInput);
 
                 //AndroidGameKey mappedToKey
                 //MotionGestureInput mappedToKey
