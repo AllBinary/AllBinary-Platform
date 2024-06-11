@@ -205,6 +205,8 @@ public class InputPersistance extends BasicPersitance
             }
         }
 
+        //TWB - new String(byte[]).getBytes() is not working correctly for Avain
+        //savedGameBytes = byteArrayOutputStream.toString().getBytes();
         savedGameBytes = byteArrayOutputStream.toByteArray();
         //PreLogUtil.put("bytes out: " + ArrayUtil.getInstance().toString(savedGameBytes), this, "save");
 
