@@ -32,11 +32,13 @@ public class ImageScaleUtil
         return instance;
     }
 
+    //private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
+    
+    //private int anchor = Anchor.TOP_LEFT;
+    
     private ImageScaleUtil()
     {
     }
-
-    private int anchor = Anchor.TOP_LEFT;
 
     public Image createImage(final ImageCache imageCache, final Image originalImage,
             final float scaleNominatorX, final float scaleDenominatorX, 
