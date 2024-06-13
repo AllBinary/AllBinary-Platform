@@ -16,6 +16,7 @@ package org.allbinary.game.displayable.canvas;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 
 public class GameCanvasRunnable extends GameRunnable
@@ -27,8 +28,7 @@ public class GameCanvasRunnable extends GameRunnable
         this.allBinaryGameCanvas = allBinaryGameCanvas;
     }
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-        GameTickTimeDelayHelperFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     public void run()
     {
@@ -36,8 +36,7 @@ public class GameCanvasRunnable extends GameRunnable
         {
             //final AllBinaryGameCanvas allBinaryGameCanvas = this.allBinaryGameCanvas;
             
-            allBinaryGameCanvas.getLoopTimeHelper().setStartTime(
-                    gameTickTimeDelayHelperFactory.setStartTime());
+            allBinaryGameCanvas.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelper.setStartTime());
 
             allBinaryGameCanvas.processGame();
         }

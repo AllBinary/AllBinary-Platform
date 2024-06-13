@@ -26,6 +26,7 @@ import org.allbinary.time.TimeDelayHelper;
 
 import javax.microedition.media.TimeBase;
 import javax.microedition.media.MediaException;
+import org.allbinary.time.GameTickTimeDelayHelper;
 
 public class PlayerComposite implements Controllable, Player
 {
@@ -154,15 +155,14 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-        GameTickTimeDelayHelperFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
     public void start()
     {
         try
         {
             // this.getMediaTime()
-            if (timeElapsedHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()))
+            if (timeElapsedHelper.isTime(gameTickTimeDelayHelper.getStartTime()))
             {
                 this.player.start();
             }

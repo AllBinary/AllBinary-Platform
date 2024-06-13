@@ -19,6 +19,7 @@ import org.allbinary.game.input.GameInput;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -26,8 +27,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 {
     private final TimeDelayHelper toggleTimeHelper = new TimeDelayHelper(600);
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-        GameTickTimeDelayHelperFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
     public MultiKeyPressesAI(Hashtable hashtable,
             AllBinaryLayer ownerLayerInterface, GameInput gameInput)
@@ -77,7 +77,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     public void toggle() throws Exception
     {
-        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelperFactory.getStartTime()))
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
         {
             super.toggle();
             this.update();
@@ -86,7 +86,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     public void disable() throws Exception
     {
-        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelperFactory.getStartTime()))
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
         {
             super.disable();
             this.update();
@@ -95,7 +95,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     public void enable() throws Exception
     {
-        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelperFactory.getStartTime()))
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
         {
             super.enable();
             this.update();

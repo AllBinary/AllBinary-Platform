@@ -32,6 +32,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -49,8 +50,7 @@ extends GameNotificationHud
     
     private CustomGPoint point; 
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-        GameTickTimeDelayHelperFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     public PlayerGameNotificationHud(
         int location, int direction,
@@ -99,7 +99,7 @@ extends GameNotificationHud
 
     public void processTick() throws Exception
     {
-        if (this.timeDelayHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()))
+        if (this.timeDelayHelper.isTime(gameTickTimeDelayHelper.getStartTime()))
         {
             GameAdState gameAdState = 
                 GameAdStateFactory.getInstance().getCurrentInstance();

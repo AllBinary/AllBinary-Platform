@@ -21,6 +21,7 @@ import javax.microedition.media.PlayerListener;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -152,15 +153,14 @@ public class PlayerComposite implements Controllable, Player
         }
     }
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-        GameTickTimeDelayHelperFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
     public void start()
     {
         try
         {
             // this.getMediaTime()
-            if (timeElapsedHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()))
+            if (timeElapsedHelper.isTime(gameTickTimeDelayHelper.getStartTime()))
             {
                 this.player.start();
             }

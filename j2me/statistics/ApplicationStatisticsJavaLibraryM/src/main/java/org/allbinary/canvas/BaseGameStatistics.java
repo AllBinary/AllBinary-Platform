@@ -18,6 +18,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.ScaleFactorFactory;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -29,8 +30,7 @@ public class BaseGameStatistics
     private long totalRefreshes;
     private long totalFrames;
 
-    protected final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-        GameTickTimeDelayHelperFactory.getInstance();
+    protected final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     // private PrimitiveLongUtil primitiveLongUtil;
 
@@ -75,7 +75,7 @@ public class BaseGameStatistics
     
     public short getRefreshRate()
     {
-        long elapsed = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelperFactory.getStartTime());
+        long elapsed = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
         
         if(elapsed > 1)
         {
@@ -123,10 +123,10 @@ public class BaseGameStatistics
     
     public char[][] toCharArray()
     {
-        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelperFactory.getStartTime());
+        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
         totalTime = (totalTime >> DEFAULT_SCALE_FACTOR);
 
-        if (totalTime > 0 && updateDelayHelper.isTime(this.gameTickTimeDelayHelperFactory.getStartTime()))
+        if (totalTime > 0 && updateDelayHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
         {
             int framesPerSec = (int) (this.totalFrames / totalTime);
 
@@ -169,7 +169,7 @@ public class BaseGameStatistics
 
     public String[] toStringArray()
     {
-        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelperFactory.getStartTime());
+        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
         totalTime = (totalTime / 10000);
 
         if (totalTime > 0)
@@ -217,7 +217,7 @@ public class BaseGameStatistics
     
     public String toString()
     {
-        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelperFactory.getStartTime());
+        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
         totalTime = (totalTime / 1000);
 
         if (totalTime > 0)

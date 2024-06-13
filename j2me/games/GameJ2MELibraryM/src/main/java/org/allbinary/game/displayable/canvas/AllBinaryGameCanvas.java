@@ -125,6 +125,7 @@ import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 
 public class AllBinaryGameCanvas 
@@ -1592,8 +1593,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS)) {
             LogUtil.put(LogFactory.getInstance(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName(), this, commonStrings.RUN));
 
-            final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory
-                    = GameTickTimeDelayHelperFactory.getInstance();
+            final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
             final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = 
                     GameTickDisplayInfoSingleton.getInstance();
@@ -1601,7 +1601,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             OpenGLThreadUtil.getInstance().onResume();
             
             while (this.isRunning()) {
-                this.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelperFactory.setStartTime());
+                this.getLoopTimeHelper().setStartTime(gameTickTimeDelayHelper.setStartTime());
 
                 gameTickDisplayInfoSingleton.update();
 
@@ -1641,15 +1641,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         } else {
             LogUtil.put(LogFactory.getInstance("this thread", this, commonStrings.RUN));
 
-            final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory
-                    = GameTickTimeDelayHelperFactory.getInstance();
+            final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
             final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = 
                     GameTickDisplayInfoSingleton.getInstance();
 
             while (this.isRunning()) {
                 this.getLoopTimeHelper().setStartTime(
-                        gameTickTimeDelayHelperFactory.setStartTime());
+                        gameTickTimeDelayHelper.setStartTime());
 
                 gameTickDisplayInfoSingleton.update();
 

@@ -15,6 +15,7 @@ package org.allbinary.game.layer.hud.basic.time;
 
 import org.allbinary.logic.math.PrimitiveLongSingleton;
 import org.allbinary.logic.math.PrimitiveLongUtil;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 
 public class Timer
@@ -36,8 +37,7 @@ public class Timer
     char[] MAX = { 'L', 'O', 'L' };
     //String MAX = "LOL";
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = GameTickTimeDelayHelperFactory
-            .getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     public Timer(int maxTime)
     {
@@ -48,7 +48,7 @@ public class Timer
     public void start()
     {
         this.hundredthTime = 0;
-        this.startTime = this.gameTickTimeDelayHelperFactory.getStartTime();
+        this.startTime = this.gameTickTimeDelayHelper.getStartTime();
     }
 
     public long get()
@@ -63,7 +63,7 @@ public class Timer
     public void update()
     {
         long lastLowerTime = this.hundredthTime;
-        long currentTime = ((this.modifier + this.gameTickTimeDelayHelperFactory.getStartTime()) - this.startTime);
+        long currentTime = ((this.modifier + this.gameTickTimeDelayHelper.getStartTime()) - this.startTime);
 
         if (currentTime < 0)
         {

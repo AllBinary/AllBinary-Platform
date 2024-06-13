@@ -38,6 +38,7 @@ import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.util.visitor.Visitor;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -69,8 +70,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private final DirectionFactory directionFactory = DirectionFactory
             .getInstance();
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = GameTickTimeDelayHelperFactory
-            .getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     public DiveAndDirectionalTrackingAI(AllBinaryLayer ownerLayerInterface,
             ArtificialIntelligenceInterface artificialIntelligenceInterface,
@@ -321,7 +321,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private void drop() throws Exception
     {
         // Don't start dives so quickly
-        if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelperFactory
+        if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper
                 .getStartTime()))
         {
             initialDropped = true;

@@ -13,13 +13,14 @@
 */
 package org.allbinary.game.layer.hud.basic.health;
 
-import org.allbinary.game.health.Health;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.game.graphics.hud.BasicHud;
+import org.allbinary.game.health.Health;
 import org.allbinary.game.health.HealthListenerInterface;
 import org.allbinary.graphics.paint.PaintableInterface;
+import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.NoTimeDelayHelper;
 import org.allbinary.time.TimeDelayHelper;
@@ -34,8 +35,7 @@ public class HealthHudWidget extends BasicHud
 
     private int[] xArray;
 
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
-        GameTickTimeDelayHelperFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     
     /*
     public HealthGraphic(AnimationInterface animationInterface,
@@ -118,7 +118,7 @@ public class HealthHudWidget extends BasicHud
     {
         for (int index = 0; index < max; index++)
         {
-            if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelperFactory.getStartTime()))
+            if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
             {
                 this.animationInterface.paint(graphics, xArray[index], this.getY());
             }
