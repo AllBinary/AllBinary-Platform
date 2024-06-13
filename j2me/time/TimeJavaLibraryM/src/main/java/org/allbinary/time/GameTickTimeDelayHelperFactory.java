@@ -16,12 +16,12 @@ package org.allbinary.time;
 
 public class GameTickTimeDelayHelperFactory
 {
-    private static final GameTickTimeDelayHelperFactory instance = new GameTickTimeDelayHelperFactory();
+    private static final GameTickTimeDelayHelper instance = new GameTickTimeDelayHelper(-1);
     
 //  private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = 
     //      GameTickTimeDelayHelperFactory.getInstance();
     
-    public static GameTickTimeDelayHelperFactory getInstance()
+    public static GameTickTimeDelayHelper getInstance()
     {
         return instance;
     }
@@ -29,18 +29,5 @@ public class GameTickTimeDelayHelperFactory
     private GameTickTimeDelayHelperFactory()
     {
     }
-    
-    private long startTime = -1;
-    
-    public long getStartTime() 
-    {
-        return startTime;
-    }
-
-    public long setStartTime()
-    {
-        this.startTime = System.currentTimeMillis();
-        return this.startTime;
-    }
-    
+        
 }
