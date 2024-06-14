@@ -118,7 +118,7 @@ public class HealthHudWidget extends BasicHud
     {
         for (int index = 0; index < max; index++)
         {
-            if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
+            if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
             {
                 this.animationInterface.paint(graphics, xArray[index], this.getY());
             }

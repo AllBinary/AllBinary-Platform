@@ -48,7 +48,7 @@ public class Timer
     public void start()
     {
         this.hundredthTime = 0;
-        this.startTime = this.gameTickTimeDelayHelper.getStartTime();
+        this.startTime = this.gameTickTimeDelayHelper.startTime;
     }
 
     public long get()
@@ -63,7 +63,7 @@ public class Timer
     public void update()
     {
         long lastLowerTime = this.hundredthTime;
-        long currentTime = ((this.modifier + this.gameTickTimeDelayHelper.getStartTime()) - this.startTime);
+        long currentTime = ((this.modifier + this.gameTickTimeDelayHelper.startTime) - this.startTime);
 
         if (currentTime < 0)
         {

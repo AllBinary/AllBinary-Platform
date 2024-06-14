@@ -155,7 +155,7 @@ public class RaceTrackDropCellPositionGenerator
     public void processTick(AllBinaryLayerManager allBinaryLayerManager)
         throws Exception
     {
-        if (timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+        if (timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
             int index = basicArrayListUtil.getRandomIndex(this.list);
             this.drop(allBinaryLayerManager, index);

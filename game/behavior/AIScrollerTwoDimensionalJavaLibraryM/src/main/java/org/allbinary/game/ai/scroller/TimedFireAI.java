@@ -47,7 +47,7 @@ public class TimedFireAI extends BasicAI
         TimeFiredInterface timeFiredInterface = 
             (TimeFiredInterface) this.getOwnerLayerInterface();
         
-        if (this.maxFireDelayTimeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()) &&
+        if (this.maxFireDelayTimeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime) &&
                 //Fire only if owner has not fired from a different behavoir/AI
                 timeFiredInterface.getLastFireTime() + this.maxFireDelayTimeHelper.delay < this.maxFireDelayTimeHelper.getStartTime())
         {

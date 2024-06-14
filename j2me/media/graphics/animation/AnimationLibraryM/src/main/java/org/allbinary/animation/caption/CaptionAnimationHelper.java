@@ -53,7 +53,7 @@ public class CaptionAnimationHelper
     
     public void tick()
     {
-        if(this.timeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+        if(this.timeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
         }

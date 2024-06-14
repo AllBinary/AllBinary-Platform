@@ -37,7 +37,7 @@ public class TimedVectorAnimation extends VectorAnimation
     
     public void nextFrame()
     {
-       if(this.timeElapsedHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+       if(this.timeElapsedHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
        {
            super.nextFrame();
        }

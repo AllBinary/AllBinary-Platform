@@ -81,7 +81,7 @@ public class CaptionIndexedAnimation extends IndexedAnimation
 
     public void nextFrame() throws Exception
     {
-        if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+        if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
             this.movieIndexedAnimationInterface.nextFrame();
         }

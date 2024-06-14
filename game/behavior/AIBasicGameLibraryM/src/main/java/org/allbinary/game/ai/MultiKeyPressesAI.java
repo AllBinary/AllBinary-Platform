@@ -77,7 +77,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     public void toggle() throws Exception
     {
-        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
             super.toggle();
             this.update();
@@ -86,7 +86,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     public void disable() throws Exception
     {
-        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
             super.disable();
             this.update();
@@ -95,7 +95,7 @@ public class MultiKeyPressesAI extends KeyPressesAI
 
     public void enable() throws Exception
     {
-        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
+        if (this.toggleTimeHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
             super.enable();
             this.update();

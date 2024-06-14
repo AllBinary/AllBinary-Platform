@@ -10,6 +10,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.audio.Sound;
+import org.allbinary.time.GameTickTimeDelayHelper;
 //import org.allbinary.thread.MusicThreadPool;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
@@ -17,7 +18,7 @@ import org.allbinary.time.TimeDelayHelper;
 public class MusicManager {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
-    private final GameTickTimeDelayHelperFactory gameTickTimeDelayHelperFactory = GameTickTimeDelayHelperFactory.getInstance();
+    private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
@@ -76,7 +77,7 @@ public class MusicManager {
                 return;
             }
 
-            if ((this.timeDelayHelper.isTime(gameTickTimeDelayHelperFactory.getStartTime()) && !this.noDuration) || this.reset) {
+            if ((this.timeDelayHelper.isTime(gameTickTimeDelayHelper.startTime) && !this.noDuration) || this.reset) {
                 this.reset = false;
                 this.noDuration = false;
 

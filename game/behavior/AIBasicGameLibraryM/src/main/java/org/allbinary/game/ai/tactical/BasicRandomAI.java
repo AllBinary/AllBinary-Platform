@@ -48,7 +48,7 @@ public class BasicRandomAI extends BasicAI
     
     public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-        if (this.inputProbability.getTimeDelayHelper().isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+        if (this.inputProbability.getTimeDelayHelper().isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
             i_random = myRandomFactory.getAbsoluteNextInt(this.inputProbability.getMax());
 

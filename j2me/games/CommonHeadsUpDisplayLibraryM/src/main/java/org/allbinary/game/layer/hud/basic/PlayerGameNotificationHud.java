@@ -99,7 +99,7 @@ extends GameNotificationHud
 
     public void processTick() throws Exception
     {
-        if (this.timeDelayHelper.isTime(gameTickTimeDelayHelper.getStartTime()))
+        if (this.timeDelayHelper.isTime(gameTickTimeDelayHelper.startTime))
         {
             GameAdState gameAdState = 
                 GameAdStateFactory.getInstance().getCurrentInstance();

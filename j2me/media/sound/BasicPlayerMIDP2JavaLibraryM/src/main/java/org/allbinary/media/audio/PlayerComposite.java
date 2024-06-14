@@ -162,7 +162,7 @@ public class PlayerComposite implements Controllable, Player
         try
         {
             // this.getMediaTime()
-            if (timeElapsedHelper.isTime(gameTickTimeDelayHelper.getStartTime()))
+            if (timeElapsedHelper.isTime(gameTickTimeDelayHelper.startTime))
             {
                 this.player.start();
             }

@@ -75,7 +75,7 @@ public class BaseGameStatistics
     
     public short getRefreshRate()
     {
-        long elapsed = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
+        long elapsed = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
         
         if(elapsed > 1)
         {
@@ -123,10 +123,10 @@ public class BaseGameStatistics
     
     public char[][] toCharArray()
     {
-        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
+        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
         totalTime = (totalTime >> DEFAULT_SCALE_FACTOR);
 
-        if (totalTime > 0 && updateDelayHelper.isTime(this.gameTickTimeDelayHelper.getStartTime()))
+        if (totalTime > 0 && updateDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
             int framesPerSec = (int) (this.totalFrames / totalTime);
 
@@ -169,7 +169,7 @@ public class BaseGameStatistics
 
     public String[] toStringArray()
     {
-        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
+        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
         totalTime = (totalTime / 10000);
 
         if (totalTime > 0)
@@ -217,7 +217,7 @@ public class BaseGameStatistics
     
     public String toString()
     {
-        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.getStartTime());
+        long totalTime = this.timeDelayHelper.getElapsed(this.gameTickTimeDelayHelper.startTime);
         totalTime = (totalTime / 1000);
 
         if (totalTime > 0)

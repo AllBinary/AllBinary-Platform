@@ -29,7 +29,7 @@ extends SimpleWeaponLayer
     
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception
     {
-    	if(timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+    	if(timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
     	{
 			this.getCollidableInferface().collide(this);
 			this.totalDamage = this.getInitDamage() + 1;

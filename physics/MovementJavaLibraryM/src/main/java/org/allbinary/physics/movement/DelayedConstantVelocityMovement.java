@@ -35,7 +35,7 @@ extends BasicConstantVelocityMovement
     
     public void process(AllBinaryGameLayer layer) throws Exception
     {
-    	if(timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+    	if(timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
     	{
     		super.process(layer);
     	}

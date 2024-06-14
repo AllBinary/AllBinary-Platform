@@ -49,7 +49,7 @@ public class MusicManager
             return;
         }
         
-        if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+        if (this.timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
             this.startNewSong();
         }

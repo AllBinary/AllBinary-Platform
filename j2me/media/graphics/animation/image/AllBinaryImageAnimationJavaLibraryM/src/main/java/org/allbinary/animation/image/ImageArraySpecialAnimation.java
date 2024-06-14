@@ -59,7 +59,7 @@ implements SpecialAnimationInterface
             if (this.getFrame() > 0)
             {
                 // If Frame is up long enough
-                if (timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().getStartTime()))
+                if (timeDelayHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
                 {
                     this.previousFrame();
                     

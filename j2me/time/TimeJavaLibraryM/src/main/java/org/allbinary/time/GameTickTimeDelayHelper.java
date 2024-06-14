@@ -32,11 +32,6 @@ public class GameTickTimeDelayHelper {
         this.startTime = startTime;
     }
     
-    public long getStartTime() 
-    {
-        return startTime;
-    }
-
     public long setStartTime()
     {
         this.startTime = System.currentTimeMillis();
