@@ -321,8 +321,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
     private void drop() throws Exception
     {
         // Don't start dives so quickly
-        if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper
-                .getStartTime()))
+        if (this.timeDelayHelper.isTime(this.gameTickTimeDelayHelper.startTime))
         {
             initialDropped = true;
 
