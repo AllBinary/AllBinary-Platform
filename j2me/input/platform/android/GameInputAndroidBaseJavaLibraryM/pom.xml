@@ -156,11 +156,13 @@
                         </goals>
                     </execution>
                 </executions>
+<!-- 
                 <configuration>
                     <skipSource>true</skipSource>
                 </configuration>
+-->
             </plugin>
-
+            
         </plugins>
 
     </build>

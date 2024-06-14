@@ -50,6 +50,10 @@ public class BaseGameStatistics
         this.totalFrames = 0;
     }
 
+    public void add(String string) {
+        
+    }
+        
     // never really implemented
     public void process()
     {

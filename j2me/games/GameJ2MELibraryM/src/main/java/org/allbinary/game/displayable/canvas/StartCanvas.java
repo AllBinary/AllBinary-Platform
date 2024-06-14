@@ -1014,8 +1014,7 @@ public class StartCanvas extends RunnableCanvas
     {
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         
-        final GameStatisticsFactory allGameStatisticsFactory = GameStatisticsFactory.getInstance();
-        allGameStatisticsFactory.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
+        baseGameStatistics.add(new StringMaker().append(BOT_GAME_STATS).append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());    
         baseGameStatistics.init();
         
         if (features.isFeature(MainFeatureFactory.getInstance().LOAD_ONDEMAND))

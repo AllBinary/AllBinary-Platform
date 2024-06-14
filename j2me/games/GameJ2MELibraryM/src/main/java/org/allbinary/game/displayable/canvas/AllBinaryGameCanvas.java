@@ -1691,8 +1691,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         screenCapture.endRecording();
         
-        GameStatisticsFactory allGameStatisticsFactory = GameStatisticsFactory.getInstance();
-        allGameStatisticsFactory.add(new StringMaker().append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
+        baseGameStatistics.add(new StringMaker().append(baseGameStatistics.toString()).append(CommonSeps.getInstance().NEW_LINE).toString());
         baseGameStatistics.init();
         
         this.gameKeyEventHandler.removeListener(this.cheatProcessor);
