@@ -139,14 +139,14 @@ extends ImageBaseRotationAnimation
         final int currentFrame = this.circularIndexUtil.getIndex();
         //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
 
-        //this.circularIndexUtil.setIndex(index);
-
-        //final int newFrame = this.circularIndexUtil.getIndex();
-        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
-
-        //this.angleInfo.adjustAngle(newFrame);
-        
-        //matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
+//        this.circularIndexUtil.setIndex(index);
+//
+//        final int newFrame = this.circularIndexUtil.getIndex();
+//        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
+//
+//        this.angleInfo.adjustAngle(newFrame);
+//        
+//        matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
 
         final short angleAdjustment = (short) -currentFrame;
         if (angleAdjustment > 0) {
