@@ -102,8 +102,9 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     public Animation getInstance() throws Exception
     {
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
-        //final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
+        //final Image scaledImage = this.getImage();
+        //final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
         if (dx != 0 || dy != 0) {
             
@@ -116,6 +117,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
         } else {
             return new AllBinaryNoFlickerAndroidImageRotationAnimation(
+            //return new AllBinaryFlickerAndroidImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
                 AngleInfo.getInstance(this.angleIncrement),
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());
