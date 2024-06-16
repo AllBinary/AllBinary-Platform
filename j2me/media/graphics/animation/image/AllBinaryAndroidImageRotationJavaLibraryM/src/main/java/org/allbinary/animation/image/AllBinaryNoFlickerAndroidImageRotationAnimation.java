@@ -169,7 +169,7 @@ extends ImageBaseRotationAnimation
         //LogUtil.put(LogFactory.getInstance("result: " + result, this, "setRotation"));
         //matrix.setRotate(result, this.halfWidth, this.halfHeight);
 
-        this.updateImage();
+//        this.updateImage();
     }
     
     public void swap() {

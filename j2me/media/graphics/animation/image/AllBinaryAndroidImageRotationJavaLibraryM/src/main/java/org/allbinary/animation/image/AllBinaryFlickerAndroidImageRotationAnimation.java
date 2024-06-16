@@ -18,12 +18,15 @@ import android.graphics.Matrix;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.AndroidImageUtil;
+import org.allbinary.media.image.ImageModifierUtil;
 
 public class AllBinaryFlickerAndroidImageRotationAnimation 
 extends ImageBaseRotationAnimation
 {
+    private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     private final AndroidImageUtil androidImageUtil = AndroidImageUtil.getInstance();
     
     private final Matrix matrix = new Matrix();
@@ -37,8 +40,6 @@ extends ImageBaseRotationAnimation
     private final short increment;
     
     private final Image originalImage;
-    
-    //private short rotation;
     
     protected AllBinaryFlickerAndroidImageRotationAnimation(
             final Image originalImage, final Image image,
@@ -57,9 +58,41 @@ extends ImageBaseRotationAnimation
         
         this.increment = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
         
-        //LogUtil.put(LogFactory.getInstance("inc: " + inc, this, "setRotation"));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
+    public void setBasicColor(final BasicColor basicColor) {
+        
+        boolean changed = false;
+        if(this.getBasicColor() == null || this.getBasicColor().intValue() != basicColor.intValue()) {
+            changed = true;
+        }
+        
+        super.setBasicColor(basicColor);
+
+        if(changed) {
+            matrix.setRotate(0, this.halfWidth, this.halfHeight);
+            this.updateImage();
+        }
+    }
+    
+    public void setAlpha(final int alpha) {
+        
+        boolean changed = false;
+        if(this.alpha != alpha) {
+            changed = true;
+        }
+        
+        super.setAlpha(alpha);
+
+        imageModifierUtil.setAlpha(this.originalImage, this.getImage(), 0, this.alpha);
+
+        if(changed) {
+            matrix.setRotate(0, this.halfWidth, this.halfHeight);
+            this.updateImage();
+        }
+    }
+    
     public void nextRotation()
     {
         super.nextRotation();
