@@ -20,8 +20,8 @@ import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.math.AngleInfo;
 
 public class AllBinaryAdjustedAndroidImageRotationAnimation
-        //extends AllBinaryFlickerAndroidImageRotationAnimation
-        extends AllBinaryNoFlickerAndroidImageRotationAnimation
+        extends AllBinaryFlickerAndroidImageRotationAnimation
+        //extends AllBinaryNoFlickerAndroidImageRotationAnimation
 {
     private int dx;
     private int dy;

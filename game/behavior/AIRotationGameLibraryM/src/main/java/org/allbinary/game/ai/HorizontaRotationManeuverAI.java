@@ -46,8 +46,7 @@ implements ArtificialIntelligenceTransitionInterface
     {
         super(ownerLayerInterface, gameInput);
         
-        RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this
-                .getOwnerLayerInterface();
+        final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
         this.rotationAnimationInterface = 
             rotationAnimationInterfaceCompositeInterface.getRotationAnimationInterface();
 
@@ -62,14 +61,15 @@ implements ArtificialIntelligenceTransitionInterface
         //this.transition();
         AngleIncrementInfo angleIncrementInfo = 
             ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
-        this.rotationAnimationInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
+        rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
     }
 
     public void transition()
     {
         AngleIncrementInfo angleIncrementInfo = 
             ((RotationAnimationInterface) this.rotationAnimationInterface).getAngleInfo().getAngleIncrementInfo();
-        this.rotationAnimationInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
+        final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
+        rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
         
         //TWB - Hack to deal with enemies flying away when off screen
         AllBinaryLayer allbinaryLayer = this.getOwnerLayerInterface();
@@ -144,15 +144,15 @@ implements ArtificialIntelligenceTransitionInterface
 
         if (frame == angleIncrementInfo.LEFT_FRAME.intValue())
         {
-            this.rotationAnimationInterface.setFrame(
-                    angleIncrementInfo.RIGHT_FRAME.intValue());
+            final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
+            rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.RIGHT_FRAME.intValue());
 
             this.baseVelocityInterface.zero();
         }
         else if (frame == angleIncrementInfo.RIGHT_FRAME.intValue())
         {
-            this.rotationAnimationInterface
-                    .setFrame(angleIncrementInfo.LEFT_FRAME.intValue());
+            final RotationAnimationInterfaceCompositeInterface rotationAnimationInterfaceCompositeInterface = (RotationAnimationInterfaceCompositeInterface) this.getOwnerLayerInterface();
+            rotationAnimationInterfaceCompositeInterface.setFrame(angleIncrementInfo.LEFT_FRAME.intValue());
             this.baseVelocityInterface.zero();
         }
     }

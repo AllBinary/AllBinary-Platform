@@ -17,4 +17,5 @@ public interface RotationAnimationInterfaceCompositeInterface
 extends IndexedAnimationInterfaceCompositeInterface
 {
     RotationAnimation getRotationAnimationInterface();
+    void setFrame(int index);
 }

@@ -116,8 +116,8 @@ public class AllBinaryAndroidImageRotationAnimationFactory
                 AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehaviorFactory.getOrCreateInstance());
 
         } else {
-            return new AllBinaryNoFlickerAndroidImageRotationAnimation(
-            //return new AllBinaryFlickerAndroidImageRotationAnimation(
+            //return new AllBinaryNoFlickerAndroidImageRotationAnimation(
+            return new AllBinaryFlickerAndroidImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
                 AngleInfo.getInstance(this.angleIncrement),
                 AngleFactory.getInstance().TOTAL_ANGLE, this.animationBehaviorFactory.getOrCreateInstance());

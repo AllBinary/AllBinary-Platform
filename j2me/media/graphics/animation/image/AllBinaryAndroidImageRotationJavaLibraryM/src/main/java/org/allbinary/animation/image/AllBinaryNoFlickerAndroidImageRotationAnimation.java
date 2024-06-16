@@ -63,7 +63,7 @@ extends ImageBaseRotationAnimation
         this.halfWidth = (image.getWidth() >> 1);
         this.halfHeight = (image.getHeight() >> 1);
         
-        this.increment = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement() * 2.44);
+        this.increment = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement()); // * 2.44
         
         this.imageToShow = image;
         this.twoImages[0] = image;
@@ -139,37 +139,36 @@ extends ImageBaseRotationAnimation
         final int currentFrame = this.circularIndexUtil.getIndex();
         //LogUtil.put(LogFactory.getInstance("currentFrame: " + currentFrame, this, "setRotation"));
 
-//        this.circularIndexUtil.setIndex(index);
-//
-//        final int newFrame = this.circularIndexUtil.getIndex();
-//        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
-//
-//        this.angleInfo.adjustAngle(newFrame);
-//        
-//        matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
+        this.circularIndexUtil.setIndex(index);
 
-        final short angleAdjustment = (short) -currentFrame;
-        if (angleAdjustment > 0) {
-            short value = angleAdjustment;
-            while (value > 0) {
-                this.nextRotation();
-                value--;
-            }
+        final int newFrame = this.circularIndexUtil.getIndex();
+        //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
 
-        } else {
-            short value = angleAdjustment;
-            while (value < 0) {
-                this.previousRotation();
-                value++;
-            }
-
-        }
+        this.angleInfo.adjustAngle(newFrame);
         
+        matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
         //final float result = (newFrame - currentFrame) * this.increment;
         //LogUtil.put(LogFactory.getInstance("result: " + result, this, "setRotation"));
         //matrix.setRotate(result, this.halfWidth, this.halfHeight);
+        this.updateImage();
 
-//        this.updateImage();
+//        final short angleAdjustment = (short) -currentFrame;
+//        if (angleAdjustment > 0) {
+//            short value = angleAdjustment;
+//            while (value > 0) {
+//                this.nextRotation();
+//                value--;
+//            }
+//
+//        } else {
+//            short value = angleAdjustment;
+//            while (value < 0) {
+//                this.previousRotation();
+//                value++;
+//            }
+//
+//        }
+        
     }
     
     public void swap() {
