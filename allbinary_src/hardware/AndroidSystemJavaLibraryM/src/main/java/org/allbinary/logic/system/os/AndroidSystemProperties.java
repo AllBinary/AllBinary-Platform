@@ -18,6 +18,7 @@ import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
@@ -39,7 +40,7 @@ public class AndroidSystemProperties
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    private final String androidId;
+    //private final String androidId;
     
     public AndroidSystemProperties(Context context)
     {
@@ -47,13 +48,14 @@ public class AndroidSystemProperties
         //<uses-permission android:name="android.permission.READ_PHONE_STATE" ></uses-permission>
         //telephonyManager = (TelephonyManager)
             //context.getSystemService(Context.TELEPHONY_SERVICE);
-        this.androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        //this.androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
     //IMEI
     public String getDeviceId()
     {
-        return this.androidId;
+        return StringUtil.getInstance().EMPTY_STRING;
+        //return this.androidId;
         //return telephonyManager.getDeviceId();
     }
     
