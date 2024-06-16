@@ -13,16 +13,14 @@
 */
 package org.allbinary.animation.image;
 
-import javax.microedition.lcdui.Image;
+import android.graphics.Matrix;
 
+import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.math.AngleInfo;
-import android.graphics.Matrix;
-import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.image.AndroidImageUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageModifierUtil;
@@ -41,7 +39,7 @@ extends ImageBaseRotationAnimation
     private final int halfWidth;
     private final int halfHeight;
     
-    private final float increment;
+    private final short increment;
     
     private final Image originalImage;
     
@@ -62,15 +60,15 @@ extends ImageBaseRotationAnimation
         //this.width = image.getWidth();
         //this.height = image.getHeight();
         
-        this.halfWidth = (this.getImage().getWidth() >> 1);
-        this.halfHeight = (this.getImage().getHeight() >> 1);
+        this.halfWidth = (image.getWidth() >> 1);
+        this.halfHeight = (image.getHeight() >> 1);
         
-        this.increment = (short)(this.angleInfo.getAngleIncrementInfo().getAngleIncrement() * 2.44);
+        this.increment = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement() * 2.44);
         
         this.imageToShow = image;
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImage(image);
-        
+
         //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
 
@@ -147,23 +145,25 @@ extends ImageBaseRotationAnimation
         //LogUtil.put(LogFactory.getInstance("newFrame: " + newFrame, this, "setRotation"));
 
         //this.angleInfo.adjustAngle(newFrame);
+        
+        //matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
 
         final short angleAdjustment = (short) -currentFrame;
-            if(angleAdjustment > 0) {
-                short value = angleAdjustment;
-                while(value > 0) {
-                    this.nextRotation();                    
-                    value--;
-                }
-                
-            } else {
-                short value = angleAdjustment;
-                while(value < 0) {
-                    this.previousRotation();
-                    value++;
-                }
-                
+        if (angleAdjustment > 0) {
+            short value = angleAdjustment;
+            while (value > 0) {
+                this.nextRotation();
+                value--;
             }
+
+        } else {
+            short value = angleAdjustment;
+            while (value < 0) {
+                this.previousRotation();
+                value++;
+            }
+
+        }
         
         //final float result = (newFrame - currentFrame) * this.increment;
         //LogUtil.put(LogFactory.getInstance("result: " + result, this, "setRotation"));
