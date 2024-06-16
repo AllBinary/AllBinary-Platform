@@ -13,13 +13,12 @@
 */
 package org.allbinary.animation.image;
 
+import android.graphics.Matrix;
+
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.util.CircularIndexUtil;
-
-import org.allbinary.math.AngleInfo;
-import android.graphics.Matrix;
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.AndroidImageUtil;
 
 public class AllBinaryFlickerAndroidImageRotationAnimation 
@@ -35,7 +34,7 @@ extends ImageBaseRotationAnimation
     private final int halfWidth;
     private final int halfHeight;
     
-    private final short inc;
+    private final short increment;
     
     private final Image originalImage;
     
@@ -50,16 +49,13 @@ extends ImageBaseRotationAnimation
 
         this.originalImage = originalImage;
 
-        this.circularIndexUtil = CircularIndexUtil.getInstance(
-                totalAngle / angleInfo.getAngleIncrementInfo().getAngleIncrement());
-
         //this.width = image.getWidth();
         //this.height = image.getHeight();
         
         this.halfWidth = (image.getWidth() >> 1);
         this.halfHeight = (image.getHeight() >> 1);
         
-        inc = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
+        this.increment = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
         
         //LogUtil.put(LogFactory.getInstance("inc: " + inc, this, "setRotation"));
     }
@@ -67,23 +63,30 @@ extends ImageBaseRotationAnimation
     public void nextRotation()
     {
         super.nextRotation();
+        //LogUtil.put(LogFactory.getInstance("Frame: " + this.getFrame(), this, "nextRotation"));
 
-        matrix.setRotate(inc, this.halfWidth, this.halfHeight);
+        matrix.setRotate(this.increment, this.halfWidth, this.halfHeight);
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
 
-        androidImageUtil.rotate(this.getImage(), originalImage, matrix);
+        this.updateImage();
     }
 
     public void previousRotation()
     {
         super.previousRotation();
+        //LogUtil.put(LogFactory.getInstance("Frame: " + this.getFrame(), this, "previousRotation"));
 
-        matrix.setRotate(-inc, this.halfWidth, this.halfHeight);        
+        matrix.setRotate(-this.increment, this.halfWidth, this.halfHeight);        
         //matrix.setRotate(this.angleInfo.getAngle(), this.halfWidth, this.halfHeight);
+
+        this.updateImage();
+    }
+
+    private void updateImage() {
 
         androidImageUtil.rotate(this.getImage(), originalImage, matrix);
     }
-
+    
     public void setFrame(final int index)
     {
         //LogUtil.put(LogFactory.getInstance("index: " + index, this, "setRotation"));
@@ -98,8 +101,8 @@ extends ImageBaseRotationAnimation
 
         this.angleInfo.adjustAngle(newFrame);
 
-        matrix.setRotate((newFrame - currentFrame) * inc, this.halfWidth, this.halfHeight);
+        matrix.setRotate((newFrame - currentFrame) * increment, this.halfWidth, this.halfHeight);
 
-        androidImageUtil.rotate(this.getImage(), originalImage, matrix);
+        this.updateImage();
     }  
 }
