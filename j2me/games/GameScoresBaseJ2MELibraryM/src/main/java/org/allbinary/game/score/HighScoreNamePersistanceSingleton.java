@@ -153,7 +153,8 @@ public class HighScoreNamePersistanceSingleton
 
             outputStream.writeUTF(name);
 
-            byte[] savedGameBytes = byteArrayOutputStream.toString().getBytes();
+            //final byte[] savedGameBytes = byteArrayOutputStream.toString().getBytes();
+            final byte[] savedGameBytes = byteArrayOutputStream.toByteArray();
 
             recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
