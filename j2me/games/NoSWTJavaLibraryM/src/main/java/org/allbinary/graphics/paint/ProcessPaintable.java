@@ -13,7 +13,6 @@
 */
 package org.allbinary.graphics.paint;
 
-//This is used instead of interface for performance considerations since interfaces are a little slow
 public class ProcessPaintable extends Paintable
 {
     public void process()
