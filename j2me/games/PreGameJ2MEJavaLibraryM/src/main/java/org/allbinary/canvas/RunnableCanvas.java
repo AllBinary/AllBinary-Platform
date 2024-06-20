@@ -37,14 +37,14 @@ public class RunnableCanvas extends MyCanvas
     // private int wait;
     private final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(240);
 
-    protected ProcessPaintable processPaintable;
+    //protected ProcessPaintable processPaintable;
     protected Processor runnableCanvasRefreshHelper;
 
     protected final CommonLabels commonLabels = CommonLabels.getInstance();
     
     public RunnableCanvas(final CommandListener commandListener, final boolean hasParam)
     {   
-        this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
+        //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
 
         if(commandListener != null)
@@ -256,7 +256,7 @@ public class RunnableCanvas extends MyCanvas
     {
         this.runnableCanvasRefreshHelper.process();
         
-        this.processPaintable.process();
+        //this.processPaintable.process();
         
         if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
             final StringMaker stringMaker = new StringMaker();

@@ -13,19 +13,19 @@
 */
 package org.allbinary.canvas;
 
-
+import org.allbinary.graphics.displayable.MyCanvas;
 
 public class RunnableCanvasRefreshHelper extends Processor
 {
-    private RunnableCanvas runnableCanvas;
+    private final MyCanvas runnableCanvas;
 
-    public RunnableCanvasRefreshHelper(RunnableCanvas runnableCanvas)
+    public RunnableCanvasRefreshHelper(MyCanvas runnableCanvas)
     {
         this.runnableCanvas = runnableCanvas;
     }
     
     public void process()
     {
-        runnableCanvas.repaint();
+        this.runnableCanvas.repaint();
     }
 }
