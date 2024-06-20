@@ -27,10 +27,12 @@ public class BasicGroupFactory
 
     public final Group GOOD = new Group("Good Guys", (short) 0);
     public final Group ENEMY = new Group("Bad Guys", (short) 1);
-    public final Group NONE = new Group("Not On A Team", (short) 2);
+    public final Group ENEMY_ON_LEVEL = new Group("Bad Guys on Level", (short) 2);
+    public final Group NONE = new Group("Not On A Team", (short) 3);
 
     public final Group[] GOOD_ARRAY = {this.GOOD};
     public final Group[] ENEMY_ARRAY = {this.ENEMY};
+    public final Group[] ENEMY_ON_LEVEL_ARRAY = {this.ENEMY, this.ENEMY_ON_LEVEL};
 
     public final Group[] NONE_ARRAY = {this.NONE};
 

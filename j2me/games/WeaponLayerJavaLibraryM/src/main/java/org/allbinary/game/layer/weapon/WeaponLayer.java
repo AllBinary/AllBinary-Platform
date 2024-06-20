@@ -29,7 +29,6 @@ import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.configuration.GameConfigurationUtil;
 import org.allbinary.game.identification.BasicGroupFactory;
-import org.allbinary.game.identification.GroupInterfaceCompositeInterface;
 import org.allbinary.game.score.NoScoreable;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.game.tick.TickableInterface;
@@ -210,12 +209,16 @@ implements TickableInterface
         this.movement.init(weaponProperties.getSpeed(), angle, otherAngle);
     }
 
-    // This is very important - does the owner of the WeaponLayer have the same
-    // team
+    // This is very important - does the owner of the WeaponLayer have the same team
+    // Subgroups are not taken if enemy is the base group.
     protected void setGroupInterface()
     {
-        GroupInterfaceCompositeInterface groupInterfaceCompositeInterface = sourceLayerInterface;
-        this.setGroupInterface(groupInterfaceCompositeInterface.getGroupInterface());
+        final BasicGroupFactory basicGroupFactory = BasicGroupFactory.getInstance();
+        if(sourceLayerInterface.getGroupInterface()[0] == basicGroupFactory.ENEMY) {
+            this.setGroupInterface(basicGroupFactory.ENEMY_ARRAY);
+        } else {
+            this.setGroupInterface(sourceLayerInterface.getGroupInterface());
+        }
     }
 
     public void processTick(AllBinaryLayerManager allBinaryLayerManager) throws Exception

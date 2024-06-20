@@ -23,7 +23,6 @@ import org.allbinary.game.collision.CollisionTypeFactory;
 import org.allbinary.game.collision.LayerCollisionUtil;
 import org.allbinary.game.combat.damage.DamageUtil;
 import org.allbinary.game.combat.damage.DamageableInterface;
-import org.allbinary.game.identification.GroupInterfaceCompositeInterface;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableBehavior;
 import org.allbinary.layer.AllBinaryLayer;
 
@@ -84,17 +83,15 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     {
         if (this.collisionHelper.isCollidable((CollidableCompositeLayer) collidableInterfaceCompositeInterface))
         {
-            GroupInterfaceCompositeInterface groupInterfaceCompositeInterface = 
-                (GroupInterfaceCompositeInterface) collidableInterfaceCompositeInterface;
+            final AllBinaryLayer layerInterface = (AllBinaryLayer) collidableInterfaceCompositeInterface;
 
             // LogUtil.put(LogFactory.getInstance("isCollision: " +
             // this.getGroupInterface().getGroupName() + "==" +
-            // groupInterfaceCompositeInterface.getGroupInterface().getGroupName(),
+            // layerInterface.getGroupInterface().getGroupName(),
             // this, "isCollision"));
-            if (this.ownerLayer.getGroupInterface() != groupInterfaceCompositeInterface
-                    .getGroupInterface())
+            if (this.ownerLayer.getGroupInterface() != layerInterface.getGroupInterface())
             {
-                if (layerCollisionUtil.isCollision(this.ownerLayer, (AllBinaryLayer) collidableInterfaceCompositeInterface))
+                if (layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))
                 {
                     return true;
                 }

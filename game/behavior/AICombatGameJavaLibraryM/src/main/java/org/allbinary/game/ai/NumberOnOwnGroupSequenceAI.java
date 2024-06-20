@@ -15,7 +15,6 @@ package org.allbinary.game.ai;
 
 import org.allbinary.ai.ArtificialIntelligenceInterface;
 import org.allbinary.game.ai.sequence.SequenceAI;
-import org.allbinary.game.identification.GroupInterfaceCompositeInterface;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.game.layer.identification.GroupLayerManagerListener;
 import org.allbinary.layer.AllBinaryLayer;
@@ -36,14 +35,12 @@ public class NumberOnOwnGroupSequenceAI extends SequenceAI
 
    public void processAI(AllBinaryLayerManager allBinaryLayerManager) throws Exception
    {
-      final GroupInterfaceCompositeInterface groupInterfaceCompositeInterface =
-         this.getOwnerLayerInterface();
+      final AllBinaryLayer layerInterface = this.getOwnerLayerInterface();
 
       int index = this.getIndex();
       if (numberOnSameTeam.length > index)
       {
-         final int size = GroupLayerManagerListener.getInstance().getGroupSize(
-                 groupInterfaceCompositeInterface);
+         final int size = GroupLayerManagerListener.getInstance().getGroupSize(layerInterface);
          
          if (numberOnSameTeam[index].intValue() > size)
          {
