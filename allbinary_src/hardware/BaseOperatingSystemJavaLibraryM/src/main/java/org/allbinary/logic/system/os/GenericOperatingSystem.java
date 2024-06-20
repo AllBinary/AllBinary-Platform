@@ -26,6 +26,8 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    private final String osVersion;
    private final CharacterSet characterSet;
 
+   protected boolean scalable = false;
+   
    public GenericOperatingSystem()
    {
        final SystemProperties systemProperties = SystemProperties.getInstance();
@@ -102,7 +104,7 @@ public class GenericOperatingSystem implements OperatingSystemInterface
 
    public boolean isScalable()
    {
-       return false;
+       return this.scalable;
    }
    
    public String toString()

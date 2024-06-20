@@ -23,6 +23,8 @@ public class OperatingSystems
    
    public final String WINDOWS2000 = "Windows 2000";
    public final String WINDOWS_NT = "Windows NT";
+   public final String WINDOWS_10 = "Windows 10";
+   public final String WINDOWS_11 = "Windows 11";
    public final String WINDOWS_VISTA = "Windows Vista";
    public final String WINDOWS_XP = "Windows XP";
 
@@ -32,7 +34,7 @@ public class OperatingSystems
    {
    }
  
-   private boolean unknownSpecificOSAllowed;
+   private boolean unknownSpecificOSAllowed = true;
    
     public boolean isUnknownSpecificOSAllowed()
     {

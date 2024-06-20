@@ -56,7 +56,7 @@ public class DisplayInfoSingleton
     private int xOffset;
     private int yOffset;
 
-    private float scaleLargestTo = 640;
+    public float scaleLargestTo = 640;
     //640
     /*
     Test Android Scaling resolutions
@@ -119,99 +119,94 @@ public class DisplayInfoSingleton
     private final String LAST_WIDTH = "LastWidth: ";
     private final String LAST_HEIGHT = " LastHeight: ";
     
-    public void setLastSize(int aLastWidth, int aLastHeight, final String reason)
+    public void setLastSize(final int aLastWidth, final int aLastHeight, final String reason)
     {
         if(this.full[WIDTH] != aLastWidth || this.full[HEIGHT] != aLastHeight)
         {
-            final StringMaker stringMaker = new StringMaker();
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(CommonLabels.getInstance().START_LABEL).append(reason).toString(), this, SET_LAST_SIZE_METHOD_NAME));
-            
-            final int aFullWidth = aLastWidth;
-            final int aFullHeight = aLastHeight;
+            this.setLastSizeForce(aLastWidth, aLastHeight, reason);
+        }
+    }
 
-            stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker
-                    .append(FULL_WIDTH).append(aFullWidth)
-                    .append(FULL_HEIGHT).append(aFullHeight)
-                    .append(this.toString())
-                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
+    private void setLastSizeForce(int aLastWidth, int aLastHeight, final String reason) {            
+        final StringMaker stringMaker = new StringMaker();
+        LogUtil.put(LogFactory.getInstance(stringMaker.append(CommonLabels.getInstance().START_LABEL).append(reason).toString(), this, SET_LAST_SIZE_METHOD_NAME));
 
-            //LogUtil.put(LogFactory.getInstance("Changing", this, SET_LAST_SIZE_METHOD_NAME));
+        final int aFullWidth = aLastWidth;
+        final int aFullHeight = aLastHeight;
 
-            final OperatingSystemInterface operatingSystemInterface
-                    = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+        stringMaker.delete(0, stringMaker.length());
+        LogUtil.put(LogFactory.getInstance(stringMaker
+            .append(FULL_WIDTH).append(aFullWidth)
+            .append(FULL_HEIGHT).append(aFullHeight)
+            .append(this.toString())
+            .toString(), this, SET_LAST_SIZE_METHOD_NAME));
 
-            if(operatingSystemInterface.isOverScan())
-            {
-                aLastWidth = aLastWidth * operatingSystemInterface.getOverScanXPercent() / 100;
-                aLastHeight = aLastHeight * operatingSystemInterface.getOverScanYPercent() / 100;
-            }
+        //LogUtil.put(LogFactory.getInstance("Changing", this, SET_LAST_SIZE_METHOD_NAME));
+        final OperatingSystemInterface operatingSystemInterface
+            = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
-            if(operatingSystemInterface.isScalable())
-            {                
-                if(this.isPortrait(aLastWidth, aLastHeight))
-                {
-                    if(aLastHeight > scaleLargestTo)
-                    {
-                        this.displayRatio = scaleLargestTo / aLastHeight;
-                        this.ratio = aLastHeight / scaleLargestTo;
-                        stringMaker.delete(0, stringMaker.length());
-                        LogUtil.put(LogFactory.getInstance(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME));
-                        aLastWidth = (int) (aLastWidth * displayRatio);
-                        aLastHeight = (int) (aLastHeight * displayRatio);
-                        this.scalableListener.scale(ratio);
-                    }
-                }else
-                {
-                    if(aLastWidth > scaleLargestTo)
-                    {
-                        this.displayRatio = scaleLargestTo / aLastWidth;
-                        this.ratio = aLastWidth / scaleLargestTo;
-                        stringMaker.delete(0, stringMaker.length());
-                        LogUtil.put(LogFactory.getInstance(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME));
-                        aLastWidth = (int) (aLastWidth * displayRatio);
-                        aLastHeight = (int) (aLastHeight * displayRatio);
-                        this.scalableListener.scale(ratio);
-                    }                    
+        if (operatingSystemInterface.isOverScan()) {
+            aLastWidth = aLastWidth * operatingSystemInterface.getOverScanXPercent() / 100;
+            aLastHeight = aLastHeight * operatingSystemInterface.getOverScanYPercent() / 100;
+        }
+
+        if (operatingSystemInterface.isScalable()) {
+            if (this.isPortrait(aLastWidth, aLastHeight)) {
+                if (aLastHeight > scaleLargestTo) {
+                    this.displayRatio = scaleLargestTo / aLastHeight;
+                    this.ratio = aLastHeight / scaleLargestTo;
+                    stringMaker.delete(0, stringMaker.length());
+                    LogUtil.put(LogFactory.getInstance(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_PORTRAIT).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME));
+                    aLastWidth = (int) (aLastWidth * displayRatio);
+                    aLastHeight = (int) (aLastHeight * displayRatio);
+                    this.scalableListener.scale(ratio);
+                }
+            } else {
+                if (aLastWidth > scaleLargestTo) {
+                    this.displayRatio = scaleLargestTo / aLastWidth;
+                    this.ratio = aLastWidth / scaleLargestTo;
+                    stringMaker.delete(0, stringMaker.length());
+                    LogUtil.put(LogFactory.getInstance(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME));
+                    aLastWidth = (int) (aLastWidth * displayRatio);
+                    aLastHeight = (int) (aLastHeight * displayRatio);
+                    this.scalableListener.scale(ratio);
                 }
             }
+        }
 
-            stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker
-                    .append(LAST_WIDTH).append(aLastWidth)
-                    .append(LAST_HEIGHT).append(aLastHeight)
-                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
+        stringMaker.delete(0, stringMaker.length());
+        LogUtil.put(LogFactory.getInstance(stringMaker
+            .append(LAST_WIDTH).append(aLastWidth)
+            .append(LAST_HEIGHT).append(aLastHeight)
+            .toString(), this, SET_LAST_SIZE_METHOD_NAME));
 
-            this.xOffset = aFullWidth - aLastWidth;
-            this.yOffset = aFullHeight - aLastHeight;
-            
+        this.xOffset = aFullWidth - aLastWidth;
+        this.yOffset = aFullHeight - aLastHeight;
+
 //            stringMaker.delete(0, stringMaker.length());
 //            LogUtil.put(LogFactory.getInstance(stringMaker
 //                    .append("xOffset: ").append(this.xOffset)
 //                    .append(" yOffset: ").append(this.yOffset)
 //                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
-            
-            this.left = this.scalableListener.getLeft(this.xOffset);
-            this.top = this.scalableListener.getTop(this.yOffset);
+        this.left = this.scalableListener.getLeft(this.xOffset);
+        this.top = this.scalableListener.getTop(this.yOffset);
 
 //            stringMaker.delete(0, stringMaker.length());
 //            LogUtil.put(LogFactory.getInstance(stringMaker
 //                    .append("left: ").append(this.left)
 //                    .append(" top: ").append(this.top)
 //                    .toString(), this, SET_LAST_SIZE_METHOD_NAME));
-            
-            this.full[WIDTH] = aFullWidth;
-            this.full[HEIGHT] = aFullHeight;
+        this.full[WIDTH] = aFullWidth;
+        this.full[HEIGHT] = aFullHeight;
 
-            last[WIDTH] = aLastWidth;
-            lastHalf[WIDTH] = (last[WIDTH] >> 1);
-            last[HEIGHT] = aLastHeight;
-            lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
+        last[WIDTH] = aLastWidth;
+        lastHalf[WIDTH] = (last[WIDTH] >> 1);
+        last[HEIGHT] = aLastHeight;
+        lastHalf[HEIGHT] = (last[HEIGHT] >> 1);
 
-            this.add(SET_LAST_SIZE_METHOD_NAME);
-        }
+        this.add(SET_LAST_SIZE_METHOD_NAME);
     }
-
+    
     public boolean isPortrait(
             int lastWidth, int lastHeight)
     {

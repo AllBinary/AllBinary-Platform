@@ -42,7 +42,7 @@ public class OperatingSystemFactory
     {
     }
     
-    public synchronized OperatingSystemInterface getOperatingSystemInstance() throws Exception
+    public synchronized OperatingSystemInterface getOperatingSystemInstance() //throws Exception
     {
         try
         {
@@ -54,33 +54,35 @@ public class OperatingSystemFactory
             
             if(!this.hasDetected)
             {
+                LogUtil.put(LogFactory.getInstance("osName: " + osName, this, "getInstance()"));
+                
                 this.hasDetected = true;
                 if(osName.indexOf(operatingSystems.LINUX) >= 0)
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Linux OS", "OperatingSystemsFactory", "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Linux OS", this, "getInstance()"));
                     }
                     
                     this.operatingSystemInterface =
                         (OperatingSystemInterface) 
-                        LinuxOperatingSystemFactory.getInstance();
+                        LinuxOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
                 else if(osName.indexOf(operatingSystems.WINDOWS) >= 0)
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Windows OS", "OperatingSystemsFactory", "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Windows OS", this, "getInstance()"));
                     }
                     this.operatingSystemInterface =
                         (OperatingSystemInterface) 
-                        WindowsOperatingSystemFactory.getInstance();
+                        WindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
                 else if(osName.indexOf(operatingSystems.SOLARIS) >= 0)
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Solaris OS", "OperatingSystemsFactory", "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Solaris OS", this, "getInstance()"));
                     }
                     
                     this.operatingSystemInterface =
@@ -105,7 +107,8 @@ public class OperatingSystemFactory
             {
                 LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
             }
-            throw e;
+            //throw e;
+            return new NoOperatingSystem();
         }
     }
 }

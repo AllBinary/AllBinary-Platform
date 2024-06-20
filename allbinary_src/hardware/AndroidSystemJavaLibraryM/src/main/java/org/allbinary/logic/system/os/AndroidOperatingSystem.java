@@ -29,8 +29,6 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    private final String DEVICE_ID ="DeviceId";
    private final String DEVICE_SOFTWARE_VERSION ="DeviceSoftwareVersion";
    private final String LINE_1_NUMBER = "Line1Number";
-
-   private boolean scalable = false;
    
    public AndroidOperatingSystem() throws Exception
    {
@@ -134,11 +132,6 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
    {
        return 90;
    }
-
-   public boolean isScalable()
-   {
-       return scalable;
-   }   
    
    public String toString()
    {

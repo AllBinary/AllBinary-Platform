@@ -49,6 +49,18 @@ public class WindowsOperatingSystemFactory
                     (OperatingSystemInterface) new Windows();
             }
             else
+            if(osName.compareTo(operatingSystems.WINDOWS_10)==0)
+            {
+                operatingSystemInterface =
+                    (OperatingSystemInterface) new Windows();
+            }
+            else
+            if(osName.compareTo(operatingSystems.WINDOWS_11)==0)
+            {
+                operatingSystemInterface =
+                    (OperatingSystemInterface) new Windows();
+            }
+            else
             if(osName.compareTo(operatingSystems.WINDOWS2000)==0)
             {
                 operatingSystemInterface =
