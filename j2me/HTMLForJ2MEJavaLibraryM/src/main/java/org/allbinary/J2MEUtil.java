@@ -23,4 +23,10 @@ public class J2MEUtil
     {
         return true;
     }
+        
+    public static boolean isJ2SE()
+    {
+        return false;
+    }
+    
 }

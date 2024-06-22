@@ -20,6 +20,7 @@ import org.allbinary.J2MEUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.NullAnimationFactory;
 import org.allbinary.animation.vector.RectangleFilledAnimation;
+import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
@@ -73,7 +74,7 @@ public class BasicPopupMenuPaintable extends Paintable
 
         this.rectangle = rectangle;
         
-        if(AndroidUtil.isAndroid()) {
+        if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
             this.BORDER = MyFont.getInstance().charWidth();
         } else {
             this.BORDER = MyFont.getInstance().charWidth() * 2;

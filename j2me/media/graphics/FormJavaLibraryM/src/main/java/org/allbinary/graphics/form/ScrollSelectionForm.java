@@ -135,12 +135,15 @@ public class ScrollSelectionForm extends PaintableForm
         
         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, GET_SELECTED_INDEX));
 
+        CustomItemInterface item;
+        int width;
+        int height;
         for (int index = start; index < size; index++)
         {
-            final CustomItemInterface item = (CustomItemInterface) this.get(index);
+            item = (CustomItemInterface) this.get(index);
 
-            final int width = item.getMinimumWidth();
-            final int height = item.getMinimumHeight();
+            width = item.getMinimumWidth();
+            height = item.getMinimumHeight();
 
             //originally for both formtypes
             //int diffX = dx + this.getDiffX(item) - this.halfBorder;
@@ -164,7 +167,7 @@ public class ScrollSelectionForm extends PaintableForm
 //                    .append((dy - this.halfBorder)).append(CommonSeps.getInstance().COMMA)
 //                    .append((diffX + width + this.border)).append(CommonSeps.getInstance().COMMA)
 //                    .append((dy + height + this.halfBorder + 1))
-//                    .append(" with ").append(point.toString()).toString(), this, "getSelectedIndex"));
+//                    .append(" with ").append(point.toString()).toString(), this, GET_SELECTED_INDEX));
 
             //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.getRectangle().getMaxY(),
             

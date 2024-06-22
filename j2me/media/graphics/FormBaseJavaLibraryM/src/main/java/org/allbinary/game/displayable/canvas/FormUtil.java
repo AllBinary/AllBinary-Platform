@@ -62,7 +62,7 @@ public class FormUtil
         {
             // Make a smaller button for QVGA and move it to the top
             popupMenuRectangle = new Rectangle(
-                    PointFactory.getInstance().getInstance(0, 25), myFont.stringWidth(4), (myFont.DEFAULT_CHAR_HEIGHT * 4) + 2);
+                    PointFactory.getInstance().getInstance(0, 25), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 4) + 2);
             
             //LogUtil.put(LogFactory.getInstance("popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS));
         }
@@ -70,7 +70,7 @@ public class FormUtil
         {
             popupMenuRectangle = new Rectangle(
                     PointFactory.getInstance().getInstance(
-                    0, displayInfo.getLastHalfHeight() - 70), myFont.stringWidth(4), (myFont.DEFAULT_CHAR_HEIGHT * 5));
+                    0, displayInfo.getLastHalfHeight() - 70), myFont.stringWidth(3), (myFont.DEFAULT_CHAR_HEIGHT * 5));
             
             //LogUtil.put(LogFactory.getInstance("large popupMenuRectangle: " + popupMenuRectangle.toString(), this, commonStrings.PROCESS));
         }
