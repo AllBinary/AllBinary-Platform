@@ -280,12 +280,10 @@ public class ScrollSelectionForm extends PaintableForm
     
     public boolean isInForm(GPoint point)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, "isInForm"));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM));
 
         //- halfBorder
-        if (rectangleCollisionUtil.isInside(
-            x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,
-            point.getX(), point.getY()))
+        if (rectangleCollisionUtil.isInside(x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,point.getX(), point.getY()))
         {
             LogUtil.put(LogFactory.getInstance(new StringMaker().append(point).append(INSIDE_FORM).toString(), this, IS_IN_FORM));
             return true;
@@ -293,27 +291,16 @@ public class ScrollSelectionForm extends PaintableForm
         return false;
     }
 
-    public int paintItem(Graphics graphics, int index, CustomItemInterface item, int x, int y)
+    public int paintItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {
-        int width = item.getMinimumWidth();
-        int height = item.getMinimumHeight();
+        final int width = item.getMinimumWidth();
+        final int height = item.getMinimumHeight();
         
-        FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+        final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
         item.paint(graphics, x, y);
         
-        /*
-        if (index == this.selectedIndex)
-        {
-        graphics.setColor(WHITE.intValue());
-        }
-        else
-        {
-        graphics.setColor(GREY.intValue());
-        }
-         */
-
         graphics.setColor(this.getButtonBasicColor().intValue());
         
         //graphics.drawRect(x - border, y - border_y, width + border, height + border);
@@ -338,17 +325,17 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
 
-    public int paintUnselectedItem(Graphics graphics, int index, CustomItemInterface item, int x, int y)
+    public int paintUnselectedItem(final Graphics graphics, final int index, final CustomItemInterface item, final int x, final int y)
         throws Exception
     {
-        int width = item.getMinimumWidth();
-        int height = item.getMinimumHeight();
+        final int width = item.getMinimumWidth();
+        final int height = item.getMinimumHeight();
 
         //graphics.setColor(BasicColor.GREY.intValue());
         graphics.setColor(this.getButtonBasicColor().intValue());
         item.paintUnselected(graphics, x, y);
         
-        FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+        final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
         if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
         {

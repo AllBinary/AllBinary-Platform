@@ -163,7 +163,7 @@ extends ScrollSelectionForm
         }
     }
 
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         try
         {
@@ -172,11 +172,11 @@ extends ScrollSelectionForm
             int deltaY = getDy();
             int size = this.size();
             
-            FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+            final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
             
             for (int index = 0; index < size; index++)
             {
-                CustomItemInterface item = (CustomItemInterface) this.get(index);
+                final CustomItemInterface item = (CustomItemInterface) this.get(index);
 
                 int diffX = 0;
                 if (this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
@@ -226,6 +226,7 @@ extends ScrollSelectionForm
                     throw new Exception(formTypeFactory.UNK);
                 }
 
+                //graphics.drawRect(x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border);
             }
         }
         catch (Exception e)
