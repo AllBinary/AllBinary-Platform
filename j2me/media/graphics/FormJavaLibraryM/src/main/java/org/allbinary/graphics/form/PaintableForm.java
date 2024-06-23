@@ -1,6 +1,5 @@
 package org.allbinary.graphics.form;
 
-import org.allbinary.graphics.form.CustomForm;
 import org.allbinary.graphics.form.item.CustomItem;
 
 import org.allbinary.logic.string.CommonStrings;
@@ -17,7 +16,7 @@ public class PaintableForm extends CustomForm
     protected int x;
     protected int y;
     
-    private FormType formType;    
+    protected FormType formType;
 
     public PaintableForm(final String title, final CustomItem[] items, 
             final Rectangle rectangle, final FormType formType,
@@ -55,21 +54,5 @@ public class PaintableForm extends CustomForm
         return this.rectangle.getWidth();
     }
     
-    /**
-     * @return the rectangle
-     */
-    public Rectangle getRectangle()
-    {
-        return rectangle;
-    }
 
-    public void setFormType(FormType formType)
-    {
-        this.formType = formType;
-    }
-
-    public FormType getFormType()
-    {
-        return formType;
-    }    
 }

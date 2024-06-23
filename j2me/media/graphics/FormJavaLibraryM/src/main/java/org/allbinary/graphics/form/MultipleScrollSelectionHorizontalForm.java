@@ -24,18 +24,18 @@ import org.allbinary.graphics.font.MyFont;
 public class MultipleScrollSelectionHorizontalForm 
 extends ScrollSelectionForm
 {
-    public MultipleScrollSelectionHorizontalForm(String title, CustomItem[] items, 
-            ItemPaintableFactory formPaintableFactory, 
-            Rectangle rectangle, FormType formType, int border, 
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    public MultipleScrollSelectionHorizontalForm(final String title, final CustomItem[] items, 
+            final ItemPaintableFactory formPaintableFactory, 
+            final Rectangle rectangle, final FormType formType, final int border, 
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     throws Exception
     {
         super(title, items, formPaintableFactory, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
     }
 
-    public MultipleScrollSelectionHorizontalForm(String title, CustomItem[] items, 
-            Rectangle rectangle, FormType formType, int border, 
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    public MultipleScrollSelectionHorizontalForm(final String title, final CustomItem[] items, 
+            final Rectangle rectangle, final FormType formType, final int border, 
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     throws Exception
     {
         super(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
@@ -50,17 +50,16 @@ extends ScrollSelectionForm
 
     private final int fontHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
 
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         try
         {
-            FormTypeFactory formTypeFactory = 
-                FormTypeFactory.getInstance();
+            final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
             
-            int start = this.getStartIndex();
-            int size = this.size();
+            final int start = this.getStartIndex();
+            final int size = this.size();
             int dx = x;
-            int dy = y;
+            final int dy = y;
 
             if(J2MEUtil.isJ2ME())
             {
@@ -71,33 +70,35 @@ extends ScrollSelectionForm
                 graphics.setColor(backgroundColor);
 
                 graphics.fillRect(x, y,
-                    this.getRectangle().getWidth(),
-                    this.getRectangle().getHeight());
+                    this.rectangle.getWidth(),
+                    this.rectangle.getHeight());
             }
             
             graphics.drawString(this.getTitle(), x, y - fontHeight, 0);
 
+            CustomItemInterface item;
             for (int index = start; index < size; index++)
             {
-                CustomItemInterface item = (CustomItemInterface) this.get(index);
+                item = (CustomItemInterface) this.get(index);
 
-                if (dx >= this.getRectangle().getMaxX())
+                if (dx >= this.rectangle.getMaxX())
                 {
-                    break;
+                    PreLogUtil.put("painting beyone maxx", this, "paint");
+                    //break;
                 }
                 
-                if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+                if (this.formType == formTypeFactory.HORIZONTAL_FORM)
                 {
                     int dx2 = this.paintItem(graphics, index, item, dx, dy) + border;
-                    this.getPaintable().paint(graphics, index, dx, dy);
+                    this.paintable.paint(graphics, index, dx, dy);
                     dx = dx2;
-                } else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+                } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
                 {
                     //int dy2 = 
                         this.paintItem(graphics, index, item, dx, dy)
                         //+ border
                         ;
-                    this.getPaintable().paint(graphics, index, dx, dy);
+                    this.paintable.paint(graphics, index, dx, dy);
                     //dy2 = dy;
                 }
                 else

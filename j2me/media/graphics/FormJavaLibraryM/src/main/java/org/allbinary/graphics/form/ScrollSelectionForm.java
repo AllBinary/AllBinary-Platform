@@ -38,7 +38,7 @@ public class ScrollSelectionForm extends PaintableForm
     protected final int halfBorder;
     private BasicColor buttonBasicColor;
     
-    private ItemPaintable paintable = ItemPaintableFactory.getInstance();
+    protected ItemPaintable paintable = ItemPaintableFactory.getInstance();
 
     public ScrollSelectionForm(
             final String title, final CustomItem[] items, 
@@ -49,7 +49,7 @@ public class ScrollSelectionForm extends PaintableForm
     {
         this(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
         
-        this.setPaintable(formPaintableFactory.getInstance(this));
+        this.paintable = formPaintableFactory.getInstance(this);
     }
     
     public ScrollSelectionForm(
@@ -148,12 +148,12 @@ public class ScrollSelectionForm extends PaintableForm
             //originally for both formtypes
             //int diffX = dx + this.getDiffX(item) - this.halfBorder;
             int diffX = 0;
-            if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+            if (this.formType == formTypeFactory.HORIZONTAL_FORM)
             {
                 diffX = dx - this.halfBorder;
             }
-            else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM ||
-                    this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
+            else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM ||
+                    this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
             {
                 diffX = dx + this.getDiffX(item);
             }
@@ -169,7 +169,7 @@ public class ScrollSelectionForm extends PaintableForm
 //                    .append((dy + height + this.halfBorder + 1))
 //                    .append(" with ").append(point.toString()).toString(), this, GET_SELECTED_INDEX));
 
-            //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.getRectangle().getMaxY(),
+            //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.rectangle.getMaxY(),
             
             if (rectangleCollisionUtil.isInside(
                 diffX, dy - this.halfBorder, diffX + width + this.border, dy + height + this.halfBorder + 1,
@@ -189,18 +189,18 @@ public class ScrollSelectionForm extends PaintableForm
             }
             
             
-            if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+            if (this.formType == formTypeFactory.HORIZONTAL_FORM)
             {
                 dx = dx + width + border;
                 // dx = dx + width;
-                if (dx > this.getRectangle().getMaxX())
+                if (dx > this.rectangle.getMaxX())
                 {
                     break;
                 }
-            } else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+            } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
             {
                 dy = dy + height + border;
-                if (dy > this.getRectangle().getMaxY())
+                if (dy > this.rectangle.getMaxY())
                 {
                     break;
                 }
@@ -214,13 +214,12 @@ public class ScrollSelectionForm extends PaintableForm
         return -1;
     }
 
-    public int processInput(int gameKeyCode) throws Exception
+    public int processInput(final int gameKeyCode) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance("Start - Selected ").append(CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance()));
         //PreLogUtil.put("Start - Selected " CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
 
-        FormTypeFactory formTypeFactory = 
-            FormTypeFactory.getInstance();
+        final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
         if (this.size() == 0)
         {
@@ -229,8 +228,8 @@ public class ScrollSelectionForm extends PaintableForm
 
         int index = this.getSelectedIndex();
 
-        if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM ||
-            this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
+        if (this.formType == formTypeFactory.HORIZONTAL_FORM ||
+            this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
             if (gameKeyCode == Canvas.RIGHT)
             {
@@ -241,7 +240,7 @@ public class ScrollSelectionForm extends PaintableForm
                 index--;
             }
         }
-        else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+        else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
         {
             if (gameKeyCode == Canvas.DOWN)
             {
@@ -257,7 +256,7 @@ public class ScrollSelectionForm extends PaintableForm
             throw new Exception(formTypeFactory.UNK);
         }
 
-        int max = this.size() - 1;
+        final int max = this.size() - 1;
 
         if (index < 0)
         {
@@ -281,7 +280,7 @@ public class ScrollSelectionForm extends PaintableForm
     private static final String INSIDE_FORM = " inside form";
     private static final String IS_IN_FORM = "isInForm";
     
-    public boolean isInForm(GPoint point)
+    public boolean isInForm(final GPoint point)
     {
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Checking: Rectangle: ").append(this.rectangle).append(" to ").append(point).toString(), this, IS_IN_FORM));
 
@@ -309,15 +308,15 @@ public class ScrollSelectionForm extends PaintableForm
         //graphics.drawRect(x - border, y - border_y, width + border, height + border);
         graphics.drawRect(x - halfBorder, y - halfBorder, width + border, height + border);
 
-        if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+        if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {
             return x + width + border;
         }
-        else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+        else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
         {
             return y + height + border;
         }
-        else if (this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
+        else if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
             return 0;
         }
@@ -340,15 +339,15 @@ public class ScrollSelectionForm extends PaintableForm
         
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
-        if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+        if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {
             return x + width + border;
         }
-        else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+        else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
         {
             return y + height + border;
         }
-        else if (this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
+        else if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
             return 0;
         }
@@ -359,7 +358,7 @@ public class ScrollSelectionForm extends PaintableForm
 
     }
 
-    protected int getDiffX(CustomItemInterface item)
+    protected int getDiffX(final CustomItemInterface item)
     {
         return 0;
     }
@@ -380,7 +379,7 @@ public class ScrollSelectionForm extends PaintableForm
         return y;
     }
 
-    public void setButtonBasicColor(BasicColor buttonBasicColor)
+    public void setButtonBasicColor(final BasicColor buttonBasicColor)
     {
         this.buttonBasicColor = buttonBasicColor;
     }
@@ -390,13 +389,4 @@ public class ScrollSelectionForm extends PaintableForm
         return buttonBasicColor;
     }
 
-    private void setPaintable(ItemPaintable paintable)
-    {
-        this.paintable = paintable;
-    }
-
-    protected ItemPaintable getPaintable()
-    {
-        return paintable;
-    }
 }

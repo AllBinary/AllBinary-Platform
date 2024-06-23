@@ -72,11 +72,11 @@ extends ScrollSelectionForm
     {
         FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
-        if (this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
+        if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
-            dx = x - 30 + (this.getRectangle().getWidth() >> 1);
+            dx = x - 30 + (this.rectangle.getWidth() >> 1);
             dy = y;
-        } else if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+        } else if (this.formType == formTypeFactory.HORIZONTAL_FORM)
         {
             int size = this.size();
 
@@ -89,7 +89,7 @@ extends ScrollSelectionForm
                 totalWidth += item.getMinimumWidth() + border;
             }
 
-            dx = x + (this.getRectangle().getWidth() >> 1) - (totalWidth >> 1);
+            dx = x + (this.rectangle.getWidth() >> 1) - (totalWidth >> 1);
 
             /*
             int maxHeight = 0;
@@ -105,7 +105,7 @@ extends ScrollSelectionForm
             }
             */
 
-            dy = y + (this.getRectangle().getHeight() >> 1);
+            dy = y + (this.rectangle.getHeight() >> 1);
 
             // Special handling for small screens to keep menu out of title
             // animation
@@ -117,7 +117,7 @@ extends ScrollSelectionForm
                     dy = maxTitleHeight;
                 }
             }
-        } else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+        } else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
         {
             int totalHeight = 0;
             int size = this.size();
@@ -132,15 +132,15 @@ extends ScrollSelectionForm
                 totalHeight += item2.getMinimumHeight() + border;
             }
 
-            dx = ((this.getRectangle().getWidth() - maxWidth) / 2);
-            // dx = this.getRectangle().getWidth() - maxWidth;
+            dx = ((this.rectangle.getWidth() - maxWidth) / 2);
+            // dx = this.rectangle.getWidth() - maxWidth;
 
             if (this.size() > 0)
             {
                 // FormItemInterface item = (FormItemInterface) this.get(0);
-                // dy = y - 30 + ((this.getRectangle().getHeight() -
+                // dy = y - 30 + ((this.rectangle.getHeight() -
                 // item.getMinimumHeight()) / 2);
-                dy = y + ((this.getRectangle().getHeight() - totalHeight) / 2);
+                dy = y + ((this.rectangle.getHeight() - totalHeight) / 2);
 
                 // Special handling for small screens to keep menu out of title
                 // animation
@@ -154,7 +154,7 @@ extends ScrollSelectionForm
                 }
             } else
             {
-                // dy = y - 30 + ((this.getRectangle().getHeight()) >> 1);
+                // dy = y - 30 + ((this.rectangle.getHeight()) >> 1);
                 dy = y;
             }
         } else
@@ -179,17 +179,17 @@ extends ScrollSelectionForm
                 final CustomItemInterface item = (CustomItemInterface) this.get(index);
 
                 int diffX = 0;
-                if (this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
+                if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
                 {
                     diffX = this.getDiffX(item);
                 }
                 else
-                if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+                if (this.formType == formTypeFactory.HORIZONTAL_FORM)
                 {
                     //diffX = this.halfBorder;
                 }
                 else 
-                    if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+                    if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
                 {
                     diffX = this.getDiffX(item) + this.halfBorder;
                 }
@@ -201,23 +201,23 @@ extends ScrollSelectionForm
                 if (index == this.getSelectedIndex())
                 {
                     delta = this.paintItem(graphics, index, item, deltaX + diffX, deltaY);
-                    this.getPaintable().paint(graphics, index, deltaX + diffX, deltaY);
+                    this.paintable.paint(graphics, index, deltaX + diffX, deltaY);
                 }
                 else
                 {
                     delta = this.paintUnselectedItem(graphics, index, item, deltaX + diffX, deltaY);
-                    this.getPaintable().paint(graphics, index, deltaX + diffX, deltaY);
+                    this.paintable.paint(graphics, index, deltaX + diffX, deltaY);
                 }
 
-                if (this.getFormType() == formTypeFactory.TEMP_HORIZONTAL_FORM)
+                if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
                 {
                 }
                 else
-                if (this.getFormType() == formTypeFactory.HORIZONTAL_FORM)
+                if (this.formType == formTypeFactory.HORIZONTAL_FORM)
                 {
                     deltaX = delta;
                 }
-                else if (this.getFormType() == formTypeFactory.VERTICAL_CENTER_FORM)
+                else if (this.formType == formTypeFactory.VERTICAL_CENTER_FORM)
                 {
                     deltaY = delta;
                 }
