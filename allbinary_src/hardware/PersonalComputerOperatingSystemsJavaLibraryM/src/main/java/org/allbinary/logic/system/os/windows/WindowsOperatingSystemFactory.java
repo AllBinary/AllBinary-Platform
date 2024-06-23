@@ -35,7 +35,7 @@ public class WindowsOperatingSystemFactory
     {
     }
     
-    public OperatingSystemInterface getOperatingSystemInstance()
+    public GenericOperatingSystem getOperatingSystemInstance()
     {
         try
         {

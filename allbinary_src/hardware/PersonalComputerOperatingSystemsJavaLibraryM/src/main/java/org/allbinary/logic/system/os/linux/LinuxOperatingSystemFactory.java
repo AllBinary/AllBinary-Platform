@@ -35,7 +35,7 @@ public class LinuxOperatingSystemFactory
     {
     }
 
-    public OperatingSystemInterface getOperatingSystemInstance()
+    public GenericOperatingSystem getOperatingSystemInstance()
     {
         try
         {

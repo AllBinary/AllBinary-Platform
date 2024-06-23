@@ -35,7 +35,7 @@ public class SolarisOperatingSystemFactory
     {
     }
 
-    public OperatingSystemInterface getOperatingSystemInstance()
+    public GenericOperatingSystem getOperatingSystemInstance()
     {
         try
         {
