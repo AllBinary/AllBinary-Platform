@@ -26,7 +26,6 @@ import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

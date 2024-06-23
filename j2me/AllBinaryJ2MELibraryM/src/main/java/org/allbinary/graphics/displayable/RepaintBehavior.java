@@ -17,6 +17,7 @@ import javax.microedition.lcdui.Canvas;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.thread.SoundThreadPool;
 
 /**
  *
@@ -25,31 +26,30 @@ import org.allbinary.logic.string.CommonStrings;
 public class RepaintBehavior {
 
     private static final RepaintBehavior instance = new RepaintBehavior();
-    
+
     /**
      * @return the instance
      */
     public static RepaintBehavior getInstance() {
         return instance;
     }
-    
+
     public void repaint(final Canvas canvas) {
-        
+
     }
 
     public void onChangeRepaint(final Canvas canvas) {
 
-        final Thread thread = new Thread(new Runnable() {
+        SoundThreadPool.getInstance().runTask(new Runnable() {
             public void run() {
                 try {
                     canvas.repaint();
                     DisplayInfoSingleton.getInstance().process();
-                } catch(Exception e) {
+                } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
             }
         });
-        thread.start();
     }
-    
+
 }

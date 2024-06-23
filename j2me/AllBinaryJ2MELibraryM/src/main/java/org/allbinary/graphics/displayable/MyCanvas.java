@@ -27,8 +27,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
-import org.allbinary.logic.system.os.GenericOperatingSystem;
-import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.media.audio.Sound;
 
 public class MyCanvas extends Canvas 
@@ -46,7 +44,7 @@ public class MyCanvas extends Canvas
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
 
-        final GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+        //final GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 //        if(operatingSystem.isScalable()) {
 //            this.repaintBehavior = AlwaysRepaintBehavior.getInstance();
 //        } else {

@@ -86,9 +86,12 @@ public class HighScoreTextBox extends CustomTextBox
 
         final GenericOperatingSystem operatingSystemInterface = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
+        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
         if(AndroidUtil.isAndroid() && !operatingSystemInterface.isOverScan()) {
-            this.addCommand(GameCommandsFactory.getInstance().TOGGLE_KEYBOARD);
+            this.addCommand(gameCommandsFactory.TOGGLE_KEYBOARD);
         }
+        
+        this.addCommand(gameCommandsFactory.QUIT_COMMAND);
 
         this.addCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
 
