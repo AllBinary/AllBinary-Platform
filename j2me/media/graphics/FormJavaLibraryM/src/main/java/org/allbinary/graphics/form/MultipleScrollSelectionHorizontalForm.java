@@ -83,7 +83,7 @@ extends ScrollSelectionForm
 
                 if (dx >= this.rectangle.getMaxX())
                 {
-                    PreLogUtil.put("painting beyone maxx", this, "paint");
+                    PreLogUtil.put("painting beyond maxx: " + this.rectangle.getMaxX(), this, "paint");
                     //break;
                 }
                 
