@@ -206,6 +206,9 @@ public class GameCommandCanvas
             displayInfo.getLastWidth() - 30,
             startY);
 
+        //LogUtil.put(LogFactory.getInstance(displayInfo.toString(), this, "createRectangle"));
+        //LogUtil.put(LogFactory.getInstance(rectangle.toString(), this, "createRectangle"));
+        
         return rectangle;
     }
 
