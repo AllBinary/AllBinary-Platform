@@ -11,9 +11,12 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.game.displayable.canvas;
+package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Canvas;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *
@@ -31,7 +34,17 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
     }
     
     public void repaint(final Canvas canvas) {
-        canvas.repaint();
+        final Thread thread = new Thread(new Runnable() {
+            public void run() {
+                try {
+                    canvas.repaint();
+                    DisplayInfoSingleton.getInstance().process();
+                } catch(Exception e) {
+                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                }
+            }
+        });
+        thread.start();
     }
     
     public void onChangeRepaint(final Canvas canvas) {
