@@ -35,23 +35,23 @@ public class AndroidOperatingSystemFactory {
     {
     }
 
-    public OperatingSystemInterface getOperatingSystemInstance() throws Exception
+    public GenericOperatingSystem getOperatingSystemInstance() throws Exception
     {
         try
         {
-            OperatingSystemInterface operatingSystemInterface;
+            GenericOperatingSystem GenericOperatingSystem;
             final SystemProperties systemProperties = SystemProperties.getInstance();
             String osName = systemProperties.getName();
 
             if(osName.compareTo(OperatingSystems.getInstance().ANDROID)==0)
             {
-                operatingSystemInterface = new AndroidOperatingSystem();
+                GenericOperatingSystem = new AndroidOperatingSystem();
             }
             else
             {
                 if(OperatingSystems.getInstance().isUnknownSpecificOSAllowed())
                 {
-                    operatingSystemInterface = new AndroidOperatingSystem();
+                    GenericOperatingSystem = new AndroidOperatingSystem();
                 }
                 else
                 {
@@ -59,7 +59,7 @@ public class AndroidOperatingSystemFactory {
                 }
             }
 
-            return operatingSystemInterface;
+            return GenericOperatingSystem;
         }
         catch(Exception e)
         {

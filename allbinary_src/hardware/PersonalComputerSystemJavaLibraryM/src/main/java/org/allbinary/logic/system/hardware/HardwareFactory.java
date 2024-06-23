@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.system.hardware;
 
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystems;
 
 public class HardwareFactory
@@ -23,7 +23,7 @@ public class HardwareFactory
     {
     }
 
-    public static HardwareInterface getInstance(OperatingSystemInterface os) throws Exception
+    public static HardwareInterface getInstance(GenericOperatingSystem os) throws Exception
     {
         try
         {

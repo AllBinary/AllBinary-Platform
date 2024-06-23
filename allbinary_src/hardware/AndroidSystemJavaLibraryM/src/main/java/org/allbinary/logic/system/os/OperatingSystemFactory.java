@@ -27,14 +27,14 @@ public class OperatingSystemFactory
         return instance;
     }
     
-    private OperatingSystemInterface operatingSystemInterface;
+    private GenericOperatingSystem GenericOperatingSystem;
     private boolean hasDetected = false;
     
     private OperatingSystemFactory()
     {
     }
     
-    public synchronized OperatingSystemInterface getOperatingSystemInstance()
+    public synchronized GenericOperatingSystem getOperatingSystemInstance()
     {
         try
         {
@@ -50,11 +50,11 @@ public class OperatingSystemFactory
                 {
                     LogUtil.put(LogFactory.getInstance("Found a Linux OS", this, CommonStrings.getInstance().GET_INSTANCE));
 
-                    operatingSystemInterface = 
+                    GenericOperatingSystem = 
                         AndroidOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                     
                     //PreLogUtil.put(log.toString());
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Operating System Info: ").append(operatingSystemInterface.toString()).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Operating System Info: ").append(GenericOperatingSystem.toString()).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
                 }
                 else
                 {
@@ -64,12 +64,12 @@ public class OperatingSystemFactory
         }
         catch(Exception e)
         {
-            operatingSystemInterface = new NoOperatingSystem();
+            GenericOperatingSystem = new NoOperatingSystem();
             
             String error = "Failed to get instance";
             LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET_INSTANCE, e));
         }
         
-        return operatingSystemInterface;
+        return GenericOperatingSystem;
     }
 }

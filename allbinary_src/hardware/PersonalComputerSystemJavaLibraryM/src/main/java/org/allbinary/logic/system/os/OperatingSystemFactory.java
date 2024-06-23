@@ -35,14 +35,14 @@ public class OperatingSystemFactory
         return instance;
     }
     
-    private OperatingSystemInterface operatingSystemInterface;
+    private GenericOperatingSystem GenericOperatingSystem;
     private boolean hasDetected = false;
     
     private OperatingSystemFactory()
     {
     }
     
-    public synchronized OperatingSystemInterface getOperatingSystemInstance() //throws Exception
+    public synchronized GenericOperatingSystem getOperatingSystemInstance() //throws Exception
     {
         try
         {
@@ -64,8 +64,8 @@ public class OperatingSystemFactory
                         LogUtil.put(LogFactory.getInstance("Found a Linux OS", this, "getInstance()"));
                     }
                     
-                    this.operatingSystemInterface =
-                        (OperatingSystemInterface) 
+                    this.GenericOperatingSystem =
+                        (GenericOperatingSystem) 
                         LinuxOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
                 else if(osName.indexOf(operatingSystems.WINDOWS) >= 0)
@@ -74,8 +74,8 @@ public class OperatingSystemFactory
                     {
                         LogUtil.put(LogFactory.getInstance("Found a Windows OS", this, "getInstance()"));
                     }
-                    this.operatingSystemInterface =
-                        (OperatingSystemInterface) 
+                    this.GenericOperatingSystem =
+                        (GenericOperatingSystem) 
                         WindowsOperatingSystemFactory.getInstance().getOperatingSystemInstance();
                 }
                 else if(osName.indexOf(operatingSystems.SOLARIS) >= 0)
@@ -85,8 +85,8 @@ public class OperatingSystemFactory
                         LogUtil.put(LogFactory.getInstance("Found a Solaris OS", this, "getInstance()"));
                     }
                     
-                    this.operatingSystemInterface =
-                        (OperatingSystemInterface) new Solaris();
+                    this.GenericOperatingSystem =
+                        (GenericOperatingSystem) new Solaris();
                 }
                 else
                 {
@@ -94,11 +94,11 @@ public class OperatingSystemFactory
                 }
             }
             
-            Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(this.operatingSystemInterface).toString(), "OperatingSystemFactory", "getInstance()");
+            Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(this.GenericOperatingSystem).toString(), "OperatingSystemFactory", "getInstance()");
             System.out.println(log.toString());
             LogUtil.put(log);
             
-            return this.operatingSystemInterface;
+            return this.GenericOperatingSystem;
         }
         catch(Exception e)
         {

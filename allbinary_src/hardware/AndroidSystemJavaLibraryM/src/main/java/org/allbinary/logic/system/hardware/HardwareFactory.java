@@ -17,7 +17,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.hardware.android.AndroidHardware;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.os.OperatingSystems;
 
 public class HardwareFactory
@@ -33,7 +33,7 @@ public class HardwareFactory
     {
     }
 
-    public HardwareInterface getInstance(OperatingSystemInterface os) throws Exception
+    public HardwareInterface getInstance(GenericOperatingSystem os) throws Exception
     {
         try
         {

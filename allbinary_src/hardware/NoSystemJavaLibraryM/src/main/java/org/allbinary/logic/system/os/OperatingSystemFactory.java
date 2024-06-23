@@ -29,13 +29,13 @@ public class OperatingSystemFactory
         return instance;
     }
 
-    private OperatingSystemInterface operatingSystemInterface = new NoOperatingSystem();
+    private GenericOperatingSystem GenericOperatingSystem = new NoOperatingSystem();
 
     private OperatingSystemFactory()
     {
     }
     
-    public synchronized OperatingSystemInterface getOperatingSystemInstance()
+    public synchronized GenericOperatingSystem getOperatingSystemInstance()
     {
         try
         {
@@ -43,7 +43,7 @@ public class OperatingSystemFactory
             //String osArch = SystemProperties.getArch();
             //String osVersion = SystemProperties.getVersion();
 
-            final String osString = new StringMaker().append("OperatingSystem Info: ").append(operatingSystemInterface.toString()).toString();
+            final String osString = new StringMaker().append("OperatingSystem Info: ").append(GenericOperatingSystem.toString()).toString();
             System.out.println(osString);
             LogUtil.put(LogFactory.getInstance(osString, this, "getInstance()"));
 
@@ -57,6 +57,6 @@ public class OperatingSystemFactory
                 LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()", e));
             //}
         }
-        return operatingSystemInterface;
+        return GenericOperatingSystem;
     }
 }
