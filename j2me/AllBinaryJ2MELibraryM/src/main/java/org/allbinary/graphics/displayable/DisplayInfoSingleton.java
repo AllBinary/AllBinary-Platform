@@ -56,7 +56,7 @@ public class DisplayInfoSingleton
     private int xOffset;
     private int yOffset;
 
-    public float scaleLargestTo = 640;
+    public float scaleLargestTo = 1080;
     //640
     /*
     Test Android Scaling resolutions
