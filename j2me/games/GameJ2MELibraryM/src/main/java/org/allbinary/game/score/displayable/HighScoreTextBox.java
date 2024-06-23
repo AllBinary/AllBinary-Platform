@@ -14,16 +14,16 @@
 package org.allbinary.game.score.displayable;
 
 import javax.microedition.lcdui.CommandListener;
-import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.TextField;
+import javax.microedition.lcdui.Graphics;
 
+import org.allbinary.AndroidUtil;
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.score.HighScore;
-import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresResultsListener;
@@ -64,7 +64,7 @@ public class HighScoreTextBox extends CustomTextBox
         
         //LogUtil.put(LogFactory.getInstance("Score: ").append(score, this, "compare"));
 
-        final OperatingSystemInterface operatingSystemInterface
+        final GenericOperatingSystem operatingSystemInterface
                 = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
         if (operatingSystemInterface.isOverScan()) {
@@ -84,10 +84,9 @@ public class HighScoreTextBox extends CustomTextBox
     {
         this.removeAllCommands();
 
-        final OperatingSystemInterface operatingSystemInterface
-                = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+        final GenericOperatingSystem operatingSystemInterface = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
-        if (!operatingSystemInterface.isOverScan()) {
+        if(AndroidUtil.isAndroid() && !operatingSystemInterface.isOverScan()) {
             this.addCommand(GameCommandsFactory.getInstance().TOGGLE_KEYBOARD);
         }
 

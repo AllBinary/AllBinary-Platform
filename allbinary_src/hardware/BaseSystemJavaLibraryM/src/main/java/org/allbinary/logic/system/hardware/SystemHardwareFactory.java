@@ -18,7 +18,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 /**
  *
@@ -35,7 +35,7 @@ public class SystemHardwareFactory {
    
     }
     
-    public HardwareInterface getInstance(OperatingSystemInterface operatingSystemInterface)
+    public HardwareInterface getInstance(GenericOperatingSystem operatingSystemInterface)
     {
       try
       {

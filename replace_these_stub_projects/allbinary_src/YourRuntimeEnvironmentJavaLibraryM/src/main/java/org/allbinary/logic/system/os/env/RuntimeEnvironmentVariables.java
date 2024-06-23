@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 
 import org.allbinary.logic.system.os.OperatingSystems;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -42,7 +42,7 @@ public class RuntimeEnvironmentVariables
          Process process = null;
          Properties environmentVariables = new Properties();
          
-         OperatingSystemInterface operatingSystemInterface
+         GenericOperatingSystem operatingSystemInterface
             = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
          
          String osName = operatingSystemInterface.getName();
@@ -220,7 +220,7 @@ public class RuntimeEnvironmentVariables
       try
       {
          Process process = null;
-         OperatingSystemInterface operatingSystemInterface
+         GenericOperatingSystem operatingSystemInterface
             = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
          OperatingSystems operatingSystems =

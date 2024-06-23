@@ -17,13 +17,13 @@ import java.util.Hashtable;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 public interface AbeClientInformationInterface
 {
     void init();
 
-    OperatingSystemInterface getOperatingSystemInterface();
+    GenericOperatingSystem getOperatingSystemInterface();
 
     String getName();
 

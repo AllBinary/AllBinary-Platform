@@ -15,7 +15,7 @@ package org.allbinary.logic.system.hardware;
 
 import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.NoHardware;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 public class HardwareFactory
 {

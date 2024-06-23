@@ -22,7 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
@@ -142,7 +142,7 @@ public class DisplayInfoSingleton
             .toString(), this, SET_LAST_SIZE_METHOD_NAME));
 
         //LogUtil.put(LogFactory.getInstance("Changing", this, SET_LAST_SIZE_METHOD_NAME));
-        final OperatingSystemInterface operatingSystemInterface
+        final GenericOperatingSystem operatingSystemInterface
             = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
         if (operatingSystemInterface.isOverScan()) {
@@ -283,7 +283,7 @@ public class DisplayInfoSingleton
                 LogUtil.put(LogFactory.getInstance(stringMaker.append(UPDATE_FROM_ORIENTATION_CHANGE)
                         .toString(), this, commonStrings.UPDATE));
 
-                final OperatingSystemInterface operatingSystemInterface
+                final GenericOperatingSystem operatingSystemInterface
                         = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
                 if(operatingSystemInterface.isOverScan())

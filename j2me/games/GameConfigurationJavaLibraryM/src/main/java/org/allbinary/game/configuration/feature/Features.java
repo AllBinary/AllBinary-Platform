@@ -20,7 +20,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.game.configuration.event.GameFeatureEvent;
 import org.allbinary.game.configuration.event.GameFeatureEventHandler;
 import org.allbinary.logic.string.CommonLabels;
@@ -122,7 +122,7 @@ public class Features
             this.addDefault(gameFeatureFactory.SCREEN_SHAKE);
             this.addDefault(gameFeatureFactory.POST_IMAGE_LOADING_MODIFICATION);
             
-            final OperatingSystemInterface operatingSystemInterface
+            final GenericOperatingSystem operatingSystemInterface
                     = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 
             if (operatingSystemInterface.isOverScan()) {

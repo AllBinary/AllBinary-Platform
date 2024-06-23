@@ -14,14 +14,14 @@
 package org.allbinary.game.paint;
 
 import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.graphics.color.BasicColor;
 
 public class ColorFillPaintableFactory
 {
     public static ColorFillBasePaintable getInstance(final BasicColor basicColor, final boolean forThreedCanvas)
     {
-        final OperatingSystemInterface operatingSystem = 
+        final GenericOperatingSystem operatingSystem = 
                 OperatingSystemFactory.getInstance().getOperatingSystemInstance();
         
         if(operatingSystem.isOverScan())

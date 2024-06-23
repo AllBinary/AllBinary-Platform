@@ -21,12 +21,12 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.system.hardware.SystemHardwareFactory;
-import org.allbinary.logic.system.os.OperatingSystemInterface;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
 
 // This is the information sent to the license server
 public class ClientInformation implements AbeClientInformationInterface
 {
-    private OperatingSystemInterface operatingSystemInterface;
+    private GenericOperatingSystem operatingSystemInterface;
     private final String name;
     private final String shortName;
     private final String version;
@@ -57,7 +57,7 @@ public class ClientInformation implements AbeClientInformationInterface
      * @seeabcs.logic.system.security.licensing.AbeClientInformationInterface#
      * getOperatingSystemInterface()
      */
-    public OperatingSystemInterface getOperatingSystemInterface()
+    public GenericOperatingSystem getOperatingSystemInterface()
     {
         return operatingSystemInterface;
     }
@@ -237,7 +237,7 @@ public class ClientInformation implements AbeClientInformationInterface
         return hardSale;
     }
 
-    protected void setOperatingSystemInterface(OperatingSystemInterface operatingSystemInterface)
+    protected void setOperatingSystemInterface(GenericOperatingSystem operatingSystemInterface)
     {
         this.operatingSystemInterface = operatingSystemInterface;
     }
