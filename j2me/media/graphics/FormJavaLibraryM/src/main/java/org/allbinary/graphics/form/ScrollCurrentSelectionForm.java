@@ -34,10 +34,10 @@ extends ScrollSelectionForm
 
     private final boolean moveForSmallScreen;
 
-    public ScrollCurrentSelectionForm(String title, CustomItem[] items,
-            ItemPaintableFactory formPaintableFactory, Rectangle rectangle,
-            FormType formType, int border, boolean moveForSmallScreen,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) 
+    public ScrollCurrentSelectionForm(final String title, final CustomItem[] items,
+            final ItemPaintableFactory formPaintableFactory, final Rectangle rectangle,
+            final FormType formType, final int border, final boolean moveForSmallScreen,
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
         throws Exception
     {
         super(title, items, formPaintableFactory, rectangle, formType, border,
@@ -48,10 +48,10 @@ extends ScrollSelectionForm
         this.init();
     }
     
-    public ScrollCurrentSelectionForm(String title, CustomItem[] items,
-            Rectangle rectangle, FormType formType, 
-            int border, boolean moveForSmallScreen,
-            BasicColor backgroundBasicColor, BasicColor foregroundBasicColor) 
+    public ScrollCurrentSelectionForm(final String title, final CustomItem[] items,
+            final Rectangle rectangle, final FormType formType, 
+            final int border, final boolean moveForSmallScreen,
+            final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) 
         throws Exception
     {
         super(title, items, rectangle, formType, border, backgroundBasicColor, foregroundBasicColor);
@@ -61,7 +61,7 @@ extends ScrollSelectionForm
         this.init();
     }
 
-    public void init(Rectangle rectangle, FormType formType)
+    public void init(final Rectangle rectangle, final FormType formType)
     throws Exception
     {
         super.init(rectangle, formType);
@@ -70,7 +70,7 @@ extends ScrollSelectionForm
 
     public void init()
     {
-        FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
+        final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
 
         if (this.formType == formTypeFactory.TEMP_HORIZONTAL_FORM)
         {
