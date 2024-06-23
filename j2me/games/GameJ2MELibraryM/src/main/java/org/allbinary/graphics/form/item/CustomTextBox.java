@@ -30,6 +30,7 @@ import org.allbinary.graphics.form.item.validation.TextItemVisitor;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class CustomTextBox extends GameCommandCanvas
@@ -102,23 +103,28 @@ public class CustomTextBox extends GameCommandCanvas
     
     public void keyPressed(final int keyCode, final int deviceId)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED));
-        
-        final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
-        
-        final Input input = inputFactory.getInstance(keyCode);
-        
-        if (platformKeyFactory.isSubmission(input))
-        {
-            this.submit();
-            //PreLogUtil.put("Should Delete", this, gameInputStrings.KEY_PRESSED);
-            //this.deleteAtText();
-        } else {
-            this.textFieldItem.keyPressed(keyCode);
-            //if(!)
-            //{
+        try {
+
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonSeps.getInstance().SPACE).append(keyCode).toString(), this, gameInputStrings.KEY_PRESSED));
+
+            final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
+
+            final Input input = inputFactory.getInstance(keyCode);
+
+            if (platformKeyFactory.isSubmission(input)) {
+                this.submit();
+                //PreLogUtil.put("Should Delete", this, gameInputStrings.KEY_PRESSED);
+                //this.deleteAtText();
+            } else {
+                this.textFieldItem.keyPressed(keyCode);
+                //if(!)
+                //{
                 //super.keyPressed(keyCode);
-            //}
+                //}
+            }
+            
+        } catch(Exception e) {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "keyPressed", e));
         }
     }
 
