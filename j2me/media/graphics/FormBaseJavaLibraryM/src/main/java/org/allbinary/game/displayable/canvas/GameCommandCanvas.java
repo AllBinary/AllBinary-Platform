@@ -45,6 +45,7 @@ import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
+import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormPaintable;
 import org.allbinary.graphics.form.FormType;
@@ -117,18 +118,16 @@ public class GameCommandCanvas
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
 
-    public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
+    public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
     {
         try
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.START, this, 
                     DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
             
-            FormType formType = FormTypeFactory.getInstance().getFormType();
-            
-            Rectangle rectangle = FormUtil.getInstance().createFormRectangle();
+            final Rectangle rectangle = this.createRectangle(this.menuForm.size());
 
-            this.menuForm.init(rectangle, formType);
+            this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
             
             this.repaint();
 
@@ -163,10 +162,10 @@ public class GameCommandCanvas
     }
 
     protected void initMenu() throws Exception
-    {        
+    { 
         final ScrollSelectionForm form = this.createForm();
 
-        this.setMenuForm(form);
+        this.menuForm = form;
         
         if(form != ScrollSelectionFormNoneFactory.getInstance())
         {
@@ -174,7 +173,7 @@ public class GameCommandCanvas
                     new ImmediateCommandFormInputProcessor(
                     new BasicArrayList(), -1, this, form));
 
-            this.menuPaintable = new FormPaintable(form);            
+            this.menuPaintable = new FormPaintable(form);
         }
     }
 
@@ -186,14 +185,9 @@ public class GameCommandCanvas
                 this.backgroundBasicColor, this.foregroundBasicColor
                 );
 
-        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final Rectangle rectangle = this.createRectangle(items.length);
 
-        final Rectangle rectangle = new Rectangle(
-            PointFactory.getInstance().getInstance(30, 30 + displayInfo.getLastHalfHeight()),
-            displayInfo.getLastWidth() - 30,
-            displayInfo.getLastHalfHeight() - 30);
-        
-            return CommandCurrentSelectionFormFactory.getInstance(
+        return CommandCurrentSelectionFormFactory.getInstance(
             //"Menu",
             StringUtil.getInstance().EMPTY_STRING,
             items,
@@ -203,7 +197,21 @@ public class GameCommandCanvas
             this.backgroundBasicColor, this.foregroundBasicColor
             );
     }
-    
+
+    public Rectangle createRectangle(final int size) {
+        
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        
+        final int startY = displayInfo.getLastHeight() - (displayInfo.getLastHalfHeight() - ((size * MyFont.getInstance().DEFAULT_CHAR_HEIGHT)));
+
+        final Rectangle rectangle = new Rectangle(
+            PointFactory.getInstance().getInstance(30, startY),
+            displayInfo.getLastWidth() - 30,
+            startY);
+
+        return rectangle;
+    }
+
     public void open()
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "open"));
@@ -359,13 +367,4 @@ public class GameCommandCanvas
         return menuInputProcessor;
     }
 
-    protected void setMenuForm(PaintableForm menuForm)
-    {
-        this.menuForm = menuForm;
-    }
-
-    protected PaintableForm getMenuForm()
-    {
-        return menuForm;
-    }
 }
