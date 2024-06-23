@@ -200,7 +200,7 @@ implements InputMappingInterface
         this.selectedGameKey = gameKey;
         this.selectedInput = NONE;
         this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
     }
 
     private void gameActionCrud(final GameKey gameKey, final Input input) throws Exception
@@ -227,7 +227,7 @@ implements InputMappingInterface
 
                 this.selectedInput = input;
                 this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
-                this.repaint();
+                this.repaintBehavior.onChangeRepaint(this);
             }
             else
             // Add new mapping
@@ -313,7 +313,7 @@ implements InputMappingInterface
         inputMapping.setDefault(abeClientInformation);
                 //(InputToGameKeyMapping) PlatformInputMappingFactory.getInstance());
         this.helpPaintable.update(NONE, NONE);
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
     }
     
     public void update() throws Exception
@@ -321,7 +321,7 @@ implements InputMappingInterface
         inputMapping.update(abeClientInformation);
                 //(InputToGameKeyMapping) PlatformInputMappingFactory.getInstance());
         this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
     }
 
     public void paint(Graphics graphics)

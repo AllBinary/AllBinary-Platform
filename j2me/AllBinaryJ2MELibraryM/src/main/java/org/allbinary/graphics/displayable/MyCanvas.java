@@ -19,6 +19,8 @@ import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.game.displayable.canvas.AlwaysRepaintBehavior;
+import org.allbinary.game.displayable.canvas.RepaintBehavior;
 
 import org.allbinary.input.TouchJ2ME;
 
@@ -27,6 +29,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
+import org.allbinary.logic.system.os.GenericOperatingSystem;
+import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.media.audio.Sound;
 
 public class MyCanvas extends Canvas 
@@ -38,9 +42,18 @@ public class MyCanvas extends Canvas
     private boolean isPaused;
     private final Stack commandStack;
 
+    public final RepaintBehavior repaintBehavior;
+    
     public MyCanvas()
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
+
+        final GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+        if(operatingSystem.isScalable()) {
+            this.repaintBehavior = AlwaysRepaintBehavior.getInstance();
+        } else {
+            this.repaintBehavior = RepaintBehavior.getInstance();
+        }
         
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.

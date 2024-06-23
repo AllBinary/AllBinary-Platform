@@ -26,8 +26,8 @@ public class BasicPaintablesCanvas extends GameCommandCanvas
     private final Paintable[] paintableArray;
     private final ColorFillBasePaintable colorFillPaintable;
 
-    public BasicPaintablesCanvas(CommandListener cmdListener, 
-            AllBinaryGameLayerManager allBinaryGameLayerManager, Paintable[] paintableArray)
+    public BasicPaintablesCanvas(final CommandListener cmdListener, 
+            final AllBinaryGameLayerManager allBinaryGameLayerManager, final Paintable[] paintableArray)
             throws Exception
     {
 
@@ -50,7 +50,7 @@ public class BasicPaintablesCanvas extends GameCommandCanvas
     }
     */
 
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);
     

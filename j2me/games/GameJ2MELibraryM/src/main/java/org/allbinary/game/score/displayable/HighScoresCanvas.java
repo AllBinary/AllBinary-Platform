@@ -128,7 +128,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                 hasPainted = false;
                 final StringMaker stringMaker = new StringMaker();
                 LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
-                repaint();
+                repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
                 while(!hasPainted) {
                 }
                 stringMaker.delete(0,  stringMaker.length());
@@ -259,7 +259,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         super.initMenu();
         this.open();
 
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
     }
 
     public GameInfo getGameInfo()
@@ -270,7 +270,7 @@ public class HighScoresCanvas extends GameCommandCanvas
     private void setPaintable(Paintable paintable)
     {
         this.paintable = paintable;
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
     }
 
 }

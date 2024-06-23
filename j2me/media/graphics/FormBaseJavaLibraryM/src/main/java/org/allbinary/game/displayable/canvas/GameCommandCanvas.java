@@ -48,7 +48,6 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormPaintable;
-import org.allbinary.graphics.form.FormType;
 import org.allbinary.graphics.form.FormTypeFactory;
 import org.allbinary.graphics.form.PaintableForm;
 import org.allbinary.graphics.form.ScrollSelectionForm;
@@ -95,12 +94,12 @@ public class GameCommandCanvas
     
     private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
-    
+
     public GameCommandCanvas(final CommandListener cmdListener, 
             final BasicColor backgroundBasicColor, 
             final BasicColor foregroundBasicColor)
         throws Exception
-    {
+    {        
         this.foregroundBasicColor = foregroundBasicColor;
         this.backgroundBasicColor = backgroundBasicColor;
         this.foregroundColor = foregroundBasicColor.intValue();
@@ -109,8 +108,6 @@ public class GameCommandCanvas
         this.initCommands(cmdListener);
 
         this.initMenu();
-
-        //AndroidUtil.isAndroid();
     }
     
     public void onEvent(final AllBinaryEventObject eventObject)
@@ -129,7 +126,7 @@ public class GameCommandCanvas
 
             this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
             
-            this.repaint();
+            this.repaintBehavior.onChangeRepaint(this);
 
         }
         catch(Exception e)
@@ -174,7 +171,7 @@ public class GameCommandCanvas
             this.menuPaintable = new FormPaintable(form);
         }
         
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
     }
 
     public ScrollSelectionForm createForm() throws Exception {
@@ -309,7 +306,7 @@ public class GameCommandCanvas
         }
     }
 
-    private void removeGameKeyEvent(int keyCode, int deviceId, boolean repeated)
+    private void removeGameKeyEvent(final int keyCode, final int deviceId, final boolean repeated)
     {
         try
         {
@@ -349,6 +346,7 @@ public class GameCommandCanvas
     public void paint(final Graphics graphics)
     {
         this.menuPaintable.paint(graphics);
+        this.repaintBehavior.repaint(this);
     }
 
     private void setMenuInputProcessor(final BasicMenuInputProcessor menuInputProcessor)

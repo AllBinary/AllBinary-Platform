@@ -50,7 +50,7 @@ public class ImmediateCommandFormInputProcessor
             if (timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaint();
+                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)
@@ -71,7 +71,7 @@ public class ImmediateCommandFormInputProcessor
             if (this.timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaint();
+                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)
@@ -92,7 +92,7 @@ public class ImmediateCommandFormInputProcessor
             if (timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaint();
+                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)
@@ -112,7 +112,7 @@ public class ImmediateCommandFormInputProcessor
             if (timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaint();
+                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)

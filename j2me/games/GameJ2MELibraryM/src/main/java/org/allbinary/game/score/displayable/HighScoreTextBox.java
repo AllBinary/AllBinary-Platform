@@ -108,7 +108,7 @@ public class HighScoreTextBox extends CustomTextBox
         this.virtualKeyboardEventHandler.close();
 
         this.paintable = this.pleaseWait;
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
 
         super.close();
         this.removeCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
@@ -116,7 +116,7 @@ public class HighScoreTextBox extends CustomTextBox
         this.highScoreUtil.saveHighScore();
 
         this.paintable = NullPaintable.getInstance();
-        this.repaint();
+        this.repaintBehavior.onChangeRepaint(this);
     }
 
     private void update()
