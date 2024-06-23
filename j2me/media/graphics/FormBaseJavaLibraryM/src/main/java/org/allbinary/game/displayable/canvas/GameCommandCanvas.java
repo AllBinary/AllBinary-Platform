@@ -199,7 +199,7 @@ public class GameCommandCanvas
         
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
-        final int startY = (displayInfo.getLastHeight() * 2 / 3) - ((size * MyFont.getInstance().DEFAULT_CHAR_HEIGHT * 2));
+        final int startY = (displayInfo.getLastHeight() * 2 / 3) - ((size * MyFont.getInstance().DEFAULT_CHAR_HEIGHT));
 
         final Rectangle rectangle = new Rectangle(
             PointFactory.getInstance().getInstance(30, startY),
