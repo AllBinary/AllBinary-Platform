@@ -199,7 +199,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, "processMotionInput"));
        //PreLogUtil.put(commonStrings.START, this, "processMotionInput");
        
-       final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
+      final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
       final MotionGestureInput motionGestureInput = motionGestureEvent.getMotionGesture();
 
       if (motionGestureInput == touchMotionGestureFactory.RELEASED)
