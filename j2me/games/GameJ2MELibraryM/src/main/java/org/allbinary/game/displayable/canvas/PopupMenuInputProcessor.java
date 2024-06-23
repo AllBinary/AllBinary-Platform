@@ -27,6 +27,9 @@ import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.RectangleCollisionUtil;
 import org.allbinary.time.TimeDelayHelper;
 
@@ -159,7 +162,7 @@ public class PopupMenuInputProcessor extends BasicMenuInputProcessor
         {
             GPoint point = motionGestureEvent.getCurrentPoint();
             
-            //PreLogUtil.put("Rect: ").append(rectangle.toString()).append(" ").append(point.toString(), this, "processMotionInput");
+            //PreLogUtil.put(new StringMaker().append("Rect: ").append(rectangle.toString()).append(CommonSeps.getInstance().SPACE).append(point.toString()).toString(), this, "processMotionInput");
             
             GPoint rectPoint = rectangle.getPoint();
             if (rectangleCollisionUtil.isInside(

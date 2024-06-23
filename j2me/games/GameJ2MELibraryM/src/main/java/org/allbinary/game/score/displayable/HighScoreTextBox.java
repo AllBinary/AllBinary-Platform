@@ -13,7 +13,6 @@
 */
 package org.allbinary.game.score.displayable;
 
-import org.allbinary.graphics.form.item.CustomTextBox;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.TextField;
@@ -30,6 +29,7 @@ import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.HighScoresResultsListener;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.form.item.CustomTextBox;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;

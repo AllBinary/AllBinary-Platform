@@ -26,10 +26,10 @@ import org.allbinary.game.input.InputFactory;
 import org.allbinary.game.input.PlatformKeyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.item.validation.TextItemVisitor;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
@@ -146,7 +146,7 @@ public class CustomTextBox extends GameCommandCanvas
         //g.setClip(3, 3, getWidth() - 6, viewPortHeight - 6);
         //g.translate(3, 3);
         //g.translate(0, -viewPortY);
-        this.paint(graphics, 1, 14);
+        this.paint(graphics, 1, graphics.getFont().getHeight() + 2);
         
         super.paint(graphics);
     }
