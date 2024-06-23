@@ -60,22 +60,23 @@ public class ScrollSelectionForm extends PaintableForm
 
         this.buttonBasicColor = foregroundBasicColor;
         
-        for (int index = 0; index < items.length; index++)
-        {
-            CustomItemInterface item = (CustomItemInterface) items[index];
-            //item.setOwner(this);
-        }
+//        final int size = items.length;
+//        for (int index = 0; index < size; index++)
+//        {
+//            CustomItemInterface item = (CustomItemInterface) items[index];
+//            //item.setOwner(this);
+//        }
         this.border = border;
         this.halfBorder = (border >> 1);
     }
 
-    public int append(CustomItem item)
+    public int append(final CustomItem item)
     {
         //((FormItemInterface) item).setOwner(this);
         return super.append(item);
     }
 
-    public CustomItem getSelectedItem(GPoint point)
+    public CustomItem getSelectedItem(final GPoint point)
         throws Exception
     {
         int index = this.getSelectedIndex(point);
@@ -90,7 +91,7 @@ public class ScrollSelectionForm extends PaintableForm
         }
     }
 
-    public int getItemIndex(CustomItem item)
+    public int getItemIndex(final CustomItem item)
         throws Exception
     {
         final int size = this.size();
@@ -117,8 +118,8 @@ public class ScrollSelectionForm extends PaintableForm
     
     public int getSelectedIndex(final GPoint point) throws Exception
     {
-        int start = this.getStartIndex();
-        int size = this.size();
+        final int start = this.getStartIndex();
+        final int size = this.size();
         int dx = this.getDx();
         int dy = this.getDy();
 
@@ -172,8 +173,8 @@ public class ScrollSelectionForm extends PaintableForm
             //if (RectangleCollisionUtil.isInside(dx, dy, dx + width, this.rectangle.getMaxY(),
             
             if (rectangleCollisionUtil.isInside(
-                diffX, dy - this.halfBorder, diffX + width + this.border, dy + height + this.halfBorder + 1,
-                    point.getX(), point.getY()))
+                diffX, dy - this.halfBorder, diffX + width + this.border, dy + height + this.halfBorder + 1, 
+                point.getX(), point.getY()))
             {
                 stringBuffer.delete(0, stringBuffer.length());
                 
