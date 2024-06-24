@@ -23,6 +23,9 @@ public class ScaleProperties {
     
     public static final ScaleProperties instance = new ScaleProperties();
 
+//    public int width = 640;
+//    public int height = 480;
+    
     public int scaleX = 1;
     public int scaleY = 1;
 
