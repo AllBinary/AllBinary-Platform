@@ -3,6 +3,7 @@ package org.allbinary.game.score;
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
@@ -23,9 +24,11 @@ public class BasicHighScoresFactory extends HighScoresBase
     private final String SCORES = "Scores";
     private final String PERSONAL_HIGH_SCORES = "Personal Top Scores";
 
+    private final String FETCH = "fetchHighScores";
+    
     public void fetchHighScores(final GameInfo gameInfo, final HighScoresResultsListener highScoresResultsListener) {
         
-        LogUtil.put(LogFactory.getInstance("Getting Local HighScores", this, "fetchHighScores"));
+        LogUtil.put(LogFactory.getInstance("Getting Local HighScores", this, FETCH));
         this.fetchHighScores(gameInfo, highScoresResultsListener, true);
     }
     
@@ -39,7 +42,7 @@ public class BasicHighScoresFactory extends HighScoresBase
 
             highScoresResultsListener.setHighScoresArray(highScoresArray);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "createHighScores", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, FETCH, e));
 
             //super.createHighScores(gameInfo);
         }

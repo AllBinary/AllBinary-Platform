@@ -47,7 +47,7 @@ public class HighScoreTextBox extends CustomTextBox
     private final Paintable pleaseWait = 
         new SimpleTextPaintable(commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
     
-    private final HighScoresResultsListener highScoresResultsListener;
+    //private final HighScoresResultsListener highScoresResultsListener;
     
     private Paintable paintable = NullPaintable.getInstance();
 
@@ -58,7 +58,7 @@ public class HighScoreTextBox extends CustomTextBox
         super(cmdListener, "New High Score Enter Name:", name, 12, TextField.ANY, 
                 backgrounBasicColor, foregroundBasicColor);
 
-        this.highScoresResultsListener = highScoresHelper;
+        //this.highScoresResultsListener = highScoresHelper;
 
         highScoreUtil = new HighScoreUtil(highScoresFactoryInterface, highScoresHelper, abeClientInformation, gameInfo, cmdListener, name, highScore);
         
