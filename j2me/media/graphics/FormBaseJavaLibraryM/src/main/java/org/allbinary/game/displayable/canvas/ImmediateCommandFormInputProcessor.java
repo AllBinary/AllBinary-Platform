@@ -32,10 +32,10 @@ public class ImmediateCommandFormInputProcessor
     public ImmediateCommandFormInputProcessor(
         BasicArrayList gameKeyEventList,
         int playerInputId, 
-        GameCommandCanvas gameCanvas,
+        GameCommandCanvas gameCommandCanvas,
         ScrollSelectionForm form)
     {
-        super(gameKeyEventList, playerInputId, gameCanvas, form);
+        super(gameKeyEventList, playerInputId, gameCommandCanvas, form);
         
         this.gameCommandCanvas = gameCommandCanvas;
     }
