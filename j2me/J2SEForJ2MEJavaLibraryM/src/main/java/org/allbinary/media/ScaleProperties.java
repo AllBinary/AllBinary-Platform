@@ -13,8 +13,6 @@
  */
 package org.allbinary.media;
 
-//import java.awt.Dimension;
-//import java.awt.Toolkit;
 import org.allbinary.logic.string.StringMaker;
 
 /**
@@ -24,8 +22,6 @@ import org.allbinary.logic.string.StringMaker;
 public class ScaleProperties {
     
     public static final ScaleProperties instance = new ScaleProperties();
-    
-    //final Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
 
     public float scaleX;
     public float scaleY;

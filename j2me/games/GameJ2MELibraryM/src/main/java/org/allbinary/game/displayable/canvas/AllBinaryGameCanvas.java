@@ -1520,7 +1520,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         synchronized (this)
         {
             //TWB - Playn Testing - was remarked for GameFrameRunnable but I guess I don't need that runnable?
-            ThreadObjectUtil.getInstance().notifyObject(this);
+            this.threadObjectUtil.notifyObject(this);
         }
     }
 
@@ -1624,7 +1624,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     synchronized (this)
                     {
                         // PreLogUtil.put("Wait", this, commonStrings.RUN);
-                        ThreadObjectUtil.getInstance().waitObject(this);
+                        this.threadObjectUtil.waitObject(this);
                         // PreLogUtil.put("Notified", this, commonStrings.RUN);
                     }
 

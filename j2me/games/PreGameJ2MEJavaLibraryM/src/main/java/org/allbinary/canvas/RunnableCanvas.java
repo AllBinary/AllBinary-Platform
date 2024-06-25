@@ -42,6 +42,8 @@ public class RunnableCanvas extends MyCanvas
 
     protected final CommonLabels commonLabels = CommonLabels.getInstance();
     
+    protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
+    
     public RunnableCanvas(final CommandListener commandListener, final boolean hasParam)
     {   
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
@@ -99,7 +101,7 @@ public class RunnableCanvas extends MyCanvas
             this.thread = null;
             synchronized(this)
             {
-                ThreadObjectUtil.getInstance().notifyObject(this);
+                threadObjectUtil.notifyObject(this);
             }
         }
 
@@ -127,7 +129,7 @@ public class RunnableCanvas extends MyCanvas
             return running;
         } else
         {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(THREAD);
             if(this.thread != null)
@@ -183,7 +185,7 @@ public class RunnableCanvas extends MyCanvas
 
     private boolean notified = false;
 
-    public synchronized void stopWaiting()
+    private synchronized void stopWaiting()
     throws Exception
     {
         this.notified = true;
@@ -198,10 +200,10 @@ public class RunnableCanvas extends MyCanvas
         {
             if (wait > 0)
             {
-                ThreadObjectUtil.getInstance().waitObject(this, wait);
+                threadObjectUtil.waitObject(this, wait);
             } else
             {
-                ThreadObjectUtil.getInstance().waitObject(this);
+                threadObjectUtil.waitObject(this);
             }
         }
 

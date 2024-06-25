@@ -10,6 +10,8 @@ import org.allbinary.thread.ThreadObjectUtil;
 
 public class StupidTimer
 {
+    private final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
+    
     public final void visit(
             Visitor visitorInterface, TimeDelayHelper timeDelayHelper)
     throws Exception
@@ -32,7 +34,7 @@ public class StupidTimer
 
             synchronized (this)
             {
-                ThreadObjectUtil.getInstance().waitObject(this, 1800);
+                this.threadObjectUtil.waitObject(this, 1800);
             }
 
             if (timeDelayHelper.isTime())
@@ -57,6 +59,6 @@ public class StupidTimer
     public synchronized void stopWaiting()
     throws Exception
     {
-        ThreadObjectUtil.getInstance().notifyObject(this);
+        this.threadObjectUtil.notifyObject(this);
     }
 }
