@@ -15,11 +15,9 @@ package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.event.GameKeyEvent;
-import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.time.TimeDelayHelper;
@@ -29,13 +27,17 @@ public class ImmediateCommandFormInputProcessor
 {
     private final TimeDelayHelper timeHelper = new TimeDelayHelper(25);
     
+    protected GameCommandCanvas gameCommandCanvas;
+    
     public ImmediateCommandFormInputProcessor(
         BasicArrayList gameKeyEventList,
         int playerInputId, 
-        MyCanvas gameCanvas,
+        GameCommandCanvas gameCanvas,
         ScrollSelectionForm form)
     {
         super(gameKeyEventList, playerInputId, gameCanvas, form);
+        
+        this.gameCommandCanvas = gameCommandCanvas;
     }
 
     public synchronized void onPressGameKeyEvent(GameKeyEvent gameKeyEvent)
@@ -50,7 +52,7 @@ public class ImmediateCommandFormInputProcessor
             if (timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)
@@ -71,7 +73,7 @@ public class ImmediateCommandFormInputProcessor
             if (this.timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)
@@ -92,7 +94,7 @@ public class ImmediateCommandFormInputProcessor
             if (timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)
@@ -112,7 +114,7 @@ public class ImmediateCommandFormInputProcessor
             if (timeHelper.isTime())
             {
                 this.processInput();
-                this.getCanvas().repaintBehavior.onChangeRepaint(this.getCanvas());
+                this.gameCommandCanvas.repaintBehavior.onChangeRepaint(this.getCanvas());
             }
         }
         catch (Exception e)

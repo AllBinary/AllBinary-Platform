@@ -42,6 +42,7 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.MyCanvas;
+import org.allbinary.graphics.displayable.RepaintBehavior;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
@@ -73,20 +74,8 @@ public class GameCommandCanvas
     protected final BasicColor foregroundBasicColor;
     protected final BasicColor backgroundBasicColor;
 
-    protected int foregroundColor;
-    protected int backgroundColor;
-    private BasicMenuInputProcessor menuInputProcessor =
-        NoMenuInputProcessor.getInstance();
-    private Paintable menuPaintable = NullPaintable.getInstance();
-    
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
-
-    private PaintableForm menuForm;
-
-    private boolean isSingleKeyRepeatableProcessing =
-        Features.getInstance().isFeature(
-        InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
 
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
 
@@ -95,11 +84,33 @@ public class GameCommandCanvas
     private final DownGameKeyEventHandler downGameKeyEventHandler = DownGameKeyEventHandler.getInstance();
     private final UpGameKeyEventHandler upGameKeyEventHandler = UpGameKeyEventHandler.getInstance();
 
+    public final RepaintBehavior repaintBehavior;
+    
+    protected int foregroundColor;
+    protected int backgroundColor;
+    private BasicMenuInputProcessor menuInputProcessor =
+        NoMenuInputProcessor.getInstance();
+    private Paintable menuPaintable = NullPaintable.getInstance();
+    
+    private PaintableForm menuForm;
+
+    private boolean isSingleKeyRepeatableProcessing =
+        Features.getInstance().isFeature(
+        InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
+    
     public GameCommandCanvas(final CommandListener cmdListener, 
             final BasicColor backgroundBasicColor, 
             final BasicColor foregroundBasicColor)
         throws Exception
     {        
+
+        //final GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
+//        if(operatingSystem.isScalable()) {
+//            this.repaintBehavior = AlwaysRepaintBehavior.getInstance();
+//        } else {
+            this.repaintBehavior = RepaintBehavior.getInstance();
+//        }
+
         this.foregroundBasicColor = foregroundBasicColor;
         this.backgroundBasicColor = backgroundBasicColor;
         this.foregroundColor = foregroundBasicColor.intValue();

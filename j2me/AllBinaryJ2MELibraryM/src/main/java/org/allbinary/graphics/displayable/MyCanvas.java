@@ -38,19 +38,12 @@ public class MyCanvas extends Canvas
     private boolean isPaused;
     private final Stack commandStack;
 
-    public final RepaintBehavior repaintBehavior;
+    
     
     public MyCanvas()
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
 
-        //final GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
-//        if(operatingSystem.isScalable()) {
-//            this.repaintBehavior = AlwaysRepaintBehavior.getInstance();
-//        } else {
-            this.repaintBehavior = RepaintBehavior.getInstance();
-//        }
-        
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
         DisplayInfoSingleton.getInstance().update(this, "MyCanvas::MyCanvas");
