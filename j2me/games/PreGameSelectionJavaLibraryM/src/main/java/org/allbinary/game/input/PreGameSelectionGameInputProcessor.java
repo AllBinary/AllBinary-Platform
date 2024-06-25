@@ -37,6 +37,7 @@ import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.ABRunnable;
 import org.allbinary.thread.SecondaryThreadPool;
+import org.allbinary.thread.SoundThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 
 public class PreGameSelectionGameInputProcessor extends Processor implements
@@ -126,7 +127,9 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
                     //PreLogUtil.put("selectedIndex: " + selectedIndex + " LockedUtil.getInstance().isLockedFeature(): " + LockedUtil.getInstance().isLockedFeature(), this, "onInput");
 
                     if (!abRunnable.isRunning()) {
-                        SecondaryThreadPool.getInstance().runTask(abRunnable);
+                        abRunnable.setRunning(true);
+                        final Thread thread = new Thread(abRunnable);
+                        thread.start();
                     }
                     
                     break;

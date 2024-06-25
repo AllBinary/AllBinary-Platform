@@ -32,7 +32,7 @@ import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.media.graphics.geography.map.racetrack.MultiLevelRaceTrackGeographicMapInterfaceFactoryInterface;
 import org.allbinary.thread.ABRunnable;
-import org.allbinary.thread.SecondaryThreadPool;
+import org.allbinary.thread.SoundThreadPool;
 import org.allbinary.time.TimeDelayHelper;
 
 public class MapSelectionGameInputProcessor extends Processor 
@@ -128,8 +128,7 @@ public class MapSelectionGameInputProcessor extends Processor
 
                     if (!abRunnable.isRunning()) {
                         abRunnable.setRunning(true);
-                        //SecondaryThreadPool.getInstance().runTask(abRunnable);
-                        Thread thread = new Thread(abRunnable);
+                        final Thread thread = new Thread(abRunnable);
                         thread.start();
                     }
                     

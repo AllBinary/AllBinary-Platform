@@ -14,6 +14,7 @@
 package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Canvas;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -40,9 +41,10 @@ public class RepaintBehavior {
 
     public void onChangeRepaint(final Canvas canvas) {
 
-        SoundThreadPool.getInstance().runTask(new Runnable() {
+        final Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
+                    //System.out.println("TWB:RepaintBehavior:repaint");
                     canvas.repaint();
                     DisplayInfoSingleton.getInstance().process();
                 } catch (Exception e) {
@@ -50,6 +52,8 @@ public class RepaintBehavior {
                 }
             }
         });
+        thread.start();
+
     }
 
 }
