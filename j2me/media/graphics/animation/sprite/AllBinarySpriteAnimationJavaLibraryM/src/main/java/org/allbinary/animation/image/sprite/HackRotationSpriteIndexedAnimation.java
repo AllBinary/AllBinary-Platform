@@ -14,6 +14,7 @@
 package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.AnimationBehavior;
 
@@ -23,13 +24,16 @@ import org.allbinary.math.AngleInfo;
 
 public class HackRotationSpriteIndexedAnimation extends RotationAnimation
 {
-    protected Sprite sprite;
+    protected final Sprite sprite;
+    private final Image image; 
 
-    public HackRotationSpriteIndexedAnimation(final Sprite sprite, final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
+    public HackRotationSpriteIndexedAnimation(final Sprite sprite, final Image image, final AngleInfo angleInfo, final AnimationBehavior animationBehavior)
     {
         super(angleInfo, animationBehavior);
         
-        this.setSprite(sprite);
+        this.sprite = sprite;
+        this.image = image;
+
     }
 
     /*
@@ -42,11 +46,6 @@ public class HackRotationSpriteIndexedAnimation extends RotationAnimation
     public int getAnimationSize() throws Exception
     {
         return this.getSize();
-    }
-
-    public void setSprite(Sprite sprite)
-    {
-        this.sprite = sprite;
     }
 
     public void paint(final Graphics g, final int frame, final int x, final int y)

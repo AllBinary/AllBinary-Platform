@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.DisposalUtil;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
@@ -24,7 +25,8 @@ import org.allbinary.media.image.ImageModifierUtil;
 import org.allbinary.media.image.ImageRotationUtil;
 
 public class AllBinaryJ2SEImageRotationAnimation 
-extends ImageBaseRotationAnimation
+    extends ImageBaseRotationAnimation
+    implements AutoCloseable
 {
     private final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
@@ -193,6 +195,44 @@ extends ImageBaseRotationAnimation
     public void paint(final Graphics graphics, final int x, final int y)
     {
         graphics.drawImage(this.imageToShow, x, y, anchor);
+    }
+
+    public void close() throws Exception {
+        super.close();
+
+        final DisposalUtil disposalUtil = DisposalUtil.getInstance();
+        
+        final int size2 = this.twoImages.length;
+        for(int index = 0; index < size2; index++) {
+            disposalUtil.dispose(this.twoImages[index]);
+        }
+
+        final int size = this.originalImageArray.length;
+        for(int index = 0; index < size; index++) {
+            disposalUtil.dispose(this.originalImageArray[index]);
+        }
+        
+        disposalUtil.dispose(this.realOriginalImage);
+        disposalUtil.dispose(this.imageToShow);
+    }
+ 
+    protected void finalize() throws Throwable {
+        super.finalize();
+        
+        final DisposalUtil disposalUtil = DisposalUtil.getInstance();
+        
+        final int size2 = this.twoImages.length;
+        for(int index = 0; index < size2; index++) {
+            disposalUtil.dispose(this.twoImages[index]);
+        }
+
+        final int size = this.originalImageArray.length;
+        for(int index = 0; index < size; index++) {
+            disposalUtil.dispose(this.originalImageArray[index]);
+        }
+        
+        disposalUtil.dispose(this.realOriginalImage);
+        disposalUtil.dispose(this.imageToShow);
     }
     
 }

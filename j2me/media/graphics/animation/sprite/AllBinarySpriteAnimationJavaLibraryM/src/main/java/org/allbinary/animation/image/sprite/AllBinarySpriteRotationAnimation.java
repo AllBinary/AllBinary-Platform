@@ -13,14 +13,11 @@
 */
 package org.allbinary.animation.image.sprite;
 
+import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
-import org.allbinary.animation.AnimationBehavior;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.direction.Direction;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -28,9 +25,9 @@ import org.allbinary.math.FrameUtil;
 
 public class AllBinarySpriteRotationAnimation extends HackRotationSpriteIndexedAnimation
 {
-    public AllBinarySpriteRotationAnimation(final Sprite sprite, final AnimationBehavior animationBehavior)
+    public AllBinarySpriteRotationAnimation(final Sprite sprite, final Image image, final AnimationBehavior animationBehavior)
     {
-        super(sprite,
+        super(sprite, image,
                 AngleInfo.getInstance(
                 (short) (AngleFactory.getInstance().TOTAL_ANGLE / sprite.getRawFrameCount())),
                 animationBehavior);

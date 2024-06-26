@@ -108,9 +108,9 @@ public class AllBinarySpriteRotationAnimationFactory
         final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         if (dx != 0 || dy != 0) {
-            return new AllBinaryAdjustedSpriteRotationAnimation(sprite, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AllBinaryAdjustedSpriteRotationAnimation(sprite, this.getImage(), dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new AllBinarySpriteRotationAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AllBinarySpriteRotationAnimation(sprite, this.getImage(), this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 

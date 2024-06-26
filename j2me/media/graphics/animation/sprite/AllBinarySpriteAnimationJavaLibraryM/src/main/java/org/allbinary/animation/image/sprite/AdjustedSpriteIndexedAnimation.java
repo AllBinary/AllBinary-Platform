@@ -14,9 +14,10 @@
 package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
-import org.allbinary.animation.AnimationBehavior;
 
+import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorUtil;
 
@@ -26,16 +27,16 @@ extends SpriteIndexedAnimation
     private int dx;
     private int dy;
 
-    public AdjustedSpriteIndexedAnimation(final Sprite sprite, final int dx, final int dy, final AnimationBehavior animationBehavior)
+    public AdjustedSpriteIndexedAnimation(final Sprite sprite, final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        this(sprite, BasicColorUtil.getInstance().ZERO_ARRAY, dx, dy, animationBehavior);
+        this(sprite, image, BasicColorUtil.getInstance().ZERO_ARRAY, dx, dy, animationBehavior);
     }    
         
-    public AdjustedSpriteIndexedAnimation(final Sprite sprite, final BasicColor[] basicColorArray, final int dx, final int dy, final AnimationBehavior animationBehavior)
+    public AdjustedSpriteIndexedAnimation(final Sprite sprite, final Image image, final BasicColor[] basicColorArray, final int dx, final int dy, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        super(sprite, basicColorArray, animationBehavior);
+        super(sprite, image, basicColorArray, animationBehavior);
         
         this.dx = dx;
         this.dy = dy;

@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
 
 import org.allbinary.animation.RotationAnimation;
@@ -22,7 +23,7 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
 
-public class ImageBaseRotationAnimation extends RotationAnimation
+public class ImageBaseRotationAnimation extends RotationAnimation implements AutoCloseable
 {
     private final Image image;
 
@@ -74,4 +75,13 @@ public class ImageBaseRotationAnimation extends RotationAnimation
     graphics.drawImage(this.image, 0, 0, Anchor.TOP_LEFT);
     }
      */
+    
+    public void close() throws Exception {
+        DisposalUtil.getInstance().dispose(this.image);
+    }
+    
+    protected void finalize() throws Throwable {
+        DisposalUtil.getInstance().dispose(this.image);
+    }
+    
 }

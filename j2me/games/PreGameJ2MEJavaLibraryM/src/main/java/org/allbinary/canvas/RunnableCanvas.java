@@ -190,6 +190,7 @@ public class RunnableCanvas extends MyCanvas
     {
         this.notified = true;
         ThreadObjectUtil.getInstance().notifyObject(this);
+        //System.out.println("TWB:RunnableCanvas:stopWaiting:repaint");
         this.repaint();
     }
     

@@ -14,6 +14,7 @@
 package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Canvas;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -37,6 +38,7 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
         final Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
+                    //System.out.println("TWB:AlwaysRepaintBehavior:repaint");
                     canvas.repaint();
                     DisplayInfoSingleton.getInstance().process();
                 } catch(Exception e) {

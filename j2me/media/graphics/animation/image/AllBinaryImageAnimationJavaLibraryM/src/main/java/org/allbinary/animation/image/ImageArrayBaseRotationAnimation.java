@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.DisposalUtil;
 
 import org.allbinary.animation.AnimationBehavior;
 
@@ -23,10 +24,11 @@ import org.allbinary.util.CircularIndexUtil;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageModifierUtil;
 
-public class ImageArrayBaseRotationAnimation extends RotationAnimation
+public class ImageArrayBaseRotationAnimation extends RotationAnimation implements AutoCloseable
 {
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
@@ -117,4 +119,39 @@ public class ImageArrayBaseRotationAnimation extends RotationAnimation
     {
         graphics.drawImage(this.currentImage, x, y, anchor);
     }
+    
+    public void close() throws Exception {
+        
+        final DisposalUtil disposalUtil = DisposalUtil.getInstance();
+        
+        final int size2 = this.imageArray.length;
+        for(int index = 0; index < size2; index++) {
+            disposalUtil.dispose(this.imageArray[index]);
+        }
+
+        final int size = this.originalImageArray.length;
+        for(int index = 0; index < size; index++) {
+            disposalUtil.dispose(this.originalImageArray[index]);
+        }
+        
+        disposalUtil.dispose(this.currentImage);
+    }
+ 
+    protected void finalize() throws Throwable {
+        
+        final DisposalUtil disposalUtil = DisposalUtil.getInstance();
+        
+        final int size2 = this.imageArray.length;
+        for(int index = 0; index < size2; index++) {
+            disposalUtil.dispose(this.imageArray[index]);
+        }
+
+        final int size = this.originalImageArray.length;
+        for(int index = 0; index < size; index++) {
+            disposalUtil.dispose(this.originalImageArray[index]);
+        }
+        
+        disposalUtil.dispose(this.currentImage);
+    }
+    
 }

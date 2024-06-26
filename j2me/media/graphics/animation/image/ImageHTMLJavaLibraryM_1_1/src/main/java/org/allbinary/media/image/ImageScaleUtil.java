@@ -41,10 +41,20 @@ public class ImageScaleUtil
     }
 
     public Image createImage(final ImageCache imageCache, final Image originalImage,
-            final float scaleNominatorX, final float scaleDenominatorX, 
-            final float scaleNominatorY, final float scaleDenominatorY, final boolean cached) 
-    throws Exception
-    {
+        final float scaleNominatorX, final float scaleDenominatorX,
+        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached)
+        throws Exception {
+
+        return this.createImage(imageCache, originalImage, scaleNominatorX, scaleDenominatorX, scaleNominatorY, scaleDenominatorY, cached, true);
+
+    }
+    
+    //private int anchor = Anchor.TOP_LEFT;
+    public Image createImage(final ImageCache imageCache, final Image originalImage,
+        final float scaleNominatorX, final float scaleDenominatorX,
+        final float scaleNominatorY, final float scaleDenominatorY, final boolean cached, final boolean mutable)
+        throws Exception {
+
         final float scaleX = scaleNominatorX / scaleDenominatorX;
         final float scaleY = scaleNominatorY / scaleDenominatorY;
         

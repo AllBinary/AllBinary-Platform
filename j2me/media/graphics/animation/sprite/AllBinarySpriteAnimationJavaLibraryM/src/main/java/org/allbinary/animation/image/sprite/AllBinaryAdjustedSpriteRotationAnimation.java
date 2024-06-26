@@ -14,6 +14,7 @@
 package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 import org.allbinary.animation.AnimationBehavior;
 
@@ -24,9 +25,10 @@ extends AllBinarySpriteRotationAnimation
     private int dy;
 
     public AllBinaryAdjustedSpriteRotationAnimation(
-            final Sprite sprite, final int dx, final int dy, final AnimationBehavior animationBehavior)
+            final Sprite sprite, final Image image, final int dx, final int dy, final AnimationBehavior animationBehavior)
     {
-        super(sprite, animationBehavior);
+        super(sprite, image, animationBehavior);
+        
         this.dx = dx;
         this.dy = dy;
     }    

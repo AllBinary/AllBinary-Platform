@@ -15,15 +15,15 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import org.allbinary.DisposalUtil;
+
 import org.allbinary.animation.AnimationBehavior;
-
-import org.allbinary.util.CircularIndexUtil;
-
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
+import org.allbinary.util.CircularIndexUtil;
 
-public class TweenedImageAnimation extends IndexedAnimation
+public class TweenedImageAnimation extends IndexedAnimation implements AutoCloseable
 {
     private final Image image;
 
@@ -102,5 +102,13 @@ public class TweenedImageAnimation extends IndexedAnimation
 
         graphics.drawImage(this.image, x + currentX, y + currentY, anchor);
     }
-        
+ 
+    public void close() throws Exception {
+        DisposalUtil.getInstance().dispose(this.image);
+    }
+    
+    protected void finalize() throws Throwable {
+        DisposalUtil.getInstance().dispose(this.image);
+    }
+    
 }

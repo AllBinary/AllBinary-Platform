@@ -14,10 +14,11 @@
 package org.allbinary.animation.image.sprite;
 
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
+import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
-
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
@@ -28,23 +29,27 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class SpriteIndexedAnimation extends IndexedAnimation
-    implements ColorCompositeInterface
+    implements ColorCompositeInterface, AutoCloseable
 {
-    protected Sprite sprite;
+    protected final Sprite sprite;
+    protected final Image image;
+    
     private final BasicColor[] basicColorArray;
     
-    public SpriteIndexedAnimation(final Sprite sprite, final AnimationBehavior animationBehavior)
+    public SpriteIndexedAnimation(final Sprite sprite, final Image image, final AnimationBehavior animationBehavior)
         throws Exception
     {
-        this(sprite, BasicColorUtil.getInstance().ZERO_ARRAY, animationBehavior);
+        this(sprite, image, BasicColorUtil.getInstance().ZERO_ARRAY, animationBehavior);
     }
     
-    public SpriteIndexedAnimation(final Sprite sprite, final BasicColor[] basicColorArray, final AnimationBehavior animationBehavior)
+    public SpriteIndexedAnimation(final Sprite sprite, final Image image, final BasicColor[] basicColorArray, final AnimationBehavior animationBehavior)
         throws Exception
     {
         super(animationBehavior);
         
-        this.setSprite(sprite);
+        this.sprite = sprite;
+        this.image = image;
+        
         this.basicColorArray = basicColorArray;
 
         if(this.basicColorArray.length != 0 && this.getSize() != this.basicColorArray.length)
@@ -91,16 +96,6 @@ public class SpriteIndexedAnimation extends IndexedAnimation
      * 
      * this.setDx(dx); this.setDy(dy); }
      */
-
-    public Sprite getSprite()
-    {
-        return sprite;
-    }
-
-    public void setSprite(final Sprite sprite)
-    {
-        this.sprite = sprite;
-    }
 
     public void paint(final Graphics graphics, final int frame, final int x, final int y)
     {
@@ -173,4 +168,11 @@ public class SpriteIndexedAnimation extends IndexedAnimation
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
+     
+    public void close() throws Exception {
+    }
+ 
+    protected void finalize() throws Throwable {
+    }
+     
 }

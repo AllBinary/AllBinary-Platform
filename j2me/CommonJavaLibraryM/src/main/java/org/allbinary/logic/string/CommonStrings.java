@@ -35,6 +35,7 @@ public class CommonStrings
     public final String EXCEPTION_LABEL = "Exception: ";
         
     public final String INIT = "init";
+    public final String CLOSE = "close";
 
     public final String CREATE = "Create";
     public final String REMOVE = "Remove";

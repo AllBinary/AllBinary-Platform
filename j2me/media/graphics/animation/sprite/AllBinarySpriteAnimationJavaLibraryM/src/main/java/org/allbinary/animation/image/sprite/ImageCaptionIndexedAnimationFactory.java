@@ -94,7 +94,7 @@ public class ImageCaptionIndexedAnimationFactory
 
         final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.spriteMovieImage, this.frameWidth, this.frameHeight, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
-        final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
+        final IndexedAnimation movieIndexedAnimationInterface = new SpriteIndexedAnimation(sprite, this.spriteMovieImage, this.animationBehaviorFactory.getOrCreateInstance());
 
         Player player = this.soundInterface.getPlayer();
 

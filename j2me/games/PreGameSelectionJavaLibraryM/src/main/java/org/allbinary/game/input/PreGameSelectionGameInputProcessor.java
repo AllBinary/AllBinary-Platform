@@ -128,6 +128,7 @@ public class PreGameSelectionGameInputProcessor extends Processor implements
 
                     if (!abRunnable.isRunning()) {
                         abRunnable.setRunning(true);
+                        //Better to mix this in with the UI thread that is already running.
                         final Thread thread = new Thread(abRunnable);
                         thread.start();
                     }
