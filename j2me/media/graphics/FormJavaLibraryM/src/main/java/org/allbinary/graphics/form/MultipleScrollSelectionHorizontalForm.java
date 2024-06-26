@@ -16,6 +16,7 @@ import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  * 
@@ -83,7 +84,7 @@ extends ScrollSelectionForm
 
                 if (dx >= this.rectangle.getMaxX())
                 {
-                    PreLogUtil.put("painting beyond maxx: " + this.rectangle.getMaxX(), this, "paint");
+                    PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").append(this.rectangle.getMaxX()).toString(), this, "paint");
                     //break;
                 }
                 

@@ -23,7 +23,7 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.math.AngleInfo;
 
-public class ImageBaseRotationAnimation extends RotationAnimation implements AutoCloseable
+public class ImageBaseRotationAnimation extends RotationAnimation //implements AutoCloseable
 {
     private final Image image;
 

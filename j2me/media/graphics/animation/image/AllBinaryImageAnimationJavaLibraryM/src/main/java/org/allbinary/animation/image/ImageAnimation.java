@@ -22,7 +22,7 @@ import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
-public class ImageAnimation extends IndexedAnimation implements AutoCloseable
+public class ImageAnimation extends IndexedAnimation //implements AutoCloseable
 {
     private final Image image;
 

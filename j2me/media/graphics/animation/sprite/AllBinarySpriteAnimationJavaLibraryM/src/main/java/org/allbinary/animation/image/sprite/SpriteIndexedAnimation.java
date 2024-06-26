@@ -29,7 +29,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class SpriteIndexedAnimation extends IndexedAnimation
-    implements ColorCompositeInterface, AutoCloseable
+    implements ColorCompositeInterface//, AutoCloseable
 {
     protected final Sprite sprite;
     protected final Image image;

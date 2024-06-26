@@ -23,7 +23,7 @@ import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 import org.allbinary.util.CircularIndexUtil;
 
-public class TweenedImageAnimation extends IndexedAnimation implements AutoCloseable
+public class TweenedImageAnimation extends IndexedAnimation //implements AutoCloseable
 {
     private final Image image;
 

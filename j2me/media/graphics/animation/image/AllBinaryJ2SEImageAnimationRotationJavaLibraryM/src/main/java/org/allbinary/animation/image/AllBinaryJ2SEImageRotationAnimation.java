@@ -26,7 +26,7 @@ import org.allbinary.media.image.ImageRotationUtil;
 
 public class AllBinaryJ2SEImageRotationAnimation 
     extends ImageBaseRotationAnimation
-    implements AutoCloseable
+    //implements AutoCloseable
 {
     private final ImageRotationUtil imageRotationUtil = ImageRotationUtil.getInstance();
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();

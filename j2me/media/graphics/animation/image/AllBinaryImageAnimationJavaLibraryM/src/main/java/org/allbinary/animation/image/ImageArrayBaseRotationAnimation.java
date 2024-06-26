@@ -28,7 +28,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageModifierUtil;
 
-public class ImageArrayBaseRotationAnimation extends RotationAnimation implements AutoCloseable
+public class ImageArrayBaseRotationAnimation extends RotationAnimation //implements AutoCloseable
 {
     private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
