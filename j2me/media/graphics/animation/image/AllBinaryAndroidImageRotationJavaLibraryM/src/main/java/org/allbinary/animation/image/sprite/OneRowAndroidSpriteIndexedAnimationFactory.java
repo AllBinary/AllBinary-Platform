@@ -84,9 +84,9 @@ public class OneRowAndroidSpriteIndexedAnimationFactory
         final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
         if (dx != 0 || dy != 0) {
-            return new AdjustedSpriteIndexedAnimation(sprite, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedSpriteIndexedAnimation(sprite, this.getImage(), dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
-            return new SpriteIndexedAnimation(sprite, this.animationBehaviorFactory.getOrCreateInstance());
+            return new SpriteIndexedAnimation(sprite, this.getImage(), this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
 
