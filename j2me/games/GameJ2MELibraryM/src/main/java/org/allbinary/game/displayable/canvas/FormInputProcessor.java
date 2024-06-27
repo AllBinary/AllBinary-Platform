@@ -75,8 +75,6 @@ extends InputProcessor
             downKeyEventHandler.fireEvent(gameKeyEvent);
             //downKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
 
-            //downGameKeyEventHandler.fireEvent(gameKeyEvent);
-            //downGameKeyEventHandler.getInstance(deviceId).fireEvent(gameKeyEvent);
         }
         catch (Exception e)
         {

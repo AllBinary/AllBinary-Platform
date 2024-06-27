@@ -11,13 +11,16 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.game.input.event;
+package org.allbinary;
 
-import org.allbinary.logic.util.event.EventListenerInterface;
-
-public interface DownKeyEventListenerInterface 
-   extends EventListenerInterface
+public class AndroidUtil
 {
-    void onDownKeyEvent(final GameKeyEvent keyInteger) throws Exception;
-    void onDownKeyEvent(final Integer keyInteger) throws Exception;
+    private AndroidUtil()
+    {
+    }
+
+    public static boolean isAndroid()
+    {
+        return false;
+    }
 }

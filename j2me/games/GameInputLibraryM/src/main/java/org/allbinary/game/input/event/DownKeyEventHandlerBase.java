@@ -92,11 +92,44 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
         }
 
     }
+
+    public void fireEvent(final GameKeyEvent eventObject) throws Exception {
+        //ForcedLogUtil.log(this.toString(), "fireEvent");
+
+        for (int index = this.list.size(); --index >= 0;) {
+            try {
+                //Add deviceId
+                PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
+                playerGameInput.onDownKeyEvent(eventObject);
+            } catch (Exception e) {
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+            }
+        }
+
+        for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
+        {
+            try
+            {
+                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
+                    this.eventListenerInterfaceList.get(index);
+                this.process(eventObject, eventListenerInterface);
+            }
+            catch (Exception e)
+            {
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+            }
+        }
+
+    }
     
     protected void process(final Integer eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
         ((DownKeyEventListenerInterface) eventListenerInterface).onDownKeyEvent(eventObject);
     }
 
+    protected void process(final GameKeyEvent eventObject, final EventListenerInterface eventListenerInterface) throws Exception {
+        ((DownKeyEventListenerInterface) eventListenerInterface).onDownKeyEvent(eventObject);
+    }
+    
     private static final String TOTAL_LISTENERS = " Total PlayerGameInput Listeners: ";
     private static final String LISTENER_LABEL = " PlayerGameInput Listener: ";
 

@@ -40,6 +40,7 @@ public class BasicColorFactory
     public final BasicColor LIGHT_GREEN = new BasicColor(0x007700);
     public final BasicColor PURPLE = new BasicColor(0x400040, "purple");
     public final BasicColor BLUE = new BasicColor(0x0000FF, "blue");
+    public final BasicColor LIGHT_BLUE = new BasicColor(0x00aaff);
     public final BasicColor VERY_LIGHT_BLUE = new BasicColor(0x000033);
     // public final BasicColor LIGHT_BLUE = new BasicColor(0x000077);
     public final BasicColor PUCE = new BasicColor(0xFF00AA);

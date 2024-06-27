@@ -65,9 +65,16 @@ public class PlayerGameInput extends GameInput
        super.add(gameKeyEvent);
    }
 
-   public synchronized void onDownKeyEvent(final Integer gameKeyEvent)
+   public synchronized void onDownKeyEvent(final GameKeyEvent gameKeyEvent)
    {
        //PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
+       super.add(gameKeyEvent);
+       this.addForRemoval(gameKeyEvent);
+   }
+   
+   public synchronized void onDownKeyEvent(final Integer gameKeyEvent)
+   {
+       PreLogUtil.put(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(gameKeyEvent.toString()).toString(), this, gameInputStrings.ON_DOWN_GAME_KEY);
    }
    
    public synchronized void onUpGameKeyEvent(final GameKeyEvent gameKeyEvent)
