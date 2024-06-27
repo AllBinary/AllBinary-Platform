@@ -56,4 +56,8 @@ public class BasicColorUtil
         return ((alphaValue << 24) & 0xFF000000) + color;
     }
     
+    public int invert(final int color) {
+        return (0xFFFFFF - color) | 0xFF000000;
+    }
+    
 }
