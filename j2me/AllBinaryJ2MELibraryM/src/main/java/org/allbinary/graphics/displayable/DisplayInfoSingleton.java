@@ -14,6 +14,7 @@
 package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Displayable;
+import org.allbinary.AndroidUtil;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
@@ -56,8 +57,7 @@ public class DisplayInfoSingleton
     private int xOffset;
     private int yOffset;
 
-    public float scaleLargestTo = 1080;
-    //640
+    public float scaleLargestTo = AndroidUtil.isAndroid() ? 640 : 1080;
     /*
     Test Android Scaling resolutions
         284
