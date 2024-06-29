@@ -12,6 +12,8 @@ package org.allbinary.game.multiplayer.layer;
  */
 public class RemoteInfo
 {
+    public static final int NEW_PLAYER_ID = 0;
+    
     public RemoteInfo()
     {
     }
