@@ -18,9 +18,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.analog.AnalogLocationInputFactory;
 import org.allbinary.logic.string.StringMaker;
 
-public class PlayerInputIdFactory {
+public class LocalPlayerInputIdFactory {
 
-    private static final PlayerInputIdFactory instance = new PlayerInputIdFactory();
+    private static final LocalPlayerInputIdFactory instance = new LocalPlayerInputIdFactory();
 
     public final int MAX_NUMBER_OF_PLAYERS = 6;
     private final int MAX_FAST_DEVICEID = 65;
@@ -30,7 +30,7 @@ public class PlayerInputIdFactory {
 
     private int totalDevicesMapped = 0;
 
-    private PlayerInputIdFactory() {
+    private LocalPlayerInputIdFactory() {
 
         for(int index = deviceIdToplayerId.length - 1; index >= 0; index--)
         {
@@ -38,7 +38,7 @@ public class PlayerInputIdFactory {
         }
     }
 
-    public static PlayerInputIdFactory getInstance() {
+    public static LocalPlayerInputIdFactory getInstance() {
         return instance;
     }
 

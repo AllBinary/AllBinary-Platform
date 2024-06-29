@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.input.event;
 
-import org.allbinary.game.input.PlayerInputIdFactory;
+import org.allbinary.game.input.LocalPlayerInputIdFactory;
 import org.allbinary.logic.util.event.EventListenerInterface;
 
 public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
@@ -34,7 +34,7 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
       return instance;
    }
 
-   private final PlayerInputIdFactory playerInputIdFactory = PlayerInputIdFactory.getInstance();
+   private final LocalPlayerInputIdFactory playerInputIdFactory = LocalPlayerInputIdFactory.getInstance();
    
    public UpGameKeyEventHandlerBase getInstance(int deviceId)
    {
