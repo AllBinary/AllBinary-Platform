@@ -42,6 +42,10 @@
         <module>../AndroidSystemJavaLibraryM</module>
         -->
         
+        <module>../PersonalComputerSystemJavaLibraryM</module>
+        <module>../PersonalComputerOperatingSystemsJavaLibraryM</module>
+        <module>../PersonalComputerHardwareJavaLibraryM</module>
+        
     </modules>
 
 </project>

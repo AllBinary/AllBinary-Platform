@@ -40,6 +40,7 @@
         <module>../allbinary_src/logic/data/file/FileUnamedJavaLibraryM</module>
         <module>../allbinary_src/logic/data/file/FileAdvancedJavaLibraryM</module>
         <module>../allbinary_src/logging/BasicLogConfigTypeJavaLibraryM</module>
+        <module>../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryM</module>
         <module>../allbinary_src/PreLoaderJavaLibraryM</module>
         <module>../allbinary_src/FileInitInfoJavaLibraryM</module>
         <module>../allbinary_src/PreLoaderFileJavaLibraryM</module>
