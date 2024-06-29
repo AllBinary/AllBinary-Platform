@@ -33,6 +33,7 @@
         <module>../BaseHardwareJavaLibraryM</module>
         <module>../BaseOperatingSystemJavaLibraryM</module>
         <module>../BaseSystemJavaLibraryM</module>
+        <module>../NoHardwareJavaLibraryM</module>
         <module>../NoSystemJavaLibraryM</module>
         <!--
         AndroidResource should not be part of AndroidSystem
