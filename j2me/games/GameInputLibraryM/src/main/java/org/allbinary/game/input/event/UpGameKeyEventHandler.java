@@ -34,9 +34,11 @@ public class UpGameKeyEventHandler extends UpGameKeyEventHandlerBase
       return instance;
    }
 
+   private final PlayerInputIdFactory playerInputIdFactory = PlayerInputIdFactory.getInstance();
+   
    public UpGameKeyEventHandlerBase getInstance(int deviceId)
    {
-       final int playerInputId = PlayerInputIdFactory.getInstance().getPlayerForDevice(deviceId);
+       final int playerInputId = playerInputIdFactory.getPlayerForDevice(deviceId);
        return instanceArray[playerInputId];
    }
 

@@ -35,9 +35,11 @@ public class DownKeyEventHandler extends DownKeyEventHandlerBase
         return instance;
     }
     
+    private final PlayerInputIdFactory playerInputIdFactory = PlayerInputIdFactory.getInstance();
+    
    public DownKeyEventHandlerBase getInstance(int deviceId)
    {
-       final int playerInputId = PlayerInputIdFactory.getInstance().getPlayerForDevice(deviceId);
+       final int playerInputId = playerInputIdFactory.getPlayerForDevice(deviceId);
        return instanceArray[playerInputId];
    }
    
