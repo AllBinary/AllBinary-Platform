@@ -16,7 +16,7 @@ public class RemoteInfo
     {
     }
     
-    public RemoteInfo(String username, int actorSessionId, int id)
+    public RemoteInfo(String username, int actorSessionId, int playerInputId, int id)
     {
     }
 }

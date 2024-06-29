@@ -16,17 +16,15 @@ package org.allbinary.game.score.displayable;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.TextField;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.PostGameCommandFactory;
 
-import org.allbinary.AndroidUtil;
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
-import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
-import org.allbinary.game.score.HighScoresResultsListener;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.form.item.CustomTextBox;
@@ -84,14 +82,7 @@ public class HighScoreTextBox extends CustomTextBox
     {
         this.removeAllCommands();
 
-        final GenericOperatingSystem operatingSystemInterface = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
-
-        final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
-        if(AndroidUtil.isAndroid() && !operatingSystemInterface.isOverScan()) {
-            this.addCommand(gameCommandsFactory.TOGGLE_KEYBOARD);
-        }
-        
-        this.addCommand(gameCommandsFactory.QUIT_COMMAND);
+        PostGameCommandFactory.getInstance().addCommands(this);
 
         this.addCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
 
