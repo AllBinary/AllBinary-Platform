@@ -1677,8 +1677,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     && !running
                     )            
             {
-                final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
-                currentDisplayableFactory.clearRunnable();
+                if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT) {
+                    final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+                    currentDisplayableFactory.clearRunnable();
+                }
                 this.end();
             }
         } catch (Exception e)
