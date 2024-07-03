@@ -30,7 +30,7 @@ public class ThreadPool
     
     private boolean isAlive;
     private BasicArrayList taskQueue;
-    //private int threadID;
+    private int threadID;
     private int numThreads;
     //private static int threadPoolID;
 
@@ -159,9 +159,12 @@ public class ThreadPool
     private class PooledThread extends Thread
     {
 
+        private static final String ROOT_NAME = "-PooledThread-";
+        
         public PooledThread()
         {
-            //super(ThreadPool.this, "PooledThread-").append((threadID++));
+            //super(ThreadPool.this, 
+            super(new StringMaker().append(ThreadPool.this.toString()).append(ROOT_NAME).append(threadID++).toString());
             LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
         }
 

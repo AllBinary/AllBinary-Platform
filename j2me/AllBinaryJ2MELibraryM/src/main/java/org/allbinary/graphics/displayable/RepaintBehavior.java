@@ -41,6 +41,7 @@ public class RepaintBehavior {
 
     public void onChangeRepaint(final Canvas canvas) {
 
+        final String NAME = "RepaintBehavior";
         final Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
@@ -51,7 +52,7 @@ public class RepaintBehavior {
                     LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
             }
-        });
+        }, NAME);
         thread.start();
 
     }

@@ -14,8 +14,8 @@
 package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Displayable;
-import org.allbinary.AndroidUtil;
 
+import org.allbinary.AndroidUtil;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;

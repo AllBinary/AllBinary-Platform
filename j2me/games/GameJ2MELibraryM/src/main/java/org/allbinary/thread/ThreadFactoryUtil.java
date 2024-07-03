@@ -74,7 +74,7 @@ public class ThreadFactoryUtil
             }
         }
 
-        final Thread thread = new Thread(runnable);
+        final Thread thread = new Thread(runnable, runnable.toString());
         LogUtil.put(LogFactory.getInstance(thread.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
         return thread;
     }

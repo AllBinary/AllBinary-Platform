@@ -35,6 +35,7 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
     }
     
     public void repaint(final Canvas canvas) {
+        final String NAME = "AlwaysRepaintBehavior";
         final Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
@@ -45,7 +46,7 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
                     LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
             }
-        });
+        }, NAME);
         thread.start();
     }
     
