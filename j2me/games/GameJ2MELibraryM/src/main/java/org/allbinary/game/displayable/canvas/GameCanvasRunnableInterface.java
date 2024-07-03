@@ -40,4 +40,6 @@ public interface GameCanvasRunnableInterface
    Hashtable getLoadStateHashtable()throws Exception;
    void setLoadStateHashtable(Hashtable hashtable) throws Exception;
    //void addCommand(Command command);
+   
+   int getType();
 }

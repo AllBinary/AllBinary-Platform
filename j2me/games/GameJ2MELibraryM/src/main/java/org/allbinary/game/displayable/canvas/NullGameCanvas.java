@@ -119,4 +119,10 @@ public class NullGameCanvas extends AllBinaryGameCanvas
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
         }
     }
+    
+    public static final int TYPE = 1;
+    public int getType() {
+        return TYPE;
+    }
+    
 }

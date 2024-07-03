@@ -16,7 +16,7 @@ package org.allbinary.logic.system.os;
 import org.allbinary.data.resource.ResourceUtil;
 import android.content.Context;
 import android.os.Build;
-import android.provider.Settings;
+//import android.provider.Settings;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 

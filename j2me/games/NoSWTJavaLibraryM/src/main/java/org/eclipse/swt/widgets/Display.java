@@ -11,36 +11,16 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.thread;
+package org.eclipse.swt.widgets;
 
 /**
  *
  * @author User
  */
-public class ABRunnable implements RunnableInterface {
+public class Display {
     
-    private boolean running;
-    
-    public void setThread(Thread thread)
-    {
-    }
-
-    public synchronized boolean isRunning()
-    {
-        return running;
-    }
-
-    public synchronized void setRunning(boolean running)
-    {
-        this.running = running;
-    }
-    
-    public void run() {
+    public void sleep() {
         
-    }
-
-    public int getType() {
-        return -1;
     }
     
 }

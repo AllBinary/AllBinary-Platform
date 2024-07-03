@@ -11,36 +11,27 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.thread;
+package org.microemu.app;
+
+import org.eclipse.swt.widgets.Display;
 
 /**
  *
  * @author User
  */
-public class ABRunnable implements RunnableInterface {
+public class SWTRunnableProcessor extends SWTProcessor {
     
-    private boolean running;
-    
-    public void setThread(Thread thread)
-    {
-    }
+    private static final SWTRunnableProcessor instance = new SWTRunnableProcessor();
 
-    public synchronized boolean isRunning()
-    {
-        return running;
-    }
-
-    public synchronized void setRunning(boolean running)
-    {
-        this.running = running;
+    /**
+     * @return the instance
+     */
+    public static SWTRunnableProcessor getInstance() {
+        return instance;
     }
     
-    public void run() {
-        
-    }
-
-    public int getType() {
-        return -1;
+    public void process(final Display display) {
+        //this.runnable.run();
     }
     
 }

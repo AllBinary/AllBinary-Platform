@@ -35,7 +35,7 @@ public class RunnableCanvas extends MyCanvas
     private boolean running;
 
     // private int wait;
-    private final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(240);
+    protected final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(240);
 
     //protected ProcessPaintable processPaintable;
     protected Processor runnableCanvasRefreshHelper;
@@ -159,7 +159,7 @@ public class RunnableCanvas extends MyCanvas
 
     protected int getWait()
     {
-        return this.getLoopTimeHelper().delay;
+        return this.loopTimeHelper.delay;
     }
     
     public void setCurrentThread()
@@ -336,4 +336,9 @@ public class RunnableCanvas extends MyCanvas
     public void end2() throws Exception {
         
     }
+    
+    public int getType() {
+        return -1;
+    }
+
 }

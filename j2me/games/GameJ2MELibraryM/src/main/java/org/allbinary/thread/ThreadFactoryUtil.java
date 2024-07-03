@@ -20,6 +20,7 @@ import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
+import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.displayable.canvas.RunnableCanvasSingleThreadStartRunnable;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -34,30 +35,38 @@ public class ThreadFactoryUtil
         return instance;
     }
 
-    public Thread getInstance(Runnable runnable)
+    public Thread getInstance(final GameCanvasRunnableInterface runnable)
     {
-        Features features = Features.getInstance();
+        return this.getInstance(runnable, runnable.getType());
+    }
+
+    public Thread getInstance(final ABRunnable runnable)
+    {
+        return this.getInstance(runnable, runnable.getType());
+    }
+    
+    public Thread getInstance(final Runnable runnable, final int type)
+    {
+        final Features features = Features.getInstance();
 
         if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
         {
-            if (runnable instanceof DemoCanvas
-                    || runnable instanceof AllBinaryGameCanvas)
+            if (type == DemoCanvas.TYPE || type == AllBinaryGameCanvas.TYPE)
             {
-                //GameCanvasRunnableInterface gameCanvasRunnableInterface = 
-                //      this.demoGameMidlet.getGameCanvasRunnableInterface();
+                //GameCanvasRunnableInterface gameCanvasRunnableInterface = this.demoGameMidlet.getGameCanvasRunnableInterface();
 
-                RunnableCanvasSingleThreadStartRunnable demoGameSingleThreadStartRunnable =
+                final RunnableCanvasSingleThreadStartRunnable demoGameSingleThreadStartRunnable =
                         new RunnableCanvasSingleThreadStartRunnable((RunnableCanvas) runnable);
 
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN: ").append(runnable).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
+                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ").append(runnable).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
 
-                ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
+                final ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
 
                 primaryThreadPool.runTask(demoGameSingleThreadStartRunnable);
                 //currentDisplayableFactory.setRunnable(demoGameSingleThreadStartRunnable);
             } else
             {
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN: ").append(runnable).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
+                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN/HTML5: ").append(runnable).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
 
                 ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
 
@@ -69,4 +78,11 @@ public class ThreadFactoryUtil
         LogUtil.put(LogFactory.getInstance(thread.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
         return thread;
     }
+    
+    public void start(final Thread thread) {
+        
+        thread.start();
+
+    }
+
 }

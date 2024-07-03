@@ -126,8 +126,11 @@ public class DemoCanvas extends RunnableCanvas
     protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
+
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
 
+    private final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
+    
     protected Paintable fullscreenPaintable = FullScreenPaintableFactory.getInstance().paintable;
 
     private StatePaintable basicGameDemoPaintable =
@@ -736,9 +739,10 @@ public class DemoCanvas extends RunnableCanvas
 
     protected void start() throws Exception
     {
-        PreLogUtil.put("Game Thread in DemoCanvas", this, commonStrings.START);
+        final AllBinaryGameCanvas gameCanvas = this.gameCanvas;
+        PreLogUtil.put("Game Thread in DemoCanvas: " + gameCanvas, this, commonStrings.START);
 
-        this.canvasThread = ThreadFactoryUtil.getInstance().getInstance(this.gameCanvas);
+        this.canvasThread = threadFactoryUtil.getInstance(gameCanvas);
         this.gameCanvas.setThread(canvasThread);
 
         //PreLogUtil.put("Game Thread Priority: ").append(
@@ -746,7 +750,7 @@ public class DemoCanvas extends RunnableCanvas
         //LogUtil.put(LogFactory.getInstance(
         //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, commonStrings));
 
-        this.canvasThread.start();
+        this.threadFactoryUtil.start(this.canvasThread);
 
         if(this.getWait() == LOAD_WAIT)
         {
@@ -821,11 +825,12 @@ public class DemoCanvas extends RunnableCanvas
                     this.startDemoGame();
                     
                     demoGameRunnable.setRunning(true);
-                    Thread thread = ThreadFactoryUtil.getInstance().getInstance(demoGameRunnable);
+                    final Thread thread = threadFactoryUtil.getInstance(demoGameRunnable);
                     demoGameRunnable.setThread(thread);
                     //I guess that setting a thread priority sets threads created by a thread to the same priority
                     //Don't un-remark thread.setPriority(Thread.MIN_PRIORITY);
-                    thread.start();
+                    
+                    threadFactoryUtil.start(thread);
                 }
             }
         }
@@ -958,7 +963,7 @@ public class DemoCanvas extends RunnableCanvas
                 //Process as 2 threads until initialized - allows progress to update
                 while (gameCanvas == NullGameCanvas.getInstance() || !gameCanvas.isInitialized())
                 {
-                    this.getLoopTimeHelper().setStartTime();
+                    this.loopTimeHelper.setStartTime();
 
                     this.processGame();
 
@@ -992,7 +997,7 @@ public class DemoCanvas extends RunnableCanvas
                 
                 while (this.isRunning())
                 {
-                    this.getLoopTimeHelper().setStartTime();
+                    this.loopTimeHelper.setStartTime();
                     
                     this.processGame();
 
@@ -1210,4 +1215,10 @@ public class DemoCanvas extends RunnableCanvas
    {
       return gameInitializationInterfaceFactoryInterface;
    }
+
+    public static final int TYPE = 3;
+    public int getType() {
+        return TYPE;
+    }
+
 }

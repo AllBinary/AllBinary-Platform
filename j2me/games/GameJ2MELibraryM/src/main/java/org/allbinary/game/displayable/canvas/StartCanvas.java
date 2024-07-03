@@ -100,6 +100,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
+import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.time.TimeDelayHelper;
 
 public class StartCanvas extends RunnableCanvas 
@@ -114,7 +115,9 @@ public class StartCanvas extends RunnableCanvas
     protected final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
     protected final GameAdStateFactory gameAdStateFactory = GameAdStateFactory.getInstance();
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
-    
+
+    //private final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
+
     private StatePaintable basicGameDemoPaintable =
         //new StateNotifyPaintable(this);
         StatePaintableFactory.getInstance();
@@ -722,7 +725,7 @@ public class StartCanvas extends RunnableCanvas
         //LogUtil.put(LogFactory.getInstance(
         //      "Game Thread Priority: ").append(canvasThread.getPriority(), this, commonStrings));
 
-        //this.canvasThread.start();
+        //threadFactoryUtil.start(this.canvasThread);
 
         //if(this.getWait() == LOAD_WAIT)
         //{
@@ -799,11 +802,11 @@ public class StartCanvas extends RunnableCanvas
 //                    this.startDemoGame();
 //                    
 //                    demoGameRunnable.setRunning(true);
-//                    Thread thread = ThreadFactoryUtil.getInstance().getInstance(demoGameRunnable);
+//                    Thread thread = threadFactoryUtil.getInstance(demoGameRunnable);
 //                    demoGameRunnable.setThread(thread);
 //                    //I guess that setting a thread priority sets threads created by a thread to the same priority
 //                    //Don't un-remark thread.setPriority(Thread.MIN_PRIORITY);
-//                    thread.start();
+//                    threadFactoryUtil.start(thread);
 //                }
             //}
         }
@@ -936,7 +939,7 @@ public class StartCanvas extends RunnableCanvas
                 //Process as 2 threads until initialized - allows progress to update
 //                while (!this.isInitialized())
 //                {
-//                    this.getLoopTimeHelper().setStartTime();
+//                    this.loopTimeHelper.setStartTime();
 //
 //                    this.processGame();
 //
@@ -970,7 +973,7 @@ public class StartCanvas extends RunnableCanvas
                 
                 while (this.isRunning())
                 {
-                    this.getLoopTimeHelper().setStartTime();
+                    this.loopTimeHelper.setStartTime();
                     
                     this.processGame();
 
