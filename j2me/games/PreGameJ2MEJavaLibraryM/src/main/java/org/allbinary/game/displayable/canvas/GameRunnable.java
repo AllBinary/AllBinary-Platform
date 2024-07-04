@@ -16,6 +16,8 @@ package org.allbinary.game.displayable.canvas;
 public class GameRunnable implements Runnable
 {
 
+    public final int WAIT = 240;
+    
     public void run()
     {
     }
@@ -23,6 +25,6 @@ public class GameRunnable implements Runnable
     public void processLoopSleep()
     throws Exception
     {
-        Thread.sleep(120);
+        Thread.sleep(WAIT);
     }
 }

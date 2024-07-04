@@ -108,14 +108,18 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
+import org.allbinary.thread.NullRunnable;
 import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
+import org.microemu.app.SWTProcessorUtil;
+import org.microemu.app.SWTRunnableProcessor;
 
 public class DemoCanvas extends RunnableCanvas 
         implements GameCanvasRunnableInterface,
@@ -166,13 +170,12 @@ public class DemoCanvas extends RunnableCanvas
     private PaintableInterface paintableInterface;
     private final InitUpdatePaintable overlayPaintable;
 
-    private final int LOAD_WAIT = 172;
-    private int tempWait = LOAD_WAIT;
+    private int tempWait = NullWaitRunnable.getInstance().WAIT;
     
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    private GameRunnable gameRunnable = NullGameRunnable.getInstance();
+    private GameRunnable gameRunnable = NullWaitRunnable.getInstance();
     
     public DemoCanvas(final AbeClientInformationInterface abeClientInformation,
         final CommandListener commandListener,
@@ -188,7 +191,7 @@ public class DemoCanvas extends RunnableCanvas
         this.abeClientInformation = abeClientInformation;
 
         //Give time for initialization of demogame by default
-        this.setWait(LOAD_WAIT);
+        this.setWait(NullWaitRunnable.getInstance().WAIT);
         
         this.gameInitializationInterfaceFactoryInterface =
             gameInitializationInterfaceFactoryInterface;
@@ -548,7 +551,7 @@ public class DemoCanvas extends RunnableCanvas
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullGameRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullWaitRunnable.getInstance()) {
             return true;
         }
         else
@@ -715,7 +718,7 @@ public class DemoCanvas extends RunnableCanvas
 
     protected void create() throws Exception
     {
-        //PreLogUtil.put(commonStrings.START, this, "create");
+        PreLogUtil.put(commonStrings.START, this, "create");
 
         this.highScoresPaintable = NullPaintable.getInstance();
 
@@ -742,6 +745,17 @@ public class DemoCanvas extends RunnableCanvas
         final AllBinaryGameCanvas gameCanvas = this.gameCanvas;
         PreLogUtil.put("Game Thread in DemoCanvas: " + gameCanvas, this, commonStrings.START);
 
+        //Clear static pause behavior for SWT
+        if(SWTUtil.isSWT) {
+            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, commonStrings.START));
+
+            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
+            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
+            swtRunnableProcessor.runnable = NullRunnable.getInstance();
+            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
+        }
+        
+        
         this.canvasThread = threadFactoryUtil.getInstance(gameCanvas);
         this.gameCanvas.setThread(canvasThread);
 
@@ -752,7 +766,7 @@ public class DemoCanvas extends RunnableCanvas
 
         this.threadFactoryUtil.start(this.canvasThread);
 
-        if(this.getWait() == LOAD_WAIT)
+        if(this.getWait() == NullWaitRunnable.getInstance().WAIT)
         {
             this.setWait(this.getTempWait());
         }
@@ -866,7 +880,7 @@ public class DemoCanvas extends RunnableCanvas
         
         if (this.gameCanvas != NullGameCanvas.getInstance() && 
                 (this.gameCanvas.isRunning() || 
-                features.isDefault(htmlFeatureFactory.HTML))
+                (features.isDefault(htmlFeatureFactory.HTML)) || SWTUtil.isSWT)
                 && !(this.gameCanvas instanceof NullGameCanvas)
                 )
         {
@@ -876,7 +890,7 @@ public class DemoCanvas extends RunnableCanvas
         }
         else
         {
-            this.gameRunnable = NullGameRunnable.getInstance();
+            this.gameRunnable = NullWaitRunnable.getInstance();
             PreLogUtil.put("Not Showing Game", this, METHOD_NAME);
             this.setPaintableInterface(this.getDefaultPaintableInterface());
         }
@@ -956,7 +970,32 @@ public class DemoCanvas extends RunnableCanvas
 
             //final TimeDelayHelper runningTimeDelayHelper = new TimeDelayHelper(12000);
             
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD))
+//            if (SWTUtil.isSWT) {
+//
+//                final Runnable runnable = new Runnable() {
+//                    public void run() {
+//                        try {
+//                            run3();
+//                        } catch (Exception e) {
+//                            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+//                        }
+//                    }
+//                };
+//                LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, commonStrings.RUN));
+//
+//                final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
+//                final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
+//                swtRunnableProcessor.runnable = runnable;
+//                swtProcessorUtil.swtProcessor = swtRunnableProcessor;
+//
+//                final DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
+//                
+//                final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+//                
+//                currentDisplayableFactory.setRunnable(gameRunnable);
+//                
+//            } else 
+                if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD))
             {
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD");
                 
@@ -979,7 +1018,7 @@ public class DemoCanvas extends RunnableCanvas
                 OpenGLThreadUtil.getInstance().onResume();
             }
 
-            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) ||
+            if (//features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) ||
                     features.isDefault(htmlFeatureFactory.HTML))
             {
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD 2");
@@ -997,11 +1036,7 @@ public class DemoCanvas extends RunnableCanvas
                 
                 while (this.isRunning())
                 {
-                    this.loopTimeHelper.setStartTime();
-                    
-                    this.processGame();
-
-                    this.processLoopSleep();
+                    this.run3();
                 }
                 
                 this.end();
@@ -1015,6 +1050,16 @@ public class DemoCanvas extends RunnableCanvas
         LogUtil.put(LogFactory.getInstance(commonStrings.END_RUNNABLE, this, commonStrings.RUN));
     }
 
+    public void run3() throws Exception {
+        
+        this.loopTimeHelper.setStartTime();
+
+        this.processGame();
+
+        this.processLoopSleep();
+
+    }
+    
     public void setRunning(boolean running) 
     {
         super.setRunning(running);
@@ -1026,14 +1071,23 @@ public class DemoCanvas extends RunnableCanvas
             final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
             
             //If game thread is not actually running
-            if ((features.isDefault(openGLFeatureFactory.OPENGL) ||
-                    features.isDefault(htmlFeatureFactory.HTML))
-                    && !running)
-            {
-                final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
-                currentDisplayableFactory.clearRunnable();
-                this.end();
-            }
+            
+            if (running) {
+            } else {
+                
+//                if(SWTUtil.isSWT) {
+//                    final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
+//                    swtRunnableProcessor.runnable = NullRunnable.getInstance();
+//                }
+                
+                if ((features.isDefault(openGLFeatureFactory.OPENGL) || 
+                    features.isDefault(htmlFeatureFactory.HTML)) || 
+                    SWTUtil.isSWT) {
+                    final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+                    currentDisplayableFactory.clearRunnable();
+                    this.end();
+                }
+            }            
         } catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, SET_RUNNING, e));

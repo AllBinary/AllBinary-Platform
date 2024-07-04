@@ -21,8 +21,7 @@ import org.allbinary.thread.RunnableInterface;
 import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.CommandListener;
-import org.allbinary.graphics.paint.ProcessPaintable;
-import org.allbinary.graphics.paint.ProcessPaintableSingletonFactory;
+import org.allbinary.game.displayable.canvas.NullWaitRunnable;
 import org.allbinary.logic.string.CommonLabels;
 
 public class RunnableCanvas extends MyCanvas 
@@ -35,7 +34,7 @@ public class RunnableCanvas extends MyCanvas
     private boolean running;
 
     // private int wait;
-    protected final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(240);
+    protected final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(NullWaitRunnable.getInstance().WAIT);
 
     //protected ProcessPaintable processPaintable;
     protected Processor runnableCanvasRefreshHelper;
@@ -45,7 +44,9 @@ public class RunnableCanvas extends MyCanvas
     protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
     public RunnableCanvas(final CommandListener commandListener, final boolean hasParam)
-    {   
+    {
+        LogUtil.put(LogFactory.getInstance("delay: " + this.loopTimeHelper.delay, this, this.commonStrings.CONSTRUCTOR));
+        
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
 
@@ -155,6 +156,8 @@ public class RunnableCanvas extends MyCanvas
         loopTimeHelper.delay = wait;
         // this.wait = wait;
         this.pauseWait = wait * 3;
+        
+        LogUtil.put(LogFactory.getInstance("setWait - delay: " + this.loopTimeHelper.delay, this, this.commonStrings.CONSTRUCTOR));
     }
 
     protected int getWait()
@@ -233,7 +236,7 @@ public class RunnableCanvas extends MyCanvas
     private int attemptFrameTime = preferredFrameTime;
     */
 
-    //private final String PAUSE_SLEEP = "pause sleep";
+    private final String PAUSE_SLEEP = "pause sleep";
     //private final String GAME_SLEEP = "game sleep";
     public void processSleep() throws Exception
     {

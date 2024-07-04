@@ -65,12 +65,17 @@ public class BaseGameBehavior extends DemoGameBehavior {
                     }
                 }
             };
-            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, CommonStrings.getInstance().CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, "pause"));
 
             final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
             final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
             swtRunnableProcessor.runnable = runnable;
             swtProcessorUtil.swtProcessor = swtRunnableProcessor;
+
+            final GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(allBinaryGameCanvas);
+            final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+
+            currentDisplayableFactory.setRunnable(gameRunnable);
             
         } else if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) 
                 //|| features.isDefault(HTMLFeatureFactory.getInstance().HTML)
@@ -101,12 +106,17 @@ public class BaseGameBehavior extends DemoGameBehavior {
                     }
                 }
             };
-            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, CommonStrings.getInstance().CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, "unPause"));
 
             final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
             final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
             swtRunnableProcessor.runnable = runnable;
             swtProcessorUtil.swtProcessor = swtRunnableProcessor;
+
+            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(allBinaryGameCanvas);
+            final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+
+            currentDisplayableFactory.setRunnable(gameRunnable);
             
         } else if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
             //LogUtil.put(LogFactory.getInstance("unPause", this, "unPause"));

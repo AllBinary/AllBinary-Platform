@@ -318,9 +318,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final Features features = Features.getInstance();
         final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
 
-        if(SWTUtil.isSWT) {
-            super.setCurrentThreadFake();
-        } else if(features.isDefault(htmlFeatureFactory.HTML))
+        if(features.isDefault(htmlFeatureFactory.HTML))
         {
             super.setCurrentThreadFake();
         }
@@ -572,7 +570,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullGameRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullWaitRunnable.getInstance()) {
             return true;
         }
         else
@@ -1591,12 +1589,19 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     }
                 }
             };
-            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, CommonStrings.getInstance().CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, commonStrings.RUN));
 
             final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
             final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
             swtRunnableProcessor.runnable = runnable;
             swtProcessorUtil.swtProcessor = swtRunnableProcessor;
+
+            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+
+            final CurrentDisplayableFactory currentDisplayableFactory
+                    = CurrentDisplayableFactory.getInstance();
+
+            currentDisplayableFactory.setRunnable(gameRunnable);
 
         } else if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)
                 || features.isDefault(htmlFeatureFactory.HTML)) {
@@ -1685,26 +1690,28 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             final Features features = Features.getInstance();
 
-            //If game thread is not actually running
-            if (SWTUtil.isSWT) {
-                if(running) {
-                } else {
-                    final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
-                    swtRunnableProcessor.runnable = NullRunnable.getInstance();
+            if (running) {
+            } else {
+                //If game thread is not actually running                
+                if (features.isDefault(openGLFeatureFactory.OPENGL) ||
+                    //features.isDefault(htmlFeatureFactory.HTML)) ||
+                    SWTUtil.isSWT) {
+                    
+                    if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT) {
+                        
+                        if (SWTUtil.isSWT) {
+                            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, SET_RUNNING));
+                            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
+                            swtRunnableProcessor.runnable = NullRunnable.getInstance();
+                        }
+                        
+                        final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
+                        currentDisplayableFactory.clearRunnable();
+                    }
+                    this.end();
                 }
-            } else if (
-                    //(
-                    features.isDefault(openGLFeatureFactory.OPENGL)
-                    //|| features.isDefault(htmlFeatureFactory.HTML))
-                    && !running
-                    )
-            {
-                if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT) {
-                    final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
-                    currentDisplayableFactory.clearRunnable();
-                }
-                this.end();
             }
+            
         } catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, SET_RUNNING, e));

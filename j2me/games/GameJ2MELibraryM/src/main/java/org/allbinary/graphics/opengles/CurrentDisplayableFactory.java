@@ -23,7 +23,8 @@ import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameRunnable;
 import org.allbinary.game.displayable.canvas.NullDisplayable;
-import org.allbinary.game.displayable.canvas.NullGameRunnable;
+import org.allbinary.game.displayable.canvas.NullWaitRunnable;
+import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.thread.NullRunnable;
 
@@ -39,8 +40,8 @@ public class CurrentDisplayableFactory
     private Displayable displayable = NullDisplayable.getInstance();
     private Displayable openGlReadydisplayable = NullDisplayable.getInstance();
 
-    private GameRunnable runnable = NullGameRunnable.getInstance();
-    private GameRunnable usedRunnable = NullGameRunnable.getInstance();
+    private GameRunnable runnable = NullWaitRunnable.getInstance();
+    private GameRunnable usedRunnable = NullWaitRunnable.getInstance();
 
     private final String RUNNABLE = "Runnable: ";
     
@@ -64,6 +65,7 @@ public class CurrentDisplayableFactory
 
     public void setRunnable(GameRunnable runnable)
     {
+        PreLogUtil.put(new StringMaker().append(RUNNABLE).append(runnable).toString(), this, "setRunnable");
         this.runnable = runnable;
 
         //this.usedRunnable = runnable;
@@ -73,7 +75,7 @@ public class CurrentDisplayableFactory
     public void clearRunnable()
     {
         PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, "clearRunnable");
-        this.setUsedRunnable(NullGameRunnable.getInstance()); 
+        this.setUsedRunnable(NullWaitRunnable.getInstance()); 
     }
     
     private void update()
@@ -82,10 +84,12 @@ public class CurrentDisplayableFactory
         {
             Features features = Features.getInstance();
 
-            if (openGlReadydisplayable instanceof DemoCanvas || 
+            if (SWTUtil.isSWT) {
+                PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
+                this.setUsedRunnable(NullWaitRunnable.getInstance());
+            } else if (openGlReadydisplayable instanceof DemoCanvas || 
                     openGlReadydisplayable instanceof AllBinaryGameCanvas ||
-                    features.isDefault(HTMLFeatureFactory.getInstance().HTML)
-                    )
+                    features.isDefault(HTMLFeatureFactory.getInstance().HTML))
             {
                 PreLogUtil.put(new StringMaker().append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(runnable);
@@ -93,7 +97,7 @@ public class CurrentDisplayableFactory
             else
             {
                 PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
-                this.setUsedRunnable(NullGameRunnable.getInstance());
+                this.setUsedRunnable(NullWaitRunnable.getInstance());
             }
         }
     }    
@@ -132,6 +136,7 @@ public class CurrentDisplayableFactory
      */
     public void setUsedRunnable(GameRunnable usedRunnable)
     {
+        PreLogUtil.put(new StringMaker().append(RUNNABLE).append(runnable).toString(), this, "setUsedRunnable");
         this.usedRunnable = usedRunnable;
     }
 

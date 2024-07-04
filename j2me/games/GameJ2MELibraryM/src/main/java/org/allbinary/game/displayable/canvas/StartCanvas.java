@@ -149,13 +149,12 @@ public class StartCanvas extends RunnableCanvas
     private PaintableInterface paintableInterface;
     private final InitUpdatePaintable overlayPaintable;
 
-    private final int LOAD_WAIT = 172;
-    private int tempWait = LOAD_WAIT;
+    private int tempWait = NullWaitRunnable.getInstance().WAIT;
     
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    private GameRunnable gameRunnable = NullGameRunnable.getInstance();
+    private GameRunnable gameRunnable = NullWaitRunnable.getInstance();
     
     public StartCanvas(
         final AbeClientInformationInterface abeClientInformation,
@@ -170,7 +169,7 @@ public class StartCanvas extends RunnableCanvas
         super(commandListener);
 
         //Give time for initialization of demogame by default
-        this.setWait(LOAD_WAIT);
+        this.setWait(NullWaitRunnable.getInstance().WAIT);
         
         this.gameInitializationInterfaceFactoryInterface =
             gameInitializationInterfaceFactoryInterface;
@@ -529,7 +528,7 @@ public class StartCanvas extends RunnableCanvas
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullGameRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullWaitRunnable.getInstance()) {
             return true;
         }
         else
