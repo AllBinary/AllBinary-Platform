@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.commands.GameCommandsFactory;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.paint.ColorFillBasePaintable;
@@ -39,6 +41,7 @@ import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.thread.SecondaryThreadPool;
 
@@ -119,23 +122,37 @@ public class HighScoresCanvas extends GameCommandCanvas
             this.updateCommand(this.currentCommand);
             this.setPaintable(this.getHighScoresPaintable());
         }
+
+        final Features features = Features.getInstance();
+        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         
         SecondaryThreadPool.getInstance().runTask(new Runnable() {
             public void run() {
                 
-                while(!hasPainted) {
+                try {
+                    if (!isHTML) {
+                        while (!hasPainted) {
+                        }
+                        hasPainted = false;
+                    }
+                    final StringMaker stringMaker = new StringMaker();
+                    LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+                    repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
+                    if (!isHTML) {
+                        while (!hasPainted) {
+                        }
+                    }
+                    stringMaker.delete(0, stringMaker.length());
+                    LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+                    executeUpdate();
+                } catch (Exception e) {
+                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
-                hasPainted = false;
-                final StringMaker stringMaker = new StringMaker();
-                LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Request repaint to be sure: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
-                repaintBehavior.onChangeRepaint(HighScoresCanvas.this);
-                while(!hasPainted) {
-                }
-                stringMaker.delete(0,  stringMaker.length());
-                LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
-                executeUpdate();
+                
             }
         });
+        
+        //LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.CONSTRUCTOR));
     }
 
     public void initCommands(CommandListener cmdListener)
