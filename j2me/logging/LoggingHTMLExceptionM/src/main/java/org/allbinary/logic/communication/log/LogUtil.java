@@ -13,8 +13,7 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogFormatUtil;
+import org.allbinary.logic.string.CommonStrings;
 import playn.core.PlayN;
 
 public class LogUtil
@@ -28,6 +27,8 @@ public class LogUtil
    
     public synchronized static void put(final Log log)
     {
+        if(log == null) return;
+
         final String specialMessage = log.getSpecialMessage();
         final Object object = log.getObject();
         final String functionName = log.getFunctionName();
@@ -48,7 +49,7 @@ public class LogUtil
         }
 
 //        String className = EMPTY;
-//
+
 //        if (object.getClass().getName() != null)
 //        {
 //            className = new String(object.getClass().getName());
@@ -76,7 +77,7 @@ public class LogUtil
         }
 
 //        String className = EMPTY;
-//
+
 //        if (object.getClass().getName() != null)
 //        {
 //            className = new String(object.getClass().getName());
@@ -93,6 +94,7 @@ public class LogUtil
         {
             PlayN.log().debug(LOG_SUCCESS + message);
         }
-    }  
+        
+    }
     
 }

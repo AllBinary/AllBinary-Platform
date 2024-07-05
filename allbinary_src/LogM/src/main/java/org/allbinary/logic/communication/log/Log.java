@@ -17,8 +17,6 @@ import org.allbinary.logic.string.StringUtil;
 
 public class Log
 {
-    public static final Throwable NULL_THROWABLE = new Throwable();
-    public static final Object OBJECT = new Object();
     private static final String EMPTY = "Empty";
 
     private final String specialMessage;
@@ -32,9 +30,9 @@ public class Log
     {
         final StringUtil stringUtil = StringUtil.getInstance();
         this.specialMessage = stringUtil.EMPTY_STRING;
-        this.object = OBJECT;
+        this.object = null;
         this.functionName = stringUtil.EMPTY_STRING;
-        this.exception = NULL_THROWABLE;
+        this.exception = null;
     }
     
     public Log(
@@ -57,7 +55,7 @@ public class Log
         this.specialMessage = specialMessage;
         this.object = object;
         this.functionName = functionName;
-        this.exception = NULL_THROWABLE;
+        this.exception = null;
 
     }
 

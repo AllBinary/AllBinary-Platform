@@ -32,8 +32,7 @@ public class LogFormatUtil
     private final TimeStampUtil timeStampUtil = TimeStampUtil.getInstance();
     private final CommonSeps commonSeps = CommonSeps.getInstance();
 
-
-    private final String NONE = "None";
+    //private final String NONE = "None";
     private final String LOG_ERROR = "\nLog-Error: ";
     private final String EMPTY = "Empty";
     private final String STACK_TRACE = "\nStack Trace: ";
@@ -85,11 +84,6 @@ public class LogFormatUtil
     private synchronized StringMaker get(
         final String className, String functionName)
     {
-        if (functionName == null)
-        {
-            functionName = NONE;
-        }
-
         //int hashCode = LogUtil.class.getClassLoader().getClass().hashCode();
         final StringMaker stringBuffer = new StringMaker();
         stringBuffer.append(TIME);
@@ -112,9 +106,10 @@ public class LogFormatUtil
             final StringMaker stringBuffer = new StringMaker();
             stringBuffer.append(LOG_ERROR);
 
-            if (exception.toString() != null)
+            final String exceptionAsString = exception.toString();
+            if (exceptionAsString != null)
             {
-                stringBuffer.append(exception.toString());
+                stringBuffer.append(exceptionAsString);
             } else
             {
                 stringBuffer.append(EMPTY);

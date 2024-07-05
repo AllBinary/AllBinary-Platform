@@ -48,7 +48,7 @@ public class LogUtil
         }
 
 //        String className = EMPTY;
-//
+
 //        if (object.getClass().getName() != null)
 //        {
 //            className = new String(object.getClass().getName());
@@ -76,7 +76,7 @@ public class LogUtil
         }
 
 //        String className = EMPTY;
-//
+
 //        if (object.getClass().getName() != null)
 //        {
 //            className = new String(object.getClass().getName());
@@ -93,6 +93,7 @@ public class LogUtil
         {
             PlayN.log().debug(LOG_SUCCESS + message);
         }
+        
     }  
     
 }
