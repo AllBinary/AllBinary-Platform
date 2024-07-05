@@ -13,18 +13,28 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.string.StringUtil;
+
 public class Log
 {
-    private String specialMessage;
-    private Object object;
-    private String functionName;
-    private Throwable exception;
+    public static final Throwable NULL_THROWABLE = new Throwable();
+    public static final Object OBJECT = new Object();
+    private static final String EMPTY = "Empty";
+
+    private final String specialMessage;
+    private final Object object;
+    private final String functionName;
+    private final Throwable exception;
 
     private final LogFormatUtil logFormatUtil = LogFormatUtil.getInstance();
 
-    public Log()
+    private Log()
     {
-        
+        final StringUtil stringUtil = StringUtil.getInstance();
+        this.specialMessage = stringUtil.EMPTY_STRING;
+        this.object = OBJECT;
+        this.functionName = stringUtil.EMPTY_STRING;
+        this.exception = NULL_THROWABLE;
     }
     
     public Log(
@@ -47,6 +57,8 @@ public class Log
         this.specialMessage = specialMessage;
         this.object = object;
         this.functionName = functionName;
+        this.exception = NULL_THROWABLE;
+
     }
 
     public String getSpecialMessage()
@@ -54,19 +66,9 @@ public class Log
         return specialMessage;
     }
 
-    public void setSpecialMessage(String specialMessage)
-    {
-        this.specialMessage = specialMessage;
-    }
-
     public Object getObject()
     {
         return object;
-    }
-
-    public void setObject(Object object)
-    {
-        this.object = object;
     }
 
     public String getFunctionName()
@@ -74,22 +76,10 @@ public class Log
         return functionName;
     }
 
-    public void setFunctionName(String functionName)
-    {
-        this.functionName = functionName;
-    }
-
     public Throwable getThrowable()
     {
         return exception;
     }
-
-    public void setThrowable(Throwable exception)
-    {
-        this.exception = exception;
-    }
-
-    private static final String EMPTY = "Empty";
 
     public String toString()
     {
