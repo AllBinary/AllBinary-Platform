@@ -746,14 +746,14 @@ public class DemoCanvas extends RunnableCanvas
         PreLogUtil.put("Game Thread in DemoCanvas: " + gameCanvas, this, commonStrings.START);
 
         //Clear static pause behavior for SWT
-        if(SWTUtil.isSWT) {
-            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, commonStrings.START));
-
-            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
-            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
-            swtRunnableProcessor.runnable = NullRunnable.getInstance();
-            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
-        }
+//        if(SWTUtil.isSWT) {
+//            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, commonStrings.START));
+//
+//            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
+//            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
+//            swtRunnableProcessor.runnable = NullRunnable.getInstance();
+//            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
+//        }
         
         
         this.canvasThread = threadFactoryUtil.getInstance(gameCanvas);

@@ -38,7 +38,7 @@ public class SWTRunnableProcessor extends SWTProcessor {
     public void process(final Display display) {
         //System.out.println("SWTRunnableProcessor:process - Processing on SWT Thread" + this.hashCode());
         this.runnable.run();
-        super.process(display);
+        //super.process(display);
     }
 
 }

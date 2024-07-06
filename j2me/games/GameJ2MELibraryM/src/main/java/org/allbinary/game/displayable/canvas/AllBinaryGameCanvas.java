@@ -1578,32 +1578,33 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final Features features = Features.getInstance();
         final HTMLFeatureFactory htmlFeatureFactory = HTMLFeatureFactory.getInstance();
 
-        if (SWTUtil.isSWT) {
-
-            final Runnable runnable = new Runnable() {
-                public void run() {
-                    try {
-                        run3();
-                    } catch (Exception e) {
-                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
-                    }
-                }
-            };
-            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, commonStrings.RUN));
-
-            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
-            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
-            swtRunnableProcessor.runnable = runnable;
-            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
-
-            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
-
-            final CurrentDisplayableFactory currentDisplayableFactory
-                    = CurrentDisplayableFactory.getInstance();
-
-            currentDisplayableFactory.setRunnable(gameRunnable);
-
-        } else if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)
+//        if (SWTUtil.isSWT) {
+//
+//            final Runnable runnable = new Runnable() {
+//                public void run() {
+//                    try {
+//                        run3();
+//                    } catch (Exception e) {
+//                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
+//                    }
+//                }
+//            };
+//            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + runnable, this, commonStrings.RUN));
+//
+//            final SWTProcessorUtil swtProcessorUtil = SWTProcessorUtil.getInstance();
+//            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
+//            swtRunnableProcessor.runnable = runnable;
+//            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
+//
+//            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+//
+//            final CurrentDisplayableFactory currentDisplayableFactory
+//                    = CurrentDisplayableFactory.getInstance();
+//
+//            currentDisplayableFactory.setRunnable(gameRunnable);
+//
+//        } else 
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)
                 || features.isDefault(htmlFeatureFactory.HTML)) {
             
             if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
