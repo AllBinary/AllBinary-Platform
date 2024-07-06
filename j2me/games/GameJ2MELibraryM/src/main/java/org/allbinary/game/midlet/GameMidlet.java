@@ -97,6 +97,7 @@ import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
+import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
@@ -399,8 +400,7 @@ public class GameMidlet extends ProgressMidlet
                 final MenuListener menuListener = (MenuListener) displayable;
                 menuListener.close();
 
-                this.setDisplay((Displayable)
-                    this.allbinaryGameCanvasRunnableInterface);
+                this.setDisplay((Displayable) this.allbinaryGameCanvasRunnableInterface);
                 this.unPauseAppBackground(false);
             }
             else if (command == gameCommandsFactory.EXIT_COMMAND)
@@ -460,6 +460,12 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.QUIT_COMMAND)
             {
+                //Close on quit for HighScoresTextBox.
+                if (displayable instanceof GameCommandCanvas) {
+                    final MenuListener menuListener = (MenuListener) displayable;
+                    menuListener.close();
+                }
+                
                 if (this.gameStartTimeHelper.isTime())
                 {
                     this.stopGameCanvasRunnableInterface();

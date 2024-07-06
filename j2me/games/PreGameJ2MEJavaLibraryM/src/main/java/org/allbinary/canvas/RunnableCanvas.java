@@ -256,8 +256,8 @@ public class RunnableCanvas extends MyCanvas
         Thread.sleep(sleep);
     }
     
-    private final String START_PAUSE = "start pause - game thread sleep: ";
-    private final String END_PAUSE = "end pause - game thread sleep: ";
+    private final String START_PAUSE = "start pause - game thread sleep at: ";
+    private final String END_PAUSE = "end pause - game thread sleep at: ";
     public void processLoopSleep() throws Exception
     {
         this.runnableCanvasRefreshHelper.process();
@@ -267,6 +267,7 @@ public class RunnableCanvas extends MyCanvas
         if(this.isPaused() && this.isRunning() && !this.isSingleThread()) {
             final StringMaker stringMaker = new StringMaker();
             LogUtil.put(LogFactory.getInstance(stringMaker.append(START_PAUSE).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+            LogUtil.put(LogFactory.getInstance(PAUSE_SLEEP + this.pauseWait, this, commonStrings.PROCESS));
             while (this.isPaused() && this.isRunning() && !this.isSingleThread()) {
                 this.processSleep();
 
