@@ -51,7 +51,7 @@ public class HighScoreTextBox extends CustomTextBox
     
     private Paintable paintable = NullPaintable.getInstance();
 
-    private boolean submitted = false;
+    public boolean submitted = false;
     
     public HighScoreTextBox(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBase highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
         final CommandListener cmdListener, final String name, final HighScore highScore,
@@ -115,7 +115,10 @@ public class HighScoreTextBox extends CustomTextBox
         this.update();
         
         if(this.submitted) {
+            //LogUtil.put(LogFactory.getInstance("Saving HighScores", this, "close"));
             this.highScoreUtil.saveHighScore();
+        } else {
+            //LogUtil.put(LogFactory.getInstance("Not Saving HighScores", this, "close"));
         }
         
         this.paintable = NullPaintable.getInstance();
@@ -142,7 +145,6 @@ public class HighScoreTextBox extends CustomTextBox
     
     public void submit()
     {
-        this.submitted = true;
         this.highScoreUtil.submit(this);
     }
 }

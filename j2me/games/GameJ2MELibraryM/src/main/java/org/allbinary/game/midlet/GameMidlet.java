@@ -519,8 +519,7 @@ public class GameMidlet extends ProgressMidlet
                 final Displayable tempDisplayable = displayable;
                 if (tempDisplayable instanceof GameOptionsForm)
                 {
-                    GameFeatureFormUtil.getInstance().setDefault(
-                            (CommandForm) tempDisplayable);
+                    GameFeatureFormUtil.getInstance().setDefault((CommandForm) tempDisplayable);
                 }
             }
             else if (command == GameInputMappingInstructionsCanvas.DISPLAY)
@@ -756,7 +755,12 @@ public class GameMidlet extends ProgressMidlet
             else if (command == HighScoreUtil.SUBMIT_TEXTBOX_COMMAND)
             {
                 LogUtil.put(LogFactory.getInstance("Submitted Score", this, COMMAND_ACTION));
-                
+
+                if (displayable instanceof HighScoreTextBox) {
+                    final HighScoreTextBox menuListener = (HighScoreTextBox) displayable;
+                    menuListener.submitted = true;
+                }
+
                 this.allbinaryGameCanvasRunnableInterface.setHighScoreSubmitted(true);
 
                 this.commandAction(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS, displayable);
