@@ -22,7 +22,7 @@ public class CachePolicyFactory
         return instance;
     }
     
-    private final String NAME = "lru";
+    public final String NAME = "lru";
     
     public CachePolicy MAX_TIME_THOUSAND_MAX = 
         new CachePolicy(NAME, Long.MAX_VALUE, 1000);
@@ -38,5 +38,8 @@ public class CachePolicyFactory
 
     public CachePolicy ONE_MINUTE_TEN_MAX = 
         new CachePolicy(NAME, 1000 * 60 * 1, 10);
+
+    public CachePolicy ONE_MINUTE_ONE_HUNDRED_MAX = 
+        new CachePolicy(NAME, 1000 * 60 * 1, 100);
     
 }
