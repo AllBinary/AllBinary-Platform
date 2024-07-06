@@ -32,6 +32,8 @@ import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class HighScoreTextBox extends CustomTextBox
@@ -49,6 +51,8 @@ public class HighScoreTextBox extends CustomTextBox
     
     private Paintable paintable = NullPaintable.getInstance();
 
+    private boolean submitted = false;
+    
     public HighScoreTextBox(final HighScoresFactoryInterface highScoresFactoryInterface, final HighScoresHelperBase highScoresHelper, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, 
         final CommandListener cmdListener, final String name, final HighScore highScore,
         final BasicColor backgrounBasicColor, final BasicColor foregroundBasicColor) throws Exception
@@ -103,14 +107,20 @@ public class HighScoreTextBox extends CustomTextBox
 
         this.paintable = this.pleaseWait;
         this.repaintBehavior.onChangeRepaint(this);
-
+        
         super.close();
+        
         this.removeCommand(this.highScoreUtil.SUBMIT_TEXTBOX_COMMAND);
+        
         this.update();
-        this.highScoreUtil.saveHighScore();
-
+        
+        if(this.submitted) {
+            this.highScoreUtil.saveHighScore();
+        }
+        
         this.paintable = NullPaintable.getInstance();
         this.repaintBehavior.onChangeRepaint(this);
+
     }
 
     private void update()
@@ -132,6 +142,7 @@ public class HighScoreTextBox extends CustomTextBox
     
     public void submit()
     {
+        this.submitted = true;
         this.highScoreUtil.submit(this);
     }
 }

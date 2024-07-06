@@ -97,8 +97,8 @@ import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
-import org.allbinary.game.displayable.canvas.GameCommandCanvas;
 import org.allbinary.game.input.TextNotificationUtil;
+import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
@@ -460,14 +460,14 @@ public class GameMidlet extends ProgressMidlet
             }
             else if (command == gameCommandsFactory.QUIT_COMMAND)
             {
-                //Close on quit for HighScoresTextBox.
-                if (displayable instanceof GameCommandCanvas) {
-                    final MenuListener menuListener = (MenuListener) displayable;
-                    menuListener.close();
-                }
-                
                 if (this.gameStartTimeHelper.isTime())
                 {
+                    //Close on quit for HighScoresTextBox.
+                    if (displayable instanceof HighScoreTextBox) {
+                        final MenuListener menuListener = (MenuListener) displayable;
+                        menuListener.close();
+                    }
+
                     this.stopGameCanvasRunnableInterface();
                     gameMidletStateFactory.setCurrentGameState(GameState.NO_GAME_STATE);
                     this.setDemo();
@@ -756,7 +756,7 @@ public class GameMidlet extends ProgressMidlet
             else if (command == HighScoreUtil.SUBMIT_TEXTBOX_COMMAND)
             {
                 LogUtil.put(LogFactory.getInstance("Submitted Score", this, COMMAND_ACTION));
-
+                
                 this.allbinaryGameCanvasRunnableInterface.setHighScoreSubmitted(true);
 
                 this.commandAction(gameCommandsFactory.CLOSE_AND_SHOW_GAME_CANVAS, displayable);
