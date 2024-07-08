@@ -45,7 +45,7 @@ public class RunnableCanvas extends MyCanvas
     
     public RunnableCanvas(final CommandListener commandListener, final boolean hasParam)
     {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("delay: ").append(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("delay: ").append(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR));
         
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
         this.runnableCanvasRefreshHelper = new RunnableCanvasRefreshHelper(this);
@@ -157,7 +157,7 @@ public class RunnableCanvas extends MyCanvas
         // this.wait = wait;
         this.pauseWait = wait * 3;
         
-        LogUtil.put(LogFactory.getInstance("setWait - delay: " + this.loopTimeHelper.delay, this, this.commonStrings.CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("setWait - delay: ").append(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR));
     }
 
     protected int getWait()
