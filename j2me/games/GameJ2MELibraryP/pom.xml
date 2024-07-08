@@ -56,6 +56,7 @@
 
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLNoneJavaLibraryM</module>
+        <module>../../../graphics/opengl/OpenGLNoneOtherJavaLibraryM</module>
 
         <module>../../media/graphics/animation/AnimationLibraryM</module>
         <module>../../media/graphics/animation/RotationAnimationJavaLibraryM</module>
