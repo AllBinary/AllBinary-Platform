@@ -743,7 +743,7 @@ public class DemoCanvas extends RunnableCanvas
     protected void start() throws Exception
     {
         final AllBinaryGameCanvas gameCanvas = this.gameCanvas;
-        PreLogUtil.put("Game Thread in DemoCanvas: " + gameCanvas, this, commonStrings.START);
+        PreLogUtil.put(new StringMaker().append("Game Thread in DemoCanvas: ").append(gameCanvas).toString(), this, commonStrings.START);
 
         //Clear static pause behavior for SWT
 //        if(SWTUtil.isSWT) {

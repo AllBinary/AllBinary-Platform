@@ -1700,11 +1700,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                     
                     if (this.gameLayerManager.getGameInfo().getGameType() != gameTypeFactory.BOT) {
                         
-                        if (SWTUtil.isSWT) {
-                            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, SET_RUNNING));
-                            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
-                            swtRunnableProcessor.runnable = NullRunnable.getInstance();
-                        }
+//                        if (SWTUtil.isSWT) {
+//                            LogUtil.put(LogFactory.getInstance("Set SWT Thread and assign runnable: " + NullRunnable.getInstance(), this, SET_RUNNING));
+//                            final SWTRunnableProcessor swtRunnableProcessor = SWTRunnableProcessor.getInstance();
+//                            swtRunnableProcessor.runnable = NullRunnable.getInstance();
+//                        }
                         
                         final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                         currentDisplayableFactory.clearRunnable();
