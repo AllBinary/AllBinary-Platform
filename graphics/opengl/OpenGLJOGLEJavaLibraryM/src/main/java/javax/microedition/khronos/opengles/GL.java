@@ -1,6 +1,4 @@
 package javax.microedition.khronos.opengles;
-
-public class GL 
+public interface GL
 {
-    
 }

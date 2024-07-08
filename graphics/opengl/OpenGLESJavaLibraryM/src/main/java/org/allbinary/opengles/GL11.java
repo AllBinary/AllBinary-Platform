@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
  *
  * @author User
  */
+//ABDebugGL11
 public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL11
 {
 

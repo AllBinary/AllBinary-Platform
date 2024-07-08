@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
  *
  * @author User
  */
+//ABDebugGL10
 public class GL10 implements javax.microedition.khronos.opengles.GL10
 {
 
