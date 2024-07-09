@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.platform</groupId>
-    <artifactId>Min3dForNullJavaLibrary</artifactId>
+    <artifactId>Min3dForJOGLJavaLibrary</artifactId>
     <!-- gl.gl OpenGLES Calls -->
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
-    <name>Min3dForNullJavaLibrary</name>
+    <name>Min3dForJOGLJavaLibrary</name>
     <url>http://maven.apache.org</url>
     
     <dependencies>
@@ -31,7 +31,7 @@
 
         <dependency>
             <groupId>org.allbinary.media.image</groupId>
-            <artifactId>ImageJ2MEJavaLibrary</artifactId>
+            <artifactId>ImageSwtJ2SEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -49,6 +49,14 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ResourceLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>OpenGLNoneJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -57,7 +65,7 @@
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESNullImageJavaLibrary</artifactId>
+            <artifactId>OpenGLESSWTJOGLImageJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -73,8 +81,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.media.image</groupId>
-            <artifactId>ImageJ2MEJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>SWTToJ2MELibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

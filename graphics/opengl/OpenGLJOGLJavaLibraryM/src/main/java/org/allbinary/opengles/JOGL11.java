@@ -11,14 +11,14 @@
 * Created By: Travis Berthelot
 * 
  */
-package javax.microedition.khronos.opengles;
+package org.allbinary.opengles;
 
 /**
  *
  * @author User
  */
 //JOGLEToKhronosGL11
-public class GL11 extends GL10 
+public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengles.GL11
 {
 
     //private final StringBuilder stringBuilder = new StringBuilder();
@@ -37,7 +37,7 @@ public class GL11 extends GL10
 
     private final com.jogamp.opengl.GL2 gl11;
 
-    public GL11(com.jogamp.opengl.GL2 gl)
+    public JOGL11(com.jogamp.opengl.GL2 gl)
     {
         super(gl);
 

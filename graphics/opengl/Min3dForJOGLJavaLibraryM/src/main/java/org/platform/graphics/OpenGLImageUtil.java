@@ -6,7 +6,6 @@ import java.io.InputStream;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.OpenGLBitmap;
-import org.allbinary.media.image.ImageModifierUtil;
 
 /**
  *
@@ -23,7 +22,7 @@ public class OpenGLImageUtil {
         return instance;
     }
    
-    private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
+    //private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
     public void paint(final OpenGLBitmap alphaBitmap, final OpenGLBitmap originalBitmap, final int index) {
        throw new RuntimeException();

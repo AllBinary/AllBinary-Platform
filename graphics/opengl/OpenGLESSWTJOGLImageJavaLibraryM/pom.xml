@@ -1,14 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.allbinary.input</groupId>
-    <artifactId>TouchButtonResourceOpenGLESAnimationJavaLibrary</artifactId>
+    <groupId>org.allbinary</groupId>
+    <artifactId>OpenGLESSWTJOGLImageJavaLibrary</artifactId>
+    <!-- gl.gl OpenGLES Calls -->
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
 
-    <name>TouchButtonResourceOpenGLESAnimationJavaLibrary</name>
+    <name>OpenGLESSWTJOGLImageJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -38,7 +39,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLNoneOtherJavaLibrary</artifactId>
+            <artifactId>LoggingJ2MEAll</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -48,27 +49,85 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+            <artifactId>GameConfigurationJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
 
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>TokenizerJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <!--
+            <artifactId>FileAndroidJavaLibrary</artifactId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            -->
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
             <optional>true</optional>
         </dependency>
 
         <dependency>
-            <groupId>org.allbinary.input</groupId>
-            <artifactId>TouchButtonResourceAnimationJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLESBaseJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-midp</artifactId>
+            <version>2.0.2-SPECIAL-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-javase</artifactId>
+            <version>2.0.2-SPECIAL-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>1.5_r3</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.android</groupId>
+            <artifactId>android</artifactId>
+            <version>1.5_r3</version>
+            <scope>provided</scope>
+            <classifier>sources</classifier>
         </dependency>
 
     </dependencies>
 
     <build>
+        
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -103,7 +162,7 @@
             </plugin>
 
         </plugins>
-
+        
     </build>
 
 </project>

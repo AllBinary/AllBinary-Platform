@@ -11,14 +11,14 @@
 * Created By: Travis Berthelot
 * 
  */
-package javax.microedition.khronos.opengles;
+package org.allbinary.opengles;
 
 /**
  *
  * @author User
  */
 //JOGLEToKhronosGL10
-public class GL10 implements javax.microedition.khronos.opengles.GL
+public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 {
 
     //private final StringBuilder stringBuilder = new StringBuilder();
@@ -37,39 +37,16 @@ public class GL10 implements javax.microedition.khronos.opengles.GL
 
     private final com.jogamp.opengl.GL2 gl10;
 
-    public final int GL_PROJECTION;
-    public final int GL_MODELVIEW;
-    public final int GL_PERSPECTIVE_CORRECTION_HINT;
-    public final int GL_NICEST;
-    public final int GL_DEPTH_TEST;
-    public final int GL_COLOR_BUFFER_BIT;
-    public final int GL_DEPTH_BUFFER_BIT;
-    public final int GL_FRONT_AND_BACK;
-    public final int GL_POINTS;
     public final int GL_LINE;
-    public final int GL_LINE_SMOOTH;
-    public final int GL_TRIANGLES;
     public final int GL_QUAD_STRIP;
     
-    public GL10(com.jogamp.opengl.GL2 gl)
+    public JOGL10(com.jogamp.opengl.GL2 gl)
     {
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, CommonStrings.getInstance().CONSTRUCTOR);
         this.gl10 = gl;
         
-        this.GL_PROJECTION = this.gl10.GL_PROJECTION;
-        this.GL_MODELVIEW = this.gl10.GL_MODELVIEW;
-        
-        this.GL_PERSPECTIVE_CORRECTION_HINT = this.gl10.GL_PERSPECTIVE_CORRECTION_HINT;
-        this.GL_NICEST = this.gl10.GL_NICEST;
-        this.GL_DEPTH_TEST = this.gl10.GL_DEPTH_TEST;
-        this.GL_COLOR_BUFFER_BIT = this.gl10.GL_COLOR_BUFFER_BIT;
-        this.GL_DEPTH_BUFFER_BIT = this.gl10.GL_DEPTH_BUFFER_BIT;
-        this.GL_FRONT_AND_BACK = this.gl10.GL_FRONT_AND_BACK;
-        this.GL_POINTS = this.gl10.GL_POINTS;
         this.GL_LINE = this.gl10.GL_LINE;
-        this.GL_LINE_SMOOTH = this.gl10.GL_LINE_SMOOTH;
         this.GL_QUAD_STRIP = this.gl10.GL_QUAD_STRIP;
-        this.GL_TRIANGLES = this.gl10.GL_TRIANGLES;
 
     }
 
