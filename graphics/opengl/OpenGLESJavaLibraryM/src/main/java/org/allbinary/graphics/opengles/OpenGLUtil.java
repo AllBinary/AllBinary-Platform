@@ -1,0 +1,81 @@
+package org.allbinary.graphics.opengles;
+
+import javax.microedition.khronos.opengles.GL10;
+
+import org.allbinary.device.OpenGLESGraphics;
+import org.allbinary.image.ChoiceGroupImageUtil;
+import org.allbinary.image.opengles.OpenGLImageCache;
+import org.allbinary.image.opengles.OpenGLImageCacheFactory;
+
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+
+public class OpenGLUtil
+{
+    private static final OpenGLUtil instance = new OpenGLUtil();
+
+    public static OpenGLUtil getInstance()
+    {
+        return instance;
+    }
+
+    public void onSurfaceCreated(GL10 gl)
+    {
+        try
+        {
+            //gl.glHint(GL10.GL_FOG_HINT, GL10.GL_FASTEST);
+            //gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_FASTEST);
+            //gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_FASTEST);
+            //gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_FASTEST);
+
+            //gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
+
+            //gl.glHint(GL10.GL_FOG_HINT, GL10.GL_NICEST);
+            //gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_NICEST);
+            //gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_NICEST);
+            //gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_NICEST);
+
+            //gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
+            
+            PreLogUtil.put(CommonLabels.getInstance().START_LABEL
+                    + OpenGLCapabilities.getInstance().toString(), this, "onSurfaceCreated");
+
+            // gl.glMatrixMode(GL10.GL_MODELVIEW);
+
+            OpenGLLogUtil.getInstance().logError(gl);
+            
+        } catch (Exception e)
+        {
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onSurfaceCreated", e));
+        }
+    }
+
+    private boolean surfaceCreatedAndInitialized = false;
+    
+    public void onSurfaceChanged(GL10 gl, OpenGLESGraphics graphics) throws Exception
+    {
+        if (!surfaceCreatedAndInitialized)
+        {
+            graphics.init();
+            surfaceCreatedAndInitialized = true;
+        }
+
+        //Seems that mutable images must be reloaded on graphics change?
+        graphics.update();
+
+        ProgressCanvas progressCanvas = 
+                ProgressCanvasFactory.getInstance();
+
+        progressCanvas.update(graphics);
+
+        ChoiceGroupImageUtil.init();
+        ChoiceGroupImageUtil.update(graphics);
+
+        ((OpenGLImageCache) OpenGLImageCacheFactory.getInstance()).update(gl);
+    }
+}

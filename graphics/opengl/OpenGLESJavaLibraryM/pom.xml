@@ -67,6 +67,26 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>J2SEForJ2MEJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLNoneOtherJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>FileJ2SEJavaLibrary</artifactId>
             <!--
             <artifactId>FileAndroidJavaLibrary</artifactId>
@@ -99,7 +119,25 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESAndroidImageJavaLibrary</artifactId>
+            <artifactId>OpenGLESNullImageJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.platform</groupId>
+            <artifactId>Min3dForNullJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>ProgressJ2MEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -113,35 +151,34 @@
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
-                
+
         <dependency>
-            <groupId>org.microemu</groupId>
-            <artifactId>microemu-midp</artifactId>
-            <version>2.0.4</version>
-            <optional>true</optional>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLJOGLJavaLibrary</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
-            <groupId>org.khronos</groupId>
-            <artifactId>opengl-api</artifactId>
-            <version>gl1.1-android-2.1_r1</version>
-            <scope>provided</scope>
+            <groupId>org.microemu</groupId>
+            <artifactId>microemu-midp</artifactId>
+            <version>3.0.0-SNAPSHOT</version>
+            <optional>true</optional>
         </dependency>
 
     </dependencies>
 
     <build>
-        
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
-                <!-- 
+                <!--
                 <version>2.5.1</version>
                 <version>2.3.2</version>
                 -->
-                <configuration> 
+                <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                     <compilerArgument>-Xlint:all</compilerArgument>
@@ -166,7 +203,7 @@
             </plugin>
 
         </plugins>
-        
+
     </build>
 
 </project>

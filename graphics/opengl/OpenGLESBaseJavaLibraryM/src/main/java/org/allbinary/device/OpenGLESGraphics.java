@@ -1,4 +1,4 @@
-package org.allbinary.android.device;
+package org.allbinary.device;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;

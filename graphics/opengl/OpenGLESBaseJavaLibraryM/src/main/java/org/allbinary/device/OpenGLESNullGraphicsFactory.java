@@ -1,4 +1,4 @@
-package org.allbinary.android.device;
+package org.allbinary.device;
 
 public class OpenGLESNullGraphicsFactory
 {

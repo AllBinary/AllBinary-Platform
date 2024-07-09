@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.android.device;
+package org.allbinary.device;
 
 import javax.microedition.lcdui.Font;
 import org.allbinary.graphics.font.FontDebugBase;

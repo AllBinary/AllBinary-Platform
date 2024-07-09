@@ -428,9 +428,9 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     //void glPolygonOffsetx(int factor, int units);
 
-    //void glPopMatrix();
+    void glPopMatrix();
 
-    ///void glPushMatrix();
+    void glPushMatrix();
 
     void glReadPixels(int x, int y, int width, int height, int format, int type, java.nio.Buffer pixels);
 

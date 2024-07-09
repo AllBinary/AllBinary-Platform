@@ -13,11 +13,12 @@
 */
 package org.allbinary.graphics.opengles;
 
+import javax.microedition.lcdui.Displayable;
+
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
-import javax.microedition.lcdui.Displayable;
 
 import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;

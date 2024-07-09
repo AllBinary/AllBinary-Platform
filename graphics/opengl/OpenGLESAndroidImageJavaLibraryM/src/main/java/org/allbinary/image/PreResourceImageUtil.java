@@ -4,7 +4,7 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.OpenGLBitmapFactory;
-import org.allbinary.android.device.OpenGLESGraphics;
+import org.allbinary.device.OpenGLESGraphics;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLImageFactory;

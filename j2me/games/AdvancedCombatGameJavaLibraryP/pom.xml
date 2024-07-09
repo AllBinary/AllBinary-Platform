@@ -53,6 +53,7 @@
         <!--
         <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
         -->
+        <module>../../../graphics/opengl/OpenGLJOGLJavaLibraryM</module>
         <module>../../../graphics/opengl/OpenGLESBaseJavaLibraryM</module>
 
         <!-- Not used in Platform Libraries -->
