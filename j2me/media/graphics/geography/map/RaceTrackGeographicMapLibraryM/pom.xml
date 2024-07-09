@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.allbinary.media.graphics.geography.map</groupId>
-  <artifactId>RaceTrackGeographicMapLibrary</artifactId>
-  <packaging>jar</packaging>
-  <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.allbinary.media.graphics.geography.map</groupId>
+    <artifactId>RaceTrackGeographicMapLibrary</artifactId>
+    <packaging>jar</packaging>
+    <!-- AllBinary Platform Version Start -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- AllBinary Platform Version End -->
 
-  <name>RaceTrackGeographicMapLibrary</name>
-  <url>http://www.allbinary.com/</url>
+    <name>RaceTrackGeographicMapLibrary</name>
+    <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
             <id>nexus-snapshots</id>
@@ -46,8 +46,8 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary.game.multiplayer</groupId>
-  <artifactId>AllBinaryGameClientBaseNullJavaLibrary</artifactId>
+            <groupId>org.allbinary.game.multiplayer</groupId>
+            <artifactId>AllBinaryGameClientBaseNullJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -56,8 +56,17 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>OpenGLNoneJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLNoneJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
+            <artifactId>OpenGLNoneOtherJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
@@ -65,38 +74,38 @@
             <optional>true</optional>
         </dependency>
         
-<!--
-DamageGameJavaLibrary includes:
-DropJavaLibrary
-PickupGameJavaLibrary
--->
+        <!--
+        DamageGameJavaLibrary includes:
+        DropJavaLibrary
+        PickupGameJavaLibrary
+        -->
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>DamageGameJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>DamageGameJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary.physics</groupId>
-  <artifactId>FrictionJavaLibrary</artifactId>
+            <groupId>org.allbinary.physics</groupId>
+            <artifactId>FrictionJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
   
         <dependency>
-  <groupId>org.allbinary</groupId>
-  <artifactId>PickupLayerJavaLibrary</artifactId>
+            <groupId>org.allbinary</groupId>
+            <artifactId>PickupLayerJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary.media.graphics.geography.map</groupId>
-  <artifactId>GeographicMapLibrary</artifactId>
+            <groupId>org.allbinary.media.graphics.geography.map</groupId>
+            <artifactId>GeographicMapLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
