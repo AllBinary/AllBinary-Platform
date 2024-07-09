@@ -2,6 +2,7 @@ package org.platform;
 
 import java.io.InputStream;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.string.StringUtil;
 
 
 /**
@@ -31,7 +32,13 @@ public class OpenGLResources {
     }
     
     public InputStream openRawResource(final int id) throws Exception {
-        return this.resourceUtil.getResourceAsStream(resourceName);
+        throw new RuntimeException();
+        //return this.resourceUtil.getResourceAsStream(resourceName);
+    }
+    
+    public InputStream openRawResourceFromName(final String resourceName) throws Exception {
+        final String resourceNameWithoutRaw = resourceName.replace("raw/", StringUtil.getInstance().EMPTY_STRING);
+        return this.getResourceAsStream(resourceNameWithoutRaw);
     }
     
     public InputStream getResourceAsStream(final String resourceName) throws Exception {
