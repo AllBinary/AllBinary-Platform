@@ -668,17 +668,17 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
 //        this.gl10.glPolygonOffsetx(factor, units);
 //    }
 
-//    public void glPopMatrix()
-//    {
-//        PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, "GL10.glPopMatrix");
-//        this.gl10.glPopMatrix();
-//    }
+    public void glPopMatrix()
+    {
+        PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, "GL10.glPopMatrix");
+        this.gl10.glPopMatrix();
+    }
 
-//    public void glPushMatrix()
-//    {
-//        PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, "GL10.glPushMatrix");
-//        this.gl10.glPushMatrix();
-//    }
+    public void glPushMatrix()
+    {
+        PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, "GL10.glPushMatrix");
+        this.gl10.glPushMatrix();
+    }
 
     public void glReadPixels(int x, int y, int width, int height, int format, int type, java.nio.Buffer pixels)
     {

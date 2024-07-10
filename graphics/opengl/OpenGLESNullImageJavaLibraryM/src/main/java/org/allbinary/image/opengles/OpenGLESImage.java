@@ -36,7 +36,7 @@ implements OpenGLSurfaceChangedInterface
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {
-        super(image);
+        //super(image);
         
         this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
