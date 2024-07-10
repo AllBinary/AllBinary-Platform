@@ -45,7 +45,7 @@ public class ThreadFactoryUtil
         return this.getInstance(runnable, runnable.getType());
     }
     
-    public Thread getInstance(final Runnable runnable, final int type)
+    private Thread getInstance(final Runnable runnable, final int type)
     {
         final Features features = Features.getInstance();
 

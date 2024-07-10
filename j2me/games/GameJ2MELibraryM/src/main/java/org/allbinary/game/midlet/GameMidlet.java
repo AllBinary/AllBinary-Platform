@@ -103,6 +103,7 @@ import org.allbinary.game.score.displayable.HighScoreUtil;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.util.BasicArrayList;
 
@@ -895,11 +896,10 @@ public class GameMidlet extends ProgressMidlet
     public void startGameCanvasRunnableInterface() throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "startGameCanvasRunnableInterface"));
-
+        
         final ThreadFactoryUtil threadFactoryUtil = ThreadFactoryUtil.getInstance();
 
-        thread = thread = threadFactoryUtil.getInstance(
-                this.allbinaryGameCanvasRunnableInterface);
+        thread = thread = threadFactoryUtil.getInstance(this.allbinaryGameCanvasRunnableInterface);
 
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Thread Priority: ").append(thread.getPriority()).toString(), this, "startGameCanvasRunnableInterface"));
 

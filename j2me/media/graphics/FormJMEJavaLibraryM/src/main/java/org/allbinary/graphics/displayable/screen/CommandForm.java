@@ -21,6 +21,7 @@ import java.util.Stack;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.CommandListener;
+import org.allbinary.canvas.Processor;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -28,29 +29,49 @@ import org.allbinary.game.displayable.canvas.MenuListener;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
+import org.allbinary.logic.string.CommonStrings;
 
 public class CommandForm extends Form
         implements MyCommandInterface, MenuListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private final Processor repaintProcessor =
+            ScreenRepaintProcessorFactory.getInstance().getInstance(this);
+    
    private Stack commandStack;
    
    public CommandForm(CommandListener commandListener, String formTitle,
            BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
    {
       super(formTitle);
+            
       this.commandStack = new Stack();
+      
+       try {
+
+           repaintProcessor.process();
+
+       } catch (Exception e) {
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
+       }
+      
    }
 
     public void open()
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "open"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "open"));
     }
 
     public void close() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "close"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "close"));
     }
 
+    public void update() throws Exception {
+        this.repaintProcessor.process();
+    }
+        
     public int getSourceId()
     {
         return 0;

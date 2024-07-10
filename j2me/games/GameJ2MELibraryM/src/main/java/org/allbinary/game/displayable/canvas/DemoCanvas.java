@@ -1002,23 +1002,26 @@ public class DemoCanvas extends RunnableCanvas
                 //Process as 2 threads until initialized - allows progress to update
                 while (gameCanvas == NullGameCanvas.getInstance() || !gameCanvas.isInitialized())
                 {
+                    //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD2");
+                    
                     this.loopTimeHelper.setStartTime();
 
                     this.processGame();
 
                     this.processLoopSleep();
                 }
-                
+                                
                 final DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
                 
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
                 currentDisplayableFactory.setRunnable(gameRunnable);
+                                
                 //Only needed is not really using a real gamecanvas
                 OpenGLThreadUtil.getInstance().onResume();
             }
 
-            if (//features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) ||
+            if (features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD) ||
                     features.isDefault(htmlFeatureFactory.HTML))
             {
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD 2");

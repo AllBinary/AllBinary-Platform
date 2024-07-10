@@ -24,12 +24,10 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.canvas.Processor;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GamePersistanceSingleton;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
 import org.allbinary.logic.string.StringMaker;
 
 public class LoadGameForm extends CommandForm
@@ -44,9 +42,6 @@ public class LoadGameForm extends CommandForm
      * public static LoadGameForm getInstance() { return FORM; }
      */
 
-    private final Processor repaintProcessor =
-            ScreenRepaintProcessorFactory.getInstance().getInstance(this);
-
     private boolean areChoices;
     
     public LoadGameForm(CommandListener commandListener, String title,
@@ -55,7 +50,7 @@ public class LoadGameForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.update();
 
@@ -90,7 +85,7 @@ public class LoadGameForm extends CommandForm
             this.areChoices = false;
         }
 
-        this.repaintProcessor.process();
+        super.update();
     }
 
     private void add(BasicArrayList list, String name, int option)

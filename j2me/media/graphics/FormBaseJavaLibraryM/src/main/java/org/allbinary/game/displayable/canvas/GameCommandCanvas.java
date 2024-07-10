@@ -16,6 +16,7 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.canvas.Processor;
 
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.util.BasicArrayList;
@@ -46,6 +47,7 @@ import org.allbinary.graphics.displayable.RepaintBehavior;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
+import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.form.CommandCurrentSelectionFormFactory;
 import org.allbinary.graphics.form.FormPaintable;
@@ -67,6 +69,9 @@ public class GameCommandCanvas
     extends MyCanvas
     implements MenuListener, DisplayChangeEventListener
 {
+    private final Processor repaintProcessor =
+            ScreenRepaintProcessorFactory.getInstance().getInstance(this);
+    
     protected final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private static final int id = 0;
@@ -119,6 +124,8 @@ public class GameCommandCanvas
         this.initCommands(cmdListener);
 
         this.initMenu();
+        
+        repaintProcessor.process();
     }
     
     public void onEvent(final AllBinaryEventObject eventObject)
@@ -241,6 +248,10 @@ public class GameCommandCanvas
         DisplayChangeEventHandler.getInstance().removeListener(this);
     }
 
+    public void update() throws Exception {
+        this.repaintProcessor.process();
+    }
+    
     public int getSourceId()
     {
         return id;

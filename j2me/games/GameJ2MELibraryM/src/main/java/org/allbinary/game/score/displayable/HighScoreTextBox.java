@@ -126,10 +126,12 @@ public class HighScoreTextBox extends CustomTextBox
 
     }
 
-    private void update()
+    public void update() throws Exception
     {
         final String name = this.getTextFieldItem().getString();
         this.highScoreUtil.update(name);
+        
+        super.update();
     }
 
     public void paint(Graphics graphics)

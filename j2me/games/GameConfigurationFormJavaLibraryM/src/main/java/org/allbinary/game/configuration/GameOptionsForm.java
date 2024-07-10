@@ -28,7 +28,6 @@ import org.allbinary.util.HashtableUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.canvas.Processor;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.GameFeatureChoiceGroups;
 import org.allbinary.game.configuration.feature.GameFeatureFormUtil;
@@ -40,7 +39,6 @@ import org.allbinary.game.configuration.persistance.KeyValuePersistance;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
@@ -60,7 +58,7 @@ public class GameOptionsForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.addConfiguration();
 
@@ -82,9 +80,6 @@ public class GameOptionsForm extends CommandForm
 
         this.addTextFieldsIfSimulated();
 
-        final Processor repaintProcessor = ScreenRepaintProcessorFactory.getInstance().getInstance(this);
-
-        repaintProcessor.process();
     }
 
     public void close(final AbeClientInformationInterface abeClientInformation) throws Exception

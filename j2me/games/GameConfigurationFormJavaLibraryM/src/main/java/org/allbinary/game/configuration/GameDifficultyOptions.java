@@ -18,23 +18,17 @@ import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.canvas.Processor;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.persistance.GameDifficultyFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.screen.CommandForm;
-import org.allbinary.graphics.displayable.screen.ScreenRepaintProcessorFactory;
 import org.allbinary.logic.string.StringMaker;
 
 public class GameDifficultyOptions extends CommandForm
 {
-    private final Processor repaintProcessor =
-            ScreenRepaintProcessorFactory.getInstance().getInstance(this);
-
+    
     private final BasicArrayList list;
 
     public GameDifficultyOptions(CommandListener commandListener, String title, BasicArrayList list,
@@ -43,7 +37,7 @@ public class GameDifficultyOptions extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
         
         this.list = list;
 
@@ -51,8 +45,7 @@ public class GameDifficultyOptions extends CommandForm
 
         this.initCommands(commandListener);
         
-        GameDifficultyFactory gameDifficultyFactory =
-            GameDifficultyFactory.getInstance();
+        final GameDifficultyFactory gameDifficultyFactory = GameDifficultyFactory.getInstance();
         
         this.setSelectedId(gameDifficultyFactory.getLevel());
     }
@@ -93,7 +86,7 @@ public class GameDifficultyOptions extends CommandForm
 
         this.add(list, "Difficulty", Choice.EXCLUSIVE);
 
-        this.repaintProcessor.process();
+        super.update();
     }
 
     private void add(BasicArrayList list, String name, int option)
