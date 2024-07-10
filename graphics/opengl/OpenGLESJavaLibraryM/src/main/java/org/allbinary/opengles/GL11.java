@@ -49,12 +49,13 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11 = gl;
     }
 
-//    public void glGetPointerv(int pname, java.nio.Buffer[] params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetPointerv");
+    public void glGetPointerv(int pname, java.nio.Buffer[] params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetPointerv");
 //        this.gl11.glGetPointerv(pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glBindBuffer(int target, int buffer)
     {
@@ -91,19 +92,21 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glClipPlanef(plane, equation);
     }
 
-//    public void glClipPlanex(int plane, int[] equation, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("plane: ").append(plane).append(" equation: ").append(equation).toString(), this, "GL11.glClipPlanex");
+    public void glClipPlanex(int plane, int[] equation, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("plane: ").append(plane).append(" equation: ").append(equation).toString(), this, "GL11.glClipPlanex");
 //        this.gl11.glClipPlanex(plane, equation, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glClipPlanex(int plane, java.nio.IntBuffer equation)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("plane: ").append(plane).append(" equation: ").append(equation).toString(), this, "GL11.glClipPlanex");
+    public void glClipPlanex(int plane, java.nio.IntBuffer equation)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("plane: ").append(plane).append(" equation: ").append(equation).toString(), this, "GL11.glClipPlanex");
 //        this.gl11.glClipPlanex(plane, equation);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glColor4ub(byte red, byte green, byte blue, byte alpha)
     {
@@ -154,19 +157,21 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glGenBuffers(n, buffers);
     }
 
-//    public void glGetBooleanv(int pname, boolean[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params.length).toString(), this, "GL11.glGetBooleanv");
+    public void glGetBooleanv(int pname, boolean[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params.length).toString(), this, "GL11.glGetBooleanv");
 //        this.gl11.glGetBooleanv(pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetBooleanv(int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetBooleanv");
+    public void glGetBooleanv(int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetBooleanv");
 //        this.gl11.glGetBooleanv(pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glGetBufferParameteriv(int target, int pname, int[] params, int offset)
     {
@@ -196,33 +201,37 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glGetClipPlanef(pname, eqn);
     }
 
-//    public void glGetClipPlanex(int pname, int[] eqn, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(" eqn: ").append(eqn).toString(), this, "GL11.glGetClipPlanex");
+    public void glGetClipPlanex(int pname, int[] eqn, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(" eqn: ").append(eqn).toString(), this, "GL11.glGetClipPlanex");
 //        this.gl11.glGetClipPlanex(pname, eqn, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetClipPlanex(int pname, java.nio.IntBuffer eqn)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(" eqn: ").append(eqn).toString(), this, "GL11.glGetClipPlanex");
+    public void glGetClipPlanex(int pname, java.nio.IntBuffer eqn)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(" eqn: ").append(eqn).toString(), this, "GL11.glGetClipPlanex");
 //        this.gl11.glGetClipPlanex(pname, eqn);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetFixedv(int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetFixedv");
+    public void glGetFixedv(int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetFixedv");
 //        this.gl11.glGetFixedv(pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetFixedv(int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetFixedv");
+    public void glGetFixedv(int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetFixedv");
 //        this.gl11.glGetFixedv(pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glGetFloatv(int pname, float[] params, int offset)
     {
@@ -252,19 +261,21 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glGetLightfv(light, pname, params);
     }
 
-//    public void glGetLightxv(int light, int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetLightxv");
+    public void glGetLightxv(int light, int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetLightxv");
 //        this.gl11.glGetLightxv(light, pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetLightxv(int light, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetLightxv");
+    public void glGetLightxv(int light, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetLightxv");
 //        this.gl11.glGetLightxv(light, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glGetMaterialfv(int face, int pname, float[] params, int offset)
     {
@@ -280,19 +291,21 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glGetMaterialfv(face, pname, params);
     }
 
-//    public void glGetMaterialxv(int face, int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetMaterialxv");
+    public void glGetMaterialxv(int face, int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetMaterialxv");
 //        this.gl11.glGetMaterialxv(face, pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetMaterialxv(int face, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetMaterialxv");
+    public void glGetMaterialxv(int face, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetMaterialxv");
 //        this.gl11.glGetMaterialxv(face, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glGetTexEnviv(int env, int pname, int[] params, int offset)
     {
@@ -308,19 +321,21 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glGetTexEnviv(env, pname, params);
     }
 
-//    public void glGetTexEnvxv(int env, int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("env: ").append(env).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexEnvxv");
+    public void glGetTexEnvxv(int env, int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("env: ").append(env).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexEnvxv");
 //        this.gl11.glGetTexEnvxv(env, pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetTexEnvxv(int env, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("env: ").append(env).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexEnvxv");
+    public void glGetTexEnvxv(int env, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("env: ").append(env).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexEnvxv");
 //        this.gl11.glGetTexEnvxv(env, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glGetTexParameterfv(int target, int pname, float[] params, int offset)
     {
@@ -350,19 +365,21 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glGetTexParameteriv(target, pname, params);
     }
 
-//    public void glGetTexParameterxv(int target, int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexParameterxv");
+    public void glGetTexParameterxv(int target, int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexParameterxv");
 //        this.gl11.glGetTexParameterxv(target, pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glGetTexParameterxv(int target, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexParameterxv");
+    public void glGetTexParameterxv(int target, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glGetTexParameterxv");
 //        this.gl11.glGetTexParameterxv(target, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public boolean glIsBuffer(int buffer)
     {
@@ -413,33 +430,37 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glPointParameterfv(pname, params);
     }
 
-//    public void glPointParameterx(int pname, int param)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL11.glPointParameterx");
+    public void glPointParameterx(int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL11.glPointParameterx");
 //        this.gl11.glPointParameterx(pname, param);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glPointParameterxv(int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glPointParameterxv");
+    public void glPointParameterxv(int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glPointParameterxv");
 //        this.gl11.glPointParameterxv(pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glPointParameterxv(int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glPointParameterxv");
+    public void glPointParameterxv(int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glPointParameterxv");
 //        this.gl11.glPointParameterxv(pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glPointSizePointerOES(int type, int stride, java.nio.Buffer pointer)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("type: ").append(type).append(" stride: ").append(stride).toString(), this, "GL11.glPointSizePointerOES");
+    public void glPointSizePointerOES(int type, int stride, java.nio.Buffer pointer)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("type: ").append(type).append(" stride: ").append(stride).toString(), this, "GL11.glPointSizePointerOES");
 //        this.gl11.glPointSizePointerOES(type, stride, pointer);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glTexCoordPointer(int size, int type, int stride, int offset)
     {
@@ -511,12 +532,13 @@ public class GL11 extends GL10 implements javax.microedition.khronos.opengles.GL
         this.gl11.glTexParameteriv(target, pname, params, offset);
     }
 
-//    public void glTexParameterxv(int target, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glTexParameterxv");
+    public void glTexParameterxv(int target, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL11.glTexParameterxv");
 //        this.gl11.glTexParameterxv(target, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glVertexPointer(int size, int type, int stride, int offset)
     {

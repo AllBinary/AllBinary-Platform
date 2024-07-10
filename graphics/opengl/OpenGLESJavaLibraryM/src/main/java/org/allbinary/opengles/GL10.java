@@ -59,11 +59,12 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glAlphaFunc(func, ref);
     }
 
-//    public void glAlphaFuncx(int func, int ref)
-//    {
-//        PreLogUtil.put("func: " + func, this, "GL10.glAlphaFuncx");
+    public void glAlphaFuncx(int func, int ref)
+    {
+        PreLogUtil.put("func: " + func, this, "GL10.glAlphaFuncx");
 //        this.gl10.glAlphaFuncx(func, ref);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glBindTexture(int target, int texture)
     {
@@ -92,12 +93,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glClearColor(red, green, blue, alpha);
     }
 
-//    public void glClearColorx(int red, int green, int blue, int alpha)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(RED).append(red).append(GREEN).append(green).append(BLUE).append(blue).append(ALPHA).append(alpha).toString(), this, "GL10.glClearColorx");
+    public void glClearColorx(int red, int green, int blue, int alpha)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(RED).append(red).append(GREEN).append(green).append(BLUE).append(blue).append(ALPHA).append(alpha).toString(), this, "GL10.glClearColorx");
 //        this.gl10.glClearColorx(red, green, blue, alpha);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glClearDepthf(float depth)
     {
@@ -105,11 +107,12 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glClearDepthf(depth);
     }
 
-//    public void glClearDepthx(int depth)
-//    {
-//        PreLogUtil.put("depth: " + depth, this, "GL10.glClearDepthx");
+    public void glClearDepthx(int depth)
+    {
+        PreLogUtil.put("depth: " + depth, this, "GL10.glClearDepthx");
 //        this.gl10.glClearDepthx(depth);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glClearStencil(int s)
     {
@@ -130,12 +133,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glColor4f(red, green, blue, alpha);
     }
 
-//    public void glColor4x(int red, int green, int blue, int alpha)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(RED).append(red).append(GREEN).append(green).append(BLUE).append(blue).append(ALPHA).append(alpha).toString(), this, "GL10.glColor4x");
+    public void glColor4x(int red, int green, int blue, int alpha)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(RED).append(red).append(GREEN).append(green).append(BLUE).append(blue).append(ALPHA).append(alpha).toString(), this, "GL10.glColor4x");
 //        this.gl10.glColor4x(red, green, blue, alpha);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glColorMask(boolean red, boolean green, boolean blue, boolean alpha)
     {
@@ -218,12 +222,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glDepthRangef(zNear, zFar);
     }
 
-//    public void glDepthRangex(int zNear, int zFar)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("zNear: ").append(zNear).append(" zFar: ").append(zFar).toString(), this, "GL10.glDepthRangex");
+    public void glDepthRangex(int zNear, int zFar)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("zNear: ").append(zNear).append(" zFar: ").append(zFar).toString(), this, "GL10.glDepthRangex");
 //        this.gl10.glDepthRangex(zNear, zFar);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glDisable(int cap)
     {
@@ -296,26 +301,29 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glFogfv(pname, params);
     }
 
-//    public void glFogx(int pname, int param)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glFogx");
+    public void glFogx(int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glFogx");
 //        this.gl10.glFogx(pname, param);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glFogxv(int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glFogxv");
+    public void glFogxv(int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glFogxv");
 //        this.gl10.glFogxv(pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glFogxv(int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glFogxv");
+    public void glFogxv(int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glFogxv");
 //        this.gl10.glFogxv(pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glFrontFace(int mode)
     {
@@ -330,12 +338,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glFrustumf(left, right, bottom, top, zNear, zFar);
     }
 
-//    public void glFrustumx(int left, int right, int bottom, int top, int zNear, int zFar)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("left: ").append(left).append(" right: ").append(right).append(" bottom: ").append(bottom).append(" top: ").append(top).toString(), this, "GL10.glFrustumx");
+    public void glFrustumx(int left, int right, int bottom, int top, int zNear, int zFar)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("left: ").append(left).append(" right: ").append(right).append(" bottom: ").append(bottom).append(" top: ").append(top).toString(), this, "GL10.glFrustumx");
 //        this.gl10.glFrustumx(left, right, bottom, top, zNear, zFar);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glGenTextures(int n, int[] textures, int offset)
     {
@@ -403,26 +412,29 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glLightModelfv(pname, params);
     }
 
-//    public void glLightModelx(int pname, int param)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glLightModelx");
+    public void glLightModelx(int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glLightModelx");
 //        this.gl10.glLightModelx(pname, param);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glLightModelxv(int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightModelxv");
+    public void glLightModelxv(int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightModelxv");
 //        this.gl10.glLightModelxv(pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glLightModelxv(int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightModelxv");
+    public void glLightModelxv(int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightModelxv");
 //        this.gl10.glLightModelxv(pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glLightf(int light, int pname, float param)
     {
@@ -445,26 +457,29 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glLightfv(light, pname, params);
     }
 
-//    public void glLightx(int light, int pname, int param)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glLightx");
+    public void glLightx(int light, int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glLightx");
 //        this.gl10.glLightx(light, pname, param);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glLightxv(int light, int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightxv");
+    public void glLightxv(int light, int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightxv");
 //        this.gl10.glLightxv(light, pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glLightxv(int light, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightxv");
+    public void glLightxv(int light, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(LIGHT).append(light).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glLightxv");
 //        this.gl10.glLightxv(light, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glLineWidth(float width)
     {
@@ -472,11 +487,12 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glLineWidth(width);
     }
 
-//    public void glLineWidthx(int width)
-//    {
-//        PreLogUtil.put("width: " + width, this, "GL10.glLineWidthx");
+    public void glLineWidthx(int width)
+    {
+        PreLogUtil.put("width: " + width, this, "GL10.glLineWidthx");
 //        this.gl10.glLineWidthx(width);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glLoadIdentity()
     {
@@ -496,17 +512,19 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glLoadMatrixf(m);
     }
 
-//    public void glLoadMatrixx(int[] m, int offset)
-//    {
-//        PreLogUtil.put("m: " + m.length, this, "GL10.glLoadMatrixx");
+    public void glLoadMatrixx(int[] m, int offset)
+    {
+        PreLogUtil.put("m: " + m.length, this, "GL10.glLoadMatrixx");
 //        this.gl10.glLoadMatrixx(m, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glLoadMatrixx(java.nio.IntBuffer m)
-//    {
-//        PreLogUtil.put("m: " + m, this, "GL10.glLoadMatrixx");
+    public void glLoadMatrixx(java.nio.IntBuffer m)
+    {
+        PreLogUtil.put("m: " + m, this, "GL10.glLoadMatrixx");
 //        this.gl10.glLoadMatrixx(m);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glLogicOp(int opcode)
     {
@@ -535,26 +553,29 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glMaterialfv(face, pname, params);
     }
 
-//    public void glMaterialx(int face, int pname, int param)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glMaterialx");
+    public void glMaterialx(int face, int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glMaterialx");
 //        this.gl10.glMaterialx(face, pname, param);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glMaterialxv(int face, int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params.length).toString(), this, "GL10.glMaterialv");
+    public void glMaterialxv(int face, int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params.length).toString(), this, "GL10.glMaterialv");
 //        this.gl10.glMaterialxv(face, pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glMaterialxv(int face, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glMaterialxv");
+    public void glMaterialxv(int face, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(FACE).append(face).append(PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glMaterialxv");
 //        this.gl10.glMaterialxv(face, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glMatrixMode(int mode)
     {
@@ -574,17 +595,19 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glMultMatrixf(m);
     }
 
-//    public void glMultMatrixx(int[] m, int offset)
-//    {
-//        PreLogUtil.put("m: " + m, this, "GL10.glMultMatrixx");
+    public void glMultMatrixx(int[] m, int offset)
+    {
+        PreLogUtil.put("m: " + m, this, "GL10.glMultMatrixx");
 //        this.gl10.glMultMatrixx(m, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glMultMatrixx(java.nio.IntBuffer m)
-//    {
-//        PreLogUtil.put("m: " + m, this, "GL10.glMultMatrixx");
+    public void glMultMatrixx(java.nio.IntBuffer m)
+    {
+        PreLogUtil.put("m: " + m, this, "GL10.glMultMatrixx");
 //        this.gl10.glMultMatrixx(m);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glMultiTexCoord4f(int target, float s, float t, float r, float q)
     {
@@ -593,12 +616,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glMultiTexCoord4f(target, s, t, r, q);
     }
 
-//    public void glMultiTexCoord4x(int target, int s, int t, int r, int q)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(" s: ").append(s).append(" t: ").append(t).append(" r: ").append(r).append(" q: ").append(q).toString(), this, "GL10.glMultiTexCoord4f");
+    public void glMultiTexCoord4x(int target, int s, int t, int r, int q)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(" s: ").append(s).append(" t: ").append(t).append(" r: ").append(r).append(" q: ").append(q).toString(), this, "GL10.glMultiTexCoord4f");
 //        this.gl10.glMultiTexCoord4x(target, s, t, r, q);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glNormal3f(float nx, float ny, float nz)
     {
@@ -607,12 +631,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glNormal3f(nx, ny, nz);
     }
 
-//    public void glNormal3x(int nx, int ny, int nz)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(nx).append(" nx: ").append(nx).append(" ny: ").append(ny).append(" nz: ").append(nz).toString(), this, "GL10.glNormal3x");
+    public void glNormal3x(int nx, int ny, int nz)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(nx).append(" nx: ").append(nx).append(" ny: ").append(ny).append(" nz: ").append(nz).toString(), this, "GL10.glNormal3x");
 //        this.gl10.glNormal3x(nx, ny, nz);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glNormalPointer(int type, int stride, java.nio.Buffer pointer)
     {
@@ -628,12 +653,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glOrthof(left, right, bottom, top, zNear, zFar);
     }
 
-//    public void glOrthox(int left, int right, int bottom, int top, int zNear, int zFar)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("left: ").append(left).append(" right: ").append(right).append(" bottom: ").append(bottom).append(" top: ").append(top).toString(), this, "GL10.glOrthox");
+    public void glOrthox(int left, int right, int bottom, int top, int zNear, int zFar)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("left: ").append(left).append(" right: ").append(right).append(" bottom: ").append(bottom).append(" top: ").append(top).toString(), this, "GL10.glOrthox");
 //        this.gl10.glOrthox(left, right, bottom, top, zNear, zFar);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glPixelStorei(int pname, int param)
     {
@@ -648,11 +674,12 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glPointSize(size);
     }
 
-//    public void glPointSizex(int size)
-//    {
-//        PreLogUtil.put("size: " + size, this, "GL10.glPointSizex");
+    public void glPointSizex(int size)
+    {
+        PreLogUtil.put("size: " + size, this, "GL10.glPointSizex");
 //        this.gl10.glPointSizex(size);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glPolygonOffset(float factor, float units)
     {
@@ -661,12 +688,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glPolygonOffset(factor, units);
     }
 
-//    public void glPolygonOffsetx(int factor, int units)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("factor: ").append(factor).append(" units: ").append(units).toString(), this, "GL10.glPolygonOffsetx");
+    public void glPolygonOffsetx(int factor, int units)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("factor: ").append(factor).append(" units: ").append(units).toString(), this, "GL10.glPolygonOffsetx");
 //        this.gl10.glPolygonOffsetx(factor, units);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glPopMatrix()
     {
@@ -694,12 +722,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glRotatef(angle, x, y, z);
     }
 
-//    public void glRotatex(int angle, int x, int y, int z)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glRotatex");
+    public void glRotatex(int angle, int x, int y, int z)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glRotatex");
 //        this.gl10.glRotatex(angle, x, y, z);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glSampleCoverage(float value, boolean invert)
     {
@@ -708,12 +737,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glSampleCoverage(value, invert);
     }
 
-//    public void glSampleCoveragex(int value, boolean invert)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("value: ").append(value).append(" invert: ").append(invert).toString(), this, "GL10.glSampleCoverage");
+    public void glSampleCoveragex(int value, boolean invert)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("value: ").append(value).append(" invert: ").append(invert).toString(), this, "GL10.glSampleCoverage");
 //        this.gl10.glSampleCoveragex(value, invert);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glScalef(float x, float y, float z)
     {
@@ -722,12 +752,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glScalef(x, y, z);
     }
 
-//    public void glScalex(int x, int y, int z)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glScalex");
+    public void glScalex(int x, int y, int z)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glScalex");
 //        this.gl10.glScalex(x, y, z);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glScissor(int x, int y, int width, int height)
     {
@@ -790,26 +821,29 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glTexEnvfv(target, pname, params);
     }
 
-//    public void glTexEnvx(int target, int pname, int param)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glTexEnvx");
+    public void glTexEnvx(int target, int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glTexEnvx");
 //        this.gl10.glTexEnvx(target, pname, param);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glTexEnvxv(int target, int pname, int[] params, int offset)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glTexEnvxv");
+    public void glTexEnvxv(int target, int pname, int[] params, int offset)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glTexEnvxv");
 //        this.gl10.glTexEnvxv(target, pname, params, offset);
-//    }
+        throw new RuntimeException();
+    }
 
-//    public void glTexEnvxv(int target, int pname, java.nio.IntBuffer params)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glTexEnvxv");
+    public void glTexEnvxv(int target, int pname, java.nio.IntBuffer params)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAMS).append(params).toString(), this, "GL10.glTexEnvxv");
 //        this.gl10.glTexEnvxv(target, pname, params);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glTexImage2D(int target, int level, int internalformat, int width, int height, int border, int format, int type, java.nio.Buffer pixels)
     {
@@ -825,12 +859,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glTexParameterf(target, pname, param);
     }
 
-//    public void glTexParameterx(int target, int pname, int param)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glTexParameterx");
+    public void glTexParameterx(int target, int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glTexParameterx");
 //        this.gl10.glTexParameterx(target, pname, param);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, java.nio.Buffer pixels)
     {
@@ -846,12 +881,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glTranslatef(x, y, z);
     }
 
-//    public void glTranslatex(int x, int y, int z)
-//    {
-//        stringBuilder.delete(0, stringBuilder.length());
-//        PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glTranslatex");
+    public void glTranslatex(int x, int y, int z)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glTranslatex");
 //        this.gl10.glTranslatex(x, y, z);
-//    }
+        throw new RuntimeException();
+    }
 
     public void glVertexPointer(int size, int type, int stride, java.nio.Buffer pointer)
     {
@@ -872,23 +908,27 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" width: ").append(width).append(" height: ").append(height).toString(), this, "GL10.glViewport");
-        this.gl10.glBegin(i);
+//        this.gl10.glBegin(i);
+        throw new RuntimeException();
     }
 
     public void glEnd()
     {
         //stringBuilder.delete(0, stringBuilder.length());
         //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" width: ").append(width).append(" height: ").append(height).toString(), this, "GL10.glViewport");
-        this.gl10.glEnd();
+//        this.gl10.glEnd();
+        throw new RuntimeException();
     }
     
     
     public void glVertex3f(float f, float f2, float f3) {
-        this.gl10.glVertex3f(f, f2, f3);
+//        this.gl10.glVertex3f(f, f2, f3);
+        throw new RuntimeException();
     }
     
     public void glPolygonMode(int i, int i1) {
-        this.gl10.glPolygonMode(i, i1);
+//        this.gl10.glPolygonMode(i, i1);
+        throw new RuntimeException();
     }
     
 }
