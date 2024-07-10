@@ -173,4 +173,9 @@ public class ResourceUtil
 
         return inputStream;
     }
+    
+    public void addResource(final String resource, final Integer value)
+    {
+    }
+    
 }
