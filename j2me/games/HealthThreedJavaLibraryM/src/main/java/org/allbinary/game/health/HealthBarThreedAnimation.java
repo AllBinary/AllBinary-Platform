@@ -21,7 +21,7 @@ import min3d.core.Number3dBufferList;
 import min3d.objectPrimitives.Rectangle;
 import min3d.vos.Number3d;
 
-import org.allbinary.android.device.OpenGLESGraphics;
+import org.allbinary.device.OpenGLESGraphics;
 import org.allbinary.graphics.threed.min3d.renderer.Object3dProcessor;
 import org.allbinary.graphics.threed.min3d.renderer.Object3dProcessorUtil;
 
@@ -95,7 +95,7 @@ extends HealthBarAnimation
 		}
     }
 
-    public void onHealthChange(int newX2)
+    public void onHealthChange(final int newX2)
     {
     	super.onHealthChange(newX2);
 
@@ -106,14 +106,14 @@ extends HealthBarAnimation
 
     private final Object3dProcessor object3dProcessor = Object3dProcessorUtil.getInstance().getInstanceObject3dProcessor();
 
-    public void paintThreed(Graphics graphics, int x, int y, int z)
+    public void paintThreed(final Graphics graphics, final int x, final int y, final int z)
     {
-    	OpenGLESGraphics openGLESGraphics = (OpenGLESGraphics) graphics;
-    	GL10 gl = openGLESGraphics.getGl();
+    	final OpenGLESGraphics openGLESGraphics = (OpenGLESGraphics) graphics;
+    	final GL10 gl = openGLESGraphics.getGl();
 
-    	ViewPosition viewPosition = this.allbinaryLayer.getViewPosition();
+    	final ViewPosition viewPosition = this.allbinaryLayer.getViewPosition();
 
-        Number3d positionNumber3d = this.rectangle.getPosition();
+        final Number3d positionNumber3d = this.rectangle.getPosition();
 
         //positionNumber3d.x = -((float) viewPosition.getX() - this.allbinaryLayer.getHalfWidth() + (x2 >> 1) ); 
         //positionNumber3d.z = -((float) viewPosition.getY() + (this.allbinaryLayer.getHalfHeight() + 1));
