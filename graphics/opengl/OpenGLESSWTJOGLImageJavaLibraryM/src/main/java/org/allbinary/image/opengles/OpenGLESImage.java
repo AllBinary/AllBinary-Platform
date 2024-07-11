@@ -33,6 +33,7 @@ implements OpenGLSurfaceChangedInterface
     protected int textureID;
     //protected boolean matchColor;
     
+    //JOGL
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {

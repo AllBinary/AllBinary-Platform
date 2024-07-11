@@ -11,15 +11,17 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.android.device;
+package org.microemu.device;
 
-import org.allbinary.graphics.color.BasicColor;
+import javax.microedition.lcdui.Image;
+
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import javax.microedition.lcdui.Image;
+
+import org.allbinary.graphics.color.BasicColor;
 
 public class TrueTypeFontUtil
 {

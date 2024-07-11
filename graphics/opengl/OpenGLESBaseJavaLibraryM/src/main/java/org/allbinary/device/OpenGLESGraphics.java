@@ -6,11 +6,14 @@ import javax.microedition.lcdui.Font;
 
 import org.allbinary.graphics.font.FontDebugBase;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
+import org.allbinary.logic.string.CommonStrings;
 
 public class OpenGLESGraphics 
 extends javax.microedition.lcdui.Graphics
 implements OpenGLSurfaceChangedInterface, GraphicsInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected GL10 gl;
     
     protected OpenGLESGraphics()
