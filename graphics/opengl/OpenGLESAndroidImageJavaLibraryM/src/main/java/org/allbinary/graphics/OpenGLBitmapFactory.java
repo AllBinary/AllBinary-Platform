@@ -40,7 +40,7 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(Bitmap.createBitmap(width, height, config.bitmapConfig));
     }
     
-    public OpenGLBitmap decodeStream(InputStream is) {
+    public OpenGLBitmap decodeStream(InputStream is) throws Exception {
         return new OpenGLBitmap(BitmapFactory.decodeStream(is));
     }
 

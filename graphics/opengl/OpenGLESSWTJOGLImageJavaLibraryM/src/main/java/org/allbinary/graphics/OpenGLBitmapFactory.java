@@ -34,15 +34,15 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
     public final Config ARGB_8888 = new Config(null);
     
     public OpenGLBitmap createBitmap(int width, int height, OpenGLBitmapFactory.Config config) {
-        return new OpenGLBitmap(null);
+        return new OpenGLBitmap(Image.createRGBImage(new int[width * height], width, height, true));
     }
     
-    public OpenGLBitmap decodeStream(InputStream is) {
-        return new OpenGLBitmap(null);
+    public OpenGLBitmap decodeStream(InputStream is) throws Exception {
+        return new OpenGLBitmap(Image.createImage(is));
     }
 
     public PlatformBitmapBase createBitmap(final Image image) {
-        return new OpenGLBitmap(null);
+        return new OpenGLBitmap(image);
     }
 
 }

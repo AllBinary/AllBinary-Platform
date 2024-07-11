@@ -67,13 +67,16 @@ public class OpenGLCapabilities
 
     public void initCapabilities(GL10 gl)
     {
+        final String METHOD_NAME = "initGLCapabilities";
+        
         try {
-            Features features = Features.getInstance();
-            OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+            
+            final Features features = Features.getInstance();
+            final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
 
-            OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
+            final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
 
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             glVersionString = gl.glGetString(GL10.GL_VERSION);
             glRenderer = gl.glGetString(GL10.GL_RENDERER);
@@ -82,11 +85,11 @@ public class OpenGLCapabilities
 
             if (glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
             {
-                acceleratedString = "Probably Not";
+                acceleratedString = "Probably Not for " + glRenderer;
                 possiblyAccelerated = false;
             } else
             {
-                acceleratedString = "Probably";
+                acceleratedString = "Probably for " + glRenderer;;
                 possiblyAccelerated = true;
             }
 
@@ -141,9 +144,10 @@ public class OpenGLCapabilities
 
             if (possiblyAccelerated)
             {
-                PreLogUtil.put("VBO:?" + (this.glInstanceVersion == this.VERSION_1_1) + "||" +  this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT), this, "initGLCapabilities");
+                PreLogUtil.put(new StringMaker().append("VBO:?").append((this.glInstanceVersion == this.VERSION_1_1)).append("||").append(this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)).toString(), this, METHOD_NAME);
                 if ((this.glInstanceVersion == this.VERSION_1_1 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
                 {
+                    PreLogUtil.put("VBO Requires are met, but disabled by default", this, METHOD_NAME);
                     //this.vertexBufferObjectSupport = true;
                 }
             }
@@ -175,7 +179,7 @@ public class OpenGLCapabilities
                     stringBuffer.append(openGLFeatureFactory.OPENGL_DRAW_TEXTURE);
                     stringBuffer.append(" was not available");
 
-                    PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
+                    PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
                     openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
                 }
@@ -185,7 +189,7 @@ public class OpenGLCapabilities
                 stringBuffer.append(openGLFeatureFactory.OPENGL_AUTO_SELECT);
                 stringBuffer.append(" is not on");
 
-                PreLogUtil.put(stringBuffer.toString(), this, "initGLCapabilities");
+                PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
 
                 openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
             }
@@ -196,7 +200,7 @@ public class OpenGLCapabilities
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "initCapabilities", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
         }
     }
     
@@ -215,9 +219,9 @@ public class OpenGLCapabilities
     
     public String toString()
     {
-        CommonSeps commonSeps = CommonSeps.getInstance();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
         
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("GL_VERSION: ");
         stringBuffer.append(glVersionString);
@@ -228,6 +232,7 @@ public class OpenGLCapabilities
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" Is Accelerated: ");
         stringBuffer.append(acceleratedString);
+        stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" VBO Support: ");
         stringBuffer.append(this.isVertexBufferObjectSupport());
         stringBuffer.append(commonSeps.NEW_LINE);
