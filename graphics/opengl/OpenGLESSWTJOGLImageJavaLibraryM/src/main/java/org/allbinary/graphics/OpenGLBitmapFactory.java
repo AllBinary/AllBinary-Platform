@@ -34,7 +34,8 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
     public final Config ARGB_8888 = new Config(null);
     
     public OpenGLBitmap createBitmap(int width, int height, OpenGLBitmapFactory.Config config) {
-        return new OpenGLBitmap(Image.createRGBImage(new int[width * height], width, height, true));
+        //return new OpenGLBitmap(Image.createRGBImage(new int[width * height], width, height, true));
+        return new OpenGLBitmap(Image.createImage(width, height));
     }
     
     public OpenGLBitmap decodeStream(InputStream is) throws Exception {
