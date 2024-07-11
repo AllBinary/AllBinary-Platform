@@ -19,6 +19,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import javax.microedition.lcdui.Image;
 
 public class TrueTypeFontUtil
 {
@@ -68,7 +69,7 @@ public class TrueTypeFontUtil
         return textureSize;
     }
 
-    public Bitmap getFontBitmap(String filename, int fontSize, int cellSize, int cellsPerRow, BasicColor basicColor)
+    public Image getFontBitmap(String filename, int fontSize, int cellSize, int cellsPerRow, BasicColor basicColor)
     {
         final int cellsPerRow2 = cellsPerRow * 2;
         final int cellsPerRow3 = cellsPerRow * 3;
@@ -141,7 +142,7 @@ public class TrueTypeFontUtil
         }
         canvas.save();
 
-        return bitmap;
+        return new Image(bitmap);
     }
 
     public int[] getFontWidths(String filename, int fontSize)
