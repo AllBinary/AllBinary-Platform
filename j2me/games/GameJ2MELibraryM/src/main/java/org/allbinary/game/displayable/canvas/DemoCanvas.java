@@ -97,6 +97,7 @@ import org.allbinary.graphics.form.FormTypeFactory;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.ScrollSelectionFormNoneFactory;
 import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
+import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
@@ -1265,6 +1266,11 @@ public class DemoCanvas extends RunnableCanvas
         return tempWait;
     }
 
+    public boolean isSingleThread()
+    {
+        return OpenGLFeatureUtil.getInstance().isAnyThreed() || SWTUtil.isSWT;
+    }
+    
    /**
     * @return the gameInitializationInterfaceFactoryInterface
     */

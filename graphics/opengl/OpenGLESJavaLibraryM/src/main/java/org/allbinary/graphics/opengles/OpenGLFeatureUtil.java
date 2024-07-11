@@ -28,13 +28,18 @@ public class OpenGLFeatureUtil
     
     public OpenGLFeatureUtil()
     {
-        OpenGLConfiguration openGLConfiguration = OpenGLConfiguration.getInstance();
-        Features features = Features.getInstance();
-        OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
-
+        final OpenGLConfiguration openGLConfiguration = OpenGLConfiguration.getInstance();
+        final Features features = Features.getInstance();
+        final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+            
         this.anyThreed = openGLConfiguration.isOpenGL() && 
         (features.isFeature(openGLFeatureFactory.OPENGL_2D_AND_3D) ||
         features.isFeature(openGLFeatureFactory.OPENGL_3D));
+        
+//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("isOpenGL: ").append(openGLConfiguration.isOpenGL())
+//            .append(" OPENGL_2D_AND_3D: ").append(features.isFeature(openGLFeatureFactory.OPENGL_2D_AND_3D))
+//            .append(" OPENGL_3D: ").append(features.isFeature(openGLFeatureFactory.OPENGL_3D))
+//            .append(" anyThreed: ").append(anyThreed).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
     
     public boolean isAnyThreed()
