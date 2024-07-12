@@ -1183,7 +1183,17 @@ public class StartCanvas extends RunnableCanvas
     {
         return OpenGLFeatureUtil.getInstance().isAnyThreed() || SWTUtil.isSWT;
     }
-    
+
+    public boolean isRunningInAnotherThread() {
+        final Features features = Features.getInstance();
+        final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        if(features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
+            return true;
+        } else {
+            return this.isRunning();
+        }
+    }
+
    /**
     * @return the gameInitializationInterfaceFactoryInterface
     */

@@ -1205,11 +1205,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         this.getStartIntermissionPaintable().update();
 
-        if (!this.isRunning())
+        if (!this.isRunningInAnotherThread())
         {
             return;
-            // If this is not the root window then it does not change
-            // the screen
+            // If this is not the root window then it does not change the screen
         }
 
         progressCanvas.addPortion(portion, "Finishing...");
@@ -1652,7 +1651,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
                     currentDisplayableFactory.clearRunnable();
 
-                    if (!this.isRunning())
+                    if (!this.isRunningInAnotherThread())
                     {
                         break;
                     }
@@ -2139,6 +2138,16 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return OpenGLFeatureUtil.getInstance().isAnyThreed() || SWTUtil.isSWT;
     }
 
+    public boolean isRunningInAnotherThread() {
+        final Features features = Features.getInstance();
+        final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        if(features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
+            return true;
+        } else {
+            return this.isRunning();
+        }
+    }
+    
     public static final int TYPE = 2;
     public int getType() {
         return TYPE;

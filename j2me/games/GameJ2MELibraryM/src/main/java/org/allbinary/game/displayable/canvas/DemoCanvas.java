@@ -1011,7 +1011,9 @@ public class DemoCanvas extends RunnableCanvas
 
                     this.processLoopSleep();
                 }
-                                
+
+                //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD3");
+                
                 final DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
                 
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
@@ -1269,6 +1271,16 @@ public class DemoCanvas extends RunnableCanvas
     public boolean isSingleThread()
     {
         return OpenGLFeatureUtil.getInstance().isAnyThreed() || SWTUtil.isSWT;
+    }
+    
+    public boolean isRunningInAnotherThread() {
+        final Features features = Features.getInstance();
+        final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        if(features.isDefault(openGLFeatureFactory.OPENGL_AS_GAME_THREAD)) {
+            return true;
+        } else {
+            return this.isRunning();
+        }
     }
     
    /**

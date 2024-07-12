@@ -147,7 +147,7 @@ public class OpenGLCapabilities
                 PreLogUtil.put(new StringMaker().append("VBO:?").append((this.glInstanceVersion == this.VERSION_1_1)).append("||").append(this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)).toString(), this, METHOD_NAME);
                 if ((this.glInstanceVersion == this.VERSION_1_1 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
                 {
-                    PreLogUtil.put("VBO Requires are met, but disabled by default", this, METHOD_NAME);
+                    PreLogUtil.put("VBO implementation was detected, but disabled by default", this, METHOD_NAME);
                     //this.vertexBufferObjectSupport = true;
                 }
             }
