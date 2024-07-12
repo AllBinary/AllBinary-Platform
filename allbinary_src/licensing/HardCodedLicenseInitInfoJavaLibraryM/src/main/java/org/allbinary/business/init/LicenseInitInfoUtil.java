@@ -23,6 +23,8 @@ public class LicenseInitInfoUtil
     }
 
     public final String INITFILENAME = "licenseinitdata.dat";
+    public final String ABOUT = "about";
+    public final String PRIVACY_POLICY = "privacy_policy";
 
     private final String OFFICIAL_ALLBINARY_SERVICES_SERVER = "https://services.allbinary.com/LicServ/serverssl.php";
 
