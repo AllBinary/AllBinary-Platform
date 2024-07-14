@@ -42,12 +42,14 @@ public class OpenGLCapabilities
     
     public final boolean CUSTOM_GL_SURFACE_VIEW = true;
     
-    private String glVersionString = StringUtil.getInstance().EMPTY_STRING;
-    private String glRenderer = StringUtil.getInstance().EMPTY_STRING;
-    private String glVendor = StringUtil.getInstance().EMPTY_STRING;
-    private String glExtensions = StringUtil.getInstance().EMPTY_STRING;
+    private final StringUtil stringUtil = StringUtil.getInstance();
+    
+    private String glVersionString = stringUtil.EMPTY_STRING;
+    private String glRenderer = stringUtil.EMPTY_STRING;
+    private String glVendor = stringUtil.EMPTY_STRING;
+    private String glExtensions = stringUtil.EMPTY_STRING;
     private boolean possiblyAccelerated;
-    private String acceleratedString = StringUtil.getInstance().EMPTY_STRING;
+    private String acceleratedString = stringUtil.EMPTY_STRING;
     
     public final String VERSION_1_0 = "1.0";
     public final String VERSION_1_1 = "1.1";
@@ -82,6 +84,10 @@ public class OpenGLCapabilities
             glRenderer = gl.glGetString(GL10.GL_RENDERER);
             glVendor = gl.glGetString(GL10.GL_VENDOR);
             glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
+
+            if(glRenderer == null) {
+                glRenderer = stringUtil.EMPTY_STRING;
+            }
 
             if (glRenderer.toLowerCase().indexOf("pixelflinger") >= 0)
             {
@@ -125,7 +131,10 @@ public class OpenGLCapabilities
              */
             this.glExtensionDrawTexture = false;
 
-            if (this.glVersionString.indexOf(" 1.0") >= 0)
+            if(this.glVersionString == null) {
+                this.glVersionString = stringUtil.EMPTY_STRING;
+                this.glVersion = this.VERSION_UNK;
+            } else if (this.glVersionString.indexOf(" 1.0") >= 0)
             {
                 this.glVersion = this.VERSION_1_0;
             } else if (this.glVersionString.indexOf(" 1.1") >= 0)
@@ -140,6 +149,14 @@ public class OpenGLCapabilities
                 this.glInstanceVersion = this.VERSION_1_1;
             } else if(gl instanceof GL10) {
                 this.glInstanceVersion = this.VERSION_1_0;
+            }
+
+            if(glVendor == null) {
+                glVendor = stringUtil.EMPTY_STRING;
+            }
+                        
+            if(glExtensions == null) {
+                glExtensions = stringUtil.EMPTY_STRING;
             }
 
             if (possiblyAccelerated)
