@@ -436,7 +436,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glRotatef(float angle, float x, float y, float z);
 
-    //void glRotatex(int angle, int x, int y, int z);
+    void glRotatex(int angle, int x, int y, int z);
 
     void glSampleCoverage(float value, boolean invert);
 
@@ -444,7 +444,7 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
 
     void glScalef(float x, float y, float z);
 
-    //void glScalex(int x, int y, int z);
+    void glScalex(int x, int y, int z);
 
     void glScissor(int x, int y, int width, int height);
 

@@ -22,12 +22,12 @@ public class OpenGLGLU {
         //return null;
     }
     
-    public int gluProject(float objX, float objY, float objZ, float[] model, int modelOffset, float[] project, int projectOffset, int[] view, int viewOffset, float[] win, int winOffset) {
+    public int gluProject(final GL10 gl, float objX, float objY, float objZ, float[] model, int modelOffset, float[] project, int projectOffset, int[] view, int viewOffset, float[] win, int winOffset) {
         throw new RuntimeException();
         //return -1;
     }
     
-    public int gluUnProject(final float winX, final float winY, final float winZ, final float[] model, final int modelOffset, final float[] project, final int projectOffset, final int[] view, final int viewOffset, float[] obj, final int objOffset) {
+    public int gluUnProject(final GL10 gl, final float winX, final float winY, final float winZ, final float[] model, final int modelOffset, final float[] project, final int projectOffset, final int[] view, final int viewOffset, float[] obj, final int objOffset) {
         throw new RuntimeException();
         //return -1;
     }

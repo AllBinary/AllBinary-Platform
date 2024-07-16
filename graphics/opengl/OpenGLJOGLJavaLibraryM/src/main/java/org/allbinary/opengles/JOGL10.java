@@ -13,6 +13,8 @@
  */
 package org.allbinary.opengles;
 
+import com.jogamp.opengl.glu.GLU;
+
 /**
  *
  * @author User
@@ -36,6 +38,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
     protected final String TARGET = "target: ";
 
     private final com.jogamp.opengl.GL2 gl10;
+    public final GLU glu;
 
     public final int GL_LINE;
     public final int GL_QUAD_STRIP;
@@ -44,12 +47,17 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
     {
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, CommonStrings.getInstance().CONSTRUCTOR);
         this.gl10 = gl;
+        this.glu = GLU.createGLU(gl);
         
         this.GL_LINE = this.gl10.GL_LINE;
         this.GL_QUAD_STRIP = this.gl10.GL_QUAD_STRIP;
 
     }
 
+    public com.jogamp.opengl.GL2 getJOGLGL() {
+        return this.gl10;
+    }
+    
     public void glActiveTexture(int texture)
     {
         //PreLogUtil.put("texture: " + texture, this, "GL10.glActiveTexture");
@@ -697,12 +705,13 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glRotatef(angle, x, y, z);
     }
 
-//    public void glRotatex(int angle, int x, int y, int z)
-//    {
-//        //stringBuilder.delete(0, stringBuilder.length());
-//        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glRotatex");
-//        this.gl10.glRotatex(angle, x, y, z);
-//    }
+    public void glRotatex(int angle, int x, int y, int z)
+    {
+        //stringBuilder.delete(0, stringBuilder.length());
+        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glRotatex");
+        //this.gl10.glRotatex(angle, x, y, z);
+        this.gl10.glRotatef(angle, x, y, z);
+    }
 
     public void glSampleCoverage(float value, boolean invert)
     {
@@ -725,12 +734,13 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glScalef(x, y, z);
     }
 
-//    public void glScalex(int x, int y, int z)
-//    {
-//        //stringBuilder.delete(0, stringBuilder.length());
-//        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glScalex");
-//        this.gl10.glScalex(x, y, z);
-//    }
+    public void glScalex(int x, int y, int z)
+    {
+        //stringBuilder.delete(0, stringBuilder.length());
+        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" z: ").append(z).toString(), this, "GL10.glScalex");
+        //this.gl10.glScalex(x, y, z);
+        this.gl10.glScalef(x, y, z);
+    }
 
     public void glScissor(int x, int y, int width, int height)
     {
