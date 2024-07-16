@@ -18,8 +18,8 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 
+import org.allbinary.graphics.OpenGLBitmap;
 import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
@@ -28,7 +28,7 @@ implements OpenGLSurfaceChangedInterface
 {
     protected final PlatformTextureBaseFactory textureFactory;
     
-    public final PlatformBitmapBase openGLBitmap;
+    public final OpenGLBitmap openGLBitmap;
     
     protected int textureID;
     //protected boolean matchColor;
@@ -39,7 +39,7 @@ implements OpenGLSurfaceChangedInterface
     {
         //super(image);
         
-        this.openGLBitmap = bitmapFactory.createBitmap(image);
+        this.openGLBitmap = (OpenGLBitmap) bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
     }
 
@@ -52,6 +52,14 @@ implements OpenGLSurfaceChangedInterface
     }
     */
     
+    public int getHeight() {
+        return this.openGLBitmap.getHeight();
+    }
+
+    public int getWidth() {
+        return this.openGLBitmap.getWidth();
+    }
+
     /*
     protected void update(GL10 gl)
     {
