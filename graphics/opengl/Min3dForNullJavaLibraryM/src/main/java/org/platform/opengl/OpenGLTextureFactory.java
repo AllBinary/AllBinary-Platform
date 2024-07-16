@@ -1,5 +1,6 @@
 package org.platform.opengl;
 
+import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
@@ -20,7 +21,7 @@ public class OpenGLTextureFactory extends PlatformTextureBaseFactory
 
     }
     
-    public void load(final int target, final int level, final Image image, final int border)
+    public void load(final GL10 gl, final int target, final int level, final Image image, final int border)
     {
         throw new RuntimeException();
     }

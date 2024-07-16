@@ -97,7 +97,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
                   //      GL10.GL_REPLACE);
             //}
             
-            this.textureFactory.load(GL10.GL_TEXTURE_2D, 0, this, 0);
+            this.textureFactory.load(gl10, GL10.GL_TEXTURE_2D, 0, this, 0);
             
             gl10.glDisable(GL10.GL_TEXTURE_2D);
 

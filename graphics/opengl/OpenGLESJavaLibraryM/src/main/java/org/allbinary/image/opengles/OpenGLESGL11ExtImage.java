@@ -96,7 +96,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
                   //      GL10.GL_REPLACE);
             //}
 
-            this.textureFactory.load(GL10.GL_TEXTURE_2D, 0, this, 0);
+            this.textureFactory.load(gl11, GL10.GL_TEXTURE_2D, 0, this, 0);
             
             gl11.glTexParameteriv(GL10.GL_TEXTURE_2D, GL11Ext.GL_TEXTURE_CROP_RECT_OES, rectangle, 0);
 

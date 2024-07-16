@@ -11,19 +11,21 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.platform.opengles;
+package min3d.core;
 
+import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-import javax.microedition.lcdui.Image;
 
 /**
  *
  * @author User
  */
-public class PlatformTextureBaseFactory {
-   
-    public void load(final GL10 gl, final int target, final int level, final Image image, final int border) {
-        
-    }
+public interface Renderer {
+    
+    void onSurfaceCreated(GL10 gl, EGLConfig config);
 
+    void onSurfaceChanged(GL10 gl, int width, int height);
+    
+    void onDrawFrame(GL10 gl);
+    
 }
