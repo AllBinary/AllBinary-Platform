@@ -1,9 +1,9 @@
 package org.allbinary.game.input;
 
+import android.view.KeyEvent;
+
 import org.allbinary.android.ActivityFractureUtil;
 import org.allbinary.string.CommonPhoneStrings;
-
-import android.view.KeyEvent;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;

@@ -103,8 +103,8 @@
         <module>../../input/JSEGyroSensorJavaLibraryM</module>
         <!--
         <module>../../input/android/</module>
-        -->
         <module>../../input/platform/android/GameInputAndroidBaseJavaLibraryM</module>
+        -->
 
         <module>../../media/sound/BasicPlayerJavaLibraryM</module>
         <module>../../media/sound/BasicPlayerMIDP2JavaLibraryM</module>
