@@ -10,25 +10,9 @@ package org.allbinary.device;
  */
 public class OpenGLESGraphicsFactory
 {
-    private static final OpenGLESGraphicsFactory instance = new OpenGLESGraphicsFactory();
-
-    /**
-     * @return the instance
-     */
-    public static OpenGLESGraphicsFactory getInstance()
-    {
-        return instance;
-    }
-    
-    private OpenGLESGraphicsFactory openGLESGraphicsFactory;
-    
-    public void set(OpenGLESGraphicsFactory openGLESGraphicsFactory)
-    {
-        this.openGLESGraphicsFactory = openGLESGraphicsFactory;
-    }
-    
     public OpenGLESGraphics getOpenGLESGraphicsInstance()
     {
-        return this.openGLESGraphicsFactory.getOpenGLESGraphicsInstance();
+        return null;
     }
+    
 }
