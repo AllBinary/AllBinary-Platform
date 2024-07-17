@@ -57,7 +57,7 @@ public class OpenGLUtil
 
     private boolean surfaceCreatedAndInitialized = false;
     
-    public void onSurfaceChanged(GL10 gl, OpenGLESGraphics graphics) throws Exception
+    public void onSurfaceChanged(final GL10 gl, final OpenGLESGraphics graphics) throws Exception
     {
         if (!surfaceCreatedAndInitialized)
         {
@@ -68,13 +68,13 @@ public class OpenGLUtil
         //Seems that mutable images must be reloaded on graphics change?
         graphics.update();
 
-        ProgressCanvas progressCanvas = 
-                ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
         progressCanvas.update(graphics);
 
-        ChoiceGroupImageUtil.init();
-        ChoiceGroupImageUtil.update(graphics);
+        final ChoiceGroupImageUtil choiceGroupImageUtil = ChoiceGroupImageUtil.getInstance();
+        choiceGroupImageUtil.init();
+        choiceGroupImageUtil.update(graphics);
 
         ((OpenGLImageCache) OpenGLImageCacheFactory.getInstance()).update(gl);
     }

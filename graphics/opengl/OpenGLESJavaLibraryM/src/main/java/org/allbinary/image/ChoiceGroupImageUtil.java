@@ -13,7 +13,7 @@
 */
 package org.allbinary.image;
 
-import javax.microedition.lcdui.ChoiceGroup;
+import javax.microedition.lcdui.ChoiceGroupFactory;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
@@ -23,38 +23,55 @@ import org.allbinary.game.configuration.feature.Features;
 
 public class ChoiceGroupImageUtil
 {
-    public static void init()
+    private static final ChoiceGroupImageUtil instance = new ChoiceGroupImageUtil();
+
+    /**
+     * @return the instance
+     */
+    public static ChoiceGroupImageUtil getInstance() {
+        return instance;
+    }
+    
+    public void init()
     {
-        Image[] imageArray = ChoiceGroup.getImageArray();
+        final Features features = Features.getInstance();
+
+        final ChoiceGroupFactory choiceGroupFactory = ChoiceGroupFactory.getInstance();
         
-        if(Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
+        final Image[] imageArray = choiceGroupFactory.getImageArray();
+        
+        if(features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
         {
             final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
             
-            int size = imageArray.length;
+            final int size = imageArray.length;
             for(int index = 0; index < size; index++)
             {
                 imageArray[index] = preResourceImageUtil.encapsulate(imageArray[index]);
             }
-            ChoiceGroup.init(imageArray);
+            choiceGroupFactory.init(imageArray);
         }
     }
 
-    public static void update(Graphics graphics)
+    public void update(Graphics graphics)
     {
-        Image[] imageArray = ChoiceGroup.getImageArray();
+        final Features features = Features.getInstance();
         
-        if(Features.getInstance().isDefault(
-                OpenGLFeatureFactory.getInstance().OPENGL))
+        final ChoiceGroupFactory choiceGroupFactory = ChoiceGroupFactory.getInstance();
+        
+        final Image[] imageArray = choiceGroupFactory.getImageArray();
+        
+        if(features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
         {
-            int size = imageArray.length;
+            final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
+            
+            final int size = imageArray.length;
             for(int index = 0; index < size; index++)
             {
-                PreResourceImageUtil.getInstance().update(
-                        graphics, imageArray[index]);
+                preResourceImageUtil.update(graphics, imageArray[index]);
             }
         }
         
-        ChoiceGroup.init(imageArray);
+        choiceGroupFactory.init(imageArray);
     }
 }
