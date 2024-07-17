@@ -13,7 +13,7 @@
 */
 package org.allbinary.image;
 
-import javax.microedition.lcdui.ChoiceGroupFactory;
+import javax.microedition.lcdui.ChoiceGroupImageFactory;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
@@ -36,7 +36,7 @@ public class ChoiceGroupImageUtil
     {
         final Features features = Features.getInstance();
 
-        final ChoiceGroupFactory choiceGroupFactory = ChoiceGroupFactory.getInstance();
+        final ChoiceGroupImageFactory choiceGroupFactory = ChoiceGroupImageFactory.getInstance();
         
         final Image[] imageArray = choiceGroupFactory.getImageArray();
         
@@ -57,7 +57,7 @@ public class ChoiceGroupImageUtil
     {
         final Features features = Features.getInstance();
         
-        final ChoiceGroupFactory choiceGroupFactory = ChoiceGroupFactory.getInstance();
+        final ChoiceGroupImageFactory choiceGroupFactory = ChoiceGroupImageFactory.getInstance();
         
         final Image[] imageArray = choiceGroupFactory.getImageArray();
         

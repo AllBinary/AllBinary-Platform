@@ -1,30 +1,34 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
-package org.allbinary.graphics.form.item;
+ * AllBinary Open License Version 1
+ * Copyright (c) 2022 AllBinary
+ * 
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ * 
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ * 
+ * Created By: Travis Berthelot
+ * 
+ */
+package javax.microedition.lcdui;
 
-import javax.microedition.lcdui.Image;
+/**
+ *
+ * @author User
+ */
+public class ChoiceGroupImageFactory {
 
-public class ChoiceGroupImageFactory
-{
     private static final ChoiceGroupImageFactory instance = new ChoiceGroupImageFactory();
 
-    public static ChoiceGroupImageFactory getInstance()
-    {
+    /**
+     * @return the instance
+     */
+    public static ChoiceGroupImageFactory getInstance() {
         return instance;
     }
 
-    private byte[] multiOff = {
+    private final byte multiOff[] = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 10,
         0, 0, 0, 11, 2, 3, 0, 0, 0, 59,
@@ -35,10 +39,10 @@ public class ChoiceGroupImageFactory
         -32, -64, 32, -64, -60, -64, -64, -128, 11, 51,
         -122, 50, -4, 6, 0, 63, 116, 3, 1, 53,
         -108, 39, -26, 0, 0, 0, 0, 73, 69, 78,
-        68, -82, 66, 96, -126 
+        68, -82, 66, 96, -126
     };
 
-    private byte[] multiOn = {
+    private final byte multiOn[] = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 10,
         0, 0, 0, 11, 2, 3, 0, 0, 0, 59,
@@ -52,10 +56,10 @@ public class ChoiceGroupImageFactory
         96, -7, -11, -109, -127, -23, -65, 3, 3, -29,
         127, -122, -113, 0, 5, 37, 12, -34, 1, -99,
         -83, 100, 0, 0, 0, 0, 73, 69, 78, 68,
-        -82, 66, 96, -126 
+        -82, 66, 96, -126
     };
 
-    private byte[] radioOff = {
+    private final byte radioOff[] = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 11,
         0, 0, 0, 11, 2, 3, 0, 0, 0, -44,
@@ -67,10 +71,10 @@ public class ChoiceGroupImageFactory
         5, 19, 3, 3, 3, 50, 102, 80, 96, 80,
         96, -6, -63, 80, -64, -64, -76, -118, 1, 0,
         113, 24, 5, 61, 73, -68, -100, 98, 0, 0,
-        0, 0, 73, 69, 78, 68, -82, 66, 96, -126 
+        0, 0, 73, 69, 78, 68, -82, 66, 96, -126
     };
 
-    private byte[] radioOn = {
+    private final byte radioOn[] = {
         -119, 80, 78, 71, 13, 10, 26, 10, 0, 0,
         0, 13, 73, 72, 68, 82, 0, 0, 0, 11,
         0, 0, 0, 11, 2, 3, 0, 0, 0, -44,
@@ -84,23 +88,37 @@ public class ChoiceGroupImageFactory
         40, 2, 85, -95, -73, -63, -104, -63, 37, -117,
         15, -40, 119, 10, 41, 78, 26, -79, 59, 0,
         0, 0, 0, 73, 69, 78, 68, -82, 66, 96,
-        -126 
+        -126
     };
-    
-    private Image imgMultiOff = Image.createImage(multiOff, 0, multiOff.length);
-    private Image imgMultiOn = Image.createImage(multiOn, 0, multiOn.length);
-    private Image imgRadioOff = Image.createImage(radioOff, 0, radioOff.length);
-    private Image imgRadioOn = Image.createImage(radioOn, 0, radioOn.length);
-    
-    private final Image[] imageArray = {
-        imgMultiOff,
-        imgMultiOn,
-        imgRadioOff,
-        imgRadioOn
-        };
 
-    public Image[] getImageArray()
-    {
-        return imageArray;
+    private final Image imgMultiOffO = Image.createImage(multiOff, 0, multiOff.length);
+    private final Image imgMultiOnO = Image.createImage(multiOn, 0, multiOn.length);
+    private final Image imgRadioOffO = Image.createImage(radioOff, 0, radioOff.length);
+    private final Image imgRadioOnO = Image.createImage(radioOn, 0, radioOn.length);
+    
+    public Image imgMultiOff = imgMultiOffO;
+    public Image imgMultiOn = imgMultiOnO;
+    public Image imgRadioOff = imgRadioOffO;
+    public Image imgRadioOn = imgRadioOnO;
+
+    private final Image[] imageArray = {
+        this.imgMultiOff,
+        this.imgMultiOn,
+        this.imgRadioOff,
+        this.imgRadioOn
+    };
+
+    public Image[] getImageArray() {
+        return this.imageArray;
     }
+
+    public void init(final Image[] imageArray) {
+        
+        this.imageArray[0] = this.imgMultiOff = imageArray[0];
+        this.imageArray[1] = this.imgMultiOn = imageArray[1];
+        this.imageArray[2] = this.imgRadioOff = imageArray[2];
+        this.imageArray[3] = this.imgRadioOn = imageArray[3];
+
+    }
+
 }
