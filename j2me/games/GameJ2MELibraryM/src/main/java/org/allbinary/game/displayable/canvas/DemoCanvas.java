@@ -1014,11 +1014,11 @@ public class DemoCanvas extends RunnableCanvas
 
                 //PreLogUtil.put(commonStrings.START, this, "OPENGL_AS_GAME_THREAD3");
                 
-                final DemoGameRunnable gameRunnable = new DemoGameRunnable(this);
+                final DemoGameRunnable demoGameRunnable = new DemoGameRunnable(this);
                 
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
-                currentDisplayableFactory.setRunnable(gameRunnable);
+                currentDisplayableFactory.setRunnable(demoGameRunnable);
                                 
                 //Only needed is not really using a real gamecanvas
                 OpenGLThreadUtil.getInstance().onResume();
@@ -1031,8 +1031,7 @@ public class DemoCanvas extends RunnableCanvas
 
                 final DemoGameRunnable demoGameRunnable = new DemoGameRunnable(this);
                 
-                final CurrentDisplayableFactory currentDisplayableFactory = 
-                        CurrentDisplayableFactory.getInstance();
+                final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
                 currentDisplayableFactory.setRunnable(demoGameRunnable);
             }

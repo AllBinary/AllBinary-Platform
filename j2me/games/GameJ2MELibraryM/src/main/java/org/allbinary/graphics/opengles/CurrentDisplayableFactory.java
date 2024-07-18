@@ -46,12 +46,12 @@ public class CurrentDisplayableFactory
 
     private final String RUNNABLE = "Runnable: ";
     
-    public void setDisplayable(Displayable displayable)
+    public void setDisplayable(final Displayable displayable)
     {
         this.displayable = displayable;
     }
 
-    public void setOpenGlReadydisplayable(Displayable openGlReadydisplayable)
+    public void setOpenGlReadydisplayable(final Displayable openGlReadydisplayable)
     {
         //Should not be needed since all resources except for progressimages are loaded after image to imagegl conversion
         //if(RendererStateFactory.getInstance().isSurfaceChanged())
@@ -64,7 +64,7 @@ public class CurrentDisplayableFactory
         return openGlReadydisplayable;
     }
 
-    public void setRunnable(GameRunnable runnable)
+    public void setRunnable(final GameRunnable runnable)
     {
         PreLogUtil.put(new StringMaker().append(RUNNABLE).append(runnable).toString(), this, "setRunnable");
         this.runnable = runnable;
@@ -83,21 +83,24 @@ public class CurrentDisplayableFactory
     {
         synchronized (this)
         {
-            Features features = Features.getInstance();
+            final Features features = Features.getInstance();
 
-            if (SWTUtil.isSWT) {
-                PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
+            if (SWTUtil.isSWT && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
+                PreLogUtil.put(new StringMaker().append("SWT ").append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(NullWaitRunnable.getInstance());
-            } else if (openGlReadydisplayable instanceof DemoCanvas || 
-                    openGlReadydisplayable instanceof AllBinaryGameCanvas ||
-                    features.isDefault(HTMLFeatureFactory.getInstance().HTML))
+            } else if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
             {
-                PreLogUtil.put(new StringMaker().append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(new StringMaker().append("HTML").append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
+                this.setUsedRunnable(runnable);
+            } else if (openGlReadydisplayable instanceof DemoCanvas || 
+                    openGlReadydisplayable instanceof AllBinaryGameCanvas)
+            {
+                PreLogUtil.put(new StringMaker().append("Displayable: ").append(openGlReadydisplayable).append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(runnable);
             }
             else
             {
-                PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(new StringMaker().append(openGlReadydisplayable).append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(NullWaitRunnable.getInstance());
             }
         }

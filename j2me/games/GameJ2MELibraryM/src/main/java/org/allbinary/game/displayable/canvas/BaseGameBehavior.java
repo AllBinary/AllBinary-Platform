@@ -84,10 +84,10 @@ public class BaseGameBehavior extends DemoGameBehavior {
             
             //LogUtil.put(LogFactory.getInstance("pause", this, METHOD_NAME));
 
-            final GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(allBinaryGameCanvas);
+            final GameCanvasPauseRunnable gameCanvasGamePauseRunnable = new GameCanvasPauseRunnable(allBinaryGameCanvas);
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameRunnable);
+            currentDisplayableFactory.setRunnable(gameCanvasGamePauseRunnable);
         }
 
     }
@@ -122,10 +122,10 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //        } else 
             if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
             //LogUtil.put(LogFactory.getInstance("unPause", this, "unPause"));
-            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(allBinaryGameCanvas);
+            final GameCanvasRunnable demoGameRunnable = new GameCanvasRunnable(allBinaryGameCanvas);
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameRunnable);
+            currentDisplayableFactory.setRunnable(demoGameRunnable);
         }
     }
 
