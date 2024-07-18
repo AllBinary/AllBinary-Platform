@@ -26,6 +26,7 @@ import org.allbinary.game.displayable.canvas.GameRunnable;
 import org.allbinary.game.displayable.canvas.NullDisplayable;
 import org.allbinary.game.displayable.canvas.NullWaitRunnable;
 import org.allbinary.game.layer.SWTUtil;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.thread.NullRunnable;
 
@@ -83,24 +84,29 @@ public class CurrentDisplayableFactory
     {
         synchronized (this)
         {
+            final CommonSeps commonSeps = CommonSeps.getInstance();
+            
             final Features features = Features.getInstance();
 
+            final StringMaker stringMaker = new StringMaker();
+            stringMaker.append(openGlReadydisplayable);
             if (SWTUtil.isSWT && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
-                PreLogUtil.put(new StringMaker().append("SWT ").append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(SWTUtil.SWT).append(commonSeps.SPACE).append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(NullWaitRunnable.getInstance());
             } else if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
             {
-                PreLogUtil.put(new StringMaker().append("HTML").append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(HTMLFeatureFactory.getInstance().HTML).append(commonSeps.SPACE).append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(runnable);
             } else if (openGlReadydisplayable instanceof DemoCanvas || 
-                    openGlReadydisplayable instanceof AllBinaryGameCanvas)
+                    openGlReadydisplayable instanceof AllBinaryGameCanvas ||
+                features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
             {
-                PreLogUtil.put(new StringMaker().append("Displayable: ").append(openGlReadydisplayable).append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(OpenGLFeatureFactory.getInstance().OPENGL).append(commonSeps.SPACE).append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(runnable);
             }
             else
             {
-                PreLogUtil.put(new StringMaker().append(openGlReadydisplayable).append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
+                PreLogUtil.put(stringMaker.append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
                 this.setUsedRunnable(NullWaitRunnable.getInstance());
             }
         }

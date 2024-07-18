@@ -20,5 +20,6 @@ package org.allbinary.game.layer;
 public class SWTUtil {
     
     public static boolean isSWT = true;
+    public static String SWT = "SWT";
     
 }
