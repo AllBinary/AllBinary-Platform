@@ -15,6 +15,7 @@ package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
+import org.allbinary.AndroidUtil;
 
 import org.allbinary.image.opengles.OpenGLESGL10ImageFactory;
 import org.allbinary.image.opengles.OpenGLESGL11VBOImageFactory;
@@ -164,8 +165,11 @@ public class OpenGLCapabilities
                 PreLogUtil.put(new StringMaker().append("VBO:?").append((this.glInstanceVersion == this.VERSION_1_1)).append("||").append(this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)).toString(), this, METHOD_NAME);
                 if ((this.glInstanceVersion == this.VERSION_1_1 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
                 {
-                    PreLogUtil.put("VBO implementation was detected, but disabled by default", this, METHOD_NAME);
-                    //this.vertexBufferObjectSupport = true;
+                    if(AndroidUtil.isAndroid()) {
+                        PreLogUtil.put("VBO implementation was detected, but disabled by default for Android", this, METHOD_NAME);
+                    } else {
+                        this.vertexBufferObjectSupport = true;
+                    }
                 }
             }
             
