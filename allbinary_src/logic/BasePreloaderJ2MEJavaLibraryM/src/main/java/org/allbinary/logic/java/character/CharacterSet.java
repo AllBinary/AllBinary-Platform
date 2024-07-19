@@ -30,6 +30,6 @@ public class CharacterSet
    {
       //Charset charset = Charset.defaultCharset();
       //return "Default Character Set: " + charset.toString();
-       return new StringMaker().append("Default Character Set: ").append(CommonStrings.getInstance().NOT_IMPLEMENTED).toString();
+       return "Default Character Set: Empty Implementation";
    }
 }
