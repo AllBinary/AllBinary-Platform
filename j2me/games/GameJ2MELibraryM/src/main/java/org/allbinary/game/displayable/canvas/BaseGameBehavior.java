@@ -122,10 +122,13 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //        } else 
             if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
             //LogUtil.put(LogFactory.getInstance("unPause", this, "unPause"));
-            final GameCanvasRunnable demoGameRunnable = new GameCanvasRunnable(allBinaryGameCanvas);
+            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(allBinaryGameCanvas);
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(demoGameRunnable);
+            currentDisplayableFactory.setRunnable(gameRunnable);
+            currentDisplayableFactory.setDisplayable(allBinaryGameCanvas);
+            currentDisplayableFactory.setOpenGlReadydisplayable(allBinaryGameCanvas);
+            
         }
     }
 

@@ -1019,6 +1019,8 @@ public class DemoCanvas extends RunnableCanvas
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
                 currentDisplayableFactory.setRunnable(demoGameRunnable);
+                currentDisplayableFactory.setDisplayable(this);
+                currentDisplayableFactory.setOpenGlReadydisplayable(this);
                                 
                 //Only needed is not really using a real gamecanvas
                 OpenGLThreadUtil.getInstance().onResume();
@@ -1034,6 +1036,9 @@ public class DemoCanvas extends RunnableCanvas
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
                 currentDisplayableFactory.setRunnable(demoGameRunnable);
+                currentDisplayableFactory.setDisplayable(this);
+                currentDisplayableFactory.setOpenGlReadydisplayable(this);
+                
             }
             else
             {

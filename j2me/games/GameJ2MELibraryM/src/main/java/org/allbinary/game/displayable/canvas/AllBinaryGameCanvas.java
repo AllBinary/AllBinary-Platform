@@ -1614,11 +1614,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                 LogUtil.put(LogFactory.getInstance(htmlFeatureFactory.HTML.getName(), this, commonStrings.RUN));
             }
 
-            final GameCanvasRunnable gameCanvasGameRunnable = new GameCanvasRunnable(this);
+            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameCanvasGameRunnable);
+            currentDisplayableFactory.setRunnable(gameRunnable);
+            currentDisplayableFactory.setDisplayable(this);
+            currentDisplayableFactory.setOpenGlReadydisplayable(this);
+
             OpenGLThreadUtil.getInstance().onResume();
         } else if (features.isDefault(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS)) {
 
