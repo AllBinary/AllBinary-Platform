@@ -2,14 +2,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.allbinary</groupId>
-    <artifactId>OpenGLESJavaLibrary</artifactId>
+    <artifactId>OpenGLESFileConfigurationJavaLibrary</artifactId>
     <!-- gl.gl OpenGLES Calls -->
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
     <version>1.0.0-SNAPSHOT</version>
     <!-- AllBinary Platform Version End -->
 
-    <name>OpenGLESJavaLibrary</name>
+    <name>OpenGLESFileConfigurationJavaLibrary</name>
     <url>http://www.allbinary.com/</url>
     <distributionManagement>
         <snapshotRepository>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -58,99 +58,14 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>TokenizerJavaLibrary</artifactId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            <!--
+            <artifactId>FileAndroidJavaLibrary</artifactId>
+            <artifactId>FileJ2SEJavaLibrary</artifactId>
+            -->
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
-
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>J2SEForJ2MEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLNoneOtherJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESNullImageJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.platform</groupId>
-            <artifactId>Min3dForNullJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>ProgressJ2MEJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESBaseJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLESFileConfigurationJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.allbinary</groupId>
-            <artifactId>OpenGLJOGLJavaLibrary</artifactId>
-            <!-- AllBinary Platform Version Start -->
-            <version>1.0.0-SNAPSHOT</version>
-            <!-- AllBinary Platform Version End -->
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.microemu</groupId>
-            <artifactId>microemu-midp</artifactId>
-            <version>3.0.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
 

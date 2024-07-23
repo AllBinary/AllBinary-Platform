@@ -13,17 +13,8 @@
 */
 package org.allbinary.graphics.opengles;
 
-import java.io.DataInputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-
-import org.allbinary.logic.io.AbDataOutputStream;
-import org.allbinary.logic.io.FileStreamFactory;
-import org.allbinary.logic.io.StreamUtil;
-import org.allbinary.logic.io.file.FileFactory;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -42,8 +33,6 @@ public class OpenGLConfiguration
         return instance;
     }
 
-    private static final String FILE = "OpenGLConfiguration.dat";
-    
     private boolean opengl = false;
 
     private OpenGLFeature type =
@@ -63,173 +52,15 @@ public class OpenGLConfiguration
         //PreLogUtil.put(imageColor.getName(), this, "Constructor - imageColor - depth");
         //PreLogUtil.put(color.getName(), this, "Constructor - color - depth");
         
-        try
-        {
-            if (FileFactory.getInstance().isFile(FILE))
-            {
-                this.read();
-            }
-            else
-            {
-                this.write();
-            }
-        }
-        catch (Exception e)
-        {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this,
-                    CommonStrings.getInstance().CONSTRUCTOR, e));
-        }
+    }
+
+    public void write() {
+        
     }
     
-    private void read() throws Exception
-    {
-        OpenGLFeatureFactory openGLFeatureFactory = 
-            OpenGLFeatureFactory.getInstance();
-        
-        FileStreamFactory fileInputStreamFactory = 
-            FileStreamFactory.getInstance();
-
-        InputStream fileInputStream = 
-            fileInputStreamFactory.getFileInputStreamInstance(
-                    StringUtil.getInstance().EMPTY_STRING, FILE);
-
-        DataInputStream dataInputStream = new DataInputStream(fileInputStream);
-
-        int openGLValue = dataInputStream.readInt();
-        if (openGLValue == 0)
-        {
-            this.setOpenGL(false);
-        }
-        else if (openGLValue == 1)
-        {
-            this.setOpenGL(true);
-        }
-        else
-        {
-            throw new Exception("Invalid OpenGL Setting");
-        }
-
-        String version = dataInputStream.readUTF();
-        
-        if(version.compareTo(openGLFeatureFactory.OPENGL_AUTO_SELECT.getName()) == 0)
-        {
-            this.setVersionSelector(openGLFeatureFactory.OPENGL_AUTO_SELECT);
-        }
-        else
-            if(version.compareTo(openGLFeatureFactory.OPENGL_MINIMUM.getName()) == 0)
-            {
-                this.setVersionSelector(openGLFeatureFactory.OPENGL_MINIMUM);
-            }
-            else
-        {
-            throw new Exception("OpenGLConfiguration: Error reading version selector: " + version);
-        }
-        
-        String type = dataInputStream.readUTF();
-        
-        if(type.compareTo(openGLFeatureFactory.OPENGL_AS_GAME_THREAD.getName()) == 0)
-        {
-            this.setType(openGLFeatureFactory.OPENGL_AS_GAME_THREAD);
-        }
-        else
-            if(type.compareTo(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS.getName()) == 0)
-            {
-                this.setType(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS);
-            }
-                else
-        {
-            throw new Exception("OpenGLConfiguration: Error reading image color");
-        }
-        
-        String imageColor = dataInputStream.readUTF();
-        
-        if(imageColor.compareTo(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
-        {
-            this.setImageColor(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
-        }
-        else
-            if(imageColor.compareTo(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
-            {
-                this.setImageColor(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
-            }
-            else
-                if(imageColor.compareTo(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444.getName()) == 0)
-                {
-                    this.setImageColor(openGLFeatureFactory.IMAGE_COLOR_DEPTH_4444);
-                }
-                else
-        {
-            throw new Exception("OpenGLConfiguration: Error reading image color: " + imageColor);
-        }
-
-        String color = dataInputStream.readUTF();
-        
-        if(color.compareTo(openGLFeatureFactory.OPENGL_COLOR_DEPTH_4444.getName()) == 0)
-        {
-            this.setColor(openGLFeatureFactory.OPENGL_COLOR_DEPTH_4444);
-        }
-        else
-            if(color.compareTo(openGLFeatureFactory.OPENGL_COLOR_DEPTH_565.getName()) == 0)
-            {
-                this.setColor(openGLFeatureFactory.OPENGL_COLOR_DEPTH_565);
-            }
-            else
-                if(color.compareTo(openGLFeatureFactory.OPENGL_COLOR_DEPTH_8888.getName()) == 0)
-                {
-                    this.setColor(openGLFeatureFactory.OPENGL_COLOR_DEPTH_8888);
-                }
-                else
-        {
-            throw new Exception("OpenGLConfiguration: Error reading color: " + color);
-        }
-        
-        PreLogUtil.put("Read Configuration: " + this.toString(), this, "read");
-    }
-    
-    public void write() throws Exception
-    {
-        AbDataOutputStream dataOutputStream = null;
-        try
-        {
-            //LogUtil.put(LogFactory.getInstance("Write Configuration: " + this.toString(), this, "write"));
-            PreLogUtil.put("Write Configuration: " + this.toString(), this, "write");
-
-            FileStreamFactory fileInputStreamFactory = FileStreamFactory.getInstance();
-
-            OutputStream fileOutputStream = fileInputStreamFactory
-                    .getFileOutputStreamInstance(
-                            StringUtil.getInstance().EMPTY_STRING, FILE);
-
-            dataOutputStream = new AbDataOutputStream(fileOutputStream);
-
-            if (this.isOpenGL())
-            {
-                dataOutputStream.writeInt(1);
-            }
-            else
-            {
-                dataOutputStream.writeInt(0);
-            }
-
-            dataOutputStream.writeUTF(this.getVersionSelector().getName());
-
-            dataOutputStream.writeUTF(this.getType().getName());
-
-            dataOutputStream.writeUTF(this.getImageColor().getName());
-            dataOutputStream.writeUTF(this.getColor().getName());
-
-            dataOutputStream.flush();
-        }
-        finally
-        {
-            StreamUtil.getInstance().close(dataOutputStream);
-        }
-        
-    }
-
     public void init() throws Exception
     {
-        Features features = Features.getInstance();
+        final Features features = Features.getInstance();
         
         if (ChangedGameFeatureListener.getInstance().isChanged(
                 MainFeatureFactory.getInstance().STATIC))
@@ -286,7 +117,7 @@ public class OpenGLConfiguration
         PreLogUtil.put(this.toString(), this, "init");
     }
 
-    public void update(Feature gameFeature, boolean colorLocked)
+    public void update(final Feature gameFeature, final boolean colorLocked)
     throws Exception
     {
         final Features features = Features.getInstance();
@@ -386,13 +217,9 @@ public class OpenGLConfiguration
             modified = true;
         }
         
-        if(modified)
-        {
-            this.write();
-        }
     }
-
-    public void setOpenGL(boolean opengl)
+    
+    public void setOpenGL(final boolean opengl)
     {
         this.opengl = opengl;
     }
@@ -402,7 +229,7 @@ public class OpenGLConfiguration
         return opengl;
     }
 
-    public void setImageColor(OpenGLFeature imageColor)
+    public void setImageColor(final OpenGLFeature imageColor)
     {
         //PreLogUtil.put(imageColor.getName(), this, "setImageColor - depth");
         this.imageColor = imageColor;
@@ -413,7 +240,7 @@ public class OpenGLConfiguration
         return imageColor;
     }
 
-    public void setColor(OpenGLFeature color)
+    public void setColor(final OpenGLFeature color)
     {
         //PreLogUtil.put(imageColor.getName(), this, "setColor - depth");
         this.color = color;
@@ -424,7 +251,7 @@ public class OpenGLConfiguration
         return color;
     }
 
-    public void setVersionSelector(OpenGLFeature versionSelector)
+    public void setVersionSelector(final OpenGLFeature versionSelector)
     {
         this.versionSelector = versionSelector;
     }
@@ -434,7 +261,7 @@ public class OpenGLConfiguration
         return versionSelector;
     }
 
-    public void setType(OpenGLFeature type)
+    public void setType(final OpenGLFeature type)
     {
         this.type = type;
     }
@@ -446,7 +273,7 @@ public class OpenGLConfiguration
     
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(" isOpenGL: ");
         stringBuffer.append(this.isOpenGL());
