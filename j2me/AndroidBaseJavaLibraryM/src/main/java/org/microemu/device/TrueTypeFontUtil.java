@@ -71,6 +71,31 @@ public class TrueTypeFontUtil
         return textureSize;
     }
 
+    public int getCellSize(int cellSize)
+    {
+        if(cellSize < 16)
+        {
+            cellSize = 16;
+        }
+        else
+            if(cellSize < 32)
+            {
+                cellSize = 32;
+            }
+            else
+                if(cellSize < 64)
+                {
+                    cellSize = 64;
+                }
+                else
+                    if(cellSize < 128)
+                    {
+                        cellSize = 128;
+                    }
+
+        return cellSize;
+    }
+    
     public Image getFontBitmap(String filename, int fontSize, int cellSize, int cellsPerRow, BasicColor basicColor)
     {
         final int cellsPerRow2 = cellsPerRow * 2;
