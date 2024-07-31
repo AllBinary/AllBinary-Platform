@@ -26,6 +26,8 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected final PlatformTextureBaseFactory textureFactory;
     
     public final PlatformBitmapBase openGLBitmap;

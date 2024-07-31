@@ -23,6 +23,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.opengles.GLUtil;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
@@ -91,6 +92,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         if (super.initTexture(gl10))
         {
+            //PreLogUtil.put(this.commonStrings.START, this, "initTexture");
+
             //if(!this.matchColor)
             //{
                 //gl.glTexEnvf(GL10.GL_TEXTURE_ENV, GL10.GL_TEXTURE_ENV_MODE,
@@ -144,7 +147,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             float width, float height, 
             int x, int y, int z)
     {
-        //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, "drawRegion");
+        //PreLogUtil.put(this.commonStrings.START + "Texture", this, "drawRegion");
         
         this.regionRectangleFloatArray[0] = x;
         this.regionRectangleFloatArray[7] = viewHeight - y;
@@ -299,6 +302,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
     
     public void draw(GL10 gl, int x, int y, int z)
     {
+        //PreLogUtil.put(this.commonStrings.START + "Texture", this, "draw");
+        
         this.regionRectangleFloatArray[0] = x;
         this.regionRectangleFloatArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
         this.regionRectangleFloatArray[1] = this.regionRectangleFloatArray[7] - this.getHeight();

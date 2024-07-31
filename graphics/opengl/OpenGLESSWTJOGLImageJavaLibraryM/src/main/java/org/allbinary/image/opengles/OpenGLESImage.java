@@ -19,6 +19,7 @@ import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.OpenGLBitmap;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
@@ -26,6 +27,8 @@ import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected final PlatformTextureBaseFactory textureFactory;
     
     public final OpenGLBitmap openGLBitmap;
@@ -81,9 +84,11 @@ implements OpenGLSurfaceChangedInterface
     private GL10 gl;
     
     protected boolean initTexture(GL10 gl)
-    {
+    {   
         if (this.gl != gl)
         {
+            //PreLogUtil.put(this.commonStrings.INIT, this, "OpenGLESImage->initTexture");
+            
             final int[] textures = new int[1];
 
             /*
