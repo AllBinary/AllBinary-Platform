@@ -165,11 +165,12 @@ public class OpenGLCapabilities
                 PreLogUtil.put(new StringMaker().append("VBO:?").append((this.glInstanceVersion == this.VERSION_1_1)).append("||").append(this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)).toString(), this, METHOD_NAME);
                 if ((this.glInstanceVersion == this.VERSION_1_1 || this.isExtension(openGLFeatureFactory.OPENGL_VERTEX_BUFFER_OBJECT)))
                 {
-                    if(AndroidUtil.isAndroid()) {
-                        PreLogUtil.put("VBO implementation was detected, but disabled by default for Android", this, METHOD_NAME);
-                    } else {
-                        this.vertexBufferObjectSupport = true;
-                    }
+                      PreLogUtil.put("VBO implementation was detected, but disabled for now", this, METHOD_NAME);                    
+//                    if(AndroidUtil.isAndroid()) {
+//                        PreLogUtil.put("VBO implementation was detected, but disabled by default for Android", this, METHOD_NAME);
+//                    } else {
+//                        this.vertexBufferObjectSupport = true;
+//                    }
                 }
             }
             
