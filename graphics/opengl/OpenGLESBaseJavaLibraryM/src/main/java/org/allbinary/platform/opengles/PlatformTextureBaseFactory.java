@@ -15,6 +15,7 @@ package org.allbinary.platform.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+import org.allbinary.logic.string.CommonStrings;
 
 /**
  *
@@ -22,6 +23,8 @@ import javax.microedition.lcdui.Image;
  */
 public class PlatformTextureBaseFactory {
    
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public void load(final GL10 gl, final int target, final int level, final Image image, final int border) {
         
     }
