@@ -22,17 +22,20 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
+import org.allbinary.util.BasicArrayList;
 
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
+    public static final BasicArrayList texture2dList = new BasicArrayList();
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected final PlatformTextureBaseFactory textureFactory;
     
     public final PlatformBitmapBase openGLBitmap;
     
-    protected int textureID;
+    protected int textureID = -1;
     //protected boolean matchColor;
     
     //Null
@@ -72,12 +75,12 @@ implements OpenGLSurfaceChangedInterface
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
  
-    private GL10 gl;
-    
     protected boolean initTexture(GL10 gl)
     {
-        if (this.gl != gl)
+        if (!texture2dList.contains(this))
         {
+            texture2dList.add(this);
+            
             final int[] textures = new int[1];
 
             /*
@@ -96,7 +99,7 @@ implements OpenGLSurfaceChangedInterface
             gl.glEnable(GL10.GL_TEXTURE_2D);
 
             //Delete old texture
-            if(this.gl != null)
+            if(this.textureID != -1)
             {
                 textures[0] = textureID;
                 gl.glDeleteTextures(1, textures, 0);

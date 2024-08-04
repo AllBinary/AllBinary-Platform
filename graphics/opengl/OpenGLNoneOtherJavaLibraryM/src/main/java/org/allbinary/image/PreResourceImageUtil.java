@@ -13,6 +13,7 @@
 */
 package org.allbinary.image;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
@@ -33,6 +34,10 @@ public class PreResourceImageUtil
         return image;
     }
 
+    public void update(GL gl, Image image)
+    {
+    }
+    
     public void update(Graphics graphics, Image image)
     {
     }

@@ -13,6 +13,7 @@
 */
 package org.allbinary.image;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.ChoiceGroupImageFactory;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
@@ -53,6 +54,28 @@ public class ChoiceGroupImageUtil
         }
     }
 
+    public void update(GL gl)
+    {
+        final Features features = Features.getInstance();
+        
+        final ChoiceGroupImageFactory choiceGroupFactory = ChoiceGroupImageFactory.getInstance();
+        
+        final Image[] imageArray = choiceGroupFactory.getImageArray();
+        
+        if(features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
+        {
+            final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
+            
+            final int size = imageArray.length;
+            for(int index = 0; index < size; index++)
+            {
+                preResourceImageUtil.update(gl, imageArray[index]);
+            }
+        }
+        
+        choiceGroupFactory.init(imageArray);
+    }
+
     public void update(Graphics graphics)
     {
         final Features features = Features.getInstance();
@@ -74,4 +97,5 @@ public class ChoiceGroupImageUtil
         
         choiceGroupFactory.init(imageArray);
     }
+
 }

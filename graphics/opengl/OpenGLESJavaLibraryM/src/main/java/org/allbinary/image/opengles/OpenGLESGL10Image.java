@@ -92,7 +92,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         if (super.initTexture(gl10))
         {
-            //PreLogUtil.put(this.commonStrings.START, this, "initTexture");
+            //PreLogUtil.put(new StringMaker().append(this.commonStrings.START).append(this.toString()).append(" width: ").append(this.getWidth()).append(" height: ").append(this.getHeight()).toString(), this, "initTexture");
 
             //if(!this.matchColor)
             //{

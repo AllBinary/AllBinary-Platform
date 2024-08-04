@@ -22,6 +22,8 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.image.PreResourceImageUtil;
+import org.allbinary.image.opengles.OpenGLESImage;
 
 public class TrueTypeFontUtil
 {
@@ -32,6 +34,8 @@ public class TrueTypeFontUtil
         return instance;
     }
 
+    private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
+    
     //Include special characters 2 times handles the Android Studio issue.
     //public final String pattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬\"£^&*()_+-=[]{};'#:@~,/<>\\|®©";
     public final String pattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬¬\"££^&*()_+-=[]{};'#:@~,/<>\\|®®©©";
@@ -41,6 +45,8 @@ public class TrueTypeFontUtil
     private final int size = pattern.length();
     private final int lastCapIndex = pattern.indexOf('Z');
 
+    public OpenGLESImage fontImage;
+    
     public int getAsTextureSize(int textureSize)
     {
         if(textureSize < 64)
@@ -98,6 +104,7 @@ public class TrueTypeFontUtil
     
     public Image getFontBitmap(String filename, int fontSize, int cellSize, int cellsPerRow, BasicColor basicColor)
     {
+        if(this.fontImage == null) {
         final int cellsPerRow2 = cellsPerRow * 2;
         final int cellsPerRow3 = cellsPerRow * 3;
         final int cellsPerRow4 = cellsPerRow * 4;
@@ -169,7 +176,13 @@ public class TrueTypeFontUtil
         }
         canvas.save();
 
-        return new Image(bitmap);
+        final Image image = new Image(bitmap);
+        this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
+        return this.fontImage;
+
+        } else {
+            return this.fontImage;
+        }
     }
 
     public int[] getFontWidths(String filename, int fontSize)

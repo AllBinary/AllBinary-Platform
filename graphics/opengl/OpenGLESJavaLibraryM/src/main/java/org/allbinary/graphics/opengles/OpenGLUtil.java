@@ -1,6 +1,7 @@
 package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
+import org.allbinary.device.LoadTextures;
 
 import org.allbinary.device.OpenGLESGraphics;
 import org.allbinary.image.ChoiceGroupImageUtil;
@@ -9,6 +10,7 @@ import org.allbinary.image.opengles.OpenGLImageCacheFactory;
 
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -24,7 +26,7 @@ public class OpenGLUtil
         return instance;
     }
 
-    public void onSurfaceCreated(GL10 gl)
+    public void onSurfaceCreated(final GL10 gl, final LoadTextures loadTextures)
     {
         try
         {
@@ -42,10 +44,11 @@ public class OpenGLUtil
 
             //gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
             
-            PreLogUtil.put(CommonLabels.getInstance().START_LABEL
-                    + OpenGLCapabilities.getInstance().toString(), this, "onSurfaceCreated");
+            PreLogUtil.put(CommonLabels.getInstance().START_LABEL + OpenGLCapabilities.getInstance().toString(), this, "onSurfaceCreated");
 
             // gl.glMatrixMode(GL10.GL_MODELVIEW);
+
+            loadTextures.load(gl);
 
             OpenGLLogUtil.getInstance().logError(gl);
             
@@ -72,9 +75,9 @@ public class OpenGLUtil
 
         progressCanvas.update(graphics);
 
-        final ChoiceGroupImageUtil choiceGroupImageUtil = ChoiceGroupImageUtil.getInstance();
-        choiceGroupImageUtil.init();
-        choiceGroupImageUtil.update(graphics);
+//        final ChoiceGroupImageUtil choiceGroupImageUtil = ChoiceGroupImageUtil.getInstance();
+//        choiceGroupImageUtil.init();
+//        choiceGroupImageUtil.update(graphics);
 
         ((OpenGLImageCache) OpenGLImageCacheFactory.getInstance()).update(gl);
     }
