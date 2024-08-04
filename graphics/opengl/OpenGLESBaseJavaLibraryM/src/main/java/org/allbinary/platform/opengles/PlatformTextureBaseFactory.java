@@ -25,7 +25,7 @@ public class PlatformTextureBaseFactory {
    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    public void load(final GL10 gl, final int target, final int level, final Image image, final int border) {
+    public void load(final GL10 gl, final int target, final int level, final Image image, final int border, final boolean flip) {
         
     }
 

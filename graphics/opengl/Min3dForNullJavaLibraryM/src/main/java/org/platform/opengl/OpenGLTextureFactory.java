@@ -21,7 +21,8 @@ public class OpenGLTextureFactory extends PlatformTextureBaseFactory
 
     }
     
-    public void load(final GL10 gl, final int target, final int level, final Image image, final int border)
+    @Override
+    public void load(final GL10 gl, final int target, final int level, final Image image, final int border, final boolean flip)
     {
         throw new RuntimeException();
     }
