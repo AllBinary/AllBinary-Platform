@@ -39,8 +39,12 @@ public class OpenGLLogUtil
                 stringBuffer.append(maxTextureSize[0]);
             }
 
-            ForcedLogUtil.log(stringBuffer.toString(), this);
-            //PreLogUtil.put(stringBuffer.toString(), this, OpenGLStrings.getInstance().SET);
+            if(error == 1280) {
+                PreLogUtil.put(stringBuffer.toString(), this, OpenGLStrings.getInstance().SET);  
+            } else {
+                ForcedLogUtil.log(stringBuffer.toString(), this);
+            }
+
         }
     }
 

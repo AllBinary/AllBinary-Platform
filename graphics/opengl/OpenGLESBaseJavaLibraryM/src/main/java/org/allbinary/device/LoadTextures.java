@@ -13,7 +13,7 @@
  */
 package org.allbinary.device;
 
-import javax.microedition.khronos.opengles.GL;
+import javax.microedition.khronos.opengles.GL10;
 
 /**
  *
@@ -21,7 +21,7 @@ import javax.microedition.khronos.opengles.GL;
  */
 public class LoadTextures {
     
-    public void load(final GL gl) throws Exception {
+    public void load(final GL10 gl) throws Exception {
         
     }
     
