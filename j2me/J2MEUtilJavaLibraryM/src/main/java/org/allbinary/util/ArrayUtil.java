@@ -74,6 +74,32 @@ public class ArrayUtil
         return copy;
     }
     
+    public void reverse(final int[] intArray) {
+        final int length = intArray.length - 1;
+        int temp;
+        for (int index = 0; index <= length / 2; index++) {
+            temp = intArray[index];
+            intArray[index] = intArray[length - index];
+            intArray[length - index] = temp;
+        }
+    }	
+
+    public void flip(final int[] intArray, final int width, final int height) {
+        final int length = height - 1;
+        int temp;
+        int index;
+        int rowIndex;
+        for (int y = 0; y <= length / 2; y++) {
+            for (int x = 0; x < width; x++) {
+                rowIndex = ((length - y) * width);
+                index = x + (y * width);
+                temp = intArray[index];
+                intArray[index] = intArray[rowIndex + x];
+                intArray[rowIndex + x] = temp;
+            }
+        }
+    }	
+    
     public String toString(final int[][] twoDimensionalIntArray)
     {
         final StringMaker stringBuffer = new StringMaker();
