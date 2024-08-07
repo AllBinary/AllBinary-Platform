@@ -47,6 +47,8 @@ public class DefaultGameInitializationListener
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
     
+    boolean firstTime = true;
+    
     public void onGameInitialized(final GameInitializedEvent gameInitializedEvent)
     {
         final String ON_GAME_INITIALIZED = "onGameInitialized";
@@ -61,6 +63,13 @@ public class DefaultGameInitializationListener
             }
             
             FeatureResourceInitializationUtil.getInstance().init(gameInitializedEvent.getLevel());
+            
+            if(firstTime) {
+                firstTime = false;
+            } else {
+                swtJOGLProcessor.onSurfaceChanged();
+            }
+            
         }
         catch (Exception e)
         {
