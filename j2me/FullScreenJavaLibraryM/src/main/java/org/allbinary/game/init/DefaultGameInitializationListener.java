@@ -21,6 +21,7 @@ import org.allbinary.game.configuration.event.GameInitializedEvent;
 import org.allbinary.game.configuration.event.GameInitializedEventHandler;
 import org.allbinary.game.configuration.event.GameInitializedListenerInterface;
 import org.allbinary.game.resource.FeatureResourceInitializationUtil;
+import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
@@ -28,6 +29,8 @@ public class DefaultGameInitializationListener
     implements GameInitializedListenerInterface
 {
 
+    private final SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
+    
     public DefaultGameInitializationListener()
     {
         GameInitializedEventHandler gameInitializedEventHandler =
@@ -39,25 +42,29 @@ public class DefaultGameInitializationListener
             (GameInitializedListenerInterface) this);
     }
 
-    public void onEvent(AllBinaryEventObject eventObject)
+    public void onEvent(final AllBinaryEventObject eventObject)
     {
         ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
     }
 
-    public void onGameInitialized(GameInitializedEvent gameInitializedEvent)
+    public void onGameInitialized(final GameInitializedEvent gameInitializedEvent)
     {
+        final String ON_GAME_INITIALIZED = "onGameInitialized";
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().START, this, "onGameInitialized"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, ON_GAME_INITIALIZED));
 
-            FeatureResourceInitializationUtil.getInstance().init(
-                    gameInitializedEvent.getLevel());
+            while(!swtJOGLProcessor.glHolder.isCreated) {
+                LogUtil.put(LogFactory.getInstance(commonStrings.UPDATE, this, ON_GAME_INITIALIZED));
+                Thread.sleep(20);
+            }
+            
+            FeatureResourceInitializationUtil.getInstance().init(gameInitializedEvent.getLevel());
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION, this, "onGameInitialized", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, ON_GAME_INITIALIZED, e));
         }
     }
 }
