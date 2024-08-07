@@ -45,31 +45,42 @@ public class TrueTypeFontUtil
     private final int size = pattern.length();
     private final int lastCapIndex = pattern.indexOf('Z');
 
+    public javax.microedition.lcdui.Font currentFont = 
+        javax.microedition.lcdui.Font.getDefaultFont();
+
+    public final int CELLS_PER_ROW = 16; //13;
+    public final int fontSize = currentFont.getSize() + 6;
+    public final int baseCharWidth = fontSize + 6;
+    public final int cellSize = fontSize + 6;// * 3 >> 1;
+    public final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
+    public final int actualCellsPerRow = textureSize / cellSize;
+    //public final int extraCellsPerRow = actualCellsPerRow - CELLS_PER_ROW;
+    
     public OpenGLESImage fontImage;
     
     public int getAsTextureSize(int textureSize)
     {
-        if(textureSize < 64)
+        if(textureSize <= 64)
         {
             textureSize = 64;
         }
         else
-            if(textureSize < 128)
+            if(textureSize <= 128)
             {
                 textureSize = 128;
             }
             else
-                if(textureSize < 256)
+                if(textureSize <= 256)
                 {
                     textureSize = 256;
                 }
                 else
-                    if(textureSize < 512)
+                    if(textureSize <= 512)
                     {
                         textureSize = 512;
                     }
                     else
-                        if(textureSize < 1024)
+                        if(textureSize <= 1024)
                         {
                             textureSize = 1024;
                         }
@@ -79,46 +90,48 @@ public class TrueTypeFontUtil
 
     public int getCellSize(int cellSize)
     {
-        if(cellSize < 16)
+        if(cellSize <= 16)
         {
             cellSize = 16;
         }
         else
-            if(cellSize < 32)
+            if(cellSize <= 32)
             {
                 cellSize = 32;
             }
             else
-                if(cellSize < 64)
+                if(cellSize <= 64)
                 {
                     cellSize = 64;
                 }
                 else
-                    if(cellSize < 128)
+                    if(cellSize <= 128)
                     {
                         cellSize = 128;
                     }
 
         return cellSize;
     }
+  
+    public void saveFontAtlasAsFile() {
     
-    public Image getFontBitmap(String filename, int fontSize, int cellSize, int cellsPerRow, BasicColor basicColor)
+    }
+
+    public Image getFontBitmap(final String filename, final int fontSize, final int cellSize, final BasicColor basicColor)
     {
         if(this.fontImage == null) {
-        final int cellsPerRow2 = cellsPerRow * 2;
-        final int cellsPerRow3 = cellsPerRow * 3;
-        final int cellsPerRow4 = cellsPerRow * 4;
-        final int cellsPerRow5 = cellsPerRow * 5;
-        final int cellsPerRow6 = cellsPerRow * 6;
-        final int cellsPerRow7 = cellsPerRow * 7;
+        final int cellsPerRow2 = CELLS_PER_ROW * 2;
+        final int cellsPerRow3 = CELLS_PER_ROW * 3;
+        final int cellsPerRow4 = CELLS_PER_ROW * 4;
+        final int cellsPerRow5 = CELLS_PER_ROW * 5;
+        final int cellsPerRow6 = CELLS_PER_ROW * 6;
+        final int cellsPerRow7 = CELLS_PER_ROW * 7;
 
         final Typeface typeface = Typeface.DEFAULT;
-        // Typeface.createFromAsset(
-        // ResourceUtil.getInstance().getContext().getAssets(),
-        // filename);
+        //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
         //Must make bitmap as texture for GL so it must be as a texture size. 
-        final int textureSize = this.getAsTextureSize(cellsPerRow * cellSize);
+        final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
 
         final Bitmap bitmap = Bitmap.createBitmap(
                 //cellsPerRow * cellSize, 8 * cellSize,
@@ -152,11 +165,11 @@ public class TrueTypeFontUtil
             _characterWidth[index] = bounds.right;
             if (bounds.bottom - bounds.top > biggestHeight)
                 biggestHeight = bounds.bottom - bounds.top;
-            x = (index % cellsPerRow) * cellSize;
+            x = (index % CELLS_PER_ROW) * cellSize;
             x += (cellSize >> 1);
             x -= (_characterWidth[index] >> 1);
             y = 0;
-            if (index >= cellsPerRow)
+            if (index >= CELLS_PER_ROW)
                 y += cellSize;
             if (index >= cellsPerRow2)
                 y += cellSize;
@@ -185,19 +198,17 @@ public class TrueTypeFontUtil
         }
     }
 
-    public int[] getFontWidths(String filename, int fontSize)
+    public int[] getFontWidths(final String filename, final int fontSize)
     {
-        Typeface typeface = Typeface.DEFAULT;
-        // Typeface.createFromAsset(
-        // ResourceUtil.getInstance().getContext().getAssets(),
-        // filename);
+        final Typeface typeface = Typeface.DEFAULT;
+        //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
-        Paint paint = new Paint();
+        final Paint paint = new Paint();
         paint.setTypeface(typeface);
         paint.setTextSize(fontSize);
         paint.setARGB(255, 255, 255, 255);
 
-        Rect bounds = new Rect();
+        final Rect bounds = new Rect();
         for (int index = 0; index < size; index++)
         {
             characterArray[0] = pattern.charAt(index);
