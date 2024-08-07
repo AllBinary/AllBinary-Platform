@@ -108,13 +108,15 @@ public class ProgressCanvas extends RunnableCanvas
         //this.setDisplayed(false);
     }
     
+    private final MyFont myFont = MyFont.getInstance();
+    
     private final String backgroundLabel = "Background AI Game Loading...";
     
     public void startBackground(boolean background)
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "startBackground"));
         this.setBackground(background);
-        this.gauge.setHeight(MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2);
+        this.gauge.setHeight(myFont.DEFAULT_CHAR_HEIGHT + 2);
         this.gauge.setLabel(backgroundLabel);
         this.setText(TEXT);
         this.setValue(0);
