@@ -172,7 +172,8 @@
 
         <module>../GameNotificationJavaLibraryM</module>
 
-        <module>../NoSWTJavaLibraryM</module>
+        <module>../../../graphics/opengl/NoSWTJavaLibraryM</module>
+        <module>../../../graphics/opengl/SWTWithoutJOGLJavaLibraryM</module>
         <module>../SWTJavaLibraryM</module>
         <module>../GameJ2MELibraryM</module>
         
