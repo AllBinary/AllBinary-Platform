@@ -15,10 +15,6 @@ package org.allbinary.graphics.threed;
 
 import javax.microedition.midlet.MIDlet;
 
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
-
 /**
  *
  * @author User
@@ -40,7 +36,7 @@ public class SWTJOGLProcessor implements Runnable {
         }
     };
     
-    public void init(final Display display, final Composite comp) {
+    public void init(final Object display, final Object comp) {
         
     }
     
@@ -60,7 +56,7 @@ public class SWTJOGLProcessor implements Runnable {
         
     }
 
-    public void onSurfaceChanged(final Event event) {
+    public void onSurfaceChanged(final Object event) {
 
     }
    
