@@ -16,6 +16,7 @@ package org.allbinary.animation.text;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
+import org.allbinary.graphics.SpacialStrings;
 
 import org.allbinary.graphics.font.FontDebugFactory;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -41,7 +42,8 @@ public class CustomTextAnimation extends TextAnimation
         
         this.fontSize = fontSize;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Font size: ").append(fontSize).append(' ').append(font.getSize()).append(" width: ").append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+        //final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Font size: ").append(fontSize).append(' ').append(font.getSize()).append(spacialStrings.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
         
         //this.hack();
     }
@@ -91,7 +93,8 @@ public class CustomTextAnimation extends TextAnimation
         super.setText(text);
 
 //        if(font != null) {
-//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setText - font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+//            final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setText - font: ").append(font.getSize()).append(spacialStrings.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
 //        }
     }
 

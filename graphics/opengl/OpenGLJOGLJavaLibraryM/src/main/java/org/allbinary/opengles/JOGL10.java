@@ -15,6 +15,8 @@ package org.allbinary.opengles;
 
 import com.jogamp.opengl.glu.GLU;
 
+import org.allbinary.graphics.SpacialStrings;
+
 /**
  *
  * @author User
@@ -23,6 +25,7 @@ import com.jogamp.opengl.glu.GLU;
 public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 {
 
+    private final SpacialStrings spacialStrings = SpacialStrings.getInstance();
     //private final StringBuilder stringBuilder = new StringBuilder();
 
     protected final String RED = "red: ";
@@ -479,13 +482,13 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 
     public void glLineWidth(float width)
     {
-        //PreLogUtil.put("width: " + width, this, "GL10.glLineWidth");
+        //PreLogUtil.put(spacialStrings.W + width, this, "GL10.glLineWidth");
         this.gl10.glLineWidth(width);
     }
 
 //    public void glLineWidthx(int width)
 //    {
-//        //PreLogUtil.put("width: " + width, this, "GL10.glLineWidthx");
+//        //PreLogUtil.put(spacialStrings.W + width, this, "GL10.glLineWidthx");
 //        this.gl10.glLineWidthx(width);
 //    }
 
@@ -694,7 +697,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
     public void glReadPixels(int x, int y, int width, int height, int format, int type, java.nio.Buffer pixels)
     {
         //stringBuilder.delete(0, stringBuilder.length());
-        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" width: ").append(width).append(" height: ").append(height).toString(), this, "GL10.glReadPixels");
+        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(spacialStrings.W).append(width).append(spacialStrings.H).append(height).toString(), this, "GL10.glReadPixels");
         this.gl10.glReadPixels(x, y, width, height, format, type, pixels);
     }
 
@@ -745,7 +748,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
     public void glScissor(int x, int y, int width, int height)
     {
         //stringBuilder.delete(0, stringBuilder.length());
-        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" width: ").append(width).append(" height: ").append(height).toString(), this, "GL10.glScissor");
+        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(spacialStrings.W).append(width).append(spacialStrings.H).append(height).toString(), this, "GL10.glScissor");
         this.gl10.glScissor(x, y, width, height);
     }
 
@@ -876,7 +879,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
     public void glViewport(int x, int y, int width, int height)
     {
         //stringBuilder.delete(0, stringBuilder.length());
-        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" width: ").append(width).append(" height: ").append(height).toString(), this, "GL10.glViewport");
+        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(spacialStrings.W).append(width).append(spacialStrings.H).append(height).toString(), this, "GL10.glViewport");
         this.gl10.glViewport(x, y, width, height);
     }
 
@@ -884,14 +887,14 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
     public void glBegin(int i)
     {
         //stringBuilder.delete(0, stringBuilder.length());
-        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" width: ").append(width).append(" height: ").append(height).toString(), this, "GL10.glViewport");
+        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(spacialStrings.W).append(width).append(spacialStrings.H).append(height).toString(), this, "GL10.glViewport");
         this.gl10.glBegin(i);
     }
 
     public void glEnd()
     {
         //stringBuilder.delete(0, stringBuilder.length());
-        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(" width: ").append(width).append(" height: ").append(height).toString(), this, "GL10.glViewport");
+        //PreLogUtil.put(stringBuilder.append("x: ").append(x).append(" y: ").append(y).append(spacialStrings.W).append(width).append(spacialStrings.H).append(height).toString(), this, "GL10.glViewport");
         this.gl10.glEnd();
     }
     

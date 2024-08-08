@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 
 import java.util.HashMap;
+import org.allbinary.graphics.SpacialStrings;
 
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -63,7 +64,8 @@ public class MediaUtil
 
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
-        	StringBuffer stringBuffer = new StringBuffer();
+            final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        	final StringBuffer stringBuffer = new StringBuffer();
 
         	stringBuffer.append("Get Path: ");
         	stringBuffer.append(originalImageFile.getPath());
@@ -73,16 +75,16 @@ public class MediaUtil
         	stringBuffer.append(category);
         	stringBuffer.append("\nSave File Type: ");
         	stringBuffer.append(mediaData.getName());
-            //"\nWidth: " + width +
-            //"\nHeight: " + height +
-        	stringBuffer.append("\nNew Width: ");
+            //"\n" + spacialStrings + width +
+            //"\n" + spacialStrings + height +
+        	stringBuffer.append("\nNew").append(spacialStrings.WIDTH_LABEL);
         	stringBuffer.append(newWidth);
-        	stringBuffer.append("\nNew Height: ");
+        	stringBuffer.append("\nNew").append(spacialStrings.HEIGHT_LABEL);
         	stringBuffer.append(newHeight);
-            //"\nNew Double Width: " + d_newWidth +
-            //"\nNew Double Height: " + d_newHeight +
-            //"\nWidth Ratio: " + widthRatio +
-            //"\nHeight Ratio: " + heightRatio +
+            //"\nNew Double" spacialStrings+ d_newWidth +
+            //"\nNew Double" spacialStrings+ d_newHeight +
+            //"\nspacialStrings Ratio: " + widthRatio +
+            //"\nspacialStrings Ratio: " + heightRatio +
         	stringBuffer.append("\nFile Length: ");
         	stringBuffer.append(originalImageFile.length());
         	stringBuffer.append("\nNew File Length: ");

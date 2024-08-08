@@ -14,10 +14,13 @@
 package org.allbinary.image;
 
 import javax.microedition.lcdui.Image;
-import org.allbinary.animation.image.BaseImageAnimationFactory;
-import org.allbinary.media.ScaleProperties;
 
-import org.allbinary.media.image.ImageCopyUtil;
+import org.allbinary.animation.image.BaseImageAnimationFactory;
+import org.allbinary.graphics.SpacialStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.media.ScaleProperties;
 import org.allbinary.media.image.ImageJ2MEScaleUtil;
 
 /**
@@ -46,7 +49,8 @@ public class AnimationFactoryImageScaleUtil {
 //        final CommonStrings commonStrings = CommonStrings.getInstance();
 //        final StringMaker stringMaker = new StringMaker();
 //        stringMaker.delete(0, stringMaker.length());
-//        LogUtil.put(LogFactory.getInstance(stringMaker.append("before scale width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));
+//        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//        LogUtil.put(LogFactory.getInstance(stringMaker.append("before scale").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
 
         if (scaleWidth != 0 && scaleHeight != 0) {
             final float scaleX = ((float) scaleWidth) / ((float) width);

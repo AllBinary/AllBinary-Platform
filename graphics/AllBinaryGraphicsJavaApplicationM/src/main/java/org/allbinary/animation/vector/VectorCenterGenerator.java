@@ -24,7 +24,9 @@ import java.util.Vector;
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
 import java.util.HashMap;
 import java.util.Iterator;
+import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 public class VectorCenterGenerator {
@@ -68,7 +70,9 @@ public class VectorCenterGenerator {
 
         int middle = max / 2;
 
-        LogUtil.put(LogFactory.getInstance("width: " + getWidth() + " height: " + getHeight() + " max: " + max + " middle: " + middle, this, "getInstance"));
+        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        final String s = new StringMaker().append(spacialStrings.WIDTH_LABEL).append(getWidth()).append(spacialStrings.HEIGHT_LABEL).append(getHeight()).append(" max: ").append(max).append(" middle: ").append(middle).toString();
+        LogUtil.put(LogFactory.getInstance(s, this, "getInstance"));
 
         int currentMiddleX = minX + getWidth() / 2;
         int currentMiddleY = minY + getHeight() / 2;

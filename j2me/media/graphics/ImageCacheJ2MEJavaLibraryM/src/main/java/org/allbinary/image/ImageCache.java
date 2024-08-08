@@ -18,8 +18,6 @@ import java.util.Hashtable;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -27,9 +25,11 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
+import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.system.Memory;
+import org.allbinary.util.BasicArrayList;
 
 public class ImageCache
 {
@@ -188,7 +188,8 @@ public class ImageCache
             this.hashtable.put(key, image);
         }
 
-        //LogUtil.put(LogFactory.getInstance("width: " + image.getWidth() + " height: " + image.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
+//        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//        LogUtil.put(LogFactory.getInstance(spacialStrings.WIDTH_LABEL + image.getWidth() + spacialStrings.HEIGHT_LABEL + image.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
         return image;
     }
 

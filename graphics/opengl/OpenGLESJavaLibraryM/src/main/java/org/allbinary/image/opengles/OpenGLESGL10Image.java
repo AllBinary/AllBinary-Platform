@@ -20,10 +20,12 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+import org.allbinary.graphics.SpacialStrings;
 
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.opengles.GLUtil;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
@@ -92,7 +94,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
         
         if (super.initTexture(gl10))
         {
-            //PreLogUtil.put(new StringMaker().append(this.commonStrings.START).append(this.toString()).append(" width: ").append(this.getWidth()).append(" height: ").append(this.getHeight()).toString(), this, "initTexture");
+//            final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//            PreLogUtil.put(new StringMaker().append(this.commonStrings.START).append(this.toString()).append(spacialStrings.WIDTH_LABEL).append(this.getWidth()).append(spacialStrings.HEIGHT_LABEL).append(this.getHeight()).toString(), this, "initTexture");
 
             //if(!this.matchColor)
             //{

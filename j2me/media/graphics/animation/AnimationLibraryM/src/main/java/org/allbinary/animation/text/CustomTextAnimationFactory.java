@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Font;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -97,11 +98,13 @@ public class CustomTextAnimationFactory
 //        this.scaleProperties = scaleProperties;
 //        LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - Font size: ").append(this.scaleProperties.scaleHeight).toString(), this, CommonStrings.getInstance().PROCESS));
 //        this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.scaleProperties.scaleHeight);
-//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - Font size: ").append(font.getSize()).append(" width: ").append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+//        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("setInitialSize - Font size: ").append(font.getSize()).append(spacialStrings.WIDTH_LABEL).append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
     }
 
     public int getWidth() {
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("getWidth - font: ").append(font.getSize()).append(" width: ").append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+//        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("getWidth - font: ").append(font.getSize()).append(spacialStrings.WIDTH_LABEL).append(font.stringWidth(this.text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
         return font.stringWidth(this.text);
     }
 

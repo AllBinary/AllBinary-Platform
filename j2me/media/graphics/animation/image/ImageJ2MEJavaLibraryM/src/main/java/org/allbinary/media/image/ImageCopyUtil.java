@@ -76,7 +76,8 @@ public class ImageCopyUtil
             return originalImage;
         }
         
-        //LogUtil.put(LogFactory.getInstance("width: " + originalImage.getWidth() + " height: " + originalImage.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        //LogUtil.put(LogFactory.getInstance(spacialStrings + originalImage.getWidth() + spacialStrings + originalImage.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
         
         int newWidth = (int) (originalImage.getWidth() * canvasScale);
         int newHeight = (int) (originalImage.getHeight() * canvasScale);
@@ -99,7 +100,8 @@ public class ImageCopyUtil
         {
             final int halfWidthDelta = (newWidth - originalImage.getWidth()) / 2;
             final int halfHeightDelta = (newHeight - originalImage.getHeight()) / 2;
-            //LogUtil.put(LogFactory.getInstance("deltas width: " + halfWidthDelta + " height: " + halfHeightDelta, this, CommonStrings.getInstance().CONSTRUCTOR));
+            //final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+            //LogUtil.put(LogFactory.getInstance("deltas" + spacialStrings + halfWidthDelta + spacialStrings + halfHeightDelta, this, CommonStrings.getInstance().CONSTRUCTOR));
             final Graphics graphics = image.getGraphics();
             graphics.drawImage(originalImage, halfWidthDelta, halfHeightDelta, anchor);
             //this.basicSetColorUtil.setBasicColor(graphics, BasicColorFactory.getInstance().YELLOW);

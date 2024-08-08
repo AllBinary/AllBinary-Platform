@@ -19,6 +19,7 @@ import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
+import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageUnifierUtil
@@ -55,8 +56,9 @@ public class ImageUnifierUtil
             imageUnifierProperties.getHeight()
             );
         
-        LogUtil.put(LogFactory.getInstance("Setting Image: Width: " + newBufferedImage.getWidth() + 
-            " Height: " + newBufferedImage.getHeight(), 
+        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance("Setting Image - " + spacialStrings.WIDTH_LABEL + newBufferedImage.getWidth() + 
+            spacialStrings.HEIGHT_LABEL + newBufferedImage.getHeight(), 
                 "ImageUnifierUtil", "getImage"));
         
         Graphics2D g = newBufferedImage.createGraphics();

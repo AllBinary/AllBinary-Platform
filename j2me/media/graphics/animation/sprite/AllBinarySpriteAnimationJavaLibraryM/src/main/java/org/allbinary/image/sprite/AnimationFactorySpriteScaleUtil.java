@@ -17,11 +17,11 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.game.layer.SpriteFactory;
+import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.media.image.ImageCopyUtil;
@@ -48,6 +48,7 @@ public class AnimationFactorySpriteScaleUtil {
     
     public Sprite createImage(final Image image, final int width, final int height, final int scaleWidth, final int scaleHeight) throws Exception {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
+//       final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
 //       LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
        Sprite sprite;
@@ -55,14 +56,16 @@ public class AnimationFactorySpriteScaleUtil {
        if(scaleWidth != 0 && scaleHeight != 0) {
            final float scaleX = ((float) scaleWidth) / ((float) width);
            final float scaleY = ((float) scaleHeight) / ((float) height);
+           
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append("width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
 //           stringMaker.delete(0, stringMaker.length());
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
            Image scaledImage;
            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
 //               stringMaker.delete(0, stringMaker.length());
-//               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));
+//               final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale ").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
                scaledImage = image;
                sprite = SpriteFactory.getInstance().create(image, width, height);
            } else {
@@ -76,7 +79,7 @@ public class AnimationFactorySpriteScaleUtil {
            
        } else {
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale2 width: ").append(width).append(" height: ").append(height).toString(), this, commonStrings.PROCESS));           
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale2").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
            sprite = SpriteFactory.getInstance().create(image, width, height);
        }
         

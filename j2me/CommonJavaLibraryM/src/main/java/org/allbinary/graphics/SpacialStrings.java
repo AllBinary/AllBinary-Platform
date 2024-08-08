@@ -22,6 +22,6 @@ public class SpacialStrings
         return instance;
     }
 
-    public final String WIDTH_LABEL = "Width: ";
-    public final String HEIGHT_LABEL = "Height: ";
+    public final String WIDTH_LABEL = " Width: ";
+    public final String HEIGHT_LABEL = " Height: ";
 }

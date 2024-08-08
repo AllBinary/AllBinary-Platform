@@ -20,6 +20,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Transparency;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
+import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
@@ -250,12 +251,13 @@ public class ImageUtil
 
    public String toString(BufferedImage bufferedImage)
    {
+       final SpacialStrings spacialStrings = SpacialStrings.getInstance();
       final StringBuffer stringBuffer = new StringBuffer();
 
-      stringBuffer.append(" BufferedImage: ");
-      stringBuffer.append(" Width: ");
+      stringBuffer.append(" BufferedImage -");
+      stringBuffer.append(spacialStrings.WIDTH_LABEL);
       stringBuffer.append(bufferedImage.getWidth());
-      stringBuffer.append(" Height: ");
+      stringBuffer.append(spacialStrings.HEIGHT_LABEL);
       stringBuffer.append(bufferedImage.getHeight());
       stringBuffer.append(" Type: ");
       stringBuffer.append(bufferedImage.getType());
