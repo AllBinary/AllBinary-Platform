@@ -24,6 +24,10 @@ import android.graphics.Typeface;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 public class TrueTypeFontUtil
 {
@@ -53,7 +57,7 @@ public class TrueTypeFontUtil
         javax.microedition.lcdui.Font.getDefaultFont();
 
     public final int CELLS_PER_ROW = 16; //13;
-    public final int fontSize = currentFont.getSize() + 6;
+    public final int fontSize = 20 + 6; //currentFont.getSize()
     public final int baseCharWidth = fontSize + 6;
     public final int cellSize = fontSize + 6;// * 3 >> 1;
     public final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
@@ -61,6 +65,28 @@ public class TrueTypeFontUtil
     //public final int extraCellsPerRow = actualCellsPerRow - CELLS_PER_ROW;
     
     public OpenGLESImage fontImage;
+
+    private TrueTypeFontUtil() {
+//        LogUtil.put(LogFactory.getInstance(new StringMaker()
+//            .append(" fontSize: ").append(fontSize)
+//            .append(" cellSize: ").append(cellSize)
+//            .append(" textureSize: ").append(textureSize)
+//            .append(" actualCellsPerRow: ").append(actualCellsPerRow)
+//            //.append(" extraCellsPerRow: ").append(extraCellsPerRow)
+//            .toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+
+//        final StringMaker stringMaker = new StringMaker();
+//        for(short index = 0; index < this.pattern.length(); index++) {
+//            //stringMaker.append('0').append('x').append(Integer.toHexString(this.pattern.charAt(index))).append(',');
+//            charArray[this.pattern.charAt(index)] = index;
+//        }
+//        
+//        for(short index = 0; index < this.charArray.length; index++) {
+//            stringMaker.append('0').append('x').append(Integer.toHexString(charArray[index])).append(',');
+//        }
+//        
+//        LogUtil.put(LogFactory.getInstance(stringMaker.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+    }
     
     public int getAsTextureSize(int textureSize)
     {
@@ -193,6 +219,15 @@ public class TrueTypeFontUtil
         }
         canvas.save();
 
+//        try {
+//            final File file = ResourceUtil.getInstance().getContext().getFilesDir();
+//            final String path = file.getAbsolutePath() + "/font.png";
+//            System.out.println(path);
+//        FileOutputStream fos = new FileOutputStream(path);
+//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//        }
         final Image image = new Image(bitmap);
         this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
         return this.fontImage;
