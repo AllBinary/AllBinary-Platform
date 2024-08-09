@@ -1,16 +1,16 @@
 /*
-* AllBinary Open License Version 1
-* Copyright (c) 2011 AllBinary
-* 
-* By agreeing to this license you and any business entity you represent are
-* legally bound to the AllBinary Open License Version 1 legal agreement.
-* 
-* You may obtain the AllBinary Open License Version 1 legal agreement from
-* AllBinary or the root directory of AllBinary's AllBinary Platform repository.
-* 
-* Created By: Travis Berthelot
-* 
-*/
+ * AllBinary Open License Version 1
+ * Copyright (c) 2011 AllBinary
+ *
+ * By agreeing to this license you and any business entity you represent are
+ * legally bound to the AllBinary Open License Version 1 legal agreement.
+ *
+ * You may obtain the AllBinary Open License Version 1 legal agreement from
+ * AllBinary or the root directory of AllBinary's AllBinary Platform repository.
+ *
+ * Created By: Travis Berthelot
+ *
+ */
 package org.microemu.device;
 
 import javax.microedition.lcdui.Image;
@@ -20,6 +20,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import org.allbinary.data.resource.ResourceUtil;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.PreResourceImageUtil;
@@ -29,41 +30,43 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
-public class TrueTypeFontUtil
-{
+public class TrueTypeFontUtil {
+
     private static final TrueTypeFontUtil instance = new TrueTypeFontUtil();
 
-    public static TrueTypeFontUtil getInstance()
-    {
+    public static TrueTypeFontUtil getInstance() {
         return instance;
     }
 
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
-    
+
     //Include special characters 2 times handles the Android Studio issue.
     //public final String pattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬\"£^&*()_+-=[]{};'#:@~,/<>\\|®©";
     //public final String pattern = " 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.?!$%`¬¬\"££^&*()_+-=[]{};'#:@~,/<>\\|®®©©";
     public final String pattern = " 0123456789AB   CDEFGHIJKLMNO   PQRSTUVWXYZab   cdefghijklmno   pqrstuvwxyz.?   !$%`¬¬\"££^&*(   )_+-=[]{};'#:   @~,/<>\\|®®©©";
 
-    public final short[] charArray = //new short[255];
-       {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x6f,0x50,0x56,0x6b,0x51,0x52,0x5a,0x6a,0x5c,0x60,0x5b,0x62,0x72,0x63,0x4b,0x73,0x1,0x2,0x3,0x4,0x5,0x6,0x7,0x8,0x9,0xa,0x6c,0x69,0x74,0x64,0x75,0x4c,0x70,0xb,0xc,0x10,0x11,0x12,0x13,0x14,0x15,0x16,0x17,0x18,0x19,0x1a,0x1b,0x1c,0x20,0x21,0x22,0x23,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x65,0x76,0x66,0x59,0x61,0x53,0x2b,0x2c,0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x3a,0x3b,0x3c,0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,0x49,0x4a,0x67,0x77,0x68,0x71,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x58,0x0,0x0,0x0,0x0,0x0,0x7b,0x0,0x0,0x55,0x0,0x79,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0};
-    
+    public final short[] charArray
+        = //new short[255];
+        {0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x6f, 0x50, 0x56, 0x6b, 0x51, 0x52, 0x5a, 0x6a, 0x5c, 0x60, 0x5b, 0x62, 0x72, 0x63, 0x4b, 0x73, 0x1, 0x2, 0x3, 0x4, 0x5, 0x6, 0x7, 0x8, 0x9, 0xa, 0x6c, 0x69, 0x74, 0x64, 0x75, 0x4c, 0x70, 0xb, 0xc, 0x10, 0x11, 0x12, 0x13, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x1b, 0x1c, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25, 0x26, 0x27, 0x28, 0x29, 0x2a, 0x65, 0x76, 0x66, 0x59, 0x61, 0x53, 0x2b, 0x2c, 0x30, 0x31, 0x32, 0x33, 0x34, 0x35, 0x36, 0x37, 0x38, 0x39, 0x3a, 0x3b, 0x3c, 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x49, 0x4a, 0x67, 0x77, 0x68, 0x71, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x58, 0x0, 0x0, 0x0, 0x0, 0x0, 0x7b, 0x0, 0x0, 0x55, 0x0, 0x79, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0};
+
     private final int[] _characterWidth = new int[pattern.length()];
     private final char[] characterArray = new char[1];
     private final int size = pattern.length();
     private final int lastCapIndex = pattern.indexOf('Z');
 
-    public javax.microedition.lcdui.Font currentFont = 
-        javax.microedition.lcdui.Font.getDefaultFont();
+    public javax.microedition.lcdui.Font currentFont
+        = javax.microedition.lcdui.Font.getDefaultFont();
+
+    private final int realFontSize = 18;
 
     public final int CELLS_PER_ROW = 16; //13;
-    public final int fontSize = 20 + 6; //currentFont.getSize()
+    public final int fontSize = 20 + 6; //currentFont.getSize() + 6;
     public final int baseCharWidth = fontSize + 6;
     public final int cellSize = fontSize + 6;// * 3 >> 1;
     public final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
     public final int actualCellsPerRow = textureSize / cellSize;
     //public final int extraCellsPerRow = actualCellsPerRow - CELLS_PER_ROW;
-    
+
     public OpenGLESImage fontImage;
 
     private TrueTypeFontUtil() {
@@ -87,7 +90,7 @@ public class TrueTypeFontUtil
 //        
 //        LogUtil.put(LogFactory.getInstance(stringMaker.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }
-    
+
     public int getAsTextureSize(int textureSize)
     {
         if(textureSize <= 64)
@@ -142,82 +145,103 @@ public class TrueTypeFontUtil
 
         return cellSize;
     }
-  
-    public void saveFontAtlasAsFile() {
     
+    public Image getFontBitmap(final String filename, final int fontSize, final int cellSize, final BasicColor basicColor) {
+        try {
+            if(this.fontImage == null) {
+                final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream("/font.png"));
+                this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
+                return this.fontImage;
+            } else {
+                return this.fontImage;
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
     }
 
-    public Image getFontBitmap(final String filename, final int fontSize, final int cellSize, final BasicColor basicColor)
-    {
-        if(this.fontImage == null) {
-        final int cellsPerRow2 = CELLS_PER_ROW * 2;
-        final int cellsPerRow3 = CELLS_PER_ROW * 3;
-        final int cellsPerRow4 = CELLS_PER_ROW * 4;
-        final int cellsPerRow5 = CELLS_PER_ROW * 5;
-        final int cellsPerRow6 = CELLS_PER_ROW * 6;
-        final int cellsPerRow7 = CELLS_PER_ROW * 7;
+    public void saveFontAtlasAsFile() {
 
-        final Typeface typeface = Typeface.DEFAULT;
-        //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
+    }
 
-        //Must make bitmap as texture for GL so it must be as a texture size. 
-        final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
+    public Image getFontBitmap(final String filename, final int cellSize, final BasicColor basicColor) {
+        if (this.fontImage == null) {
+            final int cellsPerRow2 = CELLS_PER_ROW * 2;
+            final int cellsPerRow3 = CELLS_PER_ROW * 3;
+            final int cellsPerRow4 = CELLS_PER_ROW * 4;
+            final int cellsPerRow5 = CELLS_PER_ROW * 5;
+            final int cellsPerRow6 = CELLS_PER_ROW * 6;
+            final int cellsPerRow7 = CELLS_PER_ROW * 7;
 
-        final Bitmap bitmap = Bitmap.createBitmap(
+            final Typeface typeface = Typeface.DEFAULT;
+            //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
+
+            //Must make bitmap as texture for GL so it must be as a texture size.
+            final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
+
+            final Bitmap bitmap = Bitmap.createBitmap(
                 //cellsPerRow * cellSize, 8 * cellSize,
-                textureSize, textureSize, 
+                textureSize, textureSize,
                 Bitmap.Config.ARGB_8888);
-        // AndroidBitmapConfigUtil.get());
+            // AndroidBitmapConfigUtil.get());
 
-        final Canvas canvas = new Canvas(bitmap);
-        final Paint paint = new Paint();
-        paint.setTypeface(typeface);
-        paint.setTextSize(fontSize);
-        //paint.setARGB((int) (basicColor.getAlphaComponent() * 255),
-                //(int) (basicColor.getRedComponent() * 255),
-                //(int) (basicColor.getGreenComponent() * 255),
-                //(int) (basicColor.getBlueComponent() * 255));
-        //paint.setARGB((int) basicColor.alpha, 
-                //(int) basicColor.red,
-                //(int) basicColor.green,
-                //(int) basicColor.blue);
-        paint.setAlpha(basicColor.alpha);
-        paint.setColor(basicColor.intValue());
+            final Canvas canvas = new Canvas(bitmap);
+            final Paint paint = new Paint();
+            paint.setTypeface(typeface);
+            paint.setTextSize(realFontSize);
+            //paint.setARGB((int) (basicColor.getAlphaComponent() * 255),
+            //(int) (basicColor.getRedComponent() * 255),
+            //(int) (basicColor.getGreenComponent() * 255),
+            //(int) (basicColor.getBlueComponent() * 255));
+            //paint.setARGB((int) basicColor.alpha,
+            //(int) basicColor.red,
+            //(int) basicColor.green,
+            //(int) basicColor.blue);
+            paint.setAlpha(basicColor.alpha);
+            paint.setColor(basicColor.intValue());
 
-        int biggestHeight = 0;
-        final Rect bounds = new Rect();
-        int x;
-        int y;
-        for (int index = 0; index < size; index++)
-        {
-            characterArray[0] = pattern.charAt(index);
-            paint.getTextBounds(characterArray, 0, 1, bounds);
-            _characterWidth[index] = bounds.right;
-            if (bounds.bottom - bounds.top > biggestHeight)
-                biggestHeight = bounds.bottom - bounds.top;
-            x = (index % CELLS_PER_ROW) * cellSize;
-            x += (cellSize >> 1);
-            x -= (_characterWidth[index] >> 1);
-            y = 0;
-            if (index >= CELLS_PER_ROW)
+            int biggestHeight = 0;
+            final Rect bounds = new Rect();
+            int x;
+            int y;
+            for (int index = 0; index < size; index++) {
+                characterArray[0] = pattern.charAt(index);
+                paint.getTextBounds(characterArray, 0, 1, bounds);
+                _characterWidth[index] = bounds.right;
+                if (bounds.bottom - bounds.top > biggestHeight) {
+                    biggestHeight = bounds.bottom - bounds.top;
+                }
+                x = (index % CELLS_PER_ROW) * cellSize;
+                x += (cellSize >> 1);
+                x -= (_characterWidth[index] >> 1);
+                y = 0;
+                if (index >= CELLS_PER_ROW) {
+                    y += cellSize;
+                }
+                if (index >= cellsPerRow2) {
+                    y += cellSize;
+                }
+                if (index >= cellsPerRow3) {
+                    y += cellSize;
+                }
+                if (index >= cellsPerRow4) {
+                    y += cellSize;
+                }
+                if (index >= cellsPerRow5) {
+                    y += cellSize;
+                }
+                if (index >= cellsPerRow6) {
+                    y += cellSize;
+                }
+                if (index >= cellsPerRow7) {
+                    y += cellSize;
+                }
                 y += cellSize;
-            if (index >= cellsPerRow2)
-                y += cellSize;
-            if (index >= cellsPerRow3)
-                y += cellSize;
-            if (index >= cellsPerRow4)
-                y += cellSize;
-            if (index >= cellsPerRow5)
-                y += cellSize;
-            if (index >= cellsPerRow6)
-                y += cellSize;
-            if (index >= cellsPerRow7)
-                y += cellSize;
-            y += cellSize;
-            y -= (cellSize >> 2);
-            canvas.drawText(characterArray, 0, 1, x, y, paint);
-        }
-        canvas.save();
+                y -= (cellSize >> 2);
+                canvas.drawText(characterArray, 0, 1, x - 3, y - 6, paint);
+            }
+            canvas.save();
 
 //        try {
 //            final File file = ResourceUtil.getInstance().getContext().getFilesDir();
@@ -228,17 +252,16 @@ public class TrueTypeFontUtil
 //        } catch(Exception e) {
 //            e.printStackTrace();
 //        }
-        final Image image = new Image(bitmap);
-        this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
-        return this.fontImage;
+            final Image image = new Image(bitmap);
+            this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
+            return this.fontImage;
 
         } else {
             return this.fontImage;
         }
     }
 
-    public int[] getFontWidths(final String filename, final int fontSize)
-    {
+    public int[] getFontWidths(final String filename, final int fontSize) {
         final Typeface typeface = Typeface.DEFAULT;
         //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
@@ -248,63 +271,47 @@ public class TrueTypeFontUtil
         paint.setARGB(255, 255, 255, 255);
 
         final Rect bounds = new Rect();
-        for (int index = 0; index < size; index++)
-        {
+        for (int index = 0; index < size; index++) {
             characterArray[0] = pattern.charAt(index);
             paint.getTextBounds(characterArray, 0, 1, bounds);
 
-            if (index < lastCapIndex)
-            {
-                if (characterArray[0] == '1')
-                {
+            if (index < lastCapIndex) {
+                if (characterArray[0] == '1') {
                     _characterWidth[index] = bounds.right + 3;
-                } else if (characterArray[0] == 'J' || characterArray[0] == 'V' || 
-                        characterArray[0] == '2' || characterArray[0] == '9' || characterArray[0] == 'B' || 
-                        characterArray[0] == 'H' || characterArray[0] == 'I' || characterArray[0] == 'N' || 
-                        characterArray[0] == 'S' || characterArray[0] == 'U'
-                        )
-                {
+                } else if (characterArray[0] == 'J' || characterArray[0] == 'V'
+                    || characterArray[0] == '2' || characterArray[0] == '9'
+                    || characterArray[0] == 'H' || characterArray[0] == 'I' || characterArray[0] == 'N'
+                    || characterArray[0] == 'U') {
                     _characterWidth[index] = bounds.right + 1;
-                } else if (characterArray[0] == '4' || characterArray[0] == 'C'
-                        || characterArray[0] == 'M' || characterArray[0] == 'O')
-                {
-                    _characterWidth[index] = bounds.right - 1;
-                } else if (characterArray[0] == 'A' || characterArray[0] == 'T'
-                        || characterArray[0] == 'W')
-                {
+                } else if (characterArray[0] == '4' || characterArray[0] == 'C' || characterArray[0] == 'E'
+                    || characterArray[0] == 'M' || characterArray[0] == 'O') {
+                    _characterWidth[index] = bounds.right - 2;
+                } else if (characterArray[0] == 'T'
+                    || characterArray[0] == 'W') {
                     _characterWidth[index] = bounds.right - 3;
-                } else if (characterArray[0] == 'm')
-                {
+                } else if (characterArray[0] == 'A' || characterArray[0] == 'm') {
                     _characterWidth[index] = bounds.right - 4;
-                } else
-                {
+                } else {
                     _characterWidth[index] = bounds.right;
                 }
 
-            } else
-            {
-                if (characterArray[0] == 'l' || characterArray[0] == 'i' || 
-                        characterArray[0] == 'j' || characterArray[0] == '.' || 
-                        characterArray[0] == '!' || characterArray[0] == '|')
-                {
+            } else {
+                if (characterArray[0] == ' ') {
+                    _characterWidth[index] = bounds.right + 10;
+                } else if (characterArray[0] == 'l' || characterArray[0] == 'i'
+                    || characterArray[0] == 'j' || characterArray[0] == '.'
+                    || characterArray[0] == '!' || characterArray[0] == '|') {
                     _characterWidth[index] = bounds.right + 6;
                 } else if (characterArray[0] == 'f' || characterArray[0] == 't'
-                        || characterArray[0] == 'u' || characterArray[0] == 'v' || 
-                        characterArray[0] == 'r')
-                {
+                    || characterArray[0] == 'u' || characterArray[0] == 'v'
+                    || characterArray[0] == 'r') {
                     _characterWidth[index] = bounds.right + 1;
-                } else if (characterArray[0] == 'a' || characterArray[0] == 'b' || 
-                        characterArray[0] == 'g')
-                {
+                } else if (characterArray[0] == 'a' || characterArray[0] == 'b'
+                    || characterArray[0] == 'g' || characterArray[0] == 'o') {
                     _characterWidth[index] = bounds.right - 1;
-                } else if (characterArray[0] == 'y')
-                {
-                    _characterWidth[index] = bounds.right - 2;
-                } else if (characterArray[0] == 'm')
-                {
+                } else if (characterArray[0] == 'm') {
                     _characterWidth[index] = bounds.right - 6;
-                } else
-                {
+                } else {
                     _characterWidth[index] = bounds.right;
                 }
             }
