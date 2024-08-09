@@ -96,31 +96,31 @@ implements OpenGLSurfaceChangedInterface
             }
             */
             
-            gl.glEnable(GL10.GL_TEXTURE_2D);
-
-            //Delete old texture
-            if(this.textureID != -1)
-            {
-                textures[0] = textureID;
-                gl.glDeleteTextures(1, textures, 0);
-            }
-
-            gl.glGenTextures(1, textures, 0);
-
-            textureID = textures[0];
-            
-            gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
-
-            if(false) 
-            {
-                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_TRUE);
-            } else
-            {
-                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_FALSE);
-            }
-
-            gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
-            gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
+//            gl.glEnable(GL10.GL_TEXTURE_2D);
+//
+//            //Delete old texture
+//            if(this.textureID != -1)
+//            {
+//                textures[0] = textureID;
+//                gl.glDeleteTextures(1, textures, 0);
+//            }
+//
+//            gl.glGenTextures(1, textures, 0);
+//
+//            textureID = textures[0];
+//            
+//            gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+//
+//            if(false) 
+//            {
+//                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_TRUE);
+//            } else
+//            {
+//                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_FALSE);
+//            }
+//
+//            gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
+//            gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
 
             //gl.glTexEnvx(GL10.GL_TEXTURE_ENV, GL10.GL_TEXTURE_ENV_MODE, GL10.GL_REPLACE);
             //TWB - working to fix gl images on a555 so remarked below
