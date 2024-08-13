@@ -127,7 +127,6 @@ public class BaseGameBehavior extends DemoGameBehavior {
 
             currentDisplayableFactory.setRunnable(gameRunnable);
             currentDisplayableFactory.setDisplayable(allBinaryGameCanvas);
-            currentDisplayableFactory.setOpenGlReadydisplayable(allBinaryGameCanvas);
             
         }
     }

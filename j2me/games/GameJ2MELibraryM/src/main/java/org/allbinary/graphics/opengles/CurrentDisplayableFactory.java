@@ -50,6 +50,7 @@ public class CurrentDisplayableFactory
     public void setDisplayable(final Displayable displayable)
     {
         this.displayable = displayable;
+        this.setOpenGlReadydisplayable(displayable);
     }
 
     public void setOpenGlReadydisplayable(final Displayable openGlReadydisplayable)

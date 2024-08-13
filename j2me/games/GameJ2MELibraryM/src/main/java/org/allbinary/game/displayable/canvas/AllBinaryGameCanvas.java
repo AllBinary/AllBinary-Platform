@@ -1620,7 +1620,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             currentDisplayableFactory.setRunnable(gameRunnable);
             currentDisplayableFactory.setDisplayable(this);
-            currentDisplayableFactory.setOpenGlReadydisplayable(this);
 
             OpenGLThreadUtil.getInstance().onResume();
         } else if (features.isDefault(openGLFeatureFactory.OPENGL_AND_GAME_HAVE_DIFFERENT_THREADS)) {
