@@ -33,12 +33,11 @@ public class MyCanvas extends Canvas
     implements DisplayableInterface, MyCommandInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     
     //private boolean displayed;
     private boolean isPaused;
     private final Stack commandStack;
-
-    
     
     public MyCanvas()
     {
@@ -46,7 +45,7 @@ public class MyCanvas extends Canvas
 
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
-        DisplayInfoSingleton.getInstance().update(this, "MyCanvas::MyCanvas");
+        DisplayInfoSingleton.getInstance().update(this, canvasStrings.CONSTRUCTOR);
 
         this.commandStack = new Stack();
     }
@@ -59,10 +58,9 @@ public class MyCanvas extends Canvas
 
         //PreLogUtil.put("New W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
 
-        final DisplayInfoSingleton displayInfo =
-            DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
-        displayInfo.update(this, "setFullScreenMode");
+        displayInfo.update(this, canvasStrings.SET_FULL_SCREEN_MODE);
     }
 
     protected void sizeChanged(int w, int h)
@@ -70,7 +68,7 @@ public class MyCanvas extends Canvas
         final DisplayInfoSingleton displayInfo =
             DisplayInfoSingleton.getInstance();
 
-        displayInfo.update(this, "sizeChanged");
+        displayInfo.update(this, canvasStrings.SIZE_CHANGED);
     }
     
     public Stack getCommandStack()
@@ -133,7 +131,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void pause()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "MyCanvas::pause"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAUSE));
         this.removePauseCommand();
         this.addCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.setPaused(true);
@@ -141,7 +139,7 @@ public class MyCanvas extends Canvas
 
     public synchronized void unPause()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "MyCanvas::unPause"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.UN_PAUSE));
 
         this.removeCommand(MyCommandsFactory.getInstance().RESUME_COMMAND);
         this.addCommand(MyCommandsFactory.getInstance().PAUSE_COMMAND);
