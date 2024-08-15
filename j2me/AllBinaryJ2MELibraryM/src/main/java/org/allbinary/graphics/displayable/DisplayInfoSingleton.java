@@ -77,7 +77,7 @@ public class DisplayInfoSingleton
     private BaseScalable scalableListener = new BaseScalable();
     
     private float displayRatio;
-    private float ratio;
+    private float ratio = 1.0f;
 
     public int[] getLastHalf()
     {
@@ -160,6 +160,10 @@ public class DisplayInfoSingleton
                     aLastWidth = (int) (aLastWidth * displayRatio);
                     aLastHeight = (int) (aLastHeight * displayRatio);
                     this.scalableListener.scale(ratio);
+                } else {
+                    //LogUtil.put(LogFactory.getInstance("Reset scaling", this, commonStrings.UPDATE));
+                    this.ratio = 1.0f;
+                    this.scalableListener.scale(ratio);
                 }
             } else {
                 if (aLastWidth > scaleLargestTo) {
@@ -169,6 +173,10 @@ public class DisplayInfoSingleton
                     LogUtil.put(LogFactory.getInstance(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, SET_LAST_SIZE_METHOD_NAME));
                     aLastWidth = (int) (aLastWidth * displayRatio);
                     aLastHeight = (int) (aLastHeight * displayRatio);
+                    this.scalableListener.scale(ratio);
+                } else {
+                    //LogUtil.put(LogFactory.getInstance("Reset scaling", this, commonStrings.UPDATE));
+                    this.ratio = 1.0f;
                     this.scalableListener.scale(ratio);
                 }
             }
@@ -280,8 +288,7 @@ public class DisplayInfoSingleton
             if(this.last[WIDTH] != aLastWidth || this.last[HEIGHT] != aLastHeight)
             {
                 stringMaker.delete(0, stringMaker.length());        
-                LogUtil.put(LogFactory.getInstance(stringMaker.append(UPDATE_FROM_ORIENTATION_CHANGE)
-                        .toString(), this, commonStrings.UPDATE));
+                LogUtil.put(LogFactory.getInstance(stringMaker.append(UPDATE_FROM_ORIENTATION_CHANGE).toString(), this, commonStrings.UPDATE));
 
                 final GenericOperatingSystem operatingSystemInterface
                         = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
@@ -294,8 +301,12 @@ public class DisplayInfoSingleton
 
                 if(operatingSystemInterface.isScalable())
                 {
+                    //LogUtil.put(LogFactory.getInstance("Found Scalable OS", this, commonStrings.UPDATE));
+                    
                     if(this.isPortrait(aLastWidth, aLastHeight))
                     {
+                        //LogUtil.put(LogFactory.getInstance("Found Portrait Orientation", this, commonStrings.UPDATE));
+                        
                         if(aLastHeight > scaleLargestTo)
                         {
                             this.displayRatio = scaleLargestTo / aLastHeight;
@@ -306,11 +317,17 @@ public class DisplayInfoSingleton
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
                             this.scalableListener.scale(ratio);
+                        } else {
+                            //LogUtil.put(LogFactory.getInstance("Reset scaling", this, commonStrings.UPDATE));
+                            this.ratio = 1.0f;
+                            this.scalableListener.scale(ratio);
                         }
                     }else
                     {
+                        LogUtil.put(LogFactory.getInstance("Found Landscape Orientation", this, commonStrings.UPDATE));
+                        
                         if(aLastWidth > scaleLargestTo)
-                        {
+                        {   
                             this.displayRatio = scaleLargestTo / aLastWidth;
                             this.ratio = aLastWidth / scaleLargestTo;
                             
@@ -318,6 +335,10 @@ public class DisplayInfoSingleton
                             LogUtil.put(LogFactory.getInstance(stringMaker.append(this.ADJUSTING_FOR_SCALING_IN_LANDSCAPE).append(displayRatio).toString(), this, commonStrings.UPDATE));
                             aLastWidth = (int) (aLastWidth * displayRatio);
                             aLastHeight = (int) (aLastHeight * displayRatio);
+                            this.scalableListener.scale(ratio);
+                        } else {
+                            //LogUtil.put(LogFactory.getInstance("Reset scaling", this, commonStrings.UPDATE));
+                            this.ratio = 1.0f;
                             this.scalableListener.scale(ratio);
                         }
                     }
