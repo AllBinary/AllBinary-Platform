@@ -10,41 +10,47 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.logic.string;
 
-public class StringUtil
-{
+public class StringUtil {
+
     private static final StringUtil instance = new StringUtil();
+
+    public static StringUtil getInstance() {
+        return instance;
+    }
+
+    public final String NULL_STRING = "null";
+    public final String EMPTY_STRING = "";
+    private final String[] stringArray = new String[0];
+
+    private StringUtil() {
+    }
+
+    //Could Make a NulString
+    public String getInstance(String string) {
+        if (string == null) {
+            return EMPTY_STRING;
+        } else {
+            return string;
+        }
+    }
+
+    public String[] getArrayInstance() {
+        return stringArray;
+    }
+
+    public int count(final String string, final char aChar) {
+        int count = 0;
+
+        final int size = string.length();
+        for(int index = 0; index < size; index++) {
+            if(string.charAt(index) == aChar) {
+                count++;
+            }
+        }
+        return count;
+    }
     
-   public final String NULL_STRING = "null";
-   public final String EMPTY_STRING = "";
-   private final String[] stringArray = new String[0];
-
-   private StringUtil()
-   {
-   }
-
-   //Could Make a NulString
-   public String getInstance(String string)
-   {
-      if(string == null)
-      {
-         return EMPTY_STRING;
-      }
-      else 
-      {
-         return string;
-      }
-   }
-
-   public String[] getArrayInstance()
-   {
-      return stringArray;
-   }
-
-public static StringUtil getInstance()
-{
-    return instance;
-}
 }

@@ -13,6 +13,7 @@
 */
 package org.allbinary.game.paint.help;
 
+import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
@@ -34,6 +35,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonSeps;
 
 public class InputMappingHelpPaintable extends HelpPaintable 
 {
@@ -183,13 +185,15 @@ public class InputMappingHelpPaintable extends HelpPaintable
     {
         //this.colorFillPaintable.paint(graphics);
         
+        final Font font = graphics.getFont();
+        
         final StringMaker stringMaker = new StringMaker();
         final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
         
         final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
         final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
 
-        int beginWidth = (graphics.getFont().stringWidth(this.TITLE) >> 1);
+        int beginWidth = (font.stringWidth(this.TITLE) >> 1);
 
         graphics.setColor(this.basicColor.intValue());
         
@@ -219,25 +223,25 @@ public class InputMappingHelpPaintable extends HelpPaintable
 
             //For same line action and mappings
             stringMaker.delete(0, stringMaker.length());
-            actionString = stringMaker.append(inputInfo[index]).append(": ").toString();
+            actionString = stringMaker.append(inputInfo[index]).append(CommonSeps.getInstance().COLON).append(CommonSeps.getInstance().SPACE).toString();
             //For multiline
             //String actionString = inputInfo[index];
 
             //For same line action and mappings
             stringMaker.delete(0, stringMaker.length());
-            beginWidth = (graphics.getFont().stringWidth(stringMaker.append(actionString).append(keyMappings).toString()) >> 1);
+            beginWidth = (font.stringWidth(stringMaker.append(actionString).append(keyMappings).toString()) >> 1);
             //For multiline
-            //beginWidth = (graphics.getFont().stringWidth(actionString) >> 1);
+            //beginWidth = (font.stringWidth(actionString) >> 1);
 
             graphics.setColor(this.actionBasicColor[index].intValue());
 
             graphics.drawString(actionString, halfWidth - beginWidth + deltaX, y, anchor);
-
+            
             //For same line action and mappings
-            deltaX += graphics.getFont().stringWidth(actionString);
+            deltaX += font.stringWidth(actionString);
             //For multiline
             //y = ((index * 2) + 4) * MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
-            //beginWidth = (graphics.getFont().stringWidth(keyMappings) >> 1);
+            //beginWidth = (font.stringWidth(keyMappings) >> 1);
 
             for(int index2 = 0; index2 < size2; index2++)
             {
@@ -246,7 +250,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 graphics.setColor(this.inputBasicColorArray[index][index2].intValue());
                 graphics.drawString(input.getName(), halfWidth - beginWidth + deltaX, y, anchor);
 
-                deltaX += graphics.getFont().stringWidth(input.getName());
+                deltaX += font.stringWidth(input.getName());
 
                 sep = EMPTY_STRING;
 
@@ -273,7 +277,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                 {
                     graphics.setColor(this.basicColor.intValue());
                     graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, anchor);
-                    deltaX += graphics.getFont().stringWidth(sep);
+                    deltaX += font.stringWidth(sep);
                 }
             }
         }

@@ -14,7 +14,6 @@
 package org.allbinary.game.paint.help;
 
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.input.GameKey;
