@@ -29,8 +29,6 @@ public class DisplayChangeEventHandler extends BasicEventHandler
 	   private DisplayChangeEventHandler()
 	   {
 	   }
-	   
-	   public final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
    
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {

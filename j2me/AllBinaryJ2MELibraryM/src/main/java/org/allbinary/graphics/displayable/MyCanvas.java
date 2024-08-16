@@ -33,7 +33,7 @@ public class MyCanvas extends Canvas
     implements DisplayableInterface, MyCommandInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    private final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     
     //private boolean displayed;
     private boolean isPaused;

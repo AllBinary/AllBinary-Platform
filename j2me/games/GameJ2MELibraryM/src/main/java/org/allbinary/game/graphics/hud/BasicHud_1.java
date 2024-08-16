@@ -25,6 +25,7 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
@@ -32,6 +33,7 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class BasicHud_1 //implements DisplayChangeEventListener
 {
+    protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
     
    private int location;
    private int direction;
@@ -156,19 +158,18 @@ public class BasicHud_1 //implements DisplayChangeEventListener
       return new HudGraphicsPosition(this.getPoint(x, y), anchor);
    }
 
-   public void onEvent(AllBinaryEventObject eventObject)
+   public void onEvent(final AllBinaryEventObject eventObject)
    {
        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
    }
    
-   public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
+   public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
    {
        try
        {
-           //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onDisplayChangeEvent"));
-           //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, "onDisplayChangeEvent"));
+           //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL).append(DisplayInfoSingleton.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
            
-           DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+           final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
            this.hudGraphicsPosition = this.getHudGraphicsPosition(
                    displayInfo.getLastWidth(), displayInfo.getLastHeight());
@@ -179,11 +180,11 @@ public class BasicHud_1 //implements DisplayChangeEventListener
        catch(Exception e)
        {
            final CommonStrings commonStrings = CommonStrings.getInstance();
-           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e));
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e));
        }
    }
    
-   protected GPoint getPoint(int x, int y)
+   protected GPoint getPoint(final int x, final int y)
    {
        return PointFactory.getInstance().getInstance(x, y);
    }
@@ -193,7 +194,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
       return bufferZone;
    }
 
-   public void setBufferZone(int bufferZone)
+   public void setBufferZone(final int bufferZone)
    {
       this.bufferZone = bufferZone;
    }
@@ -203,7 +204,7 @@ public class BasicHud_1 //implements DisplayChangeEventListener
       return maxWidth;
    }
 
-   public void setMaxWidth(int maxWidth)
+   public void setMaxWidth(final int maxWidth)
    {
       this.maxWidth = maxWidth;
    }
@@ -213,22 +214,22 @@ public class BasicHud_1 //implements DisplayChangeEventListener
       return maxHeight;
    }
 
-   public void setMaxHeight(int maxHeight)
+   public void setMaxHeight(final int maxHeight)
    {
       this.maxHeight = maxHeight;
    }
 
-   public void setLocation(int location)
+   public void setLocation(final int location)
    {
       this.location = location;
    }
 
-   public void setDirection(int direction)
+   public void setDirection(final int direction)
    {
       this.direction = direction;
    }
 
-   public void paint(Graphics graphics, String string, String string2, int offset)
+   public void paint(final Graphics graphics, final String string, final String string2, final int offset)
    {
        this.basicSetColorUtil.setBasicColor(graphics, getBasicColor());
 

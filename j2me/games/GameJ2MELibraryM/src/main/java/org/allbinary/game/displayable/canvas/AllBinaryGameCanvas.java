@@ -122,14 +122,10 @@ import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.allbinary.thread.NullRunnable;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
-import org.microemu.app.SWTProcessorUtil;
-import org.microemu.app.SWTRunnableProcessor;
 
 public class AllBinaryGameCanvas
 extends RunnableCanvas
@@ -341,7 +337,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e));
         }
     }
 
@@ -349,7 +345,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         //MyFont.getInstance().update();
 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
 
         final Rectangle popupMenuRectangle = FormUtil.getInstance().createPopupMenuRectangle();
         ((BasicPopupMenuPaintable) this.getOpenMenuPaintable()).init(popupMenuRectangle);
@@ -363,13 +359,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final Rectangle rectangle = formUtil.createFormRectangle();
         this.menuForm.init(rectangle, formType);
 
-        //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, "onDisplayChangeEvent");
+        //PreLogUtil.put(this.currentTouchInputFactory.toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
         // touchButtonFactory.toggle(this.isPaused(),
         if (this.currentTouchInputFactory != null) {
             touchButtonFactory.toggle(this.isPaused(), this.currentTouchInputFactory.getList());
         }
 
-        // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, "onDisplayChangeEvent");
+        // PreLogUtil.put(TouchButtonLocationHelper.getInstance().toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT);
 
     }
 

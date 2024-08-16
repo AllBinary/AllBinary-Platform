@@ -33,8 +33,6 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 public class CombatGameCanvas extends AllBinaryGameCanvas
 {
     protected static BasicLayerProcessor[] basicLayerProcessor = new BasicLayerProcessor[0];
-    
-    protected final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
 
     public CombatGameCanvas(
             final CommandListener cmdListener,

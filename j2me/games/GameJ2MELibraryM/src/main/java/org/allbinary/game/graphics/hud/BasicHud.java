@@ -27,14 +27,16 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
-import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class BasicHud //implements DisplayChangeEventListener
 {
+    protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    
    private int location;
    private int direction;
    
@@ -183,7 +185,7 @@ public class BasicHud //implements DisplayChangeEventListener
        catch(Exception e)
        {
            final CommonStrings commonStrings = CommonStrings.getInstance();
-           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT, e));
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT, e));
        }
    }
    

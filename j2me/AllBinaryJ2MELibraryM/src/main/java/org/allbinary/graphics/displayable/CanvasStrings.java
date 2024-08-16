@@ -34,4 +34,5 @@ public class CanvasStrings {
     public final String SET_FULL_SCREEN_MODE = "setFullScreenMode";
     public final String SIZE_CHANGED = "sizeChanged";
     
+    public final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
 }

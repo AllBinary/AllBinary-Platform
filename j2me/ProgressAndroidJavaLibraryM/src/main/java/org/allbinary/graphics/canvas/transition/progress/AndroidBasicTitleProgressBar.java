@@ -187,8 +187,7 @@ implements DisplayChangeEventListener
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, 
-                    DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
         }
     }

@@ -239,7 +239,7 @@ public class DemoCanvas extends RunnableCanvas
         {
             //MyFont.getInstance().update();
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, "onDisplayChangeEvent"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(displayInfoSingleton.toString()).append(MyFont.getInstance().toString()).toString(), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
 
             final ScrollSelectionForm scrollSelectionForm = this.getMenuForm();
             
@@ -254,7 +254,7 @@ public class DemoCanvas extends RunnableCanvas
         }
         catch(Exception e) 
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onDisplayChangeEvent", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT, e));
         }
     }
     

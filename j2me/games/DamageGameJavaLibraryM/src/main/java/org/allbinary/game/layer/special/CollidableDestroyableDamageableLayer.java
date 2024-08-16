@@ -55,7 +55,6 @@ implements DestroyableInterface, DamageableInterface,
 PickupCompositeInterface, SpecialGameInputInterface,
 OpenGLSurfaceChangedInterface
 {
-    protected CommonStrings commonStrings = CommonStrings.getInstance();
 
     private Group[] groupInterface;
     private boolean readyForExplosion;

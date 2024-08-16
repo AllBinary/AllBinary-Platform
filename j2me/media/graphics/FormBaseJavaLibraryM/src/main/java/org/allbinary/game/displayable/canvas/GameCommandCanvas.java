@@ -16,16 +16,12 @@ package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.canvas.Processor;
-
-import org.allbinary.graphics.form.item.CustomItem;
-import org.allbinary.util.BasicArrayList;
-
-import org.allbinary.logic.string.StringUtil;
+import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.input.GameInputStrings;
@@ -56,14 +52,17 @@ import org.allbinary.graphics.form.PaintableForm;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.ScrollSelectionFormNoneFactory;
 import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
+import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.form.item.validation.AllCommandsVisitor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.util.BasicArrayList;
 
 public class GameCommandCanvas
     extends MyCanvas
@@ -137,8 +136,7 @@ public class GameCommandCanvas
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, 
-                    DisplayChangeEventHandler.getInstance().ON_DISPLAY_CHANGE_EVENT));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.ON_DISPLAY_CHANGE_EVENT));
             
             final Rectangle rectangle = this.createRectangle(this.menuForm.size());
 
