@@ -31,7 +31,7 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
 
     private final GameKey NONE = GameKeyFactory.getInstance().NONE;
 
-    protected BasicInputMappingHelpPaintable(GameInputMapping[] gameInputMappingArray, BasicColor basicColor)
+    protected BasicInputMappingHelpPaintable(final GameInputMapping[] gameInputMappingArray, final BasicColor basicColor)
     {
         super(basicColor);
     
@@ -40,33 +40,43 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
         this.update(NONE, NONE);
     }
     
-    public void update(GameKey selectedGameKey, Input selectedInput)
+    public void update(final GameKey selectedGameKey, final Input selectedInput)
     {
-        PersistentInputMapping gameKeyMapping = 
+        final PersistentInputMapping gameKeyMapping = 
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
+        
+        final String EQUAL = " = ";
         
         final StringMaker stringMaker = new StringMaker();
         final int size = gameInputMappingArray.length;
         final String[] keyInfo = new String[size];
+        GameInputMapping gameInputMapping;
+        GameKey gameKey;
+        BasicArrayList list;
         for(int index = 0; index < size; index++)
         {
-            GameInputMapping gameInputMapping = gameInputMappingArray[index];
-            GameKey gameKey = gameInputMapping.getGameKey();
-            BasicArrayList list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
+            gameInputMapping = gameInputMappingArray[index];
+            gameKey = gameInputMapping.getGameKey();
+            list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             
             stringMaker.delete(0, stringMaker.length());
-            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(" = ").append(this.get(list)).toString();
+            keyInfo[index] = stringMaker.append(gameInputMapping.getName()).append(EQUAL).append(this.get(list)).toString();
         }
         super.setInputInfo(keyInfo);
     }
     
-    private String get(BasicArrayList keyList)
+    private String get(final BasicArrayList keyList)
     {
-        StringMaker stringBuffer = new StringMaker();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
 
+        final StringMaker stringBuffer = new StringMaker();
+
+        final String AND = "and ";
+
+        Input key;
         for(int index = 0; index < keyList.size(); index++)
         {
-            Input key = (Input) keyList.objectArray[index];
+            key = (Input) keyList.objectArray[index];
 
             //Get system platform key(s) mapped to gamekey
             stringBuffer.append(key.getName());
@@ -74,18 +84,18 @@ public class BasicInputMappingHelpPaintable extends HelpPaintable
             {
                 if(keyList.size() == 2)
                 {
-                    stringBuffer.append(" and ");
+                    stringBuffer.append(commonSeps.SPACE).append(AND);
                 }
                 else
                 {
                     if(index + 2 == keyList.size())
                     {
-                        stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);
-                        stringBuffer.append("and ");
+                        stringBuffer.append(commonSeps.COMMA_SEP);
+                        stringBuffer.append(AND);
                     }
                     else
                     {
-                        stringBuffer.append(CommonSeps.getInstance().COMMA_SEP);
+                        stringBuffer.append(commonSeps.COMMA_SEP);
                     }
                 }
             }

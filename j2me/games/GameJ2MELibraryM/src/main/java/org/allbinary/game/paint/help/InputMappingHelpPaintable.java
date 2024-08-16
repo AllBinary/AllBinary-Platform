@@ -56,8 +56,8 @@ public class InputMappingHelpPaintable extends HelpPaintable
     private final BasicColorFactory basicColorFactory = BasicColorFactory.getInstance();
     
     protected InputMappingHelpPaintable(
-            GameInputMapping[] gameInputMappingArray, 
-            BasicColor backgroundBasicColor, BasicColor basicColor)
+            final GameInputMapping[] gameInputMappingArray, 
+            final BasicColor backgroundBasicColor, final BasicColor basicColor)
     {        
         super("Input Mapping", backgroundBasicColor, basicColor);
     
@@ -76,24 +76,29 @@ public class InputMappingHelpPaintable extends HelpPaintable
         }
     }
     
-    public void update(GameKey selectedGameKey, Input selectedInput)
+    public void update(final GameKey selectedGameKey, final Input selectedInput)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(selectedGameKey).append(" Input: ").append(selectedInput).toString(), this, commonStrings.UPDATE));
+        final StringMaker stringMaker = new StringMaker();
         
-        PersistentInputMapping gameKeyMapping = 
+        LogUtil.put(LogFactory.getInstance(stringMaker.append(CommonLabels.getInstance().START_LABEL).append("selected GameKey: ").append(selectedGameKey).append(" Input: ").append(selectedInput).toString(), this, commonStrings.UPDATE));
+        
+        final PersistentInputMapping gameKeyMapping = 
             PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance();
         
-        int size = gameInputMappingArray.length;
-        String[] keyInfo = new String[size];
-        BasicArrayList[] keyMappingArray = new BasicArrayList[size];
-        BasicColor[] actionBasicColor = new BasicColor[size];
-        BasicColor[][] inputBasicColorArray = new BasicColor[size][];
+        final int size = gameInputMappingArray.length;
+        final String[] keyInfo = new String[size];
+        final BasicArrayList[] keyMappingArray = new BasicArrayList[size];
+        final BasicColor[] actionBasicColor = new BasicColor[size];
+        final BasicColor[][] inputBasicColorArray = new BasicColor[size][];
         
+        GameInputMapping gameInputMapping;
+        GameKey gameKey;
+        BasicArrayList list;
         for(int index = 0; index < size; index++)
         {
-            GameInputMapping gameInputMapping = gameInputMappingArray[index];
-            GameKey gameKey = gameInputMapping.getGameKey();
-            BasicArrayList list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
+            gameInputMapping = gameInputMappingArray[index];
+            gameKey = gameInputMapping.getGameKey();
+            list = gameKeyMapping.getInputMapping().getMappedInput(gameKey);
             
             int size2 = list.size();
             inputBasicColorArray[index] = new BasicColor[size2];
@@ -105,12 +110,14 @@ public class InputMappingHelpPaintable extends HelpPaintable
             
             if(gameKey == selectedGameKey)
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Found: selected GameKey: ").append(selectedGameKey).toString(), this, commonStrings.UPDATE));
+                stringMaker.delete(0, stringMaker.length());
+                LogUtil.put(LogFactory.getInstance(stringMaker.append("Found: selected GameKey: ").append(selectedGameKey).toString(), this, commonStrings.UPDATE));
                 actionBasicColor[index] = this.selectedBasicColor;
                 int indexOfSelectedInput = list.indexOf(selectedInput);
                 if(indexOfSelectedInput >= 0)
                 {
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Found: selected Input: ").append(selectedInput).toString(), this, commonStrings.UPDATE));
+                    stringMaker.delete(0, stringMaker.length());
+                    LogUtil.put(LogFactory.getInstance(stringMaker.append("Found: selected Input: ").append(selectedInput).toString(), this, commonStrings.UPDATE));
                     inputBasicColorArray[index][indexOfSelectedInput] = this.selectedBasicColor; 
                 }
             }
@@ -133,11 +140,12 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
     private String get(BasicArrayList keyList)
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
+        Input key;
         for(int index = 0; index < keyList.size(); index++)
         {
-            Input key = (Input) keyList.objectArray[index];
+            key = (Input) keyList.objectArray[index];
 
             //Get system platform key(s) mapped to gamekey
             stringBuffer.append(key.getName());
@@ -166,18 +174,20 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
     public int getHeight()
     {
-        return MyFont.getInstance().DEFAULT_CHAR_HEIGHT * (this.getInputInfo().length + 4);
+        return MyFont.getInstance().DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 4);
     }
     
     private int anchor = Anchor.TOP_LEFT;
     
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         //this.colorFillPaintable.paint(graphics);
         
-        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+        final StringMaker stringMaker = new StringMaker();
+        final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
         
-        int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
+        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+        final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
 
         int beginWidth = (graphics.getFont().stringWidth(this.TITLE) >> 1);
 
@@ -185,11 +195,16 @@ public class InputMappingHelpPaintable extends HelpPaintable
         
         graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, anchor);
 
-        int size = getInputInfo().length;
+        int size = inputInfo.length;
         int y = 0;
         int deltaX = 0;
         int size2 = 0;
         
+        Input input;
+        String actionString;
+        BasicArrayList list;
+        String keyMappings;
+        String sep;
         for (int index = 0; index < size; index++)
         {
             //For same line action and mappings
@@ -198,24 +213,25 @@ public class InputMappingHelpPaintable extends HelpPaintable
             //y = ((index * 2) + 3) * MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
             
             deltaX = 0;
-            BasicArrayList list = this.keyMappingArray[index];
+            list = this.keyMappingArray[index];
             size2 = list.size();
-            String keyMappings = this.get(list);
+            keyMappings = this.get(list);
 
             //For same line action and mappings
-            final String actionString = new StringMaker().append(getInputInfo()[index]).append(": ").toString();
+            stringMaker.delete(0, stringMaker.length());
+            actionString = stringMaker.append(inputInfo[index]).append(": ").toString();
             //For multiline
-            //String actionString = getInputInfo()[index];
+            //String actionString = inputInfo[index];
 
             //For same line action and mappings
-            beginWidth = (graphics.getFont().stringWidth(new StringMaker().append(actionString).append(keyMappings).toString()) >> 1);
+            stringMaker.delete(0, stringMaker.length());
+            beginWidth = (graphics.getFont().stringWidth(stringMaker.append(actionString).append(keyMappings).toString()) >> 1);
             //For multiline
             //beginWidth = (graphics.getFont().stringWidth(actionString) >> 1);
 
             graphics.setColor(this.actionBasicColor[index].intValue());
 
-            graphics.drawString(actionString,
-                    halfWidth - beginWidth + deltaX, y, anchor);
+            graphics.drawString(actionString, halfWidth - beginWidth + deltaX, y, anchor);
 
             //For same line action and mappings
             deltaX += graphics.getFont().stringWidth(actionString);
@@ -225,15 +241,14 @@ public class InputMappingHelpPaintable extends HelpPaintable
 
             for(int index2 = 0; index2 < size2; index2++)
             {
-                Input input = (Input) list.objectArray[index2];
+                input = (Input) list.objectArray[index2];
 
                 graphics.setColor(this.inputBasicColorArray[index][index2].intValue());
-                graphics.drawString(input.getName(), 
-                        halfWidth - beginWidth + deltaX, y, anchor);
+                graphics.drawString(input.getName(), halfWidth - beginWidth + deltaX, y, anchor);
 
                 deltaX += graphics.getFont().stringWidth(input.getName());
 
-                String sep = StringUtil.getInstance().EMPTY_STRING;
+                sep = EMPTY_STRING;
 
                 if(index2 + 1 < list.size())
                 {
@@ -254,7 +269,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
                     }
                 }
 
-                if(sep != StringUtil.getInstance().EMPTY_STRING)
+                if(sep != EMPTY_STRING)
                 {
                     graphics.setColor(this.basicColor.intValue());
                     graphics.drawString(sep, halfWidth - beginWidth + deltaX, y, anchor);

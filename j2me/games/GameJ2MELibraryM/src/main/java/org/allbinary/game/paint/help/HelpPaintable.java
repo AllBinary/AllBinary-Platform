@@ -25,14 +25,14 @@ import org.allbinary.graphics.paint.Paintable;
 public class HelpPaintable extends Paintable
 {
     protected String TITLE = "Help Screen";
-    private String[] inputInfo = StringUtil.getInstance().getArrayInstance();
+    protected String[] inputInfo = StringUtil.getInstance().getArrayInstance();
 
     //protected ColorFillPaintable colorFillPaintable;
     
     protected BasicColor basicColor;
     //private int color;
 
-    public HelpPaintable(String title, BasicColor backgroundBasicColor, BasicColor basicColor)
+    public HelpPaintable(final String title, final BasicColor backgroundBasicColor, final BasicColor basicColor)
     {
         this.TITLE = title;
     
@@ -42,33 +42,27 @@ public class HelpPaintable extends Paintable
         //this.color = basicColor.intValue();
     }
     
-    public HelpPaintable(BasicColor basicColor)
+    public HelpPaintable(final BasicColor basicColor)
     {
         this.basicColor = basicColor;
         //this.color = basicColor.intValue();
     }
-
-    public String[] getInputInfo()
-    {
-        return inputInfo;
-    }
     
-    public void setInputInfo(String[] inputInfo)
+    public void setInputInfo(final String[] inputInfo)
     {
         this.inputInfo = inputInfo;
     }
     
     public int getHeight()
     {
-        return MyFont.getInstance().DEFAULT_CHAR_HEIGHT * (this.getInputInfo().length + 2);
+        return MyFont.getInstance().DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 2);
     }
     
     private int anchor = Anchor.TOP_LEFT;
     
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
-        int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
-
+        final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
         int beginWidth = (graphics.getFont().stringWidth(this.TITLE) >> 1);
 
         //this.colorFillPaintable.paint(graphics);
@@ -76,15 +70,14 @@ public class HelpPaintable extends Paintable
         graphics.setColor(this.basicColor.intValue());
         
         final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
-        
         graphics.drawString(this.TITLE, halfWidth - beginWidth, charHeight, anchor);
 
-        for (int index = 0; index < getInputInfo().length; index++)
+        final int size = inputInfo.length;
+        for (int index = 0; index < size; index++)
         {
-            beginWidth = (graphics.getFont().stringWidth(getInputInfo()[index]) >> 1);
+            beginWidth = (graphics.getFont().stringWidth(inputInfo[index]) >> 1);
 
-            graphics.drawString(getInputInfo()[index],
-                    halfWidth - beginWidth, (index + 3) * charHeight, anchor);
+            graphics.drawString(inputInfo[index], halfWidth - beginWidth, (index + 3) * charHeight, anchor);
         }
     }
 }
