@@ -186,6 +186,8 @@ public class InputMappingHelpPaintable extends HelpPaintable
         //this.colorFillPaintable.paint(graphics);
         
         final Font font = graphics.getFont();
+
+        final CommonSeps commonSeps = CommonSeps.getInstance();
         
         final StringMaker stringMaker = new StringMaker();
         final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
@@ -223,7 +225,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
 
             //For same line action and mappings
             stringMaker.delete(0, stringMaker.length());
-            actionString = stringMaker.append(inputInfo[index]).append(CommonSeps.getInstance().COLON).append(CommonSeps.getInstance().SPACE).toString();
+            actionString = stringMaker.append(inputInfo[index]).append(commonSeps.COLON).append(commonSeps.SPACE).append(commonSeps.SPACE).toString();
             //For multiline
             //String actionString = inputInfo[index];
 
