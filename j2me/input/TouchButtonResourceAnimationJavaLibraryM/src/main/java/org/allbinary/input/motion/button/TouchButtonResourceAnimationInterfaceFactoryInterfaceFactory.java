@@ -38,17 +38,17 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
         super("TouchButton Animations");
     }
 
-    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(String name)
+    public TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory(final String name)
     {
         super(name);
     }
 
-    public void init(int level) throws Exception
+    public void init(final int level) throws Exception
     {
         this.init(ImageCacheFactory.getInstance(), level);
     }
 
-    protected void init(ImageCache imageCache, int level)
+    protected void init(final ImageCache imageCache, final int level)
             throws Exception
     {
         if (this.isInitialized())
@@ -69,33 +69,31 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         int index = 0;
 
-        ProgressCanvas progressCanvas
-                = ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        TouchButtonResource touchButtonBlankResource = TouchButtonBlankResource.getInstance();
-        TouchButtonResource touchButtonGenericActionResource = TouchButtonGenericActionResource.getInstance();
-        TouchButtonResource touchButtonStartResource = TouchButtonStartResource.getInstance();
-        TouchButtonResource touchButtonUpResource = TouchButtonUpResource.getInstance();
-        TouchButtonResource touchButtonDownResource = TouchButtonDownResource.getInstance();
-        TouchButtonResource touchButtonTurnLeftResource = TouchButtonTurnLeftResource.getInstance();
-        TouchButtonResource touchButtonTurnRightResource = TouchButtonTurnRightResource.getInstance();
-        TouchButtonResource touchButtonStrafeLeftResource = TouchButtonStrafeLeftResource.getInstance();
-        TouchButtonResource touchButtonStrafeRightResource = TouchButtonStrafeRightResource.getInstance();
+        final TouchButtonResource touchButtonBlankResource = TouchButtonBlankResource.getInstance();
+        final TouchButtonResource touchButtonGenericActionResource = TouchButtonGenericActionResource.getInstance();
+        final TouchButtonResource touchButtonStartResource = TouchButtonStartResource.getInstance();
+        final TouchButtonResource touchButtonUpResource = TouchButtonUpResource.getInstance();
+        final TouchButtonResource touchButtonDownResource = TouchButtonDownResource.getInstance();
+        final TouchButtonResource touchButtonTurnLeftResource = TouchButtonTurnLeftResource.getInstance();
+        final TouchButtonResource touchButtonTurnRightResource = TouchButtonTurnRightResource.getInstance();
+        final TouchButtonResource touchButtonStrafeLeftResource = TouchButtonStrafeLeftResource.getInstance();
+        final TouchButtonResource touchButtonStrafeRightResource = TouchButtonStrafeRightResource.getInstance();
 
-        Image touchButtonBlankResourceImage = imageCache.get(touchButtonBlankResource.RESOURCE);
-        Image touchButtonGenericActionResourceImage = imageCache.get(touchButtonGenericActionResource.RESOURCE);
-        Image touchButtonStartResourceImage = imageCache.get(touchButtonStartResource.RESOURCE);
-        Image touchButtonUpResourceImage = imageCache.get(touchButtonUpResource.RESOURCE);
-        Image touchButtonDownResourceImage = imageCache.get(touchButtonDownResource.RESOURCE);
-        Image touchButtonTurnLeftResourceImage = imageCache.get(touchButtonTurnLeftResource.RESOURCE);
-        Image touchButtonTurnRightResourceImage = imageCache.get(touchButtonTurnRightResource.RESOURCE);
-        Image touchButtonStrafeLeftResourceImage = imageCache.get(touchButtonStrafeLeftResource.RESOURCE);
-        Image touchButtonStrafeRightResourceImage = imageCache.get(touchButtonStrafeRightResource.RESOURCE);
+        final Image touchButtonBlankResourceImage = imageCache.get(touchButtonBlankResource.RESOURCE);
+        final Image touchButtonGenericActionResourceImage = imageCache.get(touchButtonGenericActionResource.RESOURCE);
+        final Image touchButtonStartResourceImage = imageCache.get(touchButtonStartResource.RESOURCE);
+        final Image touchButtonUpResourceImage = imageCache.get(touchButtonUpResource.RESOURCE);
+        final Image touchButtonDownResourceImage = imageCache.get(touchButtonDownResource.RESOURCE);
+        final Image touchButtonTurnLeftResourceImage = imageCache.get(touchButtonTurnLeftResource.RESOURCE);
+        final Image touchButtonTurnRightResourceImage = imageCache.get(touchButtonTurnRightResource.RESOURCE);
+        final Image touchButtonStrafeLeftResourceImage = imageCache.get(touchButtonStrafeLeftResource.RESOURCE);
+        final Image touchButtonStrafeRightResourceImage = imageCache.get(touchButtonStrafeRightResource.RESOURCE);
 
-        NullAnimationFactory nullAnimationFactory
-                = NullAnimationFactory.getFactoryInstance();
+        final NullAnimationFactory nullAnimationFactory = NullAnimationFactory.getFactoryInstance();
 
         if (OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan())
         {
@@ -104,7 +102,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
-        ImageCompleteUtil imageCompleteUtil = ImageCompleteUtil.getInstance();
+        final ImageCompleteUtil imageCompleteUtil = ImageCompleteUtil.getInstance();
 
         progressCanvas.addPortion(portion, loadingString, index++);
 
@@ -196,7 +194,7 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
 
         if (OperatingSystemFactory.getInstance().getOperatingSystemInstance().isOverScan())
         {
-            Image touchButtonStartHintResource = imageCache.get(TouchButtonStartResource.getInstance().HINT);
+            final Image touchButtonStartHintResource = imageCache.get(TouchButtonStartResource.getInstance().HINT);
 
             this.add(touchButtonStartResource.HINT,
                     new OneRowSpriteIndexedAnimationFactory(
@@ -209,9 +207,9 @@ public class TouchButtonResourceAnimationInterfaceFactoryInterfaceFactory
         super.init(level);
     }
 
-    public boolean isLoadingLevel(int level)
+    public boolean isLoadingLevel(final int level)
     {
-        ResourceLoadingLevelFactory resourceLoadingLevelFactory
+        final ResourceLoadingLevelFactory resourceLoadingLevelFactory
                 = ResourceLoadingLevelFactory.getInstance();
 
         if (level == resourceLoadingLevelFactory.LOAD_TOUCH.getLevel())
