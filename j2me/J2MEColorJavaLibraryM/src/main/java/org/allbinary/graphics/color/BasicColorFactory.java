@@ -59,6 +59,7 @@ public class BasicColorFactory
 
     public final BasicColor WHITE = new BasicColor(0xFFFFFF);
 
+    public final BasicColor TRANSPARENT_COLOR = new BasicColor(0x00000000, 0x000000, StringUtil.getInstance().EMPTY_STRING);
     public final BasicColor TRANSPARENT_GREY = new BasicColor(0x52000000, 0xECECEC, StringUtil.getInstance().EMPTY_STRING);
     public final BasicColor TRANSPARENT_BLACK = new BasicColor(0x52000000, 0x000000, StringUtil.getInstance().EMPTY_STRING);
     public final BasicColor TRANSPARENT_RED = new BasicColor(0x52000000, 0xFF0000, StringUtil.getInstance().EMPTY_STRING);
