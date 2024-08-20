@@ -190,6 +190,8 @@ public class ImageCache
 
 //        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 //        LogUtil.put(LogFactory.getInstance(spacialStrings.WIDTH_LABEL + image.getWidth() + spacialStrings.HEIGHT_LABEL + image.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
+//        LogUtil.put(LogFactory.getInstance(key + " = " + image.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+
         return image;
     }
 

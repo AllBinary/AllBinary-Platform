@@ -101,6 +101,7 @@ public class OpenGLImageCache extends ImageCache
         list.add(image);
 
         //ForcedLogUtil.log(image.toString(), this);
+        //LogUtil.put(LogFactory.getInstance(key + " = " + image.toString(), this, CommonStrings.getInstance().GET));
 
         return image;
     }

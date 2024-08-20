@@ -13,6 +13,7 @@
  */
 package org.allbinary.opengles;
 
+import com.jogamp.opengl.GLRendererQuirks;
 import com.jogamp.opengl.glu.GLU;
 
 import org.allbinary.graphics.SpacialStrings;
@@ -25,7 +26,7 @@ import org.allbinary.graphics.SpacialStrings;
 public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 {
 
-    private final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+    //private final SpacialStrings spacialStrings = SpacialStrings.getInstance();
     //private final StringBuilder stringBuilder = new StringBuilder();
 
     protected final String RED = "red: ";
@@ -55,6 +56,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
         this.GL_LINE = this.gl10.GL_LINE;
         this.GL_QUAD_STRIP = this.gl10.GL_QUAD_STRIP;
 
+        //GLRendererQuirks glRendererQuirks = gl10.getContext().getRendererQuirks();
     }
 
     public com.jogamp.opengl.GL2 getJOGLGL() {
