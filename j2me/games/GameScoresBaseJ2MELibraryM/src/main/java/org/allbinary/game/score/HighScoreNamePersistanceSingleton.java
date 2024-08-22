@@ -20,6 +20,7 @@ import java.io.DataOutputStream;
 
 import javax.microedition.rms.RecordEnumeration;
 import javax.microedition.rms.RecordStore;
+import javax.microedition.rms.RecordStoreException;
     
 import org.allbinary.game.GameInfo;
 import org.allbinary.util.BasicArrayList;
@@ -44,6 +45,7 @@ public class HighScoreNamePersistanceSingleton
         return SINGLETON;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
     
     //_Saved_Name
@@ -76,13 +78,22 @@ public class HighScoreNamePersistanceSingleton
     
     public void delete(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final int deleteId) throws Exception
     {
+        RecordStore recordStore = null;
+        try {
+
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
 
-        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+        recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         recordStore.deleteRecord(deleteId);
 
-        recordStore.closeRecordStore();
+        } finally {
+            if(recordStore != null) {
+                PreLogUtil.put("Closing RecordStore", this, "delete");
+                recordStore.closeRecordStore();
+            }
+        }
+
     }
 
     public BasicArrayList getIds()
@@ -94,6 +105,8 @@ public class HighScoreNamePersistanceSingleton
     {
         final String LOAD = "load";
         
+        RecordStore recordStore = null;
+
         try
         {
             // If not loaded try loading
@@ -101,9 +114,9 @@ public class HighScoreNamePersistanceSingleton
             {
                 final String LOADING_ID = "Loading id: ";
                 
-                final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+                recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
                 
-                RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
+                final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
                 final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
                 
@@ -129,27 +142,36 @@ public class HighScoreNamePersistanceSingleton
                     nameBasicArrayList.add(smallIntegerSingletonFactory.getInstance(id));
                 }
 
-                recordStore.closeRecordStore();
             }
         } catch (Exception e)
         {
             this.save(abeClientInformation, gameInfo, this.name);
-            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ExceptionUtil.getInstance().getStackTrace(e)).toString(), this, LOAD));
+        } finally {
+            try {
+                if (recordStore != null) {
+                    PreLogUtil.put("Closing RecordStore", this, LOAD);
+                    recordStore.closeRecordStore();
+                }
+            } catch(RecordStoreException e) {
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, LOAD, e));
+            }
         }
+
         return this.name;
     }
 
     public void save(final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo, final String name)
     {
+        RecordStore recordStore = null;
         try
         {
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(name).toString(), this, "save"));
 
-            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
+            final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            final DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
 
             outputStream.writeUTF(name);
 
@@ -158,14 +180,21 @@ public class HighScoreNamePersistanceSingleton
 
             recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
-            recordStore.closeRecordStore();
-            
             this.name = name;
             
         } catch (Exception e)
         {
-            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "save", e));
+        } finally {
+            try {
+                if (recordStore != null) {
+                    PreLogUtil.put("Closing RecordStore", this, "save");
+                    recordStore.closeRecordStore();
+                }
+            } catch(RecordStoreException e) {
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "save", e));
+            }
         }
+
     }
 }

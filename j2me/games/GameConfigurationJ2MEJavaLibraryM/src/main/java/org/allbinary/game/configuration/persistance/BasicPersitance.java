@@ -21,6 +21,7 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.persistance.PlatformRecordIdUtil;
@@ -38,6 +39,11 @@ public class BasicPersitance
     {
         this.recordId = recordId;
     }
+
+    public void deleteRecoreStore(final AbeClientInformationInterface abeClientInformation) throws Exception 
+    {
+        RecordStore.deleteRecordStore(this.getRecordId(abeClientInformation));
+    }
     
     //Load all needs to be called already
     public void deleteAll(final AbeClientInformationInterface abeClientInformation) throws Exception
@@ -54,13 +60,23 @@ public class BasicPersitance
     
     public void delete(final AbeClientInformationInterface abeClientInformation, final int deleteId) throws Exception
     {
+        RecordStore recordStore = null;
+        
+        try {
+            
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
         
-        RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+        recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         recordStore.deleteRecord(deleteId);
 
-        recordStore.closeRecordStore();
+        } finally {
+            if(recordStore != null) {
+                PreLogUtil.put("Closing RecordStore", this, "delete");
+                recordStore.closeRecordStore();
+            }
+        }
+
     }
     
     public String getRecordId(final AbeClientInformationInterface abeClientInformation) {

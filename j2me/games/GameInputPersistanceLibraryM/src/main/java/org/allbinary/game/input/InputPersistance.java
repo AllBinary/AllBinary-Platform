@@ -43,15 +43,17 @@ public class InputPersistance extends BasicPersitance
 
     public void loadAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
+        final String METHOD_NAME = "loadAll";
         
-        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+        RecordStore recordStore = null;
+        try {
+
+        recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
         final String ERROR_LOADING = "Error Loading gameActionInput: ";
         final String LOADING_ID = "Loading id: ";
-
-        final String METHOD_NAME = "loadAll";
         
         //PreLogUtil.put(METHOD_NAME, this, METHOD_NAME);
 
@@ -145,16 +147,25 @@ public class InputPersistance extends BasicPersitance
                 //LogUtil.put(LogFactory.getInstance("No bytes for id", this, METHOD_NAME));
             }
         }
-
-        recordStore.closeRecordStore();
+        
+        } finally {
+            if(recordStore != null) {
+                PreLogUtil.put("Closing RecordStore", this, METHOD_NAME);
+                recordStore.closeRecordStore();
+            }
+        }
     }
 
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
+        RecordStore recordStore = null;
+
+        try {
+
         PreLogUtil.put(new StringMaker().append("Saving: ").append(hashtable).toString(), this, "save");
         //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, "save"));
 
-        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+        recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
@@ -212,7 +223,13 @@ public class InputPersistance extends BasicPersitance
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
-        recordStore.closeRecordStore();
+        } finally {
+            if(recordStore != null) {
+                PreLogUtil.put("Closing RecordStore", this, "save");
+                recordStore.closeRecordStore();
+            }
+        }
+        
     }
         
 }

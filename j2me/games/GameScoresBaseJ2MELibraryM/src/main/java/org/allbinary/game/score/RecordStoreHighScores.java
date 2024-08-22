@@ -31,6 +31,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.persistance.PlatformRecordIdUtil;
 import org.allbinary.util.BasicArrayList;
@@ -91,6 +92,7 @@ public class RecordStoreHighScores extends HighScores
     //@Override
     public synchronized void addHighScore(final HighScore newHighScore) // throws Exception
     {
+        RecordStore recordStore = null;
         try
         {
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding HighScore: ").append(newHighScore.getScore()).toString(),this, commonStrings.ADD));
@@ -103,15 +105,13 @@ public class RecordStoreHighScores extends HighScores
                 this.removeLowestHighScore();
             }
 
-            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
             final byte[] highScoreBytes = newHighScore.getBytes();
 
             final int recordId = recordStore.addRecord(highScoreBytes, 0, highScoreBytes.length);
             
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("New recordId: ").append(recordId).toString(),this, commonStrings.ADD));
-
-            recordStore.closeRecordStore();
 
             //LogUtil.put(LogFactory.getInstance("closeRecordStore",this, commonStrings.ADD));
             
@@ -133,14 +133,25 @@ public class RecordStoreHighScores extends HighScores
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
             // throw e;
+        } finally {
+            try {
+                if (recordStore != null) {
+                    PreLogUtil.put("Closing RecordStore", this, commonStrings.ADD);
+                    recordStore.closeRecordStore();
+                }
+            } catch(RecordStoreException e) {
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
+            }
         }
+
     }
 
     private void removeLowestHighScore() // throws Exception
     {
+        RecordStore recordStore = null;
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
             final RecordEnumeration recordEnum = recordStore.enumerateRecords(null,null, true);
             // recordStore.enumerateRecords(null, (RecordComparator) this, true);
@@ -175,17 +186,25 @@ public class RecordStoreHighScores extends HighScores
                 recordStore.deleteRecord(bestHighScore.getId());
             }
 
-            recordStore.closeRecordStore();
         }
         catch (RecordStoreException e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "removeLowestHighScore", e));
             // throw e;
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "removeLowestHighScore", e));
             // throw e;
+        } finally {
+            try {
+                if (recordStore != null) {
+                    PreLogUtil.put("Closing RecordStore", this, "removeLowestHighScore");
+                    recordStore.closeRecordStore();
+                }
+            } catch(RecordStoreException e) {
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "removeLowestHighScore", e));
+            }
         }
     }
 
@@ -193,9 +212,11 @@ public class RecordStoreHighScores extends HighScores
     // should be in order of score
     private void load() // throws RecordStoreException, IOException
     {
+        RecordStore recordStore = null;
+
         try
         {
-            final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+            recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
             //LogUtil.put(LogFactory.getInstance(recordStore.getName(), this, "load"));
 
             this.setList(new BasicArrayList());
@@ -251,8 +272,6 @@ public class RecordStoreHighScores extends HighScores
                 }
             }
 
-            recordStore.closeRecordStore();
-
             // LogUtil.put(LogFactory.getInstance("Loaded HighScores Ordered: " +
             // this.toString(), this, "load"));
 
@@ -272,7 +291,17 @@ public class RecordStoreHighScores extends HighScores
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.UNKNOWN, this, "load", e));
+        } finally {
+            try {
+                if (recordStore != null) {
+                    PreLogUtil.put("Closing RecordStore", this, "load");
+                    recordStore.closeRecordStore();
+                }
+            } catch(RecordStoreException e) {
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "load", e));
+            }
         }
+
     }
 
     private boolean isTooManyHighScores()

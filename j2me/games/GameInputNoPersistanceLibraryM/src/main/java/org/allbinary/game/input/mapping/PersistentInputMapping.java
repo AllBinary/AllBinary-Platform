@@ -112,7 +112,8 @@ public class PersistentInputMapping
         {
             //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
             PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
-            inputPersistance.deleteAll(abeClientInformation);
+            //inputPersistance.deleteAll(abeClientInformation);
+            inputPersistance.deleteRecoreStore(abeClientInformation);
             this.setDefault(abeClientInformation);
             //this.setDefault((InputToGameKeyMapping) this);
             inputPersistance.loadAll(abeClientInformation);

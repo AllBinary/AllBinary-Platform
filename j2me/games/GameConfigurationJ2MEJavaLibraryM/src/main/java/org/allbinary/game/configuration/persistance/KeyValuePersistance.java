@@ -28,6 +28,7 @@ import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
@@ -45,12 +46,15 @@ public class KeyValuePersistance extends BasicPersitance
     
     public void loadAll(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
     {
-        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+        final String METHOD_NAME = "loadAll";
+        RecordStore recordStore = null;
+
+        try {
+        recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
         final String LOADING_ID = "Loading id: ";
-        final String METHOD_NAME = "loadAll";
         
         Hashtable hashtable;
         
@@ -86,14 +90,24 @@ public class KeyValuePersistance extends BasicPersitance
             }
         }
 
-        recordStore.closeRecordStore();
+        } finally {
+            if(recordStore != null) {
+                PreLogUtil.put("Closing RecordStore", this, METHOD_NAME);
+                recordStore.closeRecordStore();
+            }
+        }
+
     }
     
     public void save(final AbeClientInformationInterface abeClientInformation, final Hashtable hashtable) throws Exception
     {
+        RecordStore recordStore = null;
+        
+        try {
+
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(hashtable).toString(), this, "save"));
         
-        final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
+        recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         final DataOutputStream outputStream = new DataOutputStream(
@@ -117,7 +131,13 @@ public class KeyValuePersistance extends BasicPersitance
 
         recordStore.addRecord(savedGameBytes, 0, savedGameBytes.length);
 
-        recordStore.closeRecordStore();
+        } finally {
+            if(recordStore != null) {
+                PreLogUtil.put("Closing RecordStore", this, "save");
+                recordStore.closeRecordStore();
+            }
+        }
+
     }
 
     public Hashtable get(int index)
