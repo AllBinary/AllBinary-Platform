@@ -10,5 +10,5 @@ public interface EmulatorViewInterface
     //KeyInputViewCompositeInterface
     void onEmulatorInitComplete(final Object midletActivity);
 
-    void onSetDiplayable(Displayable displayable);
+    void onSetDisplayable(Displayable displayable);
 }

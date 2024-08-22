@@ -171,12 +171,12 @@ public class DemoCanvas extends RunnableCanvas
     private PaintableInterface paintableInterface;
     private final InitUpdatePaintable overlayPaintable;
 
-    private int tempWait = NullWaitRunnable.getInstance().WAIT;
+    private int tempWait = NullWaitGameRunnable.getInstance().WAIT;
     
     private final InputToGameKeyMapping inputToGameKeyMapping = 
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    private GameRunnable gameRunnable = NullWaitRunnable.getInstance();
+    private GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
     
     public DemoCanvas(final AbeClientInformationInterface abeClientInformation,
         final CommandListener commandListener,
@@ -192,7 +192,7 @@ public class DemoCanvas extends RunnableCanvas
         this.abeClientInformation = abeClientInformation;
 
         //Give time for initialization of demogame by default
-        this.setWait(NullWaitRunnable.getInstance().WAIT);
+        this.setWait(NullWaitGameRunnable.getInstance().WAIT);
         
         this.gameInitializationInterfaceFactoryInterface =
             gameInitializationInterfaceFactoryInterface;
@@ -552,7 +552,7 @@ public class DemoCanvas extends RunnableCanvas
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullWaitRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullWaitGameRunnable.getInstance()) {
             return true;
         }
         else
@@ -767,7 +767,7 @@ public class DemoCanvas extends RunnableCanvas
 
         this.threadFactoryUtil.start(this.canvasThread);
 
-        if(this.getWait() == NullWaitRunnable.getInstance().WAIT)
+        if(this.getWait() == NullWaitGameRunnable.getInstance().WAIT)
         {
             this.setWait(this.getTempWait());
         }
@@ -891,7 +891,7 @@ public class DemoCanvas extends RunnableCanvas
         }
         else
         {
-            this.gameRunnable = NullWaitRunnable.getInstance();
+            this.gameRunnable = NullWaitGameRunnable.getInstance();
             PreLogUtil.put("Not Showing Game", this, METHOD_NAME);
             this.setPaintableInterface(this.getDefaultPaintableInterface());
         }

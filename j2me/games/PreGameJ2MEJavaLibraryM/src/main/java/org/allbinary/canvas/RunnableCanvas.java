@@ -21,7 +21,7 @@ import org.allbinary.thread.RunnableInterface;
 import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.CommandListener;
-import org.allbinary.game.displayable.canvas.NullWaitRunnable;
+import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.logic.string.CommonLabels;
 
 public class RunnableCanvas extends MyCanvas 
@@ -34,7 +34,7 @@ public class RunnableCanvas extends MyCanvas
     private boolean running;
 
     // private int wait;
-    protected final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(NullWaitRunnable.getInstance().WAIT);
+    protected final TimeDelayHelper loopTimeHelper = new TimeDelayHelper(NullWaitGameRunnable.getInstance().WAIT);
 
     //protected ProcessPaintable processPaintable;
     protected Processor runnableCanvasRefreshHelper;

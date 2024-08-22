@@ -24,8 +24,9 @@ import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.displayable.canvas.GameRunnable;
 import org.allbinary.game.displayable.canvas.NullDisplayable;
-import org.allbinary.game.displayable.canvas.NullWaitRunnable;
+import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.game.layer.SWTUtil;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.thread.NullRunnable;
@@ -42,13 +43,15 @@ public class CurrentDisplayableFactory
     private Displayable displayable = NullDisplayable.getInstance();
     private Displayable openGlReadydisplayable = NullDisplayable.getInstance();
 
-    private GameRunnable runnable = NullWaitRunnable.getInstance();
-    private GameRunnable usedRunnable = NullWaitRunnable.getInstance();
+    private GameRunnable runnable = NullWaitGameRunnable.getInstance();
+    private GameRunnable usedRunnable = NullWaitGameRunnable.getInstance();
 
     private final String RUNNABLE = "Runnable: ";
     
+    //private final String DISPLAYABLE = "Displayable: ";
     public void setDisplayable(final Displayable displayable)
     {
+        //ForcedLogUtil.log(DISPLAYABLE + displayable, this);
         this.displayable = displayable;
         this.setOpenGlReadydisplayable(displayable);
     }
@@ -78,7 +81,7 @@ public class CurrentDisplayableFactory
     public void clearRunnable()
     {
         PreLogUtil.put(new StringMaker().append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, "clearRunnable");
-        this.setUsedRunnable(NullWaitRunnable.getInstance()); 
+        this.setUsedRunnable(NullWaitGameRunnable.getInstance()); 
     }
     
     private void update()
@@ -93,7 +96,7 @@ public class CurrentDisplayableFactory
             stringMaker.append(openGlReadydisplayable);
             if (SWTUtil.isSWT && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL)) {
                 PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(SWTUtil.SWT).append(commonSeps.SPACE).append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
-                this.setUsedRunnable(NullWaitRunnable.getInstance());
+                this.setUsedRunnable(NullWaitGameRunnable.getInstance());
             } else if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
             {
                 PreLogUtil.put(stringMaker.append(commonSeps.SPACE).append(HTMLFeatureFactory.getInstance().HTML).append(commonSeps.SPACE).append(RUNNABLE).append(runnable).toString(), this, CommonStrings.getInstance().UPDATE);
@@ -108,7 +111,7 @@ public class CurrentDisplayableFactory
             else
             {
                 PreLogUtil.put(stringMaker.append(RUNNABLE).append(NullRunnable.getInstance()).toString(), this, CommonStrings.getInstance().UPDATE);
-                this.setUsedRunnable(NullWaitRunnable.getInstance());
+                this.setUsedRunnable(NullWaitGameRunnable.getInstance());
             }
         }
     }    

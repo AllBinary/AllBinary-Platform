@@ -566,7 +566,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public boolean isPausable()
     {
         //TWB - Game is paused but UsedRunnable was set after the old runnable was called
-        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullWaitRunnable.getInstance()) {
+        if (CurrentDisplayableFactory.getInstance().getUsedRunnable() == NullWaitGameRunnable.getInstance()) {
             return true;
         }
         else
