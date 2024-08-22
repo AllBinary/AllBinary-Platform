@@ -18,6 +18,10 @@ public class GameRunnable implements Runnable
 
     public final int WAIT = 240;
     
+    public GameRunnable() {
+        
+    }
+    
     public void run()
     {
     }
