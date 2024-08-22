@@ -19,7 +19,7 @@ package org.allbinary.game.displayable.canvas;
  */
 public class NullWaitRunnable extends GameRunnable {
     
-    private static final GameRunnable instance = new GameRunnable();
+    private static final GameRunnable instance = new NullWaitRunnable();
 
     public static GameRunnable getInstance()
     {
