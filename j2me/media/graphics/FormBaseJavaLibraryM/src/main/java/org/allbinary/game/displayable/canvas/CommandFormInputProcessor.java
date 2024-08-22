@@ -196,6 +196,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
    protected void processMotionInput(final MotionGestureEvent motionGestureEvent)
            throws Exception
    {
+       //LogUtil.put(LogFactory.getInstance(new StringMaker().append(Thread.currentThread().getName()).append(commonStrings.START).append(motionGestureEvent).toString(), this, "processMotionInput"));
        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(motionGestureEvent).toString(), this, "processMotionInput"));
        //PreLogUtil.put(commonStrings.START, this, "processMotionInput");
        
