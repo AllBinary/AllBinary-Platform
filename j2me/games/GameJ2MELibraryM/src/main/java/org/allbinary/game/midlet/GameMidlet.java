@@ -97,6 +97,7 @@ import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
+import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.score.displayable.HighScoreUtil;
@@ -428,8 +429,13 @@ public class GameMidlet extends ProgressMidlet
                 {
                     if (this.gameStartTimeHelper.isTime())
                     {
-                        this.createGame();
-                        gameMidletStateFactory.setCurrentGameState(GameState.PLAYING_GAME_STATE);
+                        if(command == gameCommandsFactory.START_COMMAND && this.isDemoLoading()) {
+                            LogUtil.put(LogFactory.getInstance("Trying to Start Game Before Loading Complete", this, midletStrings.COMMAND_ACTION));
+                        } else {
+                            this.startedBefore = true;
+                            this.createGame();
+                            gameMidletStateFactory.setCurrentGameState(GameState.PLAYING_GAME_STATE);
+                        }
                     }
                     else
                     {
@@ -1044,5 +1050,24 @@ public class GameMidlet extends ProgressMidlet
     {
         return resized;
     }
-    
+
+    private boolean startedBefore = false;
+    public boolean isDemoLoading() {
+        
+        if(startedBefore) {
+            return false;
+        }
+        
+        final Displayable displayable = this.getDisplay().getCurrent();
+        
+        if(displayable instanceof DemoCanvas) {
+            final DemoCanvas demoCanvas = (DemoCanvas) displayable;
+
+            if(demoCanvas.isDemoLoading()) {
+                return true;
+            }
+        }
+
+        return false;
+    }    
 }

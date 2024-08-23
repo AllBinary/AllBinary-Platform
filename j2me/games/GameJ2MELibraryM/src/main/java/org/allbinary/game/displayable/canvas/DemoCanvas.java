@@ -1131,11 +1131,22 @@ public class DemoCanvas extends RunnableCanvas
         return GameState.PLAYING_GAME_STATE;
     }
 
-    public AllBinaryGameCanvas getGameCanvasRunnableInterface()
-    {
-        return gameCanvas;
-    }
+//    public AllBinaryGameCanvas getGameCanvasRunnableInterface()
+//    {
+//        return gameCanvas;
+//    }
 
+    public boolean isDemoLoading() {
+        AllBinaryGameCanvas gameCanvas = this.gameCanvas;
+        if(gameCanvas == NullGameCanvas.getInstance()) {
+            return true;
+        } else if(gameCanvas.isInitialized()) {
+            return false;
+        }
+        
+        return true;
+    }
+    
     protected int getState()
     {
         return state;
