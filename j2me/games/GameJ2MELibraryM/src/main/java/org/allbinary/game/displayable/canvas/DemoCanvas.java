@@ -1136,10 +1136,10 @@ public class DemoCanvas extends RunnableCanvas
         return GameState.PLAYING_GAME_STATE;
     }
 
-//    public AllBinaryGameCanvas getGameCanvasRunnableInterface()
-//    {
-//        return gameCanvas;
-//    }
+    public AllBinaryGameCanvas getGameCanvasRunnableInterface()
+    {
+        return gameCanvas;
+    }
 
     public boolean isDemoLoading() {
         AllBinaryGameCanvas gameCanvas = this.gameCanvas;
