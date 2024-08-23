@@ -28,24 +28,37 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
 import org.allbinary.media.audio.Sound;
+import org.allbinary.util.BasicArrayList;
 
 public class MyCanvas extends Canvas 
     implements DisplayableInterface, MyCommandInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+
+    private final String name;
+    private final BasicArrayList childNameList;
+    
+    private final Stack commandStack;
     
     //private boolean displayed;
     private boolean isPaused;
-    private final Stack commandStack;
-    
+
     public MyCanvas()
+    {
+        this( CommonStrings.getInstance().UNKNOWN, new BasicArrayList());
+    }
+    
+    public MyCanvas(final String name, final BasicArrayList childNameList)
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
 
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
         DisplayInfoSingleton.getInstance().update(this, canvasStrings.CONSTRUCTOR);
+
+        this.name = name;
+        this.childNameList = childNameList;
 
         this.commandStack = new Stack();
     }
@@ -166,6 +179,10 @@ public class MyCanvas extends Canvas
         //DisplayInfoSingleton.getInstance().update(this);
     }
 
+    public boolean hasChild(MyCanvas displayable) {
+        return this.childNameList.contains(displayable.name);
+    }
+    
     public void destroy()
     {
         LogUtil.put(LogFactory.getInstance("Destroyed MyCanvas", this, "MyCanvas::destroy"));

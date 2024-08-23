@@ -100,10 +100,10 @@ import javax.microedition.lcdui.Canvas;
 import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
 import org.allbinary.game.score.displayable.HighScoreUtil;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
-import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.util.BasicArrayList;
 
@@ -878,7 +878,7 @@ public class GameMidlet extends ProgressMidlet
     //You can override this with your own Canvas
     protected MyCanvas getAboutCanvas() throws Exception
     {
-        return new BasicPaintablesCanvas(this, this.createGameLayerManager(),
+        return new BasicPaintablesCanvas(this, CanvasStrings.getInstance().ABOUT, this.createGameLayerManager(),
                 AboutPaintableFactory.getInstance().paintableArray);
     }
 

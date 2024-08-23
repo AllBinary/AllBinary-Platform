@@ -26,12 +26,12 @@ public class BasicPaintablesCanvas extends GameCommandCanvas
     private final Paintable[] paintableArray;
     private final ColorFillBasePaintable colorFillPaintable;
 
-    public BasicPaintablesCanvas(final CommandListener cmdListener, 
+    public BasicPaintablesCanvas(final CommandListener cmdListener, final String name, 
             final AllBinaryGameLayerManager allBinaryGameLayerManager, final Paintable[] paintableArray)
             throws Exception
     {
 
-        super(cmdListener,
+        super(cmdListener, name,
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 

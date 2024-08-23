@@ -44,6 +44,8 @@ implements InputMappingInterface
 {   
     private final ProcessPaintable paintable;
 
+    public static final String NAME = "GameInputMappingCanvas";
+    
     //Input Mapping
     public static final Command DISPLAY  = new Command("Controls", Command.SCREEN, 2);
     public static final Command DEFAULT  = new Command("Default", Command.SCREEN, 2);
@@ -69,7 +71,7 @@ implements InputMappingInterface
         final AllBinaryGameLayerManager allBinaryGameLayerManager,
         final HelpPaintable helpPaintable) throws Exception
     {
-        super(commandListener,
+        super(commandListener, NAME,
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 

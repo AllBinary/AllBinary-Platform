@@ -48,6 +48,8 @@ import org.allbinary.thread.SecondaryThreadPool;
 public class HighScoresCanvas extends GameCommandCanvas
         implements HighScoresResultsListener
 {
+    public static final String NAME = "HighScoresCanvas";
+    
     private Paintable paintable;
 
     private final SimpleTextPaintable waitPaintable = new SimpleTextPaintable(
@@ -88,7 +90,7 @@ public class HighScoresCanvas extends GameCommandCanvas
             final HighScoresCanvasInputProcessorFactoryInterface highScoresCanvasInputProcessorFactoryInterface)
             throws Exception
     {
-        super(commandListener,
+        super(commandListener, HighScoresCanvas.NAME,
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
                 allBinaryGameLayerManager.getForegroundBasicColor());
 

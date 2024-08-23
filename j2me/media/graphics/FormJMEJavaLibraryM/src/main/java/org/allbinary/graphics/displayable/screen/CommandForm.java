@@ -19,16 +19,15 @@ package org.allbinary.graphics.displayable.screen;
 import java.util.Stack;
 
 import javax.microedition.lcdui.Command;
-import javax.microedition.lcdui.Form;
 import javax.microedition.lcdui.CommandListener;
+import javax.microedition.lcdui.Form;
+
 import org.allbinary.canvas.Processor;
-
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.displayable.canvas.MenuListener;
-
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
 
 public class CommandForm extends Form

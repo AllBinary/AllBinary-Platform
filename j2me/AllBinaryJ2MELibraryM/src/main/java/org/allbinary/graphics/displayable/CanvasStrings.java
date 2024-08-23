@@ -13,6 +13,8 @@
  */
 package org.allbinary.graphics.displayable;
 
+import org.allbinary.util.BasicArrayList;
+
 /**
  *
  * @author User
@@ -35,4 +37,10 @@ public class CanvasStrings {
     public final String SIZE_CHANGED = "sizeChanged";
     
     public final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
+    
+    public final BasicArrayList EMPTY_CHILD_NAME_LIST = new BasicArrayList();
+    
+    public final String ABOUT = "About";
+    public final String OPTIONS = "Options";
+    
 }

@@ -20,34 +20,16 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 
-import org.allbinary.business.advertisement.GameAdStateFactory;
-import org.allbinary.game.GameAdState;
-import org.allbinary.graphics.ResizableListenerHandler;
-import org.allbinary.graphics.form.item.CustomItem;
-import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
-import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-import org.allbinary.graphics.opengles.OpenGLThreadUtil;
-import org.allbinary.util.BasicArrayList;
-
-
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.system.os.OperatingSystemFactory;
-import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
-import org.allbinary.logic.system.security.licensing.LockableFeature;
-import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.IndexedAnimationBehavior;
 import org.allbinary.animation.special.SpecialAnimation;
+import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.CustomGameMenuUtil;
 import org.allbinary.canvas.FullScreenUtil;
 import org.allbinary.canvas.GameStatisticsFactory;
 import org.allbinary.canvas.RunnableCanvas;
+import org.allbinary.game.GameAdState;
 import org.allbinary.game.GameInfo;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
@@ -80,6 +62,7 @@ import org.allbinary.game.score.HighScoresPaintable;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.game.state.GameState;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.ResizableListenerHandler;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.color.BasicColor;
@@ -97,7 +80,11 @@ import org.allbinary.graphics.form.FormTypeFactory;
 import org.allbinary.graphics.form.ScrollSelectionForm;
 import org.allbinary.graphics.form.ScrollSelectionFormNoneFactory;
 import org.allbinary.graphics.form.item.CommandTextItemArrayFactory;
+import org.allbinary.graphics.form.item.CustomItem;
+import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
+import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.graphics.paint.InitUpdatePaintable;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
@@ -105,22 +92,29 @@ import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.graphics.paint.StatePaintable;
 import org.allbinary.graphics.paint.StatePaintableFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
+import org.allbinary.logic.communication.log.ForcedLogUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.system.os.OperatingSystemFactory;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactory;
+import org.allbinary.logic.system.security.licensing.LockableFeature;
+import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
-import org.allbinary.thread.NullRunnable;
 import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
-import org.microemu.app.SWTProcessorUtil;
-import org.microemu.app.SWTRunnableProcessor;
+import org.allbinary.util.BasicArrayList;
 
 public class DemoCanvas extends RunnableCanvas 
         implements GameCanvasRunnableInterface,
@@ -187,7 +181,7 @@ public class DemoCanvas extends RunnableCanvas
         final boolean isContinue)
         throws Exception
     {
-        super(commandListener);
+        super(commandListener, CurrentDisplayableFactory.getInstance().DEFAULT_CHILD_NAME_LIST);
     
         this.abeClientInformation = abeClientInformation;
 
@@ -1019,7 +1013,7 @@ public class DemoCanvas extends RunnableCanvas
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
                 currentDisplayableFactory.setRunnable(demoGameRunnable);
-                currentDisplayableFactory.setDisplayable(this);
+                currentDisplayableFactory.setMyCanvas(this);
                                 
                 //Only needed is not really using a real gamecanvas
                 OpenGLThreadUtil.getInstance().onResume();
@@ -1035,7 +1029,7 @@ public class DemoCanvas extends RunnableCanvas
                 final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
                 
                 currentDisplayableFactory.setRunnable(demoGameRunnable);
-                currentDisplayableFactory.setDisplayable(this);
+                currentDisplayableFactory.setMyCanvas(this);
                 
             }
             else

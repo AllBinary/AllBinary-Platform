@@ -34,6 +34,8 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     public static final Command DISPLAY  = new Command("Help", Command.SCREEN, 1);
     public static final Command CLOSE  = new Command("Close", Command.SCREEN, 1);
 
+    public static final String NAME = "GameInputMappingInstructionsCanvas";
+    
     //Mapping
     protected String TITLE = "Input Instructions";
     
@@ -59,7 +61,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     public GameInputMappingInstructionsCanvas(CommandListener commandListener,
             AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception
     {
-        super(commandListener,
+        super(commandListener, NAME, 
                 allBinaryGameLayerManager.getBackgroundBasicColor(),
             allBinaryGameLayerManager.getForegroundBasicColor());
 

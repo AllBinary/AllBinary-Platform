@@ -14,6 +14,7 @@
 package org.allbinary.game.commands;
 
 import javax.microedition.lcdui.Command;
+import org.allbinary.graphics.displayable.CanvasStrings;
 
 import org.allbinary.logic.string.CommonStrings;
 
@@ -25,7 +26,7 @@ public class GameCommandsFactory
     {
         return instance;
     }
-    
+        
     public final Command TOGGLE_FULLSCREEN  = new Command("Toggle FullScreen", Command.SCREEN, 1);
     public final Command TOGGLE_KEYBOARD  = new Command("Keyboard", Command.SCREEN, 1);
     
@@ -33,12 +34,12 @@ public class GameCommandsFactory
 
     public final Command APPLICATION_UPDATE  = new Command("Update", Command.SCREEN, 1);
 
-    public final Command DISPLAY_ABOUT  = new Command("About", Command.SCREEN, 2);
+    public final Command DISPLAY_ABOUT  = new Command(CanvasStrings.getInstance().ABOUT, Command.SCREEN, 2);
     public final Command OPEN_WEB_URL  = new Command("Open Web URL", Command.SCREEN, 2);
 
     //general commands
     public final Command CLOSE_OPTIONS  = new Command("Back", Command.SCREEN, 1);
-    public final Command DISPLAY_OPTIONS  = new Command("Options", Command.SCREEN, 2);
+    public final Command DISPLAY_OPTIONS  = new Command(CanvasStrings.getInstance().OPTIONS, Command.SCREEN, 2);
 
     public final Command START_TRACE  = new Command("Start Trace", Command.SCREEN, 1);
     public final Command STOP_TRACE  = new Command("Stop Trace", Command.SCREEN, 1);

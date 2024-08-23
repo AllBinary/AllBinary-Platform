@@ -55,7 +55,7 @@ public class CustomTextBox extends GameCommandCanvas
         final Font font, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
         throws Exception
     {
-        super(cmdListener, backgroundBasicColor, foregroundBasicColor);
+        super(cmdListener, label, backgroundBasicColor, foregroundBasicColor);
 
         final StringUtil stringUtil = StringUtil.getInstance();
         

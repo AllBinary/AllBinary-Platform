@@ -37,6 +37,7 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.displayable.RepaintBehavior;
@@ -102,11 +103,12 @@ public class GameCommandCanvas
         Features.getInstance().isFeature(
         InputFeatureFactory.getInstance().SINGLE_KEY_REPEAT_PRESS);
     
-    public GameCommandCanvas(final CommandListener cmdListener, 
+    public GameCommandCanvas(final CommandListener cmdListener, final String name,
             final BasicColor backgroundBasicColor, 
             final BasicColor foregroundBasicColor)
         throws Exception
     {        
+        super(name, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST);
 
         //final GenericOperatingSystem operatingSystem = OperatingSystemFactory.getInstance().getOperatingSystemInstance();
 //        if(operatingSystem.isScalable()) {

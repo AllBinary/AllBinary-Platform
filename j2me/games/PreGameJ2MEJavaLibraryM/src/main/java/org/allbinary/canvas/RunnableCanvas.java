@@ -22,7 +22,10 @@ import org.allbinary.thread.ThreadObjectUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class RunnableCanvas extends MyCanvas 
     implements RunnableInterface
@@ -43,8 +46,10 @@ public class RunnableCanvas extends MyCanvas
     
     protected final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
-    public RunnableCanvas(final CommandListener commandListener, final boolean hasParam)
+    public RunnableCanvas(final CommandListener commandListener, final BasicArrayList childNameList, final boolean hasParam)
     {
+        super(CommonStrings.getInstance().UNKNOWN, childNameList);
+        
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("delay: ").append(this.loopTimeHelper.delay).toString(), this, this.commonStrings.CONSTRUCTOR));
         
         //this.processPaintable = ProcessPaintableSingletonFactory.getInstance();
@@ -58,13 +63,13 @@ public class RunnableCanvas extends MyCanvas
         }
     }
 
-    public RunnableCanvas(final CommandListener commandListener) {
-        this(commandListener, true);
+    public RunnableCanvas(final CommandListener commandListener, final BasicArrayList childNameList) {
+        this(commandListener, childNameList, true);
     }
     
     public RunnableCanvas()
     {   
-        this(null, false);
+        this(null, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST, false);
     }
 
     //Empty method for overriding 

@@ -17,17 +17,17 @@ import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.Anchor;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
 import org.allbinary.graphics.paint.Paintable;
-import org.allbinary.logic.communication.log.PreLogUtil;
 
 //J2MEForJ2ME
 public class AboutPaintable extends Paintable
 {
     private final MyFont myFont = MyFont.getInstance();
     
-    private final String ABOUT = "About";
+    private final String ABOUT = CanvasStrings.getInstance().ABOUT;
     
     private final String[] info;
 

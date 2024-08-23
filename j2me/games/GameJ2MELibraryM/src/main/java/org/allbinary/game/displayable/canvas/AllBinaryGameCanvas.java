@@ -114,6 +114,7 @@ import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.game.score.HighScoresHelperBase;
 import org.allbinary.game.score.NoHighScoresFactory;
 import org.allbinary.game.score.NullHighScoresSingletonFactory;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.GameTickDisplayInfoSingleton;
 import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
@@ -245,7 +246,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             final BasicBuildGameInitializerFactory gameInitializationInterfaceFactoryInterface,
             final boolean buffered) throws Exception
     {
-        super(commandListener);
+        super(commandListener, CanvasStrings.getInstance().EMPTY_CHILD_NAME_LIST);
 
         this.highScoresHelper = highScoresFactoryInterface.createHighScoresHelper();
         this.gameInitializationInterfaceFactoryInterface = gameInitializationInterfaceFactoryInterface;
