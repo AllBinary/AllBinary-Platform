@@ -786,8 +786,13 @@ public class DemoCanvas extends RunnableCanvas
         this.overlayPaintable.update();
     }
 
+    //private final String PROCESS_GAME = "processGame";
     public void process() throws Exception
     {
+        //PreLogUtil.put(commonStrings.START, this, PROCESS_GAME);
+        
+        super.process();
+        
         this.getMenuInputProcessor().processInput();
 
         this.preDemoProcess();

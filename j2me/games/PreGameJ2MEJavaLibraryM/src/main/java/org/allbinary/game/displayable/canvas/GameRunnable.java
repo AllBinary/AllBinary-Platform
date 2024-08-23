@@ -13,10 +13,14 @@
 */
 package org.allbinary.game.displayable.canvas;
 
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
+
 public class GameRunnable implements Runnable
 {
 
     public final int WAIT = 240;
+    public final int FAST = 60;
+    public int wait = WAIT;
     
     public GameRunnable() {
         
@@ -24,11 +28,12 @@ public class GameRunnable implements Runnable
     
     public void run()
     {
+        DisplayInfoSingleton.getInstance().process();
     }
     
     public void processLoopSleep()
     throws Exception
     {
-        Thread.sleep(WAIT);
+        Thread.sleep(wait);
     }
 }
