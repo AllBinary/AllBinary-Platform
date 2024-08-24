@@ -1,12 +1,12 @@
 package org.allbinary.game.displayable.canvas;
 
+import javax.microedition.lcdui.Canvas;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.canvas.BaseGameStatistics;
 import org.allbinary.canvas.GameStatisticsFactory;
-import org.allbinary.graphics.displayable.MyCanvas;
 
-public class NullDisplayable extends MyCanvas
+public class NullDisplayable extends Canvas
 {
     private static final NullDisplayable SINGLETON = new NullDisplayable();
     
