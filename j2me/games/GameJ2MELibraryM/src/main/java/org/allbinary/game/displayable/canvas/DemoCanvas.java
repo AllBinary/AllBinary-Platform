@@ -453,6 +453,8 @@ public class DemoCanvas extends RunnableCanvas
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
     
+    private int lastKeyNotMapped = -1;
+    
     private void addGameKeyEvent(int keyCode, boolean repeated)
     {
         try
@@ -478,7 +480,11 @@ public class DemoCanvas extends RunnableCanvas
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
+                if(lastKeyNotMapped != keyCode) {
+                    lastKeyNotMapped = keyCode;
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
+                }
+                
             }
         }
         catch (Exception e)
