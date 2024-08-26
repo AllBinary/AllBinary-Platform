@@ -37,9 +37,5 @@ public class GLHolder {
     public void run(final Object renderer) {
         
     }
-
-    public void update(Image image) throws Exception {
-        
-    }
     
 }

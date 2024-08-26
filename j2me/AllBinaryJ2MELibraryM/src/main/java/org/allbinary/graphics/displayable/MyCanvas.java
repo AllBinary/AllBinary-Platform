@@ -35,6 +35,7 @@ public class MyCanvas extends Canvas
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
     private final String name;
     private final BasicArrayList childNameList;
@@ -55,7 +56,7 @@ public class MyCanvas extends Canvas
 
         //This should update display info for J2ME Emulator. 
         //It could also be set with basically an event.
-        DisplayInfoSingleton.getInstance().update(this, canvasStrings.CONSTRUCTOR);
+        displayInfoSingleton.update(this, canvasStrings.CONSTRUCTOR);
 
         this.name = name;
         this.childNameList = childNameList;
@@ -71,17 +72,12 @@ public class MyCanvas extends Canvas
 
         //PreLogUtil.put("New W: " + this.getWidth() + " H: " + this.getHeight() +  " m: " + mode + " fs: " + this.isFullScreenMode(), this, "setFullScreenMode");
 
-        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
-
-        displayInfo.update(this, canvasStrings.SET_FULL_SCREEN_MODE);
+        displayInfoSingleton.update(this, canvasStrings.SET_FULL_SCREEN_MODE);
     }
 
     protected void sizeChanged(int w, int h)
     {
-        final DisplayInfoSingleton displayInfo =
-            DisplayInfoSingleton.getInstance();
-
-        displayInfo.update(this, canvasStrings.SIZE_CHANGED);
+        displayInfoSingleton.update(this, canvasStrings.SIZE_CHANGED);
     }
     
     public Stack getCommandStack()
@@ -161,7 +157,7 @@ public class MyCanvas extends Canvas
 
     protected void process() throws Exception
     {
-        DisplayInfoSingleton.getInstance().process();
+        displayInfoSingleton.process();
     }
     
     //public void draw(gl)
@@ -176,7 +172,7 @@ public class MyCanvas extends Canvas
     protected void paint(Graphics graphics)
     {
         //baseGameStatistics.nextRefresh();
-        //DisplayInfoSingleton.getInstance().update(this);
+        //displayInfoSingleton.update(this);
     }
 
     public boolean hasChild(MyCanvas displayable) {

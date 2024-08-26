@@ -1,21 +1,20 @@
 package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
+
 import org.allbinary.device.LoadTextures;
-
 import org.allbinary.device.OpenGLESGraphics;
-import org.allbinary.image.ChoiceGroupImageUtil;
-import org.allbinary.image.opengles.OpenGLImageCache;
-import org.allbinary.image.opengles.OpenGLImageCacheFactory;
-
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.image.opengles.OpenGLESImage;
-import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.image.opengles.OpenGLImageCache;
+import org.allbinary.image.opengles.OpenGLImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class OpenGLUtil
 {
@@ -26,6 +25,8 @@ public class OpenGLUtil
         return instance;
     }
 
+    public final BasicArrayList list = new BasicArrayList();
+    
     public void onSurfaceCreated(final GL10 gl, final LoadTextures loadTextures)
     {
         try
@@ -80,5 +81,15 @@ public class OpenGLUtil
 //        choiceGroupImageUtil.update(graphics);
 
         ((OpenGLImageCache) OpenGLImageCacheFactory.getInstance()).update(gl);
+        
+        final int size = this.list.size();
+        Object image;
+        for(int index = 0; index < size; index++) {
+            image = this.list.get(index);
+            ((OpenGLESImage) image).set(gl);
+        }
+        
+        this.list.clear();
+
     }
 }
