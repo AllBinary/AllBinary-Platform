@@ -13,10 +13,15 @@
  */
 package org.allbinary.platform.graphics;
 
+import javax.microedition.lcdui.Image;
+
 /**
  *
  * @author User
  */
 public class PlatformBitmapBase {
     
+    public Image getImage() {
+        return null;
+    }
 }

@@ -18,6 +18,10 @@ public class OpenGLBitmap extends PlatformBitmapBase {
         this.image = (Image) bitmap;
     }
 
+    public Image getImage() {
+        return image;
+    }
+
     public int getDepth() {
         if(this.image.isMutable()) {
             final SwtMutableImage mutableImage = (SwtMutableImage) this.image;

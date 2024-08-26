@@ -13,6 +13,8 @@
  */
 package org.allbinary.graphics.threed;
 
+import javax.microedition.lcdui.Image;
+
 /**
  *
  * @author User
@@ -36,4 +38,8 @@ public class GLHolder {
         
     }
 
+    public void update(Image image) throws Exception {
+        
+    }
+    
 }
