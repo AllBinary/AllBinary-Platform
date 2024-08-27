@@ -1,12 +1,14 @@
 package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Image;
 
 import org.allbinary.device.LoadTextures;
 import org.allbinary.device.OpenGLESGraphics;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.graphics.opengles.renderer.RendererStrings;
+import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLImageCache;
 import org.allbinary.image.opengles.OpenGLImageCacheFactory;
@@ -30,7 +32,9 @@ public class OpenGLUtil
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final RendererStrings renderStrings = RendererStrings.getInstance();
-    
+
+    private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
+
     public final BasicArrayList threadNameList = new BasicArrayList();
     public final BasicArrayList listOfList = new BasicArrayList();
     
@@ -112,4 +116,37 @@ public class OpenGLUtil
         }
 
     }
+    
+    public Image add(final Image image) {
+        final Image encapsulateImage = preResourceImageUtil.encapsulate(image);
+        if(encapsulateImage != image) {
+            final String threadName = Thread.currentThread().getName();
+            final int index = this.threadNameList.indexOf(threadName);
+            BasicArrayList list;
+            if(index >= 0) {
+                list = (BasicArrayList) this.listOfList.get(index);
+            } else {
+                list = new BasicArrayList();
+                this.listOfList.add(list);
+                this.threadNameList.add(threadName);
+            }
+            list.add(encapsulateImage);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("onSurfaceChanged add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(Thread.currentThread().getName()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+            return encapsulateImage;
+        }
+        
+        return image;
+    }
+    
+    public void clear() {
+        final String threadName = Thread.currentThread().getName();
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("clear: ").append(threadName).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+        final int index = this.threadNameList.indexOf(threadName);
+        BasicArrayList list;
+        if (index >= 0) {
+            list = (BasicArrayList) this.listOfList.get(index);
+            list.clear();
+        }
+    }
+    
 }
