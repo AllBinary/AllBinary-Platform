@@ -17,7 +17,7 @@ import org.allbinary.thread.ThreadPool;
 
 public class SoundThreadPool
 {
-    private static final ThreadPool instance = new ThreadPool(1);
+    private static final ThreadPool instance = new ThreadPool("Sound", 1);
 
     public static ThreadPool getInstance()
     {

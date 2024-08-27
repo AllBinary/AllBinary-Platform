@@ -125,7 +125,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          */
     }
 
-    public void fireEvent(AllBinaryEventObject eventObject)
+    public void fireEvent(final AllBinaryEventObject eventObject)
         throws Exception
     {
         /*
@@ -153,11 +153,12 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         // Enumeration enumeration =
         // this.eventListenerInterfaceVector.elements();
         // while(enumeration.hasMoreElements())
+        EventListenerInterface eventListenerInterface;
         for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
+                eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
                     this.eventListenerInterfaceList.get(index);
                 this.process(eventObject, eventListenerInterface);
             }
@@ -169,8 +170,8 @@ public class BasicEventHandler implements BasicEventHandlerInterface
 
     }
 
-    protected void process(AllBinaryEventObject eventObject,
-        EventListenerInterface eventListenerInterface) throws Exception
+    protected void process(final AllBinaryEventObject eventObject,
+        final EventListenerInterface eventListenerInterface) throws Exception
     {
         // BasicEventListenerInterface basicEventListenerInterface =
         // (BasicEventListenerInterface) eventListenerInterface;
@@ -194,11 +195,12 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         stringBuffer.append(TOTAL_LISTENERS);
         stringBuffer.append(this.eventListenerInterfaceList.size());
 
+        EventListenerInterface eventListenerInterface;
         for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
+                eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
                     this.eventListenerInterfaceList.get(index);
 
                 stringBuffer.append(LISTENER_LABEL);

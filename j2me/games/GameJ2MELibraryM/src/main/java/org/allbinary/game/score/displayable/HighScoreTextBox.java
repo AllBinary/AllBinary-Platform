@@ -16,8 +16,8 @@ package org.allbinary.game.score.displayable;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.TextField;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.PostGameCommandFactory;
 
+import org.allbinary.PostGameCommandFactory;
 import org.allbinary.game.GameInfo;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.os.GenericOperatingSystem;

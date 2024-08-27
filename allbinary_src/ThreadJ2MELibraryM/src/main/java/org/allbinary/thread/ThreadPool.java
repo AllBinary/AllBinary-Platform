@@ -23,10 +23,9 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class ThreadPool
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
 
-    protected final String ADD_TASK = "addTask";
-    protected final String START_TASK = "Started Task: ";
-    protected final String COMPLETE_TASK = "Completed Task: ";
+    private final String poolName;
     
     private boolean isAlive;
     private BasicArrayList taskQueue;
@@ -34,8 +33,9 @@ public class ThreadPool
     private int numThreads;
     //private static int threadPoolID;
 
-    public ThreadPool(int numThreads)
+    public ThreadPool(final String poolName, final int numThreads)
     {
+        this.poolName = poolName;
         this.numThreads = numThreads;
     }
 
@@ -164,7 +164,7 @@ public class ThreadPool
         public PooledThread()
         {
             //super(ThreadPool.this, 
-            super(new StringMaker().append(ThreadPool.this.toString()).append(ROOT_NAME).append(threadID++).toString());
+            super(new StringMaker().append(poolName).append(ROOT_NAME).append(threadID++).toString());
             LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
         }
 

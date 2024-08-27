@@ -26,33 +26,32 @@ public class MusicThreadPool extends ThreadPool
 {
 
     //Watch out for the Android/J2ME thread limit
-    private static final ThreadPool THREAD_POOL = new ThreadPool(2);
+    private static final ThreadPool THREAD_POOL = new ThreadPool("Music", 2);
 
     public static ThreadPool getInstance()
     {
         return THREAD_POOL;
     }
 
-    public MusicThreadPool(int total)
-    {
-        super(total);
+    public MusicThreadPool(final String poolName, final int numThreads) {
+        super(poolName, numThreads);
     }
-
+    
     public synchronized void runTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, ADD_TASK));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK));
 
         super.runTask(task);
     }
 
     protected void startTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.START_TASK).append(task).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
     }
 
     protected void completedTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(task).append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
     }
 
 }

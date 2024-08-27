@@ -27,6 +27,7 @@ import org.allbinary.logic.system.os.GenericOperatingSystem;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
+import org.allbinary.graphics.displayable.event.LastDisplayChangeEventHandler;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
@@ -255,6 +256,7 @@ public class DisplayInfoSingleton
         {
             if(list.size() > 0) {
                 DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
+                LastDisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
             }
             list.clear();
         }catch(Exception e)

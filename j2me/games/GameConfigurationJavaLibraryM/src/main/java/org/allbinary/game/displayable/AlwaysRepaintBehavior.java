@@ -15,6 +15,7 @@ package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Canvas;
 
+import org.allbinary.game.displayable.RepaintBehavior;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -23,37 +24,34 @@ import org.allbinary.logic.string.CommonStrings;
  *
  * @author User
  */
-public class RepaintBehavior {
-
-    private static final RepaintBehavior instance = new RepaintBehavior();
+public class AlwaysRepaintBehavior extends RepaintBehavior {
+    
+    private static final AlwaysRepaintBehavior instance = new AlwaysRepaintBehavior();
 
     /**
      * @return the instance
      */
-    public static RepaintBehavior getInstance() {
+    public static AlwaysRepaintBehavior getInstance() {
         return instance;
     }
-
+    
     public void repaint(final Canvas canvas) {
-
-    }
-
-    public void onChangeRepaint(final Canvas canvas) {
-
-        final String NAME = "RepaintBehavior";
+        final String NAME = "AlwaysRepaintBehavior";
         final Thread thread = new Thread(new Runnable() {
             public void run() {
                 try {
-                    //System.out.println("TWB:RepaintBehavior:repaint");
+                    //System.out.println("TWB:AlwaysRepaintBehavior:repaint");
                     canvas.repaint();
                     DisplayInfoSingleton.getInstance().process();
-                } catch (Exception e) {
+                } catch(Exception e) {
                     LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
                 }
             }
         }, NAME);
         thread.start();
-
     }
-
+    
+    public void onChangeRepaint(final Canvas canvas) {
+        
+    }
 }

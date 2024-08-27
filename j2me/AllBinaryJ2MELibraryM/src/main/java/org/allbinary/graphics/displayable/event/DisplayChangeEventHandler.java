@@ -19,22 +19,20 @@ import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class DisplayChangeEventHandler extends BasicEventHandler
 {
-	   private static final DisplayChangeEventHandler SINGLETON = new DisplayChangeEventHandler();
-	   
-	   public static DisplayChangeEventHandler getInstance()
-	   {
-	      return SINGLETON;
-	   }
+    private static final DisplayChangeEventHandler SINGLETON = new DisplayChangeEventHandler();
 
-	   private DisplayChangeEventHandler()
-	   {
-	   }
-   
-   protected void process(AllBinaryEventObject eventObject,
-           EventListenerInterface eventListenerInterface) throws Exception {
+    public static DisplayChangeEventHandler getInstance() {
+        return SINGLETON;
+    }
+    
+    private DisplayChangeEventHandler() {
+    }
+    
+    
+    protected void process(final AllBinaryEventObject eventObject,
+        final EventListenerInterface eventListenerInterface) throws Exception {
 
-      ((DisplayChangeEventListener) eventListenerInterface).onDisplayChangeEvent(
-              (DisplayChangeEvent) eventObject);
-   }
-   
+        ((DisplayChangeEventListener) eventListenerInterface).onDisplayChangeEvent((DisplayChangeEvent) eventObject);
+    }
+
 }

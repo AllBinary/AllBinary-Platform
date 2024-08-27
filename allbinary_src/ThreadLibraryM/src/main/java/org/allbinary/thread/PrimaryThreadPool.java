@@ -27,21 +27,20 @@ public class PrimaryThreadPool extends ThreadPool
 {
 
     //Watch out for the Android/J2ME thread limit
-    private static final ThreadPool THREAD_POOL = new ThreadPool(1);
+    private static final ThreadPool THREAD_POOL = new ThreadPool("Primary", 1);
 
     public static ThreadPool getInstance()
     {
         return THREAD_POOL;
     }
 
-    public PrimaryThreadPool(int total)
-    {
-        super(total);
+    public PrimaryThreadPool(final String poolName, final int numThreads) {
+        super(poolName, numThreads);
     }
 
     public synchronized void runTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, ADD_TASK));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(task).append(System.currentTimeMillis()).toString(), this, this.threadPoolStrings.ADD_TASK));
 
         super.runTask(task);
     }
