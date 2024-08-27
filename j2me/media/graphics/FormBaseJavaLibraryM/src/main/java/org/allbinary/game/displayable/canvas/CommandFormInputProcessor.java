@@ -22,6 +22,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.commands.GameCommandsFactory;
+import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
@@ -30,6 +31,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.form.CommandCurrentSelectionForm;
 import org.allbinary.graphics.form.ScrollSelectionForm;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
@@ -103,7 +105,14 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       //"Command: "
       LogUtil.put(LogFactory.getInstance(command.toString(), this, PROCESS_COMMAND));
 
-      PrimaryThreadPool.getInstance().runTask(new CommandRunnable(this, command));
+      final Features features = Features.getInstance();
+      final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        
+      if(features.isFeature(openGLFeatureFactory.OPENGL)) {
+          new CommandRunnable(this, command).run();
+      } else {
+          PrimaryThreadPool.getInstance().runTask(new CommandRunnable(this, command));
+      }
 
       if (command == GameCommandsFactory.getInstance().QUIT_COMMAND)
       {

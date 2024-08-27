@@ -64,7 +64,7 @@ public class DefaultGameInitializationListener
             
             FeatureResourceInitializationUtil.getInstance().init(gameInitializedEvent.getLevel());
             
-            swtJOGLProcessor.onSurfaceChanged();
+            //swtJOGLProcessor.onSurfaceChanged();
             
             if(firstTime) {
                 firstTime = false;

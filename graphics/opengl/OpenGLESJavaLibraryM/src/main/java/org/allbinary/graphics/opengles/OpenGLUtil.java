@@ -6,6 +6,7 @@ import org.allbinary.device.LoadTextures;
 import org.allbinary.device.OpenGLESGraphics;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.graphics.opengles.renderer.RendererStrings;
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.image.opengles.OpenGLImageCache;
 import org.allbinary.image.opengles.OpenGLImageCacheFactory;
@@ -13,7 +14,9 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
 public class OpenGLUtil
@@ -25,7 +28,11 @@ public class OpenGLUtil
         return instance;
     }
 
-    public final BasicArrayList list = new BasicArrayList();
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final RendererStrings renderStrings = RendererStrings.getInstance();
+    
+    public final BasicArrayList threadNameList = new BasicArrayList();
+    public final BasicArrayList listOfList = new BasicArrayList();
     
     public void onSurfaceCreated(final GL10 gl, final LoadTextures loadTextures)
     {
@@ -45,7 +52,7 @@ public class OpenGLUtil
 
             //gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
             
-            PreLogUtil.put(CommonLabels.getInstance().START_LABEL + OpenGLCapabilities.getInstance().toString(), this, "onSurfaceCreated");
+            PreLogUtil.put(CommonLabels.getInstance().START_LABEL + OpenGLCapabilities.getInstance().toString(), this, this.renderStrings.ON_SURFACE_CREATED);
 
             // gl.glMatrixMode(GL10.GL_MODELVIEW);
 
@@ -55,7 +62,7 @@ public class OpenGLUtil
             
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onSurfaceCreated", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e));
         }
     }
 
@@ -82,14 +89,27 @@ public class OpenGLUtil
 
         ((OpenGLImageCache) OpenGLImageCacheFactory.getInstance()).update(gl);
         
-        final int size = this.list.size();
-        Object image;
-        for(int index = 0; index < size; index++) {
-            image = this.list.get(index);
-            ((OpenGLESImage) image).set(gl);
-        }
         
-        this.list.clear();
+        Object image;
+        final int size = this.threadNameList.size();
+//        final String threadName = Thread.currentThread().getName();
+//        final StringMaker stringMaker = new StringMaker();
+//        LogUtil.put(LogFactory.getInstance(stringMaker.append("size: ").append(size).append(threadName).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+
+//        final String IMAGE = "image: ";
+//        final String THREAD = "thread: ";
+        for(int index = 0; index < size; index++) {
+//            stringMaker.delete(0, stringMaker.length());
+//            LogUtil.put(LogFactory.getInstance(stringMaker.append(THREAD).append(this.threadNameList.get(index)).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+            final BasicArrayList list = (BasicArrayList) this.listOfList.get(index);
+            final int size2 = list.size();
+            for(int index2 = 0; index2 < size2; index2++) {
+                image = list.get(index2);
+//                stringMaker.delete(0, stringMaker.length());
+//                LogUtil.put(LogFactory.getInstance(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(threadName).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+                ((OpenGLESImage) image).set(gl);
+            }
+        }
 
     }
 }

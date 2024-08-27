@@ -28,16 +28,15 @@ import org.allbinary.logic.communication.log.PreLogUtil;
  */
 public class EmulatorCustomRenderer //extends CustomRenderer
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final RendererStrings renderStrings = RendererStrings.getInstance();
     
     //Wait until emulator is initialized
     public void onSurfaceCreated(final GL10 gl, final EGLConfig eglConfig)
     {        
-    	final String METHOD_NAME = "onSurfaceCreated";
-    	
-    	LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, METHOD_NAME));
+    	LogUtil.put(LogFactory.getInstance(commonStrings.START, this, this.renderStrings.ON_SURFACE_CREATED));
 
-        InitEmulatorFactory initEmulatorFactory = InitEmulatorFactory.getInstance();
+        final InitEmulatorFactory initEmulatorFactory = InitEmulatorFactory.getInstance();
         
         if(!initEmulatorFactory.isInitEmulator())
         {
@@ -48,12 +47,12 @@ public class EmulatorCustomRenderer //extends CustomRenderer
                 while(!initEmulatorFactory.isInitEmulator())
                 {
                     //LogUtil.put(LogFactory.getInstance(WAIT_FOR_EMULATOR, this, METHOD_NAME));
-                    PreLogUtil.put(WAIT_FOR_EMULATOR, this, METHOD_NAME);
+                    PreLogUtil.put(WAIT_FOR_EMULATOR, this, this.renderStrings.ON_SURFACE_CREATED);
                     Thread.sleep(180);
                 }
             } catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e));
             }
         }
         

@@ -79,5 +79,9 @@ public class SWTJOGLProcessor implements Runnable {
     public void run() {
                 
     }
+
+    public void clear() {
+        
+    }
     
 }

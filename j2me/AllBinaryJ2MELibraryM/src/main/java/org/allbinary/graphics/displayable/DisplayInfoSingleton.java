@@ -28,6 +28,7 @@ import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.LastDisplayChangeEventHandler;
+import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
@@ -255,8 +256,11 @@ public class DisplayInfoSingleton
         try
         {
             if(list.size() > 0) {
+                final SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
+                swtJOGLProcessor.clear();
                 DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
                 LastDisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
+                swtJOGLProcessor.onSurfaceChanged();
             }
             list.clear();
         }catch(Exception e)
