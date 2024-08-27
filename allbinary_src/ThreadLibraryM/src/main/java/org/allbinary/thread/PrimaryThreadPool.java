@@ -45,17 +45,14 @@ public class PrimaryThreadPool extends ThreadPool
         super.runTask(task);
     }
 
-    private final String START_TASK = "Started Task: ";
-    private final String COMPLETE_TASK = "Completed Task: ";
-
     protected void startTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(START_TASK).append(task).toString(), this, this.commonStrings.RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.START_TASK).append(task).toString(), this, this.commonStrings.RUN));
     }
 
     protected void completedTask(Runnable task)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPLETE_TASK).append(task).toString(), this, this.commonStrings.RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.threadPoolStrings.COMPLETE_TASK).append(task).toString(), this, this.commonStrings.RUN));
     }
 
 }
