@@ -15,6 +15,7 @@ package org.allbinary.graphics.opengles.renderer;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
+
 import org.allbinary.emulator.InitEmulatorFactory;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -27,6 +28,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
  */
 public class EmulatorCustomRenderer //extends CustomRenderer
 {
+    protected final RendererStrings renderStrings = RendererStrings.getInstance();
+    
     //Wait until emulator is initialized
     public void onSurfaceCreated(final GL10 gl, final EGLConfig eglConfig)
     {        
