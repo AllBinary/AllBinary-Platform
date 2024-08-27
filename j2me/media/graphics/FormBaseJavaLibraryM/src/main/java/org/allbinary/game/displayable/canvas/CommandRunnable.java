@@ -42,10 +42,9 @@ public class CommandRunnable implements Runnable
       {
          LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
 
-         MyCanvas canvas = this.commandFormInputProcessor.getCanvas();
+         final MyCanvas canvas = this.commandFormInputProcessor.getCanvas();
 
-         CommandListener commandListener =
-                 canvas.getCustomCommandListener();
+         final CommandListener commandListener = canvas.getCustomCommandListener();
 
          commandListener.commandAction(command, canvas);
 
