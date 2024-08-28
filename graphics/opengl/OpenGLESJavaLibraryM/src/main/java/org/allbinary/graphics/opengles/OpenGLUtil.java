@@ -21,12 +21,11 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 
-public class OpenGLUtil
-{
+public class OpenGLUtil {
+
     private static final OpenGLUtil instance = new OpenGLUtil();
 
-    public static OpenGLUtil getInstance()
-    {
+    public static OpenGLUtil getInstance() {
         return instance;
     }
 
@@ -35,47 +34,39 @@ public class OpenGLUtil
 
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
-    public final BasicArrayList threadNameList = new BasicArrayList();
-    public final BasicArrayList listOfList = new BasicArrayList();
+    private final BasicArrayList list = new BasicArrayList();
     
-    public void onSurfaceCreated(final GL10 gl, final LoadTextures loadTextures)
-    {
-        try
-        {
+    public final BasicArrayList runnableList = new BasicArrayList();
+
+    public void onSurfaceCreated(final GL10 gl, final LoadTextures loadTextures) {
+        try {
             //gl.glHint(GL10.GL_FOG_HINT, GL10.GL_FASTEST);
             //gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_FASTEST);
             //gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_FASTEST);
             //gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_FASTEST);
 
             //gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_FASTEST);
-
             //gl.glHint(GL10.GL_FOG_HINT, GL10.GL_NICEST);
             //gl.glHint(GL10.GL_LINE_SMOOTH_HINT, GL10.GL_NICEST);
             //gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_NICEST);
             //gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_NICEST);
-
             //gl.glHint(GL10.GL_PERSPECTIVE_CORRECTION_HINT, GL10.GL_NICEST);
-            
             PreLogUtil.put(CommonLabels.getInstance().START_LABEL + OpenGLCapabilities.getInstance().toString(), this, this.renderStrings.ON_SURFACE_CREATED);
 
             // gl.glMatrixMode(GL10.GL_MODELVIEW);
-
             loadTextures.load(gl);
 
             OpenGLLogUtil.getInstance().logError(gl);
-            
-        } catch (Exception e)
-        {
+
+        } catch (Exception e) {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.renderStrings.ON_SURFACE_CREATED, e));
         }
     }
 
     private boolean surfaceCreatedAndInitialized = false;
-    
-    public void onSurfaceChanged(final GL10 gl, final OpenGLESGraphics graphics) throws Exception
-    {
-        if (!surfaceCreatedAndInitialized)
-        {
+
+    public void onSurfaceChanged(final GL10 gl, final OpenGLESGraphics graphics) throws Exception {
+        if (!surfaceCreatedAndInitialized) {
             graphics.init();
             surfaceCreatedAndInitialized = true;
         }
@@ -86,67 +77,74 @@ public class OpenGLUtil
         final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
         progressCanvas.update(graphics);
-
+        
 //        final ChoiceGroupImageUtil choiceGroupImageUtil = ChoiceGroupImageUtil.getInstance();
 //        choiceGroupImageUtil.init();
 //        choiceGroupImageUtil.update(graphics);
-
         ((OpenGLImageCache) OpenGLImageCacheFactory.getInstance()).update(gl);
-        
-        
-        Object image;
-        final int size = this.threadNameList.size();
-//        final String threadName = Thread.currentThread().getName();
-//        final StringMaker stringMaker = new StringMaker();
-//        LogUtil.put(LogFactory.getInstance(stringMaker.append("size: ").append(size).append(threadName).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
 
-//        final String IMAGE = "image: ";
-//        final String THREAD = "thread: ";
-        for(int index = 0; index < size; index++) {
-//            stringMaker.delete(0, stringMaker.length());
-//            LogUtil.put(LogFactory.getInstance(stringMaker.append(THREAD).append(this.threadNameList.get(index)).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
-            final BasicArrayList list = (BasicArrayList) this.listOfList.get(index);
-            final int size2 = list.size();
-            for(int index2 = 0; index2 < size2; index2++) {
-                image = list.get(index2);
-//                stringMaker.delete(0, stringMaker.length());
-//                LogUtil.put(LogFactory.getInstance(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(threadName).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
-                ((OpenGLESImage) image).set(gl);
-            }
-        }
+        this.processRunnables();
+        this.set(gl);
 
     }
-    
+
     public Image add(final Image image) {
+
         final Image encapsulateImage = preResourceImageUtil.encapsulate(image);
-        if(encapsulateImage != image) {
-            final String threadName = Thread.currentThread().getName();
-            final int index = this.threadNameList.indexOf(threadName);
-            BasicArrayList list;
-            if(index >= 0) {
-                list = (BasicArrayList) this.listOfList.get(index);
-            } else {
-                list = new BasicArrayList();
-                this.listOfList.add(list);
-                this.threadNameList.add(threadName);
-            }
+        if (encapsulateImage != image) {
+
+//            final Thread thread = Thread.currentThread();
+//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("add image ").append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+
             list.add(encapsulateImage);
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("onSurfaceChanged add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(Thread.currentThread().getName()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
             return encapsulateImage;
         }
-        
+
         return image;
     }
-    
+
     public void clear() {
-        final String threadName = Thread.currentThread().getName();
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("clear: ").append(threadName).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
-        final int index = this.threadNameList.indexOf(threadName);
-        BasicArrayList list;
-        if (index >= 0) {
-            list = (BasicArrayList) this.listOfList.get(index);
-            list.clear();
+
+//        final Thread thread = Thread.currentThread();
+//        LogUtil.put(LogFactory.getInstance(new StringMaker().append("clear: ").append(thread.getName()).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+        list.clear();
+    }
+
+    private void processRunnables() {
+        
+        Runnable runnable;
+        final int size = this.runnableList.size();
+        for(int index = 0; index < size; index++) {
+            runnable = (Runnable) this.runnableList.get(index);
+            runnable.run();
         }
+        
+        this.runnableList.clear();
+
+    }
+
+    private void set(GL10 gl) throws Exception {
+        
+        final int size = this.list.size();
+        
+//        final Thread thread = Thread.currentThread();
+//        final StringMaker stringMaker = new StringMaker();
+//        final String THREAD = "thread: ";
+//        stringMaker.delete(0, stringMaker.length());
+//        LogUtil.put(LogFactory.getInstance(stringMaker.append("size: ").append(THREAD).append(size).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+
+//        final String IMAGE = "image: ";
+
+        Object image;
+        for (int index2 = 0; index2 < size; index2++) {
+            image = this.list.get(index2);
+//            stringMaker.delete(0, stringMaker.length());
+//            LogUtil.put(LogFactory.getInstance(stringMaker.append(index2).append(IMAGE).append(image).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
+            ((OpenGLESImage) image).set(gl);
+        }
+
     }
     
 }
