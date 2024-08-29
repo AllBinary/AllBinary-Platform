@@ -242,7 +242,7 @@ public class DisplayInfoSingleton
 
     private final BasicArrayList list = new BasicArrayList();
 
-    private void add(final String reason)
+    public void add(final String reason)
     {
         //PreLogUtil.put("Display Change Event").append(this.toString(), this, commonStrings.UPDATE);
         final StringMaker stringMaker = new StringMaker();

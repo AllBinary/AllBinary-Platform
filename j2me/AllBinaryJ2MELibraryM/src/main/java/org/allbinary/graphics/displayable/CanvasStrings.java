@@ -35,6 +35,7 @@ public class CanvasStrings {
     public final String UN_PAUSE = "MyCanvas::unPause";
     public final String SET_FULL_SCREEN_MODE = "setFullScreenMode";
     public final String SIZE_CHANGED = "sizeChanged";
+    public final String SCALED_IMAGES = "scaledImages";
     
     public final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
     

@@ -7,6 +7,8 @@ import org.allbinary.device.LoadTextures;
 import org.allbinary.device.OpenGLESGraphics;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.graphics.displayable.CanvasStrings;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.opengles.renderer.RendererStrings;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
@@ -16,7 +18,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
@@ -31,6 +32,8 @@ public class OpenGLUtil {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final RendererStrings renderStrings = RendererStrings.getInstance();
+    protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
@@ -112,20 +115,36 @@ public class OpenGLUtil {
         list.clear();
     }
 
+    private Object lockObject = new Object();
     public void add(final Runnable runnable) {
-        this.runnableList.add(runnable);
+        
+        synchronized (lockObject) {
+            
+            //LogUtil.put(LogFactory.getInstance("try to add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+            if(!this.runnableList.contains(runnable)) {
+                //LogUtil.put(LogFactory.getInstance("add", this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+                this.runnableList.add(runnable);
+                displayInfoSingleton.add(this.canvasStrings.SCALED_IMAGES);
+            }
+        }
+        
     }
 
     private void processRunnables() {
         
-        Runnable runnable;
-        final int size = this.runnableList.size();
-        for(int index = 0; index < size; index++) {
-            runnable = (Runnable) this.runnableList.get(index);
-            runnable.run();
+        synchronized (lockObject) {
+            
+            Runnable runnable;
+            final int size = this.runnableList.size();
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("size: ").append(size).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
+            for (int index = 0; index < size; index++) {
+                runnable = (Runnable) this.runnableList.get(index);
+                runnable.run();
+            }
+
+            this.runnableList.clear();
+
         }
-        
-        this.runnableList.clear();
 
     }
 

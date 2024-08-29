@@ -14,8 +14,10 @@
 package org.allbinary.graphics.displayable;
 
 import javax.microedition.lcdui.Canvas;
+import org.allbinary.game.configuration.feature.Features;
 
 import org.allbinary.game.displayable.RepaintBehavior;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -35,20 +37,29 @@ public class AlwaysRepaintBehavior extends RepaintBehavior {
         return instance;
     }
     
+    private final String NAME = "AlwaysRepaintBehavior";
     public void repaint(final Canvas canvas) {
-        final String NAME = "AlwaysRepaintBehavior";
-        final Thread thread = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    //System.out.println("TWB:AlwaysRepaintBehavior:repaint");
-                    canvas.repaint();
-                    DisplayInfoSingleton.getInstance().process();
-                } catch(Exception e) {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+        
+        final Features features = Features.getInstance();
+        final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
+        
+        if(features.isFeature(openGLFeatureFactory.OPENGL)) {
+            DisplayInfoSingleton.getInstance().process();
+        } else {
+            final Thread thread = new Thread(new Runnable() {
+                public void run() {
+                    try {
+                        //System.out.println("TWB:AlwaysRepaintBehavior:repaint");
+                        canvas.repaint();
+                        DisplayInfoSingleton.getInstance().process();
+                    } catch (Exception e) {
+                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    }
                 }
-            }
-        }, NAME);
-        thread.start();
+            }, NAME);
+            thread.start();
+        }
+        
     }
     
     public void onChangeRepaint(final Canvas canvas) {
