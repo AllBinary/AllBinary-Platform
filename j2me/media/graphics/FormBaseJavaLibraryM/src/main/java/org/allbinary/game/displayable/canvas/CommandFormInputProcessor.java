@@ -27,6 +27,7 @@ import org.allbinary.game.configuration.feature.InputFeatureFactory;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
+import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.graphics.form.CommandCurrentSelectionForm;
@@ -35,7 +36,6 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
-import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.thread.PrimaryThreadPool;
@@ -108,7 +108,7 @@ public class CommandFormInputProcessor extends BasicMenuInputProcessor
       final Features features = Features.getInstance();
       final OpenGLFeatureFactory openGLFeatureFactory = OpenGLFeatureFactory.getInstance();
         
-      if(features.isFeature(openGLFeatureFactory.OPENGL)) {
+      if(SWTUtil.isSWT && features.isFeature(openGLFeatureFactory.OPENGL) && command != GameCommandsFactory.getInstance().EXIT_COMMAND) {
           new CommandRunnable(this, command).run();
       } else {
           PrimaryThreadPool.getInstance().runTask(new CommandRunnable(this, command));
