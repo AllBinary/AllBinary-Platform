@@ -144,7 +144,7 @@ public class GameCommandCanvas
 
             this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
             
-            this.repaintBehavior.onChangeRepaint(this);
+            //this.repaintBehavior.onChangeRepaint(this);
 
         }
         catch(Exception e)

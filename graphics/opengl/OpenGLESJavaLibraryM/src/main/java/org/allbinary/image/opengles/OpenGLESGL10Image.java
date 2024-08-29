@@ -20,18 +20,16 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
-import org.allbinary.graphics.SpacialStrings;
 
-import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.opengles.GLUtil;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
 public class OpenGLESGL10Image extends OpenGLESImage
 {
+    private final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
     private final GLUtil glUtil = GLUtil.getInstance();
     
     private final FloatBuffer textureVertexFloatBuffer = 
@@ -51,7 +49,235 @@ public class OpenGLESGL10Image extends OpenGLESImage
         //FloatBuffer.wrap(regionTextureRectangleFloatArray);
         ByteBuffer.allocateDirect(4 * 4 * 2).order(
           ByteOrder.nativeOrder()).asFloatBuffer();
-    
+
+    private final OpenGLESImageDraw realOpenGLESImageDraw = new OpenGLESImageDraw() {
+
+        public void drawRegion(final GL10 gl, final int viewHeight,
+            final float x_src, final float y_src,
+            final float width, final float height,
+            final int x, final int y, final int z) {
+            //PreLogUtil.put(this.commonStrings.START + "Texture", this, "drawRegion");
+
+            regionRectangleFloatArray[0] = x;
+            regionRectangleFloatArray[7] = viewHeight - y;
+            regionRectangleFloatArray[1] = regionRectangleFloatArray[7] - height;
+
+            regionRectangleFloatArray[3] = x + width;
+            regionRectangleFloatArray[4] = regionRectangleFloatArray[1];
+
+            regionRectangleFloatArray[6] = x;
+
+            regionRectangleFloatArray[9] = regionRectangleFloatArray[3];
+            regionRectangleFloatArray[10] = regionRectangleFloatArray[7];
+
+            /*
+        regionRectangleVertexFloatBuffer.put(0, x);
+        regionRectangleVertexFloatBuffer.put(7, viewHeight - y);
+        regionRectangleVertexFloatBuffer.put(1, regionRectangleVertexFloatBuffer.get(7) - height);
+
+        regionRectangleVertexFloatBuffer.put(3, x + width);
+        regionRectangleVertexFloatBuffer.put(4, regionRectangleVertexFloatBuffer.get(1));
+
+        regionRectangleVertexFloatBuffer.put(6, x);
+        //
+        //glUtil.position(regionRectangleVertexFloatBuffer, 7);
+        //regionRectangleVertexFloatBuffer.put(regionRectangleVertexFloatBuffer.get(7));
+
+        regionRectangleVertexFloatBuffer.put(9, regionRectangleVertexFloatBuffer.get(3));
+        regionRectangleVertexFloatBuffer.put(10, regionRectangleVertexFloatBuffer.get(7));
+             */
+ /*
+        vertexArray[0] = x;
+        vertexArray[7] = viewHeight - y;
+        vertexArray[1] = vertexArray[7] - height;
+
+        vertexArray[3] = x + width;
+        vertexArray[4] = vertexArray[1];
+
+        vertexArray[6] = x;
+        //
+
+        vertexArray[9] = vertexArray[3];
+        vertexArray[10] = vertexArray[7];
+
+        regionRectangleVertexFloatBuffer.put(vertexArray);
+             */
+ /*
+        int aY = viewHeight - y;
+        float y2 = aY - height;
+        float x2 = x + width;
+        
+        regionRectangleVertexFloatBuffer.put(x);
+        regionRectangleVertexFloatBuffer.put(y2);
+        regionRectangleVertexFloatBuffer.put(0.0f);
+
+        regionRectangleVertexFloatBuffer.put(x2);
+        regionRectangleVertexFloatBuffer.put(y2);
+        regionRectangleVertexFloatBuffer.put(0.0f);
+
+        regionRectangleVertexFloatBuffer.put(x);
+        regionRectangleVertexFloatBuffer.put(aY);
+        regionRectangleVertexFloatBuffer.put(0.0f);
+        
+        regionRectangleVertexFloatBuffer.put(x2);
+        regionRectangleVertexFloatBuffer.put(aY);
+        regionRectangleVertexFloatBuffer.put(0.0f);
+             */
+            //regionRectangleVertexFloatBuffer.rewind();
+
+            /*
+        regionTextureVertexFloatBuffer.put(0, x_src / getWidth());
+        regionTextureVertexFloatBuffer.put(1, ((float) (y_src + height)) / getHeight());
+
+        regionTextureVertexFloatBuffer.put(2, ((float) (x_src + width)) / getWidth());
+        regionTextureVertexFloatBuffer.put(3, regionTextureVertexFloatBuffer.get(1));
+
+        regionTextureVertexFloatBuffer.put(4, regionTextureVertexFloatBuffer.get(0));
+        regionTextureVertexFloatBuffer.put(5, y_src / getHeight());
+
+        regionTextureVertexFloatBuffer.put(6, regionTextureVertexFloatBuffer.get(2));
+        regionTextureVertexFloatBuffer.put(7, regionTextureVertexFloatBuffer.get(5));
+             */
+            //regionTextureVertexFloatBuffer.rewind();
+            regionTextureRectangleFloatArray[0] = x_src / getWidth();
+            regionTextureRectangleFloatArray[1] = ((y_src + height)) / getHeight();
+
+            regionTextureRectangleFloatArray[2] = ((x_src + width)) / getWidth();
+            regionTextureRectangleFloatArray[3] = regionTextureRectangleFloatArray[1];
+
+            regionTextureRectangleFloatArray[4] = regionTextureRectangleFloatArray[0];
+            regionTextureRectangleFloatArray[5] = y_src / getHeight();
+
+            regionTextureRectangleFloatArray[6] = regionTextureRectangleFloatArray[2];
+            regionTextureRectangleFloatArray[7] = regionTextureRectangleFloatArray[5];
+
+            //textureVertexFloatBuffer.put(textureArray);
+
+            /*
+        float textureX1 = x_src / getWidth();
+        float textureY1 = y_src / getHeight();
+        float textureY2 = ((float) (y_src + height)) / getHeight();
+        float textureX2 = ((float) (x_src + width)) / getWidth();
+        
+        textureVertexFloatBuffer.put(textureX1);
+        textureVertexFloatBuffer.put(textureY2);
+
+        textureVertexFloatBuffer.put(textureX2);
+        textureVertexFloatBuffer.put(textureY2);
+
+        textureVertexFloatBuffer.put(textureX1);
+        textureVertexFloatBuffer.put(textureY1);
+
+        textureVertexFloatBuffer.put(textureX2);
+        textureVertexFloatBuffer.put(textureY1);
+             */
+            regionRectangleVertexFloatBuffer.put(regionRectangleFloatArray);
+            glUtil.position(regionRectangleVertexFloatBuffer, 0);
+            gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
+            gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+
+            gl.glEnable(GL10.GL_TEXTURE_2D);
+
+            gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+
+            gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+
+            regionTextureVertexFloatBuffer.put(regionTextureRectangleFloatArray);
+            glUtil.position(regionTextureVertexFloatBuffer, 0);
+            gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, regionTextureVertexFloatBuffer);
+
+            // GLUtils.texSubImage2D(GL10.GL_TEXTURE_2D, 0, x_src, y_src,
+            // getBitmap());
+            // gl.glTexSubImage2D(GL10.GL_TEXTURE_2D, 0,
+            // x_src, y_src, width, height,
+            // GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, pixels);
+            // ((GL11Ext) gl).glDrawTexiOES(x, a - y, z, width, height);
+            gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
+
+            gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+            gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+
+            gl.glDisable(GL10.GL_TEXTURE_2D);
+        }
+
+        public void draw(final GL10 gl, final int x, final int y, final int z) {
+            //PreLogUtil.put(commonStrings.START + "Texture", this, "draw");
+
+            regionRectangleFloatArray[0] = x;
+            regionRectangleFloatArray[7] = displayInfoSingleton.getLastHeight() - y;
+            regionRectangleFloatArray[1] = regionRectangleFloatArray[7] - getHeight();
+
+            regionRectangleFloatArray[3] = x + getWidth();
+            regionRectangleFloatArray[4] = regionRectangleFloatArray[1];
+
+            regionRectangleFloatArray[6] = x;
+            //glUtil.position(regionRectangleVertexFloatBuffer, 7);
+            //regionRectangleVertexFloatBuffer.put(regionRectangleVertexFloatBuffer.get(7));
+
+            regionRectangleFloatArray[9] = regionRectangleFloatArray[3];
+            regionRectangleFloatArray[10] = regionRectangleFloatArray[7];
+
+            /*
+        regionRectangleVertexFloatBuffer.put(0, x);
+        regionRectangleVertexFloatBuffer.put(7, DisplayInfoSingleton.getInstance().getLastHeight() - y);
+        regionRectangleVertexFloatBuffer.put(1, regionRectangleVertexFloatBuffer.get(7) - getHeight());
+
+        regionRectangleVertexFloatBuffer.put(3, x + getWidth());
+        regionRectangleVertexFloatBuffer.put(4, regionRectangleVertexFloatBuffer.get(1));
+
+        regionRectangleVertexFloatBuffer.put(6, x);
+        //
+        //glUtil.position(regionRectangleVertexFloatBuffer, 7);
+        //regionRectangleVertexFloatBuffer.put(regionRectangleVertexFloatBuffer.get(7));
+
+        regionRectangleVertexFloatBuffer.put(9, regionRectangleVertexFloatBuffer.get(3));
+        regionRectangleVertexFloatBuffer.put(10, regionRectangleVertexFloatBuffer.get(7));
+             */
+
+        /*
+        vertexArray[0] = x;
+        vertexArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
+        vertexArray[1] = vertexArray[7] - getHeight();
+
+        vertexArray[3] = x + getWidth();
+        vertexArray[4] = vertexArray[1];
+
+        vertexArray[6] = x;
+        //
+
+        vertexArray[9] = vertexArray[3];
+        vertexArray[10] = vertexArray[7];
+
+        regionRectangleVertexFloatBuffer.put(vertexArray);
+             */
+            //regionRectangleVertexFloatBuffer.rewind();
+            //textureVertexFloatBuffer.rewind();
+            regionRectangleVertexFloatBuffer.put(regionRectangleFloatArray);
+            glUtil.position(regionRectangleVertexFloatBuffer, 0);
+            gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
+            gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
+
+            gl.glEnable(GL10.GL_TEXTURE_2D);
+
+            gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+
+            gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+
+            glUtil.position(textureVertexFloatBuffer, 0);
+            gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
+
+            gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
+
+            gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
+            gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
+
+            gl.glDisable(GL10.GL_TEXTURE_2D);
+        }
+                
+    };
+
+    private OpenGLESImageDraw openGLESImageDraw = OpenGLESImageDraw.getInstance();
+
     public OpenGLESGL10Image(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {
@@ -88,9 +314,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
         textureVertexFloatBuffer.rewind();
     }
     
-    public void set(GL gl)
+    public void set(final GL gl)
     {
-        GL10 gl10 = (GL10) gl;
+        final GL10 gl10 = (GL10) gl;
         
         if (super.initTexture(gl10))
         {
@@ -106,6 +332,8 @@ public class OpenGLESGL10Image extends OpenGLESImage
             this.textureFactory.load(gl10, GL10.GL_TEXTURE_2D, 0, this, 0, true);
             
             gl10.glDisable(GL10.GL_TEXTURE_2D);
+            
+            this.openGLESImageDraw = this.realOpenGLESImageDraw;
 
             OpenGLLogUtil.getInstance().logError(gl10, this);            
         }
@@ -145,238 +373,16 @@ public class OpenGLESGL10Image extends OpenGLESImage
         */        
     }
     
-    public void drawRegion(GL10 gl, int viewHeight, 
-            float x_src, float y_src, 
-            float width, float height, 
-            int x, int y, int z)
+    public void drawRegion(final GL10 gl, final int viewHeight, 
+            final float x_src, final float y_src, 
+            final float width, final float height, 
+            final int x, final int y, final int z)
     {
-        //PreLogUtil.put(this.commonStrings.START + "Texture", this, "drawRegion");
-        
-        this.regionRectangleFloatArray[0] = x;
-        this.regionRectangleFloatArray[7] = viewHeight - y;
-        this.regionRectangleFloatArray[1] = this.regionRectangleFloatArray[7] - height;
-
-        this.regionRectangleFloatArray[3] = x + width;
-        this.regionRectangleFloatArray[4] = this.regionRectangleFloatArray[1];
-
-        this.regionRectangleFloatArray[6] = x;
-
-        this.regionRectangleFloatArray[9] = this.regionRectangleFloatArray[3];
-        this.regionRectangleFloatArray[10] = this.regionRectangleFloatArray[7];
-
-        /*
-        regionRectangleVertexFloatBuffer.put(0, x);
-        regionRectangleVertexFloatBuffer.put(7, viewHeight - y);
-        regionRectangleVertexFloatBuffer.put(1, regionRectangleVertexFloatBuffer.get(7) - height);
-
-        regionRectangleVertexFloatBuffer.put(3, x + width);
-        regionRectangleVertexFloatBuffer.put(4, regionRectangleVertexFloatBuffer.get(1));
-
-        regionRectangleVertexFloatBuffer.put(6, x);
-        //
-        //this.glUtil.position(regionRectangleVertexFloatBuffer, 7);
-        //regionRectangleVertexFloatBuffer.put(regionRectangleVertexFloatBuffer.get(7));
-
-        regionRectangleVertexFloatBuffer.put(9, regionRectangleVertexFloatBuffer.get(3));
-        regionRectangleVertexFloatBuffer.put(10, regionRectangleVertexFloatBuffer.get(7));
-        */
-        
-        /*
-        vertexArray[0] = x;
-        vertexArray[7] = viewHeight - y;
-        vertexArray[1] = vertexArray[7] - height;
-
-        vertexArray[3] = x + width;
-        vertexArray[4] = vertexArray[1];
-
-        vertexArray[6] = x;
-        //
-
-        vertexArray[9] = vertexArray[3];
-        vertexArray[10] = vertexArray[7];
-
-        regionRectangleVertexFloatBuffer.put(vertexArray);
-        */
-        
-        /*
-        int aY = viewHeight - y;
-        float y2 = aY - height;
-        float x2 = x + width;
-        
-        regionRectangleVertexFloatBuffer.put(x);
-        regionRectangleVertexFloatBuffer.put(y2);
-        regionRectangleVertexFloatBuffer.put(0.0f);
-
-        regionRectangleVertexFloatBuffer.put(x2);
-        regionRectangleVertexFloatBuffer.put(y2);
-        regionRectangleVertexFloatBuffer.put(0.0f);
-
-        regionRectangleVertexFloatBuffer.put(x);
-        regionRectangleVertexFloatBuffer.put(aY);
-        regionRectangleVertexFloatBuffer.put(0.0f);
-        
-        regionRectangleVertexFloatBuffer.put(x2);
-        regionRectangleVertexFloatBuffer.put(aY);
-        regionRectangleVertexFloatBuffer.put(0.0f);
-        */
-
-        //regionRectangleVertexFloatBuffer.rewind();
-
-        /*
-        regionTextureVertexFloatBuffer.put(0, x_src / this.getWidth());
-        regionTextureVertexFloatBuffer.put(1, ((float) (y_src + height)) / this.getHeight());
-
-        regionTextureVertexFloatBuffer.put(2, ((float) (x_src + width)) / this.getWidth());
-        regionTextureVertexFloatBuffer.put(3, regionTextureVertexFloatBuffer.get(1));
-
-        regionTextureVertexFloatBuffer.put(4, regionTextureVertexFloatBuffer.get(0));
-        regionTextureVertexFloatBuffer.put(5, y_src / this.getHeight());
-
-        regionTextureVertexFloatBuffer.put(6, regionTextureVertexFloatBuffer.get(2));
-        regionTextureVertexFloatBuffer.put(7, regionTextureVertexFloatBuffer.get(5));
-        */
-        
-        //regionTextureVertexFloatBuffer.rewind();
-        
-        regionTextureRectangleFloatArray[0] = x_src / this.getWidth();
-        regionTextureRectangleFloatArray[1] = ((y_src + height)) / this.getHeight();
-
-        regionTextureRectangleFloatArray[2] = ((x_src + width)) / this.getWidth();
-        regionTextureRectangleFloatArray[3] = regionTextureRectangleFloatArray[1];
-
-        regionTextureRectangleFloatArray[4] = regionTextureRectangleFloatArray[0];
-        regionTextureRectangleFloatArray[5] = y_src / this.getHeight();
-
-        regionTextureRectangleFloatArray[6] = regionTextureRectangleFloatArray[2];
-        regionTextureRectangleFloatArray[7] = regionTextureRectangleFloatArray[5];
-
-        //textureVertexFloatBuffer.put(textureArray);
-
-        /*
-        float textureX1 = x_src / this.getWidth();
-        float textureY1 = y_src / this.getHeight();
-        float textureY2 = ((float) (y_src + height)) / this.getHeight();
-        float textureX2 = ((float) (x_src + width)) / this.getWidth();
-        
-        textureVertexFloatBuffer.put(textureX1);
-        textureVertexFloatBuffer.put(textureY2);
-
-        textureVertexFloatBuffer.put(textureX2);
-        textureVertexFloatBuffer.put(textureY2);
-
-        textureVertexFloatBuffer.put(textureX1);
-        textureVertexFloatBuffer.put(textureY1);
-
-        textureVertexFloatBuffer.put(textureX2);
-        textureVertexFloatBuffer.put(textureY1);
-        */
-
-        this.regionRectangleVertexFloatBuffer.put(this.regionRectangleFloatArray);
-        this.glUtil.position(this.regionRectangleVertexFloatBuffer, 0);
-        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
-        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-
-        gl.glEnable(GL10.GL_TEXTURE_2D);        
-        
-        gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
-
-        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-
-        this.regionTextureVertexFloatBuffer.put(this.regionTextureRectangleFloatArray);
-        this.glUtil.position(this.regionTextureVertexFloatBuffer, 0);
-        gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, regionTextureVertexFloatBuffer);
-
-        // GLUtils.texSubImage2D(GL10.GL_TEXTURE_2D, 0, x_src, y_src,
-        // this.getBitmap());
-
-        // gl.glTexSubImage2D(GL10.GL_TEXTURE_2D, 0,
-        // x_src, y_src, width, height,
-        // GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, pixels);
-
-        // ((GL11Ext) gl).glDrawTexiOES(x, a - y, z, width, height);
-
-        gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
-
-        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-        gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-
-        gl.glDisable(GL10.GL_TEXTURE_2D);
+        this.openGLESImageDraw.drawRegion(gl, viewHeight, x_src, y_src, width, height, x, y, z);
     }
     
-    public void draw(GL10 gl, int x, int y, int z)
+    public void draw(final GL10 gl, final int x, final int y, final int z)
     {
-        //PreLogUtil.put(this.commonStrings.START + "Texture", this, "draw");
-        
-        this.regionRectangleFloatArray[0] = x;
-        this.regionRectangleFloatArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
-        this.regionRectangleFloatArray[1] = this.regionRectangleFloatArray[7] - this.getHeight();
-
-        this.regionRectangleFloatArray[3] = x + this.getWidth();
-        this.regionRectangleFloatArray[4] = this.regionRectangleFloatArray[1];
-
-        this.regionRectangleFloatArray[6] = x;
-        //this.glUtil.position(regionRectangleVertexFloatBuffer, 7);
-        //regionRectangleVertexFloatBuffer.put(regionRectangleVertexFloatBuffer.get(7));
-
-        this.regionRectangleFloatArray[9] = this.regionRectangleFloatArray[3];
-        this.regionRectangleFloatArray[10] = this.regionRectangleFloatArray[7];
-
-        /*
-        regionRectangleVertexFloatBuffer.put(0, x);
-        regionRectangleVertexFloatBuffer.put(7, DisplayInfoSingleton.getInstance().getLastHeight() - y);
-        regionRectangleVertexFloatBuffer.put(1, regionRectangleVertexFloatBuffer.get(7) - this.getHeight());
-
-        regionRectangleVertexFloatBuffer.put(3, x + this.getWidth());
-        regionRectangleVertexFloatBuffer.put(4, regionRectangleVertexFloatBuffer.get(1));
-
-        regionRectangleVertexFloatBuffer.put(6, x);
-        //
-        //this.glUtil.position(regionRectangleVertexFloatBuffer, 7);
-        //regionRectangleVertexFloatBuffer.put(regionRectangleVertexFloatBuffer.get(7));
-
-        regionRectangleVertexFloatBuffer.put(9, regionRectangleVertexFloatBuffer.get(3));
-        regionRectangleVertexFloatBuffer.put(10, regionRectangleVertexFloatBuffer.get(7));
-        */
-
-        /*
-        vertexArray[0] = x;
-        vertexArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
-        vertexArray[1] = vertexArray[7] - this.getHeight();
-
-        vertexArray[3] = x + this.getWidth();
-        vertexArray[4] = vertexArray[1];
-
-        vertexArray[6] = x;
-        //
-
-        vertexArray[9] = vertexArray[3];
-        vertexArray[10] = vertexArray[7];
-
-        regionRectangleVertexFloatBuffer.put(vertexArray);
-        */
-        //regionRectangleVertexFloatBuffer.rewind();
-        
-        //textureVertexFloatBuffer.rewind();
-
-        this.regionRectangleVertexFloatBuffer.put(this.regionRectangleFloatArray);
-        this.glUtil.position(this.regionRectangleVertexFloatBuffer, 0);
-        gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
-        gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);
-
-        gl.glEnable(GL10.GL_TEXTURE_2D);
-        
-        gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
-
-        gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-
-        this.glUtil.position(this.textureVertexFloatBuffer, 0);
-        gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
-
-        gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);
-
-        gl.glDisableClientState(GL10.GL_VERTEX_ARRAY);
-        gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-
-        gl.glDisable(GL10.GL_TEXTURE_2D);        
+        this.openGLESImageDraw.draw(gl, x, y, z);
     }
 }

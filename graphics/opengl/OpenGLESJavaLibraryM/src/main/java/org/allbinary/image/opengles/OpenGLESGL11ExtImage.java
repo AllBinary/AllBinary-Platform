@@ -19,13 +19,12 @@ import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.khronos.opengles.GL11Ext;
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.graphics.opengles.OpenGLLogUtil;
-
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
+import org.allbinary.graphics.opengles.OpenGLLogUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
@@ -61,7 +60,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     }
     */
 
-    public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)
+    public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)
     {
         try
         {
@@ -75,11 +74,11 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         }
     }
     
-    public void set(GL gl)
+    public void set(final GL gl)
     {
         this.onDisplayChangeEvent(null);
         
-        GL11 gl11 = (GL11) gl;
+        final GL11 gl11 = (GL11) gl;
         
         if (super.initTexture(gl11))
         {
@@ -106,7 +105,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
         }
     }
     
-    public void draw(GL10 gl, int x, int y, int z)
+    public void draw(final GL10 gl, final int x, final int y, final int z)
     {
         gl.glEnable(GL10.GL_TEXTURE_2D);
         

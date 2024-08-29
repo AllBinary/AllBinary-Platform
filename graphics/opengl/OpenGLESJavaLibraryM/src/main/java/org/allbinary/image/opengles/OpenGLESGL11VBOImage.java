@@ -74,9 +74,9 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         textureVertexFloatBuffer.rewind();
     }
     
-    public void set(GL gl)
+    public void set(final GL gl)
     {
-        GL10 gl10 = (GL10) gl;
+        final GL10 gl10 = (GL10) gl;
         
         if (super.initTexture(gl10))
         {
@@ -142,10 +142,10 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         ByteBuffer.allocateDirect(4 * 4 * 2)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
 
-    public void drawRegion(GL10 gl, int viewHeight, 
-            float x_src, float y_src, 
-            float width, float height, 
-            int x, int y, int z)
+    public void drawRegion(final GL10 gl, final int viewHeight, 
+            final float x_src, final float y_src, 
+            final float width, final float height, 
+            final int x, final int y, final int z)
     {
         this.regionRectangleFloatArray[0] = x;
         this.regionRectangleFloatArray[7] = viewHeight - y;
@@ -296,7 +296,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
         gl.glDisable(GL10.GL_TEXTURE_2D);
     }
     
-    public void draw(GL10 gl, int x, int y, int z)
+    public void draw(final GL10 gl, final int x, final int y, final int z)
     {
         this.regionRectangleFloatArray[0] = x;
         this.regionRectangleFloatArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
