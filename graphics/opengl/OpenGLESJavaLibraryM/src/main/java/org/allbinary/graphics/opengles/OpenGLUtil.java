@@ -112,6 +112,10 @@ public class OpenGLUtil {
         list.clear();
     }
 
+    public void add(final Runnable runnable) {
+        this.runnableList.add(runnable);
+    }
+
     private void processRunnables() {
         
         Runnable runnable;
