@@ -144,14 +144,14 @@ public class CustomTextBox extends GameCommandCanvas
 
         if(!J2MEUtil.isJ2ME())
         {
-            graphics.drawString(this.getTitle(), 1, 1, 0);
+            graphics.drawString(this.getTitle(), 8, 1, 0);
         }
         
         //graphics.drawRect(1, 14, getWidth() - 3, viewPortHeight);
         //g.setClip(3, 3, getWidth() - 6, viewPortHeight - 6);
         //g.translate(3, 3);
         //g.translate(0, -viewPortY);
-        this.paint(graphics, 1, graphics.getFont().getHeight() + 2);
+        this.paint(graphics, 8, graphics.getFont().getHeight() + 2);
         
         super.paint(graphics);
     }
