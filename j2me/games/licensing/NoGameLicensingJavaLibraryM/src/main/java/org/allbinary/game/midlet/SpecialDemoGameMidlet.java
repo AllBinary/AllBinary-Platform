@@ -30,6 +30,10 @@ extends DemoGameMidlet
         super(clientInformationFactory);
     }
 
+    public void initView() {
+        
+    }
+    
     //@Override
     public void preInit() {
         new LicenseServerInitFileUtil().init();
