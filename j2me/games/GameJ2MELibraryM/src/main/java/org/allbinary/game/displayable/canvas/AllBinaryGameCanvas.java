@@ -185,11 +185,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private Paintable touchButtonsPaintable = NullPaintable.getInstance();
     protected Paintable touchPaintable;
     private PlayerGameInput cheatProcessor = NoPlayerGameInput.getInstance();
-    private Processor gameInputProcessor;
-    private Processor endGameProcessor;
-    private Processor realEndGameProcessor;
-    private Processor startIntermissionProcessor;
-    private Processor realStartIntermissionProcessor;
+    private Processor gameInputProcessor = Processor.getInstance();
+    private Processor endGameProcessor = Processor.getInstance();
+    private Processor realEndGameProcessor = Processor.getInstance();
+    private Processor startIntermissionProcessor = Processor.getInstance();
+    private Processor realStartIntermissionProcessor = Processor.getInstance();
     private Paintable endGamePaintable;
     private Paintable endGameStatePaintable;
     protected Paintable nonBotPaintable;
