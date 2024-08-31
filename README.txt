@@ -2,12 +2,13 @@
 
 About
 
-AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation, and everything else AllBinary. It represents >10 years of development and > 1 million SLOC. The main goal of the AllBinary Platform is to help people escape the tyrants of earth. 
+AllBinary Game Development Kit (Example Games: https://allbinary.itch.io), Freeblisket E-Commerce Solution (https://allbinary.com), AllBinary Input Automation, and everything else AllBinary. 
+The main goal of the AllBinary Platform is to help people escape the tyrants of earth. 
 
 What is the AllBinary Platform?
 
 This Repository Contains the core AllBinary Platform code (https://github.com/AllBinary/AllBinary-Platform).  
-This repo does not include the rest of the AllBinary Platform that includes tigher thirdparty integration code or individual apps or games that are not tools.
+This repo does not include the rest of the AllBinary Platform that includes tighter third-party integration code or individual apps or games that are not tools.
 The AllBinary Platform includes but is not limited to the following projects:
 
 : AllBinary Game Development Kit (https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp) includes the AllBinary Multi-Platform Development Kit
@@ -40,23 +41,23 @@ Travis Berthelot travisberthelot@allbinary.com
 
 What games use the AllBinary Game Development Kit?
 
-- Android https://play.google.com/store/apps/developer?id=AllBinary
-- HTML5 https://html5.allbinary.com
-- J2SE and J2ME https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
+ - Android, HTML5, Windows Native https://allbinary.itch.io
+ - J2SE and J2ME https://games.allbinary.com/AllBinaryGameDevelopmentKit.jsp
 
 What is the AllBinary Game Development Kit?
 
 The AllBinary Game Development Kit speeds game development for 2D/3D Single or Multi-
-Player Multi-Platform games. It supports many platforms including Android, HTML5, J2ME
-(MIDP), and J2SE (Applet/JNLP/Standalone Applications). I will add Flash/Adobe and Native
-support via AOT. The device support is wide ranging including Desktops, Laptops,
-Notebooks, Phones, Tablets, PDAs, and more including 100,000 different devices. The
-Operating System support is extensive as well including Windows, Mac, Linux, Android, and
-more totaling >20 operating systems. It contains rapid game development tools and over 200
-small libraries for creating games. The main features include the following:
+Player Multi-Platform games. It supports many platforms including Android, HTML5, 
+J2ME (MIDP), Windows Native (Avian), and J2SE (Applet/JNLP/Standalone Applications). 
+I will add Flash/Adobe and Native support via AOT. The device support is wide ranging 
+including Desktops, Laptops, Notebooks, Phones, Tablets, PDAs, and more including 
+100,000 different devices. The Operating System support is extensive as well including 
+Windows, Mac, Linux, Android, and more totaling >20 operating systems. It contains 
+rapid game development tools and over 200 small libraries for creating games. The main 
+features include the following:
 
-- Multi-Platform - Android, J2ME, HTML5, and J2SE 
-  (OS support: Android, Linux/Solaris, Windows, Mac, iOS, Chrome, and More)
+- Multi-Platform - Android, J2ME, HTML5, Windows Native (Avian), and J2SE 
+  (OS support: Android, Linux/Solaris, Windows, Mac, iOS, Chrome OS, and More)
 - Fullscreen and Windowed Support (Does not require restart to toggle between)
 - Scene editor support for GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 - Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
@@ -205,9 +206,7 @@ Future Implementation for the AllBinary Platform:
 
 Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 
-Add native support using Avian and add other build targets.
-
-3D/OpenGLES support for platforms other than Android.
+3D/OpenGLES mappings for WebGL to deploy 3d games in browsers.
 
 Multiplayer for platforms other than J2ME, Android, and J2SE.
 
