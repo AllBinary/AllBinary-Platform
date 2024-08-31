@@ -123,6 +123,8 @@ public class GameMidlet extends ProgressMidlet
     private final String NO_COMMAND = "No Command";
     private final String NO_DISPLAYABLE = "No Displayable";
     private final String COMMAND_ACTION = new StringMaker().append("GameMidlet::").append(midletStrings.COMMAND_ACTION).toString();
+    private final String PAUSE_APP_BACKGROUND = "pauseAppBackground";
+    private final String UN_PAUSE_APP_BACKGROUND = "unPauseAppBackground";
 
     private final AboutCommandProcessor aboutCommandProcessor = AboutCommandProcessor.getInstance();
     private final WebCommandProcessor webCommandProcessor = WebCommandProcessor.getInstance();
@@ -199,9 +201,8 @@ public class GameMidlet extends ProgressMidlet
 
     protected void pauseAppBackground(final boolean background)
     {
-        final String METHOD_NAME = "pauseAppBackground";
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
-        //PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, PAUSE_APP_BACKGROUND));
+        //PreLogUtil.put(commonStrings.START, this, PAUSE_APP_BACKGROUND);
         
         if (allbinaryGameCanvasRunnableInterface != null)
         {
@@ -215,7 +216,7 @@ public class GameMidlet extends ProgressMidlet
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, PAUSE_APP_BACKGROUND));
         }
         
         AllBinarySensorManager.getInstance().shutdown();
@@ -232,10 +233,9 @@ public class GameMidlet extends ProgressMidlet
     
     protected void unPauseAppBackground(boolean background)
     {
-        final String METHOD_NAME = "unPauseAppBackground";
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, METHOD_NAME));
-        //PreLogUtil.put(commonStrings.START, this, METHOD_NAME);
-        
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, UN_PAUSE_APP_BACKGROUND));
+        //PreLogUtil.put(commonStrings.START, this, UN_PAUSE_APP_BACKGROUND);
+
         AllBinarySensorManager.getInstance().init();
 
         final GameCanvasRunnableInterface gameCanvasRunnableInterface =
@@ -253,7 +253,7 @@ public class GameMidlet extends ProgressMidlet
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance("<<<<<< Null", this, UN_PAUSE_APP_BACKGROUND));
         }
     }
     

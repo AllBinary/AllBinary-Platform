@@ -842,7 +842,7 @@ public class StartCanvas extends RunnableCanvas
 //                && !(this.gameCanvas instanceof NullGameCanvas)
 //                )
 //        {
-//            this.gameRunnable = new GameCanvasRunnable(this.gameCanvas);
+//            this.gameRunnable = this.gameCanvas.gameRunnable;
 //            PreLogUtil.put("Showing Game", this, METHOD_NAME);
 //            this.setPaintableInterface(this.gameCanvas);
 //        }

@@ -146,6 +146,9 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     private final GameTickDisplayInfoSingleton gameTickDisplayInfoSingleton = GameTickDisplayInfoSingleton.getInstance();
 
+    public final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
+    public final GameCanvasPauseRunnable gamePauseRunnable = new GameCanvasPauseRunnable(this);
+    
     protected Paintable gameSpecificPaintable = NullPaintable.getInstance();
 
     private final SensorGameUpdateProcessor sensorGameUpdateProcessor = new SingleSensorGameUpdateProcessor();
@@ -1592,8 +1595,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 //            swtRunnableProcessor.runnable = runnable;
 //            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
 //
-//            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
-//
 //            final CurrentDisplayableFactory currentDisplayableFactory
 //                    = CurrentDisplayableFactory.getInstance();
 //
@@ -1610,8 +1611,6 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             if (features.isDefault(htmlFeatureFactory.HTML)) {
                 LogUtil.put(LogFactory.getInstance(htmlFeatureFactory.HTML.getName(), this, commonStrings.RUN));
             }
-
-            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(this);
 
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 

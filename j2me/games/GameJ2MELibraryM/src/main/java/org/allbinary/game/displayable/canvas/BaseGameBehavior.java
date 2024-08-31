@@ -16,15 +16,9 @@ package org.allbinary.game.displayable.canvas;
 import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.game.configuration.feature.Features;
-import org.allbinary.game.layer.SWTUtil;
 import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-import org.microemu.app.SWTProcessorUtil;
-import org.microemu.app.SWTRunnableProcessor;
 
 /**
  *
@@ -72,10 +66,9 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //            swtRunnableProcessor.runnable = runnable;
 //            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
 //
-//            final GameCanvasPauseRunnable gameRunnable = new GameCanvasPauseRunnable(allBinaryGameCanvas);
 //            final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 //
-//            currentDisplayableFactory.setRunnable(gameRunnable);
+//            currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gamePauseRunnable);
 //            
 //        } else 
             if (features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD) 
@@ -84,10 +77,9 @@ public class BaseGameBehavior extends DemoGameBehavior {
             
             //LogUtil.put(LogFactory.getInstance("pause", this, METHOD_NAME));
 
-            final GameCanvasPauseRunnable gameCanvasGamePauseRunnable = new GameCanvasPauseRunnable(allBinaryGameCanvas);
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameCanvasGamePauseRunnable);
+            currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gamePauseRunnable);
         }
 
     }
@@ -114,18 +106,16 @@ public class BaseGameBehavior extends DemoGameBehavior {
 //            swtRunnableProcessor.runnable = runnable;
 //            swtProcessorUtil.swtProcessor = swtRunnableProcessor;
 //
-//            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(allBinaryGameCanvas);
 //            final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 //
-//            currentDisplayableFactory.setRunnable(gameRunnable);
+//            currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gameRunnable);
 //            
 //        } else 
             if (Features.getInstance().isDefault(OpenGLFeatureFactory.getInstance().OPENGL_AS_GAME_THREAD)) {
             //LogUtil.put(LogFactory.getInstance("unPause", this, "unPause"));
-            final GameCanvasRunnable gameRunnable = new GameCanvasRunnable(allBinaryGameCanvas);
             final CurrentDisplayableFactory currentDisplayableFactory = CurrentDisplayableFactory.getInstance();
 
-            currentDisplayableFactory.setRunnable(gameRunnable);
+            currentDisplayableFactory.setRunnable(allBinaryGameCanvas.gameRunnable);
             currentDisplayableFactory.setDisplayable(allBinaryGameCanvas);
             
         }

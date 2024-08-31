@@ -40,8 +40,7 @@ public class PlayerQueue
             {
                 //final String message = "Adding: ").append(sound.getResource();
                 
-                //PreLogUtil.put("Adding: ").append(sound.getResource(), this, CommonStrings.getInstance().ADD);
-                //LogUtil.put(LogFactory.getInstance("Adding: ").append(sound.getResource(), this, CommonStrings.getInstance().ADD));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, CommonStrings.getInstance().ADD));
 
                 list.add(sound);
             }
@@ -67,7 +66,7 @@ public class PlayerQueue
                 if (sound != null)
                 {
                     //final String message = "Playing: ").append(sound.getResource();
-                    //PreLogUtil.put("Playing: ").append(sound.getResource(), this, CommonStrings.getInstance().PROCESS);
+                    //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, CommonStrings.getInstance().PROCESS));
 
                     //For BB only
                     //SoundThreadPool.getInstance().runTask(sound);

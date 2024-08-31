@@ -538,6 +538,7 @@ public class DemoCanvas extends RunnableCanvas
         this.close();
 
         this.setPaused(true);
+        this.gameRunnable = NullWaitGameRunnable.getInstance();
         this.gameCanvas.pause();
     }
 
@@ -545,8 +546,9 @@ public class DemoCanvas extends RunnableCanvas
     {
         this.open();
 
-        this.setPaused(false);
         this.gameCanvas.unPause();
+        this.gameRunnable = this.gameCanvas.gameRunnable;
+        this.setPaused(false);
     }
 
     public boolean isPausable()
@@ -890,7 +892,7 @@ public class DemoCanvas extends RunnableCanvas
                 && !(this.gameCanvas instanceof NullGameCanvas)
                 )
         {
-            this.gameRunnable = new GameCanvasRunnable(this.gameCanvas);
+            this.gameRunnable = this.gameCanvas.gameRunnable;
             PreLogUtil.put("Showing Game", this, METHOD_NAME);
             this.setPaintableInterface(this.gameCanvas);
         }
