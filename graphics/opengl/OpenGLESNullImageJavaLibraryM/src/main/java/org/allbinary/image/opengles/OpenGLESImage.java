@@ -170,4 +170,11 @@ implements OpenGLSurfaceChangedInterface
     public void draw(GL10 gl, int x, int y, int z)
     {
     }
+    
+    public static final int TYPE = 4;
+
+    public int getType() {
+        return TYPE;
+    }
+    
 }
