@@ -38,6 +38,9 @@ implements OpenGLSurfaceChangedInterface
     protected int textureID = -1;
     //protected boolean matchColor;
     
+    public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
+    public int angle;
+    
     //JOGL
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)

@@ -27,12 +27,12 @@ import org.allbinary.util.BasicArrayList;
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
-    public static final BasicArrayList texture2dList = new BasicArrayList();
-    
+//    public static final BasicArrayList texture2dList = new BasicArrayList();
+//    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected final PlatformTextureBaseFactory textureFactory;
-    
+
     public final PlatformBitmapBase openGLBitmap;
     
     protected int textureID = -1;
@@ -77,11 +77,11 @@ implements OpenGLSurfaceChangedInterface
  
     protected boolean initTexture(GL10 gl)
     {
-        if (!texture2dList.contains(this))
-        {
-            texture2dList.add(this);
-            
-            final int[] textures = new int[1];
+//        if (!texture2dList.contains(this))
+//        {
+//            texture2dList.add(this);
+//            
+//            final int[] textures = new int[1];
 
             /*
             if(this.matchColor)
@@ -155,8 +155,8 @@ implements OpenGLSurfaceChangedInterface
         gl.glTexImage2D(GL10.GL_TEXTURE_2D, level, GL10.GL_RGBA, bmp.getWidth(), bmp.getHeight(), 0, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, pixelbuf);
         */        
 
-            return true;
-        }
+//            return true;
+//        }
         return false;
     }
     

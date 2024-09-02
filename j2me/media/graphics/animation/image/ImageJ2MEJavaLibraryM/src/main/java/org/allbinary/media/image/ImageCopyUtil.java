@@ -15,9 +15,9 @@ package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
-
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -43,6 +43,12 @@ public class ImageCopyUtil
     private final GameFeatureFactory gameFeatureFactory = GameFeatureFactory.getInstance();
     private final Features features = Features.getInstance();
     private final String NO_COPY = "J2ME does not need to copy images after initial loading";
+    
+    public Image createImageForRotation(final Image originalImage)
+            throws Exception
+    {
+        return this.createImage(originalImage);
+    }
     
     // String resource,
     public Image createImage(final Image originalImage)

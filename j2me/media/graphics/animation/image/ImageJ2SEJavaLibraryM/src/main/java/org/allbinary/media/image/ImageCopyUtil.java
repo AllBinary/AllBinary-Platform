@@ -42,6 +42,12 @@ public class ImageCopyUtil
     
     private int anchor = Anchor.TOP_LEFT;
     
+    public Image createImageForRotation(final Image originalImage)
+            throws Exception
+    {
+        return this.createImage(originalImage);
+    }
+    
     // String resource,
     public Image createImage(final Image originalImage)
             throws Exception
