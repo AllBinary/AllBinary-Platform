@@ -263,6 +263,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
             gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
+            imageProcessor.rotate(gl, angle);
+            imageProcessor.colorMask(gl, 255, 255, 255, alpha);
+            
             glUtil.position(textureVertexFloatBuffer, 0);
             gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
 
