@@ -40,6 +40,7 @@ implements OpenGLSurfaceChangedInterface
     
     public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
     public int angle;
+    public int alpha;
     
     //JOGL
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 

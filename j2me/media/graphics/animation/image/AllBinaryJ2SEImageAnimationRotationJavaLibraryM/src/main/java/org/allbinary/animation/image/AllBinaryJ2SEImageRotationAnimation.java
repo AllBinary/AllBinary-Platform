@@ -15,8 +15,8 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
-import org.allbinary.DisposalUtil;
 
+import org.allbinary.DisposalUtil;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.math.AngleInfo;
@@ -77,7 +77,7 @@ public class AllBinaryJ2SEImageRotationAnimation
         
         this.imageToShow = image;
         this.twoImages[0] = image;
-        this.twoImages[1] = ImageCopyUtil.getInstance().createImage(image);
+        this.twoImages[1] = ImageCopyUtil.getInstance().createImageForRotation(image);
         
         //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     }

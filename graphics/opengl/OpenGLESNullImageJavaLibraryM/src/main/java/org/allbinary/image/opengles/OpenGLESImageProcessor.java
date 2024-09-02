@@ -33,7 +33,7 @@ public class OpenGLESImageProcessor {
     public void rotate(GL10 gl, int angle) {
         
     }
-    
+
     public void colorMask(GL10 gl, int red, int green, int blue, int alpha) {
 
     }

@@ -19,19 +19,23 @@ import javax.microedition.khronos.opengles.GL10;
  *
  * @author User
  */
-public class RotationOpenGLImageProcessor extends OpenGLESImageProcessor {
+public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
     
-    private static final RotationOpenGLImageProcessor instance = new RotationOpenGLImageProcessor();
+    private static final ModifierOpenGLESImageProcessor instance = new ModifierOpenGLESImageProcessor();
 
     /**
      * @return the instance
      */
-    public static RotationOpenGLImageProcessor getInstance() {
+    public static ModifierOpenGLESImageProcessor getInstance() {
         return instance;
     }
     
     public void rotate(GL10 gl, int angle) {
-        gl.glRotatex(angle, 0, 1, 0);
+        //gl.glRotatex(angle, 0, 1, 0);
+    }
+
+    public void colorMask(GL10 gl, byte red, byte green, byte blue, byte alpha) {
+
     }
     
 }
