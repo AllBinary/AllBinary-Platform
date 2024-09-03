@@ -19,10 +19,9 @@ import org.allbinary.util.BasicArrayList;
 public class ThreadPool
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
-
-    protected final String ADD_TASK = "addTask";
-    protected final String START_TASK = "Started Task: ";
-    protected final String COMPLETE_TASK = "Completed Task: ";
+    protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
+    
+    private final String poolName;
     
     private boolean isAlive;
     private BasicArrayList taskQueue = new BasicArrayList();
@@ -32,8 +31,9 @@ public class ThreadPool
 
     private boolean runningTask;
     
-    public ThreadPool(int numThreads)
+    public ThreadPool(final String poolName, final int numThreads)
     {
+        this.poolName = poolName;
         this.numThreads = numThreads;
     }
 

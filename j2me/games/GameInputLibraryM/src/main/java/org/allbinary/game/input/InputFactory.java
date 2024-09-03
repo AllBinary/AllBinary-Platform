@@ -28,6 +28,8 @@ public class InputFactory
         return instance;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public final String KEY_CODE_LABEL = "KeyCode: ";
     public final String DEVICE_ID_LABEL = "DeviceId: ";
     
@@ -39,11 +41,12 @@ public class InputFactory
     //protected final Input[] negativeInputIntegerArray = new Input[6];
     protected final Input[] inputIntegerArray = new Input[this.MAX];
 
-    public final Input NO_INPUT = new Input(0, CommonStrings.getInstance().UNKNOWN);
+    public final Input NO_INPUT = new Input(0, commonStrings.UNKNOWN);
     
     private InputFactory() {
         
         final int size = inputIntegerArray.length;
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("size: ").append(size).toString(), this, commonStrings.CONSTRUCTOR));
         for(int index = 0; index < size; index++) {
             inputIntegerArray[index] = NO_INPUT;
         }
@@ -62,7 +65,9 @@ public class InputFactory
         }
 
         if(id > inputIntegerArray.length) {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("id: ").append(id).toString(), this, CommonStrings.getInstance().GET_INSTANCE, new Exception()));
+            //Using the Exception for HTML5 build causes the game to hang.
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("id: ").append(id).toString(), this, commonStrings.GET_INSTANCE, new Exception()));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Warning id: ").append(id).toString(), this, commonStrings.GET_INSTANCE));
             return NO_INPUT;
         }
 
