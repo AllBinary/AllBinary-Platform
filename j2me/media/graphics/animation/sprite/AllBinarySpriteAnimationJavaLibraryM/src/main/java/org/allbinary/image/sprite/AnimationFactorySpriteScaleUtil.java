@@ -51,6 +51,9 @@ public class AnimationFactorySpriteScaleUtil {
 //       final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
 //       LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
+
+      final SpriteFactory spriteFactory = SpriteFactory.getInstance();
+
        Sprite sprite;
 
        if(scaleWidth != 0 && scaleHeight != 0) {
@@ -61,26 +64,27 @@ public class AnimationFactorySpriteScaleUtil {
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
 //           stringMaker.delete(0, stringMaker.length());
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+
            Image scaledImage;
            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
 //               stringMaker.delete(0, stringMaker.length());
 //               final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale ").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
                scaledImage = image;
-               sprite = SpriteFactory.getInstance().create(image, width, height);
+               sprite = spriteFactory.create(image, width, height);
            } else {
 //               stringMaker.delete(0, stringMaker.length());
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
                scaledImage = imageScaleUtil.createImage(imageCache, image, scaleX, 1, scaleY, 1, true);
 //               stringMaker.delete(0, stringMaker.length());
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS));
-               sprite = SpriteFactory.getInstance().create(scaledImage, (int) (width * scaleX), (int) (height * scaleY));
+               sprite = spriteFactory.create(scaledImage, (int) (width * scaleX), (int) (height * scaleY));
            }
            
        } else {
 //           stringMaker.delete(0, stringMaker.length());
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale2").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
-           sprite = SpriteFactory.getInstance().create(image, width, height);
+           sprite = spriteFactory.create(image, width, height);
        }
         
         return sprite;
