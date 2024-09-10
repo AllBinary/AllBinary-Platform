@@ -300,7 +300,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
     }
     */
     
-    private void init()
+    protected void init()
     {
         textureVertexFloatBuffer.put(0);
         textureVertexFloatBuffer.put(1);

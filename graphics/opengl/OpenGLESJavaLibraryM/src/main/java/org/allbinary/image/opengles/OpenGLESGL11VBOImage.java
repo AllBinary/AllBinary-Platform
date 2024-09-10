@@ -57,7 +57,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
     }
     */
     
-    private void init()
+    protected void init()
     {
         textureVertexFloatBuffer.put(0);
         textureVertexFloatBuffer.put(1);

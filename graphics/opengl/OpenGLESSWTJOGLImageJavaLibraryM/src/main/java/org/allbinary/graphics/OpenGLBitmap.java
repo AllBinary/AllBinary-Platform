@@ -43,13 +43,7 @@ public class OpenGLBitmap extends PlatformBitmapBase {
     }
 
     public void setPixels(int[] pixels, int offset, int stride, int x, int y, int width, int height) {
-        if(this.image.isMutable()) {
-            final SwtMutableImage mutableImage = (SwtMutableImage) this.image;
-            mutableImage.setRGB(pixels, offset, stride, x, y, width, height);
-        } else {
-            final SwtImmutableImage immutableImage = (SwtImmutableImage) this.image;
-            immutableImage.setRGB(pixels, offset, stride, x, y, width, height);
-        }
+        this.image.setRGB2(pixels, offset, height, x, y, width, height);
     }
     
     public int getWidth() {
