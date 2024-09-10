@@ -78,7 +78,8 @@ public class ImageCache extends ImageCacheBase
 
         if (image == null)
         {
-            final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
+            //final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
+            final InputStream inputStream = null;
             try
             {
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
@@ -95,7 +96,7 @@ public class ImageCache extends ImageCacheBase
                 Thread.sleep(100);
                 image = this.createImage(key, inputStream);
             }
-            inputStream.close();
+            //inputStream.close();
             //Put in the name is really only for debugging
 //            if(DebugFactory.getInstance() != NoDebug.getInstance())
 //            {
@@ -105,6 +106,12 @@ public class ImageCache extends ImageCacheBase
         }
 
         return image;
+    }
+
+    protected Image createImage(final Object key, final InputStream inputStream)
+    throws Exception
+    {
+        return Image.createImageLater((String) key);
     }
 
 }

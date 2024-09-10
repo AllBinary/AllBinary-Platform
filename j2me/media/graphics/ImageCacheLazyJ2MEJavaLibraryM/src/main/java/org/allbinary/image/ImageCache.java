@@ -53,17 +53,19 @@ public class ImageCache extends ImageCacheBase
             image = this.createImage(caller, width, height);
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image: ").append(image).toString(), this, CommonStrings.getInstance().GET));
 
-            if(foundIndex == -1)
-            {
-                foundIndex = nextIndex;
-                
-                widths[nextIndex] = width;
-                heights[nextIndex] = height;
+            if(nextIndex > widths.length - 1) {
+                if (foundIndex == -1) {
+                    foundIndex = nextIndex;
 
-                nextIndex++;
+                    widths[nextIndex] = width;
+                    heights[nextIndex] = height;
+
+                    nextIndex++;
+                }
+
+                listOfList[foundIndex].add(image);
+
             }
-
-            listOfList[foundIndex].add(image);
             
         }
 
@@ -72,16 +74,21 @@ public class ImageCache extends ImageCacheBase
     
     public Image get(final Object key) throws Exception
     {
-        final ResourceUtil resourceUtil = ResourceUtil.getInstance();
-        final Integer resourceId = resourceUtil.getResourceId((String) key);
-        Image image = (Image) this.hashtable.get(resourceId);
+        Image image = (Image) this.hashtable.get(key);
 
         if (image == null)
         {
-            final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
+            final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+            //final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
+            final InputStream inputStream = null;
+            
+            //if(inputStream == null) {
+                //throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(key).toString());
+            //}
+
             try
             {
-                LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
+                //LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
                 image = this.createImage(key, inputStream);
             }
             catch(Exception e)
@@ -95,16 +102,26 @@ public class ImageCache extends ImageCacheBase
                 Thread.sleep(100);
                 image = this.createImage(key, inputStream);
             }
-            inputStream.close();
+            //inputStream.close();
             //Put in the name is really only for debugging
 //            if(DebugFactory.getInstance() != NoDebug.getInstance())
 //            {
 //                this.hashtable.put(key, image);
 //            }
-            this.hashtable.put(resourceId, image);
+            this.hashtable.put(key, image);
         }
+
+//        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//        LogUtil.put(LogFactory.getInstance(spacialStrings.WIDTH_LABEL + image.getWidth() + spacialStrings.HEIGHT_LABEL + image.getHeight(), this, CommonStrings.getInstance().CONSTRUCTOR));
+//        LogUtil.put(LogFactory.getInstance(key + " = " + image.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
 
         return image;
     }
 
+    protected Image createImage(final Object key, final InputStream inputStream)
+    throws Exception
+    {
+        return Image.createImageLater((String) key);
+    }
+    
 }
