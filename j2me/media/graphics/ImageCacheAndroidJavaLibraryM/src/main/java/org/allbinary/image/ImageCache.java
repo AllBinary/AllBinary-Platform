@@ -35,13 +35,14 @@ public class ImageCache
 {
     private final Hashtable hashtable = new Hashtable();
 
-    private final int[] widths = new int[50];
-    private final int[] heights = new int[50];
+    private final int SIZE = 50;
+    private final int[] widths = new int[SIZE];
+    private final int[] heights = new int[SIZE];
     
     private final BasicArrayList[] listOfList = 
-        new BasicArrayList[50];
+        new BasicArrayList[SIZE];
     private final BasicArrayList[] availableListOfList = 
-        new BasicArrayList[50];
+        new BasicArrayList[SIZE];
 
     private int volume = 0;
     private int nextIndex = 0;
@@ -72,7 +73,7 @@ public class ImageCache
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll"));
     }
 
-    private int getIndex(int width, int height)
+    private int getIndex(final int width, final int height)
     {
         int foundIndex = -1;
         
@@ -90,7 +91,7 @@ public class ImageCache
         return foundIndex;
     }
     
-    private Image getFromAvailable(int foundIndex, int width, int height)
+    private Image getFromAvailable(final int foundIndex, final int width, final int height)
     {
         if (foundIndex != -1)
         {
@@ -104,13 +105,13 @@ public class ImageCache
         return null;
     }
     
-    public Image get(Object object, int width, int height)
+    public Image get(final Object object, final int width, final int height)
     throws Exception
     {
         return this.get(object.getClass().getName(), width, height);
     }
     
-    public Image get(String caller, int width, int height)
+    public Image get(final String caller, final int width, final int height)
     throws Exception
     {        
         int foundIndex = this.getIndex(width, height);
@@ -121,7 +122,7 @@ public class ImageCache
             volume += width * height;
             if (volume > 32000)
             {
-                //LogUtil.put(LogFactory.getInstance("Image for: ").append(caller, this, CommonStrings.getInstance().GET));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image for: ").append(caller).toString(), this, CommonStrings.getInstance().GET));
                 System.gc();
                 //System.gc();
                 volume = 0;
@@ -129,6 +130,7 @@ public class ImageCache
             }
 
             image = this.createImage(caller, width, height);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image: ").append(image).toString(), this, CommonStrings.getInstance().GET));
 
             if(foundIndex == -1)
             {
@@ -147,15 +149,15 @@ public class ImageCache
         return image;
     }
     
-    public Image get(Object key) throws Exception
+    public Image get(final Object key) throws Exception
     {
-        Integer resourceId = ResourceUtil.getInstance().getResourceId((String) key);
+        final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+        final Integer resourceId = resourceUtil.getResourceId((String) key);
         Image image = (Image) this.hashtable.get(resourceId);
 
         if (image == null)
         {
-            InputStream inputStream = 
-                    ResourceUtil.getInstance().getResourceAsStream((String) key);
+            final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
             try
             {
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
@@ -174,23 +176,23 @@ public class ImageCache
             }
             inputStream.close();
             //Put in the name is really only for debugging
-            if(DebugFactory.getInstance() != NoDebug.getInstance())
-            {
-                this.hashtable.put(key, image);
-            }
+//            if(DebugFactory.getInstance() != NoDebug.getInstance())
+//            {
+//                this.hashtable.put(key, image);
+//            }
             this.hashtable.put(resourceId, image);
         }
 
         return image;
     }
 
-    protected Image createImage(String caller, int width, int height)
+    protected Image createImage(final String caller, final int width, final int height)
     throws Exception
     {
         return Image.createImage(width, height);
     }
     
-    protected Image createImage(Object key, InputStream inputStream)
+    protected Image createImage(final Object key, final InputStream inputStream)
     throws Exception
     {
         return Image.createImage(inputStream);
@@ -198,15 +200,15 @@ public class ImageCache
     
     public String toString()
     {   
-        StringMaker stringBuffer = new StringMaker(); 
+        final StringMaker stringBuffer = new StringMaker(); 
         for (int index = this.nextIndex - 1; index >= 0; index--)
         {
-            int width = widths[index];
-            int height = heights[index];
+            final int width = widths[index];
+            final int height = heights[index];
 
-            int total = listOfList[index].size();
+            final int total = listOfList[index].size();
             
-            int totalAvailable = availableListOfList[index].size();
+            final int totalAvailable = availableListOfList[index].size();
 
             stringBuffer.append(" w: ");
             stringBuffer.append(width);

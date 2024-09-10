@@ -73,7 +73,7 @@ public class ImageCache
         LogUtil.put(LogFactory.getInstance(new StringMaker().append("ImageCache: ").append(this.toString()).toString(), this, "releaseAll"));
     }
 
-    private int getIndex(int width, int height)
+    private int getIndex(final int width, final int height)
     {
         int foundIndex = -1;
         
@@ -91,7 +91,7 @@ public class ImageCache
         return foundIndex;
     }
     
-    private Image getFromAvailable(int foundIndex, int width, int height)
+    private Image getFromAvailable(final int foundIndex, final int width, final int height)
     {
         if (foundIndex != -1)
         {
@@ -105,13 +105,13 @@ public class ImageCache
         return null;
     }
     
-    public Image get(Object object, int width, int height)
+    public Image get(final Object object, final int width, final int height)
     throws Exception
     {
         return this.get(object.getClass().getName(), width, height);
     }
     
-    public Image get(String caller, int width, int height)
+    public Image get(final String caller, final int width, final int height)
     throws Exception
     {        
         int foundIndex = this.getIndex(width, height);
@@ -150,14 +150,14 @@ public class ImageCache
         return image;
     }
     
-    public Image get(Object key) throws Exception
+    public Image get(final Object key) throws Exception
     {
         Image image = (Image) this.hashtable.get(key);
 
         if (image == null)
         {
-            final InputStream inputStream = 
-                    ResourceUtil.getInstance().getResourceAsStream((String) key);
+            final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+            final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
             
             if(inputStream == null) {
                 throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(key).toString());
@@ -195,13 +195,13 @@ public class ImageCache
         return image;
     }
 
-    protected Image createImage(String caller, int width, int height)
+    protected Image createImage(final String caller, final int width, final int height)
     throws Exception
     {
         return Image.createImage(width, height);
     }
     
-    protected Image createImage(Object key, InputStream inputStream)
+    protected Image createImage(final Object key, final InputStream inputStream)
     throws Exception
     {
         return Image.createImage(inputStream);
@@ -209,15 +209,15 @@ public class ImageCache
     
     public String toString()
     {   
-        StringBuffer stringBuffer = new StringBuffer(); 
+        final StringMaker stringBuffer = new StringMaker(); 
         for (int index = this.nextIndex - 1; index >= 0; index--)
         {
-            int width = widths[index];
-            int height = heights[index];
+            final int width = widths[index];
+            final int height = heights[index];
 
-            int total = listOfList[index].size();
-            
-            int totalAvailable = availableListOfList[index].size();
+            final int total = listOfList[index].size();
+
+            final int totalAvailable = availableListOfList[index].size();
 
             stringBuffer.append(" w: ");
             stringBuffer.append(width);
