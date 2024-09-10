@@ -13,7 +13,6 @@
 */
 package org.allbinary.image;
 
-
 public class ImageCacheFactory
 {
     private final static ImageCache IMAGE_CACHE = new ImageCache();

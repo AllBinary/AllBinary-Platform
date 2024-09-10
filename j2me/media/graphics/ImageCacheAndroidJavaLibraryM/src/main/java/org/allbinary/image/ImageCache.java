@@ -19,15 +19,12 @@ import java.util.Hashtable;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.resource.ResourceUtil;
-import org.allbinary.debug.DebugFactory;
-import org.allbinary.debug.NoDebug;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.system.Memory;
 
