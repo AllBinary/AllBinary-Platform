@@ -44,7 +44,7 @@ public class AnimationFactorySpriteScaleUtil {
     
     private final ImageCache imageCache = ImageCacheFactory.getInstance();
     private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
-    private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
+    //private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
     
     public Sprite createImage(final Image image, final int width, final int height, final int scaleWidth, final int scaleHeight) throws Exception {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
