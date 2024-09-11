@@ -64,8 +64,8 @@ public class ImageRotationAnimationFactory
 
         this(image, width, height, angleIncrement, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public ImageRotationAnimationFactory(final Image image,
@@ -81,8 +81,8 @@ public class ImageRotationAnimationFactory
 
         this(image, width, height, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public ImageRotationAnimationFactory(final Image image)
@@ -115,14 +115,14 @@ public class ImageRotationAnimationFactory
     
     public Animation getInstance() throws Exception {
 
-        if (dx != 0 || dy != 0) {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
 
             animationFactoryImageScaleUtil.processAdjust(this);
 
             return new AdjustedImageBaseRotationAnimation(
                 this.getImage(),
                 AngleInfo.getInstance(this.angleIncrement),
-                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
 
         } else {
             return new ImageBaseRotationAnimation(

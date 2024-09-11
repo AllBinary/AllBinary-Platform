@@ -69,8 +69,8 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
         this(image, width, height, angleIncrement, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
     
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image,
@@ -79,8 +79,8 @@ public class AllBinaryAndroidImageRotationAnimationFactory
 
         this(image, width, height, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public AllBinaryAndroidImageRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
@@ -101,19 +101,22 @@ public class AllBinaryAndroidImageRotationAnimationFactory
     
     public Animation getInstance() throws Exception
     {
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+            this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
+            this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
         //final Image scaledImage = this.getImage();
         //final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
-        if (dx != 0 || dy != 0) {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
             animationFactoryImageScaleUtil.processAdjust(this);
             
             return new AllBinaryAdjustedAndroidImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
                 AngleInfo.getInstance(this.angleIncrement),
-                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, animationBehaviorFactory.getOrCreateInstance());
+                AngleFactory.getInstance().TOTAL_ANGLE, 
+                this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, animationBehaviorFactory.getOrCreateInstance());
 
         } else {
             //return new AllBinaryNoFlickerAndroidImageRotationAnimation(

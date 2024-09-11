@@ -35,7 +35,7 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
     }
     
     public void setInitialScale(final ScaleProperties scaleProperties) {
-        
+        this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
     }
     
 }

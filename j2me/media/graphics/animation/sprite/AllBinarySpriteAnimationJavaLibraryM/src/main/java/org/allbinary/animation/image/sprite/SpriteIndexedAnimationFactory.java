@@ -56,8 +56,8 @@ public class SpriteIndexedAnimationFactory
         //this.dx = - this.width / 20;
         //this.dy = - this.height / 10;
         //J2ME
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public SpriteIndexedAnimationFactory(
@@ -83,11 +83,11 @@ public class SpriteIndexedAnimationFactory
         //this.dx = - this.width / 20;
         //this.dy = - this.height / 10;
         //J2ME
-        this.dx = -(this.width >> 2);
-        this.dy = -(this.height >> 2);
+        this.animationFactoryInitializationVisitor.dx = -(this.animationFactoryInitializationVisitor.width >> 2);
+        this.animationFactoryInitializationVisitor.dy = -(this.animationFactoryInitializationVisitor.height >> 2);
 
         if (AndroidUtil.isAndroid()) {
-            this.dx += 3;
+            this.animationFactoryInitializationVisitor.dx += 3;
         }
     }
 
@@ -104,8 +104,8 @@ public class SpriteIndexedAnimationFactory
     {
         this(image, width, height, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
     
     public SpriteIndexedAnimationFactory(final Image image, final int width, final int height)
@@ -124,10 +124,13 @@ public class SpriteIndexedAnimationFactory
 
     public Animation getInstance() throws Exception {
         
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), 
+            this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
+            this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
-        if (dx != 0 || dy != 0) {
-            return new AdjustedSpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
+            return new AdjustedSpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, 
+                this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new SpriteIndexedAnimation(sprite, this.getImage(), this.basicColorArray, this.animationBehaviorFactory.getOrCreateInstance());
         }

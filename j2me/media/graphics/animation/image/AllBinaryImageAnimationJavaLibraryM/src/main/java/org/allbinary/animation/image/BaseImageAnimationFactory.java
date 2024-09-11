@@ -34,14 +34,12 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
     protected final AnimationFactoryImageScaleUtil animationFactoryImageScaleUtil = AnimationFactoryImageScaleUtil.getInstance();
         
     private final Image image;
-    public final int width;
-    public final int height;
+    
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     private final int[] sequenceArray;
 
-    public int dx;
-    public int dy;
+    public final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor;
 
     public ScaleProperties scaleProperties = ScaleProperties.instance;
 
@@ -49,16 +47,18 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
             throws Exception {
         this(image, PrimitiveIntUtil.getArrayInstance(), width, height, animationBehaviorFactory);
         
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+        
     }
     
     public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory) 
         throws Exception {
         this(image, sequenceArray, width, height, animationBehaviorFactory);
         
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
+        
     }
     
     public BaseImageAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
@@ -68,10 +68,13 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     public BaseImageAnimationFactory(final Image image, final int[] sequenceArray, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
+        
+        this.animationFactoryInitializationVisitor = new AnimationFactoryInitializationVisitor();
+        
         this.image = image;
 
-        this.width = width;
-        this.height = height;
+        this.animationFactoryInitializationVisitor.width = width;
+        this.animationFactoryInitializationVisitor.height = height;
         
         this.animationBehaviorFactory = animationBehaviorFactory;
 
@@ -106,11 +109,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         stringBuffer.append(spacialStrings.HEIGHT_LABEL);
         stringBuffer.append(image.getHeight());
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(spacialStrings.WIDTH_LABEL);
-        stringBuffer.append(width);
-        stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
-        stringBuffer.append(height);
+        stringBuffer.append(this.animationFactoryInitializationVisitor.toString());
 
         return stringBuffer.toString();
     }
@@ -121,8 +120,8 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         
         //Temp hack
         if(this.scaleProperties.shouldScale) {
-            this.scaleProperties.scaleWidth = (int) (this.width * this.scaleProperties.scaleX);
-            this.scaleProperties.scaleHeight = (int) (this.height * this.scaleProperties.scaleY);
+            this.scaleProperties.scaleWidth = (int) (this.animationFactoryInitializationVisitor.width * this.scaleProperties.scaleX);
+            this.scaleProperties.scaleHeight = (int) (this.animationFactoryInitializationVisitor.height * this.scaleProperties.scaleY);
             LogUtil.put(LogFactory.getInstance(scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
         }
         

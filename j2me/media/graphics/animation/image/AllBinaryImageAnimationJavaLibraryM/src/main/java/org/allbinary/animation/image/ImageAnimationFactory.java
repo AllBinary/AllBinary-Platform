@@ -43,22 +43,21 @@ public class ImageAnimationFactory extends BaseImageAnimationFactory {
     throws Exception
     {
         super(image, width, height, dx, dy, animationBehaviorFactory);
-
-        this.dx = dx;
-        this.dy = dy;
     }
     
     public Animation getInstance() throws Exception
     {
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+            this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
+            this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         //final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());
         //final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
-        if (dx != 0 || dy != 0) {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
             animationFactoryImageScaleUtil.processAdjust(this);
             
-            return new AdjustedImageAnimation(scaledImage, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedImageAnimation(scaledImage, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
 
         } else {
             return new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());

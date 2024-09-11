@@ -67,8 +67,8 @@ public class ImageArrayRotationAnimationFactory
 
         this(image, width, height, angleIncrement, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public ImageArrayRotationAnimationFactory(final Image image,
@@ -83,8 +83,8 @@ public class ImageArrayRotationAnimationFactory
 
         this(image, width, height, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public ImageArrayRotationAnimationFactory(final Image image, final int width, final int height, final AnimationBehaviorFactory animationBehaviorFactory)
@@ -122,14 +122,14 @@ public class ImageArrayRotationAnimationFactory
             scaledImageArray[index] = animationFactoryImageScaleUtil.createImage(image, image.getWidth(), image.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         }
         
-        if (dx != 0 || dy != 0) {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
             animationFactoryImageScaleUtil.processAdjust(this);
             
             return new AdjustedImageArrayRotationAnimation(
                 scaledImageArray,
                 AngleInfo.getInstance((short) this.getAngleIncrement()),
-                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
 
         } else {
             return new ImageArrayRotationAnimation(scaledImageArray,

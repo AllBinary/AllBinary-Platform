@@ -47,13 +47,16 @@ public class LeftToRightImageAnimationFactory
 
     public Animation getInstance() throws Exception {
         
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
+            this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
+            this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         
-        if (dx != 0 || dy != 0) {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             
             animationFactoryImageScaleUtil.processAdjust(this);
             
-            return new AdjustedLeftToRightImageAnimation(scaledImage, this.getSequenceArray(), this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+            return new AdjustedLeftToRightImageAnimation(scaledImage, this.getSequenceArray(), 
+                this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new LeftToRightImageAnimation(scaledImage, this.getSequenceArray(), this.animationBehaviorFactory.getOrCreateInstance());
         }

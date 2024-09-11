@@ -33,8 +33,8 @@ public class AllBinarySpriteRotationAnimationFactory
         
         this(image, dx, dy);
 
-        this.dx += -this.width / 5;
-        this.dy += -this.height / 5;
+        this.animationFactoryInitializationVisitor.dx += -this.animationFactoryInitializationVisitor.width / 5;
+        this.animationFactoryInitializationVisitor.dy += -this.animationFactoryInitializationVisitor.height / 5;
     }
 
     public AllBinarySpriteRotationAnimationFactory(final Image image, final int dx, final int dy, final int unused)
@@ -42,8 +42,8 @@ public class AllBinarySpriteRotationAnimationFactory
         
         this(image, null, AnimationBehaviorFactory.getInstance());
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
     
     public AllBinarySpriteRotationAnimationFactory(final Image image, final Object unused, final Object unused2)
@@ -65,8 +65,8 @@ public class AllBinarySpriteRotationAnimationFactory
         
         this(image, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public AllBinarySpriteRotationAnimationFactory(final Image image)
@@ -105,10 +105,10 @@ public class AllBinarySpriteRotationAnimationFactory
     public Animation getInstance()
         throws Exception {
         
-        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
 
-        if (dx != 0 || dy != 0) {
-            return new AllBinaryAdjustedSpriteRotationAnimation(sprite, this.getImage(), dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
+            return new AllBinaryAdjustedSpriteRotationAnimation(sprite, this.getImage(), this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             return new AllBinarySpriteRotationAnimation(sprite, this.getImage(), this.animationBehaviorFactory.getOrCreateInstance());
         }

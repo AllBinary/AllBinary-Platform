@@ -47,8 +47,8 @@ public class VectorToImageArrayRotationAnimationFactory
 
         this(vectorInfo, basicColor, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public VectorToImageArrayRotationAnimationFactory(
@@ -80,10 +80,10 @@ public class VectorToImageArrayRotationAnimationFactory
 
     public Animation getInstance() throws Exception
     {
-        if (dx != 0 || dy != 0) {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             return new AdjustedImageArrayRotationAnimation(
                 this.imageArray, AngleInfo.getInstance((short) this.getAngleIncrement()),
-                AngleFactory.getInstance().TOTAL_ANGLE, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
         } else {
             //This still offsets.
             return new AdjustedImageArrayRotationAnimation(

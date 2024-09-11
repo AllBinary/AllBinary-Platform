@@ -65,8 +65,8 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
         this(image, width, height, angleIncrement, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image,
@@ -82,8 +82,8 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
 
         this(image, width, height, animationBehaviorFactory);
 
-        this.dx = dx;
-        this.dy = dy;
+        this.animationFactoryInitializationVisitor.dx = dx;
+        this.animationFactoryInitializationVisitor.dy = dy;
     }
 
     public AllBinaryJ2SEImageRotationAnimationFactory(final Image image)
@@ -116,18 +116,18 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     
     public Animation getInstance() throws Exception {
         
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), width, height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
 
-        if (dx != 0 || dy != 0) {
+        if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
 
             animationFactoryImageScaleUtil.processAdjust(this);
 
             return new AllBinaryAdjustedJ2SEImageRotationAnimation(
                 scaledImage, copyOfScaledImage,
                 AngleInfo.getInstance(this.angleIncrement),
-                AngleFactory.getInstance().TOTAL_ANGLE, this.dx, this.dy, this.animationBehaviorFactory.getOrCreateInstance());
+                AngleFactory.getInstance().TOTAL_ANGLE, this.animationFactoryInitializationVisitor.dx, this.animationFactoryInitializationVisitor.dy, this.animationBehaviorFactory.getOrCreateInstance());
 
         } else {
             return new AllBinaryJ2SEImageRotationAnimation(
