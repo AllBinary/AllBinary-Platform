@@ -17,6 +17,7 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
+import javax.microedition.lcdui.OpenGLESPostLoadPlatformImage;
 
 import org.allbinary.graphics.OpenGLBitmap;
 import org.allbinary.logic.string.CommonStrings;
@@ -49,6 +50,7 @@ implements OpenGLSurfaceChangedInterface
         //super(image);
         this.openGLBitmap = (OpenGLBitmap) bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
+        this.platformImage = OpenGLESPostLoadPlatformImage.getInstance();
     }
 
     /*
