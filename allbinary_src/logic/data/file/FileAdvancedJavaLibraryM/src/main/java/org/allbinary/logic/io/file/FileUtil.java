@@ -14,31 +14,30 @@
 package org.allbinary.logic.io.file;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import org.allbinary.globals.URLGLOBALS;
+import java.io.FileInputStream;
 import java.io.InputStream;
-import java.util.Vector;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
+import org.allbinary.globals.URLGLOBALS;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.AbFileLocalInputStream;
 import org.allbinary.logic.io.AbFileSystem;
 import org.allbinary.logic.io.DataOutputStreamFactory;
+import org.allbinary.logic.io.FileStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import java.io.FileInputStream;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import org.allbinary.logic.io.FileStreamFactory;
-import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
+import org.allbinary.util.BasicArrayList;
 
 //data/init/views/TestStore/template/type/genericTemplateObjectConfig.xml
 public class FileUtil
@@ -53,13 +52,15 @@ public class FileUtil
         return instance;
     }
 
-    private FileUtil()
-    {
-    }
-
+    private final Directory directory = Directory.getInstance();
+    
     private final LogConfigTypeFactory logConfigTypeFactory = LogConfigTypeFactory.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final StreamUtil streamUtil = StreamUtil.getInstance();
+    
+    private FileUtil()
+    {
+    }
 
     //overwrite files
     /*
@@ -542,9 +543,9 @@ public class FileUtil
             throw new Exception("Not a directory: " + file.getPath());
         }
 
-        Vector fileVector = Directory.getInstance().search(file, true);
+        BasicArrayList fileList = directory.search(file, true);
 
-        int size = fileVector.size();
+        int size = fileList.size();
 
         StringBuffer stringBuffer = new StringBuffer();
 
@@ -580,7 +581,7 @@ public class FileUtil
 
         for (int index = start; index < end; index++)
         {
-            AbFile nextFile = (AbFile) fileVector.get(index);
+            AbFile nextFile = (AbFile) fileList.get(index);
 
             if (nextFile.isDirectory())
             {

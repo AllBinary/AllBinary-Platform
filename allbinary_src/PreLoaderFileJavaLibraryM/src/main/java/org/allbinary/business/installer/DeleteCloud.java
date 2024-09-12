@@ -13,8 +13,6 @@
 */
 package org.allbinary.business.installer;
 
-import java.util.Vector;
-
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.AbFileSystem;
 import org.allbinary.logic.io.file.AbFile;
@@ -23,6 +21,7 @@ import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.file.upload.FileUploadData;
+import org.allbinary.util.BasicArrayList;
 
 public class DeleteCloud
 {
@@ -47,15 +46,15 @@ public class DeleteCloud
                 //Using cloud file search currently causes problems when trying to output new file
                 AbFile file = new AbFile(path);
 
-                Vector fileVector = Directory.getInstance().search(file, true);
+                BasicArrayList fileBasicArrayList = Directory.getInstance().search(file, true);
 
-                int size = fileVector.size();
+                int size = fileBasicArrayList.size();
 
                 stringBuffer.delete(0, stringBuffer.length());
 
                 stringBuffer.append("Searched: ");
                 stringBuffer.append(path.toFileSystemString());
-                stringBuffer.append(" Vector: ");
+                stringBuffer.append(" BasicArrayList: ");
                 stringBuffer.append(size);
 
                 int portion = size / total + 1;
@@ -79,7 +78,7 @@ public class DeleteCloud
 
                 for (int index = start; index < end; index++)
                 {
-                    AbFile nextFile = (AbFile) fileVector.get(index);
+                    AbFile nextFile = (AbFile) fileBasicArrayList.get(index);
 
                     try
                     {

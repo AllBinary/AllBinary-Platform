@@ -17,7 +17,6 @@ import java.io.FileReader;
 import java.io.LineNumberReader;
 
 import java.util.HashMap;
-import java.util.Vector;
 import org.allbinary.logic.io.file.AbFile;
 
 import org.allbinary.logic.io.file.FilePathData;
@@ -30,6 +29,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;
+import org.allbinary.util.BasicArrayList;
 
 public class Cpu implements CpuInterface, HardwareComponentInterface
 {
@@ -75,7 +75,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
          if(lineNumberReader == null)
          {
             //Find file
-            Vector fileVector = new SubDirectory().search(filePath, new AbFile(FilePathData.SEPARATOR));
+            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, new AbFile(FilePathData.SEPARATOR));
             
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {

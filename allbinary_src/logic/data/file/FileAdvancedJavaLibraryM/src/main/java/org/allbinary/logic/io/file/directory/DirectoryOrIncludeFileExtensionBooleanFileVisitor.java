@@ -14,25 +14,24 @@
 package org.allbinary.logic.io.file.directory;
 
 import org.allbinary.logic.io.file.AbFile;
-import java.util.Vector;
-
 import org.allbinary.logic.io.file.visitor.IncludeFileExtensionsBooleanFileVisitor;
+import org.allbinary.util.BasicArrayList;
 
 public class DirectoryOrIncludeFileExtensionBooleanFileVisitor
     extends IncludeFileExtensionsBooleanFileVisitor
 {
     private final String includesString;
     
-    public DirectoryOrIncludeFileExtensionBooleanFileVisitor(final Vector filterStringVector)
+    public DirectoryOrIncludeFileExtensionBooleanFileVisitor(final BasicArrayList filterStringBasicArrayList)
     {
-        super(filterStringVector);
+        super(filterStringBasicArrayList);
         
         this.includesString = null;
     }
 
-    public DirectoryOrIncludeFileExtensionBooleanFileVisitor(final Vector filterStringVector, final String includesString)
+    public DirectoryOrIncludeFileExtensionBooleanFileVisitor(final BasicArrayList filterStringBasicArrayList, final String includesString)
     {
-        super(filterStringVector);
+        super(filterStringBasicArrayList);
         
         this.includesString = includesString;
     }

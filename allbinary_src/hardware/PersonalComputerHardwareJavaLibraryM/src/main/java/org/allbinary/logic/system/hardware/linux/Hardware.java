@@ -45,6 +45,7 @@ import org.allbinary.logic.system.hardware.HardwareInterface;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.util.BasicArrayList;
 
 public class Hardware implements HardwareInterface
 {
@@ -134,12 +135,12 @@ public class Hardware implements HardwareInterface
          if(lineNumberReader == null)
          {
             //Find file
-            Vector fileVector = new SubDirectory().search(filePath, new AbFile(FilePathData.SEPARATOR));
+            final BasicArrayList fileVector = SubDirectory.getInstance().search(filePath, new AbFile(FilePathData.SEPARATOR));
             
             //if(fileVector.size() > 0)
             if(!fileVector.isEmpty())
             {
-               AbFile file = (AbFile) fileVector.get(0);
+               final AbFile file = (AbFile) fileVector.get(0);
                lineNumberReader = new LineNumberReader(new FileReader(file.getPath()));
             }
             

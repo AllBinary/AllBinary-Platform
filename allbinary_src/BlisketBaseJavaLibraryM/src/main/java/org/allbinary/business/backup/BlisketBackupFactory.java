@@ -13,6 +13,7 @@
 */
 package org.allbinary.business.backup;
 
+import java.util.Vector;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.directory.Directory;
@@ -25,7 +26,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity;
 import org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntityFactory;
 import org.allbinary.globals.PATH_GLOBALS;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
 
 public class BlisketBackupFactory
 {
@@ -36,14 +37,16 @@ public class BlisketBackupFactory
         return instance;
     }
 
-    private Vector getFileVector(String pathString)
+    private final Directory directory = Directory.getInstance();
+    
+    private BasicArrayList getFileBasicArrayList(String pathString)
         throws Exception
     {
         AbPath path = new AbPath(pathString);
 
         AbFile file = new AbFile(path);
 
-        return Directory.getInstance().search(file, true);
+        return directory.search(file, true);
     }
 
     public void backup()
@@ -61,9 +64,9 @@ public class BlisketBackupFactory
 
             AbPath path = new AbPath(backupPath);
 
-            Vector fileVector = this.getFileVector(backupPath);
+            BasicArrayList fileBasicArrayList = this.getFileBasicArrayList(backupPath);
 
-            this.backup(fileVector, path.toFileSystemString() + "backup.zip");
+            this.backup(fileBasicArrayList, path.toFileSystemString() + "backup.zip");
 
         } catch (Exception e)
         {
@@ -86,18 +89,18 @@ public class BlisketBackupFactory
 
             AbPath path = new AbPath(backupPath);
 
-            Vector fileVector = new Vector();
+            BasicArrayList fileBasicArrayList = new BasicArrayList();
 
             //Backup other customizable generated files
             StoreFrontsEntity storeFrontsEntity =
                 StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
 
-            Vector storeFrontNamesVector = storeFrontsEntity.getStoreFrontNames();
+            Vector storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
 
-            int size = storeFrontNamesVector.size();
+            int size = storeFrontNamesBasicArrayList.size();
             for (int index = 0; index < size; index++)
             {
-                String nextStore = (String) storeFrontNamesVector.get(index);
+                String nextStore = (String) storeFrontNamesBasicArrayList.get(index);
 
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append(URLGLOBALS.getWebappPath());
@@ -115,10 +118,10 @@ public class BlisketBackupFactory
                 PreLogUtil.put(stringBuffer.toString(), this, "backupViews()");
 
                 //Views
-                fileVector.addAll(this.getFileVector(viewsPath));
+                fileBasicArrayList.addAll(this.getFileBasicArrayList(viewsPath));
             }
 
-            this.backup(fileVector, path.toFileSystemString() + "backupViews.zip");
+            this.backup(fileBasicArrayList, path.toFileSystemString() + "backupViews.zip");
 
         } catch (Exception e)
         {
@@ -141,18 +144,18 @@ public class BlisketBackupFactory
 
             AbPath path = new AbPath(backupPath);
 
-            Vector fileVector = new Vector();
+            BasicArrayList fileBasicArrayList = new BasicArrayList();
 
             //Backup other customizable generated files
             StoreFrontsEntity storeFrontsEntity =
                 StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
 
-            Vector storeFrontNamesVector = storeFrontsEntity.getStoreFrontNames();
+            Vector storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
 
-            int size = storeFrontNamesVector.size();
+            int size = storeFrontNamesBasicArrayList.size();
             for (int index = 0; index < size; index++)
             {
-                String nextStore = (String) storeFrontNamesVector.get(index);
+                String nextStore = (String) storeFrontNamesBasicArrayList.get(index);
 
                 StoreFrontInterface storeFrontInterface =
                     storeFrontsEntity.getStoreFrontInterface(nextStore);
@@ -175,10 +178,10 @@ public class BlisketBackupFactory
                 PreLogUtil.put(stringBuffer.toString(), this, "backupResources()");
 
                 //Views
-                fileVector.addAll(this.getFileVector(resourcesPath));
+                fileBasicArrayList.addAll(this.getFileBasicArrayList(resourcesPath));
             }
 
-            this.backup(fileVector, path.toFileSystemString() + "backupResources.zip");
+            this.backup(fileBasicArrayList, path.toFileSystemString() + "backupResources.zip");
 
         } catch (Exception e)
         {
@@ -201,18 +204,18 @@ public class BlisketBackupFactory
 
             AbPath path = new AbPath(backupPath);
 
-            Vector fileVector = new Vector();
+            BasicArrayList fileBasicArrayList = new BasicArrayList();
 
             //Backup other customizable generated files
             StoreFrontsEntity storeFrontsEntity =
                 StoreFrontsEntityFactory.getInstance().getStoreFrontsEntityInstance();
 
-            Vector storeFrontNamesVector = storeFrontsEntity.getStoreFrontNames();
+            Vector storeFrontNamesBasicArrayList = storeFrontsEntity.getStoreFrontNames();
 
-            int size = storeFrontNamesVector.size();
+            int size = storeFrontNamesBasicArrayList.size();
             for (int index = 0; index < size; index++)
             {
-                String nextStore = (String) storeFrontNamesVector.get(index);
+                String nextStore = (String) storeFrontNamesBasicArrayList.get(index);
 
                 PreLogUtil.put("Backup Store Jsps: " + nextStore, this, "backupJsps()");
 
@@ -222,10 +225,10 @@ public class BlisketBackupFactory
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(nextStore);
 
-                fileVector.addAll(this.getFileVector(stringBuffer.toString()));
+                fileBasicArrayList.addAll(this.getFileBasicArrayList(stringBuffer.toString()));
             }
 
-            this.backup(fileVector, path.toFileSystemString() + "backupJsps.zip");
+            this.backup(fileBasicArrayList, path.toFileSystemString() + "backupJsps.zip");
 
         } catch (Exception e)
         {
@@ -233,23 +236,23 @@ public class BlisketBackupFactory
         }
     }
 
-    public void backup(Vector fileVector, String zipFile)
+    public void backup(BasicArrayList fileBasicArrayList, String zipFile)
     {
         try
         {
-            StringBuffer stringBuffer = new StringBuffer();
+            final StringBuffer stringBuffer = new StringBuffer();
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("ZipFile: ");
             stringBuffer.append(zipFile);
-            stringBuffer.append(" Vector: ");
-            stringBuffer.append(fileVector.size());
+            stringBuffer.append(" BasicArrayList: ");
+            stringBuffer.append(fileBasicArrayList.size());
 
             //LogUtil.put(LogFactory.getInstance(
               //  "Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()"));
             PreLogUtil.put("Creating Backup Zip File: " + stringBuffer.toString(), this, "backup()");
 
-            ZipFileUtil.getInstance().create(zipFile, fileVector);
+            ZipFileUtil.getInstance().create(zipFile, fileBasicArrayList);
 
             LogUtil.put(LogFactory.getInstance(
                 "Created Backup Zip File", this, "backup()"));

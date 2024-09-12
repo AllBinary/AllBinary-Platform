@@ -14,21 +14,19 @@
 package org.allbinary.logic.io.file.visitor;
 
 import org.allbinary.logic.io.file.AbFile;
-import java.util.Iterator;
-import java.util.Vector;
-
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.util.visitor.VisitorInterface;
+import org.allbinary.util.BasicArrayList;
 
-public class VectorBooleanFileVisitor
+public class BooleanFileVisitor
    implements VisitorInterface
 {
-   private Vector filterStringVector;
+   private BasicArrayList filterStringBasicArrayList;
    
-   public VectorBooleanFileVisitor(Vector filterStringVector)
+   public BooleanFileVisitor(BasicArrayList filterStringBasicArrayList)
    {
-      this.setFilterStringVector(filterStringVector);
-      PreLogUtil.put("Filter Vector: " + this.getFilterStringVector().toString(), this, "Constructor");
+      this.setFilterStringBasicArrayList(filterStringBasicArrayList);
+      PreLogUtil.put("Filter BasicArrayList: " + this.getFilterStringBasicArrayList().toString(), this, "Constructor");
    }
 
    public Object visit(Object object)
@@ -38,10 +36,13 @@ public class VectorBooleanFileVisitor
    
    public Boolean visit(AbFile file)
    {
-      Iterator iter = this.getFilterStringVector().iterator();
-      while(iter.hasNext())
+      final BasicArrayList list = this.getFilterStringBasicArrayList();
+      final int size = list.size();
+      
+      String nextFileFilterString;
+      for(int index = 0; index < size; index++)
       {
-         String nextFileFilterString = (String) iter.next();
+         nextFileFilterString = (String) list.get(index);
          
          if(this.visit(file, nextFileFilterString).booleanValue())
          {
@@ -51,14 +52,14 @@ public class VectorBooleanFileVisitor
       return Boolean.FALSE;
    }
 
-   public Vector getFilterStringVector()
+   public BasicArrayList getFilterStringBasicArrayList()
    {
-      return filterStringVector;
+      return filterStringBasicArrayList;
    }
 
-   public void setFilterStringVector(Vector filterStringVector)
+   public void setFilterStringBasicArrayList(BasicArrayList filterStringBasicArrayList)
    {
-      this.filterStringVector = filterStringVector;
+      this.filterStringBasicArrayList = filterStringBasicArrayList;
    }
    
    public Boolean visit(AbFile file, String fileNameString) {

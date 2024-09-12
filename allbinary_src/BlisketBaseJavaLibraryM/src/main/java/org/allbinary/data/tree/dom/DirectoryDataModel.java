@@ -13,9 +13,6 @@
 */
 package org.allbinary.data.tree.dom;
 
-import java.util.Iterator;
-import java.util.Vector;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -27,16 +24,17 @@ import org.allbinary.logic.visual.transform.TransformInterface;
 import org.allbinary.logic.visual.transform.data.TransformDocumentFactory;
 import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
+import org.allbinary.util.BasicArrayList;
 
 public class DirectoryDataModel
    implements DomNodeInterface, TransformInterface
 {
-   private Vector fileVector;
+   private final BasicArrayList fileBasicArrayList;
    private TransformDocumentInterface transformDocumentInterface;
 
-   public DirectoryDataModel(AbFile file) throws Exception
+   public DirectoryDataModel(final AbFile file) throws Exception
    {
-      this.fileVector = Directory.getInstance().search(file);
+      this.fileBasicArrayList = Directory.getInstance().search(file);
       this.transformDocumentInterface = 
          (TransformDocumentInterface) TransformDocumentFactory.getInstance();
    }
@@ -65,15 +63,18 @@ public class DirectoryDataModel
    }
 
    //Create the directory Node
-   public Node toXmlNode(Document document) throws Exception
+   public Node toXmlNode(final Document document) throws Exception
    {
-      Node dirNode = document.createElement("dir");
+      final Node dirNode = document.createElement("dir");
 
-      Iterator iter = this.fileVector.iterator();
-      while(iter.hasNext())
+      final int size = this.fileBasicArrayList.size();
+      
+      AbFile nextFile;
+      Node fileNode;
+      for(int index = 0; index < size; index++)
       {
-         AbFile nextFile = (AbFile) iter.next();
-         Node fileNode = new FileDomDataModel(nextFile).toXmlNode(document);
+         nextFile = (AbFile) this.fileBasicArrayList.get(index);
+         fileNode = new FileDomDataModel(nextFile).toXmlNode(document);
          dirNode.appendChild(fileNode);
       }
 

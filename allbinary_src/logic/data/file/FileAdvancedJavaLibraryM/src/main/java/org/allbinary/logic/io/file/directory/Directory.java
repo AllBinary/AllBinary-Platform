@@ -13,15 +13,15 @@
 */
 package org.allbinary.logic.io.file.directory;
 
+import java.io.FileFilter;
+
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileFactory;
 import org.allbinary.logic.io.file.FileWrapperUtil;
-import java.io.FileFilter;
-import java.util.Iterator;
-import java.util.Vector;
 
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.util.BasicArrayList;
 
 public class Directory
 {
@@ -54,7 +54,7 @@ public class Directory
     {
         try
         {
-            AbFile directoryFile = FileFactory.getInstance().getInstance(directory);
+            final AbFile directoryFile = FileFactory.getInstance().getInstance(directory);
             if (!directoryFile.isDirectory())
             {
                 //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
@@ -81,7 +81,7 @@ public class Directory
     //see if directory contains files if not remove directory
     private static synchronized void remove(String existingDirectory) throws Exception
     {
-        AbFile existingDirectoryFile = FileFactory.getInstance().getInstance(existingDirectory);
+        final AbFile existingDirectoryFile = FileFactory.getInstance().getInstance(existingDirectory);
         if (existingDirectoryFile.isDirectory())
         {
             if (existingDirectoryFile.list().length > 0)
@@ -101,179 +101,164 @@ public class Directory
         }
     }
 
-    public Vector search(FileFilter fileFilter, AbFile file)
+    public BasicArrayList search(FileFilter fileFilter, AbFile file)
     {
         return this.search(fileFilter, file, false);
     }
 
     //Find the files matching the FileFilter in the given directory
 
-    public Vector search(FileFilter fileFilter, AbFile file, boolean isRecursiveSearch)
+    public BasicArrayList search(FileFilter fileFilter, AbFile file, boolean isRecursiveSearch)
     {
-        Vector fileVector = new Vector();
+        final BasicArrayList fileList = new BasicArrayList();
 
+        BasicArrayList recursiveFileList;
         if (file.isDirectory())
         {
             //System.out.println("Is a Directory");
             final Object[] fileArray = file.listFiles(fileFilter);
             if(fileArray == null) {
-                return fileVector;
+                return fileList;
             }
             final AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
 
             if (files == null)
             {
-                return fileVector;
+                return fileList;
             }
 
-            for (int index = 0; index < files.length; index++)
+            final int size = files.length;
+            for (int index = 0; index < size; index++)
             {
-                fileVector.add(files[index]);
+                fileList.add(files[index]);
                 if (isRecursiveSearch)
                 {
-                    Vector vector = this.search(
+                    recursiveFileList = this.search(
                         fileFilter,
                         files[index],
                         isRecursiveSearch);
 
-                    Iterator iterator = vector.iterator();
-                    while (iterator.hasNext())
-                    {
-                        fileVector.add(iterator.next());
-                    }
+                    fileList.addAll(recursiveFileList);
                 }
             }
         }
-        return fileVector;
+        return fileList;
     }
 
-    public Vector search(AbFile file)
+    public BasicArrayList search(AbFile file)
     {
         return this.search(file, false);
     }
 
     //Return the files in the given directory
-    public Vector search(AbFile file, boolean isRecursiveSearch)
+    public BasicArrayList search(final AbFile file, final boolean isRecursiveSearch)
     {
-        Vector fileVector = new Vector();
+        final BasicArrayList fileList = new BasicArrayList();
 
+        BasicArrayList recursiveFileList;
         if (file.isDirectory())
         {
             final Object[] fileArray = file.listFiles();
             if(fileArray == null) {
-                return fileVector;
-            }
-            AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
-
-            if (files == null)
-            {
-                return fileVector;
-            }
-
-            for (int index = 0; index < files.length; index++)
-            {
-                fileVector.add(files[index]);
-                if (isRecursiveSearch)
-                {
-                    Vector vector =
-                        this.search(files[index], isRecursiveSearch);
-                    Iterator iterator = vector.iterator();
-                    while (iterator.hasNext())
-                    {
-                        fileVector.add(iterator.next());
-                    }
-                }
-            }
-        }
-        return fileVector;
-    }
-
-    public Vector search(String searchValue, AbFile file)
-    {
-        return this.search(searchValue, file, false);
-    }
-
-    //Find the files matching the searchValue in the given directory
-    public Vector search(final String searchValue, final AbFile file, final boolean isRecursiveSearch)
-    {
-        final Vector fileVector = new Vector();
-
-        if (file.isDirectory())
-        {
-            final Object[] fileArray = file.listFiles();
-            if(fileArray == null) {
-                return fileVector;
+                return fileList;
             }
             final AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
 
             if (files == null)
             {
-                return fileVector;
+                return fileList;
+            }
+
+            for (int index = 0; index < files.length; index++)
+            {
+                fileList.add(files[index]);
+                if (isRecursiveSearch)
+                {
+                    recursiveFileList = this.search(files[index], isRecursiveSearch);
+                    fileList.addAll(recursiveFileList);
+                }
+            }
+        }
+        return fileList;
+    }
+
+    public BasicArrayList search(String searchValue, AbFile file)
+    {
+        return this.search(searchValue, file, false);
+    }
+
+    //Find the files matching the searchValue in the given directory
+    public BasicArrayList search(final String searchValue, final AbFile file, final boolean isRecursiveSearch)
+    {
+        final BasicArrayList fileList = new BasicArrayList();
+
+        BasicArrayList recursiveFileList;
+        if (file.isDirectory())
+        {
+            final Object[] fileArray = file.listFiles();
+            if(fileArray == null) {
+                return fileList;
+            }
+            final AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
+
+            if (files == null)
+            {
+                return fileList;
             }
 
             for (int index = 0; index < files.length; index++)
             {
                 if (files[index].getPath().indexOf(searchValue) >= 0)
                 {
-                    fileVector.add(files[index]);
+                    fileList.add(files[index]);
                 }
 
                 if (isRecursiveSearch)
                 {
-                    Vector vector = this.search(
-                        searchValue, files[index], isRecursiveSearch);
-
-                    Iterator iterator = vector.iterator();
-                    while (iterator.hasNext())
-                    {
-                        fileVector.add(iterator.next());
-                    }
+                    recursiveFileList = this.search(searchValue, files[index], isRecursiveSearch);
+                    fileList.addAll(recursiveFileList);
                 }
             }
         }
-        return fileVector;
+        return fileList;
     }
 
-    public Vector search(int level, AbFile file)
+    public BasicArrayList search(int level, AbFile file)
     {
         return this.search(level, file, false);
     }
 
-    public Vector search(int level, AbFile file, boolean isRecursiveSearch)
+    public BasicArrayList search(int level, AbFile file, boolean isRecursiveSearch)
     {
-        Vector fileVector = new Vector();
+        final BasicArrayList fileList = new BasicArrayList();
 
+        BasicArrayList recursiveFileList;
         if (file.isDirectory())
         {
             final Object[] fileArray = file.listFiles();
             if(fileArray == null) {
-                return fileVector;
+                return fileList;
             }
             final AbFile[] files = FileWrapperUtil.wrapFiles(fileArray);
 
             if (files == null)
             {
-                return fileVector;
+                return fileList;
             }
 
             for (int index = 0; index < files.length; index++)
             {
-                fileVector.add(files[index]);
+                fileList.add(files[index]);
 
                 if (level <= 0)
                 {
-                    return fileVector;
+                    return fileList;
                 }
 
-                Vector vector = this.search(level - 1, files[index], isRecursiveSearch);
-
-                Iterator iterator = vector.iterator();
-                while (iterator.hasNext())
-                {
-                    fileVector.add(iterator.next());
-                }
+                recursiveFileList = this.search(level - 1, files[index], isRecursiveSearch);
+                fileList.addAll(recursiveFileList);
             }
         }
-        return fileVector;
+        return fileList;
     }
 }

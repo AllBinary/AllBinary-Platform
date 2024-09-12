@@ -13,7 +13,8 @@
 */
 package org.allbinary.input.automation.module.osgi;
 
-import org.allbinary.logic.io.file.directory.SubDirectory;
+import bundle.input.automation.InputAutomationBundleActivator;
+
 import java.io.File;
 import java.io.FileFilter;
 import java.io.FileInputStream;
@@ -21,25 +22,23 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
-import java.util.Vector;
 import java.util.jar.JarInputStream;
 import java.util.jar.Manifest;
+
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.io.file.FileWrapperUtil;
+import org.allbinary.logic.io.file.directory.SubDirectory;
+import org.allbinary.logic.io.file.filter.BasicFileFilterUtil;
+import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.thread.RunnableInterface;
+import org.allbinary.time.TimeDelayHelper;
+import org.allbinary.util.BasicArrayList;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.Constants;
-import org.allbinary.logic.io.file.filter.BasicFileFilterUtil;
-
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.thread.RunnableInterface;
-
-import bundle.input.automation.InputAutomationBundleActivator;
-import org.allbinary.logic.io.file.FileWrapperUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.time.TimeDelayHelper;
 
 public class InputAutomationNewBundleRunnable
     implements RunnableInterface
@@ -55,13 +54,13 @@ public class InputAutomationNewBundleRunnable
     
     private boolean running;
     
-    private Vector fileVector;
+    private BasicArrayList fileBasicArrayList;
     
     public InputAutomationNewBundleRunnable(
         InputAutomationBundleActivator inputAutomationBundleActivator)
     {
         this.inputAutomationBundleActivator = inputAutomationBundleActivator;
-        this.fileVector = new Vector();
+        this.fileBasicArrayList = new BasicArrayList();
     }
     
     public void setThread(Thread thread)throws Exception
@@ -96,11 +95,13 @@ public class InputAutomationNewBundleRunnable
     {
         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "updateModules"));
         
-        Vector vector = this.findNewModules();
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final BasicArrayList list = this.findNewModules();
+        final int size = list.size();
+        
+        Bundle bundle;
+        for(int index = 0; index < size; index++)
         {
-            Bundle bundle = this.install((URL) iterator.next());
+            bundle = this.install((URL) list.get(index));
             
             if(bundle != null)
             {
@@ -114,22 +115,23 @@ public class InputAutomationNewBundleRunnable
     {
         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getAllJarSymbolicNameHashMap"));
         
-        HashMap hashMap = new HashMap();
-        Vector jarFileVector = this.getJarModuleFileVector();
+        final HashMap hashMap = new HashMap();
+        final BasicArrayList jarFileBasicArrayList = this.getJarModuleFileBasicArrayList();
         
-        LogUtil.put(LogFactory.getInstance("Jar Module Files: " + jarFileVector, this, "getAllJarSymbolicNameHashMap"));
+        LogUtil.put(LogFactory.getInstance("Jar Module Files: " + jarFileBasicArrayList, this, "getAllJarSymbolicNameHashMap"));
         
-        Iterator iterator = jarFileVector.iterator();
-        while(iterator.hasNext())
+        final int size = jarFileBasicArrayList.size();
+        File file;
+        for(int index = 0; index < size; index++)
         {
-            File file = (File) iterator.next();
+            file = (File) jarFileBasicArrayList.get(index);
             if(!file.isDirectory())
             {
-                FileInputStream fileInputStream =
+                final FileInputStream fileInputStream =
                     new FileInputStream(file);
-                JarInputStream jarInputStream =
+                final JarInputStream jarInputStream =
                     new JarInputStream(fileInputStream);
-                Manifest manifest = jarInputStream.getManifest();
+                final Manifest manifest = jarInputStream.getManifest();
                 if (manifest == null)
                 {
                     //throw new IOException("Bundle manifest is missing");
@@ -146,9 +148,9 @@ public class InputAutomationNewBundleRunnable
         return hashMap;
     }
     
-    private Vector getJarModuleFileVector()
+    private BasicArrayList getJarModuleFileBasicArrayList()
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getJarModuleFileVector"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getJarModuleFileBasicArrayList"));
         
         String baseJarPath = System.getProperty(JAR_DIR_PROP);
         
@@ -161,22 +163,22 @@ public class InputAutomationNewBundleRunnable
         
         String path = baseJarPath + INPUT_AUTMATION_MODULE_BUNDLE_JAR_PATH;
         
-        LogUtil.put(LogFactory.getInstance("Path: " + path, this, "getJarModuleFileVector"));
+        LogUtil.put(LogFactory.getInstance("Path: " + path, this, "getJarModuleFileBasicArrayList"));
         
         File file = new File(path);
         
         LogUtil.put(LogFactory.getInstance("File: " + file.getAbsolutePath() +
-            " isDirectory: " + file.isDirectory(), this, "getJarModuleFileVector"));
+            " isDirectory: " + file.isDirectory(), this, "getJarModuleFileBasicArrayList"));
         
-        return new SubDirectory().search(jarFileFilter, FileWrapperUtil.wrapFile(file));
+        return SubDirectory.getInstance().search(jarFileFilter, FileWrapperUtil.wrapFile(file));
     }
     
-    private Vector getInstalledJarSymbolicNameVector()
+    private BasicArrayList getInstalledJarSymbolicNameBasicArrayList()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstalledJarSymbolicNameVector"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstalledJarSymbolicNameBasicArrayList"));
         
-        Vector vector = new Vector();
+        BasicArrayList vector = new BasicArrayList();
         
         BundleContext bundleContext =
             InputAutomationBundleActivator.getBundleContext();
@@ -202,11 +204,12 @@ public class InputAutomationNewBundleRunnable
     {
         LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + symbolicName, this, "isInstalled"));
         
-        Vector vector = this.getInstalledJarSymbolicNameVector();
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final BasicArrayList list = this.getInstalledJarSymbolicNameBasicArrayList();
+        final int size = list.size();
+        String nextSymbolicName;
+        for(int index = 0; index < size; index++)
         {
-            String nextSymbolicName = (String) iterator.next();
+            nextSymbolicName = (String) list.get(index);
             if(nextSymbolicName.compareTo(symbolicName) == 0)
             {
                 return true;
@@ -215,11 +218,11 @@ public class InputAutomationNewBundleRunnable
         return false;
     }
     
-    private Vector findNewModules() throws Exception
+    private BasicArrayList findNewModules() throws Exception
     {
         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "findNewModules"));
         
-        Vector vector = new Vector();
+        BasicArrayList vector = new BasicArrayList();
         HashMap hashMap = this.getAllJarSymbolicNameHashMap();
         
         LogUtil.put(LogFactory.getInstance("All: " + hashMap, this, "findNewModules"));

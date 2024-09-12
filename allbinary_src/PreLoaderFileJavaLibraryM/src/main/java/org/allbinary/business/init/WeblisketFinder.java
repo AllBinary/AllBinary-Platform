@@ -13,15 +13,13 @@
 */
 package org.allbinary.business.init;
 
-import java.util.Vector;
-
 import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.util.BasicArrayList;
 
 public class WeblisketFinder
 {
@@ -36,18 +34,19 @@ public class WeblisketFinder
 	
     private static final String KEY = "installerdata.dat";
 
+    private final SubDirectory subDirectory = SubDirectory.getInstance();
+    
     private WeblisketFinder()
     {
     }
 
     //searches for all paths that contain the path provided
-    public Vector findAll(String path)
+    public BasicArrayList findAll(String path)
     {
         try
         {
             LogUtil.put(LogFactory.getInstance("Start", this, "findAll"));
 
-            SubDirectory subDirectory = new SubDirectory();
             return subDirectory.search(KEY, new AbFile(path));
         } catch (Exception e)
         {
@@ -57,7 +56,7 @@ public class WeblisketFinder
                 LogUtil.put(LogFactory.getInstance("Failed", this, "findAll", e));
             }
 
-            //return new Vector();
+            //return new BasicArrayList();
             return null;
         }
     }
@@ -85,7 +84,7 @@ public class WeblisketFinder
     }
     
     public static void main(String[] args) throws Exception {
-        final Vector vector = WeblisketFinder.getInstance().findAll(
+        final BasicArrayList vector = WeblisketFinder.getInstance().findAll(
                 ""
         );
         System.out.println(vector.size());

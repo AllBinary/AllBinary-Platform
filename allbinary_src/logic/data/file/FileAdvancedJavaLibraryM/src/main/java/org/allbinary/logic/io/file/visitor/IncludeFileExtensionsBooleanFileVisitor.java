@@ -14,18 +14,18 @@
 package org.allbinary.logic.io.file.visitor;
 
 import org.allbinary.logic.io.file.AbFile;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
 
-public class IncludeFileExtensionsBooleanFileVisitor extends VectorBooleanFileVisitor
+public class IncludeFileExtensionsBooleanFileVisitor extends BooleanFileVisitor
 {
-   public IncludeFileExtensionsBooleanFileVisitor(Vector filterStringVector)
+   public IncludeFileExtensionsBooleanFileVisitor(BasicArrayList filterStringBasicArrayList)
    {
-      super(filterStringVector);
+      super(filterStringBasicArrayList);
    }
    
    public Boolean visit(AbFile file)
    {
-      if(this.getFilterStringVector().size() == 0)
+      if(this.getFilterStringBasicArrayList().size() == 0)
       {
          return Boolean.FALSE;
       }

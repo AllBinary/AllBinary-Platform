@@ -13,42 +13,50 @@
 */
 package org.allbinary.logic.io.file.directory;
 
+import java.io.FileFilter;
+
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.string.CommonSeps;
-
-import java.io.FileFilter;
-import java.util.Vector;
+import org.allbinary.util.BasicArrayList;
 
 public class SubDirectory
 {
-    public SubDirectory()
+    private static final SubDirectory instance = new SubDirectory();
+    
+    public static SubDirectory getInstance() {
+        return instance;
+    }
+    
+    private final Directory directory = Directory.getInstance();
+    
+    private SubDirectory()
     {
     }
 
     // Find the files matching the FileFilter in the given directory
-    public Vector search(FileFilter fileFilter, AbFile file)
+    public BasicArrayList search(FileFilter fileFilter, AbFile file)
     {
-        return Directory.getInstance().search(fileFilter, file, true);
+        return directory.search(fileFilter, file, true);
     }
 
     // Return the files in the given directory
-    public Vector search(AbFile file)
+    public BasicArrayList search(AbFile file)
     {
-        return Directory.getInstance().search(file, true);
+        return directory.search(file, true);
     }
 
     // Find the files matching the searchValue in the given directory
-    public Vector search(String searchValue, AbFile file)
+    public BasicArrayList search(String searchValue, AbFile file)
     {
-        return Directory.getInstance().search(searchValue, file, true);
+        return directory.search(searchValue, file, true);
     }
 
-    public Vector search(int level, AbFile file)
+    public BasicArrayList search(int level, AbFile file)
     {
-        return Directory.getInstance().search(level, file, true);
+        return directory.search(level, file, true);
     }
 
-    public static String toString(Vector files)
+    public static String toString(BasicArrayList files)
     {
         StringBuffer stringBuffer = new StringBuffer();
 

@@ -13,9 +13,7 @@
  */
 package org.allbinary.logic.io.file;
 
-import java.util.Vector;
-import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.file.AbFile;
+import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.io.file.directory.DirectoryOrIncludeFileExtensionBooleanFileVisitor;
 import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.io.file.filter.VisitorFileFilter;
@@ -36,13 +34,15 @@ public class FileListFetcher
         return instance;
     }
 
-    public Vector getFiles(String path)
+    private final SubDirectory subDirectory = SubDirectory.getInstance();
+    
+    public BasicArrayList getFiles(String path)
     {
         try
         {
-            final SubDirectory subDirectory = new SubDirectory();
+            
 
-            final Vector files = subDirectory.search(new AbFile(path));
+            final BasicArrayList files = subDirectory.search(new AbFile(path));
             return files;
 
         } catch (Exception e)
@@ -53,19 +53,17 @@ public class FileListFetcher
         return null;
     }
     
-    public Vector getFiles(final String path, final String includeExtension)
+    public BasicArrayList getFiles(final String path, final String includeExtension)
     {
         try
         {
-            final SubDirectory subDirectory = new SubDirectory();
-
-            final Vector includeExtensionVector = new Vector();
-            includeExtensionVector.add(includeExtension);
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayList();
+            includeExtensionBasicArrayList.add(includeExtension);
             final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
-                            includeExtensionVector));
+                            includeExtensionBasicArrayList));
 
-            final Vector files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
             return files;
 
         } catch (Exception e)
@@ -76,19 +74,17 @@ public class FileListFetcher
         return null;
     }
 
-    public Vector getFiles(final String path, final String pathIncludes, final String includeExtension)
+    public BasicArrayList getFiles(final String path, final String pathIncludes, final String includeExtension)
     {
         try
         {
-            final SubDirectory subDirectory = new SubDirectory();
-
-            final Vector includeExtensionVector = new Vector();
-            includeExtensionVector.add(includeExtension);
+            final BasicArrayList includeExtensionBasicArrayList = new BasicArrayList();
+            includeExtensionBasicArrayList.add(includeExtension);
             final VisitorFileFilter visitorFileFilter = new VisitorFileFilter(
                     new DirectoryOrIncludeFileExtensionBooleanFileVisitor(
-                            includeExtensionVector, pathIncludes));
+                            includeExtensionBasicArrayList, pathIncludes));
 
-            final Vector files = subDirectory.search(visitorFileFilter, new AbFile(path));
+            final BasicArrayList files = subDirectory.search(visitorFileFilter, new AbFile(path));
             return files;
 
         } catch (Exception e)

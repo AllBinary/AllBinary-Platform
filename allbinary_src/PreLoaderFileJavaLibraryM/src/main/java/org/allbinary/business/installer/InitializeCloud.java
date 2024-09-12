@@ -13,8 +13,6 @@
 */
 package org.allbinary.business.installer;
 
-import java.util.Vector;
-
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.AbFileSystem;
 import org.allbinary.logic.io.file.AbFile;
@@ -24,6 +22,7 @@ import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.globals.PATH_GLOBALS;
+import org.allbinary.util.BasicArrayList;
 
 public class InitializeCloud
 {
@@ -43,7 +42,7 @@ public class InitializeCloud
             {
                 //Copy all installer files into cloud
 
-                StringBuffer stringBuffer = new StringBuffer();
+                final StringBuffer stringBuffer = new StringBuffer();
                 stringBuffer.append(URLGLOBALS.getWebappPath());
                 stringBuffer.append(cloud);
                 stringBuffer.append(PATH_GLOBALS.getInstance().DATA_PATH);
@@ -59,14 +58,14 @@ public class InitializeCloud
                 //Using cloud file search currently causes problems when trying to output new file
                 AbFile file = new AbFile(path);
 
-                Vector fileVector = Directory.getInstance().search(file, true);
+                BasicArrayList fileBasicArrayList = Directory.getInstance().search(file, true);
 
-                int size = fileVector.size();
+                int size = fileBasicArrayList.size();
 
                 stringBuffer.delete(0, stringBuffer.length());
                 stringBuffer.append("Searched: ");
                 stringBuffer.append(path.toFileSystemString());
-                stringBuffer.append(" Vector: ");
+                stringBuffer.append(" BasicArrayList: ");
                 stringBuffer.append(size);
 
                 //Add one to round up so files will not be missed
@@ -91,7 +90,7 @@ public class InitializeCloud
 
                 for (int index = start; index < end; index++)
                 {
-                    AbFile nextFile = (AbFile) fileVector.get(index);
+                    AbFile nextFile = (AbFile) fileBasicArrayList.get(index);
 
                     if (nextFile.isDirectory())
                     {

@@ -14,8 +14,9 @@
 package org.allbinary.logic.io.file.filter;
 
 import java.io.FileFilter;
-import java.util.Vector;
+
 import org.allbinary.logic.io.file.visitor.IncludeFileExtensionsBooleanFileVisitor;
+import org.allbinary.util.BasicArrayList;
 
 public class BasicFileFilterUtil
 {
@@ -24,12 +25,12 @@ public class BasicFileFilterUtil
     {
     }
     
-    public static FileFilter getInstance(String extension)
+    public static FileFilter getInstance(final String extension)
     {
-        Vector vector = new Vector();
+        final BasicArrayList vector = new BasicArrayList();
         vector.add(extension);
         
-        IncludeFileExtensionsBooleanFileVisitor 
+        final IncludeFileExtensionsBooleanFileVisitor 
             includeFileExtensionsBooleanFileVisitor = 
             new IncludeFileExtensionsBooleanFileVisitor(vector);
         return (FileFilter) new VisitorFileFilter(

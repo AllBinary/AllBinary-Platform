@@ -13,6 +13,10 @@
 */
 package org.allbinary.logic.io.file.zip;
 
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
+
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.AbFileOutputStream;
@@ -22,10 +26,7 @@ import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.util.Vector;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -44,7 +45,7 @@ public class ZipFileUtil
         return instance;
     }
 
-    public void create(String outFilename, Vector fileVector)
+    public void create(String outFilename, BasicArrayList fileBasicArrayList)
     {
         try
         {
@@ -66,12 +67,12 @@ public class ZipFileUtil
             final byte[] byteArray = new byte[16384];
 
             AbFileInputStream fileInputStream;
-            final int size = fileVector.size();
+            final int size = fileBasicArrayList.size();
             int current = 0;
 
             for (int i = 0; i < size; i++)
             {
-                AbFile file = (AbFile) fileVector.get(i);
+                AbFile file = (AbFile) fileBasicArrayList.get(i);
 
                 if (file.isDirectory())
                 {
