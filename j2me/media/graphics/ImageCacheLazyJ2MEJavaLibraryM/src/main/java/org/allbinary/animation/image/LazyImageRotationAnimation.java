@@ -38,6 +38,9 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
     private IndexedAnimation animation;
 
+    private float scaleX;
+    private float scaleY;
+    
     public LazyImageRotationAnimation(final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
         super(animationBehavior);
 
@@ -72,13 +75,21 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         try {
             final IndexedAnimation animation = this.animation;
             this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance();
-            this.animation.setFrame(animation.getFrame());
+            this.animation.setState(animation);
+            this.animation.setScale(this.scaleX, this.scaleY);
             LogUtil.put(LogFactory.getInstance(this.animationInterfaceFactoryInterface.getImage().getName() + this.animation.getClass().getName(), this, "setRealAnimation"));
         } catch (Exception e) {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
         }
     }
 
+    @Override
+    public void setScale(final float scaleX, final float scaleY) {
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+        this.animation.setScale(scaleX, scaleY);
+    }
+    
     @Override
     public AnimationBehavior getAnimationBehavior() {
         return this.animation.getAnimationBehavior();
@@ -103,11 +114,6 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     @Override
     public void setDy(final int dy) {
         this.animation.setDy(dy);
-    }
-
-    @Override
-    public void setScale(final float scaleX, final float scaleY) {
-        this.animation.setScale(scaleX, scaleY);
     }
 
     @Override

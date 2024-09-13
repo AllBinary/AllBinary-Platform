@@ -95,4 +95,11 @@ public class IndexedAnimation extends Animation
     {
         return PrimitiveIntUtil.getArrayInstance();
     }
+    
+    public void setState(final IndexedAnimation indexedAnimation) {
+        this.setFrame(indexedAnimation.getFrame());
+        this.setDx(indexedAnimation.getDx());
+        this.setDy(indexedAnimation.getDy());
+    }
+    
 }
