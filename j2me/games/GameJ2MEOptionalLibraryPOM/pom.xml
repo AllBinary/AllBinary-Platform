@@ -37,6 +37,8 @@
         <module>../../games/GameScoresRemoteAndLocalLibraryM</module>
 -->
         <module>../../media/graphics/ImageCacheJ2MEJavaLibraryM</module>
+        <module>../../media/graphics/ImageCacheLazyJ2MEJavaLibraryM</module>
+        <module>../../media/graphics/ImageLazyNullSizesJavaLibraryM</module>
 
 <!--
         <module>../../../graphics/opengl/OpenGLESJavaLibraryM</module>
