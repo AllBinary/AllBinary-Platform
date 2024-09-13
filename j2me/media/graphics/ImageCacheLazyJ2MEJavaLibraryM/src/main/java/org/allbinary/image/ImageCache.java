@@ -50,10 +50,12 @@ public class ImageCache extends ImageCacheBase {
                 while (loadNowList.isEmpty()) {
                     Thread.sleep(120);
                 }
-
-                while (!loadList.isEmpty()) {
-
-                    loadImageForAnimation();
+                
+                while (!loadList.isEmpty() || !loadNowList.isEmpty()) {
+                    
+                    while(!loadNowList.isEmpty()) {
+                        loadImageForAnimation();
+                    }
                     loadImage();
                 }
 
@@ -93,6 +95,7 @@ public class ImageCache extends ImageCacheBase {
     private void loadImage() throws Exception {
         Image image = null;
         synchronized (lock) {
+            if(loadList.size() == 0) return;
             image = (Image) loadList.remove(0);
         }
         this.loadImage(image);
@@ -247,7 +250,13 @@ public class ImageCache extends ImageCacheBase {
 //                }
 //            } else {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+                        
             loadNowList.add(0, lazyImageRotationAnimation);
+            
+            if (!this.runnable.isRunning()) {
+                ImageThreadPool.getInstance().runTask(this.runnable);
+            }
+            
 //            }
         }
     }

@@ -13,6 +13,7 @@
  */
 package org.allbinary.animation.image;
 
+import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
@@ -21,6 +22,7 @@ import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.NullRotationAnimationFactory;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.game.resource.GDResources;
+import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -79,49 +81,135 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         }
     }
 
+    @Override
+    public void set(final GL gl) throws Exception
+    {
+        this.animation.set(gl);
+    }
+    
+    @Override
+    public void setAlpha(final int alpha) {
+        this.animation.setAlpha(alpha);
+    }
+
+    @Override
+    public void setDx(final int dx) {
+        this.animation.setDx(dx);
+    }
+
+    @Override
+    public void setDy(final int dy) {
+        this.animation.setDy(dy);
+    }
+
+    @Override
+    public void setScale(final float scaleX, final float scaleY) {
+        this.animation.setScale(scaleX, scaleY);
+    }
+
+    @Override
+    public void setMaxScale(final float maxScaleX, final float maxScaleY) {
+        this.animation.setMaxScale(maxScaleX, maxScaleY);
+    }
+
+    @Override
+    public void changeBasicColor(final BasicColor basicColor)
+    {
+        this.animation.changeBasicColor(basicColor);
+    }
+
+    @Override
+    public BasicColor getBasicColor()
+    {
+        return this.animation.getBasicColor();
+    }
+    
+    @Override
+    public BasicColor getChangeBasicColor()
+    {
+        return this.animation.getChangeBasicColor();
+    }
+    
+    @Override
+    public int getChangeColor()
+    {
+        return this.animation.getChangeColor();
+    }
+    
+    @Override
+    public int getColor()
+    {
+        return this.animation.getColor();
+    }
+    
+    @Override
+    public int getDx() {
+        return this.animation.getDx();
+    }    
+    
+    @Override
+    public int getDy() {
+        return this.animation.getDy();
+    }    
+
+    @Override
+    public boolean isThreed() {
+        return this.animation.isThreed();
+    }
+    
+    @Override
     public void nextFrame() throws Exception
     {
         this.animation.nextFrame();
     }
     
+    @Override
     public void reset()
     {
         this.animation.reset();
     }
-
+    
+    @Override
     public void setFrame(final int index) {
         this.animation.setFrame(index);
     }
 
+    @Override
     public int getFrame() {
         return this.animation.getFrame();
     }
     
+    @Override
     public int getAnimationSize() throws Exception
     {
         return this.animation.getAnimationSize();
     }
     
+    @Override
     public int getSize()
     {
         return this.animation.getSize();
     }
 
+    @Override
     public void previousFrame()
     {
         this.animation.previousFrame();
     }
 
+    @Override
     public boolean isLastFrame()
     {
         return this.animation.isLastFrame();
     }
     
+    @Override
     public void setSequence(final int[] sequence)
     {
         this.animation.setSequence(sequence);
     }
 
+    @Override
     public int[] getSequence()
     {
         return this.animation.getSequence();
