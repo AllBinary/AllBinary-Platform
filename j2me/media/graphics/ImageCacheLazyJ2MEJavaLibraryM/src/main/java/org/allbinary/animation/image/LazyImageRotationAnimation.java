@@ -50,6 +50,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public void setRealAnimation() {
         try {
             this.animation = this.animationInterfaceFactoryInterface.getInstance();
+            LogUtil.put(LogFactory.getInstance(this.animationInterfaceFactoryInterface.getImage().getName() + this.animation.getClass().getName(), this, "setRealAnimation"));
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
         }
