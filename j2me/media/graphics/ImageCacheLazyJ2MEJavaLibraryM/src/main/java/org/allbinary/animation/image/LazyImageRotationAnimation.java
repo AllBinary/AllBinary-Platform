@@ -15,10 +15,12 @@ package org.allbinary.animation.image;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.animation.Animation;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
-import org.allbinary.animation.NullRotationAnimationFactory;
+import org.allbinary.animation.NullIndexedAnimation;
+import org.allbinary.animation.NullIndexedAnimationFactory;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.ImageCacheFactory;
@@ -36,6 +38,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
     public final BaseImageAnimationFactory animationInterfaceFactoryInterface;
 
+    private final IndexedAnimation NULL_ANIMATION;
     private IndexedAnimation animation;
 
     private float scaleX;
@@ -44,6 +47,11 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public LazyImageRotationAnimation(final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
         super(animationBehavior);
 
+        NULL_ANIMATION = new NullIndexedAnimation(animationBehavior) {
+            public void paint(final Graphics graphics, final int x, final int y) {
+            }
+        };
+        
         animation = new IndexedAnimation(animationBehavior) {
             
             private int index;
@@ -60,7 +68,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
                 try {
                     ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
-                    animation = (IndexedAnimation) NullRotationAnimationFactory.getFactoryInstance().getInstance();
+                    animation = NULL_ANIMATION;
                 } catch (Exception e) {
                     LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
                 }
