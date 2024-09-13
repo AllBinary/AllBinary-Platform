@@ -50,7 +50,7 @@ public class ImageCache extends ImageCacheBase {
                 while (loadNowList.isEmpty()) {
                     Thread.sleep(120);
                 }
-                
+
                 while (!loadList.isEmpty()) {
 
                     loadImageForAnimation();
@@ -103,14 +103,18 @@ public class ImageCache extends ImageCacheBase {
         //LogUtil.put(LogFactory.getInstance("attempt loading: " + image.getName(), this, commonStrings.RUN));
         if (image.getImage() == null) {
             final String key = image.getName();
-            final InputStream inputStream = resourceUtil.getResourceAsStream(key);
-            Image image2 = Image.createImage(inputStream);
+            final Image image2 = this.creatImage(key);
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("loading: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
             image.init(image2.getImage());
             LogUtil.put(LogFactory.getInstance(new StringMaker().append("loaded: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
         } else {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("already loaded: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
         }
+    }
+
+    private Image creatImage(final String key) throws Exception {
+        final InputStream inputStream = resourceUtil.getResourceAsStream(key);
+        return Image.createImage(inputStream);
     }
 
     public Image get(final String caller, final int width, final int height)
@@ -201,8 +205,17 @@ public class ImageCache extends ImageCacheBase {
         throw new RuntimeException();
     }
 
+    /TWB - Remove temp hack
+    private final String ATLAS = "dungeon_b.png";
+    private final String PROPS = "props.png";
     protected Image createImage(final Object key, final InputStream inputStream)
         throws Exception {
+        
+        if(((String) key).compareTo(ATLAS) == 0 || ((String) key).compareTo(PROPS) == 0) {
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN));
+            return this.creatImage((String) key);
+        }
+
         if (!this.runnable.isRunning()) {
             ImageThreadPool.getInstance().runTask(this.runnable);
         }
@@ -233,8 +246,8 @@ public class ImageCache extends ImageCacheBase {
 //                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
 //                }
 //            } else {
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
-                loadNowList.add(0, lazyImageRotationAnimation);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+            loadNowList.add(0, lazyImageRotationAnimation);
 //            }
         }
     }
