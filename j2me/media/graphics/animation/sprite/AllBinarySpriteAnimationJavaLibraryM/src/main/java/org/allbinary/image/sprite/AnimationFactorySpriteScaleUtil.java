@@ -68,7 +68,6 @@ public class AnimationFactorySpriteScaleUtil {
            Image scaledImage;
            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
 //               stringMaker.delete(0, stringMaker.length());
-//               final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale ").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
                scaledImage = image;
                sprite = spriteFactory.create(image, width, height);
