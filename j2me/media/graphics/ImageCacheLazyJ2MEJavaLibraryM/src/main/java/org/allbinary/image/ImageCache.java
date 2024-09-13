@@ -24,6 +24,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.resource.GDResources;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.system.Memory;
 import org.allbinary.thread.ABRunnable;
 import org.allbinary.thread.ImageThreadPool;
@@ -104,10 +105,10 @@ public class ImageCache extends ImageCacheBase {
             final String key = image.getName();
             final InputStream inputStream = resourceUtil.getResourceAsStream(key);
             Image image2 = Image.createImage(inputStream);
-            LogUtil.put(LogFactory.getInstance("loaded: " + image, this, commonStrings.RUN));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("loaded: ").append(image).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
             image.init(image2.getImage());
         } else {
-            LogUtil.put(LogFactory.getInstance("already loading: " + image, this, commonStrings.RUN));
+            LogUtil.put(LogFactory.getInstance("already loaded: " + image, this, commonStrings.RUN));
         }
     }
 
