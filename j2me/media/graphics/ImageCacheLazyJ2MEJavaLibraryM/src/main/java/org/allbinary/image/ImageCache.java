@@ -205,7 +205,7 @@ public class ImageCache extends ImageCacheBase {
         throw new RuntimeException();
     }
 
-    /TWB - Remove temp hack
+    //TWB - Remove temp hack
     private final String ATLAS = "dungeon_b.png";
     private final String PROPS = "props.png";
     protected Image createImage(final Object key, final InputStream inputStream)
