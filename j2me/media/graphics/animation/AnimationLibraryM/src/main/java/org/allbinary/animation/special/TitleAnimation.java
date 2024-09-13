@@ -82,7 +82,7 @@ public class TitleAnimation extends SpecialAnimation
         final long currentTime = System.currentTimeMillis();
         final long totalTimeElapsed = currentTime - lastFrameStartTime;
 
-        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.animationBehavior;
+        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.getAnimationBehavior();
 
             // If Frame is up long enough
             if (totalTimeElapsed > indexedAnimationBehavior.frameDelayTime)
@@ -106,7 +106,7 @@ public class TitleAnimation extends SpecialAnimation
 
     public boolean isComplete()
     {
-        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.animationBehavior;
+        final IndexedAnimationBehavior indexedAnimationBehavior = (IndexedAnimationBehavior) this.getAnimationBehavior();
         if(indexedAnimationBehavior.loopTotal == -1 || 
             indexedAnimationBehavior.loopIndex < indexedAnimationBehavior.loopTotal || 
             this.getFrame() != 0)
@@ -156,7 +156,7 @@ public class TitleAnimation extends SpecialAnimation
     {
         // this.setFrame(0);
         this.setLastFrame();
-        ((IndexedAnimationBehavior) this.animationBehavior).reset();
+        ((IndexedAnimationBehavior) this.getAnimationBehavior()).reset();
     }
 
     //this is called from nextFrame. Logical? probably not.

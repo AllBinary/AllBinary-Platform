@@ -35,7 +35,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         
     private final Image image;
     
-    protected final AnimationBehaviorFactory animationBehaviorFactory;
+    public final AnimationBehaviorFactory animationBehaviorFactory;
 
     private final int[] sequenceArray;
 

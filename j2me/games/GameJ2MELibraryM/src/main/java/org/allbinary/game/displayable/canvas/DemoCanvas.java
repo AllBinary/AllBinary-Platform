@@ -808,7 +808,7 @@ public class DemoCanvas extends RunnableCanvas
         if (this.state == 0)
         {
             //Don't allow the time of the animation to count towards the state time.
-            if (((IndexedAnimationBehavior) this.getSpecialAnimationInterface().animationBehavior).loopIndex < 1)
+            if (((IndexedAnimationBehavior) this.getSpecialAnimationInterface().getAnimationBehavior()).loopIndex < 1)
             {
                 timeDelayHelper.setStartTime();
             }

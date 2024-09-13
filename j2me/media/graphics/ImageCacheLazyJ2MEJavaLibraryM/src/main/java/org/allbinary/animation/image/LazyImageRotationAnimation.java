@@ -15,13 +15,11 @@ package org.allbinary.animation.image;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
-import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.NullRotationAnimationFactory;
 import org.allbinary.animation.RotationAnimation;
-import org.allbinary.game.resource.GDResources;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -81,6 +79,11 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         }
     }
 
+    @Override
+    public AnimationBehavior getAnimationBehavior() {
+        return this.animation.getAnimationBehavior();
+    }
+    
     @Override
     public void set(final GL gl) throws Exception
     {

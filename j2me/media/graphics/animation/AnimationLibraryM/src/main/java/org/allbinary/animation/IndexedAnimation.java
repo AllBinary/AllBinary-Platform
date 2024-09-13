@@ -23,16 +23,23 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class IndexedAnimation extends Animation 
     implements IndexedAnimationInterface
 {
-    public AnimationBehavior animationBehavior;
+    protected final AnimationBehavior animationBehavior;
     
     private IndexedAnimation()
     {
-
+        this.animationBehavior = null;
     }
 
     protected IndexedAnimation(final AnimationBehavior animationBehavior)
     {
         this.animationBehavior = animationBehavior;
+    }
+ 
+    /**
+     * @return the animationBehavior
+     */
+    public AnimationBehavior getAnimationBehavior() {
+        return animationBehavior;
     }
     
     public void reset()
