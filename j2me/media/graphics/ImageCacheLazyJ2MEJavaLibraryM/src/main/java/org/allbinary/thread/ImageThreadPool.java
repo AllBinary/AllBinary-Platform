@@ -20,16 +20,16 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 //This is mainly for network communications.
-public class SecondaryThreadPool extends ThreadPool
+public class ImageThreadPool extends ThreadPool
 {
-    private static final ThreadPool instance = new SecondaryThreadPool("Secondary", 1);
+    private static final ThreadPool instance = new ImageThreadPool("ImageLoader", 1);
 
     public static ThreadPool getInstance()
     {
         return instance;
     }
 
-    public SecondaryThreadPool(final String poolName, final int numThreads) {
+    public ImageThreadPool(final String poolName, final int numThreads) {
         super(poolName, numThreads);
     }
 

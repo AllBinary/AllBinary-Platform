@@ -24,9 +24,9 @@ import org.allbinary.media.ScaleProperties;
  */
 public class LazyImageRotationAnimationFactory implements AnimationInterfaceFactoryInterface {
     
-    private final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface;
+    private final BaseImageAnimationFactory animationInterfaceFactoryInterface;
     
-    public LazyImageRotationAnimationFactory(final AnimationInterfaceFactoryInterface animationInterfaceFactoryInterface) {
+    public LazyImageRotationAnimationFactory(final BaseImageAnimationFactory animationInterfaceFactoryInterface) {
         this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
     }
     
