@@ -39,9 +39,9 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     private final int[] sequenceArray;
 
-    public final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor;
+    protected final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor;
 
-    public ScaleProperties scaleProperties = ScaleProperties.instance;
+    protected ScaleProperties scaleProperties = ScaleProperties.instance;
 
     public BaseImageAnimationFactory(final Image image, final int width, final int height, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
             throws Exception {
@@ -122,9 +122,26 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
         if(this.scaleProperties.shouldScale) {
             this.scaleProperties.scaleWidth = (int) (this.animationFactoryInitializationVisitor.width * this.scaleProperties.scaleX);
             this.scaleProperties.scaleHeight = (int) (this.animationFactoryInitializationVisitor.height * this.scaleProperties.scaleY);
-            LogUtil.put(LogFactory.getInstance(scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
+            //LogUtil.put(LogFactory.getInstance("hack: " + this.image.getName() + this.scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
+            LogUtil.put(LogFactory.getInstance(this.scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
+        } else {
+            //LogUtil.put(LogFactory.getInstance("else: " + this.image.getName() + this.scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
         }
         
     }
 
+    /**
+     * @return the animationFactoryInitializationVisitor
+     */
+    public AnimationFactoryInitializationVisitor getAnimationFactoryInitializationVisitor() {
+        return animationFactoryInitializationVisitor;
+    }
+    
+    /**
+     * @return the scaleProperties
+     */
+    public ScaleProperties getScaleProperties() {
+        return scaleProperties;
+    }
+    
 }

@@ -15,12 +15,10 @@ package org.allbinary.animation.image;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
-import org.allbinary.animation.Animation;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.NullIndexedAnimation;
-import org.allbinary.animation.NullIndexedAnimationFactory;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.ImageCacheFactory;

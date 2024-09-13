@@ -78,9 +78,9 @@ public class AnimationFactoryImageScaleUtil {
 
     public void processAdjust(final BaseImageAnimationFactory baseImageAnimationFactory) throws Exception {
         
-        final ScaleProperties scaleProperties = baseImageAnimationFactory.scaleProperties;
+        final ScaleProperties scaleProperties = baseImageAnimationFactory.getScaleProperties();
         if (scaleProperties.scaleWidth != 0 && scaleProperties.scaleHeight != 0) {
-            final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor = baseImageAnimationFactory.animationFactoryInitializationVisitor;
+            final AnimationFactoryInitializationVisitor animationFactoryInitializationVisitor = baseImageAnimationFactory.getAnimationFactoryInitializationVisitor();
             final float scaleX = ((float) scaleProperties.scaleWidth) / ((float) animationFactoryInitializationVisitor.width);
             final float scaleY = ((float) scaleProperties.scaleHeight) / ((float) animationFactoryInitializationVisitor.height);
             if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
