@@ -28,18 +28,21 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
     
     private final BaseImageAnimationFactory animationInterfaceFactoryInterface;
     
+    public ScaleProperties scaleProperties = ScaleProperties.instance;
+    
     public LazyImageRotationAnimationFactory(final BaseImageAnimationFactory animationInterfaceFactoryInterface) {
         this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
     }
     
     public Animation getInstance() throws Exception {
-        return new LazyImageRotationAnimation(this.animationInterfaceFactoryInterface, this.animationInterfaceFactoryInterface.animationBehaviorFactory.getOrCreateInstance());
+        return new LazyImageRotationAnimation(scaleProperties, this.animationInterfaceFactoryInterface, this.animationInterfaceFactoryInterface.animationBehaviorFactory.getOrCreateInstance());
     }
     
     public void setInitialScale(final ScaleProperties scaleProperties) {
-        //final CommonStrings commonStrings = CommonStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(scaleProperties.toString(), this, commonStrings.CONSTRUCTOR));
-        this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(scaleProperties.toString(), this, commonStrings.CONSTRUCTOR));
+        this.scaleProperties = scaleProperties;
+        //this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
     }
     
 }

@@ -25,6 +25,7 @@ import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.media.ScaleProperties;
 
 /**
  *
@@ -39,11 +40,15 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     private final IndexedAnimation NULL_ANIMATION;
     private IndexedAnimation animation;
 
-    private float scaleX;
-    private float scaleY;
+    public ScaleProperties scaleProperties = ScaleProperties.instance;
     
-    public LazyImageRotationAnimation(final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
+    //private float scaleX;
+    //private float scaleY;
+    
+    public LazyImageRotationAnimation(final ScaleProperties scaleProperties, final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
         super(animationBehavior);
+
+        this.scaleProperties = scaleProperties;
 
         NULL_ANIMATION = new NullIndexedAnimation(animationBehavior) {
             public void paint(final Graphics graphics, final int x, final int y) {
@@ -80,9 +85,10 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public void setRealAnimation() {
         try {
             final IndexedAnimation animation = this.animation;
+            this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
             this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance();
             this.animation.setState(animation);
-            this.animation.setScale(this.scaleX, this.scaleY);
+            //this.animation.setScale(this.scaleX, this.scaleY);
             LogUtil.put(LogFactory.getInstance(this.animationInterfaceFactoryInterface.getImage().getName() + this.animation.getClass().getName(), this, "setRealAnimation"));
         } catch (Exception e) {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
@@ -91,8 +97,8 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
     @Override
     public void setScale(final float scaleX, final float scaleY) {
-        this.scaleX = scaleX;
-        this.scaleY = scaleY;
+        //this.scaleX = scaleX;
+        //this.scaleY = scaleY;
         this.animation.setScale(scaleX, scaleY);
     }
     
