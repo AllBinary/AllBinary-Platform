@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -35,7 +36,12 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
     }
     
     public Animation getInstance() throws Exception {
-        return new LazyImageRotationAnimation(scaleProperties, this.animationInterfaceFactoryInterface, this.animationInterfaceFactoryInterface.animationBehaviorFactory.getOrCreateInstance());
+        if(this.animationInterfaceFactoryInterface.getImage().getImage() != null) {
+            this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
+            return this.animationInterfaceFactoryInterface.getInstance();
+        } else {
+            return new LazyImageRotationAnimation(scaleProperties, this.animationInterfaceFactoryInterface, this.animationInterfaceFactoryInterface.animationBehaviorFactory.getOrCreateInstance());
+        }        
     }
     
     public void setInitialScale(final ScaleProperties scaleProperties) {

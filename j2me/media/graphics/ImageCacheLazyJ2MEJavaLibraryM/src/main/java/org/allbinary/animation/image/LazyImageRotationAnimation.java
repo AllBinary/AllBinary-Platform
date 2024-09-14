@@ -48,6 +48,8 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public LazyImageRotationAnimation(final ScaleProperties scaleProperties, final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
         super(animationBehavior);
 
+        ImageCacheFactory.getInstance().loadAfterList.add(this);
+        
         this.scaleProperties = scaleProperties;
 
         NULL_ANIMATION = new NullIndexedAnimation(animationBehavior) {
