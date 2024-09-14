@@ -83,7 +83,6 @@ public class ImageCache extends ImageCacheBase {
             LazyImageRotationAnimation lazyImageRotationAnimation = null;
             synchronized (lock) {
                 lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.remove(0);
-                this.loadAfterList.remove(lazyImageRotationAnimation);
             }
             this.loadImageForAnimation(lazyImageRotationAnimation);
         }
@@ -121,9 +120,9 @@ public class ImageCache extends ImageCacheBase {
         if (image.getImage() == null) {
             final String key = image.getName();
             final Image image2 = this.creatImage(key);
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("loading: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loading: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
             image.init(image2.getImage());
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("loaded: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loaded: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
         } else {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("already loaded: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
         }
@@ -265,7 +264,8 @@ public class ImageCache extends ImageCacheBase {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
                         
             synchronized (lock) {            
-                loadNowList.add(0, lazyImageRotationAnimation);                
+                loadNowList.add(0, lazyImageRotationAnimation);
+                this.loadAfterList.remove(lazyImageRotationAnimation);
             }
 
             if (!this.runnable.isRunning()) {
