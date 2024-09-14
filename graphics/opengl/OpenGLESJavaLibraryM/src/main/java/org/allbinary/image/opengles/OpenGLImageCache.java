@@ -17,10 +17,9 @@ import java.io.InputStream;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.graphics.OpenGLBitmapFactory;
-
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -31,6 +30,9 @@ import org.platform.opengl.OpenGLTextureFactory;
 
 public class OpenGLImageCache extends ImageCache
 {
+    private final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
+    private final ImageCache imageCache = ImageCacheFactory.getInstance();
+
     private GL10 gl;
     
     private final BasicArrayList list = new BasicArrayList();
@@ -51,11 +53,10 @@ public class OpenGLImageCache extends ImageCache
         }
     }
 
-    protected Image createImage(String caller, int width, int height)
+    protected Image createImage(final String caller, int width, int height)
     throws Exception
     {
-        OpenGLImageFactory imageFactory = 
-            OpenGLImageSpecificFactory.getInstance().getImageFactory();
+        final OpenGLImageFactory imageFactory = openGLImageSpecificFactory.getImageFactory();
              
         int textureSize = width;
         
@@ -73,8 +74,7 @@ public class OpenGLImageCache extends ImageCache
         height = textureSize;
         
         final Image image = imageFactory.getInstance(
-                ImageCacheFactory.getInstance().get(
-                        caller, width, height),
+                imageCache.get(caller, width, height),
             OpenGLBitmapFactory.getInstance(),
             OpenGLTextureFactory.getInstance()
             );
@@ -85,10 +85,9 @@ public class OpenGLImageCache extends ImageCache
     protected Image createImage(Object key, InputStream inputStream)
     throws Exception
     {
-        OpenGLImageFactory imageFactory = 
-            OpenGLImageSpecificFactory.getInstance().getImageFactory();
+        final OpenGLImageFactory imageFactory = openGLImageSpecificFactory.getImageFactory();
 
-        Image cachedImage = ImageCacheFactory.getInstance().get(key);
+        final Image cachedImage = imageCache.get(key);
 
         //...
         //Use fake images
