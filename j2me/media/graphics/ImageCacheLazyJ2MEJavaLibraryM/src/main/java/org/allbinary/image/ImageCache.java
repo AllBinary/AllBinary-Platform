@@ -46,7 +46,7 @@ public class ImageCache extends ImageCacheBase {
         public void run() {
             try {
                 this.setRunning(true);
-                LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.RUN));
+                //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.RUN));
 
                 while (loadNowList.isEmpty()) {
                     Thread.sleep(120);
@@ -228,7 +228,7 @@ public class ImageCache extends ImageCacheBase {
         throws Exception {
         
         if(((String) key).compareTo(ATLAS) == 0 || ((String) key).compareTo(PROPS) == 0) {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN));
             return this.creatImage((String) key);
         }
 
@@ -244,7 +244,7 @@ public class ImageCache extends ImageCacheBase {
         final Image image = Image.createImageLater((String) key, width, height);
 
         synchronized (lock) {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("add: ").append(image.getName()).append(index).toString(), this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("add: ").append(image.getName()).append(index).toString(), this, commonStrings.RUN));
             loadList.add(image);
         }
 
