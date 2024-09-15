@@ -24,7 +24,6 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.resource.GDResources;
-import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.system.Memory;
 import org.allbinary.thread.ABRunnable;
 import org.allbinary.thread.ImageThreadPool;

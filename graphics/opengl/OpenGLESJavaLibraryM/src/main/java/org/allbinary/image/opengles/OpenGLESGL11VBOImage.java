@@ -40,7 +40,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
     {
         super(image, bitmapFactory, textureFactory);
         
-        this.init();
+        this.initVertices();
         
         this.regionRectangleVertexFloatBuffer.put(FloatBuffer.wrap(regionRectangleFloatArray));
         this.regionTextureVertexFloatBuffer.put(FloatBuffer.wrap(regionTextureRectangleFloatArray));        
@@ -57,7 +57,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
     }
     */
     
-    protected void init()
+    protected void initVertices()
     {
         textureVertexFloatBuffer.put(0);
         textureVertexFloatBuffer.put(1);

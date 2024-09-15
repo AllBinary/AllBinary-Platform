@@ -158,4 +158,9 @@ public class ImageCacheBase
         return hashtable;
     }
 
+    //OpenGL
+    public void init(Image image) {
+        
+    }
+    
 }

@@ -286,7 +286,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
     {
         super(image, bitmapFactory, textureFactory);
         
-        this.init();
+        this.initVertices();
     }
 
     /*
@@ -294,13 +294,13 @@ public class OpenGLESGL10Image extends OpenGLESImage
     {
         super(gl, image, matchColor);
 
-        this.init();
+        this.initVertices();
         
         this.update(gl);
     }
     */
     
-    protected void init()
+    protected void initVertices()
     {
         textureVertexFloatBuffer.put(0);
         textureVertexFloatBuffer.put(1);

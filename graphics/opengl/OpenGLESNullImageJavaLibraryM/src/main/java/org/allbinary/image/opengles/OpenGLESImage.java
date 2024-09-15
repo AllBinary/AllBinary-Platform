@@ -17,15 +17,20 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
+import org.allbinary.util.BasicArrayList;
 
 public class OpenGLESImage extends Image
 implements OpenGLSurfaceChangedInterface
 {
+    public static final BasicArrayList texture2dList = new BasicArrayList();
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected final PlatformTextureBaseFactory textureFactory;
@@ -42,11 +47,10 @@ implements OpenGLSurfaceChangedInterface
         final PlatformTextureBaseFactory textureFactory)
     {
         //super(image);
-        
         this.openGLBitmap = bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
     }
-
+    
     public void set(GL gl) throws Exception
     {
         throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);

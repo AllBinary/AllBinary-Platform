@@ -20,7 +20,10 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.OpenGLESPostLoadPlatformImage;
 
 import org.allbinary.graphics.OpenGLBitmap;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 import org.allbinary.util.BasicArrayList;
@@ -48,8 +51,11 @@ implements OpenGLSurfaceChangedInterface
         final PlatformTextureBaseFactory textureFactory)
     {
         //super(image);
+
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("opengl: create ").append(this).append(" to ").append(image).toString(), this, commonStrings.INIT));
         this.openGLBitmap = (OpenGLBitmap) bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
+        OpenGLImageCacheFactory.getInstance().init(this);
         this.platformImage = OpenGLESPostLoadPlatformImage.getInstance();
     }
 
@@ -61,7 +67,7 @@ implements OpenGLSurfaceChangedInterface
         //this.matchColor = matchColor;
     }
     */
-    
+
     public int getHeight() {
         return this.openGLBitmap.getHeight();
     }

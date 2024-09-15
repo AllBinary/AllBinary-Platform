@@ -24,7 +24,7 @@ public class OpenGLESGL11VBOImageFactory extends OpenGLImageFactory
     public Image getInstance(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {
-        //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, CommonStrings.getInstance().GET_INSTANCE);
+        //PreLogUtil.put(image.getName(), this, CommonStrings.getInstance().GET_INSTANCE);
         return new OpenGLESGL10Image(image, bitmapFactory, textureFactory);
     }
     
