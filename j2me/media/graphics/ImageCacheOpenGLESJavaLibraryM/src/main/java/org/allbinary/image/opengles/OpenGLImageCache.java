@@ -29,7 +29,7 @@ import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.string.CommonLabels;
 import org.platform.opengl.OpenGLTextureFactory;
 
-public class OpenGLImageCache extends ImageCacheBase
+public class OpenGLImageCache extends ImageCache
 {
     private final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
     private final ImageCache imageCache = ImageCacheFactory.getInstance();
