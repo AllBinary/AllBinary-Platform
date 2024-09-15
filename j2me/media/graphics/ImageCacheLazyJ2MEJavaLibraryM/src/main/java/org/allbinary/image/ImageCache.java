@@ -32,8 +32,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class ImageCache extends ImageCacheBase {
 
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
-    private final ResourceUtil resourceUtil = ResourceUtil.getInstance();
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
     public final BasicArrayList loadNowList = new BasicArrayList();
     public final BasicArrayList loadList = new BasicArrayList();
@@ -120,15 +120,19 @@ public class ImageCache extends ImageCacheBase {
         if (image.getImage() == null) {
             final String key = image.getName();
             final Image image2 = this.creatImage(key);
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loading: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
-            image.init(image2.getImage());
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loaded: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
+            this.init(image, image2);
         } else {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("already loaded: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
         }
     }
 
-    private Image creatImage(final String key) throws Exception {
+    protected void init(final Image image, final Image image2) throws Exception {
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loading: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
+        image.init(image2.getImage());
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loaded: ").append(image).append(image.getName()).append(CommonSeps.getInstance().SPACE).append(image.getWidth()).append(CommonSeps.getInstance().SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
+    }
+
+    protected Image creatImage(final String key) throws Exception {
         final InputStream inputStream = resourceUtil.getResourceAsStream(key);
         return Image.createImage(inputStream);
     }
@@ -241,7 +245,7 @@ public class ImageCache extends ImageCacheBase {
         final int width = gdResources.imageResourceWidthArray[index];
         final int height = gdResources.imageResourceHeightArray[index];
 
-        final Image image = Image.createImageLater((String) key, width, height);
+        final Image image = this.createImageLater((String) key, width, height);
 
         synchronized (lock) {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("add: ").append(image.getName()).append(index).toString(), this, commonStrings.RUN));
@@ -251,6 +255,10 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
+    public Image createImageLater(final String key, final int width, final int height) throws Exception {
+        return Image.createImageLater(key, width, height);
+    }
+    
     public void insertFirst(final LazyImageRotationAnimation lazyImageRotationAnimation) {
 //            final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
 //            if (image.getImage() != null) {

@@ -41,7 +41,7 @@ public class OpenGLImageCache extends ImageCache
     {
     }
     
-    public void update(GL10 gl) throws Exception
+    public void update(final GL10 gl) throws Exception
     {
         LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + list, this, CommonStrings.getInstance().UPDATE));
      
@@ -74,7 +74,7 @@ public class OpenGLImageCache extends ImageCache
         height = textureSize;
         
         final Image image = imageFactory.getInstance(
-                imageCache.get(caller, width, height),
+                this.imageCache.get(caller, width, height),
             OpenGLBitmapFactory.getInstance(),
             OpenGLTextureFactory.getInstance()
             );
@@ -82,12 +82,12 @@ public class OpenGLImageCache extends ImageCache
         return image; 
     }
 
-    protected Image createImage(Object key, InputStream inputStream)
+    protected Image createImage(final Object key, final InputStream inputStream)
     throws Exception
     {
         final OpenGLImageFactory imageFactory = openGLImageSpecificFactory.getImageFactory();
 
-        final Image cachedImage = imageCache.get(key);
+        final Image cachedImage = this.imageCache.get(key);
 
         //...
         //Use fake images
