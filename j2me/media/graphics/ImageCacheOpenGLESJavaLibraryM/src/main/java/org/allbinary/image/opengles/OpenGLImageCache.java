@@ -24,11 +24,12 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.image.ImageCache;
+import org.allbinary.image.ImageCacheBase;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.string.CommonLabels;
 import org.platform.opengl.OpenGLTextureFactory;
 
-public class OpenGLImageCache extends ImageCache
+public class OpenGLImageCache extends ImageCacheBase
 {
     private final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
     private final ImageCache imageCache = ImageCacheFactory.getInstance();
