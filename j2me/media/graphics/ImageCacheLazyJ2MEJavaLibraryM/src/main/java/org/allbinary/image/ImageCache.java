@@ -255,7 +255,7 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
-    public Image createImageLater(final String key, final int width, final int height) throws Exception {
+    protected Image createImageLater(final String key, final int width, final int height) throws Exception {
         return Image.createImageLater(key, width, height);
     }
     
