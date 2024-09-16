@@ -76,7 +76,8 @@ public class ImageCache extends ImageCacheBase {
     {
     }
 
-    public void addListener(AllBinaryRendererBase3 renderer) {
+    //AllBinaryRendererBase3
+    public void addListener(Object renderer) {
         
     }
     

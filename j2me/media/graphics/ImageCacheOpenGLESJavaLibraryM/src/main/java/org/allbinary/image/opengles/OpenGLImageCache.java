@@ -43,8 +43,8 @@ public class OpenGLImageCache extends ImageCache
     {
     }
     
-    public void addListener(AllBinaryRendererBase3 renderer) {
-        this.renderer = renderer;
+    public void addListener(Object renderer) {
+        this.renderer = (AllBinaryRendererBase3) renderer;
     }
     
     public void update(final GL10 gl) throws Exception
