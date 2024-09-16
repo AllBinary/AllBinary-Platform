@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
 import org.allbinary.system.Memory;
 
 public class ImageCache extends ImageCacheBase
@@ -31,7 +32,11 @@ public class ImageCache extends ImageCacheBase
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
+
+    public void addListener(AllBinaryRendererBase3 renderer) {
         
+    }
+    
     public Image get(final String caller, final int width, final int height)
     throws Exception
     {        

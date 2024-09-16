@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
-import org.allbinary.graphics.threed.SWTJOGLProcessor;
+import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
 
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -36,8 +36,14 @@ public class OpenGLImageCache extends ImageCache
     
     private final BasicArrayList list = new BasicArrayList();
     
+    private AllBinaryRendererBase3 renderer = new AllBinaryRendererBase3();
+    
     protected OpenGLImageCache()
     {
+    }
+    
+    public void addListener(AllBinaryRendererBase3 renderer) {
+        this.renderer = renderer;
     }
     
     public void update(final GL10 gl) throws Exception
@@ -107,7 +113,13 @@ public class OpenGLImageCache extends ImageCache
     public void init(final Image image) {
         try {
             //LogUtil.put(LogFactory.getInstance("opengl: init add " + image, this, commonStrings.INIT));
+            
+            if(list.contains(image)) {
+                throw new RuntimeException();
+            }
+            
             list.add(image);
+            this.renderer.list.add(image);
 
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, commonStrings.INIT, e));
