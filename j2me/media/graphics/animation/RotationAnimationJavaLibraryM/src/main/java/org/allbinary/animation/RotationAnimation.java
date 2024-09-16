@@ -159,6 +159,6 @@ public class RotationAnimation
     }
     
     public String toString() {
-        return new StringMaker().append("circularIndexUtil: ").append(this.circularIndexUtil.toString()).append("angleInfo: ").append(this.angleInfo.toString()).toString();
+        return new StringMaker().append(super.toString()).append("circularIndexUtil: ").append(this.circularIndexUtil.toString()).append("angleInfo: ").append(this.angleInfo.toString()).toString();
     }
 }

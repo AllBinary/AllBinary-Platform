@@ -21,10 +21,12 @@ import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.animation.NullIndexedAnimation;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
 
 /**
@@ -48,7 +50,10 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     public LazyImageRotationAnimation(final ScaleProperties scaleProperties, final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
         super(animationBehavior);
 
-        ImageCacheFactory.getInstance().loadAfterList.add(this);
+        this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
+        
+        final ImageCache imageCache = ImageCacheFactory.getInstance();
+        imageCache.add(this);
         
         this.scaleProperties = scaleProperties;
 
@@ -92,8 +97,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             }
             
         };
-        
-        this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
+
     }
 
     public void setRealAnimation() {
@@ -103,7 +107,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance();
             this.animation.setState(animation);
             //this.animation.setScale(this.scaleX, this.scaleY);
-            LogUtil.put(LogFactory.getInstance(this.animationInterfaceFactoryInterface.getImage().getName() + this.animation.getClass().getName(), this, "setRealAnimation"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, "setRealAnimation"));
         } catch (Exception e) {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
         }
@@ -270,4 +274,7 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
     }
 
+    public String toString() {
+        return new StringMaker().append(super.toString()).append(this.animationInterfaceFactoryInterface.getImage().getName()).toString();
+    }
 }
