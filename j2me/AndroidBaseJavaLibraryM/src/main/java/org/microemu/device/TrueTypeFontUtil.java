@@ -149,7 +149,9 @@ public class TrueTypeFontUtil {
     public Image getFontBitmap(final String filename, final int fontSize, final int cellSize, final BasicColor basicColor) {
         try {
             if(this.fontImage == null) {
-                final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream("/font.png"));
+                final String FONT_ATLAS = "/font.png";
+                final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream(FONT_ATLAS));
+                image.setName(FONT_ATLAS);
                 this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
                 return this.fontImage;
             } else {
@@ -253,6 +255,8 @@ public class TrueTypeFontUtil {
 //            e.printStackTrace();
 //        }
             final Image image = new Image(bitmap);
+            //final String FONT_ATLAS = "font_atlas";
+            //image.setName(FONT_ATLAS);
             this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
             return this.fontImage;
 

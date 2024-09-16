@@ -50,9 +50,10 @@ implements OpenGLSurfaceChangedInterface
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
     {
+        super(image.getName(), null);
         //super(image);
 
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("opengl: create ").append(this).append(" to ").append(image).toString(), this, commonStrings.INIT));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("opengl: create ").append(this).append(this.getName()).append(" from " ).append(image).toString(), this, commonStrings.INIT));
         this.openGLBitmap = (OpenGLBitmap) bitmapFactory.createBitmap(image);
         this.textureFactory = textureFactory;
         OpenGLImageCacheFactory.getInstance().init(this);

@@ -79,6 +79,18 @@ public class LazyImageRotationAnimation extends RotationAnimation {
                 }
 
             }
+            
+            public void paintThreed(final Graphics graphics, final int x, final int y, final int z) {
+
+                try {
+                    ImageCacheFactory.getInstance().insertFirst(LazyImageRotationAnimation.this);
+                    animation = NULL_ANIMATION;
+                } catch (Exception e) {
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
+                }
+                
+            }
+            
         };
         
         this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;

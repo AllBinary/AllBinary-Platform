@@ -26,6 +26,7 @@ import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.StringMaker;
 
 public class OpenGLImageCache extends ImageCache
 {
@@ -112,7 +113,7 @@ public class OpenGLImageCache extends ImageCache
     
     public void init(final Image image) {
         try {
-            //LogUtil.put(LogFactory.getInstance("opengl: init add " + image, this, commonStrings.INIT));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("opengl: init add ").append(image).append(image.getName()).toString(), this, commonStrings.INIT));
             
             if(list.contains(image)) {
                 throw new RuntimeException();
