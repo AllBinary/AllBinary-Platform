@@ -122,7 +122,7 @@ public class ImageCache extends ImageCacheBase {
 
     private void loadImage(final Image image) throws Exception {
 
-        //LogUtil.put(LogFactory.getInstance("attempt loading: " + image.getName(), this, commonStrings.RUN));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("attempt loading: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
         if (image.getImage() == null) {
             final String key = image.getName();
             final Image image2 = this.creatImage(key);
