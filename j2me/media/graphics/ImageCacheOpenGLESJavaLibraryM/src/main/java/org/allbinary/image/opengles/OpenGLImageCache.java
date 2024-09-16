@@ -43,7 +43,6 @@ public class OpenGLImageCache extends ImageCache
     public void update(final GL10 gl) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE));
-        LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + gl, this, commonStrings.UPDATE));
      
         this.gl = gl;
         
@@ -109,14 +108,7 @@ public class OpenGLImageCache extends ImageCache
         try {
             //LogUtil.put(LogFactory.getInstance("opengl: init add " + image, this, commonStrings.INIT));
             list.add(image);
-//            if (!OpenGLESImage.texture2dList.contains(image)) {
-//                SWTJOGLProcessor.getInstance().onSurfaceChanged();
-//            }
 
-            //Just uploading the texture is not good enough.
-            if(gl != null) {
-                ((OpenGLESImage) image).set(gl);
-            }
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, commonStrings.INIT, e));
         }
