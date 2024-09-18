@@ -23,16 +23,19 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.resource.GDResources;
-import org.allbinary.graphics.opengles.renderer.AllBinaryRendererBase3;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.system.Memory;
-import org.allbinary.thread.ABRunnable;
-import org.allbinary.thread.ImageThreadPool;
+import org.allbinary.thread.BaseImageLoadingProcessor;
+import org.allbinary.thread.ImageLoadingProcessor;
 import org.allbinary.util.BasicArrayList;
 
 public class ImageCache extends ImageCacheBase {
 
+    private final BaseImageLoadingProcessor baseImageLoadingProcessor;
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
@@ -44,41 +47,31 @@ public class ImageCache extends ImageCacheBase {
 
     private final Object lock = new Object();
 
-    private final ABRunnable runnable = new ABRunnable() {
-
-        public void run() {
-            try {
-                this.setRunning(true);
-                //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.RUN));
-
-                while (loadNowList.isEmpty()) {
-                    Thread.sleep(120);
-                }
-                
-                //LogUtil.put(LogFactory.getInstance("found animation that has attempted to paint so load animations and images", this, commonStrings.RUN));
-                
-                loadImages();
-                loadRemainingAnimations();
-                
-                this.setRunning(false);
-
-//            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.RUN));
-            } catch (Exception e) {
-                this.setRunning(false);
-                final CommonStrings commonStrings = CommonStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
-            }
-        }
-
-    };
-
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
+        BaseImageLoadingProcessor baseImageLoadingProcessor = BaseImageLoadingProcessor.getInstance();
+        
+        final Features features = Features.getInstance();
+        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+        
+        if(isHTML) {
+            
+        } else {
+            baseImageLoadingProcessor = new ImageLoadingProcessor(this);
+        }
+        
+        this.baseImageLoadingProcessor = baseImageLoadingProcessor;
     }
 
     //AllBinaryRendererBase3
     public void addListener(Object renderer) {
         
+    }
+
+    public void waitForLoadNow() throws Exception {
+        while (loadNowList.isEmpty()) {
+            Thread.sleep(120);
+        }
     }
     
     private void loadImageForAnimation() throws Exception {
@@ -101,7 +94,7 @@ public class ImageCache extends ImageCacheBase {
         }
     }
     
-    private void loadRemainingAnimations() throws Exception {
+    public void loadRemainingAnimations() throws Exception {
         //LogUtil.put(LogFactory.getInstance("load remaining lazy animations", this, commonStrings.RUN));
         while (!this.loadAfterList.isEmpty() || !loadNowList.isEmpty()) {
             
@@ -259,9 +252,7 @@ public class ImageCache extends ImageCacheBase {
             return this.creatImage((String) key);
         }
 
-        if (!this.runnable.isRunning()) {
-            ImageThreadPool.getInstance().runTask(this.runnable);
-        }
+        this.baseImageLoadingProcessor.runTask();
 
         final GDResources gdResources = GDResources.getInstance();
         final int index = this.getIndex(key);
@@ -319,9 +310,7 @@ public class ImageCache extends ImageCacheBase {
 
             }
 
-            if (!this.runnable.isRunning()) {
-                ImageThreadPool.getInstance().runTask(this.runnable);
-            }
+            this.baseImageLoadingProcessor.runTask();
 
         //}
     }

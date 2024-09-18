@@ -81,7 +81,7 @@ public class ImageModifierUtil {
                     //LogUtil.put(LogFactory.getInstance("htmlImage: " + htmlImage, this, "setAlpha"));
 //                    if (canvasImage != null) {
                         //LogUtil.put(LogFactory.getInstance("alpha: " + alpha, this, "setAlpha"));
-                        final playn.core.Image originalPlaynImage = ((PlaynImage) originalImage).getImage();
+                        final playn.core.Image originalPlaynImage = (playn.core.Image) ((PlaynImage) originalImage).getImage();
 //                        if(originalPlaynImage != null) {
                             final Canvas canvas = canvasImage.canvas();
                             canvas.clear();
@@ -130,7 +130,7 @@ public class ImageModifierUtil {
 
     public void handleImage(final Image[] imageArray, final int index, final Image image) {
 
-        final playn.core.Image image3 = ((PlaynImage) image).getImage();
+        final playn.core.Image image3 = (playn.core.Image) ((PlaynImage) image).getImage();
         
         if (image3 != null) {
 
