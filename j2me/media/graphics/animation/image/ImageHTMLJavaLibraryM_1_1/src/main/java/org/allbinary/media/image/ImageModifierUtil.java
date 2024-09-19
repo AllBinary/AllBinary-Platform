@@ -15,12 +15,15 @@ package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.microemu.device.playn.PlaynImage;
+import org.microemu.device.playn.ResourceCallbackStrings;
+
 import playn.core.Canvas;
 import playn.core.CanvasImage;
 import playn.core.ResourceCallback;
@@ -34,11 +37,9 @@ public class ImageModifierUtil {
     public static ImageModifierUtil getInstanceOrCreate() {
         return new ImageModifierUtil();
     }
-    
-    private final String HANDLE_IMAGE = "handleImage";
-    private final String DONE = "ResourceCallback:done";
-    private final String ERROR = "ResourceCallback:error";
-    private final String NULL = "ResourceCallback:null isMutable: ";
+
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final ResourceCallbackStrings resourceCallbackStrings = ResourceCallbackStrings.getInstance();
     
     private boolean[] alphaArray;
     
@@ -137,24 +138,26 @@ public class ImageModifierUtil {
             if (image3.isReady()) {
                 copy(imageArray, index, image, image3);
             } else {
+
                 final ResourceCallback callback = new ResourceCallback() {
                     @Override
                     public void done(Object resource) {
-                        LogUtil.put(LogFactory.getInstance(DONE, this, HANDLE_IMAGE));
+                        LogUtil.put(LogFactory.getInstance(resourceCallbackStrings.DONE + image.getName(), this, resourceCallbackStrings.HANDLE_IMAGE));
                         copy(imageArray, index, image, image3);
                     }
 
                     @Override
                     public void error(Throwable e) {
-                        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ERROR, this, HANDLE_IMAGE));
+                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.ERROR, this, resourceCallbackStrings.HANDLE_IMAGE));
                     }
                 };
                 
                 image3.addCallback(callback);
+
             }
 
         } else {
-            LogUtil.put(LogFactory.getInstance(NULL + image.isMutable(), this, HANDLE_IMAGE));
+            LogUtil.put(LogFactory.getInstance(resourceCallbackStrings.NULL + image.isMutable(), this, resourceCallbackStrings.HANDLE_IMAGE));
         }
         
     }
@@ -169,7 +172,7 @@ public class ImageModifierUtil {
             imageArray[index] = image2;
 
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + DONE, this, HANDLE_IMAGE));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.DONE, this, resourceCallbackStrings.HANDLE_IMAGE));
         }
     }
     

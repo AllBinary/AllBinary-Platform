@@ -14,7 +14,11 @@
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
+
+import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
+import org.microemu.device.playn.PlaynImage;
 
 public class ImageCompleteUtil
 {
@@ -35,11 +39,42 @@ public class ImageCompleteUtil
     {
     }
 
-    public boolean isReady(Image image, String name, TimeDelayHelper timeDelayHelper)
+//    public boolean isReady(Image image, String name, TimeDelayHelper timeDelayHelper)
+//            throws Exception
+//    {
+//        return true;
+//    }
+
+    public boolean isReady(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
             throws Exception
     {
+        final PlaynImage playnImage = (PlaynImage) image;
+        final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
+        if(!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() == 0)
+        {   
+            /*
+            try
+            {
+                Thread.sleep(120);
+                PreLogUtil.put(image.toString(), this, METHOD_NAME);
+            }
+            catch(Exception e)
+            {
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
+            }
+            */
+
+            this.handleTimeout(name);
+            return false;
+        }
+        PreLogUtil.put("Image loading complete for: " + name, this, CommonStrings.getInstance().SUCCESS);
         return true;
     }
+
+    public void handleTimeout(final String name) throws Exception {
+    
+    }    
 
     public void waitForAll()
             throws Exception

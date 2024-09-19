@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
+import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
@@ -25,6 +26,7 @@ import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.ScaleProperties;
@@ -275,6 +277,8 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     }
 
     public String toString() {
-        return new StringMaker().append(super.toString()).append(this.animationInterfaceFactoryInterface.getImage().getName()).toString();
+        final CommonSeps commonSeps = CommonSeps.getInstance();
+        final Image image = this.animationInterfaceFactoryInterface.getImage();
+        return new StringMaker().append(super.toString()).append(commonSeps.SPACE).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString();
     }
 }

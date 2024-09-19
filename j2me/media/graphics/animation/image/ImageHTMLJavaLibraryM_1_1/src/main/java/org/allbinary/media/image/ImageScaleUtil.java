@@ -72,10 +72,11 @@ public class ImageScaleUtil
     throws Exception
     {
         //PreLogUtil.put("originalImage: " + originalImage + " scaleX: " + scaleX + " scaleY: " + scaleY, this, "createImage");
+        //PreLogUtil.put("originalImage: " + originalImage.getWidth() + " " + originalImage.getHeight(), this, "createImage");
         final Image image = ImageCreationUtil.getInstance().getInstance(
                 (int) (originalImage.getWidth() * scaleX), (int) (originalImage.getHeight() * scaleY));
-
-        //PreLogUtil.put("Image: " + originalImage.getWidth() + " " + originalImage.getHeight(), this, "createImage");
+        
+        //PreLogUtil.put("Image: " + image.getWidth() + " " + image.getHeight(), this, "createImage");
         
         if (image.isMutable())
         {
@@ -101,8 +102,6 @@ public class ImageScaleUtil
             //canvasSurface.translate(-3, 3);
             //canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth() + 3, image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
             canvasSurface.drawImage(originalPlayNImage, 0, 0, image.getWidth(), image.getHeight(), 0, 0, originalImage.getWidth(), originalImage.getHeight());
-
-            //PreLogUtil.put("Image: " + originalImage.getWidth() + " " + originalImage.getHeight(), this, "createImage");
             
             return image;
         }

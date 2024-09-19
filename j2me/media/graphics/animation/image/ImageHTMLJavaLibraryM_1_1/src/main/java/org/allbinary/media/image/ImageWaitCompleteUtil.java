@@ -43,36 +43,12 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
         this.waitFor(image, name, this.timeDelayHelper);
     }
 
-    public boolean isReady(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
-            throws Exception
-    {
-        final PlaynImage playnImage = (PlaynImage) image;
-        final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
-        if(!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() == 0)
-        {   
-            /*
-            try
-            {
-                Thread.sleep(120);
-                PreLogUtil.put(image.toString(), this, METHOD_NAME);
-            }
-            catch(Exception e)
-            {
-                final CommonStrings commonStrings = CommonStrings.getInstance();
-                PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
-            }
-            */
-
-            if(timeDelayHelper.isTime())
-            {
-                throw new Exception("isReady: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
-            }
-            return false;
+    public void handleTimeout(final String name) throws Exception {
+        if (timeDelayHelper.isTime()) {
+            throw new Exception("isReady: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
         }
-        //PreLogUtil.put("Image loading complete for: " + name, this, CommonStrings.getInstance().SUCCESS);
-        return true;
-    }
-
+    }    
+    
     private void waitFor(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
             throws Exception
     {

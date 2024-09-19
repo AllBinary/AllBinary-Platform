@@ -22,7 +22,9 @@ import org.allbinary.logic.string.CommonStrings;
  *
  * @author User
  */
-public class ImageLoadingProcessor extends BaseImageLoadingProcessor {
+public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
+    
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private final ImageCache imageCache;
     
@@ -45,14 +47,13 @@ public class ImageLoadingProcessor extends BaseImageLoadingProcessor {
 //            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.RUN));
             } catch (Exception e) {
                 this.setRunning(false);
-                final CommonStrings commonStrings = CommonStrings.getInstance();
                 LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
             }
         }
 
     };
     
-    public ImageLoadingProcessor(ImageCache imageCache) {
+    public ConcurrentImageLoadingProcessor(final ImageCache imageCache) {
         this.imageCache = imageCache;
     }
     
