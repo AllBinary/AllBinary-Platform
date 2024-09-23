@@ -30,7 +30,6 @@ import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.system.Memory;
 import org.allbinary.thread.BaseImageLoadingProcessor;
 import org.allbinary.thread.ConcurrentImageLoadingProcessor;
-import org.allbinary.thread.SimpleImageLoadingProcessor;
 import org.allbinary.util.BasicArrayList;
 
 public class ImageCache extends ImageCacheBase {
@@ -51,14 +50,12 @@ public class ImageCache extends ImageCacheBase {
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
         BaseImageLoadingProcessor baseImageLoadingProcessor = 
-            null; 
-            //BaseImageLoadingProcessor.getInstance();
+            BaseImageLoadingProcessor.getInstance();
         
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         
         if(isHTML) {
-            baseImageLoadingProcessor = new SimpleImageLoadingProcessor(this);
         } else {
             baseImageLoadingProcessor = new ConcurrentImageLoadingProcessor(this);
         }

@@ -123,4 +123,8 @@ public class ImageCache extends ImageCacheBase
         return image;
     }
 
+    public void loadImageForAnimation() throws Exception {
+        
+    }
+    
 }
