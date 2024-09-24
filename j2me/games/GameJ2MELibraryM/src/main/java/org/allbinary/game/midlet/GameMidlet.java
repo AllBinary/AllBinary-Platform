@@ -155,7 +155,8 @@ public class GameMidlet extends ProgressMidlet
         //This can be used for J2ME but not BB
         //SmallIntegerSingletonFactory.getInstance().init(0x101, 6);
 
-        ProgressCanvasFactory.getInstance().init(this);
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        progressCanvas.init(this);
 
         GameFeatureEventHandler.getInstance().addListener(
                 ChangedGameFeatureListener.getInstance());
@@ -596,8 +597,7 @@ public class GameMidlet extends ProgressMidlet
             {
                 this.pauseAppBackground(false);
 
-                final ProgressCanvas progressCanvas =
-                    ProgressCanvasFactory.getInstance();
+                final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
                 progressCanvas.addPortion(50, "In Game Options");
 
@@ -946,13 +946,14 @@ public class GameMidlet extends ProgressMidlet
         // Wait for the thread to end then continue
         ThreadUtil.getInstance().join(this.thread);
         
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
         if(features.isFeature(MainFeatureFactory.getInstance().LOAD_ALL))
         {
-            ProgressCanvasFactory.getInstance().addPortion(50, "Stopped Game Runnable");
+            progressCanvas.addPortion(50, "Stopped Game Runnable");
         }
         else
         {
-            ProgressCanvasFactory.getInstance().addPortion(50, "Stopped Main Runnable");
+            progressCanvas.addPortion(50, "Stopped Main Runnable");
         }
         
 

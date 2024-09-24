@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.displayable.canvas.GameCanvasRunnableInterface;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
 import org.allbinary.thread.PrimaryThreadPool;
@@ -87,7 +88,8 @@ public class DemoGameMidlet extends GameMidlet
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setDemo"));
 
         ////TWB - Loading Feature Change - Can remove remark after testing
-        ProgressCanvasFactory.getInstance().start();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        progressCanvas.start();
 
         PrimaryThreadPool.getInstance().runTask(new DemoRunnable(this));
         //this.postDemoSetup();
@@ -99,7 +101,8 @@ public class DemoGameMidlet extends GameMidlet
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, CREATE_GAME));
 
         ////TWB - Loading Feature Change - Can remove remark after testing
-        ProgressCanvasFactory.getInstance().start();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        progressCanvas.start();
         
         Hashtable hashtable = this.getStartStateHashtable();
         this.setStartStateHashtable(null);

@@ -27,7 +27,7 @@ public class DemoCanvasProgressUtil
     
     public static void showProgress(DemoCanvas demoCanvas, boolean background)
     {
-        ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
         progressCanvas.startBackground(background);
 

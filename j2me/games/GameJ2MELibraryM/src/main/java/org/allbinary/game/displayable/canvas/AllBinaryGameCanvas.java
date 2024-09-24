@@ -747,7 +747,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     protected synchronized void initConfigurable(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        ProgressCanvasFactory.getInstance().addPortion(50, "Setting Configurables");
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        progressCanvas.addPortion(50, "Setting Configurables");
 
         GameInitializationUtil.getInstance().initGame(abeClientInformation, this,
                 gameInitializationInterfaceFactoryInterface);
@@ -1138,7 +1139,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "cleanupGame"));
 
-        ProgressCanvasFactory.getInstance().addPortion(10, "Cleaning Up");
+        final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+        progressCanvas.addPortion(10, "Cleaning Up");
 
         primaryPlayerQueue.clear();
         secondaryPlayerQueue.clear();
@@ -1442,11 +1444,11 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             final MyCommandsFactory myCommandsFactory = MyCommandsFactory.getInstance();
 
-            ProgressCanvasFactory.getInstance().start();
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            progressCanvas.start();
             this.getCustomCommandListener().commandAction(
-                    myCommandsFactory.SET_DISPLAYABLE,
-                    ProgressCanvasFactory.getInstance());
-            // ProgressCanvasFactory.getInstance().waitUntilDisplayed();
+                    myCommandsFactory.SET_DISPLAYABLE,progressCanvas);
+            // progressCanvas.waitUntilDisplayed();
             portion = 4;
         }
         return portion;
@@ -1537,7 +1539,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
 
-            ProgressCanvasFactory.getInstance().addPortion(50, "Game Thread");
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            progressCanvas.addPortion(50, "Game Thread");
 
             this.setCurrentThread();
 
@@ -1786,14 +1789,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
             class SaveHighScoreRunnable implements Runnable {
 
+                private final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+                
                 public void run() {
                     try {
                         //Let the endgame sound play first
 //                                Thread.sleep(100);
-//
-//                                ProgressCanvas progressCanvas =
-//                                    ProgressCanvasFactory.getInstance();
-//
 //                                progressCanvas.addPortion(6, "Saving High Score");
 
                         if (isLast) {
@@ -1803,7 +1804,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
                         }
                     } catch (Exception e) {
                         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "run", e));
-                        ProgressCanvasFactory.getInstance().end();
+                        progressCanvas.end();
                     }
                 }
             }

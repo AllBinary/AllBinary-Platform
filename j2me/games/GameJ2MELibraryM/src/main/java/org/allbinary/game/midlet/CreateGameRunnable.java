@@ -14,6 +14,7 @@
 package org.allbinary.game.midlet;
 
 import java.util.Hashtable;
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -45,11 +46,13 @@ public class CreateGameRunnable implements Runnable
         {
             LogUtil.put(LogFactory.getInstance(commonStrings.START_RUNNABLE, this, commonStrings.RUN));
 
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            
             this.demoGameMidlet.commandAction(
                     MyCommandsFactory.getInstance().SET_DISPLAYABLE,
-                    ProgressCanvasFactory.getInstance());
+                    progressCanvas);
 
-            //ProgressCanvasFactory.getInstance().waitUntilDisplayed();
+            //progressCanvas.waitUntilDisplayed();
 
             this.demoGameMidlet.stopGameCanvasRunnableInterface();
 

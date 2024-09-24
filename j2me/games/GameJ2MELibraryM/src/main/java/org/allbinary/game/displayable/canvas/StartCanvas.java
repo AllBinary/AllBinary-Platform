@@ -903,7 +903,7 @@ public class StartCanvas extends RunnableCanvas
 
         try
         {
-            ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
 
             progressCanvas.addPortion(50, "Demo Thread");
 

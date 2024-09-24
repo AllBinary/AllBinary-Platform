@@ -94,8 +94,7 @@ public class BaseGameInitialization implements GameInitializationInterface
 
             GameKeyEventFactory.getInstance().init();
 
-            ProgressCanvas progressCanvas = 
-                ProgressCanvasFactory.getInstance();
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             
             progressCanvas.addPortion(localPortion, "Game Key Events");
 
