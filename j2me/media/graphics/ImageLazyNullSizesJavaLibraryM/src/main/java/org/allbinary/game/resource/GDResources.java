@@ -38,5 +38,8 @@ public class GDResources
     public final int[] imageResourceHeightArray = {
     };
     
+    public final String[] requiredResourcesBeforeLoadingArray = {
+    };
+
 }
 

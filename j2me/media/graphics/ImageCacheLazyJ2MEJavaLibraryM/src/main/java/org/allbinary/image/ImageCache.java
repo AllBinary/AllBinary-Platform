@@ -284,20 +284,21 @@ public class ImageCache extends ImageCacheBase {
         throw new RuntimeException();
     }
 
-    //TWB - Remove temp hack
-    private final String ATLAS = "dungeon_b.png";
-    private final String PROPS = "props.png";
     protected Image createImage(final Object key, final InputStream inputStream)
         throws Exception {
-        
-        if(((String) key).compareTo(ATLAS) == 0 || ((String) key).compareTo(PROPS) == 0) {
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN));
-            return this.creatImage((String) key);
+
+        final GDResources gdResources = GDResources.getInstance();        
+        String[] resourceStringArray = gdResources.requiredResourcesBeforeLoadingArray;
+        final int size = resourceStringArray.length;
+        for(int index = 0; index < size; index++) {
+            if(((String) key).compareTo(resourceStringArray[index]) == 0) {
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN));
+                return this.creatImage((String) key);
+            }
         }
 
         this.baseImageLoadingProcessor.runTask();
 
-        final GDResources gdResources = GDResources.getInstance();
         final int index = this.getIndex(key);
         final int width = gdResources.imageResourceWidthArray[index];
         final int height = gdResources.imageResourceHeightArray[index];
