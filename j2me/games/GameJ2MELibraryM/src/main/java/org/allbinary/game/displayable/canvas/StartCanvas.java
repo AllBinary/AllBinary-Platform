@@ -153,7 +153,9 @@ public class StartCanvas extends RunnableCanvas
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
     private GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
-    
+
+    private PaintableInterface progressPaintable = ProgressCanvasFactory.getInstance();
+
     public StartCanvas(
         final AbeClientInformationInterface abeClientInformation,
         final CommandListener commandListener,
@@ -583,6 +585,8 @@ public class StartCanvas extends RunnableCanvas
         this.getBasicGameDemoPaintable().paint(graphics);
 
         this.overlayPaintable.paint(graphics);
+        
+        this.progressPaintable.paint(graphics);
     }
 
     public void paintThreed(Graphics graphics)
@@ -591,7 +595,7 @@ public class StartCanvas extends RunnableCanvas
         
         // Draw title animation
         this.paintedSpecialAnimationInterface.paintThreed(graphics, 0, 0, 0);
-        
+
         //TWB - More 3d
     }
     

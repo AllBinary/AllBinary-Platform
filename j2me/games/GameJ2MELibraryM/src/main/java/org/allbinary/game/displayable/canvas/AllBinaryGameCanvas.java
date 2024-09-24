@@ -121,6 +121,7 @@ import org.allbinary.graphics.opengles.CurrentDisplayableFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
+import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.string.StringMaker;
@@ -242,6 +243,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final DemoGameBehavior gameBehavior;
     private final BaseMenuBehavior menuBehavior;
 
+    private PaintableInterface progressPaintable = ProgressCanvasFactory.getInstance();
+    
     public AllBinaryGameCanvas(
             final CommandListener commandListener,
             final AllBinaryGameLayerManager gameLayerManager,
@@ -1336,12 +1339,12 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         this.gameSpecificPaintable.paint(graphics);
     }
 
-    public void clear(Graphics graphics)
+    public void clear(final Graphics graphics)
     {
         this.colorFillPaintable.paint(graphics);
     }
 
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         //PreLogUtil.put("AllBinaryGameCanvas", this, "paint");
 
@@ -1356,10 +1359,13 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         //// End - This is what is called without buffering
 
         menuPaintable.paint(graphics);
+        
+        this.progressPaintable.paint(graphics);
     }
 
-    public void paintThreed(Graphics graphics)
+    public void paintThreed(final Graphics graphics)
     {
+
     }
 
     // TWB - This hack method should be removed once I figure out how it should

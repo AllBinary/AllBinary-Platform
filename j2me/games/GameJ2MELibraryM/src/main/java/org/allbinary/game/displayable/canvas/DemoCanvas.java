@@ -165,6 +165,8 @@ public class DemoCanvas extends RunnableCanvas
     private PaintableInterface paintableInterface;
     private final InitUpdatePaintable overlayPaintable;
 
+    private PaintableInterface progressPaintable = ProgressCanvasFactory.getInstance();
+    
     private int tempWait = NullWaitGameRunnable.getInstance().WAIT;
     
     private final InputToGameKeyMapping inputToGameKeyMapping = 
@@ -594,7 +596,7 @@ public class DemoCanvas extends RunnableCanvas
     {
     }
 
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics)
     {
         //PreLogUtil.put("DemoCanvas", this, "paint");
         
@@ -615,9 +617,11 @@ public class DemoCanvas extends RunnableCanvas
         this.overlayPaintable.paint(graphics);
         
         this.fullscreenPaintable.paint(graphics);
+        
+        this.progressPaintable.paint(graphics);
     }
 
-    public void paintThreed(Graphics graphics)
+    public void paintThreed(final Graphics graphics)
     {
         this.paintableInterface.paintThreed(graphics);
         

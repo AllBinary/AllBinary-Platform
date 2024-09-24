@@ -40,7 +40,7 @@ public class ProgressCanvas extends RunnableCanvas
     private float value;
     private final float maxValue = 100;
 
-    private final CustomGaugeItem gauge;
+    protected final CustomGaugeItem gauge;
 
     private final String TEXT = commonStrings.LOADING;
     private String text = TEXT;
@@ -122,15 +122,24 @@ public class ProgressCanvas extends RunnableCanvas
         this.setValue(0);
     }
     
+    public void endActual() {
+        //getCommandListener()
+        this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, null);
+    }
+        
     public void end()
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
         this.gauge.setValue(this.getMaxValue());
-        //getCommandListener()
-        this.allbinaryMidlet.commandAction(
-                GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, null);
+        this.endActual();
     }
 
+    public void endFromInitialLazyLoadingComplete()
+    {
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
+        this.gauge.setValue(this.getMaxValue());
+    }
+    
     protected final String ADD_PORTION = "addPortion";
     protected final String ADD_EARLY_PORTION = "addEarlyPortion";
     

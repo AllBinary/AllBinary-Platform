@@ -102,6 +102,8 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
     }
 
+    private static final String SET_REAL_ANIMATION = "setRealAnimation";
+    
     public void setRealAnimation() {
         try {
             final IndexedAnimation animation = this.animation;
@@ -109,9 +111,9 @@ public class LazyImageRotationAnimation extends RotationAnimation {
             this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance();
             this.animation.setState(animation);
             //this.animation.setScale(this.scaleX, this.scaleY);
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, "setRealAnimation"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION));
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, SET_REAL_ANIMATION, e));
         }
     }
 

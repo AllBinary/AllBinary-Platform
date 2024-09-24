@@ -26,6 +26,8 @@ import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.game.resource.GDResources;
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.system.Memory;
 import org.allbinary.thread.BaseImageLoadingProcessor;
@@ -47,6 +49,8 @@ public class ImageCache extends ImageCacheBase {
 
     private final Object lock = new Object();
 
+    private boolean nowListUsedSinceLastGameLoad = false;
+    
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
         BaseImageLoadingProcessor baseImageLoadingProcessor = 
@@ -83,6 +87,16 @@ public class ImageCache extends ImageCacheBase {
         if(this.loadImageForAnimation(lazyImageRotationAnimation)) {
             synchronized (lock) {
                 loadNowList.remove(lazyImageRotationAnimation);
+            }
+            
+            if(this.nowListUsedSinceLastGameLoad) {
+                //LogUtil.put(LogFactory.getInstance("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN));
+                if(this.loadNowList.size() == 0) {
+                    this.nowListUsedSinceLastGameLoad = false;
+                    //LogUtil.put(LogFactory.getInstance("end progress", this, commonStrings.RUN));
+                    final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+                    progressCanvas.endFromInitialLazyLoadingComplete();
+                }
             }
         }
     }
@@ -133,7 +147,7 @@ public class ImageCache extends ImageCacheBase {
         final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
         
         if(this.loadImage(image)) {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("processing loaded resource: ").append(lazyImageRotationAnimation).toString(), this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("processing loaded resource: ").append(lazyImageRotationAnimation).toString(), this, commonStrings.RUN));
             lazyImageRotationAnimation.setRealAnimation();
             return true;
         }
@@ -184,7 +198,7 @@ public class ImageCache extends ImageCacheBase {
     }
 
     protected void init(final Image image, final Image image2) throws Exception {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("loading resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loading resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
         image.init(image2.getImage());
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loaded resource: ").append(image).append(image.getName()).append(commonSeps.SPACE).append(image.getWidth()).append(commonSeps.SPACE).append(image.getHeight()).toString(), this, commonStrings.RUN));
     }
@@ -336,9 +350,10 @@ public class ImageCache extends ImageCacheBase {
 //                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
 //                }
 //            } else {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert resource: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert resource: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
                         
-            synchronized (lock) {        
+            synchronized (lock) {
+                this.nowListUsedSinceLastGameLoad = true;
                 this.loadNowList.add(lazyImageRotationAnimation);
                 this.loadAfterList.remove(lazyImageRotationAnimation);
                 
