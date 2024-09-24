@@ -281,6 +281,7 @@ public class ImageCache extends ImageCacheBase {
                 return index;
             }
         }
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("unable to find key: ").append(key).toString(), this, commonStrings.RUN));
         throw new RuntimeException();
     }
 
@@ -291,7 +292,8 @@ public class ImageCache extends ImageCacheBase {
         String[] resourceStringArray = gdResources.requiredResourcesBeforeLoadingArray;
         final int size = resourceStringArray.length;
         for(int index = 0; index < size; index++) {
-            if(((String) key).compareTo(resourceStringArray[index]) == 0) {
+            //if(((String) key).compareTo(resourceStringArray[index]) == 0) {
+            if(key == resourceStringArray[index]) {
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append("create now: ").append(key).toString(), this, commonStrings.RUN));
                 return this.creatImage((String) key);
             }
