@@ -28,12 +28,15 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class LazyProgressCanvas extends ProgressCanvas {
 
+    private boolean hasPainted;
+    
     private final Paintable GAUGE_PAINTABLE = new Paintable() {
         public void paint(Graphics graphics) {
             final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
             graphics.setColor(backgroundBasicColor.intValue());
             graphics.fillRect(0, 0, displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
             gauge.paint(graphics, 0, 0);
+            hasPainted = true;
         }
     };
     
@@ -51,6 +54,7 @@ public class LazyProgressCanvas extends ProgressCanvas {
     public void start()
     {
         super.start();
+        this.hasPainted = false;
         this.paintable = GAUGE_PAINTABLE;
     }
     
@@ -66,6 +70,13 @@ public class LazyProgressCanvas extends ProgressCanvas {
     {
         super.endFromInitialLazyLoadingComplete();
         this.paintable = NullPaintable.getInstance();
+    }
+    
+    public void endIfPaintedSinceStart()
+    {
+        if(this.paintable == GAUGE_PAINTABLE && this.hasPainted) {
+            this.endFromInitialLazyLoadingComplete();
+        }
     }
     
     public void paint(Graphics graphics)

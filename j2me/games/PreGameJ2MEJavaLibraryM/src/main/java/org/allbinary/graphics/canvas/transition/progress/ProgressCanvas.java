@@ -140,6 +140,10 @@ public class ProgressCanvas extends RunnableCanvas
         this.gauge.setValue(this.getMaxValue());
     }
     
+    public void endIfPaintedSinceStart()
+    {
+    }
+    
     protected final String ADD_PORTION = "addPortion";
     protected final String ADD_EARLY_PORTION = "addEarlyPortion";
     

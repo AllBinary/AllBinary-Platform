@@ -48,8 +48,6 @@ public class ImageCache extends ImageCacheBase {
     public final BasicArrayList loadAfterList = new BasicArrayList();
 
     private final Object lock = new Object();
-
-    private boolean nowListUsedSinceLastGameLoad = false;
     
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
@@ -78,10 +76,16 @@ public class ImageCache extends ImageCacheBase {
         }
     }
     
+    //private final String LOAD_IMAGE_FOR_ANIMATION = "loadImageForAnimation";
+    private final String LOAD_IMAGE_FOR_ANIMATION = "Load Image Animation";
     public void loadImageForAnimation() throws Exception {
         LazyImageRotationAnimation lazyImageRotationAnimation = null;
         synchronized (lock) {
-            if(loadNowList.isEmpty()) return;
+            if(loadNowList.isEmpty()) {
+                final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+                progressCanvas.endIfPaintedSinceStart();
+                return;
+            }
             lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.get(0);
         }
         if(this.loadImageForAnimation(lazyImageRotationAnimation)) {
@@ -89,16 +93,17 @@ public class ImageCache extends ImageCacheBase {
                 loadNowList.remove(lazyImageRotationAnimation);
             }
             
-            if(this.nowListUsedSinceLastGameLoad) {
-                //LogUtil.put(LogFactory.getInstance("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN));
-                if(this.loadNowList.size() == 0) {
-                    this.nowListUsedSinceLastGameLoad = false;
-                    //LogUtil.put(LogFactory.getInstance("end progress", this, commonStrings.RUN));
-                    final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-                    progressCanvas.endFromInitialLazyLoadingComplete();
-                }
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            //LogUtil.put(LogFactory.getInstance("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN));
+            if (this.loadNowList.isEmpty()) {
+                //LogUtil.put(LogFactory.getInstance("end progress", this, commonStrings.RUN));
+                progressCanvas.endFromInitialLazyLoadingComplete();
+            } else {
+                progressCanvas.addPortion(10, LOAD_IMAGE_FOR_ANIMATION);
             }
+            
         }
+        
     }
     
 //    private void loadImageForAnimation() throws Exception {
@@ -133,7 +138,7 @@ public class ImageCache extends ImageCacheBase {
                 //LogUtil.put(LogFactory.getInstance("load lazy animation image", this, commonStrings.RUN));
                 loadImageForAnimation();
             }
-            
+
             LazyImageRotationAnimation lazyImageRotationAnimation = null;
             synchronized (lock) {
                 //this.loadImageAfterList.remove(0);
@@ -157,7 +162,9 @@ public class ImageCache extends ImageCacheBase {
     private void loadImage() throws Exception {
         Image image = null;
         synchronized (lock) {
-            if(loadList.size() == 0) return;
+            if(loadList.size() == 0) {
+                return;
+            }
             image = (Image) loadList.remove(0);
         }
         this.loadImage(image);
@@ -353,7 +360,6 @@ public class ImageCache extends ImageCacheBase {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert resource: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
                         
             synchronized (lock) {
-                this.nowListUsedSinceLastGameLoad = true;
                 this.loadNowList.add(lazyImageRotationAnimation);
                 this.loadAfterList.remove(lazyImageRotationAnimation);
                 
