@@ -113,7 +113,7 @@ public class ImageRotationAnimationFactory
         this.angleIncrement = angleIncrement;
     }
     
-    public Animation getInstance() throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
 

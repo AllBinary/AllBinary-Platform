@@ -39,6 +39,8 @@ public class LazyImageRotationAnimation extends RotationAnimation {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
 
+    public final int layoutIndex;
+    public final int instanceId;
     public final BaseImageAnimationFactory animationInterfaceFactoryInterface;
 
     private final IndexedAnimation NULL_ANIMATION;
@@ -49,9 +51,11 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     //private float scaleX;
     //private float scaleY;
     
-    public LazyImageRotationAnimation(final ScaleProperties scaleProperties, final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
+    public LazyImageRotationAnimation(final int layoutIndex, final int instanceId, final ScaleProperties scaleProperties, final BaseImageAnimationFactory animationInterfaceFactoryInterface, final AnimationBehavior animationBehavior) {
         super(animationBehavior);
 
+        this.layoutIndex = layoutIndex;
+        this.instanceId = instanceId;
         this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
         
         final ImageCache imageCache = ImageCacheFactory.getInstance();
@@ -108,10 +112,10 @@ public class LazyImageRotationAnimation extends RotationAnimation {
         try {
             final IndexedAnimation animation = this.animation;
             this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
-            this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance();
+            this.animation = (IndexedAnimation) this.animationInterfaceFactoryInterface.getInstance(this.instanceId);
             this.animation.setState(animation);
             //this.animation.setScale(this.scaleX, this.scaleY);
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.toString()).append(this.animation.getClass().getName()).toString(), this, SET_REAL_ANIMATION));
         } catch (Exception e) {
             LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, SET_REAL_ANIMATION, e));
         }

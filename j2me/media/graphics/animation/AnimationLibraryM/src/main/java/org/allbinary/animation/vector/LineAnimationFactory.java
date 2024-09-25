@@ -32,7 +32,7 @@ implements AnimationInterfaceFactoryInterface
         this.basicColor = basicColor;
     }
 
-    public Animation getInstance()throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         return new LineAnimation(this.basicColor);
     }

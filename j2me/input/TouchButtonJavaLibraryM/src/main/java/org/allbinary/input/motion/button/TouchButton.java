@@ -52,9 +52,9 @@ public class TouchButton extends Paintable
     {            
             this(touchButtonInput, 
             FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
-                             touchButtonResource.RESOURCE).getInstance(),
+                             touchButtonResource.RESOURCE).getInstance(0),
             FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
-                             touchButtonResource.HINT).getInstance(),
+                             touchButtonResource.HINT).getInstance(0),
             rawRectangle, cellPosition, xBorder, yBorder);
     }
 

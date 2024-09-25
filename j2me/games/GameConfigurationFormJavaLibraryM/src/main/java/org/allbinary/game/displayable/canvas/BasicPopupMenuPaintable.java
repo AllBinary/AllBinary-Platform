@@ -87,7 +87,7 @@ public class BasicPopupMenuPaintable extends Paintable
             //image.getGraphics().setColor(BasicColor.TRANSPARENT_GREY.intValue());
             //image.getGraphics().drawRect(0, 0, this.rectangle.getWidth(), this.rectangle.getHeight());
             //this.animationInterface = new AllBinaryImageAnimation(image);
-            this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance();
+            this.animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
         else
         {

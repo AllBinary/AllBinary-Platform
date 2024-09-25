@@ -88,7 +88,7 @@ public class ImageCaptionIndexedAnimationFactory
 
     }
 
-    public Animation getInstance() throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.captionImage, this.captionImage.getWidth(), this.captionImage.getHeight(), this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         final Animation animationInterface = new ImageAnimation(scaledImage, this.animationBehaviorFactory.getOrCreateInstance());
 

@@ -38,7 +38,7 @@ public class RotationAnimationFactory implements
         this.angleIncrement = angleIncrement;
     }
     
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         return new NullRotationAnimation(
                 AngleInfo.getInstance(this.angleIncrement), this.totalAngle, AnimationBehavior.getInstance());

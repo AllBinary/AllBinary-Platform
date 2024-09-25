@@ -49,7 +49,7 @@ public class CommandCurrentSelectionForm extends ScrollCurrentSelectionForm
 
     private void initAnimations()
     {        
-        final Animation nullAnimation = NullAnimationFactory.getFactoryInstance().getInstance();
+        final Animation nullAnimation = NullAnimationFactory.getFactoryInstance().getInstance(0);
 
         for(int index = selectedAnimationArray.length; --index >= 0;)
         {

@@ -15,10 +15,6 @@ package org.allbinary.animation.image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
-import org.allbinary.animation.IndexedAnimation;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.ScaleProperties;
 
 /**
@@ -27,21 +23,23 @@ import org.allbinary.media.ScaleProperties;
  */
 public class LazyImageRotationAnimationFactory implements AnimationInterfaceFactoryInterface {
     
+    private final int layoutIndex;
     private final BaseImageAnimationFactory animationInterfaceFactoryInterface;
     
     public ScaleProperties scaleProperties = ScaleProperties.instance;
     
-    public LazyImageRotationAnimationFactory(final BaseImageAnimationFactory animationInterfaceFactoryInterface) {
+    public LazyImageRotationAnimationFactory(final int layoutIndex, final int associatedLazyAnimationId, final BaseImageAnimationFactory animationInterfaceFactoryInterface) {
+        this.layoutIndex = layoutIndex;
         this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
     }
     
-    public Animation getInstance() throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
         if(this.animationInterfaceFactoryInterface.getImage().isReady()) {
             this.animationInterfaceFactoryInterface.setInitialScale(scaleProperties);
-            return this.animationInterfaceFactoryInterface.getInstance();
+            return this.animationInterfaceFactoryInterface.getInstance(instanceId);
         } else {
-            return new LazyImageRotationAnimation(scaleProperties, this.animationInterfaceFactoryInterface, this.animationInterfaceFactoryInterface.animationBehaviorFactory.getOrCreateInstance());
-        }        
+            return new LazyImageRotationAnimation(this.layoutIndex, instanceId, scaleProperties, this.animationInterfaceFactoryInterface, this.animationInterfaceFactoryInterface.animationBehaviorFactory.getOrCreateInstance());
+        }
     }
     
     public void setInitialScale(final ScaleProperties scaleProperties) {

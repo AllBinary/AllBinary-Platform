@@ -26,7 +26,7 @@ public class LockablePaintable
 {
     private final Animation animation = 
     FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
-            LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance();
+            LockedResources.getInstance().LOCKED_DEMO_GAME_FEATURE_RESOURCE).getInstance(0);
     
     private final int lockedIndex;
     

@@ -60,7 +60,7 @@ implements AnimationInterfaceFactoryInterface
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         if (dx != 0 || dy != 0) {
             return new AdjustedImageArrayAnimation(this.imageArray, dx, dy, this.animationBehaviorFactory.getOrCreateInstance());

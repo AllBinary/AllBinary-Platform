@@ -99,7 +99,7 @@ public class AllBinaryAndroidImageRotationAnimationFactory
         this.angleIncrement = angleIncrement;
     }
     
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 

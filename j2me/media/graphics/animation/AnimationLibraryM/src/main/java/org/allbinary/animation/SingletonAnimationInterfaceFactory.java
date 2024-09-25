@@ -25,7 +25,7 @@ public class SingletonAnimationInterfaceFactory
         this.animationInterface = animationInterface;
     }
 
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         return this.animationInterface;
     }

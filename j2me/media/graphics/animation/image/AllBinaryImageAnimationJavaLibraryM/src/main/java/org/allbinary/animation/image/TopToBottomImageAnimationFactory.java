@@ -35,7 +35,7 @@ public class TopToBottomImageAnimationFactory
         super(image, sequenceArray, image.getWidth(), image.getHeight(), animationBehaviorFactory); //, width, height);
     }
 
-    public Animation getInstance() throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
         
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 

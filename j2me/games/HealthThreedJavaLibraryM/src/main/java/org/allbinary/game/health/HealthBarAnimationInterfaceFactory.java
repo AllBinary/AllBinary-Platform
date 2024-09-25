@@ -31,7 +31,7 @@ public class HealthBarAnimationInterfaceFactory
         return new HealthBarThreedAnimation(layerInterface, location);
     }
     
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         return null;
     }

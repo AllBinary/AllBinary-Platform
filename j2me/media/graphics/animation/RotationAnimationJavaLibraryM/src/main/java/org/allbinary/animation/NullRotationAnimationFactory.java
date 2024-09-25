@@ -35,7 +35,7 @@ ProceduralAnimationInterfaceFactoryInterface
        return NULL_ANIMATION_FACTORY;
    }
    
-   public Animation getInstance() throws Exception
+   public Animation getInstance(final int instanceId) throws Exception
    {
        return NULL_ANIMATION;
    }

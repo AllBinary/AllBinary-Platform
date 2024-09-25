@@ -44,8 +44,8 @@ public class Points20kPickedUpLayerInterfaceFactory extends PickedUpLayerInterfa
    {
       super(PickedUpLayerTypeFactory.getInstance().POINTS, 
     		  IconLayerFactory.getInstance(
-              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(), 10, 10),
-              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance());
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0), 10, 10),
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(PointsResources.getInstance().RESOURCE_2).getInstance(0));
    }
 
    public int getTotal()

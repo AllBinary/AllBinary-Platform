@@ -56,8 +56,7 @@ public class OneRowJ2SESpriteIndexedAnimationFactory
         super(image, image.getHeight(), image.getHeight(), animationBehaviorFactory);
     }
 
-    public Animation getInstance()
-        throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
 
         final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 

@@ -113,7 +113,7 @@ public class ImageArrayRotationAnimationFactory
                 this.getImage(), this.getAngleIncrement(), AngleFactory.getInstance().TOTAL_ANGLE));
     }
 
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         final Image[] scaledImageArray = new Image[this.imageArray.length];
         final int size = scaledImageArray.length;

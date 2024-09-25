@@ -29,7 +29,7 @@ public class CaptionAnimationHelper
     private final TextAnimation textAnimation = new TextAnimation(AnimationBehavior.getInstance());
     private final Animation captionAnimation;
     
-    private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance();
+    private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
 
     public CaptionAnimationHelper(Animation captionAnimation,
             int captionDx, int captionDy, int dx, int dy)
@@ -55,7 +55,7 @@ public class CaptionAnimationHelper
     {
         if(this.timeHelper.isTime(GameTickTimeDelayHelperFactory.getInstance().startTime))
         {
-            this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
     }
     

@@ -33,7 +33,7 @@ public class VectorAnimationInterfaceFactory
                 this.animationBehaviorFactory = animationBehaviorFactory;
 	}
 
-	public Animation getInstance() throws Exception {
+	public Animation getInstance(final int instanceId) throws Exception {
 		return new VectorAnimation(this.currentPoints, this.getBasicColor(), this.animationBehaviorFactory.getOrCreateInstance());
 	}
 

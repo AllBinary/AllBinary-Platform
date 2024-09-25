@@ -43,8 +43,8 @@ public class LifePickedUpLayerInterfaceFactory extends PickedUpLayerInterfaceFac
    {
       super(PickedUpLayerTypeFactory.getInstance().LIFE, 
     		  IconLayerFactory.getInstance(
-              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(), 10, 10),
-              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance());
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0), 10, 10),
+              FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(LifeResources.getInstance().RESOURCE).getInstance(0));
    }
 
    public int getTotal()

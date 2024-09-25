@@ -36,7 +36,7 @@ public class MineLayer extends SimpleWeaponLayer
     		  NoMovementFactory.getInstance().getMovmentInstance(),
               //new BasicConstantVelocityMovement(SPEED),
               FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(
-                      MineWeaponResources.getInstance().RESOURCE).getInstance(),
+                      MineWeaponResources.getInstance().RESOURCE).getInstance(0),
          //new VectorRotationAnimation(MineVectorData.points, BasicColor.GREY),
          new Rectangle(PointFactory.getInstance().ZERO_ZERO, 10, 10),
          viewPosition);

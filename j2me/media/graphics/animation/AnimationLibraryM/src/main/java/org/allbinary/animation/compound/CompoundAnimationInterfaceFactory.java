@@ -31,12 +31,12 @@ public class CompoundAnimationInterfaceFactory
         this.animationBehaviorFactory = animationBehaviorFactory;
     }
 
-    public Animation getInstance() throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
         final int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
         final Animation[] animationInterfaceArray = this.createArray(size);
 
         for (int index = 0; index < size; index++) {
-            animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
+            animationInterfaceArray[index] = this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance(instanceId);
         }
 
         return this.getInstance(animationInterfaceArray);

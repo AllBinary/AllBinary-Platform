@@ -34,12 +34,12 @@ public class SimultaneousCompoundIndexAnimationInterfaceFactory
 
     }
 
-    public Animation getInstance() throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
         final int size = this.basicAnimationInterfaceFactoryInterfaceArray.length;
         final IndexedAnimation[] animationInterfaceArray = new IndexedAnimation[size];
 
         for (int index = 0; index < size; index++) {
-            animationInterfaceArray[index] = (IndexedAnimation) this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance();
+            animationInterfaceArray[index] = (IndexedAnimation) this.basicAnimationInterfaceFactoryInterfaceArray[index].getInstance(instanceId);
         }
 
         return this.getInstance(animationInterfaceArray);

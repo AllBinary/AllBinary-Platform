@@ -78,7 +78,7 @@ public class VectorToImageArrayRotationAnimationFactory
                 this.getImage(), this.getAngleIncrement(), angleFactory.TOTAL_ANGLE);
     }
 
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
             return new AdjustedImageArrayRotationAnimation(

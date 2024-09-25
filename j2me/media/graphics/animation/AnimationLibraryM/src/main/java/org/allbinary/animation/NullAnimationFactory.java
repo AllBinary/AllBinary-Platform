@@ -37,7 +37,7 @@ public class NullAnimationFactory implements
        return NULL_ANIMATION_FACTORY;
    }
    
-   public Animation getInstance()
+   public Animation getInstance(final int instanceId)
    {
        return NULL_ANIMATION;
    }

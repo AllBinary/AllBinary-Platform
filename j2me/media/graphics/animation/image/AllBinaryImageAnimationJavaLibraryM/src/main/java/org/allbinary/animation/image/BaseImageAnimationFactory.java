@@ -82,8 +82,8 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     }
 
-    public Animation getInstance() throws Exception {
-        return NullAnimationFactory.getFactoryInstance().getInstance();
+    public Animation getInstance(final int instanceId) throws Exception {
+        return NullAnimationFactory.getFactoryInstance().getInstance(instanceId);
     }
 
     /**

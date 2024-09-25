@@ -66,7 +66,7 @@ implements DisplayChangeEventListener
 
     private Image image;
 
-    private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance();
+    private Animation animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
     
     private static int background;
 
@@ -139,7 +139,7 @@ implements DisplayChangeEventListener
         {
             if(!this.isBackground())
             {
-                this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
+                this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
             }
             else
             if (AndroidBasicTitleProgressBar.background != 0)
@@ -159,7 +159,7 @@ implements DisplayChangeEventListener
 
                 if (currentImage == null)
                 {
-                    this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
+                    this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
                 }
                 else
                 {
@@ -188,7 +188,7 @@ implements DisplayChangeEventListener
         catch(Exception e)
         {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
-            this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
     }
 
@@ -218,7 +218,7 @@ implements DisplayChangeEventListener
                     "IllegalArgumentException "
                             + ExceptionUtil.getInstance().getStackTrace(e), this,
                     "loadProgressImages"));
-            this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
         catch (Exception e)
         {
@@ -226,7 +226,7 @@ implements DisplayChangeEventListener
                     CommonStrings.getInstance().EXCEPTION_LABEL
                             + ExceptionUtil.getInstance().getStackTrace(e), this,
                     "loadProgressImages"));
-            this.animation = NullAnimationFactory.getFactoryInstance().getInstance();
+            this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
     }
     

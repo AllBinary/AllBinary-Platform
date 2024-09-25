@@ -80,7 +80,7 @@ public class CustomTextAnimationFactory
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, this.initScaleHeight);
     }
 
-    public Animation getInstance()throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
         
         CustomTextAnimation customTextAnimation;
         if (dx != 0 || dy != 0) {

@@ -17,6 +17,6 @@ import org.allbinary.media.ScaleProperties;
 
 public interface AnimationInterfaceFactoryInterface extends 
     BasicAnimationInterfaceFactoryInterface {
-    Animation getInstance()throws Exception;
+    Animation getInstance(final int instanceId) throws Exception;
     void setInitialScale(final ScaleProperties scaleProperties);
 }

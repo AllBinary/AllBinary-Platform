@@ -16,8 +16,8 @@ package org.allbinary.animation;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.media.ScaleProperties;
 
-public class VectorRotationAnimationInterfaceFactory implements
-		AnimationInterfaceFactoryInterface {
+public class VectorRotationAnimationInterfaceFactory 
+    implements AnimationInterfaceFactoryInterface {
 
 	private int currentPoints[][][];
 	private BasicColor basicColor;
@@ -33,7 +33,7 @@ public class VectorRotationAnimationInterfaceFactory implements
                 this.animationBehaviorFactory = animationBehaviorFactory;
 	}
 
-	public Animation getInstance() throws Exception {
+	public Animation getInstance(final int instanceId) throws Exception {
 		return new VectorRotationAnimation(this.currentPoints, this.getBasicColor(), this.animationBehaviorFactory.getOrCreateInstance());
 	}
 

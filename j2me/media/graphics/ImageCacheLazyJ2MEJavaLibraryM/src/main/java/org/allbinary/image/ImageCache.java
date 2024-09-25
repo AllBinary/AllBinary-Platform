@@ -43,6 +43,7 @@ public class ImageCache extends ImageCacheBase {
     protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
     public final BasicArrayList loadNowList = new BasicArrayList();
+    public final BasicArrayList loadSoonList = new BasicArrayList();
     public final BasicArrayList loadList = new BasicArrayList();
     //public final BasicArrayList loadImageAfterList = new BasicArrayList();
     public final BasicArrayList loadAfterList = new BasicArrayList();
@@ -84,6 +85,15 @@ public class ImageCache extends ImageCacheBase {
             if(loadNowList.isEmpty()) {
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
+                
+                if(loadSoonList.isEmpty()) return;
+                
+                lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadSoonList.get(0);
+                if (this.loadImageForAnimation(lazyImageRotationAnimation)) {
+                    //LogUtil.put(LogFactory.getInstance("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN));
+                    loadSoonList.remove(lazyImageRotationAnimation);
+                }
+
                 return;
             }
             lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.get(0);
@@ -92,14 +102,25 @@ public class ImageCache extends ImageCacheBase {
             synchronized (lock) {
                 loadNowList.remove(lazyImageRotationAnimation);
             }
-            
+
+            if (lazyImageRotationAnimation.layoutIndex != 0) {
+                final BasicArrayList list = this.getAssociated(lazyImageRotationAnimation);
+                synchronized (lock) {
+                    final int size = list.size();
+                    if(size > 0) {
+                        //LogUtil.put(LogFactory.getInstance("addAssociated: " + size, this, commonStrings.RUN));
+                        loadSoonList.addAll(list);
+                    }
+                }
+            }
+
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             //LogUtil.put(LogFactory.getInstance("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN));
             if (this.loadNowList.isEmpty()) {
                 //LogUtil.put(LogFactory.getInstance("end progress", this, commonStrings.RUN));
                 progressCanvas.endFromInitialLazyLoadingComplete();
             } else {
-                progressCanvas.addPortion(10, LOAD_IMAGE_FOR_ANIMATION);
+                progressCanvas.addPortion(1, LOAD_IMAGE_FOR_ANIMATION);
             }
             
         }
@@ -174,7 +195,7 @@ public class ImageCache extends ImageCacheBase {
 
         if (image.isReady()) {
             
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("already loaded resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("already loaded resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
             return true;
             
         } else {
@@ -182,20 +203,20 @@ public class ImageCache extends ImageCacheBase {
             if(image.getImage() != null) {
                 //HTML only
                 if(image.setReady()) {
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("setReady resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+                    //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setReady resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
                     return true;
                 }
             } else {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("attempt loading resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("attempt loading resource image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
                 final String key = image.getName();
                 final Image image2 = this.creatImage(key);
                 if (image2.isReady()) {
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("setImage resource Now image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+                    //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setImage resource Now image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
                     this.init(image, image2);
                     return true;
                 } else {
                     //HTML only
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("setImage resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
+                    //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setImage resource HTML5 image: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
                     image.setImage(image2.getImage());
                 }
             }
@@ -338,6 +359,30 @@ public class ImageCache extends ImageCacheBase {
 
     protected Image createImageLater(final String key, final int width, final int height) throws Exception {
         return Image.createImageLater(key, width, height);
+    }
+
+    public BasicArrayList getAssociated(final LazyImageRotationAnimation lazyImageRotationAnimation) {
+        final BasicArrayList list = new BasicArrayList();
+        
+        synchronized (lock) {
+
+            LazyImageRotationAnimation lazyImageRotationAnimation2 = null;
+            final int size = this.loadAfterList.size();
+            for(int index = 0; index < size; index++) {
+                lazyImageRotationAnimation2 = (LazyImageRotationAnimation) this.loadAfterList.get(index);
+                if(lazyImageRotationAnimation2.instanceId == lazyImageRotationAnimation.instanceId) {
+                    list.add(lazyImageRotationAnimation2);
+                }
+            }
+            
+            final int size2 = list.size();
+            for(int index = 0; index < size2; index++) {
+                this.loadAfterList.remove(list.get(index));
+            }
+                
+        }
+
+        return list;
     }
     
     public void add(final LazyImageRotationAnimation lazyImageRotationAnimation) {

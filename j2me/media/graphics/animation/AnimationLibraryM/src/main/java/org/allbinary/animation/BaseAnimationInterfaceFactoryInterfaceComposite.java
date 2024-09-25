@@ -26,7 +26,7 @@ public class BaseAnimationInterfaceFactoryInterfaceComposite
         this.basicAnimationInterfaceFactoryInterfaceArray = basicAnimationInterfaceFactoryInterfaceArray;
     }
 
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         return null;
     }

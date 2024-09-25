@@ -101,7 +101,7 @@ public class PooledImageArrayRotationAnimationFactory implements
                 imageArray, angleIncrement, totalAngle, dx, dy);
     }
 
-    public Animation getInstance() throws Exception
+    public Animation getInstance(final int instanceId) throws Exception
     {
         // return new AllBinarySpriteRotationAnimation(new MESprite(image, width, height), dx, dy);
 

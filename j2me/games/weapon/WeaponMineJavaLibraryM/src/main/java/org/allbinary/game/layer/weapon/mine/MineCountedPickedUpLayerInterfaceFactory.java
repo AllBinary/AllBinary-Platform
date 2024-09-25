@@ -45,9 +45,9 @@ public class MineCountedPickedUpLayerInterfaceFactory
         super(PickedUpLayerTypeFactory.getInstance().MINE, 
                 IconLayerFactory.getInstance(
                 FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()
-                        .get(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance(), 10, 10),
+                        .get(MineWeaponResources.getInstance().DROP_ICON_RESOURCE).getInstance(0), 10, 10),
                         FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()
-                        .get(MineWeaponResources.getInstance().DROP_RESOURCE).getInstance()
+                        .get(MineWeaponResources.getInstance().DROP_RESOURCE).getInstance(0)
                         );
     }
     

@@ -122,7 +122,7 @@ public class SpriteIndexedAnimationFactory
         
     }
 
-    public Animation getInstance() throws Exception {
+    public Animation getInstance(final int instanceId) throws Exception {
         
         final Sprite sprite = animationFactorySpriteScaleUtil.createImage(this.getImage(), 
             this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, 
@@ -137,6 +137,6 @@ public class SpriteIndexedAnimationFactory
     }
 
     public Animation getInstance(final Animation animationInterface) throws Exception {
-        return this.getInstance();
+        return this.getInstance(0);
     }
 }

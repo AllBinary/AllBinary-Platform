@@ -42,8 +42,7 @@ public class BasicNeededTouchButtonsBuilder
             
             final CommonButtons commonButtons = CommonButtons.getInstance();
             
-            final Animation animationInterface = 
-                NullAnimationFactory.getFactoryInstance().getInstance();
+            final Animation animationInterface = NullAnimationFactory.getFactoryInstance().getInstance(0);
             
             TouchButton UP = new TouchButton(BasicTouchInputFactory.getInstance().UP,
                     animationInterface,
