@@ -123,7 +123,7 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
             this.scaleProperties.scaleWidth = (int) (this.animationFactoryInitializationVisitor.width * this.scaleProperties.scaleX);
             this.scaleProperties.scaleHeight = (int) (this.animationFactoryInitializationVisitor.height * this.scaleProperties.scaleY);
             //LogUtil.put(LogFactory.getInstance("hack: " + this.image.getName() + this.scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
-            LogUtil.put(LogFactory.getInstance(this.scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
+            //LogUtil.put(LogFactory.getInstance(this.scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
         } else {
             //LogUtil.put(LogFactory.getInstance("else: " + this.image.getName() + this.scaleProperties.toString(), this, CommonStrings.getInstance().PROCESS));
         }

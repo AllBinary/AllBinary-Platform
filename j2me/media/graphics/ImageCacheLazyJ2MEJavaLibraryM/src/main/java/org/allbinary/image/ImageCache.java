@@ -36,7 +36,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class ImageCache extends ImageCacheBase {
 
-    private final BaseImageLoadingProcessor baseImageLoadingProcessor;
+    private final BaseImageLoadingProcessor concurrentImageLoadingProcessor = new ConcurrentImageLoadingProcessor(this);
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
@@ -52,18 +52,6 @@ public class ImageCache extends ImageCacheBase {
     
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
-        BaseImageLoadingProcessor baseImageLoadingProcessor = 
-            BaseImageLoadingProcessor.getInstance();
-        
-        final Features features = Features.getInstance();
-        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
-        
-        if(isHTML) {
-        } else {
-            baseImageLoadingProcessor = new ConcurrentImageLoadingProcessor(this);
-        }
-        
-        this.baseImageLoadingProcessor = baseImageLoadingProcessor;
     }
 
     //AllBinaryRendererBase3
@@ -341,7 +329,7 @@ public class ImageCache extends ImageCacheBase {
             }
         }
 
-        this.baseImageLoadingProcessor.runTask();
+        this.runTask();
 
         final int index = this.getIndex(key);
         final int width = gdResources.imageResourceWidthArray[index];
@@ -393,7 +381,7 @@ public class ImageCache extends ImageCacheBase {
     }
     
     public void insertFirst(final LazyImageRotationAnimation lazyImageRotationAnimation) {
-            final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
+            //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
 //            if (image.getImage() != null) {
 //                try {
 //                    LogUtil.put(LogFactory.getInstance("animation image is already loaded: " + image.getName(), this, commonStrings.RUN));
@@ -422,8 +410,17 @@ public class ImageCache extends ImageCacheBase {
 
             }
 
-            this.baseImageLoadingProcessor.runTask();
+            this.runTask();
 
         //}
+    }
+    
+    private void runTask() {
+        final Features features = Features.getInstance();
+        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+        if (isHTML) {
+        } else {
+            this.concurrentImageLoadingProcessor.runTask();
+        }
     }
 }
