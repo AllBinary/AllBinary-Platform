@@ -13,6 +13,8 @@
  */
 package org.allbinary.thread;
 
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
+import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -43,6 +45,11 @@ public class ConcurrentImageLoadingProcessor extends BaseImageLoadingProcessor {
                 imageCache.loadRemainingAnimations();
                 
                 this.setRunning(false);
+                
+                final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+                if(!progressCanvas.inProgress) {
+                    progressCanvas.endFromInitialLazyLoadingComplete();
+                }
 
 //            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.RUN));
             } catch (Exception e) {

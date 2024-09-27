@@ -50,6 +50,8 @@ public class ImageCache extends ImageCacheBase {
 
     private final Object lock = new Object();
     
+    private boolean firstTime = true;
+    
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
@@ -60,8 +62,11 @@ public class ImageCache extends ImageCacheBase {
     }
 
     public void waitForLoadNow() throws Exception {
-        while (loadNowList.isEmpty()) {
-            Thread.sleep(120);
+        if(firstTime) {
+            while (loadNowList.isEmpty()) {
+                Thread.sleep(120);
+            }
+            firstTime = false;
         }
     }
     

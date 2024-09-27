@@ -66,6 +66,8 @@ public class ProgressCanvas extends RunnableCanvas
     
     protected PaintableInterface paintable = GAUGE_PAINTABLE;
     
+    public boolean inProgress = false;
+    
     protected ProgressCanvas()
     {
         this.backgroundBasicColor = null;
@@ -128,6 +130,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.setValue(0);
         //this.setDisplayed(false);
         this.paintable = GAUGE_PAINTABLE;
+        this.inProgress = true;
     }
     
     private final MyFont myFont = MyFont.getInstance();
@@ -148,6 +151,7 @@ public class ProgressCanvas extends RunnableCanvas
     public void endActual() {
         //getCommandListener()
         this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, null);
+        this.inProgress = false;
     }
         
     public void end()

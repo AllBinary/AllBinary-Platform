@@ -15,6 +15,7 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.paint.NullPaintable;
+import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -28,19 +29,20 @@ public class LazyProgressCanvas extends ProgressCanvas {
         super(title, backgroundBasicColor, foregroundBasicColor);        
     }
     
-    @Override    
+    @Override
     public void start()
     {
         super.start();
         this.hasPainted = false;
     }
     
-    @Override    
+    @Override
     public void end()
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
         this.endActual();
         this.paintable = GAUGE_PAINTABLE;
+        ImageCacheFactory.getInstance().runTask();
     }
     
     public void endFromInitialLazyLoadingComplete()
