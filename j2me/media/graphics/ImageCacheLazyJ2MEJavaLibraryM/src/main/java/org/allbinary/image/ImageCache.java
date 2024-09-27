@@ -415,7 +415,7 @@ public class ImageCache extends ImageCacheBase {
         //}
     }
     
-    private void runTask() {
+    public void runTask() {
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         if (isHTML) {

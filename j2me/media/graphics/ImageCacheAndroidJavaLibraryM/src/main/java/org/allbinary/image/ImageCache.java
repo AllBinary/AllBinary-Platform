@@ -112,4 +112,8 @@ public class ImageCache extends ImageCacheBase
         return image;
     }
 
+    public void runTask() {
+        
+    }
+    
 }

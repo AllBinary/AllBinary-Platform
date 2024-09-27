@@ -126,5 +126,9 @@ public class ImageCache extends ImageCacheBase
     public void loadImageForAnimation() throws Exception {
         
     }
+
+    public void runTask() {
     
+    }    
+
 }

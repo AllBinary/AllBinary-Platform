@@ -14,6 +14,7 @@
 package org.allbinary.graphics.opengles.renderer;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.util.BasicArrayList;
@@ -24,16 +25,25 @@ import org.allbinary.util.BasicArrayList;
  */
 public class AllBinaryRendererBase3 {
     
+    private final Object lock = new Object();
+    
     public final BasicArrayList list = new BasicArrayList();
     
     protected void update(final GL10 gl) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE));
         
-        while(list.size() > 0)
-        {
-            ((OpenGLESImage) list.remove(0)).set(gl);
+        synchronized(lock) {
+            while (list.size() > 0) {
+                ((OpenGLESImage) list.remove(0)).set(gl);
+            }
         }
     }
-    
+   
+    public void add(final Image image) {
+        synchronized(lock) {
+            this.list.add(image);
+        }
+    }
+
 }

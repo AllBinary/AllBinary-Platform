@@ -37,6 +37,8 @@ import org.allbinary.midlet.AllBinaryMidlet;
 public class ProgressCanvas extends RunnableCanvas
     implements PaintableInterface
 {
+    protected static final String END_FROM_INITIAL_LAZY_LOADING_COMPLETE = "endFromInitialLazyLoadingComplete";
+    
     protected boolean hasPainted;
     private final BasicColor backgroundBasicColor;
     
@@ -158,7 +160,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void endFromInitialLazyLoadingComplete()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE));
         this.gauge.setValue(this.getMaxValue());
     }
     

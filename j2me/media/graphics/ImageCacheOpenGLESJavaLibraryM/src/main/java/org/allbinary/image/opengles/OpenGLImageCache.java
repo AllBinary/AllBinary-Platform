@@ -120,7 +120,7 @@ public class OpenGLImageCache extends ImageCache
             }
             
             list.add(image);
-            this.renderer.list.add(image);
+            this.renderer.add(image);
 
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, commonStrings.INIT, e));

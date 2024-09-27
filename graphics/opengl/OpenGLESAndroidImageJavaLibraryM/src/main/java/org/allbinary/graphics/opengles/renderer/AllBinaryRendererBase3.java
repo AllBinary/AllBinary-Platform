@@ -14,6 +14,7 @@
 package org.allbinary.graphics.opengles.renderer;
 
 import javax.microedition.khronos.opengles.GL10;
+import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.util.BasicArrayList;
@@ -34,6 +35,10 @@ public class AllBinaryRendererBase3 {
         {
             ((OpenGLESImage) list.remove(0)).set(gl);
         }
+    }
+    
+    public void add(final Image image) {
+        this.list.add(image);
     }
     
 }
