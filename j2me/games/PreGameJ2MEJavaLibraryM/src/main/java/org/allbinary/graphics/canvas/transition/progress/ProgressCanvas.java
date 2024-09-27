@@ -18,14 +18,16 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.graphics.form.item.CustomGaugeItem;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.paint.NullPaintable;
+import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -35,6 +37,19 @@ import org.allbinary.midlet.AllBinaryMidlet;
 public class ProgressCanvas extends RunnableCanvas
     implements PaintableInterface
 {
+    protected boolean hasPainted;
+    private final BasicColor backgroundBasicColor;
+    
+    protected final Paintable GAUGE_PAINTABLE = new Paintable() {
+        public void paint(Graphics graphics) {
+            final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+            graphics.setColor(backgroundBasicColor.intValue());
+            graphics.fillRect(0, 0, displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
+            gauge.paint(graphics, 0, 0);
+            hasPainted = true;
+        }
+    };
+    
     protected AllBinaryMidlet allbinaryMidlet;
 
     private float value;
@@ -47,13 +62,17 @@ public class ProgressCanvas extends RunnableCanvas
 
     private boolean background = true;
     
+    protected PaintableInterface paintable = GAUGE_PAINTABLE;
+    
     protected ProgressCanvas()
     {
+        this.backgroundBasicColor = null;
         gauge = null;
     }
     
     protected ProgressCanvas(String title, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
     {
+        this.backgroundBasicColor = backgroundBasicColor;
         this.gauge = new CustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) maxValue, 0, 
                 backgroundBasicColor, foregroundBasicColor);
     }
@@ -106,6 +125,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.setText(TEXT);
         this.setValue(0);
         //this.setDisplayed(false);
+        this.paintable = GAUGE_PAINTABLE;
     }
     
     private final MyFont myFont = MyFont.getInstance();
@@ -120,6 +140,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.gauge.setLabel(backgroundLabel);
         this.setText(TEXT);
         this.setValue(0);
+        this.paintable = GAUGE_PAINTABLE;
     }
     
     public void endActual() {
@@ -132,6 +153,7 @@ public class ProgressCanvas extends RunnableCanvas
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
         this.gauge.setValue(this.getMaxValue());
         this.endActual();
+        this.paintable = NullPaintable.getInstance();
     }
 
     public void endFromInitialLazyLoadingComplete()
@@ -193,11 +215,9 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void paint(Graphics graphics)
     {
-        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "paint"));
-     
-        this.gauge.paint(graphics, 0, 0);
+        this.paintable.paint(graphics);
     }
-
+    
     public void paintThreed(Graphics graphics)
     {
     	
@@ -252,4 +272,5 @@ public class ProgressCanvas extends RunnableCanvas
     {
         return background;
     }
+        
 }

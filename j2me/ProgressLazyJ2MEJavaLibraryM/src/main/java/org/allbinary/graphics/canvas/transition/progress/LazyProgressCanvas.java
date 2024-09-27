@@ -13,12 +13,8 @@
  */
 package org.allbinary.graphics.canvas.transition.progress;
 
-import javax.microedition.lcdui.Graphics;
-
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.paint.NullPaintable;
-import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
@@ -27,27 +23,9 @@ import org.allbinary.logic.communication.log.LogUtil;
  * @author User
  */
 public class LazyProgressCanvas extends ProgressCanvas {
-
-    private boolean hasPainted;
-    
-    private final Paintable GAUGE_PAINTABLE = new Paintable() {
-        public void paint(Graphics graphics) {
-            final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-            graphics.setColor(backgroundBasicColor.intValue());
-            graphics.fillRect(0, 0, displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
-            gauge.paint(graphics, 0, 0);
-            hasPainted = true;
-        }
-    };
-    
-    private final BasicColor backgroundBasicColor;
-        
-    private Paintable paintable = GAUGE_PAINTABLE;
     
     protected LazyProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor) {
-        super(title, backgroundBasicColor, foregroundBasicColor);
-        
-        this.backgroundBasicColor = backgroundBasicColor;
+        super(title, backgroundBasicColor, foregroundBasicColor);        
     }
     
     @Override    
@@ -55,7 +33,6 @@ public class LazyProgressCanvas extends ProgressCanvas {
     {
         super.start();
         this.hasPainted = false;
-        this.paintable = GAUGE_PAINTABLE;
     }
     
     @Override    
@@ -78,10 +55,5 @@ public class LazyProgressCanvas extends ProgressCanvas {
             this.endFromInitialLazyLoadingComplete();
         }
     }
-    
-    public void paint(Graphics graphics)
-    {
-        this.paintable.paint(graphics);
-    }
-    
+        
 }

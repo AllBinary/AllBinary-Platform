@@ -26,6 +26,7 @@ import org.allbinary.system.Memory;
 
 public class ImageCache extends ImageCacheBase
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     protected ImageCache()
     // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
