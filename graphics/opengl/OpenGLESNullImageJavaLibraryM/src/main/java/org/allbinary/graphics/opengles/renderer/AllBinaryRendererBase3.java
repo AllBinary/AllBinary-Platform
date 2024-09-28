@@ -17,6 +17,9 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.opengles.OpenGLESImage;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -32,17 +35,16 @@ public class AllBinaryRendererBase3 {
     protected void update(final GL10 gl) throws Exception
     {
         //LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + list, this, commonStrings.UPDATE));
-        
-        synchronized(lock) {
-            while (list.size() > 0) {
-                ((OpenGLESImage) list.remove(0)).set(gl);
-            }
+        while (list.size() > 0) {
+            ((OpenGLESImage) list.remove(0)).set(gl);
         }
     }
    
     public void add(final Image image) {
-        synchronized(lock) {
+        if(image != null) {
             this.list.add(image);
+        } else {
+            LogUtil.put(LogFactory.getInstance("Image was null", this, CommonStrings.getInstance().ADD, new Exception()));
         }
     }
 
