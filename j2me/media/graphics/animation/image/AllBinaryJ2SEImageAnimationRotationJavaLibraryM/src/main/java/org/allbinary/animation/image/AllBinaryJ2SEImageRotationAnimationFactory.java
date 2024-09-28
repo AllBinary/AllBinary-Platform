@@ -118,7 +118,7 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
         
         final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
-        final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImage(scaledImage);
+        final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImageForRotation(scaledImage);
 
         if (this.animationFactoryInitializationVisitor.dx != 0 || this.animationFactoryInitializationVisitor.dy != 0) {
 
