@@ -30,10 +30,18 @@ public class OpenGLESImageProcessor {
         return instance;
     }
     
+    public void translate(GL10 gl, float translateX, float translateY) {
+
+    }
+    
     public void rotate(GL10 gl, int angle) {
         
     }
 
+    public void scale(GL10 gl, float scale) {
+        
+    }
+    
     public void colorMask(GL10 gl, int red, int green, int blue, int alpha) {
 
     }

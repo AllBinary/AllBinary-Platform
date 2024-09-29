@@ -20,8 +20,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import org.allbinary.data.resource.ResourceUtil;
 
+import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.PreResourceImageUtil;
 import org.allbinary.image.opengles.OpenGLESImage;
@@ -141,6 +141,11 @@ public class TrueTypeFontUtil {
                     if(cellSize <= 128)
                     {
                         cellSize = 128;
+                    }
+                else
+                    if(cellSize <= 256)
+                    {
+                        cellSize = 256;
                     }
 
         return cellSize;

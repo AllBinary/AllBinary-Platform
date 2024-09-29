@@ -171,6 +171,15 @@ public class OpenGLESGL10Image extends OpenGLESImage
         textureVertexFloatBuffer.put(textureX2);
         textureVertexFloatBuffer.put(textureY1);
              */
+
+            //Matrix operations in modelview
+            gl.glPushMatrix();
+            
+            imageProcessor.translate(gl, translateX, translateY);
+            imageProcessor.rotate(gl, angle);
+            imageProcessor.scale(gl, scale);
+            imageProcessor.colorMask(gl, 255, 255, 255, alpha);
+            
             regionRectangleVertexFloatBuffer.put(regionRectangleFloatArray);
             glUtil.position(regionRectangleVertexFloatBuffer, 0);
             gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
@@ -181,7 +190,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
 
             gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-
+            
             regionTextureVertexFloatBuffer.put(regionTextureRectangleFloatArray);
             glUtil.position(regionTextureVertexFloatBuffer, 0);
             gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, regionTextureVertexFloatBuffer);
@@ -198,6 +207,10 @@ public class OpenGLESGL10Image extends OpenGLESImage
             gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
             gl.glDisable(GL10.GL_TEXTURE_2D);
+            
+            //Restore matrix
+            gl.glPopMatrix();
+            
         }
 
         public void draw(final GL10 gl, final int x, final int y, final int z) {
@@ -252,6 +265,15 @@ public class OpenGLESGL10Image extends OpenGLESImage
              */
             //regionRectangleVertexFloatBuffer.rewind();
             //textureVertexFloatBuffer.rewind();
+
+            //Matrix operations in modelview
+            gl.glPushMatrix();
+            
+            imageProcessor.translate(gl, translateX, translateY);
+            imageProcessor.rotate(gl, angle);
+            imageProcessor.scale(gl, scale);
+            imageProcessor.colorMask(gl, 255, 255, 255, alpha);            
+            
             regionRectangleVertexFloatBuffer.put(regionRectangleFloatArray);
             glUtil.position(regionRectangleVertexFloatBuffer, 0);
             gl.glVertexPointer(3, GL10.GL_FLOAT, 0, regionRectangleVertexFloatBuffer);
@@ -263,9 +285,6 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
             gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
-            imageProcessor.rotate(gl, angle);
-            imageProcessor.colorMask(gl, 255, 255, 255, alpha);
-            
             glUtil.position(textureVertexFloatBuffer, 0);
             gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
 
@@ -275,6 +294,10 @@ public class OpenGLESGL10Image extends OpenGLESImage
             gl.glDisableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
             gl.glDisable(GL10.GL_TEXTURE_2D);
+            
+            //Restore matrix
+            gl.glPopMatrix();
+            
         }
                 
     };
