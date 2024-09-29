@@ -102,4 +102,9 @@ public class IndexedAnimation extends Animation
         this.setDy(indexedAnimation.getDy());
     }
     
+    //TWB - This is really only for ImageBaseRotationAnimation and is hackish
+    public int getWidth() {
+        return 0;
+    }
+    
 }

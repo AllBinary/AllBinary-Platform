@@ -261,6 +261,11 @@ public class LazyImageRotationAnimation extends RotationAnimation {
     {
         return this.animation.getSequence();
     }
+
+    @Override
+    public int getWidth() {
+        return this.animation.getWidth();
+    }
     
     public void paint(final Graphics graphics, final int x, final int y) {
 
