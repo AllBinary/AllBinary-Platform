@@ -43,6 +43,8 @@ implements OpenGLSurfaceChangedInterface
     public float scale = 1;
     public float translateX = 0;
     public float translateY = 0;
+    public float translateX2 = 0;
+    public float translateY2 = 0;
     public int angle;
     public int alpha;
     
