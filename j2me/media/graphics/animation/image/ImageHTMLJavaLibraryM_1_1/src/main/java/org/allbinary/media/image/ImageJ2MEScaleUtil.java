@@ -6,6 +6,14 @@
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
+import org.microemu.device.playn.PlaynImmutableImage;
+import org.microemu.device.playn.PlaynMutableImage;
+import playn.core.CanvasImage;
+import playn.core.CanvasSurface;
 
 /**
  *
@@ -39,60 +47,33 @@ public class ImageJ2MEScaleUtil {
         return scaledImages;
     }
 
-    public Image scale(Image image, int width, int height)
+    public Image scale(final Image image, final int width, final int height)
             throws Exception
     {
-        /*
-        int sourceWidth = image.getWidth();
-        int sourceHeight = image.getHeight();
-        int[] originalData = new int[image.getWidth() * image.getHeight()];
 
-        image.getRGB(originalData, 0, image.getWidth(), 0,0, image.getWidth(), image.getHeight());
-
-        int[] scaledData = new int[width * height];
-
-        int dx;
-        int dy;
-        
-        int heightRatioFactor = (8 * sourceHeight) / height;
-        int widthRatioFactor = (8 * sourceWidth) / width;
-
-        int scaledIndex = scaledData.length - 1;
-        
-        for(int index = height; --index >= 0;)
-        {
-            dy = (index * heightRatioFactor) >> 3;
-            
-            for(int index2 = width; --index2 >= 0;)
-            {
-                dx = (index2 * widthRatioFactor) >> 3;
-                
-                scaledData[scaledIndex--] = originalData[(sourceWidth * dy) + dx];
-            }
+        playn.core.Image originalPlayNImage = null;
+        if (image.isMutable()) {
+            //PreLogUtil.put("3a", this, "createImage");
+            final PlaynMutableImage originalHTMLImage = (PlaynMutableImage) image;
+            originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+            //PreLogUtil.put("4", this, "createImage");
+        } else {
+            //PreLogUtil.put("3b", this, "createImage");
+            final PlaynImmutableImage originalHTMLImage = (PlaynImmutableImage) image;
+            originalPlayNImage = (playn.core.Image) originalHTMLImage.getImage();
+            //PreLogUtil.put("4b", this, "createImage");
         }
-        */
 
-        //Image scaledImage = Image.createImage(width, height);
-        //scaledImage.getGraphics().drawRegion(image, 0, 0, width, height, 0, 0, 0, 0);
+        final Image scaledImage = Image.createImage(width, height);
+        final PlaynMutableImage htmlImage = (PlaynMutableImage) scaledImage;
+        final CanvasImage canvasImage = (CanvasImage) htmlImage.getImage();
+        final CanvasSurface canvasSurface = htmlImage.getCanvasSurface(canvasImage);
+        
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("TWB w:").append(image.getWidth()).append(" h: ").append(image.getHeight()).append(" w: ").append(scaledImage.getWidth()).append(" h: ").append(scaledImage.getHeight()).toString(), this, "scale"));
+        
+        canvasSurface.drawImage(originalPlayNImage, 0, 0, scaledImage.getWidth(), scaledImage.getHeight(), 0, 0, image.getWidth(), image.getHeight());
 
-        /*
-        Image scaledImage = GameFeatureImageCacheFactory.getInstance().get(this, width, height);
-        Graphics graphics = scaledImage.getGraphics();
+        return scaledImage;
 
-        for(int index = sourceWidth; --index >= 0;)
-        {
-            for(int index2 = sourceHeight; --index2 >= 0;)
-            {
-                graphics.setClip(index, index2, 1, 1);
-
-                dx = index * sourceWidth / width;
-                dy = index2 * sourceHeight / height;
-
-                graphics.drawImage(image, index - dx, index2 - dy, 0);
-            }
-        }
-        */
-
-        return image;
     }
 }
