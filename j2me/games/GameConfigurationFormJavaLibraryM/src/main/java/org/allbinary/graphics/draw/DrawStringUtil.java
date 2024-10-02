@@ -15,7 +15,8 @@ package org.allbinary.graphics.draw;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.AndroidUtil;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.graphics.Anchor;
@@ -36,14 +37,18 @@ public class DrawStringUtil
         return instance;
     }    
 
-    public void paintVerticle(Graphics graphics,
-            String string, int x, int y, int anchor)
+    public void paintVerticle(final Graphics graphics, final String string, final int x, final int y, final int anchor)
     {
         final MyFont myFont = MyFont.getInstance();
         final OpenGLFeatureUtil openGLFeatureUtil = OpenGLFeatureUtil.getInstance();
 
         int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
-        if(openGLFeatureUtil.isAnyThreed()) {
+        
+        final Features features = Features.getInstance();
+        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+        if(isHTML) {
+            charHeight += 1;
+        } else if(openGLFeatureUtil.isAnyThreed()) {
             charHeight += 2;
         }
 
@@ -57,7 +62,7 @@ public class DrawStringUtil
             if(openGLFeatureUtil.isAnyThreed()) {
                 offsetX = myFont.charWidth(aChar) / 2;
             }
-
+            
             graphics.drawChar(aChar,
                     x + offsetX, y + (charHeight * index), anchor);
         }
@@ -66,7 +71,7 @@ public class DrawStringUtil
     private int anchor = Anchor.TOP_LEFT;
     
     public void drawCenterString(
-            Graphics graphics, String string, int offset, int length, int x, int y)
+            final Graphics graphics, final String string, final int offset, int length, int x, int y)
     {
         int width = (graphics.getFont().substringWidth(string, offset, length) >> 1);
         //int width = (graphics.getFont().stringWidth(string) >> 1);
