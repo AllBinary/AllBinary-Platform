@@ -35,6 +35,7 @@ public class OpenGLImageCache extends ImageCache
 
     private GL10 gl;
     
+    private final Object lock = new Object();
     private final BasicArrayList list = new BasicArrayList();
     
     private AllBinaryRendererBase3 renderer = new AllBinaryRendererBase3();
@@ -53,9 +54,13 @@ public class OpenGLImageCache extends ImageCache
      
         this.gl = gl;
         
-        for(int index = list.size() - 1; index >= 0; index--)
-        {
-            ((OpenGLESImage) list.objectArray[index]).set(gl);
+        synchronized(lock) {
+            for (int index = list.size() - 1; index >= 0; index--) {
+                OpenGLESImage openGLESImage = ((OpenGLESImage) list.objectArray[index]);
+                if(openGLESImage != null) {
+                    openGLESImage.set(gl);
+                }
+            }
         }
     }
 
@@ -82,7 +87,11 @@ public class OpenGLImageCache extends ImageCache
         final Image image = preResourceImageUtil.encapsulate(image2);
         
         //LogUtil.put(LogFactory.getInstance("opengl: createImageD: " + image.getName(), this, commonStrings.CREATE));
-        list.add(image);
+        synchronized(lock) {
+            if(image != null)
+            list.add(image);
+        }
+        
         return image; 
     }
 
@@ -98,7 +107,10 @@ public class OpenGLImageCache extends ImageCache
         final Image image = preResourceImageUtil.encapsulate(cachedImage);
 
         //LogUtil.put(LogFactory.getInstance("opengl: createImage: " + image.getName(), this, commonStrings.CREATE));
-        list.add(image);
+        synchronized(lock) {
+            if(image != null)
+            list.add(image);
+        }
 
         //ForcedLogUtil.log(image.toString(), this);
         //LogUtil.put(LogFactory.getInstance(key + " = " + image.toString(), this, commonStrings.GET));
@@ -115,11 +127,14 @@ public class OpenGLImageCache extends ImageCache
         try {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("opengl: init add ").append(image).append(image.getName()).toString(), this, commonStrings.INIT));
             
-            if(list.contains(image)) {
-                throw new RuntimeException();
+            synchronized(lock) {
+                if (list.contains(image)) {
+                    throw new RuntimeException();
+                }
+
+                list.add(image);
             }
             
-            list.add(image);
             this.renderer.add(image);
 
         } catch(Exception e) {

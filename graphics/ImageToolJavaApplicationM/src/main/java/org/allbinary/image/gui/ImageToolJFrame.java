@@ -17,6 +17,8 @@ import org.allbinary.media.image.ImageProcessorInput;
 import org.allbinary.media.image.ImageProcessorInputCompositeInterface;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.Arrays;
+import java.util.Comparator;
 import javax.imageio.ImageIO;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -369,7 +371,31 @@ public class ImageToolJFrame extends javax.swing.JFrame
       {
          LogUtil.put(LogFactory.getInstance("Reading " + files.length + " files.", this, "onFiles"));
 
-         BufferedImage[] bufferedImageArray = new BufferedImage[files.length];
+          Arrays.sort(files, new Comparator<File>() {
+
+              @Override
+              public int compare(final File file1, final File file2) {
+                  final int fileNameIndexValue1 = extractIndexNumberIfAnyFromFileName(file1.getName());
+                  final int fileNameIndexValue2 = extractIndexNumberIfAnyFromFileName(file2.getName());
+                  return fileNameIndexValue1 - fileNameIndexValue2;
+              }
+
+              private int extractIndexNumberIfAnyFromFileName(final String name) {
+                  int i = 0;
+                  try {
+                      final int start = name.lastIndexOf('_') + 1;
+                      final int end = name.lastIndexOf('.');
+                      final String number = name.substring(start, end);
+                      i = Integer.parseInt(number);
+                  } catch (Exception e) {
+                      i = 0;
+                  }
+                  return i;
+              }
+
+          });
+         
+         final BufferedImage[] bufferedImageArray = new BufferedImage[files.length];
 
          for (int index = 0; index < files.length; index++)
          {
