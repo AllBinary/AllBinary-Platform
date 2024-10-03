@@ -146,7 +146,7 @@ public class ImageCache extends ImageCacheBase {
     
     public void loadRemainingAnimations() throws Exception {
         //LogUtil.put(LogFactory.getInstance("load remaining lazy animations", this, commonStrings.RUN));
-        while (!this.loadAfterList.isEmpty() || !loadNowList.isEmpty()) {
+        while (!this.loadAfterList.isEmpty() || !this.loadNowList.isEmpty()) {
             
             while (!loadNowList.isEmpty()) {
                 //LogUtil.put(LogFactory.getInstance("load lazy animation image", this, commonStrings.RUN));
@@ -155,10 +155,14 @@ public class ImageCache extends ImageCacheBase {
 
             LazyImageRotationAnimation lazyImageRotationAnimation = null;
             synchronized (lock) {
+                if(!this.loadAfterList.isEmpty())
                 //this.loadImageAfterList.remove(0);
-                lazyImageRotationAnimation = (LazyImageRotationAnimation) loadAfterList.remove(0);
+                lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadAfterList.remove(0);
             }
-            this.loadImageForAnimation(lazyImageRotationAnimation);
+
+            if(lazyImageRotationAnimation != null) {
+                this.loadImageForAnimation(lazyImageRotationAnimation);
+            }
         }
     }
     
