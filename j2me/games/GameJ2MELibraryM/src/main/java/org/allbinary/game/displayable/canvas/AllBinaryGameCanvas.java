@@ -243,7 +243,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final DemoGameBehavior gameBehavior;
     private final BaseMenuBehavior menuBehavior;
 
-    private PaintableInterface progressPaintable = ProgressCanvasFactory.getInstance();
+    private PaintableInterface progressPaintable = ProgressCanvasFactory.getLazyInstance();
     
     public AllBinaryGameCanvas(
             final CommandListener commandListener,
