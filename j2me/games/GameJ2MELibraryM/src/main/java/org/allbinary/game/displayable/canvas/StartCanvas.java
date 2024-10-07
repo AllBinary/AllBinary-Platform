@@ -154,7 +154,7 @@ public class StartCanvas extends RunnableCanvas
     
     private GameRunnable gameRunnable = NullWaitGameRunnable.getInstance();
 
-    private PaintableInterface progressPaintable = ProgressCanvasFactory.getInstance();
+    private PaintableInterface progressPaintable = ProgressCanvasFactory.getLazyInstance();
 
     public StartCanvas(
         final AbeClientInformationInterface abeClientInformation,

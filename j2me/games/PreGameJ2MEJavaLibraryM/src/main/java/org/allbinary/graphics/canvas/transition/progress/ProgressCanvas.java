@@ -44,11 +44,7 @@ public class ProgressCanvas extends RunnableCanvas
     
     protected final Paintable GAUGE_PAINTABLE = new Paintable() {
         public void paint(Graphics graphics) {
-            final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
-            graphics.setColor(backgroundBasicColor.intValue());
-            graphics.fillRect(0, 0, displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
-            gauge.paint(graphics, 0, 0);
-            hasPainted = true;
+            paint2(graphics);
         }
     };
     
@@ -70,11 +66,12 @@ public class ProgressCanvas extends RunnableCanvas
     
     protected ProgressCanvas()
     {
+        this.paintable = NullPaintable.getInstance();
         this.backgroundBasicColor = null;
         gauge = null;
     }
     
-    protected ProgressCanvas(String title, BasicColor backgroundBasicColor, BasicColor foregroundBasicColor)
+    protected ProgressCanvas(final String title, final BasicColor backgroundBasicColor, final BasicColor foregroundBasicColor)
     {
         this.backgroundBasicColor = backgroundBasicColor;
         this.gauge = new CustomGaugeItem(StringUtil.getInstance().EMPTY_STRING, (int) maxValue, 0, 
@@ -223,7 +220,16 @@ public class ProgressCanvas extends RunnableCanvas
     {
         this.paintable.paint(graphics);
     }
-    
+
+    public void paint2(Graphics graphics)
+    {
+        final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
+        graphics.setColor(backgroundBasicColor.intValue());
+        graphics.fillRect(0, 0, displayInfoSingleton.getLastWidth(), displayInfoSingleton.getLastHeight());
+        gauge.paint(graphics, 0, 0);
+        hasPainted = true;
+    }
+        
     public void paintThreed(Graphics graphics)
     {
     	

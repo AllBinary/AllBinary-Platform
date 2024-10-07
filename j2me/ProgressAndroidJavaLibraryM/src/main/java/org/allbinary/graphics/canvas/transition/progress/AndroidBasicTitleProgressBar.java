@@ -435,7 +435,7 @@ implements DisplayChangeEventListener
         return image;
     }
     
-    public void paint(Graphics graphics)
+    public void paint2(Graphics graphics)
     {
         try
         {
@@ -444,7 +444,7 @@ implements DisplayChangeEventListener
             // Only show background when not loading in the background
             animation.paint(graphics, 0, 20);
 
-            super.paint(graphics);
+            super.paint2(graphics);
         }
         catch (Exception e)
         {

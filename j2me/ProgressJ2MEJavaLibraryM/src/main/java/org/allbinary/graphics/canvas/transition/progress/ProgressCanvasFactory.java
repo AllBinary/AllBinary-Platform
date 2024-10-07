@@ -16,6 +16,8 @@ package org.allbinary.graphics.canvas.transition.progress;
 import org.allbinary.logic.string.StringUtil;
 
 import org.allbinary.graphics.color.BasicColorFactory;
+import org.allbinary.graphics.paint.NullPaintable;
+import org.allbinary.graphics.paint.PaintableInterface;
 
 public class ProgressCanvasFactory {
 
@@ -27,6 +29,10 @@ public class ProgressCanvasFactory {
     public static ProgressCanvas getInstance()
     {
         return PROGRESS_FORM_SCREEN;
+    }
+    
+    public static PaintableInterface getLazyInstance() {
+        return NullPaintable.getInstance();
     }
     
 }

@@ -165,7 +165,7 @@ public class DemoCanvas extends RunnableCanvas
     private PaintableInterface paintableInterface;
     private final InitUpdatePaintable overlayPaintable;
 
-    private PaintableInterface progressPaintable = ProgressCanvasFactory.getInstance();
+    private final PaintableInterface progressPaintable = ProgressCanvasFactory.getLazyInstance();
     
     private int tempWait = NullWaitGameRunnable.getInstance().WAIT;
     
