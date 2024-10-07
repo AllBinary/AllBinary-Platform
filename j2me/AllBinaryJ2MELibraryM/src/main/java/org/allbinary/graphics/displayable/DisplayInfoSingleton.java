@@ -256,17 +256,28 @@ public class DisplayInfoSingleton
         try
         {
             if(list.size() > 0) {
-                final SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
-                swtJOGLProcessor.clear();
-                DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
-                LastDisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
-                swtJOGLProcessor.onSurfaceChanged();
+                this.processForced();
             }
             list.clear();
         }catch(Exception e)
         {
             PreLogUtil.put(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
         }
+    }
+
+    public void processForced() {
+        try
+        {
+            final SWTJOGLProcessor swtJOGLProcessor = SWTJOGLProcessor.getInstance();
+            swtJOGLProcessor.clear();
+            DisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
+            LastDisplayChangeEventHandler.getInstance().fireEvent(displayChangeEvent);
+            swtJOGLProcessor.onSurfaceChanged();
+        }catch(Exception e)
+        {
+            PreLogUtil.put(commonStrings.EXCEPTION, this, FIRE_METHOD_NAME, e);
+        }
+        
     }
     
     public void update(final Displayable displayable, final String reason)

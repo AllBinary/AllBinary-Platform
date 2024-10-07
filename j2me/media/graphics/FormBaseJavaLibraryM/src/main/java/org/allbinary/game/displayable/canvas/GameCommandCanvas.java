@@ -143,8 +143,10 @@ public class GameCommandCanvas
             final Rectangle rectangle = this.createRectangle(this.menuForm.size());
 
             this.menuForm.init(rectangle, FormTypeFactory.getInstance().VERTICAL_CENTER_FORM);
-            
+
+            //needed to update Android on orientation change
             //this.repaintBehavior.onChangeRepaint(this);
+            this.update();
 
         }
         catch(Exception e)
