@@ -60,6 +60,7 @@ public class AllBinaryFlickerAndroidImageRotationAnimationFactory
 
     }
     
+    @Override
     public Animation getInstance(final int instanceId) throws Exception
     {
         final Image image = ImageCopyUtil.getInstance().createImage(this.getImage());

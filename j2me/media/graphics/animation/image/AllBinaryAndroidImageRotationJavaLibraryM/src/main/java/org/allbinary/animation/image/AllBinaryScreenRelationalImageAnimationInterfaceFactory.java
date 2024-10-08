@@ -55,7 +55,8 @@ extends BaseImageAnimationFactory
 
     }
     
-    public Animation getInstance() throws Exception
+    @Override
+    public Animation getInstance(final int instanceId) throws Exception
     {    	
         return new ImageAnimation(lastImage, this.animationBehaviorFactory.getOrCreateInstance());
     }    
