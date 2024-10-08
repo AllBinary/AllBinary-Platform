@@ -40,7 +40,7 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
-            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+            <artifactId>ImageCacheAndroidJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->
