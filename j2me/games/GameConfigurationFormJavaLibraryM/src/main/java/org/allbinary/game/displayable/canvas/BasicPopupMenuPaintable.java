@@ -30,6 +30,8 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.graphics.draw.DrawStringUtil;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.opengles.OpenGLFeature;
+import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.paint.Paintable;
 
@@ -78,8 +80,9 @@ public class BasicPopupMenuPaintable extends Paintable
         
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+        final boolean isOpenGL = features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL);
 
-        if(isHTML) {
+        if(isHTML || (AndroidUtil.isAndroid() && isOpenGL)) {
             this.BORDER = MyFont.getInstance().charWidth() / 2;
         } else if(AndroidUtil.isAndroid() || J2MEUtil.isJ2SE() || SWTUtil.isSWT) {
             this.BORDER = MyFont.getInstance().charWidth();
