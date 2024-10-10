@@ -14,6 +14,8 @@
 package org.allbinary.media.image.comparison.pixel;
 
 import org.allbinary.graphics.GPoint;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.comparison.color.ColorDelta;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
@@ -38,7 +40,7 @@ public class PixelDelta implements CacheableInterface
     
     public static Object getKey(GPoint point, ColorDelta colorDelta)
     {
-        return point.hashCode() + "_" + colorDelta.getKey().toString();
+        return new StringMaker().append(point.hashCode()).append(CommonSeps.getInstance().UNDERSCORE).append(colorDelta.getKey().toString()).toString();
     }
     
     public GPoint getPoint()
@@ -63,6 +65,6 @@ public class PixelDelta implements CacheableInterface
     
     public String toString()
     {
-        return "PixelDelta: Point: " + point.toString() + " " + colorDelta.toString();
+        return new StringMaker().append("PixelDelta: Point: ").append(point.toString()).append(CommonSeps.getInstance().SPACE).append(colorDelta.toString()).toString();
     }
 }

@@ -76,7 +76,7 @@ public class ConsolidateMotionRectangles extends MotionRectangles
                         x2 >= rightX && y2 >= bottomY)
                     {
                         /*
-        LogUtil.put(LogFactory.getInstance("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Should Consolidating: " + rectangle.x + "<" + rectangle2.x + " " + 
             rectangle.y + "<" + rectangle2.y + " " + x2 + ">" + rightX + " " + y2 + ">" + bottomY,
             this, "consolidateMotionRectangleConstraints"));
                         */

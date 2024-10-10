@@ -92,7 +92,7 @@ public class AllMotionRectangles extends MotionRectangles
                 /*
                 if(pixelDelta.getPoint().x > 560 && pixelDelta.getPoint().y > 330 &&
                     pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
-                    LogUtil.put(LogFactory.getInstance("Adjusting existing motionRectangle: \n" +
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adjusting existing motionRectangle: \n" +
                         motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle"));                
                 */
                 
@@ -115,7 +115,7 @@ public class AllMotionRectangles extends MotionRectangles
                 /*
                 if(pixelDelta.getPoint().x > 560 && pixelDelta.getPoint().y > 330 &&
                     pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
-                    LogUtil.put(LogFactory.getInstance("Adjusted existing motionRectangle: \n" +
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adjusted existing motionRectangle: \n" +
                         motionRectangle.getRectangle() + " for: " + pixelDelta.getPoint(), this, "addPixelDeltaToExistingMotionRectangle"));                
                  */
 
@@ -155,7 +155,7 @@ public class AllMotionRectangles extends MotionRectangles
                         stringBuffer.append("\n");
                     }
                 }
-                LogUtil.put(LogFactory.getInstance("Adding motionRectangle: " +
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding motionRectangle: " +
                     motionRectangle.getRectangle() + " since it could not be added to: " +
                     stringBuffer.toString(), this, "addPixelDeltaToAMotionRectangle"));
             }
