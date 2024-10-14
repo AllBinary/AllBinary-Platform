@@ -17,20 +17,26 @@ package org.allbinary.game.resource;
  *
  * @author User
  */
-public class GDResources
+public class GDLazyResources
 {
-    private static final GDResources instance = new GDResources();
+    private static final GDLazyResources instance = new GDLazyResources();
 
     /**
      * @return the instance
      */
-    public static GDResources getInstance()
+    public static GDLazyResources getInstance()
     {
         return instance;
     }
 
-    public final String[] resourceStringArray = {
+    public final int[] imageResourceWidthArray = {
     };
     
+    public final int[] imageResourceHeightArray = {
+    };
+    
+    public final String[] requiredResourcesBeforeLoadingArray = {
+    };
+
 }
 

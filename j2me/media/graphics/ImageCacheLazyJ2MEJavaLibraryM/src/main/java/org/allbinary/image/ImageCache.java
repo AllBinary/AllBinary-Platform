@@ -25,6 +25,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
+import org.allbinary.game.resource.GDLazyResources;
 import org.allbinary.game.resource.GDResources;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
@@ -327,8 +328,8 @@ public class ImageCache extends ImageCacheBase {
     protected Image createImage(final Object key, final InputStream inputStream)
         throws Exception {
 
-        final GDResources gdResources = GDResources.getInstance();        
-        String[] resourceStringArray = gdResources.requiredResourcesBeforeLoadingArray;
+        final GDLazyResources gdLazyResources = GDLazyResources.getInstance();        
+        String[] resourceStringArray = gdLazyResources.requiredResourcesBeforeLoadingArray;
         final int size = resourceStringArray.length;
         for(int index = 0; index < size; index++) {
             //if(((String) key).compareTo(resourceStringArray[index]) == 0) {
@@ -341,8 +342,8 @@ public class ImageCache extends ImageCacheBase {
         this.runTask();
 
         final int index = this.getIndex(key);
-        final int width = gdResources.imageResourceWidthArray[index];
-        final int height = gdResources.imageResourceHeightArray[index];
+        final int width = gdLazyResources.imageResourceWidthArray[index];
+        final int height = gdLazyResources.imageResourceHeightArray[index];
 
         final Image image = this.createImageLater((String) key, width, height);
 

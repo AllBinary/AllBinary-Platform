@@ -44,4 +44,6 @@ public class CanvasStrings {
     public final String ABOUT = "About";
     public final String OPTIONS = "Options";
     
+    public final String FONT_ATLAS = "/font.png";
+    
 }
