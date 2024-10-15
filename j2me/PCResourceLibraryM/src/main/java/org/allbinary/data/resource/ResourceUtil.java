@@ -38,7 +38,8 @@ public class ResourceUtil {
     }
 
     public void setLoadingPaths(String path, String ext) {
-        
+        this.path = path;
+        this.ext = ext;
     }
     
 //    public ClassLoader getClassLoader() {
