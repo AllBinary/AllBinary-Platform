@@ -127,7 +127,11 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         {
             // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance()));
 
-            this.mediaPlayer.seekTo(0);
+            if(this.mediaPlayer.isPlaying()) {
+                this.mediaPlayer.pause();
+                this.mediaPlayer.seekTo(0);
+            }
+
             this.mediaPlayer.start();
 
             /*
@@ -154,6 +158,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         try
         {
             this.mediaPlayer.stop();
+            this.mediaPlayer.prepare();
             super.stop();
         }
         catch (Exception e)

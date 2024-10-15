@@ -83,6 +83,11 @@ public class BaseMusicService extends Service
         {
             System.gc();
 
+            if(player != null && player.isPlaying()) { 
+                LogUtil.put(LogFactory.getInstance("This is one song per service", this, "onStartCommand"));
+                return; 
+            }
+            
             player = MediaPlayer.create(this, songId);
             player.setLooping(false);
 

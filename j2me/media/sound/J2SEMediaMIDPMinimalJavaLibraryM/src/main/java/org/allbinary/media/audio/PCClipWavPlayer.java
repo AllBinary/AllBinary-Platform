@@ -47,7 +47,7 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
             audioInputStream =
                 AudioSystem.getAudioInputStream(inputStream);
 
-            clip = this.create();
+            clip = this.create(audioInputStream);
 
             if(clip == null) {
                 LogUtil.put(LogFactory.getInstance("Clip was null", this, commonStrings.CONSTRUCTOR, new Exception()));
@@ -111,13 +111,13 @@ public class PCClipWavPlayer extends BasicPlayer implements LineListener
         super.start();
     }
 
-    private final Clip create()
+    private final Clip create(AudioInputStream audioInputStream)
         throws Exception
     {
         final Clip clip = AudioSystem.getClip();
 
         clip.addLineListener(this);
-        clip.open(this.audioInputStream);
+        clip.open(audioInputStream);
 
         //PreLogUtil.put(clip.getFormat().toString(), this, commonStrings.PROCESS);
         
