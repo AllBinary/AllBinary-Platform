@@ -56,7 +56,7 @@ public class MusicManager {
                 
     }
 
-    public void nextSong(final Sound nextSongSound) {
+    public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
         PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound).toString(), this, commonStrings.PROCESS);
         this.nextSongSound = nextSongSound;
         this.reset();

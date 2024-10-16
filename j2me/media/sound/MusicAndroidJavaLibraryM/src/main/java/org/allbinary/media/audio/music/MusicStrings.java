@@ -31,4 +31,6 @@ public class MusicStrings {
     
     
     public final String SONG_EXTRA = "SONG";
+    public final String LEFT_VOLUME = "LEFT_VOLUME";
+    public final String RIGHT_VOLUME = "RIGHT_VOLUME";
 }

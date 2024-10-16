@@ -23,6 +23,8 @@ public class MusicManager
 
     private Sound currentSongSound;
     private Sound nextSongSound;
+    private int leftVolume;
+    private int rightVolume;
 
     //MusicService.class
     private final Intent currentIntent;
@@ -34,8 +36,10 @@ public class MusicManager
         this.songList = songList;
     }
 
-    public void nextSong(final Sound nextSongSound) {
+    public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
         this.nextSongSound = nextSongSound;
+        this.leftVolume = leftVolume;
+        this.rightVolume = rightVolume;
         this.reset();
     }
     
@@ -89,7 +93,10 @@ public class MusicManager
 
             this.timeDelayHelper.delay = (int) duration;
 
-            this.currentIntent.putExtra(MusicStrings.getInstance().SONG_EXTRA, ResourceUtil.getInstance().getResourceId(this.currentSongSound.getResource()).intValue());
+            final MusicStrings musicStrings = MusicStrings.getInstance();
+            this.currentIntent.putExtra(musicStrings.SONG_EXTRA, ResourceUtil.getInstance().getResourceId(this.currentSongSound.getResource()).intValue());
+            this.currentIntent.putExtra(musicStrings.LEFT_VOLUME, leftVolume);
+            this.currentIntent.putExtra(musicStrings.RIGHT_VOLUME, rightVolume);
 
             ResourceUtil.getInstance().getContext().startService(this.currentIntent);
         } catch (Exception e)

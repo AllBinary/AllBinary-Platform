@@ -15,6 +15,8 @@ public class BaseMusicService extends Service
     private MediaPlayer player;
 
     private int songId = -1;
+    private int leftVolume = -1;
+    private int rightVolume = -1;
 
     private AndroidStrings androidStrings = AndroidStrings.getInstance();
 
@@ -77,7 +79,10 @@ public class BaseMusicService extends Service
         //PreLogUtil.put(CommonStrings.getInstance().START, this, "onStartCommand");
         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onStartCommand"));
 
-        songId = intent.getIntExtra(MusicStrings.getInstance().SONG_EXTRA, -1);
+        final MusicStrings musicStrings = MusicStrings.getInstance();
+        songId = intent.getIntExtra(musicStrings.SONG_EXTRA, -1);
+        leftVolume = intent.getIntExtra(musicStrings.LEFT_VOLUME, -1);
+        rightVolume = intent.getIntExtra(musicStrings.RIGHT_VOLUME, -1);
 
         if (songId != -1)
         {
@@ -89,6 +94,7 @@ public class BaseMusicService extends Service
             }
             
             player = MediaPlayer.create(this, songId);
+            player.setVolume(((float) leftVolume) / 100.0f, ((float) rightVolume) / 100.0f);
             player.setLooping(false);
 
             player.start();

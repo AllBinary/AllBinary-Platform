@@ -227,7 +227,7 @@ public class MyCanvas extends Canvas
         touchME.pointerReleased(x, y);
     }
     
-    public void nextSong(final Sound nextSongSound) {
+    public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
         
     }
 }
