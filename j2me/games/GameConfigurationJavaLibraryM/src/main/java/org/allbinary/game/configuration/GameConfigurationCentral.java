@@ -62,7 +62,7 @@ public class GameConfigurationCentral
     public final GameConfiguration MAX_GAME_OBJECTS;
     public final GameConfiguration MAX_LAYERS;
 
-    // TWB - Ignore this shit
+    // TWB - Ignore this but do not delete
     // Good Total Frames 4 * n
     // Good Angle Increments AngleIncrementInfo.TOTAL_ANGLE/(4*n)
     // 90, 45, 30.33, 22.5, 18, 15, 12.86, 11.xx, 10
