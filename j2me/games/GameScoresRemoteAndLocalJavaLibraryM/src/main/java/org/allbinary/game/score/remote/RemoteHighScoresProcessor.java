@@ -26,6 +26,7 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
+import org.allbinary.util.HashtableUtil;
 
 public class RemoteHighScoresProcessor 
    implements RemoteHighScoresProcessorInterface
@@ -48,8 +49,8 @@ public class RemoteHighScoresProcessor
       // System.out.println(message);
       final Hashtable hashtable = abeClientInformation.toHashtable();
 
-      //HashtableUtil.putAll(gameInfo.toHashtable(), hashtable);
-      hashtable.putAll(gameInfo.toHashtable());
+      HashtableUtil.getInstance().putAll(gameInfo.toHashtable(), hashtable);
+      //hashtable.putAll(gameInfo.toHashtable());
 
       //hashtable.put(RemoteHighScoresData.getInstance().GAME_INFO, gameInfo.toString());
 

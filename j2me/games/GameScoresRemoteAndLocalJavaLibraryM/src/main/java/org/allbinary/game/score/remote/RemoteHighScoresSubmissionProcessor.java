@@ -13,18 +13,20 @@
 */
 package org.allbinary.game.score.remote;
 
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
-import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import java.util.Hashtable;
+
+import org.allbinary.game.GameInfoData;
 import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.score.HighScore;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
-import java.util.Hashtable;
-import org.allbinary.game.GameInfoData;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.xmlrpc.XmlRpcAbeClient;
 import org.allbinary.logic.java.bool.BooleanFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.security.crypt.jcehelper.NoCrypt;
+import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.util.HashtableUtil;
 
 public class RemoteHighScoresSubmissionProcessor
         implements RemoteHighScoresSubmissionProcessorInterface
@@ -48,8 +50,8 @@ public class RemoteHighScoresSubmissionProcessor
 
             //hashtable.put(RemoteHighScoresData.getInstance().GAME_INFO, highScore.getGameInfo().toString());
 
-            //HashtableUtil.putAll(highScore.getGameInfo().toHashtable(), hashtable);
-            hashtable.putAll(highScore.getGameInfo().toHashtable());
+            HashtableUtil.getInstance().putAll(highScore.getGameInfo().toHashtable(), hashtable);
+            //hashtable.putAll(highScore.getGameInfo().toHashtable());
 
             hashtable.put(RemoteHighScoresData.getInstance().CUSTOMER_USER_NAME, "None");
             hashtable.put(RemoteHighScoresData.getInstance().DISPLAY_NAME, highScore.getName());
