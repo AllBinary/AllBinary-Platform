@@ -94,7 +94,7 @@ public class MusicManager {
                 final Sound startingCurrentSongSound = this.currentSongSound;
 
                 //this.currentSongSound.init();
-                final long duration = this.currentSongSound.getPlayer().getDuration();
+                final long duration = this.currentSongSound.getDuration();
 
                 this.timeDelayHelper.delay = (int) duration;
 

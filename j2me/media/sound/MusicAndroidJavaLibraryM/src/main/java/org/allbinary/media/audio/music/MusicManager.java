@@ -65,7 +65,7 @@ public class MusicManager
         {
             final Sound sound = (Sound) this.songList.get(index);
 
-            final long duration = sound.getPlayer().getDuration();
+            final long duration = sound.getDuration();
 
             PreLogUtil.put(new StringBuilder().append(PLAY).append(sound.getResource()).append(FOR).append(duration).toString(), this, CommonStrings.getInstance().PROCESS);
         }
