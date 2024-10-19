@@ -13,11 +13,11 @@
  */
 package org.allbinary.game.input.event;
 
+import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.logic.string.CommonStrings;
-//import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.game.input.PlayerGameInput;
+//import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
@@ -28,7 +28,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
 
     protected DownKeyEventHandlerBase() {
     }
-
+    
     public void addListener(final PlayerGameInput playerGameInput) {
         if (!list.contains(playerGameInput)) {
 

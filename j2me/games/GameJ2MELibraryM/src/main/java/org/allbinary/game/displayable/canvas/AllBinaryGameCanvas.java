@@ -1093,6 +1093,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         }
     }
 
+    protected void removeAllGameKeyInputListenersOnBuild() {
+        this.removeAllGameKeyInputListeners();
+    }
+
     protected void removeAllGameKeyInputListeners()
     {
         this.gameBehavior.removeAllGameKeyInputListeners(this);
@@ -1183,7 +1187,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         progressCanvas.addPortion(portion, "Generic Build");
 
-        this.removeAllGameKeyInputListeners();
+        this.removeAllGameKeyInputListenersOnBuild();
 
         this.updateTouch();
 
