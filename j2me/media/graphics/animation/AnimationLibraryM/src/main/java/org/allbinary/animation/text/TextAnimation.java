@@ -19,12 +19,16 @@ import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class TextAnimation extends IndexedAnimation
 {
-    protected String[] textArray = {StringUtil.getInstance().EMPTY_STRING};
+    protected String[] textArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
     
     private int anchor = Anchor.TOP_LEFT;
     
@@ -83,7 +87,11 @@ public class TextAnimation extends IndexedAnimation
             }
         }
 
-        this.textArray = (String[]) list.toArray(new String[list.size()]);
+        if(list.size() > 0) {
+            this.textArray = (String[]) list.toArray(new String[list.size()]);
+        } else {
+            this.textArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
+        }
     }
 
     public String[] getText()

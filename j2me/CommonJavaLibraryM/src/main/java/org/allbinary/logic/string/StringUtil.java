@@ -23,6 +23,7 @@ public class StringUtil {
 
     public final String NULL_STRING = "null";
     public final String EMPTY_STRING = "";
+    public String[] ONE_EMPTY_STRING_ARRAY = {this.EMPTY_STRING};
     private final String[] stringArray = new String[0];
 
     private StringUtil() {
