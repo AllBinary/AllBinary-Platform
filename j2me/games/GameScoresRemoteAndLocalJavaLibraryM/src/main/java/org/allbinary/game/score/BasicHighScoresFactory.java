@@ -101,5 +101,12 @@ public class BasicHighScoresFactory extends HighScoresBase
     public HighScoresHelperBase createHighScoresHelper() {
         return new HighScoresHelper2();
     }
+
+    public static boolean loaded(final int index2) {
+        if(index2 > 0) {
+            return true;
+        }
+        return false;
+    }
     
 }
