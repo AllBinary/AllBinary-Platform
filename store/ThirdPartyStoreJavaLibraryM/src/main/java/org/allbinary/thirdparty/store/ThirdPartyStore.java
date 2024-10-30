@@ -15,11 +15,6 @@ package org.allbinary.thirdparty.store;
 
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author user
