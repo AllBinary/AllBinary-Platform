@@ -62,9 +62,9 @@ public class GeographicMapCellHistory
       return this.list.size();
    }
 
-   public void track(BasicArrayList list)
+   public void track(final BasicArrayList list)
    {
-      int size = list.size();
+      final int size = list.size();
       this.list.ensureCapacity(size);
       this.visitedList.ensureCapacity(size);
       for (int index = 0; index < size; index++)
@@ -75,7 +75,7 @@ public class GeographicMapCellHistory
       }
    }
 
-   public void track(GeographicMapCellPosition geographicMapCellPosition)
+   public void track(final GeographicMapCellPosition geographicMapCellPosition)
    {
       //Don't allow duplicates
       if (!this.list.contains(geographicMapCellPosition))
@@ -98,14 +98,28 @@ public class GeographicMapCellHistory
    }
     * */
 
+   public GeographicMapCellPosition getAfterIfNotLast(GeographicMapCellPosition geographicMapCellPosition) {
+       
+       final BasicArrayList localList = this.list;
+       
+       final int index = localList.indexOf(geographicMapCellPosition);
+       if(localList.size() > index + 1) {
+           return (GeographicMapCellPosition) localList.get(index + 1);
+       }
+       
+       return geographicMapCellPosition;
+   }
+   
    public GeographicMapCellPosition getFirstUnvisited()
    {
-      BasicArrayList localList = this.list;
-      BasicArrayList localVisitedList = this.visitedList;
-      int size = localVisitedList.size();
+      final BasicArrayList localList = this.list;
+      final BasicArrayList localVisitedList = this.visitedList;
+      final int size = localVisitedList.size();
+      
+      Boolean value;
       for (int index = 0; index < size; index++)
       {
-         Boolean value = (Boolean) this.visitedList.get(index);
+         value = (Boolean) this.visitedList.get(index);
          if (value == BooleanFactory.getInstance().FALSE)
          {
             return (GeographicMapCellPosition) localList.get(index);
@@ -133,14 +147,15 @@ public class GeographicMapCellHistory
 
    public BasicArrayList getInPathButNotTracked(BasicArrayList pathList)
    {
-      BasicArrayList inPathButNotTrackedList = new BasicArrayList();
+      final BasicArrayList inPathButNotTrackedList = new BasicArrayList();
 
-      BasicArrayList localList = this.list;
+      final BasicArrayList localList = this.list;
 
-      int size = pathList.size();
+      final int size = pathList.size();
+      GeographicMapCellPosition geographicMapCellPosition;
       for (int index = 0; index < size; index++)
       {
-         GeographicMapCellPosition geographicMapCellPosition =
+         geographicMapCellPosition =
             (GeographicMapCellPosition) pathList.get(index);
 
          if (!localList.contains(geographicMapCellPosition))
@@ -151,7 +166,7 @@ public class GeographicMapCellHistory
       return inPathButNotTrackedList;
    }
 
-   public boolean isVisited(GeographicMapCellPosition geographicMapCellPosition)
+   public boolean isVisited(final GeographicMapCellPosition geographicMapCellPosition)
    {
       int index = this.list.indexOf(geographicMapCellPosition);
       if (index != -1)
@@ -169,12 +184,13 @@ public class GeographicMapCellHistory
       return false;
    }
    
-   public boolean visit(GeographicMapCellPosition geographicMapCellPosition)
+   public boolean visit(final GeographicMapCellPosition geographicMapCellPosition)
    {
-      int index = this.list.indexOf(geographicMapCellPosition);
+      final int index = this.list.indexOf(geographicMapCellPosition);
+      Boolean value;
       if (index != -1)
       {
-         Boolean value = (Boolean) this.visitedList.get(index);
+         value = (Boolean) this.visitedList.get(index);
          
          Boolean TRUE = BooleanFactory.getInstance().TRUE;
          if (value != TRUE)
@@ -233,16 +249,16 @@ public class GeographicMapCellHistory
       }
    }
 
-   public boolean isVisited(BasicDecimal basicDecimal)
+   public boolean isVisited(final BasicDecimal basicDecimal)
       throws Exception
    {
-      int size = this.getSize();
+      final int size = this.getSize();
 
-      int numberRequired = (size << basicDecimal.getScaledFactor()) / (int) basicDecimal.getUnscaled();
+      final int numberRequired = (size << basicDecimal.getScaledFactor()) / (int) basicDecimal.getUnscaled();
 
       //int numberNotVisited = 0;
 
-      int numberNotVisited = this.getSize() - 1 - this.totalVisited;
+      final int numberNotVisited = this.getSize() - 1 - this.totalVisited;
 
       /*
       LogUtil.put(LogFactory.getInstance(
@@ -263,8 +279,8 @@ public class GeographicMapCellHistory
 
    public void reset() throws Exception
    {
-      BasicArrayList localVisitedList = this.visitedList;
-      Boolean localFalseBoolean = BooleanFactory.getInstance().FALSE;
+      final BasicArrayList localVisitedList = this.visitedList;
+      final Boolean localFalseBoolean = BooleanFactory.getInstance().FALSE;
       int size = localVisitedList.size();
       for (int index = size - 1; index >= 0; index--)
       {
@@ -278,10 +294,10 @@ public class GeographicMapCellHistory
    private int halfWidth = 0;
    
    private void paintNotVisited(
-      Graphics graphics, AllBinaryTiledLayer tiledLayer, GPoint point)
+      final Graphics graphics, final AllBinaryTiledLayer tiledLayer, final GPoint point)
    {
-      int x = point.getX() - tiledLayer.getX();
-      int y = point.getY() - tiledLayer.getY();
+      final int x = point.getX() - tiledLayer.getX();
+      final int y = point.getY() - tiledLayer.getY();
       //graphics.fillArc(x, y, tiledLayer.getCellWidth(), tiledLayer.getCellHeight(), 0, Angle.THREE_SIXTY);
       if(halfWidth == 0)
       {
@@ -304,15 +320,15 @@ public class GeographicMapCellHistory
    
    private final int RED = BasicColorFactory.getInstance().RED.intValue();
    
-   public void paintNotVisited(Graphics graphics, BasicGeographicMap geographicMapInterface)
+   public void paintNotVisited(final Graphics graphics, final BasicGeographicMap geographicMapInterface)
    {
       try
       {
          graphics.setColor(RED);
 
-         BasicArrayList localVisitedList = this.visitedList;
+         final BasicArrayList localVisitedList = this.visitedList;
          //Boolean localFalseBoolean = this.falseBoolean;
-         int size = localVisitedList.size();
+         final int size = localVisitedList.size();
 
          GeographicMapCellPosition geographicMapCellPosition;
          Boolean isCellVisitedBoolean;
