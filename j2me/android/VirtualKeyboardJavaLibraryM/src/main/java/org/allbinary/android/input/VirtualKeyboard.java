@@ -16,14 +16,13 @@ package org.allbinary.android.input;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.input.event.VirtualKeyboardEvent;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class VirtualKeyboard
 {
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(
-                BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     public void onVirtualKeyboardEvent(

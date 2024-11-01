@@ -96,7 +96,6 @@ import org.allbinary.input.motion.button.TouchButtonsPaintableFactory;
 import org.allbinary.input.motion.button.TouchScreenFactory;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.PlayerQueue;
 import org.allbinary.media.audio.PrimaryPlayerQueueFactory;
@@ -126,6 +125,7 @@ import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.util.BasicArrayList;
 
@@ -333,7 +333,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void onEvent(final AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)

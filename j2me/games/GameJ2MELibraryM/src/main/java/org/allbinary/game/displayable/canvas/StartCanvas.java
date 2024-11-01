@@ -95,7 +95,7 @@ import org.allbinary.logic.system.security.licensing.InApplicationPurchaseFactor
 import org.allbinary.logic.system.security.licensing.LockableFeature;
 import org.allbinary.logic.system.security.licensing.LockableFeatureFactory;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.media.audio.EarlySoundsFactory;
 import org.allbinary.time.TimeDelayHelper;
@@ -207,7 +207,7 @@ public class StartCanvas extends RunnableCanvas
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)

@@ -31,7 +31,7 @@ import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class BasicHud //implements DisplayChangeEventListener
 {
@@ -164,7 +164,7 @@ public class BasicHud //implements DisplayChangeEventListener
 
    public void onEvent(AllBinaryEventObject eventObject)
    {
-       ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+       ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
    }
    
    public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)

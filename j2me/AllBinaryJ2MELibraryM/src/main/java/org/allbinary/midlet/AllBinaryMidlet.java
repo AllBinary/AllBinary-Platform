@@ -38,7 +38,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.system.Memory;
 
 // MIDlet methods not overridden are final
@@ -98,12 +98,12 @@ implements CommandListener
 
     protected void startApp() throws MIDletStateChangeException
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     protected void pauseApp()
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     protected void destroyApp(boolean unconditional, boolean isProgress)

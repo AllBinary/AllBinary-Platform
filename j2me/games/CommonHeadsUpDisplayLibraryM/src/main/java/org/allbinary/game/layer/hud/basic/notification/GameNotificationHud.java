@@ -23,7 +23,7 @@ import org.allbinary.game.layer.hud.event.GameNotificationEvent;
 import org.allbinary.game.layer.hud.event.GameNotificationListenerInterface;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class GameNotificationHud extends BasicHud
 implements GameNotificationListenerInterface
@@ -37,7 +37,7 @@ implements GameNotificationListenerInterface
 
    public void onEvent(AllBinaryEventObject eventObject)
    {
-       ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+       ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
    }
    
    private final String METHOD_NAME = "onGameNotificationEvent";

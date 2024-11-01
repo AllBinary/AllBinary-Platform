@@ -27,9 +27,8 @@ import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
 import org.allbinary.layer.event.LayerManagerEventListener;
 import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class GroupLayerManagerListener
 extends LayerManagerEventListener
@@ -186,7 +185,7 @@ extends LayerManagerEventListener
 
     public void onEvent(final AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     public void onCreateLayerManagerEvent(final LayerManagerEvent layerManagerEvent)

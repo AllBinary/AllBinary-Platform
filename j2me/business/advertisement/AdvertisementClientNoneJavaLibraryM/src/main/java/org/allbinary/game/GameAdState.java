@@ -17,13 +17,12 @@ import org.allbinary.business.advertisement.AdConfiguration;
 import org.allbinary.business.advertisement.Advertisements;
 
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.game.GameType;
 import org.allbinary.game.state.GameState;
 import org.allbinary.input.event.VirtualKeyboardEvent;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.event.VirtualKeyboardEventListenerInterface;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class GameAdState implements VirtualKeyboardEventListenerInterface
 {
@@ -72,7 +71,7 @@ public class GameAdState implements VirtualKeyboardEventListenerInterface
     
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     public void onVirtualKeyboardEvent(VirtualKeyboardEvent virtualKeyboardEvent) 

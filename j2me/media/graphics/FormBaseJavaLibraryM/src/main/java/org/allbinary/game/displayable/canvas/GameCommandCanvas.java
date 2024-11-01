@@ -62,7 +62,7 @@ import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class GameCommandCanvas
@@ -131,7 +131,7 @@ public class GameCommandCanvas
     
     public void onEvent(final AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     public void onDisplayChangeEvent(final DisplayChangeEvent displayChangeEvent)

@@ -37,11 +37,11 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEventListener;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.media.image.ImageScaleUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import android.app.Activity;
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.image.ImageAnimation;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class AndroidBasicTitleProgressBar 
 extends ProgressCanvas
@@ -175,7 +175,7 @@ implements DisplayChangeEventListener
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     public void onDisplayChangeEvent(DisplayChangeEvent displayChangeEvent)

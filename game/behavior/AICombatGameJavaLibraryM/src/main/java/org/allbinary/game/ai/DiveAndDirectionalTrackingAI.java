@@ -36,7 +36,7 @@ import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.visitor.Visitor;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
@@ -394,7 +394,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
 
         /*
          * if (eventObject instance of TrackingEvent) {

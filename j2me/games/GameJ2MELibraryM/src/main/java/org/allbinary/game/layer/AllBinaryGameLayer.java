@@ -28,7 +28,7 @@ import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.view.ViewPosition;
 import org.allbinary.view.event.ViewPositionEvent;
 import org.allbinary.view.event.ViewPositionEventListenerInterface;
@@ -89,7 +89,7 @@ public class AllBinaryGameLayer extends AllBinaryLayer
 
     public void onEvent(final AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
 
         //this.onGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
     }

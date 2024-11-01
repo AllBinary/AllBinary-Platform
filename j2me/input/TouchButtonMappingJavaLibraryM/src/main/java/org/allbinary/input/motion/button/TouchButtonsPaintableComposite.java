@@ -29,7 +29,7 @@ import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class TouchButtonsPaintableComposite extends ProcessPaintable
@@ -56,7 +56,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     
     public void onEvent(final AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     private final String METHOD_NAME = "onCompleteMotionGestureInputEvent";

@@ -88,7 +88,6 @@ import org.allbinary.graphics.displayable.screen.CommandForm;
 import org.allbinary.input.event.VirtualKeyboardEventHandler;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.audio.AllBinaryMediaManager;
 import org.allbinary.midlet.MidletStrings;
@@ -106,6 +105,7 @@ import org.allbinary.graphics.displayable.screen.AboutCommandProcessor;
 import org.allbinary.graphics.displayable.screen.AboutPaintableFactory;
 import org.allbinary.graphics.displayable.screen.WebCommandProcessor;
 import org.allbinary.logic.system.security.licensing.ClientInformationFactory;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class GameMidlet extends ProgressMidlet
@@ -864,7 +864,7 @@ public class GameMidlet extends ProgressMidlet
     
     public void onEvent(final AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     protected MyCanvas getInputMappingInstructionsCanvas()

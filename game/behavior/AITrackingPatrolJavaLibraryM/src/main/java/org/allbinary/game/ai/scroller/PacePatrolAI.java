@@ -31,7 +31,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.layer.LayerInterface;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class PacePatrolAI extends BasePatrolAI
         implements TrackingEventListenerInterface
@@ -182,7 +182,7 @@ public class PacePatrolAI extends BasePatrolAI
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
         /*
          * if (eventObject instanceof TrackingEvent) {
          * this.onMovement((TrackingEvent) eventObject); } else {

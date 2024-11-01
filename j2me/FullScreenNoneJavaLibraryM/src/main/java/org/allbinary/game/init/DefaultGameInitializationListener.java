@@ -23,7 +23,7 @@ import org.allbinary.game.configuration.event.GameInitializedListenerInterface;
 import org.allbinary.game.resource.FeatureResourceInitializationUtil;
 import org.allbinary.graphics.threed.SWTJOGLProcessor;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class DefaultGameInitializationListener
     implements GameInitializedListenerInterface
@@ -44,7 +44,7 @@ public class DefaultGameInitializationListener
 
     public void onEvent(final AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     boolean firstTime = true;

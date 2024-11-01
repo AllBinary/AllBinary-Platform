@@ -19,13 +19,13 @@ import org.allbinary.game.input.mapping.event.InputMappingEventListenerInterface
 import org.allbinary.game.input.motion.action.GameKeyCompleteMotionGestureInputEventFactory;
 import org.allbinary.input.motion.button.BasicTouchInputFactory;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class MotionInputMappingEventListener implements InputMappingEventListenerInterface
 {
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     public void onInputMappingEvent(InputMappingEvent inputMappingEvent) throws Exception
