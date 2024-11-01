@@ -81,7 +81,7 @@ extends CollidableDestroyableDamageableBehavior
           final AllBinaryLayer layerInterface = (AllBinaryLayer) collidableInterfaceCompositeInterface;
 
           //LogUtil.put(LogFactory.getInstance("isCollision: " + this.getGroupInterface().getGroupName() + "==" + layerInterface.getGroupInterface().getGroupName(), this, "isCollision"));
-          if (this.ownerLayer.getGroupInterface() != layerInterface.getGroupInterface())
+          if (this.ownerLayer.getGroupInterface()[0] != layerInterface.getGroupInterface()[0])
           {
              if (layerCollisionUtil.isCollision(this.ownerLayer, layerInterface))
              {
