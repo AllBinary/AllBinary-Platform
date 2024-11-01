@@ -14,6 +14,7 @@
 package org.allbinary.game.input;
 
 import javax.microedition.lcdui.Canvas;
+import org.allbinary.string.CommonPhoneStrings;
 
 public class GameKeyFactory
 {
@@ -22,14 +23,14 @@ public class GameKeyFactory
     public static GameKeyFactory getInstance()
     {
         return instance;
-    }     
+    }
 
     public final GameKey NONE = new GameKey(InputFactory.getInstance().MAX - 1, "None");
 
-    public final GameKey UP = new GameKey(Canvas.UP, "UP");
-    public final GameKey DOWN = new GameKey(Canvas.DOWN, "DOWN");
-    public final GameKey LEFT = new GameKey(Canvas.LEFT, "LEFT");
-    public final GameKey RIGHT = new GameKey(Canvas.RIGHT, "RIGHT");
+    public final GameKey UP = new GameKey(Canvas.UP, CommonPhoneStrings.getInstance().UP);
+    public final GameKey DOWN = new GameKey(Canvas.DOWN, CommonPhoneStrings.getInstance().DOWN);
+    public final GameKey LEFT = new GameKey(Canvas.LEFT, CommonPhoneStrings.getInstance().LEFT);
+    public final GameKey RIGHT = new GameKey(Canvas.RIGHT, CommonPhoneStrings.getInstance().RIGHT);
     
     public final GameKey KEY_POUND = new GameKey(Canvas.KEY_POUND, "POUND");
     public final GameKey KEY_STAR = new GameKey(Canvas.KEY_STAR, "STAR");
@@ -47,7 +48,7 @@ public class GameKeyFactory
     public final GameKey GAME_B = new GameKey(Canvas.GAME_B, "Game B");
     public final GameKey GAME_C = new GameKey(Canvas.GAME_C, "Game C");
     public final GameKey GAME_D = new GameKey(Canvas.GAME_D, "Game D");
-    public final GameKey FIRE = new GameKey(Canvas.FIRE, "FIRE");
+    public final GameKey FIRE = new GameKey(Canvas.FIRE, CommonPhoneStrings.getInstance().FIRE);
 
     /*
     public GameKey KEYBOARD_Y = GameKey.NONE;

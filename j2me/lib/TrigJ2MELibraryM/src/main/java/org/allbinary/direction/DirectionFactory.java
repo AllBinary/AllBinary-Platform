@@ -15,6 +15,7 @@ package org.allbinary.direction;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonPhoneStrings;
 
 public class DirectionFactory
 {
@@ -27,10 +28,10 @@ public class DirectionFactory
 
     public final String NAME = "DIRECTION";
     
-    public final Direction LEFT = new Direction("LEFT", "WEST", 0, 1);
-    public final Direction RIGHT = new Direction("RIGHT", "EAST", 1, 0);
-    public final Direction DOWN = new Direction("DOWN", "SOUTH", 2);
-    public final Direction UP = new Direction("UP", "NORTH", 3);
+    public final Direction LEFT = new Direction(CommonPhoneStrings.getInstance().LEFT, "WEST", 0, 1);
+    public final Direction RIGHT = new Direction(CommonPhoneStrings.getInstance().RIGHT, "EAST", 1, 0);
+    public final Direction DOWN = new Direction(CommonPhoneStrings.getInstance().DOWN, "SOUTH", 2);
+    public final Direction UP = new Direction(CommonPhoneStrings.getInstance().UP, "NORTH", 3);
 
     public final Direction UP_LEFT;
     public final Direction UP_RIGHT;

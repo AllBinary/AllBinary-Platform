@@ -97,10 +97,10 @@ public class PCKeyFactory
         CommonPhoneStrings.getInstance().EIGHT);
     public final PCGameKey NINE = new PCGameKey(57, CommonPhoneStrings.getInstance().NINE);
 
-    public final PCGameKey DPAD_UP = new PCGameKey(38, "UP");
-    public final PCGameKey DPAD_DOWN = new PCGameKey(40, "DOWN");
-    public final PCGameKey DPAD_LEFT = new PCGameKey(37, "LEFT");
-    public final PCGameKey DPAD_RIGHT = new PCGameKey(39, "RIGHT");
+    public final PCGameKey DPAD_UP = new PCGameKey(38, CommonPhoneStrings.getInstance().UP);
+    public final PCGameKey DPAD_DOWN = new PCGameKey(40, CommonPhoneStrings.getInstance().DOWN);
+    public final PCGameKey DPAD_LEFT = new PCGameKey(37, CommonPhoneStrings.getInstance().LEFT);
+    public final PCGameKey DPAD_RIGHT = new PCGameKey(39, CommonPhoneStrings.getInstance().RIGHT);
     public final PCGameKey DPAD_UP2 = DPAD_UP;
     public final PCGameKey DPAD_DOWN2 = DPAD_DOWN;
     public final PCGameKey DPAD_LEFT2 = DPAD_LEFT;

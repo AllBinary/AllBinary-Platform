@@ -17,19 +17,26 @@ public class CommonPhoneStrings
 {
     private final static CommonPhoneStrings SINGLETON = new CommonPhoneStrings();
 
-    public String ZERO = "0";
-    public String ONE = "1";
-    public String TWO = "2";
-    public String THREE = "3";
-    public String FOUR = "4";
-    public String FIVE = "5";
-    public String SIX = "6";
-    public String SEVEN = "7";
-    public String EIGHT = "8";
-    public String NINE = "9";
-    public String POUND = "#";
-    public String STAR = "*";
+    public final String UP = "UP";
+    public final String DOWN = "DOWN";
+    public final String LEFT = "LEFT";
+    public final String RIGHT = "RIGHT";
+    
+    public final String ZERO = "0";
+    public final String ONE = "1";
+    public final String TWO = "2";
+    public final String THREE = "3";
+    public final String FOUR = "4";
+    public final String FIVE = "5";
+    public final String SIX = "6";
+    public final String SEVEN = "7";
+    public final String EIGHT = "8";
+    public final String NINE = "9";
+    public final String POUND = "#";
+    public final String STAR = "*";
 
+    public final String FIRE = "FIRE";
+    
     public static final CommonPhoneStrings getInstance()
     {
         return SINGLETON;

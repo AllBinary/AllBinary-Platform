@@ -24,7 +24,7 @@ public class DirectionUtil
     {
         return instance;
     }
-
+    
     private Angle[] directionArray = new Angle[10];
     private Angle[] directionArray2 = new Angle[10];
 

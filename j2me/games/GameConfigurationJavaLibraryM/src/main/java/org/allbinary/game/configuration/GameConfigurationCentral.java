@@ -36,7 +36,7 @@ public class GameConfigurationCentral
         return SINGLETON;
     }
 
-    //private static String[] ORIENTATIONS = {"Vertical", "Up", "Down", "Left", "Right"};
+    //private static String[] ORIENTATIONS = {"Vertical", CommonPhoneStrings.getInstance().UP, CommonPhoneStrings.getInstance().DOWN, CommonPhoneStrings.getInstance().LEFT, CommonPhoneStrings.getInstance().RIGHT};
 
     public final GameConfiguration SCALE;
     public final GameConfiguration ORIENTATION;

@@ -13,10 +13,10 @@
 */
 package org.allbinary.game.input;
 
+import java.awt.event.KeyEvent;
+
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.string.CommonPhoneStrings;
-
-import java.awt.event.KeyEvent;
 
 public class PCKeyFactory
 {
@@ -95,10 +95,10 @@ public class PCKeyFactory
     public final PCGameKey EIGHT = new PCGameKey(KeyEvent.VK_8,
         CommonPhoneStrings.getInstance().EIGHT);
     public final PCGameKey NINE = new PCGameKey(KeyEvent.VK_9, CommonPhoneStrings.getInstance().NINE);
-    public final PCGameKey DPAD_UP = new PCGameKey(KeyEvent.VK_UP, "UP");
-    public final PCGameKey DPAD_DOWN = new PCGameKey(KeyEvent.VK_DOWN, "DOWN");
-    public final PCGameKey DPAD_LEFT = new PCGameKey(KeyEvent.VK_LEFT, "LEFT");
-    public final PCGameKey DPAD_RIGHT = new PCGameKey(KeyEvent.VK_RIGHT, "RIGHT");
+    public final PCGameKey DPAD_UP = new PCGameKey(KeyEvent.VK_UP, CommonPhoneStrings.getInstance().UP);
+    public final PCGameKey DPAD_DOWN = new PCGameKey(KeyEvent.VK_DOWN, CommonPhoneStrings.getInstance().DOWN);
+    public final PCGameKey DPAD_LEFT = new PCGameKey(KeyEvent.VK_LEFT, CommonPhoneStrings.getInstance().LEFT);
+    public final PCGameKey DPAD_RIGHT = new PCGameKey(KeyEvent.VK_RIGHT, CommonPhoneStrings.getInstance().RIGHT);
     public final PCGameKey DPAD_UP2 = DPAD_UP;
     public final PCGameKey DPAD_DOWN2 = DPAD_DOWN;
     public final PCGameKey DPAD_LEFT2 = DPAD_LEFT;

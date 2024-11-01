@@ -10,44 +10,33 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.game.displayable.canvas;
 
 import javax.microedition.lcdui.Canvas;
 
-public class CanvasUtil
-{
-   
-   private CanvasUtil()
-   {
-   }
-   
-   public static String getKeyName(int key)
-   {
-         if(key == Canvas.UP)
-         {
-            return "UP";
-         }
-         else
-            if(key == Canvas.DOWN)
-            {
-            return "DOWN";
-            }
-            else
-               if(key == Canvas.RIGHT)
-               {
-            return "RIGHT";
-               }
-               else
-                  if(key == Canvas.LEFT)
-                  {
-            return "LEFT";
-                  }
-                  else
-                      if(key == Canvas.FIRE)
-                  {
-             return "FIRE";
-                  }
-         return "UNKNOWN KEY";
-   }
+import org.allbinary.string.CommonPhoneStrings;
+
+public class CanvasUtil {
+
+    private CanvasUtil() {
+    }
+
+    public static String getKeyName(int key) {
+
+        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
+        
+        if (key == Canvas.UP) {
+            return commonPhoneStrings.UP;
+        } else if (key == Canvas.DOWN) {
+            return commonPhoneStrings.DOWN;
+        } else if (key == Canvas.RIGHT) {
+            return commonPhoneStrings.RIGHT;
+        } else if (key == Canvas.LEFT) {
+            return commonPhoneStrings.LEFT;
+        } else if (key == Canvas.FIRE) {
+            return commonPhoneStrings.FIRE;
+        }
+        return "UNKNOWN KEY";
+    }
 }

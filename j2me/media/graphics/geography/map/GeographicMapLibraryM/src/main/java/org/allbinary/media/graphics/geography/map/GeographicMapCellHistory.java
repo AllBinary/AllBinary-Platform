@@ -133,9 +133,10 @@ public class GeographicMapCellHistory
    {
       BasicArrayList localVisitedList = this.visitedList;
       int size = localVisitedList.size();
+      Boolean value;
       for (int index = 0; index < size; index++)
       {
-         Boolean value = (Boolean) this.visitedList.get(index);
+         value = (Boolean) this.visitedList.get(index);
          if (value == BooleanFactory.getInstance().FALSE)
          {
             return index;
