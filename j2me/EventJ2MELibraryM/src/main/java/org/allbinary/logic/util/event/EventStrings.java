@@ -32,6 +32,6 @@ public class EventStrings {
     public final String TOTAL_LISTENERS = "Total Listeners: ";
     public final String LISTENER_LABEL = " Listener: ";
     
-    public final String FIRE_EVENT = EventStrings.getInstance().FIRE_EVENT;
+    public final String FIRE_EVENT = "fireEvent";
 
 }
