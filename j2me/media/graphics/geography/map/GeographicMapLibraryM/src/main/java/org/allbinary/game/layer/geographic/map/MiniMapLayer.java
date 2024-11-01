@@ -28,7 +28,7 @@ import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.ColorCompositeInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMapCellPositionFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
@@ -93,7 +93,7 @@ implements GeographicMapCellPositionEventListenerInterface
 
    public void onEvent(AllBinaryEventObject eventObject)
    {
-       ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+       ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
       //this.onGeographicMapCellPositionEvent((GeographicMapCellPositionEvent) eventObject);
    }
 

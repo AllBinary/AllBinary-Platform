@@ -16,12 +16,12 @@ package org.allbinary.game.combat.destroy.event;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.special.CollidableDestroyableDamageableLayer;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class DestroyedEventHandler extends BasicEventHandler
@@ -72,7 +72,7 @@ public class DestroyedEventHandler extends BasicEventHandler
            }
            catch (Exception e)
            {
-               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
            }
        }
 

@@ -17,6 +17,7 @@ import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.input.CompleteMotionGestureInputEvent;
 import org.allbinary.game.input.CompleteMotionGestureInputEventListener;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class NoCompleteMotionGestureInputEventListener 
@@ -32,7 +33,7 @@ extends CompleteMotionGestureInputEventListener
     
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     public void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)

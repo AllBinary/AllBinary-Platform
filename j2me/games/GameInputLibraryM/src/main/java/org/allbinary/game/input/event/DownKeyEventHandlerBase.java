@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 //import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 
@@ -65,7 +66,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
     }
 
     public void fireEvent(final Integer eventObject) throws Exception {
-        //ForcedLogUtil.log(this.toString(), "fireEvent");
+        //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
         for (int index = this.list.size(); --index >= 0;) {
             try {
@@ -73,7 +74,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKeyEvent(eventObject);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 
@@ -87,14 +88,14 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 
     }
 
     public void fireEvent(final GameKeyEvent eventObject) throws Exception {
-        //ForcedLogUtil.log(this.toString(), "fireEvent");
+        //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
         for (int index = this.list.size(); --index >= 0;) {
             try {
@@ -102,7 +103,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownKeyEvent(eventObject);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 
@@ -116,7 +117,7 @@ public class DownKeyEventHandlerBase extends BasicEventHandler {
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 

@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class BasicEventHandler implements BasicEventHandlerInterface
 {
@@ -161,7 +162,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
          * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * "fireEvent")); //LogUtil.put(LogFactory.getInstance("Start", this, "fireEvent"));
+         * EventStrings.getInstance().FIRE_EVENT)); //LogUtil.put(LogFactory.getInstance("Start", this, EventStrings.getInstance().FIRE_EVENT));
          *
          * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
@@ -170,7 +171,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * this.process(eventObject, eventListenerInterface); }
          *
          * this.condition.signal(); } catch(Exception e) { LogUtil.put(new
-         * Log("Exception", this, "fireEvent", e)); } finally {
+         * Log("Exception", this, EventStrings.getInstance().FIRE_EVENT, e)); } finally {
          * reentrantLock.unlock(); }
          */
         // int size = this.eventListenerInterfaceVector.size();
@@ -187,7 +188,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 

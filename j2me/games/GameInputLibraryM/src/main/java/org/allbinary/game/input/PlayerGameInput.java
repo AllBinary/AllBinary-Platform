@@ -21,10 +21,8 @@ import org.allbinary.game.input.event.GameKeyEventListenerInterface;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class PlayerGameInput extends GameInput 
       implements GameKeyEventListenerInterface
@@ -90,7 +88,7 @@ public class PlayerGameInput extends GameInput
    
    public void onEvent(final AllBinaryEventObject eventObject)
    {
-       ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+       ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
 
        /*
       if (eventObject instance of GameKeyEvent)

@@ -23,7 +23,7 @@ import org.allbinary.game.input.event.DownGameKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.UpGameKeyEventHandler;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class GameKeyFromMotionGestureEventListener 
 extends CompleteMotionGestureInputEventListener
@@ -32,7 +32,7 @@ extends CompleteMotionGestureInputEventListener
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     //TWB - Is this correct?

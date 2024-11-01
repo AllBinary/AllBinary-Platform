@@ -23,6 +23,7 @@ import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class TerrainEventHandler extends BasicEventHandler
 {
@@ -84,7 +85,7 @@ public class TerrainEventHandler extends BasicEventHandler
            }
            catch (Exception e)
            {
-               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+               LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
            }
        }
 

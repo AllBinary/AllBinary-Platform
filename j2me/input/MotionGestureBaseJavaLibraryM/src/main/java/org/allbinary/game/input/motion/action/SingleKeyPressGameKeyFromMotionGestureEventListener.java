@@ -22,14 +22,14 @@ import org.allbinary.game.input.CompleteMotionGestureInputEventListener;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.PressGameKeyEventHandler;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class SingleKeyPressGameKeyFromMotionGestureEventListener 
 extends CompleteMotionGestureInputEventListener
 {
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
 
     public void onCompleteMotionGestureInputEvent(CompleteMotionGestureInputEvent completeMotionGestureInputEvent)

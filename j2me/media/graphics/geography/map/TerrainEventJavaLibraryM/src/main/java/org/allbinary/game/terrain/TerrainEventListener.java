@@ -4,7 +4,7 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class TerrainEventListener
 implements TerrainEventListenerInterface
@@ -13,7 +13,7 @@ implements TerrainEventListenerInterface
 
     public void onEvent(AllBinaryEventObject eventObject)
     {
-        ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+        ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
     }
     
     public void onTerrainEvent(TerrainEvent terrainEvent)

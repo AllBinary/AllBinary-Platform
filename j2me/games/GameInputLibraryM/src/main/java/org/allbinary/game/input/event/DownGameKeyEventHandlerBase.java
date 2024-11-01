@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
+import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.util.BasicArrayList;
 
@@ -67,7 +68,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
     }
 
     public void fireEvent(AllBinaryEventObject eventObject) throws Exception {
-        //ForcedLogUtil.log(this.toString(), "fireEvent");
+        //ForcedLogUtil.log(this.toString(), EventStrings.getInstance().FIRE_EVENT);
 
         for (int index = this.list.size(); --index >= 0;) {
             try {
@@ -75,7 +76,7 @@ public class DownGameKeyEventHandlerBase extends BasicEventHandler {
                 PlayerGameInput playerGameInput = (PlayerGameInput) this.list.objectArray[index];
                 playerGameInput.onDownGameKeyEvent((GameKeyEvent) eventObject);
             } catch (Exception e) {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "fireEvent", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 
