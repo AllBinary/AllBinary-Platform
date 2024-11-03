@@ -48,20 +48,21 @@ public class StaticPathGenerator
    //Takes static paths with CellPositions and converts them
    //into static paths with GeographicMapCellPositions
    private BasicArrayList getGeographicMapCellPositionListFromBasicGeographicMapCellPositionList(
-           BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory,
-      BasicArrayList pathList)
+           final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory,
+      final BasicArrayList pathList)
       throws Exception
    {
-      BasicArrayList list = new BasicArrayList();
+      final BasicArrayList list = new BasicArrayList();
       
-      int size = pathList.size();
+      final int size = pathList.size();
       
+      CellPosition basicGeographicMapCellPosition;
+      GeographicMapCellPosition geographicMapCellPosition;
       for (int index = 0; index < size; index++)
       {
-         CellPosition basicGeographicMapCellPosition =
-            (CellPosition) pathList.get(index);
+         basicGeographicMapCellPosition = (CellPosition) pathList.get(index);
 
-         GeographicMapCellPosition geographicMapCellPosition =
+         geographicMapCellPosition =
             geographicMapCellPositionFactory.getInstance(
             basicGeographicMapCellPosition.getColumn(),
             basicGeographicMapCellPosition.getRow());
@@ -72,16 +73,16 @@ public class StaticPathGenerator
    }
 
    public BasicArrayList getInstance(
-           BasicGeographicMap geographicMapInterface,
-      GeographicMapCellHistory geographicMapCellHistory,
-      PathFindingInfo pathFindingInfo,
-      int totalPaths)
+           final BasicGeographicMap geographicMapInterface,
+      final GeographicMapCellHistory geographicMapCellHistory,
+      final PathFindingInfo pathFindingInfo,
+      final int totalPaths)
       throws Exception
    {
       try
       {
-         PathCacheFactory pathCacheFactory = PathCacheFactory.getInstance();
-         Integer mapIdInteger = geographicMapInterface.getAllBinaryTiledLayer().getDataId();
+         final PathCacheFactory pathCacheFactory = PathCacheFactory.getInstance();
+         final Integer mapIdInteger = geographicMapInterface.getAllBinaryTiledLayer().getDataId();
 
          BasicArrayList list = pathCacheFactory.getInstance(mapIdInteger);
 
@@ -92,19 +93,20 @@ public class StaticPathGenerator
             final SmallIntegerSingletonFactory smallIntegerSingletonFactory = 
                 SmallIntegerSingletonFactory.getInstance();
             
-            BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+            final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
                geographicMapInterface.getGeographicMapCellPositionFactory();
 
-            int id = PathData.getInstance().OFFSET + mapIdInteger.intValue();
+            final int id = PathData.getInstance().OFFSET + mapIdInteger.intValue();
             
-            BasicArrayList basicList = pathCacheFactory.getInstance(
+            final BasicArrayList basicList = pathCacheFactory.getInstance(
                smallIntegerSingletonFactory.getInstance(id));
 
-            int size = basicList.size();
+            final int size = basicList.size();
 
+            BasicArrayList pathList;
             for (int index = 0; index < size; index++)
             {
-               BasicArrayList pathList = this.getGeographicMapCellPositionListFromBasicGeographicMapCellPositionList(
+               pathList = this.getGeographicMapCellPositionListFromBasicGeographicMapCellPositionList(
                   geographicMapCellPositionFactory, (BasicArrayList) basicList.get(index));
                
                list.add(pathList);

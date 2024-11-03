@@ -18,8 +18,8 @@ import org.allbinary.util.BasicArrayList;
 public class PathFindingInfo implements PathFindingInfoInterface
 {
     private GeographicPathFinderInterface pathFinder;
-    private BasicArrayList startPathFindingNode;
-    private BasicArrayList endPathFindingNode;
+    private final BasicArrayList startPathFindingNode;
+    private final BasicArrayList endPathFindingNode;
     
     private final BasePathFindingNodeCostInfoFactoryInterface pathFindingNodeCostInfoFactoryInterface;
     
