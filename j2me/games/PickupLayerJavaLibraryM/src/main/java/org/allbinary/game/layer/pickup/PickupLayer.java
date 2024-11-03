@@ -21,8 +21,6 @@ import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.game.layer.pickup.PickupableInterface;
 import org.allbinary.game.multiplayer.layer.MultiPlayerGameLayer;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-
-import org.allbinary.logic.string.StringUtil;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.collision.CollidableAlwaysPickupNeverCollideBehaviorFactory;
 import org.allbinary.game.combat.destroy.DestroyedLayerProcessor;
@@ -77,7 +75,7 @@ public class PickupLayer
            PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
            Animation animationInterface, Rectangle rectangle, ViewPosition viewPosition) throws Exception
    {
-      this(new RemoteInfo(),
+      this(RemoteInfo.REMOTE_INFO,
               total, pickedUpLayerInterfaceFactoryInterface, 
               animationInterface, rectangle, viewPosition);
    }

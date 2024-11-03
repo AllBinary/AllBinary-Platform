@@ -130,7 +130,7 @@ implements TickableInterface
             Animation destroyedAnimationInterface, Rectangle rectangle,
             ViewPosition viewPosition) throws Exception
     {
-        this(new RemoteInfo(StringUtil.getInstance().EMPTY_STRING, -1, -1, -1), -1, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
+        this(RemoteInfo.REMOTE_INFO, -1, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
     }
 
     protected WeaponLayer(RemoteInfo remoteInfo, int multiPlayerType, Movement movement, Animation animationInterface,
