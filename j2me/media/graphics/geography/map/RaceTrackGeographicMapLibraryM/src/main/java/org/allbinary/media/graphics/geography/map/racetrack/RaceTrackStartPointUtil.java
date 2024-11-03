@@ -25,17 +25,17 @@ import org.allbinary.media.graphics.geography.pathfinding.PathFindingNode;
 public class RaceTrackStartPointUtil
 {
     public static GPoint get(
-            BasicGeographicMap geographicMapInterface, PathFindingInfo pathFindingInfo, int index)
+            final BasicGeographicMap geographicMapInterface, final PathFindingInfo pathFindingInfo, final int index)
     throws Exception
     {
-        BasicArrayList list = pathFindingInfo.getStartPathFindingNodeList();
+        final BasicArrayList list = pathFindingInfo.getStartPathFindingNodeList();
 
-        PathFindingNode startPathFindingNode = (PathFindingNode) list.get(index);
+        final PathFindingNode startPathFindingNode = (PathFindingNode) list.get(index);
 
-        GeographicMapCellPosition geographicMapCellPosition =
+        final GeographicMapCellPosition geographicMapCellPosition =
            startPathFindingNode.getGeographicMapCellPosition();
 
-        GPoint point = geographicMapCellPosition.getPoint();
+        final GPoint point = geographicMapCellPosition.getPoint();
 
         return PointFactory.getInstance().getInstance(
                 point.getX(), 
