@@ -100,8 +100,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
             pathFinderGraphVisitorFactoryInterface.getInstance(
                     geographicMapInterface));
 
-        pathFindingInfo.setPathFinder(
-            basicGeographicMapPathFinder);
+        pathFindingInfo.setPathFinder(basicGeographicMapPathFinder);
 
         return pathFindingInfo;
     }
@@ -141,22 +140,22 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final GeographicMapCellPosition cellPosition)
        throws Exception
     {
-        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+        final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             geographicMapInterface.getGeographicMapCellPositionFactory();
 
-        int cellTypeId = mapArray[cellPosition.getRow()][cellPosition.getColumn()];
+        final int cellTypeId = mapArray[cellPosition.getRow()][cellPosition.getColumn()];
 
-        GeographicMapCellType geographicMapCellType =
+        final GeographicMapCellType geographicMapCellType =
             GeographicMapCellTypeFactory.getInstance().getInstance(
            geographicMapInterface.getCellTypeFromMapCellTypeInt(cellTypeId));
 
-        RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
+        final RaceTrackGeographicMapCellType raceTrackGeographicMapCellType =
            (RaceTrackGeographicMapCellType) geographicMapCellType;
 
-        AllBinaryTiledLayer allBinaryTiledLayer =
+        final AllBinaryTiledLayer allBinaryTiledLayer =
             geographicMapInterface.getAllBinaryTiledLayer();
 
-        BasePathFindingNodeCostInfoFactoryInterface pathFindingNodeCostInfoFactoryInterface =
+        final BasePathFindingNodeCostInfoFactoryInterface pathFindingNodeCostInfoFactoryInterface =
            pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface();
         //if (raceGameGeographicMapCellType != RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE)
         //{
@@ -226,14 +225,14 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     {
         //LogUtil.put(LogFactory.getInstance(CommonSeps.getInstance().START, this, "buildPathFindingNode"));
 
-        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+        final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             geographicMapInterface.getGeographicMapCellPositionFactory();
 
-        AllBinaryTiledLayer allBinaryTiledLayer =
+        final AllBinaryTiledLayer allBinaryTiledLayer =
             geographicMapInterface.getAllBinaryTiledLayer();
 
-        int totalColumns = allBinaryTiledLayer.getColumns();
-        int totalRows = allBinaryTiledLayer.getRows();
+        final int totalColumns = allBinaryTiledLayer.getColumns();
+        final int totalRows = allBinaryTiledLayer.getRows();
 
         for (int column = 0; column < totalColumns; column++)
         {
