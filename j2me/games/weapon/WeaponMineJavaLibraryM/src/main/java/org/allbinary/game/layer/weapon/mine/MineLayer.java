@@ -27,12 +27,14 @@ import org.allbinary.weapon.media.audio.DropWeaponSound;
 
 public class MineLayer extends SimpleWeaponLayer
 {   
+    private static final String NAME = "MineLayer";
+    
    //private static final BasicDecimal SPEED = new BasicDecimal(0);
 
    public MineLayer(ViewPosition viewPosition)
            throws Exception
    {
-      super(
+      super(NAME,
     		  NoMovementFactory.getInstance().getMovmentInstance(),
               //new BasicConstantVelocityMovement(SPEED),
               FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance().get(

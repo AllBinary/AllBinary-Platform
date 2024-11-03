@@ -38,9 +38,9 @@ public class PickupLayer
    private boolean destroyed;
    private Animation animationInterface;
 
-   public PickupLayer(RemoteInfo remoteInfo, ViewPosition viewPosition) throws Exception
+   public PickupLayer(final String name, final RemoteInfo remoteInfo, final ViewPosition viewPosition) throws Exception
    {
-      super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), viewPosition);
+      super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, new Rectangle(PointFactory.getInstance().ZERO_ZERO, 0, 0), viewPosition);
       
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
@@ -50,12 +50,12 @@ public class PickupLayer
    }
 
    public PickupLayer(
-           RemoteInfo remoteInfo, int total,
-           PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
-           Animation animationInterface, Rectangle rectangle, ViewPosition viewPosition)
+           final String name, final RemoteInfo remoteInfo, final int total,
+           final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
+           final Animation animationInterface, final Rectangle rectangle, final ViewPosition viewPosition)
       throws Exception
    {
-      super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, rectangle, viewPosition);
+      super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition);
 
       //this.setCollidableInferface(new CollidableAlwaysPickupNeverCollideBehavior(this, true));
       this.setCollidableInferface(CollidableAlwaysPickupNeverCollideBehaviorFactory.getInstance());
@@ -66,23 +66,23 @@ public class PickupLayer
       this.init(pickedUpLayerInterfaceFactoryInterface, animationInterface);
    }
 
-   public PickupLayer(ViewPosition viewPosition) throws Exception
+   public PickupLayer(final String name, final ViewPosition viewPosition) throws Exception
    {
-      this(new RemoteInfo(), viewPosition);
+      this(name, RemoteInfo.REMOTE_INFO, viewPosition);
    }
 
-   public PickupLayer(int total,
-           PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
-           Animation animationInterface, Rectangle rectangle, ViewPosition viewPosition) throws Exception
+   public PickupLayer(final String name, final int total,
+           final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
+           final Animation animationInterface, final Rectangle rectangle, final ViewPosition viewPosition) throws Exception
    {
-      this(RemoteInfo.REMOTE_INFO,
+      this(name, RemoteInfo.REMOTE_INFO,
               total, pickedUpLayerInterfaceFactoryInterface, 
               animationInterface, rectangle, viewPosition);
    }
    
    public void init(
-      PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
-      Animation animationInterface)
+      final PickedUpLayerInterfaceFactoryInterface pickedUpLayerInterfaceFactoryInterface,
+      final Animation animationInterface)
    {
       this.pickedUpLayerInterfaceFactoryInterface = pickedUpLayerInterfaceFactoryInterface;
       this.animationInterface = animationInterface;

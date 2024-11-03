@@ -20,10 +20,12 @@ import org.allbinary.view.event.ViewPositionEventHandler;
 
 public class RaceTrackPickupLayer extends PickupLayer
 {
+    private static final String NAME = "RaceTrackPickupLayer";
+
    public RaceTrackPickupLayer()
       throws Exception
    {
-      super(new TileLayerPositionIntoViewPosition());
+      super(NAME, new TileLayerPositionIntoViewPosition());
 
       //this.setVisible(false);
    }

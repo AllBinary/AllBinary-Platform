@@ -23,15 +23,17 @@ public class FallingPickupLayer
 extends PickupLayer 
 implements TickableInterface
 {
+    private static final String NAME = "FallingPickupLayer";
+
     public FallingPickupLayer(RemoteInfo remoteInfo)
             throws Exception
     {
-        super(remoteInfo, new ViewPosition());
+        super(NAME, remoteInfo, new ViewPosition());
     }
 
     public FallingPickupLayer() throws Exception
     {
-        super(new ViewPosition());
+        super(NAME, new ViewPosition());
     }
 
     /*

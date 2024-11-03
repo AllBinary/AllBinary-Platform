@@ -15,7 +15,7 @@ public class RemoteInfo
     public static final RemoteInfo REMOTE_INFO = new RemoteInfo();
     public static final int NEW_PLAYER_ID = 0;
     
-    public RemoteInfo()
+    private RemoteInfo()
     {
     }
     
