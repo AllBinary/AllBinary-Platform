@@ -22,10 +22,16 @@ public class MultiPlayerGameLayer
 extends CollidableDestroyableDamageableLayer 
 implements MultiPlayerGameLayerInterface
 {
-    public MultiPlayerGameLayer(RemoteInfo remoteInfo,
-            Group[] groupInterface, Rectangle layerInfo, ViewPosition viewPosition)
+    public MultiPlayerGameLayer(final RemoteInfo remoteInfo,
+            final Group[] groupInterface, final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(groupInterface, layerInfo, viewPosition);
+    }
+
+    public MultiPlayerGameLayer(final RemoteInfo remoteInfo,
+            final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+    {
+        super(groupInterface, name, layerInfo, viewPosition);
     }
     
     public MultiplayerBehavior getMultiplayerBehavior()

@@ -69,8 +69,7 @@ OpenGLSurfaceChangedInterface
     private PickupBehavior pickupBehavior;
     
     public CollidableDestroyableDamageableLayer(
-            final Group[] groupInterface, 
-            final Rectangle layerInfo, final ViewPosition viewPosition)
+            final Group[] groupInterface, final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(layerInfo, viewPosition);
 
@@ -81,8 +80,7 @@ OpenGLSurfaceChangedInterface
     }
 
     public CollidableDestroyableDamageableLayer(
-            final Group[] groupInterface, 
-            final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
+            final Group[] groupInterface, final String name, final Rectangle layerInfo, final ViewPosition viewPosition)
     {
         super(name, layerInfo, viewPosition);
 
