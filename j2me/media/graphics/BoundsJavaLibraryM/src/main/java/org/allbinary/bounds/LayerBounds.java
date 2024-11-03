@@ -19,7 +19,7 @@ import org.allbinary.bounds.event.BoundsChangeEventListener;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
-import org.allbinary.logic.util.event.handler.BasicEventHandler;
+import org.allbinary.logic.util.event.EventStrings;
 
 public class LayerBounds implements BoundsChangeEventListener
 {   
@@ -41,7 +41,7 @@ public class LayerBounds implements BoundsChangeEventListener
    
    public void onEvent(AllBinaryEventObject eventObject)
    {
-       ForcedLogUtil.log(BasicEventHandler.PERFORMANCE_MESSAGE, this);
+       ForcedLogUtil.log(EventStrings.getInstance().PERFORMANCE_MESSAGE, this);
    }
    
    public void onBoundsChangeEvent(BoundsChangeEvent boundsChangeEvent)

@@ -18,8 +18,8 @@ import org.allbinary.util.BasicArrayList;
 public class PathFindingInfo implements PathFindingInfoInterface
 {
     private GeographicPathFinderInterface pathFinder;
-    private final BasicArrayList startPathFindingNode;
-    private final BasicArrayList endPathFindingNode;
+    private final BasicArrayList startPathFindingNodeList;
+    private final BasicArrayList endPathFindingNodeList;
     
     private final BasePathFindingNodeCostInfoFactoryInterface pathFindingNodeCostInfoFactoryInterface;
     
@@ -29,24 +29,18 @@ public class PathFindingInfo implements PathFindingInfoInterface
        this.pathFindingNodeCostInfoFactoryInterface =
            pathFindingNodeCostInfoFactoryInterface;
 
-       this.startPathFindingNode = new BasicArrayList(1);
-       this.endPathFindingNode = new BasicArrayList(1);
-    }
-
-    public void init()
-    {
-        this.startPathFindingNode.clear();
-        this.endPathFindingNode.clear();
+       this.startPathFindingNodeList = new BasicArrayList(1);
+       this.endPathFindingNodeList = new BasicArrayList(1);
     }
 
     public BasicArrayList getStartPathFindingNodeList()
     {
-        return this.startPathFindingNode;
+        return this.startPathFindingNodeList;
     }
     
     public BasicArrayList getEndPathFindingNodeList()
     {
-        return this.endPathFindingNode;
+        return this.endPathFindingNodeList;
     }
 
     public GeographicPathFinderInterface getPathFinder()
@@ -56,12 +50,12 @@ public class PathFindingInfo implements PathFindingInfoInterface
 
     public void addStartPathFindingNode(PathFindingNode startPathFindingNode)
     {
-        this.startPathFindingNode.add(startPathFindingNode);
+        this.startPathFindingNodeList.add(startPathFindingNode);
     }
 
     public void addEndPathFindingNode(PathFindingNode endPathFindingNode)
     {
-        this.endPathFindingNode.add(endPathFindingNode);
+        this.endPathFindingNodeList.add(endPathFindingNode);
     }
 
     public void setPathFinder(GeographicPathFinderInterface pathFinder)

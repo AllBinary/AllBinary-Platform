@@ -172,8 +172,7 @@ public class BasePathFindingInfoFactory {
         //endPathFindingNodeCostInfo.setTotalCost();
 
         pathFindingInfo.addEndPathFindingNode(
-            new PathFindingNode(
-            null, endGeographicMapCellPosition));
+            new PathFindingNode(null, endGeographicMapCellPosition));
             //null, endGeographicMapCellPosition, endPathFindingNodeCostInfo));
 
         // End Setup Start Node

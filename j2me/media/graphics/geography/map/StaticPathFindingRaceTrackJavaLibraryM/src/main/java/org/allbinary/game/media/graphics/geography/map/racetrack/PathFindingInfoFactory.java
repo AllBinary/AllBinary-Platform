@@ -37,8 +37,6 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         return instance;
     }
 
-    private final PathFindingInfo pathFindingInfo = new PathFindingInfo(null);
-
     private PathFindingInfoFactory()
     {
 
@@ -51,7 +49,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     {
         PreLogUtil.put(CommonStrings.getInstance().START, this, CommonStrings.getInstance().GET_INSTANCE);
 
-        pathFindingInfo.init();
+        final PathFindingInfo pathFindingInfo = new PathFindingInfo(null);
 
         RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance().init();
         

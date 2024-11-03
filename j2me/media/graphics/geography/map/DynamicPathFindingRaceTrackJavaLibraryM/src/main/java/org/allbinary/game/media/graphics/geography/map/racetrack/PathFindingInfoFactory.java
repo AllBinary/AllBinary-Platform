@@ -89,7 +89,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final int[][] mapArray)
         throws Exception
     {
-        pathFindingInfo.init();
+        final PathFindingInfo pathFindingInfo = new PathFindingInfo(this.pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface());
 
         RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance().init();
         
