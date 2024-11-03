@@ -22,34 +22,34 @@ import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class DamageWeaponLayer extends WeaponLayer
 {
-    public DamageWeaponLayer(Movement movement,
-            Animation animationInterface,
-            Rectangle rectangle, ViewPosition viewPosition)
+    public DamageWeaponLayer(final String name, final Movement movement,
+            final Animation animationInterface,
+            final Rectangle rectangle, final ViewPosition viewPosition)
             throws Exception
     {
-        super(movement, animationInterface, rectangle, viewPosition);
+        super(name, movement, animationInterface, rectangle, viewPosition);
         
         this.setCollidableInferface(new CollidableDamageWeaponBehavior(this, true));
     }
 
-    public DamageWeaponLayer(Movement movement,
-            Animation animationInterface,
-            Animation destroyedAnimationInterface,
-            Rectangle rectangle, ViewPosition viewPosition)
+    public DamageWeaponLayer(final String name, final Movement movement,
+            final Animation animationInterface,
+            final Animation destroyedAnimationInterface,
+            final Rectangle rectangle, final ViewPosition viewPosition)
             throws Exception
     {
-        super(movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
+        super(name, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
         
         this.setCollidableInferface(new CollidableDamageWeaponBehavior(this, true));
     }
 
-    public DamageWeaponLayer(RemoteInfo remoteInfo, Movement movement,
-            Animation animationInterface,
-            Animation destroyedAnimationInterface,
-            Rectangle rectangle, ViewPosition viewPosition, String username, int actorSessionId, int id, int multiPlayerType)
+    public DamageWeaponLayer(final String name, final RemoteInfo remoteInfo, final Movement movement,
+            final Animation animationInterface,
+            final Animation destroyedAnimationInterface,
+            final Rectangle rectangle, final ViewPosition viewPosition, final String username, final int actorSessionId, final int id, final int multiPlayerType)
             throws Exception
     {
-        super(remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
+        super(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
         
         this.setCollidableInferface(new CollidableDamageWeaponBehavior(this, true));
     }

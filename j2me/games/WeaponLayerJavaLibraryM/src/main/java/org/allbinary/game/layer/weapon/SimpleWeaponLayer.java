@@ -22,35 +22,35 @@ import org.allbinary.game.multiplayer.layer.RemoteInfo;
 
 public class SimpleWeaponLayer extends WeaponLayer
 {
-    public SimpleWeaponLayer(Movement movement,
-            Animation animationInterface,
-            Rectangle rectangle, ViewPosition viewPosition)
+    public SimpleWeaponLayer(final String name, final Movement movement,
+            final Animation animationInterface,
+            final Rectangle rectangle, final ViewPosition viewPosition)
             throws Exception
     {
-        super(movement, animationInterface, rectangle, viewPosition);
+        super(name, movement, animationInterface, rectangle, viewPosition);
         
         this.setCollidableInferface(new CollidableWeaponBehavior(this, true));
     }
 
-    public SimpleWeaponLayer(Movement movement,
-            Animation animationInterface,
-            Animation destroyedAnimationInterface,
-            Rectangle rectangle, ViewPosition viewPosition)
+    public SimpleWeaponLayer(final String name, final Movement movement,
+            final Animation animationInterface,
+            final Animation destroyedAnimationInterface,
+            final Rectangle rectangle, final ViewPosition viewPosition)
             throws Exception
     {
-        super(movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
+        super(name, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
         
         this.setCollidableInferface(new CollidableWeaponBehavior(this, true));
     }
 
-    public SimpleWeaponLayer(RemoteInfo remoteInfo, int multiPlayerType, 
-            Movement movement,
-            Animation animationInterface,
-            Animation destroyedAnimationInterface,
-            Rectangle rectangle, ViewPosition viewPosition)
+    public SimpleWeaponLayer(final String name, final RemoteInfo remoteInfo, final int multiPlayerType, 
+            final Movement movement,
+            final Animation animationInterface,
+            final Animation destroyedAnimationInterface,
+            final Rectangle rectangle, final ViewPosition viewPosition)
             throws Exception
     {
-        super(remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
+        super(name, remoteInfo, multiPlayerType, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
         
         this.setCollidableInferface(new CollidableWeaponBehavior(this, true));
     }

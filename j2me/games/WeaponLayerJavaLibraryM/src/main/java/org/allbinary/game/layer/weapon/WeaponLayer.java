@@ -117,28 +117,29 @@ implements TickableInterface
     }
     */
 
-    protected WeaponLayer(Movement movement, Animation animationInterface,
-            Rectangle rectangle, ViewPosition viewPosition) throws Exception
+    protected WeaponLayer(final String name, final Movement movement, final Animation animationInterface,
+            final Rectangle rectangle, final ViewPosition viewPosition) throws Exception
     {
-        this(movement, animationInterface, 
+        this(name, movement, animationInterface, 
                 FeaturedAnimationInterfaceFactoryInterfaceFactory.getInstance()
                 .getProcedural(ExplosionResources.getInstance().THIRD_EXPLOSION_RESOURCE)
                 .getInstance(null), rectangle, viewPosition);
     }
 
-    protected WeaponLayer(Movement movement, Animation animationInterface,
-            Animation destroyedAnimationInterface, Rectangle rectangle,
-            ViewPosition viewPosition) throws Exception
+    protected WeaponLayer(final String name, final Movement movement, final Animation animationInterface,
+            final Animation destroyedAnimationInterface, final Rectangle rectangle,
+            final ViewPosition viewPosition) throws Exception
     {
-        this(RemoteInfo.REMOTE_INFO, -1, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
+        this(name, RemoteInfo.REMOTE_INFO, -1, movement, animationInterface, destroyedAnimationInterface, rectangle, viewPosition);
     }
 
-    protected WeaponLayer(RemoteInfo remoteInfo, int multiPlayerType, Movement movement, Animation animationInterface,
-            Animation destroyedAnimationInterface, Rectangle rectangle,
-            ViewPosition viewPosition)
+    protected WeaponLayer(final String name, final RemoteInfo remoteInfo, final int multiPlayerType, 
+        final Movement movement, final Animation animationInterface,
+            final Animation destroyedAnimationInterface, final Rectangle rectangle,
+            final ViewPosition viewPosition)
             throws Exception
     {
-        super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, rectangle, viewPosition);
+        super(remoteInfo, BasicGroupFactory.getInstance().NONE_ARRAY, name, rectangle, viewPosition);
         // super(Group.NONE, rectangle, viewPosition, true);
 
         this.initAnimationInterface = animationInterface;

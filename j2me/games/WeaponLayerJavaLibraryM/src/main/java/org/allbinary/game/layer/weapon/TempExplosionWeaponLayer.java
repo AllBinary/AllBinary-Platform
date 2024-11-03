@@ -13,16 +13,16 @@ import org.allbinary.view.ViewPosition;
 public class TempExplosionWeaponLayer
 extends SimpleWeaponLayer
 {
-	public final WeaponProperties weaponProperties = new WeaponProperties(0, 1000, (short) 0);
+    public final WeaponProperties weaponProperties = new WeaponProperties(0, 1000, (short) 0);
 
-	private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
+    private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 	
-    public TempExplosionWeaponLayer(final Movement movement,
+    public TempExplosionWeaponLayer(final String name, final Movement movement,
             final Animation animationInterface,
             final Rectangle rectangle, final ViewPosition viewPosition, final int timeDelay)
             throws Exception
     {
-        super(movement, animationInterface, rectangle, viewPosition);
+        super(name, movement, animationInterface, rectangle, viewPosition);
         
         this.timeDelayHelper.delay = timeDelay;
     }
