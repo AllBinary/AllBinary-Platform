@@ -66,7 +66,7 @@ OpenGLSurfaceChangedInterface
     protected PartInterface[] partInterfaceArray;
     private PickupBehavior pickupBehavior;
  
-    protected AllBinaryGameLayerManager allBinaryGameLayerManager;
+    public AllBinaryGameLayerManager allBinaryGameLayerManager;
     
     public CollidableDestroyableDamageableLayer(
             final Group[] groupInterface, final Rectangle layerInfo, final ViewPosition viewPosition)

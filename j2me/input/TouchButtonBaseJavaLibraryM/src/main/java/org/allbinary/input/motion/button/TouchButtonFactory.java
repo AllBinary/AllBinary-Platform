@@ -14,6 +14,7 @@
 package org.allbinary.input.motion.button;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 public class TouchButtonFactory
 {
@@ -24,7 +25,7 @@ public class TouchButtonFactory
         return SINGLETON;
     }
 
-    private final BasicArrayList LIST = new BasicArrayList();
+    private BasicArrayList LIST = BasicArrayListUtil.getInstance().getImmutableInstance();
     private BasicArrayList list = LIST;
     private BasicArrayList savedList = LIST;
 
