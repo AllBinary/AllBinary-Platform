@@ -19,10 +19,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-
-
 import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.combat.destroy.DestroyableInterface;
@@ -30,6 +27,7 @@ import org.allbinary.game.combat.destroy.event.DestroyedEvent;
 import org.allbinary.game.identification.Group;
 import org.allbinary.game.identification.GroupInterface;
 import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.pickup.PickupBehavior;
 import org.allbinary.game.layer.pickup.PickupCompositeInterface;
 import org.allbinary.game.part.PartInterface;
@@ -67,6 +65,8 @@ OpenGLSurfaceChangedInterface
 
     protected PartInterface[] partInterfaceArray;
     private PickupBehavior pickupBehavior;
+ 
+    protected AllBinaryGameLayerManager allBinaryGameLayerManager;
     
     public CollidableDestroyableDamageableLayer(
             final Group[] groupInterface, final Rectangle layerInfo, final ViewPosition viewPosition)
@@ -140,6 +140,14 @@ OpenGLSurfaceChangedInterface
     public void setGroupInterface(final Group[] teamInterface)
     {
         this.groupInterface = teamInterface;
+    }
+
+    public void setAllBinaryGameLayerManager(final AllBinaryGameLayerManager allBinaryGameLayerManager) throws Exception {
+        this.allBinaryGameLayerManager = allBinaryGameLayerManager;
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(this.getName()).append(CommonSeps.getInstance().SPACE).append(allBinaryGameLayerManager).toString(), this, commonStrings.PROCESS));
+        if (this.allBinaryGameLayerManager == null) {
+            throw new RuntimeException();
+        }
     }
     
     public final boolean isReadyForExplosion()
