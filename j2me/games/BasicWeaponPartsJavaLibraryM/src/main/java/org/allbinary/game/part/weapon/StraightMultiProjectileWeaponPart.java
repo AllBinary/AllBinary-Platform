@@ -41,8 +41,8 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
            final Animation animationInterface,
            final AllBinaryLayer sourceLayerInterface,
            final WeaponLayerCircularPool weaponLayerCircularStaticPool,
-           final int total, final WeaponProperties weaponProperties, final RelativeRelationship relativeRelationship) {
-      super(animationInterface, sourceLayerInterface, weaponProperties, relativeRelationship);
+           final int total, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface, final RelativeRelationship relativeRelationship) {
+      super(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
 
       this.total = total;
       this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;

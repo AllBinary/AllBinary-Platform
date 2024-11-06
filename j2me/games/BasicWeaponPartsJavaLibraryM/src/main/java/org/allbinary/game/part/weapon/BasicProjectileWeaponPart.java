@@ -15,7 +15,6 @@ package org.allbinary.game.part.weapon;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
-import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.weapon.WeaponLayer;
 import org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
 import org.allbinary.game.score.ScoreableInterface;
@@ -28,8 +27,8 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
    private WeaponLayerCircularPool weaponLayerCircularStaticPool;
 
    public BasicProjectileWeaponPart(
-      Animation animationInterface,
-      WeaponLayerCircularPool weaponLayerCircularStaticPool) {
+      final Animation animationInterface,
+      final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
       
       super(animationInterface);
       
@@ -37,25 +36,27 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
    }
    
    public BasicProjectileWeaponPart(
-           Animation animationInterface,
-           AllBinaryLayer sourceLayerInterface, 
-           WeaponLayerCircularPool weaponLayerCircularStaticPool,
-           WeaponProperties weaponProperties,  
-           RelativeRelationship relativeRelationship) 
+           final Animation animationInterface,
+           final AllBinaryLayer sourceLayerInterface, 
+           final WeaponLayerCircularPool weaponLayerCircularStaticPool,
+           final WeaponProperties weaponProperties,  
+           final ScoreableInterface scoreableInterface,
+           final RelativeRelationship relativeRelationship) 
    {
       super(animationInterface, 
               sourceLayerInterface, 
               weaponProperties, 
+              scoreableInterface,
               relativeRelationship
               );
 
       this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;      
    }
 
-   public void process(AllBinaryLayerManager allbinaryLayerManager,
-           short angle, short otherAngle, 
-           WeaponProperties weaponProperties, 
-           ScoreableInterface scoreableInterface)
+   public void process(final AllBinaryLayerManager allbinaryLayerManager,
+           final short angle, short otherAngle, 
+           final WeaponProperties weaponProperties, 
+           final ScoreableInterface scoreableInterface)
            throws Exception 
    {
       final WeaponLayer weaponLayer =
