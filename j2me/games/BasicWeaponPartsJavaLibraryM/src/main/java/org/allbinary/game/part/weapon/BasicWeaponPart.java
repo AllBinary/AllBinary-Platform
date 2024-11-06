@@ -69,9 +69,7 @@ public class BasicWeaponPart
    
    public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle)
            throws Exception {
-
-       //final ScoreableInterface scoreableInterface = (ScoreableInterface) ((AllBinaryGameLayerManager) allbinaryLayerManager).getPlayerGameInputCompositeInterface();
-       this.process(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), scoreableInterface);
+       this.process(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
    }
 
    public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
