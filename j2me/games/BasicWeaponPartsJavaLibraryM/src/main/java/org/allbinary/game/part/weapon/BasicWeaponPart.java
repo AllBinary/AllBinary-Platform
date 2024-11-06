@@ -18,7 +18,6 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
-import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.part.PartInterface;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.RelativeRelationship;
@@ -64,6 +63,7 @@ public class BasicWeaponPart
       
       this.setWeaponProperties(weaponProperties);
             
+      this.scoreableInterface = scoreableInterface;
       this.relativeRelationship = relativeRelationship;
    }
    
