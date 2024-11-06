@@ -18,7 +18,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.logic.string.StringMaker;
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionBaseFactory;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInterface;
@@ -27,7 +26,6 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
    RaceTrackGeographicMapInterface
 {
-    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(20);
     //public static final String NAME = "RACE_TRACK_MAP";
 
     private RaceTrackInfo raceTrackInfo;

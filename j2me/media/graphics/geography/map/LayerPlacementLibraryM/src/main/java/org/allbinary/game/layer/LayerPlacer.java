@@ -29,32 +29,32 @@ public class LayerPlacer
    protected final LayerInterfaceVisitor layerInterfaceVisitor;
    private final GPoint dimension;
 
-   public LayerPlacer(LayerInterfaceVisitor layerInterfaceVisitor,
-      GPoint dimension)
+   public LayerPlacer(final LayerInterfaceVisitor layerInterfaceVisitor, final GPoint dimension)
    {
       this.layerInterfaceVisitor = layerInterfaceVisitor;
       this.dimension = dimension;
    }
 
-   public void process(BasicArrayList list) throws Exception
+   public void process(final BasicArrayList list) throws Exception
    {
-      int size = list.size();
+      final int size = list.size();
+      LayerPlacementInterface layerPlacementInterface;
       for(int index = 0; index < size; index++)
       {
-         LayerPlacementInterface layerPlacementInterface =
+         layerPlacementInterface =
             (LayerPlacementInterface) list.objectArray[index];
 
          this.process(layerPlacementInterface);
       }
    }
 
-   public void process(LayerPlacementInterface layerPlacementInterface) throws Exception
+   public void process(final LayerPlacementInterface layerPlacementInterface) throws Exception
    {
-      GPoint relativePoint = this.getPoint(layerPlacementInterface);
+      final GPoint relativePoint = this.getPoint(layerPlacementInterface);
 
       final LayerInterfaceFactory layerInterfaceFactory = LayerInterfaceFactory.getInstance();
       
-      Hashtable hashtable = layerPlacementInterface.getInstance();
+      final Hashtable hashtable = layerPlacementInterface.getInstance();
 
       //J2ME does not have this so just leave it out for now
       //Set set = hashtable.keySet();
@@ -64,43 +64,50 @@ public class LayerPlacer
       //{
          //GPoint point = (GPoint) objectArray[index];
       
-      Enumeration enumeration = hashtable.keys();
+      final Enumeration enumeration = hashtable.keys();
+      GPoint point;
+      Hashtable layerHashtable;
+      int x;
+      int y;
+      int z;
+      AllBinaryLayer layerInterface;
+
       while (enumeration.hasMoreElements())
       {
-         GPoint point = (GPoint) enumeration.nextElement();
+         point = (GPoint) enumeration.nextElement();
 
-         Hashtable layerHashtable = (Hashtable) hashtable.get(point);
+         layerHashtable = (Hashtable) hashtable.get(point);
 
-         int x = point.getX() + relativePoint.getX();
-         int y = point.getY() + relativePoint.getY();
-         int z = point.getZ() + relativePoint.getZ();
+         x = point.getX() + relativePoint.getX();
+         y = point.getY() + relativePoint.getY();
+         z = point.getZ() + relativePoint.getZ();
 
-         AllBinaryLayer layerInterface = layerInterfaceFactory.getInstance(layerHashtable, x, y, z);
+         layerInterface = layerInterfaceFactory.getInstance(layerHashtable, x, y, z);
 
          layerInterfaceVisitor.visit(layerInterface);
       }
    }
 
-   public GPoint getPoint(LayerPlacementInterface layerPlacementInterface)
+   public GPoint getPoint(final LayerPlacementInterface layerPlacementInterface)
       throws Exception
    {
-      LayerPlacementType layerPlacementType =
+      final LayerPlacementType layerPlacementType =
          layerPlacementInterface.getLayerType();
 
       if (layerPlacementType == LayerPlacementTypeFactory.getInstance().MAP)
       {
-         int width = layerPlacementInterface.getWidth();
-         int height = layerPlacementInterface.getHeight();
-         int x = ((dimension.getX() - width) / 2);
-         int y = ((dimension.getY() - height) / 2);
+         final int width = layerPlacementInterface.getWidth();
+         final int height = layerPlacementInterface.getHeight();
+         final int x = ((dimension.getX() - width) / 2);
+         final int y = ((dimension.getY() - height) / 2);
 
          return PointFactory.getInstance().getInstance(x, y);
       } else if (layerPlacementType == LayerPlacementTypeFactory.getInstance().UP)
       {
-         int width = layerPlacementInterface.getWidth();
-         int height = layerPlacementInterface.getHeight();
-         int x = ((dimension.getX() - width) / 2);
-         int y = -height;
+         final int width = layerPlacementInterface.getWidth();
+         final int height = layerPlacementInterface.getHeight();
+         final int x = ((dimension.getX() - width) / 2);
+         final int y = -height;
 
          return PointFactory.getInstance().getInstance(x, y);
       } else

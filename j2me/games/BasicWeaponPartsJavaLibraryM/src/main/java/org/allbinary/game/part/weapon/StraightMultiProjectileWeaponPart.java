@@ -25,12 +25,12 @@ import org.allbinary.math.NoDecimalTrigTable;
 
 public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
 
-   private WeaponLayerCircularPool weaponLayerCircularStaticPool;
-   private int total;
+   private final WeaponLayerCircularPool weaponLayerCircularStaticPool;
+   private final int total;
 
    public StraightMultiProjectileWeaponPart(
-      Animation animationInterface,
-      WeaponLayerCircularPool weaponLayerCircularStaticPool) {
+      final Animation animationInterface,
+      final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
       super(animationInterface);
       
       this.total = 2;
@@ -38,11 +38,11 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
    }
 
    public StraightMultiProjectileWeaponPart(
-           Animation animationInterface,
-           AllBinaryLayer sourceLayerInterface,
-           WeaponLayerCircularPool weaponLayerCircularStaticPool,
-           int total, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship) {
-      super(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+           final Animation animationInterface,
+           final AllBinaryLayer sourceLayerInterface,
+           final WeaponLayerCircularPool weaponLayerCircularStaticPool,
+           final int total, final WeaponProperties weaponProperties, final RelativeRelationship relativeRelationship) {
+      super(animationInterface, sourceLayerInterface, weaponProperties, relativeRelationship);
 
       this.total = total;
       this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
@@ -50,21 +50,22 @@ public class StraightMultiProjectileWeaponPart extends BasicWeaponPart {
 
    private final NoDecimalTrigTable noDecimalTrigTable = NoDecimalTrigTable.getInstance();
    
-   public void process(AllBinaryLayerManager allbinaryLayerManager,
-           short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
+   public void process(final AllBinaryLayerManager allbinaryLayerManager,
+           final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {
-       AllBinaryLayer sourceLayerInterface = this.getOwnerLayerInterface();
-      int reducedWidth = (sourceLayerInterface.getWidth() * 8 / 10);
-      int halfWidth = (reducedWidth >> 1);
+
+        final AllBinaryLayer sourceLayerInterface = this.getOwnerLayerInterface();
+      final int reducedWidth = (sourceLayerInterface.getWidth() * 8 / 10);
+      final int halfWidth = (reducedWidth >> 1);
       //int halfHeight = sourceLayerInterface.getHalfHeight();
 
-      int x = this.relativeRelationship.getX();
-      int y = this.relativeRelationship.getY();
+      final int x = this.relativeRelationship.getX();
+      final int y = this.relativeRelationship.getY();
 
       //???????
       //WeaponLayer[] weaponLayerArray = WeaponLayerArrayLayerCircularStaticPool.getInstance(total);
 
-      int increment = reducedWidth / (this.total - 1);
+      final int increment = reducedWidth / (this.total - 1);
       int next = -halfWidth;
       for (int index = 0; index < total; index++) {
           

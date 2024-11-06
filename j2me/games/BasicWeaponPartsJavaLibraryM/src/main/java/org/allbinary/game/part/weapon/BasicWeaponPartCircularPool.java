@@ -14,7 +14,6 @@
 package org.allbinary.game.part.weapon;
 
 import org.allbinary.game.combat.weapon.WeaponProperties;
-import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.RelativeRelationship;
 import org.allbinary.layer.AllBinaryLayer;
 
@@ -28,7 +27,7 @@ public class BasicWeaponPartCircularPool
     private BasicWeaponPart basicWeaponPart;
 
    public void init(
-           BasicWeaponPartFactoryInterface basicWeaponPartFactoryInterface)
+           final BasicWeaponPartFactoryInterface basicWeaponPartFactoryInterface)
            throws Exception {
        basicWeaponPart = basicWeaponPartFactoryInterface.getInstance();
        /*
@@ -40,17 +39,15 @@ public class BasicWeaponPartCircularPool
    }
 
    public synchronized BasicWeaponPart getInstance(
-           AllBinaryLayer sourceLayerInterface,
-           WeaponProperties weaponProperties, 
-           ScoreableInterface scoreableInterface, 
-           RelativeRelationship relativeRelationship
+           final AllBinaryLayer sourceLayerInterface,
+           final WeaponProperties weaponProperties, 
+           final RelativeRelationship relativeRelationship
            )
            throws Exception {
 
       //BasicWeaponPart basicWeaponPart = (BasicWeaponPart) VECTOR_GRAPHIC_ARRAY[this.circularIndexUtil.getIndex()];
 
-      basicWeaponPart.init(sourceLayerInterface, weaponProperties, 
-              scoreableInterface, relativeRelationship);
+      basicWeaponPart.init(sourceLayerInterface, weaponProperties, relativeRelationship);
 
       //this.circularIndexUtil.next();
 

@@ -15,12 +15,9 @@ package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.color.BasicColor;
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class SimpleGeographicMap
 {
-    public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(20);
-
     private final Integer id;
     private final String name;
 

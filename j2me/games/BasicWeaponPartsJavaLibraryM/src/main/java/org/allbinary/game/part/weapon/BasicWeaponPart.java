@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.part.PartInterface;
 import org.allbinary.game.score.ScoreableInterface;
 import org.allbinary.graphics.RelativeRelationship;
@@ -34,46 +35,42 @@ public class BasicWeaponPart
 
    private WeaponProperties weaponProperties;
 
-   private ScoreableInterface scoreableInterface;
-
    protected RelativeRelationship relativeRelationship;
 
-   public BasicWeaponPart(Animation animationInterface) {
+   public BasicWeaponPart(final Animation animationInterface) {
       this.setAnimationInterface(animationInterface);
    }
 
    public BasicWeaponPart(
-           Animation animationInterface, 
-           AllBinaryLayer sourceLayerInterface, 
-           WeaponProperties weaponProperties, 
-           ScoreableInterface scoreableInterface, 
-           RelativeRelationship relativeRelationship)
+           final Animation animationInterface, 
+           final AllBinaryLayer sourceLayerInterface, 
+           final WeaponProperties weaponProperties, 
+           final RelativeRelationship relativeRelationship)
    {
-      this.init(sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+      this.init(sourceLayerInterface, weaponProperties, relativeRelationship);
       this.setAnimationInterface(animationInterface);
    }
    
-   public void init(AllBinaryLayer sourceLayerInterface, 
-           WeaponProperties weaponProperties, 
-           ScoreableInterface scoreableInterface, 
+   public void init(final AllBinaryLayer sourceLayerInterface, 
+           final WeaponProperties weaponProperties, 
            RelativeRelationship relativeRelationship) 
    {
 
       this.setOwnerLayerInterface(sourceLayerInterface);
       
-        this.setWeaponProperties(weaponProperties);
-      
-      this.scoreableInterface = scoreableInterface;
+      this.setWeaponProperties(weaponProperties);
             
       this.relativeRelationship = relativeRelationship;
    }
    
-   public void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle)
+   public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle)
            throws Exception {
-      this.process(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), this.scoreableInterface);
+
+       final ScoreableInterface scoreableInterface = (ScoreableInterface) ((AllBinaryGameLayerManager) allbinaryLayerManager).getPlayerGameInputCompositeInterface();
+       this.process(allbinaryLayerManager, angle, otherAngle, this.getWeaponProperties(), scoreableInterface);
    }
 
-   public void process(AllBinaryLayerManager allbinaryLayerManager, short angle, short otherAngle, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
+   public void process(final AllBinaryLayerManager allbinaryLayerManager, final short angle, final short otherAngle, final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {
       throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
    }
@@ -82,7 +79,7 @@ public class BasicWeaponPart
       return ownerLayerInterface;
    }
 
-   public void setOwnerLayerInterface(AllBinaryLayer ownerLayerInterface) {
+   public void setOwnerLayerInterface(final AllBinaryLayer ownerLayerInterface) {
       this.ownerLayerInterface = ownerLayerInterface;
    }
    
@@ -90,21 +87,21 @@ public class BasicWeaponPart
       return animationInterface;
    }
 
-   public void setAnimationInterface(Animation animationInterface) {
+   public void setAnimationInterface(final Animation animationInterface) {
       this.animationInterface = animationInterface;
    }
    
-   public void paint(Graphics graphics) {
+   public void paint(final Graphics graphics) {
       
-       ViewPosition viewPosition =  this.getOwnerLayerInterface().getViewPosition();
-       int viewX = viewPosition.getX();
-       int viewY = viewPosition.getY();
+       final ViewPosition viewPosition =  this.getOwnerLayerInterface().getViewPosition();
+       final int viewX = viewPosition.getX();
+       final int viewY = viewPosition.getY();
       
        this.animationInterface.paint(graphics, viewX, viewY);
          //this.relativeRelationship.getX(), this.relativeRelationship.getY());
    }
 
-   public void paintThreed(Graphics graphics)
+   public void paintThreed(final Graphics graphics)
    {
    }
 
@@ -119,7 +116,7 @@ public class BasicWeaponPart
     /**
      * @param weaponProperties the weaponProperties to set
      */
-    public void setWeaponProperties(WeaponProperties weaponProperties)
+    public void setWeaponProperties(final WeaponProperties weaponProperties)
     {
         this.weaponProperties = weaponProperties;
     }

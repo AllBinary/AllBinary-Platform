@@ -15,6 +15,7 @@ package org.allbinary.game.part.weapon;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
+import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.game.layer.weapon.WeaponLayer;
 import org.allbinary.game.layer.weapon.WeaponLayerCircularPool;
 import org.allbinary.game.score.ScoreableInterface;
@@ -40,13 +41,11 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
            AllBinaryLayer sourceLayerInterface, 
            WeaponLayerCircularPool weaponLayerCircularStaticPool,
            WeaponProperties weaponProperties,  
-           ScoreableInterface scoreableInterface, 
            RelativeRelationship relativeRelationship) 
    {
       super(animationInterface, 
               sourceLayerInterface, 
               weaponProperties, 
-              scoreableInterface, 
               relativeRelationship
               );
 
@@ -59,7 +58,7 @@ public class BasicProjectileWeaponPart extends BasicWeaponPart
            ScoreableInterface scoreableInterface)
            throws Exception 
    {
-      WeaponLayer weaponLayer =
+      final WeaponLayer weaponLayer =
               weaponLayerCircularStaticPool.getInstance(
               this.getOwnerLayerInterface(), 
               this.relativeRelationship.getX(), 

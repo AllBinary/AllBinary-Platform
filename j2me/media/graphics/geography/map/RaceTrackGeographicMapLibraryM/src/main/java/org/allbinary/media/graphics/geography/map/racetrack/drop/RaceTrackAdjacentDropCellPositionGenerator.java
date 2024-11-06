@@ -31,7 +31,6 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapDirectionUtil;
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionGeneratorInterface;
 import org.allbinary.media.graphics.geography.map.drop.DropCellPositionHistory;
-import org.allbinary.media.graphics.geography.map.racetrack.BaseRaceTrackGeographicMap;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellTypeFactory;
 
@@ -59,7 +58,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
     private GeographicMapCellPosition[] surroundingCellPositions = new GeographicMapCellPosition[4];
 
     private GeographicMapCellPosition getFirstNonRoadAdjacentCellPosition(
-        int column, int row) throws Exception
+        final int column, final int row) throws Exception
     {
         GeographicMapCellPosition nonRoadGeographicMapCellPosition = null;
 
@@ -67,7 +66,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
         // this.raceTrackGeographicMap.getAllBinaryTiledLayer();
         //tiledLayer.getRows()
 
-        BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
+        final BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory =
             this.raceTrackGeographicMap.getGeographicMapCellPositionFactory();
 
         surroundingCellPositions[0] =
@@ -129,22 +128,20 @@ public class RaceTrackAdjacentDropCellPositionGenerator
     }
     private final Hashtable hashtable = new Hashtable();
 
-    public void update(AllBinaryGameLayerManager allBinaryGameLayerManager,
-            BasicGeographicMap geographicMapInterface) throws Exception
+    public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,
+            final BasicGeographicMap geographicMapInterface) throws Exception
     {
-        hashtable.put(AllBinaryGameLayerManager.ID, 
-                allBinaryGameLayerManager);
-        hashtable.put(BaseRaceTrackGeographicMap.ID, geographicMapInterface);
-
+        hashtable.put(AllBinaryGameLayerManager.ID, allBinaryGameLayerManager);
+        
         super.update(allBinaryGameLayerManager, geographicMapInterface);
     }
 
     private final GeographicMapDirectionUtil geographicMapDirectionUtil = GeographicMapDirectionUtil.getInstance();
     
-    protected void drop(AllBinaryLayerManager allBinaryLayerManager, int index)
+    protected void drop(final AllBinaryLayerManager allBinaryLayerManager, final int index)
         throws Exception
     {
-        GeographicMapCellPosition geographicMapCellPosition =
+        final GeographicMapCellPosition geographicMapCellPosition =
             (GeographicMapCellPosition) this.list.get(index);
 
         //StringMaker stringBuffer = new StringMaker();
@@ -160,7 +157,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
         //PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
         //LogUtil.put(, this, "drop"));
 
-        GeographicMapCellPosition randomGeographicMapCellPosition =
+        final GeographicMapCellPosition randomGeographicMapCellPosition =
             this.getFirstNonRoadAdjacentCellPosition(
             geographicMapCellPosition.getColumn(),
             geographicMapCellPosition.getRow());
@@ -174,7 +171,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
         
         if (!dropCellPositionHistory.isCellPositionWithDrop(geographicMapCellPosition))
         {
-            Direction direction =
+            final Direction direction =
                 geographicMapDirectionUtil.getDirectionFromCellPositionToAdjacentCellPosition(
                 randomGeographicMapCellPosition,
                 geographicMapCellPosition);
@@ -192,18 +189,18 @@ public class RaceTrackAdjacentDropCellPositionGenerator
 
             hashtable.put(DirectionFactory.getInstance().NAME, direction);
 
-            GPoint point = randomGeographicMapCellPosition.getPoint();
-            int x = point.getX();
-            int y = point.getY();
-            int z = point.getZ();
+            final GPoint point = randomGeographicMapCellPosition.getPoint();
+            final int x = point.getX();
+            final int y = point.getY();
+            final int z = point.getZ();
 
             //LogUtil.put(LogFactory.getInstance("Dropping: " + randomGeographicMapCellPosition.toString() + " = " + randomGeographicMapCellPosition.getPoint(), this, "drop"));
 
-            AllBinaryLayer layerInterface =
+            final AllBinaryLayer layerInterface =
                 RaceTrackAdjacentDropLayerFactory.getInstance().getRandomInstance().getInstance(
                 hashtable, x, y, z);
 
-            BasicArrayList list = LayerCoveringCellPositionsUtil.getAll(
+            final BasicArrayList list = LayerCoveringCellPositionsUtil.getAll(
                 this.raceTrackGeographicMap,
                 randomGeographicMapCellPosition, layerInterface,
                 new BasicArrayList());

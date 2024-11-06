@@ -25,22 +25,22 @@ import org.allbinary.math.AngleFactory;
 
 public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
 
-   private WeaponLayerCircularPool weaponLayerCircularStaticPool;
-   private int total;
+   private final WeaponLayerCircularPool weaponLayerCircularStaticPool;
+   private final int total;
 
-   public ArcedMultiBeamWeaponPart(Animation animationInterface,
-      WeaponLayerCircularPool weaponLayerCircularStaticPool) {
+   public ArcedMultiBeamWeaponPart(final Animation animationInterface,
+      final WeaponLayerCircularPool weaponLayerCircularStaticPool) {
       super(animationInterface);
       this.total = 2;
       this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
    }
 
    public ArcedMultiBeamWeaponPart(
-      Animation animationInterface,
-      AllBinaryLayer sourceLayerInterface, 
-           WeaponLayerCircularPool weaponLayerCircularStaticPool,
-           int total, WeaponProperties weaponProperties, ScoreableInterface scoreableInterface, RelativeRelationship relativeRelationship) {
-      super(animationInterface, sourceLayerInterface, weaponProperties, scoreableInterface, relativeRelationship);
+      final Animation animationInterface,
+      final AllBinaryLayer sourceLayerInterface, 
+           final WeaponLayerCircularPool weaponLayerCircularStaticPool,
+           final int total, final WeaponProperties weaponProperties, final RelativeRelationship relativeRelationship) {
+      super(animationInterface, sourceLayerInterface, weaponProperties, relativeRelationship);
 
       this.total = total;
       this.weaponLayerCircularStaticPool = weaponLayerCircularStaticPool;
@@ -48,23 +48,24 @@ public class ArcedMultiBeamWeaponPart extends BasicWeaponPart {
 
    private final int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
    
-   public void process(AllBinaryLayerManager allbinaryLayerManager,
-           short angle, short otherAngle, 
-           WeaponProperties weaponProperties, ScoreableInterface scoreableInterface)
+   public void process(final AllBinaryLayerManager allbinaryLayerManager,
+           final short angle, final short otherAngle, 
+           final WeaponProperties weaponProperties, final ScoreableInterface scoreableInterface)
            throws Exception {
       //WeaponLayer[] weaponLayerArray = WeaponLayerArrayLayerCircularStaticPool.getInstance(total);
 
-      short increment = (short) (
+      final short increment = (short) (
               (this.total - 1) / TOTAL_ANGLE
               );
-      short minAngle = (short) (
+      final short minAngle = (short) (
               angle - ((increment * total) >> 1)
               );
       
       int next = 0;
+      WeaponLayer weaponLayer;
       for (int index = 0; index < total; index++) {
 
-         WeaponLayer weaponLayer =
+         weaponLayer =
                  weaponLayerCircularStaticPool.getInstance(
                  this.getOwnerLayerInterface(), 
                  this.relativeRelationship.getX(), 
