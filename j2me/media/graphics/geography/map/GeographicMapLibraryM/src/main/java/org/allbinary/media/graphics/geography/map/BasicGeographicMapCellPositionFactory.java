@@ -67,7 +67,7 @@ public class BasicGeographicMapCellPositionFactory
     }
 
     public void visit(
-        GeographicMapCelPositionFactoryInitVisitorInterface geographicMapCelPositionFactoryInitVisitorInterface)
+        GeographicMapCellPositionFactoryInitVisitorInterface geographicMapCelPositionFactoryInitVisitorInterface)
         throws Exception
     {
         AllBinaryTiledLayer tiledLayer = this.tiledLayer;

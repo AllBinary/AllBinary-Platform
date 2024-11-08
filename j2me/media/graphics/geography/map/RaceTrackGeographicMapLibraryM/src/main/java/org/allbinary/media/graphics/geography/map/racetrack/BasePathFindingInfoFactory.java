@@ -18,11 +18,11 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
-import org.allbinary.media.graphics.geography.map.GeographicMapCelPositionFactoryInitVisitorInterface;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNode;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellPositionFactoryInitVisitorInterface;
 
 /**
  *
@@ -40,7 +40,7 @@ public class BasePathFindingInfoFactory {
         //LogUtil.put(LogFactory.getInstance("Map Info: \n").append(ArrayUtil.toString(mapArray), this, CommonStrings.getInstance().INIT));
 
         class RaceTrackGeographicMapCellPositionFactoryInitVisitor implements
-           GeographicMapCelPositionFactoryInitVisitorInterface
+           GeographicMapCellPositionFactoryInitVisitorInterface
         {
 
             private int startLineId;

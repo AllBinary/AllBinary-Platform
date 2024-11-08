@@ -19,7 +19,7 @@ import org.allbinary.game.layer.AllBinaryTiledLayer;
  *
  * @author user
  */
-public interface GeographicMapCelPositionFactoryInitVisitorInterface {
+public interface GeographicMapCellPositionFactoryInitVisitorInterface {
 
    void visit(AllBinaryTiledLayer tiledLayer, GeographicMapCellPosition cellPosition)
            throws Exception;
