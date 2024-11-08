@@ -20,6 +20,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
+import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
 
@@ -40,8 +41,9 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
     private BasicTopViewGeographicMapCellTypeFactory() {
 
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-        new GeographicMapCellType(0);
-        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(1);
+        //new GeographicMapCellType(0);
+        new RaceTrackGeographicMapCellType(0, 999);
+        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(1, 1);
         BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
@@ -64,8 +66,9 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
-        new GeographicMapCellType(0);
-        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(1);
+        //new GeographicMapCellType(0);
+        new RaceTrackGeographicMapCellType(0, 999);
+        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(1, 1);
         BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
@@ -99,21 +102,27 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 
-            basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList);
             if(key.equals(WALL)) {
                 //LogUtil.put(LogFactory.getInstance(idsWithTypeList.toString(), this, commonStrings.INIT));
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1000);
                 BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
             } else if(key.equals(OFF_MAP)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1001);
                 OFF_MAP_CELL_TYPE = basicPlatormGeographicMapCellType;
             } else if(key.equals(FLOOR)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
                 FLOOR_CELL_TYPE = basicPlatormGeographicMapCellType;
             } else if(key.equals(DOOR)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
                 DOOR_CELL_TYPE = basicPlatormGeographicMapCellType;
             } else if(key.equals(STAIRS_UP)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
                 STAIRS_UP_CELL_TYPE = basicPlatormGeographicMapCellType;
             } else if(key.equals(STAIRS_DOWN)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
                 STAIRS_DOWN_CELL_TYPE = basicPlatormGeographicMapCellType;
             } else if(key.equals(OTHER)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
                 OTHER_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
 
