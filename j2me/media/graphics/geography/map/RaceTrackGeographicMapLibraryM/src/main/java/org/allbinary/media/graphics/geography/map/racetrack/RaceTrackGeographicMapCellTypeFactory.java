@@ -76,7 +76,7 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
         return this.EMPTY_CELL_TYPE.getType();
     }
 
-    public boolean isRoad(GeographicMapCellType cellType)
+    public boolean isPath(final GeographicMapCellType cellType)
     {
         // if(i_TileType == ROAD_CELL_TYPE_1 ||
         // i_TileType == FINISH_LINE_ROAD_CELL_TYPE)

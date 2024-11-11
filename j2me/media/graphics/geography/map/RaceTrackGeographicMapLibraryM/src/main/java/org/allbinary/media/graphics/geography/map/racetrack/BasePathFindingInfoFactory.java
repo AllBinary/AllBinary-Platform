@@ -110,7 +110,7 @@ public class BasePathFindingInfoFactory {
                 
                 // Use the singleton history to verifiy the
                 // PathFinder/PathFactory results
-                if (raceTrackGeographicMapCellTypeFactory.isRoad(geographicMapCellTypeFactory.getInstance(geographicCellType)))
+                if (raceTrackGeographicMapCellTypeFactory.isPath(geographicMapCellTypeFactory.getInstance(geographicCellType)))
                 {
                     RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance().track(cellPosition);
                 }

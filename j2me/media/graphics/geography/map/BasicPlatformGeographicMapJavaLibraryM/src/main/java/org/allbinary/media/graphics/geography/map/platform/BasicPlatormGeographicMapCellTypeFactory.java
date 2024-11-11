@@ -89,5 +89,12 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
     public int getEmptyType() {
         return 0;
     }
+ 
+    public boolean isPath(final GeographicMapCellType cellType) {
+        if(cellType.getType() == 0) {
+            return true;
+        }
+        return false;
+    }
     
 }

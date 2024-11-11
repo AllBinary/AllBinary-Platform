@@ -110,7 +110,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
             raceTrackGeographicMapCellType = (RaceTrackGeographicMapCellType) 
                 raceTrackGeographicMap.getCellTypeAt(geographicMapCellPosition);
 
-            if (!raceTrackGeographicMapCellTypeFactory.isRoad(raceTrackGeographicMapCellType))
+            if (!raceTrackGeographicMapCellTypeFactory.isPath(raceTrackGeographicMapCellType))
             {
                 nonRoadGeographicMapCellPosition = geographicMapCellPosition;
                 break;
@@ -219,7 +219,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
                     this.raceTrackGeographicMap.getCellTypeAt(
                     (GeographicMapCellPosition) list.get(index2));
 
-                if (raceTrackGeographicMapCellTypeFactory.isRoad(geographicMapCellType))
+                if (raceTrackGeographicMapCellTypeFactory.isPath(geographicMapCellType))
                 {
                     //PreLogUtil.put("Can't Drop On a Road", this, METHOD_NAME);
                     return;

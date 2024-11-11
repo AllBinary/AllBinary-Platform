@@ -18,6 +18,7 @@ import java.util.Hashtable;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.util.BasicArrayList;
@@ -148,5 +149,12 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
     public int getEmptyType() {
         return this.FLOOR_CELL_TYPE.getTypes()[0];
     }
-        
+
+    public boolean isPath(GeographicMapCellType cellType) {
+        if(this.FLOOR_CELL_TYPE.isType(cellType)) {
+            return true;
+        }
+        return false;
+    }
+    
 }

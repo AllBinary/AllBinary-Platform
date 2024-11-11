@@ -56,4 +56,8 @@ public class GeographicMapCellTypeFactory
         throw new RuntimeException();
     }
 
+    public boolean isPath(GeographicMapCellType cellType) {
+        throw new RuntimeException();
+    }
+
 }
