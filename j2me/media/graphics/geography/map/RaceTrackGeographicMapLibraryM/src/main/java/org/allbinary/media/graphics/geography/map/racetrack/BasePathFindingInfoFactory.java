@@ -102,8 +102,8 @@ public class BasePathFindingInfoFactory {
                     }
                 }
 
-                final RaceTrackGeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
-                    (RaceTrackGeographicMapCellTypeFactory) geographicMapInterface.getGeographicMapCellTypeFactory();
+                final GeographicMapCellTypeFactory raceTrackGeographicMapCellTypeFactory = 
+                    geographicMapInterface.getGeographicMapCellTypeFactory();
                 
                 final GeographicMapCellTypeFactory geographicMapCellTypeFactory = 
                     GeographicMapCellTypeFactory.getInstance();
