@@ -138,4 +138,8 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
     }
     
+    public int getEmptyType() {
+        return this.FLOOR_CELL_TYPE.getTypes()[0];
+    }
+        
 }

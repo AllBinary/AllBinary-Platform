@@ -15,6 +15,7 @@ package org.allbinary.media.graphics.geography.map.platform;
 
 import java.util.Enumeration;
 import java.util.Hashtable;
+
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -75,6 +76,10 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         this.BLOCK_CELL_TYPE = BLOCK_CELL_TYPE;
         this.JUMP_THRU_CELL_TYPE = JUMP_THRU_CELL_TYPE;
         this.LADDER_CELL_TYPE = LADDER_CELL_TYPE;
+    }
+    
+    public int getEmptyType() {
+        return 0;
     }
     
 }

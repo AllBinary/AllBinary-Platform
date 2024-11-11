@@ -64,6 +64,10 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
                 8, 1);
     }
 
+    public int getEmptyType() {
+        return this.EMPTY_CELL_TYPE.getType();
+    }
+
     public boolean isRoad(GeographicMapCellType cellType)
     {
         // if(i_TileType == ROAD_CELL_TYPE_1 ||

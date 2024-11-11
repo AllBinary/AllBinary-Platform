@@ -101,6 +101,10 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
         return false;
     }
     
+    public int[] getTypes() {
+        return this.types;
+    }
+    
     public String toString() {
         final StringMaker stringMaker = new StringMaker();
 
