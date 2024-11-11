@@ -13,6 +13,7 @@
  */
 package org.allbinary.media.graphics.geography.pathfinding;
 
+import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 /**
@@ -34,8 +35,9 @@ public class BasePathFindingNodeCostInfoFactory
     }
 
     public int getTotalCost(
+        final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition comingFromGeographicMapCellPosition,
-        final GeographicMapCellPosition geographicMapCellPosition) {
+        final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
         throw new RuntimeException();
     }
 
