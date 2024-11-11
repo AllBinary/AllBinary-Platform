@@ -38,8 +38,12 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
     public final BasicTopViewGeographicMapCellType STAIRS_DOWN_CELL_TYPE;
     public final BasicTopViewGeographicMapCellType OTHER_CELL_TYPE;
 
+    private final int maxTileId;
+    
     private BasicTopViewGeographicMapCellTypeFactory() {
 
+        this.maxTileId = 9;
+        
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         //new GeographicMapCellType(0);
         new RaceTrackGeographicMapCellType(0, 999);
@@ -61,9 +65,11 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
     }
     
-    public BasicTopViewGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap) {
+    public BasicTopViewGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
+
+        this.maxTileId = maxTileId;
 
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         //new GeographicMapCellType(0);
@@ -136,14 +142,16 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         this.STAIRS_DOWN_CELL_TYPE = STAIRS_DOWN_CELL_TYPE;
         this.OTHER_CELL_TYPE = OTHER_CELL_TYPE;
         
+        new RaceTrackGeographicMapCellType(this.maxTileId - 1, 1);
+        new RaceTrackGeographicMapCellType(this.maxTileId - 2, 1);
     }
     
     public int getStartType() {
-        return Integer.MAX_VALUE - 7; //7
+        return this.maxTileId - 1; //7
     }
 
     public int getEndType() {
-        return Integer.MAX_VALUE - 8; //8
+        return this.maxTileId - 2; //8
     }
     
     public int getEmptyType() {

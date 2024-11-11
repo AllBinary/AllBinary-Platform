@@ -33,10 +33,14 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
     public final BasicPlatormGeographicMapCellType JUMP_THRU_CELL_TYPE;
     public final BasicPlatormGeographicMapCellType LADDER_CELL_TYPE;
 
-    public BasicPlatormGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap) {
+    private final int maxTileId;
+    
+    public BasicPlatormGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
+        this.maxTileId = maxTileId;
+        
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         new GeographicMapCellType(0);
         //new GeographicMapCellType(1);
@@ -76,14 +80,18 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         this.BLOCK_CELL_TYPE = BLOCK_CELL_TYPE;
         this.JUMP_THRU_CELL_TYPE = JUMP_THRU_CELL_TYPE;
         this.LADDER_CELL_TYPE = LADDER_CELL_TYPE;
+        
+        new GeographicMapCellType(this.maxTileId - 1);
+        new GeographicMapCellType(this.maxTileId - 2);
+        
     }
 
     public int getStartType() {
-        return Integer.MAX_VALUE - 7; //7
+        return this.maxTileId - 1; //7
     }
 
     public int getEndType() {
-        return Integer.MAX_VALUE - 8; //8
+        return this.maxTileId - 2; //8
     }
         
     public int getEmptyType() {

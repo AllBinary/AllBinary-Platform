@@ -26,7 +26,7 @@ public class GeographicMapCellTypeFactory
         return instance;
     }
 
-    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[300];
+    private final GeographicMapCellType[] geographicMapCellTypeArray = new GeographicMapCellType[512];  //512 should be the max tileid
         
     public GeographicMapCellType getInstance(int type)
     {
