@@ -77,7 +77,15 @@ public class BasicPlatormGeographicMapCellTypeFactory extends GeographicMapCellT
         this.JUMP_THRU_CELL_TYPE = JUMP_THRU_CELL_TYPE;
         this.LADDER_CELL_TYPE = LADDER_CELL_TYPE;
     }
-    
+
+    public int getStartType() {
+        return Integer.MAX_VALUE - 7; //7
+    }
+
+    public int getEndType() {
+        return Integer.MAX_VALUE - 8; //8
+    }
+        
     public int getEmptyType() {
         return 0;
     }

@@ -44,6 +44,14 @@ public class GeographicMapCellTypeFactory
         return geographicMapCellTypeArray;
     }
 
+    public int getStartType() {
+        throw new RuntimeException();
+    }
+
+    public int getEndType() {
+        throw new RuntimeException();
+    }
+    
     public int getEmptyType() {
         throw new RuntimeException();
     }

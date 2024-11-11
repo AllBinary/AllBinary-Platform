@@ -64,6 +64,14 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
                 8, 1);
     }
 
+    public int getStartType() {
+        return this.START_LINE_ROAD_CELL_TYPE.getType();
+    }
+
+    public int getEndType() {
+        return this.FINISH_LINE_ROAD_CELL_TYPE.getType();
+    }
+        
     public int getEmptyType() {
         return this.EMPTY_CELL_TYPE.getType();
     }

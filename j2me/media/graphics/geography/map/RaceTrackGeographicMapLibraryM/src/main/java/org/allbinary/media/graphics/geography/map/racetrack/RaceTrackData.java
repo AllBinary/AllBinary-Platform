@@ -33,10 +33,10 @@ public class RaceTrackData
 
     public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight)
     {
-        this(id, cellWidth, cellHeight, miniCellWidth, miniCellHeight, null);
+        this(id, cellWidth, cellHeight, miniCellWidth, miniCellHeight, null, null);
     }
 
-    public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight, final int[][] mapArray)
+    public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight, final int[] cellTypeIdToGeographicMapCellTypeArray, final int[][] mapArray)
     {
         this.id = id;
 
@@ -47,7 +47,7 @@ public class RaceTrackData
         this.miniCellHeight = miniCellHeight;
 
         this.mapArray = mapArray;
-        //this.setCellTypeIdToGeographicMapCellTypeArray(cellTypeIdToGeographicMapCellTypeArray);
+        this.cellTypeIdToGeographicMapCellTypeArray = cellTypeIdToGeographicMapCellTypeArray;
         
     }
     
