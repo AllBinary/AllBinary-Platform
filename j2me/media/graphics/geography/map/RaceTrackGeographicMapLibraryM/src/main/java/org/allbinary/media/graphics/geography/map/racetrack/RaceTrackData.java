@@ -31,19 +31,26 @@ public class RaceTrackData
     private CellPosition[] overPassGeographicMapCellPositionArray = NO_OVER_PASSES_ARRAY;
     private Integer id;
 
-    public RaceTrackData(Integer id, int cellWidth, int cellHeight, int miniCellWidth, int miniCellHeight)
+    public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight)
     {
-        //this.setMapArray(mapArray);
-        //this.setCellTypeIdToGeographicMapCellTypeArray(cellTypeIdToGeographicMapCellTypeArray);
-
-        this.setId(id);
-        this.setCellWidth(cellWidth);
-        this.setCellHeight(cellHeight);
-
-        this.setMiniCellWidth(miniCellWidth);
-        this.setMiniCellHeight(miniCellHeight);
+        this(id, cellWidth, cellHeight, miniCellWidth, miniCellHeight, null);
     }
 
+    public RaceTrackData(final Integer id, final int cellWidth, final int cellHeight, final int miniCellWidth, final int miniCellHeight, final int[][] mapArray)
+    {
+        this.id = id;
+
+        this.cellWidth = cellWidth;
+        this.cellHeight = cellHeight;
+
+        this.miniCellWidth = miniCellWidth;
+        this.miniCellHeight = miniCellHeight;
+
+        this.mapArray = mapArray;
+        //this.setCellTypeIdToGeographicMapCellTypeArray(cellTypeIdToGeographicMapCellTypeArray);
+        
+    }
+    
     protected void setMapArray(int[][] mapArray)
     {
         //LogUtil.put(LogFactory.getInstance("Set Map Array: Rows: " + mapArray.length + "Cols:  " + mapArray[0].length, this, "setMapArray"));
