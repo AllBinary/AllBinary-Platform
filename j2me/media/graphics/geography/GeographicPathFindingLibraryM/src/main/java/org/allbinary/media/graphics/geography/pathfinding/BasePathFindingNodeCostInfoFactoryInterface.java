@@ -18,15 +18,15 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 public interface BasePathFindingNodeCostInfoFactoryInterface
 {
    public void create(
-      GeographicMapCellPosition comingFromGeographicMapCellPosition,
+      final GeographicMapCellPosition comingFromGeographicMapCellPosition,
       //GeographicMapCellPosition startGeographicMapCellPosition, 
       //GeographicMapCellPosition endGeographicMapCellPosition, 
-      GeographicMapCellPosition geographicMapCellPosition, 
-      int costFromStart,
-      int costToEnd)
+      final GeographicMapCellPosition geographicMapCellPosition, 
+      final int costFromStart,
+      final int costToEnd)
       throws Exception;
 
    public int getTotalCost(
-      GeographicMapCellPosition comingFromGeographicMapCellPosition,
-      GeographicMapCellPosition geographicMapCellPosition);
+      final GeographicMapCellPosition comingFromGeographicMapCellPosition,
+      final GeographicMapCellPosition geographicMapCellPosition);
 }

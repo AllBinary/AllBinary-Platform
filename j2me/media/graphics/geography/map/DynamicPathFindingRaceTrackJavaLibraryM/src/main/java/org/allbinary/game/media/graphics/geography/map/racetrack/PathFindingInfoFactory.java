@@ -25,7 +25,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.BasePathFindingInfoFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
-import org.allbinary.media.graphics.geography.pathfinding.BasePathFindingNodeCostInfoFactoryInterface;
+import org.allbinary.media.graphics.geography.pathfinding.BasePathFindingNodeCostInfoFactory;
 import org.allbinary.media.graphics.geography.pathfinding.BasicGeographicMapGraph;
 import org.allbinary.media.graphics.geography.pathfinding.BasicGeographicMapPathFinder;
 import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryInterface;
@@ -155,7 +155,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final AllBinaryTiledLayer allBinaryTiledLayer =
             geographicMapInterface.getAllBinaryTiledLayer();
 
-        final BasePathFindingNodeCostInfoFactoryInterface pathFindingNodeCostInfoFactoryInterface =
+        final BasePathFindingNodeCostInfoFactory pathFindingNodeCostInfoFactoryInterface =
            pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface();
         //if (raceGameGeographicMapCellType != RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE)
         //{

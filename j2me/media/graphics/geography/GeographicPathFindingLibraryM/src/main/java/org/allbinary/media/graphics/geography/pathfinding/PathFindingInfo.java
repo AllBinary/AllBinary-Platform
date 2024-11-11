@@ -21,10 +21,10 @@ public class PathFindingInfo implements PathFindingInfoInterface
     private final BasicArrayList startPathFindingNodeList;
     private final BasicArrayList endPathFindingNodeList;
     
-    private final BasePathFindingNodeCostInfoFactoryInterface pathFindingNodeCostInfoFactoryInterface;
+    private final BasePathFindingNodeCostInfoFactory pathFindingNodeCostInfoFactoryInterface;
     
     public PathFindingInfo(
-            BasePathFindingNodeCostInfoFactoryInterface pathFindingNodeCostInfoFactoryInterface)
+            final BasePathFindingNodeCostInfoFactory pathFindingNodeCostInfoFactoryInterface)
     {
        this.pathFindingNodeCostInfoFactoryInterface =
            pathFindingNodeCostInfoFactoryInterface;
@@ -63,7 +63,7 @@ public class PathFindingInfo implements PathFindingInfoInterface
         this.pathFinder = pathFinder;
     }
 
-   public BasePathFindingNodeCostInfoFactoryInterface getPathFindingNodeCostInfoFactoryInterface()
+   public BasePathFindingNodeCostInfoFactory getPathFindingNodeCostInfoFactoryInterface()
    {
       return pathFindingNodeCostInfoFactoryInterface;
    }
