@@ -44,19 +44,21 @@ public class RaceTrackAdjacentDropCellPositionGenerator
     private static RaceTrackAdjacentDropCellPositionGenerator SINGLETON =
         new RaceTrackAdjacentDropCellPositionGenerator();
 
-    private RaceTrackAdjacentDropCellPositionGenerator()
-    {
-    }
-
     public static DropCellPositionGeneratorInterface getInstance()
     {
         return SINGLETON;
     }
 
+    private final LayerCoveringCellPositionsUtil layerCoveringCellPositionsUtil = LayerCoveringCellPositionsUtil.getInstance();
+    
     //protected final BasicArrayList list = new BasicArrayList();
     //private GeographicMapCellPosition[] surroundingCellPositions = new GeographicMapCellPosition[8];
     private GeographicMapCellPosition[] surroundingCellPositions = new GeographicMapCellPosition[4];
 
+    private RaceTrackAdjacentDropCellPositionGenerator()
+    {
+    }
+    
     private GeographicMapCellPosition getFirstNonRoadAdjacentCellPosition(
         final int column, final int row) throws Exception
     {
@@ -200,7 +202,7 @@ public class RaceTrackAdjacentDropCellPositionGenerator
                 RaceTrackAdjacentDropLayerFactory.getInstance().getRandomInstance().getInstance(
                 hashtable, x, y, z);
 
-            final BasicArrayList list = LayerCoveringCellPositionsUtil.getAll(
+            final BasicArrayList list = layerCoveringCellPositionsUtil.getAll(
                 this.raceTrackGeographicMap,
                 randomGeographicMapCellPosition, layerInterface,
                 new BasicArrayList());
