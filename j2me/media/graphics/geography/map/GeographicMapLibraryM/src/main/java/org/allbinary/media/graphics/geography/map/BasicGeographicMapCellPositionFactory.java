@@ -28,7 +28,7 @@ public class BasicGeographicMapCellPositionFactory
 
     private final AllBinaryTiledLayer tiledLayer;
     
-    protected BasicGeographicMapCellPositionFactory(BasicGeographicMap geographicMapInterface)
+    protected BasicGeographicMapCellPositionFactory(final BasicGeographicMap geographicMapInterface)
         throws Exception
     {
         this.geographicMapInterface = geographicMapInterface;
@@ -46,13 +46,13 @@ public class BasicGeographicMapCellPositionFactory
 
     private void init() throws Exception
     {
-        AllBinaryTiledLayer tiledLayer = this.tiledLayer;
+        final AllBinaryTiledLayer tiledLayer = this.tiledLayer;
 
-        int columns = this.getColumns();
-        int rows = this.getRows();
+        final int columns = this.getColumns();
+        final int rows = this.getRows();
 
-        int width = tiledLayer.getCellWidth();
-        int height = tiledLayer.getCellHeight();
+        final int width = tiledLayer.getCellWidth();
+        final int height = tiledLayer.getCellHeight();
 
         for (int column = 0; column < columns; column++)
         {
@@ -67,26 +67,27 @@ public class BasicGeographicMapCellPositionFactory
     }
 
     public void visit(
-        GeographicMapCellPositionFactoryInitVisitorInterface geographicMapCelPositionFactoryInitVisitorInterface)
+        final GeographicMapCellPositionFactoryInitVisitorInterface geographicMapCelPositionFactoryInitVisitorInterface)
         throws Exception
     {
-        AllBinaryTiledLayer tiledLayer = this.tiledLayer;
+        final AllBinaryTiledLayer tiledLayer = this.tiledLayer;
 
-        int columns = this.getColumns();
-        int rows = this.getRows();
+        final int columns = this.getColumns();
+        final int rows = this.getRows();
 
         //int width = tiledLayer.getCellWidth();
         //int height = tiledLayer.getCellHeight();
         try
         {
             
+            GeographicMapCellPosition cellPosition;
         for (int column = 0; column < columns; column++)
         {
             // LogUtil.put(LogFactory.getInstance("Initializing Column: ").append(col, this, CommonStrings.getInstance().INIT));
             for (int row = 0; row < rows; row++)
             {
                 // LogUtil.put(LogFactory.getInstance("Initializing Row: ").append(row, this, CommonStrings.getInstance().INIT));
-                GeographicMapCellPosition cellPosition = this.getInstance(column, row);
+                cellPosition = this.getInstance(column, row);
                 geographicMapCelPositionFactoryInitVisitorInterface.visit(tiledLayer, cellPosition);
             }
         }
@@ -99,7 +100,7 @@ public class BasicGeographicMapCellPositionFactory
         }
     }
 
-    public GeographicMapCellPosition getInstance(int i_column, int i_row) throws Exception
+    public GeographicMapCellPosition getInstance(final int i_column, final int i_row) throws Exception
     {
         //final GeographicMapCellPosition cellPosition = geographicMapCellPositionArray[i_column][i_row];
 
@@ -133,13 +134,13 @@ public class BasicGeographicMapCellPositionFactory
     }
 
     public GeographicMapCellPosition getInstance(
-        GeographicMapCellPosition anotherMapGeographicMapCellPosition) throws Exception
+        final GeographicMapCellPosition anotherMapGeographicMapCellPosition) throws Exception
     {
         return this.getInstance(anotherMapGeographicMapCellPosition.getColumn(),
             anotherMapGeographicMapCellPosition.getRow());
     }
 
-    public GeographicMapCellPosition createInstance(int i_column, int i_row, int width, int height)
+    public GeographicMapCellPosition createInstance(final int i_column, final int i_row, final int width, final int height)
         throws Exception
     {
         // String cellPositionKey = GeographicMapCellPosition.toString(i_column, i_row);
