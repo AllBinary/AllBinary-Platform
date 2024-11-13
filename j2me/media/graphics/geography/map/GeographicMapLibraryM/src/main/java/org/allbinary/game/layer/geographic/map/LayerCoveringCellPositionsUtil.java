@@ -26,27 +26,38 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
  */
 public class LayerCoveringCellPositionsUtil {
 
-    public static final BasicArrayList getAll(
-            BasicGeographicMap geographicMapInterface,
-            AllBinaryLayer layerInterface,
-        BasicArrayList reusableList)
+    protected static final LayerCoveringCellPositionsUtil instance = new LayerCoveringCellPositionsUtil();
+
+    /**
+     * @return the instance
+     */
+    public static LayerCoveringCellPositionsUtil getInstance() {
+        return instance;
+    }
+    
+    private final CellPositionsUtil cellPositionsUtil = CellPositionsUtil.getInstance();
+    
+    public final BasicArrayList getAll(
+            final BasicGeographicMap geographicMapInterface,
+            final AllBinaryLayer layerInterface,
+        final BasicArrayList reusableList)
         throws Exception
     {
-        GeographicMapCellPosition topLeftGeographicMapCellPosition =
+        final GeographicMapCellPosition topLeftGeographicMapCellPosition =
             geographicMapInterface.getCellPositionAt(
             layerInterface.getX(), layerInterface.getY());
 
-        return LayerCoveringCellPositionsUtil.getAll(
+        return this.getAll(
             geographicMapInterface,
             topLeftGeographicMapCellPosition,
             layerInterface, reusableList);
     }
 
-    public static final BasicArrayList getAll(
-            BasicGeographicMap geographicMapInterface,
-        GeographicMapCellPosition topLeftGeographicMapCellPosition,
-        AllBinaryLayer layerInterface,
-        BasicArrayList reusableList)
+    public final BasicArrayList getAll(
+            final BasicGeographicMap geographicMapInterface,
+        final GeographicMapCellPosition topLeftGeographicMapCellPosition,
+        final AllBinaryLayer layerInterface,
+        final BasicArrayList reusableList)
         throws Exception
     {
         reusableList.clear();
@@ -62,7 +73,7 @@ public class LayerCoveringCellPositionsUtil {
         if(rows == 0)
             rows = 1;
 
-        return CellPositionsUtil.getInstance().getAll(
+        return cellPositionsUtil.getAll(
             geographicMapInterface,
             topLeftGeographicMapCellPosition,
             columns, rows, reusableList);
