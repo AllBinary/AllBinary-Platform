@@ -40,12 +40,12 @@ public class LayerCoveringCellPositionsUtil {
     public final BasicArrayList getAll(
             final BasicGeographicMap geographicMapInterface,
             final AllBinaryLayer layerInterface,
+            final int x, final int y,
         final BasicArrayList reusableList)
         throws Exception
     {
         final GeographicMapCellPosition topLeftGeographicMapCellPosition =
-            geographicMapInterface.getCellPositionAt(
-            layerInterface.getX(), layerInterface.getY());
+            geographicMapInterface.getCellPositionAt(x, y);
 
         return this.getAll(
             geographicMapInterface,
