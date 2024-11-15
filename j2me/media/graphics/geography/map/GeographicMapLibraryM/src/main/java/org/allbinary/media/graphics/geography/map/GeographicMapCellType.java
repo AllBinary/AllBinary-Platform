@@ -28,7 +28,13 @@ public class GeographicMapCellType
       this.type = type;
       if(type != Integer.MIN_VALUE) {
           //LogUtil.put(LogFactory.getInstance("type: " + Integer.toString(type), this, CommonStrings.getInstance().CONSTRUCTOR));
-          GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] = this;
+          final GeographicMapCellTypeFactory geographicMapCellTypeFactory = GeographicMapCellTypeFactory.getInstance();
+          final GeographicMapCellType[] geographicMapCellTypeArray = geographicMapCellTypeFactory.getGeographicMapCellTypeArray();
+          if(geographicMapCellTypeArray[type] == null) {
+              geographicMapCellTypeArray[type] = this;
+          } else {
+              throw new RuntimeException();
+          }
       }
    }
 

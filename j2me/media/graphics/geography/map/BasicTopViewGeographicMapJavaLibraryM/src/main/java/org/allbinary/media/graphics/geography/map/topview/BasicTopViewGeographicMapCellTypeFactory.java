@@ -80,7 +80,17 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         //new GeographicMapCellType(0);
-        new RaceTrackGeographicMapCellType(0, 999);
+        
+        final GeographicMapCellTypeFactory geographicMapCellTypeFactory = GeographicMapCellTypeFactory.getInstance();
+        final GeographicMapCellType[] geographicMapCellTypeArray = geographicMapCellTypeFactory.getGeographicMapCellTypeArray();
+        
+        int type = 0;
+        if(geographicMapCellTypeArray[type] == null) {
+            new RaceTrackGeographicMapCellType(type, 999);
+        } else {
+            LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+        }
+        
         BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
         BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
@@ -103,7 +113,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         for(int index = 0; index < size; index++) {
             key = (String) keyArray[index];
             
-            LogUtil.put(LogFactory.getInstance(key, this, commonStrings.INIT));
+            //LogUtil.put(LogFactory.getInstance(key, this, commonStrings.INIT));
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 
@@ -141,8 +151,20 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         this.STAIRS_DOWN_CELL_TYPE = STAIRS_DOWN_CELL_TYPE;
         this.OTHER_CELL_TYPE = OTHER_CELL_TYPE;
         
-        new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, this.maxTileId - 1, 1);
-        new RaceTrackGeographicMapCellType(CommonStrings.getInstance().END, this.maxTileId - 2, 1);
+        type = this.maxTileId - 1;
+        if(geographicMapCellTypeArray[type] == null) {
+            new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, type, 1);
+        } else {
+            LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+        }
+
+        type = this.maxTileId - 2;
+        if(geographicMapCellTypeArray[type] == null) {
+            new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, type, 1);
+        } else {
+            LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+        }
+        
     }
     
     public int getStartType() {

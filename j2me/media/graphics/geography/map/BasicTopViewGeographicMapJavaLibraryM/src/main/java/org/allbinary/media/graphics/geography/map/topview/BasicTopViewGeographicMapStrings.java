@@ -36,5 +36,6 @@ public class BasicTopViewGeographicMapStrings {
     public final String DOOR = "Door";
     public final String STAIRS_UP = "StairsUp";
     public final String STAIRS_DOWN = "StairsDown";
-
+    
+    public final String ALREADY_EXISTS = "GeographicMapCellType already exists: ";
 }
