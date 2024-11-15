@@ -22,6 +22,8 @@ public class CommonStrings
         return instance;
     }
 
+    public final String EMPTY = "Empty";
+    
     public final String PLEASE_WAIT = "Please Wait";
     public final String PLEASE_WAIT_FOR_SERVER = "Please Wait Getting Data From Server...";
     public final String PERIODS = "...";

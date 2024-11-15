@@ -23,6 +23,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 import org.allbinary.canvas.SpecialMessageUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class LogUtil
@@ -37,7 +38,7 @@ public class LogUtil
     }
 
     private static final StringMaker stringBuffer = new StringMaker();
-    private static final String EMPTY = "Empty";
+    
 
     public synchronized static void put(Log log)
     {
@@ -60,7 +61,7 @@ public class LogUtil
                 Object object = log.getObject();
                 String functionName = log.getFunctionName();
 
-                String className = EMPTY;
+                String className = CommonStrings.getInstance().EMPTY;
                 LogUtil.isFirstException = false;
                 
                 if (object != null && object.getClass().getName() != null)

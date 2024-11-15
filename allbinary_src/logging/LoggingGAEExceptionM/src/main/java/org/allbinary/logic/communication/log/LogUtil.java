@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import java.util.logging.Logger;
+import org.allbinary.logic.string.CommonStrings;
 
 public class LogUtil
 {
@@ -60,7 +61,7 @@ public class LogUtil
                 Object object = log.getObject();
                 String functionName = log.getFunctionName();
 
-                String className = EMPTY;
+                String className = CommonStrings.getInstance().EMPTY;
 
                 Class clazz = object.getClass();
                 if (clazz.getName() != null)
@@ -78,7 +79,7 @@ public class LogUtil
         {
         }
     }
-    private final static String EMPTY = "Empty";
+    
     //private final static String LOG_SUCCESS = "org.allbinary: ";
 
     /*

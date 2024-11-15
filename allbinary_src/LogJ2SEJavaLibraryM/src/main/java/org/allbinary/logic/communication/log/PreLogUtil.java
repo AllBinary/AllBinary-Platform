@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.string.CommonStrings;
+
 public class PreLogUtil
 {
     
@@ -52,7 +54,7 @@ public class PreLogUtil
         put(specialMessage, object, functionName, null);
     }
     
-    private static final String EMPTY = "Empty";
+    
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     public synchronized static void put(
@@ -61,7 +63,7 @@ public class PreLogUtil
         String functionName,
         Throwable exception)
     {
-        String className = EMPTY;
+        String className = CommonStrings.getInstance().EMPTY;
         
         if(object.getClass().getName() != null)
         {

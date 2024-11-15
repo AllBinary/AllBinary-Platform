@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFormatUtil;
+import org.allbinary.logic.string.CommonStrings;
 
 public class LogUtil
 {
@@ -52,14 +53,14 @@ public class LogUtil
    {
    }
    
-   private final static String EMPTY = "Empty";
+   
    private synchronized static void put(
       String specialMessage,
       Object object,
       String functionName,
       Throwable exception)
    {
-      String className = EMPTY;
+      String className = CommonStrings.getInstance().EMPTY;
       
       if(object.getClass().getName() != null)
       {

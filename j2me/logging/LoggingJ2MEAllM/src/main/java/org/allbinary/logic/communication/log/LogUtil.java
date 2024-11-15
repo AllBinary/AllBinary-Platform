@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class LogUtil
@@ -38,7 +39,7 @@ public class LogUtil
         Object object,
         String functionName)
     {
-        String className = EMPTY;
+        String className = CommonStrings.getInstance().EMPTY;
 
         if (object.getClass().getName() != null)
         {
@@ -51,7 +52,7 @@ public class LogUtil
         System.out.print(LOG_SUCCESS);
         System.out.println(message);
     }
-    private final static String EMPTY = "Empty";
+    
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     //TWB - Public or Private?
@@ -61,7 +62,7 @@ public class LogUtil
         String functionName,
         Throwable exception)
     {
-        String className = EMPTY;
+        String className = CommonStrings.getInstance().EMPTY;
 
         if (object.getClass().getName() != null)
         {

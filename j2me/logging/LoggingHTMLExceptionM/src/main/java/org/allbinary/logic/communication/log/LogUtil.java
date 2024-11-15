@@ -18,7 +18,7 @@ import playn.core.PlayN;
 
 public class LogUtil
 {
-    private final static String EMPTY = "Empty";
+    
     private final static String LOG_SUCCESS = "org.allbinary: ";
     
    private LogUtil()
@@ -45,7 +45,7 @@ public class LogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = EMPTY;
+            className = CommonStrings.getInstance().EMPTY;
         }
 
 //        String className = EMPTY;
@@ -73,7 +73,7 @@ public class LogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = EMPTY;
+            className = CommonStrings.getInstance().EMPTY;
         }
 
 //        String className = EMPTY;

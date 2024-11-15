@@ -50,6 +50,14 @@
         </dependency>
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>GameJ2MELibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+
+        </dependency>
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>BasePreloaderFileJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>

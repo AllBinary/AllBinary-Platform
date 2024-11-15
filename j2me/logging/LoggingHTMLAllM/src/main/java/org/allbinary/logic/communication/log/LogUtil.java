@@ -15,11 +15,12 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.communication.log.Log;
 import org.allbinary.logic.communication.log.LogFormatUtil;
+import org.allbinary.logic.string.CommonStrings;
 import playn.core.PlayN;
 
 public class LogUtil
 {
-    private final static String EMPTY = "Empty";
+    
     private final static String LOG_SUCCESS = "org.allbinary: ";
     
    private LogUtil()
@@ -44,7 +45,7 @@ public class LogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = EMPTY;
+            className = CommonStrings.getInstance().EMPTY;
         }
 
 //        String className = EMPTY;
@@ -72,7 +73,7 @@ public class LogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = EMPTY;
+            className = CommonStrings.getInstance().EMPTY;
         }
 
 //        String className = EMPTY;

@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.log;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.allbinary.logic.string.CommonStrings;
 
 public class LogUtil
 {   
@@ -60,7 +61,7 @@ public class LogUtil
       put(specialMessage, object, functionName, exception);
    }
 
-    private final static String EMPTY = "Empty";
+    
     //private final static String LOG_SUCCESS = "org.allbinary: ";
    
    private synchronized static void put(
@@ -71,7 +72,7 @@ public class LogUtil
    {
       try
       {
-         String className = EMPTY;
+         String className = CommonStrings.getInstance().EMPTY;
 
          Class clazz = object.getClass();
          if(clazz.getName() != null)

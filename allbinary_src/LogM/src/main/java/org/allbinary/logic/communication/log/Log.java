@@ -13,11 +13,11 @@
 */
 package org.allbinary.logic.communication.log;
 
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 
 public class Log
 {
-    private static final String EMPTY = "Empty";
 
     private final String specialMessage;
     private final Object object;
@@ -81,7 +81,7 @@ public class Log
 
     public String toString()
     {
-        String className = EMPTY;
+        String className = CommonStrings.getInstance().EMPTY;
 
         Class clazz = object.getClass();
         if (clazz.getName() != null)

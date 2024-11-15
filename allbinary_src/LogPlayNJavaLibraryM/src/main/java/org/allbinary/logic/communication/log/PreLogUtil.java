@@ -14,6 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import playn.core.PlayN;
 
@@ -58,7 +59,7 @@ public class PreLogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = EMPTY;
+            className = CommonStrings.getInstance().EMPTY;
         }
 
         className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(object).toString();
@@ -69,7 +70,7 @@ public class PreLogUtil
         PlayN.log().debug(LOG_SUCCESS + message);
     }
 
-    private static final String EMPTY = "Empty";
+    
     private final static String LOG_SUCCESS = "org.allbinary: ";
 
     public synchronized static void put(
@@ -82,7 +83,7 @@ public class PreLogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = EMPTY;
+            className = CommonStrings.getInstance().EMPTY;
         }
 
         className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(object).toString();
