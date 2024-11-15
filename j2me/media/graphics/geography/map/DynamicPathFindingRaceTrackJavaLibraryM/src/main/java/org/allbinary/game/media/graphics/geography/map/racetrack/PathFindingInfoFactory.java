@@ -50,8 +50,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
     public static void init(int max)
     {
-        instance =
-        new PathFindingInfoFactory(
+        instance = new PathFindingInfoFactory(
             new SimplePathFinderGraphVisitorFactory(1, 1, Integer.MAX_VALUE), max);
     }
     
@@ -162,17 +161,22 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         
         final BasicGeographicMapUtil basicGeographicMapUtil = BasicGeographicMapUtil.getInstance();
         
+        int row;
+        int column;
+        GeographicMapCellPosition goingToGeographicMapCellPosition;
+        int costFromStart;
+        int costToEnd;
         for (int index = 0; index < MAX_DIRECTIONS; index++)
         {
-            int row = basicGeographicMapUtil.getBorderingRow(index, cellPosition);
-            int column = basicGeographicMapUtil.getBorderingColumn(index, cellPosition);
+            row = basicGeographicMapUtil.getBorderingRow(index, cellPosition);
+            column = basicGeographicMapUtil.getBorderingColumn(index, cellPosition);
 
             // If beyond border
             if (row < allBinaryTiledLayer.getRows() && 
                 column < allBinaryTiledLayer.getColumns() && 
                 row >= 0 && column >= 0)
             {
-                GeographicMapCellPosition goingToGeographicMapCellPosition =
+                goingToGeographicMapCellPosition =
                    geographicMapCellPositionFactory.getInstance(column, row);
 
                  //RaceTrackGeographicMapCellType
@@ -181,14 +185,14 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
                  //this.i_Map2DArray[goingToGeographicMapCellPosition.getRow()]
                  //[goingToGeographicMapCellPosition.getColumn()]);
 
-                int costFromStart = raceTrackGeographicMapCellType.getTravelCost();
-
+                costFromStart = raceTrackGeographicMapCellType.getTravelCost();
+                
      //+
                 // RaceGameGeographicMapCellType.getTravelCostBetween(index,
                 // raceGameGeographicMapCellType,
                 // nextBorderingRaceGameGeographicMapCellType);
                 
-                int costToEnd = costFromStart;
+                costToEnd = costFromStart;
 
 
                  // int toEndManhattanDistance =
@@ -205,6 +209,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
                  // extraCost);
 
                 pathFindingNodeCostInfoFactoryInterface.create(
+                    geographicMapInterface,
                    goingToGeographicMapCellPosition,
                    //this.pathFindingInfo.getStartPathFindingNode()
                    //      .getGeographicMapCellPosition(),

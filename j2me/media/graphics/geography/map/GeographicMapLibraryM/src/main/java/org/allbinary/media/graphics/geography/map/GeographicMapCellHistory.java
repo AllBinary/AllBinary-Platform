@@ -67,9 +67,10 @@ public class GeographicMapCellHistory
       final int size = list.size();
       this.list.ensureCapacity(size);
       this.visitedList.ensureCapacity(size);
+      GeographicMapCellPosition geographicMapCellPosition;
       for (int index = 0; index < size; index++)
       {
-         GeographicMapCellPosition geographicMapCellPosition =
+         geographicMapCellPosition =
             (GeographicMapCellPosition) list.get(index);
          this.track(geographicMapCellPosition);
       }

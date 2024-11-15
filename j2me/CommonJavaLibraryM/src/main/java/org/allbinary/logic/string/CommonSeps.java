@@ -29,7 +29,6 @@ public class CommonSeps
     public final String EQUALS = "=";
     public final String SPACE = " ";
     public final String COMMA = ",";
-    public final String SEMI_COLON = ";";
     public final String COLON = ":";
     public final String PERIOD = ".";
     public final String UNDERSCORE = "_";

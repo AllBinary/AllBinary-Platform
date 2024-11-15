@@ -24,6 +24,7 @@ public class BasePathFindingNodeCostInfoFactory
     implements BasePathFindingNodeCostInfoFactoryInterface {
 
     public void create(
+        final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition comingFromGeographicMapCellPosition,
         //GeographicMapCellPosition startGeographicMapCellPosition, 
         //GeographicMapCellPosition endGeographicMapCellPosition, 

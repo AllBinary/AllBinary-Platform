@@ -19,6 +19,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 public interface BasePathFindingNodeCostInfoFactoryInterface
 {
    public void create(
+       final BasicGeographicMap geographicMapInterface,
       final GeographicMapCellPosition comingFromGeographicMapCellPosition,
       //GeographicMapCellPosition startGeographicMapCellPosition, 
       //GeographicMapCellPosition endGeographicMapCellPosition, 
