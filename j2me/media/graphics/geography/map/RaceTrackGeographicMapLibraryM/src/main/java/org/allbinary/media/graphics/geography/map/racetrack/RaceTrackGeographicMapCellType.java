@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 
 public class RaceTrackGeographicMapCellType extends GeographicMapCellType
@@ -111,11 +112,20 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
    };   
    */
    
-   private int travelCost;
+    public final String name;
+    private final int travelCost;
 
-   public RaceTrackGeographicMapCellType(int type, int travelCost)
+   public RaceTrackGeographicMapCellType(final int type, final int travelCost)
    {
       super(type);
+      this.travelCost = travelCost;
+      this.name = CommonStrings.getInstance().UNKNOWN;
+   }
+
+   public RaceTrackGeographicMapCellType(final String name, final int type, final int travelCost)
+   {
+      super(type);
+      this.name = name;
       this.travelCost = travelCost;
    }
    

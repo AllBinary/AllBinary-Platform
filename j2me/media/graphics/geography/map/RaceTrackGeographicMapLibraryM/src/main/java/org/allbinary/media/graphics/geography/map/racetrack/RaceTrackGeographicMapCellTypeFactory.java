@@ -44,23 +44,23 @@ public class RaceTrackGeographicMapCellTypeFactory extends GeographicMapCellType
 
     public RaceTrackGeographicMapCellTypeFactory()
     {
-        BOTTOM_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        BOTTOM_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Bottom Left Turn",
                 1, 1);
-        BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        BOTTOM_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Bottom Right Turn",
                 2, 1);
-        TOP_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        TOP_LEFT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Top Left Turn",
                 3, 1);
-        TOP_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        TOP_RIGHT_TURN_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Top Right Turne",
                 4, 1);
-        HORIZONTAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        HORIZONTAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Horizontal Straight",
                 5, 1);
-        VERTICAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        VERTICAL_STRAIGHT_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Vertical Straight",
                 6, 1);
 
-        START_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        START_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Start Line",
                 7, 1);
 
-        DEFAULT_FINISH_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType(
+        DEFAULT_FINISH_LINE_ROAD_CELL_TYPE = new RaceTrackGeographicMapCellType("Finish Line",
                 8, 1);
     }
 

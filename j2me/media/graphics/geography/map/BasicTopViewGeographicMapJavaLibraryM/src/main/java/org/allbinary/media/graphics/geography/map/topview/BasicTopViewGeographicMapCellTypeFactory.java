@@ -18,6 +18,7 @@ import java.util.Hashtable;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
@@ -43,11 +44,14 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
     private BasicTopViewGeographicMapCellTypeFactory() {
 
         this.maxTileId = 9;
+
+        final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings =
+            BasicTopViewGeographicMapStrings.getInstance();
         
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         //new GeographicMapCellType(0);
         new RaceTrackGeographicMapCellType(0, 999);
-        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(1, 1);
+        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
         BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
@@ -71,10 +75,13 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
 
         this.maxTileId = maxTileId;
 
+        final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings =
+            BasicTopViewGeographicMapStrings.getInstance();
+        
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         //new GeographicMapCellType(0);
         new RaceTrackGeographicMapCellType(0, 999);
-        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(1, 1);
+        BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
         BasicTopViewGeographicMapCellType OFF_MAP_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType FLOOR_CELL_TYPE = BLOCK_CELL_TYPE;
         BasicTopViewGeographicMapCellType DOOR_CELL_TYPE = BLOCK_CELL_TYPE;
@@ -85,15 +92,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         //GeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE = 
         //new GeographicMapCellType(0);
         //new GeographicMapCellType(1);
-        
-        final String OTHER = "Other";
-        final String WALL = "Wall";
-        final String OFF_MAP = "OffMap";
-        final String FLOOR = "Floor";
-        final String DOOR = "Door";
-        final String STAIRS_UP = "StairsUp";
-        final String STAIRS_DOWN = "StairsDown";
-        
+                
         final Object[] keyArray = HashtableUtil.getInstance().getKeysAsArray(tileTypeToTileIdsMap);
         //final Set set = tileTypeToTileIdsMap.keySet();
         //final String[] keyArray = (String[]) set.toArray(new String[set.size()]);
@@ -108,27 +107,27 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
             
             idsWithTypeList = (BasicArrayList) tileTypeToTileIdsMap.get(key);
 
-            if(key.equals(WALL)) {
-                //LogUtil.put(LogFactory.getInstance(idsWithTypeList.toString(), this, commonStrings.INIT));
-                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1000);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("key: ").append(key).append(": ").append(idsWithTypeList.toString()).toString(), this, commonStrings.INIT));
+            if(key.equals(basicTopViewGeographicMapStrings.WALL)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.WALL, idsWithTypeList, 1000);
                 BLOCK_CELL_TYPE = basicPlatormGeographicMapCellType;
-            } else if(key.equals(OFF_MAP)) {
-                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1001);
+            } else if(key.equals(basicTopViewGeographicMapStrings.OFF_MAP)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.OFF_MAP, idsWithTypeList, 1001);
                 OFF_MAP_CELL_TYPE = basicPlatormGeographicMapCellType;
-            } else if(key.equals(FLOOR)) {
-                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
+            } else if(key.equals(basicTopViewGeographicMapStrings.FLOOR)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.FLOOR, idsWithTypeList, 1);
                 FLOOR_CELL_TYPE = basicPlatormGeographicMapCellType;
-            } else if(key.equals(DOOR)) {
-                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
+            } else if(key.equals(basicTopViewGeographicMapStrings.DOOR)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DOOR, idsWithTypeList, 1);
                 DOOR_CELL_TYPE = basicPlatormGeographicMapCellType;
-            } else if(key.equals(STAIRS_UP)) {
-                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
+            } else if(key.equals(basicTopViewGeographicMapStrings.STAIRS_UP)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.STAIRS_UP, idsWithTypeList, 1);
                 STAIRS_UP_CELL_TYPE = basicPlatormGeographicMapCellType;
-            } else if(key.equals(STAIRS_DOWN)) {
-                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
+            } else if(key.equals(basicTopViewGeographicMapStrings.STAIRS_DOWN)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.STAIRS_DOWN, idsWithTypeList, 1);
                 STAIRS_DOWN_CELL_TYPE = basicPlatormGeographicMapCellType;
-            } else if(key.equals(OTHER)) {
-                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(idsWithTypeList, 1);
+            } else if(key.equals(basicTopViewGeographicMapStrings.OTHER)) {
+                basicPlatormGeographicMapCellType = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.OTHER, idsWithTypeList, 1);
                 OTHER_CELL_TYPE = basicPlatormGeographicMapCellType;
             }
 
@@ -142,8 +141,8 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         this.STAIRS_DOWN_CELL_TYPE = STAIRS_DOWN_CELL_TYPE;
         this.OTHER_CELL_TYPE = OTHER_CELL_TYPE;
         
-        new RaceTrackGeographicMapCellType(this.maxTileId - 1, 1);
-        new RaceTrackGeographicMapCellType(this.maxTileId - 2, 1);
+        new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, this.maxTileId - 1, 1);
+        new RaceTrackGeographicMapCellType(CommonStrings.getInstance().END, this.maxTileId - 2, 1);
     }
     
     public int getStartType() {
@@ -164,5 +163,16 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         }
         return false;
     }
-    
+
+    public String toString() {
+        return new StringMaker()
+            .append("key: WALL/BLOCK_CELL_TYPE: ").append(this.BLOCK_CELL_TYPE.toString())
+            .append("key: FLOOR_CELL_TYPE: ").append(this.FLOOR_CELL_TYPE.toString())
+            .append("key: OTHER_CELL_TYPE: ").append(this.OTHER_CELL_TYPE.toString())
+            .append("key: OFF_MAP_CELL_TYPE: ").append(this.OFF_MAP_CELL_TYPE.toString())
+            .append("key: DOOR_CELL_TYPE: ").append(this.DOOR_CELL_TYPE.toString())
+            .append("key: STAIRS_DOWN_CELL_TYPE: ").append(this.STAIRS_DOWN_CELL_TYPE.toString())
+            .append("key: STAIRS_UP_CELL_TYPE: ").append(this.STAIRS_UP_CELL_TYPE.toString())
+            .toString();
+    }    
 }

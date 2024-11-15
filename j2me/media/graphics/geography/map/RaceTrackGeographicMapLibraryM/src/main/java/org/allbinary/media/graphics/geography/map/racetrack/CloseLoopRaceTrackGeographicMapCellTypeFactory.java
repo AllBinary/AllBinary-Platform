@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map.racetrack;
 
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoData;
 
 public class CloseLoopRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeographicMapCellTypeFactory
@@ -30,7 +31,7 @@ public class CloseLoopRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeo
     private CloseLoopRaceTrackGeographicMapCellTypeFactory()
     {                
         this.EMPTY_CELL_TYPE =
-          new RaceTrackGeographicMapCellType(
+          new RaceTrackGeographicMapCellType(CommonStrings.getInstance().EMPTY,
           SmallIntegerSingletonFactory.getInstance().getInstance(0), 
           PathFindingNodeCostInfoData.MAX_NODE_COST);
 

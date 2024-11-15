@@ -21,6 +21,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
 {
+    public final String name;
     private final int[] types;
 
 //    public BasicTopViewGeographicMapCellType(final int type) {
@@ -55,24 +56,26 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
 //        this.types = typeArray;
 //    }
 
-    public BasicTopViewGeographicMapCellType(final int type, final int cost) {
+    public BasicTopViewGeographicMapCellType(final String name, final int type, final int cost) {
         //super(type);
-        new RaceTrackGeographicMapCellType(type, cost);
+        new RaceTrackGeographicMapCellType(name, type, cost);
+        this.name = name;
         this.types = new int[1];
         this.types[0] = type;
     }
     
-    public BasicTopViewGeographicMapCellType(final int[] types, final int cost) {
+    public BasicTopViewGeographicMapCellType(final String name, final int[] types, final int cost) {
         //super(Integer.MIN_VALUE);
         
         final int size = types.length;
         for(int index = 0; index < size; index++) {
-            new RaceTrackGeographicMapCellType(types[index], cost);
+            new RaceTrackGeographicMapCellType(name, types[index], cost);
         }
+        this.name = name;
         this.types = types;
     }
 
-    public BasicTopViewGeographicMapCellType(final BasicArrayList types, final int cost) {
+    public BasicTopViewGeographicMapCellType(final String name, final BasicArrayList types, final int cost) {
         //super(Integer.MIN_VALUE);
         
         final int size = types.size();
@@ -80,10 +83,11 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
         int type;
         for(int index = 0; index < size; index++) {
             type = ((Integer) types.get(index)).intValue();
-            new RaceTrackGeographicMapCellType(type, cost);
+            new RaceTrackGeographicMapCellType(name, type, cost);
             typeArray[index] = type;
         }
         
+        this.name = name;
         this.types = typeArray;
     }
     
