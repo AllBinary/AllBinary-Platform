@@ -30,10 +30,7 @@ public class CloseLoopRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeo
     
     private CloseLoopRaceTrackGeographicMapCellTypeFactory()
     {                
-        this.EMPTY_CELL_TYPE =
-          new RaceTrackGeographicMapCellType(CommonStrings.getInstance().EMPTY,
-          SmallIntegerSingletonFactory.getInstance().getInstance(0), 
-          PathFindingNodeCostInfoData.MAX_NODE_COST);
+        this.EMPTY_CELL_TYPE = EmptyRaceRaceTrackGeographicMapCellTypeFactory.getInstance().EMPTY_CELL_TYPE;
 
         this.EASY_CELL_TYPE = this.EMPTY_CELL_TYPE;
        

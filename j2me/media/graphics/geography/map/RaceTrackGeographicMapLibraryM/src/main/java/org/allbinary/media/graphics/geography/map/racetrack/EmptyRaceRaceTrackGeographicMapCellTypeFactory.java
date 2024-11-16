@@ -13,7 +13,6 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
-import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoData;
 
@@ -30,17 +29,12 @@ public class EmptyRaceRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeo
     
     private EmptyRaceRaceTrackGeographicMapCellTypeFactory()
     {
-        final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        
         this.EMPTY_CELL_TYPE = 
           new RaceTrackGeographicMapCellType(CommonStrings.getInstance().EMPTY,
-          smallIntegerSingletonFactory.getInstance(0),
-          PathFindingNodeCostInfoData.MAX_NODE_COST);
+          0,PathFindingNodeCostInfoData.MAX_NODE_COST);
 
         this.EASY_CELL_TYPE =
-          new RaceTrackGeographicMapCellType("Easy",
-          smallIntegerSingletonFactory.getInstance(19),
-          1);
+          new RaceTrackGeographicMapCellType("Easy",19,1);
 
         this.FINISH_LINE_ROAD_CELL_TYPE = this.DEFAULT_FINISH_LINE_ROAD_CELL_TYPE;
     }
