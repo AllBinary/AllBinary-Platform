@@ -26,6 +26,7 @@ import org.allbinary.util.BasicArrayList;
 public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
 {
     public final String name;
+    public final int cost;
     private final int[] types;
 
 //    public BasicTopViewGeographicMapCellType(final int type) {
@@ -70,6 +71,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
         }
 
         this.name = name;
+        this.cost = cost;
         this.types = new int[1];
         this.types[0] = type;
     }
@@ -92,6 +94,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
         }
         this.name = name;
         this.types = types;
+        this.cost = cost;
     }
 
     public BasicTopViewGeographicMapCellType(final String name, final BasicArrayList types, final int cost) {
@@ -114,6 +117,7 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
         }
         
         this.name = name;
+        this.cost = cost;
         this.types = typeArray;
     }
     
