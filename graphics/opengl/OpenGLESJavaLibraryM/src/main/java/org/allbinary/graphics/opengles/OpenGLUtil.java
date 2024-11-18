@@ -37,6 +37,7 @@ public class OpenGLUtil {
 
     private final PreResourceImageUtil preResourceImageUtil = PreResourceImageUtil.getInstance();
 
+    private final Object object = new Object();
     private final BasicArrayList list = new BasicArrayList();
     
     public final BasicArrayList runnableList = new BasicArrayList();
@@ -99,7 +100,9 @@ public class OpenGLUtil {
 //            final Thread thread = Thread.currentThread();
 //            LogUtil.put(LogFactory.getInstance(new StringMaker().append("add image ").append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
 
-            list.add(encapsulateImage);
+            synchronized(object) {
+                list.add(encapsulateImage);
+            }
 
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("add image: ").append(encapsulateImage).append(CommonSeps.getInstance().SPACE).append(thread.getName()).toString(), this, this.renderStrings.ON_SURFACE_CHANGED));
             return encapsulateImage;
@@ -112,7 +115,9 @@ public class OpenGLUtil {
 
 //        final Thread thread = Thread.currentThread();
 //        LogUtil.put(LogFactory.getInstance(new StringMaker().append("clear: ").append(thread.getName()).toString(), this, RendererStrings.getInstance().ON_SURFACE_CHANGED));
-        list.clear();
+        synchronized(object) {
+            list.clear();
+        }
     }
 
     private Object lockObject = new Object();
