@@ -46,7 +46,7 @@ public class LayerCoveringCellPositionsUtil {
     {
         final GeographicMapCellPosition topLeftGeographicMapCellPosition =
             geographicMapInterface.getCellPositionAt(x, y);
-
+        
         return this.getAll(
             geographicMapInterface,
             topLeftGeographicMapCellPosition,
@@ -64,10 +64,12 @@ public class LayerCoveringCellPositionsUtil {
 
         int columns = layerInterface.getWidth() /
             geographicMapInterface.getAllBinaryTiledLayer().getCellWidth();
-
+        
         int rows = layerInterface.getHeight() /
             geographicMapInterface.getAllBinaryTiledLayer().getCellHeight();
 
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("c/r: ").append(columns).append('/').append(rows).toString(), this, "visit"));
+        
         if(columns == 0)
             columns = 1;
         if(rows == 0)
