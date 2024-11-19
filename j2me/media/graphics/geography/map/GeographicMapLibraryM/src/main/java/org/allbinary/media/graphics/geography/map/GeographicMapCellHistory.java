@@ -91,6 +91,11 @@ public class GeographicMapCellHistory
    {
       return this.list;
    }
+
+   public BasicArrayList getVisited()
+   {
+      return this.visitedList;
+   }
    
    /*
    public GeographicMapCellPosition getRandom()
