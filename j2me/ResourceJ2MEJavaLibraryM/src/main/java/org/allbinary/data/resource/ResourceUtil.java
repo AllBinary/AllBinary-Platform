@@ -13,10 +13,11 @@
 */
 package org.allbinary.data.resource;
 
-import org.allbinary.logic.string.CommonSeps;
+import java.io.InputStream;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.io.InputStream;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
 public class ResourceUtil
@@ -53,7 +54,7 @@ public class ResourceUtil
                 {
                     final StringMaker stringMaker = new StringMaker();
                     
-                    int index = resource.lastIndexOf('/');
+                    final int index = resource.lastIndexOf('/');
                     String resourcePath = resource.substring(index + 1);
                     LogUtil.put(LogFactory.getInstance(stringMaker.append(GET_RESOURCE).append(resourcePath).toString(), this, METHOD_NAME));
                     inputStream = resource.getClass().getResourceAsStream(resourcePath);

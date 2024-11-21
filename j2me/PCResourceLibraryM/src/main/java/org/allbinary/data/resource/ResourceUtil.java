@@ -16,11 +16,12 @@ package org.allbinary.data.resource;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
-import org.allbinary.logic.string.CommonSeps;
+import java.io.InputStream;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.io.InputStream;
 import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
 public class ResourceUtil {
