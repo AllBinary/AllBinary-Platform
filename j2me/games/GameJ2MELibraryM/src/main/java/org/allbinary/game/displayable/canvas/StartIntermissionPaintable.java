@@ -33,7 +33,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         BasicColorSetUtil.getInstance();
     
     protected AllBinaryGameCanvas gameCanvas;
-    protected String[] stringArray;
+    protected final String[] stringArray;
     
     private BasicColor basicColor;
     private int color;
@@ -41,7 +41,11 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     private final int[] lineArray;
     
     protected final int fontSize;
-    protected Font font;
+    protected final Font font;
+    
+    private boolean hasChanged = true;
+
+    public final int[] lastWidth;
     
     public StartIntermissionPaintable(final AllBinaryGameCanvas gameCanvas, final String[] stringArray, final int[] lineArray, final BasicColor basicColor) {
         this(gameCanvas, stringArray,  lineArray, basicColor, Font.getDefaultFont());
@@ -51,6 +55,7 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
     {
         this.gameCanvas = gameCanvas;
         this.stringArray = stringArray;
+        this.lastWidth = new int[this.stringArray.length];
         this.setBasicColor(basicColor);
         this.color = basicColor.intValue();
         this.lineArray = lineArray;
@@ -69,20 +74,24 @@ public class StartIntermissionPaintable extends InitUpdatePaintable
         
         fontDebugFactory.setFont(this.font, graphics);
         
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
+        final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         
         basicSetColorUtil.setBasicColor(graphics, this.basicColor, this.color);
 
         int beginWidth;
         for(int index = this.stringArray.length - 1; index >= 0; index--)
         {
-            beginWidth = (graphics.getFont().stringWidth(this.stringArray[index]) >> 1);
+            if(hasChanged) {
+                this.lastWidth[index] = (graphics.getFont().stringWidth(this.stringArray[index]) >> 1);
+            }
+            beginWidth = this.lastWidth[index];
             
             graphics.drawString(this.stringArray[index], 
                     displayInfo.getLastHalfWidth() - beginWidth, 
                     displayInfo.getLastHalfHeight() - lineArray[index], anchor);
         }
         
+        hasChanged = false;
         fontDebugFactory.setFont(existingFont, graphics);
     }
 

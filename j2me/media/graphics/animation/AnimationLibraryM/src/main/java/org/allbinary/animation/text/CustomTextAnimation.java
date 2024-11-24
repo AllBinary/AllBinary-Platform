@@ -36,6 +36,9 @@ public class CustomTextAnimation extends TextAnimation
     
     protected Font font;
 
+    private String lastText = null;
+    protected boolean hasChanged = true;
+    
     public CustomTextAnimation(final String text, final int fontSize, final AnimationBehavior animationBehavior)
     {
         super(text, animationBehavior);
@@ -82,6 +85,7 @@ public class CustomTextAnimation extends TextAnimation
         }
 
         //LogUtil.put(LogFactory.getInstance(new StringMaker().append("setScale font: ").append((fontSize * scaleX)).append(" text: ").append(this.getText()).toString(), this, CommonStrings.getInstance().PROCESS));
+        this.hasChanged = true;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, (int) (fontSize * scaleX));
 //        if(this.getText().length > 0) {
 //            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setScale font: ").append(font.getSize()).append(" text: ").append(this.getText()[0]).toString(), this, CommonStrings.getInstance().PROCESS));
@@ -90,7 +94,10 @@ public class CustomTextAnimation extends TextAnimation
     
     public void setText(final String text)
     {
-        super.setText(text);
+        if(this.lastText != text) {
+            this.hasChanged = true;
+            super.setText(text);
+        }
 
 //        if(font != null) {
 //            final SpacialStrings spacialStrings = SpacialStrings.getInstance();
@@ -98,8 +105,13 @@ public class CustomTextAnimation extends TextAnimation
 //        }
     }
 
+    private int textWidth;
     public int getWidth() {
-        return this.font.stringWidth(this.textArray[0]);
+        if(this.hasChanged) {
+            this.textWidth = this.font.stringWidth(this.textArray[0]);
+            this.hasChanged = false;
+        }
+        return this.textWidth;
     }
 
     public int getHeight() {
