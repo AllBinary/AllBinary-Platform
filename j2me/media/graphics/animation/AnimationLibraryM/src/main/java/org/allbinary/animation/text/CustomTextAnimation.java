@@ -96,6 +96,7 @@ public class CustomTextAnimation extends TextAnimation
     {
         if(this.lastText != text) {
             this.hasChanged = true;
+            this.lastText = text;
             super.setText(text);
         }
 
