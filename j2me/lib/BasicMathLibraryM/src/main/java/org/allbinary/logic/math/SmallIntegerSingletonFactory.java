@@ -26,6 +26,7 @@ public class SmallIntegerSingletonFactory
     public final int POSITIVE_MAX = 0x2D1; //500;
 
     private final Integer[] INTEGER_ARRAY = new Integer[NEGATIVE_MAX + POSITIVE_MAX];
+    private final String[] STRING_ARRAY = new String[NEGATIVE_MAX + POSITIVE_MAX];
 
     public int MIN = 0;
     public int lastMin = 0;
@@ -111,6 +112,14 @@ public class SmallIntegerSingletonFactory
             integer = new Integer(index);
         }
         return integer;
+    }
+    
+    public String getString(int index) {
+        final int i = index + NEGATIVE_MAX;
+        if(STRING_ARRAY[i] == null) {
+            STRING_ARRAY[i] = this.INTEGER_ARRAY[i].toString();
+        }
+        return STRING_ARRAY[i];
     }
     
     /*
