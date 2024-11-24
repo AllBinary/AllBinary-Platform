@@ -177,7 +177,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             imageProcessor.translate(gl, translateX, translateY);
             imageProcessor.rotate(gl, angle);
-            imageProcessor.scale(gl, scale);
+            imageProcessor.scale(gl, scaleX, scaleY);
             imageProcessor.colorMask(gl, 255, 255, 255, alpha);
             imageProcessor.translate(gl, translateX2, translateY2);
             
@@ -272,7 +272,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             imageProcessor.translate(gl, translateX, translateY);
             imageProcessor.rotate(gl, angle);
-            imageProcessor.scale(gl, scale);
+            imageProcessor.scale(gl, scaleX, scaleY);
             imageProcessor.colorMask(gl, 255, 255, 255, alpha);
             imageProcessor.translate(gl, translateX2, translateY2);
             

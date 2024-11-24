@@ -38,8 +38,8 @@ public class OpenGLESImageProcessor {
 
     }
     
-    public void scale(GL10 gl, float scale) {
-        gl.glScalef(scale, scale, 1);
+    public void scale(GL10 gl, float scaleX, float scaleY) {
+        gl.glScalef(scaleX, scaleY, 1);
     }
     
     public void colorMask(GL10 gl, int red, int green, int blue, int alpha) {

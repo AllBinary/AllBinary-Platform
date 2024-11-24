@@ -38,7 +38,7 @@ public class OpenGLESImageProcessor {
         
     }
 
-    public void scale(GL10 gl, float scale) {
+    public void scale(GL10 gl, float scaleX, float scaleY) {
         
     }
     
