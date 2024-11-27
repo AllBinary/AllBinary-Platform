@@ -45,6 +45,8 @@ implements OpenGLSurfaceChangedInterface
     public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
     public float scaleX = 1;
     public float scaleY = 1;
+    public float scaleX2 = 1;
+    public float scaleY2 = 1;
     public float translateX = 0;
     public float translateY = 0;
     public float translateX2 = 0;
@@ -76,11 +78,11 @@ implements OpenGLSurfaceChangedInterface
     */
 
     public int getHeight() {
-        return this.openGLBitmap.getHeight();
+        return (int) (this.openGLBitmap.getHeight() * scaleY2);
     }
 
     public int getWidth() {
-        return this.openGLBitmap.getWidth();
+        return (int) (this.openGLBitmap.getWidth() * scaleX2);
     }
 
     /*
