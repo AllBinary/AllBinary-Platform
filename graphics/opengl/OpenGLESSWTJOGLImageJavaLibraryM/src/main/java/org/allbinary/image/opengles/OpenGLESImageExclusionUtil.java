@@ -33,8 +33,10 @@ public class OpenGLESImageExclusionUtil {
 
     private final String EXCLUSION = "font";
     
+    private final String GREEN_BUTTON = "green_button";
+    
     public boolean isCustomScaling(final Image image) {
-        if(image.getName().startsWith(EXCLUSION)) {
+        if(image.getName().startsWith(EXCLUSION) || image.getName().startsWith(GREEN_BUTTON)) {
            return false; 
         } else {
             return true;

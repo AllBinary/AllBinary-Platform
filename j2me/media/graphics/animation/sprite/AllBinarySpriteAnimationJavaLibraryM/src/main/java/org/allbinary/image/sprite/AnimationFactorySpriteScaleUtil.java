@@ -20,11 +20,12 @@ import org.allbinary.game.layer.SpriteFactory;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
+import org.allbinary.image.opengles.OpenGLESImageExclusionUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
-import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.media.image.ImageScaleUtil;
 
 /**
@@ -46,6 +47,8 @@ public class AnimationFactorySpriteScaleUtil {
     private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
     //private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
     
+    private final OpenGLESImageExclusionUtil openGLESImageExclusionUtil = OpenGLESImageExclusionUtil.getInstance();
+    
     public Sprite createImage(final Image image, final int width, final int height, final int scaleWidth, final int scaleHeight) throws Exception {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
 //       final SpacialStrings spacialStrings = SpacialStrings.getInstance();
@@ -57,8 +60,8 @@ public class AnimationFactorySpriteScaleUtil {
        Sprite sprite;
 
        if(scaleWidth != 0 && scaleHeight != 0) {
-           final float scaleX = ((float) scaleWidth) / ((float) width);
-           final float scaleY = ((float) scaleHeight) / ((float) height);
+           float scaleX = ((float) scaleWidth) / ((float) width);
+           float scaleY = ((float) scaleHeight) / ((float) height);
            
 //           stringMaker.delete(0, stringMaker.length());
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
@@ -74,6 +77,34 @@ public class AnimationFactorySpriteScaleUtil {
            } else {
 //               stringMaker.delete(0, stringMaker.length());
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+               if(openGLESImageExclusionUtil.isCustomScaling(image)) {
+                   final int width2 =  Math.round((scaleWidth) - 0.5f);
+                   final int height2 =  Math.round((scaleHeight) - 0.5f);
+
+                   final int multiplesOf16Width = width2 / 16;
+                   final int by16Width = multiplesOf16Width * 16;
+                   scaleX = ((float) by16Width) / width;
+
+                   final int multiplesOf16Height = height2 / 16;
+                   final int by16Height = multiplesOf16Height * 16;
+                   scaleY = ((float) by16Height) / height;
+                   
+//                   scaleX = 1.0f;
+//                   scaleY = 1.0f;
+
+                    if(scaleWidth < width) {
+                        scaleX = scaleX * 2.35f;
+                    }
+                    if(scaleHeight < height) {
+                        scaleY = scaleY * 2.35f;
+                    }
+
+//                   stringMaker.delete(0, stringMaker.length());
+//                   LogUtil.put(LogFactory.getInstance(stringMaker
+//                       //.append(image.getName())
+//                       .append(" scale set to 1 - scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
+               }
+
                scaledImage = imageScaleUtil.createImage(imageCache, image, scaleX, 1, scaleY, 1, true);
 //               stringMaker.delete(0, stringMaker.length());
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaledImage.getHeight(): ").append(scaledImage.getHeight()).append(" height * scaleY: ").append(height * scaleY).toString(), this, commonStrings.PROCESS));
