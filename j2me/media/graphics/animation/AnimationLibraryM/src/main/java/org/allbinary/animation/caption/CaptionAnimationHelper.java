@@ -23,7 +23,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
 
-public class CaptionAnimationHelper extends Animation
+public class CaptionAnimationHelper extends CaptionAnimationHelperBase
 {
     private final TimeDelayHelper timeHelper = new TimeDelayHelper(620);
     private final TextAnimation textAnimation = new TextAnimation(AnimationBehavior.getInstance());
