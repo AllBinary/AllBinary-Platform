@@ -53,7 +53,7 @@ public class AnimationFactorySpriteScaleUtil {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
 //       final SpacialStrings spacialStrings = SpacialStrings.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
-//       LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
+//       LogUtil.put(LogFactory.getInstance(stringMaker.append("width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
 
       final SpriteFactory spriteFactory = SpriteFactory.getInstance();
 
@@ -93,9 +93,21 @@ public class AnimationFactorySpriteScaleUtil {
 //                   scaleY = 1.0f;
 
                     if(scaleWidth < width) {
+                        //information_blue.png
+//                        stringMaker.delete(0, stringMaker.length());
+//                        LogUtil.put(LogFactory.getInstance(stringMaker
+//                            .append(image.getName())
+//                            .append(" 2.35f").toString(), this, commonStrings.PROCESS));
+                        
                         scaleX = scaleX * 2.35f;
                     }
                     if(scaleHeight < height) {
+                        //information_blue.png
+//                        stringMaker.delete(0, stringMaker.length());
+//                        LogUtil.put(LogFactory.getInstance(stringMaker
+//                            .append(image.getName())
+//                            .append(" 2.35f").toString(), this, commonStrings.PROCESS));
+
                         scaleY = scaleY * 2.35f;
                     }
 
