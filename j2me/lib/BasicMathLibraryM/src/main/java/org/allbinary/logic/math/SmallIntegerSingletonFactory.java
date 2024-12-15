@@ -101,6 +101,17 @@ public class SmallIntegerSingletonFactory
         return INTEGER_ARRAY[index + NEGATIVE_MAX];
     }
 
+    public Integer getInstanceNoThrow(int index)
+    {
+        //this.updateStats(index);
+
+        if(index + NEGATIVE_MAX > this.INTEGER_ARRAY.length - 1) {
+            return INTEGER_ARRAY[-1 + NEGATIVE_MAX];
+        }
+        
+        return INTEGER_ARRAY[index + NEGATIVE_MAX];
+    }
+    
     public Integer createInstance(int index)
     {
         //this.updateStats(index);

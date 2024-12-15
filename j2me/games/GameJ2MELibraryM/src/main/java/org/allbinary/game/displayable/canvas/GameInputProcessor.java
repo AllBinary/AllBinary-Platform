@@ -92,7 +92,7 @@ extends InputProcessor
                 LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.gameInputStrings.NO_KEY).append(keyCode).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
             }
 
-            final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstance(keyCode);
+            final Integer keyCodeAsInteger = smallIntegerSingletonFactory.getInstanceNoThrow(keyCode);
             downKeyEventHandler.fireEvent(keyCodeAsInteger);
             downKeyEventHandler.getInstance(deviceId).fireEvent(keyCodeAsInteger);
 
