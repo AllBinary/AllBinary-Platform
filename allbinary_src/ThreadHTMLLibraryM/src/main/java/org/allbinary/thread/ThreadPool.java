@@ -102,6 +102,11 @@ public class ThreadPool
         return (Runnable) taskQueue.remove(0);
     }
 
+    public synchronized void clear() 
+    {
+        
+    }
+    
     public synchronized void close()
     {
         if (isAlive)
