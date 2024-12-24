@@ -27,6 +27,7 @@ public class MusicManager {
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
     //Handle HTML5 duration with media not playing
+    //Handle Media ending for Avian
     private final PlayerListener playerListener = new PlayerListener() {
 
         public void playerUpdate(final Player player, final String event, final Object eventData) {
@@ -65,7 +66,7 @@ public class MusicManager {
     }
 
     public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
-        PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound).toString(), this, commonStrings.PROCESS);
+        PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound.getResource()).toString(), this, commonStrings.PROCESS);
         this.nextSongSound = nextSongSound;
         this.reset();
         this.stopped = false;
@@ -110,7 +111,7 @@ public class MusicManager {
                     //Handle HTML5 duration with media not playing
                     final String NO_DURATION_FOR = "No Duration for: ";
                     //PreLogUtil.put(new StringMaker().append("nextSongSound duration: ").append(nextSongSound.getDuration()).toString(), this, commonStrings.PROCESS);
-                    PreLogUtil.put(new StringMaker().append(NO_DURATION_FOR).append(this.currentSongSound).toString(), this, commonStrings.PROCESS);
+                    PreLogUtil.put(new StringMaker().append(NO_DURATION_FOR).append(this.currentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
                     this.currentSongSound.getPlayer().addPlayerListener(playerListener);
                     this.noDuration = true;
                 }

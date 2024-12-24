@@ -66,8 +66,8 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
         if(GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] == null) {
             new RaceTrackGeographicMapCellType(name, type, cost);
         } else {
-            final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+            //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
+            //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
         }
 
         this.name = name;
@@ -87,8 +87,8 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
             if (GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] == null) {
                 new RaceTrackGeographicMapCellType(name, type, cost);
             } else {
-                final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+                //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
+                //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
             }
             
         }
@@ -109,8 +109,8 @@ public class BasicTopViewGeographicMapCellType //extends GeographicMapCellType
             if (GeographicMapCellTypeFactory.getInstance().getGeographicMapCellTypeArray()[type] == null) {
                 new RaceTrackGeographicMapCellType(name, type, cost);
             } else {
-                final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
-                LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+                //final BasicTopViewGeographicMapStrings basicTopViewGeographicMapStrings = BasicTopViewGeographicMapStrings.getInstance();
+                //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
             }
             
             typeArray[index] = type;

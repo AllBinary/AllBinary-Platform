@@ -71,7 +71,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
     
     public BasicTopViewGeographicMapCellTypeFactory(final Hashtable tileTypeToTileIdsMap, final int maxTileId) {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.maxTileId = maxTileId;
 
@@ -88,7 +88,7 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         if(geographicMapCellTypeArray[type] == null) {
             new RaceTrackGeographicMapCellType(type, 999);
         } else {
-            LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+            //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
         }
         
         BasicTopViewGeographicMapCellType BLOCK_CELL_TYPE = new BasicTopViewGeographicMapCellType(basicTopViewGeographicMapStrings.DEFAULT, 1, 1);
@@ -155,14 +155,14 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         if(geographicMapCellTypeArray[type] == null) {
             new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, type, 1);
         } else {
-            LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+            //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
         }
 
         type = this.maxTileId - 2;
         if(geographicMapCellTypeArray[type] == null) {
             new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, type, 1);
         } else {
-            LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, CommonStrings.getInstance().CONSTRUCTOR));
+            //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
         }
         
     }
