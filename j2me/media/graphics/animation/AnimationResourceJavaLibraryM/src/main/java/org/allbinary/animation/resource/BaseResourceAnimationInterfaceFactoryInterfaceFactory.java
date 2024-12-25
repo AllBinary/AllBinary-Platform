@@ -13,19 +13,18 @@
  */
 package org.allbinary.animation.resource;
 
-import org.allbinary.logic.string.CommonSeps;
 import java.util.Hashtable;
 
-import org.allbinary.game.resource.ResourceLoadingLevelFactory;
-
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.BasicAnimationInterfaceFactoryInterface;
+import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.image.ImageCache;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringMaker;
 
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface
@@ -77,7 +76,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
             final BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
             throws Exception
     {
-        PreLogUtil.put(resource, this, CommonStrings.getInstance().ADD);
+        //PreLogUtil.put(resource, this, CommonStrings.getInstance().ADD);
 
         if (hashtable.containsKey(resource))
         {

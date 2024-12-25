@@ -197,12 +197,15 @@ public class ProgressCanvas extends RunnableCanvas
     }
     
     public void addPortion(int value, String text)
-    {
-        this.setText(text);
-        
+    {   
         //commonStrings.START_LABEL).append(
         //LogUtil.put(LogFactory.getInstance(text, this, ADD_PORTION));
-        PreLogUtil.put(this.text, this, ADD_PORTION);
+        
+        if(this.text != text) {
+            PreLogUtil.put(text, this, ADD_PORTION);
+        }
+        
+        this.setText(text);
 
         this.gauge.setValue(this.gauge.getValue() + this.getMaxValue() / value);
 
