@@ -63,10 +63,10 @@ public class ResourceUtil {
         return inputStream;
     }
 
-    private final String RESOURCE_FOUND = "Resource Found: ";
-    private final String RESOURCE_FOUND_WITH = "Resource Found with: ";
-    private final String RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER = "Resource Found with ContextClassLoader: ";
-    private final String METHOD_NAME = "getResourceAsStream";
+    //private final String RESOURCE_FOUND = "Resource Found: ";
+    //private final String RESOURCE_FOUND_WITH = "Resource Found with: ";
+    //private final String RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER = "Resource Found with ContextClassLoader: ";
+    //private final String METHOD_NAME = "getResourceAsStream";
 
     private InputStream getResourceAsStream(final String resource, final int startIndex)
             //, Object emulatorObject)
@@ -79,8 +79,8 @@ public class ResourceUtil {
         InputStream inputStream = new FileInputStream(new StringMaker().append(path).append(resource).append(ext).toString());
 
         if (inputStream != null) {
-            stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND).append(resource).toString(), this, METHOD_NAME));
+//            stringMaker.delete(0, stringMaker.length());
+//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND).append(resource).toString(), this, METHOD_NAME));
             final byte[] byteArray = new byte[inputStream.available()];
             StreamUtil.getInstance().getByteArray(inputStream, new ByteArrayOutputStream(), byteArray);
             return new ByteArrayInputStream(byteArray);

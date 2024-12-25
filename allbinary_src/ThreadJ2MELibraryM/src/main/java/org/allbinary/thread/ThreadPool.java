@@ -53,7 +53,7 @@ public class ThreadPool
         }
     }
 
-    public synchronized void runTask(Runnable task)
+    public synchronized void runTaskWithPriority(final PriorityRunnable task)
     {
         if (!isAlive)
         {
@@ -63,8 +63,44 @@ public class ThreadPool
         if (task != null)
         {
 
-            //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, "runTask"));
-            //PreLogUtil.put("Add: ").append(task, this, "runTask");
+            //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK));
+            //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
+            final int size = this.taskQueue.size();
+            PriorityRunnable runnable;
+            PriorityRunnable lowerPriorityRunnable = null;
+            for(int index = 0; index < size; index++) {
+                runnable = (PriorityRunnable) this.taskQueue.get(index);
+                if(runnable.getPriority().intValue() > task.getPriority().intValue()) {
+                    lowerPriorityRunnable = runnable;
+                    break;
+                }
+            }
+            
+            if(lowerPriorityRunnable == null) {
+                this.taskQueue.add(task);
+            } else {
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Add priority task: ").append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
+                final int index = this.taskQueue.indexOf(lowerPriorityRunnable);
+                this.taskQueue.add(index, task);
+            }
+            
+
+            notify();
+        }
+    }
+    
+    public synchronized void runTask(final Runnable task)
+    {
+        if (!isAlive)
+        {
+            this.init();
+            //throw new IllegalStateException();
+        }
+        if (task != null)
+        {
+
+            //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK));
+            //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
 
             taskQueue.add(task);
             notify();
@@ -154,11 +190,11 @@ public class ThreadPool
         }
     }
 
-    protected void startTask(Runnable task)
+    protected void startTask(final Runnable task)
     {
     }
 
-    protected void completedTask(Runnable task)
+    protected void completedTask(final Runnable task)
     {
     }
 

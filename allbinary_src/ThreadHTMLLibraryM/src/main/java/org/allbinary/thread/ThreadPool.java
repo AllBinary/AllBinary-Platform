@@ -36,7 +36,7 @@ public class ThreadPool
         this.poolName = poolName;
         this.numThreads = numThreads;
     }
-
+    
     //TWB - PlayN Single Thread Fix
     public void runATask()
             throws Exception
@@ -63,7 +63,12 @@ public class ThreadPool
         }
     }
 
-    public synchronized void runTask(Runnable task)
+    
+    public synchronized void runTaskWithPriority(final PriorityRunnable task) {
+        this.runTask(task);
+    }
+    
+    public synchronized void runTask(final Runnable task)
     {
         if (!isAlive)
         {
@@ -167,11 +172,11 @@ public class ThreadPool
         }
     }
 
-    protected void startTask(Runnable task)
+    protected void startTask(final Runnable task)
     {
     }
 
-    protected void completedTask(Runnable task)
+    protected void completedTask(final Runnable task)
     {
     }
 }

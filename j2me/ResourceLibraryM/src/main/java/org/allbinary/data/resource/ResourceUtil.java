@@ -56,10 +56,10 @@ public class ResourceUtil {
         return inputStream;
     }
 
-    private final String RESOURCE_FOUND = "Resource Found: ";
-    private final String RESOURCE_FOUND_WITH = "Resource Found with: ";
-    private final String RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER = "Resource Found with ContextClassLoader: ";
-    private final String METHOD_NAME = "getResourceAsStream";
+    //private final String RESOURCE_FOUND = "Resource Found: ";
+    //private final String RESOURCE_FOUND_WITH = "Resource Found with: ";
+    //private final String RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER = "Resource Found with ContextClassLoader: ";
+    //private final String METHOD_NAME = "getResourceAsStream";
 
     private InputStream getResourceAsStream(final String resource, final int startIndex)
             //, Object emulatorObject)
@@ -79,8 +79,8 @@ public class ResourceUtil {
         InputStream inputStream = resource.getClass().getResourceAsStream(resourcePath);
 
         if (inputStream != null) {
-            stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND).append(resourcePath).toString(), this, METHOD_NAME));
+//            stringMaker.delete(0, stringMaker.length());
+//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND).append(resourcePath).toString(), this, METHOD_NAME));
             return inputStream;
         }
 
@@ -88,8 +88,8 @@ public class ResourceUtil {
         inputStream = ResourceUtil.classLoader.getResourceAsStream(resourcePath);
 
         if (inputStream != null) {
-            stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH).append(resourcePath).append(commonSeps.COMMA).append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME));
+//            stringMaker.delete(0, stringMaker.length());
+//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH).append(resourcePath).append(commonSeps.COMMA).append(ResourceUtil.classLoader.getClass().getName()).toString(), this, METHOD_NAME));
 
             return inputStream;
         }
@@ -97,8 +97,8 @@ public class ResourceUtil {
         inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(resourcePath);
 
         if (inputStream != null) {
-            stringMaker.delete(0, stringMaker.length());
-            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER).append(resourcePath).append(commonSeps.COMMA).append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME));
+//            stringMaker.delete(0, stringMaker.length());
+//            LogUtil.put(LogFactory.getInstance(stringMaker.append(RESOURCE_FOUND_WITH_CONTEXT_CLASS_LOADER).append(resourcePath).append(commonSeps.COMMA).append(Thread.currentThread().getContextClassLoader().getClass().getName()).toString(), this, METHOD_NAME));
             return inputStream;
         }
 

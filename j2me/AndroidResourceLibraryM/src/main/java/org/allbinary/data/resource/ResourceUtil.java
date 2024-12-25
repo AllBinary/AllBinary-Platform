@@ -133,14 +133,14 @@ public class ResourceUtil
         this.resources = resources;
     }
     
-    final String METHOD_NAME = "getResourceAsStream";
-    final String GETTING = "Getting Resource: ";
-    final String RESOURCE = "Resource Found";
+    //final String METHOD_NAME = "getResourceAsStream";
+    //final String GETTING = "Getting Resource: ";
+    //final String RESOURCE = "Resource Found";
 
     public InputStream getResourceAsStream(final String resource) // , Object emulatorObject)
         throws Exception
     {   
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME));
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append(GETTING).append(resource).toString(), this, METHOD_NAME));
 
         // Try getting resource with normal resource access
         // AssetManager assetManager = resources.getAssets();
@@ -151,7 +151,7 @@ public class ResourceUtil
 
         if (inputStream != null)
         {
-            LogUtil.put(LogFactory.getInstance(RESOURCE, this, METHOD_NAME));
+            //LogUtil.put(LogFactory.getInstance(RESOURCE, this, METHOD_NAME));
 
             return inputStream;
         }
