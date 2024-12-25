@@ -16,28 +16,27 @@ package org.allbinary.graphics.canvas.transition.progress;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.graphics.form.item.CustomGaugeItem;
-
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.font.MyFont;
+import org.allbinary.graphics.form.item.CustomGaugeItem;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.PaintableInterface;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.midlet.AllBinaryMidlet;
 
 public class ProgressCanvas extends RunnableCanvas
     implements PaintableInterface
 {
-    protected static final String END_FROM_INITIAL_LAZY_LOADING_COMPLETE = "endFromInitialLazyLoadingComplete";
+    //protected static final String END_FROM_INITIAL_LAZY_LOADING_COMPLETE = "endFromInitialLazyLoadingComplete";
     
     protected boolean hasPainted;
     private final BasicColor backgroundBasicColor;
@@ -161,7 +160,7 @@ public class ProgressCanvas extends RunnableCanvas
 
     public void endFromInitialLazyLoadingComplete()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE));
         this.gauge.setValue(this.getMaxValue());
     }
     
