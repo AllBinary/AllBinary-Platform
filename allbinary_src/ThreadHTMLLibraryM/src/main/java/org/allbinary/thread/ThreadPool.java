@@ -21,8 +21,8 @@ public class ThreadPool
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
     
-    private final String poolName;
-    private final int priority;
+    //private final String poolName;
+    //private final int priority;
     
     private boolean isAlive;
     private BasicArrayList taskQueue = new BasicArrayList();
@@ -39,9 +39,9 @@ public class ThreadPool
     
     public ThreadPool(final String poolName, final int numThreads, final int priority)
     {
-        this.poolName = poolName;
-        this.priority = priority;
-        this.numThreads = numThreads;
+//        this.poolName = poolName;
+//        this.priority = priority;
+//        this.numThreads = numThreads;
     }
     
     //TWB - PlayN Single Thread Fix
