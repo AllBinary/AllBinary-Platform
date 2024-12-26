@@ -22,6 +22,7 @@ public class ThreadPool
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
     
     private final String poolName;
+    private final int priority;
     
     private boolean isAlive;
     private BasicArrayList taskQueue = new BasicArrayList();
@@ -33,7 +34,13 @@ public class ThreadPool
     
     public ThreadPool(final String poolName, final int numThreads)
     {
+        this(poolName, numThreads, Thread.NORM_PRIORITY);
+    }
+    
+    public ThreadPool(final String poolName, final int numThreads, final int priority)
+    {
         this.poolName = poolName;
+        this.priority = priority;
         this.numThreads = numThreads;
     }
     

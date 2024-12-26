@@ -27,16 +27,24 @@ public class ThreadPool
     protected final ThreadPoolStrings threadPoolStrings = ThreadPoolStrings.getInstance();
 
     private final String poolName;
+    private final int priority;
     
     private boolean isAlive;
     private BasicArrayList taskQueue;
     private int threadID;
     private int numThreads;
+
     //private static int threadPoolID;
 
     public ThreadPool(final String poolName, final int numThreads)
     {
+        this(poolName, numThreads, Thread.NORM_PRIORITY);
+    }
+    
+    public ThreadPool(final String poolName, final int numThreads, final int priority)
+    {
         this.poolName = poolName;
+        this.priority = priority;
         this.numThreads = numThreads;
     }
 
@@ -44,12 +52,15 @@ public class ThreadPool
     {
         if (!this.isAlive)
         {
-            isAlive = true;
+            this.isAlive = true;
 
-            taskQueue = new BasicArrayList();
-            for (int i = 0; i < numThreads; i++)
+            this.taskQueue = new BasicArrayList();
+            PooledThread pooledThread;
+            for (int i = 0; i < this.numThreads; i++)
             {
-                new PooledThread().start();
+                pooledThread = new PooledThread();
+                pooledThread.setPriority(priority);
+                pooledThread.start();
             }
         }
     }
@@ -59,7 +70,7 @@ public class ThreadPool
     
     public synchronized void runTaskWithPriority(final PriorityRunnable task)
     {
-        if (!isAlive)
+        if (!this.isAlive)
         {
             this.init();
             //throw new IllegalStateException();
@@ -109,7 +120,7 @@ public class ThreadPool
             //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK));
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
 
-            taskQueue.add(task);
+            this.taskQueue.add(task);
             notify();
         }
     }
@@ -117,31 +128,31 @@ public class ThreadPool
     protected synchronized Runnable getTask()
             throws InterruptedException
     {
-        while (taskQueue.size() == 0)
+        while (this.taskQueue.size() == 0)
         {
-            if (!isAlive)
+            if (!this.isAlive)
             {
                 return null;
             }
             this.wait();
         }
-        return (Runnable) taskQueue.remove(0);
+        return (Runnable) this.taskQueue.remove(0);
     }
 
     public synchronized void clear()
     {
-        if (isAlive)
+        if (this.isAlive)
         {
-            taskQueue.clear();
+            this.taskQueue.clear();
         }
     }
     
     public synchronized void close()
     {
-        if (isAlive)
+        if (this.isAlive)
         {
-            isAlive = false;
-            taskQueue.clear();
+            this.isAlive = false;
+            this.taskQueue.clear();
             //interrupt();
         }
     }
@@ -151,7 +162,7 @@ public class ThreadPool
 
         synchronized (this)
         {
-            isAlive = false;
+            this.isAlive = false;
             notifyAll();
         }
 
