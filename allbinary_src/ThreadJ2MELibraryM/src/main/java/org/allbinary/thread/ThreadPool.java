@@ -19,6 +19,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonSeps;
 
 public class ThreadPool
 {
@@ -53,6 +54,9 @@ public class ThreadPool
         }
     }
 
+    //private final String COMPARE_PRIORITY = "Compare priority task: ";
+    //private final String ADD_PRIORITY = "Add priority task: ";
+    
     public synchronized void runTaskWithPriority(final PriorityRunnable task)
     {
         if (!isAlive)
@@ -60,6 +64,7 @@ public class ThreadPool
             this.init();
             //throw new IllegalStateException();
         }
+
         if (task != null)
         {
 
@@ -70,6 +75,7 @@ public class ThreadPool
             PriorityRunnable lowerPriorityRunnable = null;
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
                 if(runnable.getPriority().intValue() > task.getPriority().intValue()) {
                     lowerPriorityRunnable = runnable;
                     break;
@@ -79,8 +85,9 @@ public class ThreadPool
             if(lowerPriorityRunnable == null) {
                 this.taskQueue.add(task);
             } else {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Add priority task: ").append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append(ADD_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
                 final int index = this.taskQueue.indexOf(lowerPriorityRunnable);
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append(ADD_PRIORITY).append(index).append(CommonSeps.getInstance().SPACE).append(this.taskQueue.size()).toString(), this, this.threadPoolStrings.ADD_TASK));
                 this.taskQueue.add(index, task);
             }
             
