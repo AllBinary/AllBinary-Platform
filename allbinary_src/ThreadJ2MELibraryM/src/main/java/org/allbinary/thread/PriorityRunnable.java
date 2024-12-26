@@ -19,6 +19,6 @@ package org.allbinary.thread;
  */
 public interface PriorityRunnable extends Runnable {
     
-    public Integer getPriority();
+    public int getPriority();
     
 }

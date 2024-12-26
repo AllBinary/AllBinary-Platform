@@ -87,7 +87,7 @@ public class ThreadPool
             for(int index = 0; index < size; index++) {
                 runnable = (PriorityRunnable) this.taskQueue.get(index);
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append(COMPARE_PRIORITY).append(task.getPriority()).toString(), this, this.threadPoolStrings.ADD_TASK));
-                if(runnable.getPriority().intValue() > task.getPriority().intValue()) {
+                if(runnable.getPriority() > task.getPriority()) {
                     lowerPriorityRunnable = runnable;
                     break;
                 }
