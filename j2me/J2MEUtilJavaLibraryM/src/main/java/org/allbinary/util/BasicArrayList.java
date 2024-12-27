@@ -13,7 +13,7 @@ public class BasicArrayList
     public transient Object[] objectArray;
     private int currentIndex = 0;
 
-    public BasicArrayList(int size)
+    public BasicArrayList(final int size)
     {
         super();
 
@@ -26,7 +26,7 @@ public class BasicArrayList
         objectArray = new Object[size];
     }
 
-    public BasicArrayList(Object[] objectArray) {
+    public BasicArrayList(final Object[] objectArray) {
         this.objectArray = objectArray;
     }
     
@@ -42,12 +42,12 @@ public class BasicArrayList
         return objectArray;
     }
 
-    protected void setObjectArray(Object[] objectArray)
+    protected void setObjectArray(final Object[] objectArray)
     {
         this.objectArray = objectArray;
     }
 
-    public void add(int index, Object element)
+    public void add(final int index, final Object element)
     {
         if (index > currentIndex || index < 0) {
             StringMaker stringBuffer = new StringMaker();
@@ -66,17 +66,17 @@ public class BasicArrayList
         currentIndex++;
     }
 
-    public boolean add(Object object)
+    public boolean add(final Object object)
     {
         ensureCapacity(currentIndex + 1);
         objectArray[currentIndex++] = object;
         return true;
     }
 
-    public Object remove(int index)
+    public Object remove(final int index)
     {
         if (index >= currentIndex) {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
@@ -88,7 +88,7 @@ public class BasicArrayList
 
         Object oldValue = objectArray[index];
 
-        int numMoved = currentIndex - index - 1;
+        final int numMoved = currentIndex - index - 1;
         if (numMoved > 0)
             System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
 
@@ -97,12 +97,12 @@ public class BasicArrayList
         return oldValue;
     }
 
-    public boolean remove(Object object)
+    public boolean remove(final Object object)
     {
         if (object == null) {
             for (int index = 0; index < currentIndex; index++) {
                 if (objectArray[index] == null) {
-                    int numMoved = currentIndex - index - 1;
+                    final int numMoved = currentIndex - index - 1;
 
                     if (numMoved > 0)
                         System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
@@ -116,7 +116,7 @@ public class BasicArrayList
         {
             for (int index = 0; index < currentIndex; index++) {
                 if (object.equals(objectArray[index])) {
-                    int numMoved = currentIndex - index - 1;
+                    final int numMoved = currentIndex - index - 1;
 
                     if (numMoved > 0)
                         System.arraycopy(objectArray, index + 1, objectArray, index, numMoved);
@@ -129,7 +129,7 @@ public class BasicArrayList
         return false;
     }
 
-    public boolean addAll2(BasicArrayList list)
+    public boolean addAll2(final BasicArrayList list)
     {
         ensureCapacity(currentIndex + list.currentIndex);
 
@@ -142,7 +142,7 @@ public class BasicArrayList
         return true;
     }
 
-    public boolean addAll(BasicArrayList list)
+    public boolean addAll(final BasicArrayList list)
     {
         final Object[] newObjectArray = list.toArray();
         return this.addAll(newObjectArray);
@@ -157,9 +157,9 @@ public class BasicArrayList
         return numSize != 0;
     }
     
-    public void ensureCapacity(int minSize)
+    public void ensureCapacity(final int minSize)
     {
-        int oldCapacity = objectArray.length;
+        final int oldCapacity = objectArray.length;
 
         if (minSize > oldCapacity) {
             int newCapacity = ((oldCapacity * 3) >> 1) + 1;
@@ -173,13 +173,13 @@ public class BasicArrayList
 
     public void trimToSize()
     {
-        int oldCapacity = objectArray.length;
+        final int oldCapacity = objectArray.length;
 
         if (currentIndex < oldCapacity)
             objectArray = arrayUtil.copyOf(objectArray, currentIndex);
     }
 
-    public int indexOf(Object object)
+    public int indexOf(final Object object)
     {
         if (object == null) {
             for (int i = 0; i < currentIndex; i++) {
@@ -197,7 +197,7 @@ public class BasicArrayList
         return -1;
     }
 
-    public int lastIndexOf(Object object)
+    public int lastIndexOf(final Object object)
     {
         if (object == null) {
             for (int i = currentIndex - 1; i >= 0; i--) {
@@ -215,10 +215,10 @@ public class BasicArrayList
         return -1;
     }
 
-    public Object get(int index)
+    public Object get(final int index)
     {
         if (index >= currentIndex) {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
@@ -231,10 +231,10 @@ public class BasicArrayList
         return objectArray[index];
     }
 
-    public Object set(int index, Object element)
+    public Object set(final int index, final Object element)
     {
         if (index >= currentIndex) {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append(CommonLabels.getInstance().INDEX_LABEL);
             stringBuffer.append(index);
@@ -244,7 +244,7 @@ public class BasicArrayList
             throw new IndexOutOfBoundsException(stringBuffer.toString());
         }
 
-        Object oldValue = objectArray[index];
+        final Object oldValue = objectArray[index];
         objectArray[index] = element;
         return oldValue;
     }
@@ -267,7 +267,7 @@ public class BasicArrayList
         return currentIndex == 0;
     }
 
-    public boolean contains(Object object)
+    public boolean contains(final Object object)
     {
         return indexOf(object) >= 0;
     }
@@ -277,7 +277,7 @@ public class BasicArrayList
         return arrayUtil.copyOf(objectArray, currentIndex);
     }
 
-    public Object[] toArray(Object[] objectArray)
+    public Object[] toArray(final Object[] objectArray)
     {
         if (objectArray.length < currentIndex)
             return arrayUtil.copyOf(this.objectArray, currentIndex, objectArray.getClass());
