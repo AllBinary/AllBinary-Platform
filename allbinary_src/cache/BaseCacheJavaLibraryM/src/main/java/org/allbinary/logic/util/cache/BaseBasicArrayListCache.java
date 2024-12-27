@@ -35,7 +35,7 @@ public class BaseBasicArrayListCache {
 
     public String log()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("S: ");
         stringBuffer.append(this.list.size());
