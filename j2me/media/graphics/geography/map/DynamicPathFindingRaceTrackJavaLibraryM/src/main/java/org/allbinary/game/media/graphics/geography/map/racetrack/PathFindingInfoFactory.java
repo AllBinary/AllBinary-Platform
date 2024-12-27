@@ -88,6 +88,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final int[][] mapArray)
         throws Exception
     {
+        //TWB - find a way to cache this PathFindingInfo.
         final PathFindingInfo pathFindingInfo = new PathFindingInfo(this.pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface());
 
         RaceTrackRoadsGeographicMapCellHistoryFactory.getInstance().init();
