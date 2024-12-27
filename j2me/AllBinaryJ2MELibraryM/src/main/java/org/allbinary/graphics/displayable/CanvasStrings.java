@@ -14,6 +14,7 @@
 package org.allbinary.graphics.displayable;
 
 import org.allbinary.util.BasicArrayList;
+import org.allbinary.util.BasicArrayListUtil;
 
 /**
  *
@@ -39,7 +40,7 @@ public class CanvasStrings {
     
     public final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
     
-    public final BasicArrayList EMPTY_CHILD_NAME_LIST = new BasicArrayList();
+    public final BasicArrayList EMPTY_CHILD_NAME_LIST = BasicArrayListUtil.getInstance().getImmutableInstance();
     
     public final String ABOUT = "About";
     public final String OPTIONS = "Options";
