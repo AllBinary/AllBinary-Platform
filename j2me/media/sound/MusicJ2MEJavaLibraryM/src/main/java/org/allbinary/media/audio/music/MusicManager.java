@@ -2,6 +2,7 @@ package org.allbinary.media.audio.music;
 
 import javax.microedition.media.Player;
 import javax.microedition.media.PlayerListener;
+import org.allbinary.AvianUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
@@ -142,6 +143,10 @@ public class MusicManager {
                                         this.waitForStateChange(endingCurrentSongSound, startingCurrentSongSound);
                                     } else {
                                         PreLogUtil.put(new StringMaker().append(ALREADY_ENDED).append(PLAY).append(startingCurrentSongSound.getResource()).toString(), this, commonStrings.PROCESS);
+                                        if(AvianUtil.isAvian()) {
+                                            endingCurrentSongSound.getPlayer().stop();
+                                            startingCurrentSongSound.getPlayer().stop();
+                                        }
                                         startingCurrentSongSound.getPlayer().start();
                                     }
                                 }
@@ -226,7 +231,7 @@ public class MusicManager {
             }
             this.timeDelayHelper.setStartTime(0);
             
-            PreLogUtil.put(commonStrings.END + currentSongSound, this, commonStrings.END);
+            PreLogUtil.put(new StringMaker().append(commonStrings.END).append(currentSongSound).toString(), this, commonStrings.END);
 
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;

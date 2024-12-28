@@ -34,7 +34,7 @@ public class ThreadPool
     
     public ThreadPool(final String poolName, final int numThreads)
     {
-        this(poolName, numThreads, Thread.NORM_PRIORITY);
+        this(poolName, numThreads, 5); //5 = Thread.NORM_PRIORITY
     }
     
     public ThreadPool(final String poolName, final int numThreads, final int priority)
