@@ -45,6 +45,24 @@ public class ThreadPool
     }
     
     //TWB - PlayN Single Thread Fix
+    private PriorityRunnable currentPriorityRunnable = null;
+    public void runAPriorityTask()
+            throws Exception
+    {
+
+        if(currentPriorityRunnable != null && !currentPriorityRunnable.isDone()) {
+            currentPriorityRunnable.run();
+        } else {
+            currentPriorityRunnable = (PriorityRunnable) this.getTask();
+
+            if (currentPriorityRunnable != null)
+            {
+                currentPriorityRunnable.run();
+            }
+        }
+
+    }
+
     public void runATask()
             throws Exception
     {
