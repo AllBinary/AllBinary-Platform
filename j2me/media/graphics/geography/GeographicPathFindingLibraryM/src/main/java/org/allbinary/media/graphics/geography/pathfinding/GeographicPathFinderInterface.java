@@ -25,4 +25,10 @@ public interface GeographicPathFinderInterface {
       BasicArrayList startPathFindingNodeList, 
       BasicArrayList endPathFindingNodeList, int totalPaths)
       throws Exception;
+
+   BasicArrayList searchN(
+      BasicArrayList startPathFindingNodeList, 
+      BasicArrayList endPathFindingNodeList, int totalPaths, final MultipassState multipassState)
+      throws Exception;
+
 }
