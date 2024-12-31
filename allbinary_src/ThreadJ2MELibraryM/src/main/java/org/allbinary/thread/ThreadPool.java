@@ -163,6 +163,7 @@ public class ThreadPool
         synchronized (this)
         {
             this.isAlive = false;
+            this.taskQueue.clear();
             notifyAll();
         }
 
@@ -205,6 +206,7 @@ public class ThreadPool
         if (this.numThreads == 1)
         {
             this.isAlive = false;
+            taskQueue.clear();
         }
     }
 

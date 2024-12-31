@@ -51,12 +51,14 @@ public class ThreadPool
     {
 
         if(currentPriorityRunnable != null && !currentPriorityRunnable.isDone()) {
+            //LogUtil.put(LogFactory.getInstance(currentPriorityRunnable.toString(), this, "runAPriorityTask:Again"));
             currentPriorityRunnable.run();
         } else {
             currentPriorityRunnable = (PriorityRunnable) this.getTask();
 
             if (currentPriorityRunnable != null)
             {
+                //LogUtil.put(LogFactory.getInstance(currentPriorityRunnable.toString(), this, "runAPriorityTask:New"));
                 currentPriorityRunnable.run();
             }
         }
@@ -178,6 +180,7 @@ public class ThreadPool
         {
             isAlive = false;
             taskQueue.clear();
+            this.currentPriorityRunnable = null;
             //interrupt();
         }
     }
@@ -188,6 +191,8 @@ public class ThreadPool
         synchronized (this)
         {
             isAlive = false;
+            taskQueue.clear();
+            this.currentPriorityRunnable = null;
             //TWB - Playn Testing
             //notifyAll();
         }
@@ -229,6 +234,8 @@ public class ThreadPool
         if (this.numThreads == 1)
         {
             this.isAlive = false;
+            taskQueue.clear();
+            this.currentPriorityRunnable = null;
         }
     }
 
