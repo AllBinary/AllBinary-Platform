@@ -15,6 +15,7 @@ package org.allbinary.graphics.canvas.transition.progress;
 
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.canvas.Processor;
 
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.commands.GameCommandsFactory;
@@ -32,6 +33,8 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.midlet.AllBinaryMidlet;
+import org.allbinary.thread.PathFindingThreadPool;
+import org.allbinary.thread.ThreadPool;
 
 public class ProgressCanvas extends RunnableCanvas
     implements PaintableInterface
@@ -62,6 +65,17 @@ public class ProgressCanvas extends RunnableCanvas
     protected PaintableInterface paintable = GAUGE_PAINTABLE;
     
     public boolean inProgress = false;
+    
+    private final Processor IN_GAME_PROCESSOR = new Processor() {
+        
+        private final ThreadPool pathFindingThreadPool = PathFindingThreadPool.getInstance();
+        
+        public void process() throws Exception {
+            pathFindingThreadPool.runAPriorityTask();
+        }
+    };
+
+    public Processor inGameProcessor = Processor.getInstance();
     
     protected ProgressCanvas()
     {
@@ -126,6 +140,7 @@ public class ProgressCanvas extends RunnableCanvas
         this.setValue(0);
         //this.setDisplayed(false);
         this.paintable = GAUGE_PAINTABLE;
+        this.inGameProcessor = Processor.getInstance();
         this.inProgress = true;
     }
     
@@ -148,6 +163,7 @@ public class ProgressCanvas extends RunnableCanvas
         //getCommandListener()
         this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, null);
         this.inProgress = false;
+        this.inGameProcessor = IN_GAME_PROCESSOR;
     }
         
     public void end()

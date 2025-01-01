@@ -65,6 +65,12 @@ public class ThreadPool
         }
     }
 
+    public void runAPriorityTask()
+            throws Exception
+    {
+        throw new RuntimeException();
+    }
+    
     //private final String COMPARE_PRIORITY = "Compare priority task: ";
     //private final String ADD_PRIORITY = "Add priority task: ";
     
