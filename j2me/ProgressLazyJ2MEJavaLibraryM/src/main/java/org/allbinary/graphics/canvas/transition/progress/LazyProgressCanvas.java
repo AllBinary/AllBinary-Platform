@@ -13,6 +13,7 @@
  */
 package org.allbinary.graphics.canvas.transition.progress;
 
+import org.allbinary.canvas.Processor;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.image.ImageCacheFactory;
@@ -43,6 +44,10 @@ public class LazyProgressCanvas extends ProgressCanvas {
         this.endActual();
         this.paintable = GAUGE_PAINTABLE;
         ImageCacheFactory.getInstance().runTask();
+    }
+    
+    public void inGame() {
+        inGameProcessor = Processor.getInstance();
     }
     
     public void endFromInitialLazyLoadingComplete()

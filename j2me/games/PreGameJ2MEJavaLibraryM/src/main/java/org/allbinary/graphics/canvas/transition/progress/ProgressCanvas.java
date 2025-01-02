@@ -139,23 +139,25 @@ public class ProgressCanvas extends RunnableCanvas
         this.setText(TEXT);
         this.setValue(0);
         //this.setDisplayed(false);
-        this.paintable = GAUGE_PAINTABLE;
         this.inGameProcessor = Processor.getInstance();
+        this.paintable = GAUGE_PAINTABLE;
         this.inProgress = true;
     }
     
     private final MyFont myFont = MyFont.getInstance();
     
     private final String backgroundLabel = "Background AI Game Loading...";
+    private final String START_BACKGROUND = "startBackground";
     
     public void startBackground(boolean background)
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "startBackground"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, START_BACKGROUND));
         this.setBackground(background);
         this.gauge.setHeight(myFont.DEFAULT_CHAR_HEIGHT + 2);
         this.gauge.setLabel(backgroundLabel);
         this.setText(TEXT);
         this.setValue(0);
+        this.inGameProcessor = Processor.getInstance();
         this.paintable = GAUGE_PAINTABLE;
     }
     
@@ -163,9 +165,13 @@ public class ProgressCanvas extends RunnableCanvas
         //getCommandListener()
         this.allbinaryMidlet.commandAction(GameCommandsFactory.getInstance().SHOW_GAME_CANVAS, null);
         this.inProgress = false;
+        this.inGame();
+    }
+
+    public void inGame() {
         this.inGameProcessor = IN_GAME_PROCESSOR;
     }
-        
+
     public void end()
     {
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
@@ -178,6 +184,7 @@ public class ProgressCanvas extends RunnableCanvas
     {
         //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE));
         this.gauge.setValue(this.getMaxValue());
+        this.inGameProcessor = IN_GAME_PROCESSOR;
     }
     
     public void endIfPaintedSinceStart()
