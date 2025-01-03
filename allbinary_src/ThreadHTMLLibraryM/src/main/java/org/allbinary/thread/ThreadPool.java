@@ -59,6 +59,7 @@ public class ThreadPool
             if (currentPriorityRunnable != null)
             {
                 //LogUtil.put(LogFactory.getInstance(currentPriorityRunnable.toString(), this, "runAPriorityTask:New"));
+                currentPriorityRunnable.reset();
                 currentPriorityRunnable.run();
             }
         }

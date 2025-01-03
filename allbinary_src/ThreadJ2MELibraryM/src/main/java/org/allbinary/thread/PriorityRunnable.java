@@ -23,5 +23,7 @@ public interface PriorityRunnable extends Runnable {
     
     //This is not really about priority and is for HTML5 builds
     public boolean isDone();
+ 
+    public void reset();
     
 }
