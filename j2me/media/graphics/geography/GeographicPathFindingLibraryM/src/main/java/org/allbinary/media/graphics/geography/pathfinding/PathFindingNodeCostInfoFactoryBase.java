@@ -21,7 +21,7 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
  * @author User
  */
 public class PathFindingNodeCostInfoFactoryBase
-    implements PathFindingNodeCostInfoFactoryInterface {
+    implements PathFindingNodeCostInfoFactoryBaseInterface {
 
     public void create(
         final BasicGeographicMap geographicMapInterface,
