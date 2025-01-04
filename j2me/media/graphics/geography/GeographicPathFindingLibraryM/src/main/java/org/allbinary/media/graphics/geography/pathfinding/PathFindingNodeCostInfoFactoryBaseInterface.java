@@ -24,11 +24,11 @@ public interface PathFindingNodeCostInfoFactoryBaseInterface {
         //GeographicMapCellPosition startGeographicMapCellPosition, 
         //GeographicMapCellPosition endGeographicMapCellPosition, 
         final GeographicMapCellPosition geographicMapCellPosition,
-        final int costFromStart,
-        final int costToEnd)
+        final long costFromStart,
+        final long costToEnd)
         throws Exception;
 
-    int getTotalCost(
+    long getTotalCost(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition comingFromGeographicMapCellPosition,
         final GeographicMapCellPosition geographicMapCellPosition) throws Exception;

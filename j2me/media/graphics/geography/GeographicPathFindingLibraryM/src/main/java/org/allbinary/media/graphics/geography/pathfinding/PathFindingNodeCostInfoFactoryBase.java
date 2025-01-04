@@ -29,13 +29,13 @@ public class PathFindingNodeCostInfoFactoryBase
         //GeographicMapCellPosition startGeographicMapCellPosition, 
         //GeographicMapCellPosition endGeographicMapCellPosition, 
         final GeographicMapCellPosition geographicMapCellPosition,
-        final int costFromStart,
-        final int costToEnd)
+        final long costFromStart,
+        final long costToEnd)
         throws Exception {
 
     }
 
-    public int getTotalCost(
+    public long getTotalCost(
         final BasicGeographicMap geographicMapInterface,
         final GeographicMapCellPosition comingFromGeographicMapCellPosition,
         final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
