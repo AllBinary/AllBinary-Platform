@@ -20,5 +20,5 @@ public interface PathFindingInfoInterface
     BasicArrayList getStartPathFindingNodeList();
     BasicArrayList getEndPathFindingNodeList();
 
-    GeographicPathFinderInterface getPathFinder();
+    GeographicPathFinderBase getPathFinder();
 }

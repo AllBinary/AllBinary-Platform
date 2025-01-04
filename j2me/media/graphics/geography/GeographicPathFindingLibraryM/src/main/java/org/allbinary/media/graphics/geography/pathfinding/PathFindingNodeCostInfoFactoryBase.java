@@ -20,8 +20,8 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
  *
  * @author User
  */
-public class BasePathFindingNodeCostInfoFactory
-    implements BasePathFindingNodeCostInfoFactoryInterface {
+public class PathFindingNodeCostInfoFactoryBase
+    implements PathFindingNodeCostInfoFactoryInterface {
 
     public void create(
         final BasicGeographicMap geographicMapInterface,

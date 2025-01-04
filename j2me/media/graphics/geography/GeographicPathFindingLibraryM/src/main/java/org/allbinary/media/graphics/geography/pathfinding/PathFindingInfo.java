@@ -17,14 +17,14 @@ import org.allbinary.util.BasicArrayList;
 
 public class PathFindingInfo implements PathFindingInfoInterface
 {
-    private GeographicPathFinderInterface pathFinder;
+    private GeographicPathFinderBase pathFinder;
     private final BasicArrayList startPathFindingNodeList;
     private final BasicArrayList endPathFindingNodeList;
     
-    private final BasePathFindingNodeCostInfoFactory pathFindingNodeCostInfoFactoryInterface;
+    private final PathFindingNodeCostInfoFactoryBase pathFindingNodeCostInfoFactoryInterface;
     
     public PathFindingInfo(
-            final BasePathFindingNodeCostInfoFactory pathFindingNodeCostInfoFactoryInterface)
+            final PathFindingNodeCostInfoFactoryBase pathFindingNodeCostInfoFactoryInterface)
     {
        this.pathFindingNodeCostInfoFactoryInterface =
            pathFindingNodeCostInfoFactoryInterface;
@@ -43,7 +43,7 @@ public class PathFindingInfo implements PathFindingInfoInterface
         return this.endPathFindingNodeList;
     }
 
-    public GeographicPathFinderInterface getPathFinder()
+    public GeographicPathFinderBase getPathFinder()
     {        
         return this.pathFinder;
     }
@@ -58,12 +58,12 @@ public class PathFindingInfo implements PathFindingInfoInterface
         this.endPathFindingNodeList.add(endPathFindingNode);
     }
 
-    public void setPathFinder(GeographicPathFinderInterface pathFinder)
+    public void setPathFinder(GeographicPathFinderBase pathFinder)
     {
         this.pathFinder = pathFinder;
     }
 
-   public BasePathFindingNodeCostInfoFactory getPathFindingNodeCostInfoFactoryInterface()
+   public PathFindingNodeCostInfoFactoryBase getPathFindingNodeCostInfoFactoryInterface()
    {
       return pathFindingNodeCostInfoFactoryInterface;
    }

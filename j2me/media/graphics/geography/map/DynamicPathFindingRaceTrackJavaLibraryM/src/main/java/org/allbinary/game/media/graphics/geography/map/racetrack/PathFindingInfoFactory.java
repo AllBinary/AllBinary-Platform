@@ -25,10 +25,10 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellTypeFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.BasePathFindingInfoFactory;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackGeographicMapCellType;
 import org.allbinary.media.graphics.geography.map.racetrack.RaceTrackRoadsGeographicMapCellHistoryFactory;
-import org.allbinary.media.graphics.geography.pathfinding.BasePathFindingNodeCostInfoFactory;
+import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoFactoryBase;
 import org.allbinary.media.graphics.geography.pathfinding.BasicGeographicMapGraph;
 import org.allbinary.media.graphics.geography.pathfinding.BasicGeographicMapPathFinder;
-import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryInterface;
+import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryBase;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingInfo;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoFactory;
 
@@ -60,11 +60,11 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     private final BasicGeographicMapGraph basicGeographicMapGraph;
     private final BasicGeographicMapPathFinder basicGeographicMapPathFinder;
 
-    private final PathFinderGraphVisitorFactoryInterface
+    private final PathFinderGraphVisitorFactoryBase
         pathFinderGraphVisitorFactoryInterface;
 
     private PathFindingInfoFactory(
-        final PathFinderGraphVisitorFactoryInterface pathFinderGraphVisitorFactoryInterface, final int max)
+        final PathFinderGraphVisitorFactoryBase pathFinderGraphVisitorFactoryInterface, final int max)
     {
         PreLogUtil.put("Using Dynamic Path Finding", this, CommonStrings.getInstance().GET_INSTANCE);
 
@@ -155,7 +155,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
         final AllBinaryTiledLayer allBinaryTiledLayer =
             geographicMapInterface.getAllBinaryTiledLayer();
 
-        final BasePathFindingNodeCostInfoFactory pathFindingNodeCostInfoFactoryInterface =
+        final PathFindingNodeCostInfoFactoryBase pathFindingNodeCostInfoFactoryInterface =
            pathFindingInfo.getPathFindingNodeCostInfoFactoryInterface();
         //if (raceGameGeographicMapCellType != RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE)
         //{

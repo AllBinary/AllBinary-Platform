@@ -19,16 +19,20 @@ import org.allbinary.util.BasicArrayList;
  *
  * @author user
  */
-public interface GeographicPathFinderInterface {
+public class GeographicPathFinderBase {
    
-   BasicArrayList search(
+   public BasicArrayList search(
       BasicArrayList startPathFindingNodeList, 
       BasicArrayList endPathFindingNodeList, int totalPaths)
-      throws Exception;
+      throws Exception {
+       throw new RuntimeException();
+   }
 
-   BasicArrayList searchN(
+   public BasicArrayList searchN(
       BasicArrayList startPathFindingNodeList, 
       BasicArrayList endPathFindingNodeList, int totalPaths, final MultipassState multipassState)
-      throws Exception;
+      throws Exception {
+       throw new RuntimeException();
+   }
 
 }

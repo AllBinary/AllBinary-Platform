@@ -14,15 +14,15 @@
 package org.allbinary.game.media.graphics.geography.map.racetrack;
 
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
-import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryInterface;
-import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorInterface;
+import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorFactoryBase;
+import org.allbinary.media.graphics.geography.pathfinding.PathFinderGraphVisitorBase;
 
 /**
  *
  * @author user
  */
 public class SimplePathFinderGraphVisitorFactory
-    implements PathFinderGraphVisitorFactoryInterface {
+    extends PathFinderGraphVisitorFactoryBase {
 
     private final int edgeMinimum;
     private final int minPathWeight;
@@ -41,7 +41,7 @@ public class SimplePathFinderGraphVisitorFactory
         this.maxPathWeight = maxPathWeight;
     }
 
-    public PathFinderGraphVisitorInterface getInstance(
+    public PathFinderGraphVisitorBase getInstance(
             BasicGeographicMap geographicMapInterface)
     {
         return new BasePathFinderGraphVisitor(
