@@ -77,7 +77,8 @@ public class ArrayUtil
     public void reverse(final int[] intArray) {
         final int length = intArray.length - 1;
         int temp;
-        for (int index = 0; index <= length / 2; index++) {
+        final int size = length / 2;
+        for (int index = 0; index <= size; index++) {
             temp = intArray[index];
             intArray[index] = intArray[length - index];
             intArray[length - index] = temp;

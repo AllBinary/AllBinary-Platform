@@ -51,6 +51,20 @@ public class BasicArrayListUtil
         return myRandomFactory.getAbsoluteNextInt(list.size());
     }
 
+    public void reverse(final BasicArrayList list) {
+        final int lastMinusOneIndex = list.size() - 2;
+        Object temp;
+        final int size = lastMinusOneIndex / 2;
+        int secondSwapIndex;
+        for (int index = 0; index <= size; index++) {
+            secondSwapIndex = lastMinusOneIndex - index;
+            temp = list.remove(index);
+            list.add(index, list.remove(secondSwapIndex));
+            list.add(secondSwapIndex + 1, temp);
+            //System.out.println(list);
+        }
+    }	
+    
     public String log(BasicArrayList list)
     {
         int size = list.size();
@@ -76,4 +90,22 @@ public class BasicArrayListUtil
     {
         return immutableInstance;
     }
+    
+    public static void main(String args[]) {
+        final BasicArrayList list = new BasicArrayList();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        list.add("6");
+        list.add("7");
+        list.add("8");
+        list.add("9");
+        
+        BasicArrayListUtil.getInstance().reverse(list);
+        
+        System.out.println(list);
+    }
+    
 }
