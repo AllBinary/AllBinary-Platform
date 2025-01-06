@@ -13,11 +13,11 @@
 */
 package org.allbinary.game.media.graphics.geography.map.racetrack;
 
-import org.allbinary.util.BasicArrayList;
 import org.jgrapht.GraphPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
+import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.CellPosition;

@@ -32,6 +32,8 @@ import org.allbinary.logic.math.BasicDecimal;
 
 public class GeographicMapCellHistory
 {
+    private final BooleanFactory booleanFactory = BooleanFactory.getInstance();
+    
    private final BasicArrayList list;
    private final BasicArrayList visitedList;
    private final String MISSED_INFO = "Missed";
@@ -82,7 +84,7 @@ public class GeographicMapCellHistory
       if (!this.list.contains(geographicMapCellPosition))
       {
          this.list.add(geographicMapCellPosition);
-         this.visitedList.add(BooleanFactory.getInstance().FALSE);
+         this.visitedList.add(booleanFactory.FALSE);
       }
    //LogUtil.put(LogFactory.getInstance("Position: " + geographicMapCellPosition, this, "track"));
    }
@@ -126,7 +128,7 @@ public class GeographicMapCellHistory
       for (int index = 0; index < size; index++)
       {
          value = (Boolean) this.visitedList.get(index);
-         if (value == BooleanFactory.getInstance().FALSE)
+         if (value == booleanFactory.FALSE)
          {
             return (GeographicMapCellPosition) localList.get(index);
          }
@@ -143,7 +145,7 @@ public class GeographicMapCellHistory
       for (int index = 0; index < size; index++)
       {
          value = (Boolean) this.visitedList.get(index);
-         if (value == BooleanFactory.getInstance().FALSE)
+         if (value == booleanFactory.FALSE)
          {
             return index;
          }
@@ -179,7 +181,7 @@ public class GeographicMapCellHistory
       if (index != -1)
       {
          Boolean value = (Boolean) this.visitedList.get(index);
-         if (value == BooleanFactory.getInstance().TRUE)
+         if (value == booleanFactory.TRUE)
          {
             return true;
          }
@@ -199,7 +201,7 @@ public class GeographicMapCellHistory
       {
          value = (Boolean) this.visitedList.get(index);
          
-         Boolean TRUE = BooleanFactory.getInstance().TRUE;
+         Boolean TRUE = booleanFactory.TRUE;
          if (value != TRUE)
          {
             this.visitedList.set(index, TRUE);
@@ -287,7 +289,7 @@ public class GeographicMapCellHistory
    public void reset() throws Exception
    {
       final BasicArrayList localVisitedList = this.visitedList;
-      final Boolean localFalseBoolean = BooleanFactory.getInstance().FALSE;
+      final Boolean localFalseBoolean = booleanFactory.FALSE;
       int size = localVisitedList.size();
       for (int index = size - 1; index >= 0; index--)
       {

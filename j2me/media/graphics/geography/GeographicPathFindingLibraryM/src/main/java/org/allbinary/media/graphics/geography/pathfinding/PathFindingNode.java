@@ -19,9 +19,9 @@ import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
 public class PathFindingNode
 {
-   private PathFindingNode parent;
+   public PathFindingNode parent;
 
-   private GeographicMapCellPosition geographicMapCellPosition;
+   public GeographicMapCellPosition geographicMapCellPosition;
    
    public PathFindingNode(PathFindingNode parent,
       GeographicMapCellPosition geographicMapCellPosition) 

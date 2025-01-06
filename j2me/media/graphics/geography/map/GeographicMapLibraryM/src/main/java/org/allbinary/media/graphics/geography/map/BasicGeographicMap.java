@@ -73,6 +73,50 @@ public class BasicGeographicMap
         }
     }
 
+    public GeographicMapCellPosition getCellPositionNoThrow(
+        final int direction, final GeographicMapCellPosition oldGeographicMapCellPosition)
+        throws Exception {
+        switch (direction) {
+            case 0:
+                if(oldGeographicMapCellPosition.getColumn() - 1 >= 0) {
+                    return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn() - 1, oldGeographicMapCellPosition.getRow());
+                } else {
+                    return null;
+                }
+            case 1:
+                if(oldGeographicMapCellPosition.getColumn() + 1 < this.getAllBinaryTiledLayer().getColumns()) {
+                    return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn() + 1, oldGeographicMapCellPosition.getRow());
+                } else {
+                    return null;
+                }
+            case 2:
+                if(oldGeographicMapCellPosition.getRow() - 1 >= 0) {
+                    return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() - 1);
+                } else {
+                    return null;
+                }
+            case 3:
+                if(oldGeographicMapCellPosition.getRow() + 1 < this.getAllBinaryTiledLayer().getRows()) {
+                    return geographicMapCellPositionFactory.getInstance(oldGeographicMapCellPosition.getColumn(), oldGeographicMapCellPosition.getRow() + 1);
+                } else {
+                    return null;
+                }
+            default:
+                return null;
+        }
+    }
+    
+    public boolean isOfFourDirections(final GeographicMapCellPosition oldGeographicMapCellPosition, final GeographicMapCellPosition newGeographicMapCellPosition) throws Exception {
+                
+        for(int index = 0; index < 4; index++) {
+            if (newGeographicMapCellPosition == this.getCellPositionNoThrow(index, oldGeographicMapCellPosition)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    
     public GeographicMapCellPosition getCellPositionAt(final int x, final int y) throws Exception {
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
         final int i_column = Math.abs(x / allBinaryTiledLayer.getCellHeight());
@@ -94,6 +138,19 @@ public class BasicGeographicMap
         }
     }
 
+    public boolean isOnMap(final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
+        final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
+        final int i_column = geographicMapCellPosition.getColumn();
+        final int i_row = geographicMapCellPosition.getRow();
+
+        if (allBinaryTiledLayer.getColumns() > i_column
+            && allBinaryTiledLayer.getRows() > i_row) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     public BasicArrayList getCellPositionAtNoThrow(final int x, final int y, final int x2, final int y2,
         final BasicArrayList geographicMapCellPositionList) throws Exception {
         geographicMapCellPositionList.clear();

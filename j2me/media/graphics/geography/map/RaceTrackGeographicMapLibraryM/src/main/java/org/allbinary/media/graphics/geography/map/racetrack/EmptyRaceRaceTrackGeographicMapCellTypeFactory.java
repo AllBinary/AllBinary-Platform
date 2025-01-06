@@ -31,7 +31,7 @@ public class EmptyRaceRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeo
     {
         this.EMPTY_CELL_TYPE = 
           new RaceTrackGeographicMapCellType(CommonStrings.getInstance().EMPTY,
-          0,PathFindingNodeCostInfoData.MAX_NODE_COST);
+          0,PathFindingNodeCostInfoData.getInstance().MAX_NODE_COST);
 
         this.EASY_CELL_TYPE =
           new RaceTrackGeographicMapCellType("Easy",19,1);

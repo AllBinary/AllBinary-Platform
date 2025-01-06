@@ -15,10 +15,20 @@ package org.allbinary.media.graphics.geography.pathfinding;
 
 public class PathFindingNodeCostInfoData
 {
+
+    protected static final PathFindingNodeCostInfoData instance = new PathFindingNodeCostInfoData();
+    
+    /**
+     * @return the instance
+     */
+    public static PathFindingNodeCostInfoData getInstance() {
+        return instance;
+    }
+
    private PathFindingNodeCostInfoData()
    {
    }
 
-   public static int MAX_TOTAL_COST = Integer.MAX_VALUE;
-   public static int MAX_NODE_COST = Integer.MAX_VALUE / 10000; //SmallLongFactory.SPECIAL;
+   public int MAX_TOTAL_COST = Integer.MAX_VALUE;
+   public int MAX_NODE_COST = Integer.MAX_VALUE / 10000; //SmallLongFactory.SPECIAL;
 }
