@@ -37,26 +37,16 @@ public class PathFindingNode
       }
       */
 
-      if(this.getGeographicMapCellPosition() == null)
+      if(this.geographicMapCellPosition == null)
       {
          throw new Exception("No GeographicMapCellPosition");
       }
 
    }
 
-   public PathFindingNode getParent()
-   {
-      return parent;
-   }
-
    private void setParent(PathFindingNode parent)
    {
       this.parent = parent;
-   }
-
-   public GeographicMapCellPosition getGeographicMapCellPosition()
-   {
-      return geographicMapCellPosition;
    }
 
    public void setGeographicMapCellPosition(GeographicMapCellPosition geographicMapCellPosition)
@@ -71,12 +61,12 @@ public class PathFindingNode
       stringBuffer.append(this.getClass().getName());
       stringBuffer.append(": ");
       stringBuffer.append(" Path: ");
-      stringBuffer.append(this.getGeographicMapCellPosition().toString());
+      stringBuffer.append(this.geographicMapCellPosition.toString());
      
       PathFindingNode pathFindingNode = this.parent;
       while(pathFindingNode != null)
       {
-         stringBuffer.append(pathFindingNode.getGeographicMapCellPosition().toString());
+         stringBuffer.append(pathFindingNode.geographicMapCellPosition.toString());
          stringBuffer.append(CommonSeps.getInstance().SPACE);
          pathFindingNode = pathFindingNode.parent;
       }

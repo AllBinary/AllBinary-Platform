@@ -72,7 +72,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
                (PathFindingNode) startPathFindingNodeList.get(index);
 
             GeographicMapCellPosition geographicMapCellPosition =
-               startPathFindingNode.getGeographicMapCellPosition();
+               startPathFindingNode.geographicMapCellPosition;
 
             int column = geographicMapCellPosition.getColumn();
             int row = geographicMapCellPosition.getRow();
@@ -111,7 +111,7 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
                (PathFindingNode) endPathFindingNodeList.get(index);
 
             GeographicMapCellPosition geographicMapCellPosition =
-               endPathFindingNode.getGeographicMapCellPosition();
+               endPathFindingNode.geographicMapCellPosition;
 
             graph.addVertex(geographicMapCellPosition);
 
@@ -199,15 +199,15 @@ public class PathFinderGraphHackVisitor<V, E> extends BasePathFinderGraphVisitor
 
             //Fix Start/End Hack
             if(BasicGeographicMapUtil.getInstance().isSameCellPosition(
-               startPathFindingNode.getGeographicMapCellPosition(),
-               endPathFindingNode.getGeographicMapCellPosition()))
-            //if (startPathFindingNode.getGeographicMapCellPosition() ==
-              // endPathFindingNode.getGeographicMapCellPosition())
+               startPathFindingNode.geographicMapCellPosition,
+               endPathFindingNode.geographicMapCellPosition))
+            //if (startPathFindingNode.geographicMapCellPosition ==
+              // endPathFindingNode.geographicMapCellPosition)
             {
-                if (pathList.remove(endPathFindingNode.getGeographicMapCellPosition()))
+                if (pathList.remove(endPathFindingNode.geographicMapCellPosition))
                 {
-                    pathList.remove(startPathFindingNode.getGeographicMapCellPosition());
-                    pathList.add(0, startPathFindingNode.getGeographicMapCellPosition());
+                    pathList.remove(startPathFindingNode.geographicMapCellPosition);
+                    pathList.add(0, startPathFindingNode.geographicMapCellPosition);
                 }
             }
 

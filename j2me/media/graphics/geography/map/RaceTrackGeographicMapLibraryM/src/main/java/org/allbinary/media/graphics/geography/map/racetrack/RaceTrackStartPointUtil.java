@@ -33,7 +33,7 @@ public class RaceTrackStartPointUtil
         final PathFindingNode startPathFindingNode = (PathFindingNode) list.get(index);
 
         final GeographicMapCellPosition geographicMapCellPosition =
-           startPathFindingNode.getGeographicMapCellPosition();
+           startPathFindingNode.geographicMapCellPosition;
 
         final GPoint point = geographicMapCellPosition.getPoint();
 

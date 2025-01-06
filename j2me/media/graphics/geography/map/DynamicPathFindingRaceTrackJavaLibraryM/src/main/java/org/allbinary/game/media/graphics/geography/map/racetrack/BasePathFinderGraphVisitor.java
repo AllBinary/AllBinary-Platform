@@ -65,8 +65,8 @@ public class BasePathFinderGraphVisitor<V, E>
             PathFindingNode startPathFindingNode = 
                 (PathFindingNode) startPathFindingNodeList.get(index);
             
-            pathList.remove(startPathFindingNode.getGeographicMapCellPosition());
-            pathList.add(0, startPathFindingNode.getGeographicMapCellPosition());
+            pathList.remove(startPathFindingNode.geographicMapCellPosition);
+            pathList.add(0, startPathFindingNode.geographicMapCellPosition);
         }
     }
 
