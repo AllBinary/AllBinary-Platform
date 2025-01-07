@@ -42,6 +42,8 @@
 
         <module>../../graphics/BoundsJavaLibraryM</module>
 
+        <module>../../../../graphics/opengl/OpenGLESNullImageJavaLibraryM</module>
+
         <module>../../graphics/animation/image/AllBinaryImageAnimationJavaLibraryM</module>
         <module>../../graphics/animation/sprite/AllBinarySpriteAnimationJavaLibraryM</module>
 
