@@ -83,6 +83,7 @@ public class ImageCache extends ImageCacheBase {
                 if(loadSoonList.isEmpty()) return;
                 
                 lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadSoonList.get(0);
+                //LogUtil.put(LogFactory.getInstance("loadSoonList: " + lazyImageRotationAnimation, this, commonStrings.RUN));
                 if (this.loadImageForAnimation(lazyImageRotationAnimation)) {
                     //LogUtil.put(LogFactory.getInstance("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN));
                     loadSoonList.remove(lazyImageRotationAnimation);
@@ -93,12 +94,14 @@ public class ImageCache extends ImageCacheBase {
             lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.get(0);
         }
         if(this.loadImageForAnimation(lazyImageRotationAnimation)) {
+            //LogUtil.put(LogFactory.getInstance("loadNowList loaded: " + lazyImageRotationAnimation, this, commonStrings.RUN));
             synchronized (lock) {
                 loadNowList.remove(lazyImageRotationAnimation);
             }
 
             if (lazyImageRotationAnimation.layoutIndex != 0) {
                 final BasicArrayList list = this.getAssociated(lazyImageRotationAnimation);
+                //LogUtil.put(LogFactory.getInstance("loadNowList list: " + list, this, commonStrings.RUN));
                 synchronized (lock) {
                     final int size = list.size();
                     if(size > 0) {
@@ -391,7 +394,7 @@ public class ImageCache extends ImageCacheBase {
     }
     
     public void insertFirst(final LazyImageRotationAnimation lazyImageRotationAnimation) {
-            //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
+            final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
 //            if (image.getImage() != null) {
 //                try {
 //                    LogUtil.put(LogFactory.getInstance("animation image is already loaded: " + image.getName(), this, commonStrings.RUN));
@@ -400,8 +403,12 @@ public class ImageCache extends ImageCacheBase {
 //                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
 //                }
 //            } else {
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("insert resource: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
-                        
+
+            if(this.loadNowList.contains(lazyImageRotationAnimation)) {
+                
+            } else {
+
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loadNowList insert: ").append(image).append(image.getName()).toString(), this, commonStrings.RUN));
             synchronized (lock) {
                 this.loadNowList.add(lazyImageRotationAnimation);
                 this.loadAfterList.remove(lazyImageRotationAnimation);
@@ -418,6 +425,8 @@ public class ImageCache extends ImageCacheBase {
 //                    this.loadNowList.add(lazyImageRotationAnimation2);
 //                }
 
+            }
+                
             }
 
             this.runTask();
