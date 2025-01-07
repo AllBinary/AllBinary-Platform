@@ -25,6 +25,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
+import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.game.resource.GDLazyResources;
 import org.allbinary.game.resource.GDResources;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -80,7 +81,12 @@ public class ImageCache extends ImageCacheBase {
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
                 
-                if(loadSoonList.isEmpty()) return;
+                if(loadSoonList.isEmpty()) {
+                    if(MyRandomFactory.getInstance().getAbsoluteNextInt(10) == 5) {
+                        loadImage();
+                    }
+                    return;
+                }
                 
                 lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadSoonList.get(0);
                 //LogUtil.put(LogFactory.getInstance("loadSoonList: " + lazyImageRotationAnimation, this, commonStrings.RUN));
@@ -137,7 +143,7 @@ public class ImageCache extends ImageCacheBase {
 
             loadImageForAnimations();
             //LogUtil.put(LogFactory.getInstance("load image", this, commonStrings.RUN));
-            if(this.loadNowList.isEmpty() && this.loadSoonList.isEmpty()) loadImage();
+            loadImage();
         }
     }
     
