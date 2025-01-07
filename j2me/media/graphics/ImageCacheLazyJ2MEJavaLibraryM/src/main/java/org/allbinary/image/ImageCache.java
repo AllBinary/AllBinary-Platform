@@ -137,7 +137,7 @@ public class ImageCache extends ImageCacheBase {
 
             loadImageForAnimations();
             //LogUtil.put(LogFactory.getInstance("load image", this, commonStrings.RUN));
-            loadImage();
+            if(this.loadNowList.isEmpty() && this.loadSoonList.isEmpty()) loadImage();
         }
     }
     
