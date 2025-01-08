@@ -5,6 +5,7 @@
 package org.allbinary.graphics.font;
 
 import javax.microedition.lcdui.Font;
+import org.allbinary.logic.string.StringMaker;
 
 /**
  *
@@ -23,15 +24,15 @@ public class FontDebugBase {
     
     public final String SET_FONT = "setFont";
         
-    public void debugMetrics(final Font currentFont, final float convertedTextSize, final Object displayMetrics, final StringBuilder stringBuffer) {
+    public void debugMetrics(final Font currentFont, final float convertedTextSize, final Object displayMetrics, final StringMaker stringBuffer) {
         
     }
     
-    public void debugDpi(final int densityDpi, final StringBuilder stringBuffer) {
+    public void debugDpi(final int densityDpi, final StringMaker stringBuffer) {
         
     }
     
-    public void debugDimension(final Font currentFont, final float convertedTextSize, final int longestDimensionTotalPixels, final StringBuilder stringBuffer) {
+    public void debugDimension(final Font currentFont, final float convertedTextSize, final int longestDimensionTotalPixels, final StringMaker stringBuffer) {
         
     }
 }
