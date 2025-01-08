@@ -14,6 +14,7 @@
 package org.allbinary.image.opengles;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class OpenGLImageSpecificFactory
 {
@@ -30,7 +31,7 @@ public class OpenGLImageSpecificFactory
     {
         this.imageFactory = imageFactory;
         
-        PreLogUtil.put("Selected Image Factory: " + this.imageFactory, this, "setImageFactory");
+        PreLogUtil.put(new StringMaker().append("Selected Image Factory: ").append(this.imageFactory).toString(), this, "setImageFactory");
     }
 
     public OpenGLImageFactory getImageFactory()
