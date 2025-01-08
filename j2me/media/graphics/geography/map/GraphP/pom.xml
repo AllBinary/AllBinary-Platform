@@ -38,6 +38,13 @@
 
         <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibraryM</module>
         <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderJGraphTJavaLibrary_1_4_2M</module>
+        
+        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostJavaLibraryM</module>
+        
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack1JavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack2JavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderHack3JavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/GeographicPathFinderPriorityQueueJavaLibraryM</module>
 
         <module>../../GeographicPathFindingLibraryM</module>
 
