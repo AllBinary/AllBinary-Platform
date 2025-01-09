@@ -47,8 +47,8 @@
         </dependency>
 
         <dependency>
-  <groupId>org.allbinary.media.graphics.geography.map</groupId>
-  <artifactId>RaceTrackGeographicMapLibrary</artifactId>            
+            <groupId>org.allbinary.media.graphics.geography.map</groupId>
+            <artifactId>RaceTrackGeographicMapLibrary</artifactId>            
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
             <!-- AllBinary Platform Version End -->

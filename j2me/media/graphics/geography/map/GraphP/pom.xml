@@ -53,6 +53,7 @@
         -->
 
         <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostPerformantJavaLibraryM</module>
+        <module>../../../../../../../work/j2me/media/graphics/geography/PathFindingNodeCostComplexJavaLibraryM</module>
         
         <module>../../../../../../physics/FrictionJavaLibraryM</module>
 
