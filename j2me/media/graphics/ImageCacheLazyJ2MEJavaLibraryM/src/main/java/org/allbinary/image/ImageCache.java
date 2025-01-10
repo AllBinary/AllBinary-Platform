@@ -44,6 +44,8 @@ public class ImageCache extends ImageCacheBase {
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
+    private final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
+
     public final BasicArrayList loadNowList = new BasicArrayList();
     public final BasicArrayList loadSoonList = new BasicArrayList();
     public final BasicArrayList loadList = new BasicArrayList();
@@ -82,7 +84,7 @@ public class ImageCache extends ImageCacheBase {
                 progressCanvas.endIfPaintedSinceStart();
                 
                 if(loadSoonList.isEmpty()) {
-                    if(MyRandomFactory.getInstance().getAbsoluteNextInt(10) == 5) {
+                    if(randomFactory.getAbsoluteNextInt(120) == 5) {
                         loadImage();
                     }
                     return;

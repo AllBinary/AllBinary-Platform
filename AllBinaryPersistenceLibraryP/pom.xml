@@ -45,6 +45,7 @@
         <module>../allbinary_src/FileInitInfoJavaLibraryM</module>
         <module>../allbinary_src/PreLoaderFileJavaLibraryM</module>
         <module>../allbinary_src/PreLoaderLicenseJavaLibraryM</module>
+        <module>../j2me/PCResourceLibraryM</module>
         <module>../j2me/ProgressJ2MEJavaLibraryM</module>
         <module>../allbinary_src/licensing/ClientInfoBaseJavaLibraryM</module>
         <module>../allbinary_src/licensing/RemoteXmlRpcJavaLibraryM</module>
