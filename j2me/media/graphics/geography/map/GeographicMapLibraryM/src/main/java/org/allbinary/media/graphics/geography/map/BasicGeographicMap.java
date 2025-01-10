@@ -137,16 +137,12 @@ public class BasicGeographicMap
             return null;
         }
     }
-
+    
     public boolean isOnMap(final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
         
-        if(geographicMapCellPosition == null) {
-            return false;
-        }
-        
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
-        final int i_column = allBinaryTiledLayer.getColumns();
-        final int i_row = allBinaryTiledLayer.getRows();
+        final int i_column = geographicMapCellPosition.getColumns();
+        final int i_row = geographicMapCellPosition.getRows();
 
         if (allBinaryTiledLayer.getColumns() > i_column
             && allBinaryTiledLayer.getRows() > i_row) {
