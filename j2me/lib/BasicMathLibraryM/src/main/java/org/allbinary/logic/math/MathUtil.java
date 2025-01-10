@@ -54,6 +54,10 @@ public class MathUtil
         return accumulated;
     }
     
+    public int abs(int value) {
+        return (value < 0) ? -value : value;
+    }
+    
     /*
     public static void main(String[] args)
     {
