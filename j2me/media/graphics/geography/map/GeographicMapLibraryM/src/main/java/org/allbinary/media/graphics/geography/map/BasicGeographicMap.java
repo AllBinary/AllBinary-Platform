@@ -141,8 +141,8 @@ public class BasicGeographicMap
     public boolean isOnMap(final GeographicMapCellPosition geographicMapCellPosition) throws Exception {
         
         final AllBinaryTiledLayer allBinaryTiledLayer = this.getAllBinaryTiledLayer();
-        final int i_column = geographicMapCellPosition.getColumns();
-        final int i_row = geographicMapCellPosition.getRows();
+        final int i_column = geographicMapCellPosition.getColumn();
+        final int i_row = geographicMapCellPosition.getRow();
 
         if (allBinaryTiledLayer.getColumns() > i_column
             && allBinaryTiledLayer.getRows() > i_row) {
