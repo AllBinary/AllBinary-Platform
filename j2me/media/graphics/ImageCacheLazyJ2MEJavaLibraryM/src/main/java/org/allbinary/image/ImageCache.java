@@ -57,7 +57,8 @@ public class ImageCache extends ImageCacheBase {
     private final Object lock = new Object();
     
     private boolean firstTime = true;
-    
+    private int totalLoaded = Integer.MAX_VALUE;
+    private boolean isHTML = false;
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
@@ -76,20 +77,17 @@ public class ImageCache extends ImageCacheBase {
         }
     }
 
-    private int totalFrames = 1201;
     //private final String LOAD_IMAGE_FOR_ANIMATION = "loadImageForAnimation";
     private final String LOAD_IMAGE_FOR_ANIMATION = "Load Image Animation";
     public void loadImageForAnimation() throws Exception {
         LazyImageRotationAnimation lazyImageRotationAnimation = null;
         synchronized (lock) {
             if(loadNowList.isEmpty()) {
-                final Features features = Features.getInstance();
-                final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
-                if(!isHTML || totalFrames > 1200) {
+                if(!isHTML || !firstTime || totalLoaded > (this.loadList.size() / 4)) {
+                    //if(!firstTime) LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN));
                     final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                     progressCanvas.endIfPaintedSinceStart();
                 }
-                totalFrames++;
                 
                 if(loadSoonList.isEmpty()) {
 
@@ -105,6 +103,7 @@ public class ImageCache extends ImageCacheBase {
                 lazyImageRotationAnimation = (LazyImageRotationAnimation) this.loadSoonList.get(0);
                 //LogUtil.put(LogFactory.getInstance("loadSoonList: " + lazyImageRotationAnimation, this, commonStrings.RUN));
                 if (this.loadImageForAnimation(lazyImageRotationAnimation)) {
+                    this.totalLoaded++;
                     //LogUtil.put(LogFactory.getInstance("Loaded associated Animation for Game Layer that is painted", this, commonStrings.RUN));
                     loadSoonList.remove(lazyImageRotationAnimation);
                 }
@@ -114,7 +113,10 @@ public class ImageCache extends ImageCacheBase {
             lazyImageRotationAnimation = (LazyImageRotationAnimation) loadNowList.get(0);
         }
         if(this.loadImageForAnimation(lazyImageRotationAnimation)) {
-            //LogUtil.put(LogFactory.getInstance("loadNowList loaded: " + lazyImageRotationAnimation, this, commonStrings.RUN));
+            this.totalLoaded++;
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("loadNowList loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN));
+            //final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
+            //LogUtil.put(LogFactory.getInstance("loadNowList loaded: " + image.getName(), this, commonStrings.RUN));
             synchronized (lock) {
                 loadNowList.remove(lazyImageRotationAnimation);
             }
@@ -209,6 +211,7 @@ public class ImageCache extends ImageCacheBase {
             }
             image = (Image) loadList.remove(0);
         }
+        this.totalLoaded++;
         this.loadImage(image);
     }
 
@@ -457,7 +460,8 @@ public class ImageCache extends ImageCacheBase {
     public void runTask() {
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
-        if (isHTML) {
+        this.isHTML = isHTML;
+        if (this.isHTML) {
         } else {
             this.concurrentImageLoadingProcessor.runTask();
         }
@@ -467,7 +471,7 @@ public class ImageCache extends ImageCacheBase {
         //LogUtil.put(LogFactory.getInstance("reset totalFrames", this, commonStrings.RUN));
         
         if(firstTime) {
-            totalFrames = 0;
+            totalLoaded = 0;
             firstTime = false;
         }
         
