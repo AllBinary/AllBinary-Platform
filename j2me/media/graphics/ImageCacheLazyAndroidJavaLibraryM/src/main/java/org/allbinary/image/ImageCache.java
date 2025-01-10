@@ -111,7 +111,7 @@ public class ImageCache extends ImageCacheBase
     protected Image createImage(final Object key, final InputStream inputStream)
     throws Exception
     {
-        return Image.createImageLater((String) key);
+        return Image.createImageLater((String) key, -1, -1);
     }
 
 }

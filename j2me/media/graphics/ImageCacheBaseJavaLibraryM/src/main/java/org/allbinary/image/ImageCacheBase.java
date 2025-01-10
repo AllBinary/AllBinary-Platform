@@ -163,4 +163,8 @@ public class ImageCacheBase
         
     }
     
+    public void initProgress() {
+        
+    }
+
 }

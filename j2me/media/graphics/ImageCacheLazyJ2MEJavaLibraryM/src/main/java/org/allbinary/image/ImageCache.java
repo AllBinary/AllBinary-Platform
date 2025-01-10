@@ -18,6 +18,7 @@ import java.io.InputStream;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.image.LazyImageRotationAnimation;
+import org.allbinary.canvas.GameGlobalsFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -45,7 +46,8 @@ public class ImageCache extends ImageCacheBase {
     protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
     private final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
-
+    private final GameGlobalsFactory gameGlobalsFactory = GameGlobalsFactory.getInstance();
+    
     public final BasicArrayList loadNowList = new BasicArrayList();
     public final BasicArrayList loadSoonList = new BasicArrayList();
     public final BasicArrayList loadList = new BasicArrayList();
@@ -73,20 +75,30 @@ public class ImageCache extends ImageCacheBase {
             firstTime = false;
         }
     }
-    
+
+    private int totalFrames = 1201;
     //private final String LOAD_IMAGE_FOR_ANIMATION = "loadImageForAnimation";
     private final String LOAD_IMAGE_FOR_ANIMATION = "Load Image Animation";
     public void loadImageForAnimation() throws Exception {
         LazyImageRotationAnimation lazyImageRotationAnimation = null;
         synchronized (lock) {
             if(loadNowList.isEmpty()) {
-                final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-                progressCanvas.endIfPaintedSinceStart();
+                final Features features = Features.getInstance();
+                final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+                if(!isHTML || totalFrames > 1200) {
+                    final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+                    progressCanvas.endIfPaintedSinceStart();
+                }
+                totalFrames++;
                 
                 if(loadSoonList.isEmpty()) {
-                    if(randomFactory.getAbsoluteNextInt(120) == 5) {
+
+                    if(firstTime) {
+                    } else if(gameGlobalsFactory.newCanvas) {
+                    } else if(randomFactory.getAbsoluteNextInt(180) == 5) {
                         loadImage();
                     }
+
                     return;
                 }
                 
@@ -450,4 +462,15 @@ public class ImageCache extends ImageCacheBase {
             this.concurrentImageLoadingProcessor.runTask();
         }
     }
+    
+    public void initProgress() {
+        //LogUtil.put(LogFactory.getInstance("reset totalFrames", this, commonStrings.RUN));
+        
+        if(firstTime) {
+            totalFrames = 0;
+            firstTime = false;
+        }
+        
+    }
+    
 }
