@@ -201,7 +201,7 @@ implements OpenGLSurfaceChangedInterface
     {
     }
     
-    public static final int TYPE = 3;
+    public static final int TYPE = 4;
 
     public int getType() {
         return TYPE;
