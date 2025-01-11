@@ -34,5 +34,5 @@ public class AndroidStrings
     public final String BIND = "onBind";
     
     public final String ON_SAVE_INSTANCE_STATE = "onSaveInstanceState";
-    
+    public final String ON_START_COMMAND = "onStartCommand";
 }

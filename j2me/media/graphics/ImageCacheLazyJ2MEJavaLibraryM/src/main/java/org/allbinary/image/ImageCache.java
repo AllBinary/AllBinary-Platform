@@ -461,6 +461,7 @@ public class ImageCache extends ImageCacheBase {
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
         this.isHTML = isHTML;
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("this.isHTML: ").append(this.isHTML).toString(), this, commonStrings.RUN));
         if (this.isHTML) {
         } else {
             this.concurrentImageLoadingProcessor.runTask();

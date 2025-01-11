@@ -1,17 +1,20 @@
 package org.allbinary.media.audio.music;
 
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.android.AndroidStrings;
 
 public class BaseMusicService extends Service
 {
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private MediaPlayer player;
 
     private int songId = -1;
@@ -21,11 +24,11 @@ public class BaseMusicService extends Service
     private AndroidStrings androidStrings = AndroidStrings.getInstance();
 
     //@Override
-    public IBinder onBind(Intent intent)
+    public IBinder onBind(final Intent intent)
     {
         //Toast.makeText(this, "Music Bind", Toast.LENGTH_LONG).show();
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "onBind");
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, androidStrings.BIND));
+        //PreLogUtil.put(commonStrings.START, this, "onBind");
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.BIND));
 
         //songId = intent.getIntExtra("SONG", AndroidResources.raw.angels_we_have_heard);
         return null;
@@ -36,8 +39,8 @@ public class BaseMusicService extends Service
     {
 		//Toast.makeText(this, "Music Service Created", Toast.LENGTH_LONG).show();
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, androidStrings.CREATE));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "onCreate");		
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.CREATE));
+        //PreLogUtil.put(commonStrings.START, this, "onCreate");		
     }
 
     //@Override
@@ -45,8 +48,8 @@ public class BaseMusicService extends Service
     {
 		//Toast.makeText(this, "Music Service Stopped", Toast.LENGTH_LONG).show();
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, androidStrings.DESTROY));
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "onDestroy");
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.DESTROY));
+        //PreLogUtil.put(commonStrings.START, this, "onDestroy");
 
         if (player != null)
         {
@@ -63,33 +66,35 @@ public class BaseMusicService extends Service
 
         onStartCommand(intent);
 
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "onStart");
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, androidStrings.START));
+        //PreLogUtil.put(commonStrings.START, this, "onStart");
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.START));
     }
 
     //@Override
-    public int onStartCommand(Intent intent, int flags, int startId)
+    public int onStartCommand(final Intent intent, final int flags, final int startId)
     {
         onStartCommand(intent);
         return START_STICKY;
     }
 
-    public void onStartCommand(Intent intent)
+    public void onStartCommand(final Intent intent)
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, "onStartCommand");
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onStartCommand"));
+        //PreLogUtil.put(commonStrings.START, this, "onStartCommand");
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.ON_START_COMMAND));
 
         final MusicStrings musicStrings = MusicStrings.getInstance();
-        songId = intent.getIntExtra(musicStrings.SONG_EXTRA, -1);
-        leftVolume = intent.getIntExtra(musicStrings.LEFT_VOLUME, -1);
-        rightVolume = intent.getIntExtra(musicStrings.RIGHT_VOLUME, -1);
+        if(intent != null) {
+            songId = intent.getIntExtra(musicStrings.SONG_EXTRA, -1);
+            leftVolume = intent.getIntExtra(musicStrings.LEFT_VOLUME, -1);
+            rightVolume = intent.getIntExtra(musicStrings.RIGHT_VOLUME, -1);
+        }
 
         if (songId != -1)
         {
             System.gc();
 
             if(player != null && player.isPlaying()) { 
-                LogUtil.put(LogFactory.getInstance("This is one song per service", this, "onStartCommand"));
+                LogUtil.put(LogFactory.getInstance("This is one song per service", this, androidStrings.ON_START_COMMAND));
                 return; 
             }
             
