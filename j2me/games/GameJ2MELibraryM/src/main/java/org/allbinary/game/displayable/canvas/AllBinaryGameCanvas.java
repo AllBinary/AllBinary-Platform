@@ -1392,7 +1392,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     {
     }
 
-    private final InputProcessor rawGameInputProcessor = new GameInputProcessor(this);
+    private final InputProcessor rawGameInputProcessor = new GameCanvasInputProcessor(this);
     private final InputProcessor rawInputProcessor = new FormInputProcessor(this);
     private InputProcessor inputProcessor = getRawGameInputProcessor();
 

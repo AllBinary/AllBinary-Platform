@@ -31,7 +31,7 @@ import org.allbinary.game.input.mapping.InputToGameKeyMapping;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
-public class GameInputProcessor
+public class GameCanvasInputProcessor
 extends InputProcessor
 {
     private final AllBinaryGameCanvas allBinaryGameCanvas;
@@ -46,7 +46,7 @@ extends InputProcessor
     private final InputToGameKeyMapping inputToGameKeyMapping =
         PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping();
     
-    public GameInputProcessor(final AllBinaryGameCanvas allBinaryGameCanvas)
+    public GameCanvasInputProcessor(final AllBinaryGameCanvas allBinaryGameCanvas)
     {
         this.allBinaryGameCanvas = allBinaryGameCanvas;
 
