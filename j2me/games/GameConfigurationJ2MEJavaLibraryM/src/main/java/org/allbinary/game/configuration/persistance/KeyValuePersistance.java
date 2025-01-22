@@ -46,23 +46,21 @@ public class KeyValuePersistance extends BasicPersitance
     
     public void loadAll(final AbeClientInformationInterface abeClientInformation, int size) throws Exception
     {
-        final String METHOD_NAME = "loadAll";
         RecordStore recordStore = null;
 
         try {
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
-
-        final String LOADING_ID = "Loading id: ";
-        
+   
         Hashtable hashtable;
         
         String name;
         String value;
 
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
-        
+        final StringMaker stringBuffer = new StringMaker();
+
         byte[] recordAsBytes;
         ByteArrayInputStream byteArrayInputStream;
         DataInputStream inputStream;        
@@ -70,7 +68,8 @@ public class KeyValuePersistance extends BasicPersitance
         {
             final int id = recordEnum.nextRecordId();
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, METHOD_NAME));
+            stringBuffer.delete(0, stringBuffer.length());
+            LogUtil.put(LogFactory.getInstance(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL));
             
             recordAsBytes = recordStore.getRecord(id);
             if(recordAsBytes != null) {
@@ -85,14 +84,14 @@ public class KeyValuePersistance extends BasicPersitance
                     hashtable.put(name, value);
                 }
 
-                this.getList().add(hashtable);
-                this.getIds().add(smallIntegerSingletonFactory.getInstance(id));
+                this.valueList.add(hashtable);
+                this.idList.add(smallIntegerSingletonFactory.getInstance(id));
             }
         }
 
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put("Closing RecordStore", this, METHOD_NAME);
+                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.LOAD_ALL);
                 recordStore.closeRecordStore();
             }
         }
@@ -105,13 +104,12 @@ public class KeyValuePersistance extends BasicPersitance
         
         try {
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Saving: ").append(hashtable).toString(), this, "save"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.SAVING).append(hashtable).toString(), this, this.persistanceStrings.SAVE));
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
         final ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        final DataOutputStream outputStream = new DataOutputStream(
-                byteArrayOutputStream);
+        final DataOutputStream outputStream = new DataOutputStream(byteArrayOutputStream);
 
         String value;
         
@@ -133,7 +131,7 @@ public class KeyValuePersistance extends BasicPersitance
 
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put("Closing RecordStore", this, "save");
+                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.SAVE);
                 recordStore.closeRecordStore();
             }
         }
@@ -142,6 +140,6 @@ public class KeyValuePersistance extends BasicPersitance
 
     public Hashtable get(int index)
     {
-        return (Hashtable) this.getList().objectArray[index];
+        return (Hashtable) this.valueList.objectArray[index];
     }
 }

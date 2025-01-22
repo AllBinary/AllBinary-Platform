@@ -21,7 +21,6 @@ import javax.microedition.rms.RecordStore;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
-import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.logic.communication.log.PreLogUtil;
@@ -31,6 +30,8 @@ import org.allbinary.util.HashtableUtil;
 
 public class InputPersistance extends BasicPersitance
 {
+    private final HashtableUtil hashtableUtil = HashtableUtil.getInstance();
+
     public InputPersistance(String name)
     {
         super(name);
@@ -42,39 +43,36 @@ public class InputPersistance extends BasicPersitance
 
         final RecordEnumeration recordEnum = recordStore.enumerateRecords(null, null, true);
 
-        final String ERROR_LOADING = "Error Loading gameActionInput: ";
-        final String LOADING_ID = "Loading id: ";
-
-        final String METHOD_NAME = "Not loadAll";
-
+        //final String ERROR_LOADING = "Error Loading gameActionInput: ";
         //PreLogUtil.put(METHOD_NAME, this, METHOD_NAME);
         
-        final String ERROR_LOADING_ID = "Error Loading id: ";
-        final String ID = " id: ";
+        //final String ERROR_LOADING_ID = "Error Loading id: ";
+        //final String ID = " id: ";
 
-        final String GAME_ACTION_INPUT = " GameActionInput: ";
+        //final String GAME_ACTION_INPUT = " GameActionInput: ";
         
-        long gameActionInputId;
-        long inputId;
-        Input gameActionInput;
-        Input input;
+        //long gameActionInputId;
+        //long inputId;
+        //Input gameActionInput;
+        //Input input;
 
         //ByteArrayInputStream byteArrayInputStream;
 
         //DataInputStream inputStream;
 
         Hashtable hashtable;
-        
-        GameKeyMappingFactory gameKeyFactory = GameKeyMappingFactory.getInstance();            
-        StringMaker stringBuffer = new StringMaker();
+        //GameKeyMappingFactory gameKeyFactory = GameKeyMappingFactory.getInstance();            
+        final StringMaker stringBuffer = new StringMaker();
         
         final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
+        int id;
         while (recordEnum.hasNextElement())
         {
-            int id = recordEnum.nextRecordId();
+            id = recordEnum.nextRecordId();
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(LOADING_ID).append(id).toString(), this, METHOD_NAME));
+            stringBuffer.delete(0, stringBuffer.length());
+            LogUtil.put(LogFactory.getInstance(stringBuffer.append(this.persistanceStrings.LOADING_ID).append(id).toString(), this, this.persistanceStrings.LOAD_ALL));
 
             //byteArrayInputStream = 
               //  new ByteArrayInputStream(recordStore.getRecord(id));
@@ -83,7 +81,7 @@ public class InputPersistance extends BasicPersitance
 
             hashtable = new Hashtable();
             
-            final InputFactory inputFactory = InputFactory.getInstance();
+            //final InputFactory inputFactory = InputFactory.getInstance();
             
             /*
             while (inputStream.available() > 0)
@@ -132,8 +130,8 @@ public class InputPersistance extends BasicPersitance
             }
             */
 
-            this.getList().add(hashtable);
-            this.getIds().add(smallIntegerSingletonFactory.getInstance(id));
+            this.valueList.add(hashtable);
+            this.idList.add(smallIntegerSingletonFactory.getInstance(id));
         }
 
         recordStore.closeRecordStore();
@@ -141,7 +139,7 @@ public class InputPersistance extends BasicPersitance
 
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
-        PreLogUtil.put(new StringMaker().append("Not Saving: ").append(hashtable).toString(), this, "save");
+        PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(hashtable).toString(), this, this.persistanceStrings.SAVE);
         //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, "save"));
         
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
@@ -155,14 +153,14 @@ public class InputPersistance extends BasicPersitance
         
         Input input;
         
-        byte[] savedGameBytes;
+        //byte[] savedGameBytes;
         
-        CommonSeps commonSeps = CommonSeps.getInstance();
+        //CommonSeps commonSeps = CommonSeps.getInstance();
         
-        final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
+        //final SmallIntegerSingletonFactory smallIntegerSingletonFactory = SmallIntegerSingletonFactory.getInstance();
         
-        Object[] inputObjectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
-        int size = inputObjectArray.length;
+        final Object[] inputObjectArray = this.hashtableUtil.getKeysAsArray(hashtable);
+        final int size = inputObjectArray.length;
         for (int index = 0; index < size; index++)
         {
             gameActionInput = (Input) inputObjectArray[index];

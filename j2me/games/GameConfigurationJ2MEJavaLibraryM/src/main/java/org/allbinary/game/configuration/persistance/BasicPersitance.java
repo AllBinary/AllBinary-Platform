@@ -22,18 +22,18 @@ import org.allbinary.util.BasicArrayList;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.persistance.PlatformRecordIdUtil;
 
 public class BasicPersitance
 {
+    protected final PersistanceStrings persistanceStrings = PersistanceStrings.getInstance();
     private final PlatformRecordIdUtil platformRecordIdUtil = PlatformRecordIdUtil.getInstance();
     
     private final String recordId;
     
-    private BasicArrayList list = new BasicArrayList();
-    private BasicArrayList nameBasicArrayList = new BasicArrayList();
+    protected final BasicArrayList valueList = new BasicArrayList();
+    protected final BasicArrayList idList = new BasicArrayList();
     
     protected BasicPersitance(final String recordId)
     {
@@ -48,10 +48,10 @@ public class BasicPersitance
     //Load all needs to be called already
     public void deleteAll(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        int size = nameBasicArrayList.size();
+        int size = idList.size();
         for(int index = 0; index < size; index++)
         {
-            Integer integer = (Integer) this.nameBasicArrayList.objectArray[index];
+            Integer integer = (Integer) this.idList.objectArray[index];
             this.delete(abeClientInformation, integer.intValue());
         }
         
@@ -64,7 +64,7 @@ public class BasicPersitance
         
         try {
             
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Deleting: ").append(deleteId).toString(), this, "delete"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.DELETING_WITH_ID).append(deleteId).toString(), this, this.persistanceStrings.DELETE));
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 
@@ -72,7 +72,7 @@ public class BasicPersitance
 
         } finally {
             if(recordStore != null) {
-                PreLogUtil.put("Closing RecordStore", this, "delete");
+                PreLogUtil.put(this.persistanceStrings.CLOSING_RECORDSTORE, this, this.persistanceStrings.DELETE);
                 recordStore.closeRecordStore();
             }
         }
@@ -82,20 +82,20 @@ public class BasicPersitance
     public String getRecordId(final AbeClientInformationInterface abeClientInformation) {
         return platformRecordIdUtil.getRecordId(abeClientInformation, recordId);
     }
-    
+
     public BasicArrayList getList()
     {
-        return list;
+        return this.valueList;
     }
 
     public BasicArrayList getIds()
     {
-        return this.nameBasicArrayList;
+        return this.idList;
     }
-    
+
     public void clear()
     {
-        this.list.clear();
-        this.nameBasicArrayList.clear();
+        this.valueList.clear();
+        this.idList.clear();
     }
 }

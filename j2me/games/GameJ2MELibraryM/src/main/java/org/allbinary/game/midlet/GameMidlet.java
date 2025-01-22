@@ -96,6 +96,7 @@ import org.allbinary.thread.ThreadFactoryUtil;
 import org.allbinary.thread.ThreadUtil;
 import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.Canvas;
+import org.allbinary.game.configuration.persistance.PersistanceStrings;
 import org.allbinary.game.displayable.canvas.DemoCanvas;
 import org.allbinary.game.input.TextNotificationUtil;
 import org.allbinary.game.score.displayable.HighScoreTextBox;
@@ -1006,7 +1007,7 @@ public class GameMidlet extends ProgressMidlet
 
     public void save() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "save"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, PersistanceStrings.getInstance().SAVE));
 
         final Hashtable hashtable = this.getCurrentStateHashtable();
         GamePersistanceSingleton.getInstance().save(abeClientInformation, hashtable);
