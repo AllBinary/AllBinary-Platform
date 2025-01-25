@@ -22,6 +22,8 @@ public class AndroidStrings
         return instance;
     }
     
+    public final String CONTEXT = "Context: ";
+    
     public final String FINISH = "finish";
     public final String CREATE = "onCreate";
     public final String START = "onStart";

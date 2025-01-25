@@ -87,6 +87,8 @@ public class BaseMusicService extends Service
             songId = intent.getIntExtra(musicStrings.SONG_EXTRA, -1);
             leftVolume = intent.getIntExtra(musicStrings.LEFT_VOLUME, -1);
             rightVolume = intent.getIntExtra(musicStrings.RIGHT_VOLUME, -1);
+        } else {
+            throw new RuntimeException("Started service without intent");
         }
 
         if (songId != -1)
