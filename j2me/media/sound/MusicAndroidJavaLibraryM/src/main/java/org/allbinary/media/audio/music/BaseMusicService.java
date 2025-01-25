@@ -14,7 +14,7 @@ public class BaseMusicService extends Service
 {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
-    private AndroidStrings androidStrings = AndroidStrings.getInstance();
+    private final AndroidStrings androidStrings = AndroidStrings.getInstance();
     
     private final String ALREADY_PLAYING = "This is one song per music service";
     private final String WAITING_FOR_MUSIC_TO_END = "Waiting for music to end";
@@ -62,7 +62,7 @@ public class BaseMusicService extends Service
     }
 
     //@Override
-    public void onStart(Intent intent, int startid)
+    public void onStart(final Intent intent, final int startid)
     {
         //Toast.makeText(this, "Music Service Started", Toast.LENGTH_LONG).show();
 
@@ -98,11 +98,12 @@ public class BaseMusicService extends Service
             System.gc();
 
             if(player != null && player.isPlaying()) { 
+                final MediaPlayer player = this.player;
                 LogUtil.put(LogFactory.getInstance(ALREADY_PLAYING, this, androidStrings.ON_START_COMMAND));
                 final Runnable runnable = new Runnable() {
                     public void run() {
                         try {
-                            while(player != null && player.isPlaying()) {
+                            while(player.isPlaying()) {
                                 LogUtil.put(LogFactory.getInstance(WAITING_FOR_MUSIC_TO_END, this, androidStrings.ON_START_COMMAND));
                                 Thread.sleep(1200);
                             }

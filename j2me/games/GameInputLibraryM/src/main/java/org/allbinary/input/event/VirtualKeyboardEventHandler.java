@@ -40,6 +40,7 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
       return VirtualKeyboardEventHandler.gameKeyEventHandler;
    }
    
+   @Override
    protected void process(AllBinaryEventObject eventObject,
            EventListenerInterface eventListenerInterface) throws Exception {
 
@@ -52,6 +53,7 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
     {
         try
         {
+            Thread.sleep(120);
             this.fireEvent(this.SHOW_EVENT);
         }
         catch (Exception e)
@@ -65,11 +67,12 @@ public class VirtualKeyboardEventHandler extends BasicEventHandler
     {
         try
         {
+            Thread.sleep(120);
             this.fireEvent(this.HIDE_EVENT);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "close", e));
         }
 
     }
