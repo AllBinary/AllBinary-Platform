@@ -21,7 +21,6 @@ import org.allbinary.game.score.remote.RemoteHighScores;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.java.bool.BooleanFactory;
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.SoftwareInformation;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.thread.SecondaryThreadPool;
@@ -61,7 +60,7 @@ public class BasicHighScoresFactory extends HighScoresBase
             public void run() {
                 
                 try {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, FETCH));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.START, this, FETCH));
 
                     highScoresArray[0] = RecordStoreHighScores.getInstance(abeClientInformation, gameInfo,
                         TOP, PERSONAL_HIGH_SCORES, SCORES, new ScoreComparator(true));
@@ -83,12 +82,12 @@ public class BasicHighScoresFactory extends HighScoresBase
                             softwareInformation, gameInfo2,
                             WORLD_TOP_SCORES, SCORES, BooleanFactory.getInstance().FALSE, preload);
 
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, FETCH));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.END, this, FETCH));
 
                     LastFetchHighScoresFactory.getInstance().highScoresArray = highScoresArray;
                     highScoresResultsListener.setHighScoresArray(highScoresArray);
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, FETCH, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, FETCH, e));
 
                     //return super.createHighScores(gameInfo);
                 }
@@ -103,7 +102,7 @@ public class BasicHighScoresFactory extends HighScoresBase
     }
 
     public static boolean loaded(final int index2) {
-        if(index2 > 0) {
+        if(index2 >= 0) {
             return true;
         }
         return false;

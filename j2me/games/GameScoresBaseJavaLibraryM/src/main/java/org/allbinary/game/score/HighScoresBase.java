@@ -14,10 +14,12 @@
 package org.allbinary.game.score;
 
 import org.allbinary.game.GameInfo;
+import org.allbinary.logic.string.CommonStrings;
 
 public class HighScoresBase implements HighScoresFactoryInterface
 {
-
+    protected CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected HighScoresBase()
     {
         

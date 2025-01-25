@@ -42,7 +42,7 @@ public class BasicHighScoresFactory extends HighScoresBase
 
             highScoresResultsListener.setHighScoresArray(highScoresArray);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, FETCH, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, FETCH, e));
 
             //super.createHighScores(gameInfo);
         }
