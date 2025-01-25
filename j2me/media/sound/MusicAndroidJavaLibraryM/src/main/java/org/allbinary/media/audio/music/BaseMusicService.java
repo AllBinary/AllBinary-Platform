@@ -14,14 +14,16 @@ public class BaseMusicService extends Service
 {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private AndroidStrings androidStrings = AndroidStrings.getInstance();
     
+    private final String ALREADY_PLAYING = "This is one song per music service";
+    private final String WAITING_FOR_MUSIC_TO_END = "Waiting for music to end";
+
     private MediaPlayer player;
 
     private int songId = -1;
     private int leftVolume = -1;
     private int rightVolume = -1;
-
-    private AndroidStrings androidStrings = AndroidStrings.getInstance();
 
     //@Override
     public IBinder onBind(final Intent intent)
@@ -96,7 +98,22 @@ public class BaseMusicService extends Service
             System.gc();
 
             if(player != null && player.isPlaying()) { 
-                LogUtil.put(LogFactory.getInstance("This is one song per service", this, androidStrings.ON_START_COMMAND));
+                LogUtil.put(LogFactory.getInstance(ALREADY_PLAYING, this, androidStrings.ON_START_COMMAND));
+                final Runnable runnable = new Runnable() {
+                    public void run() {
+                        try {
+                            while(player != null && player.isPlaying()) {
+                                LogUtil.put(LogFactory.getInstance(WAITING_FOR_MUSIC_TO_END, this, androidStrings.ON_START_COMMAND));
+                                Thread.sleep(1200);
+                            }
+                            onStartCommand(intent);
+                        } catch(Exception e) {
+                            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, androidStrings.ON_START_COMMAND, e));
+                        }
+                    }
+                };
+                final Thread thread = new Thread(runnable);
+                thread.start();
                 return; 
             }
             
