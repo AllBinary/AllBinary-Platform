@@ -83,7 +83,7 @@ public class ImageCache extends ImageCacheBase {
         LazyImageRotationAnimation lazyImageRotationAnimation = null;
         synchronized (lock) {
             if(loadNowList.isEmpty()) {
-                if(!isHTML || !firstTime || totalLoaded > (this.loadList.size() / 4)) {
+                if(!isHTML || !firstTime || totalLoaded > (this.loadList.size() * 2 / 3)) {
                     //if(!firstTime) LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN));
                     final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                     progressCanvas.endIfPaintedSinceStart();
