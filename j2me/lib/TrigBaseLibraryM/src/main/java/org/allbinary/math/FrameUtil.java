@@ -24,8 +24,6 @@ public class FrameUtil
         return instance;
     }
 
-    private final AngleFactory angleFactory = AngleFactory.getInstance();
-
     private final String AJUST_ANGLE_TO_FRAME_ANGLE_MORE = "adjustAngleToFrameAngle >";
     private final String AJUST_ANGLE_TO_FRAME_ANGLE_LESS = "adjustAngleToFrameAngle <";
     
@@ -47,6 +45,8 @@ public class FrameUtil
 
     public short adjustAngleToFrameAngle(int currentAngle)
     {
+        final AngleFactory angleFactory = AngleFactory.getInstance();
+
         if (currentAngle > 359)
         {
             currentAngle = (short) (currentAngle - angleFactory.TOTAL_ANGLE);
