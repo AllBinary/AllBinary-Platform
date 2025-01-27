@@ -87,7 +87,7 @@ public class ImageCache extends ImageCacheBase {
 
         public void process() {
 
-            if (totalLoaded > size * 2 / 3) {
+            if (totalLoaded > size - 1) {
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN));
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
