@@ -19,10 +19,10 @@ public class Angle
     //private Integer value;
     private short value;
 
-    protected Angle(short angle)
+    protected Angle(final short angle)
     {
         //this.value = SmallIntegerSingletonFactory.getInstance(angle);
-        this.value = value;
+        this.value = angle;
     }
 
     public short getValue()
