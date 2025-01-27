@@ -16,6 +16,7 @@ package org.allbinary.math;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonPhoneStrings;
 
@@ -30,31 +31,59 @@ public class AngleFactory
     
     public final short TOTAL_ANGLE = 360;
 
-    private final Angle angle[] = new Angle[TOTAL_ANGLE];
+    private final Angle[] angleArray = new Angle[TOTAL_ANGLE];
 
-    public final Angle DOWN;
-    public final Angle UP;
-    public final Angle LEFT;
-    public final Angle RIGHT;
+    public final NamedAngle NOT_ANGLE = new NamedAngle((short) -1, CommonStrings.getInstance().EMPTY);
+    public final NamedAngle DOWN;
+    public final NamedAngle UP;
+    public final NamedAngle LEFT;
+    public final NamedAngle RIGHT;
 
     public AngleFactory()
     {
-        short total = (short) angle.length;
-        for (short index = 0; index < total; index++)
+        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
+        
+        final short total = (short) angleArray.length;
+        
+        angleArray[0] = new NamedAngle((short) 0, commonPhoneStrings.UP);
+        
+        for (short index = 1; index < 90; index++)
         {
-            angle[index] = new Angle(index);
+            angleArray[index] = new Angle(index);
         }
-        DOWN = this.getInstance(180);
-        UP = this.getInstance(0);
-        LEFT = this.getInstance(270);
-        RIGHT = this.getInstance(90);
+
+        angleArray[90] = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
+        
+        for (short index = 91; index < 180; index++)
+        {
+            angleArray[index] = new Angle(index);
+        }
+
+        angleArray[180] = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
+        
+        for (short index = 181; index < 270; index++)
+        {
+            angleArray[index] = new Angle(index);
+        }
+
+        angleArray[270] = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
+        
+        for (short index = 271; index < total; index++)
+        {
+            angleArray[index] = new Angle(index);
+        }
+        
+        DOWN = (NamedAngle) this.getInstance(180);
+        UP = (NamedAngle) this.getInstance(0);
+        LEFT = (NamedAngle) this.getInstance(270);
+        RIGHT = (NamedAngle) this.getInstance(90);
     }
 
     private final FrameUtil frameUtil = FrameUtil.getInstance();
     
     public Angle getInstance(int index)
     {
-        return angle[frameUtil.adjustAngleToFrameAngle(index)];
+        return angleArray[frameUtil.adjustAngleToFrameAngle(index)];
     }
 
     public Angle getClosestDirection(int angle)
@@ -76,22 +105,22 @@ public class AngleFactory
         return null;
     }
     
-    public String toString(final int angle) {
-        
-        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
-
-        if(this.UP.getValue() == angle) {
-            return commonPhoneStrings.UP;
-        } else if(this.DOWN.getValue() == angle) {
-            return commonPhoneStrings.DOWN;
-        } else if(this.LEFT.getValue() == angle) {
-            return commonPhoneStrings.LEFT;
-        } else if(this.RIGHT.getValue() == angle) {
-            return commonPhoneStrings.RIGHT;
-        }
-        
-        throw new RuntimeException();
-    }
+//    public String toString(final int angle) {
+//        
+//        final CommonPhoneStrings commonPhoneStrings = CommonPhoneStrings.getInstance();
+//
+//        if(this.UP.getValue() == angle) {
+//            return commonPhoneStrings.UP;
+//        } else if(this.DOWN.getValue() == angle) {
+//            return commonPhoneStrings.DOWN;
+//        } else if(this.LEFT.getValue() == angle) {
+//            return commonPhoneStrings.LEFT;
+//        } else if(this.RIGHT.getValue() == angle) {
+//            return commonPhoneStrings.RIGHT;
+//        }
+//        
+//        throw new RuntimeException();
+//    }
     
     public static void main(String[] args) {
      

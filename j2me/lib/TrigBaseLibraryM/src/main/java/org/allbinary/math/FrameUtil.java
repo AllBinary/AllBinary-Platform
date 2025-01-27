@@ -24,12 +24,17 @@ public class FrameUtil
         return instance;
     }
 
+    private final AngleFactory angleFactory = AngleFactory.getInstance();
+
+    private final String AJUST_ANGLE_TO_FRAME_ANGLE_MORE = "adjustAngleToFrameAngle >";
+    private final String AJUST_ANGLE_TO_FRAME_ANGLE_LESS = "adjustAngleToFrameAngle <";
+    
     private FrameUtil()
     {
     }
 
     // TWB - Note the angle is actually 90 degrees off
-    public int getFrameForAngle(short angle, int angleIncrement)
+    public int getFrameForAngle(final short angle, final int angleIncrement)
     {
         return this.adjustAngleToFrameAngle(angle) / angleIncrement;
     }
@@ -44,24 +49,24 @@ public class FrameUtil
     {
         if (currentAngle > 359)
         {
-            currentAngle = (short) (currentAngle - AngleFactory.getInstance().TOTAL_ANGLE);
+            currentAngle = (short) (currentAngle - angleFactory.TOTAL_ANGLE);
             
             while(currentAngle > 359)
             {
-                PreLogUtil.put(Integer.toString(currentAngle).toString(), this, "adjustAngleToFrameAngle >");
-                currentAngle = (short) (currentAngle - AngleFactory.getInstance().TOTAL_ANGLE);
+                PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_MORE);
+                currentAngle = (short) (currentAngle - angleFactory.TOTAL_ANGLE);
             }
             
         }
 
         if (currentAngle < 0)
         {
-            currentAngle = (short) (currentAngle + AngleFactory.getInstance().TOTAL_ANGLE);
+            currentAngle = (short) (currentAngle + angleFactory.TOTAL_ANGLE);
             
             while(currentAngle < 0)
             {
-                PreLogUtil.put(Integer.toString(currentAngle).toString(), this, "adjustAngleToFrameAngle <");
-                currentAngle = (short) (currentAngle + AngleFactory.getInstance().TOTAL_ANGLE);
+                PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_LESS);
+                currentAngle = (short) (currentAngle + angleFactory.TOTAL_ANGLE);
             }
             
         }

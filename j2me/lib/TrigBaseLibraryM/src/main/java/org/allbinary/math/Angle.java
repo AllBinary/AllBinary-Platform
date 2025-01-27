@@ -15,26 +15,19 @@ package org.allbinary.math;
 
 
 public class Angle
-{    
+{
     //private Integer value;
     private short value;
 
     protected Angle(short angle)
     {
-        //this.setValue(SmallIntegerSingletonFactory.getInstance(angle));
-        this.setValue(angle);
+        //this.value = SmallIntegerSingletonFactory.getInstance(angle);
+        this.value = value;
     }
 
-    //public Integer getValue()
     public short getValue()
     {
         return value;
-    }
-
-    //private void setValue(Integer value)
-    private void setValue(short value)
-    {
-        this.value = value;
     }
 
 }
