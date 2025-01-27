@@ -19,6 +19,7 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.animation.image.LazyImageRotationAnimation;
 import org.allbinary.canvas.GameGlobalsFactory;
+import org.allbinary.canvas.Processor;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
@@ -57,8 +58,66 @@ public class ImageCache extends ImageCacheBase {
     private final Object lock = new Object();
     
     private boolean firstTime = true;
-    private int totalLoaded = Integer.MAX_VALUE;
-    private boolean isHTML = false;
+    private int totalLoaded = Integer.MIN_VALUE;
+
+    private class NotHTMLProcessor extends Processor {
+        
+        public void process() {
+
+            concurrentImageLoadingProcessor.runTask();
+            
+        }
+
+    }
+
+    private class NotHTMLEndProcessor extends Processor {
+        
+        public void process() {
+
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            progressCanvas.endIfPaintedSinceStart();
+            
+        }
+
+    }
+
+    private class HTMLEndProcessor extends Processor {
+
+        //private final int size = GDResources.getInstance().resourceStringArray.length;
+
+        public void process() {
+
+            //if (totalLoaded > size - 1) {
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN));
+                final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+                progressCanvas.endIfPaintedSinceStart();
+            //}
+            
+        }
+
+    }
+    
+    private class FirstProcessor extends Processor {
+        
+        public void process() {
+            final Features features = Features.getInstance();
+            final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("this.isHTML: ").append(this.isHTML).toString(), this, commonStrings.RUN));
+            if (isHTML) {
+                processor = Processor.getInstance();
+                htmlEndProcessor = new HTMLEndProcessor();
+            } else {
+                processor = new NotHTMLProcessor();
+                notHTMLProcessor = new NotHTMLEndProcessor();
+            }
+        }
+
+    }
+    
+    private Processor processor = new FirstProcessor();
+    private Processor htmlEndProcessor = Processor.getInstance();
+    private Processor notHTMLProcessor = Processor.getInstance();
+    
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
     }
@@ -83,14 +142,12 @@ public class ImageCache extends ImageCacheBase {
         LazyImageRotationAnimation lazyImageRotationAnimation = null;
         synchronized (lock) {
             if(loadNowList.isEmpty()) {
-                if(!isHTML || !firstTime || totalLoaded > (this.loadList.size() * 2 / 3)) {
-                    //if(!firstTime) LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(this.totalLoaded).append(" i:").append(this.loadList.size()).toString(), this, commonStrings.RUN));
-                    final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-                    progressCanvas.endIfPaintedSinceStart();
-                }
+                this.notHTMLProcessor.process();
                 
                 if(loadSoonList.isEmpty()) {
 
+                    this.htmlEndProcessor.process();
+                    
                     if(firstTime) {
                     } else if(gameGlobalsFactory.newCanvas) {
                     } else if(randomFactory.getAbsoluteNextInt(180) == 5) {
@@ -416,7 +473,7 @@ public class ImageCache extends ImageCacheBase {
         }
     }
     
-    public void insertFirst(final LazyImageRotationAnimation lazyImageRotationAnimation) {
+    public void insertFirst(final LazyImageRotationAnimation lazyImageRotationAnimation) throws Exception {
             final Image image = lazyImageRotationAnimation.animationInterfaceFactoryInterface.getImage();
 //            if (image.getImage() != null) {
 //                try {
@@ -457,15 +514,8 @@ public class ImageCache extends ImageCacheBase {
         //}
     }
     
-    public void runTask() {
-        final Features features = Features.getInstance();
-        final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
-        this.isHTML = isHTML;
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("this.isHTML: ").append(this.isHTML).toString(), this, commonStrings.RUN));
-        if (this.isHTML) {
-        } else {
-            this.concurrentImageLoadingProcessor.runTask();
-        }
+    public void runTask() throws Exception {
+        this.processor.process();
     }
     
     public void initProgress() {
