@@ -45,38 +45,34 @@ public class AngleFactory
         
         final short total = (short) angleArray.length;
         
-        angleArray[0] = new NamedAngle((short) 0, commonPhoneStrings.UP);
+        angleArray[0] = UP = new NamedAngle((short) 0, commonPhoneStrings.UP);
         
         for (short index = 1; index < 90; index++)
         {
             angleArray[index] = new Angle(index);
         }
 
-        angleArray[90] = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
+        angleArray[90] = RIGHT = new NamedAngle((short) 90, commonPhoneStrings.RIGHT);
         
         for (short index = 91; index < 180; index++)
         {
             angleArray[index] = new Angle(index);
         }
 
-        angleArray[180] = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
+        angleArray[180] = DOWN = new NamedAngle((short) 180, commonPhoneStrings.DOWN);
         
         for (short index = 181; index < 270; index++)
         {
             angleArray[index] = new Angle(index);
         }
 
-        angleArray[270] = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
+        angleArray[270] = LEFT = new NamedAngle((short) 270, commonPhoneStrings.LEFT);
         
         for (short index = 271; index < total; index++)
         {
             angleArray[index] = new Angle(index);
         }
         
-        DOWN = (NamedAngle) this.getInstance(180);
-        UP = (NamedAngle) this.getInstance(0);
-        LEFT = (NamedAngle) this.getInstance(270);
-        RIGHT = (NamedAngle) this.getInstance(90);
     }
 
     private final FrameUtil frameUtil = FrameUtil.getInstance();
