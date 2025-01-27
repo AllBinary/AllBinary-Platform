@@ -57,6 +57,7 @@ public class LazyProgressCanvas extends ProgressCanvas {
     public void endFromInitialLazyLoadingComplete()
     {
         super.endFromInitialLazyLoadingComplete();
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, END_FROM_INITIAL_LAZY_LOADING_COMPLETE));
         this.paintable = NullPaintable.getInstance();
     }
     
