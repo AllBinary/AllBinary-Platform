@@ -83,16 +83,16 @@ public class ImageCache extends ImageCacheBase {
 
     private class HTMLEndProcessor extends Processor {
 
-        //private final int size = GDResources.getInstance().resourceStringArray.length;
+        private final int size = GDResources.getInstance().resourceStringArray.length;
 
         public void process() {
 
-            //if (totalLoaded > size - 1) {
+            if (totalLoaded > size * 2 / 3) {
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN));
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
-                notHTMLProcessor = htmlEndProcessor;
-            //}
+                endProcessor = new NotHTMLEndProcessor();
+            }
             
         }
 
@@ -106,18 +106,17 @@ public class ImageCache extends ImageCacheBase {
             //LogUtil.put(LogFactory.getInstance(new StringMaker().append("this.isHTML: ").append(this.isHTML).toString(), this, commonStrings.RUN));
             if (isHTML) {
                 processor = Processor.getInstance();
-                htmlEndProcessor = new HTMLEndProcessor();
+                endProcessor = new HTMLEndProcessor();
             } else {
                 processor = new NotHTMLProcessor();
-                notHTMLProcessor = new NotHTMLEndProcessor();
+                endProcessor = new NotHTMLEndProcessor();
             }
         }
 
     }
     
     private Processor processor = new FirstProcessor();
-    private Processor htmlEndProcessor = Processor.getInstance();
-    private Processor notHTMLProcessor = Processor.getInstance();
+    private Processor endProcessor = Processor.getInstance();
     
     protected ImageCache() // CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface)
     {
@@ -143,11 +142,9 @@ public class ImageCache extends ImageCacheBase {
         LazyImageRotationAnimation lazyImageRotationAnimation = null;
         synchronized (lock) {
             if(loadNowList.isEmpty()) {
-                this.notHTMLProcessor.process();
+                this.endProcessor.process();
                 
                 if(loadSoonList.isEmpty()) {
-
-                    this.htmlEndProcessor.process();
                     
                     if(firstTime) {
                     } else if(gameGlobalsFactory.newCanvas) {
@@ -191,13 +188,15 @@ public class ImageCache extends ImageCacheBase {
                 }
             }
 
-            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
             //LogUtil.put(LogFactory.getInstance("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN));
-            if (this.loadNowList.isEmpty()) {
+            final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+            if (this.loadNowList.isEmpty() && this.firstTime) {
                 //LogUtil.put(LogFactory.getInstance("end progress", this, commonStrings.RUN));
                 progressCanvas.endFromInitialLazyLoadingComplete();
             } else {
-                progressCanvas.addPortion(1, LOAD_IMAGE_FOR_ANIMATION);
+                if(this.totalLoaded % 10 == 0) {
+                    progressCanvas.addPortion(1, LOAD_IMAGE_FOR_ANIMATION);
+                }
             }
             
         }
