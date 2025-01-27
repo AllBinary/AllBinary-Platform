@@ -40,10 +40,14 @@ public class LazyProgressCanvas extends ProgressCanvas {
     @Override
     public void end()
     {
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
-        this.endActual();
-        this.paintable = GAUGE_PAINTABLE;
-        ImageCacheFactory.getInstance().runTask();
+        try {
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
+            this.endActual();
+            this.paintable = GAUGE_PAINTABLE;
+            ImageCacheFactory.getInstance().runTask();
+        } catch(Exception e) {
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME));
+        }
     }
     
     public void inGame() {
