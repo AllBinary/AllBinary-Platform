@@ -52,6 +52,7 @@ public class ThreadPool
     {
         if (!this.isAlive)
         {
+            //LogUtil.put(LogFactory.getInstance("init", this, this.commonStrings.INIT));
             this.isAlive = true;
 
             this.taskQueue = new BasicArrayList();
@@ -85,7 +86,7 @@ public class ThreadPool
         if (task != null)
         {
 
-            //LogUtil.put(LogFactory.getInstance("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Add: ").append(task).toString(), this, this.threadPoolStrings.ADD_TASK));
             //PreLogUtil.put("Add: ").append(task, this, this.threadPoolStrings.ADD_TASK);
             final int size = this.taskQueue.size();
             PriorityRunnable runnable;
@@ -149,6 +150,7 @@ public class ThreadPool
     {
         if (this.isAlive)
         {
+            //LogUtil.put(LogFactory.getInstance("clear", this, this.commonStrings.RUN));
             this.taskQueue.clear();
         }
     }
@@ -158,6 +160,7 @@ public class ThreadPool
         if (this.isAlive)
         {
             this.isAlive = false;
+            //LogUtil.put(LogFactory.getInstance("clear2", this, this.commonStrings.RUN));
             this.taskQueue.clear();
             //interrupt();
         }
@@ -169,6 +172,7 @@ public class ThreadPool
         synchronized (this)
         {
             this.isAlive = false;
+            //LogUtil.put(LogFactory.getInstance("clear3", this, this.commonStrings.RUN));
             this.taskQueue.clear();
             notifyAll();
         }

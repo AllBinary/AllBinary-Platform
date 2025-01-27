@@ -172,7 +172,7 @@ public class ThreadPool
 
     public synchronized void clear() 
     {
-        
+        taskQueue.clear();
     }
     
     public synchronized void close()
