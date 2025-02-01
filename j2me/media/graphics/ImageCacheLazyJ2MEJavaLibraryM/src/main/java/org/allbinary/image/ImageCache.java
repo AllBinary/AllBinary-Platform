@@ -27,7 +27,6 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
-import org.allbinary.game.rand.MyRandomFactory;
 import org.allbinary.game.resource.GDLazyResources;
 import org.allbinary.game.resource.GDResources;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -46,7 +45,6 @@ public class ImageCache extends ImageCacheBase {
     protected final CommonSeps commonSeps = CommonSeps.getInstance();
     protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
-    private final MyRandomFactory randomFactory = MyRandomFactory.getInstance();
     private final GameGlobalsFactory gameGlobalsFactory = GameGlobalsFactory.getInstance();
     
     public final BasicArrayList loadNowList = new BasicArrayList();
@@ -98,12 +96,13 @@ public class ImageCache extends ImageCacheBase {
 
     }
     
+    private boolean isHTML;
     private class FirstProcessor extends Processor {
         
         public void process() {
             final Features features = Features.getInstance();
-            final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("this.isHTML: ").append(this.isHTML).toString(), this, commonStrings.RUN));
+            isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("isHTML: ").append(isHTML).toString(), this, commonStrings.RUN));
             if (isHTML) {
                 processor = Processor.getInstance();
                 endProcessor = new HTMLEndProcessor();
@@ -201,7 +200,7 @@ public class ImageCache extends ImageCacheBase {
 
             //LogUtil.put(LogFactory.getInstance("should end progress? " + this.loadNowList.size(), this, commonStrings.RUN));
             final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
-            if (this.loadNowList.isEmpty() && this.firstTime) {
+            if (this.loadNowList.isEmpty() && (!isHTML || this.firstTime)) {
                 //LogUtil.put(LogFactory.getInstance("end progress", this, commonStrings.RUN));
                 progressCanvas.endFromInitialLazyLoadingComplete();
             } else {
