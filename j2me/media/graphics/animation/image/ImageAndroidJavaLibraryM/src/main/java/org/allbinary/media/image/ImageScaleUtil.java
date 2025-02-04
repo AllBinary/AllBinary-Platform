@@ -21,6 +21,10 @@ import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
 import org.allbinary.image.ImageCache;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 public class ImageScaleUtil
 {
@@ -35,9 +39,16 @@ public class ImageScaleUtil
     {
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
     //private final ImageCreationUtil imageCreationUtil = ImageCreationUtil.getInstance();
     
     private int anchor = Anchor.TOP_LEFT;
+    
+    private final BasicArrayList imageBasicArrayList = new BasicArrayList();
+    private final BasicArrayList scaledImageBasicArrayList = new BasicArrayList();
+    private final BasicArrayList scaleXBasicArrayList = new BasicArrayList();
+    private final BasicArrayList scaleYBasicArrayList = new BasicArrayList();
 
     public Image createImage(final ImageCache imageCache, final Image originalImage,
         final float scaleNominatorX, final float scaleDenominatorX,
@@ -64,28 +75,54 @@ public class ImageScaleUtil
             final float scaleX, final float scaleY, final boolean cached) 
     throws Exception
     {
-        Bitmap originalBitmap = originalImage.getBitmap();
+        final Bitmap originalBitmap = originalImage.getBitmap();
 
-        //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, 
-          //      "ImageScaleUtil", "createImage"));
+        //LogUtil.put(LogFactory.getInstance(": " + scaleNominatorX + " / " + scaleDenominatorX + " = " + scaleX, this, commonStrings.CREATE_IMAGE));
 
         final int width = (int) (originalBitmap.getWidth() * scaleX);
         final int height = (int) (originalBitmap.getHeight() * scaleY);
 
         //if(width % 2 != 0 && 3d) throw new Exception because it is really a texture
         
+
+        final int index = imageBasicArrayList.indexOf(originalImage);
+        boolean alreadyAvailable = false;
+        if (index >= 0) {
+            int scaleX2 = ((Float) this.scaleXBasicArrayList.get(index)).intValue();
+            int scaleY2 = ((Float) this.scaleYBasicArrayList.get(index)).intValue();
+            if(scaleX2 == scaleX && scaleY2 == scaleY) {
+                alreadyAvailable = true;
+            }
+        }
+        
+        if (alreadyAvailable) {
+            //LogUtil.put(LogFactory.getInstance("Using existing scaled image at: " + index, this, commonStrings.CREATE_IMAGE));
+            return (Image) this.scaledImageBasicArrayList.get(index);
+        } else {
+            final Image scaledImage = this.getScaledImage(imageCache, originalImage, scaleX, scaleY, width, height, cached);
+            imageBasicArrayList.add(originalImage);
+            scaledImageBasicArrayList.add(scaledImage);
+            this.scaleXBasicArrayList.add(scaleX);
+            this.scaleYBasicArrayList.add(scaleY);
+            return scaledImage;
+        }
+        
+    }
+    
+    private Image getScaledImage(final ImageCache imageCache, final Image originalImage, 
+            final float scaleX, final float scaleY, final int width, final int height, final boolean cached) throws Exception {
+        
         Image image = null;
         
         if(cached)
         {
-            image = imageCache.get(
-                    this.getClass().getName(), width, height);
+            image = imageCache.get(this.getClass().getName(), width, height);
         }
         else
         {
           //TWB - Image Create
             //image = Image.createImage(width, height);
-            image = imageCache.get("createImage", width, height);
+            image = imageCache.get(commonStrings.CREATE_IMAGE, width, height);
         }
 
         if (image.isMutable())
@@ -101,6 +138,7 @@ public class ImageScaleUtil
         {
             throw new Exception("Not Mutable");
         }
+
     }
     
     private void scale(final Image image, final Matrix matrix, final float scaleX, final float scaleY)

@@ -29,14 +29,12 @@ public class ImageCacheBase
 {
     protected final Hashtable hashtable = new Hashtable();
 
-    protected final int SIZE = 50;
+    protected final int SIZE = 128;
     protected final int[] widths = new int[SIZE];
     protected final int[] heights = new int[SIZE];
     
-    protected final BasicArrayList[] listOfList = 
-        new BasicArrayList[SIZE];
-    protected final BasicArrayList[] availableListOfList = 
-        new BasicArrayList[SIZE];
+    protected final BasicArrayList[] listOfList = new BasicArrayList[SIZE];
+    protected final BasicArrayList[] availableListOfList = new BasicArrayList[SIZE];
 
     protected int volume = 0;
     protected int nextIndex = 0;
