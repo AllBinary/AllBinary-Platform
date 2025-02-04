@@ -24,6 +24,8 @@ public class CommonStrings
 
     public final String EMPTY = "Empty";
     
+    public final String CREATE_IMAGE = "createImage";
+    
     public final String PLEASE_WAIT = "Please Wait";
     public final String PLEASE_WAIT_FOR_SERVER = "Please Wait Getting Data From Server...";
     public final String PERIODS = "...";
@@ -35,7 +37,7 @@ public class CommonStrings
     public final String END = "End";
     public final String EXCEPTION = "Exception";
     public final String EXCEPTION_LABEL = "Exception: ";
-        
+    
     public final String INIT = "init";
     public final String CLOSE = "close";
 
