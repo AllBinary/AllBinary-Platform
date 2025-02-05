@@ -56,19 +56,21 @@ public class ImageCache extends ImageCacheBase
             }
 
             image = this.createImage(caller, width, height);
-            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image: ").append(image).toString(), this, CommonStrings.getInstance().GET));
+            //if(logit) LogUtil.put(LogFactory.getInstance(new StringMaker().append(caller).append(" Image: ").append(image).toString(), this, CommonStrings.getInstance().GET, new Exception()));
+            //else LogUtil.put(LogFactory.getInstance(new StringMaker().append(caller).append(" Image: ").append(image).toString(), this, CommonStrings.getInstance().GET));
 
-            if(foundIndex == -1)
-            {
-                foundIndex = nextIndex;
-                
-                widths[nextIndex] = width;
-                heights[nextIndex] = height;
+            //if(nextIndex < widths.length) {
+                if (foundIndex == -1) {
+                    foundIndex = nextIndex;
 
-                nextIndex++;
-            }
+                    widths[nextIndex] = width;
+                    heights[nextIndex] = height;
 
-            listOfList[foundIndex].add(image);
+                    nextIndex++;
+                }
+
+                listOfList[foundIndex].add(image);
+            //}
             
         }
 
