@@ -19,6 +19,10 @@ public class AndroidUtil
     {
     }
 
+    public static boolean isMemoryRestrictive() {
+        return true;
+    }
+
     public static boolean isAndroid()
     {
         return false;
