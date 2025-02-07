@@ -46,6 +46,7 @@ public class ImageCache extends ImageCacheBase {
     protected final ResourceUtil resourceUtil = ResourceUtil.getInstance();
 
     private final GameGlobalsFactory gameGlobalsFactory = GameGlobalsFactory.getInstance();
+    private final GDResources gdResources = GDResources.getInstance();
     
     public final BasicArrayList loadNowList = new BasicArrayList();
     public final BasicArrayList loadSoonList = new BasicArrayList();
@@ -56,7 +57,7 @@ public class ImageCache extends ImageCacheBase {
     private final Object lock = new Object();
     
     private boolean firstTime = true;
-    private int totalLoaded = Integer.MIN_VALUE;
+    private int totalLoaded = 0;
 
     private class NotHTMLProcessor extends Processor {
         
@@ -81,11 +82,15 @@ public class ImageCache extends ImageCacheBase {
 
     private class HTMLEndProcessor extends Processor {
 
-        private final int size = GDResources.getInstance().resourceStringArray.length;
-
         public void process() {
 
-            if (totalLoaded > size / 12) {
+            final int size = gdResources.currentLayoutRequriedTotal;
+            //if(size != 0) LogUtil.put(LogFactory.getInstance("totalLoaded: " + totalLoaded, this, commonStrings.RUN));
+            if (size == 0) {
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN));
+                final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
+                progressCanvas.endIfPaintedSinceStart();
+            } else if (totalLoaded > size / 12) {
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN));
                 final ProgressCanvas progressCanvas = ProgressCanvasFactory.getInstance();
                 progressCanvas.endIfPaintedSinceStart();
@@ -533,7 +538,6 @@ public class ImageCache extends ImageCacheBase {
         //LogUtil.put(LogFactory.getInstance("reset totalFrames", this, commonStrings.RUN));
         
         if(firstTime) {
-            totalLoaded = 0;
             firstTime = false;
         }
         

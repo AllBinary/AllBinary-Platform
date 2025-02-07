@@ -32,5 +32,6 @@ public class GDResources
     public final String[] resourceStringArray = {
     };
     
+    public int currentLayoutRequriedTotal;
 }
 
