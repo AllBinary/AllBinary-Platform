@@ -84,7 +84,7 @@ public class ImageCache extends ImageCacheBase {
 
         public void process() {
 
-            final int size = gdResources.currentLayoutRequriedTotal;
+            final int size = gdResources.currentLayoutRequiredTotal;;
             //if(size != 0) LogUtil.put(LogFactory.getInstance("totalLoaded: " + totalLoaded, this, commonStrings.RUN));
             if (size == 0) {
                 //LogUtil.put(LogFactory.getInstance(new StringMaker().append("end with totalLoaded loaded: ").append(totalLoaded).append(" i:").append(size).toString(), this, commonStrings.RUN));
