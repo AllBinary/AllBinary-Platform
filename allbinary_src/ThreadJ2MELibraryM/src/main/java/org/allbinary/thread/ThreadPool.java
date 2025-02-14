@@ -253,14 +253,14 @@ public class ThreadPool
             //while (!isInterrupted())
             {
 
-                Runnable task = null;
+                Runnable task2 = null;
                 try
                 {
-                    task = getTask();
+                    task2 = getTask();
                     //LogUtil.put(LogFactory.getInstance(task + " with Thread: " + this.toString(), this, commonStrings.RUN));
                     runningTask = true;
 
-                    startTask(task);
+                    startTask(task2);
 
                 } catch (InterruptedException ex)
                 {
@@ -268,7 +268,7 @@ public class ThreadPool
                     break;
                 }
 
-                if (task == null)
+                if (task2 == null)
                 {
                     break;
                 }
@@ -281,12 +281,12 @@ public class ThreadPool
 
                 try
                 {
-                    task.run();
-                    completedTask(task);
+                    task2.run();
+                    completedTask(task2);
                     runningTask = false;
                 } catch (Exception e)
                 {
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(task).toString(), this, commonStrings.RUN, e));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(task2).toString(), this, commonStrings.RUN, e));
                 }
             }
 
