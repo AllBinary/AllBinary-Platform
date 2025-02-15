@@ -19,6 +19,6 @@ public class Windows extends GenericOperatingSystem
 {
    public Windows() throws Exception
    {
-       this.scalable = true;
+       this.isScalable = true;
    }
 }

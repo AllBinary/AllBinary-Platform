@@ -70,6 +70,9 @@
         <module>../statistics/ApplicationStatisticsJ2MELibraryM</module>
         <module>../statistics/ApplicationStatisticsJavaLibraryM</module>
 
+        <module>../../allbinary_src/logging/BasicLogConfigTypeJavaLibraryM</module>
+        <module>../../allbinary_src/logging/LogConfigTypeGameClientJavaLibraryM</module>
+
         <module>../../allbinary_src/hardware/HardwareLibraryPOM</module>
 
         <module>../lib/TrigBaseLibraryM</module>        
