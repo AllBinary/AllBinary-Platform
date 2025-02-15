@@ -24,7 +24,7 @@ public class GenericOperatingSystem implements OperatingSystemInterface
    private final String osName;
    private final String osArch;
    private final String osVersion;
-   private final CharacterSet characterSet;
+   private final CharacterSet characterSet = new CharacterSet();
 
    protected boolean scalable = false;
    
@@ -63,8 +63,7 @@ public class GenericOperatingSystem implements OperatingSystemInterface
        {
            this.osVersion = systemProperties.getVersion();
        }
-
-      this.characterSet = new CharacterSet();
+       
    }
    
    public String getName()
