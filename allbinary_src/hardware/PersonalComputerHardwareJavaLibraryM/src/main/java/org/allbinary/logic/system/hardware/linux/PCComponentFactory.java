@@ -18,6 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.system.hardware.components.ComponentFactory;
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 
@@ -95,9 +96,9 @@ public class PCComponentFactory
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
          {
              String error = "Failed to getInstance for: " + component;
-            LogUtil.put(LogFactory.getInstance(error,"ComponentFactory","getInstance()",e));
+            LogUtil.put(LogFactory.getInstance(error, this,"getInstance()",e));
          }
-         return null;
+         return new Unknown(CommonStrings.getInstance().EXCEPTION);
       }
       
    }

@@ -29,7 +29,7 @@ public class Tokenizer {
             throw new Exception("Sep provided is not valid");
         }
         this.sep = sep;
-        this.endSep = endSep;
+        //this.endSep = endSep;
     }
 
     public void setSep(String sep) {

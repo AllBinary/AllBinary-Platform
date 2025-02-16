@@ -36,7 +36,7 @@ public class AndroidOperatingSystem extends GenericOperatingSystem
         
         if(SDK_VERSION > 10)
         {
-            this.scalable = true;
+            this.isScalable = true;
         }
                
        AndroidSystemProperties properties = 
