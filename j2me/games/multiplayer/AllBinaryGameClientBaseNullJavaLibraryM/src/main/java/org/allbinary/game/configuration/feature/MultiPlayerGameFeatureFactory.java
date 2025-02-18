@@ -17,8 +17,10 @@ public class MultiPlayerGameFeatureFactory
         
     }
     
-    public void addCommands(final Canvas canvas) {
+    //final Canvas canvas
+    public void addCommands(final Object object) {
         final GameCommandsFactory gameCommandsFactory = GameCommandsFactory.getInstance();
+        final Canvas canvas = (Canvas) object;
         canvas.addCommand(gameCommandsFactory.QUIT_COMMAND);
     }        
 

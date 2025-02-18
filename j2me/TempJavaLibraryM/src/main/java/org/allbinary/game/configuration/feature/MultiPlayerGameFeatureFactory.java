@@ -16,7 +16,8 @@ public class MultiPlayerGameFeatureFactory
         
     }
     
-    public void addCommands(final Canvas canvas) {
+    //final Canvas canvas
+    public void addCommands(final Object object) {
     }        
 
 }
