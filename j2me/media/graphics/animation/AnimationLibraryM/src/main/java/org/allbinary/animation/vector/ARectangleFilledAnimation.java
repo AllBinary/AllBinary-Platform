@@ -31,8 +31,8 @@ public class ARectangleFilledAnimation
 
     public ARectangleFilledAnimation() {
 
-        this.width = width;
-        this.height = height;
+        //this.width = width;
+        //this.height = height;
         
         this.setBasicColor(BasicColorFactory.getInstance().BLACK);
 

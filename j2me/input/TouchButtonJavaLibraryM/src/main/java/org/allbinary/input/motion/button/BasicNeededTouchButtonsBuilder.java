@@ -16,7 +16,6 @@ package org.allbinary.input.motion.button;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
-import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.Animation;
@@ -24,8 +23,7 @@ import org.allbinary.animation.NullAnimationFactory;
 
 public class BasicNeededTouchButtonsBuilder
     extends BaseTouchInput
-{    
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
+{
     
     public BasicArrayList getList()
     {
