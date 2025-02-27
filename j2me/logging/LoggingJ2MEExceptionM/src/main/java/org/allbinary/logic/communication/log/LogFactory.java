@@ -17,6 +17,8 @@ import org.allbinary.logic.communication.log.Log;
 
 public class LogFactory
 {
+    public static final Log LOG = new Log(null, null, null);
+    
     public static final Log getInstance(
             String specialMessage,
             Object object,
@@ -31,7 +33,7 @@ public class LogFactory
             Object object,
             String functionName)
     {
-        return null;
+        return LOG;
         //return new Log(specialMessage, object, functionName);
     }
 }

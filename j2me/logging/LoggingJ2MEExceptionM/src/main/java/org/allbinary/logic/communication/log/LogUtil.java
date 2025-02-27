@@ -27,7 +27,7 @@ public class LogUtil
    
    public synchronized static void put(Log log)
    {
-       if(log == null)
+       if(log == LogFactory.LOG)
        {
            return;
        }

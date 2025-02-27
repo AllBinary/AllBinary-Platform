@@ -54,7 +54,7 @@ public class BasicDecimal
 
    public void set(int value)
    {
-      this.units = value;
+      this.units = (long) value;
       this.updateScaled();
    }
 
