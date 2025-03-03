@@ -27,6 +27,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.displayable.command.MyCommandInterface;
 import org.allbinary.graphics.displayable.command.MyCommandsFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.audio.Sound;
 import org.allbinary.util.BasicArrayList;
 
@@ -35,6 +36,7 @@ public class MyCanvas extends Canvas
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    protected final StringUtil stringUtil = StringUtil.getInstance();
     protected final DisplayInfoSingleton displayInfoSingleton = DisplayInfoSingleton.getInstance();
 
     private final String name;

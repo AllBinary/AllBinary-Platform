@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.EventStrings;
 
 public class BasicEventHandler implements BasicEventHandlerInterface
@@ -37,25 +38,26 @@ public class BasicEventHandler implements BasicEventHandlerInterface
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("Total Listeners: ");
         stringBuffer.append(this.eventListenerInterfaceList.size());
 
+        EventListenerInterface eventListenerInterface;
         for (int index = 0; index < this.eventListenerInterfaceList.size(); index++)
         {
             try
             {
-                EventListenerInterface eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
+                eventListenerInterface = (EventListenerInterface) // enumeration.nextElement();
                     this.eventListenerInterfaceList.objectArray[index];
 
                 stringBuffer.append(" Listener: ");
-                stringBuffer.append(eventListenerInterface);
+                stringBuffer.append(StringUtil.getInstance().toString(eventListenerInterface));
 
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance("Exception", this, "toString", e));
+                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toString", e));
             }
         }
         return stringBuffer.toString();

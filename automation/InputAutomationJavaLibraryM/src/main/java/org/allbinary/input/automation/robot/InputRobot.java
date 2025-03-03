@@ -27,6 +27,7 @@ import javax.help.HelpSet;
 import org.allbinary.input.automation.PointFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class InputRobot
    implements InputRobotInterface
@@ -62,7 +63,7 @@ public class InputRobot
 
       this.robot.mouseMove(point.x + x, point.y + y);
 
-      final String message = new StringMaker().append("Moved Mouse To: x: ").append(point.x).append(" y: ").append(point.y).append(" in the middle of: ").append(rectangle).toString();
+      final String message = new StringMaker().append("Moved Mouse To: x: ").append(point.x).append(" y: ").append(point.y).append(" in the middle of: ").append(StringUtil.getInstance().toString(rectangle)).toString();
       LogUtil.put(LogFactory.getInstance(message, this, "moveMouseToTarget"));
    }
 

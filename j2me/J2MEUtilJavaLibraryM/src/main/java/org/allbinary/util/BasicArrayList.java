@@ -37,15 +37,15 @@ public class BasicArrayList
         //currentIndex = 0;
     }
 
-    protected Object[] getObjectArray()
-    {
-        return objectArray;
-    }
-
-    protected void setObjectArray(final Object[] objectArray)
-    {
-        this.objectArray = objectArray;
-    }
+//    protected Object[] getObjectArray()
+//    {
+//        return objectArray;
+//    }
+//
+//    protected void setObjectArray(final Object[] objectArray)
+//    {
+//        this.objectArray = objectArray;
+//    }
 
     public void add(final int index, final Object element)
     {

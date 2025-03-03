@@ -19,6 +19,7 @@ import org.allbinary.logic.string.StringMaker;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 /**
  *
@@ -63,7 +64,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
-            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(ATTEMPT_REMOVE_).append(layerInterface).toString(), this, REMOVE));
+            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(ATTEMPT_REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE));
         } else {
             stringBuilder.delete(0, stringBuilder.length());
             LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(ATTEMPT_REMOVE_).append(layerInterface.getName()).toString(), this, REMOVE));
@@ -74,7 +75,7 @@ public class LayerManagerLogging extends LayerManagerLoggingBase {
         
         if(layerInterface == null) {
             stringBuilder.delete(0, stringBuilder.length());
-            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(layerInterface).toString(), this, REMOVE));
+            LogUtil.put(LogFactory.getInstance(stringBuilder.append(this.hashCode()).append(REMOVE_).append(StringUtil.getInstance().toString(layerInterface)).toString(), this, REMOVE));
         } else if(result) {
             if (this.removeFailed) {
                 stringBuilder.delete(0, stringBuilder.length());

@@ -24,6 +24,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.configuration.persistance.BasicPersitance;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.HashtableUtil;
@@ -139,7 +140,7 @@ public class InputPersistance extends BasicPersitance
 
     public void save(final AbeClientInformationInterface abeClientInformation, Hashtable hashtable) throws Exception
     {
-        PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(hashtable).toString(), this, this.persistanceStrings.SAVE);
+        PreLogUtil.put(new StringMaker().append(this.persistanceStrings.NOT_SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.persistanceStrings.SAVE);
         //LogUtil.put(LogFactory.getInstance("Saving: ").append(hashtable, this, "save"));
         
         final RecordStore recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);

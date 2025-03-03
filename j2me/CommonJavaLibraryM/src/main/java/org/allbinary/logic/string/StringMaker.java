@@ -21,20 +21,27 @@ public class StringMaker
         return this;
     }
 
-    public StringMaker append(final Object object)
-    {
-        if(object != null) {
-            this.append(object.toString());
-        } else {
-            this.append(stringUtil.NULL_STRING);
-        }
-        return this;
-    }
+//    public StringMaker append(final Object object)
+//    {
+//        if(object != null) {
+//            this.append(object.toString());
+//        } else {
+//            this.append(stringUtil.NULL_STRING);
+//        }
+//        return this;
+//    }
     
     public StringMaker append(final char c)
     {
         ensureCapacity(currentLength + 1);
         charArray[currentLength++] = c;
+        return this;
+    }
+
+    public StringMaker append(final byte b)
+    {
+      //change to PrimitiveLongUtil
+        this.append(Integer.toString(b));
         return this;
     }
 
@@ -44,7 +51,7 @@ public class StringMaker
         this.append(Integer.toString(i));
         return this;
     }
-
+    
     public StringMaker append(final long l)
     {
       //change to PrimitiveLongUtil
@@ -58,6 +65,14 @@ public class StringMaker
         this.append(Float.toString(f));
         return this;
     }
+    
+//J2ME does not have double
+//    public StringMaker append(double d)
+//    {
+//      //change to PrimitiveLongUtil
+//        this.append(Double.toString(d));
+//        return this;
+//    }
     
     public StringMaker append(final boolean bool)
     {

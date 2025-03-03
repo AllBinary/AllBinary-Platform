@@ -18,6 +18,7 @@ import org.allbinary.logic.string.StringMaker;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class MotionGestureEvent extends AllBinaryEventObject {
@@ -82,12 +83,14 @@ public class MotionGestureEvent extends AllBinaryEventObject {
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
-        stringBuffer.append(this.motionGesture);
+        final StringMaker stringBuffer = new StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
+            
+        stringBuffer.append(stringUtil.toString(this.motionGesture));
         stringBuffer.append(CURRENT);
-        stringBuffer.append(this.currentPoint);
+        stringBuffer.append(stringUtil.toString(this.currentPoint));
         stringBuffer.append(PREVIOUS);
-        stringBuffer.append(this.previousPoint);
+        stringBuffer.append(stringUtil.toString(this.previousPoint));
         stringBuffer.append(HASHCODE);
         stringBuffer.append(this.hashCode());
         return stringBuffer.toString();

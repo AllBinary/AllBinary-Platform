@@ -20,6 +20,7 @@ import org.allbinary.game.configuration.GameConfigurationCentral;
 import org.allbinary.game.resource.FeaturedResourceFactory;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class FeaturedAnimationInterfaceFactoryInterfaceFactory
@@ -150,7 +151,7 @@ public class FeaturedAnimationInterfaceFactoryInterfaceFactory
                 FeatureResourceAnimationInterfaceFactoryInterface featureInterface = (FeatureResourceAnimationInterfaceFactoryInterface) getList().objectArray[index];
                 if (featureInterface.isFeature())
                 {
-                    stringBuffer.append(featureInterface);
+                    stringBuffer.append(StringUtil.getInstance().toString(featureInterface));
                     stringBuffer.append(HAS_KEY);
                     stringBuffer.append(featureInterface.getHashtable().size());
                     stringBuffer.append(RESOURCES_LABEL);

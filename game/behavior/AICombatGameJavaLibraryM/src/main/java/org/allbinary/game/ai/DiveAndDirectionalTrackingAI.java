@@ -35,6 +35,7 @@ import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 import org.allbinary.logic.util.visitor.Visitor;
@@ -482,7 +483,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
         stringBuffer.append(super.toString());
         stringBuffer.append(" LastDirection: ");
-        stringBuffer.append(this.getLastDirection());
+        stringBuffer.append(StringUtil.getInstance().toString(this.getLastDirection()));
 
         return stringBuffer.toString();
     }

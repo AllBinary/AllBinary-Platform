@@ -17,6 +17,7 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
@@ -286,7 +287,7 @@ public class ThreadPool
                     runningTask = false;
                 } catch (Exception e)
                 {
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(task2).toString(), this, commonStrings.RUN, e));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(task2)).toString(), this, commonStrings.RUN, e));
                 }
             }
 

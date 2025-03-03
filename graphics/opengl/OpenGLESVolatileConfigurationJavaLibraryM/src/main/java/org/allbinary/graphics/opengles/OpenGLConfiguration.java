@@ -22,6 +22,7 @@ import org.allbinary.game.configuration.event.ChangedGameFeatureListener;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.MainFeatureFactory;
+import org.allbinary.logic.string.StringUtil;
 
 public class OpenGLConfiguration
 {
@@ -274,17 +275,18 @@ public class OpenGLConfiguration
     public String toString()
     {
         final StringMaker stringBuffer = new StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
 
         stringBuffer.append(" isOpenGL: ");
         stringBuffer.append(this.isOpenGL());
         stringBuffer.append(" VersionSelector: ");
-        stringBuffer.append(this.getVersionSelector());
+        stringBuffer.append(stringUtil.toString(this.getVersionSelector()));
         stringBuffer.append(" Type: ");
-        stringBuffer.append(this.getType());
+        stringBuffer.append(stringUtil.toString(this.getType()));
         stringBuffer.append(" Image Color: ");
-        stringBuffer.append(this.getImageColor());
+        stringBuffer.append(stringUtil.toString(this.getImageColor()));
         stringBuffer.append(" Color: ");
-        stringBuffer.append(this.getColor());
+        stringBuffer.append(stringUtil.toString(this.getColor()));
 
         return stringBuffer.toString();
     }

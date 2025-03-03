@@ -14,6 +14,7 @@
 package org.allbinary.media.graphics.geography.map.event;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 
@@ -52,11 +53,11 @@ public class GeographicMapCellPositionEvent extends AllBinaryEventObject
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("CellPositionEvent: ");
         stringBuffer.append("\nGeographicMapCellPosition: ");
-        stringBuffer.append(this.getGeographicMapCellPosition());
+        stringBuffer.append(StringUtil.getInstance().toString(this.getGeographicMapCellPosition()));
 
         return stringBuffer.toString();
     }

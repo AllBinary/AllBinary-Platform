@@ -2,6 +2,7 @@ package org.allbinary.util;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class ArrayUtil
 {
@@ -132,7 +133,7 @@ public class ArrayUtil
 
         for (int index = 0; index < objectArray.length; index++)
         {
-                stringBuffer.append(objectArray[index]);
+                stringBuffer.append(StringUtil.getInstance().toString(objectArray[index]));
                 stringBuffer.append(commonSeps.COMMA_SEP);
         }
 

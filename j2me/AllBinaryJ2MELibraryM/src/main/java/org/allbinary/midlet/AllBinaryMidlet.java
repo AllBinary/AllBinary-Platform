@@ -65,11 +65,11 @@ implements CommandListener
             
             if (title != null)
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: ").append(title).append(" Display: ").append(newDisplay).toString(), this, "setDisplay"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: ").append(title).append(" Display: ").append(StringUtil.getInstance().toString(newDisplay)).toString(), this, "setDisplay"));
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: No Title, Display: ").append(newDisplay).toString(), this, "setDisplay"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Setting: No Title, Display: ").append(StringUtil.getInstance().toString(newDisplay)).toString(), this, "setDisplay"));
             }            
         }
         final Display display = getDisplay();
@@ -131,13 +131,13 @@ implements CommandListener
     
     public void setStartStateHashtable(Hashtable hashtable) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(hashtable).toString(), this, "setStartStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "setStartStateHashtable"));
         this.hashtable = hashtable;
     }
 
     public Hashtable getStartStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(hashtable).toString(), this, "getStartStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, "getStartStateHashtable"));
         return this.hashtable;
     }
 

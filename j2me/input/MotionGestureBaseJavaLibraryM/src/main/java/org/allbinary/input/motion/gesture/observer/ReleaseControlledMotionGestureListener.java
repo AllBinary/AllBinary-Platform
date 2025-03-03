@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 /**
@@ -116,7 +117,7 @@ public class ReleaseControlledMotionGestureListener implements MotionGestureEven
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(ev.getMotionGesture()).toString(), this, "release", e));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(StringUtil.getInstance().toString(ev.getMotionGesture())).toString(), this, "release", e));
         }
     }
 

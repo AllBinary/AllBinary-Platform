@@ -21,6 +21,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class LayerInterfaceFactory
 {
@@ -44,7 +45,7 @@ public class LayerInterfaceFactory
    public AllBinaryLayer getInstance(final Hashtable hashtable, final int x, final int y, int z)
            throws Exception
    {
-      LogUtil.put(LogFactory.getInstance(new StringMaker().append(HASHTABLE_LABEL).append(hashtable).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
+      LogUtil.put(LogFactory.getInstance(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
 
       final Integer typeInteger = (Integer) hashtable.get(Layer.ID);
 

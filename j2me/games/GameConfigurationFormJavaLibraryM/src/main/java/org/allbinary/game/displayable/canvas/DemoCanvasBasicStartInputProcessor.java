@@ -22,6 +22,7 @@ import org.allbinary.game.commands.GameCommandsFactory;
 import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class DemoCanvasBasicStartInputProcessor
     extends BasicMenuInputProcessor
@@ -53,7 +54,7 @@ public class DemoCanvasBasicStartInputProcessor
         {
             gameKeyEvent = (GameKeyEvent) list.objectArray[index];
 
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Start GameKey: ").append(gameKeyEvent).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Start GameKey: ").append(StringUtil.getInstance().toString(gameKeyEvent)).toString(), this, GameInputStrings.getInstance().PROCESS_INPUT));
         }
         this.getCanvas().getCustomCommandListener().commandAction(
                 GameCommandsFactory.getInstance().START_COMMAND, null);

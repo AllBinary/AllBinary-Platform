@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class GameMotionGestureListener implements MotionGestureEventListener
@@ -103,10 +104,10 @@ public class GameMotionGestureListener implements MotionGestureEventListener
         }
         catch (Exception e)
         {
-           StringMaker stringBuffer = new StringMaker();
+           final StringMaker stringBuffer = new StringMaker();
 
            stringBuffer.append(commonStrings.EXCEPTION_LABEL);
-           stringBuffer.append(ev.getMotionGesture());
+           stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "release", e));
         }
@@ -138,7 +139,7 @@ public class GameMotionGestureListener implements MotionGestureEventListener
            StringMaker stringBuffer = new StringMaker();
 
            stringBuffer.append(commonStrings.EXCEPTION_LABEL);
-           stringBuffer.append(ev.getMotionGesture());
+           stringBuffer.append(StringUtil.getInstance().toString(ev.getMotionGesture()));
 
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "onMotionGestureEvent", e));
         }

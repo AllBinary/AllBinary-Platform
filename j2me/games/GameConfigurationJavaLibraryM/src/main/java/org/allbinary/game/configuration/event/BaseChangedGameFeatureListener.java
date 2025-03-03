@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Feature;
 import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 
 public class BaseChangedGameFeatureListener implements GameFeatureListenerInterface
@@ -71,7 +72,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
         StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("GameFeature: ");
-        stringBuffer.append(gameFeature);
+        stringBuffer.append(StringUtil.getInstance().toString(gameFeature));
         stringBuffer.append(" isFeature: ");
         stringBuffer.append(Features.getInstance().isFeature(gameFeature));
         stringBuffer.append(" isChanged: ");

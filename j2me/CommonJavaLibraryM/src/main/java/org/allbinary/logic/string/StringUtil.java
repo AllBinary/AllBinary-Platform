@@ -54,4 +54,12 @@ public class StringUtil {
         return count;
     }
     
+    public String toString(final Object object) {
+        if(object != null) {
+            return object.toString();
+        } else {
+            return this.NULL_STRING;
+        }
+    }
+
 }

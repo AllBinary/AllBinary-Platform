@@ -16,6 +16,7 @@ package org.allbinary.logic.communication.log;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import playn.core.PlayN;
 
 public class PreLogUtil
@@ -62,7 +63,7 @@ public class PreLogUtil
             className = CommonStrings.getInstance().EMPTY;
         }
 
-        className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(object).toString();
+        className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(StringUtil.getInstance().toString(object)).toString();
         
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage);
@@ -86,7 +87,7 @@ public class PreLogUtil
             className = CommonStrings.getInstance().EMPTY;
         }
 
-        className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(object).toString();
+        className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(StringUtil.getInstance().toString(object)).toString();
         
         String message = LogFormatUtil.getInstance().get(
             className, functionName, specialMessage, exception);

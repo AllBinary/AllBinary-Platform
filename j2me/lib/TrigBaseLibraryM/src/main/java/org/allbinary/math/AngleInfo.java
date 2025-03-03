@@ -15,6 +15,7 @@ package org.allbinary.math;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 
 public class AngleInfo
@@ -68,7 +69,7 @@ public class AngleInfo
       stringBuffer.append(ANGLE);
       stringBuffer.append(this.angle);
       stringBuffer.append(CommonSeps.getInstance().SPACE);
-      stringBuffer.append(this.getAngleIncrementInfo());
+      stringBuffer.append(StringUtil.getInstance().toString(this.getAngleIncrementInfo()));
       
       return stringBuffer.toString();
    }

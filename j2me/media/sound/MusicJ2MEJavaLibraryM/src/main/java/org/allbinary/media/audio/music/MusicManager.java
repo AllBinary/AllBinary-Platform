@@ -231,7 +231,7 @@ public class MusicManager {
             }
             this.timeDelayHelper.setStartTime(0);
             
-            PreLogUtil.put(new StringMaker().append(commonStrings.END).append(currentSongSound).toString(), this, commonStrings.END);
+            PreLogUtil.put(new StringMaker().append(commonStrings.END).append(StringUtil.getInstance().toString(currentSongSound)).toString(), this, commonStrings.END);
 
         } catch (Exception e) {
             String resource = StringUtil.getInstance().EMPTY_STRING;

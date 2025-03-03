@@ -25,6 +25,7 @@ import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
 public class RunnableCanvas extends MyCanvas 
@@ -142,7 +143,7 @@ public class RunnableCanvas extends MyCanvas
             stringBuffer.append(this.thread.toString());
             stringBuffer.append(NOT_EQUAL);
             if(this.currentThread != null)
-            stringBuffer.append(this.currentThread);
+            stringBuffer.append(StringUtil.getInstance().toString(this.currentThread));
             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, IS_RUNNING));
             return false;

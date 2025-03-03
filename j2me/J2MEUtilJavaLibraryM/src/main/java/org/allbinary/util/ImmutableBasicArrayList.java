@@ -22,12 +22,14 @@ public class ImmutableBasicArrayList extends BasicArrayList
         super(size);
     }
     
+    @Override
     public boolean add(Object e)
     {
         ForcedLogUtil.log("Immutable", this);
         return true;
     }
 
+    @Override
     public void add(int index, Object element)
     {
         ForcedLogUtil.log("Immutable", this);

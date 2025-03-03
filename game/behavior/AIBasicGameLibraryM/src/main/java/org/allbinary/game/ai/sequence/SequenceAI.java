@@ -20,6 +20,7 @@ import org.allbinary.game.ai.ArrayAI;
 import org.allbinary.game.input.GameInput;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.string.StringUtil;
 
 public class SequenceAI extends ArrayAI
 {
@@ -79,7 +80,7 @@ public class SequenceAI extends ArrayAI
        
        stringBuffer.append(super.toString());
        stringBuffer.append(" Selected AI: ");
-       stringBuffer.append(this.getSelectedArtificialIntelligenceInterface());
+       stringBuffer.append(StringUtil.getInstance().toString(this.getSelectedArtificialIntelligenceInterface()));
        
        return stringBuffer.toString();
    }

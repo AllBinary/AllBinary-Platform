@@ -179,9 +179,9 @@ implements InputMappingInterface
         final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Start Passed GameKey: ");
-        stringBuffer.append(gameKey);
+        stringBuffer.append(this.stringUtil.toString(gameKey));
         stringBuffer.append(" Input: ");
-        stringBuffer.append(input);
+        stringBuffer.append(this.stringUtil.toString(input));
         
         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.PROCESS));
         
@@ -197,7 +197,7 @@ implements InputMappingInterface
 
     private void setSelectedAction(GameKey gameKey)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Selected GameKey: ").append(gameKey).toString(), this, "setSelectedAction"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Selected GameKey: ").append(this.stringUtil.toString(gameKey)).toString(), this, "setSelectedAction"));
         
         this.selectedGameKey = gameKey;
         this.selectedInput = NONE;
@@ -207,12 +207,12 @@ implements InputMappingInterface
 
     private void gameActionCrud(final GameKey gameKey, final Input input) throws Exception
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Start GameKey: ");
-        stringBuffer.append(this.selectedGameKey);
+        stringBuffer.append(this.stringUtil.toString(this.selectedGameKey));
         stringBuffer.append(" Input: ");
-        stringBuffer.append(this.selectedInput);
+        stringBuffer.append(this.stringUtil.toString(this.selectedInput));
         
         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "gameActionCrud"));
 
@@ -225,7 +225,7 @@ implements InputMappingInterface
             
             if (isInputAlreadyMappedToSelectedAction)
             {
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Already Mapped Input: ").append(input).toString(), this, "gameActionCrud"));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("Already Mapped Input: ").append(this.stringUtil.toString(input)).toString(), this, "gameActionCrud"));
 
                 this.selectedInput = input;
                 this.helpPaintable.update(this.selectedGameKey, this.selectedInput);
@@ -260,12 +260,12 @@ implements InputMappingInterface
 
         if (!isInputAlreadyMapped && !this.inputMapping.isSystemInput(input))
         {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Add Key Mapping : GameKey: ");
-            stringBuffer.append(this.selectedGameKey);
+            stringBuffer.append(this.stringUtil.toString(this.selectedGameKey));
             stringBuffer.append(" Input: ");
-            stringBuffer.append(this.selectedInput);
+            stringBuffer.append(this.stringUtil.toString(this.selectedInput));
             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
             
@@ -290,13 +290,13 @@ implements InputMappingInterface
 
         if (list.size() > 1)
         {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
 
             stringBuffer.append("Start GameKey: ");
             stringBuffer.append("Remove Key Mapping: GameKey: ");
-            stringBuffer.append(this.selectedGameKey);
+            stringBuffer.append(stringUtil.toString(this.selectedGameKey));
             stringBuffer.append(" Input: ");
-            stringBuffer.append(this.selectedInput);
+            stringBuffer.append(stringUtil.toString(this.selectedInput));
             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_NAME));
 

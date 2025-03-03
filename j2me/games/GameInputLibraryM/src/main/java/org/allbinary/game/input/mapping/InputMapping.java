@@ -23,6 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.Input;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.StringUtil;
 
 public class InputMapping
 {    
@@ -61,10 +62,12 @@ public class InputMapping
     {
         StringMaker stringBuffer = new StringMaker();
         
+        final StringUtil stringUtil = StringUtil.getInstance();
+        
         stringBuffer.append(CommonLabels.getInstance().START_LABEL);
-        stringBuffer.append(input);
+        stringBuffer.append(stringUtil.toString(input));
         stringBuffer.append(" == ");
-        stringBuffer.append(mappedToInput);
+        stringBuffer.append(stringUtil.toString(mappedToInput));
         
         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "InputMapping::remove"));
         
@@ -76,9 +79,9 @@ public class InputMapping
             
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("Removed: ");
-            stringBuffer.append(input);
+            stringBuffer.append(stringUtil.toString(input));
             stringBuffer.append(" == ");
-            stringBuffer.append(mappedToInput);
+            stringBuffer.append(stringUtil.toString(mappedToInput));
             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "InputMapping::remove"));
         }
@@ -86,9 +89,9 @@ public class InputMapping
         {
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append("Not Deleted: ");
-            stringBuffer.append(input);
+            stringBuffer.append(stringUtil.toString(input));
             stringBuffer.append(" == ");
-            stringBuffer.append(mappedToInput);
+            stringBuffer.append(stringUtil.toString(mappedToInput));
             
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "InputMapping::remove"));
         }

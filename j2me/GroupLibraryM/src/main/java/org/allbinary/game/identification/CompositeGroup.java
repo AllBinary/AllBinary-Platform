@@ -19,6 +19,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class CompositeGroup
 {
@@ -45,7 +46,7 @@ public class CompositeGroup
         stringBuffer.append(ADDING_LABEL);
         stringBuffer.append(groupInterface.toString());
         stringBuffer.append(TO_LABEL);
-        stringBuffer.append(this.groupInterface);
+        stringBuffer.append(StringUtil.getInstance().toString(this.groupInterface));
         
         LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().ADD));
         

@@ -164,14 +164,14 @@ public class ImageUtil
       
       final AffineTransform affineTransform = AffineTransform.getScaleInstance(ratioX, ratioY);
       
-      LogUtil.put(LogFactory.getInstance(new StringMaker().append(width).append(this.commonSeps.FORWARD_SLASH).append(height)
+      LogUtil.put(LogFactory.getInstance(new StringMaker().append((float) width).append(this.commonSeps.FORWARD_SLASH).append((float) height)
               .append(this.commonSeps.COLON).append(newWidth).append(this.commonSeps.FORWARD_SLASH).append(newHeight).append(this.commonSeps.COLON)
-              .append(widthRatio).append(this.commonSeps.FORWARD_SLASH).append(heightRatio).toString(), this, CREATE_BUFFERED_IMAGE));
+              .append((float) widthRatio).append(this.commonSeps.FORWARD_SLASH).append((float) heightRatio).toString(), this, CREATE_BUFFERED_IMAGE));
 
       if(!scale && allowTranslate) {
           final double dx = (newWidth - width) / 2;
           final double dy = (newHeight - height) / 2;
-          LogUtil.put(LogFactory.getInstance(new StringMaker().append("Translate dx: ").append(dx).append(" dy: ").append(dy).toString(), this, CREATE_BUFFERED_IMAGE));
+          LogUtil.put(LogFactory.getInstance(new StringMaker().append("Translate dx: ").append((float) dx).append(" dy: ").append((float) dy).toString(), this, CREATE_BUFFERED_IMAGE));
           affineTransform.translate(dx, dy);
           
 //          if (newWidth < width) {

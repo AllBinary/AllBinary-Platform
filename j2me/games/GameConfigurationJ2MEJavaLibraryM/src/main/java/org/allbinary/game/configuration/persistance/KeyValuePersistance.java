@@ -30,6 +30,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class KeyValuePersistance extends BasicPersitance
@@ -104,7 +105,7 @@ public class KeyValuePersistance extends BasicPersitance
         
         try {
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.SAVING).append(hashtable).toString(), this, this.persistanceStrings.SAVE));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(this.persistanceStrings.SAVING).append(StringUtil.getInstance().toString(hashtable)).toString(), this, this.persistanceStrings.SAVE));
         
         recordStore = RecordStore.openRecordStore(this.getRecordId(abeClientInformation), true);
 

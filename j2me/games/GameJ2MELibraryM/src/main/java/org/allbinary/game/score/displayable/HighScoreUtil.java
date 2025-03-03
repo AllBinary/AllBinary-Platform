@@ -31,6 +31,7 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 
 import org.allbinary.game.score.HighScoresFactoryInterface;
 import org.allbinary.game.score.HighScoresHelperBase;
+import org.allbinary.logic.string.StringUtil;
 
 public class HighScoreUtil implements HighScoresResultsListener
 {
@@ -76,7 +77,7 @@ public class HighScoreUtil implements HighScoresResultsListener
 
     public void saveHighScore()
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(this.highScore).toString(), this, "saveHighScore"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(StringUtil.getInstance().toString(this.highScore)).toString(), this, "saveHighScore"));
         
         final int size = this.highScoresArray.length;
         

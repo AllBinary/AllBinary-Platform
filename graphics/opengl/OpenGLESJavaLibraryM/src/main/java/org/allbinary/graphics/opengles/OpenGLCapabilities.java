@@ -174,6 +174,8 @@ public class OpenGLCapabilities
                 }
             }
             
+            final StringUtil stringUtil = StringUtil.getInstance();
+
             if (features.isDefault(openGLFeatureFactory.OPENGL_AUTO_SELECT))
             {
                 //if (GameFeatures.getInstance().isDefault(GameFeature.OPENGL_DRAW_TEXTURE))
@@ -198,7 +200,7 @@ public class OpenGLCapabilities
                  */
                 {
                     stringBuffer.append("OpenGL is on but ");
-                    stringBuffer.append(openGLFeatureFactory.OPENGL_DRAW_TEXTURE);
+                    stringBuffer.append(stringUtil.toString(openGLFeatureFactory.OPENGL_DRAW_TEXTURE));
                     stringBuffer.append(" was not available");
 
                     PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
@@ -208,7 +210,7 @@ public class OpenGLCapabilities
                 //}
             } else
             {
-                stringBuffer.append(openGLFeatureFactory.OPENGL_AUTO_SELECT);
+                stringBuffer.append(stringUtil.toString(openGLFeatureFactory.OPENGL_AUTO_SELECT));
                 stringBuffer.append(" is not on");
 
                 PreLogUtil.put(stringBuffer.toString(), this, METHOD_NAME);
@@ -269,7 +271,7 @@ public class OpenGLCapabilities
             for(int index = 0; index < list.size(); index++)
             {
                 stringBuffer.append(commonSeps.NEW_LINE);
-                stringBuffer.append(list.objectArray[index]);
+                stringBuffer.append(stringUtil.toString(list.objectArray[index]));
             }
         }
         catch(Exception e)

@@ -26,6 +26,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.paint.Paintable;
+import org.allbinary.logic.string.StringUtil;
 
 public class TouchButton extends Paintable
 {
@@ -148,12 +149,13 @@ public class TouchButton extends Paintable
 
     public String toString()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
+        final StringUtil stringUtil = StringUtil.getInstance();
         
         stringBuffer.append("TouchButton: ");
-        stringBuffer.append(this.getRectangle());
+        stringBuffer.append(stringUtil.toString(this.getRectangle()));
         stringBuffer.append(" CellPosition: ");
-        stringBuffer.append(this.cellPosition);
+        stringBuffer.append(stringUtil.toString(this.cellPosition));
         stringBuffer.append(" xBorder: ");
         stringBuffer.append(this.xBorder);
         stringBuffer.append(" yBorder: ");

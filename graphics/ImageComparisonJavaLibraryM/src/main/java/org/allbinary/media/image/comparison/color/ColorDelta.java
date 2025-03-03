@@ -15,6 +15,7 @@ package org.allbinary.media.image.comparison.color;
 
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.cache.CacheableInterface;
 
 public class ColorDelta
@@ -64,6 +65,6 @@ public class ColorDelta
    
    public String toString()
    {
-       return new StringMaker().append("ColorDelta: ").append(this.getKey()).append(" RGB1: ").append(this.getRgb1()).append(" RGB2: ").append(this.getRgb2()).toString();
+       return new StringMaker().append("ColorDelta: ").append(StringUtil.getInstance().toString(this.getKey())).append(" RGB1: ").append(this.getRgb1()).append(" RGB2: ").append(this.getRgb2()).toString();
    }
 }

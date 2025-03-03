@@ -32,6 +32,7 @@ import org.allbinary.game.resource.GDResources;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
 import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.system.Memory;
 import org.allbinary.thread.BaseImageLoadingProcessor;
 import org.allbinary.thread.ConcurrentImageLoadingProcessor;
@@ -388,7 +389,7 @@ public class ImageCache extends ImageCacheBase {
             } catch (Exception e) {
                 LogUtil.put(LogFactory.getInstance("Exception: Trying Again After GC", this, CommonStrings.getInstance().GET, e));
 
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(inputStream).toString(), this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, CommonStrings.getInstance().GET));
                 System.gc();
                 System.gc();
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
@@ -419,7 +420,7 @@ public class ImageCache extends ImageCacheBase {
                 return index;
             }
         }
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("unable to find key: ").append(key).toString(), this, commonStrings.RUN));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("unable to find key: ").append(StringUtil.getInstance().toString(key)).toString(), this, commonStrings.RUN));
         throw new RuntimeException();
     }
 

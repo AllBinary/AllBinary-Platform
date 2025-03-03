@@ -19,6 +19,7 @@ import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class GameInfo 
 {
@@ -156,7 +157,7 @@ public class GameInfo
        
        stringBuffer.append(this.gameInfoData.PLAYER_TYPE);
        stringBuffer.append(commonSeps.EQUALS);
-       stringBuffer.append(this.playerType);
+       stringBuffer.append(StringUtil.getInstance().toString(this.playerType));
        
        stringBuffer.append(commonSeps.COMMA_SEP);
        

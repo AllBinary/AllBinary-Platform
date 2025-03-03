@@ -1058,7 +1058,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public void setGameState(final GameState gameState) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Game State: ").append(gameState).toString(), this, "setGameState"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Game State: ").append(this.stringUtil.toString(gameState)).toString(), this, "setGameState"));
         // PreLogUtil.put("Game State: ").append(gameState, this, "setGameState");
 
         this.gameState = gameState;
@@ -1303,14 +1303,14 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     public Hashtable getLoadStateHashtable() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(this.hashtable).toString(), this, "getLoadStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonLabels.START_LABEL).append(this.stringUtil.toString(this.hashtable)).toString(), this, "getLoadStateHashtable"));
         return this.hashtable;
     }
 
     public void setLoadStateHashtable(final Hashtable hashtable)
     {
         LogUtil.put(LogFactory.getInstance(
-                new StringMaker().append(commonLabels.START_LABEL).append(hashtable).toString(), this,
+                new StringMaker().append(commonLabels.START_LABEL).append(this.stringUtil.toString(hashtable)).toString(), this,
                 "setLoadStateHashtable"));
         this.hashtable = hashtable;
     }
@@ -1323,7 +1323,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
         hashtable.put(GameInfo.LEVEL_NAME.toString(), Integer.toString(level));
 
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("End: ").append(hashtable).toString(), this, "getCurrentStateHashtable"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("End: ").append(this.stringUtil.toString(hashtable)).toString(), this, "getCurrentStateHashtable"));
 
         return hashtable;
     }

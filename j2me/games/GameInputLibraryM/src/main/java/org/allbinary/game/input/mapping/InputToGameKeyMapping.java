@@ -27,6 +27,7 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.string.CommonLabels;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 
 public class InputToGameKeyMapping extends InputMapping
 {
@@ -104,7 +105,7 @@ public class InputToGameKeyMapping extends InputMapping
 
     public void remove(Input input, Input mappedToInput)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(input).append(" == ").append(mappedToInput).toString(), this, "InputToGameKeyMapping::remove"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(input)).append(" == ").append(StringUtil.getInstance().toString(mappedToInput)).toString(), this, "InputToGameKeyMapping::remove"));
         super.remove(input, mappedToInput);
         this.set(input, gameKeyFactory.NONE);
     }

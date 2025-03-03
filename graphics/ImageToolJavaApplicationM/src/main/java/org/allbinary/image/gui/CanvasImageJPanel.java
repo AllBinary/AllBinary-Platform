@@ -25,6 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.media.image.CanvasExpandUtil;
 import org.allbinary.media.image.ImageProcessedVisitor;
 import org.allbinary.media.image.ImageProcessorInput;
@@ -333,7 +334,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
        final boolean isWritten = 
                ImageIO.write((RenderedImage) CanvasImageJPanel.this.result, imageStrings.PNG, file);
 
-       LogUtil.put(LogFactory.getInstance(new StringMaker().append("File: ").append(file).append(" Wrote: ").append(isWritten).toString(), this, CommonStrings.getInstance().RUN));
+       LogUtil.put(LogFactory.getInstance(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").append(isWritten).toString(), this, CommonStrings.getInstance().RUN));
    }
    
 }

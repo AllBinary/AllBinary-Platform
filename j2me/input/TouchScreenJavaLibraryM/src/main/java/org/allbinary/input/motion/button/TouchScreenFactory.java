@@ -17,6 +17,7 @@ import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringUtil;
 
 public class TouchScreenFactory
 {
@@ -134,7 +135,7 @@ public class TouchScreenFactory
         stringBuffer.append(" Distinct MultiTouch: ");
         stringBuffer.append(this.isMultiTouchDistinct());
         stringBuffer.append(" TouchScreenType: ");
-        stringBuffer.append(this.getTouchScreenType());
+        stringBuffer.append(StringUtil.getInstance().toString(this.getTouchScreenType()));
 
         return stringBuffer.toString();
     }

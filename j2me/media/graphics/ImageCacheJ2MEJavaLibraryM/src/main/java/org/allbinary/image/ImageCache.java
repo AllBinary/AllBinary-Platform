@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.system.Memory;
 
 public class ImageCache extends ImageCacheBase
@@ -88,7 +89,7 @@ public class ImageCache extends ImageCacheBase
             final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
             
             if(inputStream == null) {
-                throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(key).toString());
+                throw new RuntimeException(new StringMaker().append("Image resource is not available for key: ").append(StringUtil.getInstance().toString(key)).toString());
             }
 
             try
@@ -100,7 +101,7 @@ public class ImageCache extends ImageCacheBase
             {
                 LogUtil.put(LogFactory.getInstance("Exception: Trying Again After GC", this, commonStrings.GET, e));
                 
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(inputStream).toString(), this, commonStrings.GET));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, commonStrings.GET));
                 System.gc();
                 System.gc();
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, commonStrings.GET));

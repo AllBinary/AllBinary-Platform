@@ -235,7 +235,7 @@ public class HighScoresCanvas extends GameCommandCanvas
 
     public void updateCommand(Command command) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(command).toString(), this, commonStrings.UPDATE));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.START).append(this.stringUtil.toString(command)).toString(), this, commonStrings.UPDATE));
 
         final GameCommandsFactory gameCommandsFactory = 
             GameCommandsFactory.getInstance();

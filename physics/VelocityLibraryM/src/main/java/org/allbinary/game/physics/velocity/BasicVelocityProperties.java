@@ -21,6 +21,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.BasicDecimal;
 import org.allbinary.logic.math.vector.AxisMathVectorUtil;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.Angle;
 import org.allbinary.math.PositionStrings;
 
@@ -171,15 +172,17 @@ public class BasicVelocityProperties implements BasicVelocityInterface
         final PositionStrings positionStrings = PositionStrings.getInstance();
         final StringMaker stringBuffer = new StringMaker();
 
+        final StringUtil stringUtil = StringUtil.getInstance();
+        
         stringBuffer.append("Velocity ");
         stringBuffer.append(positionStrings.X_LABEL);
-        stringBuffer.append(this.velocityXBasicDecimal);
+        stringBuffer.append(stringUtil.toString(this.velocityXBasicDecimal));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Y_LABEL);
-        stringBuffer.append(this.velocityYBasicDecimal);
+        stringBuffer.append(stringUtil.toString(this.velocityYBasicDecimal));
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(positionStrings.Z_LABEL);
-        stringBuffer.append(this.velocityZBasicDecimal);
+        stringBuffer.append(stringUtil.toString(this.velocityZBasicDecimal));
 
         return stringBuffer.toString();
     }

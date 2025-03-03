@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.os.linux.LinuxOperatingSystemFactory;
 import org.allbinary.logic.system.os.solaris.Solaris;
 import org.allbinary.logic.system.os.windows.WindowsOperatingSystemFactory;
@@ -94,7 +95,7 @@ public class OperatingSystemFactory
                 }
             }
             
-            Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(this.GenericOperatingSystem).toString(), "OperatingSystemFactory", "getInstance()");
+            Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.GenericOperatingSystem)).toString(), "OperatingSystemFactory", "getInstance()");
             System.out.println(log.toString());
             LogUtil.put(log);
             

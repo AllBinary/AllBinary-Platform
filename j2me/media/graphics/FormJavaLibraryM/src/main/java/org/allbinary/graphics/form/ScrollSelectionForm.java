@@ -28,6 +28,7 @@ import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.logic.string.StringUtil;
 import org.allbinary.math.RectangleCollisionUtil;
 
 public class ScrollSelectionForm extends PaintableForm
@@ -288,7 +289,7 @@ public class ScrollSelectionForm extends PaintableForm
         //- halfBorder
         if (rectangleCollisionUtil.isInside(x, y - halfBorder, this.rectangle.getMaxX() + border, this.rectangle.getMaxY() + border,point.getX(), point.getY()))
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(point).append(INSIDE_FORM).toString(), this, IS_IN_FORM));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append(StringUtil.getInstance().toString(point)).append(INSIDE_FORM).toString(), this, IS_IN_FORM));
             return true;
         }
         return false;
