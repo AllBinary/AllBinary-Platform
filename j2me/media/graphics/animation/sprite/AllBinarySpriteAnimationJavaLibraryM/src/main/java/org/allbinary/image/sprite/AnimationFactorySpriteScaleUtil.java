@@ -17,15 +17,11 @@ import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.game.Sprite;
 
 import org.allbinary.game.layer.SpriteFactory;
-import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.opengles.OpenGLUtil;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.opengles.OpenGLESImageExclusionUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.math.J2SEMath;
 
 import org.allbinary.media.image.ImageScaleUtil;
 
@@ -48,6 +44,7 @@ public class AnimationFactorySpriteScaleUtil {
     private final ImageScaleUtil imageScaleUtil = ImageScaleUtil.getInstance();
     //private final ImageCopyUtil imageCopyUtil = ImageCopyUtil.getInstance();
     private final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
+    private final J2SEMath j2seMath = J2SEMath.getInstance();
     
     private final OpenGLESImageExclusionUtil openGLESImageExclusionUtil = OpenGLESImageExclusionUtil.getInstance();
     
@@ -81,8 +78,8 @@ public class AnimationFactorySpriteScaleUtil {
 //               LogUtil.put(LogFactory.getInstance(stringMaker.append("scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
                if(openGLESImageExclusionUtil.isCustomScaling(image)) {
                    //This does not work for J2ME.
-                   final int width2 =  Math.round((scaleWidth) - 0.5f);
-                   final int height2 =  Math.round((scaleHeight) - 0.5f);
+                   final int width2 =  j2seMath.round((scaleWidth) - 0.5f);
+                   final int height2 =  j2seMath.round((scaleHeight) - 0.5f);
 
                    final int multiplesOf16Width = width2 / 16;
                    final int by16Width = multiplesOf16Width * 16;
