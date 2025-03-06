@@ -6,6 +6,7 @@ import javax.microedition.lcdui.Image;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import java.io.IOException;
 
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
@@ -40,7 +41,7 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(Bitmap.createBitmap(width, height, config.bitmapConfig));
     }
     
-    public OpenGLBitmap decodeStream(InputStream is) throws Exception {
+    public OpenGLBitmap decodeStream(InputStream is) throws IOException {
         return new OpenGLBitmap(BitmapFactory.decodeStream(is));
     }
 

@@ -1,5 +1,6 @@
 package org.allbinary.graphics;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 import javax.microedition.lcdui.Image;
@@ -37,7 +38,7 @@ public class OpenGLBitmapFactory extends PlatformBitmapBaseFactory {
         return new OpenGLBitmap(null);
     }
     
-    public OpenGLBitmap decodeStream(InputStream is) {
+    public OpenGLBitmap decodeStream(InputStream is) throws IOException {
         return new OpenGLBitmap(null);
     }
 
