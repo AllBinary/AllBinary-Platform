@@ -206,5 +206,9 @@ implements OpenGLSurfaceChangedInterface
     public int getType() {
         return TYPE;
     }
-    
+
+    public String toString() {
+        return this.getName() + super.toString();
+    }    
+
 }

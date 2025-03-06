@@ -123,7 +123,9 @@ public class ImageCacheBase
     protected Image createImage(final Object key, final InputStream inputStream)
     throws Exception
     {
-        return Image.createImage(inputStream);
+        final Image image = Image.createImage(inputStream);
+        //image.setName((String) key);
+        return image;
     }
     
     public String toString()
