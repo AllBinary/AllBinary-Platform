@@ -41,7 +41,9 @@ extends GameNotificationHud
 {
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
     private String string = this.EMPTY_STRING;
-    
+
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
     private final CircularIndexUtil circularIndexUtil;
@@ -62,8 +64,9 @@ extends GameNotificationHud
 
         this.circularIndexUtil = CircularIndexUtil.getInstance(0);
 
-        GameNotificationEventHandler.getInstance().removeAllListeners();
-        GameNotificationEventHandler.getInstance().addListener(this);
+        final GameNotificationEventHandler gameNotificationEventHandler  = GameNotificationEventHandler.getInstance();
+        gameNotificationEventHandler.removeAllListeners();
+        gameNotificationEventHandler.addListener(this);
     }
 
     protected GPoint getPoint(int x, int y)
@@ -77,12 +80,17 @@ extends GameNotificationHud
     private final String PERMANENT_GAME_NOTIFICATION = "Permanent Game Notification: ";
     //private final String TEMP_GAME_NOTIFICATION = "Temp Game Notification: ";
     
+    private String lastString = null;
+    
     //Add event if it is not already there
     protected void add(final String string, final Integer seconds, final BasicColor basicColor, final Boolean permanent)
     {
         if (permanent.booleanValue())
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, CommonStrings.getInstance().ADD));
+            if(lastString != string) {
+                this.lastString = string;
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append(PERMANENT_GAME_NOTIFICATION).append(string).toString(), this, commonStrings.ADD));
+            }
             this.permanentGameNotification.add(string, seconds, basicColor);
             this.circularIndexUtil.setSize(this.permanentGameNotification.getSize());
         }
@@ -101,8 +109,7 @@ extends GameNotificationHud
     {
         if (this.timeDelayHelper.isTime(gameTickTimeDelayHelper.startTime))
         {
-            GameAdState gameAdState = 
-                GameAdStateFactory.getInstance().getCurrentInstance();
+            final GameAdState gameAdState = GameAdStateFactory.getInstance().getCurrentInstance();
             
             if(gameAdState.isShowingAt(this.getLocation()))
             {
@@ -135,13 +142,12 @@ extends GameNotificationHud
     {
         this.string = (String) this.gameNotification.stringList.remove(0);
 
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().stringWidth2(this.string)) >> 1));
         //
         this.point.setX(this.getX());
         this.point.setY(this.getY());
 
-        Integer time = (Integer) this.gameNotification.timeList.remove(0);
+        final Integer time = (Integer) this.gameNotification.timeList.remove(0);
         
         int iTime = time.intValue() * 1000;
         
@@ -158,11 +164,10 @@ extends GameNotificationHud
     private void setNextUnremoveable()
         throws Exception
     {
-        int index = this.circularIndexUtil.getIndex();
+        final int index = this.circularIndexUtil.getIndex();
 
         this.string = (String) this.permanentGameNotification.stringList.objectArray[index];
 
-        DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         this.setX((displayInfo.getLastWidth() - (MyFont.getInstance().stringWidth2(this.string)) >> 1));
         //
         this.point.setX(this.getX());
