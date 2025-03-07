@@ -52,7 +52,7 @@ public class LayerInterfaceFactory
       /*
       if(list.objectArray.length <= typeInteger.intValue() - 1)
       {
-    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, "getInstance");
+    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, CommonStrings.getInstance().GET_INSTANCE);
       }
       */
 
@@ -62,7 +62,7 @@ public class LayerInterfaceFactory
       /*
       if(layerInterfaceFactoryInterface == null)
       {
-    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, "getInstance");
+    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, CommonStrings.getInstance().GET_INSTANCE);
       }
       */
 

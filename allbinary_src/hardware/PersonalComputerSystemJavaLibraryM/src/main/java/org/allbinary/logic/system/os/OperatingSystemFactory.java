@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.logic.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.system.os.linux.LinuxOperatingSystemFactory;
 import org.allbinary.logic.system.os.solaris.Solaris;
@@ -36,6 +37,8 @@ public class OperatingSystemFactory
         return instance;
     }
     
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private GenericOperatingSystem GenericOperatingSystem;
     private boolean hasDetected = false;
     
@@ -55,14 +58,14 @@ public class OperatingSystemFactory
             
             if(!this.hasDetected)
             {
-                LogUtil.put(LogFactory.getInstance("osName: " + osName, this, "getInstance()"));
+                LogUtil.put(LogFactory.getInstance("osName: " + osName, this, CommonStrings.getInstance().GET_INSTANCE));
                 
                 this.hasDetected = true;
                 if(osName.indexOf(operatingSystems.LINUX) >= 0)
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Linux OS", this, "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Linux OS", this, commonStrings.GET_INSTANCE));
                     }
                     
                     this.GenericOperatingSystem =
@@ -73,7 +76,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Windows OS", this, "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Windows OS", this, commonStrings.GET_INSTANCE));
                     }
                     this.GenericOperatingSystem =
                         (GenericOperatingSystem) 
@@ -83,7 +86,7 @@ public class OperatingSystemFactory
                 {
                     if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
                     {
-                        LogUtil.put(LogFactory.getInstance("Found a Solaris OS", this, "getInstance()"));
+                        LogUtil.put(LogFactory.getInstance("Found a Solaris OS", this, commonStrings.GET_INSTANCE));
                     }
                     
                     this.GenericOperatingSystem =
@@ -93,12 +96,13 @@ public class OperatingSystemFactory
                 {
                     throw new Exception(new StringMaker().append("OS Not Supported: ").append(osName).toString());
                 }
+                
+                Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.GenericOperatingSystem)).toString(), this, commonStrings.GET_INSTANCE);
+                System.out.println(log.toString());
+                LogUtil.put(log);
+
             }
-            
-            Log log = LogFactory.getInstance(new StringMaker().append("OperatingSystem Info: ").append(StringUtil.getInstance().toString(this.GenericOperatingSystem)).toString(), "OperatingSystemFactory", "getInstance()");
-            System.out.println(log.toString());
-            LogUtil.put(log);
-            
+                        
             return this.GenericOperatingSystem;
         }
         catch(Exception e)
@@ -106,7 +110,7 @@ public class OperatingSystemFactory
             String error = "Failed to get instance";
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().FACTORYERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
+                LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET_INSTANCE, e));
             }
             //throw e;
             return new NoOperatingSystem();
