@@ -74,5 +74,7 @@ public class CommonStrings
     
     public final String NOT_IMPLEMENTED = "Not Implemented";
     public final String UNKNOWN = "Unknown";
+    
+    public final String ON_EVENT = "onEvent";
 
 }
