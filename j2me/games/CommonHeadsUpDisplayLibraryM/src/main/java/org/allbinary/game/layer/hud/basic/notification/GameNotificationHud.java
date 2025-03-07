@@ -41,15 +41,20 @@ implements GameNotificationListenerInterface
    }
    
    private final String METHOD_NAME = "onGameNotificationEvent";
-   
+  
+   private GameNotificationEvent lastGameNotificationEvent = null;
+
    public void onGameNotificationEvent(
-           GameNotificationEvent gameNotificationEvent) 
+           final GameNotificationEvent gameNotificationEvent) 
    throws Exception
    {
-       LogUtil.put(LogFactory.getInstance(
+       if(lastGameNotificationEvent != gameNotificationEvent) {
+           lastGameNotificationEvent = gameNotificationEvent;
+           LogUtil.put(LogFactory.getInstance(
                //CommonStrings.getInstance().START_LABEL + 
                gameNotificationEvent.getString(),
                this, METHOD_NAME));
+       }
 
        this.add(
                gameNotificationEvent.getString(),
