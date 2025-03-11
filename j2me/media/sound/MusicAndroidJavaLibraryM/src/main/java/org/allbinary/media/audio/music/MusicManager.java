@@ -40,8 +40,8 @@ public class MusicManager
 
     private Sound currentSongSound;
     private Sound nextSongSound;
-    private int leftVolume;
-    private int rightVolume;
+    private int leftVolume = 100;
+    private int rightVolume = 100;
 
     //MusicService.class
     private final Class musicServiceClass;

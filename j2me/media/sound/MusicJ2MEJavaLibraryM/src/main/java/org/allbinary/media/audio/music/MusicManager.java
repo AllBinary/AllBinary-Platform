@@ -22,6 +22,7 @@ public class MusicManager {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final CommonSeps commonSeps = CommonSeps.getInstance();
+    private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
     private final PlayerStateUtil playerStateUtil = PlayerStateUtil.getInstance();
 
@@ -61,11 +62,23 @@ public class MusicManager {
     private boolean noDuration;
     private boolean stopped = true;
     
-    public MusicManager(BasicArrayList songList) {
+    public MusicManager(final Class musicServiceClass, final BasicArrayList songList) {
         this.songList = songList;
                 
     }
 
+    public void startNewSong()
+    {
+        //PreLogUtil.put("startNewSong - Stop MusicService", this, commonStrings.PROCESS);
+
+        if (this.nextSongSound == null) {
+            final Sound randomSongSound = (Sound) basicArrayListUtil.getRandom(this.songList);
+            this.nextSong(randomSongSound, 0, 0);
+        }
+
+        this.process();
+    }
+    
     public void nextSong(final Sound nextSongSound, final int leftVolume, final int rightVolume) {
         PreLogUtil.put(new StringMaker().append(NEXT_SONG).append(nextSongSound.getResource()).toString(), this, commonStrings.PROCESS);
         this.nextSongSound = nextSongSound;

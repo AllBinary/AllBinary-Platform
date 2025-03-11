@@ -34,7 +34,6 @@ public class AllBinarySensorManager
     //private final AllBinarySensor[] allBinarySensorArray = new AllBinarySensor[0];
     //public AllBinarySensor[] init()
     public void init()
-    throws Exception
     {
     }
     
@@ -44,7 +43,7 @@ public class AllBinarySensorManager
         return list;
     }
 
-    public void shutdown() throws Exception
+    public void shutdown()
     {
     }
 }
