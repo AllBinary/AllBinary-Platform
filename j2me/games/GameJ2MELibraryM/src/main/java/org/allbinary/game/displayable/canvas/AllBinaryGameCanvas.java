@@ -1548,10 +1548,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         final Features features = Features.getInstance();
         if (features.isDefault(openGLFeatureFactory.OPENGL)) {
             final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
-            LogUtil.put(LogFactory.getInstance("TWB waiting:" + openGLImageSpecificFactory.updating, this, commonStrings.RUN));
+            //LogUtil.put(LogFactory.getInstance("waiting for OpenGL to update:" + openGLImageSpecificFactory.updating, this, commonStrings.RUN));
             while (openGLImageSpecificFactory.updating) {
                 Thread.sleep(YIELD_SLEEP);
-                LogUtil.put(LogFactory.getInstance("TWB waiting", this, commonStrings.RUN));
+                //LogUtil.put(LogFactory.getInstance("waiting for OpenGL to update", this, commonStrings.RUN));
             }
         }
     }
