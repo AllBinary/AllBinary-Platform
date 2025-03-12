@@ -121,6 +121,7 @@ import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.graphics.opengles.OpenGLFeatureUtil;
 import org.allbinary.graphics.opengles.OpenGLThreadUtil;
 import org.allbinary.graphics.paint.PaintableInterface;
+import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
 import org.allbinary.input.gyro.SensorGameUpdateProcessor;
 import org.allbinary.input.gyro.SingleSensorGameUpdateProcessor;
 import org.allbinary.logic.string.StringMaker;
@@ -1543,6 +1544,18 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
 
     private final int YIELD_SLEEP = 100;
 
+    public void shouldWait() throws Exception {
+        final Features features = Features.getInstance();
+        if (features.isDefault(openGLFeatureFactory.OPENGL)) {
+            final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
+            LogUtil.put(LogFactory.getInstance("TWB waiting:" + openGLImageSpecificFactory.updating, this, commonStrings.RUN));
+            while (openGLImageSpecificFactory.updating) {
+                Thread.sleep(YIELD_SLEEP);
+                LogUtil.put(LogFactory.getInstance("TWB waiting", this, commonStrings.RUN));
+            }
+        }
+    }
+
     public void run()
     {
         try
@@ -1560,6 +1573,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
             {
                 Thread.sleep(YIELD_SLEEP);
             }
+            
+            this.shouldWait();
 
             this.threadInit();
 

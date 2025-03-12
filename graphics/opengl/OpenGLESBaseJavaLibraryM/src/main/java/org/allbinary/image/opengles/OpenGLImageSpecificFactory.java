@@ -23,6 +23,8 @@ public class OpenGLImageSpecificFactory
 
     private OpenGLImageFactory imageFactory;
     
+    public boolean updating = false;
+    
     public static OpenGLImageSpecificFactory getInstance()
     {
         return instance;
