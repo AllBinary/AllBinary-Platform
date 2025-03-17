@@ -37,6 +37,10 @@ public class CheatGameInputProcessor extends PlayerGameInput
 
     private final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
     
+//    public static int x;
+//    public static int y;
+//    public static int z;
+    
     public synchronized void update()
     {
         try
@@ -68,6 +72,44 @@ public class CheatGameInputProcessor extends PlayerGameInput
                     this.gameCanvas.buildGame(true);
                     break;
                 }
+                
+//                if (key == gameKeyFactory.LEFT.getId())
+//                {   
+//                    x++;
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, "processGame"));
+//                    break;
+//                }
+//                else if (key == gameKeyFactory.RIGHT.getId())
+//                {   
+//                    x--;
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, "processGame"));
+//                    break;
+//                }
+//                else if (key == gameKeyFactory.UP.getId())
+//                {
+//                    y++;
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, "processGame"));   
+//                    break;
+//                }
+//                else if (key == gameKeyFactory.DOWN.getId())
+//                {                    
+//                    y--;
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, "processGame"));
+//                    break;
+//                }
+//                else if (key == gameKeyFactory.KEY_NUM0.getId())
+//                {
+//                    z++;
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));
+//                    break;
+//                }
+//                else if (key == gameKeyFactory.KEY_NUM2.getId())
+//                {
+//                    z--;
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));
+//                    break;
+//                }
+                
             }
 
             list.clear();
