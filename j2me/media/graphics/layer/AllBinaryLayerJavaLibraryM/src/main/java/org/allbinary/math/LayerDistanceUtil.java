@@ -40,6 +40,18 @@ public class LayerDistanceUtil
         return (int) mathUtil.sqrt((dx * dx) + (dy * dy));
     }
 
+    public int getDistance3D(final AllBinaryLayer layerInterface, final AllBinaryLayer layerInterface2)
+    {
+        final int dx = (layerInterface.getX() + layerInterface.getHalfWidth()) -
+            (layerInterface2.getX() + layerInterface2.getHalfWidth());
+        final int dy = (layerInterface.getY() + layerInterface.getHalfHeight()) -
+            (layerInterface2.getY() + layerInterface2.getHalfHeight());
+        final int dz = (layerInterface.getZ() + layerInterface.getHalfDepth()) -
+            (layerInterface2.getZ() + layerInterface2.getHalfDepth());
+
+        return (int) mathUtil.sqrt((dx * dx) + (dy * dy) + (dz * dz));
+    }
+    
     public int getDistance(final AllBinaryLayer layerInterface, final GPoint point)
     {
         final int dx = layerInterface.getX() - point.getX();

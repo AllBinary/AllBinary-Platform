@@ -120,7 +120,7 @@ implements LayerInterface
 
     public int getHalfDepth()
     {
-        return 0;
+        return (int) this.getDepth() / 2;
     }
 
     public ViewPosition getViewPosition()
