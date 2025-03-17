@@ -90,7 +90,7 @@ implements LayerInterface
 
     public int getZ2()
     {
-        return this.z + this.getDepth();
+        return (int) (this.z + this.getDepth());
     }
 
     public String getName()

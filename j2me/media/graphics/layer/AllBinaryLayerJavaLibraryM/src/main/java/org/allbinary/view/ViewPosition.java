@@ -64,7 +64,7 @@ public class ViewPosition extends GPoint
 
     public int getZ2()
     {
-        return this.getZ() + this.allbinaryLayer.getDepth();
+        return (int) (this.getZ() + this.allbinaryLayer.getDepth());
     }
 
     /*

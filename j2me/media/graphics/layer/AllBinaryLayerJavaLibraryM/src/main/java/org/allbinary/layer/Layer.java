@@ -114,7 +114,8 @@ public class Layer
         return height;
     }
 
-    public final int getDepth()
+    //3d games need to overide this now for correct screen to world mapping.
+    public long getDepth()
     {
         return 0;
     }
