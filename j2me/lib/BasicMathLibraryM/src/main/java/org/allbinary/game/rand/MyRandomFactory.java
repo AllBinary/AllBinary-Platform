@@ -14,6 +14,8 @@
 package org.allbinary.game.rand;
 
 import java.util.Random;
+
+import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringMaker;
 
 //Do not use in client code for money related things.
@@ -26,6 +28,8 @@ public class MyRandomFactory
         return instance;
     }
 
+    private final MathUtil mathUtil = MathUtil.getInstance();
+    
     private Random rand;
 
     private MyRandomFactory()
@@ -46,7 +50,7 @@ public class MyRandomFactory
 
     public int getAbsoluteNextInt(int range)
     {
-        return Math.abs(this.getNextInt(range));
+        return mathUtil.abs(this.getNextInt(range));
     }
 
     public int getAbsoluteNextIntAllowZero(int range)
@@ -57,7 +61,7 @@ public class MyRandomFactory
         }
         else
         {
-            return Math.abs(this.getNextInt(range));
+            return mathUtil.abs(this.getNextInt(range));
         }
     }
     

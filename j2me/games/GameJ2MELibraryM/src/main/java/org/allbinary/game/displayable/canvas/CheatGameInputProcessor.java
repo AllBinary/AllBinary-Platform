@@ -97,13 +97,15 @@ public class CheatGameInputProcessor extends PlayerGameInput
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, "processGame"));
 //                    break;
 //                }
-//                else if (key == gameKeyFactory.KEY_NUM0.getId())
+//                //3
+//                else if (key == gameKeyFactory.KEY_NUM1.getId())
 //                {
 //                    z++;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));
 //                    break;
 //                }
-//                else if (key == gameKeyFactory.KEY_NUM2.getId())
+//                //4
+//                else if (key == gameKeyFactory.KEY_NUM3.getId())
 //                {
 //                    z--;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));

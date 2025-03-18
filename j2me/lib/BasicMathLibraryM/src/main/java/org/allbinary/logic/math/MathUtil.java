@@ -57,6 +57,10 @@ public class MathUtil
     public int abs(int value) {
         return (value < 0) ? -value : value;
     }
+
+    public long abs(long value) {
+        return (value < 0) ? -value : value;
+    }
     
     /*
     public static void main(String[] args)

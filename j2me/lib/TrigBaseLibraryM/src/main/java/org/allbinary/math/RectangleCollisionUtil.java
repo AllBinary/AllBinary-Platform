@@ -110,8 +110,9 @@ public class RectangleCollisionUtil
          **/
 
         /*
-        return (Math.abs(a.getXPos() - b.getXPos()) +
-        Math.abs(a.getYPos() - b.getYPos())) <
+        final MathUtil mathUtil = MathUtil.getInstance();
+        return (mathUtil.abs(a.getXPos() - b.getXPos()) +
+        mathUtil.abs(a.getYPos() - b.getYPos())) <
         ((a.getSize() >> 1) + (b.getSize() >> 1));
          */
     }

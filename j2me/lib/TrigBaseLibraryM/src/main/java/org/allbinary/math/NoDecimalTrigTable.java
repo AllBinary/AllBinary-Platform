@@ -16,6 +16,7 @@ package org.allbinary.math;
 import org.allbinary.logic.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.logic.math.MathUtil;
 
 
 public class NoDecimalTrigTable
@@ -27,13 +28,15 @@ public class NoDecimalTrigTable
         return instance;
     }
 
+    private final MathUtil mathUtil = MathUtil.getInstance();
+    
     private final long[] noDecimalSin;
     private final long[] noDecimalCos;
     private final long[] noDecimalTan;
 
     private NoDecimalTrigTable()
     {
-        int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
+        final int TOTAL_ANGLE = AngleFactory.getInstance().TOTAL_ANGLE;
         
         noDecimalSin = new long[TOTAL_ANGLE];
         noDecimalCos = new long[TOTAL_ANGLE];
@@ -1158,7 +1161,7 @@ public class NoDecimalTrigTable
             if(dx <= 0 && dy < 0)
             {
             	//PreLogUtil.put("How is dx or dy not negative? " + PositionStrings + dx + PositionStrings + dy, this, "antiTan");
-            	ratio = Math.abs(ratio);
+            	ratio = mathUtil.abs(ratio);
             }
 
             //LogUtil.put(LogFactory.getInstance("ratioUnscaled: " + ratioUnscaled, this, "antiTan"));

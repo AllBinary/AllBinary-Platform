@@ -22,6 +22,7 @@ import org.allbinary.game.input.GameInput;
 import org.allbinary.game.physics.velocity.BasicVelocityProperties;
 import org.allbinary.game.physics.velocity.VelocityInterfaceCompositeInterface;
 import org.allbinary.layer.AllBinaryLayer;
+import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 
 public class BasePatrolAI extends BasicAI
@@ -88,7 +89,8 @@ public class BasePatrolAI extends BasicAI
     // Limit pacing to a maximum distance
     private void changeDirectionIfReachedPacingAreaMax()
     {
-        int totalDistance = Math.abs(xTotalDistance);
+        final MathUtil mathUtil = MathUtil.getInstance();
+        int totalDistance = mathUtil.abs(xTotalDistance);
 
         if (totalDistance > this.currentDistance)
         {

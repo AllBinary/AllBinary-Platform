@@ -25,10 +25,13 @@ import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
 import org.allbinary.input.motion.gesture.observer.MotionEventCircularPool;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.input.motion.gesture.observer.MovedMotionGesturesHandler;
+import org.allbinary.logic.math.J2SEMath;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 
 public class MotionGestureRecognizer
 {
+    private final J2SEMath j2seMath = J2SEMath.getInstance();
+
     private final GPoint origin = PointFactory.getInstance().ZERO_ZERO;
 
     private GPoint previous = origin;
@@ -145,8 +148,8 @@ public class MotionGestureRecognizer
 
         int minimumMotionGesture = MotionGestureConfigurationFactory
                 .getInstance().getMinimumMotionGesture();
-        if (Math.abs(line.getDeltaX()) < minimumMotionGesture
-                && Math.abs(line.getDeltaY()) < minimumMotionGesture)
+        if (j2seMath.abs((float) line.getDeltaX()) < minimumMotionGesture
+                && j2seMath.abs((float) line.getDeltaY()) < minimumMotionGesture)
         {
             intermediate = current;
             return;
@@ -154,7 +157,7 @@ public class MotionGestureRecognizer
         }
 
         double gradient = line.getGradient();
-        double absGradient = Math.abs(gradient);
+        double absGradient = j2seMath.abs((float) gradient);
 
         final MotionGestureConfiguration conf = MotionGestureConfigurationFactory.getInstance();
 

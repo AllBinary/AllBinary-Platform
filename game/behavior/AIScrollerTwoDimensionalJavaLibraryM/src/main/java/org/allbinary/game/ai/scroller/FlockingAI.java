@@ -26,6 +26,7 @@ import org.allbinary.game.layer.identification.GroupLayerManagerListener;
 import org.allbinary.game.layer.weapon.WeaponLayer;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.math.MathUtil;
 
 public class FlockingAI extends BasicAI
 {
@@ -113,7 +114,8 @@ public class FlockingAI extends BasicAI
         int yTotalDistance = (allBinaryLayer.getY() + allBinaryLayer.getHalfHeight()) - 
         (ownerLayerInterface.getY() + ownerLayerInterface.getHalfHeight());
         
-        int totalDistance = Math.abs(xTotalDistance) + Math.abs(yTotalDistance);
+        final MathUtil mathUtil = MathUtil.getInstance();
+        int totalDistance = mathUtil.abs(xTotalDistance) + mathUtil.abs(yTotalDistance);
         
         return totalDistance;
     }
