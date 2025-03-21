@@ -44,7 +44,7 @@ public class ProgressCanvas extends RunnableCanvas
     protected boolean hasPainted;
     private final BasicColor backgroundBasicColor;
     
-    protected final Paintable GAUGE_PAINTABLE = new Paintable() {
+    public final Paintable GAUGE_PAINTABLE = new Paintable() {
         public void paint(Graphics graphics) {
             paint2(graphics);
         }

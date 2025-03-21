@@ -1864,6 +1864,10 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         return id;
     }
 
+    public void setProgressPaintable(final PaintableInterface paintable) {
+        this.progressPaintable = paintable;
+    }
+    
     public IntermissionInterface getStartIntermissionInterface()
     {
         return this.startIntermissionInterface;
