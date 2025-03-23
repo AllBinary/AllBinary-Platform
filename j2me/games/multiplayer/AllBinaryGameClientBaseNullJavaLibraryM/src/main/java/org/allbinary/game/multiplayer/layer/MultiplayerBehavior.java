@@ -31,7 +31,7 @@ public class MultiplayerBehavior
 
     }
     
-    public long getTildaElapse()
+    public long getApproximateElapsed()
     {
         return 0;
     }    
