@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;

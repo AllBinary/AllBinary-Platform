@@ -16,20 +16,19 @@ package org.allbinary.graphics.displayable;
 import javax.microedition.lcdui.Displayable;
 
 import org.allbinary.AndroidUtil;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.os.OperatingSystemFactory;
 import org.allbinary.logic.system.os.GenericOperatingSystem;
-import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.displayable.event.DisplayChangeEventHandler;
 import org.allbinary.graphics.displayable.event.LastDisplayChangeEventHandler;
 import org.allbinary.graphics.threed.SWTJOGLProcessor;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
 public class DisplayInfoSingleton
@@ -42,7 +41,7 @@ public class DisplayInfoSingleton
         return SINGLETON;
     }
 
-    private final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+    private final CommonLabels commonLabels = CommonLabels.getInstance();
     private final CommonSeps commonSeps = CommonSeps.getInstance();
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     
@@ -416,27 +415,27 @@ public class DisplayInfoSingleton
     {
         stringBuffer.append(DISPLAY_INFO);
         stringBuffer.append(FULL);
-        stringBuffer.append(spacialStrings.WIDTH_LABEL);
+        stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(full[WIDTH]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(FULL);
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.append(full[HEIGHT]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST);
-        stringBuffer.append(spacialStrings.WIDTH_LABEL);
+        stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(last[WIDTH]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST);
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.append(last[HEIGHT]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST_HALF);
-        stringBuffer.append(spacialStrings.WIDTH_LABEL);
+        stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(lastHalf[WIDTH]);
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(LAST_HALF);
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.append(lastHalf[HEIGHT]);
 
         return stringBuffer.toString();

@@ -15,7 +15,7 @@ package org.allbinary.graphics.opengles;
 
 import javax.microedition.lcdui.Displayable;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
@@ -32,7 +32,7 @@ import org.allbinary.game.score.displayable.HighScoresCanvas;
 import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.graphics.displayable.MyCanvas;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.thread.NullRunnable;

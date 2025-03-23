@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.RandomAccessFile;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFormatUtil;
 

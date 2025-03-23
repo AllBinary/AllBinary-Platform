@@ -45,7 +45,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.java.help.JavaHelpUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
 import org.allbinary.logic.system.security.licensing.InputAutomationClientInformationFactory;
 import org.allbinary.thread.RunnableInterface;

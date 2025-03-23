@@ -20,7 +20,7 @@ import org.allbinary.input.automation.configuration.InputAutomationConfiguration
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.osgi.OSGIActivatorUtil;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

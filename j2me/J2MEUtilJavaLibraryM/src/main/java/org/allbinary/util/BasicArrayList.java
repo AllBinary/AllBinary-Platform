@@ -1,7 +1,7 @@
 package org.allbinary.util;
 
-import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
 //This is a very fast and simple resizable list.

@@ -14,7 +14,7 @@
 package org.allbinary.input.automation.module.game;
 
 import java.awt.image.BufferedImage;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 
 public class MagicGameObject extends MeteredGameObject
       implements MagicGameObjectInterface

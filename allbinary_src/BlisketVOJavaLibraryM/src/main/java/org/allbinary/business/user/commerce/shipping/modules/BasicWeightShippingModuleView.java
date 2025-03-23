@@ -19,7 +19,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.commerce.shipping.ShippingMethodData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 

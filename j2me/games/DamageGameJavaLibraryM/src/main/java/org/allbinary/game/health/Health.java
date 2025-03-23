@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.health;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 

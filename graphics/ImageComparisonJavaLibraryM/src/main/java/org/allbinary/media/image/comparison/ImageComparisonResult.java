@@ -20,7 +20,7 @@ import java.awt.image.BufferedImage;
 
 import java.util.Vector;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class ImageComparisonResult

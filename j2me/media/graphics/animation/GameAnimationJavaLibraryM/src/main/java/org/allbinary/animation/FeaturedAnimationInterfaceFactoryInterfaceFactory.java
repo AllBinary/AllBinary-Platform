@@ -13,7 +13,7 @@
  */
 package org.allbinary.animation;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.animation.resource.FeatureResourceAnimationInterfaceFactoryInterface;
 import org.allbinary.game.configuration.GameConfigurationCentral;

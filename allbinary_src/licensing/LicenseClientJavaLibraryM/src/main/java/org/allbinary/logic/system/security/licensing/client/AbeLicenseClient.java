@@ -18,7 +18,7 @@ import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

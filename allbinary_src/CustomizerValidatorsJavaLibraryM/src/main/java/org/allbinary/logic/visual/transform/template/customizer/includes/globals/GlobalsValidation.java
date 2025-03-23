@@ -19,7 +19,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.context.modules.storefront.StoreFrontView;
 import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

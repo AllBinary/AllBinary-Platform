@@ -15,11 +15,11 @@ package org.allbinary.logic.system.security.licensing.registration;
 
 import java.util.Hashtable;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.canvas.SpecialMessageUtil;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 
 public class LicenseRegistrationUtil
 {

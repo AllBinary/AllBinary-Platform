@@ -26,7 +26,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.gui.dialog.FileJDialog;
 import org.allbinary.gui.dialog.FileJDialogListenerInterface;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 import org.allbinary.media.image.analysis.ColorRange;
 import org.allbinary.media.image.analysis.ColorRangeInterface;

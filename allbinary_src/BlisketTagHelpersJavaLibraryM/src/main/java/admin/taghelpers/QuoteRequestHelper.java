@@ -26,7 +26,7 @@ import org.allbinary.business.context.modules.storefront.StoreFrontFactory;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 //TWB - Am I missing the correct Quote Request? Probably not

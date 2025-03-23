@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.input.motion.action;
 
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.util.BasicArrayList;
 

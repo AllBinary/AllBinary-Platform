@@ -1,6 +1,6 @@
 package org.allbinary.util;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 

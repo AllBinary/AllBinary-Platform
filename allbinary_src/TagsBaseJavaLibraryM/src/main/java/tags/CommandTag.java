@@ -14,7 +14,7 @@
 package tags;
 
 import javax.servlet.jsp.tagext.TagSupport;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class CommandTag extends TagSupport
 {

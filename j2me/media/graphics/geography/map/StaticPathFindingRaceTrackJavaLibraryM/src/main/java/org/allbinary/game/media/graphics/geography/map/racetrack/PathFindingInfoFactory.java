@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.media.graphics.geography.map.racetrack;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;
 import org.allbinary.media.graphics.geography.map.racetrack.BasePathFindingInfoFactory;

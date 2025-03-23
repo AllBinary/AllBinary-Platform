@@ -11,13 +11,13 @@
 * Created By: Travis Berthelot
 * 
 */
-package org.allbinary.android;
+package org.allbinary.string;
 
-public class AndroidStrings
+public class CommonStateStrings
 {
-    private static final AndroidStrings instance = new AndroidStrings();
+    private static final CommonStateStrings instance = new CommonStateStrings();
 
-    public static AndroidStrings getInstance()
+    public static CommonStateStrings getInstance()
     {
         return instance;
     }

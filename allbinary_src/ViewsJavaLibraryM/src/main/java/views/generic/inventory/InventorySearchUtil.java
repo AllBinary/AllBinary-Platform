@@ -22,7 +22,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -36,7 +36,7 @@ import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchData;
 import org.allbinary.logic.control.search.SearchParams;
 import org.allbinary.logic.control.search.SearchRequest;

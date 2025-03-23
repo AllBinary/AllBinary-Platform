@@ -15,7 +15,7 @@ package org.allbinary.animation.image;
 
 import javax.microedition.lcdui.Image;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
@@ -26,7 +26,7 @@ import org.allbinary.image.AnimationFactoryImageScaleUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.media.ScaleProperties;
 
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {

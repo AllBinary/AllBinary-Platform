@@ -20,7 +20,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.tree.DefaultMutableTreeNode;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 import org.w3c.dom.Node;
 

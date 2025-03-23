@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 

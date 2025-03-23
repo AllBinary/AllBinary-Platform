@@ -41,7 +41,7 @@ inventory835
 package org.allbinary.business.init.db;
 
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 
 public class DbConnectionInfo implements DatabaseConnectionInfoInterface
 {

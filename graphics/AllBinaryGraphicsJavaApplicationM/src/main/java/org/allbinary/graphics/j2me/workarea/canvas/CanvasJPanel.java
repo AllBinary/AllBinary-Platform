@@ -26,8 +26,8 @@ import javax.swing.tree.MutableTreeNode;
 
 import org.w3c.dom.Node;
 
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.graphics.j2me.GraphicsException;
 import org.allbinary.graphics.j2me.workarea.WorkAreaJTreeJPanel;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemFactory;

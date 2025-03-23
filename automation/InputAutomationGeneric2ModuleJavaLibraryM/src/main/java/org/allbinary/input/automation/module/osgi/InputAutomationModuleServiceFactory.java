@@ -22,7 +22,7 @@ import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterfa
 
 import bundle.input.automation.module.InputAutomationModuleService;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class InputAutomationModuleServiceFactory
     implements ServiceFactory

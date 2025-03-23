@@ -12,7 +12,7 @@
 *
 */
 
-package org.allbinary.logic.string;
+package org.allbinary.string;
 
 /**
  *
@@ -28,6 +28,9 @@ public class CommonLabels {
     public static CommonLabels getInstance() {
         return instance;
     }
+    
+    public final String WIDTH_LABEL = " Width: ";
+    public final String HEIGHT_LABEL = " Height: ";
     
     public final String END_LABEL = "End: ";
     public final String TOTAL_LABEL = "Total: ";

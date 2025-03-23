@@ -21,7 +21,7 @@ import org.allbinary.game.layer.pickup.PickedUpLayerType;
 import org.allbinary.game.layer.pickup.PickedUpLayerTypeFactory;
 import org.allbinary.game.layer.pickup.PickupProcessorInterface;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;

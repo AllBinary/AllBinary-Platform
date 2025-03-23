@@ -22,7 +22,7 @@ import org.allbinary.business.user.commerce.inventory.item.BasicItemView;
 import org.allbinary.business.user.commerce.inventory.item.ItemInterface;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.control.search.SearchRequest;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.visual.transform.StoreTransformer;

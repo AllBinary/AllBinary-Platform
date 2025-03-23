@@ -20,7 +20,7 @@ import java.util.Vector;
 import javax.servlet.jsp.PageContext;
 
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

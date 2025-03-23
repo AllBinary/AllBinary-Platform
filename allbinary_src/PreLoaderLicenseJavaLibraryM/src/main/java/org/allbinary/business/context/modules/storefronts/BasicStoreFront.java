@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.context.modules.storefronts;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import java.util.HashMap;
 

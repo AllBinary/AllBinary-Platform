@@ -20,7 +20,7 @@ import org.allbinary.business.init.LicenseInitInfoUtil;
 import org.allbinary.logic.io.FileStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.FileFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

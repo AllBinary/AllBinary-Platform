@@ -23,7 +23,7 @@ import java.util.Hashtable;
 import org.allbinary.util.HashtableUtil;
 import org.allbinary.debug.DebugFactory;
 import org.allbinary.debug.NoDebug;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;

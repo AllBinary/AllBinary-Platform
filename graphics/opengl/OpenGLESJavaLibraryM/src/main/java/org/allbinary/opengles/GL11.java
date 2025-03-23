@@ -13,7 +13,7 @@
  */
 package org.allbinary.opengles;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 

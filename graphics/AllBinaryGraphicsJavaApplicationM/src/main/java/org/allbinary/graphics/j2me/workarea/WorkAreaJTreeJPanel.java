@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.j2me.workarea;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import javax.swing.JTree;

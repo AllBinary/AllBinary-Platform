@@ -6,7 +6,7 @@ import javax.microedition.lcdui.Font;
 
 import org.allbinary.graphics.font.FontDebugBase;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class OpenGLESGraphics 
 extends javax.microedition.lcdui.Graphics

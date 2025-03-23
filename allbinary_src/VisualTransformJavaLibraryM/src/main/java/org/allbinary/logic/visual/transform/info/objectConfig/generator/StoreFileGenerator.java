@@ -23,7 +23,7 @@ import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.communication.log.LogFactory;

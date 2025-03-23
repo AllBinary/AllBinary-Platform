@@ -20,7 +20,7 @@ import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;

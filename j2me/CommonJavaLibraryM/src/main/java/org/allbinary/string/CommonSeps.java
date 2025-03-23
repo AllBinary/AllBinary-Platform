@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.logic.string;
+package org.allbinary.string;
 
 public class CommonSeps
 {

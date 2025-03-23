@@ -15,7 +15,7 @@ package org.allbinary.media.audio;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;

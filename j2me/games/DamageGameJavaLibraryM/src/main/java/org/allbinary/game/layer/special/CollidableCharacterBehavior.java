@@ -16,7 +16,7 @@ package org.allbinary.game.layer.special;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterface;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.game.collision.CollidableInterfaceCompositeInterface;
 import org.allbinary.game.collision.CollisionType;

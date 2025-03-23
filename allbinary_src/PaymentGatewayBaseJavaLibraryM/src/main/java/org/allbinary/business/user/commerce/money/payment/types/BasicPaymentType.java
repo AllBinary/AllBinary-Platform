@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
 import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayInterfaceFactoryInterface;

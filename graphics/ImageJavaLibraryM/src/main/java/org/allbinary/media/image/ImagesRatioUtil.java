@@ -13,12 +13,13 @@
 */
 package org.allbinary.media.image;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
-import org.allbinary.graphics.SpacialStrings;
+
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.string.CommonLabels;
 
 public class ImagesRatioUtil
 {
@@ -94,10 +95,10 @@ public class ImagesRatioUtil
             point.y = (newHeight - bufferedImage.getHeight())/2;
         }
         
-        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
         LogUtil.put(LogFactory.getInstance(
-            spacialStrings.WIDTH_LABEL + bufferedImage.getWidth() + " newWidth: " + newWidth +
-            spacialStrings.HEIGHT_LABEL + bufferedImage.getHeight() + " newHeight: " + newHeight +
+            commonLabels.WIDTH_LABEL + bufferedImage.getWidth() + " newWidth: " + newWidth +
+            commonLabels.HEIGHT_LABEL + bufferedImage.getHeight() + " newHeight: " + newHeight +
             " needed ratio: " + ((double) newWidth/newHeight),
             "ImageRatioUtil", "fudge"));
         

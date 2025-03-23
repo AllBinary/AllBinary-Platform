@@ -16,7 +16,7 @@ package org.allbinary.android.api5;
 import org.allbinary.input.motion.button.TouchScreenTypeFactory;
 import org.allbinary.android.ActivityFractureUtil;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import android.app.Activity;
 import org.allbinary.input.motion.button.TouchScreenFactory;

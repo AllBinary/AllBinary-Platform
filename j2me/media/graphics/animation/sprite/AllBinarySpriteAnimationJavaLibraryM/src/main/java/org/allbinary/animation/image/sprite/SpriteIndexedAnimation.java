@@ -24,7 +24,7 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorUtil;
 import org.allbinary.graphics.color.ColorCompositeInterface;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.math.PrimitiveIntUtil;
 

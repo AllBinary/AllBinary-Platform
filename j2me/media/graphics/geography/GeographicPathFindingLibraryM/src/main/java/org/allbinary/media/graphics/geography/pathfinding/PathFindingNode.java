@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.graphics.geography.pathfinding;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.graphics.geography.map.GeographicMapCellPosition;
 

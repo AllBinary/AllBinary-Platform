@@ -15,7 +15,7 @@ package org.allbinary.logic.communication.log;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class LogUtil
 {   

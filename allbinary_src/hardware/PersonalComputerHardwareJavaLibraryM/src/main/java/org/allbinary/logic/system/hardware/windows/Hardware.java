@@ -16,7 +16,7 @@ package org.allbinary.logic.system.hardware.windows;
 import java.util.Vector;
 import java.util.Hashtable;
 import java.util.Iterator;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 
 import org.allbinary.logic.system.hardware.components.interfaces.BridgeInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;

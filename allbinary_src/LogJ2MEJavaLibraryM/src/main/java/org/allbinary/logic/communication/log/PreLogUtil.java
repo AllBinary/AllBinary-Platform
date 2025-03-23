@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class PreLogUtil
 {

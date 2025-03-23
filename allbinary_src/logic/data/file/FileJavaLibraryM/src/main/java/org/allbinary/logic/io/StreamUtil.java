@@ -18,7 +18,7 @@ import java.io.Closeable;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

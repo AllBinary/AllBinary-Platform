@@ -30,7 +30,7 @@ import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.logic.system.loader.SecuredNativeLibraryInterface;
 import java.util.Collection;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class InputRobotFactory
 {

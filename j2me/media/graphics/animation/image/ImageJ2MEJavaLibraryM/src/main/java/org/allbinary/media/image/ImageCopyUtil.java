@@ -21,7 +21,7 @@ import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class ImageCopyUtil
 {

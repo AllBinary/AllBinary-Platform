@@ -28,7 +28,7 @@ import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.thread.MusicThreadPool;
 
 public class PCClipWavPlayer extends BasicPlayer implements LineListener

@@ -16,7 +16,7 @@ package org.allbinary.logic.io.file.directory;
 import java.io.FileFilter;
 
 import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.util.BasicArrayList;
 
 public class SubDirectory

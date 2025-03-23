@@ -15,7 +15,7 @@ package org.allbinary.game.layer.identification;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -26,7 +26,7 @@ import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.event.LayerManagerEvent;
 import org.allbinary.layer.event.LayerManagerEventHandler;
 import org.allbinary.layer.event.LayerManagerEventListener;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
 

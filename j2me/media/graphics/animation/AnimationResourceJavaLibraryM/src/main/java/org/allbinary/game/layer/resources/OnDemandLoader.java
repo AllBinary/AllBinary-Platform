@@ -22,7 +22,7 @@ import org.allbinary.game.layer.GameLayerPlacementInterfaceBasicArrayListFactory
 import org.allbinary.game.layer.LayerPlacementInterfaceBasicArrayListFactoryInterface;
 import org.allbinary.image.ImageCache;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class OnDemandLoader

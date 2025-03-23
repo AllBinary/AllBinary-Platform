@@ -33,7 +33,7 @@ import org.allbinary.input.automation.InputAutomationData;
 import org.allbinary.input.automation.module.InputAutomationModuleData;
 import org.allbinary.input.automation.module.InputAutomationModuleFactoryInterface;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 @XmlAccessorType(XmlAccessType.FIELD)

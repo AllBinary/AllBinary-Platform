@@ -19,7 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.CategoryFactoryInterface;
 import org.allbinary.business.category.CategoryInterface;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class CategoryModifierTree extends CategoryPrivateTree implements CategoryModifierTreeInterface
 {

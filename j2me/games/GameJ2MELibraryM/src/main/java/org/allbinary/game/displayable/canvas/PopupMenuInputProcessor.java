@@ -28,7 +28,7 @@ import org.allbinary.input.motion.gesture.MotionGestureInput;
 import org.allbinary.input.motion.gesture.TouchMotionGestureFactory;
 import org.allbinary.input.motion.gesture.observer.MotionGestureEvent;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.math.RectangleCollisionUtil;
 import org.allbinary.time.TimeDelayHelper;

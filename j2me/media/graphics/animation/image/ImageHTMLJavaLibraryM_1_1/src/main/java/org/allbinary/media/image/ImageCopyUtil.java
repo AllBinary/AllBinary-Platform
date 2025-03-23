@@ -19,7 +19,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

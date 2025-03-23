@@ -17,7 +17,7 @@ import javax.microedition.lcdui.CommandListener;
 
 import org.allbinary.game.resource.ResourceLoadingLevelFactory;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.game.resource.ResourceInitialization;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;

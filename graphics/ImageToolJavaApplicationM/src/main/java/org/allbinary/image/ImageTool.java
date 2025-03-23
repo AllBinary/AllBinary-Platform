@@ -15,7 +15,7 @@ package org.allbinary.image;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.image.gui.ImageToolJFrame;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 
 public class ImageTool

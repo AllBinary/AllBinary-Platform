@@ -24,8 +24,8 @@ import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.Input;
 import org.allbinary.game.input.InputFactory;
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 

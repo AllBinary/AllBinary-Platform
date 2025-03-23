@@ -23,7 +23,7 @@ import javax.crypto.SecretKeyFactory;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.java.byteutil.ByteUtil;
 

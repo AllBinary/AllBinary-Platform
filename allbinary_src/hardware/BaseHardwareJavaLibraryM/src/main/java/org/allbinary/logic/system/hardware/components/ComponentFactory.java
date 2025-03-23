@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.system.hardware.components;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

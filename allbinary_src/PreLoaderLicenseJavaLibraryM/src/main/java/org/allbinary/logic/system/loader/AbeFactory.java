@@ -14,8 +14,8 @@
 package org.allbinary.logic.system.loader;
 
 import org.allbinary.logic.system.loader.WebappClassLoaderInfo;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.lang.reflect.Constructor;
 

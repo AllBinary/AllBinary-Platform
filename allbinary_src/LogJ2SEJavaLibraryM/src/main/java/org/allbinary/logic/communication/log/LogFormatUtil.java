@@ -15,7 +15,7 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.time.TimeStampUtil;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.java.exception.ExceptionUtil;

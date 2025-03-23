@@ -14,8 +14,8 @@
 package org.allbinary.logic.communication.sql;
 
 import org.allbinary.business.installer.Portion;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlTableUtil

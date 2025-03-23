@@ -23,8 +23,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlBasic

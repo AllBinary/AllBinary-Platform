@@ -21,7 +21,7 @@ import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.FileStreamFactory;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.FileFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;

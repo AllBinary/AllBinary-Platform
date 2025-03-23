@@ -23,8 +23,8 @@ import org.allbinary.time.TimeDelayHelper;
 import javax.microedition.lcdui.CommandListener;
 import org.allbinary.game.displayable.canvas.NullWaitGameRunnable;
 import org.allbinary.graphics.displayable.CanvasStrings;
-import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 

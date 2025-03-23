@@ -41,7 +41,7 @@ import org.allbinary.game.score.NullHighScoresSingletonFactory;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.graphics.paint.SimpleTextPaintable;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.thread.SecondaryThreadPool;
 

@@ -24,7 +24,7 @@ import org.allbinary.logic.io.path.AbPath;
 
 import org.allbinary.business.context.AbContext;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 

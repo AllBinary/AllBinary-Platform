@@ -16,7 +16,7 @@ package org.allbinary.input.automation.actions.script.condition.processors.input
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.time.TimeDelayHelper;
 
 public class KeyboardInputAutomationProcessor

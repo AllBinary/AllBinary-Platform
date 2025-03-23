@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.j2me.workarea.tools;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.Vector;

@@ -13,7 +13,7 @@
 */
 package org.allbinary.canvas;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 
 import org.allbinary.game.configuration.feature.Features;

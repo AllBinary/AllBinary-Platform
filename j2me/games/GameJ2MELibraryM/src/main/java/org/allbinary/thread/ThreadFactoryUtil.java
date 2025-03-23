@@ -13,7 +13,7 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.canvas.RunnableCanvas;
 import org.allbinary.game.configuration.feature.Features;

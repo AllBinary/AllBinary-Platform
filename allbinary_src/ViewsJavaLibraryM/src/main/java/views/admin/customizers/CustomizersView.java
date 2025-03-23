@@ -27,7 +27,7 @@ import org.allbinary.data.tables.transform.info.TransformInfoEntityBuilder;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.globals.GLOBALS2;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.control.sort.StringComparator;
 import org.allbinary.logic.visual.transform.info.CustomizerTransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;

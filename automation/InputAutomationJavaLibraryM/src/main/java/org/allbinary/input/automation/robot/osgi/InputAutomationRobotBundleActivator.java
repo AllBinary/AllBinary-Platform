@@ -22,7 +22,7 @@ import org.osgi.framework.ServiceFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.robot.InputRobotInterface;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.osgi.OSGIActivatorUtil;
 import org.osgi.framework.ServiceReference;
 

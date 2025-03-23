@@ -14,7 +14,7 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.globals.Globals;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

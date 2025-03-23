@@ -15,7 +15,7 @@ package org.allbinary.platform.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

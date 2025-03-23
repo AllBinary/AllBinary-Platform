@@ -8,7 +8,7 @@ package org.allbinary.logic.communication.sql;
 import java.net.InetAddress;
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 

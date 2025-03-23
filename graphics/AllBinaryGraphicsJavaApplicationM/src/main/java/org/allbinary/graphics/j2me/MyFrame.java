@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.j2me;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import java.io.File;
 import java.awt.Dimension;
 import javax.swing.JPanel;

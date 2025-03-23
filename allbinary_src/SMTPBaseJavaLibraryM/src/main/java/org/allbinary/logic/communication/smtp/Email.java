@@ -36,7 +36,7 @@ import java.io.PrintStream;
 //import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Properties;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringValidationUtil;
    
 public class Email 

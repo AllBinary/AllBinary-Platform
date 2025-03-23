@@ -14,7 +14,7 @@
 package org.allbinary.animation.image;
 
 import org.allbinary.graphics.SpacialStrings;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 
 /**

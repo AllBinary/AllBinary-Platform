@@ -25,7 +25,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.image.ImageCache;
 import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.image.PreResourceImageUtil;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 
 public class OpenGLImageCache extends ImageCache

@@ -16,7 +16,7 @@ package views.business.context.modules.storefront.generator;
 
 
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;

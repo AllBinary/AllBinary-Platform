@@ -1,6 +1,6 @@
 package org.allbinary.logic.math.permutations;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.util.visitor.Visitor;
 
 public class IntPermutationVisitor extends Visitor {

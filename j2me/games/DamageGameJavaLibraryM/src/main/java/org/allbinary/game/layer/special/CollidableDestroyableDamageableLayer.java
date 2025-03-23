@@ -19,7 +19,7 @@ import javax.microedition.lcdui.Graphics;
 import org.allbinary.game.layer.CollidableCompositeLayer;
 import org.allbinary.game.layer.pickup.PickedUpLayerInterfaceFactoryInterface;
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.combat.damage.DamageableInterface;
 import org.allbinary.game.combat.destroy.DestroyableInterface;

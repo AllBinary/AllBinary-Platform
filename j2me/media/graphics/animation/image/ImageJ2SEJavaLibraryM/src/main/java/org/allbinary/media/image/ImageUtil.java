@@ -23,8 +23,8 @@ import java.awt.image.BufferedImage;
 import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class ImageUtil

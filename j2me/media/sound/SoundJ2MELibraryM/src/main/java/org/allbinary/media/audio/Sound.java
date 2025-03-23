@@ -15,7 +15,7 @@ package org.allbinary.media.audio;
 
 import javax.microedition.media.Player;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class Sound implements SoundInterface, Runnable

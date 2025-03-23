@@ -14,7 +14,7 @@
 package org.allbinary.media.image.comparison.pixel;
 
 import org.allbinary.graphics.GPoint;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.media.image.comparison.color.ColorDelta;
 import org.allbinary.logic.util.cache.CacheableInterface;

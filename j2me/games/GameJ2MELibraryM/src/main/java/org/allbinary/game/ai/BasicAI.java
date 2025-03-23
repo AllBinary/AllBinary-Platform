@@ -13,8 +13,8 @@
 */
 package org.allbinary.game.ai;
 
-import org.allbinary.logic.string.CommonStrings;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.ai.ArtificialIntelligence;
 import org.allbinary.game.displayable.canvas.CanvasUtil;

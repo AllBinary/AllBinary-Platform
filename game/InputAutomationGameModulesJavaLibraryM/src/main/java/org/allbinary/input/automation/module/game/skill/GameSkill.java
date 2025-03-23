@@ -15,7 +15,7 @@ package org.allbinary.input.automation.module.game.skill;
 
 import java.util.HashMap;
 import java.util.Vector;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 
 public class GameSkill
 {

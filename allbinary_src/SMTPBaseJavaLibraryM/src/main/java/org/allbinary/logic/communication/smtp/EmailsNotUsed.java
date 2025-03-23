@@ -22,7 +22,7 @@ import org.w3c.dom.Node;
 
 import java.util.Iterator;
 import java.util.Vector;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class EmailsNotUsed implements DomNodeInterface
 {

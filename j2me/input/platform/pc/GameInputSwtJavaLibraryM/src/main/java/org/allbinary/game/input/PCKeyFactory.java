@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.input;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonPhoneStrings;
 import org.eclipse.swt.SWT;
 

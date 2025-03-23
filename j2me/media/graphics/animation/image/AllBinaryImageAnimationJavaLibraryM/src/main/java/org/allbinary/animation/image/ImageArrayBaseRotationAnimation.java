@@ -24,7 +24,7 @@ import org.allbinary.util.CircularIndexUtil;
 import org.allbinary.animation.RotationAnimation;
 import org.allbinary.graphics.Anchor;
 import org.allbinary.logic.math.PrimitiveIntUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.math.AngleInfo;
 import org.allbinary.media.image.ImageModifierUtil;
 

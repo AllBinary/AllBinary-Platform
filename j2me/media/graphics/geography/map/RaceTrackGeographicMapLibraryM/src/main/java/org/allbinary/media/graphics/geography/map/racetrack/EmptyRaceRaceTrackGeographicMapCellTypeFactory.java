@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.graphics.geography.map.racetrack;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.media.graphics.geography.pathfinding.PathFindingNodeCostInfoData;
 
 public class EmptyRaceRaceTrackGeographicMapCellTypeFactory extends RaceTrackGeographicMapCellTypeFactory

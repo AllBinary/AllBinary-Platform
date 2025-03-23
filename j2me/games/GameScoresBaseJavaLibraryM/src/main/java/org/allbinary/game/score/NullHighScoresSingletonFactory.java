@@ -13,7 +13,7 @@
 */
 package org.allbinary.game.score;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class NullHighScoresSingletonFactory
 {

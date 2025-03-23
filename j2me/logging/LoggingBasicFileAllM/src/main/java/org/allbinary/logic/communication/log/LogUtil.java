@@ -14,8 +14,8 @@
 package org.allbinary.logic.communication.log;
 
 import org.allbinary.log.FileLog;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 public class LogUtil

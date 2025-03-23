@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.util.CircularIndexUtil;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.animation.IndexedAnimation;

@@ -13,7 +13,7 @@
  */
 package org.allbinary.logic.math;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 
 public class MathData
 {

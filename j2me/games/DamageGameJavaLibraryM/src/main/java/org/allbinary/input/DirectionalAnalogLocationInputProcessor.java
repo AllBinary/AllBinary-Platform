@@ -25,7 +25,7 @@ import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.graphics.CustomGPoint;
 import org.allbinary.layer.AllBinaryLayerManager;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class DirectionalAnalogLocationInputProcessor
         extends AnalogLocationInputProcessor

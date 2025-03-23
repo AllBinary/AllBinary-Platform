@@ -9,7 +9,7 @@ package org.allbinary.media.image;
 import org.allbinary.logic.io.AbFileOutputStream;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.image.BufferedImage;

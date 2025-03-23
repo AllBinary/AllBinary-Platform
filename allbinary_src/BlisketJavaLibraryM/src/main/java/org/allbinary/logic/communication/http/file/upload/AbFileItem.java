@@ -15,7 +15,7 @@ package org.allbinary.logic.communication.http.file.upload;
 
 
 import java.io.File;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;

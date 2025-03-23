@@ -28,8 +28,8 @@ import java.util.Vector;
 import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
 import org.allbinary.business.init.db.DbConnectionInfo;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;
 

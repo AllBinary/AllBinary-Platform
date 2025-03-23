@@ -15,7 +15,7 @@ package org.allbinary.game.part.weapon;
 
 import javax.microedition.lcdui.Graphics;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.animation.Animation;
 import org.allbinary.game.combat.weapon.WeaponProperties;
 import org.allbinary.game.part.PartInterface;

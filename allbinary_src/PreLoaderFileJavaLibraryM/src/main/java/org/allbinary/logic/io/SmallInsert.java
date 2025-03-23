@@ -17,7 +17,7 @@ import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

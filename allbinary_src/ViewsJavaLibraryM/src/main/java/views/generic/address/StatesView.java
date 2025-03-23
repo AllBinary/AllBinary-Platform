@@ -28,7 +28,7 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.globals.URLGLOBALS;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 
 public class StatesView implements DomNodeInterface

@@ -13,7 +13,7 @@
 */
 package org.allbinary.graphics.j2me.workarea.tools;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 
 /**
  *

@@ -20,7 +20,7 @@ import org.osgi.framework.ServiceRegistration;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.InputAutomationJFrame;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class InputAutomationServiceFactory
     implements ServiceFactory

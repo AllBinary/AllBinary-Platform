@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.system.hardware.components.ComponentFactory;
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 

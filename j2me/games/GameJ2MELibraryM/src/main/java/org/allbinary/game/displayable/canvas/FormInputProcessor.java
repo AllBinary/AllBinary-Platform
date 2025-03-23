@@ -19,7 +19,7 @@ import org.allbinary.game.input.GameInputStrings;
 import org.allbinary.game.input.GameKey;
 import org.allbinary.game.input.GameKeyEventSourceInterface;
 import org.allbinary.game.input.GameKeyFactory;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -32,7 +32,7 @@ import org.allbinary.game.input.event.DownKeyEventHandler;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventFactory;
 import org.allbinary.game.input.event.UpGameKeyEventHandler;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class FormInputProcessor
 extends InputProcessor

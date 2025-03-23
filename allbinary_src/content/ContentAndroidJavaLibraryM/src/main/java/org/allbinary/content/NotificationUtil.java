@@ -23,7 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import org.allbinary.android.AndroidInfoFactory;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

@@ -15,7 +15,7 @@ package org.allbinary.util;
 
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.game.rand.MyRandomFactory;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 
 /**
  * 

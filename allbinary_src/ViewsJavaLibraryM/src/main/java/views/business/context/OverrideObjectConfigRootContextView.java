@@ -17,7 +17,7 @@ import org.w3c.dom.Document;
 
 import views.business.context.modules.storefront.HttpStoreComponentView;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.TransformFactory;

@@ -15,7 +15,7 @@ package org.allbinary.logic.system.security.licensing;
 
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;

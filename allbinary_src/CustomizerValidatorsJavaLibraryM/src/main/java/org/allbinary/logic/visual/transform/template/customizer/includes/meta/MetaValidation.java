@@ -22,7 +22,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeData;
 import org.allbinary.logic.visual.dhtml.html.head.meta.HtmlMetaAttributeDataFactory;

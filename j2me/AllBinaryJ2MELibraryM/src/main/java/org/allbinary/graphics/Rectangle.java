@@ -14,9 +14,10 @@
 package org.allbinary.graphics;
 
 import org.allbinary.graphics.GPoint;
-import org.allbinary.logic.string.CommonSeps;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonSeps;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 
 public class Rectangle 
 {
@@ -81,10 +82,10 @@ public class Rectangle
        final StringMaker stringBuffer = new StringMaker();
        stringBuffer.append(this.getPoint().toString());
        stringBuffer.append(CommonSeps.getInstance().SPACE);
-       stringBuffer.append(SpacialStrings.getInstance().WIDTH_LABEL);
+       stringBuffer.append(CommonLabels.getInstance().WIDTH_LABEL);
        stringBuffer.append(this.getWidth());
        stringBuffer.append(CommonSeps.getInstance().SPACE);
-       stringBuffer.append(SpacialStrings.getInstance().HEIGHT_LABEL);
+       stringBuffer.append(CommonLabels.getInstance().HEIGHT_LABEL);
        stringBuffer.append(this.getHeight());
        stringBuffer.append(" MaxX: ");
        stringBuffer.append(this.getMaxX());

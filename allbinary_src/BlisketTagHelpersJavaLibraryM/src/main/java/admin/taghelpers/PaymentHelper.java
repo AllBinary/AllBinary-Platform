@@ -26,7 +26,7 @@ import org.allbinary.business.user.commerce.money.payment.PaymentFactory;
 import org.allbinary.business.user.commerce.money.payment.PaymentInterface;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntity;
 import org.allbinary.data.tables.user.commerce.money.payment.PaymentEntityFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 

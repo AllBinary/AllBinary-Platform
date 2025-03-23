@@ -13,7 +13,7 @@
 */
 package org.allbinary.thread;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class ThreadPool

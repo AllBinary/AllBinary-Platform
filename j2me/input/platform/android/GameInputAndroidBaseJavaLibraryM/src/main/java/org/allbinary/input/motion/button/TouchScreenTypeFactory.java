@@ -15,7 +15,7 @@ package org.allbinary.input.motion.button;
 
 import android.app.Activity;
 import android.content.res.Configuration;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class TouchScreenTypeFactory

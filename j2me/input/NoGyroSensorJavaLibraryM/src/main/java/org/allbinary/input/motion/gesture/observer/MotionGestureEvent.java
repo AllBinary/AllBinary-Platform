@@ -17,7 +17,7 @@ package org.allbinary.input.motion.gesture.observer;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.input.motion.gesture.MotionGestureInput;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 

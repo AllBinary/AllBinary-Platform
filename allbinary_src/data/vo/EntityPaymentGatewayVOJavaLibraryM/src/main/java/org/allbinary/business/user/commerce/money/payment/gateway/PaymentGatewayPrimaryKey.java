@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.business.context.modules.storefront.StoreFront;
 
 public class PaymentGatewayPrimaryKey implements java.io.Serializable

@@ -17,7 +17,7 @@ import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.game.layer.CollidableCompositeLayer;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.logic.string.StringMaker;
 

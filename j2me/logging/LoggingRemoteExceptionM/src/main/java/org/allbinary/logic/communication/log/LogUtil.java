@@ -18,12 +18,12 @@ import java.util.Hashtable;
 
 import org.apache.xmlrpc.XmlRpcException;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 import org.allbinary.canvas.SpecialMessageUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 
 public class LogUtil

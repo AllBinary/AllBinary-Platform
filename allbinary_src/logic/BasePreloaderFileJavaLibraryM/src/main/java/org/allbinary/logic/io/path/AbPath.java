@@ -15,7 +15,7 @@ package org.allbinary.logic.io.path;
 
 import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.io.file.FilePathUtil;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.string.StringValidationUtil;

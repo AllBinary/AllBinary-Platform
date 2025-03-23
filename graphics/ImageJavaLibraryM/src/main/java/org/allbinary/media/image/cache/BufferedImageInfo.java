@@ -13,7 +13,7 @@
 */
 package org.allbinary.media.image.cache;
 
-import org.allbinary.graphics.SpacialStrings;
+import org.allbinary.string.CommonLabels;
 
 public class BufferedImageInfo
 {
@@ -60,12 +60,12 @@ public class BufferedImageInfo
     
     public String toString()
     {
-        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
         final StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append("BufferedImageInfo -");
-        stringBuffer.append(spacialStrings.WIDTH_LABEL);
+        stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(this.getWidth());
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.append(this.getHeight());
         stringBuffer.append(" Type: ");
         stringBuffer.append(this.getType());

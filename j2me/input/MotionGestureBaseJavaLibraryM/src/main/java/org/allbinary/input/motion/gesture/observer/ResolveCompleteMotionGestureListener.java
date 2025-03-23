@@ -15,7 +15,7 @@ package org.allbinary.input.motion.gesture.observer;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.CompleteMotionGestureInputEventHandler;

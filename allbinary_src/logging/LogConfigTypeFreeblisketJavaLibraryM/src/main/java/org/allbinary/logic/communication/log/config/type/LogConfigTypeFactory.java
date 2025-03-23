@@ -14,7 +14,7 @@
 package org.allbinary.logic.communication.log.config.type;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 /**
  *

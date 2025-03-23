@@ -4,8 +4,8 @@ import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 
 import java.util.HashMap;
-import org.allbinary.graphics.SpacialStrings;
 
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -64,7 +64,8 @@ public class MediaUtil
 
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
-            final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+            final CommonLabels commonLabels = CommonLabels.getInstance();
+
         	final StringBuffer stringBuffer = new StringBuffer();
 
         	stringBuffer.append("Get Path: ");
@@ -75,16 +76,16 @@ public class MediaUtil
         	stringBuffer.append(category);
         	stringBuffer.append("\nSave File Type: ");
         	stringBuffer.append(mediaData.getName());
-            //"\n" + spacialStrings + width +
-            //"\n" + spacialStrings + height +
-        	stringBuffer.append("\nNew").append(spacialStrings.WIDTH_LABEL);
+            //"\n" + commonLabels + width +
+            //"\n" + commonLabels + height +
+        	stringBuffer.append("\nNew").append(commonLabels.WIDTH_LABEL);
         	stringBuffer.append(newWidth);
-        	stringBuffer.append("\nNew").append(spacialStrings.HEIGHT_LABEL);
+        	stringBuffer.append("\nNew").append(commonLabels.HEIGHT_LABEL);
         	stringBuffer.append(newHeight);
-            //"\nNew Double" spacialStrings+ d_newWidth +
-            //"\nNew Double" spacialStrings+ d_newHeight +
-            //"\nspacialStrings Ratio: " + widthRatio +
-            //"\nspacialStrings Ratio: " + heightRatio +
+            //"\nNew Double" commonLabels+ d_newWidth +
+            //"\nNew Double" commonLabels+ d_newHeight +
+            //"\ncommonLabels Ratio: " + widthRatio +
+            //"\ncommonLabels Ratio: " + heightRatio +
         	stringBuffer.append("\nFile Length: ");
         	stringBuffer.append(originalImageFile.length());
         	stringBuffer.append("\nNew File Length: ");

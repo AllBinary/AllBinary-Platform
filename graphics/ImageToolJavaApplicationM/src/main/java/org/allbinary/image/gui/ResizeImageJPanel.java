@@ -19,7 +19,7 @@ import java.io.File;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.file.FileWrapperUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.media.image.ImagePersistanceUtil;
 import org.allbinary.media.image.ImageProcessorInput;
 import org.allbinary.media.image.ImageProcessorInputCompositeInterface;

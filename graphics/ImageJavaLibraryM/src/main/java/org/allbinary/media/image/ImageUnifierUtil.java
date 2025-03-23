@@ -13,14 +13,15 @@
 */
 package org.allbinary.media.image;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.Graphics2D;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.image.BufferedImage;
-import org.allbinary.graphics.SpacialStrings;
+
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.string.CommonLabels;
 
 public class ImageUnifierUtil
 {
@@ -56,9 +57,9 @@ public class ImageUnifierUtil
             imageUnifierProperties.getHeight()
             );
         
-        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance("Setting Image - " + spacialStrings.WIDTH_LABEL + newBufferedImage.getWidth() + 
-            spacialStrings.HEIGHT_LABEL + newBufferedImage.getHeight(), 
+        final CommonLabels commonLabels = CommonLabels.getInstance();
+        LogUtil.put(LogFactory.getInstance("Setting Image - " + commonLabels.WIDTH_LABEL + newBufferedImage.getWidth() + 
+            commonLabels.HEIGHT_LABEL + newBufferedImage.getHeight(), 
                 "ImageUnifierUtil", "getImage"));
         
         Graphics2D g = newBufferedImage.createGraphics();

@@ -19,7 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.Iterator;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

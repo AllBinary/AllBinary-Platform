@@ -24,7 +24,7 @@ import org.allbinary.graphics.displayable.event.DisplayChangeEvent;
 import org.allbinary.graphics.opengles.OpenGLLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 

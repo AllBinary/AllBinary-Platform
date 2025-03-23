@@ -37,7 +37,7 @@ import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity;
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFactory;
 import org.allbinary.globals.GLOBALS2;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;

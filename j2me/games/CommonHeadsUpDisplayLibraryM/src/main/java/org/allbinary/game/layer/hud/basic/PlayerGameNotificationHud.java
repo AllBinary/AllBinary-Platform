@@ -19,7 +19,7 @@ import org.allbinary.business.advertisement.GameAdStateFactory;
 import org.allbinary.game.GameAdState;
 import org.allbinary.util.CircularIndexUtil;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

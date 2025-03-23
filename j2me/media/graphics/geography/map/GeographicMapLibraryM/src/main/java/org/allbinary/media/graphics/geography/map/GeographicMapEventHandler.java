@@ -14,7 +14,7 @@
 package org.allbinary.media.graphics.geography.map;
 
 import org.allbinary.game.layer.AllBinaryGameLayer;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.util.event.EventListenerInterface;
 import org.allbinary.logic.util.event.handler.BasicEventHandler;
 import org.allbinary.logic.communication.log.LogFactory;

@@ -23,7 +23,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.role.UserRole;
 import org.allbinary.logic.communication.http.file.upload.HttpFilePermissions;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 
 public class AuthenticationHelperUtil
 {

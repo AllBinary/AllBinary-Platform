@@ -13,7 +13,7 @@
 */
 package admin.taghelpers;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringValidationUtil;
 import java.util.HashMap;
 

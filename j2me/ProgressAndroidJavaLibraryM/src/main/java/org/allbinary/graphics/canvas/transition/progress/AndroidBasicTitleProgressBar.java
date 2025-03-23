@@ -19,7 +19,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.image.GameFeatureImageCacheFactory;
 import org.allbinary.image.PreResourceImageUtil;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

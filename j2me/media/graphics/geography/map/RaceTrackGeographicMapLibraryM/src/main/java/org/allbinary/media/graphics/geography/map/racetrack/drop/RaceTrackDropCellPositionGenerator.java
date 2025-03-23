@@ -16,7 +16,7 @@ package org.allbinary.media.graphics.geography.map.racetrack.drop;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.media.graphics.geography.map.BasicGeographicMap;

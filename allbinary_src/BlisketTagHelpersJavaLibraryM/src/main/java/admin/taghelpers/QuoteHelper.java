@@ -29,7 +29,7 @@ import org.allbinary.business.user.quoterequest.QuoteRequest;
 import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntity;
 import org.allbinary.data.tables.user.quoterequest.QuoteRequestEntityFactory;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
 import org.allbinary.logic.communication.smtp.event.handler.UserEmailEventHandler;

@@ -16,7 +16,7 @@ package org.allbinary.logic.io;
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.io.DataInputStream;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
 

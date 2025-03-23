@@ -21,8 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.color.ColorCacheFactory;
 import org.allbinary.graphics.color.ColorCacheable;
 import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.string.CommonLabels;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonLabels;
+import org.allbinary.string.CommonStrings;
 
 public class ImageAnalysis
 {

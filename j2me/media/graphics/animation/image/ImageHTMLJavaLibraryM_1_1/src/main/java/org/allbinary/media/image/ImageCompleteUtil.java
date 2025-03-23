@@ -16,7 +16,7 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.logic.communication.log.PreLogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 import org.microemu.device.playn.PlaynImage;
 

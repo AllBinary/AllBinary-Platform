@@ -20,7 +20,7 @@ import javax.servlet.jsp.PageContext;
 
 import tags.HelperTag;
 import views.admin.inventory.download.DownloadableInventoryItemView;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import admin.tags.AbTagData;

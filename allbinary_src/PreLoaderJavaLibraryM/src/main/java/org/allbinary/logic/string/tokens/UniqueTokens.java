@@ -18,7 +18,7 @@ import java.util.Vector;
 
 //import org.allbinary.logic.io.path.AbPathUtil;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.regex.replace.Replace;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.string.tokens.Tokenizer;

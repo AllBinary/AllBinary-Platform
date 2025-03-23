@@ -27,7 +27,7 @@ import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.layer.AllBinaryLayerManager;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.media.audio.SecondaryPlayerQueueFactory;
 import org.allbinary.media.audio.SelectSound;
 import org.allbinary.media.graphics.geography.map.racetrack.MultiLevelRaceTrackGeographicMapInterfaceFactoryInterface;

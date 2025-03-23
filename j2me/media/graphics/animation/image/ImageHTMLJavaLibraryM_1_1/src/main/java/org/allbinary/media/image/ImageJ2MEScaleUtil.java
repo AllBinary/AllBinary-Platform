@@ -16,7 +16,7 @@ package org.allbinary.media.image;
 import javax.microedition.lcdui.Image;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.microemu.device.playn.PlaynImmutableImage;
 import org.microemu.device.playn.PlaynMutableImage;

@@ -23,7 +23,7 @@ import org.allbinary.game.score.HighScoreNamePersistanceSingleton;
 import org.allbinary.game.score.HighScores;
 import org.allbinary.game.score.HighScoresResultsListener;
 import org.allbinary.graphics.displayable.MyCanvas;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.string.StringMaker;

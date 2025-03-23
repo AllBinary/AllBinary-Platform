@@ -15,7 +15,7 @@ package org.allbinary.logic.java.character;
 
 //import java.nio.charset.Charset;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 
 

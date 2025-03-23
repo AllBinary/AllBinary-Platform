@@ -13,7 +13,7 @@
  */
 package org.microemu.app;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.eclipse.swt.widgets.Display;
 
 /**

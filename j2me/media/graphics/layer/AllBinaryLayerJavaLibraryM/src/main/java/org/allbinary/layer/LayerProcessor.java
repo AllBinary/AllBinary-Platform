@@ -13,7 +13,7 @@
 */
 package org.allbinary.layer;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class LayerProcessor implements LayerProcessorInterface
 {

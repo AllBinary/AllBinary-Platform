@@ -2,11 +2,11 @@ package org.allbinary.media.audio;
 
 import javax.microedition.media.PlayerListener;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import android.media.MediaPlayer;
-import org.allbinary.logic.string.CommonLabels;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.logic.string.StringMaker;
 
 public class AndroidMediaPlayerWrapperListener

@@ -28,7 +28,7 @@ import org.allbinary.input.automation.module.InputAutomationActionInterface;
 import org.allbinary.input.media.image.capture.CapturedBufferedImagesCacheSingleton;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.util.cache.J2SECacheInterface;
 import org.allbinary.media.image.comparison.ImageComparatorConstraintsInterface;
 import org.allbinary.media.image.comparison.ImageComparisonWorker;

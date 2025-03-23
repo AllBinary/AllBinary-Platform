@@ -58,7 +58,7 @@ import org.allbinary.graphics.form.item.validation.AllCommandsVisitor;
 import org.allbinary.graphics.paint.NullPaintable;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.input.motion.gesture.observer.BasicMotionGesturesHandler;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;

@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 
 import org.allbinary.logic.string.StringUtil;
 

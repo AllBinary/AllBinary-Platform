@@ -20,7 +20,7 @@ import org.w3c.dom.Node;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileData;
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

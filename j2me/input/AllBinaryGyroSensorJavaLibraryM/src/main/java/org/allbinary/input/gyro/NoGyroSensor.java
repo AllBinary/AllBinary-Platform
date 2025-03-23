@@ -16,7 +16,7 @@ package org.allbinary.input.gyro;
 
 import org.allbinary.input.AllBinarySensorListener;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.Orientation;

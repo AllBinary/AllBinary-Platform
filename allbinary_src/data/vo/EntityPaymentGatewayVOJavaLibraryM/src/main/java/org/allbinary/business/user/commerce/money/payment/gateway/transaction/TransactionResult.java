@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
-import org.allbinary.logic.string.CommonSeps;
+import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;

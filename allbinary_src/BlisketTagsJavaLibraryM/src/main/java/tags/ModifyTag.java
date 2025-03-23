@@ -23,7 +23,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import admin.taghelpers.TagHelperFactoryInterface;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 
 public class ModifyTag extends HelperTag 
 {

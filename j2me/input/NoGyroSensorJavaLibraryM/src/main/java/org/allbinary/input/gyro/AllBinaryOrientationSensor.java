@@ -15,7 +15,7 @@ package org.allbinary.input.gyro;
 
 import org.allbinary.input.AllBinarySensor;
 
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.game.input.CompleteMotionGestureInputEventListenerInterface;
 import org.allbinary.game.input.motion.action.NoCompleteMotionGestureInputEventListener;
 import org.allbinary.logic.math.Orientation;

@@ -13,20 +13,20 @@
 */
 package org.allbinary.animation.vector;
 
-import org.allbinary.logic.string.CommonStrings;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Vector;
+
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.j2me.workarea.tools.GraphicItemInterface;
 import org.allbinary.graphics.j2me.workarea.tools.LinesGraphicItem;
 import org.allbinary.graphics.j2me.workarea.tools.Points;
-import java.util.Vector;
-
 import org.allbinary.graphics.pipeline.BasicGraphicsPipeline;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 import org.allbinary.util.BasicArrayList;
 
 public class VectorCenterGenerator {
@@ -70,8 +70,8 @@ public class VectorCenterGenerator {
 
         int middle = max / 2;
 
-        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-        final String s = new StringMaker().append(spacialStrings.WIDTH_LABEL).append(getWidth()).append(spacialStrings.HEIGHT_LABEL).append(getHeight()).append(" max: ").append(max).append(" middle: ").append(middle).toString();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
+        final String s = new StringMaker().append(commonLabels.WIDTH_LABEL).append(getWidth()).append(commonLabels.HEIGHT_LABEL).append(getHeight()).append(" max: ").append(max).append(" middle: ").append(middle).toString();
         LogUtil.put(LogFactory.getInstance(s, this, "getInstance"));
 
         int currentMiddleX = minX + getWidth() / 2;

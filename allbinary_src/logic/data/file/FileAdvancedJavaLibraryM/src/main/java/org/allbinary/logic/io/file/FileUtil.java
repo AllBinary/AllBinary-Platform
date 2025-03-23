@@ -35,7 +35,7 @@ import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.directory.Directory;
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.io.path.AbPathData;
-import org.allbinary.logic.string.CommonStrings;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.util.BasicArrayList;
 
