@@ -17,7 +17,6 @@ import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.graphics.Anchor;
-import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.graphics.color.BasicColorFactory;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 import org.allbinary.string.CommonStrings;
