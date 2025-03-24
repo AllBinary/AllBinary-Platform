@@ -17,9 +17,9 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.string.CommonStrings;
 import org.allbinary.platform.graphics.PlatformBitmapBase;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
