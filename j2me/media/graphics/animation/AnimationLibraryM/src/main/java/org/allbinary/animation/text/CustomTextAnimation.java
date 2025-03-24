@@ -16,7 +16,6 @@ package org.allbinary.animation.text;
 import javax.microedition.lcdui.Font;
 import javax.microedition.lcdui.Graphics;
 import org.allbinary.animation.AnimationBehavior;
-import org.allbinary.graphics.SpacialStrings;
 
 import org.allbinary.graphics.font.FontDebugFactory;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -45,8 +44,8 @@ public class CustomTextAnimation extends TextAnimation
         
         this.fontSize = fontSize;
         this.font = Font.getFont(Font.FACE_SYSTEM, Font.STYLE_PLAIN, fontSize);
-        //final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Font size: ").append(fontSize).append(' ').append(font.getSize()).append(spacialStrings.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+        //final CommonLabels commonLabels = CommonLabels.getInstance();
+        //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Font size: ").append(fontSize).append(' ').append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
         
         //this.hack();
     }
@@ -101,8 +100,8 @@ public class CustomTextAnimation extends TextAnimation
         }
 
 //        if(font != null) {
-//            final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setText - font: ").append(font.getSize()).append(spacialStrings.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
+//            final SpacialStrings commonLabels = SpacialStrings.getInstance();
+//            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
 //        }
     }
 

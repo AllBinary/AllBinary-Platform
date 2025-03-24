@@ -23,7 +23,6 @@ import org.allbinary.game.identification.BasicGroupFactory;
 import org.allbinary.game.identification.Group;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
-import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.string.CommonLabels;
 import org.allbinary.math.PositionStrings;
 import org.allbinary.view.ViewPosition;
@@ -180,7 +179,7 @@ implements LayerInterface
         final CommonSeps commonSeps = CommonSeps.getInstance();
 
         final PositionStrings positionStrings = PositionStrings.getInstance();
-        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
 
         stringBuffer.append(this.getName());
         stringBuffer.append(commonSeps.COLON);
@@ -197,10 +196,10 @@ implements LayerInterface
         stringBuffer.append(this.getZ());
 
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(spacialStrings.WIDTH_LABEL);
+        stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(this.getWidth());
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.append(this.getHeight());
 
     }

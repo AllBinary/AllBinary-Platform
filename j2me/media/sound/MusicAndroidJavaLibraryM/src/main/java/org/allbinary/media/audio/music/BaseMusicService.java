@@ -8,13 +8,13 @@ import android.os.IBinder;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.android.AndroidStrings;
+import org.allbinary.string.CommonStateStrings;
 
 public class BaseMusicService extends Service
 {
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
-    private final AndroidStrings androidStrings = AndroidStrings.getInstance();
+    private final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
     
     private final String ALREADY_PLAYING = "This is one song per music service";
     private final String WAITING_FOR_MUSIC_TO_END = "Waiting for music to end";
@@ -30,7 +30,7 @@ public class BaseMusicService extends Service
     {
         //Toast.makeText(this, "Music Bind", Toast.LENGTH_LONG).show();
         //PreLogUtil.put(commonStrings.START, this, "onBind");
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.BIND));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStateStrings.BIND));
 
         //songId = intent.getIntExtra("SONG", AndroidResources.raw.angels_we_have_heard);
         return null;
@@ -41,7 +41,7 @@ public class BaseMusicService extends Service
     {
 		//Toast.makeText(this, "Music Service Created", Toast.LENGTH_LONG).show();
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.CREATE));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStateStrings.CREATE));
         //PreLogUtil.put(commonStrings.START, this, "onCreate");		
     }
 
@@ -50,7 +50,7 @@ public class BaseMusicService extends Service
     {
 		//Toast.makeText(this, "Music Service Stopped", Toast.LENGTH_LONG).show();
 
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.DESTROY));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStateStrings.DESTROY));
         //PreLogUtil.put(commonStrings.START, this, "onDestroy");
 
         if (player != null)
@@ -69,7 +69,7 @@ public class BaseMusicService extends Service
         onStartCommand(intent);
 
         //PreLogUtil.put(commonStrings.START, this, "onStart");
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.START));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStateStrings.START));
     }
 
     //@Override
@@ -82,7 +82,7 @@ public class BaseMusicService extends Service
     public void onStartCommand(final Intent intent)
     {
         //PreLogUtil.put(commonStrings.START, this, "onStartCommand");
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, androidStrings.ON_START_COMMAND));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStateStrings.ON_START_COMMAND));
 
         final MusicStrings musicStrings = MusicStrings.getInstance();
         if(intent != null) {
@@ -99,17 +99,17 @@ public class BaseMusicService extends Service
 
             if(player != null && player.isPlaying()) { 
                 final MediaPlayer player = this.player;
-                LogUtil.put(LogFactory.getInstance(ALREADY_PLAYING, this, androidStrings.ON_START_COMMAND));
+                LogUtil.put(LogFactory.getInstance(ALREADY_PLAYING, this, commonStateStrings.ON_START_COMMAND));
                 final Runnable runnable = new Runnable() {
                     public void run() {
                         try {
                             while(player.isPlaying()) {
-                                LogUtil.put(LogFactory.getInstance(WAITING_FOR_MUSIC_TO_END, this, androidStrings.ON_START_COMMAND));
+                                LogUtil.put(LogFactory.getInstance(WAITING_FOR_MUSIC_TO_END, this, commonStateStrings.ON_START_COMMAND));
                                 Thread.sleep(1200);
                             }
                             onStartCommand(intent);
                         } catch(Exception e) {
-                            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, androidStrings.ON_START_COMMAND, e));
+                            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStateStrings.ON_START_COMMAND, e));
                         }
                     }
                 };

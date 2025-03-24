@@ -16,8 +16,6 @@ package org.allbinary.opengles;
 import com.jogamp.opengl.GLRendererQuirks;
 import com.jogamp.opengl.glu.GLU;
 
-import org.allbinary.graphics.SpacialStrings;
-
 /**
  *
  * @author User

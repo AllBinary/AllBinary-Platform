@@ -21,13 +21,10 @@ import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
 import org.allbinary.animation.NullAnimationFactory;
-import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.image.AnimationFactoryImageScaleUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.math.PrimitiveIntUtil;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.media.ScaleProperties;
+import org.allbinary.string.CommonLabels;
 
 public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInterface {
 
@@ -102,11 +99,11 @@ public class BaseImageAnimationFactory implements AnimationInterfaceFactoryInter
 
     public String toString() {
         final CommonSeps commonSeps = CommonSeps.getInstance();
-        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
         final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append(super.toString());
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.append(image.getHeight());
         stringBuffer.append(commonSeps.SPACE);
         stringBuffer.append(this.animationFactoryInitializationVisitor.toString());

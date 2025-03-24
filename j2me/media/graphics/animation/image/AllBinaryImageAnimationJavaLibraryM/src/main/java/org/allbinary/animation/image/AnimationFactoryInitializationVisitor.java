@@ -13,9 +13,9 @@
  */
 package org.allbinary.animation.image;
 
-import org.allbinary.graphics.SpacialStrings;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 
 /**
  *
@@ -34,13 +34,13 @@ public class AnimationFactoryInitializationVisitor {
     
     public String toString() {
         final CommonSeps commonSeps = CommonSeps.getInstance();
-        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+        final CommonLabels commonLabels = CommonLabels.getInstance();
         final StringMaker stringBuffer = new StringMaker();
 
-        stringBuffer.append(spacialStrings.WIDTH_LABEL);
+        stringBuffer.append(commonLabels.WIDTH_LABEL);
         stringBuffer.append(width);
         stringBuffer.append(commonSeps.SPACE);
-        stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+        stringBuffer.append(commonLabels.HEIGHT_LABEL);
         stringBuffer.append(height);
 
         return stringBuffer.toString();

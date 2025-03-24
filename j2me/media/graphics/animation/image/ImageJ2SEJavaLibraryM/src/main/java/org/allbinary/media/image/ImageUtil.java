@@ -20,12 +20,13 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Transparency;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import org.allbinary.graphics.SpacialStrings;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 
 public class ImageUtil
 {
@@ -251,13 +252,13 @@ public class ImageUtil
 
    public String toString(BufferedImage bufferedImage)
    {
-       final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+       final CommonLabels commonLabels = CommonLabels.getInstance();
       final StringBuffer stringBuffer = new StringBuffer();
 
       stringBuffer.append(" BufferedImage -");
-      stringBuffer.append(spacialStrings.WIDTH_LABEL);
+      stringBuffer.append(commonLabels.WIDTH_LABEL);
       stringBuffer.append(bufferedImage.getWidth());
-      stringBuffer.append(spacialStrings.HEIGHT_LABEL);
+      stringBuffer.append(commonLabels.HEIGHT_LABEL);
       stringBuffer.append(bufferedImage.getHeight());
       stringBuffer.append(" Type: ");
       stringBuffer.append(bufferedImage.getType());

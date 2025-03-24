@@ -1,9 +1,8 @@
 package org.allbinary.media.audio.music;
 
 import android.content.Intent;
-import org.allbinary.android.AndroidServicesUtil;
-import org.allbinary.android.AndroidStrings;
 
+import org.allbinary.android.AndroidServicesUtil;
 import org.allbinary.util.BasicArrayList;
 import org.allbinary.util.BasicArrayListUtil;
 import org.allbinary.string.CommonStrings;
@@ -11,6 +10,7 @@ import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.media.audio.Sound;
+import org.allbinary.string.CommonStateStrings;
 import org.allbinary.time.GameTickTimeDelayHelper;
 import org.allbinary.time.GameTickTimeDelayHelperFactory;
 import org.allbinary.time.TimeDelayHelper;
@@ -22,7 +22,7 @@ public class MusicManager
 
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final MusicStrings musicStrings = MusicStrings.getInstance();
-    private final AndroidStrings androidStrings = AndroidStrings.getInstance();
+    private final CommonStateStrings commonStateStrings = CommonStateStrings.getInstance();
     private final BasicArrayListUtil basicArrayListUtil = BasicArrayListUtil.getInstance();
     private final ResourceUtil resourceUtil = ResourceUtil.getInstance();
     
@@ -49,7 +49,7 @@ public class MusicManager
 
     public MusicManager(final Class musicServiceClass, final BasicArrayList songList)
     {
-        PreLogUtil.put(androidStrings.CONTEXT + resourceUtil.getContext(), this, commonStrings.CONSTRUCTOR);
+        PreLogUtil.put(commonStateStrings.CONTEXT + resourceUtil.getContext(), this, commonStrings.CONSTRUCTOR);
         
         this.musicServiceClass = musicServiceClass;
         currentIntent = new Intent(resourceUtil.getContext(), musicServiceClass);
