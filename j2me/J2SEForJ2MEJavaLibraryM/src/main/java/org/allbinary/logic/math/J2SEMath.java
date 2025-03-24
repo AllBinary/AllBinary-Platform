@@ -32,4 +32,8 @@ public class J2SEMath {
         return Math.round(value);
     }
     
+    public float abs(float value) {
+        return (value < 0) ? -value : value;
+    }
+    
 }
