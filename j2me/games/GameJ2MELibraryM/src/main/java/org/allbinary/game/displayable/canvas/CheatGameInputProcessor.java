@@ -75,39 +75,39 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 
 //                if (key == gameKeyFactory.LEFT.getId())
 //                {   
-//                    x++;
+//                    x+=1;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, "processGame"));
 //                    break;
 //                }
 //                else if (key == gameKeyFactory.RIGHT.getId())
 //                {   
-//                    x--;
+//                    x-=1;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, "processGame"));
 //                    break;
 //                }
 //                else if (key == gameKeyFactory.UP.getId())
 //                {
-//                    y++;
+//                    y+=1;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, "processGame"));   
 //                    break;
 //                }
 //                else if (key == gameKeyFactory.DOWN.getId())
 //                {                    
-//                    y--;
+//                    y-=1;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, "processGame"));
 //                    break;
 //                }
 //                //3
 //                else if (key == gameKeyFactory.KEY_NUM1.getId())
 //                {
-//                    z++;
+//                    z+=1;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));
 //                    break;
 //                }
 //                //4
 //                else if (key == gameKeyFactory.KEY_NUM3.getId())
 //                {
-//                    z--;
+//                    z-=1;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));
 //                    break;
 //                }

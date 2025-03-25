@@ -19,6 +19,7 @@ import javax.microedition.lcdui.ChoiceGroup;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Item;
+import org.allbinary.AndroidUtil;
 
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringUtil;
@@ -1545,13 +1546,17 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private final int YIELD_SLEEP = 100;
 
     public void shouldWait() throws Exception {
-        final Features features = Features.getInstance();
-        if (features.isDefault(openGLFeatureFactory.OPENGL)) {
-            final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
-            //LogUtil.put(LogFactory.getInstance("waiting for OpenGL to update:" + openGLImageSpecificFactory.updating, this, commonStrings.RUN));
-            while (openGLImageSpecificFactory.updating) {
-                Thread.sleep(YIELD_SLEEP);
-                //LogUtil.put(LogFactory.getInstance("waiting for OpenGL to update", this, commonStrings.RUN));
+        if(AndroidUtil.isAndroid()) {
+
+        } else {
+            final Features features = Features.getInstance();
+            if (features.isDefault(openGLFeatureFactory.OPENGL)) {
+                final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
+                //LogUtil.put(LogFactory.getInstance("waiting for OpenGL to update:" + openGLImageSpecificFactory.updating, this, commonStrings.RUN));
+                while (openGLImageSpecificFactory.updating) {
+                    Thread.sleep(YIELD_SLEEP);
+                    //LogUtil.put(LogFactory.getInstance("waiting for OpenGL to update", this, commonStrings.RUN));
+                }
             }
         }
     }
