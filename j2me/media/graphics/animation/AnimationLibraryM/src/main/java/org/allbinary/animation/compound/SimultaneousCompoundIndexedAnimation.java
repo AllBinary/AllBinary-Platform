@@ -14,9 +14,9 @@
 package org.allbinary.animation.compound;
 
 import javax.microedition.lcdui.Graphics;
+
 import org.allbinary.animation.AnimationBehavior;
 import org.allbinary.animation.IndexedAnimation;
-
 import org.allbinary.logic.math.PrimitiveIntUtil;
 
 /**

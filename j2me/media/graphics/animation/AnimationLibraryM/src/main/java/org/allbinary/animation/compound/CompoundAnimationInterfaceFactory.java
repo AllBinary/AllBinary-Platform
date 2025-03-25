@@ -21,7 +21,7 @@ import org.allbinary.media.ScaleProperties;
 public class CompoundAnimationInterfaceFactory
     implements AnimationInterfaceFactoryInterface {
 
-    protected AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
+    protected final AnimationInterfaceFactoryInterface[] basicAnimationInterfaceFactoryInterfaceArray;
     protected final AnimationBehaviorFactory animationBehaviorFactory;
 
     public CompoundAnimationInterfaceFactory(
