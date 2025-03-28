@@ -15,13 +15,11 @@ package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
-import org.allbinary.AndroidUtil;
 
 import org.allbinary.image.opengles.OpenGLESGL10ImageFactory;
 import org.allbinary.image.opengles.OpenGLESGL11VBOImageFactory;
 import org.allbinary.image.opengles.OpenGLImageSpecificFactory;
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
@@ -46,6 +44,8 @@ public class OpenGLCapabilities
     private final StringUtil stringUtil = StringUtil.getInstance();
     
     private String glVersionString = stringUtil.EMPTY_STRING;
+    private String glShaderVersionString = stringUtil.EMPTY_STRING;
+    public int shaderVersion = 0;
     private String glRenderer = stringUtil.EMPTY_STRING;
     private String glVendor = stringUtil.EMPTY_STRING;
     private String glExtensions = stringUtil.EMPTY_STRING;
@@ -55,12 +55,28 @@ public class OpenGLCapabilities
     public final String VERSION_1_0 = "1.0";
     public final String VERSION_1_1 = "1.1";
     public final String VERSION_UNK = "Unk";
+
+    //Shader    to      OpenGL Version    
+    //1.10              2.0
+    //1.20              2.1
+    //1.30              3.0
+    //1.40              3.1
+    //1.50              3.2
+    //3.30              3.3  (From 3.3 on it is the same)
+    //4.00              4.0
+    //4.10              4.1
+    //4.20              4.2
+    //4.30              4.3
+    //4.40              4.4
+    //4.50              4.5
+    public final String GL_EXT_GPU_SHADER4 = "GL_EXT_gpu_shader4";
     
     private String glVersion = this.glVersionString;
     public String glInstanceVersion = VERSION_UNK;
     private boolean glExtensionDrawTexture;
     
     private boolean glThreedDrawTexture;
+    private boolean glExtensionGPUShader4;
 
     private boolean vertexBufferObjectSupport;
     
@@ -82,9 +98,27 @@ public class OpenGLCapabilities
             final StringMaker stringBuffer = new StringMaker();
 
             glVersionString = gl.glGetString(GL10.GL_VERSION);
+            
+            final int GL_SHADING_LANGUAGE_VERSION = 0x8b8c;
+            glShaderVersionString = gl.glGetString(GL_SHADING_LANGUAGE_VERSION);
+            try {
+                if(glShaderVersionString.indexOf('.') >= 0) {
+                    shaderVersion = Integer.parseInt(glShaderVersionString.replace(CommonSeps.getInstance().PERIOD, StringUtil.getInstance().EMPTY_STRING));
+                }
+            } catch(Exception e) {
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
+            }
+
             glRenderer = gl.glGetString(GL10.GL_RENDERER);
             glVendor = gl.glGetString(GL10.GL_VENDOR);
             glExtensions = gl.glGetString(GL10.GL_EXTENSIONS);
+            if(glExtensions.indexOf(this.GL_EXT_GPU_SHADER4) >= 0) {
+                glExtensionGPUShader4 = true;
+            } else {
+                glExtensionGPUShader4 = false;
+            }
+            
 
             if(glRenderer == null) {
                 glRenderer = stringUtil.EMPTY_STRING;
@@ -249,6 +283,8 @@ public class OpenGLCapabilities
 
         stringBuffer.append("GL_VERSION: ");
         stringBuffer.append(glVersionString);
+        stringBuffer.append(" GL_SHADING_LANGUAGE_VERSION: ");
+        stringBuffer.append(this.glShaderVersionString);
         stringBuffer.append(" GL_RENDERER: ");
         stringBuffer.append(glRenderer);
         stringBuffer.append(" GL_VENDOR: ");
@@ -287,11 +323,21 @@ public class OpenGLCapabilities
         return glExtensionDrawTexture;
     }
 
+    public boolean isGlExtensionGPUShader4()
+    {
+        return glExtensionGPUShader4;
+    }
+    
     public String getGlVersion()
     {
         return glVersion;
     }
 
+    public String getGlShaderVersion()
+    {
+        return glShaderVersionString;
+    }
+    
     public boolean isGlThreedDrawTexture()
     {
         return glThreedDrawTexture;
@@ -306,4 +352,5 @@ public class OpenGLCapabilities
     {
         return vertexBufferObjectSupport;
     }
+ 
 }

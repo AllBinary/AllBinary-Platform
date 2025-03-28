@@ -37,12 +37,12 @@ public class JOGL11 extends JOGL10 implements javax.microedition.khronos.opengle
 
     private final com.jogamp.opengl.GL2 gl11;
 
-    public JOGL11(com.jogamp.opengl.GL2 gl)
+    public JOGL11(com.jogamp.opengl.GL gl)
     {
         super(gl);
 
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, CommonStrings.getInstance().CONSTRUCTOR);
-        this.gl11 = gl;
+        this.gl11 = getJOGLGL();
     }
 
 //    public void glGetPointerv(int pname, java.nio.Buffer[] params)

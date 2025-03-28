@@ -25,6 +25,7 @@ public class OpenGLCapabilities
     }
 
     private String glVersion = StringUtil.getInstance().EMPTY_STRING;
+    public int shaderVersion = 0;
     public String glInstanceVersion = StringUtil.getInstance().EMPTY_STRING;
 
     private OpenGLCapabilities()

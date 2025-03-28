@@ -925,39 +925,7 @@ public class FileUtil
     }
 
     public List<String> loadFileAsList(final AbFile file, final int max, final byte[] byteArray1) {
-        
-        AbFileInputStream inputStream = null;
-        byte[] byteArray = null;
-        try {
-            inputStream = new AbFileInputStream(file);
-            final ByteArrayOutputStream outputStream2 = new ByteArrayOutputStream(max);
-            byteArray = streamUtil.getByteArray(inputStream, outputStream2, byteArray1);
-
-            streamUtil.close(inputStream);
-        } catch (Exception e) {
-            streamUtil.close(inputStream);
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, commonStrings.ADD, e));
-        }
-
-        final ArrayList stringList = new ArrayList();
-
-        if(byteArray == null) {
-            return stringList;
-        }
-
-        final int size = byteArray.length;
-        int index = 0;
-        int startIndex;
-        while(index < size) {
-            startIndex = index;
-            while(byteArray[index] != '\n') {
-                index++;
-            }
-            stringList.add(new String(byteArray, startIndex, (index - startIndex)));
-            index++;
-        }
-        
-        return stringList;
+        return FileUtil2.getInstance().loadFileAsList(file, max, byteArray1);
     }
     
 }

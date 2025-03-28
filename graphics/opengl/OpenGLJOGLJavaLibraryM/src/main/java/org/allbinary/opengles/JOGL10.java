@@ -44,22 +44,41 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 
     public final int GL_LINE;
     public final int GL_QUAD_STRIP;
-    
-    public JOGL10(com.jogamp.opengl.GL2 gl)
+
+//    private final com.jogamp.opengl.GL3 gl3;
+//    private final com.jogamp.opengl.GL4 gl4;
+
+    public JOGL10(com.jogamp.opengl.GL gl)
     {
         //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, CommonStrings.getInstance().CONSTRUCTOR);
-        this.gl10 = gl;
-        this.glu = GLU.createGLU(gl);
+        
+//        final com.jogamp.opengl.GL4 gl4 = gl.getGL4();
+//        this.gl4 = gl4;
+//        
+//        final com.jogamp.opengl.GL3 gl3 = gl.getGL3();
+//        this.gl3 = gl3;
+        
+        final com.jogamp.opengl.GL2 gl2 = gl.getGL2();
+        this.gl10 = gl2;
+        this.glu = GLU.createGLU(this.gl10);
         
         this.GL_LINE = this.gl10.GL_LINE;
         this.GL_QUAD_STRIP = this.gl10.GL_QUAD_STRIP;
-
+        
         //GLRendererQuirks glRendererQuirks = gl10.getContext().getRendererQuirks();
     }
 
     public com.jogamp.opengl.GL2 getJOGLGL() {
         return this.gl10;
     }
+    
+//    public com.jogamp.opengl.GL3 getJOGLGL3() {
+//        return this.gl3;
+//    }
+//
+//    public com.jogamp.opengl.GL4 getJOGLGL4() {
+//        return this.gl4;
+//    }
     
     public void glActiveTexture(int texture)
     {
