@@ -14,6 +14,7 @@
 package org.allbinary.graphics.opengles.shader;
 
 import javax.microedition.khronos.opengles.GL10;
+
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -35,11 +36,11 @@ public class ShaderManager {
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    public int load(final GL10 gl, final String resource, final String[] shaderAsStringArray) {
+    public int load(final GL10 gl, final String resource, final String[] shaderAsStringArray, final int shaderType) {
         return -1;
     }
     
-    public int loadShader(final GL10 gl, final String resource, final int max, final byte[] byteArray1) {
+    public int loadShader(final GL10 gl, final String resource, final int max, final byte[] byteArray1, final int shaderType) {
         return -1;
     }
 

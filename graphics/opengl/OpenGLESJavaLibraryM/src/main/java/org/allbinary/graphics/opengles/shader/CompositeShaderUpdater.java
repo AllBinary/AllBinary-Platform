@@ -40,5 +40,9 @@ public class CompositeShaderUpdater extends ShaderUpdater {
     public void onSurfaceCreated(final GL10 gl, final EGLConfig eglConfig, final int programHandle) {
             
     }
-    
+ 
+    public void onSurfaceDestroyed(final GL10 gl) {
+        
+    }
+
 }

@@ -13,6 +13,8 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import org.allbinary.graphics.threed.min3d.renderer.CustomRenderer;
+
 /**
  *
  * @author User
@@ -27,5 +29,7 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
     public static AppRendererShaderUpdaterFactory getInstance() {
         return instance;
     }
+
+    public final CustomRenderer shaderCustomRenderer = null;
     
 }
