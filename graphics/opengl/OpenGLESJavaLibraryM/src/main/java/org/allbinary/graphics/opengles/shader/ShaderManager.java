@@ -23,7 +23,7 @@ import org.allbinary.string.CommonStrings;
  */
 public class ShaderManager {
  
-    private static final ShaderManager instance = new ShaderManager();
+    private static final ShaderManager instance = new ShaderManager(-1, -1);
 
     /**
      * @return the instance
@@ -35,6 +35,14 @@ public class ShaderManager {
     protected final String LOAD_SHADER = "loadShader";
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    public final int GL_VERTEX_SHADER;
+    public final int GL_FRAGMENT_SHADER;
+    
+    public ShaderManager(final int GL_VERTEX_SHADER, final int GL_FRAGMENT_SHADER) {
+        this.GL_VERTEX_SHADER = GL_VERTEX_SHADER;
+        this.GL_FRAGMENT_SHADER = GL_FRAGMENT_SHADER;
+    }
     
     public int load(final GL10 gl, final String resource, final String[] shaderAsStringArray, final int shaderType) {
         return -1;
