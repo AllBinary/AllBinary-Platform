@@ -13,7 +13,7 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
-import org.allbinary.graphics.threed.min3d.renderer.CustomRenderer;
+import org.allbinary.graphics.threed.min3d.renderer.processor.OpenGLProcessor;
 
 /**
  *
@@ -31,5 +31,6 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
     }
 
     public final ShaderCustomRenderer shaderCustomRenderer = null;
+    public final OpenGLProcessor shaderOpenGLProcessor = null;
     
 }
