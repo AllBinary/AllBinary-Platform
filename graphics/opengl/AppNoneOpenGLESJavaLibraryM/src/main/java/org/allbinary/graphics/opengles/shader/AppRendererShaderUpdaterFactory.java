@@ -30,6 +30,6 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
         return instance;
     }
 
-    public final CustomRenderer shaderCustomRenderer = null;
+    public final ShaderCustomRenderer shaderCustomRenderer = null;
     
 }

@@ -14,20 +14,16 @@
 package org.allbinary.graphics.opengles.shader;
 
 import javax.microedition.khronos.opengles.GL10;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.graphics.threed.min3d.renderer.processor.OpenGLProcessor;
 
 /**
  *
  * @author User
  */
-public class ShaderInitializer {
-
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    
-    public int programHandle;
-    
-    public void init(final GL10 gl, final String[] shaderStringArray, final int[] shaderHandleArray, final String[] attributeArray) {
-        
+public class SimpleShaderMatrixOpenGLProcessor extends OpenGLProcessor {
+     
+    public void process(GL10 gl)
+    {
     }
-
+        
 }
