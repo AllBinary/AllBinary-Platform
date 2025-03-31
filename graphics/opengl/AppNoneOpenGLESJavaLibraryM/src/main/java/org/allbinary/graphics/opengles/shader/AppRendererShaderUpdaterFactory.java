@@ -30,7 +30,7 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
         return instance;
     }
 
-    public final ShaderCustomRenderer shaderCustomRenderer = null;
+    public final ShaderComposite shaderComposite = null;
     public final OpenGLProcessor shaderOpenGLProcessor = null;
     public final ModelViewProjection modelViewProjection = null;
     
