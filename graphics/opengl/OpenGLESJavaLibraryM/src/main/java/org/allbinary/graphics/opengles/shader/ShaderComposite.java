@@ -13,6 +13,8 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import org.allbinary.graphics.opengles.OpenGLProcessor;
+
 /**
  *
  * @author User
@@ -22,9 +24,20 @@ public class ShaderComposite {
     protected final ShaderInitializer shaderInitializer;
     public final CompositeShaderUpdater compositeShaderUpdater;
     
-    public ShaderComposite(final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer) {
+    public final ModelViewProjection modelViewProjection;
+    public final OpenGLProcessor colorOpenGLProcessor;
+    public final OpenGLProcessor vertexOpenGLProcessor;
+    
+    
+    public ShaderComposite(final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
+        final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor) {
+
         this.shaderInitializer = shaderInitializer;
         this.compositeShaderUpdater = compositeShaderUpdater;
+        this.modelViewProjection = modelViewProjection;
+        this.colorOpenGLProcessor = colorOpenGLProcessor;
+        this.vertexOpenGLProcessor = vertexOpenGLProcessor;
+
     }
     
 }

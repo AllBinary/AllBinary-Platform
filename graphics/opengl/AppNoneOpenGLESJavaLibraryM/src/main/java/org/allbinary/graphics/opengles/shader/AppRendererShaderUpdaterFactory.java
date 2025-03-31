@@ -13,8 +13,6 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
-import org.allbinary.graphics.threed.min3d.renderer.processor.OpenGLProcessor;
-
 /**
  *
  * @author User
@@ -31,7 +29,5 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
     }
 
     public final ShaderComposite shaderComposite = null;
-    public final OpenGLProcessor shaderOpenGLProcessor = null;
-    public final ModelViewProjection modelViewProjection = null;
-    
+
 }
