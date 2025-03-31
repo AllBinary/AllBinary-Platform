@@ -21,6 +21,10 @@ public class OpenGLResources {
     public void init() {
     }
     
+    public boolean isExcluded(final String name) {
+        throw new RuntimeException();
+    }
+    
     public int getIdentifier(final String name, final String defType, final String defPackage) {
         throw new RuntimeException();
         //return -1;
@@ -29,6 +33,10 @@ public class OpenGLResources {
     public InputStream openRawResource(final int id) throws Exception {
         throw new RuntimeException();
         //return null;
+    }
+    
+    public InputStream openRawResourceFromName(final String resourceName) throws Exception {
+        throw new RuntimeException();
     }
     
     public InputStream getResourceAsStream(final String resourceName) throws Exception {
