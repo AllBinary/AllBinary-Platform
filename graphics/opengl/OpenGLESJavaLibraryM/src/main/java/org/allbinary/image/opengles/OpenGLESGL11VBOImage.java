@@ -27,6 +27,7 @@ import org.allbinary.opengles.GLUtil;
 import org.allbinary.platform.graphics.PlatformBitmapBaseFactory;
 import org.allbinary.platform.opengles.PlatformTextureBaseFactory;
 
+//This is not actually VBO impl
 public class OpenGLESGL11VBOImage extends OpenGLESImage
 {
     private final GLUtil glUtil = GLUtil.getInstance();
