@@ -20,8 +20,10 @@ import org.allbinary.graphics.opengles.OpenGLProcessor;
  * @author User
  */
 public class ShaderComposite {
+
+    public final int[] shaderHandleArray;
     
-    protected final ShaderInitializer shaderInitializer;
+    public final ShaderInitializer shaderInitializer;
     public final CompositeShaderUpdater compositeShaderUpdater;
     
     public final ModelViewProjection modelViewProjection;
@@ -29,9 +31,10 @@ public class ShaderComposite {
     public final OpenGLProcessor vertexOpenGLProcessor;
     
     
-    public ShaderComposite(final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
+    public ShaderComposite(final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor) {
 
+        this.shaderHandleArray = shaderHandleArray;
         this.shaderInitializer = shaderInitializer;
         this.compositeShaderUpdater = compositeShaderUpdater;
         this.modelViewProjection = modelViewProjection;

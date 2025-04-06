@@ -20,6 +20,7 @@ import java.util.List;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
 
 /**
@@ -41,6 +42,10 @@ public class SimpleFileUtil {
     private final StreamUtil streamUtil = StreamUtil.getInstance();
     
     public List<String> loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1) {
+        return this.loadFileAsList(inputStream, max, byteArray1, 0);
+    }
+    
+    public List<String> loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1, final int includeReturnLine) {
 
         final ArrayList stringList = new ArrayList();
         
@@ -62,6 +67,8 @@ public class SimpleFileUtil {
             return stringList;
         }
 
+        //final StringMaker stringMaker = new StringMaker();
+        
         final int size = byteArray.length;
         //LogUtil.put(LogFactory.getInstance("size: " + size, this, commonStrings.PROCESS));
         int index = 0;
@@ -72,9 +79,13 @@ public class SimpleFileUtil {
             while(byteArray[index] != '\n') {
                 index++;
             }
-            stringList.add(new String(byteArray, startIndex, (index - startIndex)));
+            final String s = new String(byteArray, startIndex, (index + includeReturnLine - startIndex));
+            stringList.add(s);
+            //stringMaker.append(s).append('\n');
             index++;
         }
+        
+        //LogUtil.put(LogFactory.getInstance("s: " + stringMaker.toString(), this, commonStrings.PROCESS));
         
         return stringList;
     }

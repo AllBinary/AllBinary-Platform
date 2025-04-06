@@ -23,10 +23,10 @@ import javax.microedition.khronos.opengles.GL10;
 public class CompositeShaderUpdater extends ShaderUpdater {
  
     public final int[] uniformHandleArray;
-    protected final String[] uniformArray;
+    public final String[] uniformArray;
 
     public final int[] attributeHandleArray;
-    protected final String[] attributeArray;
+    public final String[] attributeArray;
     
     public CompositeShaderUpdater(final String[] uniformArray, final String[] attributeArray) {
 

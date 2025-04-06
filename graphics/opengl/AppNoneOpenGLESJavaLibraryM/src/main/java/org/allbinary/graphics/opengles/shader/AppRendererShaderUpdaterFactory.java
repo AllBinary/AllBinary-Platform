@@ -28,9 +28,6 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
         return instance;
     }
 
-    public final ShaderInitializer shaderInitializer = null;
-    public final ShaderComposite shaderComposite = null;
-    
-    public final int[] shaderHandleArray = null;
+    public final ShaderComposite[] shaderCompositeArray = null;
 
 }

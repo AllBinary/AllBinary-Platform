@@ -58,7 +58,9 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 //        final com.jogamp.opengl.GL3 gl3 = gl.getGL3();
 //        this.gl3 = gl3;
         
-        final com.jogamp.opengl.GL2 gl2 = gl.getGL2();
+        //final com.jogamp.opengl.GL2 gl2 = gl.getGL2();
+        
+        final com.jogamp.opengl.GL2 gl2 = (com.jogamp.opengl.GL2) gl;
         this.gl10 = gl2;
         this.glu = GLU.createGLU(this.gl10);
         
