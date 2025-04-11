@@ -25,6 +25,9 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 
 public class TitleAnimation extends SpecialAnimation 
 {
+    public float deltaX;
+    public float deltaY;
+    public float deltaZ;
     
     protected final BasicColor[] basicColorArray;
     protected final int[] dxArray;

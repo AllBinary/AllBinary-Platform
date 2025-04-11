@@ -83,6 +83,8 @@ public class BasicGraphicsPipeline
       PointFactory pointFactory = PointFactory.getInstance();
       
       int size = this.pointBasicArrayList.size();
+      long sin;
+      long cos;
       for(int index = 0; index < size; index++)
       {
           secondPoint = (GPoint) pointBasicArrayList.objectArray[index];
@@ -90,9 +92,11 @@ public class BasicGraphicsPipeline
          //Ignore end of lines
          if (secondPoint.getX() != 1000)
          {
-             y = secondPoint.getY() * noDecimalTrigTable.sin(angle);
-             secondX = (secondPoint.getX() * noDecimalTrigTable.cos(angle)) - y;
-             secondY = (secondPoint.getX() * noDecimalTrigTable.sin(angle)) + (secondPoint.getY() * noDecimalTrigTable.cos(angle));
+             sin = noDecimalTrigTable.sin(angle);
+             cos = noDecimalTrigTable.cos(angle);
+             y = secondPoint.getY() * sin;
+             secondX = (secondPoint.getX() * cos) - y;
+             secondY = (secondPoint.getX() * sin) + (secondPoint.getY() * cos);
 
             //LogUtil.put("Calculated: X: " + secondX + " Y: " + secondY, this, "rotate");
 
