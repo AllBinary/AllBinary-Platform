@@ -31,7 +31,8 @@ public class ShaderComposite {
     public final ModelViewProjection modelViewProjection;
     public final OpenGLProcessor colorOpenGLProcessor;
     public final OpenGLProcessor vertexOpenGLProcessor;
-    
+
+    public int programHandle;    
     
     public ShaderComposite(final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor) {

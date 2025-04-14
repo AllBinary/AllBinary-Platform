@@ -24,10 +24,8 @@ public class ShaderInitializer {
 
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    public int programHandle;
-    
-    public void init(final GL10 gl, final String[] shaderStringArray, final int[] shaderHandleArray, final String[] attributeArray) {
-        
+    public int init(final GL10 gl, final String[] shaderStringArray, final int[] shaderHandleArray, final String[] attributeArray) {
+        return -1;
     }
 
 }
