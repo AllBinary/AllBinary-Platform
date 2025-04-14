@@ -30,4 +30,10 @@ public class AppRendererShaderUpdaterFactory extends ShaderUpdater {
 
     public final ShaderComposite[] shaderCompositeArray = null;
 
+    private final ShaderOpenGLProcessor[] shaderOpenGLProcessorArray = new ShaderOpenGLProcessor[0];
+    
+    public ShaderOpenGLProcessor[] getTestShaders() {
+        return shaderOpenGLProcessorArray;
+    }
+    
 }

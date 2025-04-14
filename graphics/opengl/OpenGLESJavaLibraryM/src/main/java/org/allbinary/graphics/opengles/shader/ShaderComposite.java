@@ -21,6 +21,8 @@ import org.allbinary.graphics.opengles.OpenGLProcessor;
  */
 public class ShaderComposite {
 
+    public final String[] shaderStringArray = new String[2];
+    
     public final int[] shaderHandleArray;
     
     public final ShaderInitializer shaderInitializer;

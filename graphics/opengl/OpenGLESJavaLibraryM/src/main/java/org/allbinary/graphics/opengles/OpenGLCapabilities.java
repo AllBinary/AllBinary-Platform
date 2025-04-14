@@ -334,6 +334,11 @@ public class OpenGLCapabilities
         return glVersion;
     }
 
+    public String getGlVersionString()
+    {
+        return glVersionString;
+    }
+    
     public String getGlShaderVersion()
     {
         return glShaderVersionString;
