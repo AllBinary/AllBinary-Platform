@@ -59,6 +59,7 @@ public class OpenGLCapabilities
     public final String VERSION_3_0 = "3.0";
     public final String VERSION_3_1 = "3.1";
     public final String VERSION_3_2 = "3.2";
+    public final String VERSION_HIGHER_THAN_EXISTS = "999.999";
 
     public final String VERSION_UNK = "Unk";
 
