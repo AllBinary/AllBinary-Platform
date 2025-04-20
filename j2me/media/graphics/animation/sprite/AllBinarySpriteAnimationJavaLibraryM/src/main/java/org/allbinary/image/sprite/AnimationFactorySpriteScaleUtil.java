@@ -50,7 +50,7 @@ public class AnimationFactorySpriteScaleUtil {
     
     public Sprite createImage(final Image image, final int width, final int height, final int scaleWidth, final int scaleHeight) throws Exception {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
-//       final SpacialStrings spacialStrings = SpacialStrings.getInstance();
+//       final CommonLabels commonLabels = CommonLabels.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
 //       .append(image.getName())
 //       LogUtil.put(LogFactory.getInstance(stringMaker.append("width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
@@ -64,13 +64,13 @@ public class AnimationFactorySpriteScaleUtil {
            float scaleY = ((float) scaleHeight) / ((float) height);
            
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
 //           stringMaker.delete(0, stringMaker.length());
 //           LogUtil.put(LogFactory.getInstance(stringMaker.append("0scaleX: ").append(scaleX).append(" scaleY: ").append(scaleY).toString(), this, commonStrings.PROCESS));
 
            if ((scaleX == 1 && scaleY == 1) || (scaleX == 0 || scaleY == 0)) {
 //               stringMaker.delete(0, stringMaker.length());
-//               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale ").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//               LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale ").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
                scaledImage = openGLUtil.add(image);
                sprite = spriteFactory.create(scaledImage, width, height);
            } else {
@@ -125,7 +125,7 @@ public class AnimationFactorySpriteScaleUtil {
            
        } else {
 //           stringMaker.delete(0, stringMaker.length());
-//           LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale2").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//           LogUtil.put(LogFactory.getInstance(stringMaker.append("noscale2").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
            scaledImage = openGLUtil.add(image);
            sprite = spriteFactory.create(scaledImage, width, height);
        }

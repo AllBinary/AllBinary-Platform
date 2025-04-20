@@ -117,8 +117,8 @@ public class ImageCache extends ImageCacheBase
             this.hashtable.put(key, image);
         }
 
-//        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-//        LogUtil.put(LogFactory.getInstance(spacialStrings.WIDTH_LABEL + image.getWidth() + spacialStrings.HEIGHT_LABEL + image.getHeight(), this, commonStrings.CONSTRUCTOR));
+//        final CommonLabels commonLabels = CommonLabels.getInstance();
+//        LogUtil.put(LogFactory.getInstance(commonLabels.WIDTH_LABEL + image.getWidth() + commonLabels.HEIGHT_LABEL + image.getHeight(), this, commonStrings.CONSTRUCTOR));
 //        LogUtil.put(LogFactory.getInstance(key + " = " + image.toString(), this, commonStrings.CONSTRUCTOR));
 
         return image;

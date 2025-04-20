@@ -120,7 +120,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
 
         //int width = allBinaryTiledLayer.getWidth();
 
-        //LogUtil.put(LogFactory.getInstance(SpacialStrings + allBinaryTiledLayer.getHeight() + CommonStrings.getInstance().SPACE + SpacialStrings + width, this, CommonStrings.getInstance().INIT));
+        //LogUtil.put(LogFactory.getInstance(CommonLabels + allBinaryTiledLayer.getHeight() + CommonStrings.getInstance().SPACE + CommonLabels + width, this, CommonStrings.getInstance().INIT));
 
         this.buildPathFindingNodes(
             geographicMapInterface,

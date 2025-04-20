@@ -46,8 +46,8 @@ public class AnimationFactoryImageScaleUtil {
 //        final CommonStrings commonStrings = CommonStrings.getInstance();
 //        final StringMaker stringMaker = new StringMaker();
 //        stringMaker.delete(0, stringMaker.length());
-//        final SpacialStrings spacialStrings = SpacialStrings.getInstance();
-//        LogUtil.put(LogFactory.getInstance(stringMaker.append("before scale").append(spacialStrings.WIDTH_LABEL).append(width).append(spacialStrings.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
+//        final CommonLabels commonLabels = CommonLabels.getInstance();
+//        LogUtil.put(LogFactory.getInstance(stringMaker.append("before scale").append(commonLabels.WIDTH_LABEL).append(width).append(commonLabels.HEIGHT_LABEL).append(height).toString(), this, commonStrings.PROCESS));
 
         if (scaleWidth != 0 && scaleHeight != 0) {
             final float scaleX = ((float) scaleWidth) / ((float) width);

@@ -100,7 +100,7 @@ public class CustomTextAnimation extends TextAnimation
         }
 
 //        if(font != null) {
-//            final SpacialStrings commonLabels = SpacialStrings.getInstance();
+//            final CommonLabels commonLabels = CommonLabels.getInstance();
 //            LogUtil.put(LogFactory.getInstance(new StringMaker().append("setText - font: ").append(font.getSize()).append(commonLabels.WIDTH_LABEL).append(font.stringWidth(text)).append(" text: ").append(text).toString(), this, CommonStrings.getInstance().PROCESS));
 //        }
     }
