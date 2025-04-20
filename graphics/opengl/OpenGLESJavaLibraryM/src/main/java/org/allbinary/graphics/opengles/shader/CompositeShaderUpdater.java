@@ -16,12 +16,23 @@ package org.allbinary.graphics.opengles.shader;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import org.allbinary.logic.string.StringUtil;
+
 /**
  *
  * @author User
  */
 public class CompositeShaderUpdater extends ShaderUpdater {
- 
+
+    protected static final CompositeShaderUpdater instance = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance());
+    
+    /**
+     * @return the instance
+     */
+    public static CompositeShaderUpdater getInstance() {
+        return instance;
+    }
+    
     public final int[] uniformBlockHandleArray;
     public final String[] uniformBlockArray;
     

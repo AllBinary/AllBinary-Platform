@@ -13,6 +13,7 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 import org.allbinary.graphics.opengles.OpenGLProcessor;
 
 /**
@@ -21,6 +22,28 @@ import org.allbinary.graphics.opengles.OpenGLProcessor;
  */
 public class ShaderComposite {
 
+    public OpenGLProcessor useProgramShaderOpenGLProcessor = 
+        NullOpenGLProcessorFactory.getInstance();
+        //UseProgramShaderOpenGLProcessor.getInstance();
+    public OpenGLProcessor disableProgramShaderOpenGLProcessor = 
+        NullOpenGLProcessorFactory.getInstance();
+        //DisableProgramShaderOpenGLProcessor.getInstance();
+    public OpenGLProcessor shaderMatrixOpenGLProcessor = 
+        NullOpenGLProcessorFactory.getInstance();
+        //ShaderMatrixOpenGLProcessor.getInstance();
+    public OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor = 
+        NullOpenGLProcessorFactory.getInstance();
+        //new EnableVertexAttribArrayOpenGLProcessor(0);
+    public OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor = 
+        NullOpenGLProcessorFactory.getInstance();
+        //new EnableVertexAttribArrayOpenGLProcessor(1);
+    public OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor = 
+        NullOpenGLProcessorFactory.getInstance();
+        //new DisableVertexAttribArrayOpenGLProcessor(0);
+    public OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor = 
+        NullOpenGLProcessorFactory.getInstance();
+        //new DisableVertexAttribArrayOpenGLProcessor(1);
+    
     public final String requiresOpenGLVersion;
     
     public final String[] shaderStringArray = new String[2];

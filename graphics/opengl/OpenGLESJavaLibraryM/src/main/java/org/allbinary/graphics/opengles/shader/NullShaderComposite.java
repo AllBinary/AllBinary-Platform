@@ -13,23 +13,27 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import org.allbinary.graphics.opengles.OpenGLCapabilities;
+
 /**
  *
  * @author User
  */
-public class ModelViewProjection {
-    
-    protected static final ModelViewProjection instance = new ModelViewProjection();
+public class NullShaderComposite {
 
+    private static final ShaderComposite instance = new ShaderComposite(OpenGLCapabilities.getInstance().VERSION_2_0, 
+        new int[2],
+        CompositeShaderUpdater.getInstance(),
+        ShaderInitializer.getInstance(),
+        ModelViewProjection.getInstance(),
+        null,
+        null);
+    
     /**
      * @return the instance
      */
-    public static ModelViewProjection getInstance() {
+    public static ShaderComposite getInstance() {
         return instance;
     }
     
-    public float[] get() {
-        return null;
-    }
-
 }

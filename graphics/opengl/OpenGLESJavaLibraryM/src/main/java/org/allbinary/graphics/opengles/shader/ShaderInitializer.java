@@ -22,6 +22,15 @@ import org.allbinary.string.CommonStrings;
  */
 public class ShaderInitializer {
 
+    protected static final ShaderInitializer instance = new ShaderInitializer();
+    
+    /**
+     * @return the instance
+     */
+    public static ShaderInitializer getInstance() {
+        return instance;
+    }
+    
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public int init(final GL10 gl, final String[] shaderStringArray, final int[] shaderHandleArray, final String[] attributeArray) {
