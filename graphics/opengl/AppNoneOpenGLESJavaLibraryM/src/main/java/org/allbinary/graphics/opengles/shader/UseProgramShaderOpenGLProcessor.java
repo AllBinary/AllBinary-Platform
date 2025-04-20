@@ -21,14 +21,14 @@ import org.allbinary.graphics.opengles.OpenGLProcessor;
  *
  * @author User
  */
-public class NullifyShaderMatrixOpenGLProcessor extends OpenGLProcessor {
+public class UseProgramShaderOpenGLProcessor extends OpenGLProcessor {
  
-    private static final NullifyShaderMatrixOpenGLProcessor instance = new NullifyShaderMatrixOpenGLProcessor();
+    private static final UseProgramShaderOpenGLProcessor instance = new UseProgramShaderOpenGLProcessor();
 
     /**
      * @return the instance
      */
-    public static NullifyShaderMatrixOpenGLProcessor getInstance() {
+    public static UseProgramShaderOpenGLProcessor getInstance() {
         return instance;
     }
  
