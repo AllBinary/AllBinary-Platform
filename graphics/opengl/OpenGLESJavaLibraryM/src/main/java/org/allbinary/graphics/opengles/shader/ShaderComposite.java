@@ -13,6 +13,8 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import javax.microedition.khronos.opengles.GL10;
+
 import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 import org.allbinary.graphics.opengles.OpenGLProcessor;
 
@@ -72,4 +74,8 @@ public class ShaderComposite {
 
     }
     
+    public void init(GL10 gl) {
+        this.programHandle = this.shaderInitializer.init(gl, this.shaderStringArray, this.shaderHandleArray, this.compositeShaderUpdater.attributeArray);
+    }
+
 }
