@@ -15,8 +15,8 @@ package org.allbinary.graphics.opengles.shader;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 import org.allbinary.graphics.opengles.OpenGLProcessor;
+import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 
 /**
  *
@@ -24,27 +24,12 @@ import org.allbinary.graphics.opengles.OpenGLProcessor;
  */
 public class ShaderComposite {
 
-    public OpenGLProcessor useProgramShaderOpenGLProcessor = 
-        NullOpenGLProcessorFactory.getInstance();
-        //UseProgramShaderOpenGLProcessor.getInstance();
-    public OpenGLProcessor disableProgramShaderOpenGLProcessor = 
-        NullOpenGLProcessorFactory.getInstance();
-        //DisableProgramShaderOpenGLProcessor.getInstance();
-    public OpenGLProcessor shaderMatrixOpenGLProcessor = 
-        NullOpenGLProcessorFactory.getInstance();
-        //ShaderMatrixOpenGLProcessor.getInstance();
-    public OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor = 
-        NullOpenGLProcessorFactory.getInstance();
-        //new EnableVertexAttribArrayOpenGLProcessor(0);
-    public OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor = 
-        NullOpenGLProcessorFactory.getInstance();
-        //new EnableVertexAttribArrayOpenGLProcessor(1);
-    public OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor = 
-        NullOpenGLProcessorFactory.getInstance();
-        //new DisableVertexAttribArrayOpenGLProcessor(0);
-    public OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor = 
-        NullOpenGLProcessorFactory.getInstance();
-        //new DisableVertexAttribArrayOpenGLProcessor(1);
+    public final OpenGLProcessor disableProgramShaderOpenGLProcessor;
+    public final OpenGLProcessor shaderMatrixOpenGLProcessor;
+    public final OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor;
+    public final OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor;
+    public final OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor;
+    public final OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor;
     
     public final String requiresOpenGLVersion;
     
@@ -59,10 +44,18 @@ public class ShaderComposite {
     public final OpenGLProcessor colorOpenGLProcessor;
     public final OpenGLProcessor vertexOpenGLProcessor;
 
+    public OpenGLProcessor useProgramShaderOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public int programHandle;    
-    
+
     public ShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
-        final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor) {
+        final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor, 
+        final OpenGLProcessor disableProgramShaderOpenGLProcessor,
+        final OpenGLProcessor shaderMatrixOpenGLProcessor,
+        final OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor,
+        final OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor,
+        final OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor,
+        final OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor
+        ) {
 
         this.requiresOpenGLVersion = requiresOpenGLVersion;
         this.shaderHandleArray = shaderHandleArray;
@@ -72,6 +65,14 @@ public class ShaderComposite {
         this.colorOpenGLProcessor = colorOpenGLProcessor;
         this.vertexOpenGLProcessor = vertexOpenGLProcessor;
 
+        //this.useProgramShaderOpenGLProcessor = useProgramShaderOpenGLProcessor;
+        this.disableProgramShaderOpenGLProcessor = disableProgramShaderOpenGLProcessor;
+        this.shaderMatrixOpenGLProcessor = shaderMatrixOpenGLProcessor;
+        this.colorEnableVertexAttribArrayOpenGLProcessor = colorEnableVertexAttribArrayOpenGLProcessor;
+        this.vertexEnableVertexAttribArrayOpenGLProcessor = vertexEnableVertexAttribArrayOpenGLProcessor;
+        this.colorDisableVertexAttribArrayOpenGLProcessor = colorDisableVertexAttribArrayOpenGLProcessor;
+        this.vertexDisableVertexAttribArrayOpenGLProcessor = vertexDisableVertexAttribArrayOpenGLProcessor;
+        
     }
     
     public void init(GL10 gl) {

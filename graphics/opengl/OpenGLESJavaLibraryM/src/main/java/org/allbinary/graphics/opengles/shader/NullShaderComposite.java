@@ -13,6 +13,9 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import javax.microedition.khronos.opengles.GL10;
+
+import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 import org.allbinary.graphics.opengles.OpenGLCapabilities;
 
 /**
@@ -25,9 +28,20 @@ public class NullShaderComposite {
         new int[2],
         CompositeShaderUpdater.getInstance(),
         ShaderInitializer.getInstance(),
-        ModelViewProjection.getInstance(),
+        ModelViewProjection.getInstance(),        
         null,
-        null);
+        null,
+        NullOpenGLProcessorFactory.getInstance(),
+        NullOpenGLProcessorFactory.getInstance(),
+        NullOpenGLProcessorFactory.getInstance(),
+        NullOpenGLProcessorFactory.getInstance(),
+        NullOpenGLProcessorFactory.getInstance(),
+        NullOpenGLProcessorFactory.getInstance()
+    ) {
+            public void init(GL10 gl) {
+                
+            }
+        };
     
     /**
      * @return the instance
