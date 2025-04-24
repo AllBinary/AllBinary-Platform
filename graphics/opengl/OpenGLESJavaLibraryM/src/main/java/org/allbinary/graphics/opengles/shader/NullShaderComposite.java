@@ -32,12 +32,7 @@ public class NullShaderComposite {
         null,
         null,
         NullOpenGLProcessorFactory.getInstance(),
-        NullOpenGLProcessorFactory.getInstance(),
-        NullOpenGLProcessorFactory.getInstance(),
-        NullOpenGLProcessorFactory.getInstance(),
-        NullOpenGLProcessorFactory.getInstance(),
-        NullOpenGLProcessorFactory.getInstance()
-    ) {
+        NullOpenGLProcessorFactory.getInstance()) {
             public void init(GL10 gl) {
                 
             }

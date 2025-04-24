@@ -43,13 +43,17 @@ public class CompositeShaderUpdater extends ShaderUpdater {
     public final String[] attributeArray;
     
     public CompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray) {
+        this(uniformBlockArray, uniformArray, attributeArray, new int[attributeArray.length]);
+    }
+    
+    public CompositeShaderUpdater(final String[] uniformBlockArray, final String[] uniformArray, final String[] attributeArray, final int[] attributeHandleArray) {
 
         this.uniformBlockArray = uniformBlockArray;
         this.uniformBlockHandleArray = new int[this.uniformBlockArray.length];
         this.uniformArray = uniformArray;
         this.uniformHandleArray = new int[this.uniformArray.length];
         this.attributeArray = attributeArray;
-        this.attributeHandleArray = new int[this.attributeArray.length];
+        this.attributeHandleArray = attributeHandleArray;
 
     }
     

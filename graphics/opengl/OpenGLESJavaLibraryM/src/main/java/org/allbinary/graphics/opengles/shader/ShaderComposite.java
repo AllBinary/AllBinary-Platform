@@ -26,10 +26,6 @@ public class ShaderComposite {
 
     public final OpenGLProcessor disableProgramShaderOpenGLProcessor;
     public final OpenGLProcessor shaderMatrixOpenGLProcessor;
-    public final OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor;
-    public final OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor;
-    public final OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor;
-    public final OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor;
     
     public final String requiresOpenGLVersion;
     
@@ -45,17 +41,19 @@ public class ShaderComposite {
     public final OpenGLProcessor vertexOpenGLProcessor;
 
     public OpenGLProcessor useProgramShaderOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor textureEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor textureDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+
     public int programHandle;    
 
     public ShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor, 
         final OpenGLProcessor disableProgramShaderOpenGLProcessor,
-        final OpenGLProcessor shaderMatrixOpenGLProcessor,
-        final OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor,
-        final OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor,
-        final OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor,
-        final OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor
-        ) {
+        final OpenGLProcessor shaderMatrixOpenGLProcessor) {
 
         this.requiresOpenGLVersion = requiresOpenGLVersion;
         this.shaderHandleArray = shaderHandleArray;
@@ -68,10 +66,6 @@ public class ShaderComposite {
         //this.useProgramShaderOpenGLProcessor = useProgramShaderOpenGLProcessor;
         this.disableProgramShaderOpenGLProcessor = disableProgramShaderOpenGLProcessor;
         this.shaderMatrixOpenGLProcessor = shaderMatrixOpenGLProcessor;
-        this.colorEnableVertexAttribArrayOpenGLProcessor = colorEnableVertexAttribArrayOpenGLProcessor;
-        this.vertexEnableVertexAttribArrayOpenGLProcessor = vertexEnableVertexAttribArrayOpenGLProcessor;
-        this.colorDisableVertexAttribArrayOpenGLProcessor = colorDisableVertexAttribArrayOpenGLProcessor;
-        this.vertexDisableVertexAttribArrayOpenGLProcessor = vertexDisableVertexAttribArrayOpenGLProcessor;
         
     }
     
