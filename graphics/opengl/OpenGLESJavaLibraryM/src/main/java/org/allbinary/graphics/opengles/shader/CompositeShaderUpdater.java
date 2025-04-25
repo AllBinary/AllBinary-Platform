@@ -17,6 +17,7 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonSeps;
 
 /**
  *
@@ -24,6 +25,9 @@ import org.allbinary.logic.string.StringUtil;
  */
 public class CompositeShaderUpdater extends ShaderUpdater {
 
+    protected final CommonSeps commonSeps = CommonSeps.getInstance();
+    protected final ShaderStrings shaderStrings = ShaderStrings.getInstance();
+    
     protected static final CompositeShaderUpdater instance = new CompositeShaderUpdater(StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance(), StringUtil.getInstance().getArrayInstance());
     
     /**

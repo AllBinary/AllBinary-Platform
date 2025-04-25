@@ -47,6 +47,8 @@ public class ShaderComposite {
     public OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor textureDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    
+    public OpenGLTextureProcessor uniformTextureUnitOpenGLProcessor = NullOpenGLTextureProcessor.getInstance();
 
     public int programHandle;    
 
