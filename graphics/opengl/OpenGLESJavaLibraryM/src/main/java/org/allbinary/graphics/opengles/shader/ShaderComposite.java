@@ -25,7 +25,6 @@ import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 public class ShaderComposite {
 
     public final OpenGLProcessor disableProgramShaderOpenGLProcessor;
-    public final OpenGLProcessor shaderMatrixOpenGLProcessor;
     
     public final String requiresOpenGLVersion;
     
@@ -41,6 +40,7 @@ public class ShaderComposite {
     public final OpenGLProcessor vertexOpenGLProcessor;
 
     public OpenGLProcessor useProgramShaderOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor shaderMatrixOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor textureEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
@@ -52,8 +52,7 @@ public class ShaderComposite {
 
     public ShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor, 
-        final OpenGLProcessor disableProgramShaderOpenGLProcessor,
-        final OpenGLProcessor shaderMatrixOpenGLProcessor) {
+        final OpenGLProcessor disableProgramShaderOpenGLProcessor) {
 
         this.requiresOpenGLVersion = requiresOpenGLVersion;
         this.shaderHandleArray = shaderHandleArray;
@@ -65,7 +64,6 @@ public class ShaderComposite {
 
         //this.useProgramShaderOpenGLProcessor = useProgramShaderOpenGLProcessor;
         this.disableProgramShaderOpenGLProcessor = disableProgramShaderOpenGLProcessor;
-        this.shaderMatrixOpenGLProcessor = shaderMatrixOpenGLProcessor;
         
     }
     

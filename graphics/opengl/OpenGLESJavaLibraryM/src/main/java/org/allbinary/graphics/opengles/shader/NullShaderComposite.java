@@ -31,7 +31,6 @@ public class NullShaderComposite {
         ModelViewProjection.getInstance(),        
         null,
         null,
-        NullOpenGLProcessorFactory.getInstance(),
         NullOpenGLProcessorFactory.getInstance()) {
             public void init(GL10 gl) {
                 
