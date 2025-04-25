@@ -17,14 +17,15 @@ import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.graphics.opengles.NullOpenGLProcessorFactory;
 import org.allbinary.graphics.opengles.OpenGLCapabilities;
+import org.allbinary.graphics.opengles.OpenGLProcessor;
 
 /**
  *
  * @author User
  */
-public class NullShaderComposite {
+public class NullShaderComposite extends ShaderComposite {
 
-    private static final ShaderComposite instance = new ShaderComposite(OpenGLCapabilities.getInstance().VERSION_2_0, 
+    private static final NullShaderComposite instance = new NullShaderComposite(OpenGLCapabilities.getInstance().VERSION_2_0, 
         new int[2],
         CompositeShaderUpdater.getInstance(),
         ShaderInitializer.getInstance(),
@@ -36,12 +37,21 @@ public class NullShaderComposite {
                 
             }
         };
-    
+
     /**
      * @return the instance
      */
     public static ShaderComposite getInstance() {
         return instance;
+    }
+    
+    public NullShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
+        final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor, 
+        final OpenGLProcessor disableProgramShaderOpenGLProcessor) {
+        super(requiresOpenGLVersion, shaderHandleArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, disableProgramShaderOpenGLProcessor);
+        
+        this.useProgramShaderOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+
     }
     
 }
