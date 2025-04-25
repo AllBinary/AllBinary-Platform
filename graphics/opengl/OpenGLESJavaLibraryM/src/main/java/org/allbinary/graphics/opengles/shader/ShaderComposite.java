@@ -39,7 +39,7 @@ public class ShaderComposite {
     public final OpenGLProcessor colorOpenGLProcessor;
     public final OpenGLProcessor vertexOpenGLProcessor;
 
-    public OpenGLProcessor useProgramShaderOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor useProgramShaderOpenGLProcessor = null;
     public OpenGLProcessor shaderMatrixOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
@@ -64,7 +64,6 @@ public class ShaderComposite {
         this.colorOpenGLProcessor = colorOpenGLProcessor;
         this.vertexOpenGLProcessor = vertexOpenGLProcessor;
 
-        //this.useProgramShaderOpenGLProcessor = useProgramShaderOpenGLProcessor;
         this.disableProgramShaderOpenGLProcessor = disableProgramShaderOpenGLProcessor;
         
     }
