@@ -89,5 +89,16 @@ public class SimpleFileUtil {
         
         return stringList;
     }
+
+    public String createStringFromArrayOfStrings(final String[] stringArray) {
+        final StringMaker stringMaker = new StringMaker();
+        
+        final int size = stringArray.length;
+        for(int index = 0; index < size; index++) {
+            stringMaker.append(stringArray[index]);
+        }
+        
+        return stringMaker.toString();
+    }
     
 }
