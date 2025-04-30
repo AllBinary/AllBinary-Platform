@@ -13,6 +13,7 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
+import java.util.List;
 import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.graphics.opengles.OpenGLProcessor;
@@ -29,6 +30,7 @@ public class ShaderComposite {
     public final String requiresOpenGLVersion;
     
     public final String[] shaderStringArray = new String[2];
+    public final List<String>[] shaderStringArrayList = new List[2];
     
     public final int[] shaderHandleArray;
     
