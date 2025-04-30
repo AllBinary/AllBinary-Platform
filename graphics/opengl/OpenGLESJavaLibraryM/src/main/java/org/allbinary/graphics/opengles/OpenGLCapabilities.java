@@ -63,6 +63,7 @@ public class OpenGLCapabilities
 
     public final String VERSION_UNK = "Unk";
 
+    //OpenGLVersionValidator contains the version mapping for Android
     //Shader    to      OpenGL Version    
     //1.10              2.0
     //1.20              2.1
