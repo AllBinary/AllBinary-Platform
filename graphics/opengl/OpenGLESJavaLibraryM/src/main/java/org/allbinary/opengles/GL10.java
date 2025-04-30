@@ -861,6 +861,13 @@ public class GL10 implements javax.microedition.khronos.opengles.GL10
         this.gl10.glTexParameterf(target, pname, param);
     }
 
+    public void glTexParameteri(int target, int pname, int param)
+    {
+        stringBuilder.delete(0, stringBuilder.length());
+        PreLogUtil.put(stringBuilder.append(TARGET).append(target).append(_PNAME).append(pname).append(PARAM).append(param).toString(), this, "GL10.glTexParameterx");
+        this.gl10.glTexParameteri(target, pname, param);
+    }
+    
     public void glTexParameterx(int target, int pname, int param)
     {
         stringBuilder.delete(0, stringBuilder.length());

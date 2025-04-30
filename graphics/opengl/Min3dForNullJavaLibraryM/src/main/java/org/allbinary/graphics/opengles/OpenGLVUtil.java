@@ -19,14 +19,15 @@ import javax.microedition.khronos.opengles.GL10;
  *
  * @author User
  */
-public class OpenGLVUtilBase {
- 
-    public void glGenerateMipmapOld(final GL10 gl, final int target, final boolean generateMipMap) {
-        
-    }
+public class OpenGLVUtil extends OpenGLVUtilBase {
 
-    public void glGenerateMipmap(final GL10 gl, final int target) {
-        
+    protected static final OpenGLVUtil instance = new OpenGLVUtil();
+    
+    /**
+     * @return the instance
+     */
+    public static OpenGLVUtil getInstance() {
+        return instance;
     }
     
 }

@@ -475,6 +475,8 @@ public interface GL10 extends javax.microedition.khronos.opengles.GL {
     void glTexParameterf(int target, int pname, float param);
 
     //void glTexParameterx(int target, int pname, int param);
+    
+    void glTexParameteri(int target, int pname, int param);
 
     void glTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, java.nio.Buffer pixels);
 
