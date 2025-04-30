@@ -23,6 +23,7 @@ public class Shader {
  
     public String shaderName;
     public List<String> shaderStringList;
+    public String shaderAsString;
     public int shaderHandle;
     
 }
