@@ -13,7 +13,6 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
-import java.util.List;
 import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.graphics.opengles.OpenGLProcessor;
@@ -29,10 +28,7 @@ public class ShaderComposite {
     
     public final String requiresOpenGLVersion;
     
-    public final String[] shaderStringArray = new String[2];
-    public final List<String>[] shaderStringArrayList = new List[2];
-    
-    public final int[] shaderHandleArray;
+    public final Shader[] shaderArray;
     
     public final ShaderInitializer shaderInitializer;
     public final CompositeShaderUpdater compositeShaderUpdater;
@@ -56,12 +52,12 @@ public class ShaderComposite {
 
     public int programHandle;    
 
-    public ShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
+    public ShaderComposite(final String requiresOpenGLVersion, final Shader[] shaderArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor, 
         final OpenGLProcessor disableProgramShaderOpenGLProcessor) {
 
         this.requiresOpenGLVersion = requiresOpenGLVersion;
-        this.shaderHandleArray = shaderHandleArray;
+        this.shaderArray = shaderArray;
         this.shaderInitializer = shaderInitializer;
         this.compositeShaderUpdater = compositeShaderUpdater;
         this.modelViewProjection = modelViewProjection;
@@ -73,7 +69,7 @@ public class ShaderComposite {
     }
     
     public void init(GL10 gl) {
-        this.programHandle = this.shaderInitializer.init(gl, this.shaderStringArray, this.shaderHandleArray, this.compositeShaderUpdater.attributeArray);
+        this.programHandle = this.shaderInitializer.init(gl, this.shaderArray, this.compositeShaderUpdater.attributeArray);
     }
 
 }

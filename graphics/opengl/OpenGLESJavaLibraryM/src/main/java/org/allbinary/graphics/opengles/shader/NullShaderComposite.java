@@ -26,7 +26,7 @@ import org.allbinary.graphics.opengles.OpenGLProcessor;
 public class NullShaderComposite extends ShaderComposite {
 
     private static final NullShaderComposite instance = new NullShaderComposite(OpenGLCapabilities.getInstance().VERSION_2_0, 
-        new int[2],
+        new Shader[] {new Shader(), new Shader()},
         CompositeShaderUpdater.getInstance(),
         ShaderInitializer.getInstance(),
         ModelViewProjection.getInstance(),        
@@ -45,10 +45,10 @@ public class NullShaderComposite extends ShaderComposite {
         return instance;
     }
     
-    public NullShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
+    public NullShaderComposite(final String requiresOpenGLVersion, final Shader[] shaderArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor, 
         final OpenGLProcessor disableProgramShaderOpenGLProcessor) {
-        super(requiresOpenGLVersion, shaderHandleArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, disableProgramShaderOpenGLProcessor);
+        super(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor, disableProgramShaderOpenGLProcessor);
         
         this.useProgramShaderOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
 

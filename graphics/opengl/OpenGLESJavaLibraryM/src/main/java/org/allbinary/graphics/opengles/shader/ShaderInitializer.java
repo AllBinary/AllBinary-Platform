@@ -33,7 +33,7 @@ public class ShaderInitializer {
     
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
-    public int init(final GL10 gl, final String[] shaderStringArray, final int[] shaderHandleArray, final String[] attributeArray) {
+    public int init(final GL10 gl, final Shader[] shader, final String[] attributeArray) {
         return -1;
     }
 
