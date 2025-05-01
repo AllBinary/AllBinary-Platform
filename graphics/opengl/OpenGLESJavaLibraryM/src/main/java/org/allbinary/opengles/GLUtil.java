@@ -86,11 +86,12 @@ public class GLUtil
         while(byteBuffer.hasRemaining()) {
             unsigned = byteBuffer.get() & 0xFF;
             v = ((float) unsigned) / 255f;
-            if(v == 1.0f) {
-                buffer.put(v);
-            } else {
-                buffer.put(1.0f - v);
-            }
+            buffer.put(v);
+//            if(v == 1.0f) {
+//                buffer.put(v);
+//            } else {
+//                buffer.put(1.0f - v);
+//            }
         }
         this.position(buffer, 0);
         return buffer;
