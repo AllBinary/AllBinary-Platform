@@ -21,18 +21,18 @@ import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGL
  *
  * @author User
  */
-public class ColoAttributerPointerVBOOpenGLProcessor extends ObjectThreedOpenGLProcessor {
+public class ColorAttributerPointerVBOOpenGLProcessor extends ObjectThreedOpenGLProcessor {
     
-    private static final ColoAttributerPointerVBOOpenGLProcessor instance = new ColoAttributerPointerVBOOpenGLProcessor();
+    private static final ColorAttributerPointerVBOOpenGLProcessor instance = new ColorAttributerPointerVBOOpenGLProcessor();
 
     /**
      * @return the instance
      */
-    public static ColoAttributerPointerVBOOpenGLProcessor getInstance() {
+    public static ColorAttributerPointerVBOOpenGLProcessor getInstance() {
         return instance;
     }
 
-    public ColoAttributerPointerVBOOpenGLProcessor()
+    public ColorAttributerPointerVBOOpenGLProcessor()
     {
         //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
         
