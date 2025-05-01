@@ -76,6 +76,25 @@ public class GLUtil
         this.position(buffer, 0);
         return buffer;
     }
+
+    public FloatBuffer makeFloatBuffer(final ByteBuffer byteBuffer) {
+        final ByteBuffer b = ByteBuffer.allocateDirect(byteBuffer.limit() * BYTES_PER_FLOAT);
+        b.order(ByteOrder.nativeOrder());
+        final FloatBuffer buffer = b.asFloatBuffer();
+        int unsigned;
+        float v;
+        while(byteBuffer.hasRemaining()) {
+            unsigned = byteBuffer.get() & 0xFF;
+            v = ((float) unsigned) / 255f;
+            if(v == 1.0f) {
+                buffer.put(v);
+            } else {
+                buffer.put(1.0f - v);
+            }
+        }
+        this.position(buffer, 0);
+        return buffer;
+    }    
     
     //Hack for Android Studio using internal JDK 11 or newer in builds.
     public Buffer position(final Buffer buffer, final int newPosition) {
