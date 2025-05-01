@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.graphics.opengles.vbo;
+package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
 
@@ -21,18 +21,18 @@ import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGL
  *
  * @author User
  */
-public class VertexBufferObjectDrawAttributeOpenGLProcessor extends ObjectThreedOpenGLProcessor {
+public class VertexAttributePointerOpenGLProcessor extends ObjectThreedOpenGLProcessor {
     
-    private static final VertexBufferObjectDrawAttributeOpenGLProcessor instance = new VertexBufferObjectDrawAttributeOpenGLProcessor();
+    private static final VertexAttributePointerOpenGLProcessor instance = new VertexAttributePointerOpenGLProcessor();
 
     /**
      * @return the instance
      */
-    public static VertexBufferObjectDrawAttributeOpenGLProcessor getInstance() {
+    public static VertexAttributePointerOpenGLProcessor getInstance() {
         return instance;
     }
-        
-    public VertexBufferObjectDrawAttributeOpenGLProcessor()
+    
+    public VertexAttributePointerOpenGLProcessor()
     {
         //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 

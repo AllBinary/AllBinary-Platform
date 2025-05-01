@@ -11,30 +11,33 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.graphics.opengles;
+package org.allbinary.graphics.opengles.vbo;
 
 import javax.microedition.khronos.opengles.GL10;
+
 import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGLProcessor;
 
 /**
  *
  * @author User
  */
-public class WithNormalsAttributeObject3dOpenGLProcessor extends ObjectThreedOpenGLProcessor {
+public class TextureAttributePointerVBOOpenGLProcessor extends ObjectThreedOpenGLProcessor {
     
-    private static final WithNormalsAttributeObject3dOpenGLProcessor instance = new WithNormalsAttributeObject3dOpenGLProcessor();
+    private static final TextureAttributePointerVBOOpenGLProcessor instance = new TextureAttributePointerVBOOpenGLProcessor();
 
-    public static WithNormalsAttributeObject3dOpenGLProcessor getInstance()
-    {
+    /**
+     * @return the instance
+     */
+    public static TextureAttributePointerVBOOpenGLProcessor getInstance() {
         return instance;
     }
-
-    public WithNormalsAttributeObject3dOpenGLProcessor()
+    
+    public TextureAttributePointerVBOOpenGLProcessor()
     {
+        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
     }
 
-    @Override
-    public void process(final GL10 gl, final Object aObject3d)
+    public void process(final GL10 gl, final Object object)
     {
         throw new RuntimeException();
     }

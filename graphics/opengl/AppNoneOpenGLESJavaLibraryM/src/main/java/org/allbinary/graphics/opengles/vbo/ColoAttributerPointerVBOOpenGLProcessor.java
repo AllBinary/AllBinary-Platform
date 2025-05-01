@@ -21,20 +21,21 @@ import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGL
  *
  * @author User
  */
-public class TexturePointerVertexBufferAttributeObjectOpenGLProcessor extends ObjectThreedOpenGLProcessor {
+public class ColoAttributerPointerVBOOpenGLProcessor extends ObjectThreedOpenGLProcessor {
     
-    private static final TexturePointerVertexBufferAttributeObjectOpenGLProcessor instance = new TexturePointerVertexBufferAttributeObjectOpenGLProcessor();
+    private static final ColoAttributerPointerVBOOpenGLProcessor instance = new ColoAttributerPointerVBOOpenGLProcessor();
 
     /**
      * @return the instance
      */
-    public static TexturePointerVertexBufferAttributeObjectOpenGLProcessor getInstance() {
+    public static ColoAttributerPointerVBOOpenGLProcessor getInstance() {
         return instance;
     }
-    
-    public TexturePointerVertexBufferAttributeObjectOpenGLProcessor()
+
+    public ColoAttributerPointerVBOOpenGLProcessor()
     {
         //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
+        
     }
 
     public void process(final GL10 gl, final Object object)

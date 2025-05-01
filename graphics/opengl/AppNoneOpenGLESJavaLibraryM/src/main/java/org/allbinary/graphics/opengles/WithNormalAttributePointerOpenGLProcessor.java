@@ -14,31 +14,27 @@
 package org.allbinary.graphics.opengles;
 
 import javax.microedition.khronos.opengles.GL10;
-
 import org.allbinary.graphics.threed.min3d.renderer.processor.ObjectThreedOpenGLProcessor;
 
 /**
  *
  * @author User
  */
-public class VertexArrayDrawAttributeOpenGLProcessor extends ObjectThreedOpenGLProcessor {
+public class WithNormalAttributePointerOpenGLProcessor extends ObjectThreedOpenGLProcessor {
     
-    private static final VertexArrayDrawAttributeOpenGLProcessor instance = new VertexArrayDrawAttributeOpenGLProcessor();
+    private static final WithNormalAttributePointerOpenGLProcessor instance = new WithNormalAttributePointerOpenGLProcessor();
 
-    /**
-     * @return the instance
-     */
-    public static VertexArrayDrawAttributeOpenGLProcessor getInstance() {
+    public static WithNormalAttributePointerOpenGLProcessor getInstance()
+    {
         return instance;
     }
-    
-    public VertexArrayDrawAttributeOpenGLProcessor()
-    {
-        //PreLogUtil.put(commonStrings.START, this, commonStrings.CONSTRUCTOR);
 
+    public WithNormalAttributePointerOpenGLProcessor()
+    {
     }
 
-    public void process(final GL10 gl, final Object object)
+    @Override
+    public void process(final GL10 gl, final Object aObject3d)
     {
         throw new RuntimeException();
     }
