@@ -73,13 +73,23 @@ public class SimpleFileUtil {
         //LogUtil.put(LogFactory.getInstance("size: " + size, this, commonStrings.PROCESS));
         int index = 0;
         int startIndex;
+        int returnLine = 0;
         while(index < size) {
             //LogUtil.put(LogFactory.getInstance("index" + index, this, commonStrings.PROCESS));
             startIndex = index;
             while(byteArray[index] != '\n') {
                 index++;
             }
-            final String s = new String(byteArray, startIndex, (index + includeReturnLine - startIndex));
+            
+            if(includeReturnLine == 0) {
+                if (index > 0 && byteArray[index - 1] == '\r') {
+                    returnLine = 1;
+                } else {
+                    returnLine = 0;
+                }
+            }
+            
+            final String s = new String(byteArray, startIndex, (index + includeReturnLine - returnLine - startIndex));
             stringList.add(s);
             //stringMaker.append(s).append('\n');
             index++;
