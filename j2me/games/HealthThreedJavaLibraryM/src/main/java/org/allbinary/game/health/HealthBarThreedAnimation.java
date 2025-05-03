@@ -68,7 +68,7 @@ extends HealthBarAnimation
 
     private void updateSize()
     {
-    	Number3dBufferList number3dBufferList = rectangle.getVertices().getPointsNumber3dBufferList();
+    	Number3dBufferList number3dBufferList = rectangle.getVertices().getPointsOnFacesNumber3dBufferList();
 
         int width = x2;
         int height = this.thickness * 2;
