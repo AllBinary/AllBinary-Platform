@@ -109,8 +109,11 @@ public class OpenGLCapabilities
             
             final int GL_SHADING_LANGUAGE_VERSION = 0x8b8c;
             glShaderVersionString = gl.glGetString(GL_SHADING_LANGUAGE_VERSION);
+            if(glShaderVersionString == null) {
+                glShaderVersionString = stringUtil.EMPTY_STRING;
+            }
             try {
-                if(glShaderVersionString.indexOf('.') >= 0) {
+                if(glShaderVersionString != null && glShaderVersionString.indexOf('.') >= 0) {
                     shaderVersion = Integer.parseInt(glShaderVersionString.replace(CommonSeps.getInstance().PERIOD, StringUtil.getInstance().EMPTY_STRING));
                 }
             } catch(Exception e) {
