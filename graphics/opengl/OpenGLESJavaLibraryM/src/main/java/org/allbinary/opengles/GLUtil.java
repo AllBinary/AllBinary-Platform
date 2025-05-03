@@ -37,23 +37,7 @@ public class GLUtil
     }
 
     private final int BYTES_PER_FLOAT = 4;
-    
-    public org.allbinary.opengles.GL10 get(final javax.microedition.khronos.opengles.GL10 gl, final String glInstanceVersion)
-    {
-        final OpenGLCapabilities openGLCapabilities = OpenGLCapabilities.getInstance();
         
-        if (glInstanceVersion == openGLCapabilities.VERSION_1_1)
-        {
-            return new org.allbinary.opengles.GL11((javax.microedition.khronos.opengles.GL11) gl);
-        } else if (glInstanceVersion == openGLCapabilities.VERSION_1_0)
-        {
-            return new org.allbinary.opengles.GL10(gl);
-        } else
-        {
-            return new org.allbinary.opengles.GL11((javax.microedition.khronos.opengles.GL11) gl);
-        }
-    }
-    
     public FloatBuffer makeFloatBuffer3(float $a, float $b, float $c) {
         final ByteBuffer b = ByteBuffer.allocateDirect(3 * BYTES_PER_FLOAT);
         b.order(ByteOrder.nativeOrder());
