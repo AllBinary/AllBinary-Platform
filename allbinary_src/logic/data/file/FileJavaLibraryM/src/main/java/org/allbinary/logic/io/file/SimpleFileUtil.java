@@ -77,7 +77,7 @@ public class SimpleFileUtil {
         while(index < size) {
             //LogUtil.put(LogFactory.getInstance("index" + index, this, commonStrings.PROCESS));
             startIndex = index;
-            while(byteArray[index] != '\n') {
+            while(index < size - 1 && byteArray[index] != '\n') {
                 index++;
             }
             

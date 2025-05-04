@@ -93,6 +93,12 @@
             <!-- AllBinary Platform Version End -->
 
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.allbinary</groupId>
+                    <artifactId>OpenGLNoneJavaLibrary</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>

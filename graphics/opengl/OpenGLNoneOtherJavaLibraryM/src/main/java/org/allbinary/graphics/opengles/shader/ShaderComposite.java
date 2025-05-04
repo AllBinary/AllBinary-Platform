@@ -28,9 +28,7 @@ public class ShaderComposite {
     
     public final String requiresOpenGLVersion;
     
-    public final String[] shaderStringArray = new String[2];
-    
-    public final int[] shaderHandleArray;
+    public final Shader[] shaderArray;
     
     public final ShaderInitializer shaderInitializer;
     public final CompositeShaderUpdater compositeShaderUpdater;
@@ -42,9 +40,11 @@ public class ShaderComposite {
     public OpenGLProcessor useProgramShaderOpenGLProcessor = null;
     public OpenGLProcessor shaderMatrixOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor colorEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor normalEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor vertexEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor textureEnableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor colorDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
+    public OpenGLProcessor normalDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor vertexDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     public OpenGLProcessor textureDisableVertexAttribArrayOpenGLProcessor = NullOpenGLProcessorFactory.getInstance();
     
@@ -52,12 +52,12 @@ public class ShaderComposite {
 
     public int programHandle;    
 
-    public ShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
+    public ShaderComposite(final String requiresOpenGLVersion, final Shader[] shaderArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor, 
         final OpenGLProcessor disableProgramShaderOpenGLProcessor) {
 
         this.requiresOpenGLVersion = requiresOpenGLVersion;
-        this.shaderHandleArray = shaderHandleArray;
+        this.shaderArray = shaderArray;
         this.shaderInitializer = shaderInitializer;
         this.compositeShaderUpdater = compositeShaderUpdater;
         this.modelViewProjection = modelViewProjection;
@@ -69,7 +69,7 @@ public class ShaderComposite {
     }
     
     public void init(GL10 gl) {
-        this.programHandle = this.shaderInitializer.init(gl, this.shaderStringArray, this.shaderHandleArray, null);
+        this.programHandle = this.shaderInitializer.init(gl, this.shaderArray, null);
     }
 
 }

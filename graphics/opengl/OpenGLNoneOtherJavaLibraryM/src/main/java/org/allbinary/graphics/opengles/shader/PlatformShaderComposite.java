@@ -21,10 +21,10 @@ import org.allbinary.graphics.opengles.OpenGLProcessor;
  */
 public class PlatformShaderComposite extends ShaderComposite {
 
-    public PlatformShaderComposite(final String requiresOpenGLVersion, final int[] shaderHandleArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
+    public PlatformShaderComposite(final String requiresOpenGLVersion, final Shader[] shaderArray, final CompositeShaderUpdater compositeShaderUpdater, final ShaderInitializer shaderInitializer,
         final ModelViewProjection modelViewProjection, final OpenGLProcessor colorOpenGLProcessor, final OpenGLProcessor vertexOpenGLProcessor) {
 
-        super(requiresOpenGLVersion, shaderHandleArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor,
+        super(requiresOpenGLVersion, shaderArray, compositeShaderUpdater, shaderInitializer, modelViewProjection, colorOpenGLProcessor, vertexOpenGLProcessor,
             null
             //ShaderMatrixOpenGLProcessor.getInstance(),
         );

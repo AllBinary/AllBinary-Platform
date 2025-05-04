@@ -14,27 +14,23 @@
 package org.allbinary.graphics.opengles.shader;
 
 import javax.microedition.khronos.opengles.GL10;
-import org.allbinary.string.CommonStrings;
 
 /**
  *
  * @author User
  */
-public class ShaderInitializer {
+public class UniformShaderOpenGLProcessor extends OpenGLTextureProcessor {
 
-    protected static final ShaderInitializer instance = new ShaderInitializer();
+    private final ShaderComposite shaderComposite;
     
-    /**
-     * @return the instance
-     */
-    public static ShaderInitializer getInstance() {
-        return instance;
+    public UniformShaderOpenGLProcessor(final ShaderComposite shaderComposite) {
+        this.shaderComposite = shaderComposite;
     }
-    
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
-    
-    public int init(final GL10 gl, final Shader[] shader, final String[] attributeArray) {
-        return -1;
+
+    public void process(final GL10 gl, final Object unused, final int index)
+    {
+        //GL11 gl11 = (GL11) gl;
+
     }
 
 }

@@ -109,6 +109,9 @@ public class OpenGLCapabilities
             
             final int GL_SHADING_LANGUAGE_VERSION = 0x8b8c;
             glShaderVersionString = gl.glGetString(GL_SHADING_LANGUAGE_VERSION);
+            //GL_NV_gpu_program4: SM 4.0 or better.
+            //GL_NV_vertex_program3: SM 3.0 or better.
+            //GL_ARB_fragment_program: SM 2.0 or better.            
             if(glShaderVersionString == null) {
                 glShaderVersionString = stringUtil.EMPTY_STRING;
             }

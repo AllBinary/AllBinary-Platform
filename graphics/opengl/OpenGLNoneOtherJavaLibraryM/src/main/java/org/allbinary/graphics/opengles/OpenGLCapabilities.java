@@ -24,6 +24,14 @@ public class OpenGLCapabilities
         return instance;
     }
 
+    public final String VERSION_1_0 = "1.0";
+    public final String VERSION_1_1 = "1.1";
+    public final String VERSION_2_0 = "2.0";
+    public final String VERSION_3_0 = "3.0";
+    public final String VERSION_3_1 = "3.1";
+    public final String VERSION_3_2 = "3.2";
+    public final String VERSION_HIGHER_THAN_EXISTS = "999.999";
+    
     private String glVersion = StringUtil.getInstance().EMPTY_STRING;
     public int shaderVersion = 0;
     public String glInstanceVersion = StringUtil.getInstance().EMPTY_STRING;
