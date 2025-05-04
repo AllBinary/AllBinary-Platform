@@ -1548,7 +1548,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     public void shouldWait() throws Exception {
         final Features features = Features.getInstance();
         if(AndroidUtil.isAndroid()) {
-        } if(features.isFeature(openGLFeatureFactory.OPENGL_2D)) {
+        } else if(features.isFeature(openGLFeatureFactory.OPENGL_2D)) {
         } else {
             if (features.isDefault(openGLFeatureFactory.OPENGL)) {
                 final OpenGLImageSpecificFactory openGLImageSpecificFactory = OpenGLImageSpecificFactory.getInstance();
