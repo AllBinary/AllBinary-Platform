@@ -18,7 +18,10 @@ import java.util.Hashtable;
 import javax.microedition.lcdui.Image;
 
 import org.allbinary.image.GameFeatureImageCacheFactory;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 import org.allbinary.util.HashtableUtil;
 import org.microemu.device.playn.PlaynImage;
@@ -31,11 +34,17 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     
     //private final String WAIT = "Waiting to load image";
 
-    //private final String METHOD_NAME = "waitForLoad";
+    private final String METHOD_NAME = "waitForLoad";
 
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(18000);
     private final TimeDelayHelper allTimeDelayHelper = new TimeDelayHelper(120000);
     
+    public ImageWaitCompleteUtil() {
+        //final CommonStrings commonStrings = CommonStrings.getInstance();
+        //LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, commonStrings.CONSTRUCTOR));
+    }
+    
+    @Override
     public void waitFor(final Image image, final String name)
             throws Exception
     {
@@ -54,13 +63,14 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     {
         final PlaynImage playnImage = (PlaynImage) image;
         final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
-        while(!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() == 0)
+        //if(playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
+        while(!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() <= 0)
         {   
             /*
             try
             {
+                PreLogUtil.put("Waiting for Image Ready: " + image.toString(), this, METHOD_NAME);
                 Thread.sleep(120);
-                PreLogUtil.put(image.toString(), this, METHOD_NAME);
             }
             catch(Exception e)
             {
@@ -74,6 +84,11 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
                 throw new Exception("waitFor: Timeout Waiting or GameHtmlHasLoadedResourcesProcessor does not have this Image: " + name);
             }
         }
+        
+        if(!image.isReady()) {
+            image.init(image.getImage());
+        }
+        
     }
 
     public void waitForAll()
@@ -86,7 +101,7 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
         final Object[] objectArray = HashtableUtil.getInstance().getKeysAsArray(hashtable);
         final int size = objectArray.length;
         
-        PreLogUtil.put("Total: " + size, this, "waitForAll");
+        PreLogUtil.put("Image Total: " + size, this, "waitForAll");
         
         for (int index = 0; index < size; index++)
         {

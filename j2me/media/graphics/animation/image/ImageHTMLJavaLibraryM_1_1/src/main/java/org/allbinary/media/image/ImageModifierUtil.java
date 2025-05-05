@@ -21,8 +21,9 @@ import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 import org.microemu.device.playn.PlaynImage;
-import org.microemu.device.playn.ResourceCallbackStrings;
+import org.microemu.device.ResourceCallbackStrings;
 
 import playn.core.Canvas;
 import playn.core.CanvasImage;
@@ -135,7 +136,7 @@ public class ImageModifierUtil {
         
         if (image3 != null) {
 
-            if (image3.isReady()) {
+            if (image3.isReady() || image.getName() == resourceCallbackStrings.FROM_DATA) {
                 copy(imageArray, index, image, image3);
             } else {
 
@@ -148,7 +149,7 @@ public class ImageModifierUtil {
 
                     @Override
                     public void error(Throwable e) {
-                        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL + resourceCallbackStrings.ERROR, this, resourceCallbackStrings.HANDLE_IMAGE));
+                        LogUtil.put(LogFactory.getInstance(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resourceCallbackStrings.ERROR).append(image.getName()).toString(), this, resourceCallbackStrings.HANDLE_IMAGE));
                     }
                 };
                 

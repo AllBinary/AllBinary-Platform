@@ -10,7 +10,7 @@
 * 
 * Created By: Travis Berthelot
 * 
-*/
+ */
 package org.allbinary.media.image;
 
 import javax.microedition.lcdui.Image;
@@ -20,69 +20,72 @@ import org.allbinary.string.CommonStrings;
 import org.allbinary.time.TimeDelayHelper;
 import org.microemu.device.playn.PlaynImage;
 
-public class ImageCompleteUtil
-{
-    private static final ImageCompleteUtil instance = 
+public class ImageCompleteUtil {
+
+    private static final ImageCompleteUtil instance =
         new ImageLazyCompleteUtil();
         //new ImageWaitCompleteUtil();
 
     /**
      * @return the instance
      */
-    public static ImageCompleteUtil getInstance()
-    {
+    public static ImageCompleteUtil getInstance() {
         return instance;
     }
-
-   public void waitFor(Image image, String name)
-            throws Exception
-    {
+    
+    public void waitFor(Image image, String name)
+        throws Exception {
     }
-
+    
 //    public boolean isReady(Image image, String name, TimeDelayHelper timeDelayHelper)
 //            throws Exception
 //    {
 //        return true;
 //    }
-
+    //private final String ISREADY = "isReady";
+    private final String COMPLETE = "Image loading complete for: ";
     public boolean isReady(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
-            throws Exception
-    {
+        throws Exception {
         final PlaynImage playnImage = (PlaynImage) image;
         final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
-        if(!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() == 0)
-        {   
+        //if(playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
+        if (!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() <= 0)
+        {
             /*
             try
             {
+                PreLogUtil.put("Waiting for Image: " + image.getName(), this, ISREADY);
                 Thread.sleep(120);
-                PreLogUtil.put(image.toString(), this, METHOD_NAME);
             }
             catch(Exception e)
             {
                 final CommonStrings commonStrings = CommonStrings.getInstance();
                 PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e);
             }
-            */
+             */
 
             this.handleTimeout(name);
             return false;
         }
-        PreLogUtil.put("Image loading complete for: " + name, this, CommonStrings.getInstance().SUCCESS);
+        
+        if(!image.isReady()) {
+            image.init(image.getImage());
+        }
+        
+        PreLogUtil.put(COMPLETE + image.getName(), this, CommonStrings.getInstance().SUCCESS);
         return true;
     }
 
     public void handleTimeout(final String name) throws Exception {
-    
-    }    
+
+    }
 
     public void waitForAll()
-            throws Exception
-    {
+        throws Exception {
     }
 
     public boolean isLazy() {
         return false;
     }
-    
+
 }
