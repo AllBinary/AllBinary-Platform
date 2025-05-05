@@ -11,12 +11,12 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.allbinary.graphics.displayable;
+package org.allbinary.game.displayable;
 
 import javax.microedition.lcdui.Canvas;
-import org.allbinary.game.configuration.feature.Features;
 
-import org.allbinary.game.displayable.RepaintBehavior;
+import org.allbinary.game.configuration.feature.Features;
+import org.allbinary.graphics.displayable.DisplayInfoSingleton;
 import org.allbinary.graphics.opengles.OpenGLFeatureFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
