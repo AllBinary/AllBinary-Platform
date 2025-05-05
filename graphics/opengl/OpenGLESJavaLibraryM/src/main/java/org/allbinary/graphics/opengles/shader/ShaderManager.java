@@ -25,17 +25,19 @@ import org.allbinary.string.CommonStrings;
 public class ShaderManager {
  
     private static final ShaderManager instance = new ShaderManager(-1, -1);
-
+    
     /**
      * @return the instance
      */
     public static ShaderManager getInstance() {
         return instance;
     }
+        
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     protected final String LOAD_SHADER = "loadShader";
     
-    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final String __VERSION__ = "__VERSION__";
     
     public final int GL_VERTEX_SHADER;
     public final int GL_FRAGMENT_SHADER;
