@@ -117,6 +117,12 @@ public class OpenGLCapabilities
             }
             try {
                 if(glShaderVersionString != null && glShaderVersionString.indexOf('.') >= 0) {
+
+                    final int startIndex = glShaderVersionString.lastIndexOf(' ');
+                    if (startIndex >= 0) {
+                        glShaderVersionString = glShaderVersionString.substring(startIndex + 1);
+                    }
+
                     shaderVersion = Integer.parseInt(glShaderVersionString.replace(CommonSeps.getInstance().PERIOD, StringUtil.getInstance().EMPTY_STRING));
                 }
             } catch(Exception e) {
