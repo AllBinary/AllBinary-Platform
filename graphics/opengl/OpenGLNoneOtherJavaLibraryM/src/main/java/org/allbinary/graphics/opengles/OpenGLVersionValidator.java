@@ -13,6 +13,8 @@
  */
 package org.allbinary.graphics.opengles;
 
+import org.allbinary.graphics.opengles.shader.ShaderComposite;
+
 /**
  *
  * @author User
@@ -32,4 +34,8 @@ public class OpenGLVersionValidator {
         return false;
     }
     
+    public void setShaderComposite(final ShaderComposite shaderComposite, final Object object) {
+    }
+    
+    public int EGL_CONTEXT_CLIENT_VERSION_VALUE = -1;
 }
