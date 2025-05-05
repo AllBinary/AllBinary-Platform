@@ -124,7 +124,9 @@ public class ImageCacheBase
     throws Exception
     {
         final Image image = Image.createImage(inputStream);
-        //image.setName((String) key);
+        //image.setName((String) key + image.getName());
+        //LogUtil.put(LogFactory.getInstance(image.getName(), this, "createImage"));
+        //image.init(image.getImage());
         return image;
     }
     
