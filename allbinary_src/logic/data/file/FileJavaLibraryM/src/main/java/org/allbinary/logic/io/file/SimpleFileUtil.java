@@ -15,13 +15,13 @@ package org.allbinary.logic.io.file;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -41,13 +41,13 @@ public class SimpleFileUtil {
     private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final StreamUtil streamUtil = StreamUtil.getInstance();
     
-    public List<String> loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1) {
+    public BasicArrayList loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1) {
         return this.loadFileAsList(inputStream, max, byteArray1, 0);
     }
     
-    public List<String> loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1, final int includeReturnLine) {
+    public BasicArrayList loadFileAsList(final InputStream inputStream, final int max, final byte[] byteArray1, final int includeReturnLine) {
 
-        final ArrayList stringList = new ArrayList();
+        final BasicArrayList stringList = new BasicArrayList();
         
         if(inputStream == null) {
             return stringList;

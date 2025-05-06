@@ -13,7 +13,7 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
-import java.util.List;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -22,7 +22,7 @@ import java.util.List;
 public class Shader {
  
     public String shaderName;
-    public List<String> shaderStringList;
+    public BasicArrayList shaderStringList;
     public String shaderAsString;
     public int shaderHandle;
     

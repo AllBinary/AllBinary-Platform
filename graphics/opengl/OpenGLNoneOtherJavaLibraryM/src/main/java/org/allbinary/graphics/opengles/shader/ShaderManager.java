@@ -13,10 +13,10 @@
  */
 package org.allbinary.graphics.opengles.shader;
 
-import java.util.List;
 import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.string.CommonStrings;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -49,7 +49,7 @@ public class ShaderManager {
         return -1;
     }
     
-    public int loadShader(final GL10 gl, final String resource, final List<String> stringList, final int shaderType) {
+    public int loadShader(final GL10 gl, final String resource, final BasicArrayList stringList, final int shaderType) {
         return -1;
     }
 
