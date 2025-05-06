@@ -61,7 +61,7 @@ features include the following:
 - Fullscreen and Windowed Support (Does not require restart to toggle between)
 - Scene editor support for GDevelop - https://github.com/AllBinary/AllBinary-Platform-Game-With-GDevelop
 - Real Time Strategy (Building, Waypoints, Geographic Resources, and More)
-- OpenGL Support (1.5 and ES 1.0+) with various 2d, 2d/3d, and 3d renderers
+- OpenGL Support (3.0, 2.0, 1.5 and 1.0+) with various 2d, 2d/3d, and 3d renderers along with GLSL support for Android and JOGL
 - Game Object Placement (Maps, Levels, Enemy Positions and More)
 - Genre Specific Libraries (Racing, Scroller, Map Based, and More)
 - Network Libraries (Licensing, Remote Scores, and More)
@@ -208,7 +208,7 @@ Better integration with GDevelop - https://github.com/AllBinary/AllBinary-Platfo
 
 3D/OpenGLES mappings for WebGL to deploy 3d games in browsers.
 
-Multiplayer for platforms other than J2ME, Android, and J2SE.
+Multiplayer for platforms other than J2ME, Android, Avian, and J2SE.
 
 Social API integration and improvements
 
