@@ -136,7 +136,7 @@ public class ImageModifierUtil {
         
         if (image3 != null) {
 
-            if (image3.isReady() || image.getName() == resourceCallbackStrings.FROM_DATA) {
+            if (image3.isReady() || image3.width() + image3.height() <= 0 || image.getName() == resourceCallbackStrings.FROM_DATA) {
                 copy(imageArray, index, image, image3);
             } else {
 

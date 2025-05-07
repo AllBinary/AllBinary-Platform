@@ -63,8 +63,9 @@ public class ImageWaitCompleteUtil extends ImageCompleteUtil {
     {
         final PlaynImage playnImage = (PlaynImage) image;
         final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
-        //if(playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
-        while(!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() <= 0)
+        
+        //if(!playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
+        while(!playnCoreImage.isReady() || playnCoreImage.width() + playnCoreImage.height() <= 0)
         {   
             /*
             try

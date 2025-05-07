@@ -33,6 +33,8 @@ public class ImageCompleteUtil {
         return instance;
     }
     
+    protected final String ISREADY = "isReady";
+    
     public void waitFor(Image image, String name)
         throws Exception {
     }
@@ -42,14 +44,14 @@ public class ImageCompleteUtil {
 //    {
 //        return true;
 //    }
-    //private final String ISREADY = "isReady";
     private final String COMPLETE = "Image loading complete for: ";
     public boolean isReady(final Image image, final String name, final TimeDelayHelper timeDelayHelper)
         throws Exception {
         final PlaynImage playnImage = (PlaynImage) image;
         final playn.core.Image playnCoreImage = (playn.core.Image) playnImage.getImage();
-        //if(playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
-        if (!playnCoreImage.isReady() && playnCoreImage.width() + playnCoreImage.height() <= 0)
+        
+        //if(!playnCoreImage.isReady()) PreLogUtil.put("core Image Ready: " + image.getName() + " " + playnCoreImage.width() + playnCoreImage.height(), this, ISREADY);
+        if (!playnCoreImage.isReady() || playnCoreImage.width() + playnCoreImage.height() <= 0)
         {
             /*
             try
@@ -70,6 +72,9 @@ public class ImageCompleteUtil {
         
         if(!image.isReady()) {
             image.init(image.getImage());
+            if(!image.isReady()) {
+                PreLogUtil.put("Waiting for Not Ready Image: " + image.getName(), this, ISREADY);
+            }
         }
         
         PreLogUtil.put(COMPLETE + image.getName(), this, CommonStrings.getInstance().SUCCESS);
