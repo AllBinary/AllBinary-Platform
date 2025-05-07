@@ -52,8 +52,7 @@ public class AnimationFactorySpriteScaleUtil {
 //       final CommonStrings commonStrings = CommonStrings.getInstance();
 //       final CommonLabels commonLabels = CommonLabels.getInstance();
 //       final StringMaker stringMaker = new StringMaker();
-//       .append(image.getName())
-//       LogUtil.put(LogFactory.getInstance(stringMaker.append("width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
+//       LogUtil.put(LogFactory.getInstance(stringMaker.append(image.getName()).append(" width: ").append(width).append(" height: ").append(height).append("scaleWidth: ").append(scaleWidth).append(" scaleHeight: ").append(scaleHeight).toString(), this, commonStrings.PROCESS));
 
       final SpriteFactory spriteFactory = SpriteFactory.getInstance();
 
