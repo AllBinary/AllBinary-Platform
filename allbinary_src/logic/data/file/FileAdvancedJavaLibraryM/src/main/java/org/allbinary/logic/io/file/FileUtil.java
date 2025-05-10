@@ -924,7 +924,7 @@ public class FileUtil
         }        
     }
 
-    public List<String> loadFileAsList(final AbFile file, final int max, final byte[] byteArray1) {
+    public BasicArrayList loadFileAsList(final AbFile file, final int max, final byte[] byteArray1) {
         return FileUtil2.getInstance().loadFileAsList(file, max, byteArray1);
     }
     

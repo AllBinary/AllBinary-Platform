@@ -13,15 +13,13 @@
  */
 package org.allbinary.logic.io.file;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.allbinary.logic.io.AbFileInputStream;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.util.BasicArrayList;
 
 /**
  *
@@ -46,7 +44,7 @@ public class FileUtil2 {
     {
     }
 
-    public List<String> loadFileAsList(final AbFile file, final int max, final byte[] byteArray1) {
+    public BasicArrayList loadFileAsList(final AbFile file, final int max, final byte[] byteArray1) {
         
         AbFileInputStream inputStream = null;
         try {
