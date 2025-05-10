@@ -15,6 +15,7 @@ package org.allbinary.emulator.device;
 
 import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.image.opengles.OpenGLESImage;
 
 public class TrueTypeFontUtil {
 
@@ -41,6 +42,8 @@ public class TrueTypeFontUtil {
     public final int actualCellsPerRow = textureSize / cellSize;
     //public final int extraCellsPerRow = actualCellsPerRow - CELLS_PER_ROW;
 
+    public OpenGLESImage fontImage;
+    
     private TrueTypeFontUtil() {
     }
 
