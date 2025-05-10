@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.microemu.app;
+package org.allbinary.emulator.swt;
 
 import org.allbinary.string.CommonStrings;
 import org.eclipse.swt.widgets.Display;

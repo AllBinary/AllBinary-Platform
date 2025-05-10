@@ -11,8 +11,9 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.microemu.app;
+package org.allbinary.emulator.swt;
 
+import org.allbinary.thread.NullRunnable;
 import org.eclipse.swt.widgets.Display;
 
 /**
@@ -30,9 +31,14 @@ public class SWTProcessor {
         return instance;
     }
     
-    public Runnable runnable = null;
+    protected SWTProcessor() {
+        //System.out.println("SWTProcessor" + this.hashCode());
+    }
+    
+    public Runnable runnable = NullRunnable.getInstance();
     
     public void process(final Display display) {
+        //System.out.println("SWTProcessor:process" + this.hashCode());
         display.sleep();
     }
     

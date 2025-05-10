@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.microemu.app;
+package org.allbinary.emulator.swt;
 
 /**
  *
@@ -29,5 +29,5 @@ public class SWTProcessorUtil {
     }
     
     public SWTProcessor swtProcessor = SWTProcessor.getInstance();
- 
+
 }

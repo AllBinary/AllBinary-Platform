@@ -11,27 +11,23 @@
  * Created By: Travis Berthelot
  * 
  */
-package org.microemu.app;
-
-import org.eclipse.swt.widgets.Display;
+package org.allbinary.emulator.swt;
 
 /**
  *
  * @author User
  */
-public class SWTRunnableProcessor extends SWTProcessor {
+public class SWTProcessorUtil {
     
-    private static final SWTRunnableProcessor instance = new SWTRunnableProcessor();
+    private static final SWTProcessorUtil instance = new SWTProcessorUtil();
 
     /**
      * @return the instance
      */
-    public static SWTRunnableProcessor getInstance() {
+    public static SWTProcessorUtil getInstance() {
         return instance;
     }
     
-    public void process(final Display display) {
-        //this.runnable.run();
-    }
-    
+    public SWTProcessor swtProcessor = SWTProcessor.getInstance();
+ 
 }

@@ -11,7 +11,7 @@
  * Created By: Travis Berthelot
  *
  */
-package org.microemu.device;
+package org.allbinary.emulator.device;
 
 import javax.microedition.lcdui.Image;
 
