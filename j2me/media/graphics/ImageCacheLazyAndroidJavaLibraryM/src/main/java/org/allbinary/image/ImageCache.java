@@ -89,7 +89,7 @@ public class ImageCache extends ImageCacheBase
             {
                 LogUtil.put(LogFactory.getInstance("Exception: Trying Again After GC", this, CommonStrings.getInstance().GET, e));
                 
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(inputStream).toString(), this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(inputStream.toString()).toString(), this, CommonStrings.getInstance().GET));
                 System.gc();
                 System.gc();
                 LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
@@ -114,4 +114,10 @@ public class ImageCache extends ImageCacheBase
         return Image.createImageLater((String) key, -1, -1);
     }
 
+    public boolean isLazy() {
+        //This impl is not used
+        throw new RuntimeException();
+        //return true;
+    }
+    
 }

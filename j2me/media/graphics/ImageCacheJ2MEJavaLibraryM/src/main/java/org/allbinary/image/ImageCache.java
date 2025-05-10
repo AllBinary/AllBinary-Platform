@@ -132,4 +132,8 @@ public class ImageCache extends ImageCacheBase
     
     }    
 
+    public boolean isLazy() {
+        return false;
+    }
+    
 }

@@ -23,7 +23,7 @@ import org.microemu.device.playn.PlaynImage;
 public class ImageCompleteUtil {
 
     private static final ImageCompleteUtil instance =
-        new ImageLazyCompleteUtil();
+        new ImageCompleteUtil();
         //new ImageWaitCompleteUtil();
 
     /**
@@ -87,10 +87,6 @@ public class ImageCompleteUtil {
 
     public void waitForAll()
         throws Exception {
-    }
-
-    public boolean isLazy() {
-        return false;
     }
 
 }

@@ -118,5 +118,9 @@ public class ImageCache extends ImageCacheBase
     public void runTask() {
         
     }
+
+    public boolean isLazy() {
+        return false;
+    }
     
 }
