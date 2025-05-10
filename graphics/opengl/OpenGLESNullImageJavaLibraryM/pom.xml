@@ -71,6 +71,15 @@
 
         <dependency>
             <groupId>org.allbinary</groupId>
+            <artifactId>ImageCacheJ2MEJavaLibrary</artifactId>
+            <!-- AllBinary Platform Version Start -->
+            <version>1.0.0-SNAPSHOT</version>
+            <!-- AllBinary Platform Version End -->
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.allbinary</groupId>
             <artifactId>OpenGLESBaseJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -90,22 +99,6 @@
             <version>2.0.4</version>
             <optional>true</optional>
         </dependency>
-
-<!--
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android</artifactId>
-            <version>1.5_r3</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.google.android</groupId>
-            <artifactId>android</artifactId>
-            <version>1.5_r3</version>
-            <scope>provided</scope>
-            <classifier>sources</classifier>
-        </dependency>
--->
 
     </dependencies>
 
