@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <name>ImageToolJavaApplication</name>
-    <groupId>org.allbinary.game.multiplayer</groupId>
+    <groupId>org.allbinary.graphics</groupId>
     <artifactId>ImageToolJavaApplication</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->

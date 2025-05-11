@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.allbinary</groupId>
+    <groupId>org.allbinary.automation.input</groupId>
     <artifactId>InputAutomationJavaApplication</artifactId>
     <packaging>jar</packaging>
     <!-- AllBinary Platform Version Start -->
@@ -37,7 +37,7 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>LoggingJ2MEAll</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -95,7 +95,7 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>BasePreloaderJ2MEJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -103,7 +103,7 @@
         </dependency>
         
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>BaseHardwareJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
@@ -111,7 +111,7 @@
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.allbinary</groupId>
             <artifactId>BaseOperatingSystemJavaLibrary</artifactId>
             <!-- AllBinary Platform Version Start -->
             <version>1.0.0-SNAPSHOT</version>
