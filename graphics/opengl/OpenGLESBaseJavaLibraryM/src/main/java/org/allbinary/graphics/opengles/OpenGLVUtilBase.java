@@ -29,11 +29,7 @@ public class OpenGLVUtilBase {
         
     }
     
-    public void glGenerateMipmapOld(final GL10 gl, final int target, final boolean generateMipMap) {
-        
-    }
-
-    public void glGenerateMipmap(final GL10 gl, final int target) {
+    public void glGenerateMipmap(final GL10 gl, final int target, final boolean generateMipMap) {
         
     }
     
