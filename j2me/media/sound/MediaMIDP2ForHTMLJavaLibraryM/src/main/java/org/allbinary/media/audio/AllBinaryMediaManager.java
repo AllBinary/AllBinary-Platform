@@ -16,16 +16,18 @@ package org.allbinary.media.audio;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
+import javax.microedition.media.MediaException;
 import javax.microedition.media.Manager;
 import javax.microedition.media.Player;
 
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
-import javax.microedition.media.MediaException;
+import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManager
 {
+    private static final String THIS = "AllBinaryMediaManagerHTML5";
 
     private AllBinaryMediaManager()
     {
@@ -54,7 +56,8 @@ public class AllBinaryMediaManager
     public static void init(SoundsFactoryInterface soundsFactoryInterface)
             throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", "AllBinaryMediaManager None", "init"));
+        final CommonStrings commonString = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();

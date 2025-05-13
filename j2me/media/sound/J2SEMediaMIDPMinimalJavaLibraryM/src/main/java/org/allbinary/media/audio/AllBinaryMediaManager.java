@@ -28,9 +28,12 @@ import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManager {
 
+    private static final String THIS = "AllBinaryMediaManagerPC";
+    
     private AllBinaryMediaManager() {
     }
 
@@ -45,7 +48,7 @@ public class AllBinaryMediaManager {
     /**
      * @param aMuted the muted to set
      */
-    public static void setMuted(boolean aMuted)
+    public static void setMuted(final boolean aMuted)
     {
 
     }
@@ -55,16 +58,17 @@ public class AllBinaryMediaManager {
         return true;
     }
 
-    public static void init(SoundsFactoryInterface soundsFactoryInterface)
+    public static void init(final SoundsFactoryInterface soundsFactoryInterface)
             throws Exception {
 
-        LogUtil.put(LogFactory.getInstance("Start", "AllBinaryMediaManager PC", "init"));
+        final CommonStrings commonString = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();
     }
 
-    public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
+    public static void shutdown(final SoundsFactoryInterface soundsFactoryInterface)
             throws Exception {
         
         new Sounds(soundsFactoryInterface).stopAll();
@@ -74,7 +78,9 @@ public class AllBinaryMediaManager {
         System.gc();
     }
     
-    public static Player createPlayer(String resource) throws Exception {
+    private static final String CREATE_PLAYER = "createPlayer";
+    
+    public static Player createPlayer(final String resource) throws Exception {
         if (resource.startsWith(Manager.TONE_DEVICE_LOCATOR)) {
             return createPlayer(null, AudioContentTypeDataFactory.getInstance().MIME_AUDIO_TONE.getName());
         } else
@@ -82,18 +88,20 @@ public class AllBinaryMediaManager {
         {
             try
             {
-                InputStream inputStream =
+                LogUtil.put(LogFactory.getInstance(resource, THIS, CREATE_PLAYER));
+                
+                final InputStream inputStream =
                     ResourceUtil.getInstance().getResourceAsStream(resource);
 
-                BufferedInputStream bufferedInputStream =
+                final BufferedInputStream bufferedInputStream =
                     new BufferedInputStream(inputStream);
 
                 return new PCClipWavPlayer(bufferedInputStream);
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(
-                    "Exception", "AllBinaryMediaManager", "createPlayer", e));
+                final CommonStrings commonString = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonString.EXCEPTION, THIS, CREATE_PLAYER, e));
                 return new NoPlayer();
             }
         }
@@ -103,13 +111,13 @@ public class AllBinaryMediaManager {
         }
     }
 
-    public static Player createPlayer(InputStream stream, String type)
+    public static Player createPlayer(final InputStream stream, final String type)
             throws IOException, MediaException {
        
        throw new MediaException("No Impl");
     }
 
-    public synchronized static void playTone(int frequency, int time, int volume)
+    public synchronized static void playTone(final int frequency, final int time, final int volume)
             throws MediaException {
        throw new MediaException("No Impl");
     }

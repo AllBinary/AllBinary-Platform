@@ -29,6 +29,8 @@ import org.allbinary.string.CommonLabels;
 
 public class AllBinaryMediaManager
 {
+    private static final String THIS = "AllBinaryMediaManagerAndroid";
+    
     private static int mostUsedTotal = 0;
 
     private AllBinaryMediaManager()
@@ -56,10 +58,11 @@ public class AllBinaryMediaManager
         return true;
     }
 
-    public static void init(SoundsFactoryInterface soundsFactoryInterface)
+    public static void init(final SoundsFactoryInterface soundsFactoryInterface)
             throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, "AllBinaryMediaManager", CommonStrings.getInstance().INIT));
+        final CommonStrings commonString = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
 
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
 
@@ -69,13 +72,14 @@ public class AllBinaryMediaManager
 
         new Sounds(soundsFactoryInterface).init();
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, "AllBinaryMediaManager", CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(commonString.END, THIS, commonString.INIT));
     }
 
-    static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
+    static void shutdown(final SoundsFactoryInterface soundsFactoryInterface)
             throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, "AllBinaryMediaManager", "shutdown"));
+        final CommonStrings commonString = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, "shutdown"));
 
         if (soundsFactoryInterface.isInitialized())
         {
@@ -83,22 +87,24 @@ public class AllBinaryMediaManager
 
             Sound[] soundInterfaceArray = soundsFactoryInterface.getSoundInterfaceArray();
 
+            Player player;
+            Player player2;
+            AndroidMediaPlayerWrapper androidMediaPlayerWrapper;
             for (int i = 0; i < soundInterfaceArray.length; i++)
             {
                 if (soundInterfaceArray[i] != null)
                 {
-                    Player player = soundInterfaceArray[i].getPlayer();
+                    player = soundInterfaceArray[i].getPlayer();
 
                     if (player != null)
                     {
                         //if (player instanceof PlayerComposite)
                         //{
-                            Player player2 = ((PlayerComposite) player).getPlayer();
+                            player2 = ((PlayerComposite) player).getPlayer();
 
                             if (player2 instanceof AndroidMediaPlayerWrapper)
                             {
-                                AndroidMediaPlayerWrapper androidMediaPlayerWrapper = 
-                                    (AndroidMediaPlayerWrapper) player2;
+                                androidMediaPlayerWrapper = (AndroidMediaPlayerWrapper) player2;
 
                                 MediaPlayerUtil.wait(androidMediaPlayerWrapper.getMediaPlayer());
                             }
@@ -122,7 +128,7 @@ public class AllBinaryMediaManager
             soundsFactoryInterface.setInitialized(false);
             mostUsedTotal = 0;
         }
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, "AllBinaryMediaManager", "shutdown"));
+        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, "shutdown"));
     }
 
     public static Player createPlayer(String resource) throws Exception
@@ -139,7 +145,7 @@ public class AllBinaryMediaManager
                 LogUtil.put(LogFactory.getInstance(
                         "Could not create AndroidMediaPlayerWrapper using NoPlayer at " + 
                         CommonLabels.getInstance().TOTAL_LABEL
-                                + mostUsedTotal, "AllBinaryMediaManager",
+                                + mostUsedTotal, THIS,
                         "createPlayer", e));
                 return new NoPlayer();
             }

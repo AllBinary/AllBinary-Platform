@@ -26,11 +26,14 @@ import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GameFeatureFactory;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvasFactory;
+import org.allbinary.string.CommonStrings;
 
 
 public class AllBinaryMediaManager
 {
 
+    private static final String THIS = "AllBinaryMediaManagerNoMIPD2";
+    
     private AllBinaryMediaManager()
     {
     }
@@ -59,7 +62,8 @@ public class AllBinaryMediaManager
     public static void init(SoundsFactoryInterface soundsFactoryInterface)
             throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", "AllBinaryMediaManager None", "init"));
+        final CommonStrings commonString = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonString.START, THIS, commonString.INIT));
         ProgressCanvasFactory.getInstance().addPortion(50, "Media Manager");
 
         new Sounds(soundsFactoryInterface).init();
