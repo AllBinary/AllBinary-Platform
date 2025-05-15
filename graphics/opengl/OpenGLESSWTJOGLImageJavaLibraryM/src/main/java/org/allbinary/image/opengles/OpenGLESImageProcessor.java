@@ -35,14 +35,14 @@ public class OpenGLESImageProcessor {
     }
     
     public void rotate(GL10 gl, int angle) {
-
+        //gl.glRotatex(angle, 0, 1, 0);
     }
     
     public void scale(GL10 gl, float scaleX, float scaleY) {
         gl.glScalef(scaleX, scaleY, 1);
     }
     
-    public void colorMask(GL10 gl, int red, int green, int blue, int alpha) {
+    public void colorMask(GL10 gl, float red, float green, float blue, float alpha) {
 
     }
     

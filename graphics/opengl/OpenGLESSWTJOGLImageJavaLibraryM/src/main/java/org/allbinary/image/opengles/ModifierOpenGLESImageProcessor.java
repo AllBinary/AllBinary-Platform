@@ -30,11 +30,13 @@ public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
         return instance;
     }
 
-    public void rotate(GL10 gl, int angle) {
-        gl.glRotatex(angle, 0, 1, 0);
-    }
-        
-    public void colorMask(GL10 gl, int red, int green, int blue, int alpha) {
+//    public void rotate(GL10 gl, int angle) {
+//        gl.glRotatex(angle, 0, 1, 0);
+//    }
+    
+    @Override
+    public void colorMask(GL10 gl, float red, float green, float blue, float alpha) {
+        alpha = alpha / 255f;
         gl.glColor4f(red, green, blue, alpha);
     }
     

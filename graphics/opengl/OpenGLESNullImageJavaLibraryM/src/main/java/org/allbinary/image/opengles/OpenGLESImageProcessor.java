@@ -42,7 +42,7 @@ public class OpenGLESImageProcessor {
         
     }
     
-    public void colorMask(GL10 gl, int red, int green, int blue, int alpha) {
+    public void colorMask(GL10 gl, float red, float green, float blue, float alpha) {
 
     }
     

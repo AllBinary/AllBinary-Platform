@@ -29,17 +29,5 @@ public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
     public static ModifierOpenGLESImageProcessor getInstance() {
         return instance;
     }
-    
-    public void rotate(GL10 gl, int angle) {
-
-    }
-
-    public void scale(GL10 gl, int scale) {
         
-    }
-
-    public void colorMask(GL10 gl, byte red, byte green, byte blue, byte alpha) {
-
-    }
-    
 }
