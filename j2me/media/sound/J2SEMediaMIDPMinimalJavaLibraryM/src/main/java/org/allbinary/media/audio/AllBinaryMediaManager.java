@@ -88,7 +88,7 @@ public class AllBinaryMediaManager {
         {
             try
             {
-                LogUtil.put(LogFactory.getInstance(resource, THIS, CREATE_PLAYER));
+                //LogUtil.put(LogFactory.getInstance(resource, THIS, CREATE_PLAYER));
                 
                 final InputStream inputStream =
                     ResourceUtil.getInstance().getResourceAsStream(resource);

@@ -18,6 +18,7 @@ import javax.microedition.lcdui.Image;
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationBehaviorFactory;
 import org.allbinary.game.configuration.GameConfigurationCentral;
+import org.allbinary.graphics.opengles.OpenGLUtil;
 import org.allbinary.media.image.ImageCopyUtil;
 import org.allbinary.math.AngleFactory;
 import org.allbinary.math.AngleInfo;
@@ -116,7 +117,9 @@ public class AllBinaryJ2SEImageRotationAnimationFactory
     
     public Animation getInstance(final int instanceId) throws Exception {
         
-        final Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        Image scaledImage = animationFactoryImageScaleUtil.createImage(this.getImage(), this.animationFactoryInitializationVisitor.width, this.animationFactoryInitializationVisitor.height, this.scaleProperties.scaleWidth, this.scaleProperties.scaleHeight);
+        final OpenGLUtil openGLUtil = OpenGLUtil.getInstance();
+        scaledImage = openGLUtil.add(scaledImage);
         //final Image image = ImageCopyUtil.getInstance().createImage(this.image);
         final Image copyOfScaledImage = ImageCopyUtil.getInstance().createImageForRotation(scaledImage);
 
