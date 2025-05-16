@@ -85,5 +85,23 @@ public class GLUtil
     public Buffer position(final Buffer buffer, final int newPosition) {
         return buffer.position(newPosition);
     }
-    
+
+    //When Shaders are enabled this should be done on the GPU
+    public void rotateUVs(final float[] uvs, final float angleDegrees, final float pivotU, final float pivotV) {
+        final double angleRad = Math.toRadians(angleDegrees);
+        final double cosA = Math.cos(angleRad);
+        final double sinA = Math.sin(angleRad);
+
+        for (int i = 0; i < uvs.length; i += 2) {
+            float u = uvs[i];
+            float v = uvs[i + 1];
+            float du = u - pivotU;
+            float dv = v - pivotV;
+            float ru = (float) (du * cosA - dv * sinA) + pivotU;
+            float rv = (float) (du * sinA + dv * cosA) + pivotV;
+            uvs[i] = ru;
+            uvs[i + 1] = rv;
+        }
+    }
+
 }

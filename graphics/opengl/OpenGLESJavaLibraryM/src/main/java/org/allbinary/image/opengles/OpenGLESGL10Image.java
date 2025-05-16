@@ -66,7 +66,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
         //FloatBuffer.wrap(regionTextureRectangleFloatArray);
         ByteBuffer.allocateDirect(4 * 4 * 2).order(
           ByteOrder.nativeOrder()).asFloatBuffer();
-
+    
     private final OpenGLESImageDraw realOpenGLESImageDraw = new OpenGLESImageDraw() {
 
         public void drawRegion(final GL10 gl, final int viewHeight,
@@ -75,6 +75,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
             final int x, final int y, final int z) {
             //PreLogUtil.put(this.commonStrings.START + "Texture", this, "drawRegion");
 
+            final int imageWidth = getWidth();
+            final int imageHeight = getHeight();
+            
 //            regionRectangleFloatArray[0] = x;
 //            regionRectangleFloatArray[7] = viewHeight - y;
 //            regionRectangleFloatArray[1] = regionRectangleFloatArray[7] - height;
@@ -152,38 +155,42 @@ public class OpenGLESGL10Image extends OpenGLESImage
             //regionRectangleVertexFloatBuffer.rewind();
 
             /*
-        regionTextureVertexFloatBuffer.put(0, x_src / getWidth());
-        regionTextureVertexFloatBuffer.put(1, ((float) (y_src + height)) / getHeight());
+        regionTextureVertexFloatBuffer.put(0, x_src / imageWidth);
+        regionTextureVertexFloatBuffer.put(1, ((float) (y_src + height)) / imageHeight);
 
-        regionTextureVertexFloatBuffer.put(2, ((float) (x_src + width)) / getWidth());
+        regionTextureVertexFloatBuffer.put(2, ((float) (x_src + width)) / imageWidth);
         regionTextureVertexFloatBuffer.put(3, regionTextureVertexFloatBuffer.get(1));
 
         regionTextureVertexFloatBuffer.put(4, regionTextureVertexFloatBuffer.get(0));
-        regionTextureVertexFloatBuffer.put(5, y_src / getHeight());
+        regionTextureVertexFloatBuffer.put(5, y_src / imageHeight);
 
         regionTextureVertexFloatBuffer.put(6, regionTextureVertexFloatBuffer.get(2));
         regionTextureVertexFloatBuffer.put(7, regionTextureVertexFloatBuffer.get(5));
              */
             //regionTextureVertexFloatBuffer.rewind();
-            regionTextureRectangleFloatArray[0] = x_src / getWidth();
-            regionTextureRectangleFloatArray[1] = ((y_src + height)) / getHeight();
+            regionTextureRectangleFloatArray[0] = x_src / imageWidth;
+            regionTextureRectangleFloatArray[1] = ((y_src + height)) / imageHeight;
 
-            regionTextureRectangleFloatArray[2] = ((x_src + width)) / getWidth();
+            regionTextureRectangleFloatArray[2] = ((x_src + width)) / imageWidth;
             regionTextureRectangleFloatArray[3] = regionTextureRectangleFloatArray[1];
 
             regionTextureRectangleFloatArray[4] = regionTextureRectangleFloatArray[0];
-            regionTextureRectangleFloatArray[5] = y_src / getHeight();
+            regionTextureRectangleFloatArray[5] = y_src / imageHeight;
 
             regionTextureRectangleFloatArray[6] = regionTextureRectangleFloatArray[2];
             regionTextureRectangleFloatArray[7] = regionTextureRectangleFloatArray[5];
+            
+            final float u_center = (regionTextureRectangleFloatArray[0] + regionTextureRectangleFloatArray[2]) / 2.0f;
+            final float v_center = (regionTextureRectangleFloatArray[5] + regionTextureRectangleFloatArray[1]) / 2.0f;
+            glUtil.rotateUVs(regionTextureRectangleFloatArray, -angle, u_center, v_center);
 
             //textureVertexFloatBuffer.put(textureArray);
 
             /*
-        float textureX1 = x_src / getWidth();
-        float textureY1 = y_src / getHeight();
-        float textureY2 = ((float) (y_src + height)) / getHeight();
-        float textureX2 = ((float) (x_src + width)) / getWidth();
+        float textureX1 = x_src / imageWidth;
+        float textureY1 = y_src / imageHeight;
+        float textureY2 = ((float) (y_src + height)) / imageHeight;
+        float textureX2 = ((float) (x_src + width)) / imageWidth;
         
         textureVertexFloatBuffer.put(textureX1);
         textureVertexFloatBuffer.put(textureY2);
@@ -298,6 +305,15 @@ public class OpenGLESGL10Image extends OpenGLESImage
         regionRectangleVertexFloatBuffer.put(10, regionRectangleVertexFloatBuffer.get(7));
              */
 
+        regionTextureRectangleFloatArray[0] = 0;
+        regionTextureRectangleFloatArray[1] = 1;
+        regionTextureRectangleFloatArray[2] = 1;
+        regionTextureRectangleFloatArray[3] = 1;
+        regionTextureRectangleFloatArray[4] = 0;
+        regionTextureRectangleFloatArray[5] = 0;
+        regionTextureRectangleFloatArray[6] = 1;
+        regionTextureRectangleFloatArray[7] = 0;
+            
         /*
         vertexArray[0] = x;
         vertexArray[7] = DisplayInfoSingleton.getInstance().getLastHeight() - y;
@@ -342,8 +358,13 @@ public class OpenGLESGL10Image extends OpenGLESImage
             gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
 
             gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
-            
+
+            glUtil.rotateUVs(regionTextureRectangleFloatArray, -angle, 0.5f, 0.5f);
+
             glUtil.position(textureVertexFloatBuffer, 0);
+            textureVertexFloatBuffer.put(regionTextureRectangleFloatArray);
+            glUtil.position(textureVertexFloatBuffer, 0);
+            
             gl.glTexCoordPointer(2, GL10.GL_FLOAT, 0, textureVertexFloatBuffer);
 
             //gl.glDrawArrays(GL10.GL_TRIANGLES, 0, 6);
