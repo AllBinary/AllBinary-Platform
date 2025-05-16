@@ -34,7 +34,7 @@ public class OpenGLESImageProcessor {
 
     }
     
-    public void rotate(GL10 gl, int angle) {
+    public void rotate(GL10 gl, float angle) {
         
     }
 

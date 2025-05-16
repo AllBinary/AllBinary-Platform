@@ -40,14 +40,11 @@ implements OpenGLSurfaceChangedInterface
     protected int textureID = -1;
 
     public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
+    public OpenGLESImageTranslate openGLESImageTranslate = OpenGLESImageTranslate.getInstance();
     public float scaleX = 1;
     public float scaleY = 1;
     public float scaleX2 = 1;
     public float scaleY2 = 1;    
-    public float translateX = 0;
-    public float translateY = 0;
-    public float translateX2 = 0;
-    public float translateY2 = 0;
     public int angle;
     public int alpha;
     

@@ -34,8 +34,9 @@ public class OpenGLESImageProcessor {
         gl.glTranslatef(translateX, translateY, 0);
     }
     
-    public void rotate(GL10 gl, int angle) {
-        //gl.glRotatex(angle, 0, 1, 0);
+    public void rotate(GL10 gl, float angle) {
+        //angle = angle / 360f;
+        gl.glRotatef(-angle, 0, 0, 1);
     }
     
     public void scale(GL10 gl, float scaleX, float scaleY) {

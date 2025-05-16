@@ -1,6 +1,6 @@
 /*
  * AllBinary Open License Version 1
- * Copyright (c) 2022 AllBinary
+ * Copyright (c) 2025 AllBinary
  * 
  * By agreeing to this license you and any business entity you represent are
  * legally bound to the AllBinary Open License Version 1 legal agreement.
@@ -19,21 +19,25 @@ import javax.microedition.khronos.opengles.GL10;
  *
  * @author User
  */
-public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
+public class OpenGLESImageTranslate {
     
-    private static final ModifierOpenGLESImageProcessor instance = new ModifierOpenGLESImageProcessor();
+    protected static final OpenGLESImageTranslate instance = new OpenGLESImageTranslate();
 
     /**
      * @return the instance
      */
-    public static ModifierOpenGLESImageProcessor getInstance() {
+    public static OpenGLESImageTranslate getInstance() {
         return instance;
     }
-    
-    @Override
-    public void colorMask(GL10 gl, float red, float green, float blue, float alpha) {
-        alpha = alpha / 255f;
-        gl.glColor4f(red, green, blue, alpha);
-    }
+
+    public void translate(final GL10 gl, final OpenGLESImage openGLESImage, final float x, final float y) {
+        
+        openGLESImage.imageProcessor.translate(gl, x, y);
+        
+    }    
+
+    public void translate2(final GL10 gl, final OpenGLESImage openGLESImage) {
+        
+    }    
     
 }
