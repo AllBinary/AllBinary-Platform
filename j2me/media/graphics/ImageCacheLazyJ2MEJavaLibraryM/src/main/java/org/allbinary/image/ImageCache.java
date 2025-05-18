@@ -25,8 +25,10 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.data.resource.ResourceUtil;
+import org.allbinary.game.canvas.ABToGBUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
+import org.allbinary.game.displayable.canvas.AllBinaryGameCanvas;
 import org.allbinary.game.resource.GDLazyResources;
 import org.allbinary.game.resource.GDResources;
 import org.allbinary.graphics.canvas.transition.progress.ProgressCanvas;
@@ -59,6 +61,7 @@ public class ImageCache extends ImageCacheBase {
     
     private boolean firstTime = true;
     private int totalLoaded = 0;
+    public  boolean hasAnyLazyAnimationFactories = false;
 
     private class NotHTMLProcessor extends Processor {
         
@@ -113,8 +116,14 @@ public class ImageCache extends ImageCacheBase {
                 processor = Processor.getInstance();
                 endProcessor = new HTMLEndProcessor();
             } else {
+                //LogUtil.put(LogFactory.getInstance("Setting processor", this, commonStrings.RUN));
                 processor = new NotHTMLProcessor();
                 endProcessor = new NotHTMLEndProcessor();
+                try {
+                    runTask();
+                } catch (Exception e) {
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME));
+                }
             }
         }
 
@@ -134,7 +143,12 @@ public class ImageCache extends ImageCacheBase {
 
     public void waitForLoadNow() throws Exception {
         if(firstTime) {
-            while (loadNowList.isEmpty()) {
+            
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "waitForLoadNow"));
+            final ABToGBUtil abToGBUtil = ABToGBUtil.getInstance();
+            final AllBinaryGameCanvas abCanvas = (AllBinaryGameCanvas) abToGBUtil.abCanvas;
+            while (loadNowList.isEmpty() && (!abCanvas.isInitialized() || (abCanvas.isInitialized() && this.hasAnyLazyAnimationFactories))) {
+                //LogUtil.put(LogFactory.getInstance("Still Empty: " + this.loadAfterList.size(), this, "waitForLoadNow"));
                 Thread.sleep(120);
             }
             firstTime = false;
@@ -532,6 +546,7 @@ public class ImageCache extends ImageCacheBase {
     }
     
     public void runTask() throws Exception {
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START + this.processor, this, "runTask"));
         this.processor.process();
     }
     

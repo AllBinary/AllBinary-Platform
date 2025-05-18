@@ -15,6 +15,7 @@ package org.allbinary.animation.image;
 
 import org.allbinary.animation.Animation;
 import org.allbinary.animation.AnimationInterfaceFactoryInterface;
+import org.allbinary.image.ImageCacheFactory;
 import org.allbinary.media.ScaleProperties;
 
 /**
@@ -31,6 +32,7 @@ public class LazyImageRotationAnimationFactory implements AnimationInterfaceFact
     public LazyImageRotationAnimationFactory(final int layoutIndex, final int associatedLazyAnimationId, final BaseImageAnimationFactory animationInterfaceFactoryInterface) {
         this.layoutIndex = layoutIndex;
         this.animationInterfaceFactoryInterface = animationInterfaceFactoryInterface;
+        ImageCacheFactory.getInstance().hasAnyLazyAnimationFactories = true;
     }
     
     public Animation getInstance(final int instanceId) throws Exception {
