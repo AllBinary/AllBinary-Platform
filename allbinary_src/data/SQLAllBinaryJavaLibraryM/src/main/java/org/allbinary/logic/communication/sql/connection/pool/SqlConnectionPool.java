@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.communication.sql.connection.pool;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.Iterator;
 import java.util.HashMap;
 import java.util.Vector;
@@ -22,6 +21,7 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class SqlConnectionPool

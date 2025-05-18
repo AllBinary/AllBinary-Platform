@@ -15,6 +15,7 @@ package org.allbinary.logic.communication.sql;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;

@@ -13,13 +13,15 @@
 */
 package org.allbinary.logic.communication.sql;
 
-import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import java.sql.ResultSet;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
+
+import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 
 public class AbSqlBean extends AbSqlRow
 {

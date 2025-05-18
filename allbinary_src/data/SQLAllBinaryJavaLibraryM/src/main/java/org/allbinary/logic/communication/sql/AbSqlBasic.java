@@ -13,16 +13,16 @@
 */
 package org.allbinary.logic.communication.sql;
 
-import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
-import org.allbinary.business.init.db.DbConnectionInfo;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-
-import org.allbinary.logic.communication.sql.connection.pool.SqlConnectionPool;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import org.allbinary.business.init.db.DatabaseConnectionInfoInterface;
+import org.allbinary.business.init.db.DbConnectionInfo;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.sql.connection.pool.SqlConnectionPool;
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringUtil;

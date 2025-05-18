@@ -13,11 +13,13 @@
 */
 package org.allbinary.logic.communication.sql;
 
+import java.sql.ResultSet;
+
+import java.util.Vector;
+
 import org.allbinary.business.init.db.DbConnectionInfo;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.sql.ResultSet;
-import java.util.Vector;
 
 public class AbSqlColumn extends AbSqlTable
 {
