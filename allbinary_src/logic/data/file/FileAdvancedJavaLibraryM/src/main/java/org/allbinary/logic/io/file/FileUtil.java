@@ -206,7 +206,7 @@ public class FileUtil
 
         AbPath fixedPath = new AbPath(fixedPathString);
 
-        Directory.create(fixedPath);
+        this.directory.create(fixedPath);
 
         final String string = fixedPath.toFileSystemString();
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.FILE))
@@ -642,7 +642,7 @@ public class FileUtil
             AbPath newDirectoryAbPath =
                 new AbPath(to.getPath() + AbPathData.getInstance().SEPARATOR + newDirectory);
 
-            if (!Directory.create(newDirectoryAbPath))
+            if (!this.directory.create(newDirectoryAbPath))
             {
                 throw new Exception("Failed to create directory: " + newDirectoryAbPath);
             }

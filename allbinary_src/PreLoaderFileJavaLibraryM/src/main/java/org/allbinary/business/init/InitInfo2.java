@@ -26,13 +26,15 @@ public class InitInfo2
         return instance;
     }
 
+    private final Directory directory = Directory.getInstance();
+    
     public boolean isTestHtmlPathValid(AbPath value)
     {
-        return Directory.create(value);
+        return directory.create(value);
     }
 
     public boolean isMainPathValid(AbPath value)
     {
-        return Directory.create(value);
+        return directory.create(value);
     }
 }

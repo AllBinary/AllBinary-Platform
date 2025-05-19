@@ -39,18 +39,18 @@ public class Directory
     {
     }
 
-    public static synchronized boolean create(AbPath directoryAbPath)
+    public boolean create(AbPath directoryAbPath)
     {
-        return Directory.create(directoryAbPath.toFileSystemString());
+        return this.create(directoryAbPath.toFileSystemString());
     }
 
-    public static synchronized void remove(AbPath existingDirectoryAbPath) throws Exception
+    public void remove(AbPath existingDirectoryAbPath) throws Exception
     {
-        Directory.remove(existingDirectoryAbPath.toFileSystemString());
+        this.remove(existingDirectoryAbPath.toFileSystemString());
     }
 
     //returns true if directories already exist or if creation was successful
-    private static synchronized boolean create(String directory)
+    private boolean create(String directory)
     {
         try
         {
@@ -79,7 +79,7 @@ public class Directory
     }
 
     //see if directory contains files if not remove directory
-    private static synchronized void remove(String existingDirectory) throws Exception
+    private void remove(String existingDirectory) throws Exception
     {
         final AbFile existingDirectoryFile = FileFactory.getInstance().getInstance(existingDirectory);
         if (existingDirectoryFile.isDirectory())

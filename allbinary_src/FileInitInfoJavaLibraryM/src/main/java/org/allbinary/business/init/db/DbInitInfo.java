@@ -59,6 +59,7 @@ import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
 
 public class DbInitInfo extends DbConnectionInfo
 {
+    private final Directory directory = Directory.getInstance();
     private final HttpData httpData = HttpData.getInstance();
 
     private final String GET_URL = "getUrl";
@@ -98,33 +99,33 @@ public class DbInitInfo extends DbConnectionInfo
         return url;
     }
 
-    public synchronized void write() throws Exception
+    public void write() throws Exception
     {
         
-        AbPath PATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE);
-        Directory.create(PATH);
-        AbPath FILEABPATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, this.initFileName);
+        final AbPath PATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE);
+        this.directory.create(PATH);
+        final AbPath FILEABPATH = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, this.initFileName);
         try
         {
-            AbFile newFile = new AbFile(FILEABPATH);
+            final AbFile newFile = new AbFile(FILEABPATH);
 
             newFile.createNewFile();
 
          //PreLogUtil.put("Host: " + this.getHost(), this, "write");
-            AbDataOutputStream dataOutputStream
+            final AbDataOutputStream dataOutputStream
                     = DataOutputStreamFactory.getInstance().getInstance(newFile);
 
             try
             {
 
-                byte[] cryptedJdbcDriver = new WeakCrypt(1).encrypt(this.getJdbcDriver()).getBytes();
+                final byte[] cryptedJdbcDriver = new WeakCrypt(1).encrypt(this.getJdbcDriver()).getBytes();
 
-                byte[] cryptedName = new WeakCrypt(2).encrypt(this.getName()).getBytes();
-                byte[] cryptedUserName = new WeakCrypt(3).encrypt(this.getUserName()).getBytes();
-                byte[] cryptedPassword = new WeakCrypt(4).encrypt(this.getPassword()).getBytes();
-                byte[] cryptedSchema = new WeakCrypt(5).encrypt(this.getSchema()).getBytes();
-                byte[] cryptedServer = new WeakCrypt(6).encrypt(this.getServer()).getBytes();
-                byte[] cryptedPort = new WeakCrypt(7).encrypt(this.getPort()).getBytes();
+                final byte[] cryptedName = new WeakCrypt(2).encrypt(this.getName()).getBytes();
+                final byte[] cryptedUserName = new WeakCrypt(3).encrypt(this.getUserName()).getBytes();
+                final byte[] cryptedPassword = new WeakCrypt(4).encrypt(this.getPassword()).getBytes();
+                final byte[] cryptedSchema = new WeakCrypt(5).encrypt(this.getSchema()).getBytes();
+                final byte[] cryptedServer = new WeakCrypt(6).encrypt(this.getServer()).getBytes();
+                final byte[] cryptedPort = new WeakCrypt(7).encrypt(this.getPort()).getBytes();
 
                 dataOutputStream.writeUTF(DatabaseEncoder.encode(cryptedJdbcDriver));
 
@@ -149,28 +150,28 @@ public class DbInitInfo extends DbConnectionInfo
         }
     }
 
-    private synchronized void load() throws Exception
+    private void load() throws Exception
     {
-        AbPath FILEABPATH
+        final AbPath FILEABPATH
                 = new AbPath(URLGLOBALS.getWebappPath() + PACKAGE, this.initFileName);
         try
         {
-            AbFile file = new AbFile(FILEABPATH);
+            final AbFile file = new AbFile(FILEABPATH);
             if(file.isFile())
             {
-                AbFileInputStream iFile = new AbFileInputStream(file);
-                AbDataInputStream iData = new AbDataInputStream(iFile);
+                final AbFileInputStream iFile = new AbFileInputStream(file);
+                final AbDataInputStream iData = new AbDataInputStream(iFile);
 
                 try
                 {
-                    String decryptedJdbcDriver = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    final String decryptedJdbcDriver = new String(DatabaseEncoder.decode(iData.readUTF()));
 
-                    String decryptedName = new String(DatabaseEncoder.decode(iData.readUTF()));
-                    String decryptedUserName = new String(DatabaseEncoder.decode(iData.readUTF()));
-                    String decryptedPassword = new String(DatabaseEncoder.decode(iData.readUTF()));
-                    String decryptedSchema = new String(DatabaseEncoder.decode(iData.readUTF()));
-                    String decryptedServer = new String(DatabaseEncoder.decode(iData.readUTF()));
-                    String decryptedPort = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    final String decryptedName = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    final String decryptedUserName = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    final String decryptedPassword = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    final String decryptedSchema = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    final String decryptedServer = new String(DatabaseEncoder.decode(iData.readUTF()));
+                    final String decryptedPort = new String(DatabaseEncoder.decode(iData.readUTF()));
 
                     this.setJdbcDriver(new WeakCrypt(1).decrypt(decryptedJdbcDriver));
                     this.setName(new WeakCrypt(2).decrypt(decryptedName));
@@ -210,12 +211,12 @@ public class DbInitInfo extends DbConnectionInfo
         }
     }
 
-    public synchronized void setHasRead(boolean value)
+    public void setHasRead(boolean value)
     {
         this.hasRead = value;
     }
 
-    private synchronized void updateIfNeeded()
+    private void updateIfNeeded()
     {
         try
         {

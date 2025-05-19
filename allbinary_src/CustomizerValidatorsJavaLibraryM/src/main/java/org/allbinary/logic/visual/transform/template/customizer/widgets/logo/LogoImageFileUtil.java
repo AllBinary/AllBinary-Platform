@@ -22,29 +22,31 @@ import org.apache.commons.fileupload.FileItem;
 
 public class LogoImageFileUtil
 {
-    private String fileName;
-    private AbPath imageFileAbPath;
+    private final Directory directory = Directory.getInstance();
+    
+    private final String fileName;
+    private final AbPath imageFileAbPath;
     
     //Save to default file type
-    public LogoImageFileUtil(AbPath imageAbPath, String imageFile)
+    public LogoImageFileUtil(final AbPath imageAbPath, final String imageFile)
     {
         this.fileName = imageFile;
         this.imageFileAbPath = imageAbPath;
     }
         
-    public void saveFiles(FileItem fileItem) throws Exception
+    public void saveFiles(final FileItem fileItem) throws Exception
     {
-        if(fileName==null)
+        if(fileName == null)
         {
            throw new Exception("Image File Name Was Null");
         }
         
-        if(!Directory.create(this.imageFileAbPath))
+        if(!this.directory.create(this.imageFileAbPath))
         {
            throw new Exception("Unable to save file to non creatable directory");
         }
 
-        AbFile originalImageFile = new AbFile(
+        final AbFile originalImageFile = new AbFile(
             this.imageFileAbPath.toString() + fileName);
 
         originalImageFile.createNewFile();

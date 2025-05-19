@@ -20,6 +20,7 @@ import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringEscapeUtils;
+
 import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
@@ -48,7 +49,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class StoreFront implements StoreFrontInterface
 {
-
+    private final Directory directory = Directory.getInstance();
+    
     private String name;
     private String basketName;
     private String homeHostName;
@@ -984,12 +986,12 @@ public class StoreFront implements StoreFrontInterface
         this.lastModified = value;
     }
 
-    public void setFtpPath(String value) throws Exception
+    public void setFtpPath(final String value) throws Exception
     {
         this.ftpPath = new AbPath(value);
     }
 
-    public void setTestFtpPath(String value) throws Exception
+    public void setTestFtpPath(final String value) throws Exception
     {
         this.testFtpPath = new AbPath(value);
     }
@@ -1000,12 +1002,12 @@ public class StoreFront implements StoreFrontInterface
         AbPath storeAbPath = new AbPath(
             URLGLOBALS.getWebappPath() + this.getCurrentHomeHostNamePath());
 
-        if (!Directory.create(storeAbPath))
+        if (!this.directory.create(storeAbPath))
         {
             return false;
         }
 
-        if (!Directory.create(new AbPath(storeAbPath + this.getCategoryPath())))
+        if (!this.directory.create(new AbPath(storeAbPath + this.getCategoryPath())))
         {
             return false;
         }
@@ -1015,7 +1017,7 @@ public class StoreFront implements StoreFrontInterface
         return false;
          */
 
-        if (!Directory.create(new AbPath(storeAbPath + this.getStaticPath())))
+        if (!this.directory.create(new AbPath(storeAbPath + this.getStaticPath())))
         {
             return false;
         }
@@ -1024,7 +1026,7 @@ public class StoreFront implements StoreFrontInterface
     }
 
     //Create directories and copy files for store installation
-    public void install(int current, int total) throws Exception
+    public void install(final int current, final int total) throws Exception
     {
         try
         {
@@ -1034,7 +1036,7 @@ public class StoreFront implements StoreFrontInterface
                 throw new Exception("Unable to create store directories");
             }
 
-            StringBuffer stringBuffer = new StringBuffer();
+            final StringBuffer stringBuffer = new StringBuffer();
 
             stringBuffer.delete(0, stringBuffer.length());
             stringBuffer.append(URLGLOBALS.getMainPath());
@@ -1064,17 +1066,17 @@ public class StoreFront implements StoreFrontInterface
 
             if (current == 0)
             {
-                if (!Directory.create(toDirectoryAbPath))
+                if (!this.directory.create(toDirectoryAbPath))
                 {
                     throw new Exception("Unable to create store view directory: " + toDirectoryAbPath.toString());
                 }
             }
 
-            int viewTotal = (total * 85) / 100;
-            int installTotal = (total * 93) / 100;
+            final int viewTotal = (total * 85) / 100;
+            final int installTotal = (total * 93) / 100;
             if (current < viewTotal)
             {
-                AbFile file = new AbFile(fromSpecialDirectoryAbPath);
+                final AbFile file = new AbFile(fromSpecialDirectoryAbPath);
 
                 if (file.isDirectory())
                 {
@@ -1109,7 +1111,7 @@ public class StoreFront implements StoreFrontInterface
         }
     }
 
-    private void installViews(AbPath fromDirectoryAbPath, AbPath toDirectoryAbPath, int current, int total)
+    private void installViews(final AbPath fromDirectoryAbPath, final AbPath toDirectoryAbPath, final int current, final int total)
         throws Exception
     {
         //copy install template/view files for new store

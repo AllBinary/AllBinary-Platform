@@ -19,10 +19,10 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
-import org.allbinary.util.BasicArrayList;
-
 import views.generic.inventory.InventoryColumnUtil;
 import views.generic.inventory.InventorySearchUtil;
+
+import org.allbinary.util.BasicArrayList;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.AbDataOutputStream;
 import org.allbinary.logic.io.DataOutputStreamFactory;
@@ -52,6 +52,8 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 
 public class ProductListing implements ProductListingInterface
 {
+    private final Directory directory = Directory.getInstance();
+    
     private final StoreFrontsEntity storeFronts;
     private final StaticPagesEntity staticPages;
     private final InventoryEntity inventory;
@@ -202,7 +204,7 @@ public class ProductListing implements ProductListingInterface
             String file = stringBuffer.toString();
 
             //Create Directories
-            if (!Directory.create(staticPath))
+            if (!this.directory.create(staticPath))
             {
                 throw new Exception("Could Not Create Directory: " + staticPath);
             }

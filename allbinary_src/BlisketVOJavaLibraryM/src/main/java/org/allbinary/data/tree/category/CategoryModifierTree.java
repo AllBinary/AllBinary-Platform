@@ -24,6 +24,7 @@ import org.allbinary.string.CommonStrings;
 public class CategoryModifierTree extends CategoryPrivateTree implements CategoryModifierTreeInterface
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final Directory directory = Directory.getInstance();
     
    public CategoryModifierTree(CategoryFactoryInterface categoryFactoryInterface)
    {
@@ -56,7 +57,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
                newChildCategoryInterface.getRootFilePath().toString() + 
                newChildCategoryInterface.getPath().toString());
             
-            Directory.create(directoryToBeCreatedAbPath);
+            this.directory.create(directoryToBeCreatedAbPath);
 
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
             {
@@ -97,7 +98,7 @@ public class CategoryModifierTree extends CategoryPrivateTree implements Categor
             
             this.save(parentCategoryInterface);
             
-            Directory.remove(directoryToBeDeletedAbPath);
+            this.directory.remove(directoryToBeDeletedAbPath);
          }
          else
             throw new Exception("Will Not Add Null Category");
