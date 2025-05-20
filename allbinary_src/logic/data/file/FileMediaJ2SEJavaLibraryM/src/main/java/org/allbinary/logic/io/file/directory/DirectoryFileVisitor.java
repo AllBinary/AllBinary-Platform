@@ -14,7 +14,7 @@
  *Modified By         When       ?
  *
  */
-package org.logic.basic.io.file.directory;
+package org.allbinary.logic.io.file.directory;
 
 import java.io.File;
 import java.io.FileFilter;
