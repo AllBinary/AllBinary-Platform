@@ -49,7 +49,10 @@ implements OpenGLSurfaceChangedInterface
     public float scaleX2 = 1;
     public float scaleY2 = 1;
     public int angle;
-    public int alpha;
+    public float redf = 1.0f;
+    public float greenf = 1.0f;
+    public float bluef = 1.0f;
+    public float alphaf;
     
     //JOGL
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 

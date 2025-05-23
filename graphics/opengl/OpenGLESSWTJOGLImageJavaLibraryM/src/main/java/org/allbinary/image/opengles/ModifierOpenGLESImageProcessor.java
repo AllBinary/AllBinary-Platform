@@ -32,7 +32,6 @@ public class ModifierOpenGLESImageProcessor extends OpenGLESImageProcessor {
     
     @Override
     public void colorMask(GL10 gl, float red, float green, float blue, float alpha) {
-        alpha = alpha / 255f;
         gl.glColor4f(red, green, blue, alpha);
     }
     
