@@ -18,6 +18,7 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.OpenGLESPostLoadPlatformImage;
+import org.allbinary.graphics.GraphicsStrings;
 
 import org.allbinary.graphics.OpenGLBitmap;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -208,7 +209,8 @@ implements OpenGLSurfaceChangedInterface
     }
 
     public String toString() {
-        return this.getName() + super.toString();
+        final GraphicsStrings graphicsStrings = GraphicsStrings.getInstance();
+        return new StringMaker().append(this.getName()).append(super.toString()).append(graphicsStrings.OPACITY).append(this.alphaf).toString();
     }    
 
 }
