@@ -33,39 +33,42 @@ public class OneRowSpriteIndexedAnimationFactory
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
+    
+    public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx)
+        throws Exception {
 
-   public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx)
-           throws Exception {
+        this(image, dx, 0);
 
-      this(image, dx, 0);
+        this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
+    }
 
-      this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
-   }
-   
-   public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
-           throws Exception {
+    public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final Object unused)
+        throws Exception {
 
-      this(image, dx, dy);
+        this(image, dx, dy);
 
-      this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
-      this.animationFactoryInitializationVisitor.dy += -(this.animationFactoryInitializationVisitor.height >> 2);
-   }
+        this.animationFactoryInitializationVisitor.dx += -(this.animationFactoryInitializationVisitor.width >> 2);
+        this.animationFactoryInitializationVisitor.dy += -(this.animationFactoryInitializationVisitor.height >> 2);
+    }
     
     public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy)
         throws Exception {
+        
         this(image, dx, dy, AnimationBehaviorFactory.getInstance());
     }
-
+   
     public OneRowSpriteIndexedAnimationFactory(final Image image, final int dx, final int dy, final AnimationBehaviorFactory animationBehaviorFactory)
         throws Exception {
+
         this(image, animationBehaviorFactory);
 
         this.animationFactoryInitializationVisitor.dx = dx;
         this.animationFactoryInitializationVisitor.dy = dy;
     }
-
+    
     public OneRowSpriteIndexedAnimationFactory(final int width, final int height, final Image image)
         throws Exception {
+        
         this(width, height, image, AnimationBehaviorFactory.getInstance());
     }
 
@@ -78,6 +81,7 @@ public class OneRowSpriteIndexedAnimationFactory
 
     public OneRowSpriteIndexedAnimationFactory(final Image image)
            throws Exception {
+        
         this(image, AnimationBehaviorFactory.getInstance());
     }   
     
@@ -98,4 +102,5 @@ public class OneRowSpriteIndexedAnimationFactory
             return new SpriteIndexedAnimation(sprite, this.getImage(), this.animationBehaviorFactory.getOrCreateInstance());
         }
     }
+    
 }
