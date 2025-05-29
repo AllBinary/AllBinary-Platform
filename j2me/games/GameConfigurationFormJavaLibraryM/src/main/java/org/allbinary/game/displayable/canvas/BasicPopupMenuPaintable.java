@@ -118,6 +118,7 @@ public class BasicPopupMenuPaintable extends Paintable
         if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
             heightOffset -= MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2;
             if (AndroidUtil.isAndroid()) {
+                heightOffset = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
             } else {
                 heightOffset -= MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2;
             }
