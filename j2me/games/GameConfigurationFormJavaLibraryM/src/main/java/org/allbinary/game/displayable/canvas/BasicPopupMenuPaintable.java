@@ -115,8 +115,12 @@ public class BasicPopupMenuPaintable extends Paintable
         
         int heightOffset = rectangle.getHeight() - (MyFont.getInstance().DEFAULT_CHAR_HEIGHT * NAME.length());
 
-        if(OpenGLFeatureUtil.getInstance().isAnyThreed()) {
+        if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
             heightOffset -= MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2;
+            if (AndroidUtil.isAndroid()) {
+            } else {
+                heightOffset -= MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2;
+            }
         }
         
         this.offset = (heightOffset >> 1);
