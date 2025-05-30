@@ -23,9 +23,9 @@ public class OpenGLImageUtil {
         return instance;
     }
    
-    private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
+    //private final ImageModifierUtil imageModifierUtil = ImageModifierUtil.getInstanceOrCreate();
     
-    public void paint(final OpenGLBitmap alphaBitmap, final OpenGLBitmap originalBitmap, final int index) {
+    public OpenGLBitmap paint(final OpenGLBitmap alphaBitmap, final OpenGLBitmap originalBitmap, final int index) {
        throw new RuntimeException();
     }
     

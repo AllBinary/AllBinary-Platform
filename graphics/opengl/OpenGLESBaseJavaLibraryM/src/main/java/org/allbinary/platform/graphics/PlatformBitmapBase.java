@@ -21,6 +21,8 @@ import javax.microedition.lcdui.Image;
  */
 public class PlatformBitmapBase {
     
+    public int alpha = 255;
+    
     public Image getImage() {
         return null;
     }
