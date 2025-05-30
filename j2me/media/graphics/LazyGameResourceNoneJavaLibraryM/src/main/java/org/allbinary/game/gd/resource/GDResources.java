@@ -11,32 +11,27 @@
 * Created By: Travis Berthelot
 * 
  */
-package org.allbinary.game.resource;
+package org.allbinary.game.gd.resource;
 
 /**
  *
  * @author User
  */
-public class GDLazyResources
+public class GDResources
 {
-    private static final GDLazyResources instance = new GDLazyResources();
+    private static final GDResources instance = new GDResources();
 
     /**
      * @return the instance
      */
-    public static GDLazyResources getInstance()
+    public static GDResources getInstance()
     {
         return instance;
     }
 
-    public final int[] imageResourceWidthArray = {
+    public final String[] resourceStringArray = {
     };
     
-    public final int[] imageResourceHeightArray = {
-    };
-    
-    public final String[] requiredResourcesBeforeLoadingArray = {
-    };
-
+    public int currentLayoutRequiredTotal;
 }
 
