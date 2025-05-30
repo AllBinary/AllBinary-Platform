@@ -22,6 +22,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.GraphicsFeature;
 import org.allbinary.game.configuration.feature.GraphicsFeatureFactory;
+import org.allbinary.graphics.displayable.CanvasStrings;
 
 /**
  *
@@ -86,7 +87,6 @@ public class GameGraphicsResourceUtil
         return getString(graphicsFeature);
     }
 
-    private final String OBJ_MODEL = "_obj";
     public String getString(GraphicsFeature graphicsFeature)
     throws Exception
     {
@@ -125,7 +125,7 @@ public class GameGraphicsResourceUtil
         else
             if(OpenGLFeatureUtil.getInstance().isAnyThreed())
         {
-                stringBuffer.append(OBJ_MODEL);
+                stringBuffer.append(CanvasStrings.getInstance().OBJ_MODEL);
         }
             else
             {
