@@ -38,7 +38,7 @@ implements OpenGLSurfaceChangedInterface
 
     public final PlatformBitmapBase openGLBitmap;
     
-    protected int textureID = -1;
+    public int textureID = -1;
 
     //public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
     //public OpenGLESImageTranslate openGLESImageTranslate = OpenGLESImageTranslate.getInstance();    

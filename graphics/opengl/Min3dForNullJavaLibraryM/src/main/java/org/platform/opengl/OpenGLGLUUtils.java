@@ -3,6 +3,7 @@ package org.platform.opengl;
 import java.nio.ByteBuffer;
 import javax.microedition.khronos.opengles.GL10;
 import org.allbinary.graphics.OpenGLBitmap;
+import org.allbinary.image.opengles.OpenGLESImage;
 
 /**
  *
@@ -24,8 +25,11 @@ public class OpenGLGLUUtils {
         throw new RuntimeException();
     }
     
-    public void texImage2D(final GL10 gl, final String glVersion, final int target, final int level, final boolean generateMipMap, final OpenGLBitmap bitmap, final int border, final boolean flip) {
+    public void texImage2D(final GL10 gl, final String glVersion, final int target, final int level, final boolean generateMipMap, final OpenGLESImage openGLESImage, final int border, final boolean flip) {
         throw new RuntimeException();
     }
     
+    public void texImage2D(final GL10 gl, final String glVersion, final int target, final int level, final boolean generateMipMap, final OpenGLBitmap bitmap, final int border, final boolean flip) {
+        throw new RuntimeException();
+    }
 }

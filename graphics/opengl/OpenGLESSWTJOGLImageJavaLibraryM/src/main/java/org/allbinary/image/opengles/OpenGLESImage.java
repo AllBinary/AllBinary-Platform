@@ -18,8 +18,8 @@ import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.khronos.opengles.GL11;
 import javax.microedition.lcdui.Image;
 import javax.microedition.lcdui.OpenGLESPostLoadPlatformImage;
-import org.allbinary.graphics.GraphicsStrings;
 
+import org.allbinary.graphics.GraphicsStrings;
 import org.allbinary.graphics.OpenGLBitmap;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -40,7 +40,7 @@ implements OpenGLSurfaceChangedInterface
     
     public final OpenGLBitmap openGLBitmap;
     
-    protected int textureID = -1;
+    public int textureID = -1;
     //protected boolean matchColor;
     
     public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
