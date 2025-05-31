@@ -20,6 +20,8 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import java.io.File;
+import java.io.FileOutputStream;
 
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.graphics.color.BasicColor;
@@ -29,7 +31,6 @@ import org.allbinary.image.opengles.OpenGLESImage;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.string.StringMaker;
 
 public class TrueTypeFontUtil {
 
@@ -169,8 +170,18 @@ public class TrueTypeFontUtil {
         }
     }
 
+    //This is only called from OpenGLES on Android via OpenGLESStrings
     public void saveFontAtlasAsFile() {
-
+        try {
+            final File file = ResourceUtil.getInstance().getContext().getFilesDir();
+            final String path = file.getAbsolutePath() + CanvasStrings.getInstance().FONT_ATLAS;
+            LogUtil.put(LogFactory.getInstance(path, this, CommonStrings.getInstance().CONSTRUCTOR));
+            final FileOutputStream fos = new FileOutputStream(path);
+            final Bitmap bitmap = this.fontImage.openGLBitmap.getImage().getBitmap();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public Image getFontBitmap(final String filename, final int cellSize, final BasicColor basicColor) {
@@ -183,7 +194,7 @@ public class TrueTypeFontUtil {
             final int cellsPerRow7 = CELLS_PER_ROW * 7;
 
             final Typeface typeface = Typeface.DEFAULT;
-            //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
+                //Typeface.createFromAsset(ResourceUtil.getInstance().getContext().getAssets(), filename);
 
             //Must make bitmap as texture for GL so it must be as a texture size.
             final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
@@ -251,15 +262,6 @@ public class TrueTypeFontUtil {
             }
             canvas.save();
 
-//        try {
-//            final File file = ResourceUtil.getInstance().getContext().getFilesDir();
-//            final String path = file.getAbsolutePath() + "/font.png";
-//            System.out.println(path);
-//        FileOutputStream fos = new FileOutputStream(path);
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
-//        } catch(Exception e) {
-//            e.printStackTrace();
-//        }
             final Image image = new Image(bitmap);
             //final String FONT_ATLAS = "font_atlas";
             //image.setName(FONT_ATLAS);
