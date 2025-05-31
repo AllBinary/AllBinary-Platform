@@ -61,6 +61,7 @@ public class TrueTypeFontUtil {
         throw new RuntimeException();
     }
 
+    //This is only called from OpenGLES on Android via OpenGLESStrings
     public void saveFontAtlasAsFile() {
 
     }
