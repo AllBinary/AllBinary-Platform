@@ -182,7 +182,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             final float u_center = (regionTextureRectangleFloatArray[0] + regionTextureRectangleFloatArray[2]) / 2.0f;
             final float v_center = (regionTextureRectangleFloatArray[5] + regionTextureRectangleFloatArray[1]) / 2.0f;
-            glUtil.rotateUVs(regionTextureRectangleFloatArray, -angle, u_center, v_center);
+            glUtil.rotateUVs(regionTextureRectangleFloatArray, -openGLESImageProperties.angle, u_center, v_center);
 
             //textureVertexFloatBuffer.put(textureArray);
 
@@ -214,10 +214,10 @@ public class OpenGLESGL10Image extends OpenGLESImage
             
             openGLESImageTranslate.translate(gl, OpenGLESGL10Image.this, x, -y);
 
-            imageProcessor.scale(gl, scaleX, scaleY);
+            imageProcessor.scale(gl, openGLESImageProperties.scaleX, openGLESImageProperties.scaleY);
             //imageProcessor.scale(gl, scaleX * width, scaleY * height * 2.0f);
             
-            imageProcessor.colorMask(gl, redf, greenf, bluef, alphaf);
+            imageProcessor.colorMask(gl, openGLESImageProperties.redf, openGLESImageProperties.greenf, openGLESImageProperties.bluef, openGLESImageProperties.alphaf);
             
             openGLESImageTranslate.translate2(gl, OpenGLESGL10Image.this);
             
@@ -228,7 +228,7 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
             gl.glEnable(GL10.GL_TEXTURE_2D);
 
-            gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+            gl.glBindTexture(GL10.GL_TEXTURE_2D, openGLESImageProperties.textureID);
 
             gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
             
@@ -340,9 +340,9 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
             openGLESImageTranslate.translate(gl, OpenGLESGL10Image.this, x, -y);
 
-            imageProcessor.scale(gl, scaleX, scaleY);
+            imageProcessor.scale(gl, openGLESImageProperties.scaleX, openGLESImageProperties.scaleY);
             //imageProcessor.scale(gl, scaleX * width, scaleY * height * 2.0f);
-            imageProcessor.colorMask(gl, redf, greenf, bluef, alphaf);
+            imageProcessor.colorMask(gl, openGLESImageProperties.redf, openGLESImageProperties.greenf, openGLESImageProperties.bluef, openGLESImageProperties.alphaf);
             
             openGLESImageTranslate.translate2(gl, OpenGLESGL10Image.this);            
             
@@ -353,11 +353,11 @@ public class OpenGLESGL10Image extends OpenGLESImage
 
             gl.glEnable(GL10.GL_TEXTURE_2D);
 
-            gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+            gl.glBindTexture(GL10.GL_TEXTURE_2D, openGLESImageProperties.textureID);
 
             gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
 
-            glUtil.rotateUVs(regionTextureRectangleFloatArray, -angle, 0.5f, 0.5f);
+            glUtil.rotateUVs(regionTextureRectangleFloatArray, -openGLESImageProperties.angle, 0.5f, 0.5f);
 
             glUtil.position(textureVertexFloatBuffer, 0);
             textureVertexFloatBuffer.put(regionTextureRectangleFloatArray);

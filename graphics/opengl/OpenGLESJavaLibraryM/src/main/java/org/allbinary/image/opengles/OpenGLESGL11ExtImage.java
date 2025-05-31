@@ -109,7 +109,7 @@ public class OpenGLESGL11ExtImage extends OpenGLESImage
     {
         gl.glEnable(GL10.GL_TEXTURE_2D);
         
-        gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, openGLESImageProperties.textureID);
         
         //glDrawTexiOES
         ((GL11Ext) gl).glDrawTexfOES(x, a - y, z, this.getWidth(), this.getHeight());

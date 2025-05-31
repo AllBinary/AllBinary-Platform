@@ -273,7 +273,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
 
         gl.glEnable(GL10.GL_TEXTURE_2D);        
         
-        gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, openGLESImageProperties.textureID);
 
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
         
@@ -356,7 +356,7 @@ public class OpenGLESGL11VBOImage extends OpenGLESImage
 
         gl.glEnable(GL10.GL_TEXTURE_2D);
         
-        gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+        gl.glBindTexture(GL10.GL_TEXTURE_2D, openGLESImageProperties.textureID);
 
         gl.glEnableClientState(GL10.GL_TEXTURE_COORD_ARRAY);
         

@@ -40,21 +40,11 @@ implements OpenGLSurfaceChangedInterface
     
     public final OpenGLBitmap openGLBitmap;
     
-    public int textureID = -1;
-    //protected boolean matchColor;
-    
     public OpenGLESImageProcessor imageProcessor = OpenGLESImageProcessor.getInstance();
     public OpenGLESImageTranslate openGLESImageTranslate = OpenGLESImageTranslate.getInstance();
-    public float scaleX = 1;
-    public float scaleY = 1;
-    public float scaleX2 = 1;
-    public float scaleY2 = 1;
-    public int angle;
-    public float redf = 1.0f;
-    public float greenf = 1.0f;
-    public float bluef = 1.0f;
-    public float alphaf;
-    
+
+    public final OpenGLESImageProperties openGLESImageProperties = new OpenGLESImageProperties();
+
     //JOGL
     public OpenGLESImage(final Image image, final PlatformBitmapBaseFactory bitmapFactory, 
         final PlatformTextureBaseFactory textureFactory)
@@ -79,11 +69,11 @@ implements OpenGLSurfaceChangedInterface
     */
 
     public int getHeight() {
-        return (int) (this.openGLBitmap.getHeight() * scaleY2);
+        return (int) (this.openGLBitmap.getHeight() * this.openGLESImageProperties.scaleY2);
     }
 
     public int getWidth() {
-        return (int) (this.openGLBitmap.getWidth() * scaleX2);
+        return (int) (this.openGLBitmap.getWidth() * this.openGLESImageProperties.scaleX2);
     }
 
     /*
@@ -130,28 +120,30 @@ implements OpenGLSurfaceChangedInterface
             gl.glEnable(GL10.GL_TEXTURE_2D);
 
             //Delete old texture
-            if(this.textureID != -1)
+            if(this.openGLESImageProperties.textureID != -1)
             {
-                textures[0] = textureID;
+                textures[0] = this.openGLESImageProperties.textureID;
                 gl.glDeleteTextures(1, textures, 0);
             }
 
             gl.glGenTextures(1, textures, 0);
 
-            textureID = textures[0];
+            this.openGLESImageProperties.textureID = textures[0];
             
-            gl.glBindTexture(GL10.GL_TEXTURE_2D, textureID);
+            gl.glBindTexture(GL10.GL_TEXTURE_2D, this.openGLESImageProperties.textureID);
 
-            if(false) 
-            {
-                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_TRUE);
-            } else
-            {
-                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_FALSE);
-            }
+//            if(false) 
+//            {
+//                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_TRUE);
+//            } else
+//            {
+//                gl.glTexParameterf(GL11.GL_TEXTURE_2D, GL11.GL_GENERATE_MIPMAP, GL11.GL_FALSE);
+//            }
 
-            gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
-            gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
+              //gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST_MIPMAP_NEAREST);
+              //gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_LINEAR_MIPMAP_LINEAR);
+              gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MIN_FILTER, GL10.GL_NEAREST);
+//            gl.glTexParameterf(GL10.GL_TEXTURE_2D, GL10.GL_TEXTURE_MAG_FILTER, GL10.GL_LINEAR);
 
             //gl.glTexEnvx(GL10.GL_TEXTURE_ENV, GL10.GL_TEXTURE_ENV_MODE, GL10.GL_REPLACE);
             //TWB - working to fix gl images on a555 so remarked below
@@ -210,7 +202,7 @@ implements OpenGLSurfaceChangedInterface
 
     public String toString() {
         final GraphicsStrings graphicsStrings = GraphicsStrings.getInstance();
-        return new StringMaker().append(this.getName()).append(super.toString()).append(graphicsStrings.OPACITY).append(this.alphaf).toString();
+        return new StringMaker().append(this.getName()).append(super.toString()).append(graphicsStrings.OPACITY).append(this.openGLESImageProperties.alphaf).toString();
     }    
 
 }
