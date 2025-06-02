@@ -28,6 +28,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     public OpenGLESImage fontImage;
     
     private TrueTypeFontUtil() {
+        super(1, 1f);
     }
 
     public int getAsTextureSize(int textureSize)

@@ -38,15 +38,27 @@ public class TrueTypeFontUtilBase {
 
     public javax.microedition.lcdui.Font currentFont = javax.microedition.lcdui.Font.getDefaultFont();
 
-    public final int CELLS_PER_ROW = 16; //13;
-    public final int fontSize = 20 + 6; //currentFont.getSize() + 6;
-    public final int baseCharWidth = fontSize + 6;
-    public final int cellSize = fontSize + 6;// * 3 >> 1;
-    public final int textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
-    public final int actualCellsPerRow = textureSize / cellSize;
+    public final float widthScale;
+    public final int scale;
+    public final int CELLS_PER_ROW;
+    public final int fontSize;
+    public final int baseCharWidth;
+    public final int cellSize;
+    public final int textureSize;
+    public final int actualCellsPerRow;
     //public final int extraCellsPerRow = actualCellsPerRow - CELLS_PER_ROW;
         
-    public TrueTypeFontUtilBase() {
+    public TrueTypeFontUtilBase(final int scale, final float widthScale) {
+        
+        this.scale = scale;
+        this.widthScale = widthScale;
+        this.CELLS_PER_ROW = 16; //13;
+        this.fontSize = (20 + 6) * scale; //currentFont.getSize() + 6;
+        this.baseCharWidth = fontSize + (6 * scale);
+        this.cellSize = fontSize + (6 * scale);// * 3 >> 1;
+        this.textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
+        this.actualCellsPerRow = textureSize / cellSize;
+        
 //        LogUtil.put(LogFactory.getInstance(new StringMaker()
 //            .append(" fontSize: ").append(fontSize)
 //            .append(" cellSize: ").append(cellSize)
