@@ -22,6 +22,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import java.io.File;
 import java.io.FileOutputStream;
+import javax.microedition.khronos.opengles.GL10;
 
 import org.allbinary.data.resource.ResourceUtil;
 import org.allbinary.graphics.color.BasicColor;
@@ -50,22 +51,22 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
         super(1, 1f);
     }
     
-    public Image getFontBitmap(final String filename, final int fontSize, final int cellSize, final BasicColor basicColor) {
-        try {
-            if(this.fontImage == null) {
-                final CanvasStrings canvasStrings = CanvasStrings.getInstance();
-                final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream(canvasStrings.FONT_ATLAS));
-                image.setName(canvasStrings.FONT_ATLAS);
-                this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
-                return this.fontImage;
-            } else {
-                return this.fontImage;
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException();
-        }
-    }
+//    private Image getFontBitmap(final String filename, final int fontSize, final int cellSize, final BasicColor basicColor) {
+//        try {
+//            if(this.fontImage == null) {
+//                final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+//                final Image image = Image.createImage(ResourceUtil.getInstance().getResourceAsStream(canvasStrings.FONT_ATLAS));
+//                image.setName(canvasStrings.FONT_ATLAS);
+//                this.fontImage = (OpenGLESImage) this.preResourceImageUtil.encapsulate(image);
+//                return this.fontImage;
+//            } else {
+//                return this.fontImage;
+//            }
+//        } catch(Exception e) {
+//            e.printStackTrace();
+//            throw new RuntimeException();
+//        }
+//    }
 
     //This is only called from OpenGLES on Android via OpenGLESStrings
     public void saveFontAtlasAsFile() {
@@ -81,7 +82,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
         }
     }
 
-    public Image getFontBitmap(final String filename, final int cellSize, final BasicColor basicColor) {
+    public Image getFontBitmap(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
         if (this.fontImage == null) {
             final int cellsPerRow2 = CELLS_PER_ROW * 2;
             final int cellsPerRow3 = CELLS_PER_ROW * 3;

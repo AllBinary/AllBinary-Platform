@@ -13,6 +13,7 @@
  */
 package org.allbinary.emulator.device;
 
+import javax.microedition.khronos.opengles.GL10;
 import javax.microedition.lcdui.Image;
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.image.opengles.OpenGLESImage;
@@ -50,7 +51,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
 
     }
 
-    public Image getFontBitmap(final String filename, final int cellSize, final BasicColor basicColor) {
+    public Image getFontBitmap(final GL10 gl, final String filename, final int cellSize, final BasicColor basicColor) {
         throw new RuntimeException();    
     }
 

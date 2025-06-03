@@ -35,7 +35,8 @@ public class OpenGLCapabilities
     private String glVersion = StringUtil.getInstance().EMPTY_STRING;
     public int shaderVersion = 0;
     public String glInstanceVersion = StringUtil.getInstance().EMPTY_STRING;
-
+    public int maxTextureSize = 64;
+    
     private OpenGLCapabilities()
     {
     }
@@ -59,4 +60,10 @@ public class OpenGLCapabilities
     {
         return false;
     }
+
+    public boolean isTextureSizeValid(final int widthAndHeight)
+    {
+        return true;
+    }
+
 }

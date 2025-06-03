@@ -27,7 +27,7 @@ public class OpenGLESStrings
         throw new RuntimeException();
     }
 
-    public void initFont(final int width, final int height)
+    public void initFont(final GL10 gl, final int width, final int height)
     {
         throw new RuntimeException();
     }

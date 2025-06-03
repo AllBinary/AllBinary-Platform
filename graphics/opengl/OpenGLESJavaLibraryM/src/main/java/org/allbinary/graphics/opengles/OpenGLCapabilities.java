@@ -52,6 +52,7 @@ public class OpenGLCapabilities
     private String glExtensions = stringUtil.EMPTY_STRING;
     private boolean possiblyAccelerated;
     private String acceleratedString = stringUtil.EMPTY_STRING;
+    public int maxTextureSize = 64;
     
     public final String VERSION_1_0 = "1.0";
     public final String VERSION_1_1 = "1.1";
@@ -271,7 +272,12 @@ public class OpenGLCapabilities
 
                 openGLImageSpecificFactory.setImageFactory(new OpenGLESGL10ImageFactory());
             }
-
+            
+            //GL_MAX_RECTANGLE_TEXTURE_SIZE, and maybe GL_MAX_3D_TEXTURE_SIZE            
+            final int[] maxTextureSizeArray = new int[1];
+            gl.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE, maxTextureSizeArray, 0);
+            this.maxTextureSize = maxTextureSizeArray[0];
+                
             //For now we will just use the poly version for opengl games
             //this.glThreedDrawTexture = true;
             //OpenGLImageSpecificFactory.getInstance().setImageFactory(new OpenGLESGL10RectangleImageFactory());
@@ -315,6 +321,9 @@ public class OpenGLCapabilities
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" VBO Support: ");
         stringBuffer.append(this.isVertexBufferObjectSupport());
+        stringBuffer.append(commonSeps.NEW_LINE);
+        stringBuffer.append(" Max Texture Size: ");
+        stringBuffer.append(this.maxTextureSize);
         stringBuffer.append(commonSeps.NEW_LINE);
         stringBuffer.append(" GL_EXTENSIONS: ");
         
@@ -377,5 +386,13 @@ public class OpenGLCapabilities
     {
         return vertexBufferObjectSupport;
     }
- 
+
+    public boolean isTextureSizeValid(final int widthAndHeight)
+    {
+        if(this.maxTextureSize >= widthAndHeight) {
+            return true;
+        }
+        return false;
+    }
+    
 }

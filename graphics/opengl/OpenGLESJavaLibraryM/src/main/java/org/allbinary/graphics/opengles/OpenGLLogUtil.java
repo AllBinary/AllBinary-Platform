@@ -20,12 +20,12 @@ public class OpenGLLogUtil
     
     private final String MAX_TEXTURE = " Max Texture Size: ";
     
-    public void logError(GL10 gl)
+    public void logError(final GL10 gl)
     {
-        int error = gl.glGetError();
+        final int error = gl.glGetError();
         if (error != GL10.GL_NO_ERROR)
         {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(OpenGLStrings.getInstance().GL_ERROR_LABEL);
             stringBuffer.append(error);
@@ -33,7 +33,7 @@ public class OpenGLLogUtil
             {
                 stringBuffer.append(MAX_TEXTURE);
                 
-                int[] maxTextureSize = new int[1];
+                final int[] maxTextureSize = new int[1];
                 gl.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE, maxTextureSize, 0);
                 
                 stringBuffer.append(maxTextureSize[0]);
@@ -51,12 +51,12 @@ public class OpenGLLogUtil
     private final String LOG_ERROR = "logError";
     private final String IMAGE = " Image: ";
     
-    public void logError(GL10 gl, Image image)
+    public void logError(final GL10 gl, final Image image)
     {
-        int error = gl.glGetError();
+        final int error = gl.glGetError();
         if (error != GL10.GL_NO_ERROR)
         {
-            StringMaker stringBuffer = new StringMaker();
+            final StringMaker stringBuffer = new StringMaker();
             
             stringBuffer.append(OpenGLStrings.getInstance().GL_ERROR_LABEL);
             stringBuffer.append(error);
@@ -64,7 +64,7 @@ public class OpenGLLogUtil
             {
                 stringBuffer.append(MAX_TEXTURE);
                 
-                int[] maxTextureSize = new int[1];
+                final int[] maxTextureSize = new int[1];
                 gl.glGetIntegerv(GL10.GL_MAX_TEXTURE_SIZE, maxTextureSize, 0);
                 
                 stringBuffer.append(maxTextureSize[0]);
