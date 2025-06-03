@@ -28,6 +28,19 @@ import org.allbinary.graphics.font.MyFont;
 public class HighScoresCanvasLevelChangeInputProcessor extends
         HighScoresCanvasInputProcessor
 {
+    private final MyFont myFont = MyFont.getInstance();
+    private final DisplayInfoSingleton displayInfoSingleton = 
+            DisplayInfoSingleton.getInstance();
+    
+    // Accelerate or Right Turn Left Turn or Reverse
+    // private final String INSTRUCTIONS =
+    // "(Up = Next Track, Down = Previous Track)";
+    private final String INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
+
+    // private final String INSTRUCTIONS = "(Change Tracks With Game Controls)";
+    
+    private int anchor = Anchor.TOP_LEFT;
+    
     public HighScoresCanvasLevelChangeInputProcessor(
             HighScoresCanvas highScoresCanvas)
     {
@@ -73,19 +86,6 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         }
         list.clear();
     }
-
-    private final DisplayInfoSingleton displayInfoSingleton = 
-            DisplayInfoSingleton.getInstance();
-    
-    // Accelerate or Right Turn Left Turn or Reverse
-    // private final String INSTRUCTIONS =
-    // "(Up = Next Track, Down = Previous Track)";
-    private final String INSTRUCTIONS = "(Right = Next Track, Left = Previous Track)";
-
-    // private final String INSTRUCTIONS = "(Change Tracks With Game Controls)";
-
-    
-    private int anchor = Anchor.TOP_LEFT;
     
     public void paint(Graphics graphics)
     {
@@ -96,6 +96,6 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         int topScoresWidth = (graphics.getFont().stringWidth(INSTRUCTIONS) >> 1);
 
         graphics.drawString(INSTRUCTIONS, (width >> 1) - topScoresWidth,
-                MyFont.getInstance().DEFAULT_CHAR_HEIGHT * 2, anchor);
+                this.myFont.DEFAULT_CHAR_HEIGHT * 2, anchor);
     }
 }

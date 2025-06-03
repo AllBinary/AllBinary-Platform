@@ -28,9 +28,8 @@ public class CanvasDrawLineString
       this.y = y;
    }
    
+   private final MyFont myFont = MyFont.getInstance();
    private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
-   
-   private final int HEIGHT = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
    
    public void paint(Graphics graphics, String string, int line)
    {
@@ -38,7 +37,7 @@ public class CanvasDrawLineString
       //Font font = graphics.getFont();
       //graphics.setFont(Font.getFont(font.getFace(), font.getStyle(), Font.SIZE_LARGE));
        drawStringUtil.drawCenterString(graphics, string, 0, string.length(), x, 
-               y + (line * HEIGHT));
+               y + (line * myFont.DEFAULT_CHAR_HEIGHT));
       //graphics.setFont(font);
    }
 }

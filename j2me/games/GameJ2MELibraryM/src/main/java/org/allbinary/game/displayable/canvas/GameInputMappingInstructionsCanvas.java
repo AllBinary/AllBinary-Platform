@@ -83,13 +83,14 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
 
     private int anchor = Anchor.TOP_LEFT;
     
+    private final MyFont myFont = MyFont.getInstance();
     private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
     
     public void paint(Graphics graphics)
     {
     	PreLogUtil.put(commonStrings.START, this, "paint");
     	
-        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+        final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
         
         this.colorFillPaintable.paint(graphics);
 

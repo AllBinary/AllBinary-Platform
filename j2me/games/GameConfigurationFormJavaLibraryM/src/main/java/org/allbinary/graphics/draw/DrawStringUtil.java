@@ -37,9 +37,10 @@ public class DrawStringUtil
         return instance;
     }    
 
+    private final MyFont myFont = MyFont.getInstance();
+    
     public void paintVerticle(final Graphics graphics, final String string, final int x, final int y, final int anchor)
     {
-        final MyFont myFont = MyFont.getInstance();
         final OpenGLFeatureUtil openGLFeatureUtil = OpenGLFeatureUtil.getInstance();
 
         int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
@@ -94,9 +95,9 @@ public class DrawStringUtil
     private final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
 
     public void drawCenterStrings(
-            Graphics graphics, String[] stringArray, int maxWidth, int x, int y)
+            final Graphics graphics, final String[] stringArray, final int maxWidth, final int x, final int y)
     {
-        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+        final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
         
         int extraLines = 0;
 

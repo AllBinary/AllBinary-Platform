@@ -28,21 +28,19 @@ public class KeyValueDrawString {
 
     private final int labelWidth;
     private final int labelX;
-    private final int y;
     private int valueX;
 
     private String value = StringUtil.getInstance().EMPTY_STRING;
 
-    public KeyValueDrawString(String label, int x, int y)
+    public KeyValueDrawString(String label, int x)
     {
         this.LABEL = label;
         this.labelWidth = MyFont.getInstance().stringWidth(LABEL) - LABEL.length();
         this.labelX = x;
         this.valueX = this.labelWidth + x;
-        this.y = y;
     }
 
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics, final int y)
     {
         graphics.drawString(this.LABEL,
             this.labelX, y, 0);

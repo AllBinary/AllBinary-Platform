@@ -41,6 +41,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected StringUtil stringUtil = StringUtil.getInstance();
+    private final MyFont myFont = MyFont.getInstance();
     
     private GameInputMapping[] gameInputMappingArray;
     
@@ -177,7 +178,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
     public int getHeight()
     {
-        return MyFont.getInstance().DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 4);
+        return this.myFont.DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 4);
     }
     
     private int anchor = Anchor.TOP_LEFT;
@@ -193,7 +194,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
         final StringMaker stringMaker = new StringMaker();
         final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
         
-        final int charHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+        final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
         final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
 
         int beginWidth = (font.stringWidth(this.TITLE) >> 1);
@@ -217,7 +218,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
             //For same line action and mappings
             y = (index + 3) * charHeight;
             //For multiline
-            //y = ((index * 2) + 3) * MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
+            //y = ((index * 2) + 3) * this.myFont.DEFAULT_CHAR_HEIGHT;
             
             deltaX = 0;
             list = this.keyMappingArray[index];
@@ -243,7 +244,7 @@ public class InputMappingHelpPaintable extends HelpPaintable
             //For same line action and mappings
             deltaX += font.stringWidth(actionString);
             //For multiline
-            //y = ((index * 2) + 4) * MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
+            //y = ((index * 2) + 4) * myFont.DEFAULT_CHAR_HEIGHT;
             //beginWidth = (font.stringWidth(keyMappings) >> 1);
 
             for(int index2 = 0; index2 < size2; index2++)

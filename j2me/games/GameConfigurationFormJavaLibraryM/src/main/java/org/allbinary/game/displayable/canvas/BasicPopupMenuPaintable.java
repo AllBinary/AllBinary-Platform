@@ -41,13 +41,15 @@ import org.allbinary.graphics.paint.Paintable;
  */
 public class BasicPopupMenuPaintable extends Paintable
 {
-    private final String label;
-
     private static final String NAME = "MENU";
 
+    private final MyFont myFont = MyFont.getInstance();
+    
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
 
+    private final String label;
+    
     private final int BORDER;
     
     private final BasicColor foregroundBasicColor;
@@ -113,14 +115,14 @@ public class BasicPopupMenuPaintable extends Paintable
     {
         this.rectangle = rectangle;
         
-        int heightOffset = rectangle.getHeight() - (MyFont.getInstance().DEFAULT_CHAR_HEIGHT * NAME.length());
+        int heightOffset = rectangle.getHeight() - (this.myFont.DEFAULT_CHAR_HEIGHT * NAME.length());
 
         if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
-            heightOffset -= MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2;
+            heightOffset -= this.myFont.DEFAULT_CHAR_HEIGHT + 2;
             if (AndroidUtil.isAndroid()) {
-                heightOffset = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
+                heightOffset = this.myFont.DEFAULT_CHAR_HEIGHT;
             } else {
-                heightOffset -= MyFont.getInstance().DEFAULT_CHAR_HEIGHT + 2;
+                heightOffset -= this.myFont.DEFAULT_CHAR_HEIGHT + 2;
             }
         }
         

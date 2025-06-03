@@ -28,16 +28,18 @@ import org.allbinary.layer.AllBinaryLayer;
  */
 public class CountedLayersHudPaintable implements PaintableInterface
 {
+
+   private static final String XXString = "XX";
+   private static final int XXStringWidth = MyFont.getInstance().stringWidth(XXString);
+
+   private final MyFont myFont = MyFont.getInstance();
+   
    private final PartInterface[] partInterfaceArray;
    private final int countedTotalStringColor;
    private final int countedPartsBorder;
    private final int startIndex;
-   private static final String XXString = "XX";
-   private static final int XXStringWidth = MyFont.getInstance().stringWidth(XXString);
-   private static final int myFontHeight = MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
    
    private final int dropSize;
-   private final int height;
    
    public CountedLayersHudPaintable(PartInterface[] partInterfaceArray, int dropSize,
            int startIndex, int countedTotalStringColor, int countedPartsBorder)
@@ -49,18 +51,16 @@ public class CountedLayersHudPaintable implements PaintableInterface
       this.countedPartsBorder = countedPartsBorder;
       
       this.dropSize = dropSize;
-      if(this.dropSize > this.myFontHeight)
-      {
-          this.height = this.dropSize;
-      }
-      else
-      {
-          this.height = this.myFontHeight;
-      }
    }
    
    public void paint(Graphics graphics)
    {
+      int height = myFont.DEFAULT_CHAR_HEIGHT;
+      if(this.dropSize > myFont.DEFAULT_CHAR_HEIGHT)
+      {
+          height = this.dropSize;
+      }
+       
       int lastWidth = DisplayInfoSingleton.getInstance().getLastWidth();
       int count = 0;
       int widthEdge = lastWidth - this.dropSize;
@@ -86,7 +86,7 @@ public class CountedLayersHudPaintable implements PaintableInterface
 
              layerInterface = pickedUpLayerInterfaceFactoryInterface.getIconLayer();
 
-            y = 40 + (count * this.height);
+            y = 40 + (count * height);
 
             layerInterface.setPosition(widthEdge, y, layerInterface.getZ());
             layerInterface.paint(graphics);
@@ -106,13 +106,14 @@ public class CountedLayersHudPaintable implements PaintableInterface
       if (count > 0)
       {
          graphics.setColor(countedPartsBorder);
-         
+
          graphics.drawRect(lastWidth - (XXStringWidth + this.dropSize),
-                 40, XXStringWidth + this.dropSize, (count * this.height) + 3);
+                 40, XXStringWidth + this.dropSize, (count * height) + 3);
       }
    }
    
    public void paintThreed(Graphics graphics)
    {
-   }   
+   }
+   
 }

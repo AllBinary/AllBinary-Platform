@@ -28,23 +28,21 @@ public class KeyValueDrawCharArray {
 
     private final int labelWidth;
     private final int labelX;
-    private final int y;
     private int valueX;
 
     private char[] value = CharArrayFactory.getInstance().getZeroCharArray();
     private int len;
     //private String value = StringUtil.getInstance();
 
-    public KeyValueDrawCharArray(String label, int x, int y)
+    public KeyValueDrawCharArray(String label, int x)
     {
         this.LABEL = label;
         this.labelWidth = MyFont.getInstance().stringWidth(LABEL) - LABEL.length();
         this.labelX = x;
         this.valueX = this.labelWidth + x;
-        this.y = y;
     }
 
-    public void paint(Graphics graphics)
+    public void paint(final Graphics graphics, final int y)
     {
         graphics.drawString(this.LABEL, this.labelX, y, 0);
 

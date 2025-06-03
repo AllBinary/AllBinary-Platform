@@ -31,9 +31,9 @@ import org.allbinary.time.TimeDelayHelper;
  */
 public class PressStartMenuPaintable extends Paintable
 {
+    private final MyFont myFont = MyFont.getInstance();
+    
     private String startString = StringUtil.getInstance().EMPTY_STRING;
-    private final int line = (4 * MyFont.getInstance().DEFAULT_CHAR_HEIGHT)
-            + (MyFont.getInstance().DEFAULT_CHAR_HEIGHT >> 1);
 
     private TimeDelayHelper timeDelayHelper = new TimeDelayHelper(1100);
     private boolean flash;
@@ -81,6 +81,7 @@ public class PressStartMenuPaintable extends Paintable
 
             int beginWidth = (graphics.getFont().stringWidth(startString) >> 1);
             
+            final int line = (4 * myFont.DEFAULT_CHAR_HEIGHT) + (myFont.DEFAULT_CHAR_HEIGHT >> 1);
             graphics.drawString(startString, displayInfo.getLastHalfWidth()
                     - beginWidth, displayInfo.getLastHeight() - line, anchor);
         }

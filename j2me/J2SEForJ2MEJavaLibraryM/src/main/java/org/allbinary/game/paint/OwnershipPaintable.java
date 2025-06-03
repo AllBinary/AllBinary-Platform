@@ -27,15 +27,14 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class OwnershipPaintable extends Paintable
-{
+{   
     //private final static OwnershipPaintable SINGLETON = new OwnershipPaintable();
 
+    private final MyFont myFont = MyFont.getInstance();
+    
     private final String COPYRIGHT = "AllBinary Copyright (c) 2011";
     //private final String COPYRIGHT = "Copyright (c) 2011";
     //private final String COMPANY = "AllBinary";
-
-    //private int COMPANY_Y = 3 * MyFont.MYFONT.DEFAULT_CHAR_HEIGHT;
-    private int COPYRIGHT_Y = 2 * MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
     
     private BasicColor basicColor = BasicColorFactory.getInstance().WHITE;
     private int color = basicColor.intValue();
@@ -67,7 +66,9 @@ public class OwnershipPaintable extends Paintable
         final Font font = graphics.getFont();
 
         final int beginWidth = (font.stringWidth(COPYRIGHT) >> 1);
-        
+
+        //final int COPYRIGHT_Y = 3 * myFont.DEFAULT_CHAR_HEIGHT;
+        final int COPYRIGHT_Y = 2 * myFont.DEFAULT_CHAR_HEIGHT;
         graphics.drawString(COPYRIGHT, halfWidth - beginWidth, height - COPYRIGHT_Y, anchor);
 
         /*

@@ -33,15 +33,18 @@ import org.allbinary.logic.math.BasicDecimal;
 public class GeographicMapCellHistory
 {
     private final BooleanFactory booleanFactory = BooleanFactory.getInstance();
+    private final MyFont myFont = MyFont.getInstance();
     
    private final BasicArrayList list;
    private final BasicArrayList visitedList;
    private final String MISSED_INFO = "Missed";
+   
+   private final Animation animation = new TextAnimation(MISSED_INFO, AnimationBehavior.getInstance());
 
    private int totalVisited;
 
-   private final Animation animation = new TextAnimation(MISSED_INFO, AnimationBehavior.getInstance());
-   
+   private int halfWidth = 0;
+
    public GeographicMapCellHistory()
    {
       this.list = new BasicArrayList();
@@ -298,9 +301,6 @@ public class GeographicMapCellHistory
 
       this.totalVisited = 0;
    }
-
-   private final int height = 2 * MyFont.getInstance().DEFAULT_CHAR_HEIGHT;
-   private int halfWidth = 0;
    
    private void paintNotVisited(
       final Graphics graphics, final AllBinaryTiledLayer tiledLayer, final GPoint point)
@@ -313,6 +313,8 @@ public class GeographicMapCellHistory
           this.halfWidth = (graphics.getFont().stringWidth(MISSED_INFO) >> 1);
       }
 
+      final int height = 2 * myFont.DEFAULT_CHAR_HEIGHT;
+      
       this.animation.paint(graphics, x + halfWidth,
             //(tiledLayer.getCellHeight() >> 1)
               y + (height));
