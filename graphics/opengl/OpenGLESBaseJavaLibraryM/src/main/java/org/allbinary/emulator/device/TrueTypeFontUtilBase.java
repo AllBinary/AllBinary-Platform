@@ -13,6 +13,10 @@
  */
 package org.allbinary.emulator.device;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
+
 /**
  *
  * @author User
@@ -38,7 +42,6 @@ public class TrueTypeFontUtilBase {
 
     public javax.microedition.lcdui.Font currentFont = javax.microedition.lcdui.Font.getDefaultFont();
 
-    public final float widthScale;
     public final int scale;
     public final int CELLS_PER_ROW;
     public final int fontSize;
@@ -48,14 +51,16 @@ public class TrueTypeFontUtilBase {
     public final int actualCellsPerRow;
     //public final int extraCellsPerRow = actualCellsPerRow - CELLS_PER_ROW;
         
-    public TrueTypeFontUtilBase(final int scale, final float widthScale) {
+    public TrueTypeFontUtilBase(final int scale) {
         
         this.scale = scale;
-        this.widthScale = widthScale;
+        
+        //LogUtil.put(LogFactory.getInstance(Integer.toString(scale), this, CommonStrings.getInstance().CONSTRUCTOR));
+        
         this.CELLS_PER_ROW = 16; //13;
-        this.fontSize = (20 + 6) * scale; //currentFont.getSize() + 6;
-        this.baseCharWidth = fontSize + (6 * scale);
-        this.cellSize = fontSize + (6 * scale);// * 3 >> 1;
+        this.fontSize = (20 + 6) * this.scale; //currentFont.getSize() + 6;
+        this.baseCharWidth = fontSize + (6 * this.scale);
+        this.cellSize = fontSize + (6 * this.scale);// * 3 >> 1;
         this.textureSize = this.getAsTextureSize(CELLS_PER_ROW * cellSize);
         this.actualCellsPerRow = textureSize / cellSize;
         

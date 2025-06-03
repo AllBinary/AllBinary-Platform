@@ -34,13 +34,13 @@ public class SimpleTextPaintable extends Paintable
     
     private int anchor = Anchor.TOP_LEFT;
     
-    private final MyFont myFont = MyFont.getInstance();
-    
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
     
     public void paint(Graphics graphics)
     {
+        final MyFont myFont = MyFont.getInstance();
+        
         //int width = graphics.getClipWidth();
         int width = this.displayInfoSingleton.getLast()[this.displayInfoSingleton.WIDTH];
         

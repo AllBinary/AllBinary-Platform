@@ -28,12 +28,13 @@ public class CanvasDrawLineString
       this.y = y;
    }
    
-   private final MyFont myFont = MyFont.getInstance();
    private final DrawStringUtil drawStringUtil = DrawStringUtil.getInstance();
    
    public void paint(Graphics graphics, String string, int line)
    {
 
+       final MyFont myFont = MyFont.getInstance();
+       
       //Font font = graphics.getFont();
       //graphics.setFont(Font.getFont(font.getFace(), font.getStyle(), Font.SIZE_LARGE));
        drawStringUtil.drawCenterString(graphics, string, 0, string.length(), x, 

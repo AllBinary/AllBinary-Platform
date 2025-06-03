@@ -33,7 +33,6 @@ import org.allbinary.logic.math.BasicDecimal;
 public class GeographicMapCellHistory
 {
     private final BooleanFactory booleanFactory = BooleanFactory.getInstance();
-    private final MyFont myFont = MyFont.getInstance();
     
    private final BasicArrayList list;
    private final BasicArrayList visitedList;
@@ -313,6 +312,7 @@ public class GeographicMapCellHistory
           this.halfWidth = (graphics.getFont().stringWidth(MISSED_INFO) >> 1);
       }
 
+      final MyFont myFont = MyFont.getInstance();
       final int height = 2 * myFont.DEFAULT_CHAR_HEIGHT;
       
       this.animation.paint(graphics, x + halfWidth,

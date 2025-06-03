@@ -43,8 +43,6 @@ public class BasicPopupMenuPaintable extends Paintable
 {
     private static final String NAME = "MENU";
 
-    private final MyFont myFont = MyFont.getInstance();
-    
     protected final BasicColorSetUtil basicSetColorUtil = 
         BasicColorSetUtil.getInstance();
 
@@ -114,15 +112,17 @@ public class BasicPopupMenuPaintable extends Paintable
     public void init(final Rectangle rectangle) throws Exception
     {
         this.rectangle = rectangle;
-        
-        int heightOffset = rectangle.getHeight() - (this.myFont.DEFAULT_CHAR_HEIGHT * NAME.length());
+
+        final MyFont myFont = MyFont.getInstance();
+
+        int heightOffset = rectangle.getHeight() - (myFont.DEFAULT_CHAR_HEIGHT * NAME.length());
 
         if (OpenGLFeatureUtil.getInstance().isAnyThreed()) {
-            heightOffset -= this.myFont.DEFAULT_CHAR_HEIGHT + 2;
+            heightOffset -= myFont.DEFAULT_CHAR_HEIGHT + 2;
             if (AndroidUtil.isAndroid()) {
-                heightOffset = this.myFont.DEFAULT_CHAR_HEIGHT;
+                heightOffset = myFont.DEFAULT_CHAR_HEIGHT;
             } else {
-                heightOffset -= this.myFont.DEFAULT_CHAR_HEIGHT + 2;
+                heightOffset -= myFont.DEFAULT_CHAR_HEIGHT + 2;
             }
         }
         

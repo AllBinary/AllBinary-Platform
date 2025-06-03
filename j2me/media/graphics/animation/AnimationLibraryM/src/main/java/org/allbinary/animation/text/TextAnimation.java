@@ -28,8 +28,6 @@ import org.allbinary.util.BasicArrayList;
 
 public class TextAnimation extends IndexedAnimation
 {
-    private final MyFont myFont = MyFont.getInstance();
-    
     protected String[] textArray = StringUtil.getInstance().ONE_EMPTY_STRING_ARRAY;
     
     private int anchor = Anchor.TOP_LEFT;
@@ -102,7 +100,8 @@ public class TextAnimation extends IndexedAnimation
     }
     
     public int getHeight() {
-        return this.myFont.DEFAULT_CHAR_HEIGHT;
+        final MyFont myFont = MyFont.getInstance();
+        return myFont.DEFAULT_CHAR_HEIGHT;
     }
     
 }

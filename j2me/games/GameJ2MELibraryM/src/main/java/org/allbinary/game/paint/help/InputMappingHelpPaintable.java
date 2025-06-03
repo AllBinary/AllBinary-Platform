@@ -41,7 +41,6 @@ public class InputMappingHelpPaintable extends HelpPaintable
 {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
     protected StringUtil stringUtil = StringUtil.getInstance();
-    private final MyFont myFont = MyFont.getInstance();
     
     private GameInputMapping[] gameInputMappingArray;
     
@@ -178,7 +177,8 @@ public class InputMappingHelpPaintable extends HelpPaintable
     
     public int getHeight()
     {
-        return this.myFont.DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 4);
+        final MyFont myFont = MyFont.getInstance();
+        return myFont.DEFAULT_CHAR_HEIGHT * (this.inputInfo.length + 4);
     }
     
     private int anchor = Anchor.TOP_LEFT;
@@ -194,7 +194,8 @@ public class InputMappingHelpPaintable extends HelpPaintable
         final StringMaker stringMaker = new StringMaker();
         final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
         
-        final int charHeight = this.myFont.DEFAULT_CHAR_HEIGHT;
+        final MyFont myFont = MyFont.getInstance();
+        final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
         final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
 
         int beginWidth = (font.stringWidth(this.TITLE) >> 1);

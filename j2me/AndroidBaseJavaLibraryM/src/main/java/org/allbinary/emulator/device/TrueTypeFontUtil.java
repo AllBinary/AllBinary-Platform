@@ -48,7 +48,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     public OpenGLESImage fontImage;
     
     private TrueTypeFontUtil() {
-        super(1, 1f);
+        super(1);
     }
     
 //    private Image getFontBitmap(final String filename, final int fontSize, final int cellSize, final BasicColor basicColor) {

@@ -25,7 +25,6 @@ import org.allbinary.graphics.paint.Paintable;
 //J2MEForJ2ME
 public class AboutPaintable extends Paintable
 {
-    private final MyFont myFont = MyFont.getInstance();
     
     private final String ABOUT = CanvasStrings.getInstance().ABOUT;
     
@@ -58,6 +57,7 @@ public class AboutPaintable extends Paintable
     
     public void paint(Graphics graphics)
     {
+        final MyFont myFont = MyFont.getInstance();
         final int halfWidth = DisplayInfoSingleton.getInstance().getLastHalfWidth();
         final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;
         final Font font = graphics.getFont();

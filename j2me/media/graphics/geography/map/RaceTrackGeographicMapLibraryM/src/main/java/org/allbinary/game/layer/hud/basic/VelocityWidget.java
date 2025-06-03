@@ -26,7 +26,6 @@ import org.allbinary.logic.math.PrimitiveLongUtil;
 
 public class VelocityWidget extends BasicHud
 {
-    private final MyFont myFont = MyFont.getInstance();
     
     //private final String KILOMETERS_PER_HOUR_STR = " km/h";
     private final char[] KILOMETERS_PER_HOUR_STR = {' ', 'k', 'm', '/', 'h'};
@@ -53,8 +52,9 @@ public class VelocityWidget extends BasicHud
         this.velocity = 0;
 
         this.primitiveLongUtil = new PrimitiveLongUtil(powerOfTenVelocity);
-        
-        this.offset = this.myFont.stringWidth(this.primitiveLongUtil.getMaxDigits()) + this.myFont.stringWidth(2);
+     
+        final MyFont myFont = MyFont.getInstance();
+        this.offset = myFont.stringWidth(this.primitiveLongUtil.getMaxDigits()) + myFont.stringWidth(2);
     }
 
     public int get()
@@ -92,7 +92,8 @@ public class VelocityWidget extends BasicHud
                 this.totalDigits = primitiveLongUtil.getCurrentTotalDigits();
             }
 
-            this.offset2 = this.offset - this.myFont.stringWidth(this.totalDigits) - this.myFont.stringWidth(2);
+            final MyFont myFont = MyFont.getInstance();
+            this.offset2 = this.offset - myFont.stringWidth(this.totalDigits) - myFont.stringWidth(2);
         }
     }
 

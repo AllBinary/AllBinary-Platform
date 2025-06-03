@@ -30,8 +30,6 @@ public class OwnershipPaintable extends Paintable
 {   
     //private final static OwnershipPaintable SINGLETON = new OwnershipPaintable();
 
-    private final MyFont myFont = MyFont.getInstance();
-    
     private final String COPYRIGHT = "AllBinary Copyright (c) 2011";
     //private final String COPYRIGHT = "Copyright (c) 2011";
     //private final String COMPANY = "AllBinary";
@@ -57,7 +55,8 @@ public class OwnershipPaintable extends Paintable
         //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "paint"));
         
         graphics.setColor(color);
-        
+
+        final MyFont myFont = MyFont.getInstance();        
         final DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
         final int halfWidth = displayInfo.getLastHalfWidth();
         //int height = graphics.getClipHeight();

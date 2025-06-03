@@ -21,8 +21,6 @@ import org.allbinary.logic.string.StringMaker;
 public class MultipleScrollSelectionHorizontalForm 
 extends ScrollSelectionForm
 {
-    private final MyFont myFont = MyFont.getInstance();
-    
     private final int backgroundColor = BasicColorFactory.getInstance().TRANSPARENT_GREY.intValue();
     
     public MultipleScrollSelectionHorizontalForm(final String title, final CustomItem[] items, 
@@ -71,6 +69,7 @@ extends ScrollSelectionForm
                     this.rectangle.getHeight());
             }
             
+            final MyFont myFont = MyFont.getInstance();
             graphics.drawString(this.getTitle(), x, y - myFont.DEFAULT_CHAR_HEIGHT, 0);
 
             CustomItemInterface item;

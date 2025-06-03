@@ -21,9 +21,7 @@ import org.allbinary.graphics.paint.InitUpdatePaintable;
 import javax.microedition.lcdui.Graphics;
 
 public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
-{
-    private final MyFont myFont = MyFont.getInstance();
-    
+{    
     //private final String TEXT = "Implement Your Own GameCanvas Draw Method";
 
     //private String[] baseRefreshHelperStringArray = StringUtil.getArrayInstance();
@@ -60,6 +58,8 @@ public class GamePerformanceInitUpdatePaintable extends InitUpdatePaintable
     
     public void paint(Graphics graphics)
     {
+        final MyFont myFont = MyFont.getInstance();
+        
         graphics.setColor(RED);
         
         for(int index = baseRefreshHelperCharArray.length - 2; index >= 0; index-=2)

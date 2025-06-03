@@ -28,7 +28,7 @@ import org.allbinary.graphics.font.MyFont;
 public class HighScoresCanvasLevelChangeInputProcessor extends
         HighScoresCanvasInputProcessor
 {
-    private final MyFont myFont = MyFont.getInstance();
+
     private final DisplayInfoSingleton displayInfoSingleton = 
             DisplayInfoSingleton.getInstance();
     
@@ -89,6 +89,7 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
     
     public void paint(Graphics graphics)
     {
+        final MyFont myFont = MyFont.getInstance();
         //int width = graphics.getClipWidth();
         int width = this.displayInfoSingleton.getLastWidth();
         
@@ -96,6 +97,6 @@ public class HighScoresCanvasLevelChangeInputProcessor extends
         int topScoresWidth = (graphics.getFont().stringWidth(INSTRUCTIONS) >> 1);
 
         graphics.drawString(INSTRUCTIONS, (width >> 1) - topScoresWidth,
-                this.myFont.DEFAULT_CHAR_HEIGHT * 2, anchor);
+                myFont.DEFAULT_CHAR_HEIGHT * 2, anchor);
     }
 }
