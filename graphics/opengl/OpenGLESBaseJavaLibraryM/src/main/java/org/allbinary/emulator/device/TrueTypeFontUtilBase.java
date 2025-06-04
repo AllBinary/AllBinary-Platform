@@ -66,6 +66,7 @@ public class TrueTypeFontUtilBase {
         
 //        LogUtil.put(LogFactory.getInstance(new StringMaker()
 //            .append(" fontSize: ").append(fontSize)
+//            .append(" baseCharWidth: ").append(this.baseCharWidth)
 //            .append(" cellSize: ").append(cellSize)
 //            .append(" textureSize: ").append(textureSize)
 //            .append(" actualCellsPerRow: ").append(actualCellsPerRow)
@@ -143,6 +144,10 @@ public class TrueTypeFontUtilBase {
                     }
 
         return cellSize;
+    }
+
+    public int getYOffset() {
+        return ((this.scale - 1) * (this.cellSize));
     }
     
 }
