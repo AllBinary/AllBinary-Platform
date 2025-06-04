@@ -13,9 +13,7 @@
  */
 package org.allbinary.emulator.device;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.string.CommonStrings;
+import org.allbinary.graphics.font.MyFont;
 
 /**
  *
@@ -54,6 +52,8 @@ public class TrueTypeFontUtilBase {
     public TrueTypeFontUtilBase(final int scale) {
         
         this.scale = scale;
+        //This needs to initialize after scale and in the OpenGL thread when running JOGL.
+        MyFont.getInstance();
         
         //LogUtil.put(LogFactory.getInstance(Integer.toString(scale), this, CommonStrings.getInstance().CONSTRUCTOR));
         
