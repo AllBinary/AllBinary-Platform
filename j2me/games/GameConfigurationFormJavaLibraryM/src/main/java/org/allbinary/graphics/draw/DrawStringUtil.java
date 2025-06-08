@@ -14,6 +14,7 @@
 package org.allbinary.graphics.draw;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.AndroidUtil;
 
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.HTMLFeatureFactory;
@@ -46,10 +47,15 @@ public class DrawStringUtil
         
         final Features features = Features.getInstance();
         final boolean isHTML = features.isDefault(HTMLFeatureFactory.getInstance().HTML);
+        int offsetY = 0;
         if(isHTML) {
             charHeight += 1;
         } else if(openGLFeatureUtil.isAnyThreed()) {
             charHeight += 2;
+            if(AndroidUtil.isAndroid()) {
+            } else {
+                offsetY = 2 + (charHeight * 2 / 3);
+            }
         }
 
         int size = string.length();
@@ -64,7 +70,7 @@ public class DrawStringUtil
             }
             
             graphics.drawChar(aChar,
-                    x + offsetX, y + (charHeight * index), anchor);
+                    x + offsetX, y + (charHeight * index) + offsetY, anchor);
         }
     }
 

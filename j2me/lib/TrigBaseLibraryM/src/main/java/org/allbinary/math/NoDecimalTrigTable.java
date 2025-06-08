@@ -17,6 +17,7 @@ import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.math.MathUtil;
+import org.allbinary.string.CommonLabels;
 
 
 public class NoDecimalTrigTable
@@ -1284,7 +1285,7 @@ public class NoDecimalTrigTable
 
 				Angle angle = AngleFactory.getInstance().getInstance(angleOfTarget);
                                 stringMaker.delete(0, stringMaker.length());
-				PreLogUtil.put(stringMaker.append("index: ").append(index).append(" index2: ").append(index2).append(PositionStrings.getInstance().DX_LABEL).append(dx[index]).append(PositionStrings.getInstance().DY_LABEL).append(dy[index2]).append(TARGET_ANGLE).append(angleOfTarget).append(CommonSeps.getInstance().EQUALS).append(angle.getValue()).toString(), this, METHOD_NAME);
+				PreLogUtil.put(stringMaker.append(CommonLabels.getInstance().INDEX_LABEL).append(index).append(" index2: ").append(index2).append(PositionStrings.getInstance().DX_LABEL).append(dx[index]).append(PositionStrings.getInstance().DY_LABEL).append(dy[index2]).append(TARGET_ANGLE).append(angleOfTarget).append(CommonSeps.getInstance().EQUALS).append(angle.getValue()).toString(), this, METHOD_NAME);
 			}
 		}
 

@@ -14,6 +14,7 @@
 package org.allbinary.util;
 
 import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonLabels;
 
 public class CircularIndexUtil
 {
@@ -96,6 +97,6 @@ public class CircularIndexUtil
     }
     
     public String toString() {
-        return new StringMaker().append("index: ").append(this.index).append("lastIndex: ").append(this.lastIndex).append("size: ").append(this.size).toString();
+        return new StringMaker().append(CommonLabels.getInstance().INDEX_LABEL).append(this.index).append("lastIndex: ").append(this.lastIndex).append("size: ").append(this.size).toString();
     }
 }
