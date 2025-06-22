@@ -23,6 +23,7 @@ import org.osgi.framework.ServiceRegistration;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.bundle.logic.system.loader.CryptServiceFactory;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.string.CommonStrings;
 
 public class AllBinaryPreloaderActivator
     implements BundleActivator
@@ -40,18 +41,20 @@ public class AllBinaryPreloaderActivator
     {
         return context;
     }
+ 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     public void start(BundleContext context) throws Exception
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "start"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "start"));
             AllBinaryPreloaderActivator.context = context;
             this.registerAsService();
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "start", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "start", e));
             throw e;
         }
     }
@@ -77,6 +80,6 @@ public class AllBinaryPreloaderActivator
     public void stop(BundleContext context)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "stop"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "stop"));
     }    
 }

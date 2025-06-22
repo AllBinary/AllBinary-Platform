@@ -26,7 +26,7 @@ public class KeyFactoryInitializer extends Init
 {
     public void init()
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "init"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.INIT));
         SmallIntegerSingletonFactory.getInstance().init(0x2D0, 6);
     }
 }

@@ -27,9 +27,12 @@ import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.dhtml.style.StylesData;
 import org.allbinary.logic.visual.transform.template.customizer.bodies.BodyData;
+import org.allbinary.string.CommonStrings;
 
 public class GenericCssStyleValidation implements ValidationInterface, DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    //private Vector styles;
 
    public GenericCssStyleValidation()
@@ -62,7 +65,7 @@ public class GenericCssStyleValidation implements ValidationInterface, DomNodeIn
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "isValid()"));
          }
 
          /*

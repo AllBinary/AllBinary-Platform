@@ -26,9 +26,12 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
 import org.allbinary.data.generator.QuoteRequestIdGenerator;
 import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.string.CommonStrings;
 
 public class QuoteRequest
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private String id;
    
    private String userName;
@@ -55,7 +58,7 @@ public class QuoteRequest
 
       if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR));
       }
    }   
    
@@ -73,7 +76,7 @@ public class QuoteRequest
 
       if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
       {
-         LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Created with: " + this.toHashMap(), this, this.commonStrings.CONSTRUCTOR));
       }
    }   
   

@@ -26,6 +26,7 @@ import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FileUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -45,6 +46,8 @@ public class ZipFileUtil
         return instance;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public void create(String outFilename, BasicArrayList fileBasicArrayList)
     {
         try
@@ -112,7 +115,7 @@ public class ZipFileUtil
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "create", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "create", e));
         }
     }
 

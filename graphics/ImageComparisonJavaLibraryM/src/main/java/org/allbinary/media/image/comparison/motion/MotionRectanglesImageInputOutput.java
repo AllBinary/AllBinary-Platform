@@ -189,21 +189,23 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
              */
         }
         
+        final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();
+        
         if(NUMBER_OF_IMAGES > 1)
         {
-            ImagePersistanceUtil.saveWithImageIO(
+            imagePersistanceUtil.saveWithImageIO(
                     filePathStringBuffer1.toString(),
                     bufferedImageCacheables[1].getBufferedImage());
         }
         
         //0 frame is the second image
-        ImagePersistanceUtil.saveWithImageIO(
+        imagePersistanceUtil.saveWithImageIO(
             filePathStringBuffer2.toString(),
             bufferedImageCacheables[0].getBufferedImage());
         
         if(NUMBER_OF_IMAGES > 2)
         {
-            ImagePersistanceUtil.saveWithImageIO(
+            imagePersistanceUtil.saveWithImageIO(
                     filePathStringBuffer3.toString(),
                     bufferedImageCacheables[2].getBufferedImage());
         }

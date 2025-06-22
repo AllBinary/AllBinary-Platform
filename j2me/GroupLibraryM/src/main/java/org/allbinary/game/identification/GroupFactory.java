@@ -70,7 +70,7 @@ public class GroupFactory {
          size++;
       }
       
-      //LogUtil.put(LogFactory.getInstance("size: " + list.size(), this, "init"));
+      //LogUtil.put(LogFactory.getInstance("size: " + list.size(), this, this.commonStrings.INIT));
    }
    
 }

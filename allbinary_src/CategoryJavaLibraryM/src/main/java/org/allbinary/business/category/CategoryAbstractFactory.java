@@ -13,20 +13,21 @@
 */
 package org.allbinary.business.category;
 
-import org.allbinary.business.category.Category;
-import org.allbinary.business.category.CategoryFactoryInterface;
-import org.allbinary.business.category.CategoryInterface;
+import java.util.HashMap;
+
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.category.properties.CategoryPropertiesFactory;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
-import org.w3c.dom.Node;
+import org.allbinary.string.CommonStrings;
 
-import java.util.HashMap;
+import org.w3c.dom.Node;
 
 public abstract class CategoryAbstractFactory implements CategoryFactoryInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    public CategoryAbstractFactory()
    {
    }
@@ -90,7 +91,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "getInstance(String)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstance(String)"));
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -147,7 +148,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "getInstance(CategoryInterface, CategoryInterface, String)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, String)"));
          }
 
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -174,7 +175,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "getInstance(Node)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstance(Node)"));
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -226,7 +227,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "getInstance(CategoryInterface, CategoryInterface, Node)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, Node)"));
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 
@@ -282,7 +283,7 @@ public abstract class CategoryAbstractFactory implements CategoryFactoryInterfac
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "getInstance(CategoryInterface, CategoryInterface, HashMap)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getInstance(CategoryInterface, CategoryInterface, HashMap)"));
          }
          
          CategoryPropertiesFactoryInterface categoryPropertiesFactoryInterface = 

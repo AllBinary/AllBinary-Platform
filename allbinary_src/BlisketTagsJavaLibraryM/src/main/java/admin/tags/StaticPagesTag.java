@@ -50,7 +50,7 @@ public class StaticPagesTag extends TableTag
    {
       try
       {
-         //LogUtil.put(LogFactory.getInstance("Start", this, "generateStaticPages()"));
+         //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "generateStaticPages()"));
 
          Object object = new StaticPagesRequestHelperFactory().getInstance(
          this.getPropertiesHashMap(), this.pageContext);

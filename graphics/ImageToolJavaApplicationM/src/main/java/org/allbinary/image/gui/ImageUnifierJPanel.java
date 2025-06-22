@@ -94,7 +94,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "init", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.commonStrings.INIT, e));
       }
 
    }
@@ -545,7 +545,7 @@ public class ImageUnifierJPanel extends javax.swing.JPanel
           LogUtil.put(LogFactory.getInstance("New File Path: " + filePath, this, StringUtil.getInstance().EMPTY_STRING));
           
           final File outputFile = new File(filePath);
-          ImagePersistanceUtil.saveWithBatik(FileWrapperUtil.wrapFile(outputFile), this.result);
+          ImagePersistanceUtil.getInstance().saveWithBatik(FileWrapperUtil.wrapFile(outputFile), this.result);
       }
       catch (Exception e)
       {

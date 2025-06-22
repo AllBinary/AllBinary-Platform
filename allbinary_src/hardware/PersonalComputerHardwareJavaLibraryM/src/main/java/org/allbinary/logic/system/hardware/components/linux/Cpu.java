@@ -15,24 +15,24 @@ package org.allbinary.logic.system.hardware.components.linux;
 
 import java.io.FileReader;
 import java.io.LineNumberReader;
-
 import java.util.HashMap;
-import org.allbinary.logic.io.file.AbFile;
 
+import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.io.file.FilePathData;
 import org.allbinary.logic.io.file.directory.SubDirectory;
 import org.allbinary.logic.communication.log.LogFactory;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
-
 import org.allbinary.logic.system.hardware.components.interfaces.HardwareComponentInterface;
 import org.allbinary.logic.system.hardware.components.interfaces.CpuInterface;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class Cpu implements CpuInterface, HardwareComponentInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final String CPUFILE = "/proc/cpuinfo";
    private HashMap cpuHashMap;
    
@@ -57,7 +57,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
       {
          if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
          {
-            LogUtil.put(LogFactory.getInstance("Cpu Data: " + this.toString(), this, "Constructor()", e));
+            LogUtil.put(LogFactory.getInstance("Cpu Data: " + this.toString(), this, this.commonStrings.CONSTRUCTOR, e));
          }
          throw e;
       }
@@ -79,7 +79,7 @@ public class Cpu implements CpuInterface, HardwareComponentInterface
             
             if(LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().OS))
             {
-               LogUtil.put(LogFactory.getInstance("Cpu File Vector Size: " + fileVector.size(), this, "Constructor()"));
+               LogUtil.put(LogFactory.getInstance("Cpu File Vector Size: " + fileVector.size(), this, this.commonStrings.CONSTRUCTOR));
             }
             
             //size() > 0

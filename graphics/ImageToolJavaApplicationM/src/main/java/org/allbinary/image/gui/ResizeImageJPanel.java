@@ -100,10 +100,11 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                         System.out.println("Found Alpha Channel In Result");
                     }
 
+                    final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();
+
                     for (int index = 0; index < generatedBufferedImageArray.length; index++) {
 
-                        ImagePersistanceUtil.saveWithBatik(
-                           FileWrapperUtil.wrapFile(files[index]), generatedBufferedImageArray[index]);
+                        imagePersistanceUtil.saveWithBatik(FileWrapperUtil.wrapFile(files[index]), generatedBufferedImageArray[index]);
                     }
 
                     ResizeImageJPanel.this.getParent().repaint();

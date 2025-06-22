@@ -19,6 +19,7 @@ import org.allbinary.logic.util.cache.CachePolicyFactory;
 import org.allbinary.logic.util.cache.PoolInterface;
 import org.allbinary.logic.util.cache.PoolInterfaceFactory;
 import org.allbinary.logic.util.cache.PoolTypeFactory;
+import org.allbinary.string.CommonStrings;
 
 public class BufferedImagePoolSingleton
 {
@@ -28,7 +29,8 @@ public class BufferedImagePoolSingleton
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", "BufferedImagePoolSingleton", "Static Block"));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, "BufferedImagePoolSingleton", "Static Block"));
             
             poolInterface =
                 PoolInterfaceFactory.getInstance(
@@ -40,7 +42,8 @@ public class BufferedImagePoolSingleton
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", "BufferedImagePoolSingleton", "Static Block", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "BufferedImagePoolSingleton", "Static Block", e));
         }
     }
     

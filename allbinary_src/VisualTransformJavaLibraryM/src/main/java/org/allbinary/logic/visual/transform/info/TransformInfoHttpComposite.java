@@ -13,24 +13,25 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-import org.allbinary.logic.visual.transform.info.TransformInfoHttpInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfoHttpComposite
-{      
+{
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private TransformInfoHttpInterface transformInfoInterface;
 
    public TransformInfoHttpComposite(TransformInfoInterface transformInfoInterface) //throws Exception
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("View Name: " + transformInfoInterface.getName(), this, this.commonStrings.CONSTRUCTOR));
       }
 
       this.transformInfoInterface = (TransformInfoHttpInterface) transformInfoInterface;

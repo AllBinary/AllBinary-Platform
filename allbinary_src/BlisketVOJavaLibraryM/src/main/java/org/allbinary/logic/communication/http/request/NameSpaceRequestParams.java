@@ -40,7 +40,7 @@ public class NameSpaceRequestParams extends RequestParams
       super();
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing empty", this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Constructing empty", this, this.commonStrings.CONSTRUCTOR));
       }
    }
    
@@ -49,7 +49,7 @@ public class NameSpaceRequestParams extends RequestParams
       super(httpServletRequest);
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing from HttpServletRequest", this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Constructing from HttpServletRequest", this, this.commonStrings.CONSTRUCTOR));
       }
    }
    
@@ -58,7 +58,7 @@ public class NameSpaceRequestParams extends RequestParams
       super(pageContext);
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("Constructing from PageContext", this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Constructing from PageContext", this, this.commonStrings.CONSTRUCTOR));
       }
    }
    

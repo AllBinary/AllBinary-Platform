@@ -19,17 +19,20 @@ import java.util.HashMap;
 import javax.servlet.jsp.tagext.TagSupport;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 
 public class Properties
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private HashMap propertiesHashMap;
    
    public Properties()
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-         LogUtil.put(LogFactory.getInstance("Start/Tag",this,"Constructor"));
+         LogUtil.put(LogFactory.getInstance("Start/Tag",this,this.commonStrings.CONSTRUCTOR));
       }
       this.propertiesHashMap = new HashMap();
    }

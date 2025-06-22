@@ -61,7 +61,7 @@ public class InputAutomationRobotOSGIServiceVisitor
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "visit", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "visit", e));
             return Boolean.FALSE;
         }
     }

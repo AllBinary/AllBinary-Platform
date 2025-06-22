@@ -15,6 +15,7 @@ package org.allbinary.bundle.logic.system.loader;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+
 import org.allbinary.globals.Globals;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -28,16 +29,18 @@ import org.allbinary.gui.dialog.BasicTextJDialog;
 import org.allbinary.gui.dialog.ExitCloseListener;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class CryptService
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final AbCryptUtil abCryptUtil = AbCryptUtil.getInstance();
 
    public CryptService()
    {
       Globals.init(this.getClass().getClassLoader(), "./");
 
-      LogUtil.put(LogFactory.getInstance("Set Globals: " + URLGLOBALS.getWebappPath(), this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR));
    }
 
    public InputStream getDecryptedInputStream(final AbeClientInformationInterface abeClientInformation, final String name, final InputStream inputStream)
@@ -74,7 +77,7 @@ public class CryptService
       {
          String error = "Licensing Exception";
 
-         LogUtil.put(LogFactory.getInstance(error, this, "init", e));
+         LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.INIT, e));
 
          final BasicTextJDialog basicTextJDialog = new BasicTextJDialog(e.getMessage());
 
@@ -91,7 +94,7 @@ public class CryptService
             }
          } catch (LicensingException e2)
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "init", e2));
+            LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.INIT, e2));
          }
 
          basicTextJDialog.addCloseListener(new ExitCloseListener());
@@ -99,7 +102,7 @@ public class CryptService
       } catch (Exception e3)
       {
          String error = "Error";
-         LogUtil.put(LogFactory.getInstance(error, this, "init", e3));
+         LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.INIT, e3));
       }
    }
 }

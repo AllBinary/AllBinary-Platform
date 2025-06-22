@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.bodies;
 
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -21,21 +23,24 @@ import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.control.validate.ValidationInterface;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.util.HashMap;
-import org.allbinary.logic.string.StringValidationUtil;
-import org.allbinary.logic.communication.sql.AbSqlData;
-
 public class GenericBodyValidation implements ValidationInterface, DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private String body;
 
    public GenericBodyValidation()
    {
-      this.body = "";
+      this.body = StringUtil.getInstance().EMPTY_STRING;
    }
 
    public GenericBodyValidation(Document document) throws Exception
@@ -72,7 +77,7 @@ public class GenericBodyValidation implements ValidationInterface, DomNodeInterf
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "isValid()"));
          }
 
          if(!StringValidationUtil.getInstance().isValidNotRequired(this.body, BodyData.getInstance().MIN, AbSqlData.MAXBLOB))

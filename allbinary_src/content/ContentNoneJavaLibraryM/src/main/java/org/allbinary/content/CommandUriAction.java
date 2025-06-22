@@ -43,7 +43,7 @@ public class CommandUriAction
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "process", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "process", e));
         }
         */
     }

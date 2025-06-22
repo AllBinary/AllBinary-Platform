@@ -26,9 +26,12 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import java.util.Calendar;
+import org.allbinary.string.CommonStrings;
 
 public class DownloadableItemView implements DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private DownloadableItem downloadableItem;
    
    public DownloadableItemView(DownloadableItem downloadableItem)
@@ -40,7 +43,7 @@ public class DownloadableItemView implements DomNodeInterface
    {
        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
        {
-          LogUtil.put(LogFactory.getInstance("Start", this, "toXmlNode"));
+          LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toXmlNode"));
        }
 
       /*

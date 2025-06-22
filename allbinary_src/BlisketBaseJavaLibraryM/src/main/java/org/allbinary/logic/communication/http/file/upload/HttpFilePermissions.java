@@ -20,9 +20,12 @@ import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.Vector;
+import org.allbinary.string.CommonStrings;
 
 public class HttpFilePermissions
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final AbFile file;
     private final Vector userRoles = new Vector();
 
@@ -34,7 +37,7 @@ public class HttpFilePermissions
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            LogUtil.put(LogFactory.getInstance("Loading Privileges: " + fullPath.toFileSystemString(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance("Loading Privileges: " + fullPath.toFileSystemString(), this, this.commonStrings.CONSTRUCTOR));
         }
 
         if (this.isFile())
@@ -45,7 +48,7 @@ public class HttpFilePermissions
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
         {
-            LogUtil.put(LogFactory.getInstance("User Roles: " + userRoles, this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance("User Roles: " + userRoles, this, this.commonStrings.CONSTRUCTOR));
         }
 
     }

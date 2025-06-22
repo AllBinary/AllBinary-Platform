@@ -56,7 +56,7 @@ public class AbstractInputAutomationWorker
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "onCaptureEvent", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "onCaptureEvent", e));
         }
     }
     
@@ -165,7 +165,7 @@ public class AbstractInputAutomationWorker
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
         }
     }
     

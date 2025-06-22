@@ -13,8 +13,12 @@
 */
 package org.allbinary.init;
 
+import org.allbinary.string.CommonStrings;
+
 public class Init implements InitInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public void init()
     throws Exception
     {

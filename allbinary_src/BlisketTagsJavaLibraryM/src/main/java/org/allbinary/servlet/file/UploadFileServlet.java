@@ -38,6 +38,7 @@ import org.allbinary.logic.communication.http.file.upload.FileUploadData;
 import org.allbinary.logic.communication.http.file.upload.HttpFileUploadUtil;
 import org.allbinary.logic.communication.http.request.MultipartRequestParams;
 import org.allbinary.logic.communication.http.request.HttpRequestUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -46,6 +47,8 @@ import org.allbinary.logic.communication.http.request.HttpRequestUtil;
  */
 public class UploadFileServlet extends HttpServlet
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     //private static final String UPLOAD = "upload";
     //private final int DEFAULT_BUFFER_SIZE = 16384;
     protected HashMap requestHashMap;
@@ -110,7 +113,7 @@ public class UploadFileServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Exception", this, "processRequest()", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "processRequest()", e));
             }
             isError = true;
             response.sendError(HttpServletResponse.SC_NOT_FOUND);

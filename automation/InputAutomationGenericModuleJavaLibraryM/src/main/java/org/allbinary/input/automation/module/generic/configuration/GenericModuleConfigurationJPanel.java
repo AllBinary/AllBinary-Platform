@@ -309,7 +309,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "savedCaptureJRadioButtonActionPerformed", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "savedCaptureJRadioButtonActionPerformed", e));
         }
     }//GEN-LAST:event_savedCaptureJRadioButtonActionPerformed
 
@@ -331,7 +331,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "screenCaptureJRadioButtonActionPerformed", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "screenCaptureJRadioButtonActionPerformed", e));
         }
     }//GEN-LAST:event_screenCaptureJRadioButtonActionPerformed
     
@@ -353,7 +353,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "captureComparisonJCheckBoxActionPerformed", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "captureComparisonJCheckBoxActionPerformed", e));
         }
     }//GEN-LAST:event_captureMotionAnalysisJCheckBoxActionPerformed
     
@@ -376,7 +376,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "captureComparisonJCheckBoxActionPerformed", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "captureComparisonJCheckBoxActionPerformed", e));
         }
     }//GEN-LAST:event_captureComparisonJCheckBoxActionPerformed
     
@@ -554,7 +554,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "genericProfilesJListValueChanged", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "genericProfilesJListValueChanged", e));
         }
     }//GEN-LAST:event_genericProfilesJListValueChanged
     
@@ -574,7 +574,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "deleteProfileJButtonActionPerformed", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "deleteProfileJButtonActionPerformed", e));
         }
     }//GEN-LAST:event_deleteProfileJButtonActionPerformed
     
@@ -597,7 +597,7 @@ public class GenericModuleConfigurationJPanel
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "okNewProfileJButtonActionPerformed", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "okNewProfileJButtonActionPerformed", e));
         }
     }//GEN-LAST:event_okNewProfileJButtonActionPerformed
     

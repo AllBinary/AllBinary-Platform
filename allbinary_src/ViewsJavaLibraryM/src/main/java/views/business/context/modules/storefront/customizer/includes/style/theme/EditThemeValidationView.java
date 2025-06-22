@@ -81,7 +81,7 @@ public class EditThemeValidationView extends ThemeCustomizerView implements Vali
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Setting Data: " + documentString, this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance("Setting Data: " + documentString, this, this.commonStrings.CONSTRUCTOR));
          }
 
          this.getTransformInfoInterface().setData(documentString);

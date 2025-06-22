@@ -94,8 +94,9 @@ public class ComparisonImageInputOutput implements ImageIOInterface
         bufferedImageArray[0] = bufferedImageCacheables[0].getBufferedImage();
         bufferedImageArray[1] = bufferedImageCacheables[1].getBufferedImage();
         
-        ImagePersistanceUtil.saveWithImageIO(filePath1, bufferedImageArray[0]);
-        ImagePersistanceUtil.saveWithImageIO(filePath2, bufferedImageArray[1]);
+        final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();
+        imagePersistanceUtil.saveWithImageIO(filePath1, bufferedImageArray[0]);
+        imagePersistanceUtil.saveWithImageIO(filePath2, bufferedImageArray[1]);
     }
     
 }

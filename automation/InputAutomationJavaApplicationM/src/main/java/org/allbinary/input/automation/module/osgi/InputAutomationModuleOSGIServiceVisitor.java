@@ -21,10 +21,13 @@ import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
 import bundle.input.automation.module.InputAutomationModuleService;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.string.CommonStrings;
 
 public class InputAutomationModuleOSGIServiceVisitor
     implements OSGIServiceVisitorInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public InputAutomationModuleOSGIServiceVisitor()
     {
     }
@@ -54,7 +57,7 @@ public class InputAutomationModuleOSGIServiceVisitor
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "visit", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "visit", e));
             return Boolean.FALSE;
         }
     }

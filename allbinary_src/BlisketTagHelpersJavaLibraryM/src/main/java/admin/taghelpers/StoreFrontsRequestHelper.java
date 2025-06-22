@@ -139,11 +139,11 @@ public class StoreFrontsRequestHelper implements ModifyTableInterface
 
         //Send response to Admin(s)
         UserEmailEventHandler adminUserEmailEventHandler =
-            AdminUserEmailEventHandlerSingletons.getInstance(
+            AdminUserEmailEventHandlerSingletons.getInstance().getInstance(
             this.abeClientInformation, UserEmailEventNameData.STORECREATED);
 
         UserEmailEventHandler storeAdminUserEmailEventHandler =
-            StoreAdminUserEmailEventHandlerSingletons.getInstance(
+            StoreAdminUserEmailEventHandlerSingletons.getInstance().getInstance(
                 UserEmailEventNameData.STORECREATED, this.abeClientInformation, this.modifyingStoreFrontInterface);
 
         storeAdminUserEmailEventHandler.receiveEmailInfo(

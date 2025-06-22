@@ -6,21 +6,24 @@
 
 package org.allbinary.media.image;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+
+import javax.imageio.IIOImage;
+import javax.imageio.ImageIO;
+import javax.imageio.ImageWriteParam;
+import javax.imageio.ImageWriter;
+import javax.imageio.stream.ImageOutputStream;
+
 import org.allbinary.logic.io.AbFileOutputStream;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.Iterator;
-import javax.imageio.IIOImage;
-import javax.imageio.ImageIO;
-import javax.imageio.ImageWriteParam;
-import javax.imageio.ImageWriter;
-import javax.imageio.stream.ImageOutputStream;
+
 import org.apache.batik.ext.awt.image.codec.png.PNGImageWriter;
 
 /**
@@ -29,8 +32,15 @@ import org.apache.batik.ext.awt.image.codec.png.PNGImageWriter;
  */
 public class ImagePersistanceUtil {
  
-
-   public static void saveWithBatik(AbFile file, BufferedImage bufferedImage)
+    private static final ImagePersistanceUtil instance = new ImagePersistanceUtil();
+    
+    public static ImagePersistanceUtil getInstance() {
+        return instance;
+    }
+    
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+   public void saveWithBatik(AbFile file, BufferedImage bufferedImage)
       throws Exception
    {
       PNGImageWriter batikPNGImageWriter = new PNGImageWriter();
@@ -222,12 +232,12 @@ public class ImagePersistanceUtil {
 	}
       */  
 
-   public static void saveWithImageIO(String filePath, BufferedImage bufferedImage)
+   public void saveWithImageIO(String filePath, BufferedImage bufferedImage)
    {
        saveWithImageIO(new File(filePath), bufferedImage);
    }
    
-   public static void saveWithImageIO(File file, BufferedImage bufferedImage)
+   public void saveWithImageIO(File file, BufferedImage bufferedImage)
    {
       ImageWriter writer = null;
       ImageOutputStream ios = null;
@@ -276,7 +286,7 @@ public class ImagePersistanceUtil {
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", "ImageUtil", "save", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "ImageUtil", "save", e));
       }
       finally
       {
@@ -309,7 +319,7 @@ public class ImagePersistanceUtil {
          }
          catch (IOException e2)
          {
-            LogUtil.put(LogFactory.getInstance("Exception", "ImageUtil", "save", e2));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, "ImageUtil", "save", e2));
          }
       }
    }

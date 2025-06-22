@@ -511,7 +511,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
    private void scaleImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "scaleImagesJMenuItemActionPerformed"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "scaleImagesJMenuItemActionPerformed"));
 
          final ResizeImageJPanel resizeImageJPanel = new ResizeImageJPanel(this.imageProcessorInput);
 
@@ -530,7 +530,7 @@ public class ImageToolJFrame extends javax.swing.JFrame
 private void canvasImagesJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scaleImagesJMenuItemActionPerformed
       try
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "canvasImagesJMenuItemActionPerformed"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "canvasImagesJMenuItemActionPerformed"));
 
          final CanvasImageJPanel resizeImageJPanel = new CanvasImageJPanel(this.imageProcessorInput);
 

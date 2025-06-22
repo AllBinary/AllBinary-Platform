@@ -41,11 +41,13 @@ import java.util.Iterator;
 import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.string.CommonStrings;
 
 public class AuthenticationHelper
     implements TagHelperInterface
 {
-
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private WeblisketSession weblisketSession;
     private String authenticated;
     private String sessionUserName;
@@ -72,7 +74,7 @@ public class AuthenticationHelper
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().AUTHENTICATION))
         {
-            LogUtil.put(LogFactory.getInstance(this.outputSessionInfo(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance(this.outputSessionInfo(), this, this.commonStrings.CONSTRUCTOR));
         }
     }
 

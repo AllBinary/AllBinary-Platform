@@ -42,9 +42,12 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
 import org.allbinary.logic.visual.transform.info.data.TransformInfoDataData;
 import org.allbinary.logic.visual.transform.info.viewObject.TransformInfoObjectData;
+import org.allbinary.string.CommonStrings;
 
 public class TransformInfo implements TransformInfoInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
 

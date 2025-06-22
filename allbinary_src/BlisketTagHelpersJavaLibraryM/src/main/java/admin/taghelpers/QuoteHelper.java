@@ -98,7 +98,7 @@ public class QuoteHelper implements BasicTableInterface
 
       //Send response to customer
       UserEmailEventHandler userEmailEventHandler =
-         UserEmailEventHandlerSingletons.getInstance(
+         UserEmailEventHandlerSingletons.getInstance().getInstance(
              this.abeClientInformation, UserEmailEventNameData.QUOTEREQUEST, user);
 
       userEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.QUOTEREQUEST, emailInfo);
@@ -133,11 +133,11 @@ public class QuoteHelper implements BasicTableInterface
       
       //send request to store admins if subscribed to handler name for review and response
       UserEmailEventHandler storeAdminUserEmailEventHandler =
-         AdminUserEmailEventHandlerSingletons.getInstance(
+         AdminUserEmailEventHandlerSingletons.getInstance().getInstance(
          this.abeClientInformation, UserEmailEventNameData.QUOTEREQUEST);
       
       UserEmailEventHandler adminUserEmailEventHandler =
-         StoreAdminUserEmailEventHandlerSingletons.getInstance(
+         StoreAdminUserEmailEventHandlerSingletons.getInstance().getInstance(
          UserEmailEventNameData.QUOTEREQUEST, this.abeClientInformation, this.storeFrontInterface);
       
       storeAdminUserEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.QUOTEREQUEST, emailInfo);

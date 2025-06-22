@@ -41,6 +41,8 @@ import org.allbinary.logic.system.security.licensing.AbeClientInformationInterfa
 @XmlType(name="InputAutomationModuleConfiguration")
 public class InputAutomationModuleConfiguration
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
     @XmlElement(name="DYNAMICCOMPONENT_NAME")
     private String className;
     
@@ -100,7 +102,7 @@ public class InputAutomationModuleConfiguration
             }
             else
             {
-                LogUtil.put(LogFactory.getInstance("Class Node Null", this,"init"));
+                LogUtil.put(LogFactory.getInstance("Class Node Null", this,this.commonStrings.INIT));
             }
         }
         else
@@ -112,14 +114,14 @@ public class InputAutomationModuleConfiguration
     public void init(final AbeClientInformationInterface abeClientInformation)
     {
         try {
-            LogUtil.put(LogFactory.getInstance("Name: " + getName(), this, "init"));
-            LogUtil.put(LogFactory.getInstance("ClassName: " + className, this, "init"));
+            LogUtil.put(LogFactory.getInstance("Name: " + getName(), this, this.commonStrings.INIT));
+            LogUtil.put(LogFactory.getInstance("ClassName: " + className, this, this.commonStrings.INIT));
 
             this.setInputAutomationModuleInterface(
                     (InputAutomationModuleFactoryInterface) AbeFactory.getInstance(abeClientInformation, getClassName()));
 
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "init", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, this.commonStrings.INIT, e));
             throw new RuntimeException();
         }
     }

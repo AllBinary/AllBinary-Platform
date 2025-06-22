@@ -17,10 +17,13 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.accelerometer.AccelerometerSensorFactory;
 import org.allbinary.input.gyro.GyroSensorFactory;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class AllBinarySensorManager
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public final String ORIENTATION_SENSOR_INPUT = "Orientation Sensor Input";
     public final String ORIENTATION_TYPE = "Orientation Type";
 
@@ -34,7 +37,7 @@ public class AllBinarySensorManager
             AccelerometerSensorFactory.init();
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "Constructor", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.CONSTRUCTOR, e));
         }
     }
 

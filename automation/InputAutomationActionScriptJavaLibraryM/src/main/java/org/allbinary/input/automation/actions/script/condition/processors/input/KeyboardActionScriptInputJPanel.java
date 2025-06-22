@@ -450,7 +450,7 @@ public class KeyboardActionScriptInputJPanel extends javax.swing.JPanel
        }
        catch(Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "okButtonActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "okButtonActionPerformed", e));
        }
        
     }//GEN-LAST:event_okJButtonActionPerformed

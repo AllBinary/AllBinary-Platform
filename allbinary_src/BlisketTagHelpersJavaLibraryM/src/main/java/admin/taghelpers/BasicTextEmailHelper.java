@@ -34,6 +34,7 @@ import org.allbinary.logic.system.security.licensing.ServiceClientInformationInt
 public class BasicTextEmailHelper
     implements TagHelperInterface
 {
+    
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -58,7 +59,7 @@ public class BasicTextEmailHelper
 
       //Send response to Admin(s)
       UserEmailEventHandler adminUserEmailEventHandler =
-         AdminUserEmailEventHandlerSingletons.getInstance(
+         AdminUserEmailEventHandlerSingletons.getInstance().getInstance(
              this.abeClientInformation, UserEmailEventNameData.INSTALLER);
 
       adminUserEmailEventHandler.receiveEmailInfo(

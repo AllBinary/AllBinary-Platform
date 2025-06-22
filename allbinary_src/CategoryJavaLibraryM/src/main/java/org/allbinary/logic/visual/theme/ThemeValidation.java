@@ -13,6 +13,9 @@
 */
 package org.allbinary.logic.visual.theme;
 
+import java.util.HashMap;
+import java.util.Vector;
+
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
@@ -35,17 +38,18 @@ import org.allbinary.logic.control.validate.ValidationInterface;
 import org.allbinary.logic.visual.transform.info.CompositeTransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.template.customizer.includes.style.css.template.retail.CssStyleValidation;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-
-import java.util.HashMap;
-import java.util.Vector;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.string.CommonStrings;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
 
 public class ThemeValidation 
    implements ThemeInterface, ValidationInterface, DomNodeInterface, CompositeTransformInfoInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
    private TransformInfoInterface transformInfoInterface;
    private ValidationInterface styleValidationInterface;
    
@@ -222,7 +226,7 @@ public class ThemeValidation
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Start",this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"isValid()"));
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(

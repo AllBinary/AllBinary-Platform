@@ -16,17 +16,20 @@ package org.allbinary.logic.io.file.visitor;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.PreLogUtil;
 import org.allbinary.logic.util.visitor.VisitorInterface;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class BooleanFileVisitor
    implements VisitorInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
    private BasicArrayList filterStringBasicArrayList;
    
    public BooleanFileVisitor(BasicArrayList filterStringBasicArrayList)
    {
       this.setFilterStringBasicArrayList(filterStringBasicArrayList);
-      PreLogUtil.put("Filter BasicArrayList: " + this.getFilterStringBasicArrayList().toString(), this, "Constructor");
+      PreLogUtil.put("Filter BasicArrayList: " + this.getFilterStringBasicArrayList().toString(), this, this.commonStrings.CONSTRUCTOR);
    }
 
    public Object visit(Object object)

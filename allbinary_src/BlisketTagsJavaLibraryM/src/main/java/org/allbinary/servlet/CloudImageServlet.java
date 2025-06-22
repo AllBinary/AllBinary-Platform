@@ -22,14 +22,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.allbinary.globals.AppUrlGlobals;
 import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.io.CloudStreamUtil;
 import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
-import org.allbinary.logic.io.path.AbPathData;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -37,7 +36,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class CloudImageServlet extends HttpServlet
 {
-
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
         throws ServletException, IOException
     {
@@ -64,7 +64,7 @@ public class CloudImageServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Exception", this, "processRequest()", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "processRequest()", e));
             }
         }
         finally

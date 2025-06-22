@@ -24,6 +24,7 @@ import javax.crypto.SecretKeyFactory;
 import org.allbinary.logic.communication.log.PreLogUtil;
 
 import org.allbinary.init.crypt.jcehelper.CryptInterface;
+import org.allbinary.string.CommonStrings;
 
 public class AbBasicCrypt implements CryptInterface
 {
@@ -64,7 +65,8 @@ public class AbBasicCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put("init Failed",this,"init",e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put("init Failed", this, commonStrings.INIT,e);
          //}
       }
    }

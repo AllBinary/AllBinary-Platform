@@ -27,9 +27,12 @@ import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.paint.Paintable;
 import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 public class TouchButton extends Paintable
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private final TouchButtonInput touchButtonInput;
     private final Animation animationInterface;
     
@@ -57,7 +60,7 @@ public class TouchButton extends Paintable
         
         this.updateRectangle();
         
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Created: ").append(this.toString()).toString(), this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Created: ").append(this.toString()).toString(), this, this.commonStrings.CONSTRUCTOR));
     }
 
     public void paint(Graphics graphics)
@@ -84,7 +87,7 @@ public class TouchButton extends Paintable
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "updateRectangle", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "updateRectangle", e));
         }
     }
 

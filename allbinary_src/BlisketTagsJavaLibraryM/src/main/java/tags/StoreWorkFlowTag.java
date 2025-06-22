@@ -66,7 +66,7 @@ public class StoreWorkFlowTag extends HelperTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance("Start",this,"process()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"process()"));
          }
          
          Class helperClass = this.getHelper().getClass();
@@ -92,7 +92,7 @@ public class StoreWorkFlowTag extends HelperTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance("Start",this,"doStartTag()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"doStartTag()"));
          }
          
          this.setHelper();

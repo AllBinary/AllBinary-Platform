@@ -26,9 +26,12 @@ import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.logic.communication.log.LogUtil;
 import javax.servlet.jsp.JspTagException;
 import org.allbinary.globals.GLOBALS2;
+import org.allbinary.string.CommonStrings;
 
 public class CustomLoaderTag extends TagSupport
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private String command;
    private String webappPath;
 
@@ -75,7 +78,7 @@ public class CustomLoaderTag extends TagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "doStartTag()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "doStartTag()"));
          }
          
          if(command!=null)

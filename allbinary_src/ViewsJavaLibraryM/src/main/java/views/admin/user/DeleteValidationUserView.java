@@ -53,7 +53,7 @@ public class DeleteValidationUserView extends UserView
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("User Name: " + this.userName,this,"Constructor()"));
+         LogUtil.put(LogFactory.getInstance("User Name: " + this.userName,this,this.commonStrings.CONSTRUCTOR));
       }
    }
 

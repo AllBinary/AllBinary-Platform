@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -54,15 +55,18 @@ public class PaymentTypeUtil {
         return instance;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private final String PAYMENTGATEWAYFILEPATHSTRING;
+    private final String SHIPPINGMETHODSFILENAME = "paymentGatewayTypes.xml";
+
+    private String defaultName = null;
+
+    private Vector paymentTypeVector = new Vector();
+    
     private PaymentTypeUtil()
     {
-
-    }
-
-    private final String PAYMENTGATEWAYFILEPATHSTRING;
-
-   {
-       StringBuffer stringBuffer = new StringBuffer();
+       final StringBuffer stringBuffer = new StringBuffer();
 
        final String sep = AbPathData.getInstance().SEPARATOR;
 
@@ -82,13 +86,7 @@ public class PaymentTypeUtil {
        stringBuffer.append(sep);
 
        PAYMENTGATEWAYFILEPATHSTRING = stringBuffer.toString();
-   }
-
-   private final String SHIPPINGMETHODSFILENAME = "paymentGatewayTypes.xml";
-
-   private String defaultName = null;
-
-   private Vector paymentTypeVector = new Vector();
+    }
 
    public void add(PaymentType paymentType)
    {
@@ -181,7 +179,7 @@ public class PaymentTypeUtil {
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "getDefault"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getDefault"));
       }
 
       this.initDefault(storeName);

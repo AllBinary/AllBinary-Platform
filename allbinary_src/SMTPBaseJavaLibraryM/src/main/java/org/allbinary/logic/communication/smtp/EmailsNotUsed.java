@@ -13,19 +13,22 @@
 */
 package org.allbinary.logic.communication.smtp;
 
+import java.util.Iterator;
+import java.util.Vector;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.BasicErrorNodeUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.string.CommonStrings;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.Iterator;
-import java.util.Vector;
-import org.allbinary.string.CommonStrings;
-
 public class EmailsNotUsed implements DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    protected Vector emailInfoVector;
 
    public EmailsNotUsed() throws Exception
@@ -39,7 +42,7 @@ public class EmailsNotUsed implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "toXmlNode"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toXmlNode"));
          }
 
          Node node = document.createElement(EmailData.NAME);

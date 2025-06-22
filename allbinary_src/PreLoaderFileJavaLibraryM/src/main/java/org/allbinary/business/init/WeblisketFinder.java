@@ -19,6 +19,7 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory;
 import org.allbinary.logic.communication.log.config.type.LogConfigTypes;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class WeblisketFinder
@@ -34,6 +35,7 @@ public class WeblisketFinder
 	
     private static final String KEY = "installerdata.dat";
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final SubDirectory subDirectory = SubDirectory.getInstance();
     
     private WeblisketFinder()
@@ -45,7 +47,7 @@ public class WeblisketFinder
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "findAll"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "findAll"));
 
             return subDirectory.search(KEY, new AbFile(path));
         } catch (Exception e)

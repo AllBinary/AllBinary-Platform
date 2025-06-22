@@ -19,20 +19,22 @@ import org.osgi.framework.ServiceRegistration;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class CryptServiceFactory
     implements ServiceFactory
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private CryptService cryptService = new CryptService();
     
     public CryptServiceFactory()
     {
     }
         
-    public Object getService(
-        Bundle bundle, ServiceRegistration registration)
+    public Object getService(final Bundle bundle, final ServiceRegistration registration)
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "getService"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "getService"));
 
         return this.cryptService;
     }

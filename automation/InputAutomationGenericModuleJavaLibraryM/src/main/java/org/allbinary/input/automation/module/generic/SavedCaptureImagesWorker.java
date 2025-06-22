@@ -135,7 +135,7 @@ public class SavedCaptureImagesWorker
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.RUN, e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.RUN, e));
         }
     }
 }

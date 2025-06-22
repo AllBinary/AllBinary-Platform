@@ -29,9 +29,12 @@ import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.string.CommonStrings;
 
 public class ViewHelper implements TransformInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     

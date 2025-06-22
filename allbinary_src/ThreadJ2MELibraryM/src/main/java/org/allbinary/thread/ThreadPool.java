@@ -53,7 +53,7 @@ public class ThreadPool
     {
         if (!this.isAlive)
         {
-            //LogUtil.put(LogFactory.getInstance("init", this, this.commonStrings.INIT));
+            //LogUtil.put(LogFactory.getInstance(this.commonStrings.INIT, this, this.commonStrings.INIT));
             this.isAlive = true;
 
             this.taskQueue = new BasicArrayList();

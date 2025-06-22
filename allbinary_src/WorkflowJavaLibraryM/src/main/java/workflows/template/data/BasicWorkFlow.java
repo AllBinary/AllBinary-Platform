@@ -13,26 +13,25 @@
 */
 package workflows.template.data;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
 import javax.servlet.jsp.PageContext;
-
 import javax.servlet.jsp.tagext.TagSupport;
 
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.visual.transform.TransformFactory;
-
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
 import org.allbinary.logic.control.workflow.WorkFlowInterface;
-
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.control.workflow.WorkFlowData;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 import org.allbinary.logic.system.security.licensing.ServiceClientInformationInterfaceFactory;
+import org.allbinary.string.CommonStrings;
 
 public class BasicWorkFlow implements WorkFlowInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private final AbeClientInformationInterface abeClientInformation = 
         ServiceClientInformationInterfaceFactory.getInstance();
     
@@ -73,7 +72,7 @@ public class BasicWorkFlow implements WorkFlowInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().WORKFLOW))
       {
-         LogUtil.put(LogFactory.getInstance("Start",this,"process()"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"process()"));
       }
       
       if(this.validationDomNodeInterface.isValid().booleanValue())

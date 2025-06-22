@@ -105,7 +105,7 @@ public class BaseGameInitialization implements GameInitializationInterface
                     PlatformInputMappingFactory.getInstance().getPersistentInputMappingInstance().getInputMapping());
             progressCanvas.addPortion(localPortion, "Touch Input");
 
-            CompleteMotionGestureInputToGameMotionGestureInput.init();
+            CompleteMotionGestureInputToGameMotionGestureInput.getInstance().init();
             progressCanvas.addPortion(localPortion, "Motion Input");
 
             GameFeatureImageCacheFactory.init();

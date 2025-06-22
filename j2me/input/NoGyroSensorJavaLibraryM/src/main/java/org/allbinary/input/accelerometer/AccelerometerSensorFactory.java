@@ -25,7 +25,7 @@ public class AccelerometerSensorFactory
     
     public static void init() throws Exception
     {
-        //PreLogUtil.put("Start", instance, "init");
+        //PreLogUtil.put(this.commonStrings.START, instance, this.commonStrings.INIT);
         
         Features features = 
             Features.getInstance();

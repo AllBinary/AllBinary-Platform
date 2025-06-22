@@ -15,9 +15,12 @@ package org.allbinary.business.user.commerce.shipping.modules;
 
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 import org.allbinary.business.user.commerce.money.Money;
+import org.allbinary.string.CommonStrings;
 
 public class PickUpShippingModule implements ShippingInterface
 {   
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final String name = "No Shipping (For Pickup Orders Only)";
    private final String description = "This shipping method is for pickup orders only.";
 

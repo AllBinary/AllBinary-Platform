@@ -13,18 +13,21 @@
 */
 package org.allbinary.logic.communication.http.file.upload.media;
 
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.media.MediaData;
 import org.allbinary.logic.visual.media.MediaIOUtil;
 import org.allbinary.logic.visual.media.MediaTypeData;
+import org.allbinary.string.CommonStrings;
 
 public class UploadMediaSingleton
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private HashMap readerFileTypesHashMap;
    private HashMap writerFileTypesHashMap;
    private static UploadMediaSingleton uploadMedia;
@@ -73,7 +76,7 @@ public class UploadMediaSingleton
             stringBuffer.append(" Writers: ");
             stringBuffer.append(this.writerFileTypesHashMap.toString());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR));
         }
    }
 

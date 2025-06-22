@@ -16,12 +16,15 @@ package org.allbinary.logic.visual.transform.data;
  import org.allbinary.data.tree.dom.document.DomDocumentHelper;
 import org.allbinary.logic.communication.log.LogFactory;
  import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
  import org.w3c.dom.Document;
  import org.w3c.dom.Node;
 
 public class TransformDocument 
    implements TransformDocumentInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private Node baseNode;
    private Document document;
    
@@ -40,7 +43,7 @@ public class TransformDocument
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.log(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance(this.log(), this, this.commonStrings.CONSTRUCTOR));
          }
       }
       catch(Exception e)
@@ -48,7 +51,7 @@ public class TransformDocument
          String error = "Failed to create view document";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "Constructor()", e));
+            LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.CONSTRUCTOR, e));
          }
          throw e;
       }

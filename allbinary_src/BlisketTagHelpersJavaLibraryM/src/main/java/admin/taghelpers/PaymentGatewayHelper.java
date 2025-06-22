@@ -27,9 +27,12 @@ import org.allbinary.business.user.commerce.money.payment.types.BasicPaymentType
 import org.allbinary.data.tables.user.commerce.money.payment.gateway.PaymentGatewayEntityFactory;
 import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 import org.allbinary.logic.communication.sql.AbSqlTableUtil;
+import org.allbinary.string.CommonStrings;
 
 public class PaymentGatewayHelper implements BasicTableInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private WeblisketSession weblisketSession;
 
    private final HttpServletRequest httpServletRequest;
@@ -51,7 +54,7 @@ public class PaymentGatewayHelper implements BasicTableInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed", this, "Constructor()", e));
+            LogUtil.put(LogFactory.getInstance("Failed", this, this.commonStrings.CONSTRUCTOR, e));
          }
          throw e;
       }

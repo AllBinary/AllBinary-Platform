@@ -24,9 +24,12 @@ import org.allbinary.logic.communication.smtp.info.AdminEmailInfo;
 import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class NewPasswordEmail
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final AbeClientInformationInterface abeClientInformation;
     
    private UserInterface userInterface;
@@ -73,7 +76,7 @@ public class NewPasswordEmail
 
          //Send response to Admin(s)
          UserEmailEventHandler adminUserEmailEventHandler =
-            AdminUserEmailEventHandlerSingletons.getInstance(
+            AdminUserEmailEventHandlerSingletons.getInstance().getInstance(
                 abeClientInformation, UserEmailEventNameData.NEWPASSWORD);
 
          /*
@@ -91,7 +94,7 @@ public class NewPasswordEmail
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "emailAdmin", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "emailAdmin", e));
          }
          //throw e;
       }
@@ -121,7 +124,7 @@ public class NewPasswordEmail
          EmailInfo emailInfo = new EmailInfo(basicEmailInfo);
 
          UserEmailEventHandler userEmailEventHandler =
-            UserEmailEventHandlerSingletons.getInstance(
+            UserEmailEventHandlerSingletons.getInstance().getInstance(
                abeClientInformation, UserEmailEventNameData.NEWPASSWORD, this.userInterface);
 
          userEmailEventHandler.receiveEmailInfo(UserEmailEventNameData.NEWPASSWORD, emailInfo);
@@ -130,7 +133,7 @@ public class NewPasswordEmail
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "notifyUser", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "notifyUser", e));
          }
          throw e;
       }

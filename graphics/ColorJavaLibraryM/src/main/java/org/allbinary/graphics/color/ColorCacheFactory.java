@@ -20,6 +20,7 @@ import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.util.cache.AutomaticCacheInterfaceFactory;
 import org.allbinary.logic.util.cache.CachePolicyFactory;
 import org.allbinary.logic.util.cache.CacheTypeFactory;
+import org.allbinary.string.CommonStrings;
 
 
 public class ColorCacheFactory
@@ -30,7 +31,8 @@ public class ColorCacheFactory
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance("Start", ColorCacheFactory.class, "Static Block"));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, ColorCacheFactory.class, "Static Block"));
             
             cacheInterface = AutomaticCacheInterfaceFactory.getInstance(
                 new ColorCacheableFactory(),
@@ -41,7 +43,8 @@ public class ColorCacheFactory
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", ColorCacheFactory.class, "Static Block", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, ColorCacheFactory.class, "Static Block", e));
         }
     }
     

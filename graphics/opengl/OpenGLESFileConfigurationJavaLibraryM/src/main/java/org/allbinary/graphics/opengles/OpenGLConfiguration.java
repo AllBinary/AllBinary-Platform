@@ -42,7 +42,9 @@ public class OpenGLConfiguration
         return instance;
     }
 
-    private static final String FILE = "OpenGLConfiguration.dat";
+    private final String FILE = "OpenGLConfiguration.dat";
+    
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     private boolean opengl = false;
 
@@ -281,7 +283,7 @@ public class OpenGLConfiguration
             }
         }
         
-        PreLogUtil.put(this.toString(), this, "init");
+        PreLogUtil.put(this.toString(), this, this.commonStrings.INIT);
     }
 
     public void update(final Feature gameFeature, final boolean colorLocked)

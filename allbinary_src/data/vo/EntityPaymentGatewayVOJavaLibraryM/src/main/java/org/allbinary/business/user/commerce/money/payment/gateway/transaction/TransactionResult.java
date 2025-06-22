@@ -13,19 +13,22 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Vector;
+
 import org.allbinary.string.CommonSeps;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import java.util.HashMap;
-
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Vector;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 public class TransactionResult implements TransactionResultInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private HashMap keyValuePairs;
    private String result;
    
@@ -48,7 +51,7 @@ public class TransactionResult implements TransactionResultInterface
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
          //{
-            LogUtil.put(LogFactory.getInstance(exceptionMessage, this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance(exceptionMessage, this, this.commonStrings.CONSTRUCTOR));
          //}
          //throw new PaymentException("TransactionResult Constructor Failed");
       }

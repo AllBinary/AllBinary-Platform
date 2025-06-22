@@ -13,22 +13,26 @@
 */
 package org.allbinary.logic.visual.transform.data;
 
-import org.allbinary.logic.visual.transform.data.TransformDocumentInterface;
- import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-import org.allbinary.logic.communication.log.LogFactory;
- import org.allbinary.logic.communication.log.LogUtil;
- import org.allbinary.logic.communication.http.AcceptableResponseGenerator;
- import org.allbinary.logic.communication.http.request.session.WeblisketSession;
- import org.allbinary.logic.control.search.SearchRequest;
- import org.w3c.dom.Document;
- import org.w3c.dom.Node;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.PageContext;
 
- import javax.servlet.http.HttpServletRequest;
- import javax.servlet.jsp.PageContext;
+import org.allbinary.data.tree.dom.document.DomDocumentHelper;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.http.AcceptableResponseGenerator;
+import org.allbinary.logic.communication.http.request.session.WeblisketSession;
+import org.allbinary.logic.control.search.SearchRequest;
+import org.allbinary.string.CommonStrings;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
 
 public class TransformHttpRequestDocument 
    implements TransformDocumentInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private Node baseNode;
    private Document document;
    
@@ -63,7 +67,7 @@ public class TransformHttpRequestDocument
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(this.log(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance(this.log(), this, this.commonStrings.CONSTRUCTOR));
          }
       }
       catch(Exception e)
@@ -71,7 +75,7 @@ public class TransformHttpRequestDocument
          String error = "Failed to create view document";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "Constructor()", e));
+            LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.CONSTRUCTOR, e));
          }
          throw e;
       }
@@ -103,7 +107,7 @@ public class TransformHttpRequestDocument
          String error = "Failed to create view document";
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, this, "Constructor()", e));
+            LogUtil.put(LogFactory.getInstance(error, this, this.commonStrings.CONSTRUCTOR, e));
          }
          throw e;
       }

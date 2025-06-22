@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.hedges.heading;
 
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -22,14 +24,16 @@ import org.allbinary.logic.visual.transform.template.customizer.widgets.logo.Log
 import org.allbinary.logic.visual.transform.template.customizer.widgets.logo.LogoValidation;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleData;
 import org.allbinary.logic.visual.transform.template.customizer.widgets.title.TitleValidation;
+import org.allbinary.string.CommonStrings;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.util.HashMap;
-
 public class HeadingValidation implements ValidationInterface, DomNodeInterface
 {   
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private TitleValidation title;
    private LogoValidation logo;
       
@@ -74,7 +78,7 @@ public class HeadingValidation implements ValidationInterface, DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this,"isValid()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this,"isValid()"));
          }
          
          if(!this.title.isValid().booleanValue())

@@ -179,7 +179,7 @@ extends LayerManagerEventListener
             this.list.add(new BasicArrayList());
         }
         
-        //LogUtil.put(LogFactory.getInstance("size: ").append(total, this, "init"));
+        //LogUtil.put(LogFactory.getInstance("size: ").append(total, this, this.commonStrings.INIT));
         
     }
 

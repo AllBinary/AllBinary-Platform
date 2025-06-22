@@ -20,15 +20,19 @@ import java.util.Set;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
+import java.util.Vector;
+
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
-import java.util.Vector;
+import org.allbinary.string.CommonStrings;
 
 public class BasicItemView implements DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final ItemInterface itemInterface;
    private final Vector vector;
 
@@ -42,7 +46,7 @@ public class BasicItemView implements DomNodeInterface
    {
        if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
        {
-          LogUtil.put(LogFactory.getInstance("Start", this, "toXmlNode"));
+          LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toXmlNode"));
        }
 
       /*

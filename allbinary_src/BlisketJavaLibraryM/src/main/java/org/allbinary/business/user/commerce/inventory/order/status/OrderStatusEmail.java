@@ -30,9 +30,12 @@ import org.allbinary.logic.communication.smtp.info.BasicEmailInfo;
 import org.allbinary.logic.communication.smtp.info.EmailInfo;
 import org.allbinary.logic.communication.smtp.info.StoreEmailInfo;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class OrderStatusEmail
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final AbeClientInformationInterface abeClientInformation;
     
    private OrderHistory orderHistory;
@@ -96,11 +99,11 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
          
          //Send response to Admin(s)
          UserEmailEventHandler adminUserEmailEventHandler =
-            AdminUserEmailEventHandlerSingletons.getInstance(
+            AdminUserEmailEventHandlerSingletons.getInstance().getInstance(
                this.abeClientInformation, userEmailEventNameData);
 
          UserEmailEventHandler storeAdminUserEmailEventHandler =
-            StoreAdminUserEmailEventHandlerSingletons.getInstance(
+            StoreAdminUserEmailEventHandlerSingletons.getInstance().getInstance(
                userEmailEventNameData, this.abeClientInformation, this.storeFrontInterface);
 
          storeAdminUserEmailEventHandler.receiveEmailInfo(userEmailEventNameData, storeAdminEmailInfo);
@@ -110,7 +113,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "emailAdmin", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "emailAdmin", e));
          }
          //throw e;
       }
@@ -139,7 +142,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
             UserEmailEventNameData.getInstance(this.orderHistory.getStatus());
 
          UserEmailEventHandler userEmailEventHandler =
-            UserEmailEventHandlerSingletons.getInstance(
+            UserEmailEventHandlerSingletons.getInstance().getInstance(
                this.abeClientInformation, userEmailEventNameData, this.user);
 
          userEmailEventHandler.receiveEmailInfo(userEmailEventNameData, emailInfo);
@@ -148,7 +151,7 @@ import org.allbinary.business.user.commerce.inventory.order.OrderHistoryData;
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "notifyUser", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "notifyUser", e));
          }
          throw e;
       }

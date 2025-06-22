@@ -26,6 +26,7 @@ import javax.help.HelpSet;
 import javax.swing.JLabel;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class JavaHelpUtil
 {
@@ -38,12 +39,14 @@ public class JavaHelpUtil
         return instance;
     }
 
-    private static final Point point = new Point(0,0);
-    private static final Dimension dimension = new Dimension(640, 480);
+    private final Point point = new Point(0,0);
+    private final Dimension dimension = new Dimension(640, 480);
     
-    private static ActionEvent contextSensitiveHelpActionEvent =
+    private ActionEvent contextSensitiveHelpActionEvent =
         new ActionEvent(new JLabel(), ActionEvent.ACTION_FIRST, null);
-    
+
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();    
+
     /*
      *NavigatorView navigatorView = null;
     private static String navigatorViewName = null;
@@ -68,7 +71,7 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", getInstance(), "set", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, getInstance(), "set", e));
             return null;
         }
     }
@@ -81,7 +84,7 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", getInstance(), "set", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, getInstance(), "set", e));
             return null;
         }
     }
@@ -100,7 +103,7 @@ public class JavaHelpUtil
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", getInstance(), "show", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, getInstance(), "show", e));
         }
     }
     

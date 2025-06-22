@@ -33,6 +33,8 @@ import org.allbinary.logic.string.StringValidationUtil;
 public class MouseActionScriptInputJPanel
       extends javax.swing.JPanel
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private MouseActionScriptInputInterface mouseActionScriptInputInterface;
    
    /** Creates new form ColorAtActionJPanel */
@@ -392,7 +394,7 @@ public class MouseActionScriptInputJPanel
        }
        catch(Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "okButtonActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "okButtonActionPerformed", e));
        }
     }//GEN-LAST:event_okJButtonActionPerformed
     

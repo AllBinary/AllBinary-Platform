@@ -34,10 +34,13 @@ import org.allbinary.logic.visual.transform.info.TransformInfoHttpStoreInterface
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
+import org.allbinary.string.CommonStrings;
 
 public class StoreFileGenerator 
     implements TransformInfoObjectConfigGeneratorInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final String output;
     private final AbPath fileAbPath;
     private final AbFile file;
@@ -131,7 +134,7 @@ public class StoreFileGenerator
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("File: " + this.fileAbPath.toString(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance("File: " + this.fileAbPath.toString(), this, this.commonStrings.CONSTRUCTOR));
         }
     }
 

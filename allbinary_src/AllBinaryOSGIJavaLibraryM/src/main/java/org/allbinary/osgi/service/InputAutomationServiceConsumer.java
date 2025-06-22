@@ -13,19 +13,21 @@
 */
 package org.allbinary.osgi.service;
 
-import org.allbinary.logic.communication.log.LogUtil;
 import java.util.Iterator;
 import java.util.Vector;
-import org.allbinary.logic.communication.log.LogFactory;
 
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.osgi.OSGIServiceInterface;
 import org.allbinary.osgi.OSGIServiceVisitorInterface;
-
+import org.allbinary.string.CommonStrings;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 
 abstract public class InputAutomationServiceConsumer
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private String registryName;
     private BundleContext bundleContext;
     private OSGIServiceVisitorInterface osgiServiceVisitorInterface;
@@ -42,7 +44,7 @@ abstract public class InputAutomationServiceConsumer
     public void process()
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "process"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "process"));
         
         Vector vector = OSGIServiceUtil.getServicesObjectVector(
             this.getBundleContext(),

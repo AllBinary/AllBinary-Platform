@@ -68,7 +68,7 @@ public class PickUpShippingModuleView extends PickUpShippingModule implements Do
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "toXmlNode", e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "toXmlNode", e));
          }
          //throw e;
          return null;

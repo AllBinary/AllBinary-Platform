@@ -28,6 +28,7 @@ import org.allbinary.logic.io.StreamUtil;
 import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -35,6 +36,8 @@ import org.allbinary.logic.communication.log.LogUtil;
  */
 public class ImageServlet extends HttpServlet
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected void processRequest(final HttpServletRequest request, final HttpServletResponse response)
         throws ServletException, IOException
     {
@@ -61,7 +64,7 @@ public class ImageServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Exception", this, "processRequest()", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "processRequest()", e));
             }
         }
         finally

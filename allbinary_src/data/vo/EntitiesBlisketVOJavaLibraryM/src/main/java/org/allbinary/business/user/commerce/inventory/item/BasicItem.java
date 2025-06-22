@@ -25,9 +25,12 @@ import org.allbinary.business.user.commerce.money.Money;
 import org.allbinary.business.user.commerce.money.MoneyException;
 import org.allbinary.data.generator.ProductIdGenerator;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
 
 public class BasicItem implements ItemInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected String itemId;
     protected String number;
     protected String inBaskets;
@@ -63,8 +66,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("Start", this,
-                "Constructor(HashMap)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this,"Constructor(HashMap)"));
         }
 
         this.itemId = (String) itemHashMap.get(BasicItemData.ID);
@@ -112,7 +114,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
         }
 
         String EMPTY = StringUtil.getInstance().EMPTY_STRING;
@@ -469,7 +471,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "toHashMap"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toHashMap"));
         }
 
         HashMap hashMap = new HashMap();
@@ -523,7 +525,7 @@ public class BasicItem implements ItemInterface
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRODUCTSEARCHLOGGING))
         {
-            LogUtil.put(LogFactory.getInstance("Start", this, "toVector"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toVector"));
         }
 
         Vector values = new Vector();

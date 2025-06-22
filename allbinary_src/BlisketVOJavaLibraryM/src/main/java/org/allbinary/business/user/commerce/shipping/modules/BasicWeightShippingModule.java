@@ -16,9 +16,12 @@ package org.allbinary.business.user.commerce.shipping.modules;
 import org.allbinary.business.user.commerce.inventory.basket.BasketInterface;
 import org.allbinary.business.user.commerce.inventory.order.OrderInterface;
 import org.allbinary.business.user.commerce.money.Money;
+import org.allbinary.string.CommonStrings;
 
 public class BasicWeightShippingModule implements ShippingInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final String name = "Basic Shipping (5 to 7 working days)";
    private final String description = "We will soon provide a variety of shipping methods.";
 

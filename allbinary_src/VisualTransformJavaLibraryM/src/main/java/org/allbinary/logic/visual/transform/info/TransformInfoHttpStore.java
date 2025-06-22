@@ -39,7 +39,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
       }
    }
 
@@ -76,7 +76,7 @@ public class TransformInfoHttpStore extends TransformInfoHttp
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
       }
       
       this.setStoreName(storeFrontInterface.getName());

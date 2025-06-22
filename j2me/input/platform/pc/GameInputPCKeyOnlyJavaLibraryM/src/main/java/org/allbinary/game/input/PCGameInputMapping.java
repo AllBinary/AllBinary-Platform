@@ -26,7 +26,7 @@ extends PersistentInputMapping
     public void init(final AbeClientInformationInterface abeClientInformation)
     throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", this, "init"));
+        LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.INIT));
 
         PCKeyFactory.getInstance();
 

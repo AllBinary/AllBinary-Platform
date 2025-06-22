@@ -24,16 +24,19 @@ import org.allbinary.business.user.modules.admin.configuration.AdminConfiguratio
 
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
+import org.allbinary.string.CommonStrings;
 
 public class AdminConfigurationRequestHelper implements ModifyTableInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private HttpServletRequest request;
 
    public AdminConfigurationRequestHelper(HashMap hashMap, PageContext pageContext)
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
       {
-         LogUtil.put(LogFactory.getInstance("Constructor",this,"Constructor"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR,this,this.commonStrings.CONSTRUCTOR));
       }
       
       this.request = (HttpServletRequest) pageContext.getRequest();
@@ -45,7 +48,7 @@ public class AdminConfigurationRequestHelper implements ModifyTableInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
-            LogUtil.put(LogFactory.getInstance("Start",this,"insert()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"insert()"));
          }
          
          String success = "Successfully inserted AdminConfiguration";

@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 public class AllBinarySensor
 implements AllBinarySensorListener
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private static int max = 100;
     
     protected AllBinarySensor()

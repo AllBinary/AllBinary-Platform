@@ -43,7 +43,7 @@ public class BasicWorkFlowTag extends StoreWorkFlowTag
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance("Start",this,"doStartTag()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"doStartTag()"));
          }
 
          //Temporary should be replaced by view in xml of workflow

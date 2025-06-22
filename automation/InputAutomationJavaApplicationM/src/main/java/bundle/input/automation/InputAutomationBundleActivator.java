@@ -83,7 +83,7 @@ public class InputAutomationBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, this.commonStrings.START, e));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.commonStrings.START, e));
             throw e;
         }
     }

@@ -30,7 +30,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class PersistentInputMapping
 {
-    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     
     //_Default_Input_Mapping
     public static final String DEFAULT_RECORD_ID = "_DIM";

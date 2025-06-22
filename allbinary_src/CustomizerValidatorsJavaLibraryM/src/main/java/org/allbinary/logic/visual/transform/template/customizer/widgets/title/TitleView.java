@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.widgets.title;
 
+import java.util.HashMap;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -20,14 +22,16 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.string.CommonStrings;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.HashMap;
-import org.allbinary.logic.string.StringValidationUtil;
-
 public class TitleView implements DomNodeInterface
 {   
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private String title;
 
    private static final String NAME = "None";
@@ -66,7 +70,7 @@ public class TitleView implements DomNodeInterface
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance("HashMap: " + hashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
       }
       
       this.getFormData(hashMap);      

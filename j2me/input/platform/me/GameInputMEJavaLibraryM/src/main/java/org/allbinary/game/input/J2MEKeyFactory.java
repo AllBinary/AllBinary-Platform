@@ -63,7 +63,7 @@ public class J2MEKeyFactory
         {
             inputFactory.add(gameKeyArray[index].getId(), gameKeyArray[index]);
 
-            //PreLogUtil.put("Input ID: " + gameKeyArray[index].getId(), this, "init");
+            //PreLogUtil.put("Input ID: " + gameKeyArray[index].getId(), this, this.commonStrings.INIT);
         }
 
         // KeyEvent.VK_F3

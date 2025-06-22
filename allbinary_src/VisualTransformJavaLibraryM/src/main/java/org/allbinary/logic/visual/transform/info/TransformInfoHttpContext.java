@@ -49,7 +49,7 @@ public class TransformInfoHttpContext extends TransformInfoHttp
             stringBuffer.append("\nProperties HashMap: ");
             stringBuffer.append(propertiesHashMap.toString());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, this.commonStrings.CONSTRUCTOR));
         }
         this.setStoreName(StringUtil.getInstance().EMPTY_STRING);
     }
@@ -60,7 +60,7 @@ public class TransformInfoHttpContext extends TransformInfoHttp
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, "Constructor()"));
+            LogUtil.put(LogFactory.getInstance("Properties HashMap: " + propertiesHashMap.toString(), this, this.commonStrings.CONSTRUCTOR));
         }
 
         this.setStoreName(StringUtil.getInstance().EMPTY_STRING);

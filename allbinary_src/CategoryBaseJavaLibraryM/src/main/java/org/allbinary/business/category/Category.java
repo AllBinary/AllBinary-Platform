@@ -27,11 +27,14 @@ import org.allbinary.business.category.hierarchy.CategoryHierarchyInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesFactoryInterface;
 import org.allbinary.business.category.properties.CategoryPropertiesInterface;
 import org.allbinary.business.category.properties.root.RootCategoryPropertiesInterface;
+import org.allbinary.string.CommonStrings;
 
 public class Category
     implements CategoryInterface
 {
 
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private CategoryHierarchyInterface categoryHierarchyInterface;
     private CategoryPropertiesInterface categoryPropertiesInterface;
     //Vector of child Categories
@@ -46,7 +49,7 @@ public class Category
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CATEGORY))
         {
-            LogUtil.put(LogFactory.getInstance("Constructor", this, "Category(CategoryPropertiesFactoryInterface)"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR, this, "Category(CategoryPropertiesFactoryInterface)"));
         }
 
         this.categoryPropertiesInterface =

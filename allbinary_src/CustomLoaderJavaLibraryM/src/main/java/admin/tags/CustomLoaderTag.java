@@ -27,9 +27,12 @@ import admin.taghelpers.CustomLoaderHelperFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.util.HashMap;
 import javax.servlet.jsp.JspTagException;
+import org.allbinary.string.CommonStrings;
 
 public class CustomLoaderTag extends TagSupport
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private String command;
    private String webappPath;
 
@@ -89,7 +92,7 @@ public class CustomLoaderTag extends TagSupport
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "doStartTag()"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "doStartTag()"));
          }
          
          if(command!=null)

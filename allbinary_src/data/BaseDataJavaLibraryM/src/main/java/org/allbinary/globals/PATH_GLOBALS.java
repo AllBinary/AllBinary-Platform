@@ -14,6 +14,7 @@
 package org.allbinary.globals;
 
 import org.allbinary.logic.io.path.AbPathData;
+import org.allbinary.string.CommonStrings;
 
 public class PATH_GLOBALS
 {
@@ -26,18 +27,19 @@ public class PATH_GLOBALS
 
    private PATH_GLOBALS()
    {
-       StringBuffer stringBuffer = new StringBuffer();
+       final StringBuffer stringBuffer = new StringBuffer();
+       final AbPathData abPathData = AbPathData.getInstance();
 
        stringBuffer.append("data");
-       stringBuffer.append(AbPathData.getInstance().SEPARATOR);
+       stringBuffer.append(abPathData.SEPARATOR);
 
        this.DATA_PATH = stringBuffer.toString();
 
        stringBuffer.delete(0, stringBuffer.length());
 
        stringBuffer.append(DATA_PATH);
-       stringBuffer.append("init");
-       stringBuffer.append(AbPathData.getInstance().SEPARATOR);
+       stringBuffer.append(CommonStrings.getInstance().INIT);
+       stringBuffer.append(abPathData.SEPARATOR);
 
        this.INIT_PATH = stringBuffer.toString();
 
@@ -45,7 +47,7 @@ public class PATH_GLOBALS
 
        stringBuffer.append(DATA_PATH);
        stringBuffer.append("log");
-       stringBuffer.append(AbPathData.getInstance().SEPARATOR);
+       stringBuffer.append(abPathData.SEPARATOR);
 
        this.LOG_PATH = stringBuffer.toString();
 
@@ -53,7 +55,7 @@ public class PATH_GLOBALS
 
        stringBuffer.append(DATA_PATH);
        stringBuffer.append("backup");
-       stringBuffer.append(AbPathData.getInstance().SEPARATOR);
+       stringBuffer.append(abPathData.SEPARATOR);
 
        this.BACKUP_PATH = stringBuffer.toString();
 
@@ -61,7 +63,7 @@ public class PATH_GLOBALS
 
        stringBuffer.append(INIT_PATH);
        stringBuffer.append("views");
-       stringBuffer.append(AbPathData.getInstance().SEPARATOR);
+       stringBuffer.append(abPathData.SEPARATOR);
 
        this.VIEWS_PATH = stringBuffer.toString();
    }

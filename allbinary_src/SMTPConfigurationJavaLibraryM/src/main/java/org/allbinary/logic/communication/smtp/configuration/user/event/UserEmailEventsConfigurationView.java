@@ -13,23 +13,25 @@
 */
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
-import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventConfigurationData;
-import org.allbinary.logic.communication.smtp.configuration.user.event.UserEmailEventsConfigurationData;
-import org.allbinary.data.tree.dom.DomSearchHelper;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.DomNodeInterface;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
+import org.allbinary.data.tree.dom.DomSearchHelper;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tree.dom.DomNodeInterface;
+import org.allbinary.string.CommonStrings;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 public class UserEmailEventsConfigurationView implements DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private UserEmailEventsConfigurationInterface userEmailEventsConfigurationInterface;
    
    public UserEmailEventsConfigurationView(Node node) throws Exception
@@ -82,7 +84,7 @@ public class UserEmailEventsConfigurationView implements DomNodeInterface
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Number Of Email Events Specified in file: " + set.size(), this, "Constructor"));
+         LogUtil.put(LogFactory.getInstance("Number Of Email Events Specified in file: " + set.size(), this, this.commonStrings.CONSTRUCTOR));
       }
       
       Iterator iter = set.iterator();

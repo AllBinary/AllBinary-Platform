@@ -13,6 +13,10 @@
 */
 package org.allbinary.logic.visual.dhtml.style.css;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Vector;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -21,16 +25,19 @@ import org.allbinary.data.tree.dom.DomData;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
 import org.allbinary.logic.visual.dhtml.style.css.property.CssPropertiesValidationFactory;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Vector;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.string.CommonStrings;
 
 public class CssElementView implements DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final String TITLE = "title";
    private final String DESCRIPTION = "description";
    
@@ -44,23 +51,24 @@ public class CssElementView implements DomNodeInterface
    public CssElementView()
    {
       this.cssPropertyVector = new Vector();
-      this.title = "";
-      this.description = "";
-      this.value = "";
+      final StringUtil stringUtil = StringUtil.getInstance();
+      this.title = stringUtil.EMPTY_STRING;
+      this.description = stringUtil.EMPTY_STRING;
+      this.value = stringUtil.EMPTY_STRING;
    }
    
    public CssElementView(Node node) throws Exception
    {
       try
       {
-         Node valueNode =
+         final Node valueNode =
             DomSearchHelper.getNode(
                DomData.VALUE,
                node.getChildNodes());
 
          this.value = DomNodeHelper.getTextNodeValue(valueNode);
          
-         Node titleValueNode =
+         final Node titleValueNode =
             DomSearchHelper.getNodeNoThrow(TITLE, node.getChildNodes());
          
          if(titleValueNode != null)
@@ -69,10 +77,11 @@ public class CssElementView implements DomNodeInterface
          }
          else
          {
-            this.title = "";
+             final StringUtil stringUtil = StringUtil.getInstance();
+            this.title = stringUtil.EMPTY_STRING;
          }
          
-         Node descriptionValueNode =
+         final Node descriptionValueNode =
             DomSearchHelper.getNodeNoThrow(DESCRIPTION, node.getChildNodes());
          
          if(descriptionValueNode != null)
@@ -86,10 +95,9 @@ public class CssElementView implements DomNodeInterface
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Value: " + this.value +
-                    "\nTitle: " + this.title +
-                    "\nDescription: " + this.description
-                    ,this,"Constructor()"));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, commonStrings.CONSTRUCTOR));
          }
          
          //Nodes with CssElementData.NAME
@@ -106,7 +114,7 @@ public class CssElementView implements DomNodeInterface
          this.cssElementVector =
             CssElementsValidationFactory.getInstance(cssElementStyleNodeVector);
 
-         NodeList nodeList = node.getChildNodes();
+         final NodeList nodeList = node.getChildNodes();
          this.cssPropertyVector =
             CssPropertiesValidationFactory.getInstance(nodeList);
       }
@@ -114,10 +122,7 @@ public class CssElementView implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Value: " + this.value +
-                    "\nTitle: " + this.title +
-                    "\nDescription: " + this.description
-                    ,this,"Constructor()",e));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Value: ").append(this.value).append("\nTitle: ").append(this.title).append("\nDescription: ").append(this.description).toString(), this, this.commonStrings.CONSTRUCTOR,e));
          }
          throw new Exception("CssElementView");
       }

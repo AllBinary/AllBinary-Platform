@@ -41,7 +41,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Name: " + this.workFlowName,this,"Constructor()"));
+         LogUtil.put(LogFactory.getInstance("Name: " + this.workFlowName,this,this.commonStrings.CONSTRUCTOR));
       }
    }
 

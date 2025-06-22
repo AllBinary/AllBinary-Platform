@@ -13,17 +13,20 @@
 */
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
+import java.util.HashMap;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventListenerInterface;
 import org.allbinary.logic.communication.smtp.event.UserEmailEventNameData;
-
-import java.util.HashMap;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
+import org.allbinary.string.CommonStrings;
 
 public class UserEmailEventsConfiguration implements UserEmailEventsConfigurationInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private HashMap emailEventHashMap;
    
    public UserEmailEventsConfiguration()
@@ -44,7 +47,7 @@ public class UserEmailEventsConfiguration implements UserEmailEventsConfiguratio
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
       {
-         LogUtil.put(LogFactory.getInstance("Constructor", this," Constructor"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR, this," Constructor"));
       }
    }
 

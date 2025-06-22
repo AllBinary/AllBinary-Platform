@@ -89,7 +89,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         }
         /*
          * this.condition.signal();
-         *  } catch(Exception e) { LogUtil.put(LogFactory.getInstance("Exception", this,
+         *  } catch(Exception e) { LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this,
          * "addListener", e)); } finally { reentrantLock.unlock(); }
          */
     }
@@ -121,7 +121,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
         this.eventListenerInterfaceList.remove(eventListenerInterface);
         /*
          * this.condition.signal(); } catch(Exception e) { LogUtil.put(
-         * LogFactory.getInstance("Exception", this, "removeListener", e)); } finally {
+         * LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "removeListener", e)); } finally {
          * reentrantLock.unlock(); }
          */
     }
@@ -138,7 +138,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * //if(this instance of DestroyedEventHandler) //LogUtil.put(new
          * Log("Start: Locks Held: " + reentrantLock.getHoldCount() + " Held By
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
-         * EventStrings.getInstance().FIRE_EVENT)); //LogUtil.put(LogFactory.getInstance("Start", this, EventStrings.getInstance().FIRE_EVENT));
+         * EventStrings.getInstance().FIRE_EVENT)); //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT));
          *
          * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
@@ -147,7 +147,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * this.process(eventObject, eventListenerInterface); }
          *
          * this.condition.signal(); } catch(Exception e) { LogUtil.put(new
-         * Log("Exception", this, EventStrings.getInstance().FIRE_EVENT, e)); } finally {
+         * Log(this.commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e)); } finally {
          * reentrantLock.unlock(); }
          */
         // int size = this.eventListenerInterfaceVector.size();

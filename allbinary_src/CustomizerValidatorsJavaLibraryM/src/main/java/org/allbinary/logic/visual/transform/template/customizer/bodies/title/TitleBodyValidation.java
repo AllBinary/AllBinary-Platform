@@ -31,9 +31,12 @@ import org.w3c.dom.NodeList;
 import java.util.HashMap;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.sql.AbSqlData;
+import org.allbinary.string.CommonStrings;
 
 public class TitleBodyValidation implements ValidationInterface, DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private String body;
    private TitleNotRequiredValidation titleValidation;
 
@@ -41,7 +44,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "Constructor()"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
       }
 
       this.body = "";
@@ -52,7 +55,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Constructor()",this,"Constructor(document)"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.CONSTRUCTOR,this,"Constructor(document)"));
       }
 
       NodeList nodeList = document.getElementsByTagName(BodyData.getInstance().NAME);
@@ -76,7 +79,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-               LogUtil.put(LogFactory.getInstance("To Many Body Nodes", this, "Constructor()"));
+               LogUtil.put(LogFactory.getInstance("To Many Body Nodes", this, this.commonStrings.CONSTRUCTOR));
             }
          }
       }
@@ -86,7 +89,7 @@ public class TitleBodyValidation implements ValidationInterface, DomNodeInterfac
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("Start", this, "Constructor(hashmap)"));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "Constructor(hashmap)"));
       }
       
       this.getFormData(hashMap);

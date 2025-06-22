@@ -13,22 +13,24 @@
 */
 package org.allbinary.business.user.commerce.money.payment.gateway;
 
-import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGatewayData;
+import java.util.HashMap;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.allbinary.data.tree.dom.ModDomHelper;
+import org.allbinary.string.CommonStrings;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.HashMap;
-import org.allbinary.string.CommonStrings;
-
 public class PaymentGatewayView implements DomNodeInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private PaymentGatewayInterface paymentGatewayInterface;
    
-   public PaymentGatewayView(PaymentGatewayInterface paymentGatewayInterface)  //throws Exception
+   public PaymentGatewayView(final PaymentGatewayInterface paymentGatewayInterface)  //throws Exception
    {
       this.paymentGatewayInterface = paymentGatewayInterface;
    }
@@ -40,25 +42,25 @@ public class PaymentGatewayView implements DomNodeInterface
 
    public HashMap toHashMap() throws Exception
    {
-      HashMap hashMap = new HashMap();
+      final HashMap hashMap = new HashMap();
       return hashMap;
    }
 
-   public Node toXmlNode(Document document) throws Exception
+   public Node toXmlNode(final Document document) throws Exception
    {
       try
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Start", this, "toXmlNode"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "toXmlNode"));
          }
 
-         HashMap hashMap = new PaymentGatewayMapping(
+         final HashMap hashMap = new PaymentGatewayMapping(
             this.paymentGatewayInterface).toHashMap();
 
          hashMap.putAll(this.toHashMap());
 
-         Node paymentGatewayNode = 
+         final Node paymentGatewayNode = 
             ModDomHelper.createNodeWithValueNodes(
                document, PaymentGatewayData.NAME.toString(), hashMap);
          

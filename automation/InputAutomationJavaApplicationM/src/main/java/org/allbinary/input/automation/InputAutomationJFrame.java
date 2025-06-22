@@ -128,7 +128,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    }
    catch (Exception e)
    {
-   LogUtil.put(LogFactory.getInstance("Exception", this, "onFiles", e));
+   LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "onFiles", e));
    }
    }
     */
@@ -384,7 +384,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
           Desktop.getDesktop().browse(uri);
        } catch (Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "subscriptionJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "subscriptionJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_subscriptionJMenuItemActionPerformed
 
@@ -395,7 +395,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
           Desktop.getDesktop().browse(uri);
        } catch (Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "updatesJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "updatesJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_updatesJMenuItemActionPerformed
 
@@ -413,7 +413,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
           new DesktopBundle().start();
        } catch (Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "modulesJMenuItemActionPerformed", e));
+          LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "modulesJMenuItemActionPerformed", e));
        }
     }//GEN-LAST:event_modulesJMenuItemActionPerformed
 
@@ -438,7 +438,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    }
    catch (Exception e)
    {
-   LogUtil.put(LogFactory.getInstance("Exception", this, "removeModuleJMenuItemActionPerformed", e));
+   LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "removeModuleJMenuItemActionPerformed", e));
    }
    }*/
    /*
@@ -519,7 +519,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
           }
        } catch (Exception e)
        {
-          LogUtil.put(LogFactory.getInstance("Exception", this, "gameAutomationRobotModuleJListValueChanged", e));
+          LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "gameAutomationRobotModuleJListValueChanged", e));
        }
     }//GEN-LAST:event_inputAutomationModuleJListValueChanged
 
@@ -567,7 +567,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          }
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "startJMenuItemActionPerformed", e));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "startJMenuItemActionPerformed", e));
       }
    }//GEN-LAST:event_startJMenuItemActionPerformed
    private static InputAutomationJFrame INPUTAUTOMATION_JFRAME;
@@ -642,7 +642,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          InputRobotFactory.getInstance().add(inputAutomationRobotChangeEvent.getInputAutomationRobotInterfaceWrapper().getInputRobotInterface());
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "onAdd", e));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "onAdd", e));
       }
    }
 
@@ -655,7 +655,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          InputRobotFactory.getInstance().add(inputAutomationRobotChangeEvent.getInputAutomationRobotInterfaceWrapper().getInputRobotInterface());
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "onRemove", e));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "onRemove", e));
       }
    }
 
@@ -673,7 +673,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          this.init();
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "onAdd", e));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "onAdd", e));
       }
    }
 
@@ -692,7 +692,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
          this.init();
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance("Exception", this, "onRemove", e));
+         LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "onRemove", e));
       }
    }
     // Variables declaration - do not modify//GEN-BEGIN:variables

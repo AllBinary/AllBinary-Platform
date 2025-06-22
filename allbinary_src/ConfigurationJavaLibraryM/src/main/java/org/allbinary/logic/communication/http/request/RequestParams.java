@@ -31,25 +31,27 @@ import org.allbinary.string.CommonStrings;
 public class RequestParams
 {
 
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private Map map;
 
     public RequestParams()
     {
-        LogUtil.put(LogFactory.getInstance("New RequestParams Size: 0", this, "Constructor()"));
+        LogUtil.put(LogFactory.getInstance("New RequestParams Size: 0", this, this.commonStrings.CONSTRUCTOR));
     }
 
     public RequestParams(HttpServletRequest request)
     {
         map = request.getParameterMap();
 
-        LogUtil.put(LogFactory.getInstance("RequestParams Size: " + this.getMap().keySet().size(), this, "Constructor()"));
+        LogUtil.put(LogFactory.getInstance("RequestParams Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR));
     }
 
     public RequestParams(PageContext pageContext)
     {
         map = pageContext.getRequest().getParameterMap();
 
-        LogUtil.put(LogFactory.getInstance("Request Params Size: " + this.getMap().keySet().size(), this, "Constructor()"));
+        LogUtil.put(LogFactory.getInstance("Request Params Size: " + this.getMap().keySet().size(), this, this.commonStrings.CONSTRUCTOR));
     }
 
     protected void setMap(Map map)

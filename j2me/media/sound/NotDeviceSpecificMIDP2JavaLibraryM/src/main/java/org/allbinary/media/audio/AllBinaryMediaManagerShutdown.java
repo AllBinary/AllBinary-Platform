@@ -15,6 +15,7 @@ package org.allbinary.media.audio;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class AllBinaryMediaManagerShutdown
 {
@@ -24,7 +25,8 @@ public class AllBinaryMediaManagerShutdown
     public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance("Start", instance, "shutdown"));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, "shutdown"));
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
     }
     

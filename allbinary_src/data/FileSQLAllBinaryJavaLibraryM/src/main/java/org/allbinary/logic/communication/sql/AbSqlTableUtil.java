@@ -164,7 +164,7 @@ public class AbSqlTableUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Exception", this, this.METHOD_BACKUP_FILE, e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, this.METHOD_BACKUP_FILE, e));
             }
             return false;
         }

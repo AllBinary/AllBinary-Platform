@@ -47,6 +47,7 @@ public class CapturedImageInputOutput implements ImageIOInterface {
         LogUtil.put(LogFactory.getInstance(("Image File Path: " + filePath
                 + imageUtil.toString(bufferedImage)),
                 this, "save"));
-        ImagePersistanceUtil.saveWithImageIO(filePath, bufferedImage);
+        final ImagePersistanceUtil imagePersistanceUtil = ImagePersistanceUtil.getInstance();
+        imagePersistanceUtil.saveWithImageIO(filePath, bufferedImage);
     }
 }

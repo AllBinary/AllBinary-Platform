@@ -100,7 +100,7 @@ public class InputAutomationModuleBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "addModules"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "addModules"));
         }
     }
     
@@ -138,7 +138,7 @@ public class InputAutomationModuleBundleActivator
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception", this, "removeModules"));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "removeModules"));
         }
     }
     

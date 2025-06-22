@@ -42,7 +42,7 @@ public class MirrorSpriteImageJPanel extends javax.swing.JPanel
    {
       super();
 
-      LogUtil.put(LogFactory.getInstance("Starting", this, "Constructor"));
+      LogUtil.put(LogFactory.getInstance("Starting", this, this.commonStrings.CONSTRUCTOR));
 
       initComponents();
       this.imageProcessorInput = imageProcessorInput;

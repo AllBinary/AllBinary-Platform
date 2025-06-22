@@ -15,13 +15,15 @@ package org.allbinary.logic.communication.http;
 
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class AcceptableResponse
 {
-
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected AcceptableResponse(String candidate, String tagName, int index)
     {
-        LogUtil.put(LogFactory.getInstance(tagName, this, "Constructor"));
+        LogUtil.put(LogFactory.getInstance(tagName, this, this.commonStrings.CONSTRUCTOR));
 
         AcceptableResponseUtil acceptableResponseUtil =
             AcceptableResponseUtil.getInstance();

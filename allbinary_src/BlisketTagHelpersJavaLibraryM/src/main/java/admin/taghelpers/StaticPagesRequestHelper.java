@@ -74,7 +74,7 @@ public class StaticPagesRequestHelper extends AbContext
    {
       super(propertiesHashMap, pageContext);
 
-      //LogUtil.put(LogFactory.getInstance("Start", this, "Constructor()"));
+      //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, this.commonStrings.CONSTRUCTOR));
 
       this.request = (HttpServletRequest) pageContext.getRequest();
       this.xslFile = (String) propertiesHashMap.get(
@@ -115,11 +115,11 @@ public class StaticPagesRequestHelper extends AbContext
          
          //Send response to Admin(s)
          UserEmailEventHandler adminUserEmailEventHandler =
-            AdminUserEmailEventHandlerSingletons.getInstance(
+            AdminUserEmailEventHandlerSingletons.getInstance().getInstance(
                this.abeClientInformation, UserEmailEventNameData.STOREGENERATINGSTATICPAGES);
 
          UserEmailEventHandler storeAdminUserEmailEventHandler =
-            StoreAdminUserEmailEventHandlerSingletons.getInstance(
+            StoreAdminUserEmailEventHandlerSingletons.getInstance().getInstance(
                UserEmailEventNameData.STOREGENERATINGSTATICPAGES, this.abeClientInformation, storeFrontInterface);
 
          storeAdminUserEmailEventHandler.receiveEmailInfo(
@@ -141,7 +141,7 @@ public class StaticPagesRequestHelper extends AbContext
    {
       try
       {
-         //LogUtil.put(LogFactory.getInstance("Start", this, "generateStaticPages()"));
+         //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "generateStaticPages()"));
 
          String contentType = AcceptableResponseGenerator.get(this.request); 
          

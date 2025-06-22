@@ -34,6 +34,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import admin.taghelpers.AuthenticationHelper;
 import admin.taghelpers.AuthenticationHelperFactory;
 import admin.taghelpers.AuthenticationHelperUtil;
+import org.allbinary.string.CommonStrings;
 
 /**
  *
@@ -42,8 +43,9 @@ import admin.taghelpers.AuthenticationHelperUtil;
  */
 public class DownloadFileServlet extends HttpServlet
 {
-
-    private static final String DOWNLOAD = "download";
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private final String DOWNLOAD = "download";
     private final int DEFAULT_BUFFER_SIZE = 16384;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -142,7 +144,7 @@ public class DownloadFileServlet extends HttpServlet
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
             {
-                LogUtil.put(LogFactory.getInstance("Exception", this, "processRequest()", e));
+                LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "processRequest()", e));
             }
             response.sendError(HttpServletResponse.SC_NOT_FOUND);
         } finally

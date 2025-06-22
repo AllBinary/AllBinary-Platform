@@ -38,7 +38,7 @@ public class TransformTag extends TransformInfoTag
         //this.helperObject = null;
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
         {
-            LogUtil.put(LogFactory.getInstance("Tag Constructed", this, "Constructor"));
+            LogUtil.put(LogFactory.getInstance("Tag Constructed", this, this.commonStrings.CONSTRUCTOR));
         }
     }
 
