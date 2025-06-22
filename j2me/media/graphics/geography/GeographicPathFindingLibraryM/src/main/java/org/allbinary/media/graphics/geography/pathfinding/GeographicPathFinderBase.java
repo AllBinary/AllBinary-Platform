@@ -13,6 +13,7 @@
 */
 package org.allbinary.media.graphics.geography.pathfinding;
 
+import org.allbinary.string.CommonStrings;
 import org.allbinary.util.BasicArrayList;
 
 /**
@@ -21,6 +22,8 @@ import org.allbinary.util.BasicArrayList;
  */
 public class GeographicPathFinderBase {
    
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    public BasicArrayList search(
       BasicArrayList startPathFindingNodeList, 
       BasicArrayList endPathFindingNodeList, int totalPaths)
