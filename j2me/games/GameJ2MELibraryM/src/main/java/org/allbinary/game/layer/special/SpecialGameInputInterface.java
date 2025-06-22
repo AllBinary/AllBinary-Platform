@@ -14,9 +14,10 @@
 package org.allbinary.game.layer.special;
 
 import org.allbinary.game.input.event.GameKeyEvent;
+import org.allbinary.graphics.paint.PaintableInterface;
 import org.allbinary.layer.AllBinaryLayerManager;
 
-public interface SpecialGameInputInterface {
+public interface SpecialGameInputInterface extends PaintableInterface {
 
     void up() throws Exception;
     

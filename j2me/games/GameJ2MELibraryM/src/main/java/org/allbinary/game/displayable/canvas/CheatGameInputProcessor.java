@@ -15,18 +15,23 @@ package org.allbinary.game.displayable.canvas;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.input.GameKeyFactory;
 import org.allbinary.game.input.PlayerGameInput;
+import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
+import org.allbinary.game.layer.special.SpecialGameInput;
+import org.allbinary.game.layer.special.SpecialGameInputInterface;
 import org.allbinary.logic.string.StringMaker;
 
 public class CheatGameInputProcessor extends PlayerGameInput 
 {
+    private final String PROCESS_GAME = "processGame";
+
     private final AllBinaryGameCanvas gameCanvas;
+    public static SpecialGameInputInterface inputProcessor = new SpecialGameInput();
 
     public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas)
     {
@@ -45,72 +50,79 @@ public class CheatGameInputProcessor extends PlayerGameInput
     {
         try
         {
-            AllBinaryGameLayerManager gameLayerManager = this.gameCanvas
-                    .getLayerManager();
+            final AllBinaryGameLayerManager gameLayerManager = this.gameCanvas.getLayerManager();
 
-            BasicArrayList list = this.getGameKeyEventList();
+            final BasicArrayList list = this.getGameKeyEventList();
 
-            int size = list.size();
+            final int size = list.size();
             for (int index = 0; index < size; index++)
             {
-                Object object = list.objectArray[index];
-                int key = GameKeyEventUtil.getKey(object);
+                final Object object = list.objectArray[index];
+                final int key = GameKeyEventUtil.getKey(object);
 
                 if (key == gameKeyFactory.LEVEL_DOWN.getId())
                 {
+                    inputProcessor.strafeLeft();
+                    
                     gameLayerManager.getGameInfo().previousGameLevel();
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),
-                            this, "processGame"));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Down Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME));
                     this.gameCanvas.buildGame(true);
                     break;
                 }
                 else if (key == gameKeyFactory.LEVEL_UP.getId())
                 {
+                    inputProcessor.strafeRight();
+                    
                     gameLayerManager.getGameInfo().nextGameLevel();
-                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),
-                            this, "processGame"));
+                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("Up Level Cheat: ").append(gameLayerManager.getGameInfo().getCurrentLevel()).toString(),this, PROCESS_GAME));
                     this.gameCanvas.buildGame(true);
                     break;
                 }
                 
-//                if (key == gameKeyFactory.LEFT.getId())
-//                {   
+                if (key == gameKeyFactory.LEFT.getId())
+                {   
+                    inputProcessor.left();
 //                    x+=1;
-//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, "processGame"));
-//                    break;
-//                }
-//                else if (key == gameKeyFactory.RIGHT.getId())
-//                {   
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, PROCESS_GAME));
+                    break;
+                }
+                else if (key == gameKeyFactory.RIGHT.getId())
+                {   
+                    inputProcessor.right();
 //                    x-=1;
-//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, "processGame"));
-//                    break;
-//                }
-//                else if (key == gameKeyFactory.UP.getId())
-//                {
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("x: ").append(x).toString(),this, PROCESS_GAME));
+                    break;
+                }
+                else if (key == gameKeyFactory.UP.getId())
+                {
+                    inputProcessor.up();
 //                    y+=1;
-//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, "processGame"));   
-//                    break;
-//                }
-//                else if (key == gameKeyFactory.DOWN.getId())
-//                {                    
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, PROCESS_GAME));   
+                    break;
+                }
+                else if (key == gameKeyFactory.DOWN.getId())
+                {
+                    inputProcessor.down();
 //                    y-=1;
-//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, "processGame"));
-//                    break;
-//                }
-//                //3
-//                else if (key == gameKeyFactory.KEY_NUM1.getId())
-//                {
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("y: ").append(y).toString(),this, PROCESS_GAME));
+                    break;
+                }
+                //3
+                else if (key == gameKeyFactory.KEY_NUM1.getId())
+                {
+                    inputProcessor.special1(gameLayerManager, GameKeyEvent.NONE);
 //                    z+=1;
-//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));
-//                    break;
-//                }
-//                //4
-//                else if (key == gameKeyFactory.KEY_NUM3.getId())
-//                {
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, PROCESS_GAME));
+                    break;
+                }
+                //4
+                else if (key == gameKeyFactory.KEY_NUM3.getId())
+                {
+                    inputProcessor.special3(gameLayerManager, GameKeyEvent.NONE);
 //                    z-=1;
-//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, "processGame"));
-//                    break;
-//                }
+//                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, PROCESS_GAME));
+                    break;
+                }
                 
             }
 

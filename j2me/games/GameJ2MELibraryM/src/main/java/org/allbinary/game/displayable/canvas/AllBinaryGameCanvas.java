@@ -1367,6 +1367,8 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
         menuPaintable.paint(graphics);
         
         this.progressPaintable.paint(graphics);
+        
+        //CheatGameInputProcessor.inputProcessor.paint(graphics);
     }
 
     public void paintThreed(final Graphics graphics)

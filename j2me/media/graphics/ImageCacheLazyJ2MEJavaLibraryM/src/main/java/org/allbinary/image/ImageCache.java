@@ -425,7 +425,7 @@ public class ImageCache extends ImageCacheBase {
         return image;
     }
 
-    private int getIndex(final Object key) {
+    public int getIndex(final Object key) {
         final GDResources gdResources = GDResources.getInstance();
         final String[] resourceStringArray = gdResources.resourceStringArray;
         final int size = resourceStringArray.length;
