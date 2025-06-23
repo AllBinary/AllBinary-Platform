@@ -38,7 +38,7 @@ public class BasicPaintablesCanvas extends GameCommandCanvas
         this.paintableArray = paintableArray;
         
         this.colorFillPaintable = 
-            ColorFillPaintableFactory.getInstance(
+            ColorFillPaintableFactory.getInstance().getInstance(
                     allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 

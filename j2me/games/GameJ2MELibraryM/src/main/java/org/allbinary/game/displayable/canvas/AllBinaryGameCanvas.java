@@ -220,7 +220,7 @@ implements AllBinaryGameCanvasInterface, GameCanvasRunnableInterface,
     private BaseTouchInput currentTouchInputFactory;
 
     protected ColorFillBasePaintable colorFillPaintable =
-        ColorFillPaintableFactory.getInstance(
+        ColorFillPaintableFactory.getInstance().getInstance(
                 basicColorFactory.BLACK, true);
 
     private final BaseGameStatistics baseGameStatistics =

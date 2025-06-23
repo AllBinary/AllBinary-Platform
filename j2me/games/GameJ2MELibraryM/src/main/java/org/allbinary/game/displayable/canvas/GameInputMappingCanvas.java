@@ -98,7 +98,7 @@ implements InputMappingInterface
               //      this, allBinaryGameLayerManager.getForegroundBasicColor());
         
         this.colorFillPaintable = 
-            ColorFillPaintableFactory.getInstance(
+            ColorFillPaintableFactory.getInstance().getInstance(
                     allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
 

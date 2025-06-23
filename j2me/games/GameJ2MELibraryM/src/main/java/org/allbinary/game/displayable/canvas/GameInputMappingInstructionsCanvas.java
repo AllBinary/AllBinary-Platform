@@ -68,7 +68,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
         LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         this.colorFillPaintable = 
-            ColorFillPaintableFactory.getInstance(
+            ColorFillPaintableFactory.getInstance().getInstance(
                     allBinaryGameLayerManager.getBackgroundBasicColor(), false);
     }
     

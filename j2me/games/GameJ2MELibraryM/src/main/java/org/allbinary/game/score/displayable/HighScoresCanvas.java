@@ -114,7 +114,7 @@ public class HighScoresCanvas extends GameCommandCanvas
         this.getHighScoresPaintable().setBasicColor(
                 allBinaryGameLayerManager.getForegroundBasicColor());
         this.colorFillPaintable = 
-            ColorFillPaintableFactory.getInstance(
+            ColorFillPaintableFactory.getInstance().getInstance(
                 allBinaryGameLayerManager.getBackgroundBasicColor(), false);
 
         if(this.highScoresHelper.getHighScoresArray() == NoHighScoresFactory.getInstance().NO_HIGH_SCORES) {

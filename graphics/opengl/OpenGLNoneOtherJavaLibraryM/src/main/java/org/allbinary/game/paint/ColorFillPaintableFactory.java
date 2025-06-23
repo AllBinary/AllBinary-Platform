@@ -19,7 +19,13 @@ import org.allbinary.graphics.color.BasicColor;
 
 public class ColorFillPaintableFactory
 {
-    public static ColorFillBasePaintable getInstance(final BasicColor basicColor, final boolean forThreedCanvas)
+    private static final ColorFillPaintableFactory instance = new ColorFillPaintableFactory();
+    
+    public static ColorFillPaintableFactory getInstance() {
+        return instance;
+    }
+
+    public ColorFillBasePaintable getInstance(final BasicColor basicColor, final boolean forThreedCanvas)
     {
         final GenericOperatingSystem operatingSystem = 
                 OperatingSystemFactory.getInstance().getOperatingSystemInstance();
