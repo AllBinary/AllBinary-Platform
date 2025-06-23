@@ -118,7 +118,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
                 //4
                 else if (key == gameKeyFactory.KEY_NUM3.getId())
                 {
-                    inputProcessor.special3(gameLayerManager, GameKeyEvent.NONE);
+                    inputProcessor.special2(gameLayerManager, GameKeyEvent.NONE);
 //                    z-=1;
 //                    LogUtil.put(LogFactory.getInstance(new StringMaker().append("z: ").append(z).toString(),this, PROCESS_GAME));
                     break;
