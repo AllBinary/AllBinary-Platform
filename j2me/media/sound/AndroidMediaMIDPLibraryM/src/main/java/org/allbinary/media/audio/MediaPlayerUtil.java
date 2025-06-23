@@ -21,7 +21,11 @@ public class MediaPlayerUtil
 {
     private static final MediaPlayerUtil instance = new MediaPlayerUtil();
     
-    public static void wait(MediaPlayer mediaPlayer) throws Exception
+    public static MediaPlayerUtil getInstance() {
+        return instance;
+    }
+    
+    public void wait(MediaPlayer mediaPlayer) throws Exception
     {
         final String MESSAGE = "Not Stopped Waiting";
         final String METHOD_NAME = "wait";

@@ -26,7 +26,7 @@ public class AllBinaryMediaManagerShutdown
         throws Exception
     {
         final CommonStrings commonStrings = CommonStrings.getInstance();
-        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "shutdown"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, instance, "shutdown"));
         AllBinaryMediaManager.shutdown(soundsFactoryInterface);
     }
     

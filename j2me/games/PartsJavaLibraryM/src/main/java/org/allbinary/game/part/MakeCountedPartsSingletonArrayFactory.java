@@ -26,9 +26,13 @@ public class MakeCountedPartsSingletonArrayFactory
 {
     private static final MakeCountedPartsSingletonArrayFactory instance = new MakeCountedPartsSingletonArrayFactory();
 
-    private static BasicArrayList list;
+    public static MakeCountedPartsSingletonArrayFactory getInstance() {
+        return instance;
+    }
 
-    public static synchronized PartInterface[] getInstance(
+    private BasicArrayList list;
+
+    public PartInterface[] getInstance(
             PartInterface[] partInterfaceArray) throws Exception
     {
         list = new BasicArrayList();
@@ -57,8 +61,7 @@ public class MakeCountedPartsSingletonArrayFactory
         stringBuffer.append(" Counted: ");
         stringBuffer.append(countedBasicArrayList.size());
 
-        LogUtil.put(LogFactory.getInstance(
-                stringBuffer.toString(), this, CommonStrings.getInstance().GET_INSTANCE));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().GET_INSTANCE));
 
         PartInterface[] newPartInterfaceArray = new PartInterface[list.size()];
         return (PartInterface[]) list.toArray(newPartInterfaceArray);

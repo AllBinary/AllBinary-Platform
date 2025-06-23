@@ -24,8 +24,7 @@ public class AllBinaryMediaManagerShutdown
     public static void shutdown(SoundsFactoryInterface soundsFactoryInterface)
         throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(
-                "No Media Shutdown for Android Process", this, "shutdown"));
+        LogUtil.put(LogFactory.getInstance("No Media Shutdown for Android Process", instance, "shutdown"));
         //AllBinaryMediaManager.shutdown(soundsFactoryInterface);
     }
     
