@@ -33,9 +33,13 @@ import org.allbinary.logic.communication.http.file.upload.media.UploadMediaSingl
 import org.allbinary.logic.visual.media.MediaTypeData;
 import org.allbinary.logic.visual.media.MediaUtil;
 import java.io.ByteArrayInputStream;
+import org.apache.commons.fileupload.FileItemUtil;
 
 public class InventoryUploadMediaUtil
 {
+    //private final FileItemUtil fileItemUtil = FileItemUtil.getInstance();
+    private final MediaUtil mediaUtil = MediaUtil.getInstance();
+
     private final int LARGEWIDTH = 1024;
     private final int LARGEHEIGHT = 1024;
     private final int MEDIUMWIDTH = 256;
@@ -101,7 +105,7 @@ public class InventoryUploadMediaUtil
         originalImageFile.createNewFile();
 
         fileUtil.write(new ByteArrayInputStream(byteArray), originalImageFile);
-        //FileItemUtil.write(fileItem, originalImageFile);
+        //fileItemUtil.write(fileItem, originalImageFile);
 
         UploadMediaSingleton uploadMedia = UploadMediaSingleton.getInstance();
 
@@ -152,17 +156,17 @@ public class InventoryUploadMediaUtil
                     LogUtil.put(LogFactory.getInstance("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()"));
                 }
 
-                MediaUtil.saveImageFile(
+                mediaUtil.saveImageFile(
                     originalImageFile, itemInterface.getSmallImage(),
                     fullPath, mediaData,
                     this.SMALLWIDTH, this.SMALLHEIGHT);
 
-                MediaUtil.saveImageFile(
+                mediaUtil.saveImageFile(
                     originalImageFile, itemInterface.getMediumImage(),
                     fullPath, mediaData,
                     this.MEDIUMWIDTH, this.MEDIUMHEIGHT);
 
-                MediaUtil.saveImageFile(
+                mediaUtil.saveImageFile(
                     originalImageFile, itemInterface.getLargeImage(),
                     fullPath, mediaData,
                     this.LARGEWIDTH, this.LARGEHEIGHT);
@@ -196,17 +200,17 @@ public class InventoryUploadMediaUtil
                         LogUtil.put(LogFactory.getInstance("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()"));
                     }
 
-                    MediaUtil.saveImageFile(
+                    mediaUtil.saveImageFile(
                         originalImageFile, itemInterface.getSmallImage(),
                         fullPath, defaultMediaData,
                         this.SMALLWIDTH, this.SMALLHEIGHT);
 
-                    MediaUtil.saveImageFile(
+                    mediaUtil.saveImageFile(
                         originalImageFile, itemInterface.getMediumImage(),
                         fullPath, defaultMediaData,
                         this.MEDIUMWIDTH, this.MEDIUMHEIGHT);
 
-                    MediaUtil.saveImageFile(
+                    mediaUtil.saveImageFile(
                         originalImageFile, itemInterface.getLargeImage(),
                         fullPath, defaultMediaData,
                         this.LARGEWIDTH, this.LARGEHEIGHT);
@@ -218,19 +222,19 @@ public class InventoryUploadMediaUtil
                     smallImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), smallImageFile);
-                    //FileItemUtil.write(fileItem, smallImageFile);
+                    //fileItemUtil.write(fileItem, smallImageFile);
 
                     AbFile mediumImageFile = new AbFile(itemInterface.getMediumImage());
                     smallImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), mediumImageFile);
-                    //FileItemUtil.write(fileItem, mediumImageFile);
+                    //fileItemUtil.write(fileItem, mediumImageFile);
 
                     AbFile largeImageFile = new AbFile(itemInterface.getSmallImage());
                     largeImageFile.createNewFile();
 
                     fileUtil.write(new ByteArrayInputStream(byteArray), largeImageFile);
-                    //FileItemUtil.write(fileItem, largeImageFile);
+                    //fileItemUtil.write(fileItem, largeImageFile);
                 }
             }
         }
@@ -315,7 +319,7 @@ public class InventoryUploadMediaUtil
 
     originalImageFile.createNewFile();
 
-    FileItemUtil.write(fileItem, originalImageFile);
+    fileItemUtil.write(fileItem, originalImageFile);
 
     UploadMediaSingleton uploadMedia = UploadMediaSingleton.getInstance();
     boolean isMediaSupported =
@@ -363,17 +367,17 @@ public class InventoryUploadMediaUtil
     LogUtil.put(LogFactory.getInstance("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()"));
     }
 
-    MediaUtil.saveBufferedImageFile(
+    mediaUtil.saveBufferedImageFile(
     originalImageFile, itemInterface.getSmallImage(),
     fullPath, mediaData,
     this.SMALLWIDTH, this.SMALLHEIGHT);
 
-    MediaUtil.saveBufferedImageFile(
+    mediaUtil.saveBufferedImageFile(
     originalImageFile, itemInterface.getMediumImage(),
     fullPath, mediaData,
     this.MEDIUMWIDTH, this.MEDIUMHEIGHT);
 
-    MediaUtil.saveBufferedImageFile(
+    mediaUtil.saveBufferedImageFile(
     originalImageFile, itemInterface.getLargeImage(),
     fullPath, mediaData,
     this.LARGEWIDTH, this.LARGEHEIGHT);
@@ -414,17 +418,17 @@ public class InventoryUploadMediaUtil
     LogUtil.put(LogFactory.getInstance("Saving Small Image: " + this.itemInterface.getSmallImage(), this, "saveFiles()"));
     }
 
-    MediaUtil.saveBufferedImageFile(
+    mediaUtil.saveBufferedImageFile(
     originalImageFile, itemInterface.getSmallImage(),
     fullPath, defaultMediaData,
     this.SMALLWIDTH, this.SMALLHEIGHT);
 
-    MediaUtil.saveBufferedImageFile(
+    mediaUtil.saveBufferedImageFile(
     originalImageFile, itemInterface.getMediumImage(),
     fullPath, defaultMediaData,
     this.MEDIUMWIDTH, this.MEDIUMHEIGHT);
 
-    MediaUtil.saveBufferedImageFile(
+    mediaUtil.saveBufferedImageFile(
     originalImageFile, itemInterface.getLargeImage(),
     fullPath, defaultMediaData,
     this.LARGEWIDTH, this.LARGEHEIGHT);
@@ -449,19 +453,19 @@ public class InventoryUploadMediaUtil
     new AbFile(itemInterface.getSmallImage());
     smallImageFile.createNewFile();
 
-    FileItemUtil.write(fileItem, smallImageFile);
+    fileItemUtil.write(fileItem, smallImageFile);
 
     AbFile mediumImageFile =
     new AbFile(itemInterface.getMediumImage());
     smallImageFile.createNewFile();
 
-    FileItemUtil.write(fileItem, mediumImageFile);
+    fileItemUtil.write(fileItem, mediumImageFile);
 
     AbFile largeImageFile =
     new AbFile(itemInterface.getSmallImage());
     largeImageFile.createNewFile();
 
-    FileItemUtil.write(fileItem, largeImageFile);
+    fileItemUtil.write(fileItem, largeImageFile);
     }
     }
     }

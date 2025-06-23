@@ -43,16 +43,18 @@ public class HelperFactory
          Object[] params = new Object[2];
          Class[] classes = new Class[2];
 
+         final AbeFactory abeFactory = AbeFactory.getInstance();
+
          //Add param types
          classes[0] = hashMap.getClass();
-         classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.http.HttpServletRequest");
+         classes[1] = abeFactory.getClass(abeClientInformation, "javax.servlet.http.HttpServletRequest");
          //pageContext.getClass();
 
          //Add arguments
          params[0] = (Object) hashMap;
          params[1] = (Object) httpServletRequest;
 
-         Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
+         Object object = abeFactory.getInstance(abeClientInformation, className, classes, params);
          return object;
       }
       catch(LicensingException e)
@@ -91,17 +93,19 @@ public class HelperFactory
       {
          Object[] params = new Object[2];
          Class[] classes = new Class[2];
-                  
+
+         final AbeFactory abeFactory = AbeFactory.getInstance();
+         
          //Add param types
          classes[0] = hashMap.getClass();
-         classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
+         classes[1] = abeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
          //pageContext.getClass();         
          
          //Add arguments
          params[0] = (Object) hashMap;
          params[1] = (Object) pageContext;
                            
-         Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
+         Object object = abeFactory.getInstance(abeClientInformation, className, classes, params);
          return object;
       }
       catch(LicensingException e)
@@ -141,11 +145,13 @@ public class HelperFactory
       {
          Object[] params = new Object[3];
          Class[] classes = new Class[3];
-                  
+
+         final AbeFactory abeFactory = AbeFactory.getInstance();
+         
          //Add param types
          classes[0] = hashMap.getClass();
          classes[1] = specialhashMap.getClass();
-         classes[2] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
+         classes[2] = abeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
          //pageContext.getClass();         
          
          //Add arguments
@@ -153,7 +159,7 @@ public class HelperFactory
          params[1] = (Object) specialhashMap;
          params[2] = (Object) pageContext;
 
-         Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
+         Object object = abeFactory.getInstance(abeClientInformation, className, classes, params);
          return object;
       }
       catch(LicensingException e)
@@ -188,7 +194,7 @@ public class HelperFactory
    {
       try
       {
-         Object object = AbeFactory.getInstance(abeClientInformation, className);
+         Object object = AbeFactory.getInstance().getInstance(abeClientInformation, className);
          return object;
       }
       catch(LicensingException e)

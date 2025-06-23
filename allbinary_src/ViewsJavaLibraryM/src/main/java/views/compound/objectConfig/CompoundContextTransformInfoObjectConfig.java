@@ -89,7 +89,7 @@ public class CompoundContextTransformInfoObjectConfig
       stringBuffer.append(RootTransformInfoData.NAME);
       
       //get parent template 
-      TransformInterface rootComponentInterface = TransformFactory.getInstance(
+      TransformInterface rootComponentInterface = TransformFactory.getInstance().getInstance(
           abeClientInformation, stringBuffer.toString(), this.getTransformInfoInterface());
 
       Vector viewVector = this.getTransformDomNodes();
@@ -115,7 +115,7 @@ public class CompoundContextTransformInfoObjectConfig
          
          String templateKey = objectConfigTransformInfoDomNode.getReplaceKey();
 
-         TransformInterface componentInterface = TransformFactory.getInstance(
+         TransformInterface componentInterface = TransformFactory.getInstance().getInstance(
                 abeClientInformation, objectConfigTransformInfoDomNode.getTransformInfoInterface().getName(), this.getTransformInfoInterface());
 
          String replacementViewString = componentInterface.view();

@@ -45,7 +45,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
    {
       super(transformInfoInterface);
             
-      this.workFlowInterface = NewWorkFlowFactory.getInstance(abeClientInformation, this.getPropertiesHashMap(), this.getPageContext());
+      this.workFlowInterface = NewWorkFlowFactory.getInstance().getInstance(abeClientInformation, this.getPropertiesHashMap(), this.getPageContext());
    }
    
    public Boolean isValid()
@@ -53,7 +53,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
       try
       {
          /*
-         if(WorkFlowEntityFactory.getInstance().get(
+         if(WorkFlowEntityFactory.getInstance().create2().get(
             this.workFlowInterface.getName(), 
             this.getTransformInfoInterface().getStoreName())!=null)
          {
@@ -84,9 +84,7 @@ public class AddValidationView extends WorkFlowView implements ValidationCompone
       {
          StringBuffer stringBuffer = new StringBuffer();
 
-         if(WorkFlowEntityFactory.getInstance().get(
-            this.workFlowInterface.getName(), 
-            this.getTransformInfoInterface().getStoreName())!=null)
+         if(WorkFlowEntityFactory.getInstance().create2().get(this.workFlowInterface.getName(), this.getTransformInfoInterface().getStoreName())!=null)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {

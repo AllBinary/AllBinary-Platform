@@ -159,10 +159,11 @@ public class StoreFrontsHelper implements BasicTableInterface
 
             storeSelect.addAttribute(CLASS, TEXT);
 
-            Iterator storeNameIterator = storeNamesVector.iterator();
-            while (storeNameIterator.hasNext())
+            final Object[] storeNameArray = storeNamesVector.toArray();
+            final int size = storeNameArray.length;
+            for (int index = 0; index < size; index++)
             {
-                String storeName = (String) storeNameIterator.next();
+                String storeName = (String) storeNameArray[index];
                 storeSelect.addOption(storeName);
             }
             success += storeSelect;

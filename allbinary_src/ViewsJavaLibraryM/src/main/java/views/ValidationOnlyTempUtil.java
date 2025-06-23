@@ -23,20 +23,24 @@ import org.allbinary.logic.communication.log.LogUtil;
 //Replace when validation node is added
 public class ValidationOnlyTempUtil
 {
-	private static final ValidationOnlyTempUtil instance = new ValidationOnlyTempUtil();
+    private static final ValidationOnlyTempUtil instance = new ValidationOnlyTempUtil();
+    
+    public static ValidationOnlyTempUtil getInstance() {
+        return instance;
+    }
    
    private ValidationOnlyTempUtil()
    {
    }
    
    //TWB hack for no store in session for a new store
-   public static String view(ValidationComponentInterface validationComponentInterface) throws Exception
+   public String view(ValidationComponentInterface validationComponentInterface) throws Exception
    {
       try
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), instance, "view()"));
+            LogUtil.put(LogFactory.getInstance("View Name: " + validationComponentInterface.getTransformInfoInterface().getName(), this, "view()"));
          }
 
 /*
@@ -53,7 +57,7 @@ public class ValidationOnlyTempUtil
          String error = "Failed to view: " + validationComponentInterface.getTransformInfoInterface().getName();
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, instance, "view()", e));
+            LogUtil.put(LogFactory.getInstance(error, this, "view()", e));
          }
          throw e;
       }

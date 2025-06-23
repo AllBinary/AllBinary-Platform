@@ -38,7 +38,7 @@ public class StoreFrontsEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (StoreFrontsEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.context.module.storefronts.StoreFrontsEntity();
       }

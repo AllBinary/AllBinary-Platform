@@ -13,9 +13,10 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigNoManipulationFactory;
 import java.util.HashMap;
 import javax.servlet.jsp.PageContext;
+
+import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigNoManipulationFactory;
 
 /**
  *
@@ -37,7 +38,7 @@ extends TransformInfoHttpStore
       this.setObjectConfigFileName(value);
       
       this.setObjectConfigInterface(
-         TransformInfoObjectConfigNoManipulationFactory.getInstance(
+         TransformInfoObjectConfigNoManipulationFactory.getInstance().getInstance(
             this, this.getObjectConfigFilePath()));
    }
 

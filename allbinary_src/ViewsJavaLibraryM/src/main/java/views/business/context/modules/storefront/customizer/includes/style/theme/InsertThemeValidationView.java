@@ -82,7 +82,7 @@ public class InsertThemeValidationView extends ThemeCustomizerView implements Va
          if(isValid == Boolean.TRUE)
          {
             //Insert XML into the view specified by the Object Config for this view
-            CustomizerUtil.insert(
+            CustomizerUtil.getInstance().insert(
                this.getTransformInfoInterface(),
                (DomNodeInterface) this.validationInterface);
          }
@@ -133,7 +133,7 @@ public class InsertThemeValidationView extends ThemeCustomizerView implements Va
    {
       try
       {
-         return StoreCustomizerComponentUtil.generate(this.abeClientInformation, this.getTransformInfoInterface());
+         return StoreCustomizerComponentUtil.getInstance().generate(this.abeClientInformation, this.getTransformInfoInterface());
       }
       catch(Exception e)
       {

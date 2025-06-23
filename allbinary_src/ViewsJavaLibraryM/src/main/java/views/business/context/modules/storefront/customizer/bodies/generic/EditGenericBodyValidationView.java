@@ -40,7 +40,7 @@ public class EditGenericBodyValidationView extends GenericBodyCustomizerView imp
       try
       {
          Document document = 
-            CustomizerUtil.getViewDataForComponentsInObjectConfig(
+            CustomizerUtil.getInstance().getViewDataForComponentsInObjectConfig(
                this.getTransformInfoInterface());
          
          this.body = new GenericBodyValidation(document);

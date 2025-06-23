@@ -74,7 +74,7 @@ public class GeographicMapDirectionUtil
         }
         else if (fromRow == goRow && fromColumn == goColumn)
         {
-            //PreLogUtil.put(MESSAGE, instance, "getDirectionFromCellPositionToAdjacentCellPosition");
+            //PreLogUtil.put(MESSAGE, this, "getDirectionFromCellPositionToAdjacentCellPosition");
             //return directionFactory.NO_DIRECTION;
             throw new Exception(MESSAGE);
         }
@@ -143,7 +143,7 @@ public class GeographicMapDirectionUtil
         }
         else if (fromRow == goRow && fromColumn == goColumn)
         {
-            //PreLogUtil.put(MESSAGE, instance, "getEightDirectionFromCellPositionToAdjacentCellPosition");
+            //PreLogUtil.put(MESSAGE, this, "getEightDirectionFromCellPositionToAdjacentCellPosition");
             //return directionFactory.NO_DRECTION;
             throw new Exception(MESSAGE);
         }

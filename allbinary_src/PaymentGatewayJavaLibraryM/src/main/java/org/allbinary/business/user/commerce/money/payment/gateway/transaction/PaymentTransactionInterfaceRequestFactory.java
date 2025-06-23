@@ -46,12 +46,15 @@ public class PaymentTransactionInterfaceRequestFactory
     private static final PaymentTransactionInterfaceRequestFactory instance
             = new PaymentTransactionInterfaceRequestFactory();
 
+    public static PaymentTransactionInterfaceRequestFactory getInstance() {
+        return instance;
+    }
+
     private PaymentTransactionInterfaceRequestFactory()
     {
     }
 
-    public static PaymentTransactionInterface getInstance(
-            TransformInfoInterface transformInfoInterface)
+    public PaymentTransactionInterface getInstance(TransformInfoInterface transformInfoInterface)
             throws Exception
     {
         try
@@ -97,8 +100,7 @@ public class PaymentTransactionInterfaceRequestFactory
 
                 if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENT))
                 {
-                    LogUtil.put(LogFactory.getInstance(
-                            orderReview.getId(), instance, "getPaymentTransactionInterface()"));
+                    LogUtil.put(LogFactory.getInstance(orderReview.getId(), this, "getPaymentTransactionInterface()"));
                 }
             //HashMap hashMap = new HashMap(httpServletRequest.getParameterMap());
                 //this.paymentGatewayInterface = new PaymentGateway(hashMap);
@@ -112,16 +114,13 @@ public class PaymentTransactionInterfaceRequestFactory
             String error = "Error Getting PaymentTransactionInterface";
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                LogUtil.put(LogFactory.getInstance(
-                        error, instance, "getPaymentTransactionInterface()", e));
+                LogUtil.put(LogFactory.getInstance(error, this, "getPaymentTransactionInterface()", e));
             }
             throw e;
         }
     }
 
-    private static PaymentTransactionInterface
-            generateFromTestData(
-                    TransformInfoInterface transformInfoInterface)
+    private PaymentTransactionInterface generateFromTestData(TransformInfoInterface transformInfoInterface)
             throws Exception
     {
         try
@@ -225,8 +224,7 @@ public class PaymentTransactionInterfaceRequestFactory
             String error = "Error Getting PaymentTransactionInterface";
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PAYMENTERROR))
             {
-                LogUtil.put(LogFactory.getInstance(
-                        error, instance, "generatePaymentTransactionInterfaceFromTestData()", e));
+                LogUtil.put(LogFactory.getInstance(error, this, "generatePaymentTransactionInterfaceFromTestData()", e));
             }
             throw e;
         }

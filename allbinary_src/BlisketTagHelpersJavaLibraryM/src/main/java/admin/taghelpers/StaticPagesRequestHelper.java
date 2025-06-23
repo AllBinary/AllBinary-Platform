@@ -143,7 +143,7 @@ public class StaticPagesRequestHelper extends AbContext
       {
          //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, "generateStaticPages()"));
 
-         String contentType = AcceptableResponseGenerator.get(this.request); 
+         String contentType = AcceptableResponseGenerator.getInstance().get(this.request); 
          
          SearchRequest searchRequest = 
             new SearchRequest(

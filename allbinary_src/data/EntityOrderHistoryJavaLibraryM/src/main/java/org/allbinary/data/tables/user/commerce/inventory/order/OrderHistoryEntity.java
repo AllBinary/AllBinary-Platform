@@ -84,7 +84,7 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
 
             final Money subTotal = basketInterface.getSubTotal();
 
-            final Float taxRate = TaxFactory.getInstance(abeClientInformation, storeFrontInterface).getTaxRate(shippingAddress, storeFrontInterface);
+            final Float taxRate = TaxFactory.getInstance().getInstance(abeClientInformation, storeFrontInterface).getTaxRate(shippingAddress, storeFrontInterface);
             final Money tax = new Money();
             final Money total = new Money();
 

@@ -181,7 +181,7 @@ public class GenericStoreTransformInfoObjectConfig extends TransformInfoObjectCo
         if (objectConfigDocumentString.indexOf(templateNameKey) != -1)
         {
             TransformTemplateInterface templateInterface =
-                TransformTemplateFactory.getInstance(abeClientInformation,
+                TransformTemplateFactory.getInstance().getInstance(abeClientInformation,
                     templateNameStringBuffer.toString(),
                     transformInfoHttpStoreInterface.getPropertiesHashMap(),
                     transformInfoHttpStoreInterface.getPageContext());

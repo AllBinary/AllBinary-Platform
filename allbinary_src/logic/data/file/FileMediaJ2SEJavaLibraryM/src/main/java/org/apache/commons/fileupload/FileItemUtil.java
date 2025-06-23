@@ -17,21 +17,25 @@ public class FileItemUtil {
 
     private static final FileItemUtil instance = new FileItemUtil();
     
-    public static final String DEFAULT_CHARSET = "ISO-8859-1";
+    public static FileItemUtil getInstance() {
+        return instance;
+    }
+    
+    public final String DEFAULT_CHARSET = "ISO-8859-1";
 
-    public static String getString(byte[] byteArray)
+    public String getString(byte[] byteArray)
         throws Exception
     {
         return new String(byteArray, DEFAULT_CHARSET);
     }
 
-    public static String getString(FileItemStream fileItem)
+    public String getString(FileItemStream fileItem)
         throws Exception
     {
-        return new String(FileItemUtil.getBytes(fileItem), DEFAULT_CHARSET);
+        return new String(this.getBytes(fileItem), DEFAULT_CHARSET);
     }
     
-    public static byte[] getBytes(FileItemStream fileItem)
+    public byte[] getBytes(FileItemStream fileItem)
         throws Exception
     {
         final StreamUtil streamUtil = StreamUtil.getInstance();
@@ -46,7 +50,7 @@ public class FileItemUtil {
 
         if (fileItem.isFormField())
         {
-            LogUtil.put(LogFactory.getInstance("FileItemStream FieldName: " + fileItem.getFieldName(), instance, "write()"));
+            LogUtil.put(LogFactory.getInstance("FileItemStream FieldName: " + fileItem.getFieldName(), this, "write()"));
         } else
         {
             StringBuffer stringBuffer = new StringBuffer();
@@ -56,7 +60,7 @@ public class FileItemUtil {
             stringBuffer.append(" name = ");
             stringBuffer.append(fileItem.getName());
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "write()"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "write()"));
         }
 
         outputStream = (ByteArrayOutputStream) 
@@ -71,7 +75,7 @@ public class FileItemUtil {
         }      
     }
     
-    public static void write(FileItem fileItem, AbFile file)
+    public void write(FileItem fileItem, AbFile file)
         throws Exception
     {
         fileItem.write(AbFileNativeUtil.get(file));

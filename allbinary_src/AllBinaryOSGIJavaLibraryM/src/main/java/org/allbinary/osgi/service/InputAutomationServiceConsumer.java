@@ -51,11 +51,12 @@ abstract public class InputAutomationServiceConsumer
             this.getServiceReferences());
         
         LogUtil.put(LogFactory.getInstance("Processing " + vector.size() + " Services", this, "process"));
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final Object[] osgiServiceArray = vector.toArray();
+        final int size = osgiServiceArray.length;
+        OSGIServiceInterface osgiServiceInterface;
+        for(int index = 0; index < size; index++)
         {
-            OSGIServiceInterface osgiServiceInterface = 
-                (OSGIServiceInterface) iterator.next();
+            osgiServiceInterface = (OSGIServiceInterface) osgiServiceArray[index];
             if(!getOsgiServiceVisitorInterface().visit(osgiServiceInterface))
             {
                 throw new Exception("Unable to process service: " + osgiServiceInterface);

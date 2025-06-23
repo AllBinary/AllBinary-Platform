@@ -19,12 +19,14 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class GraphicsException extends java.lang.Exception
 {   
+    private final GuiLog guiLog = GuiLog.getInstance();
+
    public GraphicsException(String msg, Object obj, String method)
    {
       super(msg);
       try
       {
-         GuiLog.showDialog(msg);
+         guiLog.showDialog(msg);
          LogUtil.put(LogFactory.getInstance(msg, obj, method, this));
       }
       catch(Exception e)
@@ -37,7 +39,7 @@ public class GraphicsException extends java.lang.Exception
       super(msg);
       try
       {
-         GuiLog.showDialog(msg);
+         guiLog.showDialog(msg);
          LogUtil.put(LogFactory.getInstance(msg, className, method, this));
       }
       catch(Exception e)

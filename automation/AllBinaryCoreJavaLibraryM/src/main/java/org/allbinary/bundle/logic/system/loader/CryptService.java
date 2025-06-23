@@ -38,7 +38,7 @@ public class CryptService
 
    public CryptService()
    {
-      Globals.init(this.getClass().getClassLoader(), "./");
+      Globals.getInstance().init(this.getClass().getClassLoader(), "./");
 
       LogUtil.put(LogFactory.getInstance("Set Globals: " + URLGLOBALS.getWebappPath(), this, this.commonStrings.CONSTRUCTOR));
    }
@@ -47,7 +47,7 @@ public class CryptService
    {
       try
       {
-         final String key = AbKeys.getKey(abeClientInformation, name);
+         final String key = AbKeys.getInstance().getKey(abeClientInformation, name);
 
          final byte[] decrypted = this.abCryptUtil.decrypt(inputStream, key);
 

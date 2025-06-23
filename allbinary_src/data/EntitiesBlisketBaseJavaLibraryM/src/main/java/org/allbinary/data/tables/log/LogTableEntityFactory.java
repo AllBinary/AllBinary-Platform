@@ -38,7 +38,7 @@ public class LogTableEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (LogTableEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.log.LogTableEntity();
       }

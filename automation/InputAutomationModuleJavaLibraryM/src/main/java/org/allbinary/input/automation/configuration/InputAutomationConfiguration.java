@@ -145,7 +145,7 @@ public class InputAutomationConfiguration
                     LogUtil.put(LogFactory.getInstance("Name : " + className, this, "Contructor");
                     
                     InputAutomationModuleFactoryInterface gameAutomationRobotModuleInterface =
-                        (InputAutomationModuleFactoryInterface) AbeFactory.getInstance(className);
+                        (InputAutomationModuleFactoryInterface) AbeFactory.getInstance().getInstance(className);
                     
                     if(inputAutomationModuleInterface.getName().compareTo(
                         gameAutomationRobotModuleInterface.getName()) == 0)

@@ -32,7 +32,7 @@ public class OrderHistoryFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //OrderHistoryEntityInterface orderHistoryEntityInterface
          //   = (OrderHistoryEntityInterface) InterfaceCastProxy.newInstance(object);
          OrderHistoryEntity orderHistoryEntityInterface

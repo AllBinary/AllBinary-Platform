@@ -25,6 +25,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
+import org.allbinary.data.tables.workflow.WorkFlowEntity;
 
 public class RequestWorkFlowFactory
 {
@@ -49,7 +50,7 @@ public class RequestWorkFlowFactory
       String requestName = requestCommand.substring(index,requestCommand.length());
       
       //The entity factory uses the WorkFlowFactory.getInstance(HashMap hashMap)
-      return WorkFlowEntityFactory.getInstance().get(requestName, storeName);
+      return WorkFlowEntityFactory.getInstance().create2().get(requestName, storeName);
    }
 
    //Used to validate, delete, edit, and/or view
@@ -64,6 +65,6 @@ public class RequestWorkFlowFactory
       String storeName = weblisketSession.getStoreName();
       
       //The entity factory uses the WorkFlowFactory.getInstance(HashMap hashMap)
-      return WorkFlowEntityFactory.getInstance().get(workFlowName, storeName);
+      return WorkFlowEntityFactory.getInstance().create2().get(workFlowName, storeName);
    }
 }

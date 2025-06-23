@@ -40,15 +40,12 @@ public class TransformHttpRequestDocument
    private final static String language = "en";
    private final static String local = "US";
 
-   public TransformHttpRequestDocument(
-      PageContext pageContext, WeblisketSession weblisketSession) 
+   public TransformHttpRequestDocument(PageContext pageContext, WeblisketSession weblisketSession) 
       throws Exception
    {
       try
       {
-         String contentType =
-         AcceptableResponseGenerator.get(
-         (HttpServletRequest) pageContext.getRequest());
+         String contentType = AcceptableResponseGenerator.getInstance().get((HttpServletRequest) pageContext.getRequest());
          
          this.document = DomDocumentHelper.create();
          

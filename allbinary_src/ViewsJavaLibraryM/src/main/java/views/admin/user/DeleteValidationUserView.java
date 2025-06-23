@@ -61,7 +61,7 @@ public class DeleteValidationUserView extends UserView
    {
       try
       {
-         if(UserName.isValid(this.userName) == Boolean.TRUE)
+         if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)
          {
             this.user = UserEntityFactory.getInstance().getUser(this.userName);
             if(user == null)
@@ -92,7 +92,7 @@ public class DeleteValidationUserView extends UserView
       {
          StringBuffer stringBuffer = new StringBuffer();
          
-         if(UserName.isValid(this.userName) == Boolean.TRUE)
+         if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)
          {
             this.user = UserEntityFactory.getInstance().getUser(this.userName);            
             if(user==null) stringBuffer.append("User does not exist.<br />");

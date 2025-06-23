@@ -604,14 +604,14 @@ public class GameMidlet extends ProgressMidlet
 
                 final AllBinaryGameLayerManager layerManager = this.createGameLayerManager();
                 
-                InGameOptionsFormFactory.init(this,
+                InGameOptionsFormFactory.getInstance().init(this,
                     new InGameFeatures(), "Options In Game",
                     layerManager.getBackgroundBasicColor(),
                     layerManager.getForegroundBasicColor()
                     );
                 
                 final InGameOptionsForm inGameOptionsForm = 
-                    InGameOptionsFormFactory.getInstance();
+                    InGameOptionsFormFactory.getInstance().get();
 
                 inGameOptionsForm.setItemStateListener(
                         this.allbinaryGameCanvasRunnableInterface);
@@ -623,7 +623,7 @@ public class GameMidlet extends ProgressMidlet
             else if (command == InGameOptionsForm.DEFAULT)
             {
                 GameFeatureFormUtil.getInstance().setDefault(
-                        InGameOptionsFormFactory.getInstance());
+                        InGameOptionsFormFactory.getInstance().get());
             }
             else if (command == gameCommandsFactory.DISPLAY_OPTIONS)
             {

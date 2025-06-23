@@ -44,10 +44,11 @@ public class ShippingMethods implements ShippingMethodsInterface
    
    public ShippingInterface getShippingInterface(String name) throws Exception
    {          
-      Iterator iter = shippingVector.iterator();            
-      while(iter.hasNext())
+      final Object[] shippingArray = shippingVector.toArray();
+      final int size = shippingArray.length;
+      for (int index = 0; index < size; index++)
       {  
-         ShippingInterface shipping = (ShippingInterface) iter.next();
+         ShippingInterface shipping = (ShippingInterface) shippingArray[index];
          if(name.compareTo(shipping.getName())==0) return shipping;
       }
 

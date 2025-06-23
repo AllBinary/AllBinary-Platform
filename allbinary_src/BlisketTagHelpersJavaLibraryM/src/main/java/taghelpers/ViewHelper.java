@@ -43,7 +43,7 @@ public class ViewHelper implements TransformInterface
    public ViewHelper(HashMap hashMap, PageContext pageContext) throws Exception
    {
       this.componentInterface = 
-         TransformFactory.getInstance(this.abeClientInformation, hashMap, pageContext);
+         TransformFactory.getInstance().getInstance(this.abeClientInformation, hashMap, pageContext);
    }
    
    public int NO_TYPE = 0;

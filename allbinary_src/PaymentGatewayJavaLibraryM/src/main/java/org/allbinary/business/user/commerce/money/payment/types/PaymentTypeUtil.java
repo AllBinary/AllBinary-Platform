@@ -13,6 +13,9 @@
 */
 package org.allbinary.business.user.commerce.money.payment.types;
 
+import java.util.Iterator;
+import java.util.Vector;
+
 import org.allbinary.data.tree.dom.DomNodeHelper;
 import org.allbinary.data.tree.dom.DomSearchHelper;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
@@ -25,11 +28,10 @@ import org.allbinary.business.user.commerce.money.payment.gateway.PaymentGateway
 import org.allbinary.globals.FREEBLISKET_PATH_GLOBALS;
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigData;
-import java.util.Iterator;
-import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.string.CommonStrings;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;

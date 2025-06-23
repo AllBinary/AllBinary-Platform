@@ -25,29 +25,32 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class TransformInfoPropertiesFactory
 {
-	private static final TransformInfoPropertiesFactory instance = new TransformInfoPropertiesFactory();
-	
+    private static final TransformInfoPropertiesFactory instance = new TransformInfoPropertiesFactory();
+
+    public static TransformInfoPropertiesFactory getInstance() {
+        return instance;
+    }
+    
    private TransformInfoPropertiesFactory()
    {
    }
    
-   public static TransformInfoProperties getInstance(Node node) throws Exception
+   public TransformInfoProperties getInstance(Node node) throws Exception
    {
-      NodeList transformInfoChildNodeList = node.getChildNodes();
+      final NodeList transformInfoChildNodeList = node.getChildNodes();
       
-      TransformInfoData transformInfoData = TransformInfoData.getInstance();
+      final TransformInfoData transformInfoData = TransformInfoData.getInstance();
       
-      NamedNodeMap attributes = node.getAttributes();
-      Attr attrNode = (Attr) attributes.getNamedItem(transformInfoData.NAME);
-      String name = attrNode.getValue();
+      final NamedNodeMap attributes = node.getAttributes();
+      final Attr attrNode = (Attr) attributes.getNamedItem(transformInfoData.NAME);
+      final String name = attrNode.getValue();
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance(
-             "Next View Name: " + name, instance, "toTransformInfoPropertiesHashMap()"));
+         LogUtil.put(LogFactory.getInstance("Next View Name: " + name, this, "toTransformInfoPropertiesHashMap()"));
       }
       
-      Node labelNode = DomSearchHelper.getNodeNoThrow(
+      final Node labelNode = DomSearchHelper.getNodeNoThrow(
             transformInfoData.LABEL, transformInfoChildNodeList);
       
       String label = DomNodeHelper.getTextNodesValue(labelNode);
@@ -57,35 +60,35 @@ public class TransformInfoPropertiesFactory
          label = name;
       }
       
-      Node descriptionNode =
+      final Node descriptionNode =
             DomSearchHelper.getNode(
             transformInfoData.DESCRIPTION, transformInfoChildNodeList);
       
-      String description =
+      final String description =
             DomNodeHelper.getTextNodesValue(descriptionNode);
       
-      Node objectFileNode =
+      final Node objectFileNode =
             DomSearchHelper.getNode(
             transformInfoData.OBJECTFILENAME, transformInfoChildNodeList);
       
-      String objectFileName =
+      final String objectFileName =
             DomNodeHelper.getTextNodeValue(objectFileNode);
       
-      Node objectConfigFileNode =
+      final Node objectConfigFileNode =
             DomSearchHelper.getNode(
             transformInfoData.OBJECTCONFIGFILENAME, transformInfoChildNodeList);
       
-      String objectConfigFileName =
+      final String objectConfigFileName =
             DomNodeHelper.getTextNodeValue(objectConfigFileNode);
       
-      Node templateFileNode =
+      final Node templateFileNode =
             DomSearchHelper.getNode(
             transformInfoData.TEMPLATEFILENAME, transformInfoChildNodeList);
       
-      String templateFileName =
+      final String templateFileName =
             DomNodeHelper.getTextNodeValue(templateFileNode);
       
-      TransformInfoProperties transformInfoProperties =
+      final TransformInfoProperties transformInfoProperties =
             new TransformInfoProperties(
             name, label, description,
             objectFileName, objectConfigFileName, templateFileName);

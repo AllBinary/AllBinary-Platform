@@ -20,7 +20,6 @@ import org.allbinary.logic.communication.http.file.upload.AbFileUploadFactory;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.apache.commons.fileupload.FileItem;
@@ -53,7 +52,7 @@ public class MultipartRequestParams extends RequestParams
       try
       {
          HashMap specialRequest = new HashMap();
-         List multipartRequestList = AbFileUploadFactory.getFileItemStreamList(request);
+         List multipartRequestList = AbFileUploadFactory.getInstance().getFileItemStreamList(request);
          //List multipartRequestList = AbFileUploadFactory.getFileItemList(request);
 
          if(multipartRequestList!=null)
@@ -63,10 +62,11 @@ public class MultipartRequestParams extends RequestParams
                LogUtil.put(LogFactory.getInstance("FileItem List Size: " + multipartRequestList.size(), this, "processMultipartRequest()"));
             }
 
-            Iterator iter = multipartRequestList.iterator();
-            while(iter.hasNext())
-            {
-               FileItem fileItem = (FileItem) iter.next();
+             final Object[] fileItemArray = multipartRequestList.toArray();
+             final int size = fileItemArray.length;
+             for (int index = 0; index < size; index++)
+             {
+               FileItem fileItem = (FileItem) fileItemArray[index];
 
                //Save normal input fields and ignore file since file size may may be too long
                String name = fileItem.getName();

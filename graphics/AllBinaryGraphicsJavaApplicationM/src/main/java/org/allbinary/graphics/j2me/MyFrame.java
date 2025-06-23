@@ -47,6 +47,7 @@ public class MyFrame extends javax.swing.JFrame
         implements FileJDialogListenerInterface, HashMapJDialogListenerInterface,
         java.awt.event.KeyListener
 {
+    private final GuiLog guiLog = GuiLog.getInstance();
     private final XslHelper xslHelper = XslHelper.getInstance();
     
     private static final int MAXWORKAREAS = 10;
@@ -582,7 +583,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                GuiLog.put(CommonStrings.getInstance().EXCEPTION, this, "newJMenuItemActionPerformed", e);
+                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "newJMenuItemActionPerformed", e);
             }
         }
     }
@@ -597,7 +598,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                GuiLog.put(CommonStrings.getInstance().EXCEPTION, this, "open", e);
+                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "open", e);
             }
         }
     }
@@ -617,7 +618,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                GuiLog.put(CommonStrings.getInstance().EXCEPTION, this, "export", e);
+                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "export", e);
             }
         }
     }
@@ -632,7 +633,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                GuiLog.put(CommonStrings.getInstance().EXCEPTION, this, "save", e);
+                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "save", e);
             }
         }
     }
@@ -691,7 +692,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.GRAPHICSCREATION))
             {
-                GuiLog.put(CommonStrings.getInstance().EXCEPTION, this, "addNewCanvas", e);
+                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "addNewCanvas", e);
             }
         }
     }

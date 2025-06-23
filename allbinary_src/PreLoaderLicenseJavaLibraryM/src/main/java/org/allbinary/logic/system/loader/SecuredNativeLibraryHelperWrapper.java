@@ -32,7 +32,7 @@ public class SecuredNativeLibraryHelperWrapper extends NativeLibraryHelperWrappe
     throws LicensingException
     {
         return securedNativeLibraryInterface.unlock(
-            AbKeys.getKey(abeClientInformation, securedNativeLibraryInterface.getName()));
+            AbKeys.getInstance().getKey(abeClientInformation, securedNativeLibraryInterface.getName()));
     }
     
 }

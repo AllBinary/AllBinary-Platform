@@ -27,23 +27,28 @@ import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 public class StoreCustomizerComponentUtil
 {
     private static final StoreCustomizerComponentUtil instance = new StoreCustomizerComponentUtil();
+    
+    public static StoreCustomizerComponentUtil getInstance() {
+        return instance;
+    }
 
     private StoreCustomizerComponentUtil()
     {
     }
 
     //generateModifiedViews
-    public static String generate(final AbeClientInformationInterface abeClientInformation, TransformInfoInterface transformInfoInterface)
+    public String generate(final AbeClientInformationInterface abeClientInformation, TransformInfoInterface transformInfoInterface)
         throws Exception
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Generating Modified Views For: "
-                + transformInfoInterface.getName(), instance, "generateModifiedViews()"));
+            LogUtil.put(LogFactory.getInstance("Generating Modified Views For: " + transformInfoInterface.getName(), this, "generateModifiedViews()"));
         }
 
+        final CustomizerUtil customizerUtil = CustomizerUtil.getInstance();
+
         Vector allCustomizedViews =
-            CustomizerUtil.getTransformInfoObjectConfigGroupComponentNodes(
+            customizerUtil.getTransformInfoObjectConfigGroupComponentNodes(
             transformInfoInterface);
 
         Iterator iter = allCustomizedViews.iterator();
@@ -53,7 +58,7 @@ public class StoreCustomizerComponentUtil
                 (TransformInfo) iter.next();
 
             Vector allViewsToBeModified =
-                CustomizerUtil.getTransformInfoObjectConfigComponentNodesToCustomize(
+                customizerUtil.getTransformInfoObjectConfigComponentNodesToCustomize(
                 transformInfoInterface, nextTransformInfoInterface);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
@@ -61,7 +66,7 @@ public class StoreCustomizerComponentUtil
                 LogUtil.put(LogFactory.getInstance(
                     "View or component that was modified by a Customizer: "
                     + nextTransformInfoInterface.getName(),
-                    instance, "generateModifiedViews()"));
+                    this, "generateModifiedViews()"));
             }
 
             generate(abeClientInformation, transformInfoInterface, allViewsToBeModified);
@@ -69,11 +74,12 @@ public class StoreCustomizerComponentUtil
         return StringUtil.getInstance().EMPTY_STRING;
     }
 
-    private static final void generate(
+    private final void generate(
         final AbeClientInformationInterface abeClientInformation,
         TransformInfoInterface transformInfoInterface, Vector allViewsToBeModified)
         throws Exception
     {
+        final CustomizerUtil customizerUtil = CustomizerUtil.getInstance();
         Iterator iterator = allViewsToBeModified.iterator();
         while (iterator.hasNext())
         {
@@ -81,18 +87,17 @@ public class StoreCustomizerComponentUtil
                 (TransformInfo) iterator.next();
 
             TransformInfoInterface specifiedTransformInfoInterface =
-                CustomizerUtil.getTransformInfoInterfaceToCustomize(
+                customizerUtil.getTransformInfoInterfaceToCustomize(
                 transformInfoInterface,
                 nextTransformInfoInterface);
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {
-                LogUtil.put(LogFactory.getInstance("Retrieved: "
-                    + specifiedTransformInfoInterface.getName(), instance, "generateModifiedViews()"));
+                LogUtil.put(LogFactory.getInstance("Retrieved: " + specifiedTransformInfoInterface.getName(), this, "generateModifiedViews()"));
             }
 
             //generate views with the new data
-            TransformGeneratorUtil.generate(abeClientInformation, nextTransformInfoInterface, specifiedTransformInfoInterface);
+            TransformGeneratorUtil.getInstance().generate(abeClientInformation, nextTransformInfoInterface, specifiedTransformInfoInterface);
         }
     }
     /*
@@ -113,7 +118,7 @@ public class StoreCustomizerComponentUtil
     }
 
     Vector allCustomizedViews =
-    CustomizerUtil.getTransformInfoObjectConfigComponentNodes(
+    CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
     Iterator iter = allCustomizedViews.iterator();
@@ -129,7 +134,7 @@ public class StoreCustomizerComponentUtil
     }
 
     Vector allViewsToBeModified =
-    CustomizerUtil.getTransformInfoObjectConfigComponentNodesToCustomize(
+    CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodesToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
 
@@ -140,7 +145,7 @@ public class StoreCustomizerComponentUtil
     = (TransformInfoObjectConfigComponentNode) componentIter.next();
 
     TransformInfoInterface specifiedTransformInfoInterface =
-    CustomizerUtil.getTransformInfoInterfaceToCustomize(
+    CustomizerUtil.getInstance().getTransformInfoInterfaceToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponent);
 
@@ -168,7 +173,7 @@ public class StoreCustomizerComponentUtil
     }
 
     Vector allCustomizedViews =
-    CustomizerUtil.getTransformInfoObjectConfigComponentNodes(
+    CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
     Iterator iter = allCustomizedViews.iterator();
@@ -184,7 +189,7 @@ public class StoreCustomizerComponentUtil
     }
 
     Vector allViewsToBeModified =
-    CustomizerUtil.getTransformInfoObjectConfigComponentNodesToCustomize(
+    CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodesToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
 
@@ -195,7 +200,7 @@ public class StoreCustomizerComponentUtil
     = (TransformInfoObjectConfigComponentNode) componentIter.next();
 
     TransformInfoInterface specifiedTransformInfoInterface =
-    CustomizerUtil.getTransformInfoInterfaceToCustomize(
+    CustomizerUtil.getInstance().getTransformInfoInterfaceToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponent);
 
@@ -225,7 +230,7 @@ public class StoreCustomizerComponentUtil
     }
 
     Vector allCustomizedViews =
-    CustomizerUtil.getTransformInfoObjectConfigComponentNodes(
+    CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
     Iterator iter = allCustomizedViews.iterator();
@@ -241,7 +246,7 @@ public class StoreCustomizerComponentUtil
     }
 
     Vector allViewsToBeModified =
-    CustomizerUtil.getTransformInfoObjectConfigComponentNodesToCustomize(
+    CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodesToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
 
@@ -252,7 +257,7 @@ public class StoreCustomizerComponentUtil
     = (TransformInfoObjectConfigComponentNode) componentIter.next();
 
     TransformInfoInterface specifiedTransformInfoInterface =
-    CustomizerUtil.getTransformInfoInterfaceToCustomize(
+    CustomizerUtil.getInstance().getTransformInfoInterfaceToCustomize(
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponent);
 

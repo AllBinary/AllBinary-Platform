@@ -28,7 +28,7 @@ public class OrderItemsEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (OrderItemsEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.user.commerce.inventory.order.OrderItemsEntity();
       }

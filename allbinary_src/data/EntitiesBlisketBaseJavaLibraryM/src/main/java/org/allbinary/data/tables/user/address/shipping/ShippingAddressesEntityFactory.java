@@ -46,7 +46,7 @@ public class ShippingAddressesEntityFactory
       classes[0] = userName.getClass();
        
       params[0] = (Object) userName;
-      return (StreetAddressesEntityInterface) AbeFactory.getInstance(CLASSNAME, classes, params);
+      return (StreetAddressesEntityInterface) AbeFactory.getInstance().getInstance(CLASSNAME, classes, params);
        */
          return new ShippingAddressesEntity(userName);
       }

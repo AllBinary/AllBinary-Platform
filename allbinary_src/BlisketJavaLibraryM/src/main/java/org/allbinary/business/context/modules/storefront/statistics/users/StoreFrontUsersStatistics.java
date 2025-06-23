@@ -32,16 +32,16 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
    public StoreFrontUsersStatistics(StoreFrontInterface storeFrontInterface) throws Exception
    {
       this.totalUsersByRoleHashMap = new HashMap();
-      UserEntityInterface userEntityInterface = 
-         UserEntityFactory.getInstance();
+      final UserEntityInterface userEntityInterface = UserEntityFactory.getInstance();
       //Vector userVector = userEntityInterface.getUsers(storeFrontInterface);
-      Vector userVector = userEntityInterface.getCustomers();
+      final Vector userVector = userEntityInterface.getCustomers();
       this.totalNumberOfUsers = new Long(userVector.size());
-      Iterator iter = userVector.iterator();
-
-      while(iter.hasNext())
+      
+      final Object[] userArray = userVector.toArray();
+      final int size = userArray.length;
+      for (int index = 0; index < size; index++)      
       {
-         UserInterface userInterface = (UserInterface) iter.next();
+         UserInterface userInterface = (UserInterface) userArray[index];
          UserRole nextUserRole = userInterface.getRole();
          
          Long currentNumberOfUsersForRole = this.getNewTotal(nextUserRole);
@@ -80,10 +80,14 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
       hashMap.put(StoreFrontUsersStatisticsData.getInstance().NUMBEROFUSERS, this.getNumberOfUsers().toString());
       
       Set setOfUserRoles = this.totalUsersByRoleHashMap.keySet();
-      Iterator iter = setOfUserRoles.iterator();
-      while(iter.hasNext())
+      
+      UserRole nextUserRole;
+      
+      final Object[] userRoleArray = setOfUserRoles.toArray();
+      final int size = userRoleArray.length;
+      for (int index = 0; index < size; index++)      
       {
-         UserRole nextUserRole = (UserRole) iter.next();
+         nextUserRole = (UserRole) userRoleArray[index];
 	 Long totalForRole = (Long) this.totalUsersByRoleHashMap.get(nextUserRole);
          hashMap.put(nextUserRole.toString(), totalForRole.toString());
       }

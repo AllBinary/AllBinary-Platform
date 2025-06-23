@@ -37,6 +37,7 @@ import org.allbinary.logic.control.validate.ValidationComponentInterface;
 
 public class UpdateTaxValidationView extends ShippingAddressView implements ValidationComponentInterface
 {   
+    
    public UpdateTaxValidationView(TransformInfoInterface transformInfoInterface) throws Exception
    {
       super(transformInfoInterface);
@@ -49,7 +50,7 @@ public class UpdateTaxValidationView extends ShippingAddressView implements Vali
       StoreFrontInterface storeFrontInterface = 
          StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName());
       
-      if(TaxFactory.getInstance(this.abeClientInformation, storeFrontInterface).isValid(this.streetAddress, storeFrontInterface) == Boolean.FALSE)
+      if(TaxFactory.getInstance().getInstance(this.abeClientInformation, storeFrontInterface).isValid(this.streetAddress, storeFrontInterface) == Boolean.FALSE)
       {
          return Boolean.FALSE;
       }

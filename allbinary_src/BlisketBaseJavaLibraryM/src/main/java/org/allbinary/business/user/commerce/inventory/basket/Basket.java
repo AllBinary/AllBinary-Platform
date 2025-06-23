@@ -68,16 +68,19 @@ public class Basket implements BasketInterface, Serializable
    
    public String getTotalWeight()
    {
-      HashMap itemsAndNumberInBasket = getItems();
-      Money totalWeight = new Money();
-      if(itemsAndNumberInBasket.size()>0)
+      final HashMap itemsAndNumberInBasket = getItems();
+      final Money totalWeight = new Money();
+      if(itemsAndNumberInBasket.size() > 0)
       {
-         Set items = itemsAndNumberInBasket.keySet();
-         Iterator iter = items.iterator();
-         while(iter.hasNext())
+         final Set items = itemsAndNumberInBasket.keySet();
+         String product;
+         Float weightFloat;
+         final Object[] itemArray = items.toArray();
+         final int size = itemArray.length;
+         for(int index = 0; index < size; index++)
          {
-            String product = new String((String) iter.next());
-            Float weightFloat = new Float(new InventoryEntity().getWeight(product));
+            product = new String((String) itemArray[index]);
+            weightFloat = new Float(new InventoryEntity().getWeight(product));
             weightFloat = new Float(getNumberOf(product).floatValue()*weightFloat.floatValue());
             totalWeight.add(weightFloat.toString());
          }
@@ -112,11 +115,10 @@ public class Basket implements BasketInterface, Serializable
       HashMap itemsAndNumberInBasket = getItems();
       Money subTotal = new Money();
       
-      if(itemsAndNumberInBasket.size()>0)
+      if(itemsAndNumberInBasket.size() > 0)
       {
          
          Set items = itemsAndNumberInBasket.keySet();
-         Iterator iter = items.iterator();
 
          InventoryEntityFactory inventoryEntityFactory =
                  InventoryEntityFactory.getInstance();
@@ -124,9 +126,11 @@ public class Basket implements BasketInterface, Serializable
          InventoryEntity inventoryEntity = (InventoryEntity)
                  inventoryEntityFactory.getInventoryEntityInstance();
 
-         while(iter.hasNext())
+         final Object[] itemArray = items.toArray();
+         final int size = itemArray.length;
+         for(int index = 0; index < size; index++)
          {
-            String product = new String((String) iter.next());
+            String product = new String((String) itemArray[index]);
             ItemInterface itemInterface =
                     inventoryEntity.getItem(product);
             

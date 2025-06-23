@@ -161,7 +161,7 @@ public class PageValidationView extends PageView implements ValidationComponentI
                }
 
                //save xml data to specified view
-               CustomizerUtil.write(specifiedTransformInfoInterface, documentString);
+               CustomizerUtil.getInstance().write(specifiedTransformInfoInterface, documentString);
             }
          }
          return isValid;

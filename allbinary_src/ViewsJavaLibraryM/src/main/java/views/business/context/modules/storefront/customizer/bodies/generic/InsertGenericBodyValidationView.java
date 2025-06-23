@@ -13,22 +13,17 @@
 */
 package views.business.context.modules.storefront.customizer.bodies.generic;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
 
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.http.request.RequestParams;
-
 import org.allbinary.data.tree.dom.DomNodeInterface;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
-
 import org.allbinary.logic.control.validate.ValidationComponentInterface;
-
 import org.allbinary.logic.visual.transform.template.customizer.bodies.GenericBodyValidation;
-
 import org.allbinary.logic.communication.log.LogUtil;
 
 import views.business.context.modules.storefront.customizer.CustomizerUtil;
@@ -66,7 +61,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
          if(isValid == Boolean.TRUE)
          {
             //Insert XML into the view specified by the Object Config for this view
-            CustomizerUtil.insert(
+            CustomizerUtil.getInstance().insert(
             this.getTransformInfoInterface(),
             (DomNodeInterface) this.body);
          }
@@ -117,7 +112,7 @@ public class InsertGenericBodyValidationView extends GenericBodyCustomizerView i
    {
       try
       {
-         return StoreCustomizerComponentUtil.generate(this.abeClientInformation, this.getTransformInfoInterface());
+         return StoreCustomizerComponentUtil.getInstance().generate(this.abeClientInformation, this.getTransformInfoInterface());
       }
       catch(Exception e)
       {

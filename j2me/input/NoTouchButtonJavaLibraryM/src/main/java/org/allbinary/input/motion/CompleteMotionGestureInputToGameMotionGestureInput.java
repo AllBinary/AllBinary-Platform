@@ -28,6 +28,6 @@ public class CompleteMotionGestureInputToGameMotionGestureInput {
     protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     public void init() {
-        PreLogUtil.put("No Touch Button = No Compound Motion Gestures", instance, this.commonStrings.INIT);
+        PreLogUtil.put("No Touch Button = No Compound Motion Gestures", this, this.commonStrings.INIT);
     }
 }

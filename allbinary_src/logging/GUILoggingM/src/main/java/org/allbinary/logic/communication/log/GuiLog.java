@@ -13,9 +13,11 @@
 */
 package org.allbinary.logic.communication.log;
 
-import org.allbinary.string.CommonStrings;
 import java.awt.GridLayout;
+
 import javax.swing.JDialog;
+
+import org.allbinary.string.CommonStrings;
 
 public class GuiLog
 {
@@ -33,7 +35,7 @@ public class GuiLog
    {
    }
    
-   public synchronized static void showDialog(String msg)
+   public synchronized void showDialog(String msg)
    {
       JDialog error = new JDialog();
       int size = msg.length() * 9;      
@@ -57,15 +59,15 @@ public class GuiLog
       error.show();      
    }
          
-   public synchronized static String put(
+   public synchronized String put(
    String specialMessage,
    Object object,
    String functionName)
    {
-      return GuiLog.put(specialMessage,object,functionName,null);
+      return this.put(specialMessage,object,functionName,null);
    }
    
-   public synchronized static String put(
+   public synchronized String put(
    String specialMessage,
    Object object,
    String functionName,
@@ -75,26 +77,26 @@ public class GuiLog
       {
          String data = LogFormatUtil.getInstance().get(specialMessage, 
                object.getClass().getName(), functionName, exception);
-         GuiLog.showDialog(data);
+         this.showDialog(data);
          System.out.println(data);
          return data;
       }
       catch (Exception e)
       {
-          PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, instance, "put", e);
+          PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }
 
-   public synchronized static String put(
+   public synchronized String put(
    String specialMessage,
    String className,
    String functionName)
    {
-      return GuiLog.put(specialMessage, className, functionName, null);
+      return this.put(specialMessage, className, functionName, null);
    }
    
-   public synchronized static String put(
+   public synchronized String put(
    String specialMessage,   
    String className,
    String functionName,
@@ -104,13 +106,13 @@ public class GuiLog
       {
          String data = LogFormatUtil.getInstance().get(specialMessage, 
                className, functionName, exception);
-         GuiLog.showDialog(data);
+         this.showDialog(data);
          System.out.println(data);
          return data;
       }
       catch (Exception e)
       {
-          PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, instance, "put", e);
+          PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }

@@ -46,7 +46,7 @@ public class InventoryViewFactory
          //Add arguments
          params[0] = (Object) searchRequest;
          
-         return (InventoryViewSearchInterface) AbeFactory.getInstance(className, classes, params);
+         return (InventoryViewSearchInterface) AbeFactory.getInstance().getInstance(className, classes, params);
          */
     	 return new InventorySearch(searchRequest);
       }

@@ -13,19 +13,24 @@
 */
 package org.allbinary.business.user.username;
 
+import java.util.HashMap;
+
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.UserData;
-
-import java.util.HashMap;
+import org.allbinary.logic.java.bool.BooleanFactory;
 import org.allbinary.logic.string.StringValidationUtil;
 
 public class UserName
 {
    private static final UserName instance = new UserName();
 
-   //private static String className = "UserName";
+   public static UserName getInstance() {
+       return instance;
+   }
+
+   //private String className = "UserName";
    
    private String userName;
 
@@ -66,25 +71,26 @@ public class UserName
       return this.userName;
    }
    
-   public static Boolean isValid(String aUserName)
+   public Boolean isValid(String aUserName)
    {
       try
       {
-         Boolean valid = Boolean.TRUE;
+         final BooleanFactory booleanFactory = BooleanFactory.getInstance();
+         Boolean valid = booleanFactory.TRUE;
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
          {
-            LogUtil.put(LogFactory.getInstance("UserName: " + aUserName, instance, "isValid()"));
+            LogUtil.put(LogFactory.getInstance("UserName: " + aUserName, this, "isValid()"));
          }
 
          if(!StringValidationUtil.getInstance().isValidRequired(aUserName, 5, UserData.MAXLEN))
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VALIDATION))
             {
-               LogUtil.put(LogFactory.getInstance("UserName is invalid", instance, "isValid()"));
+               LogUtil.put(LogFactory.getInstance("UserName is invalid", this, "isValid()"));
             }
 
-            valid = Boolean.FALSE;
+            valid = booleanFactory.FALSE;
          }
                   
          return valid;
@@ -93,7 +99,7 @@ public class UserName
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGSERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failed to validate form", instance, "isValid()",e));
+            LogUtil.put(LogFactory.getInstance("Failed to validate form", this, "isValid()",e));
          }
          return Boolean.FALSE;
       }

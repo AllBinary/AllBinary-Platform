@@ -27,12 +27,21 @@ import org.allbinary.logic.visual.transform.info.TransformInfoObjectFactory;
 
 public class TransformTemplateFactory
 {
+    private static final TransformTemplateFactory instance = new TransformTemplateFactory();
+
+    /**
+     * @return the instance
+     */
+    public static TransformTemplateFactory getInstance() {
+        return instance;
+    }
+    
    private TransformTemplateFactory()
    {
    }
 
    //create a root/parent instance from db and/or request
-   public static TransformTemplateInterface getInstance(
+   public TransformTemplateInterface getInstance(
        final AbeClientInformationInterface abeClientInformation,
          final String templateName, 
          final HashMap propertiesHashMap, 
@@ -49,7 +58,7 @@ public class TransformTemplateFactory
                templateName, propertiesHashMap, pageContext);
 
          return (TransformTemplateInterface) 
-            TransformInfoObjectFactory.getInstance(abeClientInformation, transformInfoInterface);
+            TransformInfoObjectFactory.getInstance().getInstance(abeClientInformation, transformInfoInterface);
       }
       catch(Exception e)
       {

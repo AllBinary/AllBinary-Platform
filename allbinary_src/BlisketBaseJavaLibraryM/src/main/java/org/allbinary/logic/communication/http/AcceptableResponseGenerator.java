@@ -21,12 +21,16 @@ import javax.servlet.http.HttpServletRequest;
 public class AcceptableResponseGenerator
 {
     private static final AcceptableResponseGenerator instance = new AcceptableResponseGenerator();
+    
+    public static AcceptableResponseGenerator getInstance() {
+        return instance;
+    }
 
    private AcceptableResponseGenerator()
    {
    }
    
-   public static String get(HttpServletRequest httpServletRequest) throws Exception
+   public String get(HttpServletRequest httpServletRequest) throws Exception
    {
       try
       {
@@ -38,7 +42,7 @@ public class AcceptableResponseGenerator
 
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
-            LogUtil.put(LogFactory.getInstance("Request Type: " + acceptable, instance, "get"));
+            LogUtil.put(LogFactory.getInstance("Request Type: " + acceptable, this, "get"));
          }
          
          if(acceptable!=null)
@@ -57,7 +61,7 @@ public class AcceptableResponseGenerator
          
          if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTP))
          {
-            LogUtil.put(LogFactory.getInstance("Response Type: " + result, instance, "get"));
+            LogUtil.put(LogFactory.getInstance("Response Type: " + result, this, "get"));
          }
          
          return result;
@@ -68,7 +72,7 @@ public class AcceptableResponseGenerator
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, instance, "get", e));
+            LogUtil.put(LogFactory.getInstance(error, this, "get", e));
          }
          throw e;
       }

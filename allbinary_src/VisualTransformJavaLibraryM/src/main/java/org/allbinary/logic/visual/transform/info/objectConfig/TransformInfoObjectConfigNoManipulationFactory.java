@@ -13,28 +13,27 @@
 */
 package org.allbinary.logic.visual.transform.info.objectConfig;
 
-
-import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 public class TransformInfoObjectConfigNoManipulationFactory
 {
     private static final TransformInfoObjectConfigNoManipulationFactory instance =
         new TransformInfoObjectConfigNoManipulationFactory();
+    
+    public static TransformInfoObjectConfigNoManipulationFactory getInstance() {
+        return instance;
+    }
 
    private TransformInfoObjectConfigNoManipulationFactory()
    {
    }
 
-   public static TransformInfoObjectConfigInterface getInstance(
+   public TransformInfoObjectConfigInterface getInstance(
          TransformInfoInterface transformInfoInterface,
          AbPath objectConfigFileAbPath)
          throws Exception
@@ -53,7 +52,7 @@ public class TransformInfoObjectConfigNoManipulationFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEWERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Could Not Load Object Config", instance, "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance("Could Not Load Object Config", this, "getInstance()", e));
          }
          throw e;
       }

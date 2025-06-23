@@ -31,30 +31,34 @@ public class AbeFactory
 {
 	private static final AbeFactory instance = new AbeFactory();
 	
-   private static boolean useCustomLoader = false;
+        public static AbeFactory getInstance() {
+            return instance;
+        }
+        
+   private boolean useCustomLoader = false;
    
    private AbeFactory()
    {
    }
    
-   public synchronized static Object getInstance(final AbeClientInformationInterface abeClientInformation, final String className) 
+   public synchronized Object getInstance(final AbeClientInformationInterface abeClientInformation, final String className) 
       throws LicensingException
    {
       try
       {
           /*
          AbKeysInterface abKeysInterface = 
-            AbeFactory.getNoLicenseInstance(SECURITYKEYSCLASSPATH);
+            AbeFactory.getInstance().getNoLicenseInstance(SECURITYKEYSCLASSPATH);
          String key = abKeysInterface.getKey(className);
          */
           
-         return AbeFactory.getClass(abeClientInformation, className).newInstance();
+         return this.getClass(abeClientInformation, className).newInstance();
       }
       catch (LicensingException e)
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getInstance(classname)", e));
          }
          throw e;         
       }
@@ -62,13 +66,13 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getInstance(classname)", e));
          }
          return null;         
       }
    }
    
-   public synchronized static Object getInstance(
+   public synchronized Object getInstance(
       final AbeClientInformationInterface abeClientInformation, String className, Class classes[], Object params[]) 
       throws LicensingException
    {
@@ -77,7 +81,7 @@ public class AbeFactory
       {
           /*
          AbKeysInterface abKeysInterface = 
-            AbeFactory.getNoLicenseInstance(SECURITYKEYSCLASSPATH);
+            AbeFactory.getInstance().getNoLicenseInstance(SECURITYKEYSCLASSPATH);
          String key = abKeysInterface.getKey(className);
          */
          
@@ -86,7 +90,7 @@ public class AbeFactory
 
          if(useCustomLoader)
          {
-            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getKey(abeClientInformation, className));
+            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
             Class myClass = loader.loadClass(className);
             constructor = myClass.getConstructor(classes);
             return constructor.newInstance(params);
@@ -109,7 +113,7 @@ public class AbeFactory
         	 stringBuffer.append(CommonSeps.getInstance().SPACE);
         	 stringBuffer.append(ConstructorUtil.view(constructor, "\n"));
              
-        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "getInstance(className,params)", e));
+        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getInstance(className,params)", e));
          }
          throw e;
       }
@@ -124,7 +128,7 @@ public class AbeFactory
         	 stringBuffer.append(CommonSeps.getInstance().SPACE);
         	 stringBuffer.append(ConstructorUtil.view(constructor, "\n"));
              
-        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "getInstance(className,params)", e));
+        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getInstance(className,params)", e));
          }
          return null;
       }
@@ -146,7 +150,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getInstance(classname)", e));
          }
          return null;         
       }
@@ -176,7 +180,7 @@ public class AbeFactory
         	 stringBuffer.append(CommonStrings.getInstance().SPACE);
         	 stringBuffer.append(ConstructorUtil.view(constructor, "\n"));
              
-        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "getNoLicenseInstance(String className, Class classes[], Object params[])", e));
+        	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getNoLicenseInstance(String className, Class classes[], Object params[])", e));
          }
          return null;
       }
@@ -209,7 +213,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getClass(className)", e));
          }
          throw e;
       }
@@ -217,14 +221,14 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getClass(className)", e));
          }
          return null;
       }
    }
      */
    
-   public synchronized static Class getClass(final AbeClientInformationInterface abeClientInformation, final String className) 
+   public synchronized Class getClass(final AbeClientInformationInterface abeClientInformation, final String className) 
       throws LicensingException
    {
       try
@@ -234,7 +238,7 @@ public class AbeFactory
          
          if(useCustomLoader)
          {
-            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getKey(abeClientInformation, className));
+            ClassLoader loader = new AbeClassLoader(parent, AbKeys.getInstance().getKey(abeClientInformation, className));
             Class c = loader.loadClass(className);
             return c;
          }
@@ -248,7 +252,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getClass(className)", e));
          }
          throw e;
       }
@@ -256,7 +260,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getClass(className)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getClass(className)", e));
          }
          return null;
       }
@@ -282,7 +286,7 @@ public class AbeFactory
          /*
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADER))
             {
-               LogUtil.put(LogFactory.getInstance("Getting Instance", instance,"getInstance"));
+               LogUtil.put(LogFactory.getInstance("Getting Instance", this,"getInstance"));
             }
           */
    //    ClassLoader loader = new AbeClassLoader(AbKeys.key);
@@ -291,11 +295,11 @@ public class AbeFactory
             {
                if(loader==null)
                {
-                  LogUtil.put(LogFactory.getInstance("Loader Null", instance,"getInstance"));
+                  LogUtil.put(LogFactory.getInstance("Loader Null", this,"getInstance"));
                }
                else
                {
-                  LogUtil.put(LogFactory.getInstance("Loader Not Null", instance,"getInstance"));
+                  LogUtil.put(LogFactory.getInstance("Loader Not Null", this,"getInstance"));
                }
             }
  */
@@ -308,12 +312,12 @@ public class AbeFactory
             {
                if(c==null)
                {
-                  LogUtil.put(LogFactory.getInstance("Class Null", instance,"getInstance"));
+                  LogUtil.put(LogFactory.getInstance("Class Null", this,"getInstance"));
                }
                else
                {
-                  //LogUtil.put(LogFactory.getInstance("isInstance: " + myClass.isInstance(), instance,"getInstance"));
-                  LogUtil.put(LogFactory.getInstance("Class Not Null", instance,"getInstance"));
+                  //LogUtil.put(LogFactory.getInstance("isInstance: " + myClass.isInstance(), this,"getInstance"));
+                  LogUtil.put(LogFactory.getInstance("Class Not Null", this,"getInstance"));
                }
             }
    */
@@ -328,7 +332,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getInstance(classname)", e));
          }
          return null;
       }
@@ -346,7 +350,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className, instance,"getInstance(classname)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className, this,"getInstance(classname)", e));
          }
          return null;
       }
@@ -365,7 +369,7 @@ public class AbeFactory
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
          {
-            LogUtil.put(LogFactory.getInstance("Failure for: " + className + " " + allbinary.java.object.ObjectInfo.viewConstructor(constructor, "\n"), instance,"getInstance(className,params)", e));
+            LogUtil.put(LogFactory.getInstance("Failure for: " + className + " " + allbinary.java.object.ObjectInfo.viewConstructor(constructor, "\n"), this,"getInstance(className,params)", e));
          }
          return null;
       }

@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.control.workflow;
 
-import org.allbinary.logic.control.workflow.WorkFlowInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.loader.AbeFactory;
@@ -27,12 +26,16 @@ public class DbWorkFlowFactory
 {
     private static final DbWorkFlowFactory instance = new DbWorkFlowFactory();
 
+    public static DbWorkFlowFactory getInstance() {
+        return instance;
+    }
+    
    private DbWorkFlowFactory()
    {
    }
    
    //Created from DB data
-   public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final HashMap hashMap) throws Exception, LicensingException
+   public WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final HashMap hashMap) throws Exception, LicensingException
    {
       try
       {
@@ -49,7 +52,7 @@ public class DbWorkFlowFactory
          //Add arguments
          params[0] = (Object) hashMap;
 
-         final Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
+         final Object object = AbeFactory.getInstance().getInstance(abeClientInformation, className, classes, params);
          return (WorkFlowInterface) new WorkFlowWrapper(object);
       }
       catch(LicensingException e)
@@ -58,7 +61,7 @@ public class DbWorkFlowFactory
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
         	 String error = "Failed To Get Instance Args: HashMap=" + hashMap.toString();
-            LogUtil.put(LogFactory.getInstance(error, instance, "getInstance(HashMap)",e));
+            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)",e));
          }
          throw e;
       }
@@ -69,7 +72,7 @@ public class DbWorkFlowFactory
          {
         	 String error = "Failed To Get Instance";
         	 
-            LogUtil.put(LogFactory.getInstance(error, instance, "getInstance(HashMap)",e));
+            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)",e));
          }
          throw e;
       }

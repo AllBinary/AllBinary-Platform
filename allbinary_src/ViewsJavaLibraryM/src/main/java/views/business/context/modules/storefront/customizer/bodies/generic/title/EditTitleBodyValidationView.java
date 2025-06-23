@@ -41,7 +41,7 @@ public class EditTitleBodyValidationView extends TitleBodyCustomizerView impleme
       try
       {
          Document document = 
-            CustomizerUtil.getViewDataForComponentsInObjectConfig(
+            CustomizerUtil.getInstance().getViewDataForComponentsInObjectConfig(
                this.getTransformInfoInterface());
          
          this.titleBody = new TitleBodyValidation(document);

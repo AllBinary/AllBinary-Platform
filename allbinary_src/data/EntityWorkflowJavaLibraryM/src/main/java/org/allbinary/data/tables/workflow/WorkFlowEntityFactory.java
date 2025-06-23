@@ -20,15 +20,19 @@ public class WorkFlowEntityFactory
 {
     private static final WorkFlowEntityFactory instance = new WorkFlowEntityFactory();
 
+    public static WorkFlowEntityFactory getInstance() {
+        return instance;
+    }
+
    private WorkFlowEntityFactory()
    {
    }
    
-   public static WorkFlowEntity getInstance() //throws LicensingException
+   public WorkFlowEntity create2() //throws LicensingException
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (StoreFrontsEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.workflow.WorkFlowEntity();
       }
@@ -49,7 +53,7 @@ public class WorkFlowEntityFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                  org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().ENTITYFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
          }
          return null;
       }   

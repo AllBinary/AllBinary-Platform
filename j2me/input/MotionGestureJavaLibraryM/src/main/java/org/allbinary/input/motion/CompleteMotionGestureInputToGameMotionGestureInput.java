@@ -37,11 +37,15 @@ public class CompleteMotionGestureInputToGameMotionGestureInput
    private static final CompleteMotionGestureInputToGameMotionGestureInput instance =
            new CompleteMotionGestureInputToGameMotionGestureInput();
 
-    public static void init()
+    public static CompleteMotionGestureInputToGameMotionGestureInput getInstance() {
+        return instance;
+    }
+   
+    public void init()
     {
         try
         {
-            PreLogUtil.put("Compound Motion Gestures", instance, CommonStrings.getInstance().INIT);
+            PreLogUtil.put("Compound Motion Gestures", this, CommonStrings.getInstance().INIT);
 
             final MotionGestureConfiguration motionGestureConfiguration = 
                 MotionGestureConfigurationFactory.getInstance();

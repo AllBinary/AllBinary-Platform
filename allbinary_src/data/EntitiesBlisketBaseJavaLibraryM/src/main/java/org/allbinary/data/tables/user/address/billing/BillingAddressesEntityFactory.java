@@ -46,7 +46,7 @@ public class BillingAddressesEntityFactory
       classes[0] = userName.getClass();
        
       params[0] = (Object) userName;
-      Object object = AbeFactory.getInstance(CLASSNAME,classes, params);
+      Object object = AbeFactory.getInstance().getInstance(CLASSNAME,classes, params);
       return (StreetAddressesEntityInterface) InterfaceCastProxy.newInstance(object);
        */
          return new BillingAddressesEntity(userName);

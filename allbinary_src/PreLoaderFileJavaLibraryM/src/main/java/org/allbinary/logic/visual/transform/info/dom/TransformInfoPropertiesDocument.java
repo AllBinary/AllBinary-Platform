@@ -75,7 +75,7 @@ public class TransformInfoPropertiesDocument
 
             //Add each transformInfo and its children
             TransformInfoProperties transformInfoProperties = 
-               TransformInfoPropertiesFactory.getInstance(node);
+               TransformInfoPropertiesFactory.getInstance().getInstance(node);
 
             transformInfoPropertiesHashMap.put(
                transformInfoProperties.getName(), transformInfoProperties);

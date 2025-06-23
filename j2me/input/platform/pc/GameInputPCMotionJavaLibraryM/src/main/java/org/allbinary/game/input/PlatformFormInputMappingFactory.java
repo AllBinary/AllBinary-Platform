@@ -21,12 +21,15 @@ import org.allbinary.input.motion.button.BasicTouchInputFactory;
 
 public class PlatformFormInputMappingFactory
 {
-    private static final PlatformFormInputMappingFactory instance = 
-        new PlatformFormInputMappingFactory();
+    private static final PlatformFormInputMappingFactory instance = new PlatformFormInputMappingFactory();
     
-    private static InputToGameKeyMapping SINGLETON = null;
+    public static PlatformFormInputMappingFactory getInstance() {
+        return instance;
+    }
+    
+    private InputToGameKeyMapping SINGLETON = null;
 
-    public static InputToGameKeyMapping getInstance()
+    public InputToGameKeyMapping getOrCreate()
     {
         try
         {
@@ -39,12 +42,12 @@ public class PlatformFormInputMappingFactory
                 final GameKeyFactory gameKeyFactory = GameKeyFactory.getInstance();
                 final BasicTouchInputFactory basicTouchInputFactory = BasicTouchInputFactory.getInstance();
                 
-        inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.DPAD_UP);
-        inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.DPAD_DOWN);
-        inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory.DPAD_LEFT);
-        inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.DPAD_RIGHT);
+                inputToGameKeyMapping.add(gameKeyFactory.UP, pcKeyFactory.DPAD_UP);
+                inputToGameKeyMapping.add(gameKeyFactory.DOWN, pcKeyFactory.DPAD_DOWN);
+                inputToGameKeyMapping.add(gameKeyFactory.LEFT, pcKeyFactory.DPAD_LEFT);
+                inputToGameKeyMapping.add(gameKeyFactory.RIGHT, pcKeyFactory.DPAD_RIGHT);
 
-        inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.ENTER);
+                inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, pcKeyFactory.ENTER);
 
                 //inputToGameKeyMapping.add(gameKeyFactory.KEY_NUM1, androidKeyFactory.DPAD_CENTER);
 
@@ -58,7 +61,7 @@ public class PlatformFormInputMappingFactory
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, instance, CommonStrings.getInstance().GET_INSTANCE, e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_INSTANCE, e));
         }
         return SINGLETON;
     }

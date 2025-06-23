@@ -87,7 +87,7 @@ public class AbFileItem
     {
         try
         {
-            return FileItemUtil.getString(byteArray);
+            return FileItemUtil.getInstance().getString(byteArray);
         }
         catch(Exception e)
         {

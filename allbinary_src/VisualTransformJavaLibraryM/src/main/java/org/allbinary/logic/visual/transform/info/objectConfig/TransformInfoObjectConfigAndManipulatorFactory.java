@@ -16,15 +16,12 @@ package org.allbinary.logic.visual.transform.info.objectConfig;
 import org.w3c.dom.Document;
 
 import org.allbinary.data.tree.dom.document.DomDocumentHelper;
-
 import org.allbinary.logic.io.path.AbPath;
 import org.allbinary.logic.string.StringValidationUtil;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.logic.control.crypt.file.CryptFileReader;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 
@@ -172,7 +169,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
                   org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                LogUtil.put(LogFactory.getInstance("Creating GenericStoreTransformInfoObjectConfig",
-                     instance, "getInstance()"));
+                     this, "getInstance()"));
             }
             
             return (TransformInfoObjectConfigInterface)
@@ -185,7 +182,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
                   org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
                LogUtil.put(LogFactory.getInstance("Creating TransformInfoObjectConfig",
-                     instance, "getInstance()"));
+                     this, "getInstance()"));
             }
             
             return (TransformInfoObjectConfigInterface)
@@ -205,7 +202,7 @@ public class TransformInfoObjectConfigAndManipulatorFactory
                org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
             LogUtil.put(LogFactory.getInstance(
-                error, instance, "getInstance(name,type)", e));
+                error, this, "getInstance(name,type)", e));
          }
          throw e;
       }

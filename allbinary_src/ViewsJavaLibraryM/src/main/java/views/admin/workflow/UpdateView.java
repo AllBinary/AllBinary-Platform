@@ -41,7 +41,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
          /*
          if(this.workFlowInterface.isValid() == Boolean.FALSE) return Boolean.FALSE;
             
-         if(WorkFlowEntityFactory.getInstance().get(
+         if(WorkFlowEntityFactory.getInstance().create2().get(
             this.workFlowInterface.getName(), 
             this.getWeblisketSession().getStoreName())==null)
          {
@@ -72,7 +72,7 @@ public class UpdateView extends WorkFlowView implements ValidationComponentInter
 /*
          stringBuffer.append(this.workFlowInterface.validationInfo());
 
-         if(WorkFlowEntityFactory.getInstance().get(
+         if(WorkFlowEntityFactory.getInstance().create2().get(
             this.workFlowInterface.getName(),
             this.getWeblisketSession().getStoreName())==null)
          {

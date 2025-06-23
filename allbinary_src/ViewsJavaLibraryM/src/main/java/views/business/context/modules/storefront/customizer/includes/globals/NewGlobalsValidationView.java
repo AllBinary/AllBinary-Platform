@@ -52,7 +52,7 @@ public class NewGlobalsValidationView
          //if(isValid == Boolean.TRUE)
          {
             //Insert XML into the view specified by the Object Config for this view
-            CustomizerUtil.insert(this.getTransformInfoInterface(),(DomNodeInterface) this);
+            CustomizerUtil.getInstance().insert(this.getTransformInfoInterface(),(DomNodeInterface) this);
          }
          
          //return isValid;
@@ -100,6 +100,6 @@ public class NewGlobalsValidationView
 
    public String view() throws Exception
    {
-      return views.ValidationOnlyTempUtil.view(this);
+      return views.ValidationOnlyTempUtil.getInstance().view(this);
    }
 }

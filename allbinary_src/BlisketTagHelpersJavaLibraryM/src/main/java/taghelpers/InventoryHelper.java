@@ -70,7 +70,7 @@ public class InventoryHelper implements TagHelperInterface
       {
          StoreFrontInterface storeFrontInterface = StoreFrontFactory.getInstance(storeName);                  
          
-         String contentType = AcceptableResponseGenerator.get(this.request);
+         String contentType = AcceptableResponseGenerator.getInstance().get(this.request);
          SearchParams searchParams = new SearchParams(this.request);
          this.searchRequest = 
             new SearchRequest(storeFrontInterface, searchParams, xslFile, contentType, propertiesHashMap, pageContext);         

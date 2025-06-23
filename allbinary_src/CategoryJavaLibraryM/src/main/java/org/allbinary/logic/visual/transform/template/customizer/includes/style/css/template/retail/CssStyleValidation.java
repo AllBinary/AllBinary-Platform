@@ -42,8 +42,7 @@ public class CssStyleValidation implements ValidationInterface, DomNodeInterface
 
    public CssStyleValidation(Document document) throws Exception
    {
-      this.cssStyleElementVector = 
-         StylesValidationFactory.getInstance(document);
+      this.cssStyleElementVector = StylesValidationFactory.getInstance().getInstance(document);
    }
 
    public CssStyleValidation(HashMap hashMap) throws Exception

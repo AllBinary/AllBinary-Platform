@@ -13,52 +13,55 @@
 */
 package org.allbinary.logic.visual.transform.generator;
 
+import java.util.Iterator;
+import java.util.Vector;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.visual.transform.info.TransformInfoDomNode;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjectConfigInterface;
-
-import java.util.Iterator;
-import java.util.Vector;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class TransformsGeneratorUtil
 {
-	private static final TransformsGeneratorUtil instance = new TransformsGeneratorUtil();
+    private static final TransformsGeneratorUtil instance = new TransformsGeneratorUtil();
 
+    public static TransformsGeneratorUtil getInstance() {
+        return instance;
+    }
+        
     private TransformsGeneratorUtil()
     {
     }
 
-    public static String generateComponentsFromObjectConfig(
+    public String generateComponentsFromObjectConfig(
         final AbeClientInformationInterface abeClientInformation, 
         final TransformInfoInterface transformInfoInterface, String group)
         throws Exception
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Started Group: " + group, 
-                instance, "generateComponentsFromObjectConfig(2)"));
+            LogUtil.put(LogFactory.getInstance("Started Group: " + group, this, "generateComponentsFromObjectConfig(2)"));
         }
 
         TransformInfoObjectConfigInterface transformInfoObjectConfigInterface =
             transformInfoInterface.getObjectConfigInterface();
 
-        String result = TransformsGeneratorUtil.generateComponentsFromObjectConfig(
+        String result = this.generateComponentsFromObjectConfig(
             abeClientInformation, transformInfoObjectConfigInterface, transformInfoInterface, group);
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
             LogUtil.put(LogFactory.getInstance("End Group: " + group,
-                instance, "generateComponentsFromObjectConfig(2)"));
+                this, "generateComponentsFromObjectConfig(2)"));
         }
         return result;
     }
 
     //Transforms the Template TransformInfoInterface using each component/TransformInfoInterface from the TransformInfoObjectConfigInterface
     //I.E. the Template replaces it's body component tag with the template form each TransformInfoInterface from the TransformInfoObjectConfigInterface
-    public static String generateComponentsFromObjectConfig(
+    public String generateComponentsFromObjectConfig(
         final AbeClientInformationInterface abeClientInformation,
         final TransformInfoObjectConfigInterface transformInfoObjectConfigInterface,
         final TransformInfoInterface transformInfoInterface, String group)
@@ -66,8 +69,7 @@ public class TransformsGeneratorUtil
     {
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Started Group: " + group,
-                instance, "generateComponentsFromObjectConfig()"));
+            LogUtil.put(LogFactory.getInstance("Started Group: " + group,this, "generateComponentsFromObjectConfig()"));
         }
 
         Vector transformInfoObjectConfigComponentVector =
@@ -82,7 +84,7 @@ public class TransformsGeneratorUtil
             stringBuffer.append(" Components Group: ");
             stringBuffer.append(group);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "generateComponentsFromObjectConfig()"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "generateComponentsFromObjectConfig()"));
         }
 
         Iterator iter = transformInfoObjectConfigComponentVector.iterator();
@@ -94,15 +96,14 @@ public class TransformsGeneratorUtil
 
         while (iter.hasNext())
         {
-            TransformInfoDomNode transformInfoObjectConfigComponent =
-                (TransformInfoDomNode) iter.next();
+            TransformInfoDomNode transformInfoObjectConfigComponent = (TransformInfoDomNode) iter.next();
 
-            TransformGeneratorUtil.generate(abeClientInformation, transformInfoObjectConfigComponent, transformInfoInterface);
+            TransformGeneratorUtil.getInstance().generate(abeClientInformation, transformInfoObjectConfigComponent, transformInfoInterface);
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            LogUtil.put(LogFactory.getInstance("Done Group: " + group, instance, "generateComponentsFromObjectConfig()"));
+            LogUtil.put(LogFactory.getInstance("Done Group: " + group, this, "generateComponentsFromObjectConfig()"));
         }
 
         StringBuffer stringBuffer = new StringBuffer();

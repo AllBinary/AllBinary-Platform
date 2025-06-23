@@ -37,7 +37,7 @@ public class UserEmailEventListenerFactory
        
       params[0] = (Object) userInterface;
       
-      return (UserEmailEventListenerInterface) AbeFactory.getInstance(abeClientInformation, 
+      return (UserEmailEventListenerInterface) AbeFactory.getInstance().getInstance(abeClientInformation, 
           userEmailEventConfigurationInterface.getEventListenerClassPath(), classes, params);
    }
 }

@@ -50,10 +50,11 @@ public class BasketReview
    
    public void removeItem(String id)
    {
-      Iterator iter = items.iterator();
-      while(iter.hasNext())
+      final Object[] itemArray = items.toArray();
+      final int size = itemArray.length;
+      for (int index = 0; index < size; index++)       
       {
-         Item item = (Item) iter.next();
+         Item item = (Item) itemArray[index];
          if(item.getId().compareTo(id) == 0)
          {
             items.remove(item);
@@ -63,10 +64,11 @@ public class BasketReview
    
    public void adjustItem(String id, String num)
    {
-      Iterator iter = items.iterator();
-      while(iter.hasNext())
+      final Object[] itemArray = items.toArray();
+      final int size = itemArray.length;
+      for (int index = 0; index < size; index++)       
       {
-         Item item = (Item) iter.next();
+         Item item = (Item) itemArray[index];
          if(item.getId().compareTo(id) == 0)
          {
             item.setNumber(num);
@@ -77,10 +79,12 @@ public class BasketReview
    public String getTotalWeight()
    {
       float weightFloat = 0;
-      Iterator iter = items.iterator();
-      while(iter.hasNext())
+       
+      final Object[] itemArray = items.toArray();
+      final int size = itemArray.length;
+      for (int index = 0; index < size; index++)       
       {
-         Item item = (Item) iter.next();
+         Item item = (Item) itemArray[index];
          weightFloat += new Float(item.getWeight()).floatValue();
       }
       return new Float(weightFloat).toString();
@@ -94,10 +98,11 @@ public class BasketReview
    public Set getIds()
    {
       HashSet idSet = new HashSet();
-      Iterator iter = items.iterator();
-      while(iter.hasNext())
+      final Object[] itemArray = items.toArray();
+      final int size = itemArray.length;
+      for (int index = 0; index < size; index++)       
       {
-         Item item = (Item) iter.next();
+         Item item = (Item) itemArray[index];
          idSet.add(item.getId());
       }
       return (Set) idSet;
@@ -105,10 +110,11 @@ public class BasketReview
       
    public Integer getNumberOf(String id)
    {
-      Iterator iter = items.iterator();
-      while(iter.hasNext())
+      final Object[] itemArray = items.toArray();
+      final int size = itemArray.length;
+      for (int index = 0; index < size; index++)       
       {
-         Item item = (Item) iter.next();
+         Item item = (Item) itemArray[index];
          if(item.getId().compareTo(id) == 0) 
          {
             return new Integer(item.getNumber());
@@ -119,13 +125,13 @@ public class BasketReview
       
    public Node toXmlNode(Document document) throws Exception
    {
-      Iterator iter = this.items.iterator();
-      
       Node node = document.createElement(BasketData.BASKET);
       
-      while(iter.hasNext())
+      final Object[] itemArray = items.toArray();
+      final int size = itemArray.length;
+      for (int index = 0; index < size; index++)       
       {
-         Item item = (Item) iter.next();         
+         Item item = (Item) itemArray[index];
          node.appendChild(new ItemView(item, new Vector()).toXmlNode(document));
       }
       return node;

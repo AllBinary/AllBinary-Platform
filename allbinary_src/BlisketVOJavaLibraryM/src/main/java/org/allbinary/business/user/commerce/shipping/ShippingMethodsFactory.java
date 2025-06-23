@@ -103,7 +103,7 @@ public class ShippingMethodsFactory
             DomNodeHelper.getTextNodeValue(classNameNode);
 
          final ShippingInterface shippingMethodInterface = (ShippingInterface)
-            AbeFactory.getInstance(abeClientInformation, shippingMethodClassName);
+            AbeFactory.getInstance().getInstance(abeClientInformation, shippingMethodClassName);
          shippingVector.add(shippingMethodInterface);
 
          final Node defaultShippingMethodNameNode =

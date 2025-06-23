@@ -37,7 +37,7 @@ public class InventoryColumnUtil
     public Vector getColumnWhereLike(
         InventoryEntity inventoryEntity, String category, String column)
     {
-        LogUtil.put(LogFactory.getInstance("Start Category: " + category, instance, "getKeywords"));
+        LogUtil.put(LogFactory.getInstance("Start Category: " + category, this, "getKeywords"));
 
         /////////
         // TWB - GAE upgrade uses JIQL and it doesn't like LIKE in the SQL so I
@@ -57,7 +57,7 @@ public class InventoryColumnUtil
 
             String categoryName = (String) hashMap.get(BasicItemData.CATEGORY);
 
-            //LogUtil.put(LogFactory.getInstance(NEXTCATEGORY + categoryName, instance, "getKeywords"));
+            //LogUtil.put(LogFactory.getInstance(NEXTCATEGORY + categoryName, this, "getKeywords"));
 
             if (!StringValidationUtil.getInstance().isEmpty(categoryName)
                 && categoryName.startsWith(category))

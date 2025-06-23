@@ -82,7 +82,7 @@ public class User implements UserInterface
       this.password = new Password(StringUtil.getInstance().EMPTY_STRING);
    }
    
-   public User(HttpServletRequest request) throws Exception
+   public User(final HttpServletRequest request) throws Exception
    {
       this.getFormData(new RequestParams(request).toHashMap());
 
@@ -91,7 +91,7 @@ public class User implements UserInterface
          UserConfigurationInterfaceFactory.getInstance(this.getRole());      
    }
 
-   public User(HashMap userHashMap) throws Exception
+   public User(final HashMap userHashMap) throws Exception
    {
       this.getFormData(userHashMap);
       
@@ -100,15 +100,15 @@ public class User implements UserInterface
          UserConfigurationInterfaceFactory.getInstance(this.getRole());      
    }
 
-   public void getFormData(HashMap userHashMap) throws Exception
+   public void getFormData(final HashMap userHashMap) throws Exception
    {
       this.userName = new UserName(userHashMap).get();
       
-      StringUtil stringUtil = StringUtil.getInstance();
+      final StringUtil stringUtil = StringUtil.getInstance();
       
       String passwordString = stringUtil.getInstance((String) userHashMap.get(UserData.PASSWORD));
       
-      StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+      final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
       
       if(stringValidationUtil.isEmpty(this.userName) && 
          stringValidationUtil.isEmpty(passwordString))
@@ -161,7 +161,7 @@ public class User implements UserInterface
       {
          Boolean valid = Boolean.TRUE;
          
-         if(!UserName.isValid(this.userName).booleanValue())
+         if(!UserName.getInstance().isValid(this.userName).booleanValue())
          {
             valid = Boolean.FALSE;
          }
@@ -171,7 +171,7 @@ public class User implements UserInterface
             valid = Boolean.FALSE;
          }
          
-         StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
          
          if(!stringValidationUtil.isValidRequired(firstName, 1, UserData.MAXLEN))
          {
@@ -205,9 +205,9 @@ public class User implements UserInterface
    {
       try
       {
-          StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
+         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
           
-         StringBuffer stringBuffer = new StringBuffer();
+         final StringBuffer stringBuffer = new StringBuffer();
          
          stringBuffer.append(UserName.getValidationInfo(this.userName));
          

@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.visual.transform.info;
 
-import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.loader.AbeFactory;
@@ -23,14 +22,17 @@ import org.allbinary.logic.visual.transform.TransformInterface;
 
 public class TransformInfoObjectFactory
 {
-	private static final TransformInfoObjectFactory instance = 
-		new TransformInfoObjectFactory();
+    private static final TransformInfoObjectFactory instance = new TransformInfoObjectFactory();
+    
+    public static TransformInfoObjectFactory getInstance() {
+        return instance;
+    }
 	
     private TransformInfoObjectFactory()
     {
     }
 
-    public static TransformInterface getInstance(
+    public TransformInterface getInstance(
         final AbeClientInformationInterface abeClientInformation,
         final TransformInfoInterface transformInfoInterface)
         throws Exception
@@ -40,9 +42,7 @@ public class TransformInfoObjectFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
             {
-                LogUtil.put(LogFactory.getInstance(
-                		"Creating View: " + transformInfoInterface.getName(), 
-                		instance, "getInstance()"));
+                LogUtil.put(LogFactory.getInstance("Creating View: " + transformInfoInterface.getName(), this, "getInstance()"));
             }
 
             //validate view data before creating view object
@@ -52,13 +52,13 @@ public class TransformInfoObjectFactory
             //Add param types
             //TWB - Moved to obf on everything that is no bolted to dynamic loading
             classes[0] = TransformInfoInterface.class;
-                //AbeFactory.getClass(
+                //AbeFactory.getInstance().getClass(
                 //"org.allbinary.logic.visual.transform.info.TransformInfoInterface");
 
             //Add arguments
             params[0] = (Object) transformInfoInterface;
 
-            final TransformInterface object = (TransformInterface) AbeFactory.getInstance(
+            final TransformInterface object = (TransformInterface) AbeFactory.getInstance().getInstance(
                 abeClientInformation, transformInfoInterface.getObjectFile(), classes, params);
 
             if (object == null)
@@ -93,7 +93,7 @@ public class TransformInfoObjectFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 LogUtil.put(LogFactory.getInstance(
-                    error, instance, "getInstance(HashMap, PageContext)", e));
+                    error, this, "getInstance(HashMap, PageContext)", e));
             }
             throw e;
         } catch (Exception e)
@@ -109,7 +109,7 @@ public class TransformInfoObjectFactory
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
             {
                 LogUtil.put(LogFactory.getInstance(
-                    error, instance, "getInstance(HashMap, PageContext)", e));
+                    error, this, "getInstance(HashMap, PageContext)", e));
             }
             throw e;
         }
@@ -124,16 +124,16 @@ public class TransformInfoObjectFactory
     Class classes[] = new Class[3];
     
     //Add param types
-    classes[0] = AbeFactory.getClass("org.allbinary.logic.visual.transform.info.TransformInfoInterface");
+    classes[0] = AbeFactory.getInstance().getClass("org.allbinary.logic.visual.transform.info.TransformInfoInterface");
     classes[1] = propertiesHashMap.getClass();
-    classes[2] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
+    classes[2] = AbeFactory.getInstance().getClass("javax.servlet.jsp.PageContext");
     
     //Add arguments
     params[0] = (Object) transformInfoInterface;
     params[1] = (Object) propertiesHashMap;
     params[2] = (Object) pageContext;
     
-    return (ComponentInterface) AbeFactory.getInstance(
+    return (ComponentInterface) AbeFactory.getInstance().getInstance(
     transformInfoInterface.getObjectFile(), classes, params);
     }
     catch(LicensingException e)

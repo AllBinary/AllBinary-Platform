@@ -38,7 +38,7 @@ public class StaticPagesEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (StaticPagesEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.staticpages.StaticPagesEntity();
       }

@@ -54,7 +54,7 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
             return Boolean.FALSE;
          }
          
-         if(WorkFlowEntityFactory.getInstance().get(
+         if(WorkFlowEntityFactory.getInstance().create2().get(
             this.workFlowName, 
             this.getWeblisketSession().getStoreName())==null)
          {
@@ -83,14 +83,12 @@ public class DeleteValidationView extends WorkFlowView implements ValidationComp
       {
          StringBuffer stringBuffer = new StringBuffer();
          
-         if(this.workFlowName==null)
+         if(this.workFlowName == null)
          {
             stringBuffer.append("WorkFlow name is invalid<br />");
          }
          
-         if(WorkFlowEntityFactory.getInstance().get(
-            this.workFlowName, 
-            this.getWeblisketSession().getStoreName())==null)
+         if(WorkFlowEntityFactory.getInstance().create2().get(this.workFlowName, this.getWeblisketSession().getStoreName()) == null)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {

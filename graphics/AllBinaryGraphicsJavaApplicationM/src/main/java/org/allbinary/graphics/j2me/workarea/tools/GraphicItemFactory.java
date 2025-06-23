@@ -62,7 +62,7 @@ public class GraphicItemFactory
             
       if(LOGGING.contains(LOGGING.MENUEVENT))
       {
-         //GuiLog.put("Number of Graphic Items Loaded: " + numberOfItems,"GraphicItemFactory","getInstance");
+         //GuiLog.getInstance().put("Number of Graphic Items Loaded: " + numberOfItems,"GraphicItemFactory","getInstance");
       }
 
       for(int index =0; index < numberOfItems; index++)

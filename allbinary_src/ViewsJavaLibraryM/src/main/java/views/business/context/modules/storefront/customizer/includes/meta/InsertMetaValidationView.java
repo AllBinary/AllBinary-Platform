@@ -48,7 +48,7 @@ public class InsertMetaValidationView extends MetaView implements ValidationComp
          Boolean isValid = Boolean.TRUE;
          
          //Insert XML into the view specified by the Object Config for this view
-         CustomizerUtil.insert(this.getTransformInfoInterface(),(DomNodeInterface) this);
+         CustomizerUtil.getInstance().insert(this.getTransformInfoInterface(),(DomNodeInterface) this);
          
          return isValid;
       }

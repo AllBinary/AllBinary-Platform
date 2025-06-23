@@ -72,7 +72,7 @@ public class StoreAdminUserEmailEventHandlerSingletons {
 
             //Create New Handler and add listeners
             UserEmailEventHandler newUserEmailEventHandler =
-                EmailEventHandlerUtil.getEventHandler(
+                EmailEventHandlerUtil.getInstance().getEventHandler(
                     abeClientInformation, userEmailEventNameData, userVector);
 
             this.userEmailEventHandlerHashMap.put(

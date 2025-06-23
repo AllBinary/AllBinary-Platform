@@ -115,7 +115,7 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     }
 
                     TransformInterface componentInterface =
-                        TransformFactory.getInstance(this.abeClientInformation,
+                        TransformFactory.getInstance().getInstance(this.abeClientInformation,
                         transformInfoName, this.getTransformInfoInterface());
 
                     InsertTemplateCustomizerTransformInfoObjectConfig templateViewObjectConfig =
@@ -239,6 +239,6 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
 
     public String view() throws Exception
     {
-        return views.ValidationOnlyTempUtil.view(this);
+        return views.ValidationOnlyTempUtil.getInstance().view(this);
     }
 }

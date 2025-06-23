@@ -20,19 +20,22 @@ import java.util.Vector;
 
 import org.allbinary.logic.io.AbFileOutputStream;
 import org.allbinary.logic.io.StreamUtil;
-import org.allbinary.logic.io.file.AbFile;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 
 public class FileLockUtil
 {
-	private static final FileLockUtil instance = new FileLockUtil();
-	
+    private static final FileLockUtil instance = new FileLockUtil();
+
+    public static FileLockUtil getInstance() {
+        return instance;
+    }
+    
     private FileLockUtil()
     {
     }
     
-    public static Vector getAll(Vector vector, boolean isReturnOnFailure)
+    public Vector getAll(Vector vector, boolean isReturnOnFailure)
     throws Exception
     {
         Vector fileLockVector = new Vector();
@@ -44,27 +47,27 @@ public class FileLockUtil
             FileLock fileLock = getLock(file);
             if(fileLock != null)
             {
-                LogUtil.put(LogFactory.getInstance("File Lock Obtained: " + file.getAbsolutePath(), instance, "getAll"));
+                LogUtil.put(LogFactory.getInstance("File Lock Obtained: " + file.getAbsolutePath(), this, "getAll"));
                 fileLockVector.add(fileLock);
             }
             else
             if(isReturnOnFailure)
             {
-                LogUtil.put(LogFactory.getInstance("Total Locks Obtained: " + fileLockVector.size(), instance, "getAll"));
+                LogUtil.put(LogFactory.getInstance("Total Locks Obtained: " + fileLockVector.size(), this, "getAll"));
                 return fileLockVector;
             }
         }
-        LogUtil.put(LogFactory.getInstance("Total Locks Obtained: " + fileLockVector.size(), instance, "getAll"));
+        LogUtil.put(LogFactory.getInstance("Total Locks Obtained: " + fileLockVector.size(), this, "getAll"));
         return fileLockVector;
     }
 
-    public static Vector getAllPossible(Vector vector)
+    public Vector getAllPossible(Vector vector)
     throws Exception
     {
         return getAll(vector, false);
     }
 
-    public static Vector getAllOrNone(Vector vector)
+    public Vector getAllOrNone(Vector vector)
     throws Exception
     {
         Vector fileLockVector = getAll(vector, true);
@@ -78,7 +81,7 @@ public class FileLockUtil
         }
     }
     
-    public static FileLock getLock(AbFile file)
+    public FileLock getLock(AbFile file)
     throws Exception
     {
         try
@@ -87,7 +90,7 @@ public class FileLockUtil
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception returns null", instance, "getLock", e ));
+            LogUtil.put(LogFactory.getInstance("Exception returns null", this, "getLock", e ));
             return null;
         }
         finally
@@ -95,7 +98,7 @@ public class FileLockUtil
         }
     }
 
-    public static FileLock getLock(AbFileOutputStream fileOutputStream)
+    public FileLock getLock(AbFileOutputStream fileOutputStream)
     throws Exception
     {
         try
@@ -105,17 +108,17 @@ public class FileLockUtil
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception returns null", instance, "getLock", e));
+            LogUtil.put(LogFactory.getInstance("Exception returns null", this, "getLock", e));
             return null;
         }
         finally
         {
-            LogUtil.put(LogFactory.getInstance("Finally - Closing FileOutputStream", instance, "getLock"));
+            LogUtil.put(LogFactory.getInstance("Finally - Closing FileOutputStream", this, "getLock"));
             StreamUtil.getInstance().close(fileOutputStream);
         }
     }
     
-    public static FileLock getLock(FileChannel fileChannel)
+    public FileLock getLock(FileChannel fileChannel)
     throws Exception
     {
         try
@@ -126,12 +129,12 @@ public class FileLockUtil
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Exception returns null", instance, "getLock", e));
+            LogUtil.put(LogFactory.getInstance("Exception returns null", this, "getLock", e));
             return null;
         }
         finally
         {
-            LogUtil.put(LogFactory.getInstance("Finally - Closing FileChannel", instance, "getLock"));
+            LogUtil.put(LogFactory.getInstance("Finally - Closing FileChannel", this, "getLock"));
             fileChannel.close();
         }
     }

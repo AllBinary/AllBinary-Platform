@@ -62,6 +62,8 @@ public class CanvasJPanel extends javax.swing.JPanel
         MyGraphicItemEventListener
 {
     private static int frame = 0;
+ 
+    private final GuiLog guiLog = GuiLog.getInstance();
     
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
 
@@ -94,7 +96,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         {
             if (LOGGING.contains(LOGGING.GRAPHICSCREATION))
             {
-                GuiLog.put("Constructor Error", this, "contructor", e);
+                guiLog.put("Constructor Error", this, "contructor", e);
             }
         }
     }
@@ -129,7 +131,7 @@ public class CanvasJPanel extends javax.swing.JPanel
         {
             if (LOGGING.contains(LOGGING.GRAPHICSCREATION))
             {
-                GuiLog.put("Constructor Error", this, "contructor", e);
+                guiLog.put("Constructor Error", this, "contructor", e);
             }
         }
     }

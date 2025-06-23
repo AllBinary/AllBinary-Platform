@@ -121,6 +121,6 @@ public class AddValidationUserView extends HttpStoreComponentView
    
    public String view() throws Exception
    {
-      return views.ValidationOnlyTempUtil.view(this);
+      return views.ValidationOnlyTempUtil.getInstance().view(this);
    }
 }

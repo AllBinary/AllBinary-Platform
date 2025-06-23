@@ -41,8 +41,7 @@ public class PaymentProcessorInterfaceFactory
       try
       {
          PaymentTransactionInterface paymentTransactionInterface =
-            PaymentTransactionInterfaceRequestFactory.getInstance(
-               transformInfoInterface);
+            PaymentTransactionInterfaceRequestFactory.getInstance().getInstance(transformInfoInterface);
 
          //HashMap propertiesHashMap = transformInfoInterface.getPropertiesHashMap();
          //PageContext pageContext = transformInfoInterface.getPageContext();

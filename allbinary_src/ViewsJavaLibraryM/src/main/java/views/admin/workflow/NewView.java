@@ -42,7 +42,7 @@ public class NewView extends WorkFlowView implements ValidationComponentInterfac
       TransformInfoHttpInterface httpTransformInfoInterface = 
          (TransformInfoHttpInterface) this.getTransformInfoInterface();
 
-      this.workFlowInterface = NewWorkFlowFactory.getInstance(abeClientInformation,
+      this.workFlowInterface = NewWorkFlowFactory.getInstance().getInstance(abeClientInformation,
          (String) httpTransformInfoInterface.getPropertiesHashMap().get(
             DynamicObjectData.NAME));
    }

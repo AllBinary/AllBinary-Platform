@@ -62,13 +62,14 @@ public class BasicItemView implements DomNodeInterface
          StringUtil stringUtil = StringUtil.getInstance();
          
          Set keySet = hashMap.keySet();
-         Iterator iterSet = keySet.iterator();
          
          Node node = document.createElement(BasicItemData.ITEM);
-         
-         while(iterSet.hasNext())
+
+         final Object[] nameArray = keySet.toArray();
+         final int size2 = nameArray.length;
+         for (int index = 0; index < size2; index++)
          {
-            String name = (String) iterSet.next();
+            String name = (String) nameArray[index];
             String value = (String) hashMap.get(name);
             
             value = stringUtil.getInstance(value);

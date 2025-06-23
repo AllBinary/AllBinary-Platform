@@ -41,15 +41,17 @@ public class StoreFrontOrdersHistoryStatistics
       this.taxesMoney = new Money();
       this.totalMoney = new Money();
    
-      OrderHistoryEntityInterface orderHistoryEntityInterface = 
-         OrderHistoryEntityFactory.getInstance();
-      Vector orderHistoryInterfaceVector = orderHistoryEntityInterface.getStoreOrders(storeFrontInterface);
-      Iterator iter = orderHistoryInterfaceVector.iterator();
+      final OrderHistoryEntityInterface orderHistoryEntityInterface = OrderHistoryEntityFactory.getInstance();
+      final Vector orderHistoryInterfaceVector = orderHistoryEntityInterface.getStoreOrders(storeFrontInterface);
       
       long numberOfOrders = 0;
-      while(iter.hasNext())
+      OrderHistoryInterface orderHistoryInterface;
+      
+      final Object[] orderHistoryInterfaceArray = orderHistoryInterfaceVector.toArray();
+      final int size = orderHistoryInterfaceArray.length;
+      for (int index = 0; index < size; index++)      
       {
-         OrderHistoryInterface orderHistoryInterface = (OrderHistoryInterface) iter.next();
+         orderHistoryInterface = (OrderHistoryInterface) orderHistoryInterfaceArray[index];
 
 	 numberOfOrders = numberOfOrders + 1;
 	 

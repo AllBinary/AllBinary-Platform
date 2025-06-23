@@ -46,7 +46,7 @@ public class SystemHardwareFactory {
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            //LogUtil.put(LogFactory.getInstance(static_toString(), instance, CommonStrings.getInstance().CONSTRUCTOR));
+            //LogUtil.put(LogFactory.getInstance(static_toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
     	    LogUtil.put(LogFactory.getInstance("Found Hardware", this, CommonStrings.getInstance().CONSTRUCTOR));
          //}
       }

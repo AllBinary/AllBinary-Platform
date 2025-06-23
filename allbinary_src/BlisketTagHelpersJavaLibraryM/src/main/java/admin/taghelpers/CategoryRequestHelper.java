@@ -237,7 +237,6 @@ public class CategoryRequestHelper implements ModifyTableInterface
       Vector removeVector = new Vector();
     
       Set keys = map.keySet();
-      Iterator keyIter = keys.iterator();
     
       while(keyIter.hasNext())
       {

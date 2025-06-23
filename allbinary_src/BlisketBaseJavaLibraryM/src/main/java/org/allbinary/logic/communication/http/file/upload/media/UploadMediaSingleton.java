@@ -37,12 +37,13 @@ public class UploadMediaSingleton
       this.readerFileTypesHashMap = new HashMap();
       this.writerFileTypesHashMap = new HashMap();
 
-      HashMap hashMap = MediaData.toHashMap();
-      Set set = hashMap.keySet();
-      Iterator iter = set.iterator();
-      while(iter.hasNext())
-      {
-         String mediaDataName = (String) iter.next();
+      final HashMap hashMap = MediaData.toHashMap();
+      final Set set = hashMap.keySet();
+
+       final Object[] mediaDataNameArray = set.toArray();
+       final int size = mediaDataNameArray.length;
+       for (int index = 0; index < size; index++)      {
+         String mediaDataName = (String) mediaDataNameArray[index];
          MediaData mediaData = (MediaData) hashMap.get(mediaDataName);
          this.readerFileTypesHashMap.put(mediaData.getName(), mediaData.getType());
       }

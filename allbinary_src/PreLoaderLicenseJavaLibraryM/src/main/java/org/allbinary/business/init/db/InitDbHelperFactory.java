@@ -39,16 +39,16 @@ public class InitDbHelperFactory
          //Add arguments
          params[0] = (Object) databaseConnectionInfoInterface;
                            
-         //Object object = AbeFactory.getNoLicenseInstance(CLASSNAME, classes, params);
-         Object object = AbeFactory.getInstance(abeClientInformation, CLASSNAME, classes, params);
+         //Object object = AbeFactory.getInstance().getNoLicenseInstance(CLASSNAME, classes, params);
+         Object object = AbeFactory.getInstance().getInstance(abeClientInformation, CLASSNAME, classes, params);
          return object;
    }  
 
    public static Object getInstance(final AbeClientInformationInterface abeClientInformation) 
       throws LicensingException
    {
-         //Object object = AbeFactory.getNoLicenseInstance(CLASSNAME, null, null);
-         Object object = AbeFactory.getInstance(abeClientInformation, CLASSNAME, null, null);
+         //Object object = AbeFactory.getInstance().getNoLicenseInstance(CLASSNAME, null, null);
+         Object object = AbeFactory.getInstance().getInstance(abeClientInformation, CLASSNAME, null, null);
          return object;
    }  
 }

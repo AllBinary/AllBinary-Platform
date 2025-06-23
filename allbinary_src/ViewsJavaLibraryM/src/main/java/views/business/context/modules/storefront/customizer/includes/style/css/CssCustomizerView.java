@@ -47,7 +47,7 @@ public class CssCustomizerView extends HttpStoreComponentView //implements DomNo
    /*
    public Node toXmlNode(Document document) throws Exception
    {
-         String pageName = TemplateCustomizerUtil.getPageNameHack(
+         String pageName = TemplateCustomizerUtil.getInstance().getPageNameHack(
             this.getTransformInfoInterface().getName(),
             this.getWeblisketSession().getStoreName());
 

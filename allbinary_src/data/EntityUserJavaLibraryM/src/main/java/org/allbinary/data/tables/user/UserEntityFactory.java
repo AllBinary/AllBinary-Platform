@@ -28,7 +28,7 @@ public class UserEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (UserEntityInterface) InterfaceCastProxy.newInstance(object);
          return (UserEntity) new org.allbinary.data.tables.user.UserEntity();
       }

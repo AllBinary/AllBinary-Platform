@@ -279,7 +279,7 @@ public class FileUtil
             stringBuffer.append(outFile.getPath());
             stringBuffer.append(" already in cloud.");
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "copyToCloud"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "copyToCloud"));
             }
             }
              *
@@ -359,7 +359,7 @@ public class FileUtil
             stringBuffer.append(outFile.getPath());
             stringBuffer.append(" already in cloud.");
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "copyToCloud"));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "copyToCloud"));
             }
             }
              *
@@ -577,7 +577,7 @@ public class FileUtil
                 stringBuffer.toString(), getInstance(), "copySomeFilesToDirectory()"));
         }
 
-        //PreLogUtil.put(stringBuffer.toString(), instance, "copySomeFilesToDirectory()");
+        //PreLogUtil.put(stringBuffer.toString(), this, "copySomeFilesToDirectory()");
 
         for (int index = start; index < end; index++)
         {
@@ -610,7 +610,7 @@ public class FileUtil
                 //stringBuffer.append(" new path: ");
                 //stringBuffer.append(newPath);
 
-                //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "copyDirectoryPortion"));
+                //LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "copyDirectoryPortion"));
 
                 AbFile toFile = new AbFile(new AbPath(newPath));
 

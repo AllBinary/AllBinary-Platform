@@ -13,21 +13,24 @@
 */
 package org.allbinary.logic.control.workflow;
 
-import org.allbinary.logic.control.workflow.WorkFlowInterface;
+import javax.servlet.jsp.PageContext;
+import java.util.HashMap;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.system.loader.AbeFactory;
 import org.allbinary.logic.system.security.licensing.LicensingException;
 import org.allbinary.business.DynamicObjectData;
-
-import javax.servlet.jsp.PageContext;
-import java.util.HashMap;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
 
 public class NewWorkFlowFactory
 {
     private static final NewWorkFlowFactory instance = new NewWorkFlowFactory();
 
+    public static NewWorkFlowFactory getInstance() {
+        return instance;
+    }
+    
    private NewWorkFlowFactory()
    {
    }
@@ -35,7 +38,7 @@ public class NewWorkFlowFactory
    //Assumes store name in session - for store admin
    //Used for creating and/or updating a workflow
    //hashMap is for Tag properties that may override request data
-   public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, 
+   public WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, 
        final HashMap hashMap, final PageContext pageContext) throws Exception, LicensingException
    {
       try
@@ -48,14 +51,14 @@ public class NewWorkFlowFactory
          
          //Add param types
          classes[0] = hashMap.getClass();
-         classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
+         classes[1] = AbeFactory.getInstance().getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
          //pageContext.getClass();
          
          //Add arguments
          params[0] = (Object) hashMap;
          params[1] = (Object) pageContext;
          
-         final Object object = AbeFactory.getInstance(abeClientInformation, className, classes, params);
+         final Object object = AbeFactory.getInstance().getInstance(abeClientInformation, className, classes, params);
          
          return (WorkFlowInterface) new WorkFlowWrapper(object);
       }
@@ -67,7 +70,7 @@ public class NewWorkFlowFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, instance, "getInstance(HashMap)",e));
+            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)",e));
          }
          throw e;
       }
@@ -77,20 +80,20 @@ public class NewWorkFlowFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, instance, "getInstance(HashMap)", e));
+            LogUtil.put(LogFactory.getInstance(error, this, "getInstance(HashMap)", e));
          }
          throw e;
       }
    }
  
    //For creating a new empty workflow
-   public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final String className) throws Exception, LicensingException
+   public WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final String className) throws Exception, LicensingException
    {
       try
       {
          if(className != null && className.compareTo("")!=0)
          {
-            final Object object = AbeFactory.getInstance(abeClientInformation, className, null, null);
+            final Object object = AbeFactory.getInstance().getInstance(abeClientInformation, className, null, null);
             return (WorkFlowInterface) new WorkFlowWrapper(object);
          }
          else throw new Exception("No WorkFlow ClassName");
@@ -102,7 +105,7 @@ public class NewWorkFlowFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()",e));
+            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()",e));
          }
          throw e;
       }
@@ -112,7 +115,7 @@ public class NewWorkFlowFactory
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORYERROR))
          {
-            LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()", e));
+            LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
          }
          throw e;
       }

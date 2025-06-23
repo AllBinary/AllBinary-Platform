@@ -36,10 +36,12 @@ public class StoreFrontInventoryStatistics
       InventoryEntityInterface inventoryEntityInterface = 
          InventoryEntityFactory.getInstance().getInventoryEntityInstance();
       Vector itemVector = inventoryEntityInterface.getItems(storeFrontInterface);
-      Iterator iter = itemVector.iterator();
-      while(iter.hasNext())
+      
+      final Object[] itemArray = itemVector.toArray();
+      final int size = itemArray.length;
+      for (int index = 0; index < size; index++)      
       {
-         ItemInterface itemInterface = (ItemInterface) iter.next();
+         ItemInterface itemInterface = (ItemInterface) itemArray[index];
          int numberInStock = Integer.valueOf(itemInterface.getNumber()).intValue();
          this.totalNumberOfItems = this.totalNumberOfItems + numberInStock;
 

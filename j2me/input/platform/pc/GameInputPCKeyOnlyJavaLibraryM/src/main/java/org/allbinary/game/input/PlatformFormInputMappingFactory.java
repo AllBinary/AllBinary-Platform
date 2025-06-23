@@ -23,9 +23,13 @@ public class PlatformFormInputMappingFactory
     private static final PlatformFormInputMappingFactory instance = 
         new PlatformFormInputMappingFactory();
     
-    private static InputToGameKeyMapping SINGLETON = null;
+    public static PlatformFormInputMappingFactory getInstance() {
+        return instance;
+    }
+    
+    private InputToGameKeyMapping SINGLETON = null;
 
-    public static InputToGameKeyMapping getInstance()
+    public InputToGameKeyMapping getOrCreate()
     {
         try
         {
@@ -51,7 +55,7 @@ public class PlatformFormInputMappingFactory
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, instance, CommonStrings.getInstance().GET_INSTANCE, e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_INSTANCE, e));
         }
         return SINGLETON;
     }

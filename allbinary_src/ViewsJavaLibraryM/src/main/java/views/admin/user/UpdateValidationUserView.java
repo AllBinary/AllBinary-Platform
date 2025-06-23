@@ -122,6 +122,6 @@ public class UpdateValidationUserView extends HttpContextView
 
    public String view() throws Exception
    {
-      return views.ValidationOnlyTempUtil.view(this);
+      return views.ValidationOnlyTempUtil.getInstance().view(this);
    }
 }

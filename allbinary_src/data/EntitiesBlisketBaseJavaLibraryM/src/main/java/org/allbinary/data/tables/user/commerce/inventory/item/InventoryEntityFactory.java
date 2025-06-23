@@ -38,7 +38,7 @@ public class InventoryEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (InventoryEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntity();
       }

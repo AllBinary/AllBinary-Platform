@@ -39,7 +39,6 @@ public class ItemView
     {
         HashMap hashMap = this.itemInterface.toHashMap();
         Set keySet = hashMap.keySet();
-        Iterator iterSet = keySet.iterator();
 
         Node node = document.createElement(ItemData.ITEM);
 
@@ -50,9 +49,11 @@ public class ItemView
 
         final StringUtil stringUtil = StringUtil.getInstance();
         
-        while (iterSet.hasNext())
+        final Object[] nameArray = keySet.toArray();
+        final int size = nameArray.length;
+        for (int index = 0; index < size; index++)
         {
-            String name = (String) iterSet.next();
+            String name = (String) nameArray[index];
             String value = (String) hashMap.get(name);
             value = stringUtil.getInstance(value);
             node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));

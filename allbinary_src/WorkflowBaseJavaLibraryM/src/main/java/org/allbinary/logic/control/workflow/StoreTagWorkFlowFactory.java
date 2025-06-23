@@ -28,11 +28,15 @@ public class StoreTagWorkFlowFactory
 
     private static final StoreTagWorkFlowFactory instance = new StoreTagWorkFlowFactory();
 
+    public static StoreTagWorkFlowFactory getInstance() {
+        return instance;
+    }
+
     private StoreTagWorkFlowFactory()
     {
     }
 
-    public static StoreWorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final HashMap propertiesHashMap, final PageContext pageContext) throws Exception, LicensingException
+    public StoreWorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, final HashMap propertiesHashMap, final PageContext pageContext) throws Exception, LicensingException
     {
         try
         {
@@ -48,7 +52,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append("->");
                 stringBuffer.append(instance.getClass().getName());
 
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, "getInstance()"));
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getInstance()"));
             }
 
             Object params[] = new Object[2];
@@ -56,13 +60,13 @@ public class StoreTagWorkFlowFactory
 
             //Add param types
             classes[0] = propertiesHashMap.getClass();
-            classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
+            classes[1] = AbeFactory.getInstance().getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
 
             //Add arguments
             params[0] = (Object) propertiesHashMap;
             params[1] = (Object) pageContext;
 
-            return (StoreWorkFlowInterface) AbeFactory.getInstance(abeClientInformation, workFlowClassName, classes, params);
+            return (StoreWorkFlowInterface) AbeFactory.getInstance().getInstance(abeClientInformation, workFlowClassName, classes, params);
         } catch (LicensingException e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
@@ -78,7 +82,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), instance, "getInstance(HashMap, PageContext)", e));
+                    stringBuffer.toString(), this, "getInstance(HashMap, PageContext)", e));
             }
             throw e;
         } catch (Exception e)
@@ -97,7 +101,7 @@ public class StoreTagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), instance, "getInstance(HashMap, PageContext)", e));
+                    stringBuffer.toString(), this, "getInstance(HashMap, PageContext)", e));
             }
             throw e;
         }

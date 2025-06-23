@@ -40,7 +40,7 @@ public class EditHeaderValidationView extends TopBarView implements ValidationCo
       try
       {
          this.heading = new HeadingValidation(
-            CustomizerUtil.getViewDataForComponentsInObjectConfig(
+            CustomizerUtil.getInstance().getViewDataForComponentsInObjectConfig(
                this.getTransformInfoInterface()));
          Boolean isValid = this.heading.isValid();
          return isValid;

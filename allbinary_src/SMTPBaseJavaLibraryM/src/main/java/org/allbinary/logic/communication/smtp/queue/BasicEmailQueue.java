@@ -13,15 +13,12 @@
 */
 package org.allbinary.logic.communication.smtp.queue;
 
-import org.allbinary.logic.communication.log.LogFactory;
 import java.util.Iterator;
-
 import javax.mail.Transport;
 
+import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-
 import org.allbinary.logic.communication.smtp.EmailInterface;
-
 import org.allbinary.logic.util.queue.BasicQueue;
 
 public class BasicEmailQueue extends BasicQueue
@@ -88,21 +85,21 @@ public class BasicEmailQueue extends BasicQueue
       }
    }
 
-   private static synchronized boolean send(EmailInterface emailInterface)
+   private synchronized boolean send(EmailInterface emailInterface)
    {
       try
       {
          //Should start thread here
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Sending: " + emailInterface.log(), instance, "send"));
+            LogUtil.put(LogFactory.getInstance("Sending: " + emailInterface.log(), this, "send"));
          }
          
          Transport.send(emailInterface.getMimeMessage());
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Email Send Debug: " + emailInterface.getDebugInfo(), instance, "send"));
+            LogUtil.put(LogFactory.getInstance("Email Send Debug: " + emailInterface.getDebugInfo(), this, "send"));
          }
          return true;
       }
@@ -112,7 +109,7 @@ public class BasicEmailQueue extends BasicQueue
          //Should fire email send event error
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance("Failed Email Send Debug: " + emailInterface.getDebugInfo(), instance, "send", e));
+            LogUtil.put(LogFactory.getInstance("Failed Email Send Debug: " + emailInterface.getDebugInfo(), this, "send", e));
          }
          return false;
       }

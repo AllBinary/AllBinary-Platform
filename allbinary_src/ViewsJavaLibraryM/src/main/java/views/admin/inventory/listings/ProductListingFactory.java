@@ -33,7 +33,7 @@ public class ProductListingFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (ProductListingInterface) InterfaceCastProxy.newInstance(object);
          return (ProductListingInterface) new views.admin.inventory.listings.ProductListing(searchRequest);
       }

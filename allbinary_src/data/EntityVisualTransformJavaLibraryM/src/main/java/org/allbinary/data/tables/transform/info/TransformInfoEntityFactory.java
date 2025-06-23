@@ -33,13 +33,13 @@ public class TransformInfoEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (StoreFrontsEntityInterface) InterfaceCastProxy.newInstance(object);
          return new TransformInfoEntity(
              transformInfoObjectConfigGeneratorFactoryInterface,
              transformInfoObjectConfigAndManipulatorFactoryInterface,
              transformInfoFactoryInterface);
-         //return (TransformInfoEntityInterface) AbeFactory.getInstance("org.allbinary.data.tables.transform.info.TransformInfoEntity");
+         //return (TransformInfoEntityInterface) AbeFactory.getInstance().getInstance("org.allbinary.data.tables.transform.info.TransformInfoEntity");
       }
       /*
       catch(LicensingException e)

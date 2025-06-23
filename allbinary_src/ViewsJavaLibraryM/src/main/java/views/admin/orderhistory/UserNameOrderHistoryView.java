@@ -172,7 +172,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
          LogUtil.put(LogFactory.getInstance("Started",this,"isValid()"));
       }      
       
-      if(UserName.isValid(this.userName) == Boolean.TRUE)
+      if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)
       {
          return Boolean.TRUE;
       }      
@@ -194,7 +194,7 @@ public class UserNameOrderHistoryView extends HttpStoreComponentView implements 
    {      
       if(this.userName==null) return "No User Name Specified<br />";
       
-      if(UserName.isValid(this.userName) == Boolean.FALSE)
+      if(UserName.getInstance().isValid(this.userName) == Boolean.FALSE)
       {
          return "Invalid User Name<br />";
       }

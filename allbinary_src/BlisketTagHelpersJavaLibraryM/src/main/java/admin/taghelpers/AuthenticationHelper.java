@@ -270,13 +270,13 @@ public class AuthenticationHelper
                     //Returning with existing authenticated session
                 	if(sessionUserName != null)
                 	{
-                    Iterator iter = roles.iterator();
-
                     BasicUserRole basicUserRole = role.getBasicUserRole();
 
-                    while (iter.hasNext())
+                    final Object[] basicUserRoleArray = roles.toArray();
+                    final int size = basicUserRoleArray.length;
+                    for (int index = 0; index < size; index++)
                     {
-                        BasicUserRole mustBeOfRole = (BasicUserRole) iter.next();
+                        BasicUserRole mustBeOfRole = (BasicUserRole) basicUserRoleArray[index];
                         if (basicUserRole.equals(mustBeOfRole))
                         {
                             if (basicUserRole.equals(UserRoleFactory.getInstance().CUSTOMER))

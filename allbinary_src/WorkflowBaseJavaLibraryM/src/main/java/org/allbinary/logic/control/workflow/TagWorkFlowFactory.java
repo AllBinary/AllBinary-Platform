@@ -29,11 +29,15 @@ public class TagWorkFlowFactory
 
     private static final TagWorkFlowFactory instance = new TagWorkFlowFactory();
 
+    public static TagWorkFlowFactory getInstance() {
+        return instance;
+    }
+    
     private TagWorkFlowFactory()
     {
     }
 
-    public static WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, 
+    public WorkFlowInterface getInstance(final AbeClientInformationInterface abeClientInformation, 
         final HashMap propertiesHashMap, final PageContext pageContext) throws Exception, LicensingException
     {
         try
@@ -45,13 +49,13 @@ public class TagWorkFlowFactory
 
             //Add param types
             classes[0] = propertiesHashMap.getClass();
-            classes[1] = AbeFactory.getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
+            classes[1] = AbeFactory.getInstance().getClass(abeClientInformation, "javax.servlet.jsp.PageContext");
 
             //Add arguments
             params[0] = (Object) propertiesHashMap;
             params[1] = (Object) pageContext;
 
-            return (WorkFlowInterface) AbeFactory.getInstance(abeClientInformation, workFlowClassName, classes, params);
+            return (WorkFlowInterface) AbeFactory.getInstance().getInstance(abeClientInformation, workFlowClassName, classes, params);
         } catch (LicensingException e)
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
@@ -67,7 +71,7 @@ public class TagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), instance, "getInstance(HashMap, PageContext)", e));
+                    stringBuffer.toString(), this, "getInstance(HashMap, PageContext)", e));
             }
             throw e;
         } catch (Exception e)
@@ -86,7 +90,7 @@ public class TagWorkFlowFactory
                 stringBuffer.append(instance.getClass().getName());
 
                 LogUtil.put(LogFactory.getInstance(
-                    stringBuffer.toString(), instance, "getInstance(HashMap, PageContext)", e));
+                    stringBuffer.toString(), this, "getInstance(HashMap, PageContext)", e));
             }
             throw e;
         }

@@ -44,7 +44,7 @@ public class EditCssValidationView extends CssCustomizerView implements Validati
       try
       {
          Document document = 
-            CustomizerUtil.getViewDataForComponentsInObjectConfig(
+            CustomizerUtil.getInstance().getViewDataForComponentsInObjectConfig(
                this.getTransformInfoInterface());
 
          this.styleValidationInterface = new EditCssStyleValidation(document);

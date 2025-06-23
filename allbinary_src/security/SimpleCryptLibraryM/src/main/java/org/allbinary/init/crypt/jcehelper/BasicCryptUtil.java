@@ -47,8 +47,8 @@ public class BasicCryptUtil
         }
 
         //TWB - debug output
-        //LogUtil.put(LogFactory.getInstance("Crypted: " + buffer.toString(), instance, "encRespXMLRPC"));
-        //PreLogUtil.put("Crypted: " + buffer.toString(), instance, "encRespXMLRPC");
+        //LogUtil.put(LogFactory.getInstance("Crypted: " + buffer.toString(), this, "encRespXMLRPC"));
+        //PreLogUtil.put("Crypted: " + buffer.toString(), this, "encRespXMLRPC");
 
         //String responseData = buffer.toString();
         //responseData = responseData.substring(PHPCRYPTHEADER.length());
@@ -59,17 +59,17 @@ public class BasicCryptUtil
         String decryptedString = new String(decrypted);
 
         ////LogUtil.put(decryptedString, this, "decRespXMLRPC");
-        //PreLogUtil.put(decryptedString, instance, "decRespXMLRPC");
+        //PreLogUtil.put(decryptedString, this, "decRespXMLRPC");
 
         int index = decryptedString.indexOf(XML_START);
         if (index > 0)
         {
-            //LogUtil.put(LogFactory.getInstance("Removing Pre Decrypted XML data", instance, "encRespXMLRPC"));
+            //LogUtil.put(LogFactory.getInstance("Removing Pre Decrypted XML data", this, "encRespXMLRPC"));
             ////System.out.println("Removing Pre Decrypted XML data");
             decryptedString = decryptedString.substring(index);
         }
 
-        //LogUtil.put(LogFactory.getInstance(new String(decryptedString), instance, "decRespXMLRPC"));
+        //LogUtil.put(LogFactory.getInstance(new String(decryptedString), this, "decRespXMLRPC"));
         ////PreLogUtil.put(new String(decryptedString), this, "decRespXMLRPC");
         return new ByteArrayInputStream(decryptedString.getBytes());
     }

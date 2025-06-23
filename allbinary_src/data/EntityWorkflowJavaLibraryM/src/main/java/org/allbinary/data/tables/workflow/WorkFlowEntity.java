@@ -99,7 +99,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
             keysAndValues.put(StoreFrontData.getInstance().NAME, storeName);
             final HashMap hashMap = super.getRow(keysAndValues);
 
-            return (WorkFlowInterface) DbWorkFlowFactory.getInstance(abeClientInformation, hashMap);
+            return (WorkFlowInterface) DbWorkFlowFactory.getInstance().getInstance(abeClientInformation, hashMap);
         }catch(LicensingException e)
         {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGING))
@@ -134,7 +134,7 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
                 HashMap workFlowHashMap = (HashMap) iter.next();
                 if(workFlowHashMap != null)
                 {
-                    workFlowsVector.add(DbWorkFlowFactory.getInstance(abeClientInformation, workFlowHashMap));
+                    workFlowsVector.add(DbWorkFlowFactory.getInstance().getInstance(abeClientInformation, workFlowHashMap));
                 }
             }
 

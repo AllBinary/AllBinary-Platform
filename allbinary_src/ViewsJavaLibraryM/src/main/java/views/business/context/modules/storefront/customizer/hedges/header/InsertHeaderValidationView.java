@@ -89,7 +89,7 @@ public class InsertHeaderValidationView extends TopBarView implements Validation
          if(isValid == Boolean.TRUE)
          {
             //Insert XML into the view specified by the Object Config for this view
-            CustomizerUtil.insert(
+            CustomizerUtil.getInstance().insert(
                this.getTransformInfoInterface(), (DomNodeInterface) this);
          }
          

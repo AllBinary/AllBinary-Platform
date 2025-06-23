@@ -64,7 +64,7 @@ public class BasicTransformer extends AbTransformer
             outputStream = (ByteArrayOutputStream)
                     this.streamUtil.get(inputStream, outputStream, new byte[16384]);
             
-            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getKey(abeClientInformation, file.getAbsolutePath()));
+            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getInstance().getKey(abeClientInformation, file.getAbsolutePath()));
             final byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPERFACTORY))
@@ -113,7 +113,7 @@ public class BasicTransformer extends AbTransformer
             outputStream = (ByteArrayOutputStream) 
                 this.streamUtil.get(inputStream, outputStream, new byte[16384]); 
             
-            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getKey(abeClientInformation, this.getTransformInfoInterface().getName()));
+            final AbCrypt abCrypt = new AbCrypt(KeySpecFactory.DESEDE, AbKeys.getInstance().getKey(abeClientInformation, this.getTransformInfoInterface().getName()));
 
             final byte[] decrypted = abCrypt.decrypt(outputStream.toByteArray());
 

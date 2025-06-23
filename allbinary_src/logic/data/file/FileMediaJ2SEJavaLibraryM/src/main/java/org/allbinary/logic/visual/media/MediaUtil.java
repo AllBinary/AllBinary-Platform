@@ -18,11 +18,15 @@ public class MediaUtil
 {
     private static final MediaUtil instance = new MediaUtil();
 
+    public static MediaUtil getInstance() {
+        return instance;
+    }
+
     private MediaUtil()
     {
     }
 
-    public static void saveImageFile(
+    public void saveImageFile(
         AbFile originalImageFile, String newImageFileName,
         String category, MediaData mediaData, int newWidth, int newHeight)
         throws Exception
@@ -41,9 +45,8 @@ public class MediaUtil
 
         if (LogConfigTypes.LOGGING.contains(LogConfigTypeFactory.getInstance().VIEW))
         {
-            HashMap hashMap = MediaUtil.getImageBufferPropertyHashMap(bufferedImage);
-            LogUtil.put(LogFactory.getInstance(
-                "Image Properties: " + hashMap.toString(), instance, "saveImageFile()"));
+            HashMap hashMap = this.getImageBufferPropertyHashMap(bufferedImage);
+            LogUtil.put(LogFactory.getInstance("Image Properties: " + hashMap.toString(), this, "saveImageFile()"));
         }
 
         final AbFile imageFile = new AbFile(category + newImageFileName);
@@ -92,7 +95,7 @@ public class MediaUtil
         	stringBuffer.append(imageFile.length());
 
             LogUtil.put(LogFactory.getInstance(
-            		stringBuffer.toString(), instance, "saveImageFile()"));        }
+            		stringBuffer.toString(), this, "saveImageFile()"));        }
     }
 
     private static HashMap getImageBufferPropertyHashMap(

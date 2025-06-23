@@ -54,7 +54,7 @@ public class EditValidationUserView extends UserView
    {
       try
       {         
-         if(UserName.isValid(this.userName) == Boolean.TRUE)
+         if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)
          {
             this.user = UserEntityFactory.getInstance().getUser(this.userName);
             if(this.user == null)
@@ -85,7 +85,7 @@ public class EditValidationUserView extends UserView
       {
          StringBuffer stringBuffer = new StringBuffer();
          
-         if(UserName.isValid(this.userName) == Boolean.TRUE)
+         if(UserName.getInstance().isValid(this.userName) == Boolean.TRUE)
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
             {

@@ -186,10 +186,12 @@ public class SearchParams
             new Integer(columnsAndSearchValues.size()).toString());
 
       Set set = this.columnsAndSearchValues.keySet();
-      Iterator columnIter = set.iterator();
-      while(columnIter.hasNext())
+      
+      final Object[] searchValueArray = set.toArray();
+      final int size = searchValueArray.length;
+      for (int index = 0; index < size; index++)
       {
-         String key = (String) columnIter.next();
+         String key = (String) searchValueArray[index];
          String searchValue = (String) this.columnsAndSearchValues.get(key);
 
          fieldsNode.appendChild(ModDomHelper.createNameValueNodes(document, SearchData.FIELD, key, ToDomHelper.convertNull(searchValue)));

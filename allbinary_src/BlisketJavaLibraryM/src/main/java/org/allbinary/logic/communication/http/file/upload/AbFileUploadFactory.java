@@ -30,11 +30,15 @@ public class AbFileUploadFactory
 {
     private static final AbFileUploadFactory instance = new AbFileUploadFactory();
 
+    public static AbFileUploadFactory getInstance() {
+        return instance;
+    }
+    
     private AbFileUploadFactory()
     {
     }
 
-    public static List getFileItemStreamList(HttpServletRequest httpServletRequest) throws Exception
+    public List getFileItemStreamList(HttpServletRequest httpServletRequest) throws Exception
     {
         try
         {
@@ -50,7 +54,7 @@ public class AbFileUploadFactory
                 AbFileItem fileItem = new AbFileItem(
                     fileItemStream.getName(),
                     fileItemStream.getFieldName(),
-                    FileItemUtil.getBytes(fileItemStream));
+                    FileItemUtil.getInstance().getBytes(fileItemStream));
                 
                 items.add(fileItem);
             }
@@ -60,14 +64,14 @@ public class AbFileUploadFactory
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
                 String error = "Failed to parse Uploaded Files";
-                LogUtil.put(LogFactory.getInstance(error, instance, "get()", e));
+                LogUtil.put(LogFactory.getInstance(error, this, "get()", e));
             }
             throw e;
         }
     }
 
     //Returns a list of FileItems
-    public static List getFileItemList(HttpServletRequest httpServletRequest) throws Exception
+    public List getFileItemList(HttpServletRequest httpServletRequest) throws Exception
     {
         try
         {
@@ -79,7 +83,7 @@ public class AbFileUploadFactory
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                LogUtil.put(LogFactory.getInstance(error, instance, "get()", e));
+                LogUtil.put(LogFactory.getInstance(error, this, "get()", e));
             }
             throw e;
         }

@@ -33,19 +33,19 @@ public class AbPathUtilOld
    {
    }
 
-   public static String getExtension(AbFilePath abFilePath) 
+   public String getExtension(AbFilePath abFilePath) 
       throws Exception
    {
-      return AbPathUtilOld.getExtension(abFilePath.toString());
+      return this.getExtension(abFilePath.toString());
    }
 
-   public static String getExtension(AbPath abPath) 
+   public String getExtension(AbPath abPath) 
       throws Exception
    {
-      return AbPathUtilOld.getExtension(abPath.toString());
+      return this.getExtension(abPath.toString());
    }
 
-   public static String getExtension(String filePath) throws Exception
+   public String getExtension(String filePath) throws Exception
    {
       if(filePath.length() < MIN)
       {
@@ -59,25 +59,25 @@ public class AbPathUtilOld
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("FileExtension: " + extension, instance, "getExtension()"));
+         LogUtil.put(LogFactory.getInstance("FileExtension: " + extension, this, "getExtension()"));
       }
 
       return extension;
    }
 
-   public static String getWithoutExtension(AbFilePath abFilePath) 
+   public String getWithoutExtension(AbFilePath abFilePath) 
       throws Exception
    {
-      return AbPathUtilOld.getWithoutExtension(abFilePath.toString());
+      return this.getWithoutExtension(abFilePath.toString());
    }
    
-   public static String getWithoutExtension(AbPath abPath) 
+   public String getWithoutExtension(AbPath abPath) 
       throws Exception
    {
-      return AbPathUtilOld.getWithoutExtension(abPath.toString());
+      return this.getWithoutExtension(abPath.toString());
    }
    
-   public static String getWithoutExtension(String filePath) throws Exception
+   public String getWithoutExtension(String filePath) throws Exception
    {
       if(filePath.length() < MIN)
       {
@@ -91,16 +91,16 @@ public class AbPathUtilOld
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
-         LogUtil.put(LogFactory.getInstance("FileWithoutExtension: " + pathWithoutExtension, instance, "getWithoutExtension()"));
+         LogUtil.put(LogFactory.getInstance("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()"));
       }
       return pathWithoutExtension;
    }
 
-   public static boolean isValid(String path)
+   public boolean isValid(String path)
    {
-      if(AbPathUtilOld.isValidStart(path))
+      if(this.isValidStart(path))
       {
-         if(AbPathUtilOld.isValidEnd(path))
+         if(this.isValidEnd(path))
          {
             return true;
          }
@@ -108,7 +108,7 @@ public class AbPathUtilOld
       return false;
    }
 
-   private static boolean isValidStart(String path)
+   private boolean isValidStart(String path)
    {
       if(path.charAt(0) == AbPathData.getInstance().SEPARATORCHAR)
       {
@@ -120,7 +120,7 @@ public class AbPathUtilOld
       }
    }
 
-   private static boolean isValidEnd(String path)
+   private boolean isValidEnd(String path)
    {
       if(StringValidationUtil.getInstance().isEmpty(path))
       {
@@ -137,18 +137,18 @@ public class AbPathUtilOld
       }
    }
 
-   public static String adjustStart(String path)
+   public String adjustStart(String path)
    {
-      if(!AbPathUtilOld.isValidStart(path))
+      if(!this.isValidStart(path))
       {
          path = AbPathData.getInstance().SEPARATOR + path;
       }
       return path;
    }
 
-   public static String adjustEnd(String path)
+   public String adjustEnd(String path)
    {
-      if(!AbPathUtilOld.isValidEnd(path))
+      if(!this.isValidEnd(path))
       {
          path = path + AbPathData.getInstance().SEPARATOR;
       }
@@ -171,13 +171,13 @@ public class AbPathUtilOld
       /*
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
       {
-         LogUtil.put(LogFactory.getInstance("Path: " + path, instance, "adjust"));
+         LogUtil.put(LogFactory.getInstance("Path: " + path, this, "adjust"));
       }
        */
       return path;
    }
    
-   public static synchronized String getNameFromPath(String categoryPath)
+   public synchronized String getNameFromPath(String categoryPath)
    {
       int endIndex = categoryPath.lastIndexOf(AbPathData.getInstance().SEPARATOR);
       
@@ -192,7 +192,7 @@ public class AbPathUtilOld
       if(categoryPath.length() == endIndex + 1)
       {
          String categoryName = categoryPath.substring(0, endIndex);
-         return AbPathUtilOld.getNameFromPath(categoryName);
+         return this.getNameFromPath(categoryName);
       }
       else
       {
@@ -201,7 +201,7 @@ public class AbPathUtilOld
       }
    }
 
-   public static synchronized AbPath removeNameFromPath(String categoryPath) throws Exception
+   public synchronized AbPath removeNameFromPath(String categoryPath) throws Exception
    {   
       int endIndex = categoryPath.lastIndexOf(AbPathData.getInstance().SEPARATOR);
 
@@ -218,7 +218,7 @@ public class AbPathUtilOld
       //if the last char is sep then use the last token as the name
       if(categoryPath.length() == endIndex + 1)
       {
-         return AbPathUtilOld.removeNameFromPath(categoryPath.substring(0, endIndex - 1));
+         return this.removeNameFromPath(categoryPath.substring(0, endIndex - 1));
       }
       else
       {

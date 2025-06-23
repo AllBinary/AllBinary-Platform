@@ -42,7 +42,7 @@ public class GeneratorStoreFrontContextView extends HttpStoreComponentView
    protected String view(String group) throws Exception
    {
      String result = 
-        TransformsGeneratorUtil.generateComponentsFromObjectConfig(
+        TransformsGeneratorUtil.getInstance().generateComponentsFromObjectConfig(
             this.abeClientInformation,
            this.getTransformInfoInterface(), group);
 

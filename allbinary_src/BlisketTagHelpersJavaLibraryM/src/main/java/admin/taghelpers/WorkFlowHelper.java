@@ -42,7 +42,7 @@ public class WorkFlowHelper implements BasicTableInterface
    {
       try
       {
-         return WorkFlowEntityFactory.getInstance().dropTable();
+         return WorkFlowEntityFactory.getInstance().create2().dropTable();
       }
       catch(Exception e)
       {
@@ -59,7 +59,7 @@ public class WorkFlowHelper implements BasicTableInterface
    {
       try
       {
-         return WorkFlowEntityFactory.getInstance().createTable();
+         return WorkFlowEntityFactory.getInstance().create2().createTable();
       }
       catch(Exception e)
       {
@@ -77,7 +77,7 @@ public class WorkFlowHelper implements BasicTableInterface
       try
       {
          final String success = "Restore Successful";
-         final String result = AbSqlTableUtil.getInstance().restoreTable(WorkFlowEntityFactory.getInstance(), this.portion);
+         final String result = AbSqlTableUtil.getInstance().restoreTable(WorkFlowEntityFactory.getInstance().create2(), this.portion);
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"restore()"));
@@ -101,7 +101,7 @@ public class WorkFlowHelper implements BasicTableInterface
       try
       {
          final String success = "Restore Successful";
-         final String result = AbSqlTableUtil.getInstance().backupTable(WorkFlowEntityFactory.getInstance());
+         final String result = AbSqlTableUtil.getInstance().backupTable(WorkFlowEntityFactory.getInstance().create2());
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLTAGS))
          {
             LogUtil.put(LogFactory.getInstance(success,this,"backup()"));

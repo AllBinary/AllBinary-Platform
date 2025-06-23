@@ -54,7 +54,7 @@ public class NewCssValidationView extends CssCustomizerView implements Validatio
          //if(isValid == Boolean.TRUE)
          {
             //Insert XML into the view specified by the Object Config for this view
-            CustomizerUtil.insert(this.getTransformInfoInterface(),(DomNodeInterface) this.styleValidationInterface);
+            CustomizerUtil.getInstance().insert(this.getTransformInfoInterface(),(DomNodeInterface) this.styleValidationInterface);
          }
          
          //return isValid;
@@ -102,6 +102,6 @@ public class NewCssValidationView extends CssCustomizerView implements Validatio
    
    public String view() throws Exception
    {
-      return views.ValidationOnlyTempUtil.view(this);
+      return views.ValidationOnlyTempUtil.getInstance().view(this);
    }
 }

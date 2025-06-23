@@ -65,7 +65,7 @@ public class StoreTagWorkFlowHelper
          LogUtil.put(LogFactory.getInstance("Properties: " + hashMap.toString(), this, "StoreTagWorkFlowHelper()"));
       }
       
-      this.storeWorkFlowInterface = StoreTagWorkFlowFactory.getInstance(this.abeClientInformation, hashMap, pageContext);
+      this.storeWorkFlowInterface = StoreTagWorkFlowFactory.getInstance().getInstance(this.abeClientInformation, hashMap, pageContext);
            
    }
       

@@ -265,18 +265,17 @@ public class AuthenticationRequestHelper
          {
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAGHELPER))
             {
-               LogUtil.put(LogFactory.getInstance("Role is null: " + userInterface.getRole() +
-                  " Valid Roles: " + roles.toString(),
-                  this, "isRoleValid()"));
+               LogUtil.put(LogFactory.getInstance("Role is null: " + userInterface.getRole() + " Valid Roles: " + roles.toString(),this, "isRoleValid()"));
             }
             
             return Boolean.FALSE;
          }
          
-         Iterator iter = roles.iterator();
-         while(iter.hasNext())
+         final Object[] basicUserRoleArray = roles.toArray();
+         final int size = basicUserRoleArray.length;
+         for (int index = 0; index < size; index++)
          {
-            BasicUserRole nextRole = (BasicUserRole) iter.next();
+            BasicUserRole nextRole = (BasicUserRole) basicUserRoleArray[index];
             if(userInterface.getRole().getBasicUserRole().equals(nextRole))
             {
                //role is verified

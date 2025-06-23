@@ -118,7 +118,7 @@ public class InputAutomationModuleConfiguration
             LogUtil.put(LogFactory.getInstance("ClassName: " + className, this, this.commonStrings.INIT));
 
             this.setInputAutomationModuleInterface(
-                    (InputAutomationModuleFactoryInterface) AbeFactory.getInstance(abeClientInformation, getClassName()));
+                    (InputAutomationModuleFactoryInterface) AbeFactory.getInstance().getInstance().getInstance(abeClientInformation, getClassName()));
 
         } catch(Exception e) {
             LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, this.commonStrings.INIT, e));

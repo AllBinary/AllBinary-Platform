@@ -29,16 +29,16 @@ public class ValidatorFactory
          Class[] classes = new Class[3];
          
          //Add param types
-         classes[0] = AbeFactory.getClass("org.allbinary.logic.visual.transform.info.ValidationInterface");
+         classes[0] = AbeFactory.getInstance().getClass("org.allbinary.logic.visual.transform.info.ValidationInterface");
          classes[1] = this.propertiesHashMap.getClass();
-         classes[2] = AbeFactory.getClass("javax.servlet.jsp.PageContext");
+         classes[2] = AbeFactory.getInstance().getClass("javax.servlet.jsp.PageContext");
          
          //Add arguments
          params[0] = (Object) this;
          params[1] = (Object) this.propertiesHashMap;
          params[2] = (Object) pageContext;
          
-         return (ValidationInterface) AbeFactory.getInstance(this.getValidationClassFile(), classes, params);
+         return (ValidationInterface) AbeFactory.getInstance().getInstance(this.getValidationClassFile(), classes, params);
       }
       catch(LicensingException e)
       {

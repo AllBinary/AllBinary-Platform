@@ -54,7 +54,7 @@ public class EditValidationView extends WorkFlowView implements ValidationCompon
             return Boolean.FALSE;
          }
          
-         if(WorkFlowEntityFactory.getInstance().get(
+         if(WorkFlowEntityFactory.getInstance().create2().get(
             this.workFlowName, 
             this.getTransformInfoInterface().getStoreName())==null)
          {
@@ -88,7 +88,7 @@ public class EditValidationView extends WorkFlowView implements ValidationCompon
             stringBuffer.append("WorkFlow name is invalid<br />");
          }
          
-         if(WorkFlowEntityFactory.getInstance().get(
+         if(WorkFlowEntityFactory.getInstance().create2().get(
             this.workFlowName, 
             this.getTransformInfoInterface().getStoreName())==null)
          {

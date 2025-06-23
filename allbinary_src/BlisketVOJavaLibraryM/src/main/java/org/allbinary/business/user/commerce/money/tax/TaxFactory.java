@@ -40,8 +40,12 @@ import org.allbinary.logic.visual.transform.info.objectConfig.TransformInfoObjec
 public class TaxFactory
 {
     private static final TaxFactory instance = new TaxFactory();
+    
+    public static TaxFactory getInstance() {
+        return instance;
+    }
 	
-   private final static String TAXATIONFILENAME = "taxationMethod.xml";
+   private final String TAXATIONFILENAME = "taxationMethod.xml";
    
    private TaxFactory()
    {
@@ -49,7 +53,7 @@ public class TaxFactory
    
    //StreetAddress streetAddress, StoreFrontInterface storeFrontInterface
    //streetAddress, storeFrontInterface
-   public static TaxModuleInterface getInstance(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
+   public TaxModuleInterface getInstance(final AbeClientInformationInterface abeClientInformation, final StoreFrontInterface storeFrontInterface) throws Exception
    {
 	   final StringBuffer stringBuffer = new StringBuffer();
 	   
@@ -87,13 +91,13 @@ public class TaxFactory
             if(classNameNode!=null)
             {
                final String className = DomNodeHelper.getTextNodeValue(classNameNode);
-               return (TaxModuleInterface) AbeFactory.getInstance(abeClientInformation, className);
+               return (TaxModuleInterface) AbeFactory.getInstance().getInstance(abeClientInformation, className);
             }
             else
             {
                if(  org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
                {
-                  LogUtil.put(LogFactory.getInstance("Class Node Null", instance, "getInstance()"));
+                  LogUtil.put(LogFactory.getInstance("Class Node Null", this, "getInstance()"));
                }
             }
          }
@@ -101,7 +105,7 @@ public class TaxFactory
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().TAX))
             {
-               LogUtil.put(LogFactory.getInstance("Tax Name Node Node Children", instance, "getInstance()"));
+               LogUtil.put(LogFactory.getInstance("Tax Name Node Node Children", this, "getInstance()"));
             }
          }
          

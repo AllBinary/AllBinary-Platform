@@ -198,9 +198,7 @@ public class NameSpaceRequestParam
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                   org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
-                  LogUtil.put(LogFactory.getInstance(
-                          "\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,
-                     this, "generatePackagePropertiesHashMap()"));
+                  LogUtil.put(LogFactory.getInstance("\nProperty Name: " + propertyName + "\nProperty Value: " + propertyValue,this, "generatePackagePropertiesHashMap()"));
                }
                packagePropertiesHashMap.put(propertyName, propertyValue);
             }
@@ -218,7 +216,7 @@ public class NameSpaceRequestParam
    {
       StringBuffer stringBuffer = new StringBuffer();
       
-      Iterator iter = this.nameSpaceVector.iterator();
+      nameSpaceVector
       while(iter.hasNext())
       {
          String packageName = (String) iter.next();

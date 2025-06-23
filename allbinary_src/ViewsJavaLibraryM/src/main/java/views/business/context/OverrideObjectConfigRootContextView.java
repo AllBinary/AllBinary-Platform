@@ -91,8 +91,10 @@ public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
             LogUtil.put(LogFactory.getInstance("Retrieved OverrideObjectConfig: " + DomDocumentHelper.toString(overrideObjectConfigDocument), this, "view()"));
          }
 
+         final TransformFactory transformFactory = TransformFactory.getInstance();
+         
          TransformInterface rootComponentInterface = 
-            TransformFactory.getInstance(this.abeClientInformation,
+            transformFactory.getInstance(this.abeClientInformation,
                rootTransformInfoInterface.getName(), rootTransformInfoInterface);
 
          TransformTemplateInterface transformTemplateInterface = 
@@ -100,7 +102,7 @@ public class OverrideObjectConfigRootContextView extends HttpStoreComponentView
 
          //The view that the Root is pointing to as specified in its TransformInfoObjectConfig
          TransformInterface componentInterface = 
-            TransformFactory.getInstance(this.abeClientInformation,
+            transformFactory.getInstance(this.abeClientInformation,
                transformTemplateInterface.getName(),
                rootComponentInterface.getTransformInfoInterface());
 

@@ -34,14 +34,14 @@ public class WorkFlowRequestHelper implements ModifyTableInterface
    
    public WorkFlowRequestHelper(HashMap hashMap, PageContext pageContext) throws Exception
    {
-      this.workFlowInterface = NewWorkFlowFactory.getInstance(this.abeClientInformation, hashMap, pageContext);
+      this.workFlowInterface = NewWorkFlowFactory.getInstance().getInstance(this.abeClientInformation, hashMap, pageContext);
    }
    
    public String delete() throws Exception
    {
       try
       {
-         WorkFlowEntityFactory.getInstance().delete(
+         WorkFlowEntityFactory.getInstance().create2().delete(
          this.workFlowInterface.getName(), "");
          //this.workFlowInterface.getStoreName());
          
@@ -89,7 +89,7 @@ public class WorkFlowRequestHelper implements ModifyTableInterface
       try
       {
          //Vector values = this.workFlowInterface.toVector();
-         //WorkFlowEntityFactory.getInstance().insert(values);
+         //WorkFlowEntityFactory.getInstance().create2().insert(values);
 
          String success
          = "New User Successfully added to the Users Table";
@@ -117,7 +117,7 @@ public class WorkFlowRequestHelper implements ModifyTableInterface
       {
          //HashMap values = this.workFlowInterface.toHashMap();
          
-         //WorkFlowEntityFactory.getInstance().update(values);
+         //WorkFlowEntityFactory.getInstance().create2().update(values);
          
          String success = "Updated WorkFlow Successfully";
          

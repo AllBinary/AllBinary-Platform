@@ -129,6 +129,21 @@ public class BasicArrayList
         return false;
     }
 
+    public boolean removeAll2(final BasicArrayList list) {
+    
+        boolean result = true;
+        
+        final int size = list.size();
+        for(int index = 0; index < size; index++) {
+            if(this.remove(list.get(index))) {
+            } else {
+                result = false;
+            }
+        }
+
+        return result;
+    }
+    
     public boolean addAll2(final BasicArrayList list)
     {
         ensureCapacity(currentIndex + list.currentIndex);

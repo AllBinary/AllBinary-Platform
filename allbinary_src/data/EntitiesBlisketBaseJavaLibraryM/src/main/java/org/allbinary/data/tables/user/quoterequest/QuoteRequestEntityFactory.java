@@ -38,7 +38,7 @@ public class QuoteRequestEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (QuoteRequestEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.user.quoterequest.QuoteRequestEntity();
       }

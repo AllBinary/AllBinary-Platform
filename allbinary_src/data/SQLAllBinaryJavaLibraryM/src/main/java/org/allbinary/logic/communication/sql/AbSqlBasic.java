@@ -29,6 +29,8 @@ import org.allbinary.logic.string.StringUtil;
 
 public class AbSqlBasic
 {
+    private final SqlConnectionPool sqlConnectionPool = SqlConnectionPool.getInstance();
+        
     private DbConnectionInfo databaseConnectionInfoInterface;
     private int connectAttemptCounter;
     //private boolean isInitialized = false;
@@ -115,7 +117,7 @@ public class AbSqlBasic
 
             Connection tempConnection = this.conn;
             this.conn = null;
-            SqlConnectionPool.add(this.getDatabaseConnectionInfoInterface().getUrl(), tempConnection);
+            sqlConnectionPool.add(this.getDatabaseConnectionInfoInterface().getUrl(), tempConnection);
 
             return rset;
         } catch (SQLException e)
@@ -176,8 +178,7 @@ public class AbSqlBasic
             }
             else
             {*/
-            this.conn = SqlConnectionPool.get(
-                    this.getDatabaseConnectionInfoInterface().getUrl());
+            this.conn = sqlConnectionPool.get(this.getDatabaseConnectionInfoInterface().getUrl());
             //}
 
         } catch (SQLException se)

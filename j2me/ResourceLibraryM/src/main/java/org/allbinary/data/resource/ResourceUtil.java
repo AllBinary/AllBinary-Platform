@@ -37,7 +37,7 @@ public class ResourceUtil {
 //        return ResourceUtil.classLoader;
 //    }
     public void setClassLoader(final ClassLoader classLoader) {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Resource Loader: ").append(classLoader.getClass().getName()).toString(), instance, "setClassLoader"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Resource Loader: ").append(classLoader.getClass().getName()).toString(), this, "setClassLoader"));
 
         ResourceUtil.classLoader = classLoader;
     }

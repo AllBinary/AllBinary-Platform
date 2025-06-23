@@ -45,9 +45,7 @@ public class WorkFlowsView extends HttpStoreComponentView implements DomNodeInte
    {
       super(transformInfoInterface);
       
-      this.workFlowsVector = 
-         WorkFlowEntityFactory.getInstance().get(
-            this.getWeblisketSession().getStoreName());
+      this.workFlowsVector = WorkFlowEntityFactory.getInstance().create2().get(this.getWeblisketSession().getStoreName());
    }
    
    public void addDomNodeInterfaces()

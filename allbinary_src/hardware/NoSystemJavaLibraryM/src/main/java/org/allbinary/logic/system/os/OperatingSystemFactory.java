@@ -54,7 +54,7 @@ public class OperatingSystemFactory
             String error = "Failed to get instance";
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FACTORYERROR))
             //{
-                LogUtil.put(LogFactory.getInstance(error, instance, "getInstance()", e));
+                LogUtil.put(LogFactory.getInstance(error, this, "getInstance()", e));
             //}
         }
         return GenericOperatingSystem;

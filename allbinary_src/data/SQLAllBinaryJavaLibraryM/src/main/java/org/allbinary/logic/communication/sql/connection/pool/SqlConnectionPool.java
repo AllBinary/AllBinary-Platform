@@ -26,49 +26,53 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class SqlConnectionPool
 {
-    private static HashMap connectionHashMap = null;
-
     private static final SqlConnectionPool instance = new SqlConnectionPool();
+    
+    public static SqlConnectionPool getInstance() {
+        return instance;
+    }
 
-    private static final String FIRST_NEW_CONNECTION_CREATED = "First New Connection Created: ";
-    private static final String FIRST = "First ";
-    private static final String NEW_CONNECTION_FOR = "New Connection For ";
-    private static final String CREATED = " Created";
-    private static final String NUMBER_OF_SQL_CONNECTIONS_FOR = "Number Of Sql Connections for: ";
-    private static final String NUMBER_OF_SQL_CONNECTION_VECTORS = "Number Of Sql Connection Vectors: ";
+    private HashMap connectionHashMap = null;
+
+    private final String FIRST_NEW_CONNECTION_CREATED = "First New Connection Created: ";
+    private final String FIRST = "First ";
+    private final String NEW_CONNECTION_FOR = "New Connection For ";
+    private final String CREATED = " Created";
+    private final String NUMBER_OF_SQL_CONNECTIONS_FOR = "Number Of Sql Connections for: ";
+    private final String NUMBER_OF_SQL_CONNECTION_VECTORS = "Number Of Sql Connection Vectors: ";
     
-    private static final String IS = " is ";
-    private static final String CONNECTION_ALLREADY_CLOSED = "Connection AllReady Closed";
+    private final String IS = " is ";
+    private final String CONNECTION_ALLREADY_CLOSED = "Connection AllReady Closed";
     
-    private static final String METHOD_GET = "get()";
-    private static final String METHOD_ADD = "add()";
+    private final String METHOD_GET = "get()";
+    private final String METHOD_ADD = "add()";
     
     private SqlConnectionPool()
     {
     }
 
     /*
-    public static synchronized Connection get(String url, String userid, String password) throws SQLException
+    public synchronized Connection get(String url, String userid, String password) throws SQLException
     {
     }
      */
-    public static synchronized Connection get(String url) throws SQLException
+    public synchronized Connection get(String url) throws SQLException
     {
-        if (SqlConnectionPool.connectionHashMap == null)
+        if (this.connectionHashMap == null)
         {
-            SqlConnectionPool.connectionHashMap = new HashMap();
+            this.connectionHashMap = new HashMap();
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                 org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
             {
-                LogUtil.put(LogFactory.getInstance(FIRST_NEW_CONNECTION_CREATED + url, instance, METHOD_GET));
+                LogUtil.put(LogFactory.getInstance(FIRST_NEW_CONNECTION_CREATED + url, this, METHOD_GET));
             }
 
             return DriverManager.getConnection(url);
         } else
         {
             Vector connectionVector =
-                (Vector) SqlConnectionPool.connectionHashMap.get(url);
+                (Vector) this.connectionHashMap.get(url);
 
             if (connectionVector == null)
             {
@@ -84,7 +88,7 @@ public class SqlConnectionPool
                     stringBuffer.append(url);
                     stringBuffer.append(CREATED);
 
-                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, METHOD_GET));
+                    LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET));
                 }
 
                 return DriverManager.getConnection(url);
@@ -93,7 +97,7 @@ public class SqlConnectionPool
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                     org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
                 {
-                    LogUtil.put(LogFactory.getInstance(new StringBuilder().append(NEW_CONNECTION_FOR).append(url).append(CREATED).toString(), instance, METHOD_GET));
+                    LogUtil.put(LogFactory.getInstance(new StringBuilder().append(NEW_CONNECTION_FOR).append(url).append(CREATED).toString(), this, METHOD_GET));
                 }
                 return DriverManager.getConnection(url);
             } else
@@ -107,7 +111,7 @@ public class SqlConnectionPool
                     if (!sqlConnection.isClosed())
                     {
                         connectionVector.remove(sqlConnection);
-                        SqlConnectionPool.connectionHashMap.put(url, connectionVector);
+                        this.connectionHashMap.put(url, connectionVector);
 
                         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
                             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
@@ -120,8 +124,8 @@ public class SqlConnectionPool
                             stringBuffer.append(connectionVector.size());
 
                             LogUtil.put(LogFactory.getInstance(NUMBER_OF_SQL_CONNECTION_VECTORS
-                                + SqlConnectionPool.connectionHashMap.size(), instance, METHOD_GET));
-                            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, METHOD_GET));
+                                + this.connectionHashMap.size(), this, METHOD_GET));
+                            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET));
                         }
                         return (Connection) sqlConnection;
                     }
@@ -139,13 +143,13 @@ public class SqlConnectionPool
             stringBuffer.append(url);
             stringBuffer.append(CREATED);
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, METHOD_GET));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_GET));
         }
 
         return DriverManager.getConnection(url);
     }
 
-    public static synchronized void add(String url, Connection sqlConnection)
+    public synchronized void add(String url, Connection sqlConnection)
         throws SQLException
     {
         //sqlConnection.close();
@@ -156,15 +160,15 @@ public class SqlConnectionPool
         {
             Vector connectionVector;
 
-            if (SqlConnectionPool.connectionHashMap == null)
+            if (this.connectionHashMap == null)
             {
-                SqlConnectionPool.connectionHashMap = new HashMap();
+                this.connectionHashMap = new HashMap();
                 connectionVector = new Vector();
                 connectionVector.add(sqlConnection);
             } else
             {
                 connectionVector =
-                    (Vector) SqlConnectionPool.connectionHashMap.get(url);
+                    (Vector) this.connectionHashMap.get(url);
 
                 if (connectionVector == null)
                 {
@@ -172,7 +176,7 @@ public class SqlConnectionPool
                 }
 
                 connectionVector.add(sqlConnection);
-                SqlConnectionPool.connectionHashMap.put(url, connectionVector);
+                this.connectionHashMap.put(url, connectionVector);
             }
 
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
@@ -188,20 +192,20 @@ public class SqlConnectionPool
 
 
                 LogUtil.put(LogFactory.getInstance(NUMBER_OF_SQL_CONNECTION_VECTORS
-                    + SqlConnectionPool.connectionHashMap.size(), instance, METHOD_ADD));
-                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), instance, METHOD_ADD));
+                    + this.connectionHashMap.size(), this, METHOD_ADD));
+                LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, METHOD_ADD));
             }
         }
 
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
             org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().SQLLOGGINGPOOL))
         {
-            LogUtil.put(LogFactory.getInstance(CONNECTION_ALLREADY_CLOSED, instance, METHOD_ADD));
+            LogUtil.put(LogFactory.getInstance(CONNECTION_ALLREADY_CLOSED, this, METHOD_ADD));
         }
     }
 
     /*
-    public static synchronized void add(String url, String userid, String password, Connection sqlConnection) throws SQLException
+    public synchronized void add(String url, String userid, String password, Connection sqlConnection) throws SQLException
     {
     }
      */

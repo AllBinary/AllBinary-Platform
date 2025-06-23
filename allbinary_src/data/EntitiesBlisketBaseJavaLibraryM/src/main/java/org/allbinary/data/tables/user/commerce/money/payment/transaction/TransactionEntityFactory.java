@@ -38,7 +38,7 @@ public class TransactionEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (TransactionEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.user.commerce.money.payment.transaction.TransactionEntity();
       }

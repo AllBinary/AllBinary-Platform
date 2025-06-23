@@ -29,7 +29,7 @@ public class MediaPlayerUtil
         int index = 0;
         while (mediaPlayer.isPlaying() && index < 50)
         {
-            LogUtil.put(LogFactory.getInstance(MESSAGE, instance, METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(MESSAGE, this, METHOD_NAME));
             Thread.sleep(100);
             index++;
         }

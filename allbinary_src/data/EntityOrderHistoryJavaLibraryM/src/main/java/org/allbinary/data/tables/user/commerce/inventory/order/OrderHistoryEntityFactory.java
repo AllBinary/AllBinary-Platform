@@ -28,7 +28,7 @@ public class OrderHistoryEntityFactory
    {
       try
       {
-         //Object object = AbeFactory.getInstance(CLASSNAME);
+         //Object object = AbeFactory.getInstance().getInstance(CLASSNAME);
          //return (OrderHistoryEntityInterface) InterfaceCastProxy.newInstance(object);
          return new org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntity();
       }

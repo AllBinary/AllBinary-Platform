@@ -59,6 +59,7 @@ import views.business.context.modules.storefront.HttpStoreComponentView;
 public class ShippingMethodsView extends HttpStoreComponentView implements DomNodeInterface
 //extends allbinary.business.component.user.commerce.inventory.shipping.ShippingMethods
 {
+
    private ShippingMethods shippingMethods;
    private StoreFrontInterface storeFrontInterface;
    
@@ -110,9 +111,7 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
                
                Money shippingCost = shipping.getCost(order);
                Money subTotal = basket.getSubTotal();
-               Float taxRate = 
-                  TaxFactory.getInstance(this.abeClientInformation, storeFrontInterface
-                     ).getTaxRate(streetAddress, storeFrontInterface);
+               Float taxRate = TaxFactory.getInstance().getInstance(this.abeClientInformation, storeFrontInterface).getTaxRate(streetAddress, storeFrontInterface);
 
                Money tax = new Money();
                Money total = new Money();

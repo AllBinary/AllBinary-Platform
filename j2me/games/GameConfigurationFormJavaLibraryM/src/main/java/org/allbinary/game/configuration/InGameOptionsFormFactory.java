@@ -25,9 +25,13 @@ public class InGameOptionsFormFactory
 {
     private static final InGameOptionsFormFactory instance = new InGameOptionsFormFactory();
 
-    private static InGameOptionsForm SINGLETON;
+    public static InGameOptionsFormFactory getInstance() {
+        return instance;
+    }
 
-    public static void init(CommandListener commandListener, Init initInterface, String title,
+    private InGameOptionsForm SINGLETON;
+
+    public void init(CommandListener commandListener, Init initInterface, String title,
             BasicColor backgrounBasicColor, BasicColor foregroundBasicColor)
     {
         try
@@ -39,11 +43,11 @@ public class InGameOptionsFormFactory
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, instance, CommonStrings.getInstance().INIT, e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e));
         }
     }
     
-    public static InGameOptionsForm getInstance()
+    public InGameOptionsForm get()
     {
         return SINGLETON;
     }

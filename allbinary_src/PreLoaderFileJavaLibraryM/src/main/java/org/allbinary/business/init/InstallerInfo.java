@@ -70,7 +70,7 @@ public class InstallerInfo
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            LogUtil.put(LogFactory.getInstance("Failed", instance, "write"));
+            LogUtil.put(LogFactory.getInstance("Failed", this, "write"));
          }
          throw e;
       }      
@@ -98,7 +98,7 @@ public class InstallerInfo
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
             {
-               LogUtil.put(LogFactory.getInstance("Not a File - Failed Loading: " + FILEABPATH.toString(), instance, "read"));
+               LogUtil.put(LogFactory.getInstance("Not a File - Failed Loading: " + FILEABPATH.toString(), this, "read"));
             }
          }         
       }
@@ -106,7 +106,7 @@ public class InstallerInfo
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADERERROR))
          {         
-            LogUtil.put(LogFactory.getInstance("Failed", instance, "read"));
+            LogUtil.put(LogFactory.getInstance("Failed", this, "read"));
          }
       }
    }
@@ -136,7 +136,7 @@ public class InstallerInfo
          {
             if( org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().PRELOADER))
             {
-               LogUtil.put(LogFactory.getInstance("Failed", instance, "updateIfNeeded"));
+               LogUtil.put(LogFactory.getInstance("Failed", this, "updateIfNeeded"));
             }
             //throw new InitException();
          }
