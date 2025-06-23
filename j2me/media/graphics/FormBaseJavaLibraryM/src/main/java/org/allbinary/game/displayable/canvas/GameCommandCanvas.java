@@ -303,7 +303,7 @@ public class GameCommandCanvas
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, this.gameInputStrings.ADD_KEY_EVENT));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("GameKey: ").append(gameKey).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
@@ -337,11 +337,11 @@ public class GameCommandCanvas
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance("Key Code: " + Integer.toHexString(keyCode), this, "removeGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, this.gameInputStrings.REMOVE_KEY_EVENT));
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, "removeGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("GameKey: ").append(gameKey, this, this.gameInputStrings.REMOVE_KEY_EVENT));
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
@@ -350,7 +350,7 @@ public class GameCommandCanvas
                 /*
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
-                 * LogUtil.put(LogFactory.getInstance(gameKeyEvent.toString(), this, "removeGameKeyEvent"));
+                 * LogUtil.put(LogFactory.getInstance(gameKeyEvent.toString(), this, this.gameInputStrings.REMOVE_KEY_EVENT));
                  */
 
                 // TODO TWB - Remove or improve key input event handling

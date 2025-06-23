@@ -62,8 +62,8 @@ extends InputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance("Key Code: ").append(Integer.toHexString(keyCode), this, this.gameInputStrings.ADD_KEY_EVENT));
-            //PreLogUtil.put("Key Code: ").append(Integer.toHexString(keyCode), this, this.gameInputStrings.ADD_KEY_EVENT);
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
+            //PreLogUtil.put(new StringMaker().append(new StringMaker().append("Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT);
             
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(
                     this.allBinaryGameCanvas, keyCode);
@@ -78,8 +78,7 @@ extends InputProcessor
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this,
                  * keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
                  * LogUtil
-                 * .put(LogFactory.getInstance(gameKeyEvent.toString(),
-                 * this, "GameKeyEvent"));
+                 * .put(LogFactory.getInstance(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
                  */
 
                 downGameKeyEventHandler.fireEvent(gameKeyEvent);
@@ -111,7 +110,7 @@ extends InputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Key Code: " + Integer.toHexString(keyCode), this, REMOVE_KEY_EVENT));
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(canvas, keyCode);
 
