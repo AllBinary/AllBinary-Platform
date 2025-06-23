@@ -62,8 +62,8 @@ extends InputProcessor
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance("Key Code: ").append(Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT));
-            //PreLogUtil.put("Key Code: ").append(Integer.toHexString(keyCode), this, this.allBinaryGameCanvas.ADD_KEY_EVENT);
+            //LogUtil.put(LogFactory.getInstance("Key Code: ").append(Integer.toHexString(keyCode), this, this.gameInputStrings.ADD_KEY_EVENT));
+            //PreLogUtil.put("Key Code: ").append(Integer.toHexString(keyCode), this, this.gameInputStrings.ADD_KEY_EVENT);
             
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(
                     this.allBinaryGameCanvas, keyCode);

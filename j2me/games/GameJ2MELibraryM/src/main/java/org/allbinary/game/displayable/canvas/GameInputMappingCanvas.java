@@ -159,7 +159,7 @@ implements InputMappingInterface
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Raw Device Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, "addGameKeyEvent"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("Raw Device Key Code: ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
@@ -170,7 +170,7 @@ implements InputMappingInterface
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Key Event Error", this, "addGameKeyEvent", e));
+            LogUtil.put(LogFactory.getInstance("Key Event Error", this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
     }
     

@@ -461,11 +461,11 @@ public class DemoCanvas extends RunnableCanvas
     {
         try
         {
-        	//LogUtil.put(LogFactory.getInstance("Key Code (Hex): ").append(Integer.toHexString(keyCode), this, "addGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
 
             GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, "addGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, this.gameInputStrings.ADD_KEY_EVENT));
 
             if (gameKey != NONE)
             {

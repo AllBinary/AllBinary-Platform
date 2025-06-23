@@ -67,7 +67,7 @@ extends InputProcessor
                             .append(inputFactory.DEVICE_ID_LABEL)
                             .append(deviceId)
                             .toString()
-                    , this, gameInputStrings.KEY_PRESSED);
+                    , this, this.gameInputStrings.KEY_PRESSED);
 
             final Input input = inputFactory.getInstance(keyCode);
 
@@ -78,7 +78,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, GameInputStrings.getInstance().ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
     }
     
@@ -118,7 +118,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, GameInputStrings.getInstance().ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
         
     }

@@ -299,11 +299,11 @@ public class GameCommandCanvas
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance("Key Code: ").append(Integer.toHexString(keyCode), this, "addGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Key Code (Hex): ").append(Integer.toHexString(keyCode)).toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
 
             final GameKey gameKey = this.inputToGameKeyMapping.getInstance(this, keyCode);
 
-            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, "addGameKeyEvent"));
+            //LogUtil.put(LogFactory.getInstance("GameKey: ").append(gameKey, this, this.gameInputStrings.ADD_KEY_EVENT));
 
             if (gameKey != this.gameKeyFactory.NONE)
             {
@@ -312,7 +312,7 @@ public class GameCommandCanvas
                 /*
                  * //This is for key input debugging only GameKeyEvent
                  * gameKeyEvent = GameKeyEventFactory.getInstance(this, keyCode, gameActionKeyCode, gameKey.getKey(), repeated);
-                 * LogUtil.put(LogFactory.getInstance(gameKeyEvent.toString(), this, "addGameKeyEvent"));
+                 * LogUtil.put(LogFactory.getInstance(gameKeyEvent.toString(), this, this.gameInputStrings.ADD_KEY_EVENT));
                  */
 
                 downGameKeyEventHandler.fireEvent(gameKeyEvent);
