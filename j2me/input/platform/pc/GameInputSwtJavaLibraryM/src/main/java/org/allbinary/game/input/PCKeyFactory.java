@@ -15,7 +15,6 @@ package org.allbinary.game.input;
 
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonPhoneStrings;
-import org.eclipse.swt.SWT;
 
 public class PCKeyFactory
 {
@@ -115,7 +114,8 @@ public class PCKeyFactory
 //    public final PCGameKey DPAD_RIGHT2 = new PCGameKey(-4, "RIGHT");
     //public final PCGameKey DPAD_CENTER = new PCGameKey(KeyEvent.VK_CENTER,
     //      "CENTER");
-    public final PCGameKey COMMA = new PCGameKey(188, "COMMA");
+    //public final PCGameKey COMMA = new PCGameKey(188, "COMMA");
+    public final PCGameKey COMMA = new PCGameKey(44, "COMMA");
     public final PCGameKey SPACE = new PCGameKey(32, "SPACE");
     public final PCGameKey DEL = new PCGameKey(46, "DEL");
     //public final PCGameKey POUND = new PCGameKey(KeyEvent.VK_NUMBER_SIGN,
@@ -123,8 +123,8 @@ public class PCKeyFactory
     public final PCGameKey STAR = new PCGameKey(42,
         CommonPhoneStrings.getInstance().STAR);
     public final PCGameKey QUESTION = new PCGameKey(47, "?");
-    public final PCGameKey PERIOD = new PCGameKey(190,
-        CommonSeps.getInstance().PERIOD);
+    //public final PCGameKey PERIOD = new PCGameKey(190,CommonSeps.getInstance().PERIOD);
+    public final PCGameKey PERIOD = new PCGameKey(46, CommonSeps.getInstance().PERIOD);
     public final PCGameKey ESCAPE = new PCGameKey(27, "Esc");
     
     public final PCGameKey BACK_SPACE = new PCGameKey(8, "Backspace");
