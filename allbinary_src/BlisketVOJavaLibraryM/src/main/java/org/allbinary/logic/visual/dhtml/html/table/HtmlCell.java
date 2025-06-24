@@ -15,7 +15,6 @@ package org.allbinary.logic.visual.dhtml.html.table;
 
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
 
-import java.util.Iterator;
 
 public class HtmlCell extends HtmlTag
 {
@@ -50,14 +49,15 @@ public class HtmlCell extends HtmlTag
    public String toString()
    {
       String result = "";
-      Iterator attributeIter = otherAttributes.keySet().iterator();
+      Object[] attributeKeys = otherAttributes.keySet().toArray();
+      int attributeSize = attributeKeys.length;
       result = before;
       result += START;
       result += " ";      
       
-      while(attributeIter.hasNext())
+      for (int i = 0; i < attributeSize; i++)
       {
-         String key = (String) attributeIter.next();
+         String key = (String) attributeKeys[i];
          String value = (String) otherAttributes.get(key);
          if(value!=null && value.compareTo("")!=0)
          {

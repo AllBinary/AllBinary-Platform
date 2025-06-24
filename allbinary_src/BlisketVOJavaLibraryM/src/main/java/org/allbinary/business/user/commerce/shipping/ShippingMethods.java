@@ -13,15 +13,13 @@
 */
 package org.allbinary.business.user.commerce.shipping;
 
+import java.util.Vector;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.context.modules.storefront.StoreFrontInterface;
 import org.allbinary.business.user.commerce.shipping.modules.ShippingInterface;
-
-import java.util.Iterator;
-import java.util.Vector;
 import org.allbinary.logic.system.security.licensing.AbeClientInformationInterface;
-
 
 public class ShippingMethods implements ShippingMethodsInterface
 {
@@ -43,12 +41,14 @@ public class ShippingMethods implements ShippingMethodsInterface
    }
    
    public ShippingInterface getShippingInterface(String name) throws Exception
-   {          
+   {
+       ShippingInterface shipping;
+       
       final Object[] shippingArray = shippingVector.toArray();
       final int size = shippingArray.length;
       for (int index = 0; index < size; index++)
       {  
-         ShippingInterface shipping = (ShippingInterface) shippingArray[index];
+         shipping = (ShippingInterface) shippingArray[index];
          if(name.compareTo(shipping.getName())==0) return shipping;
       }
 

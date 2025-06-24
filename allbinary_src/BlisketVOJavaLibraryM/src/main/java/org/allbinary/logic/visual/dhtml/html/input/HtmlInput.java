@@ -15,7 +15,6 @@ package org.allbinary.logic.visual.dhtml.html.input;
 
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
 
-import java.util.Iterator;
 
 public class HtmlInput extends HtmlTag
 {
@@ -41,7 +40,8 @@ public class HtmlInput extends HtmlTag
     public String toString()
     {
        String result = "";
-       Iterator attributeIter = otherAttributes.keySet().iterator();
+       Object[] attributeKeys = otherAttributes.keySet().toArray();
+       int attributeSize = attributeKeys.length;
        result = before;
        result += STARTINPUT;
        result += TYPE;
@@ -51,9 +51,9 @@ public class HtmlInput extends HtmlTag
        result += name;
        result += "\" ";       
        
-       while(attributeIter.hasNext())
+       for (int i = 0; i < attributeSize; i++)
        {
-          String key = (String) attributeIter.next();
+          String key = (String) attributeKeys[i];
           String value = (String) otherAttributes.get(key);
           if(value!=null && value.compareTo("")!=0)
           {

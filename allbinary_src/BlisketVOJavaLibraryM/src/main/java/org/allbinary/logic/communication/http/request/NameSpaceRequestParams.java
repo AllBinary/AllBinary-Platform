@@ -27,9 +27,10 @@ import org.w3c.dom.Node;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
+import org.allbinary.logic.string.StringMaker;
+import org.allbinary.string.CommonSeps;
 
 //This will convert tree/namespace requests into a hashmap
 //containing string values and other hashmaps of the like
@@ -67,14 +68,16 @@ public class NameSpaceRequestParams extends RequestParams
    Document document, String packageName, HashMap packagePropertiesHashMap)
    throws Exception
    {
-      Node node = document.createElement(packageName);
+      final Node node = document.createElement(packageName);
       
       //add root node properties
-      Set propertyKeySet = packagePropertiesHashMap.keySet();
-      Iterator propertyNameIter = propertyKeySet.iterator();
-      while(propertyNameIter.hasNext())
+      final Set propertyKeySet = packagePropertiesHashMap.keySet();
+      
+      final Object[] propertyKeySetArray = propertyKeySet.toArray();
+      final int size = propertyKeySetArray.length;
+      for (int index = 0; index < size; index++)
       {
-         String propertyName = (String) propertyNameIter.next();
+         String propertyName = (String) propertyKeySetArray[index];
          String propertyValue =
          (String) packagePropertiesHashMap.get(propertyName);
          
@@ -184,18 +187,18 @@ public class NameSpaceRequestParams extends RequestParams
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance(
-                 "\nAdding Any New Properties: " +
-                 nextPackagePropertiesHashMap.toString() +
-                 "\nto node: " + node.getNodeName(),
-                 this, "addNewProperties"));
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append("\nAdding Any New Properties: ")
+             .append(nextPackagePropertiesHashMap.toString()).append("\nto node: ").append(node.getNodeName()).toString(),
+             this, "addNewProperties"));
       }
 
-      Set propertyNameSet = nextPackagePropertiesHashMap.keySet();
-      Iterator iter = propertyNameSet.iterator();
-      while(iter.hasNext())
+      final Set propertyNameSet = nextPackagePropertiesHashMap.keySet();
+
+      final Object[] propertyNameSetArray = propertyNameSet.toArray();
+      final int size = propertyNameSetArray.length;
+      for (int index = 0; index < size; index++)
       {
-         String nextPropertyName = (String) iter.next();
+         String nextPropertyName = (String) propertyNameSetArray[index];
          String propertyValue = StringUtil.getInstance().getInstance((String)
          nextPackagePropertiesHashMap.get(nextPropertyName));
 
@@ -300,18 +303,17 @@ public class NameSpaceRequestParams extends RequestParams
          LogUtil.put(LogFactory.getInstance("\nComparing Properties of: " + elementNodeVector.size() + " Nodes", this, "isElementValueTextNodeUnique"));
       }
       
-      int index = 0;
       //see if a value node contains unique values
-      Iterator iter = elementNodeVector.iterator();
-      while(iter.hasNext())
+      final Object[] elementNodeArray = elementNodeVector.toArray();
+      final int size = elementNodeArray.length;
+      for (int index = 0; index < size; index++)
       {
-         Node existingElementNode = (Node) iter.next();
+         Node existingElementNode = (Node) elementNodeArray[index];
 
          if(this.isElementValueTextNodeEqual(nextPackagePropertiesHashMap, existingElementNode))
          {
             return index;
          }
-         index++;
       }
       return -1;
    }
@@ -324,23 +326,21 @@ public class NameSpaceRequestParams extends RequestParams
       Node node = rootNode;
       
       //vector contains hashmaps with one dom element
-      Vector packageVector = nameSpaceRequestParam.getPackages();
-      Iterator iter = packageVector.iterator();
+      final Vector packageVector = nameSpaceRequestParam.getPackages();
       
       //skip root
-      iter.next();
-      
       //Add Children
-      int index = 1;
-      while(iter.hasNext())
+      final Object[] packageNameArray = packageVector.toArray();
+      final int size = packageNameArray.length;
+      for (int index = 1; index < size; index++)
       {
-         String nextPackageName = (String) iter.next();
+         String nextPackageName = (String) packageNameArray[index];
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
          {
-            LogUtil.put(LogFactory.getInstance("\nTrying to Add Child to Node: " + node.getNodeName() +
-            "\nwith new PackageName: " + nextPackageName, this, "addChildren"));
+            LogUtil.put(LogFactory.getInstance(new StringMaker().append("\nTrying to Add Child to Node: ").append(node.getNodeName()).append(
+            "\nwith new PackageName: ").append(nextPackageName).toString(), this, "addChildren"));
          }
          
          HashMap nextPackagePropertiesHashMap =
@@ -376,12 +376,10 @@ public class NameSpaceRequestParams extends RequestParams
          }
          */
 
-         final String CLOSE_BRACKET = "]";
-         
          //Create new node if node with the same name does not exist unless an array multinode
          if((elementNodeVector.size() == 0 || 
             isElementValueTextNodeUniqueIndex == -1) &&
-            !nextPackageName.endsWith(CLOSE_BRACKET))
+            !nextPackageName.endsWith(CommonSeps.getInstance().BRACKET_CLOSE))
          {
             Node nextNode = this.createPackageNode(
                document, nextPackageName, nextPackagePropertiesHashMap);
@@ -400,7 +398,7 @@ public class NameSpaceRequestParams extends RequestParams
             }
          }
          else
-            if(nextPackageName.endsWith(CLOSE_BRACKET))
+            if(nextPackageName.endsWith(CommonSeps.getInstance().BRACKET_CLOSE))
             {
                if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
                {
@@ -441,29 +439,27 @@ public class NameSpaceRequestParams extends RequestParams
                //elementNodeVector.get(0);
                //node = nodeNameDuplicateNode;
             }
-         index++;
       }
       return document;
    }
    
-   private Document addNameSpace(
-   String key, String value, Document document) throws Exception
+   private Document addNameSpace(String key, String value, Document document) throws Exception
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
       {
-         LogUtil.put(LogFactory.getInstance("NameSpace key: " + key + " Value: " + value, this, "addNameSpace"));
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append("NameSpace key: ").append(key).append(" Value: ").append(value).toString(), this, "addNameSpace"));
       }
       
-      NameSpaceRequestParam nameSpaceRequestParam =
-      new NameSpaceRequestParam(key, value);
+      final NameSpaceRequestParam nameSpaceRequestParam = new NameSpaceRequestParam(key, value);
       
       //vector contains hashmaps with one dom element
-      Vector packageVector = nameSpaceRequestParam.getPackages();
-      Iterator iter = packageVector.iterator();
-      
-      if(iter.hasNext())
+      final Vector packageVector = nameSpaceRequestParam.getPackages();
+
+      final Object[] packageNameArray = packageVector.toArray();
+      final int size = packageNameArray.length;
+      for (int index = 0; index < size; index++)
       {
-         String packageName = (String) iter.next();
+         String packageName = (String) packageNameArray[index];
          HashMap packagePropertiesHashMap =
          nameSpaceRequestParam.getPackageProperties(packageVector.indexOf(packageName));
          
@@ -471,7 +467,7 @@ public class NameSpaceRequestParams extends RequestParams
          this.getRootNode(packageName, packagePropertiesHashMap, document);
          
          //document
-         if(iter.hasNext())
+         if(index < size + 1)
          {
             return this.addChildren(document,(Node) rootNode, nameSpaceRequestParam);
          }
@@ -484,7 +480,8 @@ public class NameSpaceRequestParams extends RequestParams
       Document document = DomDocumentHelper.create();
       HashMap hashMap = new HashMap();
       Set keys = this.getMap().keySet();
-      Iterator keyIter = keys.iterator();
+      Object[] keyArray = keys.toArray();
+      int keySize = keyArray.length;
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
       org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
@@ -492,9 +489,9 @@ public class NameSpaceRequestParams extends RequestParams
          LogUtil.put(LogFactory.getInstance("NameSpace Request Size: " + keys.size(), this, "toHashMap"));
       }
       
-      while(keyIter.hasNext())
+      for (int i = 0; i < keySize; i++)
       {
-         String key = (String) keyIter.next();
+         String key = (String) keyArray[i];
          
          Object object = this.getMap().get(key);
          String className = (String) object.getClass().getName();

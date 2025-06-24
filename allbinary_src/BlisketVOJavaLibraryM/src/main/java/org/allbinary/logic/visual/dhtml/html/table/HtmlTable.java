@@ -15,7 +15,6 @@ package org.allbinary.logic.visual.dhtml.html.table;
 
 import org.allbinary.logic.visual.dhtml.html.HtmlTag;
 
-import java.util.Iterator;
 import java.util.Vector;
 
 public class HtmlTable extends HtmlTag
@@ -83,15 +82,15 @@ public class HtmlTable extends HtmlTag
    public String toString()
    {
       String result = "";
-      Iterator attributeIter = otherAttributes.keySet().iterator();
-      Iterator inputIter = this.htmlRowsVector.iterator();
+      Object[] attributeKeys = otherAttributes.keySet().toArray();
+      Object[] rowArray = this.htmlRowsVector.toArray();
       result = before;
       result += START;
       result += " ";      
       
-      while(attributeIter.hasNext())
+      for (int i = 0; i < attributeKeys.length; i++)
       {
-         String key = (String) attributeIter.next();
+         String key = (String) attributeKeys[i];
          String value = (String) otherAttributes.get(key);
          if(value!=null && value.compareTo("")!=0)
          {
@@ -103,9 +102,9 @@ public class HtmlTable extends HtmlTag
       }
       result += END;
       
-      while(inputIter.hasNext())
+      for (int i = 0; i < rowArray.length; i++)
       {
-         result += inputIter.next().toString();
+         result += rowArray[i].toString();
          result += " ";
       }
 

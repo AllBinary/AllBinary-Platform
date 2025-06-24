@@ -44,6 +44,7 @@ import org.allbinary.logic.visual.transform.info.TransformInfoBasic;
 import org.allbinary.logic.visual.transform.info.TransformInfoInterface;
 
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class CategoryRequestHelper implements ModifyTableInterface
 {
@@ -93,7 +94,7 @@ public class CategoryRequestHelper implements ModifyTableInterface
       }
    }
 
-   private final static String categoryRequest = "<" + CategoryData.getInstance().REQUEST + ">";
+   private final static String categoryRequest = new StringMaker().append("<").append(CategoryData.getInstance().REQUEST).append(">").toString();
    
    public void getXmlData()
    {
@@ -101,18 +102,20 @@ public class CategoryRequestHelper implements ModifyTableInterface
       {
          Map map = this.request.getParameterMap();
          
-         CategoryData categoryData = CategoryData.getInstance();
+         final CategoryData categoryData = CategoryData.getInstance();
          
-         Set keys = map.keySet();
-         Iterator keyIter = keys.iterator();
+         final Set keys = map.keySet();
          
-         if(keyIter.hasNext())
+         final Object[] keyArray = keys.toArray();
+         final int size = keyArray.length;
+         if(size > 0)
          {
-            String xmlRequest = (String) keyIter.next();
+            String xmlRequest = (String) keyArray[0];
 
-            while(keyIter.hasNext() && !xmlRequest.startsWith(categoryRequest))
+            int index = 1;
+            while(index < size && !xmlRequest.startsWith(categoryRequest))
             {
-               xmlRequest = (String) keyIter.next();
+               xmlRequest = (String) keyArray[index];
                if(xmlRequest.startsWith(categoryRequest)) break;
             }
             

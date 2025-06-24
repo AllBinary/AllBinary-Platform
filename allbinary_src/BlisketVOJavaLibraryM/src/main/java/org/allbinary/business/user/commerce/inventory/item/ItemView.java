@@ -19,7 +19,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 import org.allbinary.business.user.address.StreetAddressData;

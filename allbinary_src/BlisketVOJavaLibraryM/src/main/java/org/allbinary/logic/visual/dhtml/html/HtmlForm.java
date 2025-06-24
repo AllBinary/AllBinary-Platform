@@ -16,7 +16,6 @@ package org.allbinary.logic.visual.dhtml.html;
 import org.allbinary.logic.visual.dhtml.html.input.HtmlInput;
 import org.allbinary.logic.visual.dhtml.html.table.HtmlTable;
 
-import java.util.Iterator;
 import java.util.Vector;
 
 public class HtmlForm
@@ -64,7 +63,8 @@ public class HtmlForm
    public String toString()
    {
       String result = "";
-      Iterator inputIter = inputs.iterator();
+      Object[] inputArray = inputs.toArray();
+      int inputSize = inputArray.length;
       result = FORMBEGIN;      
       result += METHOD;
       result += method;
@@ -74,9 +74,9 @@ public class HtmlForm
       result += "\" ";
       result += END;
       
-      while(inputIter.hasNext())
+      for (int i = 0; i < inputSize; i++)
       {
-         result += inputIter.next().toString();
+         result += inputArray[i].toString();
          result += " ";
       }
             
