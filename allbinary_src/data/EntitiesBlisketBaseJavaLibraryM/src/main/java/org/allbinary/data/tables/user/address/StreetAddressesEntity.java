@@ -24,7 +24,7 @@ import org.allbinary.logic.communication.sql.AbSqlBean;
 
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
 import org.allbinary.business.installer.Portion;
@@ -152,13 +152,12 @@ public class StreetAddressesEntity extends AbSqlBean implements StreetAddressesE
             Vector streetAddressVector = new Vector();
             HashMap keyAndValue = new HashMap();
             keyAndValue.put(UserData.USERNAME, userName);
-            Vector addresses = super.getRows(keyAndValue);
+            Vector addressList = super.getRows(keyAndValue);
 
-            Iterator iter = addresses.iterator();
-
-            while(iter.hasNext())
+            final int size = addressList.size();
+            for (int index = 0; index < size; index++)
             {
-                HashMap addressHashMap = (HashMap) iter.next();
+                HashMap addressHashMap = (HashMap) addressList.get(index);
 
                 StreetAddress streetAddress = new StreetAddress(addressHashMap);
                 if(streetAddress != null)

@@ -14,7 +14,7 @@
 package org.allbinary.data.tables.transform.info;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
@@ -142,10 +142,10 @@ implements TransformInfoEntityInterface
         Vector objectConfigColumnVector = this.getColumnWhere(
             TransformInfoData.getInstance().OBJECTCONFIG, StoreFrontData.getInstance().NAME, storeName);
 
-        Iterator iter = objectConfigColumnVector.iterator();
-        while (iter.hasNext())
+        int size = objectConfigColumnVector.size();
+        for (int i = 0; i < size; i++)
         {
-            String objectConfigString = (String) iter.next();
+            String objectConfigString = (String) objectConfigColumnVector.get(i);
 
           //TWB - Encoder for GAE for XML using JIQL
             objectConfigString = new String(Encoder.decode(objectConfigString));
@@ -165,10 +165,10 @@ implements TransformInfoEntityInterface
         Vector columnVector = this.getColumnWhere(
             TransformInfoData.getInstance().NAME, StoreFrontData.getInstance().NAME, storeName);
 
-        Iterator iter = columnVector.iterator();
-        while (iter.hasNext())
+        int size = columnVector.size();
+        for (int i = 0; i < size; i++)
         {
-            String viewNameString = (String) iter.next();
+            String viewNameString = (String) columnVector.get(i);
             viewNameVector.add(viewNameString);
         }
         return viewNameVector;

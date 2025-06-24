@@ -138,7 +138,7 @@ public class AbstractInputAutomationWorker
             TimeDelayHelper timeHelper = new TimeDelayHelper(1000);
             
         /*
-        Iterator iterator = robotVector.iterator();
+        iterator = robotVector;
         while(iterator.hasNext())
         {
             InputRobotInterface robot = (InputRobotInterface) iterator.next();

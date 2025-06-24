@@ -15,7 +15,7 @@ package org.allbinary.data.tables.user.commerce.inventory.order;
 
 import org.allbinary.data.generator.OrderItemIdGenerator;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.ListIterator;
 import java.util.Set;
 import java.util.Vector;
@@ -71,10 +71,11 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
             InventoryEntity inventoryEntity
                     = InventoryEntityFactory.getInstance().getInventoryEntityInstance();
 
-            Iterator itemsIter = items.iterator();
-            while(itemsIter.hasNext())
+            Object[] itemsArray = items.toArray();
+            int itemsSize = itemsArray.length;
+            for (int i = 0; i < itemsSize; i++)
             {
-                String item = (String) itemsIter.next();
+                String item = (String) itemsArray[i];
                 ItemInterface itemInterface = inventoryEntity.getItem(item);
 
             //Calendar calendar=Calendar.getInstance();
@@ -221,11 +222,11 @@ public class OrderItemsEntity extends AbSqlBean implements OrderItemsEntityInter
             {
                 final String EMPTY_STRING = StringUtil.getInstance().EMPTY_STRING;
 
-                Iterator iter = items.iterator();
-
-                while(iter.hasNext())
+                Object[] itemsArray = items.toArray();
+                int itemsSize = itemsArray.length;
+                for (int i = 0; i < itemsSize; i++)
                 {
-                    HashMap itemHashMap = (HashMap) iter.next();
+                    HashMap itemHashMap = (HashMap) itemsArray[i];
 
                     //add missing entries that exist in basic inventory for item construction
                     itemHashMap.put(BasicItemData.INBASKETS, EMPTY_STRING);

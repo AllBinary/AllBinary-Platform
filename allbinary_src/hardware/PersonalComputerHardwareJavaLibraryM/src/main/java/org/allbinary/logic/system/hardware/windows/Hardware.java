@@ -15,7 +15,7 @@ package org.allbinary.logic.system.hardware.windows;
 
 import java.util.Vector;
 import java.util.Hashtable;
-import java.util.Iterator;
+
 import org.allbinary.string.CommonSeps;
 
 import org.allbinary.logic.system.hardware.components.interfaces.BridgeInterface;
@@ -176,11 +176,12 @@ public class Hardware implements HardwareInterface
    
    public String toString()
    {
-      StringBuffer hardwareBuffer = new StringBuffer();
-      Iterator componentIter = componentInterfaceVector.iterator();
-      while(componentIter.hasNext())
+      final StringBuffer hardwareBuffer = new StringBuffer();
+      
+      final int size = componentInterfaceVector.size();
+      for (int index = 0; index < size; index++)
       {
-         HardwareComponentInterface componentInterface = (HardwareComponentInterface) componentIter.next();
+         HardwareComponentInterface componentInterface = (HardwareComponentInterface) componentInterfaceVector.get(index);
          hardwareBuffer.append(componentInterface.toString());
          hardwareBuffer.append(CommonSeps.getInstance().NEW_LINE);
       }

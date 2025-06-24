@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
+
 import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
@@ -246,13 +247,12 @@ public class ImagePersistanceUtil {
       {
          // Obtain a writer based on the jpeg format.
 
-         Iterator iter;
-         iter = ImageIO.getImageWritersByFormatName("jpeg");
+         Iterator iter = ImageIO.getImageWritersByFormatName("jpeg");
 
          // Validate existence of writer.
          if (!iter.hasNext())
          {
-            LogUtil.put(LogFactory.getInstance("Unable to save image to jpeg file type.", "ImageUtil", "save"));
+            LogUtil.put(LogFactory.getInstance("Unable to save image to jpeg file type.", this, "save"));
             return;
          }
 
@@ -282,11 +282,11 @@ public class ImagePersistanceUtil {
 
          //poolInterface.add(iioImageCacheable);
 
-         LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), "ImageUtil", "save"));
+         LogUtil.put(LogFactory.getInstance("Wrote Image: " + file.getAbsolutePath(), this, "save"));
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, "ImageUtil", "save", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "save", e));
       }
       finally
       {
@@ -319,7 +319,7 @@ public class ImagePersistanceUtil {
          }
          catch (IOException e2)
          {
-            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, "ImageUtil", "save", e2));
+            LogUtil.put(LogFactory.getInstance(this.commonStrings.EXCEPTION, this, "save", e2));
          }
       }
    }

@@ -195,7 +195,7 @@ public class AbeClassLoader extends ClassLoader
             if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LOADERERROR))
             {
                 logBuffer.logAll();
-                LogUtil.put(LogFactory.getInstance("Failure loading: " + name + "\nwith: " + loadedWith, "AbeClassLoader", "loadClass", e));
+                LogUtil.put(LogFactory.getInstance("Failure loading: " + name + "\nwith: " + loadedWith, this, "loadClass", e));
             }
             return null;
         }

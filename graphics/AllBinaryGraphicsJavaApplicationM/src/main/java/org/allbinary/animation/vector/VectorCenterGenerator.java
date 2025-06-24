@@ -14,7 +14,7 @@
 package org.allbinary.animation.vector;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.string.CommonStrings;
@@ -46,10 +46,11 @@ public class VectorCenterGenerator {
 
     public void calculate(HashMap hashMap) throws Exception {
 
-        Iterator iter = hashMap.keySet().iterator();
-        while (iter.hasNext()) 
+        final Object[] graphicItemArray = hashMap.keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
         {
-            GraphicItemInterface item = (GraphicItemInterface) hashMap.get(iter.next());
+            GraphicItemInterface item = (GraphicItemInterface) hashMap.get(graphicItemArray[index]);
             if(item.getName() == LinesGraphicItem.getStaticName())
             {
                 this.getInstance(item.getPointsInterface().getPoints());
@@ -85,11 +86,13 @@ public class VectorCenterGenerator {
     public void transform(HashMap hashMap) throws Exception {
 
         this.calculate(hashMap);
-        LogUtil.put(LogFactory.getInstance(" dx: " + dx + " dy: " + dy, this, "getInstance"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(" dx: ").append(dx).append(" dy: ").append(dy).toString(), this, "getInstance"));
 
-        Iterator iter = hashMap.keySet().iterator();
-        while (iter.hasNext()) {
-            GraphicItemInterface item = (GraphicItemInterface) hashMap.get(iter.next());
+        final Object[] graphicItemArray = hashMap.keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
+        {
+            GraphicItemInterface item = (GraphicItemInterface) hashMap.get(graphicItemArray[index]);
 
             BasicArrayList list = translate(item.getPointsInterface().getPoints(), dx, dy);
 
@@ -125,7 +128,7 @@ public class VectorCenterGenerator {
             }
 
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, "VectorCenterGenerator", "getInstance", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getInstance", e));
             throw e;
         }
     }

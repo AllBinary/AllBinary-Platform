@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.smtp.queue;
 
-import java.util.Iterator;
+
 import javax.mail.Transport;
 
 import org.allbinary.logic.communication.log.LogFactory;
@@ -71,10 +71,10 @@ public class BasicEmailQueue extends BasicQueue
 
    protected synchronized void processAllUnsent() throws Exception
    {
-      Iterator iter = this.queueVector.iterator();
-      while(iter.hasNext())
+      final int size = queueVector.size();
+      for(int index = 0; index < size; index++)
       {
-         EmailInterface emailInterface = (EmailInterface) iter.next();
+         EmailInterface emailInterface = (EmailInterface) queueVector.get(index);
          
          if(this.send(emailInterface))
          {

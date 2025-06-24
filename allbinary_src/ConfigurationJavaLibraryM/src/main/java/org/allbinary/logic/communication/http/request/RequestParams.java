@@ -22,7 +22,7 @@ import org.w3c.dom.Node;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Map;
 import java.util.Set;
 import org.allbinary.string.CommonStrings;
@@ -73,14 +73,15 @@ public class RequestParams
         {
             Node node = document.createElement(RequestData.REQUEST);
 
-            Set keys = map.keySet();
-            Iterator keyIter = keys.iterator();
-
             StringBuffer stringBuffer = new StringBuffer();
+                        
+            Set keys = map.keySet();
+            Object[] keyArray = keys.toArray();
+            int size = keyArray.length;
 
-            while(keyIter.hasNext())
+            for (int i = 0; i < size; i++)
             {
-                String key = (String) keyIter.next();
+                String key = (String) keyArray[i];
                 String[] values = (String[]) map.get(key);
 
                 stringBuffer.delete(0, stringBuffer.length());
@@ -112,13 +113,13 @@ public class RequestParams
     {
         HashMap hashMap = new HashMap();
         Set keys = map.keySet();
-        Iterator keyIter = keys.iterator();
-
+        Object[] keyArray = keys.toArray();
+        int size = keyArray.length;
         StringBuffer stringBuffer = new StringBuffer();
 
-        while(keyIter.hasNext())
+        for (int i = 0; i < size; i++)
         {
-            String key = (String) keyIter.next();
+            String key = (String) keyArray[i];
 
             //Object[] value = (Object[]) map.get(key);
 

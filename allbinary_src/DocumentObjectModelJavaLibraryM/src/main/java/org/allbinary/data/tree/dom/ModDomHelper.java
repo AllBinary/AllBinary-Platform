@@ -15,7 +15,7 @@ package org.allbinary.data.tree.dom;
 
 import org.allbinary.data.tree.dom.DomData;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -96,11 +96,11 @@ public class ModDomHelper
        StringUtil stringUtil = StringUtil.getInstance();
 
       Set keySet = hashMap.keySet();
-      Iterator iterSet = keySet.iterator();
-
-      while(iterSet.hasNext())
+      Object[] keyArray = keySet.toArray();
+      int size = keyArray.length;
+      for (int i = 0; i < size; i++)
       {
-         Object objectKey = iterSet.next();
+         Object objectKey = keyArray[i];
          String name = (String) objectKey;
          Object object = (Object) hashMap.get(objectKey);
          
@@ -147,10 +147,10 @@ public class ModDomHelper
        StringUtil stringUtil = StringUtil.getInstance();
        
       Node node = document.createElement(rootNodeName);      
-      Iterator iter = valueVector.iterator();
-      while(iter.hasNext())
+      int size = valueVector.size();
+      for (int i = 0; i < size; i++)
       {
-         String value = stringUtil.getInstance((String) iter.next());
+         String value = stringUtil.getInstance((String) valueVector.get(i));
          //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"");
          
          node.appendChild(
@@ -168,11 +168,10 @@ public class ModDomHelper
        
       Node node = document.createElement(rootNodeName);
 
-      int index = 0;
-      Iterator iter = valueVector.iterator();
-      while(iter.hasNext())
+      int size = valueVector.size();
+      for (int index = 0; index < size; index++)
       {
-         String value = stringUtil.getInstance((String) iter.next());
+         String value = stringUtil.getInstance((String) valueVector.get(index));
          //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"");
 
          node.appendChild(
@@ -193,11 +192,11 @@ public class ModDomHelper
        StringUtil stringUtil = StringUtil.getInstance();
        
       Set keySet = hashMap.keySet();
-      Iterator iterSet = keySet.iterator();
-      
-      while(iterSet.hasNext())
+      Object[] keyArray = keySet.toArray();
+      int size = keyArray.length;
+      for (int i = 0; i < size; i++)
       {
-         String name = (String) iterSet.next();
+         String name = (String) keyArray[i];
          Object object = (Object) hashMap.get(name);
          
          //LogUtil.put(LogFactory.getInstance("Adding: " + name + "=" + value ,this,"toXmlNode(document)");

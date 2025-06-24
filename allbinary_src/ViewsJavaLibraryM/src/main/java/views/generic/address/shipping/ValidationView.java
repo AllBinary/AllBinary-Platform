@@ -13,7 +13,7 @@
 */
 package views.generic.address.shipping;
 
-import java.util.Iterator;
+
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -40,24 +40,24 @@ public class ValidationView extends ShippingAddressesView implements ValidationC
          new ShippingAddressesEntity(         
          this.getWeblisketSession().getUserName());
 
-      this.streetAddresses = billingAddressesEntity.get();
+      this.streetAddressList = billingAddressesEntity.get();
       
-      if(this.streetAddresses == null)
+      if(this.streetAddressList == null)
       {
          return Boolean.FALSE;
       }
 
-      Iterator iter = streetAddresses.iterator();
-      while(iter.hasNext())
+      final int size = streetAddressList.size();
+      for(int index = 0; index < size; index++)
       {
-         StreetAddress streetAddress = (StreetAddress) iter.next();
+         StreetAddress streetAddress = (StreetAddress) streetAddressList.get(index);
          if(streetAddress.isValid() == Boolean.FALSE)
          {
-            streetAddresses.remove(streetAddress);
+            streetAddressList.remove(streetAddress);
          }
       }
       
-      if(this.streetAddresses.size()<1)
+      if(this.streetAddressList.size()<1)
       {
          return Boolean.FALSE;
       }

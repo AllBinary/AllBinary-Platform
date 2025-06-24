@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import javax.swing.DefaultListModel;
@@ -57,11 +57,11 @@ public class ImageActionScriptOutputJPanel
         Vector vector = imageTypes.getVector();
 
         int[] selectedArray = new int[vector.size()];
-        int index = 0;
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
-            InputImageType imageType = (InputImageType) iterator.next();
+            InputImageType imageType = (InputImageType) vector.get(index);
             selectedArray[index++] = imageType.getIndex();
         }
 
@@ -115,10 +115,10 @@ public class ImageActionScriptOutputJPanel
         DefaultListModel defaultListModel = new DefaultListModel();
         Vector vector = InputImageType.getAllAsVector();
         
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
-            InputImageType imageType = (InputImageType) iterator.next();
+            InputImageType imageType = (InputImageType) vector.get(index);
             defaultListModel.addElement(imageType.getName());
         }
 

@@ -16,7 +16,7 @@ package views.generic.basket.mini;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Iterator;
+
 
 import org.w3c.dom.Node;
 import org.w3c.dom.Document;
@@ -55,10 +55,9 @@ implements DomNodeInterface
             this.getWeblisketSession().getOrder().getBasket();
          Node basketNode = document.createElement(BasketData.BASKET);
          
-         HashMap itemsAndNumberInBasket = basketInterface.getItems();
-         int numberOfResults = 1;
-         Set items = itemsAndNumberInBasket.keySet();
-         Iterator iter = items.iterator();
+         //HashMap itemsAndNumberInBasket = basketInterface.getItems();
+         //int numberOfResults = 1;
+         //Set items = itemsAndNumberInBasket.keySet();
                   
          Node totalNumberNode = document.createElement(SearchData.TOTAL_NUMBER_ITEMS);
          Node totalNumberTextNode = document.createTextNode(basketInterface.getNumberOfItems().toString());

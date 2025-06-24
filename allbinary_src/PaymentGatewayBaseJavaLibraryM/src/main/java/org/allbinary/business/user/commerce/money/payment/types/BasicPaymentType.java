@@ -133,7 +133,7 @@ public class BasicPaymentType
    {
       Vector result = new Vector();
     
-      Iterator iter = paymentMethods.iterator();
+      iter = paymentMethods;
     
       while(iter.hasNext())
       {

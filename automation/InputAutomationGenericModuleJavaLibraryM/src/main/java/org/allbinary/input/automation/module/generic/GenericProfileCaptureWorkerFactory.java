@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.generic;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 
@@ -34,12 +34,12 @@ public class GenericProfileCaptureWorkerFactory
         GenericProfile genericProfile)
     throws Exception
     {
-        Vector vector = genericProfile.getGenericProfileDataWorkerTypeVector();
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final Vector vector = genericProfile.getGenericProfileDataWorkerTypeVector();
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
             GenericProfileDataWorkerType genericProfileDataWorkerType = 
-                (GenericProfileDataWorkerType) iterator.next();
+                (GenericProfileDataWorkerType) vector.get(index);
             
             //LogUtil.put(LogFactory.getInstance("Possible Capture Type: " + genericProfileDataWorkerType, "GenericProfileCaptureWorkerFactory", "getInstance"));
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.SCREEN_CAPTURE)

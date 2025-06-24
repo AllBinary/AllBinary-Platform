@@ -15,7 +15,7 @@ package org.allbinary.logic.communication.log;
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.logic.communication.log.Log;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 public class LogBuffer
@@ -56,10 +56,10 @@ public class LogBuffer
 
    public void logAll()
    {
-      Iterator iter = this.logEntryVector.iterator();
-      while(iter.hasNext())
+      final int size = this.logEntryVector.size();
+      for(int index = 0; index < size; index++)
       {
-          Log log = (Log) iter.next();
+          Log log = (Log) this.logEntryVector.get(index);
           LogUtil.put(log);
       }
    }

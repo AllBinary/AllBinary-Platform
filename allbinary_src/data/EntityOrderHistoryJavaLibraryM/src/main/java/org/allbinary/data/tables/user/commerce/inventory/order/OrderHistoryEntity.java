@@ -16,7 +16,7 @@ package org.allbinary.data.tables.user.commerce.inventory.order;
 import org.allbinary.data.generator.OrderHistoryIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Random;
 import java.util.Vector;
 
@@ -313,11 +313,10 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         
         whereHashMap.put(StoreFrontData.getInstance().NAME, storeFrontInterface.getName());
         Vector orderHashMapVector = super.getRows(whereHashMap);
-        Iterator orderIter = orderHashMapVector.iterator();
-
-        while (orderIter.hasNext())
+        int size = orderHashMapVector.size();
+        for (int i = 0; i < size; i++)
         {
-            HashMap orderReviewHashMap = (HashMap) orderIter.next();
+            HashMap orderReviewHashMap = (HashMap) orderHashMapVector.get(i);
             OrderHistory orderReview = new OrderHistory(new Basket(), orderReviewHashMap);
             orderReviewVector.add(orderReview);
         }
@@ -330,11 +329,11 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         HashMap whereHashMap = new HashMap();
         whereHashMap.put(UserData.USERNAME, userName);
         Vector orderHashMapVector = super.getRows(whereHashMap);
-        Iterator orderIter = orderHashMapVector.iterator();
-
-        while (orderIter.hasNext())
+        
+        final int size = orderHashMapVector.size();
+        for (int index = 0; index < size; index++)
         {
-            HashMap orderReviewHashMap = (HashMap) orderIter.next();
+            HashMap orderReviewHashMap = (HashMap) orderHashMapVector.get(index);
             OrderHistory orderReview = new OrderHistory(new Basket(), orderReviewHashMap);
             orderReviewVector.add(orderReview);
         }
@@ -348,11 +347,11 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
         whereHashMap.put(OrderHistoryData.STATUS, status);
         Vector orderHashMapVector = super.getRowsWhereBetween(
             whereHashMap, OrderHistoryData.ORDERDATE, fromDate, toDate);
-        Iterator orderIter = orderHashMapVector.iterator();
 
-        while (orderIter.hasNext())
+        final int size = orderHashMapVector.size();
+        for (int index = 0; index < size; index++)
         {
-            HashMap orderReviewHashMap = (HashMap) orderIter.next();
+            HashMap orderReviewHashMap = (HashMap) orderHashMapVector.get(index);
             OrderHistory orderReview = new OrderHistory(new Basket(), orderReviewHashMap);
             orderReviewVector.add(orderReview);
         }
@@ -363,11 +362,11 @@ public class OrderHistoryEntity extends AbSqlBean implements OrderHistoryEntityI
     {
         Vector orderReviewVector = new Vector();
         Vector orderHashMapVector = super.getRowsWhereBetween(OrderHistoryData.ORDERDATE, fromDate, toDate);
-        Iterator orderIter = orderHashMapVector.iterator();
 
-        while (orderIter.hasNext())
+        final int size = orderHashMapVector.size();
+        for (int index = 0; index < size; index++)
         {
-            HashMap orderReviewHashMap = (HashMap) orderIter.next();
+            HashMap orderReviewHashMap = (HashMap) orderHashMapVector.get(index);
             OrderHistory orderReview = new OrderHistory(new Basket(), orderReviewHashMap);
             orderReviewVector.add(orderReview);
         }

@@ -18,7 +18,7 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.Iterator;
+
 
 public class StoreThemeCategoriesView implements DomNodeInterface
 {
@@ -33,10 +33,11 @@ public class StoreThemeCategoriesView implements DomNodeInterface
    {
       Node node = new StoreThemeCategoryView(categoryInterface).toXmlNode(document);
       
-      Iterator iter = this.categoryInterface.getChildNodes().iterator();
-      while(iter.hasNext())
+      Object[] childArray = this.categoryInterface.getChildNodes().toArray();
+      int size = childArray.length;
+      for (int i = 0; i < size; i++)
       {
-         CategoryInterface childCategoryInterface = (CategoryInterface) iter.next();
+         CategoryInterface childCategoryInterface = (CategoryInterface) childArray[i];
 
          Node childCategoryNode = 
             new StoreThemeCategoriesView(

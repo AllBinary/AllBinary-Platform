@@ -20,7 +20,7 @@ import org.allbinary.data.tables.user.UserEntityFactory;
 import org.allbinary.data.tables.user.UserEntityInterface;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -37,11 +37,10 @@ public class StoreFrontUsersStatistics implements StoreFrontUsersStatisticsInter
       final Vector userVector = userEntityInterface.getCustomers();
       this.totalNumberOfUsers = new Long(userVector.size());
       
-      final Object[] userArray = userVector.toArray();
-      final int size = userArray.length;
+      final int size = userVector.size();
       for (int index = 0; index < size; index++)      
       {
-         UserInterface userInterface = (UserInterface) userArray[index];
+         UserInterface userInterface = (UserInterface) userVector.get(index);
          UserRole nextUserRole = userInterface.getRole();
          
          Long currentNumberOfUsersForRole = this.getNewTotal(nextUserRole);

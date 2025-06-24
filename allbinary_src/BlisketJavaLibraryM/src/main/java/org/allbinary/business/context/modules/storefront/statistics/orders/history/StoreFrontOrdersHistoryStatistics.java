@@ -20,7 +20,7 @@ import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntit
 import org.allbinary.data.tables.user.commerce.inventory.order.OrderHistoryEntityInterface;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 //import org.allbinary.business.context.modules.storefront.statistics.orders.history.*;
@@ -47,11 +47,10 @@ public class StoreFrontOrdersHistoryStatistics
       long numberOfOrders = 0;
       OrderHistoryInterface orderHistoryInterface;
       
-      final Object[] orderHistoryInterfaceArray = orderHistoryInterfaceVector.toArray();
-      final int size = orderHistoryInterfaceArray.length;
+      final int size = orderHistoryInterfaceVector.size();
       for (int index = 0; index < size; index++)      
       {
-         orderHistoryInterface = (OrderHistoryInterface) orderHistoryInterfaceArray[index];
+         orderHistoryInterface = (OrderHistoryInterface) orderHistoryInterfaceVector.get(index);
 
 	 numberOfOrders = numberOfOrders + 1;
 	 

@@ -15,7 +15,7 @@ package org.allbinary.media.image.comparison.motion;
 
 import java.awt.Rectangle;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -53,13 +53,14 @@ public class ConstrainedMotionRectangles extends MotionRectangles
 
         BufferedImage bufferedImage = bufferedImageArray[1];
         
-        Vector vector = new Vector();
+        final Vector vector = new Vector();
         
-        final Iterator iterator = motionRectangles.getVector().iterator();
+        final Vector vector2 = motionRectangles.getVector();
         
-        while(iterator.hasNext())
+        final int size = vector2.size();
+        for (int index = 0; index < size; index++)
         {
-            final MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
+            final MotionRectangle motionRectangle = (MotionRectangle) vector2.get(index);
             
             final Rectangle rectangle = motionRectangle.getRectangle();
             

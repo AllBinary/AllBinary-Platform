@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.generic.configuration;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.input.automation.module.generic.configuration.profile.GenericProfile;
@@ -467,11 +467,11 @@ public class GenericModuleConfigurationJPanel
         this.captureComparisonJCheckBox.setSelected(false);
         this.captureMotionAnalysisJCheckBox.setSelected(false);
         
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
             GenericProfileDataWorkerType genericProfileDataWorkerType =
-                (GenericProfileDataWorkerType) iterator.next();
+                (GenericProfileDataWorkerType) vector.get(index);
             
             LogUtil.put(LogFactory.getInstance(genericProfile.getName() + " has GenericProfileDataWorkerType: " + genericProfileDataWorkerType.toString(), 
                 this, "updateProfileOptions"));

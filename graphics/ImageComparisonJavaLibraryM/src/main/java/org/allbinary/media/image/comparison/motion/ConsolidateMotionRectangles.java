@@ -15,7 +15,7 @@ package org.allbinary.media.image.comparison.motion;
 
 import java.awt.Rectangle;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -32,36 +32,36 @@ public class ConsolidateMotionRectangles extends MotionRectangles
     {
         super(NAME, motionRectangles.getImageComparisonResult());
         
-        Iterator iterator = motionRectangles.getVector().iterator();
-        while(iterator.hasNext())
+        final Vector vector = motionRectangles.getVector();        
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
-            MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
-            this.getVector().add(motionRectangle.clone());
+            MotionRectangle motionRectangle = (MotionRectangle) vector.get(index);
+            vector.add(motionRectangle.clone());
         }
 
         consolidateMotionRectangles();
 
         //LogUtil.put(LogFactory.getInstance(
-          //  "After - Number Of Rectangles: " + this.getVector().size(), this, this.commonStrings.CONSTRUCTOR));
+          //  "After - Number Of Rectangles: " + vector.size(), this, this.commonStrings.CONSTRUCTOR));
     }
 
     private void consolidateMotionRectangles()
     {
-        LogUtil.put(LogFactory.getInstance("Start - Size Before: " + this.getVector().size(),
+        final Vector vector = this.getVector();
+        LogUtil.put(LogFactory.getInstance("Start - Size Before: " + vector.size(),
             this, "consolidateMotionRectangleConstraints"));
         
-        Vector removeVector = new Vector();
+        final Vector removeVector = new Vector();
         
-        Iterator iterator = this.getVector().iterator();
-        int index = 0;
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
-            MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
+            MotionRectangle motionRectangle = (MotionRectangle) vector.get(index);
             
-            index++;
-            for(int i = index; i < this.getVector().size(); i++)
+            for(int i = index + 1; i < vector.size(); i++)
             {
-                MotionRectangle motionRectangle2 = (MotionRectangle) this.getVector().get(i);
+                MotionRectangle motionRectangle2 = (MotionRectangle) vector.get(i);
 
                 //Only remove encapsulated rectangles
                     Rectangle rectangle = motionRectangle.getRectangle();
@@ -128,11 +128,13 @@ public class ConsolidateMotionRectangles extends MotionRectangles
 
     private void remove(Vector removeVector)
     {
+        final Vector vector = this.getVector();
+        
         //Remove the consolidated rectangles
-        Iterator iterator = removeVector.iterator();
-        while(iterator.hasNext())
+        final int size = removeVector.size();
+        for (int index = 0; index < size; index++)
         {
-            this.getVector().remove(iterator.next());
+            vector.remove(removeVector.get(index));
         }
     }
 }

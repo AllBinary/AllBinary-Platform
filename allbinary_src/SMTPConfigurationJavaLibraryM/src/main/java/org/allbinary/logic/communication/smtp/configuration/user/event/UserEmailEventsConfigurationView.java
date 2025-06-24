@@ -14,7 +14,7 @@
 package org.allbinary.logic.communication.smtp.configuration.user.event;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -45,10 +45,10 @@ public class UserEmailEventsConfigurationView implements DomNodeInterface
          DomSearchHelper.getAllNodesNoThrow(
             UserEmailEventConfigurationData.NAME, childNodeList);
 
-      Iterator iter = emailEventConfigurationNodeVector.iterator();
-      while(iter.hasNext())
+      final int size = emailEventConfigurationNodeVector.size();
+      for(int index = 0; index < size; index++) 
       {
-         Node userEmailConfigurationNode = (Node) iter.next();
+         Node userEmailConfigurationNode = (Node) emailEventConfigurationNodeVector.get(index);
 
          UserEmailEventConfigurationView userEmailEventConfigurationView =
             new UserEmailEventConfigurationView(userEmailConfigurationNode);
@@ -87,10 +87,11 @@ public class UserEmailEventsConfigurationView implements DomNodeInterface
          LogUtil.put(LogFactory.getInstance("Number Of Email Events Specified in file: " + set.size(), this, this.commonStrings.CONSTRUCTOR));
       }
       
-      Iterator iter = set.iterator();
-      while(iter.hasNext())
+      final Object[] eventNameArray = set.toArray();
+      final int size = eventNameArray.length;
+      for(int index = 0; index < size; index++)
       {
-         String eventName = (String) iter.next();
+         String eventName = (String) eventNameArray[index];
 
          UserEmailEventConfigurationInterface userEmailEventsConfigurationInterface = 
             (UserEmailEventConfigurationInterface) emailEventHashMap.get(eventName);

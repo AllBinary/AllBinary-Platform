@@ -16,7 +16,7 @@ package org.allbinary.data.tables.user.commerce.money.payment;
 import org.allbinary.data.generator.PaymentIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Random;
 import java.util.Vector;
 
@@ -90,13 +90,12 @@ public class PaymentEntity extends AbSqlBean implements PaymentEntityInterface
             Vector paymentVector = new Vector();
             HashMap keyAndValue = new HashMap();
             keyAndValue.put(UserData.USERNAME, userName);
-            Vector payments = super.getRows(keyAndValue);
+            Vector paymentList = super.getRows(keyAndValue);
 
-            Iterator iter = payments.iterator();
-
-            while(iter.hasNext())
+            final int size = paymentList.size();
+            for (int index = 0; index < size; index++)
             {
-                HashMap paymentHashMap = (HashMap) iter.next();
+                HashMap paymentHashMap = (HashMap) paymentList.get(index);
 
                 Payment payment = new Payment(paymentHashMap);
 

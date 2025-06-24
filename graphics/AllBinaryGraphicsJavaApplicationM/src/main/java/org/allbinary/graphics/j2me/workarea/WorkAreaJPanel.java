@@ -18,7 +18,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import java.util.EventListener;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Iterator;
+
 
 import java.awt.Component;
 import java.awt.Dimension;
@@ -262,10 +262,10 @@ public class WorkAreaJPanel
     //zoom all canvas/frame
     public void changeZoom(int factor)
     {
-        Iterator iter = this.canvasJPanelList.iterator();
-        while (iter.hasNext())
+        final int size = canvasJPanelList.size();
+        for (int index = 0; index < size; index++)
         {
-            CanvasJPanel canvasJPanel = (CanvasJPanel) iter.next();
+            CanvasJPanel canvasJPanel = (CanvasJPanel) canvasJPanelList.get(index);
             canvasJPanel.getGrid().setZoom(canvasJPanel.getGrid().getZoom() + factor);
         }
     }
@@ -382,10 +382,10 @@ public class WorkAreaJPanel
 
         Node framesNode = document.createElement(WorkAreaDom.FRAMES);
 
-        Iterator iter = this.canvasJPanelList.iterator();
-        while (iter.hasNext())
+        final int size = canvasJPanelList.size();
+        for (int index = 0; index < size; index++)
         {
-            CanvasJPanel canvasJPanel = (CanvasJPanel) iter.next();
+            CanvasJPanel canvasJPanel = (CanvasJPanel) canvasJPanelList.get(index);
             framesNode.appendChild(canvasJPanel.toDom());
         }
 

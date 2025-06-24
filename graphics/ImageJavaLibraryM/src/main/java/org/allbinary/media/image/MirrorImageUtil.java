@@ -42,7 +42,7 @@ public class MirrorImageUtil
    public BufferedImage getImage(
       BufferedImage bufferedImage, boolean verticle, boolean horizontal)
    {
-      LogUtil.put(LogFactory.getInstance("Starting", "MirrorImageUtil", "getImage"));
+      LogUtil.put(LogFactory.getInstance("Starting", this, "getImage"));
 
       BufferedImage newBufferedImage = 
          this.imageUtil.create(
@@ -94,7 +94,7 @@ public class MirrorImageUtil
          numberOfFrames *= 2;
 
       LogUtil.put(LogFactory.getInstance("numberOfFramesPerOrientation: " + numberOfFramesPerOrientation + 
-         " numberOfFrames: " + numberOfFrames, "MirrorImageUtil", ""));
+         " numberOfFrames: " + numberOfFrames, this, "getImages"));
       
       final BufferedImage[] bufferedImageArray = new BufferedImage[numberOfFrames];
       

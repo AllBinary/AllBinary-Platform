@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.generic.configuration.profile;
 
-import java.util.Iterator;
+
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -156,11 +156,13 @@ public class GenericProfiles
         Node node = document.createElement(GenericProfilesData.NAME);
         
         Set set = this.hashMap.keySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext())
+
+        final Object[] nameArray = set.toArray();
+        final int size = nameArray.length;
+        for(int index = 0; index < size; index++)
         {
             GenericProfile genericProfile = (GenericProfile)
-            this.hashMap.get((String) iterator.next());
+            this.hashMap.get((String) nameArray[index]);
             
             node.appendChild(genericProfile.toXmlNode(document));
         }

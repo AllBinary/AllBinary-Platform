@@ -18,7 +18,7 @@ import org.allbinary.globals.URLGLOBALS;
 import org.allbinary.logic.communication.log.LogFactory;
 import java.util.HashMap;
 import java.util.Set;
-import java.util.Iterator;
+
 import org.allbinary.string.CommonStrings;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -65,12 +65,13 @@ public class Replace
       int totalNumberOfReplaces = 0;
       
       final Set keySet = hashMap.keySet();
-      final Iterator keyIter = keySet.iterator();
       String key;
       String value;
-      while(keyIter.hasNext())
+      final Object[] keyArray = keySet.toArray();
+      final int size = keyArray.length;
+      for(int index2 = 0; index2 < size; index2++)
       {
-         key = (String) keyIter.next();
+         key = (String) keyArray[index2];
          value = (String) hashMap.get(key);
          
          //replace.replace(key, value);
@@ -135,12 +136,13 @@ public class Replace
       int totalNumberOfReplaces = 0;
       
       final Set keySet = hashMap.keySet();
-      final Iterator keyIter = keySet.iterator();
       String key;
       String value;
-      while(keyIter.hasNext())
+      final Object[] keyArray = keySet.toArray();
+      final int size = keyArray.length;
+      for(int index2 = 0; index2 < size; index2++)
       {
-         key = (String) keyIter.next();
+         key = (String) keyArray[index2];
          value = (String) hashMap.get(key);
          
          //replace.replace(key, value);

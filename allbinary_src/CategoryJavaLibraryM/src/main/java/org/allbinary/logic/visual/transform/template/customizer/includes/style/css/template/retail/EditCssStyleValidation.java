@@ -21,7 +21,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import org.allbinary.logic.visual.dhtml.style.StylesData;
 
 public class EditCssStyleValidation extends CssStyleValidation 
@@ -69,10 +69,10 @@ public class EditCssStyleValidation extends CssStyleValidation
 
       styleNode.appendChild(new ColorsView().toXmlNode(document));
 
-      Iterator iter = this.cssStyleElementVector.iterator();
-      while(iter.hasNext())
+      int size = cssStyleElementVector.size();
+      for (int i = 0; i < size; i++)
       {
-         DomNodeInterface styleDomNodeInterface = (DomNodeInterface) iter.next();
+         DomNodeInterface styleDomNodeInterface = (DomNodeInterface) cssStyleElementVector.get(i);
          styleNode.appendChild(styleDomNodeInterface.toXmlNode(document));
       }
       return node;

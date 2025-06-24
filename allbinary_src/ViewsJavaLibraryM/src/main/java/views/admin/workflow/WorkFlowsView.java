@@ -14,7 +14,7 @@
 package views.admin.workflow;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Node;
@@ -77,10 +77,10 @@ public class WorkFlowsView extends HttpStoreComponentView implements DomNodeInte
       {
          Node node = document.createElement(WorkFlowData.getInstance().WORKFLOWS);
          
-         Iterator iter = this.workFlowsVector.iterator();
-         while(iter.hasNext())
+         final int size = workFlowsVector.size();
+         for(int index = 0; index < size; index++)
          {
-            WorkFlowInterface workFlowInterface = (WorkFlowInterface) iter.next();
+            WorkFlowInterface workFlowInterface = (WorkFlowInterface) workFlowsVector.get(index);
             //node.appendChild(new WorkFlowView(workFlowInterface).toXmlNode(document));
          }
          return node;

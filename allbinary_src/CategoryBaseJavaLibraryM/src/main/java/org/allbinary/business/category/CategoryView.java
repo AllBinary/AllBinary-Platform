@@ -22,7 +22,7 @@ import org.allbinary.data.tree.dom.DomNodeInterface;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 public class CategoryView implements DomNodeInterface
@@ -58,10 +58,10 @@ public class CategoryView implements DomNodeInterface
          LogUtil.put(LogFactory.getInstance("Number Of Children: " + childCategoryVector.size(), this, "toXmlNode"));
       }
       
-      Iterator iter = childCategoryVector.iterator();
-      while(iter.hasNext())
+      int size = childCategoryVector.size();
+      for (int i = 0; i < size; i++)
       {
-         Object object = iter.next();
+         Object object = childCategoryVector.get(i);
          CategoryPropertiesInterface categoryPropertiesInterface = null;
 
          if(InterfaceUtil.isImplemented("CategoryPropertiesInterface", object))

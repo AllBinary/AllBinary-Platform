@@ -100,7 +100,7 @@ public class ImagesRatioUtil
             commonLabels.WIDTH_LABEL + bufferedImage.getWidth() + " newWidth: " + newWidth +
             commonLabels.HEIGHT_LABEL + bufferedImage.getHeight() + " newHeight: " + newHeight +
             " needed ratio: " + ((double) newWidth/newHeight),
-            "ImageRatioUtil", "fudge"));
+            this, "fudge"));
         
         BufferedImage newBufferedImage =
             this.imageUtil.create(newWidth, newHeight);
@@ -114,7 +114,7 @@ public class ImagesRatioUtil
             final byte[] bytes = new byte[data.length * 4];
          
             LogUtil.put(LogFactory.getInstance("Get the first column of the original of: " + bytes.length, 
-                "ImageRatioUtil", "fudge"));
+                this, "fudge"));
 
             bufferedImage.getRGB(
                 0, //startX
@@ -139,7 +139,7 @@ public class ImagesRatioUtil
             BufferedImage lastColumnBufferedImage = bufferedImage.getSubimage(
                 bufferedImage.getWidth() - 1, 0, 1, bufferedImage.getHeight());
             
-            LogUtil.put(LogFactory.getInstance("Draw some columns to fill in gap", "ImageRatioUtil", "fudge"));
+            LogUtil.put(LogFactory.getInstance("Draw some columns to fill in gap", this, "fudge"));
             
             //g.setColor(Color.RED);
             
@@ -160,7 +160,7 @@ public class ImagesRatioUtil
             final byte[] bytes = new byte[data.length * 4];
          
             LogUtil.put(LogFactory.getInstance("Get the first row of the original of: " + bytes.length, 
-                "ImageRatioUtil", "fudge"));
+                this, "fudge"));
 
             bufferedImage.getRGB(
                 0, //startX
@@ -186,7 +186,7 @@ public class ImagesRatioUtil
             BufferedImage lastRowBufferedImage = bufferedImage.getSubimage(
                 0, bufferedImage.getHeight() - 1, bufferedImage.getWidth(), 1);
             
-            LogUtil.put(LogFactory.getInstance("Draw some rows to fill in gap", "ImageRatioUtil", "fudge"));
+            LogUtil.put(LogFactory.getInstance("Draw some rows to fill in gap", this, "fudge"));
             
             //g.setColor(Color.RED);
             

@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.visual.transform.generator;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogFactory;
@@ -87,16 +87,15 @@ public class TransformsGeneratorUtil
             LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "generateComponentsFromObjectConfig()"));
         }
 
-        Iterator iter = transformInfoObjectConfigComponentVector.iterator();
-
         if (transformInfoObjectConfigComponentVector.size() < 1)
         {
             throw new Exception("No Pages Generated For Template.");
         }
 
-        while (iter.hasNext())
+        final int size = transformInfoObjectConfigComponentVector.size();
+        for (int index = 0; index < size; index++)
         {
-            TransformInfoDomNode transformInfoObjectConfigComponent = (TransformInfoDomNode) iter.next();
+            TransformInfoDomNode transformInfoObjectConfigComponent = (TransformInfoDomNode) transformInfoObjectConfigComponentVector.get(index);
 
             TransformGeneratorUtil.getInstance().generate(abeClientInformation, transformInfoObjectConfigComponent, transformInfoInterface);
         }

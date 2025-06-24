@@ -14,7 +14,7 @@
 package org.allbinary.data.tables.user;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -88,10 +88,10 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       
       Vector usersHashMapVector = super.getRows(keysAndValues);
       
-      Iterator iter = usersHashMapVector.iterator();
-      while(iter.hasNext())
+      int size = usersHashMapVector.size();
+      for (int i = 0; i < size; i++)
       {
-         HashMap userHashMap = (HashMap) iter.next();
+         HashMap userHashMap = (HashMap) usersHashMapVector.get(i);
          if(userHashMap!=null)
             usersVector.add(new User(userHashMap));
       }
@@ -113,10 +113,10 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       
       Vector usersHashMapVector = super.getRows(keysAndValues);
       
-      Iterator iter = usersHashMapVector.iterator();
-      while(iter.hasNext())
+      final int size = usersHashMapVector.size();
+      for (int index = 0; index < size; index++)
       {
-         HashMap userHashMap = (HashMap) iter.next();
+         HashMap userHashMap = (HashMap) usersHashMapVector.get(index);
          if(userHashMap!=null)
             usersVector.add(new User(userHashMap));
       }
@@ -134,10 +134,10 @@ public class UserEntity extends AbSqlBean implements UserEntityInterface
       
       Vector usersHashMapVector = super.getRows(keysAndValues);
       
-      Iterator iter = usersHashMapVector.iterator();
-      while(iter.hasNext())
+      final int size = usersHashMapVector.size();
+      for (int index = 0; index < size; index++)
       {
-         HashMap userHashMap = (HashMap) iter.next();
+         HashMap userHashMap = (HashMap) usersHashMapVector.get(index);
          if(userHashMap!=null)
             usersVector.add(new User(userHashMap));
       }

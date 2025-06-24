@@ -14,7 +14,7 @@
 package views.generic.payment;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 
@@ -52,10 +52,10 @@ public class PaymentView  extends HttpStoreComponentView implements DomNodeInter
          
          Vector paymentVector = PaymentEntityFactory.getInstance().getPaymentEntityInstance().get(
                  this.getWeblisketSession().getUserName());
-         Iterator iter = paymentVector.iterator();
-         while(iter.hasNext())
+         int size = paymentVector.size();
+         for (int index = 0; index < size; index++)
          {
-            Payment payment = (Payment) iter.next();
+            Payment payment = (Payment) paymentVector.get(index);
             paymentNode.appendChild(payment.toXmlNode(document));
          }
 

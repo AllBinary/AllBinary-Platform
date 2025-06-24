@@ -15,7 +15,7 @@ package org.allbinary.input.automation.module.generic.configuration.profile.acti
 
 import org.allbinary.input.automation.actions.script.ProfileActionScriptNodeInterface;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -133,11 +133,12 @@ public class GenericProfileActionScript
     {
         Node node = document.createElement(GenericProfileActionData.SCRIPT);
 
-        Iterator iterator = this.getProfileActionConditionInterfaceVector().iterator();
-        while(iterator.hasNext())
+        final Vector vector = this.getProfileActionConditionInterfaceVector();
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
             ProfileActionScriptConditionInterface profileActionConditionInterface =
-                (ProfileActionScriptConditionInterface) iterator.next();
+                (ProfileActionScriptConditionInterface) vector.get(index);
 
             node.appendChild(profileActionConditionInterface.toXmlNode(document));
         }

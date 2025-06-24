@@ -14,7 +14,7 @@
 package org.allbinary.graphics.j2me.workarea.canvas;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import java.awt.Color;
@@ -114,10 +114,11 @@ public class CanvasJPanel extends javax.swing.JPanel
             this.setCanvasSize(canvasDom.getDimension().getWidth(), canvasDom.getDimension().getHeight());
             this.graphicItemHashMap = canvasDom.getGraphicItemHashMap();
 
-            Iterator graphicItemIter = this.graphicItemHashMap.keySet().iterator();
-            while (graphicItemIter.hasNext())
+            final Object[] graphicItemArray = graphicItemHashMap.keySet().toArray();
+            final int size = graphicItemArray.length;
+            for(int index = 0; index < size; index++)
             {
-                MutableTreeNode graphicItemTreeNode = (MutableTreeNode) graphicItemIter.next();
+                MutableTreeNode graphicItemTreeNode = (MutableTreeNode) graphicItemArray[index];
                 canvasTreeNode.add(graphicItemTreeNode);
             }
 
@@ -277,10 +278,12 @@ public class CanvasJPanel extends javax.swing.JPanel
     public void explodeAll()
     {
         Vector newPoints = new Vector();
-        Iterator graphicItemIter = this.getGraphicItemHashMap().keySet().iterator();
-        while (graphicItemIter.hasNext())
+        
+        final Object[] graphicItemArray = this.getGraphicItemHashMap().keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
         {
-            MutableTreeNode graphicItemNode = (MutableTreeNode) graphicItemIter.next();
+            MutableTreeNode graphicItemNode = (MutableTreeNode) graphicItemArray[index];
 
             GraphicItemInterface graphicItem = (GraphicItemInterface)
                     this.getGraphicItemHashMap().get(graphicItemNode);
@@ -307,10 +310,10 @@ public class CanvasJPanel extends javax.swing.JPanel
             }
         }
 
-        Iterator iter = newPoints.iterator();
-        while (iter.hasNext())
+        final int size2 = newPoints.size();
+        for (int index = 0; index < size2; index++)
         {
-            GraphicItemInterface newGraphicItem = (GraphicItemInterface) iter.next();
+            GraphicItemInterface newGraphicItem = (GraphicItemInterface) newPoints.get(index);
             canvasTreeNode.add(newGraphicItem.getTreeNode());
             this.getGraphicItemHashMap().put(newGraphicItem.getTreeNode(), newGraphicItem);
         }
@@ -324,10 +327,11 @@ public class CanvasJPanel extends javax.swing.JPanel
             throws Exception
     {
         //move and rotate each line a random amount
-        Iterator iter = this.getGraphicItemHashMap().keySet().iterator();
-        while (iter.hasNext())
+        final Object[] graphicItemArray = this.getGraphicItemHashMap().keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
         {
-            GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(iter.next());
+            GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(graphicItemArray[index]);
             BasicArrayList basicArrayList = VectorExplosionGenerator.getInstance().getInstance(item.getPointsInterface().getPoints(), howMuch, VectorExplosionGenerator.getInstance().RANDOM);
 
             Points newPoints = new Points();
@@ -350,10 +354,11 @@ public class CanvasJPanel extends javax.swing.JPanel
     {
         int width = this.getCanvasDimension().getWidth();
         //move and rotate each line a random amount
-        Iterator iter = this.getGraphicItemHashMap().keySet().iterator();
-        while (iter.hasNext())
+        final Object[] graphicItemArray = this.getGraphicItemHashMap().keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
         {
-            GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(iter.next());
+            GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(graphicItemArray[index]);
             BasicArrayList basicArrayList = VectorMirrorGenerator.getInstance().getInstance(item.getPointsInterface().getPoints(), width);
 
             Points newPoints = new Points();
@@ -409,10 +414,12 @@ public class CanvasJPanel extends javax.swing.JPanel
     public void duplicateGraphicItemHashMap(HashMap hashMap)
             throws Exception
     {
-        Iterator iter = hashMap.keySet().iterator();
-        while (iter.hasNext())
+
+        final Object[] mutableTreeNodeArray = hashMap.keySet().toArray();
+        final int size = mutableTreeNodeArray.length;
+        for(int index = 0; index < size; index++)
         {
-            MutableTreeNode treeNode = (MutableTreeNode) iter.next();
+            MutableTreeNode treeNode = (MutableTreeNode) mutableTreeNodeArray[index];
             GraphicItemInterface graphicItem = (GraphicItemInterface) hashMap.get(treeNode);
             this.duplicateGraphicItem(graphicItem);
         }
@@ -458,10 +465,11 @@ public class CanvasJPanel extends javax.swing.JPanel
         Double angleDouble = new Double(this.angle);
 
         //graphics.drawString(new Integer(this.graphicItemHashMap.keySet().size()).toString(),5,5);
-        Iterator iter = this.getGraphicItemHashMap().keySet().iterator();
-        while (iter.hasNext())
+        final Object[] graphicItemArray = this.getGraphicItemHashMap().keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
         {
-            GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(iter.next());
+            GraphicItemInterface item = (GraphicItemInterface) this.getGraphicItemHashMap().get(graphicItemArray[index]);
             item.paint(graphics, angleDouble, this.getCanvasDimension(), this.getXPixelsPerWorkAreaPixel(), this.getYPixelsPerWorkAreaPixel());
         }
     }
@@ -660,10 +668,11 @@ public class CanvasJPanel extends javax.swing.JPanel
 
         try
         {
-            Iterator graphicItemIter = this.graphicItemHashMap.keySet().iterator();
-            while (graphicItemIter.hasNext())
+            final Object[] graphicItemArray = this.graphicItemHashMap.keySet().toArray();
+            final int size = graphicItemArray.length;
+            for(int index = 0; index < size; index++)
             {
-                GraphicItemInterface graphicItemInterface = (GraphicItemInterface) this.graphicItemHashMap.get(graphicItemIter.next());
+                GraphicItemInterface graphicItemInterface = (GraphicItemInterface) this.graphicItemHashMap.get(graphicItemArray[index]);
 
                 int keyCode = keyEvent.getKeyCode();
 

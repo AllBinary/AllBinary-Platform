@@ -20,7 +20,7 @@ import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.jar.JarInputStream;
 import java.util.jar.Manifest;
@@ -187,8 +187,7 @@ public class InputAutomationNewBundleRunnable
         
         if(bundleArray != null)
         {
-            LogUtil.put(LogFactory.getInstance("bundleArray: " + bundleArray.length,
-                "InputAutomationBundleActivator", "getInputAutomationModuleServices"));
+            LogUtil.put(LogFactory.getInstance("bundleArray: " + bundleArray.length,this, "getInputAutomationModuleServices"));
             
             for(int index = 0; index < bundleArray.length; index++)
             {
@@ -228,10 +227,12 @@ public class InputAutomationNewBundleRunnable
         LogUtil.put(LogFactory.getInstance("All: " + hashMap, this, "findNewModules"));
         
         Set set = hashMap.keySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext())
+        
+        final Object[] symbolicNameArray = set.toArray();
+        final int size = symbolicNameArray.length;
+        for(int index = 0; index < size; index++)
         {
-            String symbolicName = (String) iterator.next();
+            String symbolicName = (String) symbolicNameArray[index];
             if(!this.isInstalled(symbolicName))
             {
                 vector.add(hashMap.get(symbolicName));

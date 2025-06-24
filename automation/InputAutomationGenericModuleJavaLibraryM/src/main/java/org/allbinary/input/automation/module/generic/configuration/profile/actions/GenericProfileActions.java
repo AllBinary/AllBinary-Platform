@@ -20,7 +20,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 
 import org.w3c.dom.Document;
@@ -230,10 +230,12 @@ public class GenericProfileActions
         Node node = document.createElement(GenericProfileActionsData.NAME);
 
         Set set = this.getHashMap().keySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext())
+                
+        final Object[] actionNameArray = set.toArray();
+        final int size = actionNameArray.length;
+        for(int index = 0; index < size; index++)
         {
-            String nextActionName = (String) iterator.next();
+            String nextActionName = (String) actionNameArray[index];
             
             GenericProfileAction nextGenericProfileAction =
                 (GenericProfileAction) this.getAction(nextActionName);

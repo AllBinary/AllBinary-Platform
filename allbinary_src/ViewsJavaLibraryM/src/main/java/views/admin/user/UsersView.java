@@ -15,7 +15,7 @@ package views.admin.user;
 
 
 import org.allbinary.logic.communication.log.LogFactory;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Node;
@@ -52,13 +52,10 @@ public class UsersView extends HttpContextView implements DomNodeInterface
       {
          Node usersNode = document.createElement(UsersData.NAME);                  
          
-         Iterator iter = userVector.iterator();
-         
-         while(iter.hasNext())
+         int size = userVector.size();
+         for (int index = 0; index < size; index++)
          {
-            //String product = new String((String) iter.next());
-            //InventoryEntityFactory.getInstance().getItem(product);
-            User userInterface = (User) iter.next();
+            User userInterface = (User) userVector.get(index);
             if(userInterface!=null)
             {
                Node node = new UserDomNode(userInterface).toXmlNode(document);

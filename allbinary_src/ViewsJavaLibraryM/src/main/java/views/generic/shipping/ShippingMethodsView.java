@@ -14,7 +14,7 @@
 package views.generic.shipping;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 
@@ -94,63 +94,60 @@ public class ShippingMethodsView extends HttpStoreComponentView implements DomNo
          
          Vector shippingVector = this.shippingMethods.get();
          
-         Iterator iter = shippingVector.iterator();
-         
-         if(iter.hasNext())
-         {
-            while(iter.hasNext())
-            {
-               Node shippingMethodNode =
-               document.createElement(
-               ShippingMethodsData.SHIPPINGMETHODORDERSUMMARY);
-               
-               ShippingInterface shipping = (ShippingInterface) iter.next();
-               
-               DomNodeInterface shippingView = (DomNodeInterface) shipping;
-               shippingMethodNode.appendChild(shippingView.toXmlNode(document));
-               
-               Money shippingCost = shipping.getCost(order);
-               Money subTotal = basket.getSubTotal();
-               Float taxRate = TaxFactory.getInstance().getInstance(this.abeClientInformation, storeFrontInterface).getTaxRate(streetAddress, storeFrontInterface);
+         final int size = shippingVector.size();
+         for (int index = 0; index < size; index++)
+          {
+              Node shippingMethodNode =
+                  document.createElement(
+                      ShippingMethodsData.SHIPPINGMETHODORDERSUMMARY);
 
-               Money tax = new Money();
-               Money total = new Money();
-               
-               total.add(shippingCost.toString());
-               total.add(subTotal.toString());
-               
-               tax.add(total.toString());
-               tax.multiply(taxRate);
-               
-               total.add(tax.toString());
-               
-               shippingMethodNode.appendChild(
-               ModDomHelper.createNameValueNodes(
-               document, ShippingMethodsData.SHIPPINGCOST, shippingCost.toString()));
-               
-               shippingMethodNode.appendChild(
-               ModDomHelper.createNameValueNodes(
-               document, ShippingMethodsData.TAXRATE, taxRate.toString()));
-               
-               shippingMethodNode.appendChild(
-               ModDomHelper.createNameValueNodes(
-               document, ShippingMethodsData.SUBTOTAL, subTotal.toString()));
-               
-               shippingMethodNode.appendChild(
-               ModDomHelper.createNameValueNodes(
-               document, ShippingMethodsData.TAX, tax.toString()));
-               
-               shippingMethodNode.appendChild(
-               ModDomHelper.createNameValueNodes(
-               document, ShippingMethodsData.TOTAL, total.toString()));
-               
-               shippingMethodNode.appendChild(
-               ModDomHelper.createNameValueNodes(
-               document, EntryData.getInstance().DEFAULT, this.shippingMethods.getDefault().getName()));
-               
-               shippingMethodsNode.appendChild(shippingMethodNode);
-            }
-         }
+              ShippingInterface shipping = (ShippingInterface) shippingVector.get(index);
+
+              DomNodeInterface shippingView = (DomNodeInterface) shipping;
+              shippingMethodNode.appendChild(shippingView.toXmlNode(document));
+
+              Money shippingCost = shipping.getCost(order);
+              Money subTotal = basket.getSubTotal();
+              Float taxRate = TaxFactory.getInstance().getInstance(this.abeClientInformation, storeFrontInterface).getTaxRate(streetAddress, storeFrontInterface);
+
+              Money tax = new Money();
+              Money total = new Money();
+
+              total.add(shippingCost.toString());
+              total.add(subTotal.toString());
+
+              tax.add(total.toString());
+              tax.multiply(taxRate);
+
+              total.add(tax.toString());
+
+              shippingMethodNode.appendChild(
+                  ModDomHelper.createNameValueNodes(
+                      document, ShippingMethodsData.SHIPPINGCOST, shippingCost.toString()));
+
+              shippingMethodNode.appendChild(
+                  ModDomHelper.createNameValueNodes(
+                      document, ShippingMethodsData.TAXRATE, taxRate.toString()));
+
+              shippingMethodNode.appendChild(
+                  ModDomHelper.createNameValueNodes(
+                      document, ShippingMethodsData.SUBTOTAL, subTotal.toString()));
+
+              shippingMethodNode.appendChild(
+                  ModDomHelper.createNameValueNodes(
+                      document, ShippingMethodsData.TAX, tax.toString()));
+
+              shippingMethodNode.appendChild(
+                  ModDomHelper.createNameValueNodes(
+                      document, ShippingMethodsData.TOTAL, total.toString()));
+
+              shippingMethodNode.appendChild(
+                  ModDomHelper.createNameValueNodes(
+                      document, EntryData.getInstance().DEFAULT, this.shippingMethods.getDefault().getName()));
+
+              shippingMethodsNode.appendChild(shippingMethodNode);
+          }
+
          return shippingMethodsNode;
          
       }

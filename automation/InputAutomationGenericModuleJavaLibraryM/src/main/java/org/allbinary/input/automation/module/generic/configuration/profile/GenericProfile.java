@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.generic.configuration.profile;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -84,11 +84,11 @@ public class GenericProfile
         Node node = ModDomHelper.createTextNode(
             document, GenericProfileData.NAME, name);
         
-        Iterator iterator = this.vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
             GenericProfileDataWorkerType genericProfileDataWorkerType =
-                (GenericProfileDataWorkerType) iterator.next();
+                (GenericProfileDataWorkerType) vector.get(index);
             node.appendChild(genericProfileDataWorkerType.toXmlNode(document));
         }
         return node;

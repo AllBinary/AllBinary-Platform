@@ -14,7 +14,7 @@
 package admin.taghelpers;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import javax.servlet.jsp.PageContext;
@@ -159,11 +159,10 @@ public class StoreFrontsHelper implements BasicTableInterface
 
             storeSelect.addAttribute(CLASS, TEXT);
 
-            final Object[] storeNameArray = storeNamesVector.toArray();
-            final int size = storeNameArray.length;
+            final int size = storeNamesVector.size();
             for (int index = 0; index < size; index++)
             {
-                String storeName = (String) storeNameArray[index];
+                String storeName = (String) storeNamesVector.get(index);
                 storeSelect.addOption(storeName);
             }
             success += storeSelect;

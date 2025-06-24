@@ -37,7 +37,7 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.business.user.role.UserRoleFactory;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 import javax.servlet.http.HttpServletRequest;
 import org.allbinary.globals.GLOBALS2;

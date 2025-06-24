@@ -59,7 +59,7 @@ public class Directory
             {
                 //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
                 //{
-                PreLogUtil.put("Creating Directories: " + directory, "Directory", "create");
+                PreLogUtil.put("Creating Directories: " + directory, this, "create");
                 //}
 
                 if (!directoryFile.mkdirs())
@@ -72,7 +72,7 @@ public class Directory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILEERROR))
             //{
-            PreLogUtil.put("Error Creating Directories: " + directory, "Directory", "create", e);
+            PreLogUtil.put("Error Creating Directories: " + directory, this, "create", e);
             //}
             return false;
         }

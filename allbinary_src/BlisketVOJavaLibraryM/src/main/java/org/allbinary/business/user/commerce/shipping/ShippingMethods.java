@@ -44,11 +44,10 @@ public class ShippingMethods implements ShippingMethodsInterface
    {
        ShippingInterface shipping;
        
-      final Object[] shippingArray = shippingVector.toArray();
-      final int size = shippingArray.length;
+      final int size = shippingVector.size();
       for (int index = 0; index < size; index++)
       {  
-         shipping = (ShippingInterface) shippingArray[index];
+         shipping = (ShippingInterface) shippingVector.get(index);
          if(name.compareTo(shipping.getName())==0) return shipping;
       }
 

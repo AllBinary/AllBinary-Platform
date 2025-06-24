@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -77,10 +77,11 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Iterator iter = updatedKeyValuePairs.keySet().iterator();
-            while (iter.hasNext())
+            final Object[] keyArray = updatedKeyValuePairs.keySet().toArray();
+            final int size = keyArray.length;
+            for (int i = 0; i < size; i++)
             {
-                final String columnName = iter.next().toString();
+                final String columnName = keyArray[i].toString();
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(EQUAL_QUOTE);
@@ -97,7 +98,7 @@ public class AbSqlRow extends AbSqlColumn
                 stringBuffer.append(this.getValue(columnValue));
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (i < size - 1)
                 {
                     stringBuffer.append(this.commonSeps.COMMA);
                 }
@@ -136,10 +137,11 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            final Iterator iter = updatedKeyValuePairs.keySet().iterator();
-            while (iter.hasNext())
+            final Object[] keyArray = updatedKeyValuePairs.keySet().toArray();
+            final int size = keyArray.length;
+            for (int i = 0; i < size; i++)
             {
-                final String columnName = iter.next().toString();
+                final String columnName = keyArray[i].toString();
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(this.EQUAL_QUOTE);
@@ -162,7 +164,7 @@ public class AbSqlRow extends AbSqlColumn
                 stringBuffer.append(this.getValue(columnValue));
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (i < size - 1)
                 {
                     stringBuffer.append(this.commonSeps.COMMA);
                 }
@@ -171,11 +173,11 @@ public class AbSqlRow extends AbSqlColumn
             stringBuffer.append(sqlStrings.WHERE);
 
             final Set set = whereKeyValuePairs.keySet();
-            final Iterator whereIter = set.iterator();
-
-            while (whereIter.hasNext())
+            final Object[] keyArray2 = set.toArray();
+            final int size2 = keyArray2.length;
+            for (int i = 0; i < size2; i++)
             {
-                final String key = (String) whereIter.next();
+                final String key = (String) keyArray2[i];
                 final String value = (String) whereKeyValuePairs.get(key);
                 //if(value!=null && value.compareTo("null")!=0)
                 {
@@ -185,7 +187,7 @@ public class AbSqlRow extends AbSqlColumn
                     stringBuffer.append(this.getValue(value));
                     stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                    if (whereIter.hasNext())
+                    if (i < size2 - 1)
                     {
                         stringBuffer.append(sqlStrings.AND);
                     }
@@ -252,11 +254,11 @@ public class AbSqlRow extends AbSqlColumn
         try
         {
             final Set set = keysAndValues.keySet();
-            final Iterator iter = set.iterator();
-
-            while (iter.hasNext())
+            final Object[] keyArray = set.toArray();
+            final int size = keyArray.length;
+            for (int i = 0; i < size; i++)
             {
-                String key = (String) iter.next();
+                String key = (String) keyArray[i];
                 String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
@@ -264,7 +266,7 @@ public class AbSqlRow extends AbSqlColumn
                 stringBuffer.append(this.getValue(value));
                 stringBuffer.append(this.sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (i < size - 1)
                 {
                     stringBuffer.append(this.sqlStrings.AND);
                 }
@@ -296,7 +298,6 @@ public class AbSqlRow extends AbSqlColumn
 
         try
         {
-            //Iterator iter = values.iterator();
             for (int i = 0; i < values.size() - 1; i++)
             {
                 String value = this.getValue((String) values.get(i));
@@ -340,11 +341,12 @@ public class AbSqlRow extends AbSqlColumn
         {
             HashMap result = null;
             final Set set = keysAndValues.keySet();
-            final Iterator iter = set.iterator();
 
-            while (iter.hasNext())
+            final Object[] keyArray = set.toArray();
+            final int size = keyArray.length;
+            for(int index = 0; index < size; index++)
             {
-                final String key = (String) iter.next();
+                final String key = (String) keyArray[index];
                 final String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
@@ -353,7 +355,7 @@ public class AbSqlRow extends AbSqlColumn
                 stringBuffer.append(this.getValue(value));
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (index < size - 1)
                 {
                     stringBuffer.append(sqlStrings.AND);
                 }
@@ -420,11 +422,12 @@ public class AbSqlRow extends AbSqlColumn
         {
             final Vector rows = new Vector();
             final Set set = keysAndValues.keySet();
-            final Iterator iter = set.iterator();
 
-            while (iter.hasNext())
+            final Object[] keyArray = set.toArray();
+            final int size = keyArray.length;
+            for(int index = 0; index < size; index++)
             {
-                final String key = (String) iter.next();
+                final String key = (String) keyArray[index];
                 final String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
@@ -433,7 +436,7 @@ public class AbSqlRow extends AbSqlColumn
                 stringBuffer.append(this.getValue(value));
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (index < size - 1)
                 {
                     stringBuffer.append(sqlStrings.AND);
                 }
@@ -544,7 +547,7 @@ public class AbSqlRow extends AbSqlColumn
         {
             Vector rows = new Vector();
             Set set = keysAndValues.keySet();
-            Iterator iter = set.iterator();
+            iter = set;
 
             while (iter.hasNext())
             {
@@ -564,7 +567,7 @@ public class AbSqlRow extends AbSqlColumn
             }
 
             set = likeKeysAndValues.keySet();
-            iter = set.iterator();
+            iter = set;
 
             while (iter.hasNext())
             {
@@ -636,12 +639,15 @@ public class AbSqlRow extends AbSqlColumn
             final Vector rows = new Vector();
             stringBuffer.append(sqlStrings.WHERE);
             final Set set = whereKeyValuePairs.keySet();
-            final Iterator whereIter = set.iterator();
+            
             String key;
             String value;
-            while (whereIter.hasNext())
+            
+            final Object[] keyArray = set.toArray();
+            final int size = keyArray.length;
+            for(int index = 0; index < size; index++)
             {
-                key = (String) whereIter.next();
+                key = (String) keyArray[index];
                 value = (String) whereKeyValuePairs.get(key);
 
                 stringBuffer.append(key);

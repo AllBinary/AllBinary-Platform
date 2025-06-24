@@ -28,7 +28,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 import org.allbinary.logic.visual.transform.info.TransformInfoData;
 import org.allbinary.logic.visual.transform.info.TransformInfosData;
@@ -276,10 +276,10 @@ public class TransformInfoObjectConfig
 
       Vector viewNodeVector = this.getNodeVector(nodeName);
       
-      Iterator iter = viewNodeVector.iterator();
-      while(iter.hasNext())
+       final int size = viewNodeVector.size();
+       for (int index = 0; index < size; index++)
        {
-          Node viewNode = (Node) iter.next();
+          Node viewNode = (Node) viewNodeVector.get(index);
           viewVector.add(new TransformInfoDomNode(viewNode));
           //.getTransformInfoInterface()
        }
@@ -294,10 +294,10 @@ public class TransformInfoObjectConfig
 
       Vector viewNodeVector = this.getNodeVector(nodeName);
       
-      Iterator iter = viewNodeVector.iterator();
-      while(iter.hasNext())
+       final int size = viewNodeVector.size();
+       for (int index = 0; index < size; index++)
        {
-          Node viewNode = (Node) iter.next();
+          Node viewNode = (Node) viewNodeVector.get(index);
           viewVector.add(new TransformInfoDomNode(viewNode).getTransformInfoInterface());
        }
 
@@ -349,10 +349,10 @@ public class TransformInfoObjectConfig
             //DomHelper.toString(this.document), this, "getTransformsGroup()");
          }
 
-         Iterator iter = viewNodeVector.iterator();
-         while(iter.hasNext())
+         final int size = viewNodeVector.size();
+         for (int index = 0; index < size; index++)
          {
-            Node viewNode = (Node) iter.next();
+            Node viewNode = (Node) viewNodeVector.get(index);
             viewVector.add(new TransformInfoDomNode(viewNode));
          }
       }

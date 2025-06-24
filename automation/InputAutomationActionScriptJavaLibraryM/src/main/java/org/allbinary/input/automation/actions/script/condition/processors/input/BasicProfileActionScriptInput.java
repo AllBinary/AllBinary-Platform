@@ -16,6 +16,7 @@ package org.allbinary.input.automation.actions.script.condition.processors.input
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
+
 import java.util.Set;
 
 import org.w3c.dom.Document;

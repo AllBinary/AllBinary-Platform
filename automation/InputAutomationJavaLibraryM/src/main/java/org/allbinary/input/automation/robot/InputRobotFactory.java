@@ -14,7 +14,7 @@
 package org.allbinary.input.automation.robot;
 
 import java.util.Hashtable;
-import java.util.Iterator;
+
 import java.util.Set;
 
 import java.awt.GraphicsDevice;
@@ -29,6 +29,7 @@ import org.allbinary.logic.java.help.JavaHelpSetNotifier;
 import org.allbinary.logic.java.object.InterfaceUtil;
 import org.allbinary.logic.system.loader.SecuredNativeLibraryInterface;
 import java.util.Collection;
+import java.util.Iterator;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.string.CommonStrings;
 
@@ -108,12 +109,14 @@ public class InputRobotFactory
     throws Exception
     {
         final Set set = this.get().keySet();
-        LogUtil.put(LogFactory.getInstance("Loading Libraries", "InputRobotFactory", "loadLibraries"));
-        final Iterator iterator = set.iterator();
-        while(iterator.hasNext())
+        LogUtil.put(LogFactory.getInstance("Loading Libraries", this, "loadLibraries"));
+
+        final Object[] nameArray = set.toArray();
+        final int size = nameArray.length;
+        for(int index = 0; index < size; index++)
         {
             InputRobotInterface inputRobotInterface =
-                InputRobotFactory.getInstance().get((String) iterator.next());
+                InputRobotFactory.getInstance().get((String) nameArray[index]);
             loadLibrary(inputRobotInterface);
         }
     }
@@ -149,11 +152,14 @@ public class InputRobotFactory
     {
         LogUtil.put(LogFactory.getInstance("Unloading Libraries", this, "unloadLibraries"));
         final Set set = this.get().keySet();
-        final Iterator iterator = set.iterator();
+
         InputRobotInterface inputRobotInterface;
-        while(iterator.hasNext())
+        
+        final Object[] inputRobotArray = set.toArray();
+        final int size = inputRobotArray.length;
+        for(int index = 0; index < size; index++)
         {
-            inputRobotInterface = this.get((String) iterator.next());
+            inputRobotInterface = this.get((String) inputRobotArray[index]);
             
             if(InterfaceUtil.isImplemented(
                 SecuredNativeLibraryInterface.class, inputRobotInterface))

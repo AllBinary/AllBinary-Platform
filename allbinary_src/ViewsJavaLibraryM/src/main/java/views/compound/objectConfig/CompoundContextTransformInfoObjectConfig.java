@@ -15,7 +15,7 @@ package views.compound.objectConfig;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -93,7 +93,6 @@ public class CompoundContextTransformInfoObjectConfig
           abeClientInformation, stringBuffer.toString(), this.getTransformInfoInterface());
 
       Vector viewVector = this.getTransformDomNodes();
-      Iterator iter = viewVector.iterator();
 
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
       {
@@ -108,10 +107,11 @@ public class CompoundContextTransformInfoObjectConfig
       final String endXMLHeader = "]]></xsl:text>";
 
       //probably should be optimized
-      while(iter.hasNext())
+      final int size = viewVector.size();
+      for(int index = 0; index < size; index++)
       {
          TransformInfoDomNode objectConfigTransformInfoDomNode = 
-            (TransformInfoDomNode) iter.next();
+            (TransformInfoDomNode) viewVector.get(index);
          
          String templateKey = objectConfigTransformInfoDomNode.getReplaceKey();
 

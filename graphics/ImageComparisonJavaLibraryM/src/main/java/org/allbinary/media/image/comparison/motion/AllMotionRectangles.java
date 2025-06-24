@@ -15,10 +15,7 @@ package org.allbinary.media.image.comparison.motion;
 
 import java.awt.Rectangle;
 
-import java.util.Iterator;
-
-import org.allbinary.logic.communication.log.Log;
-import org.allbinary.logic.communication.log.LogUtil;
+import java.util.Vector;
 
 import org.allbinary.media.image.comparison.ImageComparisonResult;
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
@@ -37,7 +34,7 @@ public class AllMotionRectangles extends MotionRectangles
         createMotionRectangles(imageComparisonResult);
         
         /*
-        Iterator iterator = this.getVector().iterator();
+        iterator = this.getVector();
         while(iterator.hasNext())
         {
             MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
@@ -53,7 +50,9 @@ public class AllMotionRectangles extends MotionRectangles
     private void createMotionRectangles(ImageComparisonResult imageComparisonInfo)
     throws Exception
     {
-        Iterator iterator = imageComparisonInfo.getNonMatchingPixelVector().iterator();
+        final Vector vector = imageComparisonInfo.getNonMatchingPixelVector();
+        final int size = vector.size();
+        
         
         //Add First Motion Rectangle
         /*
@@ -70,9 +69,9 @@ public class AllMotionRectangles extends MotionRectangles
             this.getVector().add(motionRectangle);
         }*/
         
-        while(iterator.hasNext())
+        for (int index = 0; index < size; index++)
         {
-            PixelDelta pixelDelta = (PixelDelta) iterator.next();
+            PixelDelta pixelDelta = (PixelDelta) vector.get(index);
             addPixelDeltaToAMotionRectangle(pixelDelta);
         }
     }
@@ -80,10 +79,11 @@ public class AllMotionRectangles extends MotionRectangles
     private boolean addPixelDeltaToExistingMotionRectangle(PixelDelta pixelDelta)
     throws Exception
     {
-        Iterator iterator = this.getVector().iterator();
-        while(iterator.hasNext())
+        final Vector vector = this.getVector();
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
-            MotionRectangle motionRectangle = (MotionRectangle) iterator.next();
+            MotionRectangle motionRectangle = (MotionRectangle) vector.get(index);
             
             //Should this area be added to the rectangle
             if(shouldPixelDeltaPartOfMotionRectangle(
@@ -143,7 +143,7 @@ public class AllMotionRectangles extends MotionRectangles
                 pixelDelta.getPoint().x < 600 && pixelDelta.getPoint().y < 365)
             {
                 StringBuffer stringBuffer = new StringBuffer();
-                Iterator iterator = this.getVector().iterator();
+                iterator = this.getVector();
                 while(iterator.hasNext())
                 {
                     MotionRectangle nextMotionRectangle = (MotionRectangle) iterator.next();
@@ -225,7 +225,7 @@ public class AllMotionRectangles extends MotionRectangles
         /*
         Vector pixelDeltasInTheSameRow = new Vector();
          
-        Iterator iterator = motionRectangle.getPixelDeltaVector().iterator();
+        iterator = motionRectangle.getPixelDeltaVector();
          
         while(iterator.hasNext())
         {

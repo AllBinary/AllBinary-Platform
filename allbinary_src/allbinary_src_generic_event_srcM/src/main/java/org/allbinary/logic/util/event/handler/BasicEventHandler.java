@@ -166,7 +166,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
          * EventStrings.getInstance().FIRE_EVENT)); //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT));
          *
-         * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
+         * iter = this.eventListenerInterfaceVector; while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
          * (EventListenerInterface) iter .next();
          *

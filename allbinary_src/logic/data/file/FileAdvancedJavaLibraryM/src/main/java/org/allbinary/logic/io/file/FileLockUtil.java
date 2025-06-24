@@ -15,7 +15,7 @@ package org.allbinary.logic.io.file;
 
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.io.AbFileOutputStream;
@@ -39,10 +39,11 @@ public class FileLockUtil
     throws Exception
     {
         Vector fileLockVector = new Vector();
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
-            AbFile file = (AbFile) iterator.next();
+            AbFile file = (AbFile) vector.get(index);
 
             FileLock fileLock = getLock(file);
             if(fileLock != null)

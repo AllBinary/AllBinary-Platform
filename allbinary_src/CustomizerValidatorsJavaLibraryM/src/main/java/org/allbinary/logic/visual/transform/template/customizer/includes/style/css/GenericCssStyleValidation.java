@@ -69,16 +69,16 @@ public class GenericCssStyleValidation implements ValidationInterface, DomNodeIn
          }
 
          /*
-         Iterator iter = this.styles.iterator();
-         
-         while(iter.hasNext())
-         {
-            CssValidation style = (CssValidation)
-            if(!StringValidationUtil.isValidNotRequired(style, BodyData.MIN, BodyData.MAX))
-            {
-               isValid = Boolean.FALSE;
-            }
-         }
+         // CssValidation[] stylesArray = (CssValidation[]) this.styles.toArray(new CssValidation[0]);
+         // int size = stylesArray.length;
+         // for(int i = 0; i < size; i++)
+         // {
+         //    CssValidation style = stylesArray[i];
+         //    if(!StringValidationUtil.isValidNotRequired(style, BodyData.MIN, BodyData.MAX))
+         //    {
+         //       isValid = Boolean.FALSE;
+         //    }
+         // }
          */
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))

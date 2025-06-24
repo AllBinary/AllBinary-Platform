@@ -15,7 +15,7 @@ package org.allbinary.business.user.commerce.money.payment.gateway.transaction;
 
 import java.util.HashMap;
 import java.util.Hashtable;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.string.CommonSeps;
@@ -107,11 +107,11 @@ public class TransactionResult implements TransactionResultInterface
    public Vector getValues()
    {
       Vector keyVector = this.getAllPossibleKeys();
-      Vector valueVector = new Vector();      
-      Iterator keyIter = keyVector.iterator();
-      while(keyIter.hasNext())
+      Vector valueVector = new Vector();
+      int size = keyVector.size();
+      for (int i = 0; i < size; i++)
       {
-         String key = (String) keyIter.next();
+         String key = (String) keyVector.get(i);
          if(keyValuePairs.containsKey(key))
          {
             valueVector.add(keyValuePairs.get(key));
@@ -121,7 +121,6 @@ public class TransactionResult implements TransactionResultInterface
             valueVector.add("");
          }
       }
-      
       return valueVector;
    }      
    

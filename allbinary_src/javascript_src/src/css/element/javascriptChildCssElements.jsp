@@ -23,7 +23,8 @@ function getChildCssElementAndPropertyArray(
       }
 
       var childElementNodeList = domNode.childNodes;
-      for(var index = 0; index < childElementNodeList.length; index++)
+      var size = childElementNodeList.length;
+      for(var index = 0; index < size; index++)
       {
          var childDomNode = childElementNodeList.item(index);
          //log("getChildCssElementAndPropertyArray NodeType: " + childDomNode.nodeType);

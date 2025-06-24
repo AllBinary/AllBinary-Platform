@@ -55,7 +55,7 @@ public class CssElementValidation extends CssElementView implements ValidationIn
             valid = Boolean.FALSE;
          }
 
-         Iterator iter = this.getStyleAttributes().iterator();
+         iter = this.getStyleAttributes();
          while(iter.next())
          {
             ValidationInterface styleAttributeValidationInterface = 

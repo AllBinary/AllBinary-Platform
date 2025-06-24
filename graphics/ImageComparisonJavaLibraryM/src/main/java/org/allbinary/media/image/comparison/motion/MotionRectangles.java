@@ -16,7 +16,7 @@ package org.allbinary.media.image.comparison.motion;
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
 import java.awt.Rectangle;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.Log;

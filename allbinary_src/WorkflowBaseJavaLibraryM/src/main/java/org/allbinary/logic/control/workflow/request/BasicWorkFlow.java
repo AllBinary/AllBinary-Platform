@@ -27,7 +27,7 @@ import org.w3c.dom.Node;
 import javax.servlet.jsp.PageContext;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 import org.allbinary.business.entry.EntryData;
@@ -157,13 +157,14 @@ public class BasicWorkFlow
       {
          HashMap hashMap = this.toHashMap();
          Set keySet = hashMap.keySet();
-         Iterator iterSet = keySet.iterator();
          
          Node node = document.createElement(WorkFlowData.getInstance().WORKFLOW);
          
-         while(iterSet.hasNext())
+         final Object[] nameArray = keySet.toArray();
+         final int size = nameArray.length;
+         for(int index = 0; index < size; index++)
          {
-            String name = (String) iterSet.next();
+            String name = (String) nameArray[index];
             String value = (String) hashMap.get(name);
             
             node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));

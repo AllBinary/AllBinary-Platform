@@ -13,7 +13,7 @@
 */
 package org.allbinary.osgi.service;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -51,12 +51,11 @@ abstract public class InputAutomationServiceConsumer
             this.getServiceReferences());
         
         LogUtil.put(LogFactory.getInstance("Processing " + vector.size() + " Services", this, "process"));
-        final Object[] osgiServiceArray = vector.toArray();
-        final int size = osgiServiceArray.length;
+        final int size = vector.size();
         OSGIServiceInterface osgiServiceInterface;
         for(int index = 0; index < size; index++)
         {
-            osgiServiceInterface = (OSGIServiceInterface) osgiServiceArray[index];
+            osgiServiceInterface = (OSGIServiceInterface) vector.get(index);
             if(!getOsgiServiceVisitorInterface().visit(osgiServiceInterface))
             {
                 throw new Exception("Unable to process service: " + osgiServiceInterface);

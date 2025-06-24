@@ -18,8 +18,9 @@ import org.allbinary.media.image.cache.BufferedImageInfo;
 import org.allbinary.media.image.cache.BufferedImageInfoFactory;
 import org.allbinary.media.image.cache.BufferedImagePoolSingleton;
 import java.awt.image.BufferedImage;
+import java.util.Vector;
 
-import java.util.Iterator;
+
 
 import org.allbinary.media.image.comparison.pixel.PixelDelta;
 import org.allbinary.logic.util.cache.PoolInterface;
@@ -81,11 +82,11 @@ public class ChangedPixelsUtil
                 CLEAR_INT_ARRAY, OFFSET, SCAN_SIZE);
         }
         
-        Iterator iterator = 
-            imageComparisonInfo.getNonMatchingPixelVector().iterator();
-        while(iterator.hasNext())
+        final Vector vector = imageComparisonInfo.getNonMatchingPixelVector();
+        final int size = vector.size();
+        for (int index = 0; index < size; index++)
         {
-            PixelDelta pixelDelta = (PixelDelta) iterator.next();
+            PixelDelta pixelDelta = (PixelDelta) vector.get(index);
             
             if(pixelDelta.getColorDelta() == null)
             {

@@ -23,8 +23,9 @@ function getChangedCssElementAndPropertyArray(
 
    //Create an array that is the same length as the data contained within
    //Should replace with Array wrapper
+   var arrayLength = childCssElementAndPropertyArray.length;
    var size = 0;
-   for(var index = 0; index < childCssElementAndPropertyArray.length; index++)
+   for(var index = 0; index < arrayLength; index++)
    {
       if(childCssElementAndPropertyArray[index] == null)
       {

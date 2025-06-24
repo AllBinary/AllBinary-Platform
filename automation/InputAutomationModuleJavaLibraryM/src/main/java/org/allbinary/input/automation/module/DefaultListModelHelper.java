@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import javax.swing.DefaultListModel;
@@ -35,10 +35,10 @@ public class DefaultListModelHelper
     {
         this.defaultListModel = new DefaultListModel();
 
-        Iterator iterator = this.vector.iterator();
-        while(iterator.hasNext())
+        final int size = this.vector.size();
+        for (int index = 0; index < size; index++)
         {
-            String moduleName = (String) iterator.next();
+            String moduleName = (String) this.vector.get(index);
             this.defaultListModel.addElement(moduleName);
         }
     }

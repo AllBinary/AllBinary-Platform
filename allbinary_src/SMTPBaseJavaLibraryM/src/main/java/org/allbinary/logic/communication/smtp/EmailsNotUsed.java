@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.smtp;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogFactory;
@@ -47,10 +47,10 @@ public class EmailsNotUsed implements DomNodeInterface
 
          Node node = document.createElement(EmailData.NAME);
 
-         Iterator iter = this.emailInfoVector.iterator();
-         while(iter.hasNext())
+         final int size = emailInfoVector.size();
+         for(int index = 0; index < size; index++)
          {
-            Email email = (Email) iter.next();
+            Email email = (Email) emailInfoVector.get(index);
 
             Node emailNode = email.toXmlNode(document);
 

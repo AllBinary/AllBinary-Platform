@@ -15,7 +15,7 @@ package org.allbinary.input.automation.module;
 
 import java.awt.Color;
 import java.awt.Rectangle;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -55,10 +55,11 @@ public class ImageComparatorConstraints
     {
         boolean isCollsionWithAvoidRectangles = false;
         
-        Iterator iterator = this.getAvoidVector().iterator();
-        while(iterator.hasNext())
+        final Vector avoidVector = this.getAvoidVector();
+        final int size = avoidVector.size();
+        for (int index = 0; index < size; index++)
         {
-            Rectangle avoidRectangle = (Rectangle) iterator.next();
+            Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
             if(RectangleCollisionUtil.isCollision(avoidRectangle, rectangle))
             {
                 //LogUtil.put(LogFactory.getInstance(
@@ -73,10 +74,11 @@ public class ImageComparatorConstraints
     {
         boolean isCollsionWithAvoidRectangles = false;
         
-        Iterator iterator = this.getAvoidVector().iterator();
-        while(iterator.hasNext())
+        final Vector avoidVector = this.getAvoidVector();
+        final int size = avoidVector.size();
+        for (int index = 0; index < size; index++)
         {
-            Rectangle avoidRectangle = (Rectangle) iterator.next();
+            Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
             if(RectangleCollisionUtil.isCollision(avoidRectangle, point))
             {
                 //LogUtil.put(LogFactory.getInstance(
@@ -124,10 +126,11 @@ public class ImageComparatorConstraints
     
     public void log()
     {
-        Iterator iterator = this.getAvoidVector().iterator();
-        while(iterator.hasNext())
+        final Vector avoidVector = this.getAvoidVector();
+        final int size = avoidVector.size();
+        for (int index = 0; index < size; index++)
         {
-            Rectangle avoidRectangle = (Rectangle) iterator.next();
+            Rectangle avoidRectangle = (Rectangle) avoidVector.get(index);
             LogUtil.put(LogFactory.getInstance(
                 "Avoid Rectangle: " + avoidRectangle, this, "log"));
         }

@@ -14,7 +14,7 @@
 package views.generic.basket;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -64,11 +64,12 @@ public class BasketView extends HttpStoreComponentView implements DomNodeInterfa
          HashMap itemsAndNumberInBasket = basketInterface.getItems();
          int numberOfResults = 1;
          Set items = itemsAndNumberInBasket.keySet();
-         Iterator iter = items.iterator();
          
-         while(iter.hasNext())
+         final Object[] productArray = items.toArray();
+         final int size = productArray.length;
+         for(int index = 0; index < size; index++)
          {
-            String product = new String((String) iter.next());
+            String product = new String((String) productArray[index]);
             
             ItemInterface itemInterface = inventoryEntity.getItem(product);
 

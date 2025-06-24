@@ -139,7 +139,7 @@ public class DownloadableInventoryItemView
     {
     //Do not update image if file was not provided
     final Set set = this.getRequestHashMap().keySet();
-    final Iterator iter = set.iterator();
+    iter = set;
     while (iter.hasNext())
     {
     String fieldName = (String) iter.next();
@@ -158,24 +158,24 @@ public class DownloadableInventoryItemView
     //return new int;
     }
      */
-    protected void processFile(FileItem fileItem)
+    protected void processFile(final FileItem fileItem)
         throws Exception
     {
-        String fileName = fileItem.getName();
+        final String fileName = fileItem.getName();
 
-        String fullPath = this.getItemFilePath();
+        final String fullPath = this.getItemFilePath();
         //Make inventory item resource directory if not already there
-        AbFile itemResourceFile = new AbFile(fullPath);
+        final AbFile itemResourceFile = new AbFile(fullPath);
         itemResourceFile.mkdir();
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
         LogUtil.put(LogFactory.getInstance("FileName: " + fileName, this, "processFile()"));
 
-        AbFile file = new AbFile(stringBuffer.toString());
+        final AbFile file = new AbFile(stringBuffer.toString());
 
         LogUtil.put(LogFactory.getInstance(file.getPath(), this, "processFiles()"));
 
@@ -186,23 +186,23 @@ public class DownloadableInventoryItemView
         FileUtil.getInstance().write(new ByteArrayInputStream(byteArray), file);
     }
 
-    protected void unzip(FileItem fileItem)
+    protected void unzip(final FileItem fileItem)
         throws Exception
     {
-        String fileName = fileItem.getName();
+        final String fileName = fileItem.getName();
         
-        String fullPath = this.getItemFilePath();
+        final String fullPath = this.getItemFilePath();
 
         //AbFile itemResourceFile = new AbFile(fullPath);
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(fullPath);
         stringBuffer.append(fileName);
 
         LogUtil.put(LogFactory.getInstance("FileName: " + fileName, this, "unzip()"));
 
-        AbFile file = new AbFile(stringBuffer.toString());
+        final AbFile file = new AbFile(stringBuffer.toString());
 
         LogUtil.put(LogFactory.getInstance(file.getPath(), this, "unzip()"));
 
@@ -211,11 +211,11 @@ public class DownloadableInventoryItemView
 
     private String getItemFilePath()
     {
-        StoreFrontInterface storeFrontInterface =
+        final StoreFrontInterface storeFrontInterface =
             StoreFrontFactory.getInstance(
             this.getWeblisketSession().getStoreName());
 
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
 
         stringBuffer.append(URLGLOBALS.getWebappPath());
         stringBuffer.append(storeFrontInterface.getCurrentHostNamePath());

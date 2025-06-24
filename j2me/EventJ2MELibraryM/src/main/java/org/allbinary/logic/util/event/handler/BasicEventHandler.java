@@ -41,8 +41,8 @@ public class BasicEventHandler implements BasicEventHandlerInterface
 
     public void addListeners(final BasicArrayList vector)
     {
-        final int size = vector.size();
         EventListenerInterface eventListenerInterface;
+        final int size = vector.size();
         for (int index = 0; index < size; index++)
         {
             eventListenerInterface = (EventListenerInterface) vector.get(index);
@@ -52,8 +52,8 @@ public class BasicEventHandler implements BasicEventHandlerInterface
 
     public void removeListeners(final BasicArrayList vector)
     {
-        final int size = vector.size();
         EventListenerInterface eventListenerInterface;
+        final int size = vector.size();
         for (int index = 0; index < size; index++)
         {
             eventListenerInterface = (EventListenerInterface) vector.get(index);
@@ -140,7 +140,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
          * Current Thread: " + reentrantLock.isHeldByCurrentThread(), this,
          * EventStrings.getInstance().FIRE_EVENT)); //LogUtil.put(LogFactory.getInstance(this.commonStrings.START, this, EventStrings.getInstance().FIRE_EVENT));
          *
-         * Iterator iter = this.eventListenerInterfaceVector.iterator(); while
+         * iter = this.eventListenerInterfaceVector; while
          * (iter.hasNext()) { EventListenerInterface eventListenerInterface =
          * (EventListenerInterface) iter .next();
          *

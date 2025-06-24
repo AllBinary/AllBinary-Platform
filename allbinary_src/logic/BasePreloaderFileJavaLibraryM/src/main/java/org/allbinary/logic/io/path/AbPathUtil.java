@@ -90,7 +90,7 @@ public class AbPathUtil
         /*
         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            PreLogUtil.put("FileExtension: " + extension, "AbPathUtil", "getExtension()");
+            PreLogUtil.put("FileExtension: " + extension, this, "getExtension()");
         }
         */
         
@@ -122,7 +122,7 @@ public class AbPathUtil
         /*
         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
         {
-            PreLogUtil.put("FileWithoutExtension: " + pathWithoutExtension, "AbPathUtil", "getWithoutExtension()");
+            PreLogUtil.put("FileWithoutExtension: " + pathWithoutExtension, this, "getWithoutExtension()");
         }
         */
         return pathWithoutExtension;
@@ -209,7 +209,7 @@ public class AbPathUtil
         /*
         if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
         {
-            PreLogUtil.put("Path: " + path, "AbPathUtil", "adjust");
+            PreLogUtil.put("Path: " + path, this, "adjust");
         }
         */
         

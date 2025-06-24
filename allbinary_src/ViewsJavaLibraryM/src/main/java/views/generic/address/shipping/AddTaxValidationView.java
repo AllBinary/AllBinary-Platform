@@ -14,7 +14,7 @@
 package views.generic.address.shipping;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -70,17 +70,17 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
 	    new ShippingAddressesEntity(this.getWeblisketSession().getUserName());
 	 
 	 //make sure a tax address does not exist
-	 Vector streetAddresses = billingAddressesEntity.get();
+	 Vector streetAddressList = billingAddressesEntity.get();
 	 
-	 if(streetAddresses == null)
+	 if(streetAddressList == null)
 	 {
 	    return Boolean.FALSE;
 	 }
 	 
-	 Iterator iter = streetAddresses.iterator();
-	 while(iter.hasNext())
+         final int size = streetAddressList.size();
+         for(int index = 0; index < size; index++)
 	 {
-	    StreetAddress aStreetAddress = (StreetAddress) iter.next();
+	    StreetAddress aStreetAddress = (StreetAddress) streetAddressList.get(index);
 	    
 	    if(aStreetAddress.getName().compareTo(ShippingAddressData.TAX)==0)
 	    {
@@ -128,12 +128,12 @@ public class AddTaxValidationView extends ShippingAddressView implements Validat
 	    new ShippingAddressesEntity(this.getWeblisketSession().getUserName());
 	 
 	 //make sure a tax address does not exist
-	 Vector streetAddresses = billingAddressesEntity.get();
+	 Vector streetAddressList = billingAddressesEntity.get();
 	 
-	 Iterator iter = streetAddresses.iterator();
-	 while(iter.hasNext())
+         final int size = streetAddressList.size();
+         for(int index = 0; index < size; index++)
 	 {
-	    StreetAddress aStreetAddress = (StreetAddress) iter.next();
+	    StreetAddress aStreetAddress = (StreetAddress) streetAddressList.get(index);
 	    
 	    if(aStreetAddress.getName().compareTo(ShippingAddressData.TAX)==0)
 	    {

@@ -25,7 +25,7 @@ import org.w3c.dom.Node;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringValidationUtil;
@@ -364,13 +364,14 @@ public class StreetAddress
        
       HashMap hashMap = this.toHashMap();
       Set keySet = hashMap.keySet();
-      Iterator iterSet = keySet.iterator();
+      Object[] keyArray = keySet.toArray();
+      int size = keyArray.length;
       
       Node node = document.createElement(StreetAddressData.ADDRESS);
       
-      while(iterSet.hasNext())
+      for (int i = 0; i < size; i++)
       {
-         String name = (String) iterSet.next();
+         String name = (String) keyArray[i];
          String value = stringUtil.getInstance((String) hashMap.get(name));
          
          node.appendChild(ModDomHelper.createNameValueNodes(document, name, value));         

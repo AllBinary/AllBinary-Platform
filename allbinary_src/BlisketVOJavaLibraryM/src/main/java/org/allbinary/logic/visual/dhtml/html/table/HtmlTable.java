@@ -83,7 +83,6 @@ public class HtmlTable extends HtmlTag
    {
       String result = "";
       Object[] attributeKeys = otherAttributes.keySet().toArray();
-      Object[] rowArray = this.htmlRowsVector.toArray();
       result = before;
       result += START;
       result += " ";      
@@ -102,9 +101,10 @@ public class HtmlTable extends HtmlTag
       }
       result += END;
       
-      for (int i = 0; i < rowArray.length; i++)
+      final int size = htmlRowsVector.size();
+      for (int i = 0; i < size; i++)
       {
-         result += rowArray[i].toString();
+         result += htmlRowsVector.get(i).toString();
          result += " ";
       }
 

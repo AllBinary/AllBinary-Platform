@@ -40,7 +40,8 @@ public class StoreThemeCategoryView extends CategoryView
          storeThemeCategoryInterface.getThemes().toArray();
       Arrays.sort(themeValidationArray, new ThemeComparator());
 
-      for(int index = 0; index < themeValidationArray.length; index++)
+      int size = themeValidationArray.length;
+      for(int index = 0; index < size; index++)
       {
          ThemeValidation themeValidation = 
             (ThemeValidation) themeValidationArray[index];
@@ -49,10 +50,11 @@ public class StoreThemeCategoryView extends CategoryView
       }
       
       /*
-      Iterator iter = storeThemeCategoryInterface.getThemes().iterator();
-      while(iter.hasNext())
+      Object[] themeArray = storeThemeCategoryInterface.getThemes().toArray();
+      int size = themeArray.length;
+      for (int i = 0; i < size; i++)
       {
-         ThemeValidation themeValidation = (ThemeValidation) iter.next();
+         ThemeValidation themeValidation = (ThemeValidation) themeArray[i];
 
          node.appendChild(themeValidation.toXmlNode(document));
       }

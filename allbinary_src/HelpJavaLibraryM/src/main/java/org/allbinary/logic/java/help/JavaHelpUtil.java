@@ -49,11 +49,11 @@ public class JavaHelpUtil
 
     /*
      *NavigatorView navigatorView = null;
-    private static String navigatorViewName = null;
+    private String navigatorViewName = null;
                 if (helpBroker.getHelpSet().getNavigatorView(navigatorViewName) != null)
                 {
                     helpBroker.setCurrentView(navigatorViewName);
-                    LogUtil.put(LogFactory.getInstance("SetCurrentView", "JavaHelpUtil", "show"));
+                    LogUtil.put(LogFactory.getInstance("SetCurrentView", this, "show"));
                 }
      */
     

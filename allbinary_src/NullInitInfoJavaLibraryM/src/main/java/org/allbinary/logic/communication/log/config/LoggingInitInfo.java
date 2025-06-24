@@ -61,7 +61,7 @@ public class LoggingInitInfo
 	    
          LoggingInitInfo.logConfigInfoVector = new Vector();
 	    
-         Iterator iter = logConfigNodeVector.iterator();
+         iter = logConfigNodeVector;
          while(iter.hasNext())
          {
             Node node = (Node) iter.next();
@@ -123,7 +123,7 @@ public class LoggingInitInfo
       LoggingInitInfo.updateIfNeeded();
       
       BasicArrayList allLogTypeVector = new BasicArrayList();
-      Iterator iter = LoggingInitInfo.logConfigInfoVector.iterator();
+      iter = LoggingInitInfo.logConfigInfoVector;
       
       while(iter.hasNext())
       {

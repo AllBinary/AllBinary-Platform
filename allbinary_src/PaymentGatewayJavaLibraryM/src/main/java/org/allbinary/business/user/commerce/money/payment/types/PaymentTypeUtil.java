@@ -13,7 +13,7 @@
 */
 package org.allbinary.business.user.commerce.money.payment.types;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
@@ -98,10 +98,10 @@ public class PaymentTypeUtil {
    public PaymentType get(String paymentTypeString)
    throws Exception
    {
-      Iterator iter = this.paymentTypeVector.iterator();
-      while(iter.hasNext())
+      int size = this.paymentTypeVector.size();
+      for (int i = 0; i < size; i++)
       {
-         PaymentType paymentType = (PaymentType) iter.next();
+         PaymentType paymentType = (PaymentType) this.paymentTypeVector.get(i);
          if(paymentType.getBasicPaymentType().getName().compareTo(paymentTypeString) == 0)
          {
             return paymentType;
@@ -201,10 +201,10 @@ public class PaymentTypeUtil {
    public Vector difference(Vector a_PaymentTypeVector)
    {
       Vector diff = new Vector();
-      Iterator iter = this.paymentTypeVector.iterator();
-      while(iter.hasNext())
+      int size = this.paymentTypeVector.size();
+      for (int i = 0; i < size; i++)
       {
-         PaymentType paymentType = (PaymentType) iter.next();
+         PaymentType paymentType = (PaymentType) this.paymentTypeVector.get(i);
          if(!a_PaymentTypeVector.contains(paymentType))
             diff.add(paymentType);
       }

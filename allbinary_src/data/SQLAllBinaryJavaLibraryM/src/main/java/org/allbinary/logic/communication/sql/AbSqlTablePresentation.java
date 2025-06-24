@@ -75,17 +75,17 @@ public class AbSqlTablePresentation extends AbSqlBasic
       sqlStatement += sqlStrings.WHERE;
       
       Set set = whereKeyValuePairs.keySet();
-      Iterator whereIter = set.iterator();
-      
-      while(whereIter.hasNext())
+      Object[] keyArray = set.toArray();
+      int size = keyArray.length;
+      for (int i = 0; i < size; i++)
       {
-         String key = (String) whereIter.next();
+         String key = (String) keyArray[i];
          String value = (String) whereKeyValuePairs.get(key);
          
          sqlStatement +=  key;
          sqlStatement += sqlStrings.EQUAL_QUOTE;
          sqlStatement += value + sqlStrings.CLOSE_QUOTE;
-         if(whereIter.hasNext()) sqlStatement += sqlStrings.AND;
+         if(i < size - 1) sqlStatement += sqlStrings.AND;
       }
       
       try
@@ -111,11 +111,11 @@ public class AbSqlTablePresentation extends AbSqlBasic
       sqlStatement += sqlStrings.WHERE;
       
       Set set = whereKeyValuePairs.keySet();
-      Iterator whereIter = set.iterator();
-      
-      while(whereIter.hasNext())
+      Object[] keyArray = set.toArray();
+      int size = keyArray.length;
+      for (int i = 0; i < size; i++)
       {
-         String key = (String) whereIter.next();
+         String key = (String) keyArray[i];
          String value = (String) whereKeyValuePairs.get(key);
          
          sqlStatement +=  key;

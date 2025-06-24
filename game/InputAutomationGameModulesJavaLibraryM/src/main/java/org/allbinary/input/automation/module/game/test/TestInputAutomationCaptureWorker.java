@@ -14,7 +14,7 @@
 package org.allbinary.input.automation.module.game.test;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -76,10 +76,12 @@ public class TestInputAutomationCaptureWorker
             
             HashMap hashMap = this.getGenericProfileActions().getHashMap();
             Set set = hashMap.keySet();
-            Iterator iterator = set.iterator();
-            while(iterator.hasNext())
+
+            final Object[] actionNameArray = set.toArray();
+            final int size = actionNameArray.length;
+            for(int index = 0; index < size; index++)
             {                
-                String actionNameString = (String) iterator.next();
+                String actionNameString = (String) actionNameArray[index];
                 GenericProfileAction genericProfileAction =
                     (GenericProfileAction) hashMap.get(actionNameString);
                 GenericProfileActionScript genericProfileActionScript =

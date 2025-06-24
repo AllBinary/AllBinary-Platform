@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.sql.connection.pool;
 
-import java.util.Iterator;
+
 import java.util.HashMap;
 import java.util.Vector;
 
@@ -104,10 +104,10 @@ public class SqlConnectionPool
             {
                 StringBuffer stringBuffer = new StringBuffer();
 
-                Iterator iter = connectionVector.iterator();
-                while (iter.hasNext())
+                int size = connectionVector.size();
+                for (int i = 0; i < size; i++)
                 {
-                    Connection sqlConnection = (Connection) iter.next();
+                    Connection sqlConnection = (Connection) connectionVector.get(i);
                     if (!sqlConnection.isClosed())
                     {
                         connectionVector.remove(sqlConnection);

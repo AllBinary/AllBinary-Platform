@@ -133,13 +133,13 @@ public class StoreThemeCategory extends Category implements StoreThemeCategoryIn
       }
       
       /*
-      Iterator iter = this.themeVector.iterator();
-      while(iter.hasNext())
+      int size = themeVector.size();
+      for (int i = 0; i < size; i++)
       {
-         Category category = (Category) iter.next();
+         Category category = (Category) themeVector.get(i);
          if(!category.isValid().booleanValue()) return Boolean.FALSE;
       }
-       */
+      */
       return Boolean.TRUE;
    }
 

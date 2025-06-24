@@ -13,7 +13,7 @@
 */
 package views.generic.inventory;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -58,18 +58,18 @@ public class InventoryView extends HttpStoreComponentView
          
          Vector itemVector = inventoryEntityInterface.getItems(
             StoreFrontFactory.getInstance(this.getTransformInfoInterface().getStoreName()));
-         Iterator iter = itemVector.iterator();
          
          inventoryNode.appendChild(
          ModDomHelper.createNameValueNodes(document,
          SearchData.TOTAL_NUMBER_ITEMS_ON_THIS_PAGE,
          new Integer(itemVector.size()).toString()));
          
-         while(iter.hasNext())
+         final int size = itemVector.size();
+         for (int index = 0; index < size; index++)
          {
             //String product = new String((String) iter.next());
             //InventoryEntityFactory.getInstance().getItem(product);
-            ItemInterface itemInterface = (ItemInterface) iter.next();
+            ItemInterface itemInterface = (ItemInterface) itemVector.get(index);
             if(itemInterface!=null)
             {
                Node node = new BasicItemView(itemInterface, new Vector()).toXmlNode(document);

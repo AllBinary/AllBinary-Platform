@@ -13,7 +13,7 @@
 */
 package views.business.context.modules.storefront.customizer;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.string.StringUtil;
@@ -51,11 +51,11 @@ public class StoreCustomizerComponentUtil
             customizerUtil.getTransformInfoObjectConfigGroupComponentNodes(
             transformInfoInterface);
 
-        Iterator iter = allCustomizedViews.iterator();
-        while (iter.hasNext())
+        final int size = allCustomizedViews.size();
+        for(int index = 0; index < size; index++)
         {
             TransformInfo nextTransformInfoInterface =
-                (TransformInfo) iter.next();
+                (TransformInfo) allCustomizedViews.get(index);
 
             Vector allViewsToBeModified =
                 customizerUtil.getTransformInfoObjectConfigComponentNodesToCustomize(
@@ -76,15 +76,15 @@ public class StoreCustomizerComponentUtil
 
     private final void generate(
         final AbeClientInformationInterface abeClientInformation,
-        TransformInfoInterface transformInfoInterface, Vector allViewsToBeModified)
+        TransformInfoInterface transformInfoInterface, Vector allViewsToBeModifiedVector)
         throws Exception
     {
         final CustomizerUtil customizerUtil = CustomizerUtil.getInstance();
-        Iterator iterator = allViewsToBeModified.iterator();
-        while (iterator.hasNext())
+        final int size = allViewsToBeModifiedVector.size();
+        for(int index = 0; index < size; index++)
         {
             TransformInfo nextTransformInfoInterface =
-                (TransformInfo) iterator.next();
+                (TransformInfo) allViewsToBeModifiedVector.get(index);
 
             TransformInfoInterface specifiedTransformInfoInterface =
                 customizerUtil.getTransformInfoInterfaceToCustomize(
@@ -121,7 +121,7 @@ public class StoreCustomizerComponentUtil
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
-    Iterator iter = allCustomizedViews.iterator();
+    iter = allCustomizedViews;
     while(iter.hasNext())
     {
     TransformInfoObjectConfigComponentNode transformInfoObjectConfigComponentNode =
@@ -138,7 +138,7 @@ public class StoreCustomizerComponentUtil
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
 
-    Iterator componentIter = allViewsToBeModified.iterator();
+    componentIter = allViewsToBeModified;
     while(componentIter.hasNext())
     {
     TransformInfoObjectConfigComponentNode transformInfoObjectConfigComponent
@@ -176,7 +176,7 @@ public class StoreCustomizerComponentUtil
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
-    Iterator iter = allCustomizedViews.iterator();
+    iter = allCustomizedViews;
     while(iter.hasNext())
     {
     TransformInfoObjectConfigComponentNode transformInfoObjectConfigComponentNode =
@@ -193,7 +193,7 @@ public class StoreCustomizerComponentUtil
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
 
-    Iterator componentIter = allViewsToBeModified.iterator();
+    componentIter = allViewsToBeModified;
     while(componentIter.hasNext())
     {
     TransformInfoObjectConfigComponentNode transformInfoObjectConfigComponent
@@ -233,7 +233,7 @@ public class StoreCustomizerComponentUtil
     CustomizerUtil.getInstance().getTransformInfoObjectConfigComponentNodes(
     this.getTransformInfoInterface());
 
-    Iterator iter = allCustomizedViews.iterator();
+    iter = allCustomizedViews;
     while(iter.hasNext())
     {
     TransformInfoObjectConfigComponentNode transformInfoObjectConfigComponentNode =
@@ -250,7 +250,7 @@ public class StoreCustomizerComponentUtil
     this.getTransformInfoInterface(),
     transformInfoObjectConfigComponentNode);
 
-    Iterator componentIter = allViewsToBeModified.iterator();
+    componentIter = allViewsToBeModified;
     while(componentIter.hasNext())
     {
     TransformInfoObjectConfigComponentNode transformInfoObjectConfigComponent

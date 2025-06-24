@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.smtp.event.handler;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.smtp.event.EmailEvent;
@@ -44,11 +44,11 @@ public class UserEmailEventHandler
    
    public synchronized void addListener(Vector vector)
    {
-      Iterator iter = vector.iterator();
-      while(iter.hasNext())
+      final int size = vector.size();
+      for(int index = 0; index < size; index++)
       {
          UserEmailEventListenerInterface userEmailEventListenerInterface =
-            (UserEmailEventListenerInterface) iter.next();
+            (UserEmailEventListenerInterface) vector.get(index);
          this.addListener(userEmailEventListenerInterface);
       }
    }
@@ -69,11 +69,11 @@ public class UserEmailEventHandler
    {
       EmailEvent emailEvent = new EmailEvent(this,
          this.userEmailEventNameData, this.emailInfo, 0);
-      Iterator iter = this.emailVector.iterator();
-      while(iter.hasNext())
+      final int size = emailVector.size();
+      for(int index = 0; index < size; index++)
       {
          UserEmailEventListenerInterface emailEventListenerInterface =
-            (UserEmailEventListenerInterface) iter.next();
+            (UserEmailEventListenerInterface) emailVector.get(index);
          
          emailEventListenerInterface.onEmailSendRequest(emailEvent);
       }

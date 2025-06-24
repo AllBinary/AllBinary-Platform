@@ -14,7 +14,7 @@
 package views.business.context.modules.storefront.customizer.generic.page;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -73,18 +73,18 @@ public class PageValidationView extends PageView implements ValidationComponentI
          //this.insertIntoTransformInfos(pageObjectConfig);
 
          //Vector allViewsToBeModified = objectConfig.getComponents();
-         Vector allViewsToBeModified = pageObjectConfigInterface.getGroupTransforms();
+         Vector allViewsToBeModifiedVector = pageObjectConfigInterface.getGroupTransforms();
 
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
          {
-            LogUtil.put(LogFactory.getInstance("Views To Be Modified: " + allViewsToBeModified.size(), this, "get(transformInfoInterface)"));
+            LogUtil.put(LogFactory.getInstance("Views To Be Modified: " + allViewsToBeModifiedVector.size(), this, "get(transformInfoInterface)"));
          }
          
-         Iterator iter = allViewsToBeModified.iterator();
-         while(iter.hasNext())
+         final int size = allViewsToBeModifiedVector.size();
+         for(int index = 0; index < size; index++)
          {
-        	 TransformInfo transformInfoInterface =
-               (TransformInfo) iter.next();
+             TransformInfo transformInfoInterface =
+               (TransformInfo) allViewsToBeModifiedVector.get(index);
 
             String viewNameOfViewToBeModified = 
             	transformInfoInterface.getName();
@@ -191,13 +191,13 @@ public class PageValidationView extends PageView implements ValidationComponentI
          TransformInfoHttpInterface httpTransformInfoInterface = 
             (TransformInfoHttpInterface) this.getTransformInfoInterface();
          
-         Vector allViewsToBeModified = objectConfig.getGroupTransforms();
+         Vector allViewsToBeModifiedVector = objectConfig.getGroupTransforms();
 
-         Iterator iter = allViewsToBeModified.iterator();
-         while(iter.hasNext())
+         final int size = allViewsToBeModifiedVector.size();
+         for(int index = 0; index < size; index++)
          {
-        	 TransformInfo transformInfoInterface =
-                 (TransformInfo) iter.next();        	 
+             TransformInfo transformInfoInterface =
+                 (TransformInfo) allViewsToBeModifiedVector.get(index);
 
             String viewNameOfViewToBeModified = transformInfoInterface.getName();
 

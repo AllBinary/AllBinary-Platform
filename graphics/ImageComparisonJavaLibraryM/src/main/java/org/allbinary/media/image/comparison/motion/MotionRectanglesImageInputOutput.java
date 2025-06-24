@@ -26,7 +26,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.util.Iterator;
+import java.util.Vector;
+
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.util.cache.AutomaticCacheInterface;
 import org.allbinary.logic.util.cache.PoolInterface;
@@ -165,11 +166,12 @@ public class MotionRectanglesImageInputOutput implements ImageIOInterface
                 bufferedImageCacheables[index].getBufferedImage().getGraphics();
         }
         
-        Iterator iterator = motionRectangles.getVector().iterator();
-        while(iterator.hasNext())
+        final Vector rectangelList = motionRectangles.getVector();
+        final int size = rectangelList.size();
+        for(int index2 = 0; index2 < size; index2++)
         {
             MotionRectangle motionRectangle =
-                (MotionRectangle) iterator.next();
+                (MotionRectangle) rectangelList.get(index2);
             
             Rectangle rectangle = motionRectangle.getRectangle();
             

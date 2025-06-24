@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.visual.transform.template.customizer.includes.meta;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -139,11 +139,11 @@ public class MetasValidation implements ValidationInterface, DomNodeInterface
    {
       Node node = document.createElement(HtmlMetasData.getInstance().NAME);
 
-      Iterator iter = this.metaValidationVector.iterator();
-      while(iter.hasNext())
+      MetaValidation[] metaArray = (MetaValidation[]) this.metaValidationVector.toArray(new MetaValidation[0]);
+      int size = metaArray.length;
+      for(int i = 0; i < size; i++)
       {
-         MetaValidation metaValidation = 
-            (MetaValidation) iter.next();
+         MetaValidation metaValidation = metaArray[i];
          node.appendChild(metaValidation.toXmlNode(document));
       }
 

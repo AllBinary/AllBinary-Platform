@@ -115,7 +115,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
    new InputAutomationModuleConfigurations(files[index]);
    Collection collection =
    inputAutomationModuleConfigurations.getHashMap().values();
-   Iterator iterator = collection.iterator();
+   iterator = collection;
    while(iterator.hasNext())
    {
    inputAutomationConfiguration.add(
@@ -599,7 +599,7 @@ public class InputAutomationJFrame extends javax.swing.JFrame implements InputAu
 
             try
             {
-               LogUtil.put(LogFactory.getInstance("Running", "Main", commonStrings.RUN));
+               LogUtil.put(LogFactory.getInstance("Running", this, commonStrings.RUN));
                INPUTAUTOMATION_JFRAME = new InputAutomationJFrame();
                InputRobotFactory.getInstance().addListener(InputAutomationJFrame.getInstance());
 

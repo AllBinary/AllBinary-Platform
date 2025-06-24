@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.generic;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.input.automation.actions.script.condition.ProfileActionScriptConditionInterface;
@@ -33,11 +33,11 @@ public class CaptureWorkerUtil
         final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(commonStrings.START, "CaptureWorkerUtil", "processProfileActionConditions"));
 
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
             ProfileActionScriptConditionInterface profileActionConditionInterface =
-                (ProfileActionScriptConditionInterface) iterator.next();
+                (ProfileActionScriptConditionInterface) vector.get(index);
             if(profileActionConditionInterface.shouldProcess(frame))
             {
                 //LogUtil.put(LogFactory.getInstance("Should Process", this, "processProfileActionConditions"));

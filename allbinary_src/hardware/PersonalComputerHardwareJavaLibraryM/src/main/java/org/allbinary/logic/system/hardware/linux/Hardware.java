@@ -18,7 +18,7 @@ import java.io.LineNumberReader;
 
 import java.util.Vector;
 import java.util.Hashtable;
-import java.util.Iterator;
+
 import org.allbinary.logic.io.file.AbFile;
 
 import org.allbinary.logic.io.file.FilePathData;
@@ -288,18 +288,17 @@ public class Hardware implements HardwareInterface
    
    public String toString()
    {
-      StringBuffer hardwareBuffer = new StringBuffer();
-      Iterator componentIter = componentInterfaceVector.iterator();
-      int index = 0;
-      while(componentIter.hasNext())
-      {
-         HardwareComponentInterface componentInterface = (HardwareComponentInterface) componentIter.next();
+      final StringBuffer hardwareBuffer = new StringBuffer();
+      
+       final int size = componentInterfaceVector.size();
+       for (int index = 0; index < size; index++)
+       {
+         HardwareComponentInterface componentInterface = (HardwareComponentInterface) componentInterfaceVector.get(index);
          hardwareBuffer.append("Component ");
          hardwareBuffer.append(index);
          hardwareBuffer.append(": \n");
          hardwareBuffer.append(componentInterface.toString());
          hardwareBuffer.append("\n");
-         index++;
       }
       return hardwareBuffer.toString();
    }

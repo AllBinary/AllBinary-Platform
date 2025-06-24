@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -75,13 +75,13 @@ public class ImageTypes
 
     public Node toXmlNode(Document document) throws Exception
     {
-        Node newNode = document.createElement(
+        final Node newNode = document.createElement(
             ImageActionScriptOutputData.TYPES);
         
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
-            InputImageType imageType = (InputImageType) iterator.next();
+            InputImageType imageType = (InputImageType) vector.get(index);
             
             newNode.appendChild(ModDomHelper.createTextNode(document,
                 ImageActionScriptOutputData.TYPE, imageType.getName()));
@@ -92,16 +92,16 @@ public class ImageTypes
     
     public String toString()
     {
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
         
         stringBuffer.append("ImageTypes: ");
         
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
-            InputImageType imageType = (InputImageType) iterator.next();
+            InputImageType imageType = (InputImageType) vector.get(index);
             stringBuffer.append(imageType.getName());
-            if(iterator.hasNext()) stringBuffer.append(", ");
+            if(index < size - 1) stringBuffer.append(", ");
         }
         
         return stringBuffer.toString();

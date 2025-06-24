@@ -15,7 +15,7 @@ package org.allbinary.graphics.j2me.workarea.canvas;
 
 import org.allbinary.animation.vector.VectorCenterGenerator;
 import java.util.HashMap;
-import java.util.Iterator;
+
 
 import org.w3c.dom.Node;
 
@@ -252,10 +252,11 @@ public class CanvasDom
 
         Node graphicItemNode = (Node) document.createElement(this.GRAPHICITEMS);
 
-        Iterator iter = this.getGraphicItemHashMap().keySet().iterator();
-        while (iter.hasNext())
+        final Object[] graphicItemArray = this.getGraphicItemHashMap().keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
         {
-            GraphicItemInterface item = (GraphicItemInterface) this.graphicItemHashMap.get(iter.next());
+            GraphicItemInterface item = (GraphicItemInterface) this.graphicItemHashMap.get(graphicItemArray[index]);
 
             if (item.getName() == LinesGraphicItem.getStaticName())
             {

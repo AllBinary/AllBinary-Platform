@@ -26,7 +26,7 @@ import org.allbinary.math.RectangleCollisionPointUtil;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import javax.swing.tree.MutableTreeNode;
 import org.w3c.dom.Node;
 
@@ -123,10 +123,11 @@ public class SelectionTool implements GraphicItemInterface
 
         HashMap hashMap = this.canvasJPanel.getGraphicItemHashMap();
 
-        Iterator iter = hashMap.keySet().iterator();
-        while (iter.hasNext())
+        final Object[] graphicItemArray = hashMap.keySet().toArray();
+        final int size = graphicItemArray.length;
+        for(int index = 0; index < size; index++)
         {
-            GraphicItemInterface item = (GraphicItemInterface) hashMap.get(iter.next());
+            GraphicItemInterface item = (GraphicItemInterface) hashMap.get(graphicItemArray[index]);
 
             if (item.getName() == LinesGraphicItem.getStaticName())
             {

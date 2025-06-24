@@ -47,7 +47,7 @@ public class ShippingAddressesView
 {
    private HttpServletRequest request;
    
-   protected Vector streetAddresses;
+   protected Vector streetAddressList;
    
    public ShippingAddressesView(TransformInfoInterface transformInfoInterface) throws Exception
    {
@@ -71,16 +71,15 @@ public class ShippingAddressesView
       {
          Node billingAddressesNode = document.createElement(ShippingAddressData.MULTIPLE);
          
-         Iterator iter = streetAddresses.iterator();
-         while(iter.hasNext())
+         int size = streetAddressList.size();
+         for (int index = 0; index < size; index++)
          {
-            StreetAddress streetAddress = (StreetAddress) iter.next();
+            StreetAddress streetAddress = (StreetAddress) streetAddressList.get(index);
             billingAddressesNode.appendChild(streetAddress.toXmlNode(document));
          }
          
-         billingAddressesNode.appendChild(ModDomHelper.createNameValueNodes(
-         document, StreetAddressData.NUMBEROFADDRESSES,
-         new Integer(streetAddresses.size()).toString()));
+         billingAddressesNode.appendChild(ModDomHelper.createNameValueNodes(document, StreetAddressData.NUMBEROFADDRESSES,
+         new Integer(streetAddressList.size()).toString()));
 
          return billingAddressesNode;
       }

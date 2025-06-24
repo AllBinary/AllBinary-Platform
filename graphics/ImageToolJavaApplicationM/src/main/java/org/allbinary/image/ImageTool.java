@@ -32,7 +32,7 @@ public class ImageTool
          {
             try
             {
-               LogUtil.put(LogFactory.getInstance("Running", "Main", CommonStrings.getInstance().RUN));
+               LogUtil.put(LogFactory.getInstance("Running", this, CommonStrings.getInstance().RUN));
                new ImageToolJFrame().setVisible(true);
             }
             catch(Exception e)

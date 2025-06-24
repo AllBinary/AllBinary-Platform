@@ -16,7 +16,7 @@ package org.allbinary.data.tables.user.commerce.money.payment.gateway;
 import org.allbinary.data.generator.PaymentGatewayIdGenerator;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -257,10 +257,10 @@ public class PaymentGatewayEntity extends AbSqlBean implements PaymentGatewayEnt
             if (paymentGatewayNameVector != null)
             {
                 Vector paymentGatewayVector = new Vector();
-                Iterator iter = paymentGatewayNameVector.iterator();
-                while (iter.hasNext())
+                int size = paymentGatewayNameVector.size();
+                for (int i = 0; i < size; i++)
                 {
-                    String paymentTypeString = (String) iter.next();
+                    String paymentTypeString = (String) paymentGatewayNameVector.get(i);
                     BasicPaymentType paymentType =
                         BasicPaymentTypeUtil.getInstance().get(paymentTypeString);
                     paymentGatewayVector.add(paymentType);

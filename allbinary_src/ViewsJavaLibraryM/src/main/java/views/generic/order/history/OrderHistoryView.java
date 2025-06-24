@@ -14,7 +14,7 @@
 package views.generic.order.history;
 
 import org.allbinary.logic.communication.log.LogFactory;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -65,25 +65,24 @@ implements DomNodeInterface
       this.cancelled = request.getParameter(OrderHistoryData.CANCELLEDNAME);
    }
    
-   public Node toXmlNode(Document document) throws Exception
+   public Node toXmlNode(final Document document) throws Exception
    {
       try
       {
-         Node node = document.createElement(OrderData.ORDERS);
+         final Node node = document.createElement(OrderData.ORDERS);
          
-         OrderHistoryEntity orderHistoryEntity = new OrderHistoryEntity();
+         final OrderHistoryEntity orderHistoryEntity = new OrderHistoryEntity();
          
          //Note all generic views should be removed from admin pages because a user
          //could pass in false hidden data
-         Vector orderReviewVector = 
+         final Vector orderReviewVector = 
             orderHistoryEntity.getOrders(
                this.getWeblisketSession().getUserName());
-
-         Iterator iter = orderReviewVector.iterator();
          
-         while(iter.hasNext())
+         final int size = orderReviewVector.size();
+         for (int index = 0; index < size; index++)
          {
-            OrderHistory orderHistory = (OrderHistory) iter.next();
+            OrderHistory orderHistory = (OrderHistory) orderReviewVector.get(index);
             Node orderHistoryNode = orderHistory.toXmlNode(document);
             Node orderNode = document.createElement(orderHistory.getPaymentMethod());
             node.appendChild(orderHistory.toXmlNode(document));

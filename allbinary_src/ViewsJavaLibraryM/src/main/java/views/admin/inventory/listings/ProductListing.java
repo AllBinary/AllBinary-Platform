@@ -15,7 +15,7 @@ package views.admin.inventory.listings;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -217,12 +217,14 @@ public class ProductListing implements ProductListingInterface
         StoreFrontInterface storeFront, HashMap keywordFilenameHashMap)
     {
         //add to Static info to staticpages db
-        Set keywordHashSetForHashMap = keywordFilenameHashMap.keySet();
-        Iterator keywordHashSetIter = keywordHashSetForHashMap.iterator();
-        while (keywordHashSetIter.hasNext())
+        Set keywordHashSet = keywordFilenameHashMap.keySet();
+
+        final Object[] keywordArray = keywordHashSet.toArray();
+        final int size = keywordArray.length;
+        for(int index = 0; index < size; index++)
         {
             Vector insertVector = new Vector();
-            String keywordData = (String) keywordHashSetIter.next();
+            String keywordData = (String) keywordArray[index];
             String fileName = (String) keywordFilenameHashMap.get(keywordData);
 
             insertVector.add(storeFront.getName());
@@ -258,14 +260,16 @@ public class ProductListing implements ProductListingInterface
             //compile a list of possible keywords
             final HashSet keywordHashSet = this.getHashSet(storeFront);
 
+            final Object[] keywordArray = keywordHashSet.toArray();
+            final int size = keywordArray.length;
+            
             //create filenames associated with keywords and
             //create a new hash map containing all off the keywords and
             //their associated Static page filenames
-            final Iterator iter = keywordHashSet.iterator();
 
             HashMap keywordFilenameHashMap = new HashMap();
 
-            if (!iter.hasNext())
+            if (size == 0)
             {
                 stringBuffer.delete(0, stringBuffer.length());
 
@@ -276,14 +280,13 @@ public class ProductListing implements ProductListingInterface
                 return stringBuffer.toString();
             }
 
-            InventorySearchUtil inventorySearchUtil =
-                InventorySearchUtil.getInstance();
+            final InventorySearchUtil inventorySearchUtil = InventorySearchUtil.getInstance();
 
-            Vector vector = inventorySearchUtil.getBasicItemIdColumn(searchRequest);
+            final Vector vector = inventorySearchUtil.getBasicItemIdColumn(searchRequest);
 
-            while (iter.hasNext())
+            for(int index = 0; index < size; index++)
             {
-                String keywordData = (String) iter.next();
+                String keywordData = (String) keywordArray[index];
 
                 if (keywordData.length() > 1)
                 {
@@ -333,11 +336,11 @@ public class ProductListing implements ProductListingInterface
                 {
 
                     Vector storeFrontVector = this.storeFronts.getStoreFrontNames();
-                    Iterator iter = storeFrontVector.iterator();
 
-                    while (iter.hasNext())
+                    final int size = storeFrontVector.size();
+                    for(int index = 0; index < size; index++)
                     {
-                        storeName = (String) iter.next();
+                        storeName = (String) storeFrontVector.get(index);
 
                         this.searchRequest.setStoreFront(this.storeFronts.getStoreFrontInterface(storeName));
 

@@ -13,7 +13,7 @@
 */
 package views;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -85,10 +85,10 @@ public class HttpComponentView extends TransformInfoHttpComposite
     {
         try
         {
-            Iterator iter = this.domNodeInterfaceVector.iterator();
-            while (iter.hasNext())
+            final int size = domNodeInterfaceVector.size();
+            for(int index = 0; index < size; index++)
             {
-                DomNodeInterface domNodeInterface = (DomNodeInterface) iter.next();
+                DomNodeInterface domNodeInterface = (DomNodeInterface) domNodeInterfaceVector.get(index);
                 this.transformDocumentInterface.getBaseNode().appendChild(
                     domNodeInterface.toXmlNode(this.transformDocumentInterface.getDoc()));
             }

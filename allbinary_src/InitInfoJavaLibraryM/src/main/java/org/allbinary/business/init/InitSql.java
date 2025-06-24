@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -148,11 +148,11 @@ public class InitSql
         {
             HashMap result = null;
             Set set = keysAndValues.keySet();
-            Iterator iter = set.iterator();
-
-            while (iter.hasNext())
+            Object[] keyArray = set.toArray();
+            int size = keyArray.length;
+            for (int i = 0; i < size; i++)
             {
-                String key = (String) iter.next();
+                String key = (String) keyArray[i];
                 String value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
@@ -161,7 +161,7 @@ public class InitSql
                 stringBuffer.append(this.getValue(value));
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (i < size - 1)
                 {
                     stringBuffer.append(sqlStrings.AND);
                 }
@@ -222,10 +222,11 @@ public class InitSql
 
         try
         {
-            Iterator iter = updatedKeyValuePairs.keySet().iterator();
-            while (iter.hasNext())
+            Object[] columnArray = updatedKeyValuePairs.keySet().toArray();
+            int size = columnArray.length;
+            for (int i = 0; i < size; i++)
             {
-                String columnName = iter.next().toString();
+                String columnName = columnArray[i].toString();
                 stringBuffer.append(this.commonSeps.SPACE);
                 stringBuffer.append(columnName);
                 stringBuffer.append(EQUAL_QUOTE);
@@ -242,7 +243,7 @@ public class InitSql
                 stringBuffer.append(this.getValue(columnValue));
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (i < size - 1)
                 {
                     stringBuffer.append(this.commonSeps.COMMA);
                 }
@@ -281,8 +282,8 @@ public class InitSql
 
         try
         {
-            //Iterator iter = values.iterator();
-            for (int i = 0; i < values.size() - 1; i++)
+            int size = values.size();
+            for (int i = 0; i < size - 1; i++)
             {
                 String value = this.getValue((String) values.get(i));
                 //value = new Replace(this.sqlStrings.ESCAPE, this.sqlStrings.DOUBLE_ESCAPE).all(value);

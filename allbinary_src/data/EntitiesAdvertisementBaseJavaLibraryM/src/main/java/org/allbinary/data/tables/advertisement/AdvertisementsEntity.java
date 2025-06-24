@@ -14,7 +14,7 @@
 package org.allbinary.data.tables.advertisement;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -88,10 +88,10 @@ public class AdvertisementsEntity extends AbSqlBean implements AdvertisementsEnt
         Vector hashMapVector = super.getRows(keysAndValues);
 
         Vector vector = new Vector();
-        Iterator iter = hashMapVector.iterator();
-        while(iter.hasNext())
+        final int size = hashMapVector.size();
+        for (int index = 0; index < size; index++)
         {
-            HashMap hashMap = (HashMap) iter.next();
+            HashMap hashMap = (HashMap) hashMapVector.get(index);
         // if(hashMap!=null)
             // vector.add((AdvertisementInterface) new Advertisement(hashMap));
         }

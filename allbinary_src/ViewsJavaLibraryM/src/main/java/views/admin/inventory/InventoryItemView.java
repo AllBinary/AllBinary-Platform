@@ -14,7 +14,7 @@
 package views.admin.inventory;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -154,10 +154,12 @@ public class InventoryItemView extends HttpStoreComponentView
     {
         //Do not update image if file was not provided
         Set set = this.getRequestHashMap().keySet();
-        Iterator iter = set.iterator();
-        while (iter.hasNext())
+        
+        final Object[] fieldNameArray = set.toArray();
+        final int size = fieldNameArray.length;
+        for(int index = 0; index < size; index++)
         {
-            String fieldName = (String) iter.next();
+            String fieldName = (String) fieldNameArray[index];
             if (fieldName.compareTo(BasicItemData.IMAGE) == 0)
             {
                 StoreFrontInterface storeFrontInterface =

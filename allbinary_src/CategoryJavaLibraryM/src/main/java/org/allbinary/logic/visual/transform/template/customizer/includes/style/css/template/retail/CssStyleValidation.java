@@ -14,7 +14,7 @@
 package org.allbinary.logic.visual.transform.template.customizer.includes.style.css.template.retail;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogFactory;
@@ -61,11 +61,11 @@ public class CssStyleValidation implements ValidationInterface, DomNodeInterface
             LogUtil.put(LogFactory.getInstance(this.commonStrings.START,this,"isValid()"));
          }
 
-         Iterator iter = this.cssStyleElementVector.iterator();
-         while(iter.hasNext())
+         int size = cssStyleElementVector.size();
+         for (int i = 0; i < size; i++)
          {
             ValidationInterface styleValidationInterface = 
-               (ValidationInterface) iter.next();
+               (ValidationInterface) cssStyleElementVector.get(i);
 
             if(!styleValidationInterface.isValid().booleanValue())
             {
@@ -124,10 +124,10 @@ public class CssStyleValidation implements ValidationInterface, DomNodeInterface
       Node styleNode = document.createElement(StyleData.getInstance().NAME);
       node.appendChild(styleNode);
 
-      Iterator iter = this.cssStyleElementVector.iterator();
-      while(iter.hasNext())
+      int size = cssStyleElementVector.size();
+      for (int i = 0; i < size; i++)
       {
-         DomNodeInterface styleDomNodeInterface = (DomNodeInterface) iter.next();
+         DomNodeInterface styleDomNodeInterface = (DomNodeInterface) cssStyleElementVector.get(i);
          styleNode.appendChild(styleDomNodeInterface.toXmlNode(document));
       }
       return node;

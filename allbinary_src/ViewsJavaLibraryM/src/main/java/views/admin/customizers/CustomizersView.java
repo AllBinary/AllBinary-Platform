@@ -14,7 +14,7 @@
 package views.admin.customizers;
 
 import java.util.Arrays;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -55,12 +55,11 @@ public class CustomizersView extends HttpStoreComponentView implements DomNodeIn
         try {
             final Node node = document.createElement(TransformTemplateCustomizersData.NAME);
 
-            final Iterator iter = customizersVector.iterator();
-
             final Vector unsortedCustomizerViewVector = new Vector();
 
-            while (iter.hasNext()) {
-                final String viewName = (String) iter.next();
+            final int size = customizersVector.size();
+            for (int index = 0; index < size; index++) {
+                final String viewName = (String) customizersVector.get(index);
 
                 if (viewName.indexOf(CustomizerTransformInfoData.NAME) > 0
                         && viewName.indexOf(GLOBALS2.EDIT) > 0

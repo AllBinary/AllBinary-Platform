@@ -47,7 +47,7 @@ public class AbeClientLicense implements AbeLicenseInterface
         }
 
         /*
-         * Set set = hashtable.keySet(); Iterator iter = set.iterator();
+         * Set set = hashtable.keySet(); iter = set;
          * while(iter.hasNext()) { String nextKey = (String) iter.next(); Object
          * keyValue = hashtable.get(nextKey);
          * 

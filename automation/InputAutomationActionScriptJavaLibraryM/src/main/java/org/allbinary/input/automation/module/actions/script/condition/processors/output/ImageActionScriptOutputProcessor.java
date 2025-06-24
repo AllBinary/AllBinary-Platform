@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module.actions.script.condition.processors.output;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.input.media.image.InputImageIOInterfaceFactory;
@@ -29,22 +29,20 @@ public class ImageActionScriptOutputProcessor
     }
     
     public static void process(
-        ImageActionScriptOutputInterface imageActionScriptOutputInterface,
-        Long frame)
+        final ImageActionScriptOutputInterface imageActionScriptOutputInterface, final Long frame)
         throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
             "Start - Processing at: " + imageActionScriptOutputInterface.toString(),
             "ImageActionScriptOutputProcessor", "process"));
 
-        ImageTypes imageTypes =
-            imageActionScriptOutputInterface.getImageTypes();
-        Vector vector = imageTypes.getVector();
+        final ImageTypes imageTypes = imageActionScriptOutputInterface.getImageTypes();
+        final Vector vector = imageTypes.getVector();
         
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
-            InputImageType imageType = (InputImageType) iterator.next();
+            InputImageType imageType = (InputImageType) vector.get(index);
 
             ImageIOInterface imageIOInterface =
                 InputImageIOInterfaceFactory.getInstance(imageType);

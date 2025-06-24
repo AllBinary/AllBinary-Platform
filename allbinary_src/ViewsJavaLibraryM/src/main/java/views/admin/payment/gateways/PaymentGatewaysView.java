@@ -14,7 +14,7 @@
 package views.admin.payment.gateways;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -52,10 +52,10 @@ public class PaymentGatewaysView extends HttpStoreComponentView
          Node paymentGatewaysNode = 
             document.createElement(PaymentGatewaysData.NAME);
          
-         Iterator iter = this.paymentGatewayVector.iterator();
-         while(iter.hasNext())
+         int size = this.paymentGatewayVector.size();
+         for (int index = 0; index < size; index++)
          {
-            BasicPaymentType paymentType = (BasicPaymentType) iter.next();
+            BasicPaymentType paymentType = (BasicPaymentType) this.paymentGatewayVector.get(index);
             HashMap hashMap = paymentType.toHashMap();
 
             //Get the Default for payment Option Screen

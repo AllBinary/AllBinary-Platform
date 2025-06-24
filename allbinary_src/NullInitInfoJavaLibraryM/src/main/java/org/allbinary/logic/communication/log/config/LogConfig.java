@@ -152,7 +152,7 @@ public class LogConfig
             DomSearchHelper.getAllNodes(
             LogConfigTypeData.getInstance().NAME, logConfigTypesNode.getChildNodes());
 
-        Iterator iter = logConfigTypeNodeVector.iterator();
+        iter = logConfigTypeNodeVector;
         while (iter.hasNext())
         {
             Node node = (Node) iter.next();
@@ -178,7 +178,7 @@ public class LogConfig
     DomSearchHelper.getAllNodes(
     LogConfigTypeData.NAME, logConfigTypesNode.getChildNodes());
 
-    Iterator iter = logConfigTypeNodeVector.iterator();
+    iter = logConfigTypeNodeVector;
     while(iter.hasNext())
     {
     Node node = (Node) iter.next();

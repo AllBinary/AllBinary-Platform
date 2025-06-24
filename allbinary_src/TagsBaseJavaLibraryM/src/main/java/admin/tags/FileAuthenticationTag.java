@@ -14,7 +14,7 @@
 package admin.tags;
 
 import java.util.Calendar;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import javax.servlet.http.HttpServletRequest;
@@ -360,10 +360,10 @@ public class FileAuthenticationTag extends TagSupport
             if (BooleanUtil.getInstance().getFromString(authenticated))
             {
                 //Returning with existing authenticated session
-                Iterator iter = roles.iterator();
-                while (iter.hasNext())
+                final int size = roles.size();
+                for(int index = 0; index < size; index++)
                 {
-                    BasicUserRole mustBeOfRole = (BasicUserRole) iter.next();
+                    BasicUserRole mustBeOfRole = (BasicUserRole) roles.get(index);
                     if (sessionUserName != null
                         && role.equals(mustBeOfRole))
                     {

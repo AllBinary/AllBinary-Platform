@@ -14,7 +14,7 @@
 package org.allbinary.logic.communication.http.file.upload.media;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 
 import org.allbinary.logic.communication.log.LogFactory;

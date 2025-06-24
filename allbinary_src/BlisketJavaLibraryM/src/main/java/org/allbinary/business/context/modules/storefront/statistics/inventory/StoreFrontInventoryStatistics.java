@@ -20,7 +20,7 @@ import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityFac
 import org.allbinary.data.tables.user.commerce.inventory.item.InventoryEntityInterface;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 public class StoreFrontInventoryStatistics
@@ -37,11 +37,10 @@ public class StoreFrontInventoryStatistics
          InventoryEntityFactory.getInstance().getInventoryEntityInstance();
       Vector itemVector = inventoryEntityInterface.getItems(storeFrontInterface);
       
-      final Object[] itemArray = itemVector.toArray();
-      final int size = itemArray.length;
+      final int size = itemVector.size();
       for (int index = 0; index < size; index++)      
       {
-         ItemInterface itemInterface = (ItemInterface) itemArray[index];
+         ItemInterface itemInterface = (ItemInterface) itemVector.get(index);
          int numberInStock = Integer.valueOf(itemInterface.getNumber()).intValue();
          this.totalNumberOfItems = this.totalNumberOfItems + numberInStock;
 

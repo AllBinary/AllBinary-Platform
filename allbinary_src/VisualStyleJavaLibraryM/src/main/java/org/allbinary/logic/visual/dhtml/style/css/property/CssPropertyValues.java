@@ -24,8 +24,9 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
+import org.allbinary.string.CommonSeps;
 
 public class CssPropertyValues implements DomNodeInterface
 {
@@ -54,10 +55,10 @@ public class CssPropertyValues implements DomNodeInterface
             cssPropertyNodeVector.size(),this,"CssProperties()"));
       }
       
-      Iterator iter = cssPropertyNodeVector.iterator();
-      while(iter.hasNext())
+      final int size = cssPropertyNodeVector.size();
+      for (int index = 0; index < size; index++)      
       {
-         Node cssPropertyValueNode = (Node) iter.next();
+         Node cssPropertyValueNode = (Node) cssPropertyNodeVector.get(index);
          
          Node valueNode = 
             DomSearchHelper.getNode(
@@ -97,7 +98,7 @@ public class CssPropertyValues implements DomNodeInterface
       this.propertyValueVector = new Vector();
 
       Set set = hashMap.keySet();
-      Iterator iter = set.iterator();
+      iter = set;
       int index = 0;
 
       while(iter.hasNext())
@@ -108,27 +109,25 @@ public class CssPropertyValues implements DomNodeInterface
       }
    }
 */
-   private final String OPEN_BRACKET = "[";
-   private final String CLOSE_BRACKET = "]";
    
    public HashMap toHashMap()
    {
-      HashMap hashMap = new HashMap();
-      Iterator iter = this.propertyValueVector.iterator();
-      int index = 0;
-
-      StringBuffer stringBuffer = new StringBuffer();
+       final CommonSeps commonSeps = CommonSeps.getInstance();
+       final CssPropertyValueData cssPropertyValueData = CssPropertyValueData.getInstance();
+      final HashMap hashMap = new HashMap();
+      final StringBuffer stringBuffer = new StringBuffer();
       
-      while(iter.hasNext())
+      final int size = propertyValueVector.size();
+      for (int index = 0; index < size; index++)      
       {
-         String value = (String) iter.next();
+         String value = (String) propertyValueVector.get(index);
 
          stringBuffer.delete(0, stringBuffer.length());
 
-         stringBuffer.append(CssPropertyValueData.getInstance().NAME);
-         stringBuffer.append(OPEN_BRACKET);
+         stringBuffer.append(cssPropertyValueData.NAME);
+         stringBuffer.append(commonSeps.BRACKET_OPEN);
          stringBuffer.append(index);
-         stringBuffer.append(CLOSE_BRACKET);
+         stringBuffer.append(commonSeps.BRACKET_CLOSE);
 
          hashMap.put(stringBuffer.toString(), value);
          

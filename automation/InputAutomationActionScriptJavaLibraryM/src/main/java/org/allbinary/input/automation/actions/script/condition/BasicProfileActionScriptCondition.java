@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.actions.script.condition;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import java.awt.event.ActionEvent;
@@ -39,6 +39,7 @@ import org.allbinary.input.automation.module.actions.script.condition.processors
 import org.allbinary.input.automation.module.actions.script.condition.processors.output.ProfileActionScriptOutputFactory;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.logic.string.StringMaker;
 
 public class BasicProfileActionScriptCondition
     extends ProfileActionScriptItem
@@ -236,20 +237,23 @@ public class BasicProfileActionScriptCondition
         Node node = document.createElement(
             GenericProfileActionScriptConditionData.NAME);
         
-        Iterator iterator = this.getProfileActionConditionInterfaceVector().iterator();
-        while(iterator.hasNext())
+        final Vector profileActionConditionInterfaceVector = this.getProfileActionConditionInterfaceVector();
+         
+        final int size = profileActionConditionInterfaceVector.size();
+        for (int index = 0; index < size; index++)
         {
             ProfileActionScriptConditionInterface profileActionConditionInterface =
-                (ProfileActionScriptConditionInterface) iterator.next();
+                (ProfileActionScriptConditionInterface) profileActionConditionInterfaceVector.get(index);
             
             node.appendChild(profileActionConditionInterface.toXmlNode(document));
         }
         
-        iterator = this.getProfileActionProcessorInterfaceVector().iterator();
-        while(iterator.hasNext())
+        final Vector profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
+        final int size2 = profileActionProcessorInterfaceVector.size();
+        for (int index = 0; index < size2; index++)
         {
             ProfileActionScriptProcessorInterface profileActionProcessorInterface =
-                (ProfileActionScriptProcessorInterface) iterator.next();
+                (ProfileActionScriptProcessorInterface) profileActionProcessorInterfaceVector.get(index);
             
             node.appendChild(profileActionProcessorInterface.toXmlNode(document));
         }
@@ -351,12 +355,12 @@ public class BasicProfileActionScriptCondition
     public boolean shouldProcess(Long frame)
     throws Exception
     {
-        Iterator iterator =
-            this.getProfileActionConditionInterfaceVector().iterator();
-        while(iterator.hasNext())
+        final Vector profileActionConditionInterfaceVector = this.getProfileActionConditionInterfaceVector();
+        final int size = profileActionConditionInterfaceVector.size();
+        for (int index = 0; index < size; index++)
         {
             ProfileActionScriptConditionInterface profileActionScriptConditionInterface =
-                (ProfileActionScriptConditionInterface) iterator.next();
+                (ProfileActionScriptConditionInterface) profileActionConditionInterfaceVector.get(index);
             
             if(!profileActionScriptConditionInterface.shouldProcess(frame))
             {
@@ -371,16 +375,16 @@ public class BasicProfileActionScriptCondition
     throws Exception
     {
         LogUtil.put(LogFactory.getInstance(
-            "Start - Processing " +
-            this.getProfileActionProcessorInterfaceVector().size() +
-            " inputs", this, "process"));
+            new StringMaker().append("Start - Processing ").append(
+            this.getProfileActionProcessorInterfaceVector().size()).append(
+            " inputs").toString(), this, "process"));
         
-        Iterator iterator =
-            this.getProfileActionProcessorInterfaceVector().iterator();
-        while(iterator.hasNext())
+        final Vector profileActionProcessorInterfaceVector = this.getProfileActionProcessorInterfaceVector();
+        final int size = profileActionProcessorInterfaceVector.size();
+        for (int index = 0; index < size; index++)
         {
             ProfileActionScriptProcessorInterface profileActionScriptProcessorInterface =
-                (ProfileActionScriptProcessorInterface) iterator.next();
+                (ProfileActionScriptProcessorInterface) profileActionProcessorInterfaceVector.get(index);
             
             profileActionScriptProcessorInterface.process(frame);
         }

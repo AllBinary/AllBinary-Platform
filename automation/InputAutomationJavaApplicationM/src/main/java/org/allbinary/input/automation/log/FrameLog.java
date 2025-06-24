@@ -17,7 +17,7 @@ import org.allbinary.logic.java.number.LongUtil;
 import org.allbinary.input.automation.ImageOutputData;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 public class FrameLog
@@ -44,10 +44,10 @@ public class FrameLog
 
     public void addActions(Vector<String> vectorOfStrings)
     {
-        Iterator iterator = vectorOfStrings.iterator();
-        while(iterator.hasNext())
+        final int size = vectorOfStrings.size();
+        for (int index = 0; index < size; index++)
         {
-            this.addAction((String) iterator.next());
+            this.addAction((String) vectorOfStrings.get(index));
         }
     }
     

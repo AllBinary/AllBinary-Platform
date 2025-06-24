@@ -14,7 +14,7 @@
 package org.allbinary.business.user.role;
 
 import org.allbinary.business.user.UserFactoryInterface;
-import java.util.Iterator;
+
 import java.util.Vector;
 import org.allbinary.logic.string.StringValidationUtil;
 
@@ -40,11 +40,11 @@ public class UserRoleB extends UserRole
       UserRoleFactory.getInstance();
       if(!StringValidationUtil.getInstance().isEmpty(role))
       {
-         Vector roleVector = UserRoleB.getAll();
-         Iterator iter = roleVector.iterator();
-         while(iter.hasNext())
+         final Vector roleVector = UserRoleB.getAll();
+         final int size = roleVector.size();
+         for(int index = 0; index < size; index++)
          {
-            UserRole userRole = (UserRole) iter.next();
+            UserRole userRole = (UserRole) roleVector.get(index);
 
             if(role.compareTo(userRole.toString()) == 0)
             {

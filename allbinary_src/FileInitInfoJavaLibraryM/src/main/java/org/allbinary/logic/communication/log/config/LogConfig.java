@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -179,10 +179,10 @@ public class LogConfig
             DomSearchHelper.getAllNodes(
             LogConfigTypeData.getInstance().NAME, logConfigTypesNode.getChildNodes());
 
-        Iterator iter = logConfigTypeNodeVector.iterator();
-        while (iter.hasNext())
+        final int size = logConfigTypeNodeVector.size();
+        for (int i = 0; i < size; i++)
         {
-            Node node = (Node) iter.next();
+            Node node = (Node) logConfigTypeNodeVector.elementAt(i);
             LogConfigType logType = LogConfigTypes.getInstance(node);
             logKeyVector.add(logType);
         }
@@ -204,7 +204,7 @@ public class LogConfig
     DomSearchHelper.getAllNodes(
     LogConfigTypeData.NAME, logConfigTypesNode.getChildNodes());
 
-    Iterator iter = logConfigTypeNodeVector.iterator();
+    iter = logConfigTypeNodeVector;
     while(iter.hasNext())
     {
     Node node = (Node) iter.next();

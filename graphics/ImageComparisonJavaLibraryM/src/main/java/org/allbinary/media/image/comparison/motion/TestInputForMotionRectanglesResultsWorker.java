@@ -17,7 +17,7 @@ import java.awt.Rectangle;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.Hashtable;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.logic.communication.log.LogUtil;
@@ -102,10 +102,11 @@ public class TestInputForMotionRectanglesResultsWorker
          Rectangle rectangle = (Rectangle) motionRectangleVector.get(0);
          
          Hashtable robotHashtable = InputRobotFactory.getInstance().get();
-         Iterator iterator = robotHashtable.keySet().iterator();
-         while(iterator.hasNext())
+         final Object[] inputTypeNameArray = robotHashtable.keySet().toArray();
+         final int size = inputTypeNameArray.length;
+         for(int index = 0; index < size; index++)
          {
-            String inputTypeNameString = (String) iterator.next();
+            String inputTypeNameString = (String) inputTypeNameArray[index];
             InputRobotInterface inputRobotInterface = 
                 (InputRobotInterface) robotHashtable.get(inputTypeNameString);
 

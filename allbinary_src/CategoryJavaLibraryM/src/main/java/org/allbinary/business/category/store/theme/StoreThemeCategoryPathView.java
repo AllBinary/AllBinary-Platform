@@ -21,7 +21,7 @@ import org.allbinary.logic.visual.theme.ThemeValidation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
-import java.util.Iterator;
+
 
 public class StoreThemeCategoryPathView extends CategoryView implements DomNodeInterface
 {
@@ -37,10 +37,11 @@ public class StoreThemeCategoryPathView extends CategoryView implements DomNodeI
       StoreThemeCategoryInterface storeThemeCategoryInterface = 
          (StoreThemeCategoryInterface) this.getCategoryInterface();
       
-      Iterator iter = storeThemeCategoryInterface.getThemes().iterator();
-      while(iter.hasNext())
+      Object[] themeArray = storeThemeCategoryInterface.getThemes().toArray();
+      int size = themeArray.length;
+      for (int i = 0; i < size; i++)
       {
-         ThemeValidation themeValidation = (ThemeValidation) iter.next();
+         ThemeValidation themeValidation = (ThemeValidation) themeArray[i];
 
          DomNodeInterface domNodeInterface = (DomNodeInterface)
             new ThemePropertiesView((ThemeInterface) themeValidation);

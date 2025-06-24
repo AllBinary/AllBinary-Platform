@@ -14,7 +14,7 @@
 package org.allbinary.data.tables.workflow;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.business.init.db.UserDbInitInfo;
@@ -128,10 +128,10 @@ public class WorkFlowEntity extends AbSqlBean implements WorkFlowEntityInterface
 
             Vector hashMapVector = super.getRows(keysAndValues);
 
-            Iterator iter = hashMapVector.iterator();
-            while(iter.hasNext())
+            int size = hashMapVector.size();
+            for (int i = 0; i < size; i++)
             {
-                HashMap workFlowHashMap = (HashMap) iter.next();
+                HashMap workFlowHashMap = (HashMap) hashMapVector.get(i);
                 if(workFlowHashMap != null)
                 {
                     workFlowsVector.add(DbWorkFlowFactory.getInstance().getInstance(abeClientInformation, workFlowHashMap));

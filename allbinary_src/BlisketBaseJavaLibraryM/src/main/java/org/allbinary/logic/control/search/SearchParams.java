@@ -21,7 +21,7 @@ import org.w3c.dom.Node;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 
 public class SearchParams

@@ -14,7 +14,7 @@
 package org.allbinary.business.installer;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Map;
 import java.util.Set;
 
@@ -45,16 +45,18 @@ public class InitializerDatabase
 
     public InitializerDatabase(final AbeClientInformationInterface abeClientInformation, final Map map)
     {
+        final StringBuffer stringBuffer = new StringBuffer();
+        
         //    this.request = request;
         //this.getFormData(request.getParameterMap());
         final HashMap hashMap = new HashMap();
         final Set keys = map.keySet();
-        final Iterator keyIter = keys.iterator();
 
-        final StringBuffer stringBuffer = new StringBuffer();
-        while (keyIter.hasNext())
+        final Object[] keyArray = keys.toArray();
+        final int size = keyArray.length;
+        for(int index = 0; index < size; index++)
         {
-            final String key = (String) keyIter.next();
+            final String key = (String) keyArray[index];
             final String[] values = (String[]) map.get(key);
             hashMap.put(new String(key), new String(values[0]));
          

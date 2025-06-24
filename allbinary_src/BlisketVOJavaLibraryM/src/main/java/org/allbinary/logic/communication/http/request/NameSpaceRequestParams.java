@@ -304,11 +304,10 @@ public class NameSpaceRequestParams extends RequestParams
       }
       
       //see if a value node contains unique values
-      final Object[] elementNodeArray = elementNodeVector.toArray();
-      final int size = elementNodeArray.length;
+      final int size = elementNodeVector.size();
       for (int index = 0; index < size; index++)
       {
-         Node existingElementNode = (Node) elementNodeArray[index];
+         Node existingElementNode = (Node) elementNodeVector.get(index);
 
          if(this.isElementValueTextNodeEqual(nextPackagePropertiesHashMap, existingElementNode))
          {
@@ -330,11 +329,10 @@ public class NameSpaceRequestParams extends RequestParams
       
       //skip root
       //Add Children
-      final Object[] packageNameArray = packageVector.toArray();
-      final int size = packageNameArray.length;
+      final int size = packageVector.size();
       for (int index = 1; index < size; index++)
       {
-         String nextPackageName = (String) packageNameArray[index];
+         String nextPackageName = (String) packageVector.get(index);
          
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(
          org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPREQUEST))
@@ -455,11 +453,10 @@ public class NameSpaceRequestParams extends RequestParams
       //vector contains hashmaps with one dom element
       final Vector packageVector = nameSpaceRequestParam.getPackages();
 
-      final Object[] packageNameArray = packageVector.toArray();
-      final int size = packageNameArray.length;
+      final int size = packageVector.size();
       for (int index = 0; index < size; index++)
       {
-         String packageName = (String) packageNameArray[index];
+         String packageName = (String) packageVector.get(index);
          HashMap packagePropertiesHashMap =
          nameSpaceRequestParam.getPackageProperties(packageVector.indexOf(packageName));
          
@@ -467,7 +464,7 @@ public class NameSpaceRequestParams extends RequestParams
          this.getRootNode(packageName, packagePropertiesHashMap, document);
          
          //document
-         if(index < size + 1)
+         if(index < size - 1)
          {
             return this.addChildren(document,(Node) rootNode, nameSpaceRequestParam);
          }
@@ -598,7 +595,7 @@ public class NameSpaceRequestParams extends RequestParams
       }
       
       Set propertyNameSet = nextPackagePropertiesHashMap.keySet();
-      Iterator iter = propertyNameSet.iterator();
+      iter = propertyNameSet
       while(iter.hasNext())
       {
          String nextPropertyName = (String) iter.next();
@@ -660,7 +657,7 @@ public class NameSpaceRequestParams extends RequestParams
       }
       
       Set propertyNameSet = nextPackagePropertiesHashMap.keySet();
-      Iterator iter = propertyNameSet.iterator();
+      iter = propertyNameSet;
       while(iter.hasNext())
       {
          String nextPropertyName = (String) iter.next();
@@ -718,7 +715,7 @@ public class NameSpaceRequestParams extends RequestParams
       
       int index = 0;
       //see if a value node contains unique values
-      Iterator iter = elementNodeVector.iterator();
+      iter = elementNodeVector;
       while(iter.hasNext())
       {
          Node existingElementNode = (Node) iter.next();

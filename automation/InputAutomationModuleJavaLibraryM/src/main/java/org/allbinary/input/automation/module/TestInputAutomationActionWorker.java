@@ -13,7 +13,7 @@
 */
 package org.allbinary.input.automation.module;
 
-import java.util.Iterator;
+
 
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.input.automation.robot.InputRobotFactory;
@@ -54,12 +54,14 @@ public class TestInputAutomationActionWorker
 
         //this.startCaptureWorkers();
 
-        Hashtable hashtable = InputRobotFactory.getInstance().get();
-        Set set = hashtable.keySet();
-        Iterator iterator = set.iterator();
-        while(iterator.hasNext())
+        final Hashtable hashtable = InputRobotFactory.getInstance().get();
+        final Set set = hashtable.keySet();
+                
+        final Object[] inputTypeNameArray = set.toArray();
+        final int size = inputTypeNameArray.length;
+        for(int index = 0; index < size; index++)
         {
-            String inputTypeNameString = (String) iterator.next();
+            String inputTypeNameString = (String) inputTypeNameArray[index];
             
             InputRobotInterface robot = 
                 (InputRobotInterface) hashtable.get(inputTypeNameString);

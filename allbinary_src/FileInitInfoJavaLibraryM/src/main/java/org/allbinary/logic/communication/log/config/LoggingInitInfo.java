@@ -13,7 +13,7 @@
 */
 package org.allbinary.logic.communication.log.config;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -91,10 +91,10 @@ public class LoggingInitInfo
 	    
          LoggingInitInfo.logConfigInfoList = new BasicArrayList();
 	    
-         final Iterator iter = logConfigNodeVector.iterator();
-         while(iter.hasNext())
+         final int size = logConfigNodeVector.size();
+         for (int i = 0; i < size; i++)
          {
-            final Node node = (Node) iter.next();
+            final Node node = (Node) logConfigNodeVector.elementAt(i);
             LogConfig logConfigInfo = new LogConfig(node);
             LoggingInitInfo.logConfigInfoList.add(logConfigInfo);
          }

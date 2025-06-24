@@ -16,7 +16,7 @@ package org.allbinary.logic.communication.sql;
 import java.sql.ResultSet;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 
 import org.allbinary.business.init.db.DbConnectionInfo;
@@ -97,13 +97,14 @@ public class AbSqlBean extends AbSqlRow
             String field = this.stringUtil.EMPTY_STRING;
 
             final Set set = keysAndValues.keySet();
-            final Iterator iter = set.iterator();
+            final Object[] keyArray = set.toArray();
+            final int size = keyArray.length;
 
             String key;
             String value;
-            while (iter.hasNext())
+            for (int i = 0; i < size; i++)
             {
-                key = (String) iter.next();
+                key = (String) keyArray[i];
                 value = new String((String) keysAndValues.get(key));
 
                 stringBuffer.append(key);
@@ -111,7 +112,7 @@ public class AbSqlBean extends AbSqlRow
                 stringBuffer.append(value);
                 stringBuffer.append(sqlStrings.CLOSE_QUOTE);
 
-                if (iter.hasNext())
+                if (i < size - 1)
                 {
                     stringBuffer.append(sqlStrings.AND);
                 }
@@ -158,15 +159,16 @@ public class AbSqlBean extends AbSqlRow
 
         try
         {
-            final Iterator iter = columnsAndValues.keySet().iterator();
+            final Object[] keyArray = columnsAndValues.keySet().toArray();
+            final int size = keyArray.length;
             
             stringBuffer.append(this.commonSeps.SPACE);
             stringBuffer.append(key);
 
-            while (iter.hasNext())
+            for (int i = 0; i < size; i++)
             {
                 stringBuffer.append(this.commonSeps.SPACE);
-                stringBuffer.append(iter.next());
+                stringBuffer.append(keyArray[i]);
             }
 
             stringBuffer.append(sqlStrings.FROM);
@@ -183,13 +185,13 @@ public class AbSqlBean extends AbSqlRow
 
             String columnName;
             String field;
-            Iterator iter2;
             while (rset.next())
             {
-                iter2 = columnsAndValues.keySet().iterator();
-                while (iter2.hasNext())
+                Object[] keyArray2 = columnsAndValues.keySet().toArray();
+                int size2 = keyArray2.length;
+                for (int i = 0; i < size2; i++)
                 {
-                    columnName = iter2.next().toString();
+                    columnName = keyArray2[i].toString();
                     field = rset.getObject(columnName).toString();
                     if (field.compareTo((String) columnsAndValues.get(columnName)) != 0)
                     {

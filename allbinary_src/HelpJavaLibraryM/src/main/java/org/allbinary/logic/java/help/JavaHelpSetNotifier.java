@@ -14,7 +14,7 @@
 package org.allbinary.logic.java.help;
 
 import java.net.URL;
-import java.util.Iterator;
+
 import java.util.Vector;
 import javax.help.HelpSet;
 
@@ -35,10 +35,11 @@ public class JavaHelpSetNotifier
     {
         boolean isNotified = false;
         URL url = helpSet.getHelpSetURL();
-        Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
-        {      
-            URL nextURL = (URL) iterator.next();
+        int size = vector.size();
+        Object[] urlArray = vector.toArray();
+        for (int i = 0; i < size; i++)
+        {
+            URL nextURL = (URL) urlArray[i];
             if(url.toString().compareTo(nextURL.toString()) == 0)
             {
                 isNotified = true;

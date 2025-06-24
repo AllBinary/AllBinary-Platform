@@ -54,7 +54,7 @@ public class LogConfigTypes
          printWriter.print("Number Of Log Configs: " + loggingInitInfo.getNumberOfLogConfigs() + "<br/>");
          printWriter.print("Number Of Log Config Type Names: " + logConfigTypeVector.size() + "<br/>");
     
-         Iterator iter = logConfigTypeVector.iterator();
+         iter = logConfigTypeVector;
          while(iter.hasNext())
          {
             LogConfigType logConfigType = (LogConfigType) iter.next();

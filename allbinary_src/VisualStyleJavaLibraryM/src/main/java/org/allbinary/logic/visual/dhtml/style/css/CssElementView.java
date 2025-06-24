@@ -14,7 +14,7 @@
 package org.allbinary.logic.visual.dhtml.style.css;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.data.tree.dom.DomNodeHelper;
@@ -155,17 +155,17 @@ public class CssElementView implements DomNodeInterface
       Node node = ModDomHelper.createNodeWithValueNodes(
       document, CssElementData.getInstance().NAME, hashMap);
       
-      Iterator iter = this.cssPropertyVector.iterator();
-      while(iter.hasNext())
+      final int size = cssPropertyVector.size();
+      for (int index = 0; index < size; index++)
       {
-         DomNodeInterface cssPropertyDomNodeInterface = (DomNodeInterface) iter.next();
+         DomNodeInterface cssPropertyDomNodeInterface = (DomNodeInterface) cssPropertyVector.get(index);
          node.appendChild(cssPropertyDomNodeInterface.toXmlNode(document));
       }
       
-      Iterator elementIter = this.cssElementVector.iterator();
-      while(elementIter.hasNext())
+      final int size2 = cssElementVector.size();
+      for (int index = 0; index < size2; index++)
       {
-         DomNodeInterface cssElementDomNodeInterface = (DomNodeInterface) elementIter.next();
+         DomNodeInterface cssElementDomNodeInterface = (DomNodeInterface) cssElementVector.get(index);
          node.appendChild(cssElementDomNodeInterface.toXmlNode(document));
       }
       

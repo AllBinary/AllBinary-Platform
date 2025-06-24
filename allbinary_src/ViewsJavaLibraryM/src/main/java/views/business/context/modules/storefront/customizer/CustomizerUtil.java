@@ -13,7 +13,7 @@
 */
 package views.business.context.modules.storefront.customizer;
 
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -167,10 +167,10 @@ public class CustomizerUtil
         //CustomizerUtil.getInstance().write(transformInfoInterface, documentString);
         transformInfoInterface.setData(documentString);
 
-        Iterator iter = allViewsToBeModified.iterator();
-        while (iter.hasNext())
+        final int size = allViewsToBeModified.size();
+        for(int index = 0; index < size; index++)
         {
-            TransformInfo transformInfo = (TransformInfo) iter.next();
+            TransformInfo transformInfo = (TransformInfo) allViewsToBeModified.get(index);
 
             String viewNameOfViewToBeModified = transformInfo.getName();
 
@@ -289,11 +289,11 @@ public class CustomizerUtil
         TransformInfoEntity transformInfoEntityInterface =
         	TransformInfoEntityBuilder.getInstance();
         
-        Iterator iter = allViewsToBeModified.iterator();
-        while (iter.hasNext())
+        final int size = allViewsToBeModified.size();
+        for(int index = 0; index < size; index++)
         {
-        	TransformInfo nextTransformInfoInterface =
-             (TransformInfo) iter.next();        	 
+            TransformInfo nextTransformInfoInterface = 
+                (TransformInfo) allViewsToBeModified.get(index);
 
             String viewNameOfViewToBeModified =
             	nextTransformInfoInterface.getName();

@@ -15,7 +15,7 @@ package org.allbinary.business.user.commerce.inventory.order;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 
 import org.w3c.dom.Document;
@@ -234,13 +234,14 @@ public class Order implements OrderInterface, Serializable
    {            
       HashMap hashMap = this.toHashMapOrder();
       Set keySet = hashMap.keySet();
-      Iterator iterSet = keySet.iterator();
+      Object[] keyArray = keySet.toArray();
+      int size = keyArray.length;
       
       Node node = document.createElement(OrderData.ORDER);
       
-      while(iterSet.hasNext())
+      for (int i = 0; i < size; i++)
       {
-         String name = (String) iterSet.next();
+         String name = (String) keyArray[i];
          String value = (String) hashMap.get(name);
 
          value = StringUtil.getInstance().getInstance(value);

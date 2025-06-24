@@ -20,7 +20,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 public class ThemesValidation implements ValidationInterface, DomNodeInterface
@@ -64,10 +64,10 @@ public class ThemesValidation implements ValidationInterface, DomNodeInterface
    {
       Node node = document.createElement(ThemesData.getInstance().NAME);
       
-      Iterator iter = this.themeVector.iterator();
-      while(iter.hasNext())
+      int size = themeVector.size();
+      for (int i = 0; i < size; i++)
       {
-         DomNodeInterface themeDomNodeInterface = (DomNodeInterface) iter.next();
+         DomNodeInterface themeDomNodeInterface = (DomNodeInterface) themeVector.get(i);
          node.appendChild(themeDomNodeInterface.toXmlNode(document));
       }
       return node;

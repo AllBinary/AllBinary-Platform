@@ -176,7 +176,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    public void setKeyArray(Integer[] keyArray)
    {
       if(keyArray != null)
-      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + keyArray.length, "KeyboardActionScriptInput", "setKeyArray"));
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + keyArray.length, this, "setKeyArray"));
       
       this.keyArray = keyArray;
    }
@@ -194,9 +194,8 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
    
    public void setText(String text)
    {
-      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + text, "KeyboardActionScriptInput", "setText"));
-      Integer[] integerArray =
-            KeyboardActionScriptInput.integerArrayValue(text);
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + text, this, "setText"));
+      Integer[] integerArray = this.integerArrayValue(text);
       this.setKeyArray(integerArray);
    }
    
@@ -224,9 +223,9 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
       return stringBuffer.toString();
    }
    
-   private static Integer[] integerArrayValue(String text)
+   private Integer[] integerArrayValue(String text)
    {
-      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + text, "KeyboardActionScriptInput", "integerArrayValue"));
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + text, this, "integerArrayValue"));
       
       Vector vector = new Vector();
       int index = 0;
@@ -242,7 +241,7 @@ public class KeyboardActionScriptInput extends BasicProfileActionScriptInput
                {
                   String nextCharString = text.substring(index + 2, endIndex);
 
-                  LogUtil.put(LogFactory.getInstance("Next Char String: " + nextCharString, "KeyboardActionScriptInput", "integerArrayValue"));
+                  LogUtil.put(LogFactory.getInstance("Next Char String: " + nextCharString, this, "integerArrayValue"));
                   
                   vector.add(Integer.valueOf(
                         nextCharString.substring(index, nextCharString.length())));

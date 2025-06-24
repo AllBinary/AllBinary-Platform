@@ -14,7 +14,7 @@
 package org.allbinary.business.user.role;
 
 import java.io.Serializable;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 public class BasicUserRole implements Serializable
@@ -81,11 +81,11 @@ public class BasicUserRole implements Serializable
 
    public static synchronized BasicUserRole getRole(String role) throws Exception
    {
-      Vector roleVector = BasicUserRole.getAll();
-      Iterator iter = roleVector.iterator();
-      while(iter.hasNext())
+      final Vector roleVector = BasicUserRole.getAll();
+      final int size = roleVector.size();
+      for (int index = 0; index < size; index++)
       {
-         BasicUserRole userRole = (BasicUserRole) iter.next();
+         BasicUserRole userRole = (BasicUserRole) roleVector.get(index);
 
          if(role.compareTo(userRole.toString()) == 0)
          {

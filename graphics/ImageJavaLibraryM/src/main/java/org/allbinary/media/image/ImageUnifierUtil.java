@@ -58,9 +58,8 @@ public class ImageUnifierUtil
             );
         
         final CommonLabels commonLabels = CommonLabels.getInstance();
-        LogUtil.put(LogFactory.getInstance("Setting Image - " + commonLabels.WIDTH_LABEL + newBufferedImage.getWidth() + 
-            commonLabels.HEIGHT_LABEL + newBufferedImage.getHeight(), 
-                "ImageUnifierUtil", "getImage"));
+        LogUtil.put(LogFactory.getInstance("Setting Image - " + commonLabels.WIDTH_LABEL + newBufferedImage.getWidth() + commonLabels.HEIGHT_LABEL + newBufferedImage.getHeight(), 
+                this, "getImage"));
         
         Graphics2D g = newBufferedImage.createGraphics();
         
@@ -74,7 +73,7 @@ public class ImageUnifierUtil
             //imageUnifierProperties.getRows()
             
             LogUtil.put(LogFactory.getInstance("Adding Image: " + index + " x: " + x + " y: " + y, 
-                "ImageUnifierUtil", "getImage"));
+                this, "getImage"));
             
             g.drawImage(bufferedImageArray[index], x , y,
                 imageUnifierProperties.getImageUnifierCell().getWidth().intValue(),

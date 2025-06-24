@@ -14,7 +14,7 @@
 package org.allbinary.input.automation.module.generic;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Set;
 import java.util.Vector;
 
@@ -75,11 +75,11 @@ public class GenericInputAutomationWorker
         this.setGenericProfile(genericProfile);
 
         final Vector vector = this.getGenericProfile().getGenericProfileDataWorkerTypeVector();
-        final Iterator iterator = vector.iterator();
-        while(iterator.hasNext())
+        final int size = vector.size();
+        for(int index = 0; index < size; index++)
         {
             final GenericProfileDataWorkerType genericProfileDataWorkerType = 
-                (GenericProfileDataWorkerType) iterator.next();
+                (GenericProfileDataWorkerType) vector.get(index);
 
             LogUtil.put(LogFactory.getInstance("Adding Listener: " + genericProfileDataWorkerType, this, this.commonStrings.CONSTRUCTOR));
             if(genericProfileDataWorkerType == GenericProfileDataWorkerType.COMPARISON)
@@ -118,12 +118,14 @@ public class GenericInputAutomationWorker
                 
                 final HashMap hashMap = this.getGenericProfile().getGenericProfileActions().getHashMap();
                 final Set set = hashMap.keySet();
-                final Iterator iterator = set.iterator();
                 
                 LogUtil.put(LogFactory.getInstance("Processing " + set.size() + "Actions", this, this.PROCESS_DATA_WORKER_RESULTS));
-                while(iterator.hasNext())
+
+                final Object[] actionNameArray = set.toArray();
+                final int size = actionNameArray.length;
+                for(int index = 0; index < size; index++)
                 {
-                    String actionNameString = (String) iterator.next();
+                    String actionNameString = (String) actionNameArray[index];
                     LogUtil.put(LogFactory.getInstance("Processing Action: " + actionNameString, this, this.PROCESS_DATA_WORKER_RESULTS));
                     final GenericProfileAction genericProfileAction =
                         (GenericProfileAction) hashMap.get(actionNameString);

@@ -84,7 +84,7 @@ public class AffiliateSalesEntity extends AbSqlBean implements AffiliateSalesEnt
      Vector hashMapVector = super.getRows(keysAndValues);
       
      Vector affiliateVector = new Vector();
-     Iterator iter = hashMapVector.iterator();
+     iter = hashMapVector;
      while(iter.hasNext())
      {
      HashMap hashMap = (HashMap) iter.next();

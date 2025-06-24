@@ -14,7 +14,7 @@
 package org.allbinary.data.tables.user.commerce.inventory.item;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.allbinary.business.init.db.InventoryDbInitInfo;
@@ -102,10 +102,10 @@ public class InventoryEntity extends AbSqlBean implements InventoryEntityInterfa
 
         Vector itemHashMapVector = super.getRows(keysAndValues);
 
-        Iterator iter = itemHashMapVector.iterator();
-        while (iter.hasNext())
+        int size = itemHashMapVector.size();
+        for (int i = 0; i < size; i++)
         {
-            HashMap itemHashMap = (HashMap) iter.next();
+            HashMap itemHashMap = (HashMap) itemHashMapVector.get(i);
             if (itemHashMap != null)
             {
 

@@ -50,7 +50,8 @@ function setColorTimeout(formName, color)
 
       progressBar.set(15);
 
-      for(var index = 0; index < cssElementAndPropertyArray.length; index++)
+      var size = cssElementAndPropertyArray.length;
+      for(var index = 0; index < size; index++)
       {
          var cssElementAndProperty = cssElementAndPropertyArray[index];
          //log("setColorTimout: cssElementAndProperty.toString(): " + cssElementAndProperty.toString());

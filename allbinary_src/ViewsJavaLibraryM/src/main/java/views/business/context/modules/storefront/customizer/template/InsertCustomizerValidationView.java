@@ -14,7 +14,7 @@
 package views.business.context.modules.storefront.customizer.template;
 
 import java.util.HashMap;
-import java.util.Iterator;
+
 import java.util.Vector;
 
 import org.w3c.dom.Document;
@@ -88,8 +88,8 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     this.getTransformInfoInterface().getObjectConfigInterface().toXmlDoc());
 
                 //Iterate throught components specified in objectConfig
-                Vector componentVector = objectConfig.getGroupTransforms();
-                Iterator iter = componentVector.iterator();
+                final Vector componentVector = objectConfig.getGroupTransforms();
+                final int size = componentVector.size();
 
                 if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().VIEW))
                 {
@@ -102,9 +102,9 @@ public class InsertCustomizerValidationView extends HttpStoreComponentView
                     LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "isValid()"));
                 }
 
-                while (iter.hasNext())
+                for(int index = 0; index < size; index++)
                 {
-                    TransformInfo transformInfo = (TransformInfo) iter.next();
+                    TransformInfo transformInfo = (TransformInfo) componentVector.get(index);
 
                     String transformInfoName = transformInfo.getName();
 
