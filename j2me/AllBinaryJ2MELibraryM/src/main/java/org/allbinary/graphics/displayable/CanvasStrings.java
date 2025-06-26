@@ -48,5 +48,6 @@ public class CanvasStrings {
     public final String FONT_ATLAS = "/font.png";
     
     public final String OBJ_MODEL = "_obj";
+    public final String MD2_MODEL = "_md2";
     public final String _PNG = ".png";
 }
