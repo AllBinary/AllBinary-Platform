@@ -2,7 +2,7 @@ package org.allbinary.logic.string;
 
 public class StringMaker 
 {
-    private final StringUtil stringUtil = StringUtil.getInstance();
+    //private final StringUtil stringUtil = StringUtil.getInstance();
     
     private char[] charArray;
     private int currentLength;
@@ -106,7 +106,10 @@ public class StringMaker
                 newCapacity = minSize;
 
             final char[] copy = new char[newCapacity];
-            System.arraycopy(charArray, 0, copy, 0, Math.min(charArray.length, newCapacity));
+            System.arraycopy(charArray, 0, copy, 0, 
+                //mathUtil.min(charArray.length, newCapacity)
+                (charArray.length <= newCapacity) ? charArray.length : newCapacity
+                );
             charArray = copy;
         }
     }

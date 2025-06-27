@@ -16,7 +16,6 @@ package org.allbinary.game.ai;
 import javax.microedition.lcdui.Canvas;
 
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.ai.ArtificialIntelligenceInterface;
@@ -35,6 +34,7 @@ import org.allbinary.game.tracking.TrackingEventHandler;
 import org.allbinary.game.tracking.TrackingEventListenerInterface;
 import org.allbinary.layer.AllBinaryLayer;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.logic.math.MathUtil;
 import org.allbinary.logic.string.StringUtil;
 import org.allbinary.logic.util.event.AllBinaryEventObject;
 import org.allbinary.logic.util.event.EventStrings;
@@ -46,6 +46,7 @@ import org.allbinary.time.TimeDelayHelper;
 public class DiveAndDirectionalTrackingAI extends BasicAI implements
         TrackingEventListenerInterface, DestroyedEventListenerInterface
 {
+    private final MathUtil mathUtil = MathUtil.getInstance();
     private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(500);
     // private final TimeDelayHelper timeDelayHelper = new TimeDelayHelper(0);
 
@@ -68,8 +69,7 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
 
     private Direction lastDirection = DirectionFactory.getInstance().NO_DIRECTION;
 
-    private final DirectionFactory directionFactory = DirectionFactory
-            .getInstance();
+    private final DirectionFactory directionFactory = DirectionFactory.getInstance();
 
     private final GameTickTimeDelayHelper gameTickTimeDelayHelper = GameTickTimeDelayHelperFactory.getInstance();
 
@@ -168,9 +168,9 @@ public class DiveAndDirectionalTrackingAI extends BasicAI implements
         int xDistance = ownerLayerInterface.getX() - x
                 - ownerLayerInterface.getWidth();
 
-        DirectionFactory directionFactory = DirectionFactory.getInstance();
+        final DirectionFactory directionFactory = DirectionFactory.getInstance();
 
-        if (Math.abs(yDistance) > Math.abs(xDistance))
+        if (mathUtil.abs(yDistance) > mathUtil.abs(xDistance))
         {
             if (yDistance > MIN_DISTANCE)
             {
