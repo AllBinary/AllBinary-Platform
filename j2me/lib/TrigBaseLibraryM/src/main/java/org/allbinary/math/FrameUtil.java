@@ -53,7 +53,7 @@ public class FrameUtil
             
             while(currentAngle > 359)
             {
-                PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_MORE);
+                //PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_MORE);
                 currentAngle = (short) (currentAngle - angleFactory.TOTAL_ANGLE);
             }
             
@@ -65,7 +65,7 @@ public class FrameUtil
             
             while(currentAngle < 0)
             {
-                PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_LESS);
+                //PreLogUtil.put(Integer.toString(currentAngle).toString(), this, AJUST_ANGLE_TO_FRAME_ANGLE_LESS);
                 currentAngle = (short) (currentAngle + angleFactory.TOTAL_ANGLE);
             }
             
