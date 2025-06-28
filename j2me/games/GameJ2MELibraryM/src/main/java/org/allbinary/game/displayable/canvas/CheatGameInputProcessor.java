@@ -22,7 +22,7 @@ import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.input.event.GameKeyEventUtil;
 import org.allbinary.game.layer.AllBinaryGameLayerManager;
-import org.allbinary.game.layer.special.SpecialGameInput;
+import org.allbinary.game.layer.special.SpecialGameInputFactory;
 import org.allbinary.game.layer.special.SpecialGameInputInterface;
 import org.allbinary.logic.string.StringMaker;
 
@@ -31,7 +31,7 @@ public class CheatGameInputProcessor extends PlayerGameInput
     private final String PROCESS_GAME = "processGame";
 
     private final AllBinaryGameCanvas gameCanvas;
-    public static SpecialGameInputInterface inputProcessor = new SpecialGameInput();
+    public static SpecialGameInputInterface inputProcessor = SpecialGameInputFactory.NO_SPECIAL_GAME_INPUT;
 
     public CheatGameInputProcessor(AllBinaryGameCanvas gameCanvas)
     {
