@@ -20,7 +20,6 @@ import org.allbinary.graphics.form.item.CustomItem;
 import org.allbinary.graphics.form.item.CustomItemInterface;
 
 import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -218,8 +217,8 @@ public class ScrollSelectionForm extends PaintableForm
 
     public int processInput(final int gameKeyCode) throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance("Start - Selected ").append(CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance()));
-        //PreLogUtil.put("Start - Selected " CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
+        //LogUtil.put(LogFactory.getInstance("Start - Selected ").append(commonStrings.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance()));
+        //PreLogUtil.put("Start - Selected " commonStrings.INDEX_LABEL).append(this.getSelectedIndex()).append(" of: ").append(this.size(), this, GameInputStrings.getInstance());
 
         final FormTypeFactory formTypeFactory = FormTypeFactory.getInstance();
         
@@ -274,8 +273,8 @@ public class ScrollSelectionForm extends PaintableForm
             this.setSelectedIndex(index);
         }
 
-        //PreLogUtil.put("End - Selected ").append(CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
-        //LogUtil.put(LogFactory.getInstance("End - Selected ").append(CommonStrings.getInstance().INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance()));
+        //PreLogUtil.put("End - Selected ").append(commonStrings.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance());
+        //LogUtil.put(LogFactory.getInstance("End - Selected ").append(commonStrings.INDEX_LABEL).append(this.getSelectedIndex(), this, GameInputStrings.getInstance()));
         return -1;
     }
 

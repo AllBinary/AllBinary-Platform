@@ -14,6 +14,7 @@
 package org.allbinary.layer;
 
 import javax.microedition.lcdui.Graphics;
+import org.allbinary.graphics.displayable.CanvasStrings;
 
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
@@ -23,7 +24,7 @@ import org.allbinary.logic.math.SmallIntegerSingletonFactory;
 import org.allbinary.math.PositionStrings;
 
 public class Layer
-{
+{    
     //- These methods are for optimizing to concrete classes
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(0);
 
@@ -133,7 +134,10 @@ public class Layer
     //Should be overridden
     public void paint(Graphics graphics)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().NOT_IMPLEMENTED, this, "paint"));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+        
+        LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT));
         
         //graphics.setColor(BasicColor.RED.intValue());
         //graphics.drawRect(x, y, width, height);

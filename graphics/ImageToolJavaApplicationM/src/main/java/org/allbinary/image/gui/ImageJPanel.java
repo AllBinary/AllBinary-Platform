@@ -16,10 +16,15 @@ package org.allbinary.image.gui;
 import org.allbinary.logic.communication.log.LogUtil;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.string.CommonStrings;
 
 public class ImageJPanel extends javax.swing.JPanel {
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    private final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    
     private boolean isDrawn = false;
     private BufferedImage bufferedImage;
 
@@ -33,7 +38,7 @@ public class ImageJPanel extends javax.swing.JPanel {
 
     public void paint(Graphics graphics) {
         if (!isDrawn) {
-            LogUtil.put(LogFactory.getInstance("Painting", this, "paint"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
 
             graphics.drawImage(bufferedImage, 0, 0,
                     this.bufferedImage.getWidth(null),

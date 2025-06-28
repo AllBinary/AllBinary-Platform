@@ -177,7 +177,7 @@ public class SelectionTool implements GraphicItemInterface
 
     public void paint(Graphics g, Double canvasAngle, IntegerDimension dimension, int x, int y)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, canvasStrings.PAINT));
 
         g.setColor(this.rectColor);
 

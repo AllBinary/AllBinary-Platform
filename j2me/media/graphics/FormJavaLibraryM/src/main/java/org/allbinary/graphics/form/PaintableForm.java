@@ -8,9 +8,13 @@ import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.GPoint;
 import org.allbinary.graphics.Rectangle;
 import org.allbinary.graphics.color.BasicColor;
+import org.allbinary.graphics.displayable.CanvasStrings;
 
 public class PaintableForm extends CustomForm
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    protected final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+    
     protected Rectangle rectangle;
 
     protected int x;
@@ -32,7 +36,7 @@ public class PaintableForm extends CustomForm
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
         }
     }
 

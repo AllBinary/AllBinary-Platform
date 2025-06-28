@@ -38,6 +38,7 @@ public class CanvasStrings {
     public final String SIZE_CHANGED = "sizeChanged";
     public final String SCALED_IMAGES = "scaledImages";
     
+    public final String PAINT = "paint";
     public final String ON_DISPLAY_CHANGE_EVENT = "onDisplayChangeEvent";
     
     public final BasicArrayList EMPTY_CHILD_NAME_LIST = BasicArrayListUtil.getInstance().getImmutableInstance();

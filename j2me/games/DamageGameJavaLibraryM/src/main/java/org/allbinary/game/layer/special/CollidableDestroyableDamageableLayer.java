@@ -105,7 +105,7 @@ OpenGLSurfaceChangedInterface
     //Should be overridden
     public void paint(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT));
         super.paint(graphics);
     }
 

@@ -79,14 +79,14 @@ public class CanvasImageJPanel extends javax.swing.JPanel
                     }
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
                 }
             }
         }.start();
     }
     /*
     public void paint(Graphics graphics) {
-    LogUtil.put(LogFactory.getInstance("Painting", this, "paint"));
+    LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
      */
     //graphics.setColor(BasicColors.BLUE.toColor());
     //graphics.fillRect(0, 0, getWidth(),getHeight());
@@ -314,7 +314,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
    @Override
    public void visit(final BufferedImage generatedBufferedImage, final String name, final int index) throws IOException {
        
-       LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().VISIT, this, CommonStrings.getInstance().VISIT));
+       LogUtil.put(LogFactory.getInstance(commonStrings.VISIT, this, commonStrings.VISIT));
        
        this.result = generatedBufferedImage;
        //ImageJ2SERotationUtil.getInstance().createSpriteImage(
@@ -334,7 +334,7 @@ public class CanvasImageJPanel extends javax.swing.JPanel
        final boolean isWritten = 
                ImageIO.write((RenderedImage) CanvasImageJPanel.this.result, imageStrings.PNG, file);
 
-       LogUtil.put(LogFactory.getInstance(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").append(isWritten).toString(), this, CommonStrings.getInstance().RUN));
+       LogUtil.put(LogFactory.getInstance(new StringMaker().append("File: ").append(StringUtil.getInstance().toString(file)).append(" Wrote: ").append(isWritten).toString(), this, commonStrings.RUN));
    }
    
 }

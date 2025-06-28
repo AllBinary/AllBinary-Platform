@@ -121,13 +121,13 @@ public class AllBinaryGameLayer extends AllBinaryLayer
     //Should be overridden
     public void paintDebug(final Graphics graphics)
     {
-        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.NOT_IMPLEMENTED, this, canvasStrings.PAINT));
 
         final ViewPosition viewPosition = this.getViewPosition();
         final int viewX = viewPosition.getX();
         final int viewY = viewPosition.getY();
 
-        //LogUtil.put(LogFactory.getInstance("viewX: ").append(viewX).append(" viewY: ").append(viewY, this, "paint"));
+        //LogUtil.put(LogFactory.getInstance("viewX: ").append(viewX).append(" viewY: ").append(viewY, this, canvasStrings.PAINT));
 
         this.basicSetColorUtil.setBasicColor(graphics, RED);
 

@@ -159,7 +159,7 @@ extends ScrollSelectionForm
             }
         } else
         {
-            LogUtil.put(LogFactory.getInstance(formTypeFactory.UNK, this, CommonStrings.getInstance().INIT));
+            LogUtil.put(LogFactory.getInstance(formTypeFactory.UNK, this, commonStrings.INIT));
         }
     }
 
@@ -231,7 +231,7 @@ extends ScrollSelectionForm
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "paint", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e));
         }
     }
 

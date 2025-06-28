@@ -21,12 +21,14 @@ import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.PlayerGameInputCompositeInterface;
 import org.allbinary.graphics.PointFactory;
 import org.allbinary.graphics.Rectangle;
+import org.allbinary.graphics.displayable.CanvasStrings;
 import org.allbinary.layer.AllBinaryLayerManager;
+import org.allbinary.string.CommonStrings;
 import org.allbinary.view.StaticViewPosition;
 
 public class PlayerGameInputGameLayer extends AllBinaryGameLayer
     implements PlayerGameInputCompositeInterface
-{
+{    
     private PlayerGameInput playerGameInput;
    
     public PlayerGameInputGameLayer(int playerInputId)
@@ -38,7 +40,8 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
 
         this.playerGameInput = new PlayerGameInput(this.getGameKeyEventList(), playerInputId);
         
-        LogUtil.put(LogFactory.getInstance("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, "paint"));
+        final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance("Danger Danger Danger: Should Not Be Called Except For Testing Input", this, canvasStrings.PAINT));
     }
     
     public PlayerGameInput getPlayerGameInput()
@@ -57,7 +60,8 @@ public class PlayerGameInputGameLayer extends AllBinaryGameLayer
     
    public void paint(Graphics graphics)
    {
-       //LogUtil.put(LogFactory.getInstance("Should Not Be Called Except For Testing Input", this, "paint"));
+       //final CanvasStrings canvasStrings = CanvasStrings.getInstance();
+       //LogUtil.put(LogFactory.getInstance("Should Not Be Called Except For Testing Input", this, canvasStrings.PAINT));
 	   //super.paint(graphics);
    }
 }

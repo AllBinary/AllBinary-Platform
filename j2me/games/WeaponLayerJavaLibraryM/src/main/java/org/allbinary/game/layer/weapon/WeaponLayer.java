@@ -425,13 +425,13 @@ implements TickableInterface
 
     public void paint(Graphics graphics)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "paint"));
+        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, canvasStrings.PAINT));
 
         ViewPosition viewPosition = this.getViewPosition();
         // int viewX = viewPosition.getX();
         // int viewY = viewPosition.getY();
 
-        // LogUtil.put(LogFactory.getInstance("viewX: " + viewX + " viewY: " + viewY, this, "paint"));
+        // LogUtil.put(LogFactory.getInstance("viewX: " + viewX + " viewY: " + viewY, this, canvasStrings.PAINT));
 
         //TWB - the offset does not make sense? is collision offset? 
         this.animationInterface.paint(graphics, 

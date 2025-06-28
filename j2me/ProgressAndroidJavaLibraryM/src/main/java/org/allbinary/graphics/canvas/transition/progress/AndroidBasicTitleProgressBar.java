@@ -439,7 +439,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(StringUtil.getInstance().EMPTY_STRING, this, "paint"));
+            //LogUtil.put(LogFactory.getInstance(StringUtil.getInstance().EMPTY_STRING, this, canvasStrings.PAINT));
             
             // Only show background when not loading in the background
             animation.paint(graphics, 0, 20);
@@ -448,7 +448,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "paint", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, canvasStrings.PAINT, e));
         }
     }
 

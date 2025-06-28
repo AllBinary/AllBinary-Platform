@@ -42,7 +42,7 @@ public class TouchButtonsPaintable extends Paintable
     {
         BasicArrayList list = touchButtonFactory.getList();
 
-        //PreLogUtil.put("List " + CommonStrings.getInstance().TOTAL_LABEL + list.size(), this, "paint");
+        //PreLogUtil.put("List " + CommonStrings.getInstance().TOTAL_LABEL + list.size(), this, canvasStrings.PAINT);
 
         this.basicSetColorUtil.setBasicColor(
                 graphics, this.foregroundBasicColor, this.foregroundColor);

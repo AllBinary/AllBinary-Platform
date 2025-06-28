@@ -79,7 +79,7 @@ extends ScrollSelectionForm
 
                 if (dx >= this.rectangle.getMaxX())
                 {
-                    PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").append(this.rectangle.getMaxX()).toString(), this, "paint");
+                    PreLogUtil.put(new StringMaker().append("painting beyond maxx: ").append(this.rectangle.getMaxX()).toString(), this, canvasStrings.PAINT);
                     //break;
                 }
                 
@@ -104,8 +104,8 @@ extends ScrollSelectionForm
             }
         } catch (Exception e)
         {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "paint");
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "paint", e));
+            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, canvasStrings.PAINT);
+            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, canvasStrings.PAINT, e));
         }
     }
 

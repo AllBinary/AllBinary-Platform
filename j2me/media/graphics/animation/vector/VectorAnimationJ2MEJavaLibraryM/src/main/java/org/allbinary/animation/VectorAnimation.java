@@ -136,7 +136,7 @@ public class VectorAnimation extends IndexedAnimation
                     // " y1: "
                     // + this.currentPoints[this.currentFrame][index][1] + y,
                     // this,
-                    // "paint"));
+                    // canvasStrings.PAINT));
 
                     graphics.drawLine(point[0] + x, point[1] + y,
                             nextPointX + x, nextPointY + y);

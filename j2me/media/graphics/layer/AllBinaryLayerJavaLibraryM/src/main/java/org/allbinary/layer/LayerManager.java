@@ -96,7 +96,7 @@ public class LayerManager
     }
 
     //private boolean isFirst = true;
-    //private final String PAINT = "paint";
+    //private final String PAINT = canvasStrings.PAINT;
     
     public void paint(Graphics g, int x, int y)
     {

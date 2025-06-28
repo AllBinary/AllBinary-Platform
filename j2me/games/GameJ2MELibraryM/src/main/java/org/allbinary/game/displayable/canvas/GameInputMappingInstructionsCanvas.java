@@ -87,7 +87,7 @@ public class GameInputMappingInstructionsCanvas extends GameCommandCanvas
     
     public void paint(Graphics graphics)
     {
-    	//PreLogUtil.put(commonStrings.START, this, "paint");
+    	//PreLogUtil.put(commonStrings.START, this, canvasStrings.PAINT);
     
         final MyFont myFont = MyFont.getInstance();
         final int charHeight = myFont.DEFAULT_CHAR_HEIGHT;

@@ -674,7 +674,7 @@ private void mirrorJMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//G
    /*
    public void paint(Graphics graphics)
    {
-      LogUtil.put(LogFactory.getInstance("Painting", this, "paint"));
+      LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
    }
     */
    
