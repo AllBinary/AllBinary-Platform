@@ -27,16 +27,17 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
     
   //For the Non Caching version - Turning off caching here requires turning of caching of paths as well
     public BasicGeographicMapCellPositionFactory getInstance(
-            BasicGeographicMap geographicMapInterface) 
+            final BasicGeographicMap geographicMapInterface) 
         throws Exception
     {
-        AllBinaryTiledLayer allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
+        final AllBinaryTiledLayer allBinaryTiledLayer = geographicMapInterface.getAllBinaryTiledLayer();
 
         BasicGeographicMapCellPositionFactory geographicMapCellPositionFactory = 
             (BasicGeographicMapCellPositionFactory) hashtable.get(allBinaryTiledLayer.getDataId());
 
         if (geographicMapCellPositionFactory != null)
         {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(
                 new StringMaker().append("Reusing GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
                 this, commonStrings.GET_INSTANCE));
@@ -45,6 +46,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         }
         else
         {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(
                 new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
                     this,commonStrings.GET_INSTANCE));

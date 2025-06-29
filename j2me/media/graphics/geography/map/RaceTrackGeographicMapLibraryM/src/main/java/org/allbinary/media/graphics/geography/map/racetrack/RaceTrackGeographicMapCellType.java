@@ -119,6 +119,7 @@ public class RaceTrackGeographicMapCellType extends GeographicMapCellType
    {
       super(type);
       this.travelCost = travelCost;
+      final CommonStrings commonStrings = CommonStrings.getInstance();
       this.name = commonStrings.UNKNOWN;
    }
 

@@ -37,6 +37,8 @@ public class TouchScreenTypeFactory
     
     public void update(Activity activity)
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        
         final TouchScreenFactory touchScreenFactory = 
                 TouchScreenFactory.getInstance();
 

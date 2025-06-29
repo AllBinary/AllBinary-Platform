@@ -364,6 +364,7 @@ public class GeographicMapCellHistory
       }
       catch (Exception e)
       {
+          final CommonStrings commonStrings = CommonStrings.getInstance();
          LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "paintNotVisited", e));
       }
    }

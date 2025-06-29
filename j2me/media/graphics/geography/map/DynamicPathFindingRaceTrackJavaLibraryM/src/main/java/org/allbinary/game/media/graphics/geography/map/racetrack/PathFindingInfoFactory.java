@@ -66,6 +66,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
     private PathFindingInfoFactory(
         final PathFinderGraphVisitorFactoryBase pathFinderGraphVisitorFactoryInterface, final int max)
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         PreLogUtil.put("Using Dynamic Path Finding", this, commonStrings.GET_INSTANCE);
 
         this.basicGeographicMapPathFinder =

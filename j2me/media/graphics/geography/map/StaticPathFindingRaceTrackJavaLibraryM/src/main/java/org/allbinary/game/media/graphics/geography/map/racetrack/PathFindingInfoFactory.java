@@ -47,6 +47,7 @@ public class PathFindingInfoFactory extends BasePathFindingInfoFactory
             final int[][] graphArray)
         throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         PreLogUtil.put(commonStrings.START, this, commonStrings.GET_INSTANCE);
 
         final PathFindingInfo pathFindingInfo = new PathFindingInfo(null);

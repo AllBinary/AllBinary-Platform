@@ -71,6 +71,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
     //This is only called from OpenGLES on Android via OpenGLESStrings
     public void saveFontAtlasAsFile() {
         try {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             final File file = ResourceUtil.getInstance().getContext().getFilesDir();
             final String path = file.getAbsolutePath() + CanvasStrings.getInstance().FONT_ATLAS;
             LogUtil.put(LogFactory.getInstance(path, this, commonStrings.CONSTRUCTOR));

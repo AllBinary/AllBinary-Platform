@@ -67,6 +67,7 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
         {
             final String error = new StringMaker().append("RaceTrackMap has incorrect Mini Map columns: ").append(miniTiledLayer.getColumns()).append(" != ")
                     .append(this.getGeographicMapCellPositionFactory().getColumns()).toString();
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(error, this, commonStrings.CONSTRUCTOR));
             throw new Exception(error);
         }
@@ -75,6 +76,7 @@ public class BaseRaceTrackGeographicMap extends BasicGeographicMap implements
            this.getGeographicMapCellPositionFactory().getRows())
         {
             String error = "RaceTrackMap has incorrect Mini Map rows";
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             LogUtil.put(LogFactory.getInstance(error, this, commonStrings.CONSTRUCTOR));
             throw new Exception(error);
         }

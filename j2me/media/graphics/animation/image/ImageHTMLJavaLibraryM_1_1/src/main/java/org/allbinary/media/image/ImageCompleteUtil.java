@@ -77,6 +77,7 @@ public class ImageCompleteUtil {
             }
         }
         
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         PreLogUtil.put(COMPLETE + image.getName(), this, commonStrings.SUCCESS);
         return true;
     }

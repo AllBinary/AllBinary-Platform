@@ -164,6 +164,6 @@ public class RaceTrackDropCellPositionGenerator
 
     protected void drop(AllBinaryLayerManager allBinaryLayerManager, int index) throws Exception
     {
-        throw new Exception(commonStrings.NOT_IMPLEMENTED);
+        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
     }
 }

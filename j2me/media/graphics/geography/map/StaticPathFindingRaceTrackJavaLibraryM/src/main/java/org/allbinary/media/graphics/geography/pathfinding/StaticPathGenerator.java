@@ -43,7 +43,7 @@ public class StaticPathGenerator
 
    protected StaticPathGenerator()
    {
-       PreLogUtil.put("Using Static Path Finding", this, commonStrings.CONSTRUCTOR);
+       PreLogUtil.put("Using Static Path Finding", this, CommonStrings.getInstance().CONSTRUCTOR);
    }
 
    //Takes static paths with CellPositions and converts them
@@ -80,6 +80,7 @@ public class StaticPathGenerator
       final int totalPaths)
       throws Exception
    {
+       final CommonStrings commonStrings = CommonStrings.getInstance();
       try
       {
          final PathCacheFactory pathCacheFactory = PathCacheFactory.getInstance();

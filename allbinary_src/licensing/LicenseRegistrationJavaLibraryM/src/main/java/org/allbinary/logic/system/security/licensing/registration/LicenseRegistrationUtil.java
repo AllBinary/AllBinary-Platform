@@ -31,6 +31,7 @@ public class LicenseRegistrationUtil
     {
         try
         {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             PreLogUtil.put(CommonLabels.getInstance().START_LABEL + "License Registration", "LicenseRegistrationUtil", commonStrings.PROCESS);
             
             RegistrationConfiguration.getInstance().setRegistrationCode(registrationId);
