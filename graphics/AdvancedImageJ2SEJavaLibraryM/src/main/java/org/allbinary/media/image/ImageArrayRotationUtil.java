@@ -15,10 +15,10 @@ package org.allbinary.media.image;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.media.image.ImageJ2SERotationUtil;
 
 /**
  *
@@ -35,15 +35,16 @@ public class ImageArrayRotationUtil {
         return instance;
     }
 
-    public final String UP = "up";
-    public final String DOWN = "down";
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
+    private final String TOTAL_ANGLE = "totalAngle: ";
 
     public void process(final ImageProcessorInput imageProcessorInput, final String input, final ImageProcessedVisitor visitor) throws IOException {
         
         Integer totalAngle;
-        if (input == UP) {
+        if (input == this.commonStrings.UP) {
             totalAngle = Integer.valueOf(-90);
-        } else if (input == DOWN) {
+        } else if (input == this.commonStrings.DOWN) {
             totalAngle = Integer.valueOf(90);
         } else {
             totalAngle = Integer.valueOf(input);
@@ -51,7 +52,6 @@ public class ImageArrayRotationUtil {
         
         BufferedImage generatedBufferedImage;
 
-        final String TOTAL_ANGLE = "totalAngle: ";
         final BufferedImage[] bufferedImageArray = imageProcessorInput.getBufferedImageArray();
 
         for (int index = 0; index < bufferedImageArray.length; index++) {

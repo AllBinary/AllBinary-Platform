@@ -36,4 +36,7 @@ public class GameInputStrings
     public final String ADD_KEY_EVENT = "addGameKeyEvent";
     public final String REMOVE_KEY_EVENT = "removeGameKeyEvent";
     
+    public final String STRAFE_LEFT = "strafeLeft";
+    public final String STRAFE_RIGHT = "strafeRight";
+        
 }

@@ -14,7 +14,9 @@
 package org.allbinary.media.image;
 
 import java.awt.image.BufferedImage;
+
 import java.io.IOException;
+
 import org.allbinary.string.CommonSeps;
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
@@ -37,6 +39,8 @@ public class SpriteSplitterUtil {
     }
 
     private final CommonSeps commonSeps = CommonSeps.getInstance();
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     //private final ImageUtil imageUtil = ImageUtil.getInstance();
 
     public final String[] ANIMATIONS_LABELS = {
@@ -54,13 +58,6 @@ public class SpriteSplitterUtil {
         "walk",
         "attack",
         "defeat"
-    };
-
-    private final String[] DIRECTION_NAME = {
-        "down",
-        "left",
-        "right",
-        "up"
     };
 
     private final String _ROW = "_row";
@@ -226,7 +223,7 @@ public class SpriteSplitterUtil {
                         generatedBufferedImageArray[index2][index3] = ImageUtil.getInstance().createBufferedImage(
                             generatedBufferedImageArray[index2][index3], cellWidth + increaseWidth, cellHeight + increaseHeight, false, true);
                         }
-                        nameEnding = new StringMaker().append(DIRECTION_NAME[index2]).append(commonSeps.UNDERSCORE).append(index3).toString();
+                        nameEnding = new StringMaker().append(this.commonStrings.DIRECTION_NAME[index2]).append(commonSeps.UNDERSCORE).append(index3).toString();
                         visitor.visit(generatedBufferedImageArray[index2][index3], nameEnding, index);
                     }
                 }
@@ -249,7 +246,7 @@ public class SpriteSplitterUtil {
                         //Join columns
                         tempBufferedImageArray[index3] = generatedBufferedImageArray[index2][index3];
                         //generatedBufferedImage = bufferedImage.getSubimage(0, y, bufferedImage.getWidth(), cellHeight);
-                        nameEnding = new StringMaker().append(DIRECTION_NAME[index2]).append(commonSeps.UNDERSCORE).append(1).append(_ROW).toString();
+                        nameEnding = new StringMaker().append(this.commonStrings.DIRECTION_NAME[index2]).append(commonSeps.UNDERSCORE).append(1).append(_ROW).toString();
                     }
                     
                     final BufferedImage generatedBufferedImage = ImageUnifierUtil.getInstance().getImage(tempBufferedImageArray, imageUnifierProperties);

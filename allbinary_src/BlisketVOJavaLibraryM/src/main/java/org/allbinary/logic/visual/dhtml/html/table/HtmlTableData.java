@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.visual.dhtml.html.table;
 
+import org.allbinary.string.CommonStrings;
+
 public class HtmlTableData {
 
 	private static final HtmlTableData instance = new HtmlTableData();
@@ -21,8 +23,8 @@ public class HtmlTableData {
 		return instance;
 	}
 
-	   public final String LEFT = "left";
-	   public final String RIGHT = "right";
+	   public final String LEFT = CommonStrings.getInstance().LEFT;
+	   public final String RIGHT = CommonStrings.getInstance().RIGHT;
 	   
 	   public final String NONE = "none";
 	   public final String TOP = "top";

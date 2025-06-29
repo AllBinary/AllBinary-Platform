@@ -41,6 +41,18 @@ public class CommonStrings
     public final String INIT = "init";
     public final String CLOSE = "close";
 
+    public final String UP = "up";
+    public final String DOWN = "down";
+    public final String LEFT = "left";
+    public final String RIGHT = "right";
+    
+    public final String[] DIRECTION_NAME = {
+        this.DOWN,
+        this.LEFT,
+        this.RIGHT,
+        this.UP
+    };
+    
     public final String CREATE = "Create";
     public final String REMOVE = "Remove";
     public final String UPDATE = "Update";
