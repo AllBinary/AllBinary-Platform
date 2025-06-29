@@ -23,10 +23,6 @@ import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.game.configuration.feature.Features;
 import org.allbinary.game.configuration.feature.InputFeatureFactory;
-import org.allbinary.game.input.GameInputProcessor;
-import org.allbinary.game.input.GameInputProcessorUtil;
-import org.allbinary.game.input.InputFactory;
-import org.allbinary.game.input.PlayerGameInput;
 import org.allbinary.game.input.event.GameKeyEvent;
 import org.allbinary.game.layer.AllBinaryTiledLayer;
 import org.allbinary.graphics.displayable.DisplayInfoSingleton;
@@ -221,7 +217,7 @@ public class ScrollMapPlayerGameInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "processInput", e));
+            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e));
         }
     }
 
