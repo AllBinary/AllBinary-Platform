@@ -16,10 +16,10 @@ package org.allbinary.logic.system.security.crypt;
 import org.allbinary.util.BasicArrayList;
 
 import org.allbinary.string.CommonSeps;
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.string.tokens.Tokenizer;
 import org.allbinary.logic.communication.log.PreLogUtil;
+import org.allbinary.string.CommonStrings;
 
 public class DatabaseEncoder
 {
@@ -49,7 +49,8 @@ public class DatabaseEncoder
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, "DatabaseEncoder", "decode", e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
          //}
          return null;
       }
@@ -85,7 +86,8 @@ public class DatabaseEncoder
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, "DatabaseEncoder", "decode", e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, "DatabaseEncoder", "decode", e);
          //}
          return null;
       }

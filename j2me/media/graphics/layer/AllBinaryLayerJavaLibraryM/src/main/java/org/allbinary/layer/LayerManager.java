@@ -9,13 +9,15 @@ import org.allbinary.util.BasicArrayList;
 
 public class LayerManager
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final LayerManagerLoggingBase layerManagerLogging;
     private final BasicArrayList list = new BasicArrayList();
     private final Object object = new Object();
 
     public LayerManager(final LayerManagerLogging layerManagerLogging)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
         
         this.layerManagerLogging = layerManagerLogging;
     }
@@ -104,7 +106,7 @@ public class LayerManager
     	{
             //if(this.isFirst) {
                 //this.isFirst = false;
-                //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, PAINT));
+                //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, PAINT));
             //}
             
         Layer comp;
@@ -113,7 +115,7 @@ public class LayerManager
                 //if(this.list.size() > 0) {
                     //this.isFirst = false;
                 //}
-                //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "size: " + this.list.size()));
+                //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "size: " + this.list.size()));
             //}
         
         for (int index = this.list.size(); --index >= 0;)

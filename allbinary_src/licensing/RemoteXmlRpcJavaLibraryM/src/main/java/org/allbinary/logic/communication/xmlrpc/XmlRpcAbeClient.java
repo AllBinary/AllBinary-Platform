@@ -15,7 +15,6 @@ package org.allbinary.logic.communication.xmlrpc;
 
 import org.apache.xmlrpc.XmlRpcClient;
 
-
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.communication.log.ForcedLogUtil;
 import org.allbinary.logic.communication.log.LogFactory;
@@ -25,6 +24,8 @@ import org.allbinary.game.rand.MyRandomFactory;
 
 public class XmlRpcAbeClient
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final String remoteMethod;
     private final AbeClientInformationInterface clientInfo;
     private XmlRpcClient client;
@@ -85,20 +86,20 @@ public class XmlRpcAbeClient
         // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
         // {
         
-        StringBuffer stringBuffer = new StringBuffer();
+        final StringBuffer stringBuffer = new StringBuffer();
         
         stringBuffer.append(START_SERVER);
         stringBuffer.append(this.getServer());
         stringBuffer.append(SEP);
         stringBuffer.append(clientInfo.getLicenseServer(this.getServer()));
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR));
         // }
     }
 
     public Object get(Object object) throws Exception
     {
-        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
         return null;
     }
 

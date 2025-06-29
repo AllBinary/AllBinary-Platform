@@ -58,7 +58,7 @@ extends ImageBaseRotationAnimation
         
         this.increment = (short) (this.angleInfo.getAngleIncrementInfo().getAngleIncrement());
         
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
     }
 
     public void setBasicColor(final BasicColor basicColor) {

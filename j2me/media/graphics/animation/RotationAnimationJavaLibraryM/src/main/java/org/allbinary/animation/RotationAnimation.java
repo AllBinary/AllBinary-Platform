@@ -93,7 +93,7 @@ public class RotationAnimation
 
     public void setFrame(Direction direction)
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "setFrame"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "setFrame"));
 
         /*
         DirectionFactory directionFactory = DirectionFactory.getInstance();

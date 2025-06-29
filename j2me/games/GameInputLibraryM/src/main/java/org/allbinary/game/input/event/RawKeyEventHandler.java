@@ -33,7 +33,7 @@ public class RawKeyEventHandler {
     public static RawKeyEventHandler getInstance() {
         return instance;
     }
-    
+
     protected BasicArrayList eventListenerInterfaceList;
 
     public RawKeyEventHandler()
@@ -103,7 +103,8 @@ public class RawKeyEventHandler {
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 
@@ -143,7 +144,8 @@ public class RawKeyEventHandler {
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toString", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toString", e));
             }
         }
         return stringBuffer.toString();

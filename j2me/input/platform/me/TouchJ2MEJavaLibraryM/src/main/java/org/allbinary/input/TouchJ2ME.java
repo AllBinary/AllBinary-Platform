@@ -48,7 +48,8 @@ public class TouchJ2ME
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "pointerDragged", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "pointerDragged", e));
         }
     }
 
@@ -60,7 +61,8 @@ public class TouchJ2ME
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "pointerPressed", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "pointerPressed", e));
         }
     }
 
@@ -72,7 +74,8 @@ public class TouchJ2ME
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "pointerReleased", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "pointerReleased", e));
         }
     }
 }

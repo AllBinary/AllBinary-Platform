@@ -63,7 +63,8 @@ public class XmlDocumentHelper {
             transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, ignoreDeclaration ? booleanFactory.YES : booleanFactory.NO);
             transformer.setOutputProperty(OutputKeys.INDENT, booleanFactory.YES);
         } catch(Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
         }
     }   
         

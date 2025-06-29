@@ -96,7 +96,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
         }
     }
 
@@ -129,7 +129,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
         }
     }
 
@@ -169,7 +169,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
         }
     }
 
@@ -187,7 +187,7 @@ implements DisplayChangeEventListener
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL + ExceptionUtil.getInstance().getStackTrace(e), this, this.canvasStrings.ON_DISPLAY_CHANGE_EVENT));
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
         }
     }
@@ -223,7 +223,7 @@ implements DisplayChangeEventListener
         catch (Exception e)
         {
             LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION_LABEL
+                    commonStrings.EXCEPTION_LABEL
                             + ExceptionUtil.getInstance().getStackTrace(e), this,
                     "loadProgressImages"));
             this.animation = NullAnimationFactory.getFactoryInstance().getInstance(0);
@@ -246,14 +246,14 @@ implements DisplayChangeEventListener
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().START_METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.START_METHOD_NAME));
 
             super.start();
             this.midletActivity.runOnUiThread(showTitleProgressBarRunnable);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().START_METHOD_NAME, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e));
         }
     }
 
@@ -261,13 +261,13 @@ implements DisplayChangeEventListener
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().END_METHOD_NAME));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.END_METHOD_NAME));
             this.midletActivity.runOnUiThread(dismissTitleProgressBarRunnable);
             super.end();
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().END_METHOD_NAME, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.END_METHOD_NAME, e));
         }
 
     }
@@ -276,7 +276,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, ADD_PORTION));
+            // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, ADD_PORTION));
             this.portion = value;
             super.addEarlyPortion(value, text, index);
 
@@ -287,7 +287,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, ADD_PORTION, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, ADD_PORTION, e));
         }
 
     }
@@ -296,7 +296,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, ADD_PORTION));
+            // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, ADD_PORTION));
             this.portion = value;
             super.addPortion(value, text, index);
 
@@ -304,7 +304,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, ADD_PORTION, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, ADD_PORTION, e));
         }
 
     }
@@ -313,7 +313,7 @@ implements DisplayChangeEventListener
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, ADD_PORTION));
+            // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, ADD_PORTION));
             this.portion = value;
             super.addPortion(value, text);
 
@@ -321,7 +321,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, ADD_PORTION, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, ADD_PORTION, e));
         }
 
     }
@@ -336,7 +336,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "setValue", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "setValue", e));
         }
 
     }
@@ -381,7 +381,7 @@ implements DisplayChangeEventListener
 
     public void initOpenGL(Graphics graphics) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
         
         this.image = GameFeatureImageCacheFactory.getInstance().get(RESOURCE);
         
@@ -401,7 +401,7 @@ implements DisplayChangeEventListener
 
     public void update(Graphics graphics) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.UPDATE));
         
         this.initOpenGL(graphics);
         
@@ -448,7 +448,7 @@ implements DisplayChangeEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, canvasStrings.PAINT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e));
         }
     }
 

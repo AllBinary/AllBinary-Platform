@@ -39,7 +39,7 @@ public class LogUtil
         Object object,
         String functionName)
     {
-        String className = CommonStrings.getInstance().EMPTY;
+        String className = commonStrings.EMPTY;
 
         if (object.getClass().getName() != null)
         {
@@ -58,7 +58,7 @@ public class LogUtil
         String functionName,
         Throwable exception)
     {
-        String className = CommonStrings.getInstance().EMPTY;
+        String className = commonStrings.EMPTY;
 
         if (object.getClass().getName() != null)
         {

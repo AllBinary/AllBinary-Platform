@@ -33,7 +33,7 @@ public class ImageArrayRotationAnimation extends
                 ((ImageArrayRotationAnimationInfo) object).getAngleInfo(),
                 animationBehavior);
 
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR,
+        // LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR,
         // this, "AllBinaryImageRotationAnimation"));
         ImageArrayRotationAnimationInfo allBinaryImageRotationAnimationInfo = (ImageArrayRotationAnimationInfo) object;
 
@@ -69,7 +69,7 @@ public class ImageArrayRotationAnimation extends
             throws Exception
     {
 
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START,
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START,
         // this, "AllBinaryImageRotationAnimation"));
 
         this.expectedTotalFrames = totalAngle

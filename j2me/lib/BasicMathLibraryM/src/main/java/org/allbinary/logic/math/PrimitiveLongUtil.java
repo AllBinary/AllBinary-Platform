@@ -19,6 +19,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class PrimitiveLongUtil
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private int powerOfTen;
     private int maxValue;
     
@@ -35,7 +37,7 @@ public class PrimitiveLongUtil
         
         if(powerOfTen % 10 != 0)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR,
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR,
                     new Exception("Max must be power of 10")));
         }
     }

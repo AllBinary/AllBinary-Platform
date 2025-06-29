@@ -48,6 +48,7 @@ public class ThreadFactoryUtil
     
     private Thread getInstance(final Runnable runnable, final int type)
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         final Features features = Features.getInstance();
 
         if (features.isDefault(HTMLFeatureFactory.getInstance().HTML))
@@ -59,7 +60,7 @@ public class ThreadFactoryUtil
                 final RunnableCanvasSingleThreadStartRunnable demoGameSingleThreadStartRunnable =
                         new RunnableCanvasSingleThreadStartRunnable((RunnableCanvas) runnable);
 
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
+                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for DemoCanvas/AllBinaryGameCanvas under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).toString(), this, commonStrings.CONSTRUCTOR);
 
                 final ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
 
@@ -67,7 +68,7 @@ public class ThreadFactoryUtil
                 //currentDisplayableFactory.setRunnable(demoGameSingleThreadStartRunnable);
             } else
             {
-                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
+                PreLogUtil.put(new StringMaker().append("Using Pseudo Thread for Runnable under PlayN/HTML5: ").append(StringUtil.getInstance().toString(runnable)).toString(), this, commonStrings.CONSTRUCTOR);
 
                 ThreadPool primaryThreadPool = PrimaryThreadPool.getInstance();
 
@@ -76,7 +77,7 @@ public class ThreadFactoryUtil
         }
 
         final Thread thread = new Thread(runnable, runnable.toString());
-        LogUtil.put(LogFactory.getInstance(thread.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(thread.toString(), this, commonStrings.CONSTRUCTOR));
         return thread;
     }
     

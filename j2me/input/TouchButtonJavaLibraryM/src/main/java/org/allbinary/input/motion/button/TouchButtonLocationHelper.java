@@ -32,7 +32,7 @@ public class TouchButtonLocationHelper
         int buttonSize = CommonButtons.getInstance().STANDARD_BUTTON_SIZE;
         DisplayInfoSingleton displayInfo = DisplayInfoSingleton.getInstance();
 
-        //PreLogUtil.put(CommonStrings.getInstance().START_LABEL + displayInfo.toString(), this, "TouchButtonLocationHelper");
+        //PreLogUtil.put(commonStrings.START_LABEL + displayInfo.toString(), this, "TouchButtonLocationHelper");
 
         this.totalColumns = displayInfo.getLastWidth() / buttonSize;
         this.totalRows = displayInfo.getLastHeight() / buttonSize;

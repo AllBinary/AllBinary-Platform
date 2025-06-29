@@ -50,7 +50,7 @@ public class JOGL10 implements javax.microedition.khronos.opengles.GL10
 
     public JOGL10(com.jogamp.opengl.GL gl)
     {
-        //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, CommonStrings.getInstance().CONSTRUCTOR);
+        //PreLogUtil.put(StringUtil.getInstance().EMPTY_STRING, this, commonStrings.CONSTRUCTOR);
         
 //        final com.jogamp.opengl.GL4 gl4 = gl.getGL4();
 //        this.gl4 = gl4;

@@ -19,6 +19,8 @@ import org.allbinary.string.CommonStrings;
 
 public class AbstractArrayListPool implements PoolInterface {
 
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected BasicArrayList buffers = new BasicArrayList();
     //protected int pos = -1;
     protected CacheableInterfaceFactoryInterface cacheableInterfaceFactoryInterface;
@@ -29,12 +31,12 @@ public class AbstractArrayListPool implements PoolInterface {
 
     public void clear()
             throws Exception {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public CacheableInterface remove(Object key)
             throws Exception {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void add(CacheableInterface cacheableInterface) throws Exception {

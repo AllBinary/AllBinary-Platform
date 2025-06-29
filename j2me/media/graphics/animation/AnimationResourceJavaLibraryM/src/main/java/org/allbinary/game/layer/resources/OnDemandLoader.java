@@ -94,13 +94,14 @@ public class OnDemandLoader
             final ImageCache imageCache, final int level, final String loadingString)
             throws Exception
     {
-        // PreLogUtil.put(CommonStrings.getInstance().START_LABEL + level, this, "initLevel");
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        // PreLogUtil.put(commonStrings.START_LABEL + level, this, "initLevel");
 
         final int portion = 120;
         int index = 0;
 
         final int[] onDemandArray = layerPlacementInterfaceBasicArrayListFactoryInterface.getOnDemandResources();
-        PreLogUtil.put(new StringMaker().append(CommonStrings.getInstance().START).append(onDemandArray.length).toString(), this, "initLevel");
+        PreLogUtil.put(new StringMaker().append(commonStrings.START).append(onDemandArray.length).toString(), this, "initLevel");
 
         OnDemandResources onDemandResources;
         

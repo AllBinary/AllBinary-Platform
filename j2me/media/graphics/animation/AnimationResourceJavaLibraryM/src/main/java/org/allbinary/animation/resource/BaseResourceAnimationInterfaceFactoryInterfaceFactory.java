@@ -60,9 +60,10 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
     
     public void init(final int level) throws Exception
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         LogUtil.put(LogFactory.getInstance(
                 new StringMaker().append("Available List of Animations: ").append(hashtable.toString()).toString(),
-                this, CommonStrings.getInstance().INIT));
+                this, commonStrings.INIT));
 
         this.setInitialized(true);
     }
@@ -76,7 +77,7 @@ public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
             final BasicAnimationInterfaceFactoryInterface animationInterfaceFactoryInterface)
             throws Exception
     {
-        //PreLogUtil.put(resource, this, CommonStrings.getInstance().ADD);
+        //PreLogUtil.put(resource, this, commonStrings.ADD);
 
         if (hashtable.containsKey(resource))
         {

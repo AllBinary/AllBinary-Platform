@@ -55,7 +55,7 @@ public class TestInputAutomationCaptureWorker
     {
         super(inputAutomationActionInterface);
         
-        LogUtil.put(LogFactory.getInstance(MESSAGE, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(MESSAGE, this, commonStrings.CONSTRUCTOR));
         
         this.setGenericProfileActions(genericProfileActions);
     }
@@ -102,7 +102,7 @@ public class TestInputAutomationCaptureWorker
     
     public void process() throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().PROCESS));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.PROCESS));
         
         this.startDataWorkers();
         this.processDataWorkerResults();

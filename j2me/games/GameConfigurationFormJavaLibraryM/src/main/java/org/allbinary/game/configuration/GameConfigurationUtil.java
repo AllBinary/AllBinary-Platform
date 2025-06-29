@@ -30,6 +30,8 @@ public class GameConfigurationUtil
         return instance;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public void change(
             GameOptionsForm gameOptionsForm, 
             GameConfigurationGauge gauge) 
@@ -72,7 +74,7 @@ public class GameConfigurationUtil
         stringBuffer.append(TO);
         stringBuffer.append(value);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.UPDATE));
         
         gameConfiguration.setValue(value);
     }
@@ -113,7 +115,7 @@ public class GameConfigurationUtil
         
         if (gameConfiguration == gameConfigurationCentral.CHALLENGE_LEVEL)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "updateChallange"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "updateChallange"));
 
             gameConfigurationCentral.COLLIDE_DAMAGE.setValue(gameConfiguration
                     .getValue());
@@ -164,7 +166,7 @@ public class GameConfigurationUtil
 
     public void updateCompetitionValue()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "updateCompetitionValue"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "updateCompetitionValue"));
 
         GameConfigurationCentral gameConfigurationCentral = 
             GameConfigurationCentral.getInstance();

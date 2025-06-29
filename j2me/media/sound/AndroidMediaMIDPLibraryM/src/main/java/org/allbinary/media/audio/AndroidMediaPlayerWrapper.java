@@ -61,7 +61,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL + resource, this, CommonStrings.getInstance().CONSTRUCTOR, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL + resource, this, commonStrings.CONSTRUCTOR, e));
             throw e;
         }
     }
@@ -117,7 +117,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "close", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "close", e));
         }
     }
 
@@ -125,7 +125,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
     {
         try
         {
-            // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance()));
+            // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, CommonStrings.getInstance()));
 
             if(this.mediaPlayer.isPlaying()) {
                 this.mediaPlayer.pause();
@@ -139,7 +139,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
                     new MediaPlayer.OnCompletionListener(){
                         public void onCompletion(MediaPlayer mp)
                         {
-                            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onComplete())"));
+                            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onComplete())"));
                             AndroidMediaPlayerWrapper.this.update(PlayerListener.END_OF_MEDIA);
                         }
                     });
@@ -149,7 +149,7 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().START_METHOD_NAME, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.START_METHOD_NAME, e));
         }
     }
 
@@ -163,13 +163,13 @@ public class AndroidMediaPlayerWrapper extends BasicPlayer
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "stop", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "stop", e));
         }
     }
 
     public void update(String event)
     {
-        LogUtil.put(LogFactory.getInstance("LineEvent: " + event, this, CommonStrings.getInstance().UPDATE));
+        LogUtil.put(LogFactory.getInstance("LineEvent: " + event, this, commonStrings.UPDATE));
 
         int size = this.listenersList.size();
         for (int index = 0; index < size; index++)

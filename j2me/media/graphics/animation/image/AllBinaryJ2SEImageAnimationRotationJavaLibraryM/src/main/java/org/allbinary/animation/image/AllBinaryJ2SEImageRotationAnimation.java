@@ -79,7 +79,7 @@ public class AllBinaryJ2SEImageRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImageForRotation(image);
         
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
     }
 
     @Override

@@ -65,7 +65,7 @@ public class DynamicRaceTracksPathPrinter extends RaceTracksPathPrinter
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().PROCESS, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.PROCESS, e));
         }
     }
 

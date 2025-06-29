@@ -77,7 +77,7 @@ extends ImageBaseRotationAnimation
         this.canvasSurfaceArray[0] = this.getCanvasSurface(this.twoImages[0]);
         this.canvasSurfaceArray[1] = this.getCanvasSurface(this.twoImages[1]);
 
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
     }
 
     public CanvasSurface getCanvasSurface(final Image image) {

@@ -84,14 +84,14 @@ implements OpenGLSurfaceChangedInterface
             this.set(gl);
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
         }
     }
     */
 
     public void set(GL gl) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
  
     protected boolean initTexture(GL10 gl)

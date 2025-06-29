@@ -24,10 +24,10 @@ public class GeographicMapCellType
 
    public GeographicMapCellType(final int type)
    {
-       //LogUtil.put(LogFactory.getInstance(Integer.toString(type), this, CommonStrings.getInstance().CONSTRUCTOR));
+       //LogUtil.put(LogFactory.getInstance(Integer.toString(type), this, commonStrings.CONSTRUCTOR));
       this.type = type;
       if(type != Integer.MIN_VALUE) {
-          //LogUtil.put(LogFactory.getInstance("type: " + Integer.toString(type), this, CommonStrings.getInstance().CONSTRUCTOR));
+          //LogUtil.put(LogFactory.getInstance("type: " + Integer.toString(type), this, commonStrings.CONSTRUCTOR));
           final GeographicMapCellTypeFactory geographicMapCellTypeFactory = GeographicMapCellTypeFactory.getInstance();
           final GeographicMapCellType[] geographicMapCellTypeArray = geographicMapCellTypeFactory.getGeographicMapCellTypeArray();
           if(geographicMapCellTypeArray[type] == null) {

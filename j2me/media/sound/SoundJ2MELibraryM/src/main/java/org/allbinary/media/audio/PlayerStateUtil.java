@@ -31,6 +31,8 @@ public class PlayerStateUtil {
         return instance;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     public final String UNREALIZED = "UNREALIZED";
 
     public final String REALIZED = "REALIZED";
@@ -55,7 +57,7 @@ public class PlayerStateUtil {
             return this.CLOSED;
         }
         
-        return CommonStrings.getInstance().UNKNOWN;
+        return commonStrings.UNKNOWN;
     }
     
 }

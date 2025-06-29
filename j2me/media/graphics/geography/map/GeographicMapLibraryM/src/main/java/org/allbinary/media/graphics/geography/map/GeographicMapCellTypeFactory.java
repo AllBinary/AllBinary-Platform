@@ -32,7 +32,7 @@ public class GeographicMapCellTypeFactory
     {
 //        final GeographicMapCellType geographicMapCellType = geographicMapCellTypeArray[type];
 //        if(geographicMapCellType == null) {
-//            LogUtil.put(LogFactory.getInstance("missing type: " + type, this, CommonStrings.getInstance().PROCESS));
+//            LogUtil.put(LogFactory.getInstance("missing type: " + type, this, commonStrings.PROCESS));
 //            throw new RuntimeException();
 //        }
 //        return geographicMapCellType;

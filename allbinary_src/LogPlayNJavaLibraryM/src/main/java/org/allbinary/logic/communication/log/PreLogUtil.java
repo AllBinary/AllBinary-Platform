@@ -60,7 +60,7 @@ public class PreLogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = CommonStrings.getInstance().EMPTY;
+            className = commonStrings.EMPTY;
         }
 
         className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(StringUtil.getInstance().toString(object)).toString();
@@ -84,7 +84,7 @@ public class PreLogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = CommonStrings.getInstance().EMPTY;
+            className = commonStrings.EMPTY;
         }
 
         className = new StringMaker().append(className).append(CommonSeps.getInstance().FORWARD_SLASH).append(StringUtil.getInstance().toString(object)).toString();

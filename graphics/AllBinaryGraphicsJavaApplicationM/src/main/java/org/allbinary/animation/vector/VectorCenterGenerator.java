@@ -31,6 +31,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class VectorCenterGenerator {
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     int minX = Integer.MAX_VALUE;
     int minY = Integer.MAX_VALUE;
     int maxX = Integer.MIN_VALUE;
@@ -128,7 +130,7 @@ public class VectorCenterGenerator {
             }
 
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getInstance", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getInstance", e));
             throw e;
         }
     }

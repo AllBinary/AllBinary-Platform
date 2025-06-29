@@ -61,7 +61,7 @@ public class LogUtil
                 Object object = log.getObject();
                 String functionName = log.getFunctionName();
 
-                String className = CommonStrings.getInstance().EMPTY;
+                String className = commonStrings.EMPTY;
 
                 Class clazz = object.getClass();
                 if (clazz.getName() != null)

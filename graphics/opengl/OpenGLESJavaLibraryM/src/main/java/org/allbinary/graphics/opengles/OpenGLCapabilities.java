@@ -284,7 +284,8 @@ public class OpenGLCapabilities
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
         }
     }
     
@@ -341,7 +342,8 @@ public class OpenGLCapabilities
         }
         catch(Exception e)
         {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "toString", e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, "toString", e);
         }
         
         return stringBuffer.toString();

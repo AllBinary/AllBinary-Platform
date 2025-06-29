@@ -37,6 +37,8 @@ public class FeaturedResourceFactory
     {
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final String ANIMATION_FEATURES = "Animation Features: Vector: ";
     private final String IMAGE_LABEL = " Image: ";
     
@@ -68,16 +70,16 @@ public class FeaturedResourceFactory
                             .append(isLoadingLevel)
                             .append(this.IS_FEATURE)
                             .append(isFeature).toString(), 
-                    this, CommonStrings.getInstance().INIT));
+                    this, commonStrings.INIT));
 
             if (isLoadingLevel && isFeature)
             {
 //                LogUtil.put(LogFactory.getInstance(new StringBuilder()
-//                        .append(CommonStrings.getInstance().INIT)
+//                        .append(commonStrings.INIT)
 //                        .append(CommonSeps.getInstance().SPACE)
 //                        .append(this.GAME_FEATURE_CONTROLLED)
 //                        .append(featureInterface.toString()).toString(), 
-//                        this, CommonStrings.getInstance().INIT));
+//                        this, commonStrings.INIT));
                 featureInterface.init(level);
             }
         }
@@ -94,7 +96,7 @@ public class FeaturedResourceFactory
         stringBuffer.append(IMAGE_LABEL);
         stringBuffer.append(features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS));
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
 
         if (features.isFeature(graphicsFeatureFactory.IMAGE_GRAPHICS))
         {
@@ -109,7 +111,7 @@ public class FeaturedResourceFactory
             stringBuffer.append(SPRITE_FULL);
             stringBuffer.append(features.isFeature(graphicsFeatureFactory.SPRITE_FULL_GRAPHICS));
 
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
         }
     }
     
@@ -120,7 +122,7 @@ public class FeaturedResourceFactory
 
     public void add(GameFeatureControlledInterface featureInterface)
     {
-        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).toString(), this, CommonStrings.getInstance().ADD));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append(CommonLabels.getInstance().START_LABEL).append(StringUtil.getInstance().toString(featureInterface)).toString(), this, commonStrings.ADD));
         
         this.list.add(featureInterface);
     }

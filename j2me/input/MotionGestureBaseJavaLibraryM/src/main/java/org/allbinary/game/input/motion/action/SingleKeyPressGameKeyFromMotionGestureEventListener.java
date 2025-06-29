@@ -47,7 +47,8 @@ extends CompleteMotionGestureInputEventListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onCompleteMotionGestureInputEvent", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onCompleteMotionGestureInputEvent", e));
         }
     }
 }

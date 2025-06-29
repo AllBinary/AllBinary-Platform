@@ -24,6 +24,8 @@ import org.allbinary.logic.string.StringMaker;
 public class CollidableBaseBehavior 
 implements CollidableInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private boolean collidable = true;
 
     protected final CollidableCompositeLayer ownerLayer;
@@ -58,7 +60,7 @@ implements CollidableInterface
     public void collide(CollidableCompositeLayer allbinaryCollidableLayer)
             throws Exception
     {
-        throw new Exception(new StringMaker().append(CommonStrings.getInstance().NOT_IMPLEMENTED).append(": ").append(this.getClass().getName()).toString());
+        throw new Exception(new StringMaker().append(commonStrings.NOT_IMPLEMENTED).append(": ").append(this.getClass().getName()).toString());
     }
 
     private final LayerCollisionUtil layerCollisionUtil = LayerCollisionUtil.getInstance();
@@ -97,7 +99,7 @@ implements CollidableInterface
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void paint(final Graphics graphics) {

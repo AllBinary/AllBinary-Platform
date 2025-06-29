@@ -26,7 +26,7 @@ public class CompositeGroup
     private final Group groupInterface;
     private final BasicArrayList list = new BasicArrayList();
 
-    public CompositeGroup(Group groupInterface)
+    public CompositeGroup(final Group groupInterface)
     {
         this.groupInterface = groupInterface;
     }
@@ -39,21 +39,22 @@ public class CompositeGroup
     private static final String ADDING_LABEL = "Adding: ";
     private static final String TO_LABEL = " to: ";
     
-    public void add(Group groupInterface)
+    public void add(final Group groupInterface)
     {
-        StringMaker stringBuffer = new StringMaker();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append(ADDING_LABEL);
         stringBuffer.append(groupInterface.toString());
         stringBuffer.append(TO_LABEL);
         stringBuffer.append(StringUtil.getInstance().toString(this.groupInterface));
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().ADD));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.ADD));
         
         this.list.add(groupInterface);
     }
     
-    public boolean isInGroup(Group groupInterface)
+    public boolean isInGroup(final Group groupInterface)
     {
         if(list.contains(groupInterface))
         {

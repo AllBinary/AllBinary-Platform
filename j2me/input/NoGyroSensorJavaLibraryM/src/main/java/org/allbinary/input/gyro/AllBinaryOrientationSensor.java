@@ -38,6 +38,6 @@ public class AllBinaryOrientationSensor extends AllBinarySensor
     
     public Orientation getOrientation() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 }

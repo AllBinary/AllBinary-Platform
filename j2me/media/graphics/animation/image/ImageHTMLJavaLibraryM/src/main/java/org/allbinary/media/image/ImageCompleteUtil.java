@@ -74,7 +74,7 @@ public class ImageCompleteUtil
             }
             return false;
         }
-        //PreLogUtil.put("Image loading complete for: " + name, this, CommonStrings.getInstance().SUCCESS);
+        //PreLogUtil.put("Image loading complete for: " + name, this, commonStrings.SUCCESS);
         return true;
     }
 

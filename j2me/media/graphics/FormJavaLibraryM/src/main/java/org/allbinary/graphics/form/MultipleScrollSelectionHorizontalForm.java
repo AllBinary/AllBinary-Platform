@@ -104,8 +104,8 @@ extends ScrollSelectionForm
             }
         } catch (Exception e)
         {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, canvasStrings.PAINT);
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, canvasStrings.PAINT, e));
+            PreLogUtil.put(commonStrings.EXCEPTION, this, canvasStrings.PAINT);
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e));
         }
     }
 

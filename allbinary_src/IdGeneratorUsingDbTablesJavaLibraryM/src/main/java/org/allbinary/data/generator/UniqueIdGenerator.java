@@ -47,7 +47,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "initialize", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "initialize", e));
          }
       }
    }
@@ -72,7 +72,7 @@ public class UniqueIdGenerator implements IdGeneratorInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getNext", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getNext", e));
          }
          return "Error";
       }

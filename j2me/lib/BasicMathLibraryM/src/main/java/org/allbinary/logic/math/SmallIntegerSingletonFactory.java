@@ -137,12 +137,12 @@ public class SmallIntegerSingletonFactory
      * public Integer getInstance(int index) { if(index >= 0) { Integer
      * integer = INTEGER_ARRAY[index]; if(integer == null) { try { throw new
      * Exception("Out of Range: " + index); } catch(Exception e) {
-     * LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION,
-     * "SmallIntegerSingletonFactory", CommonStrings.getInstance().GET_INSTANCE, e)); } } return integer;
+     * LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
+     * "SmallIntegerSingletonFactory", commonStrings.GET_INSTANCE, e)); } } return integer;
      * }else { Integer integer = NEGATIVE_INTEGER_ARRAY[-index]; if(integer ==
      * null) { try { throw new Exception("Out of Range: " + index); }
-     * catch(Exception e) { LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION,
-     * "SmallIntegerSingletonFactory", CommonStrings.getInstance().GET_INSTANCE, e)); } } return integer; }
+     * catch(Exception e) { LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
+     * "SmallIntegerSingletonFactory", commonStrings.GET_INSTANCE, e)); } } return integer; }
      * }
      */
 }

@@ -23,6 +23,8 @@ import org.allbinary.logic.math.PrimitiveIntUtil;
 public class IndexedAnimation extends Animation 
     implements IndexedAnimationInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected final AnimationBehavior animationBehavior;
     
     private IndexedAnimation()
@@ -60,7 +62,7 @@ public class IndexedAnimation extends Animation
 
     public int getAnimationSize() throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
         //return this.getSize();
     }
     

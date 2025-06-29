@@ -58,7 +58,7 @@ public class OperatingSystemFactory
             
             if(!this.hasDetected)
             {
-                LogUtil.put(LogFactory.getInstance("osName: " + osName, this, CommonStrings.getInstance().GET_INSTANCE));
+                LogUtil.put(LogFactory.getInstance("osName: " + osName, this, commonStrings.GET_INSTANCE));
                 
                 this.hasDetected = true;
                 if(osName.indexOf(operatingSystems.LINUX) >= 0)

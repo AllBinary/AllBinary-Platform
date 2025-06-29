@@ -41,13 +41,13 @@ extends InitUpdatePaintable
     {
         try
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().UPDATE));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.UPDATE));
             //this.gameNotificationHud.processTick();
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().UPDATE, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.UPDATE, e));
         }
     }
 

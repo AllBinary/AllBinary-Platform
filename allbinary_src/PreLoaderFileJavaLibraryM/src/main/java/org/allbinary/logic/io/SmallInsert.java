@@ -23,6 +23,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class SmallInsert
 {  
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private String fileName;
    private String string;
    
@@ -46,7 +48,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "insertAtBeginning", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "insertAtBeginning", e));
          }
          return false;
       }
@@ -84,7 +86,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "after", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "after", e));
          }
          return false;
       }
@@ -103,7 +105,7 @@ public class SmallInsert
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
          {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "insertAtEnd", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "insertAtEnd", e));
          }
          return false;
       }

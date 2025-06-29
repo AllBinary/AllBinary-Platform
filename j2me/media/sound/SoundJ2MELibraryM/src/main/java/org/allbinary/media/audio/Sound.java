@@ -55,7 +55,8 @@ public class Sound implements SoundInterface, Runnable
         }
         catch (Exception e)
         {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.RUN);
         }
     }
 }

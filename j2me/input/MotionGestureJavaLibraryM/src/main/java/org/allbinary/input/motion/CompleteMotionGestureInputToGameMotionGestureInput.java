@@ -43,9 +43,10 @@ public class CompleteMotionGestureInputToGameMotionGestureInput
    
     public void init()
     {
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         try
         {
-            PreLogUtil.put("Compound Motion Gestures", this, CommonStrings.getInstance().INIT);
+            PreLogUtil.put("Compound Motion Gestures", this, commonStrings.INIT);
 
             final MotionGestureConfiguration motionGestureConfiguration = 
                 MotionGestureConfigurationFactory.getInstance();
@@ -101,8 +102,7 @@ public class CompleteMotionGestureInputToGameMotionGestureInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION,
-                    "CompleteMotionGestureInputToGameMotionGestureInput", CommonStrings.getInstance().INIT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,"CompleteMotionGestureInputToGameMotionGestureInput", commonStrings.INIT, e));
         }
     }
 }

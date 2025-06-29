@@ -39,7 +39,7 @@ public class GameFeatureItemStateListener implements ItemStateListener
     {
         this.gameOptionsForm = gameOptionsForm;
         
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         GameFeatureFactory gameFeatureFactory = 
             GameFeatureFactory.getInstance();
@@ -104,7 +104,8 @@ public class GameFeatureItemStateListener implements ItemStateListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "itemStateChanged", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "itemStateChanged", e));
         }
     }
 }

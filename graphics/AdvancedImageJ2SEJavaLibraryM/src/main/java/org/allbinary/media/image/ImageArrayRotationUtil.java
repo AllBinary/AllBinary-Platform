@@ -56,7 +56,7 @@ public class ImageArrayRotationUtil {
 
         for (int index = 0; index < bufferedImageArray.length; index++) {
 
-            LogUtil.put(LogFactory.getInstance(TOTAL_ANGLE + totalAngle, this, CommonStrings.getInstance().RUN));
+            LogUtil.put(LogFactory.getInstance(TOTAL_ANGLE + totalAngle, this, commonStrings.RUN));
 
             generatedBufferedImage = ImageJ2SERotationUtil.getInstance().getRotatedImage(
                     bufferedImageArray[index], totalAngle.intValue());

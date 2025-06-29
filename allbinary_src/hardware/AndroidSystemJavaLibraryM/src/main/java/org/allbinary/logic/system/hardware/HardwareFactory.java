@@ -44,7 +44,8 @@ public class HardwareFactory
             throw new Exception("No Hardware Imp for: " + os.getName());
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Ignoring Exception Returning NoHardware", this, CommonStrings.getInstance().GET_INSTANCE, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance("Ignoring Exception Returning NoHardware", this, commonStrings.GET_INSTANCE, e));
             return new NoHardware();
         }
     }

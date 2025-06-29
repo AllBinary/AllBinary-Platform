@@ -33,6 +33,8 @@ import org.allbinary.logic.system.hardware.components.interfaces.HardwareCompone
  */
 public class AndroidHardware implements HardwareInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private Vector componentInterfaceVector = new Vector();
     private final String PROC_BUS_INPUT_DIRECTORY = "/proc/bus/input/";
     private final String DEVICES = PROC_BUS_INPUT_DIRECTORY + "devices/";
@@ -48,7 +50,7 @@ public class AndroidHardware implements HardwareInterface
             throw new Exception("Not Enough Data For A Valid License On Linux");
         }
 
-        //LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, commonStrings.CONSTRUCTOR));
     }
 
     private void init(String filePath) throws Exception
@@ -59,7 +61,7 @@ public class AndroidHardware implements HardwareInterface
             this.init(lineNumberReader, filePath);
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR, e));
+            LogUtil.put(LogFactory.getInstance("Hardware Data: " + this.toString(), this, commonStrings.CONSTRUCTOR, e));
             throw e;
         }
     }
@@ -75,7 +77,7 @@ public class AndroidHardware implements HardwareInterface
 
             //if (lineNumberReader != null)
             //{
-                LogUtil.put(LogFactory.getInstance("File Found", this, CommonStrings.getInstance().CONSTRUCTOR));
+                LogUtil.put(LogFactory.getInstance("File Found", this, commonStrings.CONSTRUCTOR));
 
                 String nextLine = lineNumberReader.readLine();
 
@@ -83,7 +85,7 @@ public class AndroidHardware implements HardwareInterface
                 //lineNumberReader != null && 
                 while (nextLine != null)
                 {
-                    //LogUtil.put(LogFactory.getInstance("Found Hardware Device: " + componentInterfaceVector.size(), this, CommonStrings.getInstance().INIT));
+                    //LogUtil.put(LogFactory.getInstance("Found Hardware Device: " + componentInterfaceVector.size(), this, commonStrings.INIT));
 
                     nextLine = lineNumberReader.readLine();
                     componentInterfaceVector.add(new UnknownHardware(nextLine));
@@ -92,7 +94,7 @@ public class AndroidHardware implements HardwareInterface
             /*
             else
             {
-                LogUtil.put(LogFactory.getInstance("Could not load File", this, CommonStrings.getInstance().INIT));
+                LogUtil.put(LogFactory.getInstance("Could not load File", this, commonStrings.INIT));
             }
             */
 

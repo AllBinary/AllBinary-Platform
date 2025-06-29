@@ -45,7 +45,7 @@ public class LogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = CommonStrings.getInstance().EMPTY;
+            className = commonStrings.EMPTY;
         }
 
 //        String className = EMPTY;
@@ -73,7 +73,7 @@ public class LogUtil
         String className = PreLogUtil.getClassName(object);
         
         if(className == null) {
-            className = CommonStrings.getInstance().EMPTY;
+            className = commonStrings.EMPTY;
         }
 
 //        String className = EMPTY;

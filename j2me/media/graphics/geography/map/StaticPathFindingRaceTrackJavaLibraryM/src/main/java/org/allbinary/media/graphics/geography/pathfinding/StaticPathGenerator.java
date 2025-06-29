@@ -43,7 +43,7 @@ public class StaticPathGenerator
 
    protected StaticPathGenerator()
    {
-       PreLogUtil.put("Using Static Path Finding", this, CommonStrings.getInstance().CONSTRUCTOR);
+       PreLogUtil.put("Using Static Path Finding", this, commonStrings.CONSTRUCTOR);
    }
 
    //Takes static paths with CellPositions and converts them
@@ -117,14 +117,14 @@ public class StaticPathGenerator
             pathCacheFactory.remove(smallIntegerSingletonFactory.getInstance(id));
          }
 
-         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
+         LogUtil.put(LogFactory.getInstance(new StringMaker().append("Using Cached Path(s): ").append(StringUtil.getInstance().toString(list)).toString(), this, commonStrings.GET_INSTANCE));
 
          return list;
 
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_INSTANCE, e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
          return new BasicArrayList();
       }
    }

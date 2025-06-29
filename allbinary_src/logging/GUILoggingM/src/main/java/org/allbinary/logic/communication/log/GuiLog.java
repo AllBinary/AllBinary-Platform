@@ -30,6 +30,8 @@ public class GuiLog
     {
         return instance;
     }
+    
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
 
    private GuiLog()
    {
@@ -83,7 +85,7 @@ public class GuiLog
       }
       catch (Exception e)
       {
-          PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "put", e);
+          PreLogUtil.put(commonStrings.EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }
@@ -112,7 +114,7 @@ public class GuiLog
       }
       catch (Exception e)
       {
-          PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "put", e);
+          PreLogUtil.put(commonStrings.EXCEPTION, this, "put", e);
          return "Logging Error";
       }
    }

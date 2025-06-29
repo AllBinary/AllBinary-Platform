@@ -48,7 +48,7 @@ public class TransformInfoBasic extends AbContext implements TransformInfoHttpIn
 
    public String log()
    {
-      return CommonStrings.getInstance().NOT_IMPLEMENTED;
+      return commonStrings.NOT_IMPLEMENTED;
    }
    
    public void override(HashMap hashMap)
@@ -106,7 +106,7 @@ public class TransformInfoBasic extends AbContext implements TransformInfoHttpIn
    
    public Document getDataDocument() throws Exception
    {
-      throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+      throw new Exception(commonStrings.NOT_IMPLEMENTED);
    }
 
    public void setName(String value)

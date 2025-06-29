@@ -127,7 +127,8 @@ public class RotateJDialog extends javax.swing.JDialog
        }
        catch(Exception e)
        {
-          LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "jButton1ActionPerformed"));
+           final CommonStrings commonStrings = CommonStrings.getInstance();
+          LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "jButton1ActionPerformed"));
        }
     }//GEN-LAST:event_jButton1ActionPerformed
     

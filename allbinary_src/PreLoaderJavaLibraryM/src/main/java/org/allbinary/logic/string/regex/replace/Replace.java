@@ -25,6 +25,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class Replace
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final String REPLACERS_ = "Replacers: ";
     private final String ALL = "all";
     private final String FOUND_KEY = "found key total: ";
@@ -38,8 +40,8 @@ public class Replace
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE))
       {
-         LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
-         //LogUtil.put(LogFactory.getInstance("Replacers: key=" + key + " value=" + value, this, CommonStrings.getInstance().CONSTRUCTOR));
+         LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR));
+         //LogUtil.put(LogFactory.getInstance("Replacers: key=" + key + " value=" + value, this, commonStrings.CONSTRUCTOR));
       }
    }
    
@@ -49,7 +51,7 @@ public class Replace
       
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().REPLACE_INFO))
       {
-         LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+         LogUtil.put(LogFactory.getInstance(REPLACERS_ + this.hashMap.toString(), this, commonStrings.CONSTRUCTOR));
       }
    }
    

@@ -26,7 +26,7 @@ implements AllBinarySensorListener
 {
     public NoGyroSensor()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
     }
     
     public Orientation getOrientation() throws Exception

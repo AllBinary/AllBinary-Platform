@@ -156,7 +156,7 @@ public class VectorBaseRotationAnimation
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "paintVectors", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "paintVectors", e));
         }
     }
     

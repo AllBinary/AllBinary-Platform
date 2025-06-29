@@ -66,7 +66,7 @@ public class StreamUtil
         /*
         if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().FILE))
         {
-        LogUtil.put(LogFactory.getInstance("Total Bytes Written: " + total, this, CommonStrings.getInstance().GET));
+        LogUtil.put(LogFactory.getInstance("Total Bytes Written: " + total, this, commonStrings.GET));
         }
          */
 
@@ -114,7 +114,8 @@ public class StreamUtil
             return true;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CLOSE, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CLOSE, e));
             return false;
         }
     }

@@ -50,7 +50,7 @@ public class FileUtil2 {
         try {
             inputStream = new AbFileInputStream(file);
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, commonStrings.ADD, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.ADD, e));
         }
 
         return SimpleFileUtil.getInstance().loadFileAsList(inputStream, max, byteArray1);

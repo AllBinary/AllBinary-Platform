@@ -53,6 +53,6 @@ extends CollidableDestroyableDamageableBehavior
         throws Exception
     {
         //LogUtil.put(LogFactory.getInstance("collideInterface", this, "collide"));
-        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 }

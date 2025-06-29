@@ -70,7 +70,7 @@ public class EmailsNotUsed implements DomNodeInterface
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toXmlNode()", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlNode()", e));
          }
 
          String error = "Error Processing Order.  Please contact us if error persists.<p/>";

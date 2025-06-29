@@ -117,7 +117,7 @@ public class BasicColor
         stringBuffer.append(" b: ");
         stringBuffer.append(this.blueComponent);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),this, commonStrings.CONSTRUCTOR));
         */
     }
 
@@ -161,7 +161,7 @@ public class BasicColor
         stringBuffer.append(" b: ");
         stringBuffer.append(this.blueComponent);
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(),this, commonStrings.CONSTRUCTOR));
         */
     }
     

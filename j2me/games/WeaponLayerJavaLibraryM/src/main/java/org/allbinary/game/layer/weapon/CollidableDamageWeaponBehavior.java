@@ -95,7 +95,7 @@ extends CollidableDestroyableDamageableBehavior
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-       //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "collide"));
+       //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "collide"));
        // if (collidableInterfaceCompositeInterface was instance of DamageableInterface) {
        DamageUtil.process((DamageableInterface) this.ownerLayer, (DamageableInterface) collidableInterfaceCompositeInterface);
        this.collided = true;

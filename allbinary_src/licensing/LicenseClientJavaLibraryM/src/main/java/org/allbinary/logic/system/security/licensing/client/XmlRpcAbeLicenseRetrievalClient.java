@@ -55,7 +55,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             stringBuffer.append(SEP);
             stringBuffer.append(server);
             
-            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START_LABEL + stringBuffer.toString(), this, commonStrings.GET));
             // }
 
             final Vector param = new Vector();
@@ -66,7 +66,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             final Hashtable hashtable = this.getClientInfo().toHashtable();
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            LogUtil.put(LogFactory.getInstance(CLIENT_INFO + hashtable.toString(), this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(CLIENT_INFO + hashtable.toString(), this, commonStrings.GET));
             // }
 
             /*
@@ -88,7 +88,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            LogUtil.put(LogFactory.getInstance(RESULT + result.toString(), this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(RESULT + result.toString(), this, commonStrings.GET));
             // }
 
             final Hashtable resultHashtable = (Hashtable) result;
@@ -97,7 +97,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
             {
                 // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
                 // {
-                LogUtil.put(LogFactory.getInstance(INVALID, this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance(INVALID, this, commonStrings.GET));
                 // }
 
                 return this.tryAnother(object);
@@ -109,7 +109,7 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END + stringBuffer.toString(), this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END + stringBuffer.toString(), this, commonStrings.GET));
             // }
 
             isOnline = true;
@@ -118,12 +118,12 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
         {
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            LogUtil.put(LogFactory.getInstance(EXCEPTION_IN_CLIENT, this, CommonStrings.getInstance().GET, e));
+            LogUtil.put(LogFactory.getInstance(EXCEPTION_IN_CLIENT, this, commonStrings.GET, e));
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
-            LogUtil.put(LogFactory.getInstance(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(TRYING_OTHER_SERVERS + ExceptionUtil.getInstance().getStackTrace(e), this, commonStrings.GET));
             // }
 
             if(!e.getMessage().startsWith(HOST_NOT_RESOLVED))
@@ -141,14 +141,14 @@ public class XmlRpcAbeLicenseRetrievalClient extends XmlRpcAbeClient
         {
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            LogUtil.put(LogFactory.getInstance(SERVER_REPORTED_ERROR, this, CommonStrings.getInstance().GET, e));
+            LogUtil.put(LogFactory.getInstance(SERVER_REPORTED_ERROR, this, commonStrings.GET, e));
             // }
             return this.tryAnother(object);
         } catch (Exception e)
         {
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             // {
-            LogUtil.put(LogFactory.getInstance(UNKNOWN_ERROR, this, CommonStrings.getInstance().GET, e));
+            LogUtil.put(LogFactory.getInstance(UNKNOWN_ERROR, this, commonStrings.GET, e));
             // }
             return this.tryAnother(object);
         }

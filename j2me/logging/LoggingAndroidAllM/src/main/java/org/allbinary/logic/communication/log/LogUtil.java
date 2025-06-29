@@ -42,7 +42,7 @@ public class LogUtil
       */
       
       /*
-      if(exception == null && specialMessage.indexOf(CommonStrings.getInstance().EXCEPTION) < 0)
+      if(exception == null && specialMessage.indexOf(commonStrings.EXCEPTION) < 0)
       {
           return;
       }

@@ -37,8 +37,7 @@ public class BaseChangedGameFeatureListener implements GameFeatureListenerInterf
 
     public void onGameFeatureChange(GameFeatureEvent gameFeatureEvent)
     {
-        LogUtil.put(LogFactory.getInstance(
-                new StringMaker().append("Game Feature Changed: ").append(gameFeatureEvent.getWhatChanged()).toString(), this, "onGameFeatureChange"));
+        LogUtil.put(LogFactory.getInstance(new StringMaker().append("Game Feature Changed: ").append(gameFeatureEvent.getWhatChanged()).toString(), this, "onGameFeatureChange"));
 
        list.add(gameFeatureEvent.getGameOption());
 

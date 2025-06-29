@@ -13,6 +13,8 @@
 */
 package org.allbinary.logic.util.cache;
 
+import org.allbinary.string.CommonStrings;
+
 
 /**
  *
@@ -22,6 +24,8 @@ public class IndexedBasicArrayListCache
     extends BaseBasicArrayListCache
     implements CacheInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private int size = 0;
     protected int index = 0;
 

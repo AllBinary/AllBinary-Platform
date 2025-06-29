@@ -26,6 +26,8 @@ import org.allbinary.logic.system.os.OperatingSystemFactory;
 // This is the information sent to the license server
 public class AbeClientInformation extends ClientInformation
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final String NONE = "No License Id";
     public AbeClientInformation(final String name, final String version, final String specialName, final String shortName)
     {
@@ -51,11 +53,11 @@ public class AbeClientInformation extends ClientInformation
                 this.setLicenseId(NONE);
             }
 
-            PreLogUtil.put(new StringMaker().append("Special Name: ").append(this.getSpecialName()).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
+            PreLogUtil.put(new StringMaker().append("Special Name: ").append(this.getSpecialName()).toString(), this, commonStrings.CONSTRUCTOR);
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
         }
     }
 }

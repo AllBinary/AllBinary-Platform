@@ -42,7 +42,7 @@ public class LicenseRegistrationTextBox
         new Command("Submit", Command.SCREEN, 3);
 
     private final Paintable pleaseWaitPaintable = new SimpleTextPaintable(
-            CommonStrings.getInstance().PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
+            commonStrings.PLEASE_WAIT, BasicColorFactory.getInstance().WHITE);
 
     private Paintable paintable = NullPaintable.getInstance();
 
@@ -77,7 +77,7 @@ public class LicenseRegistrationTextBox
 
        } catch (Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "open", e));
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
        }
        
        super.open();
@@ -98,7 +98,7 @@ public class LicenseRegistrationTextBox
            
        } catch (Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "open", e));
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "open", e));
        }
 
        this.paintable = this.pleaseWaitPaintable;

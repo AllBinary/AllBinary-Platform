@@ -39,7 +39,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         {
             LogUtil.put(LogFactory.getInstance(
                 new StringMaker().append("Reusing GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
-                this, CommonStrings.getInstance().GET_INSTANCE));
+                this, commonStrings.GET_INSTANCE));
 
             return geographicMapCellPositionFactory;
         }
@@ -47,7 +47,7 @@ public class GeographicMapCellPositionFactory extends GeographicMapCellPositionB
         {
             LogUtil.put(LogFactory.getInstance(
                 new StringMaker().append("Creating GeographicMapCellPositionFactory for TileLayer: ").append(allBinaryTiledLayer.getDataId()).toString(), 
-                    this,CommonStrings.getInstance().GET_INSTANCE));
+                    this,commonStrings.GET_INSTANCE));
 
             geographicMapCellPositionFactory = new BasicGeographicMapCellPositionFactory(
                 geographicMapInterface);

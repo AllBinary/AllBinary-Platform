@@ -72,7 +72,8 @@ public class TextItemUserIdentifierVisitor extends Visitor
                             );
                 } catch (Exception e)
                 {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().VISIT, e));
+                    final CommonStrings commonStrings = CommonStrings.getInstance();
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.VISIT, e));
                 }
                 
                 return BooleanFactory.getInstance().FALSE;

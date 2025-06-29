@@ -308,7 +308,7 @@ public class ImagePersistanceUtil {
             }
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, ios, "close", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, ios, "close", e));
         }               
             }
 

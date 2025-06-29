@@ -63,7 +63,7 @@ public class PreLogUtil
         String functionName,
         Throwable exception)
     {
-        String className = CommonStrings.getInstance().EMPTY;
+        String className = commonStrings.EMPTY;
         
         if(object.getClass().getName() != null)
         {

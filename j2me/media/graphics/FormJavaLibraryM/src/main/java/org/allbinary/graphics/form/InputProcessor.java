@@ -27,7 +27,7 @@ public class InputProcessor extends Processor
     
     public void process() throws Exception
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, CommonStrings.getInstance().PROCESS);
+        //PreLogUtil.put(commonStrings.START, this, commonStrings.PROCESS);
         
         this.playerGameInputCompositeInterface.getPlayerGameInput().update();
         // AllBinaryGameLayerManager gameLayerManager =

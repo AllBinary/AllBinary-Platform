@@ -44,7 +44,7 @@ public class AnalogControllerConfigurationFactory {
 
     public void setAvailable(boolean available)
             throws Exception {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START_LABEL + available, this, "setAvailable"));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.START_LABEL + available, this, "setAvailable"));
 
         this.available = available;
 

@@ -40,13 +40,13 @@ public class AngleIncrementInfo
 
       /*
       String message = "DOWN_FRAME = " + this.DOWN_FRAME + " Angle: " + this.getFrameAngle(this.DOWN_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, CommonStrings.getInstance().CONSTRUCTOR));
+      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
       message = "UP_FRAME = " + this.UP_FRAME + " Angle: " + this.getFrameAngle(this.UP_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, CommonStrings.getInstance().CONSTRUCTOR));
+      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
       message = "LEFT_FRAME = " + this.LEFT_FRAME + " Angle: " + this.getFrameAngle(this.LEFT_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, CommonStrings.getInstance().CONSTRUCTOR));
+      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
       message = "RIGHT_FRAME = " + this.RIGHT_FRAME + " Angle: " + this.getFrameAngle(this.RIGHT_FRAME);
-      LogUtil.put(LogFactory.getInstance(message, this, CommonStrings.getInstance().CONSTRUCTOR));
+      LogUtil.put(LogFactory.getInstance(message, this, commonStrings.CONSTRUCTOR));
        */
    }
    

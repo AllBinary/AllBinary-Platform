@@ -58,11 +58,11 @@ implements AllBinarySensorListener
     
     public void shutdown()
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "shutdown"));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "shutdown"));
     }
     
     public void onSensorChange()
     {
-        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, this);
+        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, this);
     }
 }

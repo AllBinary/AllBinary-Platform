@@ -99,8 +99,9 @@ public class AnimationDamageFloaters extends DamageFloaters
             }
         } catch (Exception e)
         {
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             final CanvasStrings canvasStrings = CanvasStrings.getInstance();
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, canvasStrings.PAINT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, canvasStrings.PAINT, e));
         }
     }
 }

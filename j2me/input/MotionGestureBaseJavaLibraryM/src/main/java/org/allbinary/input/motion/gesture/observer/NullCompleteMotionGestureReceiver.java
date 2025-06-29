@@ -24,7 +24,8 @@ implements CompleteMotionGestureListenerInterface
 {
     public NullCompleteMotionGestureReceiver()
     {
-        LogUtil.put(LogFactory.getInstance("Null Gesture Reciever", this, CommonStrings.getInstance().CONSTRUCTOR));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance("Null Gesture Reciever", this, commonStrings.CONSTRUCTOR));
     }
 
     public void onMotionGestureCompleted(BasicArrayList list)

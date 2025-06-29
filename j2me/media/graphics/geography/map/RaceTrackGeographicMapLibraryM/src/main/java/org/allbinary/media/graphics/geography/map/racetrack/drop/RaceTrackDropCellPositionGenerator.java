@@ -79,7 +79,7 @@ public class RaceTrackDropCellPositionGenerator
     public void update(final AllBinaryGameLayerManager allBinaryGameLayerManager,
             final BasicGeographicMap geographicMapInterface) throws Exception
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START, this, CommonStrings.getInstance().UPDATE);
+        //PreLogUtil.put(commonStrings.START, this, commonStrings.UPDATE);
         
         this.init();
 
@@ -136,8 +136,8 @@ public class RaceTrackDropCellPositionGenerator
         }
 
         int size = this.list.size();
-        //PreLogUtil.put("Initial Dropping: " + size, this, CommonStrings.getInstance().UPDATE);
-        //LogUtil.put(LogFactory.getInstance("Initial Dropping: " + size, this, CommonStrings.getInstance().UPDATE));
+        //PreLogUtil.put("Initial Dropping: " + size, this, commonStrings.UPDATE);
+        //LogUtil.put(LogFactory.getInstance("Initial Dropping: " + size, this, commonStrings.UPDATE));
 
         //this.drop(allBinaryLayerManager, (size >> 1));
 
@@ -164,6 +164,6 @@ public class RaceTrackDropCellPositionGenerator
 
     protected void drop(AllBinaryLayerManager allBinaryLayerManager, int index) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 }

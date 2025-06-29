@@ -50,7 +50,7 @@ public class CanvasTrimUtil {
         for (int index = 0; index < size; index++) {
 
             bufferedImage = bufferedImageArray[index];
-            //LogUtil.put(LogFactory.getInstance(spriteType, this, CommonStrings.getInstance().RUN));
+            //LogUtil.put(LogFactory.getInstance(spriteType, this, commonStrings.RUN));
                 
             subBufferedImageArray[index] = bufferedImage.getSubimage(cutCanvasFromLeftReduction, cutCanvasFromTopReduction, 
                 bufferedImage.getWidth() - cutCanvasFromLeftReduction - cutCanvasFromRightReduction, bufferedImage.getHeight() - cutCanvasFromTopReduction - cutCanvasFromBottomReduction);

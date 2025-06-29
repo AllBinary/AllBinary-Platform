@@ -46,7 +46,7 @@ public class SaveGameForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         String timeString = Long.toString(System.currentTimeMillis());
         this.append(new TextField("Name: ", timeString, 30, TextField.ANY)); 

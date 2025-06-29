@@ -20,6 +20,8 @@ import org.allbinary.canvas.Processor;
 
 public class StartIntermissionProcessor extends Processor
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private AllBinaryGameCanvas gameCanvas;
 
     private final int WAIT = 5000;
@@ -33,7 +35,7 @@ public class StartIntermissionProcessor extends Processor
     {
         if (this.gameCanvas.getStartIntermissionInterface().getTimeDelayHelper().isElapsed(WAIT))
         {
-            LogUtil.put(LogFactory.getInstance("Intermission End", this, CommonStrings.getInstance().PROCESS));
+            LogUtil.put(LogFactory.getInstance("Intermission End", this, commonStrings.PROCESS));
             this.gameCanvas.getStartIntermissionInterface().setEnabled(false);
         }
     }

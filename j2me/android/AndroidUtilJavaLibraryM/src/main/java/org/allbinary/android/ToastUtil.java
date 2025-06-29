@@ -30,14 +30,15 @@ public class ToastUtil {
 	        {
 	            try
 	            {
-	            	//LogUtil.put(LogFactory.getInstance("Trying to Toast: "+ string, this, CommonStrings.getInstance().RUN));
-	            	//PreLogUtil.put("Trying to Toast: "+ string, this, CommonStrings.getInstance().RUN);
+	            	//LogUtil.put(LogFactory.getInstance("Trying to Toast: "+ string, this, commonStrings.RUN));
+	            	//PreLogUtil.put("Trying to Toast: "+ string, this, commonStrings.RUN);
 	                
 	                Toast.makeText(context, string, time).show();
 	            }
 	            catch(Exception e)
 	            {
-	                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                        final CommonStrings commonStrings = CommonStrings.getInstance();
+	                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
 	            }
 	        }
 	    }

@@ -38,7 +38,8 @@ public class WeaponProperties extends SimpleWeaponProperties
     	{
     	    final String MESSAGE = "Danger Danger Danger: Speed probably to slow if using 1 degree calculations as velocity for a single axis could be below 1024: ";
 
-    	    PreLogUtil.put(new StringMaker().append(MESSAGE).append(speed).toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+    	    PreLogUtil.put(new StringMaker().append(MESSAGE).append(speed).toString(), this, commonStrings.CONSTRUCTOR);
     	    //throw new Exception(MESSAGE + speed);
     	    
     	    messageSent = true;
@@ -66,7 +67,7 @@ public class WeaponProperties extends SimpleWeaponProperties
             stringBuffer.append(" Dissipation: ");
             stringBuffer.append(dissipation);
 
-            PreLogUtil.put(stringBuffer.toString(), this, CommonStrings.getInstance().CONSTRUCTOR);
+            PreLogUtil.put(stringBuffer.toString(), this, commonStrings.CONSTRUCTOR);
             */
         }
     }

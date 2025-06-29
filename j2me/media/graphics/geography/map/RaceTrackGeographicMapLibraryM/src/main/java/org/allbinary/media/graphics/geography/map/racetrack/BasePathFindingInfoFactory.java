@@ -37,7 +37,7 @@ public class BasePathFindingInfoFactory {
         throws Exception
     {
         //TWB - PathFinding
-        //LogUtil.put(LogFactory.getInstance("Map Info: \n").append(ArrayUtil.toString(mapArray), this, CommonStrings.getInstance().INIT));
+        //LogUtil.put(LogFactory.getInstance("Map Info: \n").append(ArrayUtil.toString(mapArray), this, commonStrings.INIT));
 
         class RaceTrackGeographicMapCellPositionFactoryInitVisitor implements
            GeographicMapCellPositionFactoryInitVisitorInterface
@@ -56,7 +56,7 @@ public class BasePathFindingInfoFactory {
 
                 //LogUtil.put(LogFactory.getInstance(
                   // "Race Track Map Array: ").append(PathFindingInfoFactory.this.getName() +
-                   //" columns: ").append(this.i_Map2DArray.length).append(" rows: ").append(this.i_Map2DArray[0].length, this, CommonStrings.getInstance().CONSTRUCTOR));
+                   //" columns: ").append(this.i_Map2DArray.length).append(" rows: ").append(this.i_Map2DArray[0].length, this, commonStrings.CONSTRUCTOR));
             }
 
             public void visit(final AllBinaryTiledLayer tiledLayer, final GeographicMapCellPosition cellPosition) throws Exception
@@ -141,7 +141,7 @@ public class BasePathFindingInfoFactory {
             final GeographicMapCellPosition startGeographicMapCellPosition)
        throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "addStartPathFindingNode"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "addStartPathFindingNode"));
 
         //int extraTravelCost = RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE.getTravelCost();
         // Setup Start Node
@@ -161,7 +161,7 @@ public class BasePathFindingInfoFactory {
             final GeographicMapCellPosition endGeographicMapCellPosition)
        throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "addEndPathFindingNode"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "addEndPathFindingNode"));
 
         // Setup Start Node
         //int extraTravelCost = RaceTrackGeographicMapCellType.FINISH_LINE_ROAD_CELL_TYPE.getTravelCost();

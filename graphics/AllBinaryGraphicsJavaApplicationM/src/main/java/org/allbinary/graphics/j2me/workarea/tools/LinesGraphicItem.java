@@ -40,6 +40,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class LinesGraphicItem implements GraphicItemInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
    private DefaultMutableTreeNode treeNode;
@@ -71,7 +72,7 @@ public class LinesGraphicItem implements GraphicItemInterface
       this.active = true;
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR, e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
       }            
       
    }
@@ -311,7 +312,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "mouseMoved", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "mouseMoved", e));
       }
    }
 
@@ -366,7 +367,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = mousePoint;
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "mouseMoved", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "mouseMoved", e));
       }
    }
 
@@ -399,7 +400,7 @@ public class LinesGraphicItem implements GraphicItemInterface
          this.currentMousePoint = point;
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "mouseMoved", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "mouseMoved", e));
       }
    }
 
@@ -436,7 +437,7 @@ public class LinesGraphicItem implements GraphicItemInterface
           }
       } catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.KEY_PRESSED, e));
       }
    }
 

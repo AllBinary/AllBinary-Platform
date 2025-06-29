@@ -34,6 +34,8 @@ public class ToolFactory
         return instance;
     }
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private GraphicsItemInterfaceFactoryInterface selectedTool = null;
     private String tool = null;
 
@@ -47,7 +49,7 @@ public class ToolFactory
             this.tool = tool;
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "setSelectionTool", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "setSelectionTool", e));
         }
     }
 

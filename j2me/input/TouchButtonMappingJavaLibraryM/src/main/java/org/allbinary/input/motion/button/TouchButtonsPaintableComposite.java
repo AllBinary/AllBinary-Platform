@@ -36,6 +36,8 @@ import org.allbinary.time.TimeDelayHelper;
 public class TouchButtonsPaintableComposite extends ProcessPaintable
 implements CompleteMotionGestureInputEventListenerInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private InputMappingInterface inputMappingInterface;
     
     private MotionGestureInput previousMotionGestureInput;
@@ -69,7 +71,7 @@ implements CompleteMotionGestureInputEventListenerInterface
     {
         try
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onCompleteMotionGestureInputEvent"));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onCompleteMotionGestureInputEvent"));
          
             final TouchMotionGestureFactory touchMotionGestureFactory = TouchMotionGestureFactory.getInstance();
 
@@ -111,7 +113,7 @@ implements CompleteMotionGestureInputEventListenerInterface
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, METHOD_NAME, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, METHOD_NAME, e));
         }
     }
 

@@ -32,6 +32,8 @@ import org.allbinary.logic.communication.sql.AbSqlTableUtil;
 
 public class PaymentHelper implements TableInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private WeblisketSession weblisketSession;
    
    private HttpServletRequest request;   
@@ -266,7 +268,7 @@ public class PaymentHelper implements TableInterface
    
    public String update() throws LicensingException
    {
-      return CommonStrings.getInstance().NOT_IMPLEMENTED;
+      return commonStrings.NOT_IMPLEMENTED;
    }
    
 }

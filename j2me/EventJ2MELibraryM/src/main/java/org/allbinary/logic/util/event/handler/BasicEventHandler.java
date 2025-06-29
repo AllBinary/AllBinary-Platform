@@ -23,6 +23,8 @@ import org.allbinary.util.BasicArrayList;
 
 public class BasicEventHandler implements BasicEventHandlerInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final EventStrings eventStrings = EventStrings.getInstance();
     
     protected BasicArrayList eventListenerInterfaceList;
@@ -165,7 +167,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, eventStrings.FIRE_EVENT, e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, eventStrings.FIRE_EVENT, e));
             }
         }
 
@@ -206,7 +208,7 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toString", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toString", e));
             }
         }
         return stringBuffer.toString();

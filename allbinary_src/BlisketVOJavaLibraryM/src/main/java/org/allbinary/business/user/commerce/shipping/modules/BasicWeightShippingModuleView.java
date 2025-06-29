@@ -108,7 +108,7 @@ public class BasicWeightShippingModuleView extends BasicWeightShippingModule imp
    {
       try
       {
-         return CommonStrings.getInstance().NOT_IMPLEMENTED;
+         return commonStrings.NOT_IMPLEMENTED;
       }
       catch(Exception e)
       {

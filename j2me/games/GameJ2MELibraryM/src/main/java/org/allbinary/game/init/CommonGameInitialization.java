@@ -29,6 +29,8 @@ import org.allbinary.math.AngleFactory;
 public class CommonGameInitialization 
 extends BaseGameInitialization
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     protected CommonGameInitialization(final ResourceInitialization[] resourceInitializationArray,
             int portion)
     {
@@ -71,6 +73,6 @@ extends BaseGameInitialization
     public void initGame()
     throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 }

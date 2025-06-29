@@ -50,8 +50,8 @@ public class GameOptionsFormFactory
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.INIT, e));
             return null;
         }
 

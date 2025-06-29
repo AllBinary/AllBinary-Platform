@@ -33,7 +33,7 @@ public class PathFindingNode
       /*
       if(this.getParent() == null)
       {
-         LogUtil.put(LogFactory.getInstance("No Parent", this, CommonStrings.getInstance().CONSTRUCTOR));
+         LogUtil.put(LogFactory.getInstance("No Parent", this, commonStrings.CONSTRUCTOR));
       }
       */
 

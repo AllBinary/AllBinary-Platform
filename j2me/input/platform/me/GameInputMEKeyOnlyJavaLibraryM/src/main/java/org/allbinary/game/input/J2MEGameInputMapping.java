@@ -25,7 +25,7 @@ public class J2MEGameInputMapping extends PersistentInputMapping
 {
     public void init(final AbeClientInformationInterface abeClientInformation) throws Exception
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.INIT));
 
         J2MEKeyFactory.getInstance().init();
 

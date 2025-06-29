@@ -27,7 +27,7 @@ public class LogConfigType
       
    public LogConfigType(String name, String description)
    {
-       //LogUtil.put(LogFactory.getInstance(name, this, CommonStrings.getInstance().CONSTRUCTOR));
+       //LogUtil.put(LogFactory.getInstance(name, this, commonStrings.CONSTRUCTOR));
        
       this.name = name;
       this.description = description;

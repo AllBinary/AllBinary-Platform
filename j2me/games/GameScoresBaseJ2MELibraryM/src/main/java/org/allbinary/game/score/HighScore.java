@@ -37,7 +37,7 @@ public class HighScore
         this.score = score;
         this.scoreString = Long.toString(this.score);
         
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
     }
 
     public int getId()

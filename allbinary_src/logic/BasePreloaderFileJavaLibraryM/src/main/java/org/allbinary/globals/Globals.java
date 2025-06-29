@@ -35,20 +35,22 @@ public class Globals {
     public void init(ClassLoader classLoader, String pathString) 
     //throws Exception 
     {
-        AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+
+        final AppUrlGlobals appUrlGlobals = new AppUrlGlobals();
         appUrlGlobals.setWebappPath(pathString);
         org.allbinary.globals.URLGLOBALS.init(appUrlGlobals);
 
         WebappClassLoaderInfo.setLoader(classLoader);
 
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
         
         stringBuffer.append("Setting Up AllBinary System Configuration Args: ");
         stringBuffer.append(pathString);
         stringBuffer.append(" ClassLoader: ");
         stringBuffer.append(classLoader.getClass().getName());
         
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
 
         final StringValidationUtil stringValidationUtil = StringValidationUtil.getInstance();
         
@@ -64,7 +66,7 @@ public class Globals {
         	stringBuffer.append(org.allbinary.globals.URLGLOBALS.getWebappPath());
 
             //pathString = WebappPathCmdLineFile.getPath("./");
-            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+            LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
         }
 
     	stringBuffer.delete(0, stringBuffer.length());
@@ -72,6 +74,6 @@ public class Globals {
     	stringBuffer.append("Webapp Path Set To: ");
     	stringBuffer.append(org.allbinary.globals.URLGLOBALS.getWebappPath());
 
-        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, CommonStrings.getInstance().INIT));
+        LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, commonStrings.INIT));
     }
 }

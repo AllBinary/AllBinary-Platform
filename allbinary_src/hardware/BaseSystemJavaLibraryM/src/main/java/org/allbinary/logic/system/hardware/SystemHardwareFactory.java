@@ -26,9 +26,15 @@ import org.allbinary.logic.system.os.GenericOperatingSystem;
  */
 public class SystemHardwareFactory {
     
-	private static final SystemHardwareFactory instance = new SystemHardwareFactory();
+    private static final SystemHardwareFactory instance = new SystemHardwareFactory();
+
+    public static SystemHardwareFactory getInstance() {
+        return instance;
+    }
 	
     private static HardwareInterface hardwareInterface;
+    
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
     
     /** Creates a new instance of SystemHardware */
     private SystemHardwareFactory(){
@@ -46,15 +52,15 @@ public class SystemHardwareFactory {
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            //LogUtil.put(LogFactory.getInstance(static_toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
-    	    LogUtil.put(LogFactory.getInstance("Found Hardware", this, CommonStrings.getInstance().CONSTRUCTOR));
+            //LogUtil.put(LogFactory.getInstance(static_toString(), this, commonStrings.CONSTRUCTOR));
+    	    LogUtil.put(LogFactory.getInstance("Found Hardware", this, commonStrings.CONSTRUCTOR));
          //}
       }
       catch(Exception e)
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().OS))
          //{
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().CONSTRUCTOR, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.CONSTRUCTOR, e));
          //}
       }
       return hardwareInterface;
@@ -83,10 +89,5 @@ public class SystemHardwareFactory {
 
       return osBuffer.toString();
    }
-
-public static SystemHardwareFactory getInstance()
-{
-    return instance;
-}
     
 }

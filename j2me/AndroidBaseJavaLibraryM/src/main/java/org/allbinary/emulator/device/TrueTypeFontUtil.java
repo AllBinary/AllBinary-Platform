@@ -73,7 +73,7 @@ public class TrueTypeFontUtil extends TrueTypeFontUtilBase {
         try {
             final File file = ResourceUtil.getInstance().getContext().getFilesDir();
             final String path = file.getAbsolutePath() + CanvasStrings.getInstance().FONT_ATLAS;
-            LogUtil.put(LogFactory.getInstance(path, this, CommonStrings.getInstance().CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance(path, this, commonStrings.CONSTRUCTOR));
             final FileOutputStream fos = new FileOutputStream(path);
             final Bitmap bitmap = this.fontImage.openGLBitmap.getImage().getBitmap();
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);

@@ -40,7 +40,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Start Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()));
-            //LogUtil.put(LogFactory.getInstance("Start Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()), this, CommonStrings.getInstance().GET));
+            //LogUtil.put(LogFactory.getInstance("Start Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()), this, commonStrings.GET));
             // }
 
             Vector param = new Vector();
@@ -59,13 +59,13 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("Client Info: \n" + hashtable.toString());
-            //LogUtil.put(LogFactory.getInstance("Client Info: \n" + hashtable.toString(), this, CommonStrings.getInstance().GET));
+            //LogUtil.put(LogFactory.getInstance("Client Info: \n" + hashtable.toString(), this, commonStrings.GET));
             // }
 
             /*
              * if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING)) {
              LogUtil.put(LogFactory.getInstance("Xml-Rpc Client Liscense Request: \n" +
-             * client.toString(), this,CommonStrings.getInstance().GET)); }
+             * client.toString(), this,commonStrings.GET)); }
              */
 
             param.add(hashtable);
@@ -75,20 +75,20 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             /*
              * this could return without trying all servers if(result==null) {
              * //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
-             * //{ LogUtil.put(LogFactory.getInstance("Empty Result\n", this,CommonStrings.getInstance().GET)); //}
+             * //{ LogUtil.put(LogFactory.getInstance("Empty Result\n", this,commonStrings.GET)); //}
              * return null; }
              */
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             System.out.println("Result: \n" + result.toString());
-            //LogUtil.put(LogFactory.getInstance("Result: \n" + result.toString(), this, CommonStrings.getInstance().GET));
+            //LogUtil.put(LogFactory.getInstance("Result: \n" + result.toString(), this, commonStrings.GET));
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             //System.out.println("End Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()));
-            //LogUtil.put(LogFactory.getInstance("End Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()), this, CommonStrings.getInstance().GET));
+            //LogUtil.put(LogFactory.getInstance("End Trying Server #" + this.getServer() + ": " + getClientInfo().getLicenseServer(this.getServer()), this, commonStrings.GET));
             // }
 
             return result;
@@ -101,13 +101,13 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // {
             //String message = LogFormatUtil.getInstance().get(error, "", "", e);
             //System.out.println(message);
-            //LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET, e));
+            //LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET, e));
             // }
 
             // if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             // {
             System.out.println("IOException Trying Other Servers");
-            //LogUtil.put(LogFactory.getInstance("IOException Trying Other Servers", this, CommonStrings.getInstance().GET));
+            //LogUtil.put(LogFactory.getInstance("IOException Trying Other Servers", this, commonStrings.GET));
             // }
 
             if(!e.getMessage().startsWith(HOST_NOT_RESOLVED))
@@ -129,7 +129,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             //Can't log this since that is what the log is using
             //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
-            //LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET, e));
+            //LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET, e));
             // }
             return this.tryAnother(object);
         } catch (Exception e)
@@ -140,7 +140,7 @@ public class XmlRpcRemoteLogClient extends XmlRpcAbeClient
             // {
             //String message = LogFormatUtil.getInstance().get(error, StringUtil.getInstance().EMPTY_STRING, StringUtil.getInstance().EMPTY_STRING, e);
             //System.out.println(message);
-            //LogUtil.put(LogFactory.getInstance(error, this, CommonStrings.getInstance().GET, e));
+            //LogUtil.put(LogFactory.getInstance(error, this, commonStrings.GET, e));
             // }
             return this.tryAnother(object);
         }

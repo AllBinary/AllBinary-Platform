@@ -31,7 +31,7 @@ public class VectorRotationAnimation
 
       this.angleInfo.adjustAngle(this.getFrame());
       
-      //LogUtil.put(LogFactory.getInstance(this.getAngleInfo().toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+      //LogUtil.put(LogFactory.getInstance(this.getAngleInfo().toString(), this, commonStrings.CONSTRUCTOR));
    }
    
    public void setFrame(final Direction direction)

@@ -36,8 +36,8 @@ public class Memory
 
         //stringBuffer.append(" Memory: Max: ");
         //stringBuffer.append(Runtime.getRuntime().maxMemory());
-        //stringBuffer.append(CommonStrings.getInstance().SPACE);
-        //stringBuffer.append(CommonStrings.getInstance().TOTAL_LABEL);
+        //stringBuffer.append(commonStrings.SPACE);
+        //stringBuffer.append(commonStrings.TOTAL_LABEL);
         //stringBuffer.append(Runtime.getRuntime().totalMemory());
         //stringBuffer.append(" Free: ");
         //stringBuffer.append(Runtime.getRuntime().freeMemory());

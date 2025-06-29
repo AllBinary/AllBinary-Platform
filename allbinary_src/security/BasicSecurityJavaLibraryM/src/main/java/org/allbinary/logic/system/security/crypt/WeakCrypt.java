@@ -60,7 +60,8 @@ public class WeakCrypt
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
             //{
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "SuperCrypt(key)", e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, "SuperCrypt(key)", e);
             //}
         }
     }

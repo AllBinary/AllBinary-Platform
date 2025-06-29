@@ -37,6 +37,8 @@ import org.apache.commons.fileupload.FileItemUtil;
 public class AbFileItem
     implements FileItem
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private final String name;
     private String fieldName;
     private final byte[] byteArray;
@@ -50,7 +52,7 @@ public class AbFileItem
 
     public InputStream getInputStream() throws IOException
     {
-        throw new IOException(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new IOException(commonStrings.NOT_IMPLEMENTED);
     }
 
     public String getContentType()
@@ -93,7 +95,7 @@ public class AbFileItem
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().HTTPERROR))
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "getString", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "getString", e));
             }
             return StringUtil.getInstance().EMPTY_STRING;
         }
@@ -101,17 +103,17 @@ public class AbFileItem
 
     public void write(File file) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
     
     public void write(AbFile file) throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void delete()
     {
-        ForcedLogUtil.log(CommonStrings.getInstance().NOT_IMPLEMENTED, "delete()");
+        ForcedLogUtil.log(commonStrings.NOT_IMPLEMENTED, "delete()");
     }
 
     public String getFieldName()
@@ -144,6 +146,6 @@ public class AbFileItem
     public OutputStream getOutputStream()
         throws IOException
     {
-        throw new IOException(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new IOException(commonStrings.NOT_IMPLEMENTED);
     }
 }

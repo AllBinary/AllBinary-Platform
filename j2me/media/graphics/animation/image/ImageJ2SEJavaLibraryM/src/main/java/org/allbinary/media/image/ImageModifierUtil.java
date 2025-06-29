@@ -220,7 +220,8 @@ public class ImageModifierUtil {
 
             return newImageArray;
         } catch(Exception e) {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "getImageArray", e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            PreLogUtil.put(commonStrings.EXCEPTION, this, "getImageArray", e);
             return originalImageArray;
         }
     }

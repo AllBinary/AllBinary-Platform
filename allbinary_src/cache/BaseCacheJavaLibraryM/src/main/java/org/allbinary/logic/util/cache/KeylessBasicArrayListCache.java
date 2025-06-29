@@ -15,7 +15,6 @@ package org.allbinary.logic.util.cache;
 
 import org.allbinary.util.BasicArrayList;
 
-import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringMaker;
 import org.allbinary.logic.communication.log.LogFactory;
 import org.allbinary.logic.communication.log.LogUtil;
@@ -56,7 +55,7 @@ public class KeylessBasicArrayListCache
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET, e));
             return null;
         }
     }
@@ -73,7 +72,7 @@ public class KeylessBasicArrayListCache
 
     public String log()
     {
-        StringMaker stringBuffer = new StringMaker();
+        final StringMaker stringBuffer = new StringMaker();
 
         stringBuffer.append("S: ");
         stringBuffer.append(this.list.size());

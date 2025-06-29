@@ -13,7 +13,6 @@
 */
 package org.allbinary.logic.system.security.licensing;
 
-import org.allbinary.logic.system.security.licensing.AbeClientInformationData;
 import java.io.IOException;
 import java.util.Calendar;
 
@@ -26,6 +25,13 @@ public class AbeLicenseInterfaceFactory
 {
     private static final AbeLicenseInterfaceFactory SINGLETON = new AbeLicenseInterfaceFactory();
     
+    public static AbeLicenseInterfaceFactory getInstance()
+    {
+        return SINGLETON;
+    }
+
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
     private long time = 0;
     private boolean check = false; //100000;
     private int checkPeriod = 36000000; //100000;
@@ -33,11 +39,6 @@ public class AbeLicenseInterfaceFactory
     
     private AbeLicenseInterfaceFactory()
     {
-    }
-    
-    public static AbeLicenseInterfaceFactory getInstance()
-    {
-        return SINGLETON;
     }
 
     public AbeLicenseInterface getLicenseInstance(final AbeClientInformationInterface abeClientInformation)
@@ -60,7 +61,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
             //{
-                LogUtil.put(LogFactory.getInstance("Getting Keys", this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance("Getting Keys", this, commonStrings.GET));
             //}
             
             abeLicenseInterface = AbeNoLicense.getInstance();
@@ -71,9 +72,7 @@ public class AbeLicenseInterfaceFactory
          //{
             if(abeLicenseInterface!=null)
             {
-                LogUtil.put(LogFactory.getInstance(
-                        "Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), 
-                        this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance("Default Key: " + abeLicenseInterface.getKey(AbeClientInformationData.getInstance().KEY), this, commonStrings.GET));
             }
          //}
  
@@ -83,7 +82,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             //{
-                LogUtil.put(LogFactory.getInstance("Licensing IO Error", this, CommonStrings.getInstance().GET, e));
+                LogUtil.put(LogFactory.getInstance("Licensing IO Error", this, commonStrings.GET, e));
             //}
             throw new LicensingException("License Server Connection Error");
         }
@@ -97,7 +96,7 @@ public class AbeLicenseInterfaceFactory
         {
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
             //{
-                LogUtil.put(LogFactory.getInstance("Licensing Failure", this, CommonStrings.getInstance().GET, e));
+                LogUtil.put(LogFactory.getInstance("Licensing Failure", this, commonStrings.GET, e));
             //}
                 throw new LicensingException("Unknown License Failure: " + this.getClass().getName());
         }

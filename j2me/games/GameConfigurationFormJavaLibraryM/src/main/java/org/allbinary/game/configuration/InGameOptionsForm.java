@@ -38,7 +38,7 @@ public class InGameOptionsForm extends CommandForm
     {
         super(commandListener, title, backgrounBasicColor, foregroundBasicColor);
 
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().CONSTRUCTOR));
+        LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.CONSTRUCTOR));
 
         GameFeatureFormUtil gameFeatureFormUtil = 
             GameFeatureFormUtil.getInstance();

@@ -103,7 +103,7 @@ public class CollidableWeaponBehavior extends CollidableDestroyableDamageableBeh
     public void collide(CollidableInterfaceCompositeInterface collidableInterfaceCompositeInterface)
             throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "collide"));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "collide"));
         
         //this.slow();
         

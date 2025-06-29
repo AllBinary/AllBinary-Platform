@@ -45,14 +45,15 @@ public class LayerInterfaceFactory
    public AllBinaryLayer getInstance(final Hashtable hashtable, final int x, final int y, int z)
            throws Exception
    {
-      LogUtil.put(LogFactory.getInstance(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, CommonStrings.getInstance().GET_INSTANCE));
+       final CommonStrings commonStrings = CommonStrings.getInstance();
+      LogUtil.put(LogFactory.getInstance(new StringMaker().append(HASHTABLE_LABEL).append(StringUtil.getInstance().toString(hashtable)).toString(), this, commonStrings.GET_INSTANCE));
 
       final Integer typeInteger = (Integer) hashtable.get(Layer.ID);
 
       /*
       if(list.objectArray.length <= typeInteger.intValue() - 1)
       {
-    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, CommonStrings.getInstance().GET_INSTANCE);
+    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, commonStrings.GET_INSTANCE);
       }
       */
 
@@ -62,7 +63,7 @@ public class LayerInterfaceFactory
       /*
       if(layerInterfaceFactoryInterface == null)
       {
-    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, CommonStrings.getInstance().GET_INSTANCE);
+    	  PreLogUtil.put("Layer ID: ").append(typeInteger.toString(), this, commonStrings.GET_INSTANCE);
       }
       */
 

@@ -23,7 +23,7 @@ implements CacheableInterfaceFactoryInterface
     public CacheableInterface getInstance(final Object key)
     throws Exception
     {
-    	//LogUtil.put(LogFactory.getInstance("Creating new Instance", this, CommonStrings.getInstance().GET_INSTANCE));
+    	//LogUtil.put(LogFactory.getInstance("Creating new Instance", this, commonStrings.GET_INSTANCE));
         return new ImageArrayRotationAnimationCacheable(key, AnimationBehavior.getInstance());
     }	
 }

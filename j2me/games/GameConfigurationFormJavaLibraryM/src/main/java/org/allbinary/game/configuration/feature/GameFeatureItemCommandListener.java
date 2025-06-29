@@ -59,7 +59,8 @@ public class GameFeatureItemCommandListener implements ItemCommandListener
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, MidletStrings.getInstance().COMMAND_ACTION, e));
         }
     }
 }

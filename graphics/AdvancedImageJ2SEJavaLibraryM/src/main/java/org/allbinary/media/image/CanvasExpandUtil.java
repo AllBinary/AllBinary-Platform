@@ -50,7 +50,7 @@ public class CanvasExpandUtil {
         for (int index = 0; index < size; index++) {
 
             bufferedImage = bufferedImageArray[index];
-            //LogUtil.put(LogFactory.getInstance(spriteType, this, CommonStrings.getInstance().RUN));
+            //LogUtil.put(LogFactory.getInstance(spriteType, this, commonStrings.RUN));
                 
             subBufferedImageArray[index] = imageUtil.createBufferedImage(
                 bufferedImage, bufferedImage.getWidth() + increaseX, bufferedImage.getHeight() + increaseY, false);

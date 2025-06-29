@@ -69,7 +69,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 
@@ -91,7 +91,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
         
@@ -110,7 +110,7 @@ public class LayerManagerEventHandler extends BasicEventHandler
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
     }

@@ -69,7 +69,7 @@ extends ImageBaseRotationAnimation
         this.twoImages[0] = image;
         this.twoImages[1] = ImageCopyUtil.getInstance().createImage(image);
 
-        //LogUtil.put(LogFactory.getInstance(this.toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+        //LogUtil.put(LogFactory.getInstance(this.toString(), this, commonStrings.CONSTRUCTOR));
     }
 
     public void setBasicColor(final BasicColor basicColor) {

@@ -69,12 +69,13 @@ public class VectorMirrorGenerator
             int[][][] newPoints = vectorAnimationUtil.toAnimationArrayFromBasicArrayListOfPointBasicArrayList(
                     pointsBasicArrayList);
 
-            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints), this, CommonStrings.getInstance().GET_INSTANCE));
+            // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints), this, commonStrings.GET_INSTANCE));
             return newPoints;
 
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().GET_INSTANCE, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.GET_INSTANCE, e));
             // throw e;
             return null;
         }

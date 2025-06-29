@@ -117,7 +117,7 @@ implements GeographicMapCellPositionEventListenerInterface
       GeographicMapCellPositionEvent geographicMapCellPositionEvent)
       throws Exception
    {
-      //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onEvent"));
+      //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onEvent"));
 
        ColorCompositeInterface colorCompositeInterface =
            (ColorCompositeInterface) geographicMapCellPositionEvent.getSource();

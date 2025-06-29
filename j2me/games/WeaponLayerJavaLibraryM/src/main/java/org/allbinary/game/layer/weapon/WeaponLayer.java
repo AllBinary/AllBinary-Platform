@@ -226,7 +226,7 @@ implements TickableInterface
     {
         //final GameStrings gameStrings = GameStrings.getInstance();
         
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, gameStrings.PROCESS_TICK));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, gameStrings.PROCESS_TICK));
 
         if (this.isExhausted() && !this.isDestroyed())
         {
@@ -425,7 +425,7 @@ implements TickableInterface
 
     public void paint(Graphics graphics)
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, canvasStrings.PAINT));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, canvasStrings.PAINT));
 
         ViewPosition viewPosition = this.getViewPosition();
         // int viewX = viewPosition.getX();

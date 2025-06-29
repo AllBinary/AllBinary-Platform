@@ -22,6 +22,8 @@ import java.io.FileOutputStream;
 
 public class SmallDelete
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private String fileName;
     private String string;
 
@@ -59,7 +61,7 @@ public class SmallDelete
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "deleteAtStart", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "deleteAtStart", e));
             }
             return false;
         }
@@ -94,7 +96,7 @@ public class SmallDelete
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "deleteAtStart", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "deleteAtStart", e));
             }
             return false;
         }

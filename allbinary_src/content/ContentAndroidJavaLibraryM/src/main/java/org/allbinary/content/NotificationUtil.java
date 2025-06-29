@@ -78,7 +78,8 @@ public class NotificationUtil
         final PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, SDK_VERSION > 22 ? FLAG_IMMUTABLE : 0);
 
         if(notificationBuilder == null) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().NOT_IMPLEMENTED));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.NOT_IMPLEMENTED));
             return;
         }
         

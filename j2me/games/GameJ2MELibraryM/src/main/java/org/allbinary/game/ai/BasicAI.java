@@ -33,6 +33,8 @@ implements GameKeyEventSourceInterface
     
     public static final Integer ID = SmallIntegerSingletonFactory.getInstance().getInstance(1);
 
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final AllBinaryLayer ownerLayerInterface;
     private final GameInput gameInput;
 
@@ -57,7 +59,7 @@ implements GameKeyEventSourceInterface
     public void processAI(AllBinaryLayerManager allBinaryLayerManager)
             throws Exception
     {
-        throw new Exception(CommonStrings.getInstance().NOT_IMPLEMENTED);
+        throw new Exception(commonStrings.NOT_IMPLEMENTED);
     }
 
     public void processAI(int key) throws Exception

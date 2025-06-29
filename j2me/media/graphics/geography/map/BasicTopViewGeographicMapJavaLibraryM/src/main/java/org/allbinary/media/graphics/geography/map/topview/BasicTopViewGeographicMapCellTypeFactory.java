@@ -153,14 +153,14 @@ public class BasicTopViewGeographicMapCellTypeFactory extends GeographicMapCellT
         
         type = this.maxTileId - 1;
         if(geographicMapCellTypeArray[type] == null) {
-            new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, type, 1);
+            new RaceTrackGeographicMapCellType(commonStrings.START, type, 1);
         } else {
             //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
         }
 
         type = this.maxTileId - 2;
         if(geographicMapCellTypeArray[type] == null) {
-            new RaceTrackGeographicMapCellType(CommonStrings.getInstance().START, type, 1);
+            new RaceTrackGeographicMapCellType(commonStrings.START, type, 1);
         } else {
             //LogUtil.put(LogFactory.getInstance(basicTopViewGeographicMapStrings.ALREADY_EXISTS + type, this, commonStrings.CONSTRUCTOR));
         }

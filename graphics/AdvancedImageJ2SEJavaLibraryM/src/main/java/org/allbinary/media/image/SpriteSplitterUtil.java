@@ -74,7 +74,7 @@ public class SpriteSplitterUtil {
         for (int index = 0; index < bufferedImageArray.length; index++) {
 
             bufferedImage = bufferedImageArray[index];
-            LogUtil.put(LogFactory.getInstance(spriteType, this, CommonStrings.getInstance().RUN));
+            LogUtil.put(LogFactory.getInstance(spriteType, this, commonStrings.RUN));
 
             if(spriteType == HORIZONTAL_SPRITE) {
 
@@ -86,8 +86,8 @@ public class SpriteSplitterUtil {
                 
                 generatedBufferedImageArray = new BufferedImage[rows][columns];
                 
-                LogUtil.put(LogFactory.getInstance("Processing Individual Cells columns: " + columns + " rows: " + rows, this, CommonStrings.getInstance().RUN));
-                LogUtil.put(LogFactory.getInstance("Processing Individual Cells cellHeight: " + cellHeight + " cellWidth: " + cellWidth, this, CommonStrings.getInstance().RUN));
+                LogUtil.put(LogFactory.getInstance("Processing Individual Cells columns: " + columns + " rows: " + rows, this, commonStrings.RUN));
+                LogUtil.put(LogFactory.getInstance("Processing Individual Cells cellHeight: " + cellHeight + " cellWidth: " + cellWidth, this, commonStrings.RUN));
 
                 final ImageUtil imageUtil = ImageUtil.getInstance();
 
@@ -110,7 +110,7 @@ public class SpriteSplitterUtil {
                     }
                 }
 
-                LogUtil.put(LogFactory.getInstance("Processing Rows from Cells", this, CommonStrings.getInstance().RUN));
+                LogUtil.put(LogFactory.getInstance("Processing Rows from Cells", this, commonStrings.RUN));
                 
                 final ImageUnifierProperties imageUnifierProperties = new ImageUnifierProperties();
                 
@@ -207,7 +207,7 @@ public class SpriteSplitterUtil {
                 
                 generatedBufferedImageArray = new BufferedImage[rows][columns];
 
-                LogUtil.put(LogFactory.getInstance("Processing Individual Cells for each Direction", this, CommonStrings.getInstance().RUN));
+                LogUtil.put(LogFactory.getInstance("Processing Individual Cells for each Direction", this, commonStrings.RUN));
                 
                 String nameEnding = null;
                 int x = 0;
@@ -237,7 +237,7 @@ public class SpriteSplitterUtil {
                     Integer.valueOf(cellWidth - (2 * widthReduction)) + increaseWidth,Integer.valueOf(cellHeight - (2 * heightReduction) + increaseHeight));
                 imageUnifierProperties.setImageUnifierCell(imageUnifierCell);
                 
-                LogUtil.put(LogFactory.getInstance("Processing Rows from Cells for each Direction", this, CommonStrings.getInstance().RUN));
+                LogUtil.put(LogFactory.getInstance("Processing Rows from Cells for each Direction", this, commonStrings.RUN));
                 
                 for(int index2 = 0; index2 < rows; index2++) {
                     y = cellHeight * index2;

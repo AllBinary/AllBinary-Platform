@@ -93,7 +93,7 @@ public class MapSelectionGameInputProcessor extends Processor
 
     public void process() throws Exception
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, CommonStrings.getInstance().PROCESS));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, this, commonStrings.PROCESS));
         this.getPlayerGameInput().update();
     }
 

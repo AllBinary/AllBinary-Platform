@@ -79,7 +79,8 @@ public class RemoteHighScores extends HighScores {
 
             return highScores;
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), CommonStrings.getInstance().GET_INSTANCE, e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, RemoteErrorHighScoresSingletonFactory.getInstance(), commonStrings.GET_INSTANCE, e));
             return RemoteErrorHighScoresSingletonFactory.getInstance();
         }
     }
@@ -108,11 +109,12 @@ public class RemoteHighScores extends HighScores {
             }
         } else {
             
+            final CommonStrings commonStrings = CommonStrings.getInstance();
             final Enumeration enumeration = hashtable.elements();
             Object nextElement;
             while(enumeration.hasMoreElements()) {
                 nextElement = enumeration.nextElement();
-                LogUtil.put(LogFactory.getInstance("NextElement: " + nextElement, this, CommonStrings.getInstance().PROCESS));
+                LogUtil.put(LogFactory.getInstance("NextElement: " + nextElement, this, commonStrings.PROCESS));
             }
 
         }

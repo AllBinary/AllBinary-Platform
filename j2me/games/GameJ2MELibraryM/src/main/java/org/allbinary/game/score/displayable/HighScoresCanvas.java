@@ -148,7 +148,7 @@ public class HighScoresCanvas extends GameCommandCanvas
                     LogUtil.put(LogFactory.getInstance(stringMaker.append("HighScoresCanvas - Now that the canvas has completed repaint go ahead and fetch the scores: ").append(System.currentTimeMillis()).toString(), this, commonStrings.RUN));
                     executeUpdate();
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
                 }
                 
             }

@@ -11,6 +11,8 @@ import org.allbinary.thread.ThreadObjectUtil;
 
 public class StupidTimer
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final ThreadObjectUtil threadObjectUtil = ThreadObjectUtil.getInstance();
     
     public final void visit(
@@ -20,15 +22,15 @@ public class StupidTimer
         boolean tookTooLong = false;
 
         final String WAITING_FOR = "Waiting for: ";
-        //LogUtil.put(LogFactory.getInstance(WAITING_FOR).append(visitorInterface, this, CommonStrings.getInstance().VISIT));
-        PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, CommonStrings.getInstance().VISIT);
+        //LogUtil.put(LogFactory.getInstance(WAITING_FOR).append(visitorInterface, this, commonStrings.VISIT));
+        PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(StringUtil.getInstance().toString(visitorInterface)).toString(), this, commonStrings.VISIT);
 
         int index = 0;
         while (((Boolean) visitorInterface.visit(null)).booleanValue())
         {
             if(index % 10 == 0)
             {
-                PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(index).toString(), this, CommonStrings.getInstance().VISIT);
+                PreLogUtil.put(new StringMaker().append(WAITING_FOR).append(index).toString(), this, commonStrings.VISIT);
             }
             
             index++;
@@ -48,12 +50,12 @@ public class StupidTimer
         if (tookTooLong)
         {
             LogUtil.put(LogFactory.getInstance(
-                    CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().VISIT, 
+                    commonStrings.EXCEPTION, this, commonStrings.VISIT, 
                     new Exception(new StringMaker().append("Took Too Long: ").append(StringUtil.getInstance().toString(visitorInterface)).toString())));
         }
         else
         {
-            PreLogUtil.put(timeDelayHelper.toString(), this, CommonStrings.getInstance().VISIT);
+            PreLogUtil.put(timeDelayHelper.toString(), this, commonStrings.VISIT);
         }
     }
 

@@ -23,7 +23,7 @@ public class LicenseTypeFactory
     {
         return instance;
     }
-
+    
     public final LicenseType UNKNOWN = new LicenseType(CommonStrings.getInstance().UNKNOWN);
     public final LicenseType DEMO = new LicenseType("Demo");
     public final LicenseType NORMAL = new LicenseType("Normal");

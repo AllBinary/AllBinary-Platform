@@ -29,7 +29,8 @@ public class ResolveCompleteMotionGestureListener implements CompleteMotionGestu
 
     public ResolveCompleteMotionGestureListener() {
         
-        LogUtil.put(LogFactory.getInstance("MotionGesture to CompleteMotionGesture Reciever", this, CommonStrings.getInstance().CONSTRUCTOR));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance("MotionGesture to CompleteMotionGesture Reciever", this, commonStrings.CONSTRUCTOR));
 
         CompleteMotionGestureInputEventHandler.getInstance().addListener(
                 //SingleKeyPress

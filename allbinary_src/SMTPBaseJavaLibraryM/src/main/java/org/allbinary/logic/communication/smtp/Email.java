@@ -13,10 +13,6 @@
 */
 package org.allbinary.logic.communication.smtp;
 
-import org.allbinary.logic.string.StringUtil;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
-import org.allbinary.data.tree.dom.ModDomHelper;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
@@ -36,9 +32,16 @@ import java.io.PrintStream;
 //import java.net.InetAddress;
 import java.util.HashMap;
 import java.util.Properties;
+
 import org.allbinary.string.CommonStrings;
 import org.allbinary.logic.string.StringValidationUtil;
+import org.allbinary.logic.string.StringUtil;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
+import org.allbinary.data.tree.dom.ModDomHelper;
    
+import org.allbinary.string.CommonStrings;
+
 public class Email 
    implements EmailInterface
 {
@@ -108,7 +111,8 @@ public class Email
       {
          if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().EMAILLOGGINGERROR))
          {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "emailConstructor", e));
+             final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "emailConstructor", e));
          }
          throw e;
       }
@@ -279,8 +283,7 @@ public class Email
    
    public Node toXmlNode(Document document) throws Exception
    {
-      Node node = ModDomHelper.createNameValueNodes(
-         document, EmailData.NAME, this.toHashMap());
+      final Node node = ModDomHelper.createNameValueNodes(document, EmailData.NAME, this.toHashMap());
       return node;
    }
 

@@ -98,7 +98,8 @@ public class PCComponentFactory
              String error = "Failed to getInstance for: " + component;
             LogUtil.put(LogFactory.getInstance(error, this,"getInstance()",e));
          }
-         return new Unknown(CommonStrings.getInstance().EXCEPTION);
+         final CommonStrings commonStrings = CommonStrings.getInstance();
+         return new Unknown(commonStrings.EXCEPTION);
       }
       
    }

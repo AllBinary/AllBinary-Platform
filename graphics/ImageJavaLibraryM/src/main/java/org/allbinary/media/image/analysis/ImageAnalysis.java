@@ -33,7 +33,8 @@ public class ImageAnalysis
 
    public static ImageAnalysisResults[] process(BufferedImage[] bufferedImageArray, ColorRangeInterface colorRangeInterface) throws Exception
    {
-      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + colorRangeInterface.toString(), "ImageAnalysis", CommonStrings.getInstance().PROCESS));
+       final CommonStrings commonStrings = CommonStrings.getInstance();
+      LogUtil.put(LogFactory.getInstance(CommonLabels.getInstance().START + colorRangeInterface.toString(), "ImageAnalysis", commonStrings.PROCESS));
 
       ImageAnalysisResults[] imageAnalysisResultsArray = new ImageAnalysisResults[bufferedImageArray.length];
 
@@ -74,9 +75,10 @@ public class ImageAnalysis
 
       long totalPixels = imageAnalysisResults.getImageColorRangeResults().getTotalPixelsChecked();
 
-      imageAnalysisResults.getImageColorResults().getColorAverage().setAvgRed((float) redTotal / totalPixels);
-      imageAnalysisResults.getImageColorResults().getColorAverage().setAvgGreen((float) greenTotal / totalPixels);
-      imageAnalysisResults.getImageColorResults().getColorAverage().setAvgBlue((float) blueTotal / totalPixels);
+      final ColorAverage colorAverage = imageAnalysisResults.getImageColorResults().getColorAverage();
+      colorAverage.setAvgRed((float) redTotal / totalPixels);
+      colorAverage.setAvgGreen((float) greenTotal / totalPixels);
+      colorAverage.setAvgBlue((float) blueTotal / totalPixels);
 
       return imageAnalysisResults;
    }

@@ -74,7 +74,8 @@ public class DemoGameBehavior {
 
     //Don't keep running thread if in bot/demo mode
     public void run(final AllBinaryGameCanvas allBinaryGameCanvas) throws Exception {
-        LogUtil.put(LogFactory.getInstance(GameTypeFactory.getInstance().BOT.toString(), this, CommonStrings.getInstance().RUN));
+        final CommonStrings commonStrings = CommonStrings.getInstance();
+        LogUtil.put(LogFactory.getInstance(GameTypeFactory.getInstance().BOT.toString(), this, commonStrings.RUN));
     }
     
     public void setHighScore(final AbeClientInformationInterface abeClientInformation, final AllBinaryGameCanvas allBinaryGameCanvas, final String name, final long score, final boolean autoSubmit, final boolean isLast) throws Exception {

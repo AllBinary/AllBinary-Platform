@@ -51,7 +51,7 @@ implements GameNotificationListenerInterface
        if(lastGameNotificationEvent != gameNotificationEvent) {
            lastGameNotificationEvent = gameNotificationEvent;
            LogUtil.put(LogFactory.getInstance(
-               //CommonStrings.getInstance().START_LABEL + 
+               //commonStrings.START_LABEL + 
                gameNotificationEvent.getString(),
                this, METHOD_NAME));
        }

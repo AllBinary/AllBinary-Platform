@@ -55,6 +55,7 @@ public class AbCrypt implements CryptInterface
    
    private void init()
    {
+       final CommonStrings commonStrings = CommonStrings.getInstance();
       try
       {
          //Provider sunJce = new com.sun.crypto.provider.SunJCE();
@@ -68,7 +69,7 @@ public class AbCrypt implements CryptInterface
           }
           catch(Exception e)
           {
-              PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().INIT, e);
+              PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.INIT, e);
           }
           
          KeySpec keySpec = KeySpecFactory.getInstance().getInstance(this.algorithm, this.key);
@@ -80,7 +81,7 @@ public class AbCrypt implements CryptInterface
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().CRYPTERROR))
          //{
-          PreLogUtil.put("init Failed",this, CommonStrings.getInstance().INIT, e);
+          PreLogUtil.put("init Failed",this, commonStrings.INIT, e);
          //}
       }
    }

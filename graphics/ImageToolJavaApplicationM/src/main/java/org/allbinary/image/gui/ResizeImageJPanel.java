@@ -110,7 +110,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
                 }
             }
         }.start();
@@ -136,7 +136,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
                 }
             }
         }.start();
@@ -162,7 +162,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
                 }
             }
         }.start();
@@ -188,7 +188,7 @@ public class ResizeImageJPanel extends javax.swing.JPanel
                     ResizeImageJPanel.this.getParent().repaint();
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
                 }
             }
         }.start();

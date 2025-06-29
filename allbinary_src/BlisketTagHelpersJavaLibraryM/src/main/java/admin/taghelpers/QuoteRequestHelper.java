@@ -33,6 +33,8 @@ import org.allbinary.logic.communication.http.request.session.WeblisketSession;
 public class QuoteRequestHelper
     implements ModifyTableInterface
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+
    private WeblisketSession weblisketSession;
    
    private StoreFrontInterface storeFrontInterface;
@@ -124,6 +126,6 @@ public class QuoteRequestHelper
    
    public String delete()
    {
-      return CommonStrings.getInstance().NOT_IMPLEMENTED;
+      return commonStrings.NOT_IMPLEMENTED;
    }   
 }

@@ -47,11 +47,11 @@ public class MobileClientInformation
         
         if (this.isHardSale())
         {
-            LogUtil.put(LogFactory.getInstance("Use Hard Coded Selling", this, CommonStrings.getInstance().CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance("Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR));
         }
         else
         {
-            LogUtil.put(LogFactory.getInstance("Don't Use Hard Coded Selling", this, CommonStrings.getInstance().CONSTRUCTOR));
+            LogUtil.put(LogFactory.getInstance("Don't Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR));
         }
         
     }

@@ -53,8 +53,8 @@ public class RegistrationConfiguration
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this,
-                    CommonStrings.getInstance().CONSTRUCTOR, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this,
+                    commonStrings.CONSTRUCTOR, e));
         }
     }
 

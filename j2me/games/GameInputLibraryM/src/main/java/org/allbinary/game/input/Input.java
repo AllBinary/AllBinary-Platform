@@ -30,7 +30,7 @@ public class Input
 
         //LogUtil.put(LogFactory.getInstance(
           //      "Name: " + this.getName() + " = " + this.getId(), this,
-            //    CommonStrings.getInstance().CONSTRUCTOR));
+            //    commonStrings.CONSTRUCTOR));
     }
     
     public int getId()

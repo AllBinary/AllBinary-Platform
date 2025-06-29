@@ -38,8 +38,8 @@ public class BaseGameStatistics
     {
         /*
          * try { this.primitiveLongUtil = new PrimitiveLongUtil(1000000000); }
-         * catch(Exception e) { LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION,
-         * this, CommonStrings.getInstance().CONSTRUCTOR)); }
+         * catch(Exception e) { LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
+         * this, commonStrings.CONSTRUCTOR)); }
          */
     }
 
@@ -57,7 +57,7 @@ public class BaseGameStatistics
     // never really implemented
     public void process()
     {
-        // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, "Refresh", CommonStrings.getInstance().PROCESS));
+        // LogUtil.put(LogFactory.getInstance(commonStrings.START, "Refresh", commonStrings.PROCESS));
         // if (timeDelayHelper.isTime())
         // {
 

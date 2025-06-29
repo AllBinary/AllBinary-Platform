@@ -99,7 +99,7 @@ public class RequestParams
             return node;
         }catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toXmlNode(document)", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toXmlNode(document)", e));
 
             //throw e;
             return null;

@@ -36,9 +36,8 @@ import org.allbinary.string.CommonStrings;
 
 public class FormInputProcessor
 extends InputProcessor
-{
-    private final AllBinaryGameCanvas allBinaryGameCanvas;
-    
+{   
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
     private final GameInputStrings gameInputStrings = GameInputStrings.getInstance();
     
     private final GameKeyEventFactory gameKeyEventFactory = GameKeyEventFactory.getInstance();
@@ -49,6 +48,8 @@ extends InputProcessor
      
     private final InputFactory inputFactory = InputFactory.getInstance();
     private final PlatformKeyFactory platformKeyFactory = PlatformKeyFactory.getInstance();
+ 
+    private final AllBinaryGameCanvas allBinaryGameCanvas;
     
     public FormInputProcessor(AllBinaryGameCanvas allBinaryGameCanvas)
     {
@@ -78,7 +79,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
     }
     
@@ -118,7 +119,7 @@ extends InputProcessor
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, this.gameInputStrings.ADD_KEY_EVENT, e));
         }
         
     }

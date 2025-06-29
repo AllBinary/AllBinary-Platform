@@ -194,7 +194,7 @@ extends LayerManagerEventListener
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onCreateLayerManagerEvent: ").append(layerInterface.toString()));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onCreateLayerManagerEvent: ").append(layerInterface.toString()));
         
         //Ignore weapons
         /*
@@ -254,7 +254,7 @@ extends LayerManagerEventListener
     public void onDeleteLayerManagerEvent(final LayerManagerEvent layerManagerEvent)
             throws Exception
     {
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this, "onDeleteLayerManagerEvent"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.START, this, "onDeleteLayerManagerEvent"));
 
         final AllBinaryLayer layerInterface = layerManagerEvent.getLayerInterface();
 

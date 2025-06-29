@@ -39,7 +39,7 @@ public class OpenGLFeatureUtil
 //        LogUtil.put(LogFactory.getInstance(new StringMaker().append("isOpenGL: ").append(openGLConfiguration.isOpenGL())
 //            .append(" OPENGL_2D_AND_3D: ").append(features.isFeature(openGLFeatureFactory.OPENGL_2D_AND_3D))
 //            .append(" OPENGL_3D: ").append(features.isFeature(openGLFeatureFactory.OPENGL_3D))
-//            .append(" anyThreed: ").append(anyThreed).toString(), this, CommonStrings.getInstance().CONSTRUCTOR));
+//            .append(" anyThreed: ").append(anyThreed).toString(), this, commonStrings.CONSTRUCTOR));
     }
     
     public boolean isAnyThreed()

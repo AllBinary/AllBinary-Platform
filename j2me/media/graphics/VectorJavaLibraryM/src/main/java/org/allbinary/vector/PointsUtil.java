@@ -42,7 +42,7 @@ public class PointsUtil
                     /*
                     stringBuffer.append("{");
                     stringBuffer.append(newPoints[index][index2][0]);
-                    stringBuffer.append(CommonStrings.getInstance().COMMA_SEP);
+                    stringBuffer.append(commonStrings.COMMA_SEP);
                     stringBuffer.append(newPoints[index][index2][1]);
                     stringBuffer.append("}, ");
                     */
@@ -54,7 +54,7 @@ public class PointsUtil
             }
         }
 
-        // LogUtil.put(LogFactory.getInstance("New Points: " + stringBuffer, this, CommonStrings.getInstance().GET_INSTANCE));
+        // LogUtil.put(LogFactory.getInstance("New Points: " + stringBuffer, this, commonStrings.GET_INSTANCE));
         return newPoints;
     }
 

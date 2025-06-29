@@ -96,7 +96,7 @@ public class RotationSpriteImageJPanel extends javax.swing.JPanel
                     }
 
                 } catch (Exception e) {
-                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, CommonStrings.getInstance().RUN, e));
+                    LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, commonStrings.RUN, e));
                 }
             }
         }.start();

@@ -86,6 +86,6 @@ public class GameKeyEventHandler
         this.upGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         this.downGameKeyEventHandler.removeListenerSingleThreaded(eventListenerInterface);
         
-        //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, "removeListener"));
+        //LogUtil.put(LogFactory.getInstance(commonStrings.END, this, "removeListener"));
     }
 }

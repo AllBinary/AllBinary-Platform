@@ -73,38 +73,38 @@ public class OpenGLConfiguration
                 if (!features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
                 {
                     LogUtil.put(LogFactory.getInstance("Turning on OpenGL",
-                            this, CommonStrings.getInstance().INIT));
+                            this, commonStrings.INIT));
                     
                     features.addDefault(OpenGLFeatureFactory.getInstance().OPENGL);
                     
                     LogUtil.put(LogFactory.getInstance("Using OpenGL Type Feature: "
-                            + this.getType(), this, CommonStrings.getInstance().INIT));
+                            + this.getType(), this, commonStrings.INIT));
                     
                     features.addDefault(this.getType());
                     
                     LogUtil.put(LogFactory.getInstance("Using OpenGL ImageColor Feature: "
-                            + this.getImageColor(), this, CommonStrings.getInstance().INIT));
+                            + this.getImageColor(), this, commonStrings.INIT));
                     features.addDefault(this.getImageColor());
 
                     LogUtil.put(LogFactory.getInstance("Using OpenGL Color Feature: "
-                            + this.getColor(), this, CommonStrings.getInstance().INIT));
+                            + this.getColor(), this, commonStrings.INIT));
                     features.addDefault(this.getColor());
 
                     LogUtil.put(LogFactory.getInstance("Using OpenGL Version Selector Feature: "
-                            + this.getVersionSelector(), this, CommonStrings.getInstance().INIT));
+                            + this.getVersionSelector(), this, commonStrings.INIT));
                     features.addDefault(this.getVersionSelector());
                 }
             }
             else
             {
                 LogUtil.put(LogFactory.getInstance("OpenGL is Off", this,
-                        CommonStrings.getInstance().INIT));
+                        commonStrings.INIT));
 
                 // Turning off OpenGL
                 // if(features.isDefault(OpenGLFeature.OPENGL))
                 // {
                 // LogUtil.put(LogFactory.getInstance("Turning off OpenGL",
-                // this, CommonStrings.getInstance().INIT));
+                // this, commonStrings.INIT));
                 // features.removeDefault(OpenGLFeature.OPENGL);
                 // }
             }
@@ -113,7 +113,7 @@ public class OpenGLConfiguration
         {
             if(this.isOpenGL() && !features.isDefault(OpenGLFeatureFactory.getInstance().OPENGL))
             {
-                PreLogUtil.put("OpenGL is set but not Enabled since Statics where not cleared (Reboot or Complete exit is Required)", this, CommonStrings.getInstance().INIT);
+                PreLogUtil.put("OpenGL is set but not Enabled since Statics where not cleared (Reboot or Complete exit is Required)", this, commonStrings.INIT);
             }
         }
         

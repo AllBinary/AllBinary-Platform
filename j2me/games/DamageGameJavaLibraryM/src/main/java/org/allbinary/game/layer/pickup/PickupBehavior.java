@@ -61,7 +61,8 @@ public class PickupBehavior implements PickupBehaviorInterface
         }
         catch(Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "doPickup", e));
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "doPickup", e));
         }
     }
     
@@ -98,8 +99,9 @@ public class PickupBehavior implements PickupBehaviorInterface
         }
         catch (Exception e)
         {
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "doPickup"));
-        	PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, "doPickup", e);
+            final CommonStrings commonStrings = CommonStrings.getInstance();
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "doPickup"));
+            PreLogUtil.put(commonStrings.EXCEPTION, this, "doPickup", e);
         }
     }
     

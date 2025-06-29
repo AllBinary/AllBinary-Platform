@@ -98,7 +98,7 @@ extends GameNotificationHud
         {
             //if(seconds.intValue() > 0)
             //{
-                //LogUtil.put(LogFactory.getInstance(TEMP_GAME_NOTIFICATION).append(string, this, CommonStrings.getInstance().ADD));
+                //LogUtil.put(LogFactory.getInstance(TEMP_GAME_NOTIFICATION).append(string, this, commonStrings.ADD));
             //}
 
             this.gameNotification.add(string, seconds, basicColor);

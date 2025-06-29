@@ -17,7 +17,6 @@ import javax.microedition.khronos.opengles.GL;
 import javax.microedition.lcdui.Graphics;
 
 import org.allbinary.image.opengles.OpenGLSurfaceChangedInterface;
-
 import org.allbinary.graphics.color.BasicColor;
 import org.allbinary.graphics.color.BasicColorSetUtil;
 

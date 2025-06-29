@@ -13,13 +13,14 @@
 */
 package org.allbinary.graphics.j2me.workarea;
 
-import org.allbinary.string.CommonStrings;
-import org.allbinary.logic.communication.log.LogFactory;
-import org.allbinary.logic.communication.log.LogUtil;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreePath;
+
+import org.allbinary.string.CommonStrings;
+import org.allbinary.logic.communication.log.LogFactory;
+import org.allbinary.logic.communication.log.LogUtil;
 import org.allbinary.graphics.j2me.workarea.canvas.CanvasTreeLabel;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEvent;
 import org.allbinary.graphics.j2me.workarea.canvas.event.MyCanvasEventService;
@@ -31,6 +32,7 @@ import org.allbinary.util.BasicArrayList;
 
 public class WorkAreaJTreeJPanel extends javax.swing.JPanel
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
    private DefaultMutableTreeNode rootTreeNode;
    private JTree workAreaJTree;
    private BasicArrayList highlightedBasicArrayList;
@@ -282,7 +284,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "rotateJMenuItemMousePressed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "rotateJMenuItemMousePressed", e));
       }
    }//GEN-LAST:event_rotateJMenuItemMousePressed
 
@@ -332,7 +334,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "workAreaJTreeMousePressed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "workAreaJTreeMousePressed", e));
       }
    }//GEN-LAST:event_workAreaJTreeMousePressed
 
@@ -352,7 +354,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "copyJMenuItemMousePressed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "copyJMenuItemMousePressed", e));
       }
    }//GEN-LAST:event_copyJMenuItemMousePressed
 
@@ -373,7 +375,7 @@ public class WorkAreaJTreeJPanel extends javax.swing.JPanel
       }
       catch (Exception e)
       {
-         LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "deleteJMenuItemMousePressed", e));
+         LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "deleteJMenuItemMousePressed", e));
       }
    }//GEN-LAST:event_deleteJMenuItemMousePressed
 

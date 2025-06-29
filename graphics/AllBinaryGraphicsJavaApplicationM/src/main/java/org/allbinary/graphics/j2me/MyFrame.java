@@ -47,6 +47,8 @@ public class MyFrame extends javax.swing.JFrame
         implements FileJDialogListenerInterface, HashMapJDialogListenerInterface,
         java.awt.event.KeyListener
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final GuiLog guiLog = GuiLog.getInstance();
     private final XslHelper xslHelper = XslHelper.getInstance();
     
@@ -401,7 +403,7 @@ public class MyFrame extends javax.swing.JFrame
                    MyCanvasEventService.EXPLODE, null)));
        } catch (Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "explodeAllJMenuItemMousePressed", e));
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "explodeAllJMenuItemMousePressed", e));
        }
    }//GEN-LAST:event_explodeAllJMenuItemMousePressed
 
@@ -413,7 +415,7 @@ public class MyFrame extends javax.swing.JFrame
                    MyCanvasEventService.AUTOEXPLODE, null)));
        } catch (Exception e)
        {
-           LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "autoExplodeJMenuItemMousePressed", e));
+           LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "autoExplodeJMenuItemMousePressed", e));
        }
    }//GEN-LAST:event_autoExplodeJMenuItemMousePressed
 
@@ -515,7 +517,7 @@ public class MyFrame extends javax.swing.JFrame
                     MyCanvasEventService.CENTER, null)));
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "centerJMenuItemActionPerformed", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "centerJMenuItemActionPerformed", e));
         }
     }//GEN-LAST:event_centerJMenuItemActionPerformed
 
@@ -539,7 +541,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
          * */
     } catch (Exception e)
     {
-        LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "centerJMenuItemActionPerformed", e));
+        LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "centerJMenuItemActionPerformed", e));
     }
 }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -564,7 +566,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
             this.fileJDialog.setVisible(false);
         } catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "onFiles", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "onFiles", e));
         }
     }
 
@@ -583,7 +585,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "newJMenuItemActionPerformed", e);
+                guiLog.put(commonStrings.EXCEPTION, this, "newJMenuItemActionPerformed", e);
             }
         }
     }
@@ -598,7 +600,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "open", e);
+                guiLog.put(commonStrings.EXCEPTION, this, "open", e);
             }
         }
     }
@@ -618,7 +620,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "export", e);
+                guiLog.put(commonStrings.EXCEPTION, this, "export", e);
             }
         }
     }
@@ -633,7 +635,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.MENUEVENT))
             {
-                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "save", e);
+                guiLog.put(commonStrings.EXCEPTION, this, "save", e);
             }
         }
     }
@@ -692,7 +694,7 @@ private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
         {
             if (LOGGING.contains(LOGGING.GRAPHICSCREATION))
             {
-                guiLog.put(CommonStrings.getInstance().EXCEPTION, this, "addNewCanvas", e);
+                guiLog.put(commonStrings.EXCEPTION, this, "addNewCanvas", e);
             }
         }
     }

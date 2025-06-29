@@ -30,15 +30,16 @@ public class ImageTool
       {
          public void run()
          {
+             final CommonStrings commonStrings = CommonStrings.getInstance();
             try
             {
-               LogUtil.put(LogFactory.getInstance("Running", this, CommonStrings.getInstance().RUN));
+               LogUtil.put(LogFactory.getInstance("Running", this, commonStrings.RUN));
                new ImageToolJFrame().setVisible(true);
             }
             catch(Exception e)
             {
                String error = "Error";
-               LogUtil.put(LogFactory.getInstance(error, "Main", CommonStrings.getInstance().RUN, e));
+               LogUtil.put(LogFactory.getInstance(error, "Main", commonStrings.RUN, e));
             }
          }
       });

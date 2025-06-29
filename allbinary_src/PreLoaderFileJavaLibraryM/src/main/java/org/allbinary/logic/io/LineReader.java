@@ -21,6 +21,8 @@ import org.allbinary.logic.communication.log.LogUtil;
 
 public class LineReader {
 
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private String fileName;
     private String string;
     private int index = 0;
@@ -51,7 +53,7 @@ public class LineReader {
             }
             return true;
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "hasNext", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "hasNext", e));
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
 
@@ -72,7 +74,7 @@ public class LineReader {
             index = nextIndex + 1;
             return temp;
         } catch (Exception e) {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "next", e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "next", e));
             //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().IDLOGGING))
             {
 

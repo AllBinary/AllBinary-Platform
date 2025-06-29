@@ -49,16 +49,16 @@ public class ImageCache extends ImageCacheBase
             volume += width * height;
             if (volume > 32000)
             {
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image for: ").append(caller).toString(), this, CommonStrings.getInstance().GET));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Image for: ").append(caller).toString(), this, commonStrings.GET));
                 System.gc();
                 //System.gc();
                 volume = 0;
-                //LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
+                //LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, commonStrings.GET));
             }
 
             image = this.createImage(caller, width, height);
-            //if(logit) LogUtil.put(LogFactory.getInstance(new StringMaker().append(caller).append(" Image: ").append(image).toString(), this, CommonStrings.getInstance().GET, new Exception()));
-            //else LogUtil.put(LogFactory.getInstance(new StringMaker().append(caller).append(" Image: ").append(image).toString(), this, CommonStrings.getInstance().GET));
+            //if(logit) LogUtil.put(LogFactory.getInstance(new StringMaker().append(caller).append(" Image: ").append(image).toString(), this, commonStrings.GET, new Exception()));
+            //else LogUtil.put(LogFactory.getInstance(new StringMaker().append(caller).append(" Image: ").append(image).toString(), this, commonStrings.GET));
 
             //if(nextIndex < widths.length) {
                 if (foundIndex == -1) {
@@ -89,17 +89,17 @@ public class ImageCache extends ImageCacheBase
             final InputStream inputStream = resourceUtil.getResourceAsStream((String) key);
             try
             {
-                LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, commonStrings.GET));
                 image = this.createImage(key, inputStream);
             }
             catch(Exception e)
             {
-                LogUtil.put(LogFactory.getInstance("Exception: Trying Again After GC", this, CommonStrings.getInstance().GET, e));
+                LogUtil.put(LogFactory.getInstance("Exception: Trying Again After GC", this, commonStrings.GET, e));
                 
-                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance(new StringMaker().append("InputStream: ").append(StringUtil.getInstance().toString(inputStream)).toString(), this, commonStrings.GET));
                 System.gc();
                 System.gc();
-                LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, CommonStrings.getInstance().GET));
+                LogUtil.put(LogFactory.getInstance(Memory.getInfo(), this, commonStrings.GET));
                 Thread.sleep(100);
                 image = this.createImage(key, inputStream);
             }

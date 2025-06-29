@@ -32,7 +32,7 @@ public class GameLevelDisplayChangeEventListenersFactory
 
     public final void add(DisplayChangeEventListener displayChangeEventListener)
     {
-        //PreLogUtil.put(CommonStrings.getInstance().START_LABEL).append(displayChangeEventListener, this, "add");
+        //PreLogUtil.put(commonStrings.START_LABEL).append(displayChangeEventListener, this, "add");
 
         this.list.add(displayChangeEventListener);
         DisplayChangeEventHandler.getInstance().addListener(displayChangeEventListener);

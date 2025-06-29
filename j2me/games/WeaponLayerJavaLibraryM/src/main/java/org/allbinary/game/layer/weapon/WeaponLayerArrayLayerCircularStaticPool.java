@@ -55,7 +55,7 @@ public class WeaponLayerArrayLayerCircularStaticPool
 
         // LogUtil.put(LogFactory.getInstance("WeaponLayer[] Length: " +
         // weaponLayerArray.length, this,
-        // CommonStrings.getInstance().GET_INSTANCE));
+        // commonStrings.GET_INSTANCE));
 
         circularIndexUtil.next();
 

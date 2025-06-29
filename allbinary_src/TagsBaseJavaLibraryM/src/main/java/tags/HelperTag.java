@@ -29,7 +29,7 @@ public class HelperTag extends PropertiesTag
    {
       if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().JSPTAG))
       {
-    	  LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().CONSTRUCTOR, this, "HelperTag(TagHelperFactoryInterface)"));
+    	  LogUtil.put(LogFactory.getInstance(commonStrings.CONSTRUCTOR, this, "HelperTag(TagHelperFactoryInterface)"));
       }
 
       this.tagHelperFactoryInterface = tagHelperFactoryInterface;

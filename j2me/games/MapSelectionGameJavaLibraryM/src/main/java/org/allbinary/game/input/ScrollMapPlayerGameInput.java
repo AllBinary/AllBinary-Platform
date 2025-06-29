@@ -217,7 +217,7 @@ public class ScrollMapPlayerGameInput
         }
         catch (Exception e)
         {
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e));
+            LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, gameInputStrings.PROCESS_INPUT, e));
         }
     }
 

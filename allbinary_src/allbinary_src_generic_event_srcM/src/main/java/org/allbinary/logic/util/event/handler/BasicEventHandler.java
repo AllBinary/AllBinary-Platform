@@ -57,7 +57,8 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "toString", e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "toString", e));
             }
         }
         return stringBuffer.toString();
@@ -190,7 +191,8 @@ public class BasicEventHandler implements BasicEventHandlerInterface
             }
             catch (Exception e)
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
+                final CommonStrings commonStrings = CommonStrings.getInstance();
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, EventStrings.getInstance().FIRE_EVENT, e));
             }
         }
 

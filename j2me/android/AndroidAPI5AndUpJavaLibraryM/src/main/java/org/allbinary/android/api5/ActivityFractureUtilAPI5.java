@@ -59,8 +59,8 @@ public class ActivityFractureUtilAPI5 extends ActivityFractureUtil
 
         touchScreenTypeFactory.update(activity);
         
-        //LogUtil.put(LogFactory.getInstance(touchScreenFactory.toString(), this, CommonStrings.getInstance().PROCESS));
-        PreLogUtil.put(touchScreenFactory.toString(), this, CommonStrings.getInstance().PROCESS);
+        //LogUtil.put(LogFactory.getInstance(touchScreenFactory.toString(), this, commonStrings.PROCESS));
+        PreLogUtil.put(touchScreenFactory.toString(), this, commonStrings.PROCESS);
     }
 
     private boolean isTouch(Activity activity)

@@ -15,7 +15,6 @@ package org.allbinary.logic.system.security.licensing.client;
 
 
 import org.allbinary.util.BasicArrayList;
-
 import org.allbinary.business.init.LicenseInitInfo;
 import org.allbinary.business.init.LicenseInitInfoUtil;
 import org.allbinary.string.CommonStrings;
@@ -28,6 +27,8 @@ import org.allbinary.logic.system.security.licensing.AbeLicenseInterface;
 
 public class AbeLicenseClient
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
    private final int MINSERVERS = 3;
    
    public AbeLicenseClient()
@@ -41,7 +42,7 @@ public class AbeLicenseClient
       {
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().START, this,CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(commonStrings.START, this,commonStrings.GET));
          //}
 
          final XmlRpcAbeClient xmlRpcAbeLicenseClient =
@@ -83,7 +84,7 @@ public class AbeLicenseClient
 
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSING))
          //{
-            LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().END, this, CommonStrings.getInstance().GET));
+            LogUtil.put(LogFactory.getInstance(commonStrings.END, this, commonStrings.GET));
          //}
          
          return abeLicenseInterface;
@@ -92,7 +93,7 @@ public class AbeLicenseClient
       {     
          //if(org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(org.allbinary.logic.communication.log.config.type.LogConfigTypeFactory.getInstance().LICENSINGERROR))
          //{
-            //LogUtil.put(LogFactory.getInstance("Unknown License Retrieval Failure", this, CommonStrings.getInstance().GET, e));
+            //LogUtil.put(LogFactory.getInstance("Unknown License Retrieval Failure", this, commonStrings.GET, e));
          //}
          throw e;
       }

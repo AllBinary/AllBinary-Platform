@@ -874,7 +874,7 @@ public class FileUtil
         {
             if (org.allbinary.logic.communication.log.config.type.LogConfigTypes.LOGGING.contains(logConfigTypeFactory.IDLOGGING))
             {
-                LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION, this, "SmallInsert", e));
+                LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION, this, "SmallInsert", e));
             }
         } finally {
             streamUtil.close(idFile);

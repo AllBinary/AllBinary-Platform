@@ -86,13 +86,13 @@ public class VectorExplosionGenerator
                         tempBasicArrayList, points, howMuch, type);
                 // LogUtil.put(LogFactory.getInstance("Adding Point
                 // BasicArrayList
-                // CommonStrings.getInstance().TOTAL_LABEL +
+                // commonStrings.TOTAL_LABEL +
                 // pointBasicArrayList.size() + " should be == " +
                 // firstPointBasicArrayList.size(), "static",
-                // CommonStrings.getInstance().GET_INSTANCE));
+                // commonStrings.GET_INSTANCE));
                 // LogUtil.put(LogFactory.getInstance("Point BasicArrayList: " +
                 // pointBasicArrayList.toString(), "static",
-                // CommonStrings.getInstance().GET_INSTANCE));
+                // commonStrings.GET_INSTANCE));
                 pointsBasicArrayList.add(pointBasicArrayList);
 
                 frameIndex++;
@@ -104,13 +104,13 @@ public class VectorExplosionGenerator
             }
 
             // LogUtil.put(LogFactory.getInstance(IntArrayUtil.toString(newPoints),
-            // "static", CommonStrings.getInstance().GET_INSTANCE));
+            // "static", commonStrings.GET_INSTANCE));
             return pointsBasicArrayList;
 
         }
         catch (Exception e)
         {
-            // LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION,
+            // LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION,
             // "BabyFighterBasicArrayListData",
             // "static", e));
             throw e;

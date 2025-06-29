@@ -22,6 +22,8 @@ import org.allbinary.logic.communication.log.PreLogUtil;
 
 public class PlayerQueue
 {
+    private final CommonStrings commonStrings = CommonStrings.getInstance();
+    
     private final BasicArrayList list = new BasicArrayList();
     private int max;
     private static final String TOTAL = "Sounds In Queue: ";
@@ -40,14 +42,14 @@ public class PlayerQueue
             {
                 //final String message = "Adding: ").append(sound.getResource();
                 
-                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, CommonStrings.getInstance().ADD));
+                //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Adding: ").append(sound.getResource()).toString(), this, commonStrings.ADD));
 
                 list.add(sound);
             }
         }
         catch (Exception e)
         {
-            PreLogUtil.put(CommonStrings.getInstance().EXCEPTION, this, CommonStrings.getInstance().ADD);
+            PreLogUtil.put(commonStrings.EXCEPTION, this, commonStrings.ADD);
         }
     }
 
@@ -66,7 +68,7 @@ public class PlayerQueue
                 if (sound != null)
                 {
                     //final String message = "Playing: ").append(sound.getResource();
-                    //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, CommonStrings.getInstance().PROCESS));
+                    //LogUtil.put(LogFactory.getInstance(new StringMaker().append("Playing: ").append(sound.getResource()).toString(), this, commonStrings.PROCESS));
 
                     //For BB only
                     //SoundThreadPool.getInstance().runTask(sound);
@@ -89,8 +91,8 @@ public class PlayerQueue
             {
                 resource = sound.getResource();
             }
-            //LogUtil.put(LogFactory.getInstance(CommonStrings.getInstance().EXCEPTION_LABEL).append(resource, this,
-            //      CommonStrings.getInstance().PROCESS, e));
+            //LogUtil.put(LogFactory.getInstance(commonStrings.EXCEPTION_LABEL).append(resource, this,
+            //      commonStrings.PROCESS, e));
 
             /*
             try
@@ -113,7 +115,7 @@ public class PlayerQueue
             }
             */
             
-            PreLogUtil.put(new StringMaker().append(CommonStrings.getInstance().EXCEPTION_LABEL).append(resource).toString(), this, CommonStrings.getInstance().PROCESS);
+            PreLogUtil.put(new StringMaker().append(commonStrings.EXCEPTION_LABEL).append(resource).toString(), this, commonStrings.PROCESS);
 
             return false;
         }

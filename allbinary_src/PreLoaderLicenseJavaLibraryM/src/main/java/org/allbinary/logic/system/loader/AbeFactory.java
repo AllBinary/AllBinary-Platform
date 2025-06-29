@@ -177,7 +177,7 @@ public class AbeFactory
         	 
         	 stringBuffer.append("Failure for: ");
         	 stringBuffer.append(className);
-        	 stringBuffer.append(CommonStrings.getInstance().SPACE);
+        	 stringBuffer.append(commonStrings.SPACE);
         	 stringBuffer.append(ConstructorUtil.view(constructor, "\n"));
              
         	 LogUtil.put(LogFactory.getInstance(stringBuffer.toString(), this, "getNoLicenseInstance(String className, Class classes[], Object params[])", e));

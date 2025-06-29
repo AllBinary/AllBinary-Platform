@@ -32,17 +32,19 @@ public class RemoteHighScoresProcessor
    implements RemoteHighScoresProcessorInterface
 {
 
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
+    
+    private final NoCrypt noCrypt = new NoCrypt();
+    
    public RemoteHighScoresProcessor()
    {
    }
-
-   private final NoCrypt noCrypt = new NoCrypt();
    
    //String customerUserName,
    public synchronized void process(final RemoteHighScores remoteHighScores, final AbeClientInformationInterface abeClientInformation, final GameInfo gameInfo)
            throws Exception
    {
-      LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Retrieval", this, CommonStrings.getInstance().PROCESS));
+      LogUtil.put(LogFactory.getInstance("Begin Remote HighScores Retrieval", this, commonStrings.PROCESS));
 
       final GameInfoData gameInfoData = GameInfoData.getInstance();
 
