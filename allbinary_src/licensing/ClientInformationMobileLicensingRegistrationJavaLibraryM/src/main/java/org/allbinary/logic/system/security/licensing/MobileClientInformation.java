@@ -45,6 +45,7 @@ public class MobileClientInformation
            this.setHardSale(false);
         }
         
+        final CommonStrings commonStrings = CommonStrings.getInstance();
         if (this.isHardSale())
         {
             LogUtil.put(LogFactory.getInstance("Use Hard Coded Selling", this, commonStrings.CONSTRUCTOR));

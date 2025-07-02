@@ -29,6 +29,7 @@ import org.allbinary.logic.string.StringMaker;
 public class BaseResourceAnimationInterfaceFactoryInterfaceFactory
         implements FeatureResourceAnimationInterfaceFactoryInterface
 {
+    protected final CommonStrings commonStrings = CommonStrings.getInstance();
 
     private final Hashtable hashtable;
     private final Hashtable rectangleHashtable;
